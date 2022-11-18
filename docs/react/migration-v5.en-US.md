@@ -28,14 +28,14 @@ This document will help you upgrade from antd `4.x` version to antd `5.x` versio
 - Replace built-in Moment.js with Dayjs. For more: [Use custom date library](/docs/react/use-custom-date-library/).
 - `babel-plugin-import` is no longer supported. CSS-in-JS itself has the ability to import on demand, and plugin support is no longer required. Umi users can remove related configurations.
 
-```diff
-// config/config.ts
-export default {
-  antd: {
--   import: true,
-  },
-};
-```
+  ```diff
+  // config/config.ts
+  export default {
+    antd: {
+  -   import: true,
+    },
+  };
+  ```
 
 ### Compatibility
 
@@ -44,6 +44,7 @@ export default {
 #### Component API adjustment
 
 - The classname API of the component popup box is unified to `popupClassName`, and `dropdownClassName` and other similar APIs will be replaced.
+
   - AutoComplete
   - Cascader
   - Select
@@ -52,20 +53,21 @@ export default {
   - DatePicker
   - Mentions
 
-```diff
-  import { Select } from 'antd';
+  ```diff
+    import { Select } from 'antd';
 
-  const App: React.FC = () => (
-    <Select
--     dropdownClassName="my-select-popup"
-+     popupClassName="my-select-popup"
-    />
-  );
+    const App: React.FC = () => (
+      <Select
+  -     dropdownClassName="my-select-popup"
+  +     popupClassName="my-select-popup"
+      />
+    );
 
-  export default App;
-```
+    export default App;
+  ```
 
 - The controlled visible API of the component popup is unified to `open`, and `visible` and other similar APIs will be replaced.
+
   - Drawer `visible` changed to `open`.
   - Modal `visible` changed to `open`.
   - Dropdown `visible` changed to `open`.
@@ -74,88 +76,84 @@ export default {
   - Slider `tooltip` related API converged to `tooltip` property.
   - Table `filterDropdownVisible` changed to `filterDropdownOpen`.
 
-```diff
-  import { Modal, Tag, Table, Slider } from 'antd';
+  ```diff
+    import { Modal, Tag, Table, Slider } from 'antd';
 
-  const App: React.FC = () => {
-    const [visible, setVisible] = useState(true);
+    const App: React.FC = () => {
+      const [visible, setVisible] = useState(true);
 
-    return (
-      <>
--       <Modal visible={visible}>content</Modal>
-+       <Modal open={visible}>content</Modal>
+      return (
+        <>
+  -       <Modal visible={visible}>content</Modal>
+  +       <Modal open={visible}>content</Modal>
 
--       <Tag visible={visible}>tag</Tag>
-+       {visible && <Tag>tag</Tag>}
+  -       <Tag visible={visible}>tag</Tag>
+  +       {visible && <Tag>tag</Tag>}
 
-        <Table
-          data={[]}
-          columns={[
-            {
-              title: 'Name',
-              dataIndex: 'name',
--             filterDropdownVisible: visible,
-+             filterDropdownOpen: visible,
-            }
-          ]}
-        />
+          <Table
+            data={[]}
+            columns={[
+              {
+                title: 'Name',
+                dataIndex: 'name',
+  -             filterDropdownVisible: visible,
+  +             filterDropdownOpen: visible,
+              }
+            ]}
+          />
 
--       <Slider tooltipVisible={visible} />
-+       <Slider tooltip={{ open: visible }} />
-      </>
-    );
-  }
+  -       <Slider tooltipVisible={visible} />
+  +       <Slider tooltip={{ open: visible }} />
+        </>
+      );
+    }
 
-  export default App;
-```
+    export default App;
+  ```
 
 - `getPopupContainer`: All `getPopupContainer` are guaranteed to return a unique div. This method will be called repeatedly under React 18 concurrent mode.
-- Dropdown
-  - The style of the wrapper element has been removed, please use the Space component.
-  - `prefixCls` of Dropdown.Button changed to `dropdown`.
-- Upload List structure changes.
+- Upload List structure changes. [#34528](https://github.com/ant-design/ant-design/pull/34528)
 - Notification
   - Static methods are no longer allowed to dynamically set `prefixCls` `maxCount` `top` `bottom` `getContainer` in `open`, Notification static methods will now have only one instance. If you need a different configuration, use `useNotification`.
   - `close` was renamed to `destroy` to be consistent with message.
-- Drawer
-  - `style` & `className` are migrated to Drawer Panel, the original properties are replaced by `rootClassName` and `rootStyle`.
+- Drawer `style` & `className` are migrated to Drawer panel node, the original properties are replaced by `rootClassName` and `rootStyle`.
 
 #### Component refactoring and removal
 
 - Move Comment component into `@ant-design/compatible`.
 - Move PageHeader component into `@ant-design/pro-components`.
 
-```diff
-- import { PageHeader, Comment, Input, Button } from 'antd';
-+ import { Comment } from '@ant-design/compatible';
-+ import { PageHeader } from '@ant-design/pro-layout';
-+ import { Input, Button } from 'antd';
+  ```diff
+  - import { PageHeader, Comment, Input, Button } from 'antd';
+  + import { Comment } from '@ant-design/compatible';
+  + import { PageHeader } from '@ant-design/pro-layout';
+  + import { Input, Button } from 'antd';
 
-  const App: React.FC = () => (
-    <div>
-      <PageHeader />
-      <Comment />
-    </div>
-  );
+    const App: React.FC = () => (
+      <>
+        <PageHeader />
+        <Comment />
+      </>
+    );
 
-  export default App;
-```
+    export default App;
+  ```
 
 - BackTop is deprecated in `5.0.0`, and is merged into FloatButton.
 
-```diff
-- import { BackTop } from 'antd';
-+ import { FloatButton } from 'antd';
+  ```diff
+  - import { BackTop } from 'antd';
+  + import { FloatButton } from 'antd';
 
-  const App: React.FC = () => (
-    <div>
--     <BackTop />
-+     <FloatButton.BackTop />
-    </div>
-  );
+    const App: React.FC = () => (
+      <div>
+  -     <BackTop />
+  +     <FloatButton.BackTop />
+      </div>
+    );
 
-  export default App;
-```
+    export default App;
+  ```
 
 ## Start upgrading
 
@@ -170,7 +168,6 @@ If you using antd less variables, you can use compatible package to covert it in
 ```jsx
 import { theme } from 'antd';
 import { convertLegacyToken } from '@ant-design/compatible';
-
 
 const { defaultAlgorithm, defaultSeed } = theme;
 
@@ -190,4 +187,4 @@ const v4Token = convertLegacyToken(mapToken);
 
 ## Encounter problems
 
-If you encounter problems during the upgrade, please go to [GitHub issues](http://new-issue.ant.design/) for feedback. We will respond and improve this document as soon as possible.
+If you encounter problems during the upgrade, please go to [GitHub issues](https://new-issue.ant.design/) for feedback. We will respond and improve this document as soon as possible.
