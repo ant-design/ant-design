@@ -10,7 +10,7 @@ import { setTwoToneColor } from '@ant-design/icons';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { ConfigProvider } from 'antd';
 import { browserHistory } from 'bisheng/router';
-import zhCN from 'antd/lib/locale/zh_CN';
+import zhCN from 'antd/es/locale/zh_CN';
 import type { DirectionType } from 'antd/es/config-provider';
 import Header from './Header';
 import type { SiteContextProps } from './SiteContext';
@@ -21,8 +21,8 @@ import * as utils from '../utils';
 import 'moment/locale/zh-cn';
 
 if (typeof window !== 'undefined' && navigator.serviceWorker) {
-  navigator.serviceWorker.getRegistrations().then(registrations => {
-    registrations.forEach(registration => registration.unregister());
+  navigator.serviceWorker.getRegistrations().then((registrations) => {
+    registrations.forEach((registration) => registration.unregister());
   });
 }
 
@@ -44,7 +44,7 @@ if (typeof window !== 'undefined') {
   (window as any)['@ant-design/icons'] = require('@ant-design/icons');
 
   // Error log statistic
-  window.addEventListener('error', e => {
+  window.addEventListener('error', (e) => {
     // Ignore ResizeObserver error
     if (e.message === 'ResizeObserver loop limit exceeded') {
       e.stopPropagation();
