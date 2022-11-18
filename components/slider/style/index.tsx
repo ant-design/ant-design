@@ -28,7 +28,7 @@ interface SliderToken extends FullToken<'Slider'> {
 }
 
 // =============================== Base ===============================
-const genBaseStyle: GenerateStyle<SliderToken> = token => {
+const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
   const { componentCls, controlSize, dotSize, marginFull, marginPart, colorFillContentHover } =
     token;
 
@@ -51,14 +51,14 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         position: 'absolute',
         backgroundColor: token.colorFillTertiary,
         borderRadius: token.borderRadiusXS,
-        transition: `background-color ${token.motionDurationFast}`,
+        transition: `background-color ${token.motionDurationMid}`,
       },
 
       [`${componentCls}-track`]: {
         position: 'absolute',
         backgroundColor: token.colorPrimaryBorder,
         borderRadius: token.borderRadiusXS,
-        transition: `background-color ${token.motionDurationFast}`,
+        transition: `background-color ${token.motionDurationMid}`,
       },
 
       '&:hover': {
@@ -116,11 +116,11 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
           borderRadius: '50%',
           cursor: 'pointer',
           transition: `
-            inset-inline-start ${token.motionDurationFast},
-            inset-block-start ${token.motionDurationFast},
-            width ${token.motionDurationFast},
-            height ${token.motionDurationFast},
-            box-shadow ${token.motionDurationFast}
+            inset-inline-start ${token.motionDurationMid},
+            inset-block-start ${token.motionDurationMid},
+            width ${token.motionDurationMid},
+            height ${token.motionDurationMid},
+            box-shadow ${token.motionDurationMid}
           `,
         },
 
@@ -282,7 +282,7 @@ const genDirectionStyle = (token: SliderToken, horizontal: boolean): CSSObject =
   };
 };
 // ============================ Horizontal ============================
-const genHorizontalStyle: GenerateStyle<SliderToken> = token => {
+const genHorizontalStyle: GenerateStyle<SliderToken> = (token) => {
   const { componentCls, marginPartWithMark } = token;
 
   return {
@@ -297,7 +297,7 @@ const genHorizontalStyle: GenerateStyle<SliderToken> = token => {
 };
 
 // ============================= Vertical =============================
-const genVerticalStyle: GenerateStyle<SliderToken> = token => {
+const genVerticalStyle: GenerateStyle<SliderToken> = (token) => {
   const { componentCls } = token;
 
   return {
@@ -311,7 +311,7 @@ const genVerticalStyle: GenerateStyle<SliderToken> = token => {
 // ============================== Export ==============================
 export default genComponentStyleHook(
   'Slider',
-  token => {
+  (token) => {
     const sliderToken = mergeToken<SliderToken>(token, {
       marginPart: (token.controlHeight - token.controlSize) / 2,
       marginFull: token.controlSize / 2,
@@ -323,7 +323,7 @@ export default genComponentStyleHook(
       genVerticalStyle(sliderToken),
     ];
   },
-  token => {
+  (token) => {
     // Handle line width is always width-er 1px
     const increaseHandleWidth = 1;
     const controlSize = token.controlHeightLG / 4;

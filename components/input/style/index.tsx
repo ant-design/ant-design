@@ -149,7 +149,7 @@ export const genBasicInputStyle = (token: InputToken): CSSObject => ({
   borderStyle: token.lineType,
   borderColor: token.colorBorder,
   borderRadius: token.borderRadius,
-  transition: `all ${token.motionDurationFast}`,
+  transition: `all ${token.motionDurationMid}`,
   ...genPlaceholderStyle(token.colorTextPlaceholder),
 
   '&:hover': {
@@ -868,7 +868,7 @@ export function initInputToken<T extends GlobalToken = GlobalToken>(token: T): I
   });
 }
 
-const genTextAreaStyle: GenerateStyle<InputToken> = token => {
+const genTextAreaStyle: GenerateStyle<InputToken> = (token) => {
   const { componentCls, inputPaddingHorizontal, paddingLG } = token;
   const textareaPrefixCls = `${componentCls}-textarea`;
 
@@ -921,7 +921,7 @@ const genTextAreaStyle: GenerateStyle<InputToken> = token => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Input', token => {
+export default genComponentStyleHook('Input', (token) => {
   const inputToken = initInputToken<FullToken<'Input'>>(token);
 
   return [

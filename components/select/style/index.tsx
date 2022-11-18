@@ -17,14 +17,14 @@ export interface SelectToken extends FullToken<'Select'> {
 }
 
 // ============================= Selector =============================
-const genSelectorStyle: GenerateStyle<SelectToken, CSSObject> = token => {
+const genSelectorStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
   const { componentCls } = token;
 
   return {
     position: 'relative',
     backgroundColor: token.colorBgContainer,
     border: `${token.lineWidth}px ${token.lineType} ${token.colorBorder}`,
-    transition: `all ${token.motionDurationFast} ${token.motionEaseInOut}`,
+    transition: `all ${token.motionDurationMid} ${token.motionEaseInOut}`,
 
     input: {
       cursor: 'pointer',
@@ -101,7 +101,7 @@ const genStatusStyle = (
 
 // ============================== Styles ==============================
 // /* Reset search input style */
-const getSearchInputWithoutBorderStyle: GenerateStyle<SelectToken, CSSObject> = token => {
+const getSearchInputWithoutBorderStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
   const { componentCls } = token;
 
   return {
@@ -122,7 +122,7 @@ const getSearchInputWithoutBorderStyle: GenerateStyle<SelectToken, CSSObject> = 
 };
 
 // =============================== Base ===============================
-const genBaseStyle: GenerateStyle<SelectToken> = token => {
+const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
   const { componentCls, inputPaddingHorizontalBase, iconCls } = token;
 
   return {
@@ -215,7 +215,7 @@ const genBaseStyle: GenerateStyle<SelectToken> = token => {
         background: token.colorBgContainer,
         cursor: 'pointer',
         opacity: 0,
-        transition: `color ${token.motionDurationFast} ease, opacity ${token.motionDurationSlow} ease`,
+        transition: `color ${token.motionDurationMid} ease, opacity ${token.motionDurationSlow} ease`,
         textRendering: 'auto',
 
         '&:before': {
@@ -244,7 +244,7 @@ const genBaseStyle: GenerateStyle<SelectToken> = token => {
 };
 
 // ============================== Styles ==============================
-const genSelectStyle: GenerateStyle<SelectToken> = token => {
+const genSelectStyle: GenerateStyle<SelectToken> = (token) => {
   const { componentCls } = token;
 
   return [
@@ -335,7 +335,7 @@ export default genComponentStyleHook(
 
     return [genSelectStyle(selectToken)];
   },
-  token => ({
+  (token) => ({
     zIndexPopup: token.zIndexPopupBase + 50,
   }),
 );

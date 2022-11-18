@@ -4,6 +4,7 @@ import { FormProvider as RcFormProvider } from 'rc-field-form';
 import type { ValidateMessages } from 'rc-field-form/lib/interface';
 import useMemo from 'rc-util/lib/hooks/useMemo';
 import * as React from 'react';
+import type { ReactElement } from 'react';
 import type { RequiredMark } from '../form/Form';
 import type { Locale } from '../locale-provider';
 import LocaleProvider, { ANT_MARK } from '../locale-provider';
@@ -19,6 +20,7 @@ import { DisabledContextProvider } from './DisabledContext';
 import useTheme from './hooks/useTheme';
 import type { SizeType } from './SizeContext';
 import SizeContext, { SizeContextProvider } from './SizeContext';
+import useStyle from './style';
 
 export {
   type RenderEmptyHandler,
@@ -139,7 +141,7 @@ export const globalConfig = () => ({
   },
 });
 
-const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
+const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
   const {
     children,
     csp: customCsp,
@@ -172,7 +174,10 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
   );
 
   const iconPrefixCls = customIconPrefixCls || parentContext.iconPrefixCls || defaultIconPrefixCls;
+  const shouldWrapSSR = iconPrefixCls !== parentContext.iconPrefixCls;
   const csp = customCsp || parentContext.csp;
+
+  const wrapSSR = useStyle(iconPrefixCls);
 
   const mergedTheme = useTheme(theme, parentContext.theme);
 
@@ -192,7 +197,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
 
   // Pass the props used by `useContext` directly with child component.
   // These props should merged into `config`.
-  PASSED_PROPS.forEach(propName => {
+  PASSED_PROPS.forEach((propName) => {
     const propValue = props[propName];
     if (propValue) {
       (config as any)[propName] = propValue;
@@ -208,7 +213,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
       const currentKeys = Object.keys(currentConfig) as Array<keyof typeof config>;
       return (
         prevKeys.length !== currentKeys.length ||
-        prevKeys.some(key => prevConfig[key] !== currentConfig[key])
+        prevKeys.some((key) => prevConfig[key] !== currentConfig[key])
       );
     },
   );
@@ -218,7 +223,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
     [iconPrefixCls, csp],
   );
 
-  let childNode = children;
+  let childNode = shouldWrapSSR ? wrapSSR(children as ReactElement) : children;
   // Additional Form provider
   let validateMessages: ValidateMessages = {};
 
@@ -292,11 +297,11 @@ const ConfigProvider: React.FC<ConfigProviderProps> & {
   ConfigContext: typeof ConfigContext;
   SizeContext: typeof SizeContext;
   config: typeof setGlobalConfig;
-} = props => (
+} = (props) => (
   <LocaleReceiver>
     {(_, __, legacyLocale) => (
       <ConfigConsumer>
-        {context => (
+        {(context) => (
           <ProviderChildren parentContext={context} legacyLocale={legacyLocale} {...props} />
         )}
       </ConfigConsumer>

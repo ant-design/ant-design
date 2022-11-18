@@ -5,13 +5,3 @@
 ## en-US
 
 Simplest Usage. Badge will be hidden when `count` is `0`, but we can use `showZero` to show it.
-
-<style>
-.ant-badge:not(.ant-badge-not-a-wrapper) {
-  margin-right: 20px;
-}
-.ant-badge.ant-badge-rtl:not(.ant-badge-not-a-wrapper) {
-  margin-right: 0;
-  margin-left: 20px;
-}
-</style>

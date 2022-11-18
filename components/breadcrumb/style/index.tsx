@@ -14,7 +14,7 @@ interface BreadcrumbToken extends FullToken<'Breadcrumb'> {
   breadcrumbSeparatorColor: string;
 }
 
-const genBreadcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = token => {
+const genBreadcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = (token) => {
   const { componentCls, iconCls } = token;
 
   return {
@@ -37,7 +37,7 @@ const genBreadcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = token => {
 
       a: {
         color: token.breadcrumbLinkColor,
-        transition: `color ${token.motionDurationFast}`,
+        transition: `color ${token.motionDurationMid}`,
         padding: `0 ${token.paddingXXS}px`,
         borderRadius: token.borderRadiusSM,
         height: token.lineHeight * token.fontSize,
@@ -107,7 +107,7 @@ const genBreadcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = token => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Breadcrumb', token => {
+export default genComponentStyleHook('Breadcrumb', (token) => {
   const BreadcrumbToken = mergeToken<BreadcrumbToken>(token, {
     breadcrumbBaseColor: token.colorTextDescription,
     breadcrumbFontSize: token.fontSize,

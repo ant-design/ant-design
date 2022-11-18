@@ -52,7 +52,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
       color: token.labelColor,
       backgroundColor: token.bgColor,
       borderRadius: token.borderRadius,
-      transition: `all ${token.motionDurationFast} ${token.motionEaseInOut}`,
+      transition: `all ${token.motionDurationMid} ${token.motionEaseInOut}`,
 
       [`${componentCls}-group`]: {
         position: 'relative',
@@ -82,7 +82,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
         position: 'relative',
         textAlign: 'center',
         cursor: 'pointer',
-        transition: `color ${token.motionDurationFast} ${token.motionEaseInOut}`,
+        transition: `color ${token.motionDurationMid} ${token.motionEaseInOut}`,
         borderRadius: token.borderRadiusSM,
 
         '&-selected': {
@@ -98,7 +98,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
           top: 0,
           insetInlineStart: 0,
           borderRadius: token.borderRadiusSM,
-          transition: `background-color ${token.motionDurationFast}`,
+          transition: `background-color ${token.motionDurationMid}`,
         },
 
         [`&:hover:not(${componentCls}-item-selected):not(${componentCls}-item-disabled)`]: {

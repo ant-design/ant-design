@@ -122,12 +122,13 @@ export default {
 
 #### Component refactoring and removal
 
-- PageHeader and Comment components are removed in ant-design and moved to [pro-components](https://github.com/ant-design/pro-components) for maintenance. If you still need to use them, you can [import them from the compatible package](/docs/react/migration-v5#Import-the-obsolete-PageHeader-and-Comment-components-via-@ant-design/compatible-package).
+- Move Comment component into `@ant-design/compatible`.
+- Move PageHeader component into `@ant-design/pro-components`.
 
 ```diff
 - import { PageHeader, Comment, Input, Button } from 'antd';
-+ import { PageHeader, Comment } from '@ant-design/compatible';
-+ import '@ant-design/compatible/assets/index.css';
++ import { Comment } from '@ant-design/compatible';
++ import { PageHeader } from '@ant-design/pro-layout';
 + import { Input, Button } from 'antd';
 
   const App: React.FC = () => (
@@ -158,7 +159,34 @@ export default {
 
 ## Start upgrading
 
-You can apply the changes mentioned above manually, and also we will provide codemod tool after released to help you upgrade.
+Use git to save your code and install latest version:
+
+```bash
+npm install --save antd@5.x
+```
+
+If you using antd less variables, you can use compatible package to covert it into v4 less variables and use less-loader to inject them:
+
+```jsx
+import { theme } from 'antd';
+import { convertLegacyToken } from '@ant-design/compatible';
+
+
+const { defaultAlgorithm, defaultSeed } = theme;
+
+const mapToken = defaultAlgorithm(defaultSeed);
+const v4Token = convertLegacyToken(mapToken);
+
+// Webpack Config
+{
+  loader: "less-loader",
+  options: {
+    lessOptions: {
+      modifyVars: v4Token,
+    },
+  },
+}
+```
 
 ## Encounter problems
 

@@ -77,7 +77,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
       border: `${token.lineWidth}px ${token.lineType} ${token.colorBorder}`,
       borderRadius: token.borderRadiusSM,
       opacity: 1,
-      transition: `all ${token.motionDurationFast}`,
+      transition: `all ${token.motionDurationMid}`,
       textAlign: 'start',
 
       // RTL
@@ -94,7 +94,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
         color: token.colorTextDescription,
         fontSize: token.tagIconSize,
         cursor: 'pointer',
-        transition: `all ${token.motionDurationFast}`,
+        transition: `all ${token.motionDurationMid}`,
 
         '&:hover': {
           color: token.colorTextHeading,
@@ -148,7 +148,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Tag', token => {
+export default genComponentStyleHook('Tag', (token) => {
   const { fontSize, lineHeight, lineWidth, fontSizeIcon } = token;
   const tagHeight = Math.round(fontSize * lineHeight);
 

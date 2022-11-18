@@ -206,7 +206,7 @@ export const initZoomMotion = (
       motionCls,
       inKeyframes,
       outKeyframes,
-      motionName === 'zoom-big-fast' ? token.motionDurationFast : token.motionDurationMid,
+      motionName === 'zoom-big-fast' ? token.motionDurationMid : token.motionDurationMid,
     ),
     {
       [`

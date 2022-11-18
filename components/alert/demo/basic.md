@@ -5,9 +5,3 @@
 ## en-US
 
 The simplest usage for short messages.
-
-<style>
-.code-box-demo .ant-alert {
-  margin-bottom: 16px;
-}
-</style>

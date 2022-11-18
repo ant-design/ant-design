@@ -1,7 +1,6 @@
 import useSiteToken from '../../../hooks/useSiteToken';
 import React from 'react';
 import {
-  Button,
   Space,
   Typography,
   Tour,
@@ -11,138 +10,47 @@ import {
   Modal,
   FloatButton,
   Progress,
+  ConfigProvider,
 } from 'antd';
 import dayjs from 'dayjs';
 import { CustomerServiceOutlined, QuestionCircleOutlined, SyncOutlined } from '@ant-design/icons';
 import { css } from '@emotion/react';
+import useLocale from '../../../hooks/useLocale';
 
-const PLACEHOLDER_WIDTH = 400;
-
-const SAMPLE_CONTENT =
+const SAMPLE_CONTENT_EN =
   'Ant Design 5.0 use CSS-in-JS technology to provide dynamic & mix theme ability. And which use component level CSS-in-JS solution get your application a better performance.';
 
-const COMPONENTS: {
-  title: React.ReactNode;
-  type: 'new' | 'update';
-  node: React.ReactNode;
-}[] = [
-  {
-    title: 'Modal',
-    type: 'update',
-    node: (
-      <Modal._InternalPanelDoNotUseOrYouWillBeFired title="Ant Design 5.0" width={300}>
-        {SAMPLE_CONTENT}
-      </Modal._InternalPanelDoNotUseOrYouWillBeFired>
-    ),
-  },
+const SAMPLE_CONTENT_CN =
+  'Ant Design 5.0 使用 CSS-in-JS 技术以提供动态与混合主题的能力。与此同时，我们使用组件级别的 CSS-in-JS 解决方案，让你的应用获得更好的性能。';
 
-  {
-    title: 'DatePicker',
-    type: 'update',
-    node: (
-      <DatePicker._InternalPanelDoNotUseOrYouWillBeFired
-        showToday={false}
-        presets={[
-          { label: 'Yesterday', value: dayjs().add(-1, 'd') },
-          { label: 'Last Week', value: dayjs().add(-7, 'd') },
-          { label: 'Last Month', value: dayjs().add(-1, 'month') },
-          { label: 'Last Year', value: dayjs().add(-1, 'year') },
-        ]}
-        value={dayjs('2022-11-18 14:00:00')}
-      />
-    ),
+const locales = {
+  cn: {
+    yesterday: '昨天',
+    lastWeek: '上周',
+    lastMonth: '上月',
+    lastYear: '去年',
+    new: '新增',
+    update: '更新',
+    sampleContent: SAMPLE_CONTENT_CN,
+    inProgress: '进行中',
+    success: '成功',
+    taskFailed: '任务失败',
+    tour: '漫游导览帮助用户对新加的功能进行快速了解',
   },
-
-  {
-    title: 'Progress',
-    type: 'update',
-    node: (
-      <Space direction="vertical">
-        <Space>
-          <Progress type="circle" trailColor="#e6f4ff" percent={60} width={14} />
-          In Progress
-        </Space>
-        <Space>
-          <Progress type="circle" percent={100} width={14} />
-          Success
-        </Space>
-        <Space>
-          <Progress type="circle" status="exception" percent={88} width={14} />
-          Task Failed
-        </Space>
-      </Space>
-    ),
+  en: {
+    yesterday: 'Yesterday',
+    lastWeek: 'Last Week',
+    lastMonth: 'Last Month',
+    lastYear: 'Last Year',
+    new: 'New',
+    update: 'Update',
+    sampleContent: SAMPLE_CONTENT_EN,
+    inProgress: 'In Progress',
+    success: 'Success',
+    taskFailed: 'Task Failed',
+    tour: 'A quick guide for new come user about how to use app.',
   },
-
-  {
-    title: 'Tour',
-    type: 'new',
-    node: (
-      <Tour._InternalPanelDoNotUseOrYouWillBeFired
-        title="Ant Design 5.0"
-        description="A quick guide for new come user about how to use app."
-        style={{ width: 350 }}
-        current={3}
-        total={9}
-      />
-    ),
-  },
-  {
-    title: 'FloatButton',
-    type: 'new',
-    node: (
-      <Space size="large">
-        <FloatButton._InternalPanelDoNotUseOrYouWillBeFired
-          shape="square"
-          items={[
-            {
-              icon: <QuestionCircleOutlined />,
-            },
-            {
-              icon: <CustomerServiceOutlined />,
-            },
-            {
-              icon: <SyncOutlined />,
-            },
-          ]}
-        />
-        <FloatButton._InternalPanelDoNotUseOrYouWillBeFired backTop />
-        <FloatButton._InternalPanelDoNotUseOrYouWillBeFired
-          items={[
-            {
-              icon: <QuestionCircleOutlined />,
-            },
-            {
-              icon: <CustomerServiceOutlined />,
-            },
-            {
-              icon: <SyncOutlined />,
-            },
-          ]}
-        />
-      </Space>
-    ),
-  },
-
-  // {
-  //   title: 'Steps',
-  //   type: 'update',
-  //   node: <Button style={{ width: PLACEHOLDER_WIDTH }}>Placeholder</Button>,
-  // },
-
-  {
-    title: 'Alert',
-    type: 'update',
-    node: (
-      <Alert
-        style={{ width: 400 }}
-        message="Ant Design 5.0"
-        description={SAMPLE_CONTENT}
-        closable
-      />
-    ),
-  },
-];
+};
 
 const useStyle = () => {
   const { token } = useSiteToken();
@@ -178,13 +86,140 @@ const useStyle = () => {
 export default function ComponentsList() {
   const { token } = useSiteToken();
   const styles = useStyle();
+  const [locale] = useLocale(locales);
+
+  const COMPONENTS: {
+    title: React.ReactNode;
+    type: 'new' | 'update';
+    node: React.ReactNode;
+  }[] = React.useMemo(
+    () => [
+      {
+        title: 'Modal',
+        type: 'update',
+        node: (
+          <Modal._InternalPanelDoNotUseOrYouWillBeFired title="Ant Design 5.0" width={300}>
+            {locale.sampleContent}
+          </Modal._InternalPanelDoNotUseOrYouWillBeFired>
+        ),
+      },
+
+      {
+        title: 'DatePicker',
+        type: 'update',
+        node: (
+          <DatePicker._InternalPanelDoNotUseOrYouWillBeFired
+            showToday={false}
+            presets={[
+              { label: locale.yesterday, value: dayjs().add(-1, 'd') },
+              { label: locale.lastWeek, value: dayjs().add(-7, 'd') },
+              { label: locale.lastMonth, value: dayjs().add(-1, 'month') },
+              { label: locale.lastYear, value: dayjs().add(-1, 'year') },
+            ]}
+            value={dayjs('2022-11-18 14:00:00')}
+          />
+        ),
+      },
+
+      {
+        title: 'Progress',
+        type: 'update',
+        node: (
+          <Space direction="vertical">
+            <Space>
+              <Progress type="circle" trailColor="#e6f4ff" percent={60} width={14} />
+              {locale.inProgress}
+            </Space>
+            <Space>
+              <Progress type="circle" percent={100} width={14} />
+              {locale.success}
+            </Space>
+            <Space>
+              <Progress type="circle" status="exception" percent={88} width={14} />
+              {locale.taskFailed}
+            </Space>
+          </Space>
+        ),
+      },
+
+      {
+        title: 'Tour',
+        type: 'new',
+        node: (
+          <Tour._InternalPanelDoNotUseOrYouWillBeFired
+            title="Ant Design 5.0"
+            description={locale.tour}
+            style={{ width: 350 }}
+            current={3}
+            total={9}
+          />
+        ),
+      },
+      {
+        title: 'FloatButton',
+        type: 'new',
+        node: (
+          <Space size="large">
+            <FloatButton._InternalPanelDoNotUseOrYouWillBeFired
+              shape="square"
+              items={[
+                {
+                  icon: <QuestionCircleOutlined />,
+                },
+                {
+                  icon: <CustomerServiceOutlined />,
+                },
+                {
+                  icon: <SyncOutlined />,
+                },
+              ]}
+            />
+            <FloatButton._InternalPanelDoNotUseOrYouWillBeFired backTop />
+            <FloatButton._InternalPanelDoNotUseOrYouWillBeFired
+              items={[
+                {
+                  icon: <QuestionCircleOutlined />,
+                },
+                {
+                  icon: <CustomerServiceOutlined />,
+                },
+                {
+                  icon: <SyncOutlined />,
+                },
+              ]}
+            />
+          </Space>
+        ),
+      },
+
+      // {
+      //   title: 'Steps',
+      //   type: 'update',
+      //   node: <Button style={{ width: PLACEHOLDER_WIDTH }}>Placeholder</Button>,
+      // },
+
+      {
+        title: 'Alert',
+        type: 'update',
+        node: (
+          <Alert
+            style={{ width: 400 }}
+            message="Ant Design 5.0"
+            description={locale.sampleContent}
+            closable
+          />
+        ),
+      },
+    ],
+    [],
+  );
 
   return (
     <div style={{ width: '100%', overflow: 'hidden', display: 'flex', justifyContent: 'center' }}>
       <div style={{ display: 'flex', alignItems: 'stretch', columnGap: token.paddingLG }}>
         {COMPONENTS.map(({ title, node, type }, index) => {
           const tagColor = type === 'new' ? 'processing' : 'warning';
-          const tagText = type === 'new' ? 'New' : 'Update';
+          const tagText = type === 'new' ? locale.new : locale.update;
 
           return (
             <div key={index} css={styles.card} style={{ pointerEvents: 'none' }}>

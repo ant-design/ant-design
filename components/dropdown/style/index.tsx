@@ -27,7 +27,7 @@ export interface DropdownToken extends FullToken<'Dropdown'> {
 }
 
 // =============================== Base ===============================
-const genBaseStyle: GenerateStyle<DropdownToken> = token => {
+const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
   const {
     componentCls,
     menuCls,
@@ -38,7 +38,6 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
     antCls,
     iconCls,
     motionDurationMid,
-    motionDurationFast,
     dropdownPaddingVertical,
     fontSize,
     dropdownEdgeChildPadding,
@@ -273,7 +272,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
           [`${menuCls}-item-group-title`]: {
             padding: `${dropdownPaddingVertical}px ${controlPaddingHorizontal}px`,
             color: token.colorTextDescription,
-            transition: `all ${motionDurationFast}`,
+            transition: `all ${motionDurationMid}`,
           },
 
           // ======================= Item Content =======================
@@ -295,7 +294,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
 
             '> a': {
               color: 'inherit',
-              transition: `all ${motionDurationFast}`,
+              transition: `all ${motionDurationMid}`,
 
               '&:hover': {
                 color: 'inherit',
@@ -319,7 +318,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
             fontSize,
             lineHeight: token.lineHeight,
             cursor: 'pointer',
-            transition: `all ${motionDurationFast}`,
+            transition: `all ${motionDurationMid}`,
 
             '&:first-child': !dropdownEdgeChildPadding
               ? {
@@ -460,7 +459,7 @@ export default genComponentStyleHook(
       genStatusStyle(dropdownToken),
     ];
   },
-  token => ({
+  (token) => ({
     zIndexPopup: token.zIndexPopupBase + 50,
   }),
 );

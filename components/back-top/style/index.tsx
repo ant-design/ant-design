@@ -50,11 +50,11 @@ const genSharedBackTopStyle: GenerateStyle<BackTopToken, CSSObject> = (token): C
         textAlign: 'center',
         backgroundColor: token.backTopBackground,
         borderRadius: backTopSize,
-        transition: `all ${token.motionDurationFast}`,
+        transition: `all ${token.motionDurationMid}`,
 
         '&:hover': {
           backgroundColor: token.backTopHoverBackground,
-          transition: `all ${token.motionDurationFast}`,
+          transition: `all ${token.motionDurationMid}`,
         },
       },
 
@@ -89,7 +89,7 @@ const genMediaBackTopStyle: GenerateStyle<BackTopToken> = (token): CSSObject => 
 export default genComponentStyleHook<'BackTop'>(
   'BackTop',
 
-  token => {
+  (token) => {
     const {
       fontSizeHeading3,
       colorTextDescription,
@@ -112,7 +112,7 @@ export default genComponentStyleHook<'BackTop'>(
     });
     return [genSharedBackTopStyle(backTopToken), genMediaBackTopStyle(backTopToken)];
   },
-  token => ({
+  (token) => ({
     zIndexPopup: token.zIndexBase + 10,
   }),
 );

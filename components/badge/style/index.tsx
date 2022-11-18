@@ -116,7 +116,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
         background: token.badgeColor,
         borderRadius: token.badgeHeight / 2,
         boxShadow: `0 0 0 ${badgeShadowSize}px ${token.badgeShadowColor}`,
-        transition: `background ${token.motionDurationFast}`,
+        transition: `background ${token.motionDurationMid}`,
 
         a: {
           color: token.badgeTextColor,
@@ -161,7 +161,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
         transformOrigin: '100% 0%',
         [`${iconCls}-spin`]: {
           animationName: antBadgeLoadingCircle,
-          animationDuration: token.motionDurationFast,
+          animationDuration: token.motionDurationMid,
           animationIterationCount: 'infinite',
           animationTimingFunction: 'linear',
         },
@@ -323,7 +323,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Badge', token => {
+export default genComponentStyleHook('Badge', (token) => {
   const { fontSize, lineHeight, fontSizeSM, lineWidth, marginXS, colorBorderBg } = token;
 
   const badgeFontHeight = Math.round(fontSize * lineHeight);

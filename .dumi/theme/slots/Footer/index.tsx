@@ -15,6 +15,7 @@ import {
   TwitterOutlined,
   UsergroupAddOutlined,
   ZhihuOutlined,
+  YuqueOutlined,
 } from '@ant-design/icons';
 import useLocation from '../../../hooks/useLocation';
 import { css } from '@emotion/react';
@@ -22,6 +23,7 @@ import useLocale from '../../../hooks/useLocale';
 import useSiteToken from '../../../hooks/useSiteToken';
 import { TinyColor } from '@ctrl/tinycolor';
 import getAlphaColor from 'antd/es/theme/util/getAlphaColor';
+import InfoNewVersion from './InfoNewVersion';
 
 const locales = {
   cn: {
@@ -176,6 +178,12 @@ const Footer = () => {
           icon: <TwitterOutlined style={{ color: '#1DA1F2' }} />,
           title: 'Twitter',
           url: 'http://twitter.com/antdesignui',
+          openExternal: true,
+        },
+        {
+          icon: <YuqueOutlined style={{ color: '#00b96b' }} />,
+          title: <FormattedMessage id="app.footer.yuque.repo" />,
+          url: 'https://yuque.com/ant-design/ant-design',
           openExternal: true,
         },
         {
@@ -351,15 +359,18 @@ const Footer = () => {
   }, [lang, location.search]);
 
   return (
-    <RcFooter
-      columns={getColumns}
-      css={style.footer}
-      bottom={
-        <>
-          Made with <span style={{ color: '#fff' }}>❤</span> by {locale.owner}
-        </>
-      }
-    />
+    <>
+      <RcFooter
+        columns={getColumns}
+        css={style.footer}
+        bottom={
+          <>
+            Made with <span style={{ color: '#fff' }}>❤</span> by {locale.owner}
+          </>
+        }
+      />
+      <InfoNewVersion />
+    </>
   );
 };
 

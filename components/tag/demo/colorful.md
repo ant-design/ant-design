@@ -10,4 +10,4 @@ We preset a series of colorful tag styles for use in different situations. You c
 .code-box-demo .ant-tag {
   margin-bottom: 8px;
 }
-<style>
+</style>

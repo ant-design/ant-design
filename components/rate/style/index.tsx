@@ -12,7 +12,7 @@ interface RateToken extends FullToken<'Rate'> {
   defaultColor: string;
 }
 
-const genRateStarStyle: GenerateStyle<RateToken, CSSObject> = token => {
+const genRateStarStyle: GenerateStyle<RateToken, CSSObject> = (token) => {
   const { componentCls } = token;
 
   return {
@@ -27,7 +27,7 @@ const genRateStarStyle: GenerateStyle<RateToken, CSSObject> = token => {
       },
 
       '> div': {
-        transition: `all ${token.motionDurationFast}, outline 0s`,
+        transition: `all ${token.motionDurationMid}, outline 0s`,
 
         '&:hover': {
           transform: token.rateStarHoverScale,
@@ -45,7 +45,7 @@ const genRateStarStyle: GenerateStyle<RateToken, CSSObject> = token => {
 
       '&-first, &-second': {
         color: token.defaultColor,
-        transition: `all ${token.motionDurationFast}`,
+        transition: `all ${token.motionDurationMid}`,
         userSelect: 'none',
 
         [token.iconCls]: {
@@ -80,7 +80,7 @@ const genRateRtlStyle = (token: RateToken): CSSObject => ({
   },
 });
 
-const genRateStyle: GenerateStyle<RateToken> = token => {
+const genRateStyle: GenerateStyle<RateToken> = (token) => {
   const { componentCls } = token;
 
   return {
@@ -122,7 +122,7 @@ const genRateStyle: GenerateStyle<RateToken> = token => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Rate', token => {
+export default genComponentStyleHook('Rate', (token) => {
   const { colorFillContent } = token;
 
   const rateToken = mergeToken<RateToken>(token, {
