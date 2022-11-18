@@ -80,7 +80,7 @@ describe('message.config', () => {
 
     const noticeWithoutLeaving = Array.from(
       document.querySelectorAll('.ant-message-notice'),
-    ).filter(ele => !ele.classList.contains('ant-message-move-up-leave'));
+    ).filter((ele) => !ele.classList.contains('ant-message-move-up-leave'));
 
     expect(noticeWithoutLeaving).toHaveLength(5);
     expect(noticeWithoutLeaving[4].textContent).toEqual('last');
