@@ -39,7 +39,7 @@ If you have already set things up by following the [Install and Initialization](
 import React, { useState } from 'react';
 import { render } from 'react-dom';
 import { DatePicker, message } from 'antd';
-import 'antd/dist/antd.css';
+import 'antd/dist/reset.css';
 import './index.css';
 
 const App = () => {

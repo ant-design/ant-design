@@ -37,7 +37,7 @@ import { ConfigProvider, DatePicker, message } from 'antd';
 import dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
 import zhCN from 'antd/locale/zh_CN';
-import 'antd/dist/antd.css';
+import 'antd/dist/reset.css';
 import './index.css';
 
 dayjs.locale('zh-cn');

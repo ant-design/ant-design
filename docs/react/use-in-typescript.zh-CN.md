@@ -45,6 +45,7 @@ $ yarn add antd
 ```tsx
 import React, { FC } from 'react';
 import { Button } from 'antd';
+import 'antd/dist/reset.css';
 import './App.css';
 
 const App: FC = () => (
@@ -54,12 +55,6 @@ const App: FC = () => (
 );
 
 export default App;
-```
-
-修改 `src/App.css`，在文件顶部引入 antd 的样式。
-
-```css
-@import '~antd/dist/antd.css';
 ```
 
 重新启动 `yarn start`，现在你应该能看到页面上已经有了 antd 的蓝色按钮组件，接下来就可以继续选用其他组件开发应用了。其他开发流程你可以参考 create-react-app 的[官方文档](https://create-react-app.dev/docs/getting-started#creating-a-typescript-app)。

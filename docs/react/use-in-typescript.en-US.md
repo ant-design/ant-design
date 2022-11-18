@@ -45,6 +45,7 @@ Modify `src/App.tsx`, import Button component from `antd`.
 ```tsx
 import React, { FC } from 'react';
 import { Button } from 'antd';
+import 'antd/dist/reset.css';
 import './App.css';
 
 const App: FC = () => (
@@ -54,12 +55,6 @@ const App: FC = () => (
 );
 
 export default App;
-```
-
-Add `antd/dist/antd.css` at the top of `src/App.css`.
-
-```css
-@import '~antd/dist/antd.css';
 ```
 
 OK, reboot with `yarn start`, you should now see a blue primary button displayed on the page. Next you can choose any components of `antd` to develop your application. Visit other workflows of `create-react-app` at it's [User Guide](https://create-react-app.dev/docs/getting-started#creating-a-typescript-app).
