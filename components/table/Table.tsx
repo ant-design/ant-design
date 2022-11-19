@@ -554,7 +554,7 @@ const ForwardTable = React.forwardRef(InternalTable) as <RecordType extends obje
 
 type InternalTableType = typeof ForwardTable;
 
-interface TableInterface extends InternalTableType {
+type CompoundedComponent = InternalTableType & {
   SELECTION_COLUMN: typeof SELECTION_COLUMN;
   EXPAND_COLUMN: typeof RcTable.EXPAND_COLUMN;
   SELECTION_ALL: 'SELECT_ALL';
@@ -563,9 +563,9 @@ interface TableInterface extends InternalTableType {
   Column: typeof Column;
   ColumnGroup: typeof ColumnGroup;
   Summary: typeof Summary;
-}
+};
 
-const Table = ForwardTable as TableInterface;
+const Table = ForwardTable as CompoundedComponent;
 
 Table.SELECTION_COLUMN = SELECTION_COLUMN;
 Table.EXPAND_COLUMN = RcTable.EXPAND_COLUMN;

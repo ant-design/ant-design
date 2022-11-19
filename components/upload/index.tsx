@@ -12,15 +12,15 @@ export type {
 } from './interface';
 
 type InternalUploadType = typeof InternalUpload;
-interface UploadInterface<T = any> extends InternalUploadType {
+type CompoundedComponent<T = any> = InternalUploadType & {
   <U extends T>(
     props: React.PropsWithChildren<UploadProps<U>> & React.RefAttributes<any>,
   ): React.ReactElement;
   Dragger: typeof Dragger;
   LIST_IGNORE: string;
-}
+};
 
-const Upload = InternalUpload as UploadInterface;
+const Upload = InternalUpload as CompoundedComponent;
 Upload.Dragger = Dragger;
 Upload.LIST_IGNORE = LIST_IGNORE;
 

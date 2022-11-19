@@ -313,7 +313,7 @@ function destroy(key: React.Key) {
 const baseStaticMethods: {
   open: (config: ArgsProps) => MessageType;
   destroy: (key?: React.Key) => void;
-  config: any;
+  config: typeof setMessageGlobalConfig;
   useMessage: typeof useMessage;
   /** @private Internal Component. Do not use in your production. */
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;

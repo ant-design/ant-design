@@ -13,9 +13,9 @@ import { isPresetColor } from './utils';
 
 export type { ScrollNumberProps } from './ScrollNumber';
 
-interface CompoundedComponent extends React.FC<BadgeProps> {
+type CompoundedComponent = React.FC<BadgeProps> & {
   Ribbon: typeof Ribbon;
-}
+};
 
 export interface BadgeProps {
   /** Number to show in badge */

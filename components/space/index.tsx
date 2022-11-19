@@ -151,9 +151,9 @@ const Space: React.FC<SpaceProps> = (props) => {
   );
 };
 
-interface CompoundedComponent extends React.FC<SpaceProps> {
+type CompoundedComponent = React.FC<SpaceProps> & {
   Compact: typeof Compact;
-}
+};
 
 const CompoundedSpace = Space as CompoundedComponent;
 CompoundedSpace.Compact = Compact;

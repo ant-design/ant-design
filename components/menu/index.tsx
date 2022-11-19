@@ -19,13 +19,14 @@ export type MenuRef = {
   focus: (options?: FocusOptions) => void;
 };
 
-interface CompoundedComponent
-  extends React.ForwardRefExoticComponent<MenuProps & React.RefAttributes<MenuRef>> {
+type CompoundedComponent = React.ForwardRefExoticComponent<
+  MenuProps & React.RefAttributes<MenuRef>
+> & {
   Divider: typeof MenuDivider;
   Item: typeof Item;
   SubMenu: typeof SubMenu;
   ItemGroup: typeof ItemGroup;
-}
+};
 
 const Menu = forwardRef<MenuRef, MenuProps>((props, ref) => {
   const menuRef = useRef<RcMenuRef>(null);

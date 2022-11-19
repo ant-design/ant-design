@@ -131,12 +131,13 @@ export type NativeButtonProps = {
 
 export type ButtonProps = Partial<AnchorButtonProps & NativeButtonProps>;
 
-interface CompoundedComponent
-  extends React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<HTMLElement>> {
+type CompoundedComponent = React.ForwardRefExoticComponent<
+  ButtonProps & React.RefAttributes<HTMLElement>
+> & {
   Group: typeof Group;
   /** @internal */
   __ANT_BUTTON: boolean;
-}
+};
 
 type Loading = number | boolean;
 
