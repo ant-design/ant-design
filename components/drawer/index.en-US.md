@@ -51,7 +51,7 @@ A Drawer is a panel that is typically overlaid on top of a page and slides in fr
 | extra | Extra actions area at corner | ReactNode | - | 4.17.0 |
 | footer | The footer for Drawer | ReactNode | - |  |
 | footerStyle | Style of the drawer footer part | CSSProperties | - |  |
-| forceRender | Prerender Drawer component forcely | boolean | false |  |
+| forceRender | Pre-render Drawer component forcibly | boolean | false |  |
 | getContainer | mounted node and display window for Drawer | HTMLElement \| () => HTMLElement \| Selectors \| false | body |  |
 | headerStyle | Style of the drawer header part | CSSProperties | - |  |
 | height | Placement is `top` or `bottom`, height of the Drawer dialog | string \| number | 378 |  |

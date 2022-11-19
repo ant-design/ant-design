@@ -33,7 +33,7 @@ To input a value in a range.
 | --- | --- | --- | --- | --- |
 | autoFocus | Whether get focus when component mounted | boolean | false |  |
 | defaultValue | The default value of slider. When `range` is false, use number, otherwise, use \[number, number] | number \| \[number, number] | 0 \| \[0, 0] |  |
-| disabled | If true, the slider will not be interactable | boolean | false |  |
+| disabled | If true, the slider will not be intractable | boolean | false |  |
 | dots | Whether the thumb can drag over tick only | boolean | false |  |
 | included | Make effect when `marks` not null, true means containment and false means coordinative | boolean | true |  |
 | marks | Tick mark of Slider, type of key must be `number`, and must in closed interval \[min, max], each mark can declare its own style | object | { number: ReactNode } \| { number: { style: CSSProperties, label: ReactNode } } |  |
