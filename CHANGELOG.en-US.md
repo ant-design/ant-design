@@ -19,7 +19,7 @@ timeline: true
 
 `2022-11-18`
 
-🏆 Ant Design 5.0.0 is released, welcome to try it out!
+🏆 Ant Design 5.0.0 is released, see our [release note](https://github.com/ant-design/ant-design/issues/38671) for more details.
 
 #### Read it before migration
 

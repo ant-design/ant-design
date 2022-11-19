@@ -15,7 +15,7 @@ import {
   TwitterOutlined,
   UsergroupAddOutlined,
   ZhihuOutlined,
-  YuqueOutlined,
+  YuqueFilled,
 } from '@ant-design/icons';
 import useLocation from '../../../hooks/useLocation';
 import { css } from '@emotion/react';
@@ -181,7 +181,7 @@ const Footer = () => {
           openExternal: true,
         },
         {
-          icon: <YuqueOutlined style={{ color: '#00b96b' }} />,
+          icon: <YuqueFilled style={{ color: '#00b96b' }} />,
           title: <FormattedMessage id="app.footer.yuque.repo" />,
           url: 'https://yuque.com/ant-design/ant-design',
           openExternal: true,
@@ -189,7 +189,7 @@ const Footer = () => {
         {
           icon: <ZhihuOutlined style={{ color: '#0084ff' }} />,
           title: <FormattedMessage id="app.footer.zhihu" />,
-          url: 'http://zhuanlan.zhihu.com/antdesign',
+          url: 'https://www.zhihu.com/column/c_1564262000561106944',
           openExternal: true,
         },
         {
