@@ -85,7 +85,7 @@ interface CompoundedComponent {
   Node: typeof SkeletonNode;
 }
 
-const Skeleton: React.FC<SkeletonProps> & CompoundedComponent = props => {
+const Skeleton: React.FC<SkeletonProps> & CompoundedComponent = (props) => {
   const {
     prefixCls: customizePrefixCls,
     loading,

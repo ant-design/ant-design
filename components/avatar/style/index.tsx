@@ -20,7 +20,7 @@ type AvatarToken = FullToken<'Avatar'> & {
   avatarBgColor: string;
 };
 
-const genBaseStyle: GenerateStyle<AvatarToken> = token => {
+const genBaseStyle: GenerateStyle<AvatarToken> = (token) => {
   const {
     antCls,
     componentCls,
@@ -109,7 +109,7 @@ const genBaseStyle: GenerateStyle<AvatarToken> = token => {
   };
 };
 
-const genGroupStyle: GenerateStyle<AvatarToken> = token => {
+const genGroupStyle: GenerateStyle<AvatarToken> = (token) => {
   const { componentCls, avatarGroupBorderColor, avatarGroupOverlapping, avatarGroupSpace } = token;
 
   return {
@@ -133,7 +133,7 @@ const genGroupStyle: GenerateStyle<AvatarToken> = token => {
   };
 };
 
-export default genComponentStyleHook('Avatar', token => {
+export default genComponentStyleHook('Avatar', (token) => {
   const {
     colorTextLightSolid,
 

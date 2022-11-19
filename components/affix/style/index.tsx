@@ -19,7 +19,7 @@ const genSharedAffixStyle: GenerateStyle<AffixToken> = (token): CSSObject => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Affix', token => {
+export default genComponentStyleHook('Affix', (token) => {
   const affixToken = mergeToken<AffixToken>(token, {
     zIndexPopup: token.zIndexBase + 10,
   });

@@ -66,7 +66,7 @@ const genSharedEmptyStyle: GenerateStyle<EmptyToken> = (token): CSSObject => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Empty', token => {
+export default genComponentStyleHook('Empty', (token) => {
   const { componentCls, controlHeightLG } = token;
 
   const emptyToken: EmptyToken = mergeToken<EmptyToken>(token, {

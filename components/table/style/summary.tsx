@@ -2,7 +2,7 @@ import type { CSSObject } from '@ant-design/cssinjs';
 import type { GenerateStyle } from '../../theme';
 import type { TableToken } from './index';
 
-const genSummaryStyle: GenerateStyle<TableToken, CSSObject> = token => {
+const genSummaryStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
   const { componentCls, lineWidth, tableBorderColor } = token;
   const tableBorder = `${lineWidth}px ${token.lineType} ${tableBorderColor}`;
   return {

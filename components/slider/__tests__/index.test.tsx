@@ -139,7 +139,7 @@ describe('Slider', () => {
       <SliderTooltip
         title="30"
         open
-        ref={node => {
+        ref={(node) => {
           ref = node;
         }}
       />,
@@ -152,12 +152,12 @@ describe('Slider', () => {
   });
 
   it('tipFormatter should not crash with undefined value', () => {
-    [undefined, null].forEach(value => {
+    [undefined, null].forEach((value) => {
       render(<Slider value={value as any} tooltip={{ open: true }} />);
     });
   });
   it('step should not crash with undefined value', () => {
-    [undefined, null].forEach(value => {
+    [undefined, null].forEach((value) => {
       render(<Slider step={value} tooltip={{ open: true }} />);
     });
   });

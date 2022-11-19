@@ -26,7 +26,7 @@ const App: React.FC = () => {
   const prev = () => {
     setCurrent(current - 1);
   };
-  const items = steps.map(item => ({ key: item.title, title: item.title }));
+  const items = steps.map((item) => ({ key: item.title, title: item.title }));
 
   return (
     <>

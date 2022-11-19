@@ -6,7 +6,7 @@ function fillTitle<RecordType>(
   columns: ColumnsType<RecordType>,
   columnTitleProps: ColumnTitleProps<RecordType>,
 ) {
-  return columns.map(column => {
+  return columns.map((column) => {
     const cloneColumn = { ...column };
 
     cloneColumn.title = renderColumnTitle(column.title, columnTitleProps);

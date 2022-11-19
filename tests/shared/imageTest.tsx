@@ -68,8 +68,8 @@ export function imageDemoTest(component: string, options: Options = {}) {
   let testMethod = options.skip === true ? describe.skip : describe;
   const files = glob.sync(`./components/${component}/demo/*.tsx`);
 
-  files.forEach(file => {
-    if (Array.isArray(options.skip) && options.skip.some(c => file.includes(c))) {
+  files.forEach((file) => {
+    if (Array.isArray(options.skip) && options.skip.some((c) => file.includes(c))) {
       testMethod = test.skip;
     }
     testMethod(`Test ${file} image`, () => {

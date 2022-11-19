@@ -148,8 +148,8 @@ export function useInternalNotification(
     } as NotificationInstance;
 
     const keys = ['success', 'info', 'warning', 'error'] as const;
-    keys.forEach(type => {
-      clone[type] = config =>
+    keys.forEach((type) => {
+      clone[type] = (config) =>
         open({
           ...config,
           type,

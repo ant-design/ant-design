@@ -108,7 +108,7 @@ const App: React.FC = () => {
               >
                 <DatePicker.RangePicker
                   style={{ width: '100%' }}
-                  getPopupContainer={trigger => trigger.parentElement!}
+                  getPopupContainer={(trigger) => trigger.parentElement!}
                 />
               </Form.Item>
             </Col>

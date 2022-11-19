@@ -15,7 +15,7 @@ export interface ButtonGroupProps {
 
 export const GroupSizeContext = React.createContext<SizeType | undefined>(undefined);
 
-const ButtonGroup: React.FC<ButtonGroupProps> = props => {
+const ButtonGroup: React.FC<ButtonGroupProps> = (props) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
 
   const { prefixCls: customizePrefixCls, size, className, ...others } = props;

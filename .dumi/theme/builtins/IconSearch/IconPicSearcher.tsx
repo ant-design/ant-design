@@ -52,15 +52,15 @@ const PicSearcher: React.FC = () => {
           event_label: icons[0].className,
         });
       }
-      icons = icons.map(i => ({ score: i.score, type: i.className.replace(/\s/g, '-') }));
-      setState(prev => ({ ...prev, loading: false, error: false, icons }));
+      icons = icons.map((i) => ({ score: i.score, type: i.className.replace(/\s/g, '-') }));
+      setState((prev) => ({ ...prev, loading: false, error: false, icons }));
     } catch {
-      setState(prev => ({ ...prev, loading: false, error: true }));
+      setState((prev) => ({ ...prev, loading: false, error: true }));
     }
   };
   // eslint-disable-next-line class-methods-use-this
   const toImage = (url: string): Promise<HTMLImageElement> =>
-    new Promise(resolve => {
+    new Promise((resolve) => {
       const img = new Image();
       img.setAttribute('crossOrigin', 'anonymous');
       img.src = url;
@@ -70,11 +70,11 @@ const PicSearcher: React.FC = () => {
     });
 
   const uploadFile = useCallback((file: File) => {
-    setState(prev => ({ ...prev, loading: true }));
+    setState((prev) => ({ ...prev, loading: true }));
     const reader = new FileReader();
     reader.onload = () => {
       toImage(reader.result as string).then(predict);
-      setState(prev => ({
+      setState((prev) => ({
         ...prev,
         fileList: [{ uid: 1, name: file.name, status: 'done', url: reader.result }],
       }));
@@ -98,7 +98,7 @@ const PicSearcher: React.FC = () => {
     }
   }, []);
   const toggleModal = useCallback(() => {
-    setState(prev => ({
+    setState((prev) => ({
       ...prev,
       modalOpen: !prev.modalOpen,
       popoverVisible: false,
@@ -121,12 +121,12 @@ const PicSearcher: React.FC = () => {
     const script = document.createElement('script');
     script.onload = async () => {
       await window.antdIconClassifier.load();
-      setState(prev => ({ ...prev, modelLoaded: true }));
+      setState((prev) => ({ ...prev, modelLoaded: true }));
       document.addEventListener('paste', onPaste);
     };
     script.src = 'https://cdn.jsdelivr.net/gh/lewis617/antd-icon-classifier@0.0/dist/main.js';
     document.head.appendChild(script);
-    setState(prev => ({ ...prev, popoverVisible: !localStorage.getItem('disableIconTip') }));
+    setState((prev) => ({ ...prev, popoverVisible: !localStorage.getItem('disableIconTip') }));
     return () => {
       document.removeEventListener('paste', onPaste);
     };
@@ -158,7 +158,7 @@ const PicSearcher: React.FC = () => {
           <Dragger
             accept="image/jpeg, image/png"
             listType="picture"
-            customRequest={o => uploadFile(o.file as File)}
+            customRequest={(o) => uploadFile(o.file as File)}
             fileList={state.fileList}
             showUploadList={{ showPreviewIcon: false, showRemoveIcon: false }}
           >
@@ -197,11 +197,11 @@ const PicSearcher: React.FC = () => {
                 </thead>
               )}
               <tbody>
-                {state.icons.map(icon => {
+                {state.icons.map((icon) => {
                   const { type } = icon;
                   const iconName = `${type
                     .split('-')
-                    .map(str => `${str[0].toUpperCase()}${str.slice(1)}`)
+                    .map((str) => `${str[0].toUpperCase()}${str.slice(1)}`)
                     .join('')}Outlined`;
                   return (
                     <tr key={iconName}>

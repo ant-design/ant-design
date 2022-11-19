@@ -28,7 +28,7 @@ describe('notification.hooks', () => {
                   message: null,
                   description: (
                     <Context.Consumer>
-                      {name => <span className="hook-test-result">{name}</span>}
+                      {(name) => <span className="hook-test-result">{name}</span>}
                     </Context.Consumer>
                   ),
                   duration: 0,
@@ -66,7 +66,7 @@ describe('notification.hooks', () => {
                   message: null,
                   description: (
                     <Context.Consumer>
-                      {name => <span className="hook-test-result">{name}</span>}
+                      {(name) => <span className="hook-test-result">{name}</span>}
                     </Context.Consumer>
                   ),
                   duration: 0,

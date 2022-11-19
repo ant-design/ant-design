@@ -149,7 +149,7 @@ function generateFilterInfo<RecordType>(filterStates: FilterState<RecordType>[])
       currentFilters[key] = filteredKeys || null;
     } else if (Array.isArray(filteredKeys)) {
       const keys = flattenKeys(filters);
-      currentFilters[key] = keys.filter(originKey => filteredKeys.includes(String(originKey)));
+      currentFilters[key] = keys.filter((originKey) => filteredKeys.includes(String(originKey)));
     } else {
       currentFilters[key] = null;
     }
@@ -168,10 +168,10 @@ export function getFilterData<RecordType>(
       filteredKeys,
     } = filterState;
     if (onFilter && filteredKeys && filteredKeys.length) {
-      return currentData.filter(record =>
-        filteredKeys.some(key => {
+      return currentData.filter((record) =>
+        filteredKeys.some((key) => {
           const keys = flattenKeys(filters);
-          const keyIndex = keys.findIndex(k => String(k) === String(key));
+          const keyIndex = keys.findIndex((k) => String(k) === String(key));
           const realKey = keyIndex !== -1 ? keys[keyIndex] : key;
           return onFilter(realKey, record);
         }),

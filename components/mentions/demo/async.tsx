@@ -15,7 +15,7 @@ const App: React.FC = () => {
     }
 
     fetch(`https://api.github.com/search/users?q=${key}`)
-      .then(res => res.json())
+      .then((res) => res.json())
       .then(({ items = [] }) => {
         if (ref.current !== key) return;
 

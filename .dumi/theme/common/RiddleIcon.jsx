@@ -7,6 +7,6 @@ const SVGIcon = () => (
   </svg>
 );
 
-const RiddleIcon = props => <Icon component={SVGIcon} {...props} />;
+const RiddleIcon = (props) => <Icon component={SVGIcon} {...props} />;
 
 export default RiddleIcon;

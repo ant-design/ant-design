@@ -6,7 +6,7 @@ const fs = require('fs');
 const chalk = require('chalk');
 
 glob('components/locale/@(*_*|default).tsx', (er, files) => {
-  files.forEach(filePath => {
+  files.forEach((filePath) => {
     const modulePath = filePath.replace(/^components/, '..').replace('.tsx', '');
     const legacyModulePath = filePath.replace('locale', 'locale-provider');
 

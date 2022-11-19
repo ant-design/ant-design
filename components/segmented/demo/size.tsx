@@ -1,4 +1,5 @@
-import React from 'react';import { Segmented } from 'antd';
+import React from 'react';
+import { Segmented } from 'antd';
 
 export default () => (
   <>
@@ -9,4 +10,3 @@ export default () => (
     <Segmented size="small" options={['Daily', 'Weekly', 'Monthly', 'Quarterly', 'Yearly']} />
   </>
 );
-

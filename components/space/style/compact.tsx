@@ -8,7 +8,7 @@ interface SpaceToken extends FullToken<'Space'> {
   // Custom token here
 }
 
-const genSpaceCompactStyle: GenerateStyle<SpaceToken> = token => {
+const genSpaceCompactStyle: GenerateStyle<SpaceToken> = (token) => {
   const { componentCls } = token;
 
   return {

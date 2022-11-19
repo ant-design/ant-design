@@ -11,7 +11,7 @@ interface SpaceToken extends FullToken<'Space'> {
   // Custom token here
 }
 
-const genSpaceStyle: GenerateStyle<SpaceToken> = token => {
+const genSpaceStyle: GenerateStyle<SpaceToken> = (token) => {
   const { componentCls } = token;
 
   return {
@@ -48,7 +48,7 @@ const genSpaceStyle: GenerateStyle<SpaceToken> = token => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Space', token => [
+export default genComponentStyleHook('Space', (token) => [
   genSpaceStyle(token),
   genSpaceCompactStyle(token),
 ]);

@@ -113,7 +113,7 @@ const Page: React.FC<{ popupPlacement: Placement }> = ({ popupPlacement }) => {
 
   // ==== Cascader ====
   const cascaderFilter = (inputValue: string, path: { label: string }[]) =>
-    path.some(option => option.label.toLowerCase().indexOf(inputValue.toLowerCase()) > -1);
+    path.some((option) => option.label.toLowerCase().indexOf(inputValue.toLowerCase()) > -1);
 
   const onCascaderChange = (value: any) => {
     console.log(value);

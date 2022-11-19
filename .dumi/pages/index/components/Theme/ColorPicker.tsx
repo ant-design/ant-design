@@ -54,7 +54,7 @@ export default function ColorPicker({ value, onChange }: RadiusPickerProps) {
     const valueStr = new TinyColor(value).toRgbString();
     let existActive = false;
 
-    const colors = PRESET_COLORS.map(color => {
+    const colors = PRESET_COLORS.map((color) => {
       const colorStr = new TinyColor(color).toRgbString();
       const active = colorStr === valueStr;
       existActive = existActive || active;
@@ -80,7 +80,7 @@ export default function ColorPicker({ value, onChange }: RadiusPickerProps) {
     <Space size="large">
       <Input
         value={value}
-        onChange={event => {
+        onChange={(event) => {
           onChange?.(event.target.value);
         }}
         style={{ width: 120 }}
@@ -109,7 +109,10 @@ export default function ColorPicker({ value, onChange }: RadiusPickerProps) {
                 key={color}
                 overlayInnerStyle={{ padding: 0 }}
                 content={
-                  <DebouncedColorPanel color={value || ''} onChange={color => onChange?.(color)} />
+                  <DebouncedColorPanel
+                    color={value || ''}
+                    onChange={(color) => onChange?.(color)}
+                  />
                 }
                 trigger="click"
                 showArrow={false}

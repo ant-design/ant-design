@@ -72,7 +72,7 @@ export function preLoad(list: string[]) {
     const div = document.createElement('div');
     div.style.display = 'none';
     document.body.appendChild(div);
-    list.forEach(src => {
+    list.forEach((src) => {
       const img = new Image();
       img.src = src;
       div.appendChild(img);
@@ -88,8 +88,8 @@ export function useSiteData(): [Partial<SiteData>, boolean] {
     if (Object.keys(data ?? {}).length === 0 && typeof fetch !== 'undefined') {
       setLoading(true);
       fetch(`https://render.alipay.com/p/h5data/antd4-config_website-h5data.json`)
-        .then(res => res.json())
-        .then(result => {
+        .then((res) => res.json())
+        .then((result) => {
           setData(result);
           setLoading(false);
         });

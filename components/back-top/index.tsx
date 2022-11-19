@@ -32,7 +32,7 @@ interface ChildrenProps {
   visible?: boolean; // Only for test. Don't use it.
 }
 
-const BackTopContent: React.FC<ChildrenProps> = props => {
+const BackTopContent: React.FC<ChildrenProps> = (props) => {
   const { prefixCls, rootPrefixCls, children, visible } = props;
   const defaultElement = (
     <div className={`${prefixCls}-content`}>
@@ -52,7 +52,7 @@ const BackTopContent: React.FC<ChildrenProps> = props => {
   );
 };
 
-const BackTop: React.FC<BackTopProps> = props => {
+const BackTop: React.FC<BackTopProps> = (props) => {
   const [visible, setVisible] = useMergedState(false, {
     value: props.visible,
   });

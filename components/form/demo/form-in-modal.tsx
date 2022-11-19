@@ -29,11 +29,11 @@ const CollectionCreateForm: React.FC<CollectionCreateFormProps> = ({
       onOk={() => {
         form
           .validateFields()
-          .then(values => {
+          .then((values) => {
             form.resetFields();
             onCreate(values);
           })
-          .catch(info => {
+          .catch((info) => {
             console.log('Validate Failed:', info);
           });
       }}

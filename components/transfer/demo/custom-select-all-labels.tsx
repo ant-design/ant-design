@@ -14,7 +14,7 @@ const mockData: RecordType[] = Array.from({ length: 10 }).map((_, i) => ({
   description: `description of content${i + 1}`,
 }));
 
-const oriTargetKeys = mockData.filter(item => Number(item.key) % 3 > 1).map(item => item.key);
+const oriTargetKeys = mockData.filter((item) => Number(item.key) % 3 > 1).map((item) => item.key);
 
 const selectAllLabels: SelectAllLabel[] = [
   'Select All',
@@ -28,7 +28,7 @@ const App: React.FC = () => {
       dataSource={mockData}
       targetKeys={targetKeys}
       onChange={setTargetKeys}
-      render={item => item.title}
+      render={(item) => item.title}
       selectAllLabels={selectAllLabels}
     />
   );

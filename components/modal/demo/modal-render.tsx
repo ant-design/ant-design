@@ -67,7 +67,7 @@ const App: React.FC = () => {
         open={open}
         onOk={handleOk}
         onCancel={handleCancel}
-        modalRender={modal => (
+        modalRender={(modal) => (
           <Draggable
             disabled={disabled}
             bounds={bounds}

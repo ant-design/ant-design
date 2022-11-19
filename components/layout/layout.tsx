@@ -74,10 +74,10 @@ const BasicLayout = React.forwardRef<HTMLElement, BasicPropsWithTagName>((props,
     () => ({
       siderHook: {
         addSider: (id: string) => {
-          setSiders(prev => [...prev, id]);
+          setSiders((prev) => [...prev, id]);
         },
         removeSider: (id: string) => {
-          setSiders(prev => prev.filter(currentId => currentId !== id));
+          setSiders((prev) => prev.filter((currentId) => currentId !== id));
         },
       },
     }),

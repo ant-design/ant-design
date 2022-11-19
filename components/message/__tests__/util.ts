@@ -17,7 +17,7 @@ export async function triggerMotionEnd(selector: string = '.ant-message-move-up-
     });
   }
 
-  document.querySelectorAll(selector).forEach(ele => {
+  document.querySelectorAll(selector).forEach((ele) => {
     fireEvent.animationEnd(ele);
   });
 

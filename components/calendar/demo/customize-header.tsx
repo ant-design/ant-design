@@ -55,7 +55,7 @@ const App: React.FC = () => {
                 <Col>
                   <Radio.Group
                     size="small"
-                    onChange={e => onTypeChange(e.target.value)}
+                    onChange={(e) => onTypeChange(e.target.value)}
                     value={type}
                   >
                     <Radio.Button value="month">Month</Radio.Button>
@@ -68,7 +68,7 @@ const App: React.FC = () => {
                     dropdownMatchSelectWidth={false}
                     className="my-year-select"
                     value={year}
-                    onChange={newYear => {
+                    onChange={(newYear) => {
                       const now = value.clone().year(newYear);
                       onChange(now);
                     }}
@@ -81,7 +81,7 @@ const App: React.FC = () => {
                     size="small"
                     dropdownMatchSelectWidth={false}
                     value={month}
-                    onChange={newMonth => {
+                    onChange={(newMonth) => {
                       const now = value.clone().month(newMonth);
                       onChange(now);
                     }}

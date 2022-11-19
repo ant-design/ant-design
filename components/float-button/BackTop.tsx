@@ -14,7 +14,7 @@ import FloatButtonGroupContext from './context';
 import type { BackTopProps, FloatButtonShape } from './interface';
 import useStyle from './style';
 
-const BackTop: React.FC<BackTopProps> = props => {
+const BackTop: React.FC<BackTopProps> = (props) => {
   const {
     prefixCls: customizePrefixCls,
     className = '',
@@ -63,7 +63,7 @@ const BackTop: React.FC<BackTopProps> = props => {
     };
   }, [target]);
 
-  const scrollToTop: React.MouseEventHandler<HTMLDivElement> = e => {
+  const scrollToTop: React.MouseEventHandler<HTMLDivElement> = (e) => {
     scrollTo(0, { getContainer: target || getDefaultTarget, duration });
     if (typeof onClick === 'function') {
       onClick(e);

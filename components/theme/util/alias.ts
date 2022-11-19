@@ -15,7 +15,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
   const { override, ...restToken } = derivativeToken;
   const overrideTokens = { ...override };
 
-  Object.keys(seedToken).forEach(token => {
+  Object.keys(seedToken).forEach((token) => {
     delete overrideTokens[token as keyof SeedToken];
   });
 

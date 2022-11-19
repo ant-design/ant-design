@@ -16,8 +16,8 @@ function useShowRiddleButton() {
   const [showRiddleButton, setShowRiddleButton] = useState(false);
 
   useEffect(() => {
-    pingDeferrer ??= new Promise<boolean>(resolve => {
-      ping(status => {
+    pingDeferrer ??= new Promise<boolean>((resolve) => {
+      ping((status) => {
         if (status !== 'timeout' && status !== 'error') {
           return resolve(true);
         }

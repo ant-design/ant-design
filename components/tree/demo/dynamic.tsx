@@ -16,7 +16,7 @@ const initTreeData: DataNode[] = [
 
 // It's just a simple demo. You can use tree map to optimize update perf.
 const updateTreeData = (list: DataNode[], key: React.Key, children: DataNode[]): DataNode[] =>
-  list.map(node => {
+  list.map((node) => {
     if (node.key === key) {
       return {
         ...node,
@@ -36,13 +36,13 @@ const App: React.FC = () => {
   const [treeData, setTreeData] = useState(initTreeData);
 
   const onLoadData = ({ key, children }: any) =>
-    new Promise<void>(resolve => {
+    new Promise<void>((resolve) => {
       if (children) {
         resolve();
         return;
       }
       setTimeout(() => {
-        setTreeData(origin =>
+        setTreeData((origin) =>
           updateTreeData(origin, key, [
             { title: 'Child Node', key: `${key}-0` },
             { title: 'Child Node', key: `${key}-1` },

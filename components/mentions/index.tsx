@@ -203,7 +203,7 @@ Mentions.getMentions = (value: string = '', config: MentionsConfig = {}): Mentio
     .map((str = ''): MentionsEntity | null => {
       let hitPrefix: string | null = null;
 
-      prefixList.some(prefixStr => {
+      prefixList.some((prefixStr) => {
         const startStr = str.slice(0, prefixStr.length);
         if (startStr === prefixStr) {
           hitPrefix = prefixStr;

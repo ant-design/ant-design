@@ -8,7 +8,7 @@ function useBreakpoint(refreshOnChange: boolean = true): ScreenMap {
   const forceUpdate = useForceUpdate();
 
   useEffect(() => {
-    const token = ResponsiveObserve.subscribe(supportScreens => {
+    const token = ResponsiveObserve.subscribe((supportScreens) => {
       screensRef.current = supportScreens;
       if (refreshOnChange) {
         forceUpdate();

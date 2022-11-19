@@ -46,7 +46,7 @@ const App: React.FC = () => {
       <CheckboxGroup
         options={options}
         value={position}
-        onChange={value => {
+        onChange={(value) => {
           setPosition(value as PositionType[]);
         }}
       />

@@ -13,7 +13,7 @@ const columns: ColumnsType<DataType> = [
   {
     title: 'Name',
     dataIndex: 'name',
-    render: text => <a>{text}</a>,
+    render: (text) => <a>{text}</a>,
   },
   {
     title: 'Cash Assets',

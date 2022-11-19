@@ -68,7 +68,7 @@ const onClickCard = (pathname: string) => {
   }
 };
 
-const reportSearch = debounce<(value: string) => void>(value => {
+const reportSearch = debounce<(value: string) => void>((value) => {
   if (window.gtag) {
     window.gtag('event', '搜索', {
       event_category: '组件总览卡片',
@@ -91,7 +91,7 @@ const Overview: React.FC = () => {
 
   const sectionRef = React.useRef<HTMLElement>(null);
 
-  const onKeyDown: React.KeyboardEventHandler<HTMLInputElement> = event => {
+  const onKeyDown: React.KeyboardEventHandler<HTMLInputElement> = (event) => {
     if (event.keyCode === 13 && search.trim().length) {
       sectionRef.current?.querySelector<HTMLElement>('.components-overview-card')?.click();
     }
@@ -99,11 +99,11 @@ const Overview: React.FC = () => {
 
   const groups = useMemo<{ title: string; children: Component[] }[]>(() => {
     return data
-      .filter(item => item.title)
-      .map<{ title: string; children: Component[] }>(item => {
+      .filter((item) => item.title)
+      .map<{ title: string; children: Component[] }>((item) => {
         return {
           title: item.title!,
-          children: item.children.map(child => ({
+          children: item.children.map((child) => ({
             title: child.frontmatter.title,
             subtitle: child.frontmatter.subtitle,
             cover: child.frontmatter.cover,
@@ -126,7 +126,7 @@ const Overview: React.FC = () => {
         value={search}
         placeholder={formatMessage({ id: 'app.components.overview.search' })}
         css={style.componentsOverviewSearch}
-        onChange={e => {
+        onChange={(e) => {
           setSearch(e.target.value);
           reportSearch(e.target.value);
         }}
@@ -136,10 +136,10 @@ const Overview: React.FC = () => {
       />
       <Divider />
       {groups
-        .filter(i => i.title)
-        .map(group => {
+        .filter((i) => i.title)
+        .map((group) => {
           const components = group?.children?.filter(
-            component =>
+            (component) =>
               !search.trim() ||
               component.title.toLowerCase().includes(search.trim().toLowerCase()) ||
               (component?.subtitle || '').toLowerCase().includes(search.trim().toLowerCase()),
@@ -153,7 +153,7 @@ const Overview: React.FC = () => {
                 </Space>
               </Title>
               <Row gutter={[24, 24]}>
-                {components.map(component => {
+                {components.map((component) => {
                   const url = `${component.link}/`;
 
                   /** Link 不能跳转到外链 */

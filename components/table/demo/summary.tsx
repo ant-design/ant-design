@@ -88,7 +88,7 @@ const App: React.FC = () => (
       dataSource={data}
       pagination={false}
       bordered
-      summary={pageData => {
+      summary={(pageData) => {
         let totalBorrow = 0;
         let totalRepayment = 0;
 

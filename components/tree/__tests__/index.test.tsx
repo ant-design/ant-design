@@ -97,7 +97,7 @@ describe('Tree', () => {
 
   it('switcherIcon should be loading icon when loadData', () => {
     const onLoadData = () =>
-      new Promise<void>(resolve => {
+      new Promise<void>((resolve) => {
         setTimeout(() => {
           resolve();
         }, 1000);

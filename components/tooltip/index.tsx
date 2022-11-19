@@ -102,7 +102,7 @@ const splitObject = <T extends React.CSSProperties>(
 ): Record<'picked' | 'omitted', T> => {
   const picked: T = {} as T;
   const omitted: T = { ...obj };
-  keys.forEach(key => {
+  keys.forEach((key) => {
     if (obj && key in obj) {
       picked[key] = obj[key];
       delete omitted[key];
@@ -228,7 +228,7 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
     const placements = getTooltipPlacements();
     // 当前返回的位置
     const placement = Object.keys(placements).find(
-      key =>
+      (key) =>
         placements[key].points![0] === align.points?.[0] &&
         placements[key].points![1] === align.points?.[1],
     );

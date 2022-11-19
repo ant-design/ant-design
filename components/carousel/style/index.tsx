@@ -14,7 +14,7 @@ interface CarouselToken extends FullToken<'Carousel'> {
   carouselDotInline: number;
 }
 
-const genCarouselStyle: GenerateStyle<CarouselToken> = token => {
+const genCarouselStyle: GenerateStyle<CarouselToken> = (token) => {
   const { componentCls, antCls, carouselArrowSize, carouselDotOffset, marginXXS } = token;
   const arrowOffset = -carouselArrowSize * 1.25;
 
@@ -250,7 +250,7 @@ const genCarouselStyle: GenerateStyle<CarouselToken> = token => {
   };
 };
 
-const genCarouselVerticalStyle: GenerateStyle<CarouselToken> = token => {
+const genCarouselVerticalStyle: GenerateStyle<CarouselToken> = (token) => {
   const { componentCls, carouselDotOffset, marginXXS } = token;
 
   const reverseSizeOfDot = {
@@ -298,7 +298,7 @@ const genCarouselVerticalStyle: GenerateStyle<CarouselToken> = token => {
   };
 };
 
-const genCarouselRtlStyle: GenerateStyle<CarouselToken> = token => {
+const genCarouselRtlStyle: GenerateStyle<CarouselToken> = (token) => {
   const { componentCls } = token;
 
   return [
@@ -329,7 +329,7 @@ const genCarouselRtlStyle: GenerateStyle<CarouselToken> = token => {
 // ============================== Export ==============================
 export default genComponentStyleHook(
   'Carousel',
-  token => {
+  (token) => {
     const { controlHeightLG, controlHeightSM } = token;
     const carouselToken = mergeToken<CarouselToken>(token, {
       carouselArrowSize: controlHeightLG / 2,

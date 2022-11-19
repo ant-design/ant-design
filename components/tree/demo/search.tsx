@@ -50,7 +50,7 @@ const getParentKey = (key: React.Key, tree: DataNode[]): React.Key => {
   for (let i = 0; i < tree.length; i++) {
     const node = tree[i];
     if (node.children) {
-      if (node.children.some(item => item.key === key)) {
+      if (node.children.some((item) => item.key === key)) {
         parentKey = node.key;
       } else if (getParentKey(key, node.children)) {
         parentKey = getParentKey(key, node.children);
@@ -73,7 +73,7 @@ const App: React.FC = () => {
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     const newExpandedKeys = dataList
-      .map(item => {
+      .map((item) => {
         if (item.title.indexOf(value) > -1) {
           return getParentKey(item.key, defaultData);
         }
@@ -87,7 +87,7 @@ const App: React.FC = () => {
 
   const treeData = useMemo(() => {
     const loop = (data: DataNode[]): DataNode[] =>
-      data.map(item => {
+      data.map((item) => {
         const strTitle = item.title as string;
         const index = strTitle.indexOf(searchValue);
         const beforeStr = strTitle.substring(0, index);

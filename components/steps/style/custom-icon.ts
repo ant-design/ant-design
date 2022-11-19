@@ -2,7 +2,7 @@ import type { CSSObject } from '@ant-design/cssinjs';
 import type { StepsToken } from '.';
 import type { GenerateStyle } from '../../theme';
 
-const genStepsCustomIconStyle: GenerateStyle<StepsToken, CSSObject> = token => {
+const genStepsCustomIconStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
   const { componentCls, stepsIconCustomTop, stepsIconCustomSize, stepsIconCustomFontSize } = token;
 
   return {

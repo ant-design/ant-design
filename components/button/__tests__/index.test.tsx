@@ -297,7 +297,7 @@ describe('Button', () => {
     render(
       <ConfigProvider autoInsertSpaceInButton={false}>
         <Button
-          ref={node => {
+          ref={(node) => {
             buttonInstance = node;
           }}
         >

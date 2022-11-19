@@ -179,7 +179,7 @@ function injectSorter<RecordType>(
             renderSortTitle
           );
         },
-        onHeaderCell: col => {
+        onHeaderCell: (col) => {
           const cell: React.HTMLAttributes<HTMLElement> =
             (column.onHeaderCell && column.onHeaderCell(col)) || {};
           const originOnClick = cell.onClick;
@@ -314,7 +314,7 @@ export function getSortData<RecordType>(
 
       return 0;
     })
-    .map<RecordType>(record => {
+    .map<RecordType>((record) => {
       const subRecords = (record as any)[childrenColumnName];
       if (subRecords) {
         return {
@@ -378,7 +378,7 @@ export default function useFilterSorter<RecordType>({
     }
 
     let multipleMode: boolean | null = null;
-    collectedStates.forEach(state => {
+    collectedStates.forEach((state) => {
       if (multipleMode === null) {
         patchStates(state);
 

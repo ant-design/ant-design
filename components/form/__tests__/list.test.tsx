@@ -99,14 +99,14 @@ describe('Form.List', () => {
     });
   };
 
-  testList('operation correctly', field => (
+  testList('operation correctly', (field) => (
     <Form.Item {...field} rules={[{ required: true }]}>
       <Input />
     </Form.Item>
   ));
 
   // FIXME: @zombieJ React 18 StrictMode
-  testList('nest noStyle', field => (
+  testList('nest noStyle', (field) => (
     <Form.Item key={field.key}>
       <Form.Item noStyle {...field} rules={[{ required: true }]}>
         <Input />
@@ -123,7 +123,7 @@ describe('Form.List', () => {
 
     const { container } = render(
       <Form
-        onFinish={v => {
+        onFinish={(v) => {
           if (typeof v.list[0] === 'object') {
             /* old version led to SyntheticEvent be passed as an value here
               that led to weird infinite loop somewhere and OutOfMemory crash */
@@ -135,7 +135,7 @@ describe('Form.List', () => {
         <Form.List name="list">
           {(fields, { add, remove }) => (
             <>
-              {fields.map(field => (
+              {fields.map((field) => (
                 // key is in a field
                 // eslint-disable-next-line react/jsx-key
                 <Form.Item {...field}>
@@ -230,8 +230,8 @@ describe('Form.List', () => {
       return (
         <Form form={form}>
           <Form.List name="list">
-            {fields =>
-              fields.map(field => (
+            {(fields) =>
+              fields.map((field) => (
                 <Form.Item {...field} key={field.key}>
                   <Input />
                 </Form.Item>

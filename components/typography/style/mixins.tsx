@@ -33,11 +33,11 @@ const getTitleStyle = (
 };
 
 // eslint-disable-next-line import/prefer-default-export
-export const getTitleStyles: GenerateStyle<TypographyToken, CSSObject> = token => {
+export const getTitleStyles: GenerateStyle<TypographyToken, CSSObject> = (token) => {
   const headings = [1, 2, 3, 4, 5] as const;
 
   const styles = {} as CSSObject;
-  headings.forEach(headingLevel => {
+  headings.forEach((headingLevel) => {
     styles[
       `
       h${headingLevel}&,
@@ -55,7 +55,7 @@ export const getTitleStyles: GenerateStyle<TypographyToken, CSSObject> = token =
   return styles;
 };
 
-export const getLinkStyles: GenerateStyle<TypographyToken, CSSObject> = token => {
+export const getLinkStyles: GenerateStyle<TypographyToken, CSSObject> = (token) => {
   const { componentCls } = token;
 
   return {
@@ -183,7 +183,7 @@ export const getResetStyles = (): CSSObject => ({
   },
 });
 
-export const getEditableStyles: GenerateStyle<TypographyToken, CSSObject> = token => {
+export const getEditableStyles: GenerateStyle<TypographyToken, CSSObject> = (token) => {
   const { componentCls } = token;
 
   const inputToken = initInputToken(token);
@@ -220,7 +220,7 @@ export const getEditableStyles: GenerateStyle<TypographyToken, CSSObject> = toke
   };
 };
 
-export const getCopiableStyles: GenerateStyle<TypographyToken, CSSObject> = token => ({
+export const getCopiableStyles: GenerateStyle<TypographyToken, CSSObject> = (token) => ({
   '&-copy-success': {
     [`
     &,

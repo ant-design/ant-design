@@ -36,7 +36,7 @@ export interface OverlayProps
   onCancel?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-export const Overlay: React.FC<OverlayProps> = props => {
+export const Overlay: React.FC<OverlayProps> = (props) => {
   const {
     prefixCls,
     okButtonProps,
@@ -56,7 +56,7 @@ export const Overlay: React.FC<OverlayProps> = props => {
 
   return (
     <LocaleReceiver componentName="Popconfirm" defaultLocale={defaultLocale.Popconfirm}>
-      {contextLocale => (
+      {(contextLocale) => (
         <div className={`${prefixCls}-inner-content`}>
           <div className={`${prefixCls}-message`}>
             {icon && <span className={`${prefixCls}-message-icon`}>{icon}</span>}

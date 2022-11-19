@@ -8,7 +8,7 @@ export interface ComponentToken {
 export interface PopconfirmToken extends FullToken<'Popconfirm'> {}
 
 // =============================== Base ===============================
-const genBaseStyle: GenerateStyle<PopconfirmToken> = token => {
+const genBaseStyle: GenerateStyle<PopconfirmToken> = (token) => {
   const {
     componentCls,
     iconCls,
@@ -65,8 +65,8 @@ const genBaseStyle: GenerateStyle<PopconfirmToken> = token => {
 // ============================== Export ==============================
 export default genComponentStyleHook(
   'Popconfirm',
-  token => genBaseStyle(token),
-  token => {
+  (token) => genBaseStyle(token),
+  (token) => {
     const { zIndexPopupBase } = token;
 
     return {

@@ -7,7 +7,7 @@ describe('DatePicker.typescript', () => {
   it('DatePicker ref methods', () => {
     const datePicker = (
       <DatePicker
-        ref={picker => {
+        ref={(picker) => {
           picker?.focus();
           picker?.blur();
         }}
@@ -23,7 +23,7 @@ describe('DatePicker.typescript', () => {
     ));
     const datePicker = (
       <MyDatePicker
-        ref={picker => {
+        ref={(picker) => {
           picker?.focus();
           picker?.blur();
         }}
@@ -35,7 +35,7 @@ describe('DatePicker.typescript', () => {
   it('RangePicker ref methods', () => {
     const rangePicker = (
       <DatePicker.RangePicker
-        ref={picker => {
+        ref={(picker) => {
           picker?.focus();
           picker?.blur();
         }}
@@ -50,7 +50,7 @@ describe('DatePicker.typescript', () => {
     ));
     const datePicker = (
       <MyRangePicker
-        ref={picker => {
+        ref={(picker) => {
           picker?.focus();
           picker?.blur();
         }}

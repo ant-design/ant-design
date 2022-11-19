@@ -261,7 +261,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     setSearchValue('');
 
     if (filterResetToDefaultFilteredValue) {
-      setFilteredKeysSync((defaultFilteredValue || []).map(key => String(key)));
+      setFilteredKeysSync((defaultFilteredValue || []).map((key) => String(key)));
     } else {
       setFilteredKeysSync([]);
     }
@@ -295,7 +295,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
 
   const onCheckAll = (e: CheckboxChangeEvent) => {
     if (e.target.checked) {
-      const allFilterKeys = flattenKeys(column?.filters).map(key => String(key));
+      const allFilterKeys = flattenKeys(column?.filters).map((key) => String(key));
       setFilteredKeysSync(allFilterKeys);
     } else {
       setFilteredKeysSync([]);
@@ -318,7 +318,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     ...node,
     text: node.title,
     value: node.key,
-    children: node.children?.map(item => getFilterData(item)) || [],
+    children: node.children?.map((item) => getFilterData(item)) || [],
   });
 
   let dropdownContent: React.ReactNode;
@@ -396,7 +396,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
                 defaultExpandAll
                 filterTreeNode={
                   searchValue.trim()
-                    ? node => {
+                    ? (node) => {
                         if (typeof filterSearch === 'function') {
                           return filterSearch(searchValue, getFilterData(node));
                         }
@@ -445,7 +445,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     const getResetDisabled = () => {
       if (filterResetToDefaultFilteredValue) {
         return isEqual(
-          (defaultFilteredValue || []).map(key => String(key)),
+          (defaultFilteredValue || []).map((key) => String(key)),
           selectedKeys,
         );
       }
@@ -507,7 +507,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
           className={classNames(`${prefixCls}-trigger`, {
             active: filtered,
           })}
-          onClick={e => {
+          onClick={(e) => {
             e.stopPropagation();
           }}
         >

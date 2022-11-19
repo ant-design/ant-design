@@ -25,7 +25,7 @@ const columns: ColumnsType<DataType> = [
   {
     title: 'Name',
     dataIndex: 'name',
-    render: text => <a>{text}</a>,
+    render: (text) => <a>{text}</a>,
     onCell: (_, index) => ({
       colSpan: (index as number) < 4 ? 1 : 5,
     }),

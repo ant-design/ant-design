@@ -58,7 +58,7 @@ function insertSpace(child: React.ReactElement | string | number, needInserted: 
 function spaceChildren(children: React.ReactNode, needInserted: boolean) {
   let isPrevChildPure: boolean = false;
   const childList: React.ReactNode[] = [];
-  React.Children.forEach(children, child => {
+  React.Children.forEach(children, (child) => {
     const type = typeof child;
     const isCurrentChildPure = type === 'string' || type === 'number';
     if (isPrevChildPure && isCurrentChildPure) {
@@ -73,7 +73,7 @@ function spaceChildren(children: React.ReactNode, needInserted: boolean) {
   });
 
   // Pass to React.Children.map to auto fill key
-  return React.Children.map(childList, child =>
+  return React.Children.map(childList, (child) =>
     insertSpace(child as React.ReactElement | string | number, needInserted),
   );
 }

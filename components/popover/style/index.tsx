@@ -15,7 +15,7 @@ export type PopoverToken = FullToken<'Popover'> & {
   popoverPadding: number | string;
 };
 
-const genBaseStyle: GenerateStyle<PopoverToken> = token => {
+const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
   const {
     componentCls,
     popoverBg,
@@ -94,7 +94,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = token => {
   ];
 };
 
-const genColorStyle: GenerateStyle<PopoverToken> = token => {
+const genColorStyle: GenerateStyle<PopoverToken> = (token) => {
   const { componentCls } = token;
 
   return {
@@ -118,7 +118,7 @@ const genColorStyle: GenerateStyle<PopoverToken> = token => {
   };
 };
 
-const genWireframeStyle: GenerateStyle<PopoverToken> = token => {
+const genWireframeStyle: GenerateStyle<PopoverToken> = (token) => {
   const {
     componentCls,
     lineWidth,
@@ -157,7 +157,7 @@ const genWireframeStyle: GenerateStyle<PopoverToken> = token => {
 
 export default genComponentStyleHook(
   'Popover',
-  token => {
+  (token) => {
     const { colorBgElevated, colorText, wireframe } = token;
 
     const popoverToken = mergeToken<PopoverToken>(token, {

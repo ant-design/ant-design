@@ -96,8 +96,8 @@ const DocLayout: FC = () => {
 
   const content = useMemo(() => {
     if (
-      ['', '/'].some(path => path === pathname) ||
-      ['/index'].some(path => pathname.startsWith(path))
+      ['', '/'].some((path) => path === pathname) ||
+      ['/index'].some((path) => pathname.startsWith(path))
     ) {
       return (
         <>

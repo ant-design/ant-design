@@ -24,7 +24,7 @@ interface TooltipToken extends FullToken<'Tooltip'> {
   tooltipRadiusOuter: number;
 }
 
-const generatorTooltipPresetColor: GenerateStyle<TooltipToken, CSSObject> = token => {
+const generatorTooltipPresetColor: GenerateStyle<TooltipToken, CSSObject> = (token) => {
   const { componentCls } = token;
 
   return PresetColors.reduce((previousValue: any, currentValue: keyof PresetColorType) => {
@@ -41,7 +41,7 @@ const generatorTooltipPresetColor: GenerateStyle<TooltipToken, CSSObject> = toke
   }, {});
 };
 
-const genTooltipStyle: GenerateStyle<TooltipToken> = token => {
+const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
   const {
     componentCls, // ant-tooltip
     tooltipMaxWidth,
@@ -144,7 +144,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = token => {
 export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResult => {
   const useOriginHook = genComponentStyleHook(
     'Tooltip',
-    token => {
+    (token) => {
       // Popover use Tooltip as internal component. We do not need to handle this.
       if (injectStyle === false) {
         return [];

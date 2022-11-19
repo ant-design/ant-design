@@ -14,14 +14,14 @@ const App: React.FC = () => {
   const [loadings, setLoadings] = useState<boolean[]>([]);
 
   const enterLoading = (index: number) => {
-    setLoadings(state => {
+    setLoadings((state) => {
       const newLoadings = [...state];
       newLoadings[index] = true;
       return newLoadings;
     });
 
     setTimeout(() => {
-      setLoadings(state => {
+      setLoadings((state) => {
         const newLoadings = [...state];
         newLoadings[index] = false;
         return newLoadings;

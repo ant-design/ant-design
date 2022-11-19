@@ -114,7 +114,7 @@ interface TransferFCProps {
   children: React.ReactNode;
 }
 
-const TransferFC: React.FC<TransferFCProps> = props => {
+const TransferFC: React.FC<TransferFCProps> = (props) => {
   const { prefixCls } = props;
 
   const [wrapSSR, hashId] = useStyle(prefixCls);
@@ -146,8 +146,8 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
     if (selectedKeys) {
       const mergedTargetKeys = targetKeys || [];
       return {
-        sourceSelectedKeys: selectedKeys.filter(key => !mergedTargetKeys.includes(key)),
-        targetSelectedKeys: selectedKeys.filter(key => mergedTargetKeys.includes(key)),
+        sourceSelectedKeys: selectedKeys.filter((key) => !mergedTargetKeys.includes(key)),
+        targetSelectedKeys: selectedKeys.filter((key) => mergedTargetKeys.includes(key)),
       };
     }
 
@@ -170,8 +170,8 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
 
     const { selectedKeys = [], targetKeys = [] } = props;
     this.state = {
-      sourceSelectedKeys: selectedKeys.filter(key => !targetKeys.includes(key)),
-      targetSelectedKeys: selectedKeys.filter(key => targetKeys.includes(key)),
+      sourceSelectedKeys: selectedKeys.filter((key) => !targetKeys.includes(key)),
+      targetSelectedKeys: selectedKeys.filter((key) => targetKeys.includes(key)),
     };
   }
 
@@ -205,13 +205,13 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
     const moveKeys = direction === 'right' ? sourceSelectedKeys : targetSelectedKeys;
     // filter the disabled options
     const newMoveKeys = moveKeys.filter(
-      key => !dataSource.some(data => !!(key === data.key && data.disabled)),
+      (key) => !dataSource.some((data) => !!(key === data.key && data.disabled)),
     );
     // move items to target box
     const newTargetKeys =
       direction === 'right'
         ? newMoveKeys.concat(targetKeys)
-        : targetKeys.filter(targetKey => !newMoveKeys.includes(targetKey));
+        : targetKeys.filter((targetKey) => !newMoveKeys.includes(targetKey));
 
     // empty checked keys
     const oppositeDirection = direction === 'right' ? 'left' : 'right';
@@ -226,14 +226,14 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
   moveToRight = () => this.moveTo('right');
 
   onItemSelectAll = (direction: TransferDirection, selectedKeys: string[], checkAll: boolean) => {
-    this.setStateKeys(direction, prevKeys => {
+    this.setStateKeys(direction, (prevKeys) => {
       let mergedCheckedKeys: string[] = [];
       if (checkAll) {
         // Merge current keys with origin key
         mergedCheckedKeys = Array.from(new Set<string>([...prevKeys, ...selectedKeys]));
       } else {
         // Remove current keys from origin keys
-        mergedCheckedKeys = prevKeys.filter(key => !selectedKeys.includes(key));
+        mergedCheckedKeys = prevKeys.filter((key) => !selectedKeys.includes(key));
       }
 
       this.handleSelectChange(direction, mergedCheckedKeys);
@@ -296,7 +296,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
     this.setStateKeys('right', []);
 
     onChange?.(
-      targetKeys.filter(key => !selectedKeys.includes(key)),
+      targetKeys.filter((key) => !selectedKeys.includes(key)),
       'left',
       [...selectedKeys],
     );
@@ -368,7 +368,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
   render() {
     return (
       <LocaleReceiver componentName="Transfer" defaultLocale={defaultLocale.Transfer}>
-        {contextLocale => (
+        {(contextLocale) => (
           <ConfigConsumer>
             {({ getPrefixCls, renderEmpty, direction }: ConfigConsumerProps) => (
               <FormItemInputContext.Consumer>
