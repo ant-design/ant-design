@@ -738,10 +738,9 @@ const genSearchInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
         '&:hover, &:focus': {
           borderColor: token.colorPrimaryHover,
 
-          [`+ ${componentCls}-group-addon ${searchPrefixCls}-button:not(.@{ant-prefix}-btn-primary)`]:
-            {
-              borderInlineStartColor: token.colorPrimaryHover,
-            },
+          [`+ ${componentCls}-group-addon ${searchPrefixCls}-button:not(${antCls}-btn-primary)`]: {
+            borderInlineStartColor: token.colorPrimaryHover,
+          },
         },
       },
 

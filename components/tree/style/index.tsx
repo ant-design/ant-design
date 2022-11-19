@@ -423,7 +423,7 @@ export const genDirectoryStyle = (token: TreeToken): CSSObject => {
             background: 'transparent',
           },
 
-          [`&.${treeCls}-node-selected`]: {
+          [`&${treeCls}-node-selected`]: {
             color: token.colorTextLightSolid,
             background: 'transparent',
           },
