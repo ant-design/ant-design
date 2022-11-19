@@ -154,6 +154,12 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
 
       // ====================== Horizontal ======================
       [`&${componentCls}-horizontal`]: {
+        ...(themeSuffix === 'dark'
+          ? {
+              borderBottom: 0,
+            }
+          : {}),
+
         [`> ${componentCls}-item, > ${componentCls}-submenu`]: {
           top: colorActiveBarBorderSize,
           marginTop: -colorActiveBarBorderSize,
