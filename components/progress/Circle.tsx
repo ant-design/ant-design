@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import type { ProgressProps as RcProgressProps } from 'rc-progress';
 import { Circle as RCCircle } from 'rc-progress';
 import * as React from 'react';
 import Tooltip from '../tooltip';
@@ -19,8 +20,8 @@ export interface CircleProps extends ProgressProps {
 const Circle: React.FC<CircleProps> = (props) => {
   const {
     prefixCls,
-    width,
-    strokeWidth,
+    width = 120,
+    strokeWidth = Math.max(getMinPercent(width), 6),
     trailColor = null as unknown as string,
     strokeLinecap = 'round',
     gapPosition,
@@ -30,22 +31,9 @@ const Circle: React.FC<CircleProps> = (props) => {
     success,
   } = props;
 
-  const circleSize = width || 120;
+  const circleStyle: React.CSSProperties = { width, height: width, fontSize: width * 0.15 + 6 };
 
-  const circleStyle: React.CSSProperties = {
-    width: circleSize,
-    height: circleSize,
-    fontSize: circleSize * 0.15 + 6,
-  };
-
-  const memoizedStrokeWidth = React.useMemo<number>(() => {
-    if (!strokeWidth) {
-      return Math.max(getMinPercent(circleSize), 6);
-    }
-    return strokeWidth;
-  }, [circleSize, strokeWidth]);
-
-  const getGapDegree = React.useMemo<number | undefined>(() => {
+  const realGapDegree = React.useMemo<RcProgressProps['gapDegree']>(() => {
     // Support gapDeg = 0 when type = 'dashboard'
     if (gapDegree || gapDegree === 0) {
       return gapDegree;
@@ -69,20 +57,20 @@ const Circle: React.FC<CircleProps> = (props) => {
   const circleContent = (
     <RCCircle
       percent={getPercentage(props)}
-      strokeWidth={memoizedStrokeWidth}
-      trailWidth={memoizedStrokeWidth}
+      strokeWidth={strokeWidth}
+      trailWidth={strokeWidth}
       strokeColor={strokeColor}
       strokeLinecap={strokeLinecap}
       trailColor={trailColor}
       prefixCls={prefixCls}
-      gapDegree={getGapDegree}
+      gapDegree={realGapDegree}
       gapPosition={gapPos}
     />
   );
 
   return (
     <div className={wrapperClassName} style={circleStyle}>
-      {circleSize <= 20 ? (
+      {width <= 20 ? (
         <Tooltip title={children}>{circleContent}</Tooltip>
       ) : (
         <>
