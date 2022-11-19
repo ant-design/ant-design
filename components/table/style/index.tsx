@@ -69,7 +69,7 @@ export interface TableToken extends FullToken<'Table'> {
   tableScrollBg: string;
 }
 
-const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
+const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
   const {
     componentCls,
     fontWeightStrong,
@@ -193,10 +193,6 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
             },
           },
 
-          '&:last-child > td': {
-            borderBottom: tableBorder,
-          },
-
           [`&:first-child > td,
             &${componentCls}-measure-row + tr > td`]: {
             borderTop: 'none',
@@ -265,7 +261,7 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Table', token => {
+export default genComponentStyleHook('Table', (token) => {
   const {
     controlItemBgActive,
     controlItemBgActiveHover,
