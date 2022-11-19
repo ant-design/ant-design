@@ -6,10 +6,7 @@ import { waitFakeTimer, render, fireEvent } from '../../../tests/utils';
 import getDataOrAriaProps from '../getDataOrAriaProps';
 import delayRaf from '../raf';
 import { isStyleSupport } from '../styleChecker';
-import {
-  throttleByAnimationFrame,
-  throttleByAnimationFrameDecorator,
-} from '../throttleByAnimationFrame';
+import throttleByAnimationFrame from '../throttleByAnimationFrame';
 import TransButton from '../transButton';
 
 describe('Test utils function', () => {
@@ -48,22 +45,6 @@ describe('Test utils function', () => {
       await waitFakeTimer();
 
       expect(callback).not.toHaveBeenCalled();
-    });
-
-    it('throttleByAnimationFrameDecorator should works', async () => {
-      const callbackFn = jest.fn();
-      class Test {
-        @throttleByAnimationFrameDecorator()
-        callback() {
-          callbackFn();
-        }
-      }
-      const test = new Test();
-      test.callback();
-      test.callback();
-      test.callback();
-      await waitFakeTimer();
-      expect(callbackFn).toHaveBeenCalledTimes(1);
     });
   });
 
