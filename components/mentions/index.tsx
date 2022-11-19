@@ -53,12 +53,13 @@ interface MentionsEntity {
   value: string;
 }
 
-interface CompoundedComponent
-  extends React.ForwardRefExoticComponent<MentionProps & React.RefAttributes<MentionsRef>> {
+type CompoundedComponent = React.ForwardRefExoticComponent<
+  MentionProps & React.RefAttributes<MentionsRef>
+> & {
   Option: typeof Option;
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
   getMentions: (value: string, config?: MentionsConfig) => MentionsEntity[];
-}
+};
 
 const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps> = (
   {
