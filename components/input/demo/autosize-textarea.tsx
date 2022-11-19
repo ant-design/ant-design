@@ -17,7 +17,7 @@ const App: React.FC = () => {
       <div style={{ margin: '24px 0' }} />
       <TextArea
         value={value}
-        onChange={e => setValue(e.target.value)}
+        onChange={(e) => setValue(e.target.value)}
         placeholder="Controlled autosize"
         autoSize={{ minRows: 3, maxRows: 5 }}
       />

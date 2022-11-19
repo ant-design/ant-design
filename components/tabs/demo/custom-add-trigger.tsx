@@ -22,8 +22,8 @@ const App: React.FC = () => {
   };
 
   const remove = (targetKey: string) => {
-    const targetIndex = items.findIndex(pane => pane.key === targetKey);
-    const newPanes = items.filter(pane => pane.key !== targetKey);
+    const targetIndex = items.findIndex((pane) => pane.key === targetKey);
+    const newPanes = items.filter((pane) => pane.key !== targetKey);
     if (newPanes.length && targetKey === activeKey) {
       const { key } = newPanes[targetIndex === newPanes.length ? targetIndex - 1 : targetIndex];
       setActiveKey(key);

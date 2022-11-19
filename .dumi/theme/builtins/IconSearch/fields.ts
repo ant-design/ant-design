@@ -1,7 +1,7 @@
 import * as AntdIcons from '@ant-design/icons/lib/icons';
 
 const all = Object.keys(AntdIcons)
-  .map(n => n.replace(/(Outlined|Filled|TwoTone)$/, ''))
+  .map((n) => n.replace(/(Outlined|Filled|TwoTone)$/, ''))
   .filter((n, i, arr) => arr.indexOf(n) === i);
 
 const direction = [
@@ -204,7 +204,7 @@ const logo = [
 
 const datum = [...direction, ...suggestion, ...editor, ...data, ...logo];
 
-const other = all.filter(n => !datum.includes(n));
+const other = all.filter((n) => !datum.includes(n));
 
 export const categories = {
   direction,

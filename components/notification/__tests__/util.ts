@@ -22,7 +22,7 @@ export async function triggerMotionEnd(runAllTimers: boolean = true) {
   // document.querySelectorAll('.ant-notification-fade-leave').forEach(ele => {
   //   fireEvent.animationEnd(ele);
   // });
-  document.querySelectorAll('[role="alert"]').forEach(ele => {
+  document.querySelectorAll('[role="alert"]').forEach((ele) => {
     fireEvent.animationEnd(ele.parentNode?.parentNode!);
   });
 

@@ -26,7 +26,7 @@ const App: React.FC = () => {
 
   const genExtra = () => (
     <SettingOutlined
-      onClick={event => {
+      onClick={(event) => {
         // If you don't want click extra trigger collapse, you can prevent this:
         event.stopPropagation();
       }}

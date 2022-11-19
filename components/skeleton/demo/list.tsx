@@ -39,7 +39,7 @@ const App: React.FC = () => {
         itemLayout="vertical"
         size="large"
         dataSource={listData}
-        renderItem={item => (
+        renderItem={(item) => (
           <List.Item
             key={item.title}
             actions={

@@ -28,7 +28,7 @@ const HookModal: React.ForwardRefRenderFunction<HookModalRef, HookModalProps> = 
 
   const close = (...args: any[]) => {
     setOpen(false);
-    const triggerCancel = args.some(param => param && param.triggerCancel);
+    const triggerCancel = args.some((param) => param && param.triggerCancel);
     if (innerConfig.onCancel && triggerCancel) {
       innerConfig.onCancel(() => {}, ...args.slice(1));
     }
@@ -37,7 +37,7 @@ const HookModal: React.ForwardRefRenderFunction<HookModalRef, HookModalProps> = 
   React.useImperativeHandle(ref, () => ({
     destroy: close,
     update: (newConfig: ModalFuncProps) => {
-      setInnerConfig(originConfig => ({
+      setInnerConfig((originConfig) => ({
         ...originConfig,
         ...newConfig,
       }));
@@ -46,7 +46,7 @@ const HookModal: React.ForwardRefRenderFunction<HookModalRef, HookModalProps> = 
 
   return (
     <LocaleReceiver componentName="Modal" defaultLocale={defaultLocale.Modal}>
-      {contextLocale => (
+      {(contextLocale) => (
         <ConfirmDialog
           prefixCls={prefixCls}
           rootPrefixCls={rootPrefixCls}

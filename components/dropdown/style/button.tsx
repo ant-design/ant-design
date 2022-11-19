@@ -1,7 +1,7 @@
 import type { DropdownToken } from '.';
 import type { GenerateStyle } from '../../theme';
 
-const genButtonStyle: GenerateStyle<DropdownToken> = token => {
+const genButtonStyle: GenerateStyle<DropdownToken> = (token) => {
   const { componentCls, antCls, paddingXS, opacityLoading } = token;
 
   return {

@@ -7,6 +7,6 @@ const SVGIcon = () => (
   </svg>
 );
 
-const CodeSandboxIcon = props => <Icon component={SVGIcon} {...props} />;
+const CodeSandboxIcon = (props) => <Icon component={SVGIcon} {...props} />;
 
 export default CodeSandboxIcon;

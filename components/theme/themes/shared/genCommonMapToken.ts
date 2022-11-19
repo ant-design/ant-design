@@ -14,8 +14,8 @@ export default function genCommonMapToken(token: SeedToken): CommonMapToken {
     motionDurationSlow: `${(motionBase + motionUnit * 3).toFixed(1)}s`,
 
     // font
-    fontSizes: fontSizes.map(fs => fs.size),
-    lineHeights: fontSizes.map(fs => fs.lineHeight),
+    fontSizes: fontSizes.map((fs) => fs.size),
+    lineHeights: fontSizes.map((fs) => fs.lineHeight),
 
     // line
     lineWidthBold: lineWidth + 1,

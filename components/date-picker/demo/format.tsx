@@ -14,10 +14,10 @@ const monthFormat = 'YYYY/MM';
 
 const dateFormatList = ['DD/MM/YYYY', 'DD/MM/YY'];
 
-const customFormat: DatePickerProps['format'] = value =>
+const customFormat: DatePickerProps['format'] = (value) =>
   `custom format: ${value.format(dateFormat)}`;
 
-const customWeekStartEndFormat: DatePickerProps['format'] = value =>
+const customWeekStartEndFormat: DatePickerProps['format'] = (value) =>
   `${dayjs(value).startOf('week').format(weekFormat)} ~ ${dayjs(value)
     .endOf('week')
     .format(weekFormat)}`;

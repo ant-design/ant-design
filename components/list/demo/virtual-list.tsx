@@ -27,8 +27,8 @@ const App: React.FC = () => {
 
   const appendData = () => {
     fetch(fakeDataUrl)
-      .then(res => res.json())
-      .then(body => {
+      .then((res) => res.json())
+      .then((body) => {
         setData(data.concat(body.results));
         message.success(`${body.results.length} more items loaded!`);
       });

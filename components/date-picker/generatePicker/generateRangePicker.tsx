@@ -104,7 +104,7 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
 
     return wrapSSR(
       <LocaleReceiver componentName="DatePicker" defaultLocale={enUS}>
-        {contextLocale => {
+        {(contextLocale) => {
           const locale = { ...contextLocale, ...props.locale };
 
           return (

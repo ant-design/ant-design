@@ -5,7 +5,7 @@ import { Pagination } from 'antd';
 const App: React.FC = () => {
   const [current, setCurrent] = useState(3);
 
-  const onChange: PaginationProps['onChange'] = page => {
+  const onChange: PaginationProps['onChange'] = (page) => {
     console.log(page);
     setCurrent(page);
   };

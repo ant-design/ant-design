@@ -28,7 +28,7 @@ const bar = new ProgressBar('🚀 Collecting by component: [:bar] :component (:c
   total: styleFiles.length,
 });
 
-styleFiles.forEach(file => {
+styleFiles.forEach((file) => {
   const pathArr = file.split('/');
   const styleIndex = pathArr.lastIndexOf('style');
   const componentName = pathArr[styleIndex - 1];

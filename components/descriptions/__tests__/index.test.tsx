@@ -73,7 +73,7 @@ describe('Descriptions', () => {
     );
     expect(
       Array.from(wrapper.container.querySelectorAll('td'))
-        .map(i => Number(i.getAttribute('colspan')))
+        .map((i) => Number(i.getAttribute('colspan')))
         .filter(Boolean)
         .reduce((total, cur) => total + cur, 0),
     ).toBe(8);

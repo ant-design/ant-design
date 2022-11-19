@@ -66,7 +66,7 @@ describe('Dropdown', () => {
       <Dropdown
         open
         menu={{ items }}
-        dropdownRender={menu => (
+        dropdownRender={(menu) => (
           <div>
             {menu}
             <div className="dropdown-custom-node">CUSTOM NODE</div>
@@ -102,7 +102,7 @@ describe('Dropdown', () => {
         expandIcon: <span id="customExpandIcon" />,
       },
       open: true,
-      getPopupContainer: node => node,
+      getPopupContainer: (node) => node,
     };
 
     const { container } = render(

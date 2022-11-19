@@ -17,7 +17,7 @@ const App: React.FC = () => {
           rows,
           expandable: true,
           suffix: '--William Shakespeare',
-          onEllipsis: ellipsis => {
+          onEllipsis: (ellipsis) => {
             console.log('Ellipsis changed:', ellipsis);
           },
         }}

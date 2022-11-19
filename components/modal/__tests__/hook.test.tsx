@@ -17,7 +17,7 @@ jest.mock('rc-motion');
 describe('Modal.hook', () => {
   // Inject CSSMotion to replace with No transition support
   const MockCSSMotion = genCSSMotion(false);
-  Object.keys(MockCSSMotion).forEach(key => {
+  Object.keys(MockCSSMotion).forEach((key) => {
     // @ts-ignore
     CSSMotion[key] = MockCSSMotion[key];
   });
@@ -36,7 +36,7 @@ describe('Modal.hook', () => {
               instance = modal.confirm({
                 content: (
                   <Context.Consumer>
-                    {name => <div className="test-hook">{name}</div>}
+                    {(name) => <div className="test-hook">{name}</div>}
                   </Context.Consumer>
                 ),
               });
@@ -213,7 +213,7 @@ describe('Modal.hook', () => {
           closable: true,
           keyboard: true,
           maskClosable: true,
-          onCancel: close => mockFn(close),
+          onCancel: (close) => mockFn(close),
         });
       }, [modal]);
 
@@ -283,7 +283,7 @@ describe('Modal.hook', () => {
 
     expect(document.body.querySelectorAll('.ant-modal-confirm-confirm')).toHaveLength(1);
 
-    mockFn.mockImplementation(close => close());
+    mockFn.mockImplementation((close) => close());
 
     // Click the Cancel button to close (valid)
     fireEvent.click(document.body.querySelectorAll('.ant-modal-confirm-btns > .ant-btn')[0]);

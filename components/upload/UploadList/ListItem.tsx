@@ -121,7 +121,7 @@ const ListItem = React.forwardRef(
         icon = (
           <a
             className={aClassName}
-            onClick={e => onPreview(file, e)}
+            onClick={(e) => onPreview(file, e)}
             href={file.url || file.thumbUrl}
             target="_blank"
             rel="noopener noreferrer"
@@ -183,7 +183,7 @@ const ListItem = React.forwardRef(
             title={file.name}
             {...linkProps}
             href={file.url}
-            onClick={e => onPreview(file, e)}
+            onClick={(e) => onPreview(file, e)}
           >
             {file.name}
           </a>,
@@ -193,7 +193,7 @@ const ListItem = React.forwardRef(
           <span
             key="view"
             className={listItemNameClass}
-            onClick={e => onPreview(file, e)}
+            onClick={(e) => onPreview(file, e)}
             title={file.name}
           >
             {file.name}
@@ -211,7 +211,7 @@ const ListItem = React.forwardRef(
         target="_blank"
         rel="noopener noreferrer"
         style={file.url || file.thumbUrl ? undefined : previewStyle}
-        onClick={e => onPreview(file, e)}
+        onClick={(e) => onPreview(file, e)}
         title={locale.previewFile}
       >
         {typeof customPreviewIcon === 'function'
@@ -266,7 +266,7 @@ const ListItem = React.forwardRef(
         : file.error?.statusText || file.error?.message || locale.uploadError;
     const item =
       mergedStatus === 'error' ? (
-        <Tooltip title={message} getPopupContainer={node => node.parentNode as HTMLElement}>
+        <Tooltip title={message} getPopupContainer={(node) => node.parentNode as HTMLElement}>
           {dom}
         </Tooltip>
       ) : (

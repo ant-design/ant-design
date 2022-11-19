@@ -74,7 +74,7 @@ function filter<OptionType extends BaseOptionType = DefaultOptionType>(
   inputValue: string,
   path: OptionType[],
 ): boolean {
-  return path.some(option => option.label.toLowerCase().includes(inputValue.toLowerCase()));
+  return path.some((option) => option.label.toLowerCase().includes(inputValue.toLowerCase()));
 }
 
 describe('Cascader', () => {
@@ -189,7 +189,7 @@ describe('Cascader', () => {
       inputValue: string,
       path: OptionType[],
     ): boolean {
-      return path.some(option => option.name.toLowerCase().includes(inputValue.toLowerCase()));
+      return path.some((option) => option.name.toLowerCase().includes(inputValue.toLowerCase()));
     }
     const { container } = render(
       <Cascader

@@ -147,9 +147,9 @@ const genGridMediaStyle = (
 });
 
 // ============================== Export ==============================
-export const useRowStyle = genComponentStyleHook('Grid', token => [genGridRowStyle(token)]);
+export const useRowStyle = genComponentStyleHook('Grid', (token) => [genGridRowStyle(token)]);
 
-export const useColStyle = genComponentStyleHook('Grid', token => {
+export const useColStyle = genComponentStyleHook('Grid', (token) => {
   const gridToken: GridColToken = mergeToken<GridColToken>(token, {
     gridColumns: 24, // Row is divided into 24 parts in Grid
   });

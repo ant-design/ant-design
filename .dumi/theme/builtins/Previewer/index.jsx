@@ -75,7 +75,7 @@ class Demo extends React.Component {
     return ['', ''];
   }
 
-  handleCodeExpand = demo => {
+  handleCodeExpand = (demo) => {
     const { codeExpand } = this.state;
     this.setState({ codeExpand: !codeExpand });
     this.track({
@@ -84,11 +84,11 @@ class Demo extends React.Component {
     });
   };
 
-  saveAnchor = anchor => {
+  saveAnchor = (anchor) => {
     this.anchor = anchor;
   };
 
-  handleCodeCopied = demo => {
+  handleCodeCopied = (demo) => {
     this.setState({ copied: true });
     this.track({
       type: 'copy',
@@ -96,7 +96,7 @@ class Demo extends React.Component {
     });
   };
 
-  onCopyTooltipOpenChange = open => {
+  onCopyTooltipOpenChange = (open) => {
     if (open) {
       this.setState({
         copyTooltipOpen: open,
@@ -254,7 +254,7 @@ class Demo extends React.Component {
         'react-router-dom/umd/react-router-dom.min.js',
         'react-router@3.x/umd/ReactRouter.min.js',
       ]
-        .map(url => `https://unpkg.com/${url}`)
+        .map((url) => `https://unpkg.com/${url}`)
         .join(';'),
       js_pre_processor: 'typescript',
     };
@@ -495,7 +495,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
           <CodePreview
             toReactComponent={props.utils.toReactComponent}
             codes={highlightedCodes}
-            onCodeTypeChange={type => this.setState({ codeType: type })}
+            onCodeTypeChange={(type) => this.setState({ codeType: type })}
           />
           {highlightedStyle ? (
             <div key="style" className="highlight">

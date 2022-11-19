@@ -58,7 +58,7 @@ const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => 
             }, {});
             const childItems = [];
             childItems.push(
-              ...childrenGroup.default.map(item => ({
+              ...childrenGroup.default.map((item) => ({
                 label: (
                   <Link to={item.link}>
                     {before}
@@ -75,7 +75,7 @@ const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => 
                   type: 'group',
                   label: type,
                   key: type,
-                  children: children?.map(item => ({
+                  children: children?.map((item) => ({
                     label: (
                       <Link to={item.link}>
                         {before}
@@ -98,7 +98,7 @@ const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => 
               type: 'group',
               label: group.title,
               key: group.title,
-              children: group.children?.map(item => ({
+              children: group.children?.map((item) => ({
                 label: (
                   <Link to={item.link}>
                     {before}
@@ -115,7 +115,7 @@ const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => 
           }
         } else {
           result.push(
-            ...group.children?.map(item => ({
+            ...group.children?.map((item) => ({
               label: (
                 <Link to={item.link}>
                   {before}

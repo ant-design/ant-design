@@ -3,7 +3,7 @@ import type { GenerateStyle } from '../../theme';
 import type { TableToken } from './index';
 
 // ========================= Placeholder ==========================
-const genEmptyStyle: GenerateStyle<TableToken, CSSObject> = token => {
+const genEmptyStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
   const { componentCls } = token;
   return {
     [`${componentCls}-wrapper`]: {

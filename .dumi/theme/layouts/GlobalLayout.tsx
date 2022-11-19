@@ -14,7 +14,7 @@ const GlobalLayout: FC = () => {
   const contextValue = React.useMemo<ThemeContextProps>(
     () => ({
       theme,
-      setTheme: newTheme => {
+      setTheme: (newTheme) => {
         setTheme(newTheme);
         localStorage.setItem(
           ANT_DESIGN_SITE_THEME,

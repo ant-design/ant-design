@@ -14,7 +14,7 @@ const columns: ColumnsType<DataType> = [
     title: 'Name',
     dataIndex: 'name',
     key: 'name',
-    render: text => <a>{text}</a>,
+    render: (text) => <a>{text}</a>,
     width: 150,
   },
   {
@@ -30,7 +30,7 @@ const columns: ColumnsType<DataType> = [
     ellipsis: {
       showTitle: false,
     },
-    render: address => (
+    render: (address) => (
       <Tooltip placement="topLeft" title={address}>
         {address}
       </Tooltip>
@@ -43,7 +43,7 @@ const columns: ColumnsType<DataType> = [
     ellipsis: {
       showTitle: false,
     },
-    render: address => (
+    render: (address) => (
       <Tooltip placement="topLeft" title={address}>
         {address}
       </Tooltip>
@@ -56,7 +56,7 @@ const columns: ColumnsType<DataType> = [
     ellipsis: {
       showTitle: false,
     },
-    render: address => (
+    render: (address) => (
       <Tooltip placement="topLeft" title={address}>
         {address}
       </Tooltip>
@@ -69,7 +69,7 @@ const columns: ColumnsType<DataType> = [
     ellipsis: {
       showTitle: false,
     },
-    render: address => (
+    render: (address) => (
       <Tooltip placement="topLeft" title={address}>
         {address}
       </Tooltip>

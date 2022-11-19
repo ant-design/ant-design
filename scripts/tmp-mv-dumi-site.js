@@ -13,7 +13,7 @@ glob('components/**/*.md', (er, files) => {
   fs.ensureDirSync(tmpFolder);
   fs.emptyDirSync(tmpFolder);
 
-  files.forEach(file => {
+  files.forEach((file) => {
     const tmpFilePath = path.resolve(tmpFolder, file);
     const tmpFolderPath = path.dirname(tmpFilePath);
     fs.ensureDirSync(tmpFolderPath);

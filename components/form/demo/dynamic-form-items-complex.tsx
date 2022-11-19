@@ -35,7 +35,7 @@ const App: React.FC = () => {
       <Form.List name="sights">
         {(fields, { add, remove }) => (
           <>
-            {fields.map(field => (
+            {fields.map((field) => (
               <Space key={field.key} align="baseline">
                 <Form.Item
                   noStyle
@@ -51,7 +51,7 @@ const App: React.FC = () => {
                       rules={[{ required: true, message: 'Missing sight' }]}
                     >
                       <Select disabled={!form.getFieldValue('area')} style={{ width: 130 }}>
-                        {(sights[form.getFieldValue('area') as SightsKeys] || []).map(item => (
+                        {(sights[form.getFieldValue('area') as SightsKeys] || []).map((item) => (
                           <Option key={item} value={item}>
                             {item}
                           </Option>

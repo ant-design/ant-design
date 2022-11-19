@@ -68,7 +68,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
   const [wrapSSR, hashId] = useColStyle(prefixCls);
 
   let sizeClassObj = {};
-  sizes.forEach(size => {
+  sizes.forEach((size) => {
     let sizeProps: ColSize = {};
     const propSize = props[size];
     if (typeof propSize === 'number') {

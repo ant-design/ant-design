@@ -127,7 +127,7 @@ const App: React.FC = () => {
   const [count, setCount] = useState(2);
 
   const handleDelete = (key: React.Key) => {
-    const newData = dataSource.filter(item => item.key !== key);
+    const newData = dataSource.filter((item) => item.key !== key);
     setDataSource(newData);
   };
 
@@ -171,7 +171,7 @@ const App: React.FC = () => {
 
   const handleSave = (row: DataType) => {
     const newData = [...dataSource];
-    const index = newData.findIndex(item => row.key === item.key);
+    const index = newData.findIndex((item) => row.key === item.key);
     const item = newData[index];
     newData.splice(index, 1, {
       ...item,
@@ -187,7 +187,7 @@ const App: React.FC = () => {
     },
   };
 
-  const columns = defaultColumns.map(col => {
+  const columns = defaultColumns.map((col) => {
     if (!col.editable) {
       return col;
     }

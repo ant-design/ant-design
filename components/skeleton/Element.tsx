@@ -10,7 +10,7 @@ export interface SkeletonElementProps {
   active?: boolean;
 }
 
-const Element: React.FC<SkeletonElementProps> = props => {
+const Element: React.FC<SkeletonElementProps> = (props) => {
   const { prefixCls, className, style, size, shape } = props;
 
   const sizeCls = classNames({

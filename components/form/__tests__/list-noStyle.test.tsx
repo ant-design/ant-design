@@ -16,7 +16,7 @@ describe('Form.List.NoStyle', () => {
         <Form.List name="users">
           {(fields, op) => {
             operation = op;
-            return fields.map(field => (
+            return fields.map((field) => (
               <Form.Item key={field.key}>
                 <Form.Item
                   {...field}

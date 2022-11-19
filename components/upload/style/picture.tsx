@@ -3,7 +3,7 @@ import type { UploadToken } from '.';
 import type { GenerateStyle } from '../../theme';
 import { clearFix, textEllipsis } from '../../style';
 
-const genPictureStyle: GenerateStyle<UploadToken> = token => {
+const genPictureStyle: GenerateStyle<UploadToken> = (token) => {
   const { componentCls, iconCls, uploadThumbnailSize, uploadProgressOffset } = token;
   const listCls = `${componentCls}-list`;
   const itemCls = `${listCls}-item`;
@@ -77,7 +77,7 @@ const genPictureStyle: GenerateStyle<UploadToken> = token => {
   };
 };
 
-const genPictureCardStyle: GenerateStyle<UploadToken> = token => {
+const genPictureCardStyle: GenerateStyle<UploadToken> = (token) => {
   const { componentCls, iconCls, fontSizeLG, colorTextLightSolid } = token;
   const listCls = `${componentCls}-list`;
   const itemCls = `${listCls}-item`;

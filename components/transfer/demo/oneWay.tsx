@@ -16,7 +16,7 @@ const mockData: RecordType[] = Array.from({ length: 20 }).map((_, i) => ({
   disabled: i % 3 < 1,
 }));
 
-const oriTargetKeys = mockData.filter(item => Number(item.key) % 3 > 1).map(item => item.key);
+const oriTargetKeys = mockData.filter((item) => Number(item.key) % 3 > 1).map((item) => item.key);
 
 const App: React.FC = () => {
   const [targetKeys, setTargetKeys] = useState<string[]>(oriTargetKeys);
@@ -64,7 +64,7 @@ const App: React.FC = () => {
         onChange={handleChange}
         onSelectChange={handleSelectChange}
         onScroll={handleScroll}
-        render={item => item.title}
+        render={(item) => item.title}
         disabled={disabled}
         oneWay
         style={{ marginBottom: 16 }}

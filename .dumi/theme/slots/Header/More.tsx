@@ -38,7 +38,8 @@ export function getEcosystemGroup(): Exclude<MenuProps['items'], undefined> {
         <a href="http://ng.ant.design" target="_blank" rel="noopener noreferrer">
           Ant Design of Angular
           <span style={smallStyle}>
-            (<FormattedMessage id="app.implementation.community" />)
+            (
+            <FormattedMessage id="app.implementation.community" />)
           </span>
         </a>
       ),
@@ -49,7 +50,8 @@ export function getEcosystemGroup(): Exclude<MenuProps['items'], undefined> {
         <a href="http://antdv.com" target="_blank" rel="noopener noreferrer">
           Ant Design of Vue
           <span style={smallStyle}>
-            (<FormattedMessage id="app.implementation.community" />)
+            (
+            <FormattedMessage id="app.implementation.community" />)
           </span>
         </a>
       ),

@@ -101,7 +101,7 @@ const genResponsiveStyle = (token: ListToken): CSSObject => {
 };
 
 // =============================== Base ===============================
-const genBaseStyle: GenerateStyle<ListToken> = token => {
+const genBaseStyle: GenerateStyle<ListToken> = (token) => {
   const {
     componentCls,
     antCls,
@@ -337,7 +337,7 @@ const genBaseStyle: GenerateStyle<ListToken> = token => {
 // ============================== Export ==============================
 export default genComponentStyleHook(
   'List',
-  token => {
+  (token) => {
     const listToken = mergeToken<ListToken>(token, {
       listBorderedCls: `${token.componentCls}-bordered`,
       minHeight: token.controlHeightLG,

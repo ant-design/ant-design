@@ -32,7 +32,7 @@ const Menu = forwardRef<MenuRef, MenuProps>((props, ref) => {
   const context = React.useContext(SiderContext);
 
   useImperativeHandle(ref, () => ({
-    focus: options => {
+    focus: (options) => {
       menuRef.current?.focus(options);
     },
     menu: menuRef.current,

@@ -29,7 +29,7 @@ const App: React.FC = () => {
     setTheme(value ? 'dark' : 'light');
   };
 
-  const onClick: MenuProps['onClick'] = e => {
+  const onClick: MenuProps['onClick'] = (e) => {
     setCurrent(e.key);
   };
 

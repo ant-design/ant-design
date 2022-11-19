@@ -14,7 +14,7 @@ const DraggableTabNode = ({ index, children, moveNode }: DraggableTabPaneProps) 
   const ref = useRef<HTMLDivElement>(null);
   const [{ isOver, dropClassName }, drop] = useDrop({
     accept: type,
-    collect: monitor => {
+    collect: (monitor) => {
       const { index: dragIndex } = monitor.getItem() || {};
       if (dragIndex === index) {
         return {};
@@ -31,7 +31,7 @@ const DraggableTabNode = ({ index, children, moveNode }: DraggableTabPaneProps) 
   const [, drag] = useDrag({
     type,
     item: { index },
-    collect: monitor => ({
+    collect: (monitor) => ({
       isDragging: monitor.isDragging(),
     }),
   });
@@ -44,14 +44,14 @@ const DraggableTabNode = ({ index, children, moveNode }: DraggableTabPaneProps) 
   );
 };
 
-const DraggableTabs: React.FC<TabsProps> = props => {
+const DraggableTabs: React.FC<TabsProps> = (props) => {
   const { items = [] } = props;
   const [order, setOrder] = useState<React.Key[]>([]);
 
   const moveTabNode = (dragKey: React.Key, hoverKey: React.Key) => {
     const newOrder = order.slice();
 
-    items.forEach(item => {
+    items.forEach((item) => {
       if (item.key && newOrder.indexOf(item.key) === -1) {
         newOrder.push(item.key);
       }
@@ -68,7 +68,7 @@ const DraggableTabs: React.FC<TabsProps> = props => {
 
   const renderTabBar: TabsProps['renderTabBar'] = (tabBarProps, DefaultTabBar) => (
     <DefaultTabBar {...tabBarProps}>
-      {node => (
+      {(node) => (
         <DraggableTabNode key={node.key} index={node.key!} moveNode={moveTabNode}>
           {node}
         </DraggableTabNode>

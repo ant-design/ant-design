@@ -28,12 +28,12 @@ export function updateFileList(file: UploadFile<any>, fileList: UploadFile<any>[
 
 export function getFileItem(file: RcFile, fileList: UploadFile[]) {
   const matchKey = file.uid !== undefined ? 'uid' : 'name';
-  return fileList.filter(item => item[matchKey] === file[matchKey])[0];
+  return fileList.filter((item) => item[matchKey] === file[matchKey])[0];
 }
 
 export function removeFileItem(file: UploadFile, fileList: UploadFile[]) {
   const matchKey = file.uid !== undefined ? 'uid' : 'name';
-  const removed = fileList.filter(item => item[matchKey] !== file[matchKey]);
+  const removed = fileList.filter((item) => item[matchKey] !== file[matchKey]);
   if (removed.length === fileList.length) {
     return null;
   }
@@ -75,7 +75,7 @@ export const isImageUrl = (file: UploadFile): boolean => {
 
 const MEASURE_SIZE = 200;
 export function previewImage(file: File | Blob): Promise<string> {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     if (!file.type || !isImageFileType(file.type)) {
       resolve('');
       return;

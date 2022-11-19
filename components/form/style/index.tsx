@@ -84,7 +84,7 @@ const genFormSize = (token: FormToken, height: number): CSSObject => {
   };
 };
 
-const genFormStyle: GenerateStyle<FormToken> = token => {
+const genFormStyle: GenerateStyle<FormToken> = (token) => {
   const { componentCls } = token;
 
   return {
@@ -111,7 +111,7 @@ const genFormStyle: GenerateStyle<FormToken> = token => {
   };
 };
 
-const genFormItemStyle: GenerateStyle<FormToken> = token => {
+const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
   const { formItemCls, iconCls, componentCls, rootPrefixCls } = token;
 
   return {
@@ -320,7 +320,7 @@ const genFormItemStyle: GenerateStyle<FormToken> = token => {
   };
 };
 
-const genFormMotionStyle: GenerateStyle<FormToken> = token => {
+const genFormMotionStyle: GenerateStyle<FormToken> = (token) => {
   const { componentCls, rootPrefixCls } = token;
 
   return {
@@ -372,7 +372,7 @@ const genFormMotionStyle: GenerateStyle<FormToken> = token => {
   };
 };
 
-const genHorizontalStyle: GenerateStyle<FormToken> = token => {
+const genHorizontalStyle: GenerateStyle<FormToken> = (token) => {
   const { componentCls, formItemCls, rootPrefixCls } = token;
 
   return {
@@ -396,7 +396,7 @@ const genHorizontalStyle: GenerateStyle<FormToken> = token => {
   };
 };
 
-const genInlineStyle: GenerateStyle<FormToken> = token => {
+const genInlineStyle: GenerateStyle<FormToken> = (token) => {
   const { componentCls, formItemCls } = token;
 
   return {
@@ -472,7 +472,7 @@ const makeVerticalLayout = (token: FormToken): CSSObject => {
   };
 };
 
-const genVerticalStyle: GenerateStyle<FormToken> = token => {
+const genVerticalStyle: GenerateStyle<FormToken> = (token) => {
   const { componentCls, formItemCls, rootPrefixCls } = token;
 
   return {

@@ -8,7 +8,7 @@ interface TreeSelectToken extends FullToken<'TreeSelect'> {
 }
 
 // =============================== Base ===============================
-const genBaseStyle: GenerateStyle<TreeSelectToken> = token => {
+const genBaseStyle: GenerateStyle<TreeSelectToken> = (token) => {
   const { componentCls, treePrefixCls, colorBgElevated } = token;
   const treeCls = `.${treePrefixCls}`;
 
@@ -64,7 +64,7 @@ const genBaseStyle: GenerateStyle<TreeSelectToken> = token => {
 
 // ============================== Export ==============================
 export default function useTreeSelectStyle(prefixCls: string, treePrefixCls: string) {
-  return genComponentStyleHook('TreeSelect', token => {
+  return genComponentStyleHook('TreeSelect', (token) => {
     const treeSelectToken = mergeToken<TreeSelectToken>(token, {
       treePrefixCls,
     });

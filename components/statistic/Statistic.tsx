@@ -29,7 +29,7 @@ export interface StatisticProps extends FormatConfig {
   onMouseLeave?: React.MouseEventHandler<HTMLDivElement>;
 }
 
-const Statistic: React.FC<StatisticProps & ConfigConsumerProps> = props => {
+const Statistic: React.FC<StatisticProps & ConfigConsumerProps> = (props) => {
   const {
     prefixCls,
     className,

@@ -2,7 +2,7 @@ import React from 'react';
 import cls from 'classnames';
 import Palette from './Palette';
 
-const ColorPalettes = props => {
+const ColorPalettes = (props) => {
   const { dark } = props;
 
   const colors = [
@@ -84,7 +84,7 @@ const ColorPalettes = props => {
   });
   return (
     <div className={colorCls}>
-      {colors.map(color => (
+      {colors.map((color) => (
         <Palette key={color.name} color={color} dark={dark} showTitle />
       ))}
     </div>

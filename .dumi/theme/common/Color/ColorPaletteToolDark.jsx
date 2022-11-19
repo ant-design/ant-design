@@ -22,7 +22,7 @@ export default class ColorPaletteTool extends Component {
     });
   };
 
-  handleChangeBackgroundColor = e => {
+  handleChangeBackgroundColor = (e) => {
     const value = e.target ? e.target.value : e;
     this.setState({
       backgroundColor: value,

@@ -29,7 +29,7 @@ export default function confirm(config: ModalFuncProps) {
   let timeoutId: NodeJS.Timeout;
 
   function destroy(...args: any[]) {
-    const triggerCancel = args.some(param => param && param.triggerCancel);
+    const triggerCancel = args.some((param) => param && param.triggerCancel);
     if (config.onCancel && triggerCancel) {
       config.onCancel(() => {}, ...args.slice(1));
     }

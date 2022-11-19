@@ -343,7 +343,7 @@ const genTransferRTLStyle: GenerateStyle<TransferToken> = (token: TransferToken)
 // ============================== Export ==============================
 export default genComponentStyleHook(
   'Transfer',
-  token => {
+  (token) => {
     const { fontSize, lineHeight, lineWidth, controlHeightLG, controlHeight } = token;
 
     const fontHeight = Math.round(fontSize * lineHeight);

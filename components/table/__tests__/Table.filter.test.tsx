@@ -19,7 +19,7 @@ import type { TreeColumnFilterItem } from '../hooks/useFilter/FilterDropdown';
 const nativeEvent = { nativeEvent: { stopImmediatePropagation: () => {} } };
 
 describe('Table.filter', () => {
-  window.requestAnimationFrame = callback => window.setTimeout(callback, 16);
+  window.requestAnimationFrame = (callback) => window.setTimeout(callback, 16);
   window.cancelAnimationFrame = window.clearTimeout;
 
   const filterFn = (value: any, record: any) => record.name.includes(value);
@@ -62,7 +62,7 @@ describe('Table.filter', () => {
     container
       ?.querySelector('.ant-table-tbody')
       ?.querySelectorAll('tr')
-      ?.forEach(tr => {
+      ?.forEach((tr) => {
         namesList.push(tr.querySelector('td')?.textContent);
       });
     return namesList;
@@ -309,7 +309,7 @@ describe('Table.filter', () => {
       ?.querySelector('.ant-table-filter-dropdown')
       ?.querySelectorAll<HTMLInputElement>('input[type="checkbox"]');
     expect(checkboxList?.length).toBeTruthy();
-    checkboxList?.forEach(checkbox => {
+    checkboxList?.forEach((checkbox) => {
       expect((checkbox as any)?.checkbox).toBeFalsy();
     });
 
@@ -400,7 +400,7 @@ describe('Table.filter', () => {
           {
             ...column,
             filteredValue: ['Lucy', 12, true],
-            onFilter: value => {
+            onFilter: (value) => {
               filterKeys.add(value);
               return false;
             },
@@ -418,7 +418,7 @@ describe('Table.filter', () => {
           {
             ...column,
             filteredValue: null,
-            onFilter: value => {
+            onFilter: (value) => {
               filterKeys.add(value);
               return true;
             },
@@ -459,7 +459,7 @@ describe('Table.filter', () => {
 
   // Warning: An update to Item ran an effect, but was not wrapped in act(...).
   it('render checked of checkbox correctly controlled by filteredValue', () => {
-    ['Lucy', 23, false].forEach(val => {
+    ['Lucy', 23, false].forEach((val) => {
       const { container } = render(
         createTable({
           columns: [
@@ -715,7 +715,7 @@ describe('Table.filter', () => {
               {
                 ...column,
                 filters,
-                onFilter: val => {
+                onFilter: (val) => {
                   expect(val).toBe(value);
                   filterKeys.add(val);
                   return false;
@@ -977,7 +977,7 @@ describe('Table.filter', () => {
                 <div>
                   <Input
                     value={selectedKeys[0]}
-                    onChange={e => {
+                    onChange={(e) => {
                       setSelectedKeys(e.target.value ? [e.target.value] : []);
                     }}
                   />
@@ -1003,7 +1003,7 @@ describe('Table.filter', () => {
   it('should not trigger onChange when bluring custom filterDropdown', () => {
     const onChange = jest.fn();
     const filterDropdown = ({ setSelectedKeys }: FilterDropdownProps) => (
-      <input onChange={e => setSelectedKeys([e.target.value])} />
+      <input onChange={(e) => setSelectedKeys([e.target.value])} />
     );
     const { container } = render(
       createTable({
@@ -1028,7 +1028,7 @@ describe('Table.filter', () => {
     const onChange = jest.fn();
     const filterDropdown = ({ setSelectedKeys, confirm }: FilterDropdownProps) => (
       <div>
-        <input onChange={e => setSelectedKeys([e.target.value])} />
+        <input onChange={(e) => setSelectedKeys([e.target.value])} />
         <button className="confirm-btn" type="submit" onClick={() => confirm()}>
           Confirm
         </button>
@@ -1065,7 +1065,7 @@ describe('Table.filter', () => {
 
     const filterDropdown = ({ setSelectedKeys, selectedKeys, confirm }: FilterDropdownProps) => {
       renderSelectedKeys = selectedKeys;
-      const handleChange: SelectProps['onChange'] = selectedValues => {
+      const handleChange: SelectProps['onChange'] = (selectedValues) => {
         setSelectedKeys(selectedValues);
       };
 
@@ -1206,7 +1206,7 @@ describe('Table.filter', () => {
   });
 
   it('should support getPopupContainer', () => {
-    const getPopupContainer = jest.fn(node => node.parentNode);
+    const getPopupContainer = jest.fn((node) => node.parentNode);
 
     render(
       createTable({
@@ -1223,7 +1223,7 @@ describe('Table.filter', () => {
   });
 
   it('should support getPopupContainer from ConfigProvider', () => {
-    const getPopupContainer = jest.fn(node => node.parentNode);
+    const getPopupContainer = jest.fn((node) => node.parentNode);
 
     render(
       <ConfigProvider getPopupContainer={getPopupContainer}>

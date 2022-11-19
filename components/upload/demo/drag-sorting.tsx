@@ -25,7 +25,7 @@ const DragableUploadListItem = ({
   const index = fileList.indexOf(file);
   const [{ isOver, dropClassName }, drop] = useDrop({
     accept: type,
-    collect: monitor => {
+    collect: (monitor) => {
       const { index: dragIndex } = monitor.getItem() || {};
       if (dragIndex === index) {
         return {};
@@ -42,7 +42,7 @@ const DragableUploadListItem = ({
   const [, drag] = useDrag({
     type,
     item: { index },
-    collect: monitor => ({
+    collect: (monitor) => ({
       isDragging: monitor.isDragging(),
     }),
   });

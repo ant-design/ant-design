@@ -18,10 +18,10 @@ export function merge<T extends object>(...objs: Partial<T>[]): T {
 
   const ret = {} as T;
 
-  objs.forEach(obj => {
+  objs.forEach((obj) => {
     const keys = Object.keys(obj);
 
-    keys.forEach(key => {
+    keys.forEach((key) => {
       Object.defineProperty(ret, key, {
         configurable: true,
         enumerable: true,
