@@ -6,66 +6,6 @@
 
 async
 
-```tsx
-import { Mentions } from 'antd';
-import debounce from 'lodash/debounce';
-import React, { useCallback, useRef, useState } from 'react';
-
-const App: React.FC = () => {
-  const [loading, setLoading] = useState(false);
-  const [users, setUsers] = useState<{ login: string; avatar_url: string }[]>([]);
-  const ref = useRef<string>();
-
-  const loadGithubUsers = (key: string) => {
-    if (!key) {
-      setUsers([]);
-      return;
-    }
-
-    fetch(`https://api.github.com/search/users?q=${key}`)
-      .then(res => res.json())
-      .then(({ options = [] }) => {
-        if (ref.current !== key) return;
-
-        setLoading(false);
-        setUsers(options.slice(0, 10));
-      });
-  };
-
-  const debounceLoadGithubUsers = useCallback(debounce(loadGithubUsers, 800), []);
-
-  const onSearch = (search: string) => {
-    console.log('Search:', search);
-    ref.current = search;
-    setLoading(!!search);
-    setUsers([]);
-
-    debounceLoadGithubUsers(search);
-  };
-
-  return (
-    <Mentions
-      style={{ width: '100%' }}
-      loading={loading}
-      onSearch={onSearch}
-      options={users.map(({ login, avatar_url: avatar }) => ({
-        key: login,
-        value: login,
-        className: 'antd-demo-dynamic-option',
-        label: (
-          <>
-            <img src={avatar} alt={login} />
-            <span>{login}</span>
-          </>
-        ),
-      }))}
-    />
-  );
-};
-
-export default App;
-```
-
 <style>
 .antd-demo-dynamic-option img {
   width: 20px;
