@@ -122,7 +122,7 @@ describe('Drawer', () => {
     fireEvent.click(container.querySelector('button#open_two_drawer')!);
 
     expect(container.querySelector('.ant-drawer-content-wrapper')).toHaveStyle({
-      transform: 'translateX(-180px)',
+      transform: 'translate3d(-180px, 0, 0)',
     });
     expect(container.querySelectorAll('#two_drawer_text').length).toBe(1);
   });
@@ -133,7 +133,7 @@ describe('Drawer', () => {
     fireEvent.click(container.querySelector('button#open_two_drawer')!);
 
     expect(container.querySelector('.ant-drawer-content-wrapper')).toHaveStyle({
-      transform: 'translateX(180px)',
+      transform: 'translate3d(180px, 0, 0)',
     });
     expect(container.querySelectorAll('#two_drawer_text').length).toBe(1);
     fireEvent.click(container.querySelector('.Two-level .ant-drawer-close')!);
@@ -145,7 +145,7 @@ describe('Drawer', () => {
     fireEvent.click(container.querySelector('button#open_drawer')!);
     fireEvent.click(container.querySelector('button#open_two_drawer')!);
     expect(container.querySelector('.ant-drawer-content-wrapper')).toHaveStyle({
-      transform: 'translateY(180px)',
+      transform: 'translate3d(0, 180px, 0)',
     });
     expect(container.querySelectorAll('#two_drawer_text').length).toBe(1);
   });
@@ -165,7 +165,7 @@ describe('Drawer', () => {
 
     fireEvent.click(wrapper.querySelector('button#open_two_drawer')!);
     expect(wrapper.querySelector('.ant-drawer-content-wrapper')).toHaveStyle({
-      transform: 'translateY(180px)',
+      transform: 'translate3d(0, 180px, 0)',
     });
     expect(wrapper.querySelectorAll('#two_drawer_text').length).toBe(1);
   });
@@ -175,7 +175,7 @@ describe('Drawer', () => {
     fireEvent.click(container.querySelector('button#open_drawer')!);
     fireEvent.click(container.querySelector('button#open_two_drawer')!);
     expect(container.querySelector('.ant-drawer-content-wrapper')).toHaveStyle({
-      transform: 'translateX(-256px)',
+      transform: 'translate3d(-256px, 0, 0)',
     });
   });
 
@@ -184,7 +184,7 @@ describe('Drawer', () => {
     fireEvent.click(container.querySelector('button#open_drawer')!);
     fireEvent.click(container.querySelector('button#open_two_drawer')!);
     expect(container.querySelector('.ant-drawer-content-wrapper')).toHaveStyle({
-      transform: 'translateX(-180px)',
+      transform: 'translate3d(-180px, 0, 0)',
     });
   });
 

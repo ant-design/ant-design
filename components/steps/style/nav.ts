@@ -80,7 +80,7 @@ const genStepsNavStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
           borderBottom: 'none',
           borderInlineStart: 'none',
           borderInlineEnd: `${token.lineWidth}px ${token.lineType} ${stepsNavArrowColor}`,
-          transform: 'translateY(-50%) translateX(-50%) rotate(45deg)',
+          transform: 'translate3d(-50%, -50%, 0) rotate(45deg)',
           content: '""',
         },
 
@@ -128,7 +128,7 @@ const genStepsNavStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
           height: token.controlHeight * 0.25,
           marginBottom: token.marginXS,
           textAlign: 'center',
-          transform: 'translateY(-50%) translateX(-50%) rotate(135deg)',
+          transform: 'translate3d(-50%, -50%, 0) rotate(135deg)',
         },
         [`> ${componentCls}-item-container > ${componentCls}-item-tail`]: {
           visibility: 'hidden',

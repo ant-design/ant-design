@@ -227,7 +227,7 @@ const genBaseStyle: GenerateStyle<ListToken> = (token) => {
             insetInlineEnd: 0,
             width: lineWidth,
             height: Math.ceil(token.fontSize * token.lineHeight) - token.marginXXS * 2,
-            transform: 'translateY(-50%)',
+            transform: 'translate3d(0, -50%, 0)',
             backgroundColor: token.colorSplit,
           },
         },

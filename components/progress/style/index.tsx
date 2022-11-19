@@ -18,15 +18,15 @@ interface ProgressToken extends FullToken<'Progress'> {
 
 const antProgressActive = new Keyframes('antProgressActive', {
   '0%': {
-    transform: 'translateX(-100%) scaleX(0)',
+    transform: 'translate3d(-100%, 0, 0) scaleX(0)',
     opacity: 0.1,
   },
   '20%': {
-    transform: 'translateX(-100%) scaleX(0)',
+    transform: 'translate3d(-100%, 0, 0) scaleX(0)',
     opacity: 0.5,
   },
   to: {
-    transform: 'translateX(0) scaleX(1)',
+    transform: 'translate3d(0, 0, 0) scaleX(1)',
     opacity: 0,
   },
 });

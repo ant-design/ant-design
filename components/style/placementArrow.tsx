@@ -90,7 +90,7 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
         `&-placement-topRight ${componentCls}-arrow`,
       ].join(',')]: {
         bottom: 0,
-        transform: 'translateY(100%) rotate(180deg)',
+        transform: 'translate3d(0, 100%, 0) rotate(180deg)',
       },
 
       [`&-placement-top ${componentCls}-arrow`]: {
@@ -98,7 +98,7 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
           _skip_check_: true,
           value: '50%',
         },
-        transform: 'translateX(-50%) translateY(100%) rotate(180deg)',
+        transform: 'translate3d(-50%, 100%, 0) rotate(180deg)',
       },
 
       [`&-placement-topLeft ${componentCls}-arrow`]: {
@@ -122,7 +122,7 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
         `&-placement-bottomRight ${componentCls}-arrow`,
       ].join(',')]: {
         top: 0,
-        transform: `translateY(-100%)`,
+        transform: `translate3d(0, -100%, 0)`,
       },
 
       [`&-placement-bottom ${componentCls}-arrow`]: {
@@ -130,7 +130,7 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
           _skip_check_: true,
           value: '50%',
         },
-        transform: `translateX(-50%) translateY(-100%)`,
+        transform: `translate3d(-50%, -100%)`,
       },
 
       [`&-placement-bottomLeft ${componentCls}-arrow`]: {
@@ -157,7 +157,7 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
           _skip_check_: true,
           value: 0,
         },
-        transform: 'translateX(100%) rotate(90deg)',
+        transform: 'translate3d(100%, 0, 0) rotate(90deg)',
       },
 
       [`&-placement-left ${componentCls}-arrow`]: {
@@ -165,7 +165,7 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
           _skip_check_: true,
           value: '50%',
         },
-        transform: 'translateY(-50%) translateX(100%) rotate(90deg)',
+        transform: 'translate3d(-50%, 100%, 0) rotate(90deg)',
       },
 
       [`&-placement-leftTop ${componentCls}-arrow`]: {
@@ -186,7 +186,7 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
           _skip_check_: true,
           value: 0,
         },
-        transform: 'translateX(-100%) rotate(-90deg)',
+        transform: 'translate3d(-100%, 0, 0) rotate(-90deg)',
       },
 
       [`&-placement-right ${componentCls}-arrow`]: {
@@ -194,7 +194,7 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
           _skip_check_: true,
           value: '50%',
         },
-        transform: 'translateY(-50%) translateX(-100%) rotate(-90deg)',
+        transform: 'translate3d(-100%, -50%, 0) rotate(-90deg)',
       },
 
       [`&-placement-rightTop ${componentCls}-arrow`]: {

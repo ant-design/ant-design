@@ -63,7 +63,7 @@ const genStepsInlineStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         '&-tail': {
           marginInlineStart: 0,
           top: containerPaddingTop + inlineDotSize / 2,
-          transform: `translateY(-50%)`,
+          transform: `translate3d(0, -50%, 0)`,
           '&:after': {
             width: '100%',
             height: token.lineWidth,

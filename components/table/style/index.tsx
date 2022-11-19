@@ -155,7 +155,7 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
               width: 1,
               height: '1.6em',
               backgroundColor: tableHeaderCellSplitColor,
-              transform: 'translateY(-50%)',
+              transform: 'translate3d(0, -50%, 0)',
               transition: `background-color ${motionDurationSlow}`,
               content: '""',
             },

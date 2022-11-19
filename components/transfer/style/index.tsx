@@ -158,7 +158,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
         ...resetIcon(),
 
         fontSize: fontSizeIcon,
-        transform: 'translateY(10%)',
+        transform: 'translate3d(0, 10%, 0)',
         cursor: 'pointer',
 
         '&[disabled]': {

@@ -51,7 +51,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
   // =============================== Style ===============================
   const getStyle = () => ({
     left: '50%',
-    transform: 'translateX(-50%)',
+    transform: 'translate3d(-50%, 0, 0)',
     top: top ?? DEFAULT_OFFSET,
   });
 

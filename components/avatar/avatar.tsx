@@ -185,7 +185,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
   } else if (icon) {
     childrenToRender = icon;
   } else if (mounted || scale !== 1) {
-    const transformString = `scale(${scale}) translateX(-50%)`;
+    const transformString = `scale(${scale}) translate3d(-50%, 0, 0)`;
     const childrenStyle: React.CSSProperties = {
       msTransform: transformString,
       WebkitTransform: transformString,

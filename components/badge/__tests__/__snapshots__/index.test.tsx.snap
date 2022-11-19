@@ -235,7 +235,7 @@ exports[`Badge should render when count is changed 1`] = `
     </span>
     <span
       class="ant-scroll-number-only"
-      style="transform: translateY(-100%);"
+      style="transform: translate3d(0, -100%, 0);"
     >
       <span
         class="ant-scroll-number-only-unit"
@@ -328,7 +328,7 @@ exports[`Badge should render when count is changed 2`] = `
     </span>
     <span
       class="ant-scroll-number-only"
-      style="transform: translateY(-100%);"
+      style="transform: translate3d(0, -100%, 0);"
     >
       <span
         class="ant-scroll-number-only-unit"
@@ -492,7 +492,7 @@ exports[`Badge should render when count is changed 6`] = `
   >
     <span
       class="ant-scroll-number-only"
-      style="transform: translateY(100%);"
+      style="transform: translate3d(0, 100%, 0);"
     >
       <span
         class="ant-scroll-number-only-unit"

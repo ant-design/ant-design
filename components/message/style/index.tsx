@@ -40,13 +40,13 @@ const genMessageStyle: GenerateStyle<MessageToken> = (token) => {
   const messageMoveIn = new Keyframes('MessageMoveIn', {
     '0%': {
       padding: 0,
-      transform: 'translateY(-100%)',
+      transform: 'translate3d(0, -100%, 0)',
       opacity: 0,
     },
 
     '100%': {
       padding: paddingXS,
-      transform: 'translateY(0)',
+      transform: 'translate3d(0, 0, 0)',
       opacity: 1,
     },
   });

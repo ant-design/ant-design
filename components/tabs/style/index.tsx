@@ -785,7 +785,7 @@ const genTabsStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
               value: 0,
             },
             height: token.controlHeightLG / 8,
-            transform: 'translateY(100%)',
+            transform: 'translate3d(0, 100%, 0)',
             content: "''",
           },
         },
