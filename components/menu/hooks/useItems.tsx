@@ -74,7 +74,7 @@ function convertItemsToNodes(list: ItemType[]) {
 
       return null;
     })
-    .filter(opt => opt);
+    .filter((opt) => opt);
 }
 
 // FIXME: Move logic here in v5

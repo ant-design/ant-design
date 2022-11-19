@@ -56,7 +56,7 @@ export function addObserveTarget<T>(target: HTMLElement | Window | null, affix?:
     return;
   }
 
-  let entity: ObserverEntity | undefined = observerEntities.find(item => item.target === target);
+  let entity: ObserverEntity | undefined = observerEntities.find((item) => item.target === target);
 
   if (entity) {
     entity.affixList.push(affix);
@@ -69,9 +69,9 @@ export function addObserveTarget<T>(target: HTMLElement | Window | null, affix?:
     observerEntities.push(entity);
 
     // Add listener
-    TRIGGER_EVENTS.forEach(eventName => {
+    TRIGGER_EVENTS.forEach((eventName) => {
       entity!.eventHandlers[eventName] = addEventListener(target, eventName, () => {
-        entity!.affixList.forEach(targetAffix => {
+        entity!.affixList.forEach((targetAffix) => {
           targetAffix.lazyUpdatePosition();
         });
       });
@@ -80,19 +80,19 @@ export function addObserveTarget<T>(target: HTMLElement | Window | null, affix?:
 }
 
 export function removeObserveTarget<T>(affix: T): void {
-  const observerEntity = observerEntities.find(oriObserverEntity => {
-    const hasAffix = oriObserverEntity.affixList.some(item => item === affix);
+  const observerEntity = observerEntities.find((oriObserverEntity) => {
+    const hasAffix = oriObserverEntity.affixList.some((item) => item === affix);
     if (hasAffix) {
-      oriObserverEntity.affixList = oriObserverEntity.affixList.filter(item => item !== affix);
+      oriObserverEntity.affixList = oriObserverEntity.affixList.filter((item) => item !== affix);
     }
     return hasAffix;
   });
 
   if (observerEntity && observerEntity.affixList.length === 0) {
-    observerEntities = observerEntities.filter(item => item !== observerEntity);
+    observerEntities = observerEntities.filter((item) => item !== observerEntity);
 
     // Remove listener
-    TRIGGER_EVENTS.forEach(eventName => {
+    TRIGGER_EVENTS.forEach((eventName) => {
       const handler = observerEntity.eventHandlers[eventName];
       if (handler && handler.remove) {
         handler.remove();

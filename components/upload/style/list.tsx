@@ -2,7 +2,7 @@ import type { UploadToken } from '.';
 import type { GenerateStyle } from '../../theme';
 import { clearFix, textEllipsis } from '../../style';
 
-const genListStyle: GenerateStyle<UploadToken> = token => {
+const genListStyle: GenerateStyle<UploadToken> = (token) => {
   const { componentCls, antCls, iconCls, fontSize, lineHeight } = token;
   const itemCls = `${componentCls}-list-item`;
   const actionsCls = `${itemCls}-actions`;

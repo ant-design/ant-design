@@ -30,7 +30,7 @@ const App: React.FC = () => {
         unCheckedChildren="default"
         checkedChildren="customize"
         checked={customize}
-        onChange={val => {
+        onChange={(val) => {
           setCustomize(val);
         }}
       />

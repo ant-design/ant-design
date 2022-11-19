@@ -34,13 +34,13 @@ const App: React.FC = () => {
   const [gData, setGData] = useState(defaultData);
   const [expandedKeys] = useState(['0-0', '0-0-0', '0-0-0-0']);
 
-  const onDragEnter: TreeProps['onDragEnter'] = info => {
+  const onDragEnter: TreeProps['onDragEnter'] = (info) => {
     console.log(info);
     // expandedKeys 需要受控时设置
     // setExpandedKeys(info.expandedKeys)
   };
 
-  const onDrop: TreeProps['onDrop'] = info => {
+  const onDrop: TreeProps['onDrop'] = (info) => {
     console.log(info);
     const dropKey = info.node.key;
     const dragKey = info.dragNode.key;
@@ -72,7 +72,7 @@ const App: React.FC = () => {
 
     if (!info.dropToGap) {
       // Drop on the content
-      loop(data, dropKey, item => {
+      loop(data, dropKey, (item) => {
         item.children = item.children || [];
         // where to insert 示例添加到头部，可以是随意位置
         item.children.unshift(dragObj);
@@ -82,7 +82,7 @@ const App: React.FC = () => {
       (info.node as any).props.expanded && // Is expanded
       dropPosition === 1 // On the bottom gap
     ) {
-      loop(data, dropKey, item => {
+      loop(data, dropKey, (item) => {
         item.children = item.children || [];
         // where to insert 示例添加到头部，可以是随意位置
         item.children.unshift(dragObj);

@@ -43,7 +43,7 @@ const App: React.FC = () => {
     setTheme(value ? 'dark' : 'light');
   };
 
-  const onClick: MenuProps['onClick'] = e => {
+  const onClick: MenuProps['onClick'] = (e) => {
     console.log('click ', e);
     setCurrent(e.key);
   };
@@ -66,7 +66,7 @@ const App: React.FC = () => {
         items={items}
         inlineCollapsed
         // Test only. Remove in future.
-        _internalRenderMenuItem={node =>
+        _internalRenderMenuItem={(node) =>
           React.cloneElement(node, {
             style: {
               ...node.props.style,
@@ -75,7 +75,7 @@ const App: React.FC = () => {
           })
         }
         // Test only. Remove in future.
-        _internalRenderSubMenuItem={node =>
+        _internalRenderSubMenuItem={(node) =>
           React.cloneElement(node, {
             style: {
               ...node.props.style,

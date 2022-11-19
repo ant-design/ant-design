@@ -24,7 +24,7 @@ const CustomTheme = () => {
           theme={{ name: 'test', key: 'test', config: theme }}
           simple
           style={{ height: 'calc(100vh - 64px)' }}
-          onThemeChange={newTheme => {
+          onThemeChange={(newTheme) => {
             setTheme(newTheme.config);
           }}
         />

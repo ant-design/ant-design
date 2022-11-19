@@ -23,7 +23,7 @@ const generateTree = (treeNodes: DataNode[] = [], checkedKeys: string[] = []): D
 const TreeTransfer = ({ dataSource, targetKeys, ...restProps }: TreeTransferProps) => {
   const transferDataSource: TransferItem[] = [];
   function flatten(list: DataNode[] = []) {
-    list.forEach(item => {
+    list.forEach((item) => {
       transferDataSource.push(item as TransferItem);
       flatten(item.children);
     });
@@ -36,7 +36,7 @@ const TreeTransfer = ({ dataSource, targetKeys, ...restProps }: TreeTransferProp
       targetKeys={targetKeys}
       dataSource={transferDataSource}
       className="tree-transfer"
-      render={item => item.title!}
+      render={(item) => item.title!}
       showSelectAll={false}
     >
       {({ direction, onItemSelect, selectedKeys }) => {

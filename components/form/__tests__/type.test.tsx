@@ -30,7 +30,7 @@ describe('Form.typescript', () => {
         return (
           <Form
             form={form}
-            onFinish={values => {
+            onFinish={(values) => {
               expect(values).toBeTruthy();
               expect(values.username).toBeTruthy();
               expect(values.path1?.path2).toBeTruthy();
@@ -54,7 +54,7 @@ describe('Form.typescript', () => {
           return (
             <Form
               ref={this.formRef}
-              onFinish={values => {
+              onFinish={(values) => {
                 expect(values).toBeTruthy();
                 expect(values.username).toBeTruthy();
                 expect(values.path1?.path2).toBeTruthy();

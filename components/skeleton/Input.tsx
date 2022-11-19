@@ -12,7 +12,7 @@ export interface SkeletonInputProps extends Omit<SkeletonElementProps, 'size' | 
   block?: boolean;
 }
 
-const SkeletonInput: React.FC<SkeletonInputProps> = props => {
+const SkeletonInput: React.FC<SkeletonInputProps> = (props) => {
   const { prefixCls: customizePrefixCls, className, active, block, size = 'default' } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('skeleton', customizePrefixCls);

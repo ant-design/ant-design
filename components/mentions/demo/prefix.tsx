@@ -24,7 +24,7 @@ const App: React.FC = () => {
       prefix={['@', '#']}
       onSearch={onSearch}
     >
-      {(MOCK_DATA[prefix] || []).map(value => (
+      {(MOCK_DATA[prefix] || []).map((value) => (
         <Option key={value} value={value}>
           {value}
         </Option>

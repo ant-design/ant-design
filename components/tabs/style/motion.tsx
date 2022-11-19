@@ -1,7 +1,7 @@
 import type { TabsToken } from '.';
 import type { GenerateStyle } from '../../theme';
 
-const genMotionStyle: GenerateStyle<TabsToken> = token => {
+const genMotionStyle: GenerateStyle<TabsToken> = (token) => {
   const { componentCls, motionDurationSlow } = token;
 
   return {

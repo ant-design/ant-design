@@ -24,7 +24,7 @@ const App: React.FC = () => (
     itemLayout="vertical"
     size="large"
     pagination={{
-      onChange: page => {
+      onChange: (page) => {
         console.log(page);
       },
       pageSize: 3,
@@ -35,7 +35,7 @@ const App: React.FC = () => (
         <b>ant design</b> footer part
       </div>
     }
-    renderItem={item => (
+    renderItem={(item) => (
       <List.Item
         key={item.title}
         actions={[

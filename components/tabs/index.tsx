@@ -76,7 +76,7 @@ function Tabs({
 
   return wrapSSR(
     <SizeContext.Consumer>
-      {contextSize => {
+      {(contextSize) => {
         const size = propSize !== undefined ? propSize : contextSize;
         return (
           <RcTabs

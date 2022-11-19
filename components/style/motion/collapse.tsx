@@ -1,7 +1,7 @@
 import type { AliasToken, GenerateStyle } from '../../theme';
 import type { TokenWithCommonCls } from '../../theme/util/genComponentStyleHook';
 
-const genCollapseMotion: GenerateStyle<TokenWithCommonCls<AliasToken>> = token => ({
+const genCollapseMotion: GenerateStyle<TokenWithCommonCls<AliasToken>> = (token) => ({
   [token.componentCls]: {
     // For common/openAnimation
     [`${token.antCls}-motion-collapse-legacy`]: {

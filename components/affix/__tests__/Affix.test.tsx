@@ -33,7 +33,7 @@ class AffixMounter extends React.Component<{
     const { getInstance, ...restProps } = this.props;
     return (
       <div
-        ref={node => {
+        ref={(node) => {
           this.container = node!;
         }}
         className="container"
@@ -41,7 +41,7 @@ class AffixMounter extends React.Component<{
         <Affix
           className="fixed"
           target={this.getTarget}
-          ref={ele => {
+          ref={(ele) => {
             getInstance?.(ele!);
           }}
           {...restProps}
@@ -163,7 +163,7 @@ describe('Affix Render', () => {
       let affixInstance: InternalAffixClass;
       const { rerender } = render(
         <Affix
-          ref={node => {
+          ref={(node) => {
             affixInstance = node as InternalAffixClass;
           }}
           target={getTarget}
@@ -173,7 +173,7 @@ describe('Affix Render', () => {
       );
       rerender(
         <Affix
-          ref={node => {
+          ref={(node) => {
             affixInstance = node as InternalAffixClass;
           }}
           target={() => null}
@@ -224,7 +224,7 @@ describe('Affix Render', () => {
 
       const { rerender } = render(
         <AffixMounter
-          getInstance={inst => {
+          getInstance={(inst) => {
             affixInstance = inst;
           }}
           offsetBottom={0}
@@ -235,7 +235,7 @@ describe('Affix Render', () => {
 
       rerender(
         <AffixMounter
-          getInstance={inst => {
+          getInstance={(inst) => {
             affixInstance = inst;
           }}
           offsetBottom={0}
@@ -256,7 +256,7 @@ describe('Affix Render', () => {
       let affixInstance: InternalAffixClass | null = null;
       render(
         <AffixMounter
-          getInstance={inst => {
+          getInstance={(inst) => {
             affixInstance = inst;
           }}
           offsetBottom={0}
@@ -275,7 +275,7 @@ describe('Affix Render', () => {
     [
       '.ant-btn', // inner
       '.fixed', // outer
-    ].forEach(selector => {
+    ].forEach((selector) => {
       it(`trigger listener when size change: ${selector}`, async () => {
         const updateCalled = jest.fn();
         const { container } = render(

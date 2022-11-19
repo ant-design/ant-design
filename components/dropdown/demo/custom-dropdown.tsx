@@ -35,7 +35,7 @@ const items: MenuProps['items'] = [
 const App: React.FC = () => (
   <Dropdown
     menu={{ items }}
-    dropdownRender={menu => (
+    dropdownRender={(menu) => (
       <div className="dropdown-content">
         {menu}
         <Divider style={{ margin: 0 }} />
@@ -45,7 +45,7 @@ const App: React.FC = () => (
       </div>
     )}
   >
-    <a onClick={e => e.preventDefault()}>
+    <a onClick={(e) => e.preventDefault()}>
       <Space>
         Hover me
         <DownOutlined />

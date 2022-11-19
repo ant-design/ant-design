@@ -74,7 +74,7 @@ export default function ThemePicker({ value, onChange }: ThemePickerProps) {
 
   return (
     <Space size={token.paddingLG}>
-      {Object.keys(THEMES).map(theme => {
+      {Object.keys(THEMES).map((theme) => {
         const url = THEMES[theme as THEME];
 
         return (

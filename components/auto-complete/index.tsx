@@ -86,7 +86,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
     optionChildren = children;
   } else {
     optionChildren = dataSource
-      ? dataSource.map(item => {
+      ? dataSource.map((item) => {
           if (isValidElement(item)) {
             return item;
           }

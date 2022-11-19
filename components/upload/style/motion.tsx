@@ -22,7 +22,7 @@ const uploadAnimateInlineOut = new Keyframes('uploadAnimateInlineOut', {
   },
 });
 // =========================== Motion ===========================
-const genMotionStyle: GenerateStyle<UploadToken> = token => {
+const genMotionStyle: GenerateStyle<UploadToken> = (token) => {
   const { componentCls } = token;
   const inlineCls = `${componentCls}-animate-inline`;
 

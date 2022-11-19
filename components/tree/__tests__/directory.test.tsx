@@ -94,7 +94,7 @@ describe('Directory Tree', () => {
           expandedKeys: [],
         };
 
-        onExpand: TreeProps['onExpand'] = expandedKeys => {
+        onExpand: TreeProps['onExpand'] = (expandedKeys) => {
           this.setState({ expandedKeys });
         };
 

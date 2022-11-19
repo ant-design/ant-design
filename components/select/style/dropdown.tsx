@@ -11,7 +11,7 @@ import {
 import type { GenerateStyle } from '../../theme';
 import { resetComponent, textEllipsis } from '../../style';
 
-const genItemStyle: GenerateStyle<SelectToken, CSSObject> = token => {
+const genItemStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
   const { controlPaddingHorizontal } = token;
 
   return {
@@ -29,7 +29,7 @@ const genItemStyle: GenerateStyle<SelectToken, CSSObject> = token => {
   };
 };
 
-const genSingleStyle: GenerateStyle<SelectToken> = token => {
+const genSingleStyle: GenerateStyle<SelectToken> = (token) => {
   const { antCls, componentCls } = token;
 
   const selectItemCls = `${componentCls}-item`;

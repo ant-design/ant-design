@@ -865,7 +865,7 @@ const genTabsStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
 // ============================== Export ==============================
 export default genComponentStyleHook(
   'Tabs',
-  token => {
+  (token) => {
     const tabsCardHeight = token.controlHeightLG;
 
     const tabsToken = mergeToken<TabsToken>(token, {
@@ -895,7 +895,7 @@ export default genComponentStyleHook(
       genMotionStyle(tabsToken),
     ];
   },
-  token => ({
+  (token) => ({
     zIndexPopup: token.zIndexPopupBase + 50,
   }),
 );

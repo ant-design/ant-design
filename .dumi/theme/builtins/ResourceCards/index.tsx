@@ -108,7 +108,7 @@ export type ResourceCardsProps = {
 const ResourceCards: FC<ResourceCardsProps> = ({ resources }) => {
   return (
     <Row style={{ margin: '-12px -12px 0 -12px' }}>
-      {resources.map(item => (
+      {resources.map((item) => (
         <ResourceCard resource={item} key={item.title} />
       ))}
     </Row>

@@ -10,7 +10,7 @@ import PurePanel from './PurePanel';
 
 const Tour: React.ForwardRefRenderFunction<HTMLDivElement, TourProps> & {
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
-} = props => {
+} = (props) => {
   const {
     prefixCls: customizePrefixCls,
     steps,

@@ -16,7 +16,7 @@ export interface CircleProps extends ProgressProps {
   strokeColor?: string | ProgressGradient;
 }
 
-const Circle: React.FC<CircleProps> = props => {
+const Circle: React.FC<CircleProps> = (props) => {
   const {
     prefixCls,
     width,

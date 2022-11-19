@@ -44,7 +44,7 @@ const items: MenuProps['items'] = [
 ];
 
 const App: React.FC = () => {
-  const onClick: MenuProps['onClick'] = e => {
+  const onClick: MenuProps['onClick'] = (e) => {
     console.log('click ', e);
   };
 

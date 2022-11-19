@@ -63,7 +63,7 @@ describe('CheckboxGroup', () => {
   it('all children should have a name property', () => {
     const { container } = render(<Checkbox.Group name="checkboxgroup" options={['Yes', 'No']} />);
     Array.from(container.querySelectorAll<HTMLInputElement>('input[type="checkbox"]')).forEach(
-      el => {
+      (el) => {
         expect(el.getAttribute('name')).toEqual('checkboxgroup');
       },
     );
@@ -218,7 +218,7 @@ describe('CheckboxGroup', () => {
     render(
       <Checkbox.Group
         options={['Apple', 'Pear', 'Orange']}
-        ref={node => {
+        ref={(node) => {
           refCalls.push(node!);
         }}
       />,
@@ -250,7 +250,7 @@ describe('CheckboxGroup', () => {
 
       return (
         <div>
-          <Input className="my-input" value={v} onChange={e => setV(e.target.value)} />
+          <Input className="my-input" value={v} onChange={(e) => setV(e.target.value)} />
           <Checkbox.Group defaultValue={['length1']} style={{ width: '100%' }} onChange={onChange}>
             <Checkbox className="target-checkbox" value={v ? `length${v}` : 'A'}>
               A

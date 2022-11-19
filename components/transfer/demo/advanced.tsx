@@ -42,9 +42,7 @@ const App: React.FC = () => {
 
   const renderFooter = (
     _: TransferListProps<any>,
-    {
-      direction,
-    }: {
+    { direction }: {
       direction: TransferDirection;
     },
   ) => {
@@ -73,7 +71,7 @@ const App: React.FC = () => {
       operations={['to right', 'to left']}
       targetKeys={targetKeys}
       onChange={handleChange}
-      render={item => `${item.title}-${item.description}`}
+      render={(item) => `${item.title}-${item.description}`}
       footer={renderFooter}
     />
   );

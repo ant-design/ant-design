@@ -137,7 +137,7 @@ const Badge: CompoundedComponent = ({
   const displayNode =
     !livingCount || typeof livingCount !== 'object'
       ? undefined
-      : cloneElement(livingCount, oriProps => ({
+      : cloneElement(livingCount, (oriProps) => ({
           style: {
             ...mergedStyle,
             ...oriProps.style,

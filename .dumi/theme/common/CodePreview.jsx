@@ -24,7 +24,7 @@ const CodePreview = ({ toReactComponent, codes, onCodeTypeChange }) => {
   } else {
     content = (
       <Tabs centered onChange={onCodeTypeChange}>
-        {langList.map(lang => (
+        {langList.map((lang) => (
           <TabPane tab={LANGS[lang]} key={lang}>
             {toReactComponent([
               'pre',

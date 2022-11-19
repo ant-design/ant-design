@@ -120,7 +120,7 @@ describe('Collapse', () => {
     jest.useFakeTimers();
     const spiedRAF = jest
       .spyOn(window, 'requestAnimationFrame')
-      .mockImplementation(cb => setTimeout(cb, 16.66));
+      .mockImplementation((cb) => setTimeout(cb, 16.66));
 
     let setActiveKeyOuter: React.Dispatch<React.SetStateAction<React.Key | undefined>>;
     const Test = () => {
@@ -153,7 +153,7 @@ describe('Collapse', () => {
   });
 
   describe('expandIconPosition', () => {
-    ['left', 'right'].forEach(pos => {
+    ['left', 'right'].forEach((pos) => {
       it(`warning for legacy '${pos}'`, () => {
         render(
           <Collapse expandIconPosition={pos}>

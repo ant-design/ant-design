@@ -53,7 +53,7 @@ const App: React.FC = () => {
       {
         key: 'odd',
         text: 'Select Odd Row',
-        onSelect: changableRowKeys => {
+        onSelect: (changableRowKeys) => {
           let newSelectedRowKeys = [];
           newSelectedRowKeys = changableRowKeys.filter((_, index) => {
             if (index % 2 !== 0) {
@@ -67,7 +67,7 @@ const App: React.FC = () => {
       {
         key: 'even',
         text: 'Select Even Row',
-        onSelect: changableRowKeys => {
+        onSelect: (changableRowKeys) => {
           let newSelectedRowKeys = [];
           newSelectedRowKeys = changableRowKeys.filter((_, index) => {
             if (index % 2 !== 0) {

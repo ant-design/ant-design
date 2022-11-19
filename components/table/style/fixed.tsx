@@ -2,7 +2,7 @@ import type { CSSObject } from '@ant-design/cssinjs';
 import type { GenerateStyle } from '../../theme';
 import type { TableToken } from './index';
 
-const genFixedStyle: GenerateStyle<TableToken, CSSObject> = token => {
+const genFixedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
   const { componentCls, lineWidth, colorSplit, motionDurationSlow, zIndexTableFixed, tableBg } =
     token;
 

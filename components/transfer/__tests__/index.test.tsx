@@ -118,7 +118,7 @@ describe('Transfer', () => {
       <Transfer
         {...listCommonProps}
         onSelectChange={handleSelectChange}
-        render={item => item.title}
+        render={(item) => item.title}
       />,
     );
     getByTitle('a').click();
@@ -131,7 +131,7 @@ describe('Transfer', () => {
       <Transfer
         {...listCommonProps}
         onSelectChange={handleSelectChange}
-        render={item => item.title}
+        render={(item) => item.title}
       />,
     );
     getByText('b').click();
@@ -145,7 +145,7 @@ describe('Transfer', () => {
         {...listCommonProps}
         disabled
         onSelectChange={handleSelectChange}
-        render={item => item.title}
+        render={(item) => item.title}
       />,
     );
     getByText('a').click();
@@ -158,7 +158,7 @@ describe('Transfer', () => {
       <Transfer
         {...listCommonProps}
         onSelectChange={handleSelectChange}
-        render={item => item.title}
+        render={(item) => item.title}
       />,
     );
 
@@ -206,7 +206,7 @@ describe('Transfer', () => {
         {...listCommonProps}
         showSearch
         filterOption={filterOption}
-        render={item => item.title}
+        render={(item) => item.title}
       />,
     );
 
@@ -229,7 +229,7 @@ describe('Transfer', () => {
   it('should display the correct count of items when filter by input', () => {
     const filterOption: TransferProps<any>['filterOption'] = (inputValue, option) =>
       option.description.includes(inputValue);
-    const renderFunc: TransferProps<any>['render'] = item => item.title;
+    const renderFunc: TransferProps<any>['render'] = (item) => item.title;
     const { container, getByText } = render(
       <Transfer
         {...searchTransferProps}
@@ -307,7 +307,7 @@ describe('Transfer', () => {
   it('should just check the filtered item when click on check all after search by input', () => {
     const filterOption: TransferProps<any>['filterOption'] = (inputValue, option) =>
       option.description.includes(inputValue);
-    const renderFunc: TransferProps<any>['render'] = item => item.title;
+    const renderFunc: TransferProps<any>['render'] = (item) => item.title;
     const handleSelectChange = jest.fn();
     const { container, getByTitle } = render(
       <Transfer
@@ -332,7 +332,7 @@ describe('Transfer', () => {
   it('should transfer just the filtered item after search by input', () => {
     const filterOption: TransferProps<any>['filterOption'] = (inputValue, option) =>
       option.description.includes(inputValue);
-    const renderFunc: TransferProps<any>['render'] = item => item.title;
+    const renderFunc: TransferProps<any>['render'] = (item) => item.title;
     const handleChange = jest.fn();
     const TransferDemo = () => {
       const [selectedKeys, setSelectedKeys] = useState<string[]>(searchTransferProps.selectedKeys);
@@ -379,7 +379,7 @@ describe('Transfer', () => {
         {...newProps}
         showSearch
         onSelectChange={handleSelectChange}
-        render={item => item.title}
+        render={(item) => item.title}
       />,
     );
 
@@ -432,7 +432,7 @@ describe('Transfer', () => {
       lazy: false,
     };
     const { container } = render(
-      <Transfer {...sortedTargetKeyProps} render={item => item.title} />,
+      <Transfer {...sortedTargetKeyProps} render={(item) => item.title} />,
     );
     expect(container.firstChild).toMatchSnapshot();
   });
@@ -496,7 +496,7 @@ describe('Transfer', () => {
 
   it('should support rowKey is function', () => {
     expect(() => {
-      render(<Transfer {...listCommonProps} rowKey={record => record.key} />);
+      render(<Transfer {...listCommonProps} rowKey={(record) => record.key} />);
     }).not.toThrow();
   });
 
@@ -504,7 +504,7 @@ describe('Transfer', () => {
     const { container } = render(
       <Transfer
         dataSource={[{ key: 'a', title: 'title' }]}
-        render={record => ({
+        render={(record) => ({
           value: `${record.title} value`,
           label: 'label' as unknown as React.ReactElement,
         })}
@@ -585,7 +585,7 @@ describe('immutable data', () => {
   // https://github.com/ant-design/ant-design/issues/28662
   it('dataSource is frozen', () => {
     const mockData = [Object.freeze({ id: '0', title: `title`, description: `description` })];
-    const { container } = render(<Transfer rowKey={item => item.id} dataSource={mockData} />);
+    const { container } = render(<Transfer rowKey={(item) => item.id} dataSource={mockData} />);
     expect(container.firstChild).toMatchSnapshot();
   });
 });

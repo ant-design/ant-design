@@ -274,7 +274,7 @@ const genImageStyle: GenerateStyle<ImageToken> = (token: ImageToken) => {
   };
 };
 
-const genPreviewMotion: GenerateStyle<ImageToken> = token => {
+const genPreviewMotion: GenerateStyle<ImageToken> = (token) => {
   const { previewCls } = token;
 
   return {
@@ -286,7 +286,7 @@ const genPreviewMotion: GenerateStyle<ImageToken> = token => {
 // ============================== Export ==============================
 export default genComponentStyleHook(
   'Image',
-  token => {
+  (token) => {
     const imagePreviewOperationColor = new TinyColor(token.colorTextLightSolid);
     const previewCls = `${token.componentCls}-preview`;
 
@@ -308,7 +308,7 @@ export default genComponentStyleHook(
       genPreviewMotion(imageToken),
     ];
   },
-  token => ({
+  (token) => ({
     zIndexPopup: token.zIndexPopupBase + 80,
   }),
 );

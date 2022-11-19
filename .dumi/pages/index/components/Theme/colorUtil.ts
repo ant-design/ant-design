@@ -73,7 +73,7 @@ export function getAvatarURL(color?: string | null) {
   }
 
   return (
-    COLOR_IMAGES.find(obj => obj.color === closestColor)?.url ||
+    COLOR_IMAGES.find((obj) => obj.color === closestColor)?.url ||
     'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*CLp0Qqc11AkAAAAAAAAAAAAAARQnAQ'
   );
 }

@@ -20,7 +20,7 @@ const App: React.FC = () => (
   <List
     grid={{ gutter: 16, column: 4 }}
     dataSource={data}
-    renderItem={item => (
+    renderItem={(item) => (
       <List.Item>
         <Card title={item.title}>Card content</Card>
       </List.Item>

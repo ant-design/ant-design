@@ -5,7 +5,7 @@ type CustomIconComponent = React.ComponentType<
   CustomIconComponentProps | React.SVGProps<SVGSVGElement>
 >;
 
-export const FilledIcon: CustomIconComponent = props => {
+export const FilledIcon: CustomIconComponent = (props) => {
   const path =
     'M864 64H160C107 64 64 107 64 160v' +
     '704c0 53 43 96 96 96h704c53 0 96-43 96-96V16' +
@@ -17,7 +17,7 @@ export const FilledIcon: CustomIconComponent = props => {
   );
 };
 
-export const OutlinedIcon: CustomIconComponent = props => {
+export const OutlinedIcon: CustomIconComponent = (props) => {
   const path =
     'M864 64H160C107 64 64 107 64 160v7' +
     '04c0 53 43 96 96 96h704c53 0 96-43 96-96V160c' +
@@ -31,7 +31,7 @@ export const OutlinedIcon: CustomIconComponent = props => {
   );
 };
 
-export const TwoToneIcon: CustomIconComponent = props => {
+export const TwoToneIcon: CustomIconComponent = (props) => {
   const path =
     'M16 512c0 273.932 222.066 496 496 49' +
     '6s496-222.068 496-496S785.932 16 512 16 16 238.' +

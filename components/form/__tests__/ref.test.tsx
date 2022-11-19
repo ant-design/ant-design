@@ -30,8 +30,8 @@ describe('Form.Ref', () => {
         </Form.Item>
 
         <Form.List name="list">
-          {fields =>
-            fields.map(field => (
+          {(fields) =>
+            fields.map((field) => (
               <Form.Item {...field} key={field.key}>
                 <Input ref={listRef} />
               </Form.Item>

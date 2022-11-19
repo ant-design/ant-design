@@ -13,7 +13,7 @@ const App: React.FC = () => (
     <Tooltip
       placement="left"
       title="Prompt Text"
-      getPopupContainer={trigger => trigger.parentElement!}
+      getPopupContainer={(trigger) => trigger.parentElement!}
     >
       <Button>Adjust automatically / 自动调整</Button>
     </Tooltip>
@@ -21,7 +21,7 @@ const App: React.FC = () => (
     <Tooltip
       placement="left"
       title="Prompt Text"
-      getPopupContainer={trigger => trigger.parentElement!}
+      getPopupContainer={(trigger) => trigger.parentElement!}
       autoAdjustOverflow={false}
     >
       <Button>Ignore / 不处理</Button>

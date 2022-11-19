@@ -7,7 +7,7 @@ interface IconSliderProps {
   min: number;
 }
 
-const IconSlider: React.FC<IconSliderProps> = props => {
+const IconSlider: React.FC<IconSliderProps> = (props) => {
   const { max, min } = props;
   const [value, setValue] = useState(0);
 

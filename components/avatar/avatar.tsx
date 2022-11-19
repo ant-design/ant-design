@@ -108,7 +108,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
 
   const size = customSize === 'default' ? groupSize : customSize;
 
-  const needResponsive = Object.keys(typeof size === 'object' ? size || {} : {}).some(key =>
+  const needResponsive = Object.keys(typeof size === 'object' ? size || {} : {}).some((key) =>
     ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].includes(key),
   );
   const screens = useBreakpoint(needResponsive);
@@ -117,7 +117,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
       return {};
     }
 
-    const currentBreakpoint: Breakpoint = responsiveArray.find(screen => screens[screen])!;
+    const currentBreakpoint: Breakpoint = responsiveArray.find((screen) => screens[screen])!;
     const currentSize = size[currentBreakpoint];
 
     return currentSize

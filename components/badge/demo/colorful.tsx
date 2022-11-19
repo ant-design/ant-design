@@ -21,7 +21,7 @@ const App: React.FC = () => (
   <>
     <Divider orientation="left">Presets</Divider>
     <Space direction="vertical">
-      {colors.map(color => (
+      {colors.map((color) => (
         <Badge key={color} color={color} text={color} />
       ))}
     </Space>

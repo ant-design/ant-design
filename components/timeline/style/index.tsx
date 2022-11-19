@@ -14,7 +14,7 @@ interface TimelineToken extends FullToken<'Timeline'> {
   timeLineHeadBorderWidth: number;
 }
 
-const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = token => {
+const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
   const { componentCls } = token;
 
   return {
@@ -212,7 +212,7 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = token => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Timeline', token => {
+export default genComponentStyleHook('Timeline', (token) => {
   const timeLineToken = mergeToken<TimelineToken>(token, {
     timeLineItemPaddingBottom: token.padding * 1.25,
     timeLineItemHeadSize: 10,

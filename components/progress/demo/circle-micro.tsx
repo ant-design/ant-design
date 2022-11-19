@@ -9,7 +9,7 @@ const App: React.FC = () => (
       percent={60}
       strokeWidth={20}
       width={14}
-      format={number => `进行中，已完成${number}%`}
+      format={(number) => `进行中，已完成${number}%`}
     />
     <span style={{ marginLeft: 8 }}>代码发布</span>
   </>

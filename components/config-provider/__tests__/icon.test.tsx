@@ -11,7 +11,7 @@ describe('ConfigProvider.Icon', () => {
   });
 
   afterEach(() => {
-    document.querySelectorAll('style').forEach(style => {
+    document.querySelectorAll('style').forEach((style) => {
       style.parentNode?.removeChild(style);
     });
   });

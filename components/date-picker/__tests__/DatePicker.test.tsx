@@ -165,7 +165,12 @@ describe('DatePicker', () => {
   });
   it('showTime should work correctly when format is custom function', () => {
     const { container } = render(
-      <DatePicker defaultValue={dayjs()} showTime format={val => val.format('YYYY-MM-DD')} open />,
+      <DatePicker
+        defaultValue={dayjs()}
+        showTime
+        format={(val) => val.format('YYYY-MM-DD')}
+        open
+      />,
     );
     const fuousEvent = () => {
       fireEvent.focus(container.querySelector('input')!);

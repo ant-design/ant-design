@@ -14,7 +14,7 @@ export function getPaginationParam(
   };
   const paginationObj = pagination && typeof pagination === 'object' ? pagination : {};
 
-  Object.keys(paginationObj).forEach(pageProp => {
+  Object.keys(paginationObj).forEach((pageProp) => {
     const value = (mergedPagination as any)[pageProp];
 
     if (typeof value !== 'function') {
@@ -28,9 +28,9 @@ export function getPaginationParam(
 function extendsObject<T extends Object>(...list: T[]) {
   const result: T = {} as T;
 
-  list.forEach(obj => {
+  list.forEach((obj) => {
     if (obj) {
-      Object.keys(obj).forEach(key => {
+      Object.keys(obj).forEach((key) => {
         const val = (obj as any)[key];
         if (val !== undefined) {
           (result as any)[key] = val;

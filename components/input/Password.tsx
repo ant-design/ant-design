@@ -57,7 +57,7 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
     if (visible) {
       removePasswordTimeout();
     }
-    setVisible(prevState => {
+    setVisible((prevState) => {
       const newState = !prevState;
       if (typeof visibilityToggle === 'object') {
         visibilityToggle.onVisibleChange?.(newState);

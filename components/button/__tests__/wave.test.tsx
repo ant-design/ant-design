@@ -13,7 +13,7 @@ jest.mock('../../_util/wave', () => {
     __esModule: true,
     default: (props: import('../../_util/wave').WaveProps) => (
       <WaveComponent
-        ref={node => {
+        ref={(node) => {
           waveInstanceMock = node;
         }}
         {...props}

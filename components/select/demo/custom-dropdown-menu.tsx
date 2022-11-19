@@ -27,7 +27,7 @@ const App: React.FC = () => {
     <Select
       style={{ width: 300 }}
       placeholder="custom dropdown render"
-      dropdownRender={menu => (
+      dropdownRender={(menu) => (
         <>
           {menu}
           <Divider style={{ margin: '8px 0' }} />
@@ -44,7 +44,7 @@ const App: React.FC = () => {
           </Space>
         </>
       )}
-      options={items.map(item => ({ label: item, value: item }))}
+      options={items.map((item) => ({ label: item, value: item }))}
     />
   );
 };

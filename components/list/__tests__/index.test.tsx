@@ -14,7 +14,7 @@ describe('List', () => {
 
   it('locale not passed to internal div', async () => {
     const locale = { emptyText: 'Custom text' };
-    const renderItem: ListProps<any>['renderItem'] = item => <List.Item>{item}</List.Item>;
+    const renderItem: ListProps<any>['renderItem'] = (item) => <List.Item>{item}</List.Item>;
     const dataSource: ListProps<any>['dataSource'] = [];
 
     const { container } = render(

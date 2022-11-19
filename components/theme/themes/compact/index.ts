@@ -17,8 +17,8 @@ const derivative: DerivativeFunc<SeedToken, MapToken> = (token, mapToken) => {
     ...genCompactSizeMapToken(mapToken ?? token),
 
     // font
-    fontSizes: fontSizes.map(fs => fs.size),
-    lineHeights: fontSizes.map(fs => fs.lineHeight),
+    fontSizes: fontSizes.map((fs) => fs.size),
+    lineHeights: fontSizes.map((fs) => fs.lineHeight),
 
     // controlHeight
     controlHeight,

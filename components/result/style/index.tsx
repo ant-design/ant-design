@@ -97,7 +97,7 @@ const genBaseStyle: GenerateStyle<ResultToken> = (token): CSSObject => {
   };
 };
 
-const genStatusIconStyle: GenerateStyle<ResultToken> = token => {
+const genStatusIconStyle: GenerateStyle<ResultToken> = (token) => {
   const { componentCls, iconCls } = token;
 
   return {
@@ -116,17 +116,17 @@ const genStatusIconStyle: GenerateStyle<ResultToken> = token => {
   };
 };
 
-const genResultStyle: GenerateStyle<ResultToken> = token => [
+const genResultStyle: GenerateStyle<ResultToken> = (token) => [
   genBaseStyle(token),
   genStatusIconStyle(token),
 ];
 
 // ============================== Export ==============================
-const getStyle: GenerateStyle<ResultToken> = token => genResultStyle(token);
+const getStyle: GenerateStyle<ResultToken> = (token) => genResultStyle(token);
 
 export default genComponentStyleHook(
   'Result',
-  token => {
+  (token) => {
     const { paddingLG, fontSizeHeading3 } = token;
 
     const resultSubtitleFontSize = token.fontSize;

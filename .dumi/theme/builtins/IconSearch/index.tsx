@@ -34,20 +34,20 @@ const IconSearch: React.FC = () => {
 
   const handleSearchIcon = React.useCallback(
     debounce((searchKey: string) => {
-      setDisplayState(prevState => ({ ...prevState, searchKey }));
+      setDisplayState((prevState) => ({ ...prevState, searchKey }));
     }),
     [],
   );
 
   const handleChangeTheme = React.useCallback((e: RadioChangeEvent) => {
-    setDisplayState(prevState => ({ ...prevState, theme: e.target.value as ThemeType }));
+    setDisplayState((prevState) => ({ ...prevState, theme: e.target.value as ThemeType }));
   }, []);
 
   const renderCategories = React.useMemo<React.ReactNode | React.ReactNode[]>(() => {
     const { searchKey = '', theme } = displayState;
 
     const categoriesResult = Object.keys(categories)
-      .map(key => {
+      .map((key) => {
         let iconList = categories[key as CategoriesKeys];
         if (searchKey) {
           const matchKey = searchKey
@@ -55,15 +55,17 @@ const IconSearch: React.FC = () => {
             .replace(new RegExp(`^<([a-zA-Z]*)\\s/>$`, 'gi'), (_, name) => name)
             .replace(/(Filled|Outlined|TwoTone)$/, '')
             .toLowerCase();
-          iconList = iconList.filter(iconName => iconName.toLowerCase().includes(matchKey));
+          iconList = iconList.filter((iconName) => iconName.toLowerCase().includes(matchKey));
         }
 
         // CopyrightCircle is same as Copyright, don't show it
-        iconList = iconList.filter(icon => icon !== 'CopyrightCircle');
+        iconList = iconList.filter((icon) => icon !== 'CopyrightCircle');
 
         return {
           category: key,
-          icons: iconList.map(iconName => iconName + theme).filter(iconName => allIcons[iconName]),
+          icons: iconList
+            .map((iconName) => iconName + theme)
+            .filter((iconName) => allIcons[iconName]),
         };
       })
       .filter(({ icons }) => !!icons.length)
@@ -104,7 +106,7 @@ const IconSearch: React.FC = () => {
           placeholder={intl.formatMessage({ id: 'app.docs.components.icon.search.placeholder' })}
           style={{ margin: '0 10px', flex: 1 }}
           allowClear
-          onChange={e => handleSearchIcon(e.currentTarget.value)}
+          onChange={(e) => handleSearchIcon(e.currentTarget.value)}
           size="large"
           autoFocus
           suffix={<IconPicSearcher />}

@@ -16,10 +16,10 @@ const App: React.FC = () => {
         checkedChildren="Border"
         unCheckedChildren="No Border"
         checked={border}
-        onChange={e => setBorder(e)}
+        onChange={(e) => setBorder(e)}
       />
       <Divider />
-      <Radio.Group onChange={e => setLayout(e.target.value)} value={layout}>
+      <Radio.Group onChange={(e) => setLayout(e.target.value)} value={layout}>
         <Radio value="horizontal">horizontal</Radio>
         <Radio value="vertical">vertical</Radio>
       </Radio.Group>

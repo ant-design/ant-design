@@ -37,7 +37,7 @@ const App: React.FC = () => {
         lastIndex = i - 1;
       }
     });
-    const newPanes = items.filter(item => item.key !== targetKey);
+    const newPanes = items.filter((item) => item.key !== targetKey);
     if (newPanes.length && newActiveKey === targetKey) {
       if (lastIndex >= 0) {
         newActiveKey = newPanes[lastIndex].key;
