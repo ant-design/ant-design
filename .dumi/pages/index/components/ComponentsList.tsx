@@ -10,7 +10,6 @@ import {
   Modal,
   FloatButton,
   Progress,
-  ConfigProvider,
 } from 'antd';
 import dayjs from 'dayjs';
 import { CustomerServiceOutlined, QuestionCircleOutlined, SyncOutlined } from '@ant-design/icons';
@@ -222,7 +221,7 @@ export default function ComponentsList() {
           const tagText = type === 'new' ? locale.new : locale.update;
 
           return (
-            <div key={index} css={styles.card} style={{ pointerEvents: 'none' }}>
+            <div key={index} css={styles.card}>
               {/* Decorator */}
               <div
                 css={styles.cardCircle}
