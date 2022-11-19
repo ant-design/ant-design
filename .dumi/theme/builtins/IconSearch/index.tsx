@@ -5,7 +5,6 @@ import type { RadioChangeEvent } from 'antd/es/radio/interface';
 import { useIntl } from 'dumi';
 import debounce from 'lodash/debounce';
 import Category from './Category';
-import IconPicSearcher from './IconPicSearcher';
 import { FilledIcon, OutlinedIcon, TwoToneIcon } from './themeIcons';
 import type { CategoriesKeys } from './fields';
 import { categories } from './fields';
@@ -109,7 +108,6 @@ const IconSearch: React.FC = () => {
           onChange={(e) => handleSearchIcon(e.currentTarget.value)}
           size="large"
           autoFocus
-          suffix={<IconPicSearcher />}
         />
       </div>
       {renderCategories}
