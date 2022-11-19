@@ -5,7 +5,7 @@ on:
   create
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   setup:
@@ -66,6 +66,6 @@ jobs:
       - name: deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
-          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./_site
           force_orphan: true
