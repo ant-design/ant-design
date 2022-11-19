@@ -1046,6 +1046,13 @@ const GlobalStyles = () => {
                 margin: 0;
                 padding: 0;
                 background: ${token.colorBgContainer};
+                width: auto;
+
+                code {
+                  background: ${token.colorBgContainer};
+                  border: none;
+                  box-shadow: unset;
+                }
               }
 
               &:not(:first-child) {
@@ -1147,17 +1154,6 @@ const GlobalStyles = () => {
             .highlight-wrapper:hover &-codesandbox,
             .highlight-wrapper:hover &-riddle {
               opacity: 1;
-            }
-
-            pre {
-              width: auto;
-              margin: 0;
-
-              code {
-                background: ${token.colorBgContainer} !important;
-                border: none !important;
-                box-shadow: unset !important;
-              }
             }
 
             &-debug {
