@@ -5,12 +5,16 @@ import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 
 describe('BackTop', () => {
+  beforeEach(() => {
+    jest.useFakeTimers();
+  });
+  afterEach(() => {
+    jest.useRealTimers();
+  });
   mountTest(BackTop);
   rtlTest(BackTop);
 
   it('should scroll to top after click it', async () => {
-    jest.useFakeTimers();
-
     const { container } = render(<BackTop visibilityHeight={-1} />);
     const scrollToSpy = jest.spyOn(window, 'scrollTo').mockImplementation((_, y) => {
       window.scrollY = y;
@@ -23,9 +27,7 @@ describe('BackTop', () => {
     await waitFakeTimer();
     expect(document.documentElement.scrollTop).toBe(0);
     scrollToSpy.mockRestore();
-
     jest.clearAllTimers();
-    jest.useRealTimers();
   });
 
   it('support onClick', async () => {
@@ -42,9 +44,9 @@ describe('BackTop', () => {
     scrollToSpy.mockRestore();
   });
 
-  it('invalid target', async () => {
+  it('invalid target', () => {
     const onClick = jest.fn();
-    const { container } = render(<BackTop onClick={onClick} visible target={undefined} />);
+    const { container } = render(<BackTop onClick={onClick} target={undefined} />);
     fireEvent.click(container.querySelector('.ant-back-top')!);
     expect(onClick).toHaveBeenCalled();
   });
