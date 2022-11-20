@@ -215,6 +215,21 @@ const theme = {
 };
 ```
 
+### 兼容性调整
+
+Ant Design 的 CSS-in-JS 默认通过 `:where` 选择器降低 CSS Selector 优先级。在某些场景下你如果需要支持的旧版游览器，你可以使用 `@ant-design/cssinjs` 取消默认的降权操作：
+
+```tsx
+import React from 'react';
+import { StyleProvider } from '@ant-design/cssinjs';
+
+export default () => (
+  <StyleProvider hashPriority="high">
+    <MyApp />
+  </StyleProvider>
+);
+```
+
 ## API
 
 ### Theme
