@@ -21,20 +21,6 @@ title: Ant Design of React
   color: #aaa;
   font-size: 30px;
 }
-
-.markdown .dumi-default-table .dumi-default-table-content table {
-  display: table;
-}
-.markdown .dumi-default-table .dumi-default-table-content table td {
-  width: 16.67%;
-}
-.markdown .dumi-default-table table td:first-child {
-  color: rgba(0, 0, 0, 0.88);
-  font-weight: unset;
-}
-.markdown .dumi-default-table table td:nth-child(3) {
-  color: rgba(0, 0, 0, 0.88);
-}
 </style>
 
 ---
