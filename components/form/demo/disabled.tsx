@@ -39,7 +39,7 @@ const FormDisabledDemo = () => {
         onValuesChange={onFormLayoutChange}
         disabled={componentDisabled}
       >
-        <Form.Item label="Chekbox" name="disabled" valuePropName="checked">
+        <Form.Item label="Checkbox" name="disabled" valuePropName="checked">
           <Checkbox>Checkbox</Checkbox>
         </Form.Item>
         <Form.Item label="Radio">

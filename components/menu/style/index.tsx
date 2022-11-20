@@ -98,6 +98,8 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
     {
       '': {
         [`${componentCls}`]: {
+          ...clearFix(),
+
           // Hidden
           [`&-hidden`]: {
             display: 'none',
