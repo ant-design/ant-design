@@ -21,9 +21,9 @@ export type MenuRef = {
 
 interface CompoundedComponent
   extends React.ForwardRefExoticComponent<MenuProps & React.RefAttributes<MenuRef>> {
-  Divider: typeof MenuDivider;
   Item: typeof Item;
   SubMenu: typeof SubMenu;
+  Divider: typeof MenuDivider;
   ItemGroup: typeof ItemGroup;
 }
 
@@ -32,18 +32,17 @@ const Menu = forwardRef<MenuRef, MenuProps>((props, ref) => {
   const context = React.useContext(SiderContext);
 
   useImperativeHandle(ref, () => ({
-    focus: options => {
+    menu: menuRef.current,
+    focus: (options) => {
       menuRef.current?.focus(options);
     },
-    menu: menuRef.current,
   }));
-
   return <InternalMenu ref={menuRef} {...props} {...context} />;
 }) as CompoundedComponent;
 
-Menu.Divider = MenuDivider;
 Menu.Item = Item;
 Menu.SubMenu = SubMenu;
+Menu.Divider = MenuDivider;
 Menu.ItemGroup = ItemGroup;
 
 export default Menu;
