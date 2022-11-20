@@ -1,3 +1,4 @@
+/* istanbul ignore next */
 import VerticalAlignTopOutlined from '@ant-design/icons/VerticalAlignTopOutlined';
 import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
