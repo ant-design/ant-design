@@ -52,13 +52,14 @@ function rehypeAntd(): UnifiedTransformer<HastRoot> {
             ),
           },
         ];
-      } else if (node.tagName === 'Table') {
-        if (/^components/.test(filename)) {
-          console.log(filename);
-          if (!node.properties) return;
-          const currentClassName = (node.properties.className ?? []) as string[];
-          node.properties.className = [...currentClassName, 'component-api-table'];
-        }
+      } else if (
+        node.type === 'element' &&
+        node.tagName === 'Table' &&
+        /^components/.test(filename)
+      ) {
+        if (!node.properties) return;
+        node.properties.className ??= [];
+        (node.properties.className as string[]).push('component-api-table');
       }
     });
   };
