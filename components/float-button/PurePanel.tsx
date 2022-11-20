@@ -3,7 +3,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import FloatButton, { floatButtonPrefixCls } from './FloatButton';
 import FloatButtonGroup from './FloatButtonGroup';
-import BackTop from './BackTop';
+import BackTop from './PureBackTop';
 import type { FloatButtonProps, FloatButtonGroupProps } from './interface';
 import { ConfigContext } from '../config-provider';
 
@@ -18,11 +18,10 @@ export interface PurePanelProps
   items?: PureFloatButtonProps[];
 }
 
-function PureFloatButton({ backTop, ...props }: PureFloatButtonProps) {
-  return backTop ? <BackTop {...props} visible target={undefined} /> : <FloatButton {...props} />;
-}
+const PureFloatButton: React.FC<PureFloatButtonProps> = ({ backTop, ...props }) =>
+  backTop ? <BackTop {...props} target={undefined} /> : <FloatButton {...props} />;
 
-export default function PurePanel({ className, items, ...props }: PurePanelProps) {
+const PurePanel: React.FC<PurePanelProps> = ({ className, items, ...props }) => {
   const { prefixCls: customizePrefixCls } = props;
 
   const { getPrefixCls } = React.useContext(ConfigContext);
@@ -40,4 +39,6 @@ export default function PurePanel({ className, items, ...props }: PurePanelProps
   }
 
   return <PureFloatButton className={classNames(className, pureCls)} {...props} />;
-}
+};
+
+export default React.memo(PurePanel);
