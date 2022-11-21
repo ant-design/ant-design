@@ -111,6 +111,7 @@ export { default as Statistic } from './statistic';
 export type { StatisticProps } from './statistic';
 export { default as Steps } from './steps';
 export type { StepProps, StepsProps } from './steps';
+export { default as style } from './style';
 export { default as Switch } from './switch';
 export type { SwitchProps } from './switch';
 export { default as Table } from './table';

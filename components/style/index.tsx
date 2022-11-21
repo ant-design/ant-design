@@ -1,6 +1,8 @@
 /* eslint-disable import/prefer-default-export */
 import type { CSSObject } from '@ant-design/cssinjs';
 import type { DerivativeToken } from '../theme';
+import { operationUnit } from './operationUnit';
+import { roundedArrow } from './roundedArrow';
 
 export { operationUnit } from './operationUnit';
 export { roundedArrow } from './roundedArrow';
@@ -140,3 +142,16 @@ export const genFocusStyle = (token: DerivativeToken): CSSObject => ({
     ...genFocusOutline(token),
   },
 });
+
+export default {
+  operationUnit,
+  roundedArrow,
+  textEllipsis,
+  resetComponent,
+  resetIcon,
+  clearFix,
+  genLinkStyle,
+  genCommonStyle,
+  genFocusOutline,
+  genFocusStyle,
+};
