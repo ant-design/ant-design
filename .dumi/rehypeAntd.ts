@@ -6,6 +6,8 @@ import { type HastRoot, type UnifiedTransformer, unistUtilVisit } from 'dumi';
  */
 function rehypeAntd(): UnifiedTransformer<HastRoot> {
   return (tree, vFile) => {
+    const filename = (vFile.data.frontmatter as any).filename;
+
     unistUtilVisit.visit(tree, 'element', (node) => {
       if (node.tagName === 'DumiDemoGrid') {
         // replace DumiDemoGrid to DemoWrapper, to implement demo toolbar
@@ -16,9 +18,7 @@ function rehypeAntd(): UnifiedTransformer<HastRoot> {
 
         assert(
           contentNode.type === 'text',
-          `ResourceCards content must be plain text!\nat ${
-            (vFile.data.frontmatter as any).filename
-          }`,
+          `ResourceCards content must be plain text!\nat ${filename}`,
         );
 
         // clear children
@@ -52,6 +52,14 @@ function rehypeAntd(): UnifiedTransformer<HastRoot> {
             ),
           },
         ];
+      } else if (
+        node.type === 'element' &&
+        node.tagName === 'Table' &&
+        /^components/.test(filename)
+      ) {
+        if (!node.properties) return;
+        node.properties.className ??= [];
+        (node.properties.className as string[]).push('component-api-table');
       }
     });
   };
