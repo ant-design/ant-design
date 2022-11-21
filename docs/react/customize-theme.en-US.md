@@ -276,6 +276,8 @@ export default () => {
 };
 ```
 
+Note: After turning off the `:where` downgrade, you may need to manually adjust the priority of some styles.
+
 ## API
 
 ### Theme
