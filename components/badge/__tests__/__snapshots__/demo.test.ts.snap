@@ -1606,6 +1606,154 @@ exports[`renders ./components/badge/demo/offset.tsx correctly 1`] = `
 </span>
 `;
 
+exports[`renders ./components/badge/demo/offset-debug.tsx correctly 1`] = `
+Array [
+  <form
+    class="ant-form ant-form-horizontal"
+  >
+    <div
+      class="ant-form-item"
+    >
+      <div
+        class="ant-row ant-form-item-row"
+      >
+        <div
+          class="ant-col ant-form-item-label"
+        >
+          <label
+            class=""
+            for="x"
+            title="offsetX"
+          >
+            offsetX
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <div
+                class="ant-slider ant-slider-horizontal"
+              >
+                <div
+                  class="ant-slider-rail"
+                />
+                <div
+                  class="ant-slider-track"
+                  style="left:0%;width:60%"
+                />
+                <div
+                  class="ant-slider-step"
+                />
+                <div
+                  aria-disabled="false"
+                  aria-valuemax="50"
+                  aria-valuemin="-50"
+                  aria-valuenow="10"
+                  class="ant-slider-handle"
+                  role="slider"
+                  style="left:60%;transform:translateX(-50%)"
+                  tabindex="0"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-form-item"
+    >
+      <div
+        class="ant-row ant-form-item-row"
+      >
+        <div
+          class="ant-col ant-form-item-label"
+        >
+          <label
+            class=""
+            for="y"
+            title="offsetY"
+          >
+            offsetY
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <div
+                class="ant-slider ant-slider-horizontal"
+              >
+                <div
+                  class="ant-slider-rail"
+                />
+                <div
+                  class="ant-slider-track"
+                  style="left:0%;width:60%"
+                />
+                <div
+                  class="ant-slider-step"
+                />
+                <div
+                  aria-disabled="false"
+                  aria-valuemax="50"
+                  aria-valuemin="-50"
+                  aria-valuenow="10"
+                  class="ant-slider-handle"
+                  role="slider"
+                  style="left:60%;transform:translateX(-50%)"
+                  tabindex="0"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>,
+  <span
+    class="ant-badge"
+  >
+    <span
+      class="ant-avatar ant-avatar-lg ant-avatar-square"
+    >
+      <span
+        class="ant-avatar-string"
+        style="opacity:0"
+      />
+    </span>
+    <sup
+      class="ant-scroll-number ant-badge-count"
+      data-show="true"
+      style="margin-top:10px;right:-10px"
+      title="5"
+    >
+      <span
+        class="ant-scroll-number-only"
+        style="transition:none"
+      >
+        <span
+          class="ant-scroll-number-only-unit current"
+        >
+          5
+        </span>
+      </span>
+    </sup>
+  </span>,
+]
+`;
+
 exports[`renders ./components/badge/demo/overflow.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
