@@ -26,11 +26,11 @@ When you need to mention someone or something.
 <code src="./demo/status.tsx">Status</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 
-### Usage upgrade after 4.25.0
+### Usage upgrade after 5.1.0
 
 ```__react
 import Alert from '../alert';
-ReactDOM.render(<Alert message="After version 4.25.0, we provide a simpler usage <Mentions options={[...]} />  with better performance and potential of writing simpler code style in your applications. Meanwhile, we deprecated the old usage in browser console, we will remove it in antd 5.0." />, mountNode);
+ReactDOM.render(<Alert message="After version 5.1.0, we provide a simpler usage <Mentions options={[...]} />  with better performance and potential of writing simpler code style in your applications. Meanwhile, we deprecated the old usage in browser console, we will remove it in antd 6.0." />, mountNode);
 ```
 
 ```jsx
@@ -49,7 +49,7 @@ return <Mentions options={options} />;
 ### Mention
 
 | Property | Description | Type | Default | Version     |
-| --- | --- | --- | --- |-------------|
+| --- | --- | --- | --- | --- |
 | autoFocus | Auto get focus when component mounted | boolean | false |             |
 | autoSize | Textarea height autosize feature, can be set to true \| false or an object { minRows: 2, maxRows: 6 } | boolean \| object      | false |  |
 | defaultValue | Default value | string | - |             |

@@ -27,11 +27,11 @@ demo:
 <code src="./demo/status.tsx">自定义状态</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 
-### 4.25.0 用法升级
+### 5.1.0 用法升级
 
 ```__react
 import Alert from '../alert';
-ReactDOM.render(<Alert message="在 4.25.0 版本后，我们提供了 <Mentions options={[...]} /> 的简写方式，有更好的性能和更方便的数据组织方式，开发者不再需要自行拼接 JSX。同时我们废弃了原先的写法，你还是可以在 5.x 继续使用，但会在控制台看到警告，并会在 6.0 后移除。" />, mountNode);
+ReactDOM.render(<Alert message="在 5.1.0 版本后，我们提供了 <Mentions options={[...]} /> 的简写方式，有更好的性能和更方便的数据组织方式，开发者不再需要自行拼接 JSX。同时我们废弃了原先的写法，你还是可以在 5.x 继续使用，但会在控制台看到警告，并会在 6.0 后移除。" />, mountNode);
 ```
 
 ```jsx
@@ -50,7 +50,7 @@ return <Mentions options={options} />;
 ### Mentions
 
 | 参数 | 说明 | 类型 | 默认值 | 版本       |
-| --- | --- | --- | --- |----------|
+| --- | --- | --- | --- | --- |
 | autoFocus | 自动获得焦点 | boolean | false |          |
 | autoSize | 自适应内容高度，可设置为 true \| false 或对象：{ minRows: 2, maxRows: 6 } | boolean \| object   | false |  |
 | defaultValue | 默认值 | string | - |          |
@@ -81,7 +81,7 @@ return <Mentions options={options} />;
 ### Option
 
 | 参数      | 说明           | 类型                | 默认值 |
-| --------- | -------------- | ------------------- | ------ |
+| -------- | -------------- | --------- | ------ |
 | value     | 选择时填充的值 | string              | -      |
 | label     | 选项的标题     | React.ReactNode     | -      |
 | key       | 选项的 key 值  | string              | -      |
