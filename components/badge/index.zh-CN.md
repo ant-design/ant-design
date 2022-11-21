@@ -24,6 +24,7 @@ group: 数据展示
 <code src="./demo/change.tsx">动态</code>
 <code src="./demo/link.tsx">可点击</code>
 <code src="./demo/offset.tsx">自定义位置偏移</code>
+<code src="./demo/offset-debug.tsx" debug>Offset Debug</code>
 <code src="./demo/size.tsx">大小</code>
 <code src="./demo/status.tsx">状态点</code>
 <code src="./demo/colorful.tsx">多彩徽标</code>

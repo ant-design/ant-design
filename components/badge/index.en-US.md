@@ -23,6 +23,7 @@ Badge normally appears in proximity to notifications or user avatars with eye-ca
 <code src="./demo/change.tsx">Dynamic</code>
 <code src="./demo/link.tsx">Clickable</code>
 <code src="./demo/offset.tsx">Offset</code>
+<code src="./demo/offset-debug.tsx" debug>Offset Debug</code>
 <code src="./demo/size.tsx">Size</code>
 <code src="./demo/status.tsx">Status</code>
 <code src="./demo/colorful.tsx">Colorful Badge</code>
