@@ -29,7 +29,6 @@ const useStyle = () => {
       align-items: center;
       justify-content: center;
       height: 152px;
-      background-color: ${token.colorBgElevated};
     `,
     componentsOverviewCard: css`
       cursor: pointer;
@@ -114,7 +113,10 @@ const Overview: React.FC = () => {
       .concat([
         {
           title: locale === 'zh-CN' ? '重型组件' : 'Others',
-          children: proComponentsList,
+          children:
+            locale === 'zh-CN'
+              ? proComponentsList.map((component) => ({ ...component, subtitle: '' }))
+              : proComponentsList,
         },
       ]);
   }, [data, locale]);
