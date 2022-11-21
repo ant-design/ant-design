@@ -1,4 +1,3 @@
-/* istanbul ignore next */
 import VerticalAlignTopOutlined from '@ant-design/icons/VerticalAlignTopOutlined';
 import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
@@ -11,6 +10,7 @@ import FloatButtonGroupContext from './context';
 import type { BackTopProps, FloatButtonProps, FloatButtonShape } from './interface';
 import useStyle from './style';
 
+/* istanbul ignore next */
 const PureBackTop: React.FC<BackTopProps> = (props) => {
   const {
     prefixCls: customizePrefixCls,
