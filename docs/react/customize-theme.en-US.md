@@ -217,7 +217,7 @@ const theme = {
 
 ### Compatible adjustment
 
-Ant Design default using CSS-in-JS with `:where` Selector to reduce priority. If you want to support old browser, you can use `@ant-design/cssinjs` to adjust this behavior:
+Ant Design default using CSS-in-JS with `:where` Selector to reduce priority. If you want to support old browser, you can use `@ant-design/cssinjs` to adjust this behavior (Please note keep version align with antd):
 
 ```tsx
 import React from 'react';
@@ -237,6 +237,43 @@ It will turn `:where` to class selector:
 ++  .css-bAMboO.ant-btn {
       color: #fff;
     }
+```
+
+### Server Side Render (SSR)
+
+Use `@ant-design/cssinjs` to extract style:
+
+```tsx
+import React from 'react';
+import { renderToString } from 'react-dom/server';
+import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
+
+export default () => {
+  // SSR Render
+  const cache = createCache();
+
+  const html = renderToString(
+    <StyleProvider cache={cache}>
+      <MyApp />
+    </StyleProvider>,
+  );
+
+  // Grab style from cache
+  const styleText = extractStyle(cache);
+
+  // Mix with style
+  return `
+<!DOCTYPE html>
+<html>
+  <head>
+    ${styleText}
+  </head>
+  <body>
+    <div id="root">${html}</div>
+  </body>
+</html>
+`;
+};
 ```
 
 ## API
