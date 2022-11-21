@@ -115,8 +115,8 @@ const Overview: React.FC = () => {
           title: locale === 'zh-CN' ? '重型组件' : 'Others',
           children:
             locale === 'zh-CN'
-              ? proComponentsList.map((component) => ({ ...component, subtitle: '' }))
-              : proComponentsList,
+              ? proComponentsList
+              : proComponentsList.map((component) => ({ ...component, subtitle: '' })),
         },
       ]);
   }, [data, locale]);
