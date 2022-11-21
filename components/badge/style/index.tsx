@@ -276,6 +276,15 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
         },
         [`${numberPrefixCls}-symbol`]: { verticalAlign: 'top' },
       },
+
+      // ====================== RTL =======================
+      '&-rtl': {
+        direction: 'rtl',
+
+        [`${componentCls}-count, ${componentCls}-dot, ${numberPrefixCls}-custom-component`]: {
+          insetInlineEnd: 'auto',
+        },
+      },
     },
     [`${ribbonWrapperPrefixCls}`]: { position: 'relative' },
     [`${ribbonPrefixCls}`]: {
@@ -316,6 +325,22 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
         [`${ribbonPrefixCls}-corner`]: {
           insetInlineStart: 0,
           borderColor: 'currentcolor currentcolor transparent transparent',
+        },
+      },
+
+      // ====================== RTL =======================
+      '&-rtl': {
+        direction: 'rtl',
+
+        [`&${ribbonPrefixCls}-placement-end`]: {
+          [`${ribbonPrefixCls}-corner`]: {
+            borderColor: 'currentcolor currentcolor transparent transparent',
+          },
+        },
+        [`&${ribbonPrefixCls}-placement-start`]: {
+          [`${ribbonPrefixCls}-corner`]: {
+            borderColor: 'currentcolor transparent transparent currentcolor',
+          },
         },
       },
     },
