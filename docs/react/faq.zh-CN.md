@@ -208,6 +208,10 @@ ConfigProvider.config({
 
 请参考动态主题文档 [兼容性调整](/docs/react/customize-theme-cn#兼容性调整) 部分内容。
 
+## 如何支持 SSR？
+
+请参考动态主题文档 [服务端渲染](/docs/react/customize-theme-cn#服务端渲染) 部分内容。
+
 ## 如何正确的拼写 Ant Design？
 
 - ✅ **Ant Design**：用空格分隔的首字母大写单词，指代设计语言。

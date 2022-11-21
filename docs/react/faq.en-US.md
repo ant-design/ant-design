@@ -187,6 +187,10 @@ For historical reasons, the display names of the pop components are not uniform,
 
 Please ref dynamic theme document [Compatible Adjustment](/docs/react/customize-theme#compatible-adjustment) part.
 
+## How to support SSR？
+
+Please ref dynamic theme document [SSR](/docs/react/customize-theme#server-side-render-ssr) part.
+
 ## How to spell Ant Design correctly?
 
 - ✅ **Ant Design**: Capitalized with space, for the design language.
