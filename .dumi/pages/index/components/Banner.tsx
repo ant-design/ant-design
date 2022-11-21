@@ -71,6 +71,7 @@ export default function Banner({ children }: BannerProps) {
             backgroundRepeat: 'repeat-x',
             backgroundPosition: '0 0',
             backgroundSize: 'auto 100%',
+            marginLeft: -1,
           }}
         />
       </div>
