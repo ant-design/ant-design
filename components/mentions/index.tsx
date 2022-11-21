@@ -85,6 +85,7 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
   const [focused, setFocused] = React.useState(false);
   const innerRef = React.useRef<MentionsRef>();
   const mergedRef = composeRef(ref, innerRef);
+
   const { getPrefixCls, renderEmpty, direction } = React.useContext(ConfigContext);
   const {
     status: contextStatus,
@@ -116,15 +117,11 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
     return (renderEmpty || defaultRenderEmpty)('Select');
   };
 
-  if (loading) {
-    options = [
-      {
-        value: 'ANTD_SEARCHING',
-        disabled: true,
-        label: <Spin size="small" />,
-      },
-    ];
-  }
+  const mergedOptions = loading ? [{
+    value:'ANTD_SEARCHING',
+    disabled:true,
+    label:<Spin size="small" />,
+  }] : options;
 
   const getFilterOption = (): any => {
     if (loading) {
@@ -162,7 +159,7 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
       onBlur={onBlur}
       dropdownClassName={classNames(popupClassName, hashId)}
       ref={mergedRef as any}
-      options={options}
+      options={mergedOptions}
     />
   );
 
