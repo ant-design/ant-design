@@ -1,5 +1,5 @@
 const chineseMirror =
-  typeof location !== undefined && location.hostname.includes('.antgroup.com');
+  typeof location !== 'undefined' && location.hostname.includes('.antgroup.com');
 
 export default {
   categoryOrder: {
