@@ -109,7 +109,7 @@ const genLayoutStyle: GenerateStyle<LayoutToken, CSSObject> = (token) => {
           marginTop: -0.1,
           paddingTop: 0.1,
 
-          [`${antCls}-menu${antCls}menu-inline-collapsed`]: {
+          [`${antCls}-menu${antCls}-menu-inline-collapsed`]: {
             width: 'auto',
           },
         },
