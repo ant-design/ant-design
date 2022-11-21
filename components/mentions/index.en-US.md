@@ -48,7 +48,7 @@ return <Mentions options={options} />;
 
 ### Mention
 
-| Property | Description | Type | Default | Version     |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | autoFocus | Auto get focus when component mounted | boolean | false |             |
 | autoSize | Textarea height autosize feature, can be set to true \| false or an object { minRows: 2, maxRows: 6 } | boolean \| object      | false |  |
