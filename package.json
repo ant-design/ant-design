@@ -84,7 +84,7 @@
     "site": "dumi build && cp .surgeignore _site",
     "sort": "npx sort-package-json",
     "sort-api": "antd-tools run sort-api-table",
-    "start": "dumi dev",
+    "start": "PORT=8001 dumi dev",
     "test": "jest --config .jest.js --cache=false",
     "test:update": "jest --config .jest.js --cache=false -u",
     "test-all": "sh -e ./scripts/test-all.sh",
@@ -102,9 +102,7 @@
     "> 0.5%",
     "last 2 versions",
     "Firefox ESR",
-    "not dead",
-    "IE 11",
-    "not IE 10"
+    "not dead"
   ],
   "dependencies": {
     "@ant-design/colors": "^6.0.0",
