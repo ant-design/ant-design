@@ -111,10 +111,13 @@ const Badge: CompoundedComponent = ({
     }
 
     const offsetStyle: React.CSSProperties = { marginTop: offset[1] };
+    const offsetX = parseInt(offset[0] as string, 10);
+
     if (direction === 'rtl') {
-      offsetStyle.left = parseInt(offset[0] as string, 10);
+      offsetStyle.left = -offsetX;
+      offsetStyle.transform = 'translate(-50%, -50%)';
     } else {
-      offsetStyle.right = -parseInt(offset[0] as string, 10);
+      offsetStyle.right = -offsetX;
     }
 
     return {
