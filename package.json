@@ -102,7 +102,9 @@
     "> 0.5%",
     "last 2 versions",
     "Firefox ESR",
-    "not dead"
+    "not dead",
+    "IE 11",
+    "not IE 10"
   ],
   "dependencies": {
     "@ant-design/colors": "^6.0.0",
