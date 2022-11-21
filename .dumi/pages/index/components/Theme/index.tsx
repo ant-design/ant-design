@@ -20,6 +20,7 @@ import {
   Space,
   theme,
   Typography,
+  Carousel,
 } from 'antd';
 import useLocale from '../../../../hooks/useLocale';
 import useSiteToken from '../../../../hooks/useSiteToken';
@@ -30,6 +31,9 @@ import RadiusPicker from './RadiusPicker';
 import Group from '../Group';
 import BackgroundImage from './BackgroundImage';
 import { DEFAULT_COLOR, getAvatarURL, getClosetColor, PINK_COLOR } from './colorUtil';
+import SiteContext from '../SiteContext';
+import themeDefault from '../images/theme-default.png';
+import { useCarouselStyle } from '../util';
 
 const { Header, Content, Sider } = Layout;
 
@@ -81,6 +85,7 @@ const locales = {
 // ============================= Style =============================
 const useStyle = () => {
   const { token } = useSiteToken();
+  const { carousel } = useCarouselStyle();
 
   return {
     demo: css`
@@ -177,6 +182,7 @@ const useStyle = () => {
       width: 800px;
       margin: 0 auto;
     `,
+    carousel,
   };
 };
 
@@ -278,6 +284,7 @@ export default function Theme() {
   const { compact, themeType, ...themeToken } = themeData;
   const isLight = themeType !== 'dark';
   const [form] = Form.useForm();
+  const { isMobile } = React.useContext(SiteContext);
 
   // const algorithmFn = isLight ? theme.defaultAlgorithm : theme.darkAlgorithm;
   const algorithmFn = React.useMemo(() => {
@@ -484,9 +491,54 @@ export default function Theme() {
     </ConfigProvider>
   );
 
+  const mobileImageConfigList = [
+    {
+      imageSrc: themeDefault,
+      alt: 'Default',
+    },
+    // {
+    //   imageSrc: themeDefault,
+    //   alt: 'Dark',
+    // },
+    // {
+    //   imageSrc: themeDefault,
+    //   alt: 'Document',
+    // },
+    // {
+    //   imageSrc: themeDefault,
+    //   alt: 'Blossom',
+    // },
+  ];
+
   const posStyle: React.CSSProperties = {
     position: 'absolute',
   };
+  const leftTopImageStyle = isMobile
+    ? {
+        top: '21%',
+        transform: 'rotate(45deg)',
+        width: '44%',
+        left: '-22%',
+      }
+    : {
+        left: '50%',
+        transform: 'translate3d(-900px, 0, 0)',
+        top: -100,
+        height: 500,
+      };
+  const rightBottomImageStyle = isMobile
+    ? {
+        width: 138,
+        bottom: -24,
+        right: -56,
+        transform: 'rotate(75deg)',
+      }
+    : {
+        right: '50%',
+        transform: 'translate3d(750px, 0, 0)',
+        bottom: -100,
+        height: 287,
+      };
 
   return (
     <Group
@@ -509,10 +561,7 @@ export default function Theme() {
             <img
               style={{
                 ...posStyle,
-                left: '50%',
-                transform: 'translate3d(-900px, 0, 0)',
-                top: -100,
-                height: 500,
+                ...leftTopImageStyle,
               }}
               src="https://gw.alipayobjects.com/zos/bmw-prod/bd71b0c6-f93a-4e52-9c8a-f01a9b8fe22b.svg"
               alt=""
@@ -521,10 +570,7 @@ export default function Theme() {
             <img
               style={{
                 ...posStyle,
-                right: '50%',
-                transform: 'translate3d(750px, 0, 0)',
-                bottom: -100,
-                height: 287,
+                ...rightBottomImageStyle,
               }}
               src="https://gw.alipayobjects.com/zos/bmw-prod/84ad805a-74cb-4916-b7ba-9cdc2bdec23a.svg"
               alt=""
@@ -557,7 +603,17 @@ export default function Theme() {
         </>
       }
     >
-      {themeNode}
+      {isMobile ? (
+        <Carousel css={style.carousel}>
+          {mobileImageConfigList.map((item, index) => (
+            <div key={index}>
+              <img src={item.imageSrc} alt={item.alt} style={{ width: '100%' }} />
+            </div>
+          ))}
+        </Carousel>
+      ) : (
+        themeNode
+      )}
     </Group>
   );
 }
