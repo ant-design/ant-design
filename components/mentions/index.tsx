@@ -15,8 +15,10 @@ import genPurePanel from '../_util/PurePanel';
 import Spin from '../spin';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
+import warning from "../_util/warning";
 
 import useStyle from './style';
+
 
 export const { Option } = RcMentions;
 
@@ -85,6 +87,15 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
   const [focused, setFocused] = React.useState(false);
   const innerRef = React.useRef<MentionsRef>();
   const mergedRef = composeRef(ref, innerRef);
+
+  // =================== Warning =====================
+  if (process.env.NODE_ENV !== 'production') {
+    warning(
+      !(children),
+      'Mentions',
+      '`Mentions.Option` is deprecated. Please use `options` instead.',
+    );
+  }
 
   const { getPrefixCls, renderEmpty, direction } = React.useContext(ConfigContext);
   const {
