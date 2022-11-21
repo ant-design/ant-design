@@ -116,7 +116,7 @@ export interface UploadProps<T = any> extends Pick<RcUploadProps, 'capture'> {
   style?: React.CSSProperties;
   disabled?: boolean;
   prefixCls?: string;
-  customRequest?: (options: RcCustomRequestOptions) => void;
+  customRequest?: (options: RcCustomRequestOptions<T>) => void;
   withCredentials?: boolean;
   openFileDialogOnClick?: boolean;
   locale?: UploadLocale;
@@ -125,7 +125,7 @@ export interface UploadProps<T = any> extends Pick<RcUploadProps, 'capture'> {
   /** @deprecated Please use `beforeUpload` directly */
   transformFile?: TransformFileHandler;
   iconRender?: (file: UploadFile<T>, listType?: UploadListType) => React.ReactNode;
-  isImageUrl?: (file: UploadFile) => boolean;
+  isImageUrl?: (file: UploadFile<T>) => boolean;
   progress?: UploadListProgressProps;
   itemRender?: ItemRender<T>;
   /** Config max count of `fileList`. Will replace current one when `maxCount` is 1 */
