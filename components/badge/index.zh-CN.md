@@ -27,7 +27,7 @@ group: 数据展示
 <code src="./demo/size.tsx">大小</code>
 <code src="./demo/status.tsx">状态点</code>
 <code src="./demo/colorful.tsx">多彩徽标</code>
-<code src="./demo/ribbbon.tsx">缎带</code>
+<code src="./demo/ribbon.tsx">缎带</code>
 <code src="./demo/ribbon-debug.tsx" debug>Ribbon Debug</code>
 <code src="./demo/mix.tsx" debug>各种混用的情况</code>
 <code src="./demo/title.tsx" debug>自定义标题</code>

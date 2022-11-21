@@ -26,7 +26,7 @@ Badge normally appears in proximity to notifications or user avatars with eye-ca
 <code src="./demo/size.tsx">Size</code>
 <code src="./demo/status.tsx">Status</code>
 <code src="./demo/colorful.tsx">Colorful Badge</code>
-<code src="./demo/ribbbon.tsx">Ribbon</code>
+<code src="./demo/ribbon.tsx">Ribbon</code>
 <code src="./demo/ribbon-debug.tsx" debug>Ribbon Debug</code>
 <code src="./demo/mix.tsx" debug>Mixed usage</code>
 <code src="./demo/title.tsx" debug>Title</code>

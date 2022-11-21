@@ -217,7 +217,7 @@ const theme = {
 
 ### Compatible adjustment
 
-Ant Design default using CSS-in-JS with `:where` Selector to reduce priority. If you want to support old browser, you can use `@ant-design/cssinjs` to adjust this behavior (Please note keep version align with antd):
+Ant Design default using CSS-in-JS with `:where` Selector to reduce priority to avoid user additional adjust style cost when updating to v5. If you want to support old browser, you can use `@ant-design/cssinjs` to adjust this behavior (Please note keep version align with antd):
 
 ```tsx
 import React from 'react';
@@ -238,6 +238,8 @@ It will turn `:where` to class selector:
       color: #fff;
     }
 ```
+
+Note: After turning off the `:where` downgrade, you may need to manually adjust the priority of some styles.
 
 ### Server Side Render (SSR)
 

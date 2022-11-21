@@ -1280,6 +1280,7 @@ const GlobalStyles = () => {
                 width: 100%;
                 height: 100%;
                 color: #fff;
+                background: #1677ff;
                 line-height: 110px;
                 text-align: center;
                 opacity: 0;
@@ -1288,7 +1289,6 @@ const GlobalStyles = () => {
               }
 
               &.copied::after {
-                top: -10px;
                 opacity: 1;
               }
             }

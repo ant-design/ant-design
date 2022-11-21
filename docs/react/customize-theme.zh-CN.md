@@ -217,7 +217,7 @@ const theme = {
 
 ### 兼容性调整
 
-Ant Design 的 CSS-in-JS 默认通过 `:where` 选择器降低 CSS Selector 优先级。在某些场景下你如果需要支持的旧版游览器，你可以使用 `@ant-design/cssinjs` 取消默认的降权操作（请注意版本保持与 antd 一致）：
+Ant Design 的 CSS-in-JS 默认通过 `:where` 选择器降低 CSS Selector 优先级，以减少用户升级 v5 时额外调整自定义样式成本。在某些场景下你如果需要支持的旧版浏览器，你可以使用 `@ant-design/cssinjs` 取消默认的降权操作（请注意版本保持与 antd 一致）：
 
 ```tsx
 import React from 'react';
@@ -238,6 +238,8 @@ export default () => (
       color: #fff;
     }
 ```
+
+注意：关闭 `:where` 降权后，你可能需要手动调整一些样式的优先级。
 
 ### 服务端渲染
 
