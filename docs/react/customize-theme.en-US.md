@@ -215,11 +215,72 @@ const theme = {
 };
 ```
 
+### Compatible adjustment
+
+Ant Design default using CSS-in-JS with `:where` Selector to reduce priority. If you want to support old browser, you can use `@ant-design/cssinjs` to adjust this behavior (Please note keep version align with antd):
+
+```tsx
+import React from 'react';
+import { StyleProvider } from '@ant-design/cssinjs';
+
+export default () => (
+  <StyleProvider hashPriority="high">
+    <MyApp />
+  </StyleProvider>
+);
+```
+
+It will turn `:where` to class selector:
+
+```diff
+--  :where(.css-bAMboO).ant-btn {
+++  .css-bAMboO.ant-btn {
+      color: #fff;
+    }
+```
+
+### Server Side Render (SSR)
+
+Use `@ant-design/cssinjs` to extract style:
+
+```tsx
+import React from 'react';
+import { renderToString } from 'react-dom/server';
+import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
+
+export default () => {
+  // SSR Render
+  const cache = createCache();
+
+  const html = renderToString(
+    <StyleProvider cache={cache}>
+      <MyApp />
+    </StyleProvider>,
+  );
+
+  // Grab style from cache
+  const styleText = extractStyle(cache);
+
+  // Mix with style
+  return `
+<!DOCTYPE html>
+<html>
+  <head>
+    ${styleText}
+  </head>
+  <body>
+    <div id="root">${html}</div>
+  </body>
+</html>
+`;
+};
+```
+
 ## API
 
 ### Theme
 
-| 属性 | 说明 | 类型 | 默认值 |
+| Property | Description | Type | Default |
 | --- | --- | --- | --- |
 | token | Modify Design Token | `AliasToken` | - |
 | inherit | Inherit theme configured in upper ConfigProvider | boolean | true |
@@ -228,13 +289,13 @@ const theme = {
 
 ### OverrideToken
 
-| 属性 | 说明 | 类型 | 默认值 |
+| Property | Description | Type | Default |
 | --- | --- | --- | --- |
 | `Component` (可以是任意 antd 组件名，如 `Button`) | 用于修改 Component Token 以及覆盖该组件消费的 Alias Token | `ComponentToken & AliasToken` | - |
 
 ### SeedToken
 
-| 属性 | 说明 | 类型 | 默认值 |
+| Property | Description | Type | Default |
 | --- | --- | --- | --- |
 | colorPrimary | 品牌主色 | `string` | `#1677ff` |
 | colorSuccess | 成功色 | `string` | `#52c41a` |
@@ -271,9 +332,9 @@ const theme = {
 
 ### MapToken
 
-> 继承所有 SeedToken 的属性
+> 继承所有 SeedToken 的 Property
 
-| 属性 | 说明 | 类型 | 默认值 |
+| Property | Description | Type | Default |
 | --- | --- | --- | --- |
 | colorText | 一级文本色 | `string` | `rgba(0, 0, 0, 0.88)` |
 | colorTextSecondary | 二级文本色 | `string` | `rgba(0, 0, 0, 0.65)` |
@@ -364,9 +425,9 @@ const theme = {
 
 ### AliasToken
 
-> 继承所有 SeedToken 和 MapToken 的属性
+> 继承所有 SeedToken 和 MapToken 的 Property
 
-| 属性 | 说明 | 类型 | 默认值 |
+| Property | Description | Type | Default |
 | --- | --- | --- | --- |
 | colorFillContent | - | `string` | `rgba(0, 0, 0, 0.06)` |
 | colorFillContentHover | - | `string` | `rgba(0, 0, 0, 0.12)` |

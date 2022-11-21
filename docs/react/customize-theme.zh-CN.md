@@ -215,6 +215,67 @@ const theme = {
 };
 ```
 
+### 兼容性调整
+
+Ant Design 的 CSS-in-JS 默认通过 `:where` 选择器降低 CSS Selector 优先级。在某些场景下你如果需要支持的旧版游览器，你可以使用 `@ant-design/cssinjs` 取消默认的降权操作（请注意版本保持与 antd 一致）：
+
+```tsx
+import React from 'react';
+import { StyleProvider } from '@ant-design/cssinjs';
+
+export default () => (
+  <StyleProvider hashPriority="high">
+    <MyApp />
+  </StyleProvider>
+);
+```
+
+切换后，样式将从 `:where` 切换为类选择器：
+
+```diff
+--  :where(.css-bAMboO).ant-btn {
+++  .css-bAMboO.ant-btn {
+      color: #fff;
+    }
+```
+
+### 服务端渲染
+
+使用 `@ant-design/cssinjs` 将所需样式抽离：
+
+```tsx
+import React from 'react';
+import { renderToString } from 'react-dom/server';
+import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
+
+export default () => {
+  // SSR Render
+  const cache = createCache();
+
+  const html = renderToString(
+    <StyleProvider cache={cache}>
+      <MyApp />
+    </StyleProvider>,
+  );
+
+  // Grab style from cache
+  const styleText = extractStyle(cache);
+
+  // Mix with style
+  return `
+<!DOCTYPE html>
+<html>
+  <head>
+    ${styleText}
+  </head>
+  <body>
+    <div id="root">${html}</div>
+  </body>
+</html>
+`;
+};
+```
+
 ## API
 
 ### Theme
