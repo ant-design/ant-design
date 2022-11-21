@@ -1,23 +1,21 @@
 import * as React from 'react';
-import { useToken } from '../theme';
 import { useMemo } from 'react';
 import { TinyColor } from '@ctrl/tinycolor';
+import { useToken } from '../theme';
 
 const Simple = () => {
   const [, token] = useToken();
 
   const { colorFill, colorFillTertiary, colorFillQuaternary, colorBgContainer } = token;
 
-  const [borderColor, shadowColor, contentColor] = useMemo(() => {
-    const borderColor = new TinyColor(colorFill).onBackground(colorBgContainer).toHexString();
-    const shadowColor = new TinyColor(colorFillTertiary)
-      .onBackground(colorBgContainer)
-      .toHexString();
-    const contentColor = new TinyColor(colorFillQuaternary)
-      .onBackground(colorBgContainer)
-      .toHexString();
-    return [borderColor, shadowColor, contentColor];
-  }, [colorFill, colorFillTertiary, colorFillQuaternary, colorBgContainer]);
+  const { borderColor, shadowColor, contentColor } = useMemo(
+    () => ({
+      borderColor: new TinyColor(colorFill).onBackground(colorBgContainer).toHexString(),
+      shadowColor: new TinyColor(colorFillTertiary).onBackground(colorBgContainer).toHexString(),
+      contentColor: new TinyColor(colorFillQuaternary).onBackground(colorBgContainer).toHexString(),
+    }),
+    [colorFill, colorFillTertiary, colorFillQuaternary, colorBgContainer],
+  );
 
   return (
     <svg width="64" height="41" viewBox="0 0 64 41" xmlns="http://www.w3.org/2000/svg">
