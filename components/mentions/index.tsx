@@ -3,6 +3,7 @@ import RcMentions from 'rc-mentions';
 import type {
   MentionsProps as RcMentionsProps,
   MentionsRef as RcMentionsRef,
+  DataDrivenOptionProps as MentionsOptionProps,
 } from 'rc-mentions/lib/Mentions';
 import { composeRef } from 'rc-util/lib/ref';
 // eslint-disable-next-line import/no-named-as-default
@@ -14,8 +15,10 @@ import genPurePanel from '../_util/PurePanel';
 import Spin from '../spin';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
+import warning from "../_util/warning";
 
 import useStyle from './style';
+
 
 export const { Option } = RcMentions;
 
@@ -24,6 +27,10 @@ function loadingFilterOption() {
 }
 
 export type MentionPlacement = 'top' | 'bottom';
+
+export type {
+  DataDrivenOptionProps as MentionsOptionProps,
+} from 'rc-mentions/lib/Mentions';
 
 export interface OptionProps {
   value: string;
@@ -34,6 +41,7 @@ export interface OptionProps {
 export interface MentionProps extends RcMentionsProps {
   loading?: boolean;
   status?: InputStatus;
+  options?: MentionsOptionProps[];
   popupClassName?: string;
 }
 
@@ -69,6 +77,7 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
     filterOption,
     children,
     notFoundContent,
+    options,
     status: customStatus,
     popupClassName,
     ...restProps
@@ -78,6 +87,16 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
   const [focused, setFocused] = React.useState(false);
   const innerRef = React.useRef<MentionsRef>();
   const mergedRef = composeRef(ref, innerRef);
+
+  // =================== Warning =====================
+  if (process.env.NODE_ENV !== 'production') {
+    warning(
+      !(children),
+      'Mentions',
+      '`Mentions.Option` is deprecated. Please use `options` instead.',
+    );
+  }
+
   const { getPrefixCls, renderEmpty, direction } = React.useContext(ConfigContext);
   const {
     status: contextStatus,
@@ -109,17 +128,11 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
     return (renderEmpty || defaultRenderEmpty)('Select');
   };
 
-  const getOptions = () => {
-    if (loading) {
-      return (
-        <Option value="ANTD_SEARCHING" disabled>
-          <Spin size="small" />
-        </Option>
-      );
-    }
-
-    return children;
-  };
+  const mergedOptions = loading ? [{
+    value:'ANTD_SEARCHING',
+    disabled:true,
+    label:<Spin size="small" />,
+  }] : options;
 
   const getFilterOption = (): any => {
     if (loading) {
@@ -157,9 +170,8 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
       onBlur={onBlur}
       dropdownClassName={classNames(popupClassName, hashId)}
       ref={mergedRef as any}
-    >
-      {getOptions()}
-    </RcMentions>
+      options={mergedOptions}
+    />
   );
 
   if (hasFeedback) {
@@ -203,7 +215,7 @@ Mentions.getMentions = (value: string = '', config: MentionsConfig = {}): Mentio
     .map((str = ''): MentionsEntity | null => {
       let hitPrefix: string | null = null;
 
-      prefixList.some(prefixStr => {
+      prefixList.some((prefixStr) => {
         const startStr = str.slice(0, prefixStr.length);
         if (startStr === prefixStr) {
           hitPrefix = prefixStr;

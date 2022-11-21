@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { Mentions } from 'antd';
 
-const { Option } = Mentions;
-
 const MOCK_DATA = {
   '@': ['afc163', 'zombiej', 'yesmeck'],
   '#': ['1.0', '2.0', '3.0'],
@@ -23,13 +21,12 @@ const App: React.FC = () => {
       placeholder="input @ to mention people, # to mention tag"
       prefix={['@', '#']}
       onSearch={onSearch}
-    >
-      {(MOCK_DATA[prefix] || []).map(value => (
-        <Option key={value} value={value}>
-          {value}
-        </Option>
-      ))}
-    </Mentions>
+      options={(MOCK_DATA[prefix] || []).map((value) => ({
+        key: value,
+        value,
+        label: value,
+      }))}
+    />
   );
 };
 
