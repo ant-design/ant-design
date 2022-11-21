@@ -34,11 +34,11 @@ ReactDOM.render(<Alert message="After version 4.25.0, we provide a simpler usage
 ```
 
 ```jsx
-// works when >=4.25.0, recommended ✅
+// works when >=5.1.0, recommended ✅
 const options = [{ value: 'sample', label: 'sample' }];
 return <Mentions options={options} />;
 
-// works when <4.25.0, deprecated when >=4.25.0 🙅🏻‍♀️
+// works when <5.1.0, deprecated when >=5.1.0 🙅🏻‍♀️
 <Mentions onChange={onChange}>
   <Mentions.Option value="sample">Sample</Mentions.Option>
 </Mentions>;
@@ -49,7 +49,7 @@ return <Mentions options={options} />;
 ### Mention
 
 | Property | Description | Type | Default | Version     |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |-------------|
 | autoFocus | Auto get focus when component mounted | boolean | false |             |
 | autoSize | Textarea height autosize feature, can be set to true \| false or an object { minRows: 2, maxRows: 6 } | boolean \| object      | false |  |
 | defaultValue | Default value | string | - |             |
@@ -68,7 +68,7 @@ return <Mentions options={options} />;
 | onResize | The callback function that is triggered when textarea resize | function({ width, height }) | - |             |
 | onSearch | Trigger when prefix hit | (text: string, prefix: string) => void | - |             |
 | onSelect | Trigger when user select the option | (option: OptionProps, prefix: string) => void | - |             |
-| options | Option Configuration | \[Options](#Option) | \[] | 5.0.0       |
+| options | Option Configuration | \[Options](#Option) | \[] | 5.1.0       |
 
 ### Mention methods
 
