@@ -29,7 +29,6 @@ const useStyle = () => {
       align-items: center;
       justify-content: center;
       height: 152px;
-      background-color: ${token.colorBgElevated};
     `,
     componentsOverviewCard: css`
       cursor: pointer;
