@@ -230,6 +230,15 @@ export default () => (
 );
 ```
 
+切换后，样式将从 `:where` 切换为类选择器：
+
+```diff
+--  :where(.css-bAMboO).ant-btn {
+++  .css-bAMboO.ant-btn {
+      color: #fff;
+    }
+```
+
 ## API
 
 ### Theme

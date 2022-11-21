@@ -230,6 +230,15 @@ export default () => (
 );
 ```
 
+It will turn `:where` to class selector:
+
+```diff
+--  :where(.css-bAMboO).ant-btn {
+++  .css-bAMboO.ant-btn {
+      color: #fff;
+    }
+```
+
 ## API
 
 ### Theme
