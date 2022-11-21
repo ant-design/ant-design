@@ -54,7 +54,7 @@ export default function BannerRecommends({ extras = [], icons = [] }: BannerReco
     >
       {first3.map((extra, index) => {
         if (!extra) {
-          return <Skeleton />;
+          return <Skeleton key={index} />;
         }
         const icon = icons.find((icon) => icon.name === extra.source);
         return (
