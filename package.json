@@ -221,7 +221,7 @@
     "eslint-plugin-markdown": "^3.0.0",
     "eslint-plugin-react": "^7.31.8",
     "eslint-plugin-react-hooks": "^4.1.2",
-    "eslint-plugin-unicorn": "^44.0.0",
+    "eslint-plugin-unicorn": "^45.0.0",
     "fast-glob": "^3.2.11",
     "fetch-jsonp": "^1.1.3",
     "fs-extra": "^10.0.0",
