@@ -1,9 +1,7 @@
 import React, { FC } from 'react';
 import { FloatButton, theme } from 'antd';
-import ThemeIcon from './icons/ThemeIcon';
-import Dark from './icons/Dark';
-import Light from './icons/Light';
-import Compact from './icons/Compact';
+import ThemeIcon from './ThemeIcon';
+import { DarkTheme, Light, CompactTheme } from 'antd-token-previewer/es/icons';
 
 const { defaultAlgorithm, darkAlgorithm, compactAlgorithm } = theme;
 
@@ -52,13 +50,13 @@ const ThemeSwitch: FC<ThemeSwitchProps> = ({ value, onChange }) => {
         tooltip="Light"
       />
       <FloatButton
-        icon={<Dark />}
+        icon={<DarkTheme />}
         type={value.includes(darkAlgorithm) ? 'primary' : 'default'}
         onClick={handleDarkSwitch}
         tooltip="Dark"
       />
       <FloatButton
-        icon={<Compact />}
+        icon={<CompactTheme />}
         type={value.includes(compactAlgorithm) ? 'primary' : 'default'}
         onClick={handleCompactSwitch}
         tooltip="Compact"
