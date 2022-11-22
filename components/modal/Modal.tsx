@@ -5,6 +5,7 @@ import type { ButtonProps, LegacyButtonType } from '../button/button';
 import type { DirectionType } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import { NoFormStyle } from '../form/context';
+import { NoCompactStyle } from '../space/Compact';
 import { getTransitionName } from '../_util/motion';
 import { canUseDocElement } from '../_util/styleChecker';
 import warning from '../_util/warning';
@@ -195,31 +196,35 @@ const Modal: React.FC<ModalProps> = (props) => {
   }
 
   return wrapSSR(
-    <NoFormStyle status override>
-      <Dialog
-        width={width}
-        {...restProps}
-        getContainer={
-          getContainer === undefined ? (getContextPopupContainer as getContainerFunc) : getContainer
-        }
-        prefixCls={prefixCls}
-        rootClassName={hashId}
-        wrapClassName={wrapClassNameExtended}
-        footer={renderFooter({
-          ...props,
-          onOk: handleOk,
-          onCancel: handleCancel,
-        })}
-        visible={open ?? visible}
-        mousePosition={restProps.mousePosition ?? mousePosition}
-        onClose={handleCancel}
-        closeIcon={renderCloseIcon(prefixCls, closeIcon)}
-        focusTriggerAfterClose={focusTriggerAfterClose}
-        transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}
-        maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
-        className={classNames(hashId, className)}
-      />
-    </NoFormStyle>,
+    <NoCompactStyle>
+      <NoFormStyle status override>
+        <Dialog
+          width={width}
+          {...restProps}
+          getContainer={
+            getContainer === undefined
+              ? (getContextPopupContainer as getContainerFunc)
+              : getContainer
+          }
+          prefixCls={prefixCls}
+          rootClassName={hashId}
+          wrapClassName={wrapClassNameExtended}
+          footer={renderFooter({
+            ...props,
+            onOk: handleOk,
+            onCancel: handleCancel,
+          })}
+          visible={open ?? visible}
+          mousePosition={restProps.mousePosition ?? mousePosition}
+          onClose={handleCancel}
+          closeIcon={renderCloseIcon(prefixCls, closeIcon)}
+          focusTriggerAfterClose={focusTriggerAfterClose}
+          transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}
+          maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
+          className={classNames(hashId, className)}
+        />
+      </NoFormStyle>
+    </NoCompactStyle>,
   );
 };
 

@@ -46,10 +46,6 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
         marginInlineStart: token.marginXS,
       },
 
-      [`&${componentCls}-block`]: {
-        width: '100%',
-      },
-
       '&:not(:disabled)': {
         ...genFocusStyle(token),
       },
@@ -463,6 +459,17 @@ const genSizeLargeButtonStyle: GenerateStyle<ButtonToken> = (token) => {
   return genSizeButtonStyle(largeToken, `${token.componentCls}-lg`);
 };
 
+const genBlockButtonStyle: GenerateStyle<ButtonToken> = (token) => {
+  const { componentCls } = token;
+  return {
+    [componentCls]: {
+      [`&${componentCls}-block`]: {
+        width: '100%',
+      },
+    },
+  };
+};
+
 // ============================== Export ==============================
 export default genComponentStyleHook('Button', (token) => {
   const { controlTmpOutline, paddingContentHorizontal } = token;
@@ -480,6 +487,9 @@ export default genComponentStyleHook('Button', (token) => {
     genSizeSmallButtonStyle(buttonToken),
     genSizeBaseButtonStyle(buttonToken),
     genSizeLargeButtonStyle(buttonToken),
+
+    // Block
+    genBlockButtonStyle(buttonToken),
 
     // Group (type, ghost, danger, disabled, loading)
     genTypeButtonStyle(buttonToken),

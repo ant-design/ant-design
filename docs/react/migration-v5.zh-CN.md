@@ -25,7 +25,7 @@ title: 从 v4 到 v5
   - 所有 less 文件全部移除，less 变量不再支持透出。
   - 产物中不再包含 css 文件。由于 CSS-in-JS 支持按需引入，原本的 `antd/dist/antd.css` 也已经移除，如果需要重置一些基本样式请引入 `antd/dist/reset.css`。
 - 移除 css variables 以及在此之上构筑的动态主题方案。
-- 移除 `lib` 产物，只提供 `dist` 和 `es` 产物，原本的 `antd/es/locale` 目录也已经移除，语言包可到 `antd/locale` 目录下寻找。
+- 移除 `antd/es/locale` 目录，语言包可到 `antd/locale` 目录下寻找。
 - 内置的时间库使用 Dayjs 替代 Moment.js，具体请查看 [使用自定义日期库](/docs/react/use-custom-date-library-cn/)。
 - 不再支持 `babel-plugin-import`，CSS-in-JS 本身具有按需加载的能力，不再需要插件支持。
 
