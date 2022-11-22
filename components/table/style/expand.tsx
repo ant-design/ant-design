@@ -48,6 +48,7 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
 
       [`${componentCls}-row-indent`]: {
         height: 1,
+        float: 'left',
       },
 
       [`${componentCls}-row-expand-icon`]: {
