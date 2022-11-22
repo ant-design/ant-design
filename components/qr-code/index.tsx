@@ -30,7 +30,7 @@ const QrCode: React.FC<QrCodeProps> = (props) => {
   } = props;
   const { getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('qrcode', customizePrefixCls);
-  const { hashId, wrapSSR } = useStyle(prefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const qrCodeProps = useMemo<QRPropsSVG | QRPropsCanvas>(() => {
     const imageSettings = {
