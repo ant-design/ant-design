@@ -33,12 +33,13 @@
   "files": [
     "dist",
     "es",
+    "lib",
     "locale"
   ],
   "sideEffects": [
     "*.less"
   ],
-  "main": "dist/antd.js",
+  "main": "lib/index.js",
   "module": "es/index.js",
   "unpkg": "dist/antd.min.js",
   "typings": "es/index.d.ts",
@@ -59,7 +60,7 @@
     "pretest": "npm run version",
     "predist": "npm run version",
     "presite": "npm run version && npm run collect-token-statistic",
-    "compile": "npm run clean && antd-tools run compile-experimental",
+    "compile": "npm run clean && antd-tools run compile",
     "changelog": "node ./scripts/print-changelog",
     "predeploy": "antd-tools run clean && npm run site && cp CNAME _site && npm run site:test",
     "deploy": "gh-pages -d _site -b gh-pages -f",
@@ -77,7 +78,7 @@
     "lint:script": "eslint . --ext .js,.jsx,.ts,.tsx",
     "pre-publish": "npm run test-all -- --skip-build",
     "prettier": "prettier -c --write **/*",
-    "pub": "npm run version && npm run collect-token-statistic && antd-tools run pub-experimental",
+    "pub": "npm run version && npm run collect-token-statistic && antd-tools run pub",
     "rome:format": "rome format --write .",
     "prepublishOnly": "antd-tools run guard",
     "postpublish": "node ./scripts/post-script.js",
@@ -157,7 +158,7 @@
   "devDependencies": {
     "@ant-design/bisheng-plugin": "^3.3.0-alpha.4",
     "@ant-design/hitu": "^0.0.0-alpha.13",
-    "@ant-design/tools": "^16.0.0-alpha.3",
+    "@ant-design/tools": "^16.1.0-alpha.2",
     "@docsearch/css": "^3.0.0",
     "@emotion/babel-preset-css-prop": "^11.10.0",
     "@emotion/css": "^11.10.5",
