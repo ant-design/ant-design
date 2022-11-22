@@ -1,8 +1,8 @@
 import { ThemeEditor } from 'antd-token-previewer';
-import { useContext } from 'react';
-import ThemeContext from '../../theme/slots/ThemeContext';
+import { useState } from 'react';
 import useLocale from '../../hooks/useLocale';
 import { ConfigProvider } from 'antd';
+import { ThemeConfig } from 'antd/es/config-provider/context';
 
 const locales = {
   cn: {
@@ -15,18 +15,13 @@ const locales = {
 
 const CustomTheme = () => {
   const [locale] = useLocale(locales);
-  const { setTheme, theme } = useContext(ThemeContext);
-
-  const mergedTheme = {
-    ...theme,
-  };
-  delete mergedTheme.algorithm;
+  const [theme, setTheme] = useState<ThemeConfig>({});
 
   return (
     <div>
-      <ConfigProvider theme={{ algorithm: undefined }}>
+      <ConfigProvider theme={{ inherit: false }}>
         <ThemeEditor
-          theme={{ name: 'test', key: 'test', config: mergedTheme }}
+          theme={{ name: 'Custom Theme', key: 'test', config: theme }}
           simple
           style={{ height: 'calc(100vh - 64px)' }}
           onThemeChange={(newTheme) => {
