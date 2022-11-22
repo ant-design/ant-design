@@ -1,5 +1,8 @@
--- order: 6 title: 更新日志 toc: false timeline: true
-
+---
+order: 6
+title: 更新日志
+toc: false
+timeline: true
 ---
 
 `antd` 严格遵循 [Semantic Versioning 2.0.0](http://semver.org/lang/zh-CN/) 语义化版本规范。
@@ -21,7 +24,6 @@
 - 💄 修复 Firefox 下拉菜单动画抖动的问题。[#38729](https://github.com/ant-design/ant-design/pull/38729)
 - Menu
   - 🐞 修复 Menu SubMenu 间距问题。[#38714](https://github.com/ant-design/ant-design/pull/38714) [@JarvisArt](https://github.com/JarvisArt)
-  - 🐞 修复 Menu 收起时的宽度问题。[#38791](https://github.com/ant-design/ant-design/pull/38791) [@KarasuShin](https://github.com/KarasuShin)
   - 🐞 修复 Menu 暗色主题下高度多了 1px 的问题。[#38741](https://github.com/ant-design/ant-design/pull/38741) [@LuciNyan](https://github.com/LuciNyan)
   - 🐞 修复 Menu 展开 Submenu 时抖动的问题。[#38748](https://github.com/ant-design/ant-design/pull/38748) [@JarvisArt](https://github.com/JarvisArt)
 - 🐞 修复 Table 组件展开 icon 不对齐的问题。[#38823](https://github.com/ant-design/ant-design/pull/38823) [@turdiyev](https://github.com/turdiyev)

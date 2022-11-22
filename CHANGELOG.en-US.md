@@ -24,7 +24,6 @@ timeline: true
 - 💄 Fix animation flick for some components in Firefox. [#38729](https://github.com/ant-design/ant-design/pull/38729)
 - Menu
   - 🐞 Fix Menu SubMenu margin style. [#38714](https://github.com/ant-design/ant-design/pull/38714) [@JarvisArt](https://github.com/JarvisArt)
-  - 🐞 Fix Menu width when collapsed. [#38791](https://github.com/ant-design/ant-design/pull/38791) [@KarasuShin](https://github.com/KarasuShin)
   - 🐞 Fix Menu height in dark theme. [#38741](https://github.com/ant-design/ant-design/pull/38741) [@LuciNyan](https://github.com/LuciNyan)
   - 🐞 Fix Menu SubMenu flicking when expanding. [#38748](https://github.com/ant-design/ant-design/pull/38748) [@JarvisArt](https://github.com/JarvisArt)
 - 🐞 Fix that Table expanded icons are not aligned。[#38823](https://github.com/ant-design/ant-design/pull/38823) [@turdiyev](https://github.com/turdiyev)
