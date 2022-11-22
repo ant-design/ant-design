@@ -1,10 +1,8 @@
 ---
 category: Components
-group: Data Entry
+type: Data Entry
 title: Mentions
 cover: https://gw.alipayobjects.com/zos/alicdn/0pF5j477V/Mentions.svg
-demo:
-  cols: 2
 ---
 
 Mention component.
@@ -13,32 +11,19 @@ Mention component.
 
 When you need to mention someone or something.
 
-## Examples
-
-<!-- prettier-ignore -->
-<code src="./demo/basic.tsx">Basic</code>
-<code src="./demo/async.tsx">Asynchronous loading</code>
-<code src="./demo/form.tsx">With Form</code>
-<code src="./demo/prefix.tsx">Customize Trigger Token</code>
-<code src="./demo/readonly.tsx">disabled or readOnly</code>
-<code src="./demo/placement.tsx">Placement</code>
-<code src="./demo/autoSize.tsx">autoSize</code>
-<code src="./demo/status.tsx">Status</code>
-<code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
-
-### Usage upgrade after 5.1.0
+### Usage upgrade after 4.25.0
 
 ```__react
 import Alert from '../alert';
-ReactDOM.render(<Alert message="After version 5.1.0, we provide a simpler usage <Mentions options={[...]} />  with better performance and potential of writing simpler code style in your applications. Meanwhile, we deprecated the old usage in browser console, we will remove it in antd 6.0." />, mountNode);
+ReactDOM.render(<Alert message="After version 4.25.0, we provide a simpler usage <Mentions options={[...]} />  with better performance and potential of writing simpler code style in your applications. Meanwhile, we deprecated the old usage in browser console, we will remove it in antd 5.0." />, mountNode);
 ```
 
 ```jsx
-// works when >=5.1.0, recommended ✅
+// works when >=4.25.0, recommended ✅
 const options = [{ value: 'sample', label: 'sample' }];
 return <Mentions options={options} />;
 
-// works when <5.1.0, deprecated when >=5.1.0 🙅🏻‍♀️
+// works when <4.25.0, deprecated when >=4.25.0 🙅🏻‍♀️
 <Mentions onChange={onChange}>
   <Mentions.Option value="sample">Sample</Mentions.Option>
 </Mentions>;
@@ -68,7 +53,7 @@ return <Mentions options={options} />;
 | onResize | The callback function that is triggered when textarea resize | function({ width, height }) | - |  |
 | onSearch | Trigger when prefix hit | (text: string, prefix: string) => void | - |  |
 | onSelect | Trigger when user select the option | (option: OptionProps, prefix: string) => void | - |  |
-| options | Option Configuration | [Options](#Option) | \[] | 5.1.0       |
+| options | Option Configuration | [Options](#Option) | \[] | 4.25.0 |
 
 ### Mention methods
 
@@ -81,6 +66,7 @@ return <Mentions options={options} />;
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
+| value | The value of suggestion, the value will insert into input filed while selected | string | - |
 | label | Title of the option | React.ReactNode | - |
 | key | The key value of the option | string | - |
 | disabled | Optional | boolean | - |

@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import RcMentions from 'rc-mentions';
+import RcMentions from './rc-mentions';
 import type {
   MentionsProps as RcMentionsProps,
   MentionsRef as RcMentionsRef,
@@ -8,6 +8,7 @@ import type {
 import { composeRef } from 'rc-util/lib/ref';
 // eslint-disable-next-line import/no-named-as-default
 import * as React from 'react';
+import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import defaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import { FormItemInputContext } from '../form/context';
@@ -27,9 +28,7 @@ function loadingFilterOption() {
 
 export type MentionPlacement = 'top' | 'bottom';
 
-export type {
-  DataDrivenOptionProps as MentionsOptionProps,
-} from 'rc-mentions/lib/Mentions';
+export type { DataDrivenOptionProps as MentionsOptionProps } from 'rc-mentions/lib/Mentions';
 
 export interface OptionProps {
   value: string;
@@ -128,6 +127,18 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
     return (renderEmpty || defaultRenderEmpty)('Select');
   };
 
+  const getOptions = () => {
+    if (loading) {
+      return (
+        <Option value="ANTD_SEARCHING" disabled>
+          <Spin size="small" />
+        </Option>
+      );
+    }
+
+    return children;
+  };
+
   const mergedOptions = loading
     ? [
         {
@@ -175,7 +186,9 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
       dropdownClassName={classNames(popupClassName, hashId)}
       ref={mergedRef as any}
       options={mergedOptions}
-    />
+    >
+      {getOptions()}
+    </RcMentions>
   );
 
   if (hasFeedback) {
