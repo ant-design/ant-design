@@ -32,9 +32,9 @@ describe('Upload', () => {
   });
 
   // Mock for rc-util raf
-  window.requestAnimationFrame = callback => window.setTimeout(callback, 16);
+  window.requestAnimationFrame = (callback) => window.setTimeout(callback, 16);
 
-  window.cancelAnimationFrame = id => window.clearTimeout(id);
+  window.cancelAnimationFrame = (id) => window.clearTimeout(id);
 
   // https://github.com/react-component/upload/issues/36
   it('should get refs inside Upload in componentDidMount', () => {
@@ -64,7 +64,7 @@ describe('Upload', () => {
     const props: UploadProps = {
       action: 'http://upload.com',
       beforeUpload: () =>
-        new Promise(resolve => {
+        new Promise((resolve) => {
           setTimeout(() => resolve('success'), 100);
         }),
       data,
@@ -118,8 +118,8 @@ describe('Upload', () => {
     const data = jest.fn();
     const props: UploadProps = {
       action: 'http://upload.com',
-      beforeUpload: file =>
-        new Promise(resolve => {
+      beforeUpload: (file) =>
+        new Promise((resolve) => {
           setTimeout(() => {
             const result = file;
             (result as any).name = 'test.png';
@@ -150,7 +150,7 @@ describe('Upload', () => {
     expect(done).toHaveBeenCalled();
   });
 
-  it('should not stop upload when return value of beforeUpload is false', done => {
+  it('should not stop upload when return value of beforeUpload is false', (done) => {
     const fileList = [
       {
         uid: 'bar',
@@ -168,7 +168,7 @@ describe('Upload', () => {
       data,
       onChange: ({ file, fileList: updatedFileList }) => {
         expect(file instanceof File).toBe(true);
-        expect(updatedFileList.map(f => f.name)).toEqual(['bar.png', 'foo.png']);
+        expect(updatedFileList.map((f) => f.name)).toEqual(['bar.png', 'foo.png']);
         expect(data).not.toHaveBeenCalled();
         done();
       },
@@ -185,7 +185,7 @@ describe('Upload', () => {
     });
   });
 
-  it('should not stop upload when return value of beforeUpload is not false', done => {
+  it('should not stop upload when return value of beforeUpload is not false', (done) => {
     const data = jest.fn();
     const props = {
       action: 'http://upload.com',
@@ -307,7 +307,7 @@ describe('Upload', () => {
       },
     ];
     render(<Upload fileList={fileList as UploadProps['fileList']} />);
-    (fileList as UploadProps['fileList'])?.forEach(file => {
+    (fileList as UploadProps['fileList'])?.forEach((file) => {
       expect(file.uid).toBeDefined();
     });
   });
@@ -354,7 +354,7 @@ describe('Upload', () => {
             name: 'item2.jpg',
           },
         ],
-        draftState => {
+        (draftState) => {
           draftState.push({
             uid: '-3',
             name: 'item3.jpg',
@@ -467,7 +467,7 @@ describe('Upload', () => {
     let removePromise: (value: boolean | Promise<void | boolean>) => void;
 
     const onRemove: UploadProps['onRemove'] = () =>
-      new Promise(resolve => {
+      new Promise((resolve) => {
         expect(file.status).toBe('uploading');
         removePromise = resolve;
       });
@@ -632,10 +632,10 @@ describe('Upload', () => {
     const done = jest.fn();
     let callTimes = 0;
 
-    const customRequest = jest.fn(async options => {
+    const customRequest = jest.fn(async (options) => {
       // stop here to make sure new fileList has been set and passed to Upload
       // eslint-disable-next-line no-promise-executor-return
-      await new Promise(resolve => setTimeout(resolve, 0));
+      await new Promise((resolve) => setTimeout(resolve, 0));
       options.onProgress({ percent: 0 });
       const url = Promise.resolve('https://ant.design');
       options.onProgress({ percent: 100 });
@@ -645,7 +645,7 @@ describe('Upload', () => {
     const Demo: React.FC = () => {
       const [fileList, setFileList] = React.useState<UploadFile[]>([]);
 
-      const onChange: UploadProps['onChange'] = async e => {
+      const onChange: UploadProps['onChange'] = async (e) => {
         const newFileList = Array.isArray(e) ? e : e.fileList;
         setFileList(newFileList);
         const file = newFileList[0];
@@ -817,7 +817,7 @@ describe('Upload', () => {
       expect.objectContaining({ value: 'foo.png' }),
     );
 
-    ['uid', 'name', 'lastModified', 'lastModifiedDate', 'size', 'type'].forEach(key => {
+    ['uid', 'name', 'lastModified', 'lastModifiedDate', 'size', 'type'].forEach((key) => {
       expect(key in clone).toBeTruthy();
     });
   });
@@ -915,7 +915,7 @@ describe('Upload', () => {
     const onChange = jest.fn();
     const { container } = render(
       <Upload
-        customRequest={info => {
+        customRequest={(info) => {
           if (info.file === mockFile1) {
             info1 = info;
           } else {

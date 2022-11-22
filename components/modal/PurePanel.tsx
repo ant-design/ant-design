@@ -56,7 +56,7 @@ export function renderFooter(
 
   return footer === undefined ? (
     <LocaleReceiver componentName="Modal" defaultLocale={getConfirmLocale()}>
-      {locale => (
+      {(locale) => (
         <>
           <Button onClick={onCancel} {...cancelButtonProps}>
             {cancelText || locale!.cancelText}

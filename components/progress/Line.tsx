@@ -23,7 +23,7 @@ interface LineProps extends ProgressProps {
  */
 export const sortGradient = (gradients: StringGradients) => {
   let tempArr: any[] = [];
-  Object.keys(gradients).forEach(key => {
+  Object.keys(gradients).forEach((key) => {
     const formattedKey = parseFloat(key.replace(/%/g, ''));
     if (!isNaN(formattedKey)) {
       tempArr.push({
@@ -66,7 +66,7 @@ export const handleGradient = (
   return { backgroundImage: `linear-gradient(${direction}, ${from}, ${to})` };
 };
 
-const Line: React.FC<LineProps> = props => {
+const Line: React.FC<LineProps> = (props) => {
   const {
     prefixCls,
     direction: directionConfig,

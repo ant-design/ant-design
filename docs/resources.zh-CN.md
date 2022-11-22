@@ -15,12 +15,7 @@ toc: false
 - Sketch 组件包
   - https://gw.alipayobjects.com/zos/basement_prod/048ee28f-2c80-4d15-9aa3-4f5ddac50465.svg
   - 桌面组件 Sketch 模板包
-  - https://gw.alipayobjects.com/os/bmw-prod/82c08c51-9993-4568-90c1-249c8301c0af.sketch
-  - 官方
-- Sketch 组件包 (暗色)
-  - https://gw.alipayobjects.com/zos/basement_prod/048ee28f-2c80-4d15-9aa3-4f5ddac50465.svg
-  - 桌面组件 Sketch 模板包，内含暗色版本的 antd 组件
-  - https://gw.alipayobjects.com/os/bmw-prod/f002145c-33d9-408e-ba75-a1a68896dfa3.sketch
+  - https://gw.alipayobjects.com/os/hitu-asset/5217de80-7a3e-413f-809e-20ecede4f3f3/hitu-1669000735416-5000001.sketch
   - 官方
 - Mobile Components
   - https://gw.alipayobjects.com/zos/basement_prod/c0c3852c-d245-4330-886b-cb02ef49eb6d.svg

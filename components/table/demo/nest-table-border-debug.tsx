@@ -105,10 +105,10 @@ const App: React.FC = () => {
         style={{ marginBottom: 16 }}
       >
         <Form.Item label="Root Table Bordered">
-          <Switch checked={rootTableBordered} onChange={v => setRootTableBordered(v)} />
+          <Switch checked={rootTableBordered} onChange={(v) => setRootTableBordered(v)} />
         </Form.Item>
         <Form.Item label="Child Table Bordered">
-          <Switch checked={childTableBordered} onChange={v => setChildTableBordered(v)} />
+          <Switch checked={childTableBordered} onChange={(v) => setChildTableBordered(v)} />
         </Form.Item>
       </Form>
       <Table

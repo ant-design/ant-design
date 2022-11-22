@@ -20,7 +20,7 @@ const App: React.FC = () => {
   const onPreview = async (file: UploadFile) => {
     let src = file.url as string;
     if (!src) {
-      src = await new Promise(resolve => {
+      src = await new Promise((resolve) => {
         const reader = new FileReader();
         reader.readAsDataURL(file.originFileObj as RcFile);
         reader.onload = () => resolve(reader.result as string);

@@ -8,7 +8,7 @@ const handleButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
   console.log('click left button', e);
 };
 
-const handleMenuClick: MenuProps['onClick'] = e => {
+const handleMenuClick: MenuProps['onClick'] = (e) => {
   message.info('Click on menu item.');
   console.log('click', e);
 };

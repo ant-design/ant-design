@@ -19,7 +19,7 @@ function getTime(value?: countdownValueType) {
   return new Date(value as valueType).getTime();
 }
 
-const Countdown: React.FC<CountdownProps> = props => {
+const Countdown: React.FC<CountdownProps> = (props) => {
   const { value, format = 'HH:mm:ss', onChange, onFinish } = props;
 
   const forceUpdate = useForceUpdate();

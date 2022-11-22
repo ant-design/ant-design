@@ -25,7 +25,7 @@ describe('ConfigProvider', () => {
     const spy = jest.fn();
     const App: React.FC = () => {
       const [pageHeader, setPageHeader] = useState({ ghost: true });
-      const [, forceRender] = React.useReducer(v => v + 1, 1);
+      const [, forceRender] = React.useReducer((v) => v + 1, 1);
 
       return (
         <ConfigProvider pageHeader={pageHeader}>
@@ -58,7 +58,7 @@ describe('ConfigProvider', () => {
     const spy = jest.fn();
     const App: React.FC = () => {
       const [pageHeader, setPageHeader] = useState({ ghost: true });
-      const [, forceRender] = React.useReducer(v => v + 1, 1);
+      const [, forceRender] = React.useReducer((v) => v + 1, 1);
 
       return (
         <ConfigProvider pageHeader={pageHeader}>

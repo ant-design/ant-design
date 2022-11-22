@@ -99,7 +99,7 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
 
   // ================================== Effect ==================================
   React.useEffect(() => {
-    const token = ResponsiveObserve.subscribe(screen => {
+    const token = ResponsiveObserve.subscribe((screen) => {
       setCurScreens(screen);
       const currentGutter = gutterRef.current || 0;
       if (

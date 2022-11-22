@@ -31,7 +31,7 @@ export default function genPurePanel<ComponentProps extends BaseProps>(
       setOpen(true);
 
       if (typeof ResizeObserver !== 'undefined') {
-        const resizeObserver = new ResizeObserver(entries => {
+        const resizeObserver = new ResizeObserver((entries) => {
           const element: HTMLDivElement = entries[0].target as any;
           setPopupHeight(element.offsetHeight + 8);
           setPopupWidth(element.offsetWidth);

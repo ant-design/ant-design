@@ -9,7 +9,9 @@ const App: React.FC = () => {
   const [selectedTags, setSelectedTags] = useState<string[]>(['Books']);
 
   const handleChange = (tag: string, checked: boolean) => {
-    const nextSelectedTags = checked ? [...selectedTags, tag] : selectedTags.filter(t => t !== tag);
+    const nextSelectedTags = checked
+      ? [...selectedTags, tag]
+      : selectedTags.filter((t) => t !== tag);
     console.log('You are interested in: ', nextSelectedTags);
     setSelectedTags(nextSelectedTags);
   };
@@ -17,11 +19,11 @@ const App: React.FC = () => {
   return (
     <>
       <span style={{ marginRight: 8 }}>Categories:</span>
-      {tagsData.map(tag => (
+      {tagsData.map((tag) => (
         <CheckableTag
           key={tag}
           checked={selectedTags.indexOf(tag) > -1}
-          onChange={checked => handleChange(tag, checked)}
+          onChange={(checked) => handleChange(tag, checked)}
         >
           {tag}
         </CheckableTag>

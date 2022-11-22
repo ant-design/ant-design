@@ -4,7 +4,7 @@ import type { StepProps } from '.';
 import warning from '../_util/warning';
 
 function filter<T>(items: (T | null)[]): T[] {
-  return items.filter(item => item) as T[];
+  return items.filter((item) => item) as T[];
 }
 
 export default function useLegacyItems(items?: StepProps[], children?: React.ReactNode) {

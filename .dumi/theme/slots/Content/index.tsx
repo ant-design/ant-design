@@ -178,32 +178,36 @@ const Content: FC<{ children: ReactNode }> = ({ children }) => {
             )}
           </Typography.Title>
           {children}
-          <ContributorsList
-            css={styles.contributorsList}
-            fileName={meta.frontmatter.filename ?? ''}
-            renderItem={(item, loading) =>
-              loading ? (
-                <Avatar style={{ opacity: 0.3 }} />
-              ) : (
-                item && (
-                  <Tooltip
-                    title={`${formatMessage({ id: 'app.content.contributors' })}: ${item.username}`}
-                    key={item.username}
-                  >
-                    <a
-                      href={`https://github.com/${item.username}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
+          {meta.frontmatter.filename && (
+            <ContributorsList
+              css={styles.contributorsList}
+              fileName={meta.frontmatter.filename}
+              renderItem={(item, loading) =>
+                loading ? (
+                  <Avatar style={{ opacity: 0.3 }} />
+                ) : (
+                  item && (
+                    <Tooltip
+                      title={`${formatMessage({ id: 'app.content.contributors' })}: ${
+                        item.username
+                      }`}
+                      key={item.username}
                     >
-                      <Avatar src={item.url}>{item.username}</Avatar>
-                    </a>
-                  </Tooltip>
+                      <a
+                        href={`https://github.com/${item.username}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Avatar src={item.url}>{item.username}</Avatar>
+                      </a>
+                    </Tooltip>
+                  )
                 )
-              )
-            }
-            repo="ant-design"
-            owner="ant-design"
-          />
+              }
+              repo="ant-design"
+              owner="ant-design"
+            />
+          )}
         </article>
         <PrevAndNext />
         <Footer />

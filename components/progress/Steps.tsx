@@ -9,7 +9,7 @@ interface ProgressStepsProps extends ProgressProps {
   trailColor?: string;
 }
 
-const Steps: React.FC<ProgressStepsProps> = props => {
+const Steps: React.FC<ProgressStepsProps> = (props) => {
   const {
     size,
     steps,

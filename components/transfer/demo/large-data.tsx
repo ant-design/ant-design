@@ -45,7 +45,7 @@ const App: React.FC = () => {
         dataSource={mockData}
         targetKeys={targetKeys}
         onChange={onChange}
-        render={item => item.title}
+        render={(item) => item.title}
         oneWay={oneWay}
         pagination
       />

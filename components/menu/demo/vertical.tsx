@@ -41,7 +41,7 @@ const items: MenuItem[] = [
   ]),
 ];
 
-const onClick: MenuProps['onClick'] = e => {
+const onClick: MenuProps['onClick'] = (e) => {
   console.log('click', e);
 };
 

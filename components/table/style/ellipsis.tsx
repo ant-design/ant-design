@@ -3,7 +3,7 @@ import { textEllipsis } from '../../style';
 import type { GenerateStyle } from '../../theme';
 import type { TableToken } from './index';
 
-const genEllipsisStyle: GenerateStyle<TableToken, CSSObject> = token => {
+const genEllipsisStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
   const { componentCls } = token;
   return {
     [`${componentCls}-wrapper`]: {

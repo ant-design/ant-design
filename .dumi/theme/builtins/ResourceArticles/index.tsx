@@ -76,7 +76,7 @@ const ArticleList: React.FC<ArticleListProps> = ({ name, data = [], authors = []
           <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
         ) : (
           data.map((article, index) => {
-            const author = authors.find(auth => auth.name === article.author);
+            const author = authors.find((auth) => auth.name === article.author);
             return (
               <li key={index}>
                 <a href={author?.href} target="_blank" rel="noreferrer">
@@ -105,7 +105,7 @@ export default () => {
   // ========================== Data ==========================
   const mergedData = React.useMemo(() => {
     const yearData: Record<number | string, Record<string, Article[]>> = {};
-    articles[isZhCN ? 'cn' : 'en']?.forEach(article => {
+    articles[isZhCN ? 'cn' : 'en']?.forEach((article) => {
       const year = dayjs(article.date).year();
       yearData[year] = yearData[year] || {};
       yearData[year][article.type] = [...(yearData[year][article.type] || []), article];
@@ -122,7 +122,7 @@ export default () => {
     const yearList = Object.keys(mergedData).sort((a, b) => Number(b) - Number(a));
     content = yearList.length ? (
       <Tabs>
-        {yearList.map(year => (
+        {yearList.map((year) => (
           <Tabs.TabPane tab={`${year}${isZhCN ? ' 年' : ''}`} key={year}>
             <table>
               <tbody>

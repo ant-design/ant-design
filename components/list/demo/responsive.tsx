@@ -34,7 +34,7 @@ const App: React.FC = () => (
       xxl: 3,
     }}
     dataSource={data}
-    renderItem={item => (
+    renderItem={(item) => (
       <List.Item>
         <Card title={item.title}>Card content</Card>
       </List.Item>

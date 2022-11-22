@@ -2,7 +2,11 @@ import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
 import RcSteps from 'rc-steps';
-import type { ProgressDotRender } from 'rc-steps/lib/Steps';
+import type {
+  ProgressDotRender,
+  StepIconRender,
+  StepsProps as RcStepsProps,
+} from 'rc-steps/lib/Steps';
 import * as React from 'react';
 import Tooltip from '../tooltip';
 import { ConfigContext } from '../config-provider';
@@ -43,11 +47,11 @@ export interface StepsProps {
   items?: StepProps[];
 }
 
-interface StepsType extends React.FC<StepsProps> {
+type CompoundedComponent = React.FC<StepsProps> & {
   Step: typeof RcSteps.Step;
-}
+};
 
-const Steps: StepsType = props => {
+const Steps: CompoundedComponent = (props) => {
   const {
     percent,
     size,
@@ -62,7 +66,7 @@ const Steps: StepsType = props => {
   const { xs } = useBreakpoint(responsive);
   const { getPrefixCls, direction: rtlDirection } = React.useContext(ConfigContext);
 
-  const getDirection = React.useCallback(
+  const realDirectionValue = React.useMemo<RcStepsProps['direction']>(
     () => (responsive && xs ? 'vertical' : direction),
     [xs, direction],
   );
@@ -89,16 +93,7 @@ const Steps: StepsType = props => {
     error: <CloseOutlined className={`${prefixCls}-error-icon`} />,
   };
 
-  const stepIconRender = ({
-    node,
-    status,
-  }: {
-    node: React.ReactNode;
-    index: number;
-    status: string;
-    title: string | React.ReactNode;
-    description: string | React.ReactNode;
-  }) => {
+  const stepIconRender: StepIconRender = ({ node, status }) => {
     if (status === 'process' && mergedPercent !== undefined) {
       // currently it's hard-coded, since we can't easily read the actually width of icon
       const progressWidth = size === 'small' ? 32 : 40;
@@ -119,11 +114,8 @@ const Steps: StepsType = props => {
     return node;
   };
 
-  let itemRender;
-  if (isInline) {
-    itemRender = (item: StepProps, stepItem: React.ReactNode) =>
-      item.description ? <Tooltip title={item.description}>{stepItem}</Tooltip> : stepItem;
-  }
+  const itemRender = (item: StepProps, stepItem: React.ReactNode) =>
+    item.description ? <Tooltip title={item.description}>{stepItem}</Tooltip> : stepItem;
 
   return wrapSSR(
     <RcSteps
@@ -132,9 +124,9 @@ const Steps: StepsType = props => {
       current={current}
       size={size}
       items={mergedItems}
-      itemRender={itemRender}
-      direction={getDirection()}
+      itemRender={isInline ? itemRender : undefined}
       stepIcon={stepIconRender}
+      direction={realDirectionValue}
       prefixCls={prefixCls}
       iconPrefix={iconPrefix}
       className={stepsClassName}

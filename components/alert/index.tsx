@@ -61,7 +61,7 @@ interface IconNodeProps {
   description: AlertProps['description'];
 }
 
-const IconNode: React.FC<IconNodeProps> = props => {
+const IconNode: React.FC<IconNodeProps> = (props) => {
   const { icon, prefixCls, type } = props;
   const iconType = iconMapFilled[type!] || null;
   if (icon) {
@@ -82,7 +82,7 @@ interface CloseIconProps {
   handleClose: AlertProps['onClose'];
 }
 
-const CloseIcon: React.FC<CloseIconProps> = props => {
+const CloseIcon: React.FC<CloseIconProps> = (props) => {
   const { isClosable, closeText, prefixCls, closeIcon, handleClose } = props;
   return isClosable ? (
     <button type="button" onClick={handleClose} className={`${prefixCls}-close-icon`} tabIndex={0}>
@@ -91,11 +91,11 @@ const CloseIcon: React.FC<CloseIconProps> = props => {
   ) : null;
 };
 
-interface AlertInterface extends React.FC<AlertProps> {
+type CompoundedComponent = React.FC<AlertProps> & {
   ErrorBoundary: typeof ErrorBoundary;
-}
+};
 
-const Alert: AlertInterface = ({
+const Alert: CompoundedComponent = ({
   description,
   prefixCls: customizePrefixCls,
   message,
@@ -162,7 +162,7 @@ const Alert: AlertInterface = ({
       motionName={`${prefixCls}-motion`}
       motionAppear={false}
       motionEnter={false}
-      onLeaveStart={node => ({
+      onLeaveStart={(node) => ({
         maxHeight: node.offsetHeight,
       })}
       onLeaveEnd={afterClose}

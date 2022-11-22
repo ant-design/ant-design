@@ -135,7 +135,7 @@ export function useInternalMessage(
         mergedKey = `antd-message-${keyIndex}`;
       }
 
-      return wrapPromiseFn(resolve => {
+      return wrapPromiseFn((resolve) => {
         originOpen({
           ...restConfig,
           key: mergedKey,
@@ -174,7 +174,7 @@ export function useInternalMessage(
     } as MessageInstance;
 
     const keys: NoticeType[] = ['info', 'success', 'warning', 'error', 'loading'];
-    keys.forEach(type => {
+    keys.forEach((type) => {
       const typeOpen: TypeOpen = (jointContent, duration, onClose) => {
         let config: ArgsProps;
         if (jointContent && typeof jointContent === 'object' && 'content' in jointContent) {

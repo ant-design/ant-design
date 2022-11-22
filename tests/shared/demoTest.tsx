@@ -55,9 +55,9 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
 
   let cssinjsTest = false;
 
-  files.forEach(file => {
+  files.forEach((file) => {
     let testMethod = options.skip === true ? test.skip : test;
-    if (Array.isArray(options.skip) && options.skip.some(c => file.includes(c))) {
+    if (Array.isArray(options.skip) && options.skip.some((c) => file.includes(c))) {
       testMethod = test.skip;
     }
 

@@ -24,7 +24,7 @@ const items: MenuProps['items'] = [
 
 const App: React.FC = () => (
   <Dropdown menu={{ items, onClick }}>
-    <a onClick={e => e.preventDefault()}>
+    <a onClick={(e) => e.preventDefault()}>
       <Space>
         Hover me, Click menu item
         <DownOutlined />

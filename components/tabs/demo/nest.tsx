@@ -15,11 +15,11 @@ const App: React.FC = () => {
     <div>
       <Select
         style={{ width: 200 }}
-        onChange={val => {
+        onChange={(val) => {
           setParentPos(val);
         }}
       >
-        {positionList.map(pos => (
+        {positionList.map((pos) => (
           <Option key={pos} value={pos}>
             Parent - {pos}
           </Option>
@@ -28,11 +28,11 @@ const App: React.FC = () => {
 
       <Select
         style={{ width: 200 }}
-        onChange={val => {
+        onChange={(val) => {
           setChildPos(val);
         }}
       >
-        {positionList.map(pos => (
+        {positionList.map((pos) => (
           <Option key={pos} value={pos}>
             Child - {pos}
           </Option>
@@ -41,7 +41,7 @@ const App: React.FC = () => {
 
       <Select
         style={{ width: 200 }}
-        onChange={val => {
+        onChange={(val) => {
           setParentType(val);
         }}
       >
@@ -52,7 +52,7 @@ const App: React.FC = () => {
 
       <Select
         style={{ width: 200 }}
-        onChange={val => {
+        onChange={(val) => {
           setChildType(val);
         }}
       >

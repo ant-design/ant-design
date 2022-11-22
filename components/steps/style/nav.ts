@@ -3,7 +3,7 @@ import { textEllipsis } from '../../style';
 import type { StepsToken } from '.';
 import type { GenerateStyle } from '../../theme';
 
-const genStepsNavStyle: GenerateStyle<StepsToken, CSSObject> = token => {
+const genStepsNavStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
   const {
     componentCls,
     stepsNavContentMaxWidth,

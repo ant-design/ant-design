@@ -14,8 +14,8 @@ export default function RadiusPicker({ value, onChange }: RadiusPickerProps) {
         onChange={onChange}
         style={{ width: 120 }}
         min={0}
-        formatter={val => `${val}px`}
-        parser={str => (str ? parseFloat(str) : (str as any))}
+        formatter={(val) => `${val}px`}
+        parser={(str) => (str ? parseFloat(str) : (str as any))}
       />
 
       <Slider

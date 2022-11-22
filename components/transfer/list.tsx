@@ -30,7 +30,7 @@ function isRenderResultPlainObject(result: RenderResult): result is RenderResult
 }
 
 function getEnabledItemKeys<RecordType extends KeyWiseTransferItem>(items: RecordType[]) {
-  return items.filter(data => !data.disabled).map(data => data.key);
+  return items.filter((data) => !data.disabled).map((data) => data.key);
 }
 
 export interface RenderedItem<RecordType> {
@@ -103,7 +103,7 @@ export default class TransferList<
     if (checkedKeys.length === 0) {
       return 'none';
     }
-    if (filteredItems.every(item => checkedKeys.includes(item.key) || !!item.disabled)) {
+    if (filteredItems.every((item) => checkedKeys.includes(item.key) || !!item.disabled)) {
       return 'all';
     }
     return 'part';
@@ -117,7 +117,7 @@ export default class TransferList<
     const filteredItems: RecordType[] = [];
     const filteredRenderItems: RenderedItem<RecordType>[] = [];
 
-    dataSource.forEach(item => {
+    dataSource.forEach((item) => {
       const renderedItem = this.renderItem(item);
       const { renderedText } = renderedItem;
 
@@ -257,7 +257,7 @@ export default class TransferList<
         onChange={() => {
           // Only select enabled items
           onItemSelectAll(
-            filteredItems.filter(item => !item.disabled).map(({ key }) => key),
+            filteredItems.filter((item) => !item.disabled).map(({ key }) => key),
             !checkedAll,
           );
         }}
@@ -367,7 +367,7 @@ export default class TransferList<
               key: 'removeCurrent',
               onClick: () => {
                 const pageKeys = getEnabledItemKeys(
-                  (this.defaultListBodyRef.current?.getItems() || []).map(entity => entity.item),
+                  (this.defaultListBodyRef.current?.getItems() || []).map((entity) => entity.item),
                 );
                 onItemRemove?.(pageKeys);
               },
@@ -383,7 +383,7 @@ export default class TransferList<
           },
           label: removeAll,
         },
-      ].filter(item => item);
+      ].filter((item) => item);
     } else {
       items = [
         {
@@ -399,7 +399,7 @@ export default class TransferList<
               key: 'selectCurrent',
               onClick: () => {
                 const pageItems = this.defaultListBodyRef.current?.getItems() || [];
-                onItemSelectAll(getEnabledItemKeys(pageItems.map(entity => entity.item)), true);
+                onItemSelectAll(getEnabledItemKeys(pageItems.map((entity) => entity.item)), true);
               },
               label: selectCurrent,
             }
@@ -411,7 +411,7 @@ export default class TransferList<
             let availableKeys: string[];
             if (pagination) {
               availableKeys = getEnabledItemKeys(
-                (this.defaultListBodyRef.current?.getItems() || []).map(entity => entity.item),
+                (this.defaultListBodyRef.current?.getItems() || []).map((entity) => entity.item),
               );
             } else {
               availableKeys = getEnabledItemKeys(filteredItems);
@@ -421,7 +421,7 @@ export default class TransferList<
             const newCheckedKeys: string[] = [];
             const newUnCheckedKeys: string[] = [];
 
-            availableKeys.forEach(key => {
+            availableKeys.forEach((key) => {
               if (checkedKeySet.has(key)) {
                 newUnCheckedKeys.push(key);
               } else {

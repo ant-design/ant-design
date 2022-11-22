@@ -296,7 +296,7 @@ describe('Input allowClear', () => {
 
   it('should not show icon if value is undefined, null or empty string', () => {
     // @ts-ignore
-    const wrappers = [null, undefined, ''].map(val => render(<Input allowClear value={val} />));
+    const wrappers = [null, undefined, ''].map((val) => render(<Input allowClear value={val} />));
     wrappers.forEach(({ asFragment, container }) => {
       expect(container.querySelector('input')?.value).toEqual('');
       expect(container.querySelector('.ant-input-clear-icon-hidden')).toBeTruthy();
@@ -305,7 +305,7 @@ describe('Input allowClear', () => {
   });
 
   it('should not show icon if defaultValue is undefined, null or empty string', () => {
-    const wrappers = [null, undefined, ''].map(val =>
+    const wrappers = [null, undefined, ''].map((val) =>
       // @ts-ignore
       render(<Input allowClear defaultValue={val} />),
     );
@@ -319,7 +319,7 @@ describe('Input allowClear', () => {
   it('should trigger event correctly', () => {
     let argumentEventObjectType;
     let argumentEventObjectValue;
-    const onChange: InputProps['onChange'] = e => {
+    const onChange: InputProps['onChange'] = (e) => {
       argumentEventObjectType = e.type;
       argumentEventObjectValue = e.target.value;
     };
@@ -333,7 +333,7 @@ describe('Input allowClear', () => {
   it('should trigger event correctly on controlled mode', () => {
     let argumentEventObjectType;
     let argumentEventObjectValue;
-    const onChange: InputProps['onChange'] = e => {
+    const onChange: InputProps['onChange'] = (e) => {
       argumentEventObjectType = e.type;
       argumentEventObjectValue = e.target.value;
     };
@@ -353,7 +353,7 @@ describe('Input allowClear', () => {
     unmount();
   });
 
-  ['disabled', 'readOnly'].forEach(prop => {
+  ['disabled', 'readOnly'].forEach((prop) => {
     it(`should not support allowClear when it is ${prop}`, () => {
       const { container } = render(<Input allowClear defaultValue="111" {...{ [prop]: true }} />);
       expect(container.querySelector('.ant-input-clear-icon-hidden')).toBeTruthy();
@@ -394,7 +394,7 @@ describe('Input allowClear', () => {
         <Input
           allowClear
           value={query}
-          onChange={e => {
+          onChange={(e) => {
             setQuery(() => e.target.value);
           }}
         />

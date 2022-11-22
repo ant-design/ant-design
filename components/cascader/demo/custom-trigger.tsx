@@ -34,7 +34,7 @@ const App: React.FC = () => {
   const [text, setText] = useState('Unselect');
 
   const onChange = (_: string[], selectedOptions: Option[]) => {
-    setText(selectedOptions.map(o => o.label).join(', '));
+    setText(selectedOptions.map((o) => o.label).join(', '));
   };
 
   return (

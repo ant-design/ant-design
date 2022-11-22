@@ -55,7 +55,7 @@ const App: React.FC = () => {
       targetKeys={targetKeys}
       onChange={handleChange}
       onSearch={handleSearch}
-      render={item => item.title}
+      render={(item) => item.title}
     />
   );
 };

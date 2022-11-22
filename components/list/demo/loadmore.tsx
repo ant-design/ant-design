@@ -29,8 +29,8 @@ const App: React.FC = () => {
 
   useEffect(() => {
     fetch(fakeDataUrl)
-      .then(res => res.json())
-      .then(res => {
+      .then((res) => res.json())
+      .then((res) => {
         setInitLoading(false);
         setData(res.results);
         setList(res.results);
@@ -43,8 +43,8 @@ const App: React.FC = () => {
       data.concat([...new Array(count)].map(() => ({ loading: true, name: {}, picture: {} }))),
     );
     fetch(fakeDataUrl)
-      .then(res => res.json())
-      .then(res => {
+      .then((res) => res.json())
+      .then((res) => {
         const newData = data.concat(res.results);
         setData(newData);
         setList(newData);
@@ -77,7 +77,7 @@ const App: React.FC = () => {
       itemLayout="horizontal"
       loadMore={loadMore}
       dataSource={list}
-      renderItem={item => (
+      renderItem={(item) => (
         <List.Item
           actions={[<a key="list-loadmore-edit">edit</a>, <a key="list-loadmore-more">more</a>]}
         >

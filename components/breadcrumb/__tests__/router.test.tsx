@@ -36,7 +36,7 @@ describe('react router', () => {
     const Home: React.FC = () => {
       const location = useLocation();
       const navigate = useNavigate();
-      const pathSnippets = location.pathname.split('/').filter(i => i);
+      const pathSnippets = location.pathname.split('/').filter((i) => i);
       const extraBreadcrumbItems = pathSnippets.map((_, index) => {
         const url = `/${pathSnippets.slice(0, index + 1).join('/')}`;
         return (
@@ -51,11 +51,11 @@ describe('react router', () => {
         </Breadcrumb.Item>,
       ].concat(extraBreadcrumbItems);
       const componentProps = useMemo<RouterProps>(
-        () => ({ component: Apps } as unknown as RouterProps),
+        () => ({ component: Apps }) as unknown as RouterProps,
         [],
       );
       const renderProps = useMemo<RouterProps>(
-        () => ({ render: () => <span>Home Page</span> } as unknown as RouterProps),
+        () => ({ render: () => <span>Home Page</span> }) as unknown as RouterProps,
         [],
       );
       return (

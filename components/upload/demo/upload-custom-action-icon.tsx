@@ -36,7 +36,7 @@ const props: UploadProps = {
     showDownloadIcon: true,
     downloadIcon: 'Download',
     showRemoveIcon: true,
-    removeIcon: <StarOutlined onClick={e => console.log(e, 'custom removeIcon event')} />,
+    removeIcon: <StarOutlined onClick={(e) => console.log(e, 'custom removeIcon event')} />,
   },
 };
 

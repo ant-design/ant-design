@@ -131,7 +131,7 @@ describe('Space.Compact', () => {
         <Space.Compact>{React.createElement(component as any)}</Space.Compact>,
       );
       expect(container.querySelectorAll(`.${targetCls}`).length).toBe(1);
-      ['compact-item', 'compact-first-item', 'compact-last-item'].forEach(suffix => {
+      ['compact-item', 'compact-first-item', 'compact-last-item'].forEach((suffix) => {
         expect(
           container
             .querySelector(`.${targetCls}`)

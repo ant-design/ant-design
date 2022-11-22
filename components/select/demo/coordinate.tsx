@@ -28,13 +28,13 @@ const App: React.FC = () => {
         defaultValue={provinceData[0]}
         style={{ width: 120 }}
         onChange={handleProvinceChange}
-        options={provinceData.map(province => ({ label: province, value: province }))}
+        options={provinceData.map((province) => ({ label: province, value: province }))}
       />
       <Select
         style={{ width: 120 }}
         value={secondCity}
         onChange={onSecondCityChange}
-        options={cities.map(city => ({ label: city, value: city }))}
+        options={cities.map((city) => ({ label: city, value: city }))}
       />
     </>
   );

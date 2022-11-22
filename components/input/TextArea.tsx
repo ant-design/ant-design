@@ -116,7 +116,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
     // Max length value
     const hasMaxLength = Number(maxLength) > 0;
 
-    const onInternalCompositionStart: React.CompositionEventHandler<HTMLTextAreaElement> = e => {
+    const onInternalCompositionStart: React.CompositionEventHandler<HTMLTextAreaElement> = (e) => {
       setCompositing(true);
       // 拼音输入前保存一份旧值
       oldCompositionValueRef.current = value as string;
@@ -125,7 +125,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
       onCompositionStart?.(e);
     };
 
-    const onInternalCompositionEnd: React.CompositionEventHandler<HTMLTextAreaElement> = e => {
+    const onInternalCompositionEnd: React.CompositionEventHandler<HTMLTextAreaElement> = (e) => {
       setCompositing(false);
 
       let triggerValue = e.currentTarget.value;

@@ -12,7 +12,7 @@ interface WaveToken extends AliasToken {
   clickAnimatingWithoutExtraNodeTrueAfter: string;
 }
 
-const genWaveStyle: GenerateStyle<WaveToken> = token => {
+const genWaveStyle: GenerateStyle<WaveToken> = (token) => {
   const waveEffect = new Keyframes('waveEffect', {
     '100%': {
       boxShadow: `0 0 0 6px var(--antd-wave-shadow-color)`,

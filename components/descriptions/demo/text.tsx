@@ -62,7 +62,8 @@ const App: React.FC = () => (
       <br />
       Replication factor: 3
       <br />
-      Region: East China 1<br />
+      Region: East China 1
+      <br />
     </Descriptions.Item>
     <Descriptions.Item label="Official Receipts">$60.00</Descriptions.Item>
     <Descriptions.Item label="Config Info">

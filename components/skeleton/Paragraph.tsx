@@ -11,7 +11,7 @@ export interface SkeletonParagraphProps {
   rows?: number;
 }
 
-const Paragraph: React.FC<SkeletonParagraphProps> = props => {
+const Paragraph: React.FC<SkeletonParagraphProps> = (props) => {
   const getWidth = (index: number) => {
     const { width, rows = 2 } = props;
     if (Array.isArray(width)) {

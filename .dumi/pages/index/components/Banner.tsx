@@ -8,14 +8,14 @@ import * as utils from '../../../theme/utils';
 
 const locales = {
   cn: {
-    slogan: '助力设计开发者「更灵活」的搭建出「更美」的产品，让用户「快乐工作」～',
+    slogan: '助力设计开发者「更灵活」地搭建出「更美」的产品，让用户「快乐工作」～',
     start: '开始使用',
     designLanguage: '设计语言',
   },
   en: {
     slogan:
-      'Help design developers "more flexible" to build "more beautiful" products, helping users to "work happily"~',
-    start: 'Get Start',
+      'Help designers/developers building beautiful products more flexible and working with happiness',
+    start: 'Getting Started',
     designLanguage: 'Design Language',
   },
 };
@@ -36,7 +36,7 @@ export default function Banner({ children }: BannerProps) {
       {/* Banner Placeholder Motion */}
       <div
         style={{
-          height: 240,
+          height: 320,
           background: '#77C6FF',
           display: 'flex',
           flexWrap: 'nowrap',
@@ -53,12 +53,7 @@ export default function Banner({ children }: BannerProps) {
           }}
         />
 
-        <video
-          style={{ height: '100%', objectFit: 'contain' }}
-          autoPlay
-          muted
-          loop
-        >
+        <video style={{ height: '100%', objectFit: 'contain' }} autoPlay muted loop>
           <source
             src="https://mdn.alipayobjects.com/huamei_iwk9zp/afts/file/A*uYT7SZwhJnUAAAAAAAAAAAAADgCCAQ"
             type="video/webm"
@@ -76,6 +71,7 @@ export default function Banner({ children }: BannerProps) {
             backgroundRepeat: 'repeat-x',
             backgroundPosition: '0 0',
             backgroundSize: 'auto 100%',
+            marginLeft: -1,
           }}
         />
       </div>
@@ -91,7 +87,7 @@ export default function Banner({ children }: BannerProps) {
         <GroupMask
           style={{
             textAlign: 'center',
-            paddingTop: token.marginFar,
+            paddingTop: token.marginFar - 16,
             paddingBottom: token.marginFarSM,
           }}
         >

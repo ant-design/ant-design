@@ -32,7 +32,7 @@ describe('message.hooks', () => {
                   duration: 0,
                   content: (
                     <Context.Consumer>
-                      {name => <span className="hook-test-result">{name}</span>}
+                      {(name) => <span className="hook-test-result">{name}</span>}
                     </Context.Consumer>
                   ),
                 });
@@ -68,7 +68,7 @@ describe('message.hooks', () => {
                   duration: 0,
                   content: (
                     <Context.Consumer>
-                      {name => <span className="hook-test-result">{name}</span>}
+                      {(name) => <span className="hook-test-result">{name}</span>}
                     </Context.Consumer>
                   ),
                 });
@@ -89,7 +89,7 @@ describe('message.hooks', () => {
     expect(document.querySelector('.hook-test-result')!.textContent).toEqual('bamboo');
   });
 
-  it('should work with onClose', done => {
+  it('should work with onClose', (done) => {
     const Demo = () => {
       const [api, holder] = message.useMessage();
       return (
@@ -113,7 +113,7 @@ describe('message.hooks', () => {
     triggerMotionEnd();
   });
 
-  it('should work with close promise', done => {
+  it('should work with close promise', (done) => {
     const Demo = () => {
       const [api, holder] = message.useMessage();
       return (

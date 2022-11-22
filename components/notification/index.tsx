@@ -100,7 +100,7 @@ const GlobalHolder = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
   React.useImperativeHandle(ref, () => {
     const instance: any = { ...api };
 
-    Object.keys(instance).forEach(method => {
+    Object.keys(instance).forEach((method) => {
       instance[method] = (...args: any[]) => {
         sync();
         return (api as any)[method](...args);
@@ -134,7 +134,7 @@ function flushNotice() {
     act(() => {
       render(
         <GlobalHolder
-          ref={node => {
+          ref={(node) => {
             const { instance, sync } = node || {};
 
             Promise.resolve().then(() => {
@@ -154,12 +154,12 @@ function flushNotice() {
   }
 
   // Notification not ready
-  if (notification && !notification.instance) {
+  if (!notification.instance) {
     return;
   }
 
   // >>> Execute task
-  taskQueue.forEach(task => {
+  taskQueue.forEach((task) => {
     // eslint-disable-next-line default-case
     switch (task.type) {
       case 'open': {
@@ -236,8 +236,8 @@ const baseStaticMethods: {
 const staticMethods: typeof baseStaticMethods & Record<MethodType, (config: ArgsProps) => void> =
   baseStaticMethods as any;
 
-methods.forEach(type => {
-  staticMethods[type] = config =>
+methods.forEach((type) => {
+  staticMethods[type] = (config) =>
     open({
       ...config,
       type,
@@ -254,7 +254,7 @@ const noop = () => {};
 export let actWrapper: (wrapper: any) => void = noop;
 
 if (process.env.NODE_ENV === 'test') {
-  actWrapper = wrapper => {
+  actWrapper = (wrapper) => {
     act = wrapper;
   };
 }

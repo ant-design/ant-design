@@ -181,7 +181,7 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token: Descripti
   };
 };
 // ============================== Export ==============================
-export default genComponentStyleHook('Descriptions', token => {
+export default genComponentStyleHook('Descriptions', (token) => {
   const descriptionsBg = token.colorFillAlter;
   const descriptionsTitleMarginBottom = token.fontSizeSM * token.lineHeightSM;
   const descriptionsExtraColor = token.colorText;

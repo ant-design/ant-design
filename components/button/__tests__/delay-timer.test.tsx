@@ -43,11 +43,11 @@ it('Delay loading timer in Button component', () => {
 
   // other component may call setTimeout or clearTimeout
   const setTimeoutCount = () => {
-    const items = setTimeoutMock.mock.calls.filter(item => item[1] === specialDelay);
+    const items = setTimeoutMock.mock.calls.filter((item) => item[1] === specialDelay);
     return items.length;
   };
   const clearTimeoutCount = () => {
-    const items = clearTimeoutMock.mock.calls.filter(item => item[0] === btnTimer);
+    const items = clearTimeoutMock.mock.calls.filter((item) => item[0] === btnTimer);
     return items.length;
   };
 
