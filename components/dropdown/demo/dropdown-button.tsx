@@ -1,7 +1,7 @@
 import React from 'react';
 import { DownOutlined, UserOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
-import { Button, Dropdown, message, Space, Tooltip } from 'antd';
+import { Button, Dropdown, message, Space, Tooltip, Divider } from 'antd';
 
 const handleButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
   message.info('Click on left button.');
@@ -68,6 +68,21 @@ const App: React.FC = () => (
     </Dropdown>
     <Dropdown.Button menu={menuProps} onClick={handleButtonClick} danger>
       Danger
+    </Dropdown.Button>
+    <Dropdown.Button
+      menu={menuProps}
+      dropdownRender={(menu) => (
+        <div className="dropdown-content">
+          {menu}
+          <Divider style={{ margin: 0 }} />
+          <Space.Compact style={{ padding: 8 }}>
+            <Button type="primary">Ok</Button>
+            <Button type="default">cancel</Button>
+          </Space.Compact>
+        </div>
+      )}
+    >
+      Click me!
     </Dropdown.Button>
   </Space>
 );
