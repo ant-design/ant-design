@@ -68,6 +68,8 @@ const GlobalLayout: FC = () => {
         const themeConfig = JSON.parse(localTheme);
         if (themeConfig.algorithm) {
           themeConfig.algorithm = themeConfig.algorithm.map((item: string) => getAlgorithm(item));
+        } else {
+          themeConfig.algorithm = [antdTheme.defaultAlgorithm];
         }
         setTheme(themeConfig);
       } catch (e) {
