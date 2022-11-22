@@ -24,7 +24,7 @@ This document will help you upgrade from antd `4.x` version to antd `5.x` versio
   - All less files are removed, and less variables are no longer exported.
   - Css files are no longer included in package. Since CSS-in-JS supports importing on demand, the original `antd/dist/antd.css` has also been abandoned. If you need to reset some basic styles, please import `antd/dist/reset.css`.
 - Remove css variables and dynamic theme built on top of them.
-- Remove `lib`, only provide `dist` and `es` in package, the original `antd/es/locale` has also been abandoned, you can find the packages in `antd/locale`.
+- Remove `antd/es/locale`, you can find the packages in `antd/locale`.
 - Replace built-in Moment.js with Dayjs. For more: [Use custom date library](/docs/react/use-custom-date-library/).
 - `babel-plugin-import` is no longer supported. CSS-in-JS itself has the ability to import on demand, and plugin support is no longer required. Umi users can remove related configurations.
 
