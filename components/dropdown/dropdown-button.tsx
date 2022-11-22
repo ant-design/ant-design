@@ -69,6 +69,7 @@ const DropdownButton: DropdownButtonInterface = (props) => {
     overlayClassName,
     overlayStyle,
     destroyPopupOnHide,
+    dropdownRender,
     ...restProps
   } = props;
 
@@ -90,6 +91,7 @@ const DropdownButton: DropdownButtonInterface = (props) => {
     overlayClassName,
     overlayStyle,
     destroyPopupOnHide,
+    dropdownRender,
   };
 
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
