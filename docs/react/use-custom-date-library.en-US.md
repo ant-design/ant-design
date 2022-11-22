@@ -3,7 +3,7 @@ order: 7.5
 title: Use custom date library
 ---
 
-Bu default, Ant Design use [Day.js](https://day.js.org) to handle time and date. Day.js is an immutable date-time library alternative to Moment.js with the same API.
+By default, Ant Design use [Day.js](https://day.js.org) to handle time and date. Day.js is an immutable date-time library alternative to Moment.js with the same API.
 
 You might want to use another date library (**Ant design currently supports [moment](http://momentjs.com/) and [date-fns](https://date-fns.org)**). We provide two ways to customize:
 

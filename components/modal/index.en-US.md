@@ -69,7 +69,7 @@ When requiring users to interact with the application, but without jumping to a 
 
 #### Note
 
-- The state of Modal will be preserved at it's component lifecycle by default, if you wish to open it with a brand new state everytime, set `destroyOnClose` on it.
+- The state of Modal will be preserved at it's component lifecycle by default, if you wish to open it with a brand new state every time, set `destroyOnClose` on it.
 - There is a situation that using `<Modal />` with Form, which won't clear fields value when closing Modal even you have set `destroyOnClose`. You need `<Form preserve={false} />` in this case.
 - `Modal.method()` RTL mode only supports hooks.
 
@@ -125,7 +125,7 @@ modal.update({
 });
 
 // on 4.8.0 or above, you can pass a function to update modal
-modal.update(prevConfig => ({
+modal.update((prevConfig) => ({
   ...prevConfig,
   title: `${prevConfig.title} (New)`,
 }));

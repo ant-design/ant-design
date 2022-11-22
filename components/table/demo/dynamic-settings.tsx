@@ -159,7 +159,7 @@ const App: React.FC = () => {
     scroll.x = '100vw';
   }
 
-  const tableColumns = columns.map(item => ({ ...item, ellipsis }));
+  const tableColumns = columns.map((item) => ({ ...item, ellipsis }));
   if (xScroll === 'fixed') {
     tableColumns[0].fixed = true;
     tableColumns[tableColumns.length - 1].fixed = 'right';
@@ -238,7 +238,7 @@ const App: React.FC = () => {
         <Form.Item label="Pagination Top">
           <Radio.Group
             value={top}
-            onChange={e => {
+            onChange={(e) => {
               setTop(e.target.value);
             }}
           >
@@ -251,7 +251,7 @@ const App: React.FC = () => {
         <Form.Item label="Pagination Bottom">
           <Radio.Group
             value={bottom}
-            onChange={e => {
+            onChange={(e) => {
               setBottom(e.target.value);
             }}
           >

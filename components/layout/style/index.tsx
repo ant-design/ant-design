@@ -19,7 +19,7 @@ export interface LayoutToken extends FullToken<'Layout'> {
   layoutZeroTriggerSize: number;
 }
 
-const genLayoutStyle: GenerateStyle<LayoutToken, CSSObject> = token => {
+const genLayoutStyle: GenerateStyle<LayoutToken, CSSObject> = (token) => {
   const {
     antCls, // .ant
     componentCls, // .ant-layout
@@ -109,7 +109,7 @@ const genLayoutStyle: GenerateStyle<LayoutToken, CSSObject> = token => {
           marginTop: -0.1,
           paddingTop: 0.1,
 
-          [`${antCls}-menu${antCls}menu-inline-collapsed`]: {
+          [`${antCls}-menu${antCls}-menu-inline-collapsed`]: {
             width: 'auto',
           },
         },
@@ -197,7 +197,7 @@ const genLayoutStyle: GenerateStyle<LayoutToken, CSSObject> = token => {
 // ============================== Export ==============================
 export default genComponentStyleHook(
   'Layout',
-  token => {
+  (token) => {
     const { colorText, controlHeightSM, controlHeight, controlHeightLG, marginXXS } = token;
     const layoutHeaderPaddingInline = controlHeightLG * 1.25;
 
@@ -213,7 +213,7 @@ export default genComponentStyleHook(
 
     return [genLayoutStyle(layoutToken)];
   },
-  token => {
+  (token) => {
     const { colorBgLayout } = token;
 
     return {

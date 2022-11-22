@@ -36,7 +36,7 @@ const fetch = (value: string, callback: Function) => {
   timeout = setTimeout(fake, 300);
 };
 
-const SearchInput: React.FC<{ placeholder: string; style: React.CSSProperties }> = props => {
+const SearchInput: React.FC<{ placeholder: string; style: React.CSSProperties }> = (props) => {
   const [data, setData] = useState<SelectProps['options']>([]);
   const [value, setValue] = useState<string>();
 
@@ -64,7 +64,7 @@ const SearchInput: React.FC<{ placeholder: string; style: React.CSSProperties }>
       onSearch={handleSearch}
       onChange={handleChange}
       notFoundContent={null}
-      options={(data || []).map(d => ({
+      options={(data || []).map((d) => ({
         value: d.value,
         label: d.text,
       }))}

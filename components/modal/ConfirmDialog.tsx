@@ -83,7 +83,7 @@ export function ConfirmContent(
 
   return (
     <LocaleReceiver componentName="Modal">
-      {locale => {
+      {(locale) => {
         const mergedLocale = staticLocale || locale;
 
         const cancelButton = mergedOkCancel && (

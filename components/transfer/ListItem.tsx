@@ -45,7 +45,7 @@ const ListItem = <RecordType extends KeyWiseTransferItem>(props: ListItemProps<R
 
   return (
     <LocaleReceiver componentName="Transfer" defaultLocale={defaultLocale.Transfer}>
-      {contextLocale => {
+      {(contextLocale) => {
         const liProps: React.HTMLAttributes<HTMLLIElement> = { className, title };
         const labelNode = <span className={`${prefixCls}-content-item-text`}>{renderedEl}</span>;
 

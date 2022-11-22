@@ -375,7 +375,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
             </MemoInput>
           );
         } else if (isRenderProps && (shouldUpdate || dependencies) && !hasName) {
-          childNode = (children as RenderChildren)(context);
+          childNode = children(context);
         } else {
           warning(
             !mergedName.length,

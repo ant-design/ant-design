@@ -16,7 +16,7 @@ export interface UploadToken extends FullToken<'Upload'> {
   uploadPicCardSize: number;
 }
 
-const genBaseStyle: GenerateStyle<UploadToken> = token => {
+const genBaseStyle: GenerateStyle<UploadToken> = (token) => {
   const { componentCls, colorTextDisabled } = token;
 
   return {
@@ -43,7 +43,7 @@ const genBaseStyle: GenerateStyle<UploadToken> = token => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Upload', token => {
+export default genComponentStyleHook('Upload', (token) => {
   const { fontSizeHeading3, fontSize, lineHeight, lineWidth, controlHeightLG } = token;
   const listItemHeightSM = Math.round(fontSize * lineHeight);
 

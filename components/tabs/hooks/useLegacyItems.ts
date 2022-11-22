@@ -5,7 +5,7 @@ import type { TabsProps, TabPaneProps } from '..';
 import warning from '../../_util/warning';
 
 function filter<T>(items: (T | null)[]): T[] {
-  return items.filter(item => item) as T[];
+  return items.filter((item) => item) as T[];
 }
 
 export default function useLegacyItems(items?: TabsProps['items'], children?: React.ReactNode) {

@@ -48,14 +48,14 @@ describe('Grid', () => {
 
   it('when typeof gutter is object array in large screen', () => {
     jest.spyOn(window, 'matchMedia').mockImplementation(
-      query =>
+      (query) =>
         ({
           addListener: (cb: (e: { matches: boolean }) => void) => {
             cb({ matches: query === '(min-width: 1200px)' });
           },
           removeListener: jest.fn(),
           matches: query === '(min-width: 1200px)',
-        } as any),
+        }) as any,
     );
 
     const { container, asFragment } = render(
@@ -116,14 +116,14 @@ describe('Grid', () => {
   it('should work with useBreakpoint', () => {
     const matchMediaSpy = jest.spyOn(window, 'matchMedia');
     matchMediaSpy.mockImplementation(
-      query =>
+      (query) =>
         ({
           addListener: (cb: (e: { matches: boolean }) => void) => {
             cb({ matches: query === '(max-width: 575px)' });
           },
           removeListener: jest.fn(),
           matches: query === '(max-width: 575px)',
-        } as any),
+        }) as any,
     );
 
     let screensVar;
@@ -147,14 +147,14 @@ describe('Grid', () => {
   it('should align by responsive align prop', () => {
     const matchMediaSpy = jest.spyOn(window, 'matchMedia');
     matchMediaSpy.mockImplementation(
-      query =>
+      (query) =>
         ({
           addListener: (cb: (e: { matches: boolean }) => void) => {
             cb({ matches: query === '(max-width: 575px)' });
           },
           removeListener: jest.fn(),
           matches: query === '(max-width: 575px)',
-        } as any),
+        }) as any,
     );
     const { container } = render(<Row align="middle" />);
     expect(container.innerHTML).toContain('ant-row-middle');
@@ -167,14 +167,14 @@ describe('Grid', () => {
   it('should justify by responsive justify prop', () => {
     const matchMediaSpy = jest.spyOn(window, 'matchMedia');
     matchMediaSpy.mockImplementation(
-      query =>
+      (query) =>
         ({
           addListener: (cb: (e: { matches: boolean }) => void) => {
             cb({ matches: query === '(max-width: 575px)' });
           },
           removeListener: jest.fn(),
           matches: query === '(max-width: 575px)',
-        } as any),
+        }) as any,
     );
     const { container } = render(<Row justify="center" />);
     expect(container.innerHTML).toContain('ant-row-center');

@@ -152,7 +152,7 @@ describe('Notification.placement', () => {
       act(() => {
         jest.runAllTimers();
       });
-      document.querySelectorAll('.ant-notification-notice').forEach(ele => {
+      document.querySelectorAll('.ant-notification-notice').forEach((ele) => {
         fireEvent.animationEnd(ele);
       });
       expect($container.querySelector('.ant-notification')).toBeFalsy();

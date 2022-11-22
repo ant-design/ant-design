@@ -271,7 +271,7 @@ describe('Locale Provider', () => {
     MockDate.reset();
   });
 
-  locales.forEach(locale => {
+  locales.forEach((locale) => {
     it(`should display the text as ${locale.locale}`, () => {
       const { container } = render(
         <LocaleProvider locale={locale}>
@@ -283,7 +283,7 @@ describe('Locale Provider', () => {
   });
 
   it('should change locale of Modal.xxx', () => {
-    locales.forEach(locale => {
+    locales.forEach((locale) => {
       const { container } = render(
         <LocaleProvider locale={locale}>
           <Modal title="Locale Modal" open getContainer={false}>

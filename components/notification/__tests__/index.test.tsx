@@ -162,7 +162,7 @@ describe('notification', () => {
 
     const list = ['success', 'info', 'warning', 'error'] as const;
 
-    list.forEach(type => {
+    list.forEach((type) => {
       notification[type]({
         message: 'Notification Title',
         duration: 0,
@@ -172,14 +172,14 @@ describe('notification', () => {
 
     await awaitPromise();
 
-    list.forEach(type => {
+    list.forEach((type) => {
       expect(document.querySelectorAll(`${iconPrefix}-${type}`)).toHaveLength(1);
     });
   });
 
   it('should be able to add parent class for different notification types', async () => {
     const list = ['success', 'info', 'warning', 'error'] as const;
-    list.forEach(type => {
+    list.forEach((type) => {
       notification[type]({
         message: 'Notification Title',
         duration: 0,
@@ -189,7 +189,7 @@ describe('notification', () => {
 
     await awaitPromise();
 
-    list.forEach(type => {
+    list.forEach((type) => {
       expect(document.querySelectorAll(`.ant-notification-notice-${type}`)).toHaveLength(1);
     });
   });
@@ -251,7 +251,7 @@ describe('notification', () => {
 
   it('closeIcon should be update', async () => {
     const list = ['1', '2'];
-    list.forEach(type => {
+    list.forEach((type) => {
       notification.open({
         message: 'Notification Title',
         closeIcon: <span className={`test-customize-icon-${type}`} />,
@@ -261,7 +261,7 @@ describe('notification', () => {
 
     await awaitPromise();
 
-    list.forEach(type => {
+    list.forEach((type) => {
       expect(document.querySelector(`.test-customize-icon-${type}`)).toBeTruthy();
     });
   });

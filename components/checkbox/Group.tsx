@@ -71,7 +71,7 @@ const InternalCheckboxGroup: React.ForwardRefRenderFunction<HTMLDivElement, Chec
   }, [restProps.value]);
 
   const getOptions = () =>
-    options.map(option => {
+    options.map((option) => {
       if (typeof option === 'string' || typeof option === 'number') {
         return {
           label: option,
@@ -82,11 +82,11 @@ const InternalCheckboxGroup: React.ForwardRefRenderFunction<HTMLDivElement, Chec
     });
 
   const cancelValue = (val: string) => {
-    setRegisteredValues(prevValues => prevValues.filter(v => v !== val));
+    setRegisteredValues((prevValues) => prevValues.filter((v) => v !== val));
   };
 
   const registerValue = (val: string) => {
-    setRegisteredValues(prevValues => [...prevValues, val]);
+    setRegisteredValues((prevValues) => [...prevValues, val]);
   };
 
   const toggleOption = (option: CheckboxOptionType) => {
@@ -103,10 +103,10 @@ const InternalCheckboxGroup: React.ForwardRefRenderFunction<HTMLDivElement, Chec
     const opts = getOptions();
     onChange?.(
       newValue
-        .filter(val => registeredValues.includes(val))
+        .filter((val) => registeredValues.includes(val))
         .sort((a, b) => {
-          const indexA = opts.findIndex(opt => opt.value === a);
-          const indexB = opts.findIndex(opt => opt.value === b);
+          const indexA = opts.findIndex((opt) => opt.value === a);
+          const indexB = opts.findIndex((opt) => opt.value === b);
           return indexA - indexB;
         }),
     );
@@ -120,7 +120,7 @@ const InternalCheckboxGroup: React.ForwardRefRenderFunction<HTMLDivElement, Chec
   const domProps = omit(restProps, ['value', 'disabled']);
 
   if (options && options.length > 0) {
-    children = getOptions().map(option => (
+    children = getOptions().map((option) => (
       <Checkbox
         prefixCls={prefixCls}
         key={option.value.toString()}

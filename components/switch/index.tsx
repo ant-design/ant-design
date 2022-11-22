@@ -37,11 +37,12 @@ export interface SwitchProps {
   id?: string;
 }
 
-interface CompoundedComponent
-  extends React.ForwardRefExoticComponent<SwitchProps & React.RefAttributes<HTMLElement>> {
+type CompoundedComponent = React.ForwardRefExoticComponent<
+  SwitchProps & React.RefAttributes<HTMLElement>
+> & {
   /** @internal */
   __ANT_SWITCH: boolean;
-}
+};
 
 const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>(
   (

@@ -14,7 +14,7 @@ const App: React.FC = () => {
           max={5}
           defaultValue={0.5}
           step={0.1}
-          onChange={val => setScaleStep(val!)}
+          onChange={(val) => setScaleStep(val!)}
         />
       </div>
       <br />
@@ -29,7 +29,7 @@ const App: React.FC = () => {
           visible,
           scaleStep,
           src: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-          onVisibleChange: value => {
+          onVisibleChange: (value) => {
             setVisible(value);
           },
         }}

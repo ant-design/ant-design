@@ -10,7 +10,7 @@ const VirtualTable = <RecordType extends object>(props: TableProps<RecordType>) 
   const [tableWidth, setTableWidth] = useState(0);
 
   const widthColumnCount = columns!.filter(({ width }) => !width).length;
-  const mergedColumns = columns!.map(column => {
+  const mergedColumns = columns!.map((column) => {
     if (column.width) {
       return column;
     }

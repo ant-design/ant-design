@@ -7,7 +7,7 @@ const props: UploadProps = {
   action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
   listType: 'picture',
   beforeUpload(file) {
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       const reader = new FileReader();
       reader.readAsDataURL(file);
       reader.onload = () => {
@@ -23,7 +23,7 @@ const props: UploadProps = {
           ctx.textBaseline = 'middle';
           ctx.font = '33px Arial';
           ctx.fillText('Ant Design', 20, 20);
-          canvas.toBlob(result => resolve(result as any));
+          canvas.toBlob((result) => resolve(result as any));
         };
       };
     });

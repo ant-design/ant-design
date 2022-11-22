@@ -82,7 +82,7 @@ Cascade selection box.
 | searchValue | Set search value，Need work with `showSearch` | string | - | 4.17.0 |
 | onSearch | The callback function triggered when input changed | (search: string) => void | - | 4.17.0 |
 | dropdownMenuColumnStyle | The style of the drop-down menu column | CSSProperties | - |  |
-| loadingIcon | The apparence of lazy loading (now is useless) | ReactNode | - |  |
+| loadingIcon | The appearance of lazy loading (now is useless) | ReactNode | - |  |
 
 ### showSearch
 

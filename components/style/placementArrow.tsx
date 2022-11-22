@@ -4,7 +4,7 @@ import type { TokenWithCommonCls } from '../theme/util/genComponentStyleHook';
 import { roundedArrow } from './roundedArrow';
 
 function connectArrowCls(classList: string[], showArrowCls: string = '') {
-  return classList.map(cls => `${showArrowCls}${cls}`).join(',');
+  return classList.map((cls) => `${showArrowCls}${cls}`).join(',');
 }
 
 export const MAX_VERTICAL_CONTENT_RADIUS = 8;

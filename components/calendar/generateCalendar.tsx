@@ -237,7 +237,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
 
     return wrapSSR(
       <LocaleReceiver componentName="Calendar" defaultLocale={getDefaultLocale}>
-        {contextLocale => (
+        {(contextLocale) => (
           <div
             className={classNames(
               calendarPrefixCls,
@@ -278,7 +278,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
               locale={contextLocale.lang}
               generateConfig={generateConfig}
               dateRender={dateRender}
-              monthCellRender={date => monthRender(date, contextLocale.lang)}
+              monthCellRender={(date) => monthRender(date, contextLocale.lang)}
               onSelect={onInternalSelect}
               mode={panelMode}
               picker={panelMode}

@@ -11,13 +11,13 @@ export function parseColor(prefixCls: string, color?: string) {
     [`${prefixCls}-${color}`]: color && PresetColorRegex.test(color),
   });
 
-  let overlayStyle: React.CSSProperties | undefined;
-  let arrowStyle: React.CSSProperties | undefined;
+  const overlayStyle: React.CSSProperties = {};
+  const arrowStyle: React.CSSProperties = {};
 
   if (color && !PresetColorRegex.test(color)) {
-    overlayStyle = { background: color };
+    overlayStyle.background = color;
     // @ts-ignore
-    arrowStyle = { '--antd-arrow-background-color': color };
+    arrowStyle['--antd-arrow-background-color'] = color;
   }
 
   return { className, overlayStyle, arrowStyle };

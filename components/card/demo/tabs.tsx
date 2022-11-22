@@ -57,7 +57,7 @@ const App: React.FC = () => {
         extra={<a href="#">More</a>}
         tabList={tabList}
         activeTabKey={activeTabKey1}
-        onTabChange={key => {
+        onTabChange={(key) => {
           onTab1Change(key);
         }}
       >
@@ -70,7 +70,7 @@ const App: React.FC = () => {
         tabList={tabListNoTitle}
         activeTabKey={activeTabKey2}
         tabBarExtraContent={<a href="#">More</a>}
-        onTabChange={key => {
+        onTabChange={(key) => {
           onTab2Change(key);
         }}
       >

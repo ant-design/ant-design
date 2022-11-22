@@ -134,7 +134,7 @@ describe('Space', () => {
         <div
           id="demo"
           onClick={() => {
-            setState(value => value + 1);
+            setState((value) => value + 1);
           }}
         >
           {state}

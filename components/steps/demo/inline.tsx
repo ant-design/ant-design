@@ -42,7 +42,7 @@ const App: React.FC = () => (
     <List
       itemLayout="horizontal"
       dataSource={data}
-      renderItem={item => (
+      renderItem={(item) => (
         <List.Item>
           <List.Item.Meta
             avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}

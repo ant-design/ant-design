@@ -2,7 +2,7 @@ import type { CSSObject } from '@ant-design/cssinjs';
 import type { GenerateStyle } from '../../theme';
 import type { TableToken } from './index';
 
-const genSelectionStyle: GenerateStyle<TableToken, CSSObject> = token => {
+const genSelectionStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
   const {
     componentCls,
     antCls,

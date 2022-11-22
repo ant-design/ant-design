@@ -8,6 +8,6 @@ const SVGIcon = ({ color = 'currentColor' }) => (
   </svg>
 );
 
-const ExternalLinkIcon = props => <Icon component={SVGIcon} {...props} />;
+const ExternalLinkIcon = (props) => <Icon component={SVGIcon} {...props} />;
 
 export default ExternalLinkIcon;

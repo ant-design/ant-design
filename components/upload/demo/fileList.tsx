@@ -14,7 +14,7 @@ const App: React.FC = () => {
     },
   ]);
 
-  const handleChange: UploadProps['onChange'] = info => {
+  const handleChange: UploadProps['onChange'] = (info) => {
     let newFileList = [...info.fileList];
 
     // 1. Limit the number of uploaded files
@@ -22,7 +22,7 @@ const App: React.FC = () => {
     newFileList = newFileList.slice(-2);
 
     // 2. Read from response and show file link
-    newFileList = newFileList.map(file => {
+    newFileList = newFileList.map((file) => {
       if (file.response) {
         // Component will show file.url as link
         file.url = file.response.url;

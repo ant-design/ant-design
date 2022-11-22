@@ -3,7 +3,7 @@ import { Keyframes } from '@ant-design/cssinjs';
 import type { NotificationToken } from '.';
 import type { GenerateStyle } from '../../theme';
 
-const genNotificationPlacementStyle: GenerateStyle<NotificationToken, CSSObject> = token => {
+const genNotificationPlacementStyle: GenerateStyle<NotificationToken, CSSObject> = (token) => {
   const { componentCls, width, notificationMarginEdge } = token;
 
   const notificationTopFadeIn = new Keyframes('antNotificationTopFadeIn', {

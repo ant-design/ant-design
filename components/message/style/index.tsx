@@ -16,7 +16,7 @@ interface MessageToken extends FullToken<'Message'> {
   messageNoticeContentPadding: string;
 }
 
-const genMessageStyle: GenerateStyle<MessageToken> = token => {
+const genMessageStyle: GenerateStyle<MessageToken> = (token) => {
   const {
     componentCls,
     iconCls,
@@ -163,7 +163,7 @@ const genMessageStyle: GenerateStyle<MessageToken> = token => {
 // ============================== Export ==============================
 export default genComponentStyleHook(
   'Message',
-  token => {
+  (token) => {
     // Gen-style functions here
     const combinedToken = mergeToken<MessageToken>(token, {
       messageNoticeContentPadding: `${
@@ -172,7 +172,7 @@ export default genComponentStyleHook(
     });
     return [genMessageStyle(combinedToken)];
   },
-  token => ({
+  (token) => ({
     height: 150,
     zIndexPopup: token.zIndexPopupBase + 10,
   }),

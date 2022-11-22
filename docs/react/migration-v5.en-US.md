@@ -185,6 +185,27 @@ const v4Token = convertLegacyToken(mapToken);
 }
 ```
 
+### Remove babel-plugin-import
+
+Remove `babel-plugin-import` from package.json and modify `.babelrc`:
+
+```diff
+"plugins": [
+- ["import", { "libraryName": "antd", "libraryDirectory": "lib"}, "antd"],
+]
+```
+
+Umi user can disable by config：
+
+```diff
+// config/config.ts or .umirc
+export default {
+  antd: {
+-   import: true,
+  },
+};
+```
+
 ## Encounter problems
 
 If you encounter problems during the upgrade, please go to [GitHub issues](https://new-issue.ant.design/) for feedback. We will respond and improve this document as soon as possible.

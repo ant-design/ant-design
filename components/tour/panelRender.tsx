@@ -88,7 +88,7 @@ const panelRender = (
 
   return (
     <LocaleReceiver componentName="Tour" defaultLocale={defaultLocale.Tour}>
-      {contextLocale => (
+      {(contextLocale) => (
         <>
           <CloseOutlined className={`${prefixCls}-close`} onClick={onClose} />
           {coverNode}

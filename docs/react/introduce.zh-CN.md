@@ -40,7 +40,7 @@ title: Ant Design of React
 - 支持服务端渲染。
 - [Electron](https://www.electronjs.org/)
 
-| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Opera | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/electron/electron_48x48.png" alt="Electron" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Electron |
+| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Opera | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/electron/electron_48x48.png" alt="Electron" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Electron |
 | --- | --- | --- | --- | --- | --- |
 | Edge | last 2 versions | last 2 versions | last 2 versions | last 2 versions | last 2 versions |
 
@@ -52,7 +52,7 @@ title: Ant Design of React
 
 - 稳定版：[![npm package](https://img.shields.io/npm/v/antd.svg?style=flat-square)](https://www.npmjs.org/package/antd)
 
-你可以订阅：https://github.com/ant-design/ant-design/releases.atom 或 https://app.releasly.co/sites/ant-design/ant-design 来获得版本发布的通知。
+你可以订阅：https://github.com/ant-design/ant-design/releases.atom 来获得版本发布的通知。
 
 ## 安装
 
@@ -74,18 +74,22 @@ $ yarn add antd
 
 在浏览器中使用 `script` 和 `link` 标签直接引入文件，并使用全局变量 `antd`。
 
-我们在 npm 发布包内的 `antd/dist` 目录下提供了 `antd.js` `antd.css` 以及 `antd.min.js` `antd.min.css`。你也可以通过 [![CDNJS](https://img.shields.io/cdnjs/v/antd.svg?style=flat-square)](https://cdnjs.com/libraries/antd)，[![](https://data.jsdelivr.com/v1/package/npm/antd/badge)](https://www.jsdelivr.com/package/npm/antd) 或 [UNPKG](https://unpkg.com/antd/dist/) 进行下载。
+我们在 npm 发布包内的 dist 目录下提供了 `antd.js`、`antd.min.js` 和 `reset.css`。你也可以通过 [![CDNJS](https://img.shields.io/cdnjs/v/antd.svg?style=flat-square)](https://cdnjs.com/libraries/antd)，[![](https://data.jsdelivr.com/v1/package/npm/antd/badge)](https://www.jsdelivr.com/package/npm/antd) 或 [UNPKG](https://unpkg.com/antd/dist/) 进行下载。
 
 > **强烈不推荐使用已构建文件**，这样无法按需加载，而且难以获得底层依赖模块的 bug 快速修复支持。
 
-> 注意：`antd.js` 和 `antd.min.js` 依赖 `react/react-dom/dayjs`，请确保提前引入这些文件。
+> 注意：`antd.js` 和 `antd.min.js` 依赖 `react`、`react-dom`、`dayjs`，请确保提前引入这些文件。
 
 ## 示例
 
 ```jsx
 import { DatePicker } from 'antd';
 
-ReactDOM.render(<DatePicker />, mountNode);
+const App = () => {
+  return <DatePicker />;
+};
+
+export default App;
 ```
 
 ### 按需加载
@@ -100,6 +104,7 @@ ReactDOM.render(<DatePicker />, mountNode);
 
 - [首页](/index)
 - [组件库](/components/overview)
+- [国内镜像](https://github.com/ant-design/ant-design/issues/25661)
 - [Ant Design Pro](https://pro.ant.design/)
 - [Ant Design Charts](https://charts.ant.design)
 - [更新日志](/changelog)

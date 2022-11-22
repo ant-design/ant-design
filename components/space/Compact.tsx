@@ -61,7 +61,7 @@ const CompactItem: React.FC<React.PropsWithChildren<SpaceCompactItemContextType>
   <SpaceCompactItemContext.Provider value={otherProps}>{children}</SpaceCompactItemContext.Provider>
 );
 
-const Compact: React.FC<SpaceCompactProps> = props => {
+const Compact: React.FC<SpaceCompactProps> = (props) => {
   const { getPrefixCls, direction: directionConfig } = React.useContext(ConfigContext);
 
   const {

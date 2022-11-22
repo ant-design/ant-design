@@ -6,7 +6,7 @@ const App: React.FC = () => {
 
   return (
     <>
-      <Slider value={size} onChange={value => setSize(value)} />
+      <Slider value={size} onChange={(value) => setSize(value)} />
       <br />
       <br />
       <Space size={size}>

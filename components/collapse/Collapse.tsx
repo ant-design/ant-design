@@ -54,7 +54,7 @@ interface CollapseInterface extends React.FC<CollapseProps> {
   Panel: typeof CollapsePanel;
 }
 
-const Collapse: CollapseInterface = props => {
+const Collapse: CollapseInterface = (props) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const {
     prefixCls: customizePrefixCls,

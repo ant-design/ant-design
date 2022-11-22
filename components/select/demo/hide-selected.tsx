@@ -6,7 +6,7 @@ const OPTIONS = ['Apples', 'Nails', 'Bananas', 'Helicopters'];
 const App: React.FC = () => {
   const [selectedItems, setSelectedItems] = useState<string[]>([]);
 
-  const filteredOptions = OPTIONS.filter(o => !selectedItems.includes(o));
+  const filteredOptions = OPTIONS.filter((o) => !selectedItems.includes(o));
 
   return (
     <Select
@@ -15,7 +15,7 @@ const App: React.FC = () => {
       value={selectedItems}
       onChange={setSelectedItems}
       style={{ width: '100%' }}
-      options={filteredOptions.map(item => ({
+      options={filteredOptions.map((item) => ({
         value: item,
         label: item,
       }))}

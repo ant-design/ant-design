@@ -94,7 +94,7 @@ export default function getPlacements(config: PlacementsConfig) {
       offset: [-4, verticalArrowShift + arrowWidth],
     },
   };
-  Object.keys(placementMap).forEach(key => {
+  Object.keys(placementMap).forEach((key) => {
     placementMap[key] = arrowPointAtCenter
       ? {
           ...placementMap[key],

@@ -43,7 +43,7 @@ const menu = (
 
 const App: React.FC = () => (
   <Dropdown overlay={menu}>
-    <a onClick={e => e.preventDefault()}>
+    <a onClick={(e) => e.preventDefault()}>
       <Space>
         Hover me
         <DownOutlined />

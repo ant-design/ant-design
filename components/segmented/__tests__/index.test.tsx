@@ -109,7 +109,7 @@ describe('Segmented', () => {
   it('render segmented with numeric options', () => {
     const handleValueChange = jest.fn();
     const { asFragment, container } = render(
-      <Segmented options={[1, 2, 3, 4, 5]} onChange={value => handleValueChange(value)} />,
+      <Segmented options={[1, 2, 3, 4, 5]} onChange={(value) => handleValueChange(value)} />,
     );
     expect(asFragment().firstChild).toMatchSnapshot();
     expectMatchChecked(container, [true, false, false, false, false]);
@@ -125,7 +125,7 @@ describe('Segmented', () => {
     const { asFragment, container } = render(
       <Segmented
         options={['Daily', { label: 'Weekly', value: 'Weekly' }, 'Monthly']}
-        onChange={value => handleValueChange(value)}
+        onChange={(value) => handleValueChange(value)}
       />,
     );
     expect(asFragment().firstChild).toMatchSnapshot();
@@ -142,7 +142,7 @@ describe('Segmented', () => {
     const { asFragment, container } = render(
       <Segmented
         options={['Daily', { label: 'Weekly', value: 'Weekly', disabled: true }, 'Monthly']}
-        onChange={value => handleValueChange(value)}
+        onChange={(value) => handleValueChange(value)}
       />,
     );
     expect(asFragment().firstChild).toMatchSnapshot();
@@ -171,7 +171,7 @@ describe('Segmented', () => {
       <Segmented
         disabled
         options={['Daily', 'Weekly', 'Monthly']}
-        onChange={value => handleValueChange(value)}
+        onChange={(value) => handleValueChange(value)}
       />,
     );
     expect(asFragment().firstChild).toMatchSnapshot();
@@ -225,7 +225,7 @@ describe('Segmented', () => {
             <Segmented
               options={['Map', 'Transit', 'Satellite']}
               value={this.state.value}
-              onChange={value =>
+              onChange={(value) =>
                 this.setState({
                   value,
                 })
@@ -234,7 +234,7 @@ describe('Segmented', () => {
             <div className="value">{this.state.value}</div>
             <input
               className="control"
-              onChange={e => {
+              onChange={(e) => {
                 this.setState({ value: e.target.value });
               }}
             />
@@ -257,12 +257,12 @@ describe('Segmented', () => {
       <Segmented
         options={[null, undefined, ''] as any}
         disabled
-        onChange={value => handleValueChange(value)}
+        onChange={(value) => handleValueChange(value)}
       />,
     );
     expect(asFragment().firstChild).toMatchSnapshot();
     expect(
-      Array.from(container.querySelectorAll(`.${prefixCls}-item-label`)).map(n => n.textContent),
+      Array.from(container.querySelectorAll(`.${prefixCls}-item-label`)).map((n) => n.textContent),
     ).toEqual(['', '', '']);
   });
 
@@ -271,7 +271,7 @@ describe('Segmented', () => {
     const { asFragment, container } = render(
       <Segmented
         options={['Map', 'Transit', 'Satellite']}
-        onChange={value => handleValueChange(value)}
+        onChange={(value) => handleValueChange(value)}
       />,
     );
     expect(asFragment().firstChild).toMatchSnapshot();

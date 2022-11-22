@@ -11,7 +11,7 @@ export default function getFontSizes(base: number) {
 
   fontSizes[1] = base;
 
-  return fontSizes.map(size => {
+  return fontSizes.map((size) => {
     const height = size + 8;
 
     return {

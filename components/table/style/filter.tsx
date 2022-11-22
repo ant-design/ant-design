@@ -2,7 +2,7 @@ import type { GenerateStyle } from '../../theme';
 import type { TableToken } from './index';
 import { resetComponent } from '../../style';
 
-const genFilterStyle: GenerateStyle<TableToken> = token => {
+const genFilterStyle: GenerateStyle<TableToken> = (token) => {
   const {
     componentCls,
     antCls,

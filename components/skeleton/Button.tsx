@@ -12,7 +12,7 @@ export interface SkeletonButtonProps extends Omit<SkeletonElementProps, 'size'> 
   block?: boolean;
 }
 
-const SkeletonButton: React.FC<SkeletonButtonProps> = props => {
+const SkeletonButton: React.FC<SkeletonButtonProps> = (props) => {
   const {
     prefixCls: customizePrefixCls,
     className,

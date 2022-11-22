@@ -13,7 +13,7 @@ const props: UploadProps = {
       method: 'POST',
       body: file,
     })
-      .then(res => res.json())
+      .then((res) => res.json())
       .then(({ thumbnail }) => thumbnail);
   },
 };

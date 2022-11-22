@@ -40,10 +40,10 @@ const TableTransfer = ({ leftColumns, rightColumns, ...restProps }: TableTransfe
       const columns = direction === 'left' ? leftColumns : rightColumns;
 
       const rowSelection: TableRowSelection<TransferItem> = {
-        getCheckboxProps: item => ({ disabled: listDisabled || item.disabled }),
+        getCheckboxProps: (item) => ({ disabled: listDisabled || item.disabled }),
         onSelectAll(selected, selectedRows) {
           const treeSelectedKeys = selectedRows
-            .filter(item => !item.disabled)
+            .filter((item) => !item.disabled)
             .map(({ key }) => key);
           const diffKeys = selected
             ? difference(treeSelectedKeys, listSelectedKeys)
@@ -85,7 +85,9 @@ const mockData: RecordType[] = Array.from({ length: 20 }).map((_, i) => ({
   tag: mockTags[i % 3],
 }));
 
-const originTargetKeys = mockData.filter(item => Number(item.key) % 3 > 1).map(item => item.key);
+const originTargetKeys = mockData
+  .filter((item) => Number(item.key) % 3 > 1)
+  .map((item) => item.key);
 
 const leftTableColumns: ColumnsType<DataType> = [
   {
@@ -95,7 +97,7 @@ const leftTableColumns: ColumnsType<DataType> = [
   {
     dataIndex: 'tag',
     title: 'Tag',
-    render: tag => <Tag>{tag}</Tag>,
+    render: (tag) => <Tag>{tag}</Tag>,
   },
   {
     dataIndex: 'description',

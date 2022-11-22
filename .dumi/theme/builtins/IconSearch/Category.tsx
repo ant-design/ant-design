@@ -12,7 +12,7 @@ interface CategoryProps {
   newIcons: string[];
 }
 
-const Category: React.FC<CategoryProps> = props => {
+const Category: React.FC<CategoryProps> = (props) => {
   const { icons, title, newIcons, theme } = props;
   const intl = useIntl();
   const [justCopied, setJustCopied] = React.useState<string | null>(null);
@@ -40,7 +40,7 @@ const Category: React.FC<CategoryProps> = props => {
     <div>
       <h3>{intl.formatMessage({ id: `app.docs.components.icon.category.${title}` })}</h3>
       <ul className="anticons-list">
-        {icons.map(name => (
+        {icons.map((name) => (
           <CopyableIcon
             key={name}
             name={name}

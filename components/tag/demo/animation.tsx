@@ -17,7 +17,7 @@ const App: React.FC = () => {
   }, []);
 
   const handleClose = (removedTag: string) => {
-    const newTags = tags.filter(tag => tag !== removedTag);
+    const newTags = tags.filter((tag) => tag !== removedTag);
     console.log(newTags);
     setTags(newTags);
   };
@@ -42,7 +42,7 @@ const App: React.FC = () => {
     const tagElem = (
       <Tag
         closable
-        onClose={e => {
+        onClose={(e) => {
           e.preventDefault();
           handleClose(tag);
         }}
@@ -68,7 +68,7 @@ const App: React.FC = () => {
             type: 'from',
             duration: 100,
           }}
-          onEnd={e => {
+          onEnd={(e) => {
             if (e.type === 'appear' || e.type === 'enter') {
               (e.target as any).style = 'display: inline-block';
             }

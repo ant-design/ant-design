@@ -40,7 +40,7 @@ function getNumberSize(size: SpaceSize) {
   return typeof size === 'string' ? spaceSize[size] : size || 0;
 }
 
-const Space: React.FC<SpaceProps> = props => {
+const Space: React.FC<SpaceProps> = (props) => {
   const { getPrefixCls, space, direction: directionConfig } = React.useContext(ConfigContext);
 
   const {
@@ -60,7 +60,7 @@ const Space: React.FC<SpaceProps> = props => {
 
   const [horizontalSize, verticalSize] = React.useMemo(
     () =>
-      ((Array.isArray(size) ? size : [size, size]) as [SpaceSize, SpaceSize]).map(item =>
+      ((Array.isArray(size) ? size : [size, size]) as [SpaceSize, SpaceSize]).map((item) =>
         getNumberSize(item),
       ),
     [size],
@@ -151,9 +151,9 @@ const Space: React.FC<SpaceProps> = props => {
   );
 };
 
-interface CompoundedComponent extends React.FC<SpaceProps> {
+type CompoundedComponent = React.FC<SpaceProps> & {
   Compact: typeof Compact;
-}
+};
 
 const CompoundedSpace = Space as CompoundedComponent;
 CompoundedSpace.Compact = Compact;

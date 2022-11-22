@@ -31,7 +31,7 @@ const antProgressActive = new Keyframes('antProgressActive', {
   },
 });
 
-const genBaseStyle: GenerateStyle<ProgressToken> = token => {
+const genBaseStyle: GenerateStyle<ProgressToken> = (token) => {
   const { componentCls: progressCls, iconCls: iconPrefixCls } = token;
 
   return {
@@ -158,7 +158,7 @@ const genBaseStyle: GenerateStyle<ProgressToken> = token => {
   };
 };
 
-const genCircleStyle: GenerateStyle<ProgressToken> = token => {
+const genCircleStyle: GenerateStyle<ProgressToken> = (token) => {
   const { componentCls: progressCls, iconCls: iconPrefixCls } = token;
 
   return {
@@ -253,7 +253,7 @@ const genSmallLine: GenerateStyle<ProgressToken> = (token: ProgressToken): CSSOb
   };
 };
 
-export default genComponentStyleHook('Progress', token => {
+export default genComponentStyleHook('Progress', (token) => {
   const progressStepMarginInlineEnd = token.marginXXS / 2;
 
   const progressToken = mergeToken<ProgressToken>(token, {

@@ -14,7 +14,7 @@ export interface AnchorLinkProps {
   className?: string;
 }
 
-const AnchorLink: React.FC<AnchorLinkProps> = props => {
+const AnchorLink: React.FC<AnchorLinkProps> = (props) => {
   const { href = '#', title, prefixCls: customizePrefixCls, children, className, target } = props;
 
   const context = React.useContext<AntAnchor | undefined>(AnchorContext);

@@ -64,12 +64,12 @@ const App: React.FC = () => {
 
   const getColumnSearchProps = (dataIndex: DataIndex): ColumnType<DataType> => ({
     filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters, close }) => (
-      <div style={{ padding: 8 }} onKeyDown={e => e.stopPropagation()}>
+      <div style={{ padding: 8 }} onKeyDown={(e) => e.stopPropagation()}>
         <Input
           ref={searchInput}
           placeholder={`Search ${dataIndex}`}
           value={selectedKeys[0]}
-          onChange={e => setSelectedKeys(e.target.value ? [e.target.value] : [])}
+          onChange={(e) => setSelectedKeys(e.target.value ? [e.target.value] : [])}
           onPressEnter={() => handleSearch(selectedKeys as string[], confirm, dataIndex)}
           style={{ marginBottom: 8, display: 'block' }}
         />
@@ -121,12 +121,12 @@ const App: React.FC = () => {
         .toString()
         .toLowerCase()
         .includes((value as string).toLowerCase()),
-    onFilterDropdownOpenChange: visible => {
+    onFilterDropdownOpenChange: (visible) => {
       if (visible) {
         setTimeout(() => searchInput.current?.select(), 100);
       }
     },
-    render: text =>
+    render: (text) =>
       searchedColumn === dataIndex ? (
         <Highlighter
           highlightStyle={{ backgroundColor: '#ffc069', padding: 0 }}

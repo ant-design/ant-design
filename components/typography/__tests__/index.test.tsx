@@ -57,7 +57,7 @@ describe('Typography', () => {
 
   // Mock getComputedStyle
   const originGetComputedStyle = window.getComputedStyle;
-  window.getComputedStyle = ele => {
+  window.getComputedStyle = (ele) => {
     const style = originGetComputedStyle(ele);
     style.lineHeight = '16px';
     return style;
@@ -347,7 +347,7 @@ describe('Typography', () => {
         });
       }
 
-      testStep({ name: 'by key up' }, wrapper => {
+      testStep({ name: 'by key up' }, (wrapper) => {
         // Not trigger when inComposition
         fireEvent.compositionStart(wrapper.querySelector('textarea')!);
         fireEvent.keyDown(wrapper.querySelector('textarea')!, { keyCode: KeyCode.ENTER });
@@ -361,17 +361,17 @@ describe('Typography', () => {
 
       testStep(
         { name: 'by esc key' },
-        wrapper => {
+        (wrapper) => {
           fireEvent.keyDown(wrapper.querySelector('textarea')!, { keyCode: KeyCode.ESC });
           fireEvent.keyUp(wrapper.querySelector('textarea')!, { keyCode: KeyCode.ESC });
         },
-        onChange => {
+        (onChange) => {
           // eslint-disable-next-line jest/no-standalone-expect
           expect(onChange).not.toHaveBeenCalled();
         },
       );
 
-      testStep({ name: 'by blur' }, wrapper => {
+      testStep({ name: 'by blur' }, (wrapper) => {
         fireEvent.blur(wrapper.querySelector('textarea')!);
       });
 

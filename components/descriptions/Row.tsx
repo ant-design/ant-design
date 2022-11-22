@@ -96,7 +96,7 @@ export interface RowProps {
   children?: React.ReactNode;
 }
 
-const Row: React.FC<RowProps> = props => {
+const Row: React.FC<RowProps> = (props) => {
   const descContext = React.useContext(DescriptionsContext);
 
   const { prefixCls, vertical, row, index, bordered } = props;

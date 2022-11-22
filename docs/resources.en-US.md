@@ -15,12 +15,7 @@ Please find below some of the design resources and tools about Ant Design that w
 - Sketch Symbols
   - https://gw.alipayobjects.com/zos/basement_prod/048ee28f-2c80-4d15-9aa3-4f5ddac50465.svg
   - Sketch Symbols for Desktop
-  - https://gw.alipayobjects.com/os/bmw-prod/a5ff1d86-44cd-4b86-92f8-daab59cba5b7.sketch
-  - Official
-- Sketch Symbols (Dark)
-  - https://gw.alipayobjects.com/zos/basement_prod/048ee28f-2c80-4d15-9aa3-4f5ddac50465.svg
-  - Sketch Symbols for Desktop with dark theme
-  - https://gw.alipayobjects.com/os/bmw-prod/6b670a1c-26e3-4379-9c86-7a2b95e170e5.sketch
+  - https://gw.alipayobjects.com/os/hitu-asset/5217de80-7a3e-413f-809e-20ecede4f3f3/hitu-1669000735416-5000001.sketch
   - Official
 - Mobile Components
   - https://gw.alipayobjects.com/zos/basement_prod/c0c3852c-d245-4330-886b-cb02ef49eb6d.svg

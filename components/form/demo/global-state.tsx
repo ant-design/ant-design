@@ -40,7 +40,7 @@ const App: React.FC = () => {
     <>
       <CustomizedForm
         fields={fields}
-        onChange={newFields => {
+        onChange={(newFields) => {
           setFields(newFields);
         }}
       />

@@ -126,28 +126,28 @@ describe('ConfigProvider', () => {
     }
 
     // Alert
-    testPair('Alert', props => (
+    testPair('Alert', (props) => (
       <Alert {...props} message="Bamboo is Little Light" type="success" />
     ));
 
     // Anchor
-    testPair('Anchor', props => (
+    testPair('Anchor', (props) => (
       <Anchor {...props}>
         <Anchor.Link {...props} href="#bamboo" title="Little Light" />
       </Anchor>
     ));
 
     // AutoComplete
-    testPair('AutoComplete', props => <AutoComplete {...props} />);
+    testPair('AutoComplete', (props) => <AutoComplete {...props} />);
 
     // Avatar
-    testPair('Avatar', props => <Avatar {...props} />);
+    testPair('Avatar', (props) => <Avatar {...props} />);
 
     // BackTop
-    testPair('BackTop', props => <BackTop visible {...props} />);
+    testPair('BackTop', (props) => <BackTop visible {...props} />);
 
     // Badge
-    testPair('Badge', props => {
+    testPair('Badge', (props) => {
       const newProps = { ...props };
 
       // Hook for additional `scrollNumberPrefixCls` prop
@@ -168,7 +168,7 @@ describe('ConfigProvider', () => {
     });
 
     // Breadcrumb
-    testPair('Breadcrumb', props => (
+    testPair('Breadcrumb', (props) => (
       <Breadcrumb {...props}>
         <Breadcrumb.Item {...props}>Bamboo</Breadcrumb.Item>
         <Breadcrumb.Item {...props}>Light</Breadcrumb.Item>
@@ -176,7 +176,7 @@ describe('ConfigProvider', () => {
     ));
 
     // Button
-    testPair('Button', props => (
+    testPair('Button', (props) => (
       <div>
         <Button {...props}>Bamboo</Button>
         <Button.Group {...props}>
@@ -187,7 +187,7 @@ describe('ConfigProvider', () => {
     ));
 
     // Calendar
-    testPair('Calendar', props => (
+    testPair('Calendar', (props) => (
       <div>
         <Calendar {...props} value={dayjs('2000-09-03')} mode="month" />
         <Calendar {...props} value={dayjs('2000-09-03')} mode="year" />
@@ -195,7 +195,7 @@ describe('ConfigProvider', () => {
     ));
 
     // Card
-    testPair('Card', props => (
+    testPair('Card', (props) => (
       <Card {...props}>
         <Card.Grid {...props}>
           <Card.Meta {...props} />
@@ -204,7 +204,7 @@ describe('ConfigProvider', () => {
     ));
 
     // Carousel
-    testPair('Carousel', props => (
+    testPair('Carousel', (props) => (
       <Carousel {...props}>
         <div>
           <h3>Bamboo</h3>
@@ -216,17 +216,17 @@ describe('ConfigProvider', () => {
     ));
 
     // Cascader
-    testPair('Cascader', props => <Cascader {...props} options={[]} showSearch />);
+    testPair('Cascader', (props) => <Cascader {...props} options={[]} showSearch />);
 
     // Checkbox
-    testPair('Checkbox', props => (
+    testPair('Checkbox', (props) => (
       <Checkbox.Group {...props}>
         <Checkbox {...props}>Bamboo</Checkbox>
       </Checkbox.Group>
     ));
 
     // Collapse
-    testPair('Collapse', props => (
+    testPair('Collapse', (props) => (
       <Collapse {...props}>
         <Collapse.Panel key="Collapse" header="Bamboo">
           <p>Light</p>
@@ -236,28 +236,28 @@ describe('ConfigProvider', () => {
 
     // DatePicker
     describe('DatePicker', () => {
-      testPair('DatePicker', props => (
+      testPair('DatePicker', (props) => (
         <div>
           <DatePicker {...props} />
         </div>
       ));
 
       // RangePicker
-      testPair('RangePicker', props => (
+      testPair('RangePicker', (props) => (
         <div>
           <DatePicker.RangePicker {...props} />
         </div>
       ));
 
       // MonthPicker
-      testPair('MonthPicker', props => (
+      testPair('MonthPicker', (props) => (
         <div>
           <DatePicker.MonthPicker {...props} />
         </div>
       ));
 
       // WeekPicker
-      testPair('WeekPicker', props => (
+      testPair('WeekPicker', (props) => (
         <div>
           <DatePicker.WeekPicker {...props} />
         </div>
@@ -265,19 +265,19 @@ describe('ConfigProvider', () => {
     });
 
     // Empty
-    testPair('Empty', props => <Empty {...props} />);
+    testPair('Empty', (props) => <Empty {...props} />);
 
     // Divider
-    testPair('Divider', props => <Divider {...props} />);
+    testPair('Divider', (props) => <Divider {...props} />);
 
     // Drawer
-    testPair('Drawer', props => <Drawer {...props} open getContainer={false} />);
+    testPair('Drawer', (props) => <Drawer {...props} open getContainer={false} />);
 
     // Dropdown
-    testPair('Dropdown', props => <Dropdown.Button {...props}>Light</Dropdown.Button>);
+    testPair('Dropdown', (props) => <Dropdown.Button {...props}>Light</Dropdown.Button>);
 
     // Form
-    testPair('Form', props => (
+    testPair('Form', (props) => (
       <Form {...props}>
         <Form.Item {...props} validateStatus="error" help="Bamboo is Light">
           <Input {...props} />
@@ -286,7 +286,7 @@ describe('ConfigProvider', () => {
     ));
 
     // Grid
-    testPair('Grid', props => {
+    testPair('Grid', (props) => {
       const rowProps: { prefixCls?: string } = {};
       const colProps: { prefixCls?: string } = {};
       if (props.prefixCls) {
@@ -302,7 +302,7 @@ describe('ConfigProvider', () => {
     });
 
     // Input
-    testPair('Input', props => (
+    testPair('Input', (props) => (
       <div>
         <Input.Group {...props}>
           <Input {...props} />
@@ -314,10 +314,10 @@ describe('ConfigProvider', () => {
     ));
 
     // InputNumber
-    testPair('InputNumber', props => <InputNumber {...props} />);
+    testPair('InputNumber', (props) => <InputNumber {...props} />);
 
     // Layout
-    testPair('Layout', props => {
+    testPair('Layout', (props) => {
       const siderProps: { prefixCls?: string } = {};
       const headerProps: { prefixCls?: string } = {};
       const contentProps: { prefixCls?: string } = {};
@@ -342,7 +342,7 @@ describe('ConfigProvider', () => {
     });
 
     // List
-    testPair('List', props => (
+    testPair('List', (props) => (
       <List
         {...props}
         itemLayout="horizontal"
@@ -361,7 +361,7 @@ describe('ConfigProvider', () => {
     ));
 
     // Menu
-    testPair('Menu', props => (
+    testPair('Menu', (props) => (
       <Menu {...props} defaultOpenKeys={['bamboo']} mode="inline">
         <Menu.SubMenu {...props} key="bamboo" title="bamboo">
           <Menu.ItemGroup {...props} key="g1" title="Item 1">
@@ -374,7 +374,7 @@ describe('ConfigProvider', () => {
     ));
 
     // Modal
-    testPair('Modal', props => (
+    testPair('Modal', (props) => (
       <div>
         <Modal {...props} open getContainer={false}>
           Bamboo is Little Light
@@ -383,7 +383,7 @@ describe('ConfigProvider', () => {
     ));
 
     // Pagination
-    testPair('Pagination', props => (
+    testPair('Pagination', (props) => (
       <div>
         <Pagination showSizeChanger showQuickJumper {...props} />
         <Pagination size="small" showSizeChanger showQuickJumper {...props} />
@@ -391,7 +391,7 @@ describe('ConfigProvider', () => {
     ));
 
     // Popconfirm
-    testPair('Popconfirm', props => (
+    testPair('Popconfirm', (props) => (
       <div>
         <Popconfirm {...props} open>
           <span>Bamboo</span>
@@ -400,7 +400,7 @@ describe('ConfigProvider', () => {
     ));
 
     // Popover
-    testPair('Popover', props => (
+    testPair('Popover', (props) => (
       <div>
         <Popover {...props} open>
           <span>Light</span>
@@ -409,10 +409,10 @@ describe('ConfigProvider', () => {
     ));
 
     // Progress
-    testPair('Progress', props => <Progress {...props} />);
+    testPair('Progress', (props) => <Progress {...props} />);
 
     // Radio
-    testPair('Radio', props => (
+    testPair('Radio', (props) => (
       <div>
         <Radio.Group {...props}>
           <Radio {...props}>Bamboo</Radio>
@@ -424,10 +424,10 @@ describe('ConfigProvider', () => {
     ));
 
     // Rate
-    testPair('Rate', props => <Rate {...props} />);
+    testPair('Rate', (props) => <Rate {...props} />);
 
     // Select
-    testPair('Select', props => (
+    testPair('Select', (props) => (
       <Select {...props} open>
         <Select.OptGroup key="grp">
           <Select.Option key="Bamboo">Light</Select.Option>
@@ -436,10 +436,10 @@ describe('ConfigProvider', () => {
     ));
 
     // Skeleton
-    testPair('Skeleton', props => <Skeleton title avatar paragraph {...props} />);
+    testPair('Skeleton', (props) => <Skeleton title avatar paragraph {...props} />);
 
     // Slider
-    testPair('Slider', props => {
+    testPair('Slider', (props) => {
       const myProps = { ...props };
       const tooltip: SliderTooltipProps = {
         open: true,
@@ -452,13 +452,13 @@ describe('ConfigProvider', () => {
     });
 
     // Spin
-    testPair('Spin', props => <Spin {...props} />);
+    testPair('Spin', (props) => <Spin {...props} />);
 
     // Statistic
-    testPair('Statistic', props => <Statistic {...props} value={0} />);
+    testPair('Statistic', (props) => <Statistic {...props} value={0} />);
 
     // Steps
-    testPair('Steps', props => {
+    testPair('Steps', (props) => {
       const myProps = { ...props };
       if (props.prefixCls) {
         myProps.iconPrefix = 'prefixIcon';
@@ -477,10 +477,10 @@ describe('ConfigProvider', () => {
     });
 
     // Switch
-    testPair('Switch', props => <Switch {...props} />);
+    testPair('Switch', (props) => <Switch {...props} />);
 
     // Table
-    testPair('Table', props => {
+    testPair('Table', (props) => {
       const columns: ColumnsType<any> = [
         {
           title: 'Name',
@@ -508,14 +508,14 @@ describe('ConfigProvider', () => {
     });
 
     // Tabs
-    testPair('Tabs', props => (
+    testPair('Tabs', (props) => (
       <Tabs {...props}>
         <Tabs.TabPane tab="Bamboo" key="Light" />
       </Tabs>
     ));
 
     // Tags
-    testPair('Tags', props => (
+    testPair('Tags', (props) => (
       <div>
         <Tag {...props}>Bamboo</Tag>
         <Tag.CheckableTag {...props}>Light</Tag.CheckableTag>
@@ -523,29 +523,29 @@ describe('ConfigProvider', () => {
     ));
 
     // TimePicker
-    testPair('TimePicker', props => (
+    testPair('TimePicker', (props) => (
       <TimePicker {...props} open defaultOpenValue={dayjs('00:00:00', 'HH:mm:ss')} />
     ));
 
     // Timeline
-    testPair('Timeline', props => (
+    testPair('Timeline', (props) => (
       <Timeline {...props}>
         <Timeline.Item {...props}>Bamboo</Timeline.Item>
       </Timeline>
     ));
 
     // Tooltip
-    testPair('Tooltip', props => (
+    testPair('Tooltip', (props) => (
       <Tooltip {...props} title="Bamboo" open>
         <span>Light</span>
       </Tooltip>
     ));
 
     // Transfer
-    testPair('Transfer', props => <Transfer {...props} dataSource={[]} />);
+    testPair('Transfer', (props) => <Transfer {...props} dataSource={[]} />);
 
     // Tree
-    testPair('Tree', props => (
+    testPair('Tree', (props) => (
       <div>
         <Tree {...props}>
           <Tree.TreeNode title="bamboo" />
@@ -557,14 +557,14 @@ describe('ConfigProvider', () => {
     ));
 
     // TreeSelect
-    testPair('TreeSelect', props => (
+    testPair('TreeSelect', (props) => (
       <TreeSelect {...props} open>
         <TreeSelect.TreeNode title="bamboo" value="light" />
       </TreeSelect>
     ));
 
     // Upload
-    testPair('Upload', props => (
+    testPair('Upload', (props) => (
       <Upload {...props} defaultFileList={[{ uid: '1', name: 'xxx.png', status: 'done' }]}>
         <span />
       </Upload>
