@@ -27,7 +27,7 @@ Use when you want to guide users through a product.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| arrow | Whether to show the arrow, including the configuration whether to point to the center of the elemen | `boolean`\|`{ pointAtCenter: boolean}` | `true` |  |
+| arrow | Whether to show the arrow, including the configuration whether to point to the center of the element | `boolean`\|`{ pointAtCenter: boolean}` | `true` |  |
 | placement | Position of the guide card relative to the target element | `left` `leftTop` `leftBottom` `right` `rightTop` `rightBottom` `top` `topLeft` `topRight` `bottom` `bottomLeft` `bottomRight` | `bottom` |  |
 | onClose | Callback function on shutdown | `Function` | - |  |
 | mask | Whether to enable masking | `boolean` | `true` |  |

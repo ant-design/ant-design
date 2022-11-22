@@ -121,7 +121,7 @@ const Card = React.forwardRef((props: CardProps, ref: React.Ref<HTMLDivElement>)
         {...extraProps}
         className={`${prefixCls}-head-tabs`}
         onChange={onTabChange}
-        items={tabList.map(item => ({
+        items={tabList.map((item) => ({
           label: item.tab,
           key: item.key,
           disabled: item.disabled ?? false,

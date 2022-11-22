@@ -49,7 +49,7 @@ for (let i = 0; i < 20; i++) {
   });
 }
 
-const oriTargetKeys = mockData.filter(item => +item.key % 3 > 1).map(item => item.key);
+const oriTargetKeys = mockData.filter((item) => +item.key % 3 > 1).map((item) => item.key);
 
 const data = [
   {
@@ -248,10 +248,10 @@ const TableTransfer = ({ leftColumns, rightColumns, ...restProps }) => (
       const columns = direction === 'left' ? leftColumns : rightColumns;
 
       const rowSelection = {
-        getCheckboxProps: item => ({ disabled: listDisabled || item.disabled }),
+        getCheckboxProps: (item) => ({ disabled: listDisabled || item.disabled }),
         onSelectAll(selected, selectedRows) {
           const treeSelectedKeys = selectedRows
-            .filter(item => !item.disabled)
+            .filter((item) => !item.disabled)
             .map(({ key }) => key);
           const diffKeys = selected
             ? difference(treeSelectedKeys, listSelectedKeys)
@@ -291,23 +291,23 @@ export default () => {
   const [disabled, setDisabled] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
 
-  const handleDisable = isDisabled => {
+  const handleDisable = (isDisabled) => {
     setDisabled(isDisabled);
   };
 
-  const handleTableTransferChange = nextTargetKeys => {
+  const handleTableTransferChange = (nextTargetKeys) => {
     setTargetKeys(nextTargetKeys);
   };
 
-  const triggerDisable = isDisabled => {
+  const triggerDisable = (isDisabled) => {
     setDisabled(isDisabled);
   };
 
-  const triggerShowSearch = isShowSearch => {
+  const triggerShowSearch = (isShowSearch) => {
     setShowSearch(isShowSearch);
   };
 
-  const handleTransferChange = nextTargetKeys => {
+  const handleTransferChange = (nextTargetKeys) => {
     setTargetKeys(nextTargetKeys);
   };
 
@@ -319,12 +319,12 @@ export default () => {
     setOpen(true);
   };
 
-  const handleOk = e => {
+  const handleOk = (e) => {
     console.log(e);
     setOpen(false);
   };
 
-  const handleCancel = e => {
+  const handleCancel = (e) => {
     console.log(e);
     setOpen(false);
   };
@@ -411,7 +411,7 @@ export default () => {
           selectedKeys={selectedKeys}
           onChange={handleTransferChange}
           onSelectChange={handleTransferSelectChange}
-          render={item => item.title}
+          render={(item) => item.title}
           disabled={disabled}
         />
         <TableTransfer
@@ -510,7 +510,7 @@ export default () => {
           pagination={false}
           id="table-demo-summary"
           bordered
-          summary={pageData => {
+          summary={(pageData) => {
             let totalBorrow = 0;
             let totalRepayment = 0;
 

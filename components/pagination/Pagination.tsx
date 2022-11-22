@@ -95,7 +95,7 @@ const Pagination: React.FC<PaginationProps> = ({
 
   return (
     <LocaleReceiver componentName="Pagination" defaultLocale={enUS}>
-      {contextLocale => {
+      {(contextLocale) => {
         const locale = { ...contextLocale, ...customLocale };
         const isSmall = size === 'small' || !!(xs && !size && responsive);
         const selectPrefixCls = getPrefixCls('select', customizeSelectPrefixCls);

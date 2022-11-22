@@ -55,7 +55,7 @@ export interface LocaleProviderProps {
   _ANT_MARK__?: string;
 }
 
-const LocaleProvider: React.FC<LocaleProviderProps> = props => {
+const LocaleProvider: React.FC<LocaleProviderProps> = (props) => {
   const { locale = {} as Locale, children, _ANT_MARK__ } = props;
 
   if (process.env.NODE_ENV !== 'production') {

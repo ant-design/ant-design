@@ -9,7 +9,7 @@ const App: React.FC = () => (
     <Sider
       breakpoint="lg"
       collapsedWidth="0"
-      onBreakpoint={broken => {
+      onBreakpoint={(broken) => {
         console.log(broken);
       }}
       onCollapse={(collapsed, type) => {

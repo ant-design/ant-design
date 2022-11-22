@@ -7,7 +7,7 @@ const Demo = () => {
     <>
       <Segmented value={foo} options={['AND', 'OR', 'NOT']} onChange={setFoo} />
       &nbsp;&nbsp;
-      <Segmented value={foo} options={['AND', 'OR', 'NOT']} onChange={value => setFoo(value)} />
+      <Segmented value={foo} options={['AND', 'OR', 'NOT']} onChange={(value) => setFoo(value)} />
     </>
   );
 };

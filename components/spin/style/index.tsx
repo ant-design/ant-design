@@ -226,7 +226,7 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
 // ============================== Export ==============================
 export default genComponentStyleHook(
   'Spin',
-  token => {
+  (token) => {
     const spinToken = mergeToken<SpinToken>(token, {
       spinDotDefault: token.colorTextDescription,
       spinDotSize: token.controlHeightLG / 2,

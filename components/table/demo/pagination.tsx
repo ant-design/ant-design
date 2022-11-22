@@ -37,7 +37,7 @@ const columns: ColumnsType<DataType> = [
     title: 'Name',
     dataIndex: 'name',
     key: 'name',
-    render: text => <a>{text}</a>,
+    render: (text) => <a>{text}</a>,
   },
   {
     title: 'Age',
@@ -55,7 +55,7 @@ const columns: ColumnsType<DataType> = [
     dataIndex: 'tags',
     render: (tags: string[]) => (
       <span>
-        {tags.map(tag => {
+        {tags.map((tag) => {
           let color = tag.length > 5 ? 'geekblue' : 'green';
           if (tag === 'loser') {
             color = 'volcano';
@@ -116,7 +116,7 @@ const App: React.FC = () => {
           style={{ marginBottom: 10 }}
           options={topOptions}
           value={top}
-          onChange={e => {
+          onChange={(e) => {
             setTop(e.target.value);
           }}
         />
@@ -125,7 +125,7 @@ const App: React.FC = () => {
         style={{ marginBottom: 10 }}
         options={bottomOptions}
         value={bottom}
-        onChange={e => {
+        onChange={(e) => {
           setBottom(e.target.value);
         }}
       />

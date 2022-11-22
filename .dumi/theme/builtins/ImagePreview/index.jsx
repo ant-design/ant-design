@@ -15,14 +15,14 @@ function isInline(className) {
 }
 
 function PreviewImageBox({
-   cover,
-   coverMeta,
-   imgs,
-   style,
-   previewVisible,
-   comparable,
-   onClick,
-   onCancel,
+  cover,
+  coverMeta,
+  imgs,
+  style,
+  previewVisible,
+  comparable,
+  onClick,
+  onCancel,
 }) {
   const onlyOneImg = comparable || imgs.length === 1;
   const imageWrapperClassName = classNames('preview-image-wrapper', {
@@ -77,7 +77,7 @@ export default class ImagePreview extends React.Component {
     };
   }
 
-  handleClick = index => {
+  handleClick = (index) => {
     this.setState({
       previewVisible: {
         [index]: true,
@@ -93,7 +93,7 @@ export default class ImagePreview extends React.Component {
 
   render() {
     const { imgs } = this.props;
-    const imgsMeta = imgs.map(img => {
+    const imgsMeta = imgs.map((img) => {
       const { alt, description, src } = img;
       const imgClassName = img.class;
       return {

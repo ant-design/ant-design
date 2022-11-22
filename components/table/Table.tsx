@@ -165,7 +165,7 @@ function InternalTable<RecordType extends object = any>(
     const matched = new Set(Object.keys(screens).filter((m: Breakpoint) => screens[m]));
 
     return baseColumns.filter(
-      c => !c.responsive || c.responsive.some((r: Breakpoint) => matched.has(r)),
+      (c) => !c.responsive || c.responsive.some((r: Breakpoint) => matched.has(r)),
     );
   }, [baseColumns, screens]);
 
@@ -193,7 +193,7 @@ function InternalTable<RecordType extends object = any>(
   const { childrenColumnName = 'children' } = mergedExpandable;
 
   const expandType = React.useMemo<ExpandType>(() => {
-    if (rawData.some(item => (item as any)?.[childrenColumnName])) {
+    if (rawData.some((item) => (item as any)?.[childrenColumnName])) {
       return 'nest';
     }
 
@@ -329,7 +329,7 @@ function InternalTable<RecordType extends object = any>(
   // ============================ Column ============================
   const columnTitleProps = React.useMemo<ColumnTitleProps<RecordType>>(() => {
     const mergedFilters: Record<string, FilterValue> = {};
-    Object.keys(filters).forEach(filterKey => {
+    Object.keys(filters).forEach((filterKey) => {
       if (filters[filterKey] !== null) {
         mergedFilters[filterKey] = filters[filterKey]!;
       }
@@ -476,9 +476,9 @@ function InternalTable<RecordType extends object = any>(
     const defaultPosition = direction === 'rtl' ? 'left' : 'right';
     const { position } = mergedPagination;
     if (position !== null && Array.isArray(position)) {
-      const topPos = position.find(p => p.includes('top'));
-      const bottomPos = position.find(p => p.includes('bottom'));
-      const isDisable = position.every(p => `${p}` === 'none');
+      const topPos = position.find((p) => p.includes('top'));
+      const bottomPos = position.find((p) => p.includes('bottom'));
+      const isDisable = position.every((p) => `${p}` === 'none');
       if (!topPos && !bottomPos && !isDisable) {
         bottomPaginationNode = renderPagination(defaultPosition);
       }
@@ -554,7 +554,7 @@ const ForwardTable = React.forwardRef(InternalTable) as <RecordType extends obje
 
 type InternalTableType = typeof ForwardTable;
 
-interface TableInterface extends InternalTableType {
+type CompoundedComponent = InternalTableType & {
   SELECTION_COLUMN: typeof SELECTION_COLUMN;
   EXPAND_COLUMN: typeof RcTable.EXPAND_COLUMN;
   SELECTION_ALL: 'SELECT_ALL';
@@ -563,9 +563,9 @@ interface TableInterface extends InternalTableType {
   Column: typeof Column;
   ColumnGroup: typeof ColumnGroup;
   Summary: typeof Summary;
-}
+};
 
-const Table = ForwardTable as TableInterface;
+const Table = ForwardTable as CompoundedComponent;
 
 Table.SELECTION_COLUMN = SELECTION_COLUMN;
 Table.EXPAND_COLUMN = RcTable.EXPAND_COLUMN;

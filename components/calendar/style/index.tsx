@@ -190,7 +190,7 @@ export const genCalendarStyles = (token: CalendarToken): CSSObject => {
 
 export default genComponentStyleHook(
   'Calendar',
-  token => {
+  (token) => {
     const calendarCls = `${token.componentCls}-calendar`;
     const calendarToken = mergeToken<CalendarToken>(
       initInputToken<FullToken<'Calendar'>>(token),

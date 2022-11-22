@@ -2,6 +2,7 @@ import type { CSSObject } from '@ant-design/cssinjs';
 import { Keyframes } from '@ant-design/cssinjs';
 import type { FullToken, GenerateStyle } from '../../theme';
 import { genComponentStyleHook, mergeToken } from '../../theme';
+import { initFadeMotion } from '../../style/motion/fade';
 import { resetComponent } from '../../style';
 
 /** Component only token. Which will handle additional calculation of alias token */
@@ -303,5 +304,9 @@ export default genComponentStyleHook<'FloatButton'>('FloatButton', (token) => {
     floatButtonInsetBlockEnd: marginXXL,
     floatButtonInsetInlineEnd: marginLG,
   });
-  return [floatButtonGroupStyle(floatButtonToken), sharedFloatButtonStyle(floatButtonToken)];
+  return [
+    floatButtonGroupStyle(floatButtonToken),
+    sharedFloatButtonStyle(floatButtonToken),
+    initFadeMotion(token),
+  ];
 });

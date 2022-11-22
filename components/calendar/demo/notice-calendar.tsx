@@ -55,7 +55,7 @@ const App: React.FC = () => {
     const listData = getListData(value);
     return (
       <ul className="events">
-        {listData.map(item => (
+        {listData.map((item) => (
           <li key={item.content}>
             <Badge status={item.type as BadgeProps['status']} text={item.content} />
           </li>

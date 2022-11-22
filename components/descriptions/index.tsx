@@ -67,7 +67,7 @@ function getFilledItem(
 }
 
 function getRows(children: React.ReactNode, column: number) {
-  const childNodes = toArray(children).filter(n => n);
+  const childNodes = toArray(children).filter((n) => n);
   const rows: React.ReactElement[][] = [];
 
   let tmpRow: React.ReactElement[] = [];
@@ -138,7 +138,7 @@ function Descriptions({
 
   // Responsive
   React.useEffect(() => {
-    const token = ResponsiveObserve.subscribe(newScreens => {
+    const token = ResponsiveObserve.subscribe((newScreens) => {
       if (typeof column !== 'object') {
         return;
       }

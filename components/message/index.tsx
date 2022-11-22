@@ -121,7 +121,7 @@ const GlobalHolder = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
   React.useImperativeHandle(ref, () => {
     const instance: any = { ...api };
 
-    Object.keys(instance).forEach(method => {
+    Object.keys(instance).forEach((method) => {
       instance[method] = (...args: any[]) => {
         sync();
         return (api as any)[method](...args);
@@ -155,7 +155,7 @@ function flushNotice() {
     act(() => {
       render(
         <GlobalHolder
-          ref={node => {
+          ref={(node) => {
             const { instance, sync } = node || {};
 
             // React 18 test env will throw if call immediately in ref
@@ -176,12 +176,12 @@ function flushNotice() {
   }
 
   // Notification not ready
-  if (message && !message.instance) {
+  if (!message.instance) {
     return;
   }
 
   // >>> Execute task
-  taskQueue.forEach(task => {
+  taskQueue.forEach((task) => {
     const { type, skipped } = task;
 
     // Only `skipped` when user call notice but cancel it immediately
@@ -242,14 +242,14 @@ function setMessageGlobalConfig(config: ConfigOptions) {
 }
 
 function open(config: ArgsProps): MessageType {
-  const result = wrapPromiseFn(resolve => {
+  const result = wrapPromiseFn((resolve) => {
     let closeFn: VoidFunction;
 
     const task: OpenTask = {
       type: 'open',
       config,
       resolve,
-      setCloseFn: fn => {
+      setCloseFn: (fn) => {
         closeFn = fn;
       },
     };
@@ -272,14 +272,14 @@ function open(config: ArgsProps): MessageType {
 }
 
 function typeOpen(type: NoticeType, args: Parameters<TypeOpen>): MessageType {
-  const result = wrapPromiseFn(resolve => {
+  const result = wrapPromiseFn((resolve) => {
     let closeFn: VoidFunction;
 
     const task: TypeTask = {
       type,
       args,
       resolve,
-      setCloseFn: fn => {
+      setCloseFn: (fn) => {
         closeFn = fn;
       },
     };
@@ -313,7 +313,7 @@ function destroy(key: React.Key) {
 const baseStaticMethods: {
   open: (config: ArgsProps) => MessageType;
   destroy: (key?: React.Key) => void;
-  config: any;
+  config: typeof setMessageGlobalConfig;
   useMessage: typeof useMessage;
   /** @private Internal Component. Do not use in your production. */
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
@@ -328,7 +328,7 @@ const baseStaticMethods: {
 const staticMethods: typeof baseStaticMethods & Record<MethodType, TypeOpen> =
   baseStaticMethods as any;
 
-methods.forEach(type => {
+methods.forEach((type) => {
   staticMethods[type] = (...args: Parameters<TypeOpen>) => typeOpen(type, args);
 });
 
@@ -342,7 +342,7 @@ const noop = () => {};
 export let actWrapper: (wrapper: any) => void = noop;
 
 if (process.env.NODE_ENV === 'test') {
-  actWrapper = wrapper => {
+  actWrapper = (wrapper) => {
     act = wrapper;
   };
 }

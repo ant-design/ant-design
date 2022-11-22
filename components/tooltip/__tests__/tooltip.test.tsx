@@ -369,7 +369,7 @@ describe('Tooltip', () => {
       });
     };
 
-    placementList.forEach(placement => testPlacement(`Placement ${placement}`, placement));
+    placementList.forEach((placement) => testPlacement(`Placement ${placement}`, placement));
   });
 
   it('should works for mismatch placement', async () => {

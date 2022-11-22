@@ -110,7 +110,7 @@ function Drawer(props: DrawerProps) {
     motionDeadline: 500,
   };
 
-  const panelMotion: RcDrawerProps['motion'] = motionPlacement => ({
+  const panelMotion: RcDrawerProps['motion'] = (motionPlacement) => ({
     motionName: getTransitionName(prefixCls, `panel-motion-${motionPlacement}`),
     motionAppear: true,
     motionEnter: true,

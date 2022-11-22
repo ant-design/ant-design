@@ -43,7 +43,7 @@ Style of a navigation should conform to its level.
 
 - **Enlarge the size of the font**
 
-  `12px`, `14px` is a standard font size of navigations, `14px` is used for the first and the second level of the navigation. You can choose an appropriate font size regarding the level of your navigation.
+  `12px`, `14px` is a standard font size of navigation's, `14px` is used for the first and the second level of the navigation. You can choose an appropriate font size regarding the level of your navigation.
 
 ## Component Overview
 

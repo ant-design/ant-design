@@ -23,7 +23,7 @@ const App: React.FC = () => {
   }, [inputValue]);
 
   const handleClose = (removedTag: string) => {
-    const newTags = tags.filter(tag => tag !== removedTag);
+    const newTags = tags.filter((tag) => tag !== removedTag);
     console.log(newTags);
     setTags(newTags);
   };
@@ -84,7 +84,7 @@ const App: React.FC = () => {
             onClose={() => handleClose(tag)}
           >
             <span
-              onDoubleClick={e => {
+              onDoubleClick={(e) => {
                 if (index !== 0) {
                   setEditInputIndex(index);
                   setEditInputValue(tag);

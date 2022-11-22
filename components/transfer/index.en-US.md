@@ -45,7 +45,7 @@ One or more elements can be selected from either column, one click on the proper
 | operationStyle | A custom CSS style used for rendering the operations column | object | - |  |
 | pagination | Use pagination. Not work in render props | boolean \| { pageSize: number, simple: boolean, showSizeChanger?: boolean, showLessItems?: boolean } | false | 4.3.0 |
 | render | The function to generate the item shown on a column. Based on an record (element of the dataSource array), this function should return a React element which is generated from that record. Also, it can return a plain object with `value` and `label`, `label` is a React element and `value` is for title | (record) => ReactNode | - |  |
-| selectAllLabels | A set of customized labels for select all checkboxs on the header | (ReactNode \| (info: { selectedCount: number, totalCount: number }) => ReactNode)\[] | - |  |
+| selectAllLabels | A set of customized labels for select all checkboxes on the header | (ReactNode \| (info: { selectedCount: number, totalCount: number }) => ReactNode)\[] | - |  |
 | selectedKeys | A set of keys of selected items | string\[] | \[] |  |
 | showSearch | If included, a search box is shown on each column | boolean | false |  |
 | showSelectAll | Show select all checkbox on the header | boolean | true |  |
@@ -73,7 +73,7 @@ Transfer accept `children` to customize render list, using follow props:
 #### example
 
 ```jsx
-<Transfer {...props}>{listProps => <YourComponent {...listProps} />}</Transfer>
+<Transfer {...props}>{(listProps) => <YourComponent {...listProps} />}</Transfer>
 ```
 
 ## Warning
@@ -84,7 +84,7 @@ If there's no `key` in your data, you should use `rowKey` to specify the key tha
 
 ```jsx
 // eg. your primary key is `uid`
-return <Transfer rowKey={record => record.uid} />;
+return <Transfer rowKey={(record) => record.uid} />;
 ```
 
 ## FAQ

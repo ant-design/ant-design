@@ -155,7 +155,7 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
 // ============================== Export ==============================
 export default genComponentStyleHook(
   'Divider',
-  token => {
+  (token) => {
     const dividerToken = mergeToken<DividerToken>(token, {
       dividerVerticalGutterMargin: token.marginXS,
       dividerHorizontalWithTextGutterMargin: token.margin,

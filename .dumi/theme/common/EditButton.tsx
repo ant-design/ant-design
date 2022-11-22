@@ -21,8 +21,10 @@ const useStyle = () => {
       a& {
         display: inline-block;
         text-decoration: none;
-        margin-inline-start: 4px;
-        vertical-align: -2px;
+        margin-inline-start: 6px;
+        vertical-align: middle;
+        position: relative;
+        top: -2px;
 
         ${iconCls} {
           display: block;

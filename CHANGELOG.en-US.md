@@ -19,13 +19,13 @@ timeline: true
 
 `2022-11-18`
 
-- 🏆 Ant Design 5.0.0 is out!
+🏆 Ant Design 5.0.0 is released, see our [release note](https://github.com/ant-design/ant-design/issues/38671) for more details.
 
-**Read it before migration**
+#### Read it before migration
 
-- 🌟 If you want to migrate to Ant Design 5.0, please check [V4 to V5](/docs/react/migration-v5).
+🌟 If you want to migrate to Ant Design 5.0, please check [V4 to V5](/docs/react/migration-v5).
 
-**Major Changes**
+#### Major Changes
 
 - 🔥 New Components
   - 🔥 FloatButton component, and refactor BackTop as child component of FloatButton. [#37520](https://github.com/ant-design/ant-design/pull/37520) [@li-jia-nan](https://github.com/li-jia-nan)

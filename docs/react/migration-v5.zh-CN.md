@@ -27,16 +27,7 @@ title: 从 v4 到 v5
 - 移除 css variables 以及在此之上构筑的动态主题方案。
 - 移除 `lib` 产物，只提供 `dist` 和 `es` 产物，原本的 `antd/es/locale` 目录也已经移除，语言包可到 `antd/locale` 目录下寻找。
 - 内置的时间库使用 Dayjs 替代 Moment.js，具体请查看 [使用自定义日期库](/docs/react/use-custom-date-library-cn/)。
-- 不再支持 `babel-plugin-import`，CSS-in-JS 本身具有按需加载的能力，不再需要插件支持。Umi 用户可以移除相关配置。
-
-  ```diff
-  // config/config.ts
-  export default {
-    antd: {
-  -   import: true,
-    },
-  };
-  ```
+- 不再支持 `babel-plugin-import`，CSS-in-JS 本身具有按需加载的能力，不再需要插件支持。
 
 ### 兼容性调整
 
@@ -164,6 +155,8 @@ title: 从 v4 到 v5
 npm install --save antd@5.x
 ```
 
+### less 迁移
+
 如果你使用到了 antd 的 less 变量，通过兼容包将 v5 变量转译成 v4 版本，并通过 less-loader 注入：
 
 ```jsx
@@ -184,6 +177,27 @@ const v4Token = convertLegacyToken(mapToken);
     },
   },
 }
+```
+
+### 移除 babel-plugin-import
+
+从 package.json 中移除 `babel-plugin-import`，并从 `.babelrc` 移除该插件：
+
+```diff
+"plugins": [
+- ["import", { "libraryName": "antd", "libraryDirectory": "lib"}, "antd"],
+]
+```
+
+Umi 用户可以在配置文件中关闭：
+
+```diff
+// config/config.ts or .umirc
+export default {
+  antd: {
+-   import: true,
+  },
+};
 ```
 
 ## 遇到问题

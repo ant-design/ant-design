@@ -57,7 +57,7 @@ const genStatisticStyle: GenerateStyle<StatisticToken> = (token: StatisticToken)
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Statistic', token => {
+export default genComponentStyleHook('Statistic', (token) => {
   const { fontSizeHeading3, fontSize, fontFamily } = token;
 
   const statisticToken = mergeToken<StatisticToken>(token, {

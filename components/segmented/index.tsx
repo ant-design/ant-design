@@ -65,7 +65,7 @@ const Segmented = React.forwardRef<HTMLDivElement, SegmentedProps>((props, ref) 
   // syntactic sugar to support `icon` for Segmented Item
   const extendedOptions = React.useMemo<RCSegmentedProps['options']>(
     () =>
-      options.map(option => {
+      options.map((option) => {
         if (isSegmentedLabeledOptionWithIcon(option)) {
           const { icon, label, ...restOption } = option;
           return {

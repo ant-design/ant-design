@@ -56,7 +56,7 @@ const App: React.FC = () => (
       openKeys: ['sub1'],
     }}
   >
-    <a onClick={e => e.preventDefault()}>
+    <a onClick={(e) => e.preventDefault()}>
       <Space>
         Hover to check menu style
         <DownOutlined />

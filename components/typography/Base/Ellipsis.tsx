@@ -20,7 +20,7 @@ function cuttable(node: React.ReactElement) {
 function getNodesLen(nodeList: React.ReactElement[]) {
   let totalLen = 0;
 
-  nodeList.forEach(node => {
+  nodeList.forEach((node) => {
     if (cuttable(node)) {
       totalLen += String(node).length;
     } else {

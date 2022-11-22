@@ -23,7 +23,7 @@ const globalTimeout = global.setTimeout;
 
 export const sleep = async (timeout = 0) => {
   await act(async () => {
-    await new Promise(resolve => {
+    await new Promise((resolve) => {
       globalTimeout(resolve, timeout);
     });
   });
@@ -60,7 +60,7 @@ export { customRender as render, pureRender };
 export const triggerResize = (target: Element) => {
   const originGetBoundingClientRect = target.getBoundingClientRect;
 
-  target.getBoundingClientRect = () => ({ width: 510, height: 903 } as DOMRect);
+  target.getBoundingClientRect = () => ({ width: 510, height: 903 }) as DOMRect;
 
   act(() => {
     onLibResize([{ target } as ResizeObserverEntry]);

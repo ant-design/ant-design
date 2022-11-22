@@ -283,7 +283,7 @@ describe('Menu', () => {
   it('test submenu in mode horizontal', async () => {
     const defaultTestProps: MenuProps = { mode: 'horizontal' };
 
-    const Demo: React.FC<MenuProps> = props => (
+    const Demo: React.FC<MenuProps> = (props) => (
       <Menu {...defaultTestProps} {...props}>
         <SubMenu key="1" title="submenu1">
           <Menu.Item key="submenu1">Option 1</Menu.Item>
@@ -307,7 +307,7 @@ describe('Menu', () => {
 
   it('test submenu in mode inline', () => {
     const defaultTestProps: MenuProps = { mode: 'inline' };
-    const Demo: React.FC<MenuProps> = props => (
+    const Demo: React.FC<MenuProps> = (props) => (
       <Menu {...defaultTestProps} {...props}>
         <SubMenu key="1" title="submenu1">
           <Menu.Item key="submenu1">Option 1</Menu.Item>
@@ -327,7 +327,7 @@ describe('Menu', () => {
 
   it('test submenu in mode vertical', () => {
     const defaultTestProps: MenuProps = { mode: 'vertical' };
-    const Demo: React.FC<MenuProps> = props => (
+    const Demo: React.FC<MenuProps> = (props) => (
       <Menu {...defaultTestProps} {...props}>
         <SubMenu key="1" title="submenu1">
           <Menu.Item key="submenu1">Option 1</Menu.Item>
@@ -348,7 +348,7 @@ describe('Menu', () => {
 
   describe('allows the overriding of theme at the popup submenu level', () => {
     const menuModesWithPopupSubMenu: MenuProps['mode'][] = ['horizontal', 'vertical'];
-    menuModesWithPopupSubMenu.forEach(menuMode => {
+    menuModesWithPopupSubMenu.forEach((menuMode) => {
       it(`when menu is mode ${menuMode}`, () => {
         const { container } = render(
           <Menu mode={menuMode} openKeys={['1']} theme="dark">
@@ -390,7 +390,7 @@ describe('Menu', () => {
   });
 
   it('should always follow openKeys when mode is switched', () => {
-    const Demo: React.FC<MenuProps> = props => (
+    const Demo: React.FC<MenuProps> = (props) => (
       <Menu openKeys={['1']} mode="inline" {...props}>
         <SubMenu key="1" title="submenu1">
           <Menu.Item key="submenu1">Option 1</Menu.Item>
@@ -411,7 +411,7 @@ describe('Menu', () => {
   });
 
   it('should always follow openKeys when inlineCollapsed is switched', () => {
-    const Demo: React.FC<MenuProps> = props => (
+    const Demo: React.FC<MenuProps> = (props) => (
       <Menu defaultOpenKeys={['1']} mode="inline" {...props}>
         <Menu.Item key="menu1" icon={<InboxOutlined />}>
           Option
@@ -451,7 +451,7 @@ describe('Menu', () => {
   });
 
   it('inlineCollapsed should works well when specify a not existed default openKeys', () => {
-    const Demo: React.FC<MenuProps> = props => (
+    const Demo: React.FC<MenuProps> = (props) => (
       <Menu defaultOpenKeys={['not-existed']} mode="inline" {...props}>
         <Menu.Item key="menu1" icon={<InboxOutlined />}>
           Option
@@ -492,7 +492,7 @@ describe('Menu', () => {
         defaultOpenKeys={['not-existed']}
         mode="inline"
         inlineCollapsed
-        getPopupContainer={node => node.parentNode as HTMLElement}
+        getPopupContainer={(node) => node.parentNode as HTMLElement}
       >
         <Menu.Item key="menu1">item</Menu.Item>
         <Menu.Item key="menu2" title="title">
@@ -539,7 +539,7 @@ describe('Menu', () => {
 
     it('inline', () => {
       const defaultTestProps: MenuProps = { mode: 'inline' };
-      const Demo: React.FC<MenuProps> = props => (
+      const Demo: React.FC<MenuProps> = (props) => (
         <Menu {...defaultTestProps} {...props}>
           <SubMenu key="1" title="submenu1">
             <Menu.Item key="submenu1">Option 1</Menu.Item>
@@ -824,7 +824,7 @@ describe('Menu', () => {
     const onOpen = jest.fn();
     const onClose = jest.fn();
     const Demo: React.FC = () => {
-      const menuProps = useMemo<MenuProps>(() => ({ onOpen, onClose } as MenuProps), []);
+      const menuProps = useMemo<MenuProps>(() => ({ onOpen, onClose }) as MenuProps, []);
       return (
         <Menu
           {...menuProps}
@@ -858,8 +858,8 @@ describe('Menu', () => {
   // https://github.com/ant-design/ant-design/issues/8587
   it('should keep selectedKeys in state when collapsed to 0px', () => {
     jest.useFakeTimers();
-    const Demo: React.FC<MenuProps> = props => {
-      const menuProps = useMemo<MenuProps>(() => ({ collapsedWidth: 0 } as MenuProps), []);
+    const Demo: React.FC<MenuProps> = (props) => {
+      const menuProps = useMemo<MenuProps>(() => ({ collapsedWidth: 0 }) as MenuProps, []);
       return (
         <Menu
           mode="inline"

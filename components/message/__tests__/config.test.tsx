@@ -61,7 +61,7 @@ describe('message.config', () => {
     expect(div.querySelector('.ant-message')).toBeTruthy();
 
     message.config({
-      getContainer: null,
+      getContainer: undefined,
     });
 
     document.body.removeChild(div);
@@ -89,7 +89,7 @@ describe('message.config', () => {
     expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(0);
 
     message.config({
-      maxCount: null,
+      maxCount: undefined,
     });
   });
 
@@ -124,7 +124,7 @@ describe('message.config', () => {
     expect(document.querySelector('.light-message-move-up')).toBeTruthy();
 
     message.config({
-      prefixCls: null,
+      prefixCls: undefined,
     });
   });
 

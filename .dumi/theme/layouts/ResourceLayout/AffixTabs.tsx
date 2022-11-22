@@ -117,10 +117,10 @@ export default () => {
     <div css={[styles.affixTabs, fixedId && styles.affixTabsFixed]} ref={containerRef}>
       <Tabs
         activeKey={fixedId || undefined}
-        onChange={key => {
+        onChange={(key) => {
           scrollToId(key);
         }}
-        items={idsRef.current.map(id => ({
+        items={idsRef.current.map((id) => ({
           key: id,
           label: <span style={{ textTransform: 'capitalize' }}>{id.replace(/-/g, ' ')}</span>,
         }))}

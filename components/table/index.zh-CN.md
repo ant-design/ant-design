@@ -141,13 +141,13 @@ const columns = [
 
 ```jsx
 <Table
-  onRow={record => {
+  onRow={(record) => {
     return {
-      onClick: event => {}, // 点击行
-      onDoubleClick: event => {},
-      onContextMenu: event => {},
-      onMouseEnter: event => {}, // 鼠标移入行
-      onMouseLeave: event => {},
+      onClick: (event) => {}, // 点击行
+      onDoubleClick: (event) => {},
+      onContextMenu: (event) => {},
+      onMouseEnter: (event) => {}, // 鼠标移入行
+      onMouseLeave: (event) => {},
     };
   }}
   onHeaderRow={(columns, index) => {
@@ -328,7 +328,7 @@ TypeScript 里使用 Table 的 [CodeSandbox 实例](https://codesandbox.io/s/ser
 // 比如你的数据主键是 uid
 return <Table rowKey="uid" />;
 // 或
-return <Table rowKey={record => record.uid} />;
+return <Table rowKey={(record) => record.uid} />;
 ```
 
 ## 从 v3 升级到 v4

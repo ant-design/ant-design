@@ -2393,9 +2393,9 @@ Array [
           <label
             class=""
             for="disabled"
-            title="Chekbox"
+            title="Checkbox"
           >
-            Chekbox
+            Checkbox
           </label>
         </div>
         <div

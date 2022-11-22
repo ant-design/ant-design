@@ -3,7 +3,7 @@ import { message } from 'antd';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import { presetDarkPalettes } from '@ant-design/colors';
 
-const rgbToHex = rgbString => {
+const rgbToHex = (rgbString) => {
   const rgb = rgbString.match(/\d+/g);
   let r = parseInt(rgb[0], 10).toString(16);
   let g = parseInt(rgb[1], 10).toString(16);
@@ -17,7 +17,7 @@ const rgbToHex = rgbString => {
 export default class Palette extends React.Component {
   componentDidMount() {
     this.hexColors = {};
-    Object.keys(this.colorNodes).forEach(key => {
+    Object.keys(this.colorNodes).forEach((key) => {
       const computedColor = getComputedStyle(this.colorNodes[key])['background-color'];
       if (computedColor.includes('rgba')) {
         this.hexColors[key] = computedColor;
@@ -55,7 +55,7 @@ export default class Palette extends React.Component {
         >
           <div
             key={i}
-            ref={node => {
+            ref={(node) => {
               this.colorNodes[`${name}-${i}`] = node;
             }}
             className={`main-color-item palette-${name}-${i}`}
@@ -90,4 +90,4 @@ export default class Palette extends React.Component {
 
 Palette.defaultProps = {
   color: { name: 'gray', count: 13 },
-}
+};

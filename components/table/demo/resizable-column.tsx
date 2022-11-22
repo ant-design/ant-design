@@ -31,7 +31,7 @@ const ResizableTitle = (
       handle={
         <span
           className="react-resizable-handle"
-          onClick={e => {
+          onClick={(e) => {
             e.stopPropagation();
           }}
         />
@@ -98,8 +98,7 @@ const App: React.FC = () => {
   ];
 
   const handleResize: Function =
-    (index: number) =>
-    (_: React.SyntheticEvent<Element>, { size }: ResizeCallbackData) => {
+    (index: number) => (_: React.SyntheticEvent<Element>, { size }: ResizeCallbackData) => {
       const newColumns = [...columns];
       newColumns[index] = {
         ...newColumns[index],

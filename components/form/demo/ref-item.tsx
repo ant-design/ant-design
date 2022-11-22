@@ -13,8 +13,8 @@ const App: React.FC = () => {
       </Form.Item>
 
       <Form.List name="list">
-        {fields =>
-          fields.map(field => (
+        {(fields) =>
+          fields.map((field) => (
             <Form.Item {...field} key={field.key}>
               <Input ref={ref} />
             </Form.Item>

@@ -53,7 +53,7 @@ const App: React.FC = () => (
       key="tags"
       render={(tags: string[]) => (
         <>
-          {tags.map(tag => (
+          {tags.map((tag) => (
             <Tag color="blue" key={tag}>
               {tag}
             </Tag>

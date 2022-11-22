@@ -31,8 +31,8 @@ const App: React.FC = () => {
     <RangePicker
       value={dates || value}
       disabledDate={disabledDate}
-      onCalendarChange={val => setDates(val)}
-      onChange={val => setValue(val)}
+      onCalendarChange={(val) => setDates(val)}
+      onChange={(val) => setValue(val)}
       onOpenChange={onOpenChange}
     />
   );

@@ -26,7 +26,7 @@ function externalDayjs(config) {
 const webpackConfig = getWebpackConfig(false);
 
 if (process.env.RUN_ENV === 'PRODUCTION') {
-  webpackConfig.forEach(config => {
+  webpackConfig.forEach((config) => {
     addLocales(config);
     externalDayjs(config);
     // Reduce non-minified dist files size

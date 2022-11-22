@@ -23,7 +23,7 @@ function renderExpandIcon(locale: TableLocale) {
     return (
       <button
         type="button"
-        onClick={e => {
+        onClick={(e) => {
           onExpand(record, e!);
           e.stopPropagation();
         }}

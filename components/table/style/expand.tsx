@@ -3,7 +3,7 @@ import type { GenerateStyle } from '../../theme';
 import type { TableToken } from './index';
 import { operationUnit } from '../../style';
 
-const genExpandStyle: GenerateStyle<TableToken, CSSObject> = token => {
+const genExpandStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
   const {
     componentCls,
     antCls,
@@ -48,6 +48,7 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = token => {
 
       [`${componentCls}-row-indent`]: {
         height: 1,
+        float: 'left',
       },
 
       [`${componentCls}-row-expand-icon`]: {

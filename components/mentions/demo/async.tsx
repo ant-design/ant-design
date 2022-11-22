@@ -15,11 +15,11 @@ const App: React.FC = () => {
 
     fetch(`https://api.github.com/search/users?q=${key}`)
       .then((res) => res.json())
-      .then(({ options = [] }) => {
+      .then(({ items = [] }) => {
         if (ref.current !== key) return;
 
         setLoading(false);
-        setUsers(options.slice(0, 10));
+        setUsers(items.slice(0, 10));
       });
   };
 

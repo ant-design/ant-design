@@ -38,7 +38,7 @@ const App: React.FC = () => {
           },
         ]}
         bordered
-        renderItem={item => (
+        renderItem={(item) => (
           <List.Item
             key={item.id}
             actions={[

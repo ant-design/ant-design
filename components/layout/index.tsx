@@ -6,14 +6,14 @@ export type { SiderProps } from './Sider';
 
 type InternalLayoutType = typeof InternalLayout;
 
-interface LayoutType extends InternalLayoutType {
+type CompoundedComponent = InternalLayoutType & {
   Header: typeof Header;
   Footer: typeof Footer;
   Content: typeof Content;
   Sider: typeof Sider;
-}
+};
 
-const Layout = InternalLayout as LayoutType;
+const Layout = InternalLayout as CompoundedComponent;
 
 Layout.Header = Header;
 Layout.Footer = Footer;

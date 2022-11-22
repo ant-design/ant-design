@@ -23,7 +23,7 @@ const App: React.FC = () => {
   };
 
   const onLoadData: TreeSelectProps['loadData'] = ({ id }) =>
-    new Promise(resolve => {
+    new Promise((resolve) => {
       setTimeout(() => {
         setTreeData(
           treeData.concat([genTreeNode(id, false), genTreeNode(id, true), genTreeNode(id, true)]),

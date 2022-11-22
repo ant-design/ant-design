@@ -25,7 +25,7 @@ describe('List.pagination', () => {
         itemLayout="vertical"
         pagination={pagination}
         dataSource={data}
-        renderItem={item => <List.Item key={item.key}>{item.name}</List.Item>}
+        renderItem={(item) => <List.Item key={item.key}>{item.name}</List.Item>}
         {...props}
       />
     );

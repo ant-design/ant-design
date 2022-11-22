@@ -73,7 +73,7 @@ const App: React.FC = () => {
       </Paragraph>
       Trigger edit with:{' '}
       <Radio.Group
-        onChange={e => setChooseTrigger(radioToState(e.target.value))}
+        onChange={(e) => setChooseTrigger(radioToState(e.target.value))}
         value={stateToRadio()}
       >
         <Radio value="icon">icon</Radio>

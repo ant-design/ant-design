@@ -19,7 +19,7 @@ export interface ComponentToken {
 
 type MentionsToken = InputToken<FullToken<'Mentions'>>;
 
-const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
+const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
   const {
     componentCls,
     colorTextDisabled,
@@ -220,11 +220,11 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
 // ============================== Export ==============================
 export default genComponentStyleHook(
   'Mentions',
-  token => {
+  (token) => {
     const mentionsToken = initInputToken<FullToken<'Mentions'>>(token);
     return [genMentionsStyle(mentionsToken)];
   },
-  token => ({
+  (token) => ({
     dropdownHeight: 250,
     controlItemWidth: 100,
     zIndexPopup: token.zIndexPopupBase + 50,

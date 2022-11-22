@@ -149,7 +149,7 @@ In a real world development, you may need a `YearPicker`, `MonthRangePicker` or 
 - Reproduction link: https://codesandbox.io/s/dank-brook-v1csy
 - Same issues：[#15572](https://github.com/ant-design/ant-design/issues/15572), [#16436](https://github.com/ant-design/ant-design/issues/16436), [#11938](https://github.com/ant-design/ant-design/issues/11938), [#11735](https://github.com/ant-design/ant-design/issues/11735), [#11586](https://github.com/ant-design/ant-design/issues/11586), [#10425](https://github.com/ant-design/ant-design/issues/10425), [#11053](https://github.com/ant-design/ant-design/issues/11053)
 
-Like [the explaination](https://github.com/ant-design/ant-design/issues/11586#issuecomment-429189877) explains, this is because `<DatePicker mode="year" />` does not equal the `YearPicker`, nor is `<RangePicker mode="month" />` equal to `MonthRangePicker`. The `mode` property was added to support [showing time picker panel in DatePicker](https://github.com/ant-design/ant-design/issues/5190) in antd 3.0, which simply controls the displayed panel, and won't change the original date picking behavior of `DatePicker`/`RangePicker` (for instance you will still need to click date cell to finish selection in a `DatePicker`, whatever the `mode` is).
+Like [the explanation](https://github.com/ant-design/ant-design/issues/11586#issuecomment-429189877) explains, this is because `<DatePicker mode="year" />` does not equal the `YearPicker`, nor is `<RangePicker mode="month" />` equal to `MonthRangePicker`. The `mode` property was added to support [showing time picker panel in DatePicker](https://github.com/ant-design/ant-design/issues/5190) in antd 3.0, which simply controls the displayed panel, and won't change the original date picking behavior of `DatePicker`/`RangePicker` (for instance you will still need to click date cell to finish selection in a `DatePicker`, whatever the `mode` is).
 
 Likewise，`disabledDate` [cannot work on year/month panels](https://github.com/ant-design/ant-design/issues/9008#issuecomment-358554118) of `<DatePicker mode="year/month" />`, but only on cells of date panel.
 
@@ -182,6 +182,14 @@ You should only access the API by official doc with ref. Directly access interna
 ## Why we need align pop component with `open` prop?
 
 For historical reasons, the display names of the pop components are not uniform, and both `open` and `visible` are used. This makes the memory cost that non-tsx users encounter when developing. It also leads to ambiguity about what name to choose when adding a feature. So we want to unify the attribute name, you can still use the original `visible` and it will still be backward compatible, but we will remove this attribute from the documentation as of v5.
+
+## Dynamic style using `:where` selector which not support old browser.
+
+Please ref dynamic theme document [Compatible Adjustment](/docs/react/customize-theme#compatible-adjustment) part.
+
+## How to support SSR？
+
+Please ref dynamic theme document [SSR](/docs/react/customize-theme#server-side-render-ssr) part.
 
 ## How to spell Ant Design correctly?
 

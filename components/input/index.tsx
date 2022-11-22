@@ -12,13 +12,14 @@ export type { PasswordProps } from './Password';
 export type { SearchProps } from './Search';
 export type { TextAreaProps } from './TextArea';
 
-interface CompoundedComponent
-  extends React.ForwardRefExoticComponent<InputProps & React.RefAttributes<InputRef>> {
+type CompoundedComponent = React.ForwardRefExoticComponent<
+  InputProps & React.RefAttributes<InputRef>
+> & {
   Group: typeof Group;
   Search: typeof Search;
   TextArea: typeof TextArea;
   Password: typeof Password;
-}
+};
 
 const Input = InternalInput as CompoundedComponent;
 

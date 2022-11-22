@@ -15,10 +15,9 @@ import genPurePanel from '../_util/PurePanel';
 import Spin from '../spin';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
-import warning from "../_util/warning";
+import warning from '../_util/warning';
 
 import useStyle from './style';
-
 
 export const { Option } = RcMentions;
 
@@ -61,12 +60,13 @@ interface MentionsEntity {
   value: string;
 }
 
-interface CompoundedComponent
-  extends React.ForwardRefExoticComponent<MentionProps & React.RefAttributes<MentionsRef>> {
+type CompoundedComponent = React.ForwardRefExoticComponent<
+  MentionProps & React.RefAttributes<MentionsRef>
+> & {
   Option: typeof Option;
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
   getMentions: (value: string, config?: MentionsConfig) => MentionsEntity[];
-}
+};
 
 const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps> = (
   {
@@ -91,7 +91,7 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
   // =================== Warning =====================
   if (process.env.NODE_ENV !== 'production') {
     warning(
-      !(children),
+      !children,
       'Mentions',
       '`Mentions.Option` is deprecated. Please use `options` instead.',
     );
@@ -128,11 +128,15 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
     return (renderEmpty || defaultRenderEmpty)('Select');
   };
 
-  const mergedOptions = loading ? [{
-    value:'ANTD_SEARCHING',
-    disabled:true,
-    label:<Spin size="small" />,
-  }] : options;
+  const mergedOptions = loading
+    ? [
+        {
+          value: 'ANTD_SEARCHING',
+          disabled: true,
+          label: <Spin size="small" />,
+        },
+      ]
+    : options;
 
   const getFilterOption = (): any => {
     if (loading) {

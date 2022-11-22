@@ -52,7 +52,7 @@ const items: MenuProps['items'] = [
 
 const App: React.FC = () => (
   <Dropdown menu={{ items }}>
-    <a onClick={e => e.preventDefault()}>
+    <a onClick={(e) => e.preventDefault()}>
       <Space>
         Cascading menu
         <DownOutlined />
