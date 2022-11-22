@@ -13,6 +13,7 @@ import type { DrawerPanelProps } from './DrawerPanel';
 
 // CSSINJS
 import useStyle from './style';
+import { NoCompactStyle } from '../space/Compact';
 
 const SizeTypes = tuple('default', 'large');
 type sizeType = typeof SizeTypes[number];
@@ -120,25 +121,27 @@ function Drawer(props: DrawerProps) {
 
   // =========================== Render ===========================
   return wrapSSR(
-    <NoFormStyle status override>
-      <RcDrawer
-        prefixCls={prefixCls}
-        onClose={onClose}
-        maskMotion={maskMotion}
-        motion={panelMotion}
-        {...rest}
-        open={open ?? visible}
-        mask={mask}
-        push={push}
-        width={mergedWidth}
-        height={mergedHeight}
-        rootClassName={drawerClassName}
-        getContainer={getContainer}
-        afterOpenChange={afterOpenChange ?? afterVisibleChange}
-      >
-        <DrawerPanel prefixCls={prefixCls} {...rest} onClose={onClose} />
-      </RcDrawer>
-    </NoFormStyle>,
+    <NoCompactStyle>
+      <NoFormStyle status override>
+        <RcDrawer
+          prefixCls={prefixCls}
+          onClose={onClose}
+          maskMotion={maskMotion}
+          motion={panelMotion}
+          {...rest}
+          open={open ?? visible}
+          mask={mask}
+          push={push}
+          width={mergedWidth}
+          height={mergedHeight}
+          rootClassName={drawerClassName}
+          getContainer={getContainer}
+          afterOpenChange={afterOpenChange ?? afterVisibleChange}
+        >
+          <DrawerPanel prefixCls={prefixCls} {...rest} onClose={onClose} />
+        </RcDrawer>
+      </NoFormStyle>
+    </NoCompactStyle>,
   );
 }
 
