@@ -134,9 +134,6 @@ const App: React.FC = () => {
       <Space.Compact>
         <InputNumber addonBefore="+" addonAfter="$" defaultValue={100} />
       </Space.Compact>
-      <Space.Compact>
-        <InputNumber addonAfter={<SettingOutlined />} defaultValue={100} />
-      </Space.Compact>
     </Space>
   );
 };
