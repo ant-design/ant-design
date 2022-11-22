@@ -3,13 +3,36 @@ import { useOutlet } from 'dumi';
 import { ConfigProvider, theme as antdTheme } from 'antd';
 import { ThemeConfig } from 'antd/es/config-provider/context';
 import ThemeContext, { ThemeContextProps } from '../slots/ThemeContext';
+import ThemeSwitch from '../common/ThemeSwitch';
 
 const ANT_DESIGN_SITE_THEME = 'antd-site-theme';
+
+const getAlgorithm = (theme: string) => {
+  if (theme === 'dark') {
+    return antdTheme.darkAlgorithm;
+  }
+  if (theme === 'compact') {
+    return antdTheme.compactAlgorithm;
+  }
+  return antdTheme.defaultAlgorithm;
+};
+
+const getThemeString = (algorithm: typeof antdTheme.defaultAlgorithm) => {
+  if (algorithm === antdTheme.darkAlgorithm) {
+    return 'dark';
+  }
+  if (algorithm === antdTheme.compactAlgorithm) {
+    return 'compact';
+  }
+  return 'light';
+};
 
 const GlobalLayout: FC = () => {
   const outlet = useOutlet();
 
-  const [theme, setTheme] = React.useState<ThemeConfig>({});
+  const [theme, setTheme] = React.useState<ThemeConfig>({
+    algorithm: [antdTheme.defaultAlgorithm],
+  });
 
   const contextValue = React.useMemo<ThemeContextProps>(
     () => ({
@@ -20,7 +43,7 @@ const GlobalLayout: FC = () => {
           ANT_DESIGN_SITE_THEME,
           JSON.stringify(newTheme, (key, value) => {
             if (key === 'algorithm') {
-              return value === antdTheme.darkAlgorithm ? 'dark' : value;
+              return Array.isArray(value) ? value.map((item) => getThemeString(item)) : ['light'];
             }
             return value;
           }),
@@ -35,8 +58,8 @@ const GlobalLayout: FC = () => {
     if (localTheme) {
       try {
         const themeConfig = JSON.parse(localTheme);
-        if (themeConfig.algorithm === 'dark') {
-          themeConfig.algorithm = antdTheme.darkAlgorithm;
+        if (themeConfig.algorithm) {
+          themeConfig.algorithm = themeConfig.algorithm.map((item: string) => getAlgorithm(item));
         }
         setTheme(themeConfig);
       } catch (e) {
@@ -50,11 +73,13 @@ const GlobalLayout: FC = () => {
       <ConfigProvider
         theme={{
           ...theme,
-          // TODO: Site algorithm
-          // algorithm: undefined,
         }}
       >
         {outlet}
+        <ThemeSwitch
+          value={theme.algorithm as []}
+          onChange={(value) => contextValue.setTheme({ ...theme, algorithm: value })}
+        />
       </ConfigProvider>
     </ThemeContext.Provider>
   );
