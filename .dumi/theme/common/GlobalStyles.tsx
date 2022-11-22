@@ -286,8 +286,11 @@ const GlobalStyles = () => {
           }
 
           .markdown .dumi-default-source-code {
+            margin: 1em 0;
             background-color: ${token.siteMarkdownCodeBg};
+            border-radius: ${token.borderRadius}px;
             > pre.prism-code {
+              padding: 12px 20px;
               font-size: 13px;
               line-height: 2;
             }
@@ -450,7 +453,7 @@ const GlobalStyles = () => {
 
           .markdown .dumi-default-table {
             table {
-              margin: 2em 0;
+              margin: 0;
               overflow-x: auto;
               overflow-y: hidden;
               font-size: ${Math.max(token.fontSize - 1, 12)}px;
