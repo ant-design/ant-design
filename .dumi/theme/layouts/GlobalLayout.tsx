@@ -4,6 +4,7 @@ import { ConfigProvider, theme as antdTheme } from 'antd';
 import { ThemeConfig } from 'antd/es/config-provider/context';
 import ThemeContext, { ThemeContextProps } from '../slots/ThemeContext';
 import ThemeSwitch from '../common/ThemeSwitch';
+import useLocation from '../../hooks/useLocation';
 
 const ANT_DESIGN_SITE_THEME = 'antd-site-theme';
 
@@ -29,6 +30,7 @@ const getThemeString = (algorithm: typeof antdTheme.defaultAlgorithm) => {
 
 const GlobalLayout: FC = () => {
   const outlet = useOutlet();
+  const { pathname } = useLocation();
 
   const [theme, setTheme] = React.useState<ThemeConfig>({
     algorithm: [antdTheme.defaultAlgorithm],
@@ -82,10 +84,12 @@ const GlobalLayout: FC = () => {
         }}
       >
         {outlet}
-        <ThemeSwitch
-          value={theme.algorithm as []}
-          onChange={(value) => handleThemeChange({ ...theme, algorithm: value }, false)}
-        />
+        {!pathname.startsWith('/~demos') && (
+          <ThemeSwitch
+            value={theme.algorithm as []}
+            onChange={(value) => handleThemeChange({ ...theme, algorithm: value }, false)}
+          />
+        )}
       </ConfigProvider>
     </ThemeContext.Provider>
   );
