@@ -33,7 +33,7 @@ const QrCode: React.FC<QrCodeProps> = (props) => {
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const qrCodeProps = useMemo<QRPropsSVG | QRPropsCanvas>(() => {
-    const imageSettings = {
+    const imageSettings: QrCodeProps['imageSettings'] = {
       src: logo,
       x: undefined,
       y: undefined,
@@ -72,8 +72,8 @@ const QrCode: React.FC<QrCodeProps> = (props) => {
 
   return wrapSSR(
     <div
+      style={{ ...style, width: size, height: size }}
       className={classNames(prefixCls, className, hashId)}
-      style={{ width: size, height: size, ...style }}
     >
       {expired && (
         <div className={`${prefixCls}-mask ${hashId}`} style={{ width: size, height: size }}>
