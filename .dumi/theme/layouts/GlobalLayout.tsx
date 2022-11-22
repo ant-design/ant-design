@@ -34,21 +34,27 @@ const GlobalLayout: FC = () => {
     algorithm: [antdTheme.defaultAlgorithm],
   });
 
+  const handleThemeChange = (newTheme: ThemeConfig, ignoreAlgorithm: boolean = true) => {
+    const nextTheme = { ...newTheme };
+    if (ignoreAlgorithm) {
+      nextTheme.algorithm = theme.algorithm;
+    }
+    setTheme(nextTheme);
+    localStorage.setItem(
+      ANT_DESIGN_SITE_THEME,
+      JSON.stringify(nextTheme, (key, value) => {
+        if (key === 'algorithm') {
+          return Array.isArray(value) ? value.map((item) => getThemeString(item)) : ['light'];
+        }
+        return value;
+      }),
+    );
+  };
+
   const contextValue = React.useMemo<ThemeContextProps>(
     () => ({
       theme,
-      setTheme: (newTheme) => {
-        setTheme(newTheme);
-        localStorage.setItem(
-          ANT_DESIGN_SITE_THEME,
-          JSON.stringify(newTheme, (key, value) => {
-            if (key === 'algorithm') {
-              return Array.isArray(value) ? value.map((item) => getThemeString(item)) : ['light'];
-            }
-            return value;
-          }),
-        );
-      },
+      setTheme: handleThemeChange,
     }),
     [theme],
   );
@@ -78,7 +84,7 @@ const GlobalLayout: FC = () => {
         {outlet}
         <ThemeSwitch
           value={theme.algorithm as []}
-          onChange={(value) => contextValue.setTheme({ ...theme, algorithm: value })}
+          onChange={(value) => handleThemeChange({ ...theme, algorithm: value }, false)}
         />
       </ConfigProvider>
     </ThemeContext.Provider>

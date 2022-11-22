@@ -17,11 +17,16 @@ const CustomTheme = () => {
   const [locale] = useLocale(locales);
   const { setTheme, theme } = useContext(ThemeContext);
 
+  const mergedTheme = {
+    ...theme,
+  };
+  delete mergedTheme.algorithm;
+
   return (
     <div>
       <ConfigProvider theme={{ algorithm: undefined }}>
         <ThemeEditor
-          theme={{ name: 'test', key: 'test', config: theme }}
+          theme={{ name: 'test', key: 'test', config: mergedTheme }}
           simple
           style={{ height: 'calc(100vh - 64px)' }}
           onThemeChange={(newTheme) => {

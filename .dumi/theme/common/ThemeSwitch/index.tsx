@@ -42,7 +42,7 @@ const ThemeSwitch: FC<ThemeSwitchProps> = ({ value, onChange }) => {
   };
 
   return (
-    <FloatButton.Group trigger="click" icon={<ThemeIcon />} style={{ right: 40, bottom: 80 }}>
+    <FloatButton.Group trigger="click" icon={<ThemeIcon />}>
       <FloatButton
         icon={<Light />}
         type={value.includes(defaultAlgorithm) ? 'primary' : 'default'}
