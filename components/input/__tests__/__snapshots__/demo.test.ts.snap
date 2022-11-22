@@ -3753,7 +3753,7 @@ Array [
   <div
     class="ant-input-textarea ant-input-textarea-show-count"
     data-count="0 / 100"
-    style="height:120px"
+    style="height:120px;margin-bottom:24px"
   >
     <textarea
       class="ant-input"
