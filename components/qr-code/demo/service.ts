@@ -9,8 +9,10 @@ export interface CertifyLPDTO {
   expires?: number;
 }
 
-function sleep(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
+function sleep(ms: number) {
+  return new Promise<void>((resolve) => {
+    setTimeout(resolve, ms);
+  });
 }
 
 /**
@@ -18,7 +20,6 @@ function sleep(ms) {
  */
 export const reloadQrCode = async () => {
   await sleep(Math.random() * 2000);
-
   return {
     success: true,
     errorCode: null,
@@ -37,6 +38,4 @@ export const reloadQrCode = async () => {
   };
 };
 
-export default {
-  reloadQrCode,
-};
+export default { reloadQrCode };

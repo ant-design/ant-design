@@ -4,6 +4,6 @@
  */
 
 import React from 'react';
-import { QrCode } from '@alipay/tech-ui';
+import { QrCode } from 'antd';
 
 export default () => <QrCode value="http://www.tmall.com" />;

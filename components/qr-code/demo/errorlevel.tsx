@@ -4,12 +4,10 @@
  */
 
 import React, { useState } from 'react';
-import { QrCode } from '@alipay/tech-ui';
-import { Radio } from 'antd';
+import { Radio, QrCode } from 'antd';
 
 export default () => {
   const [level, setLevel] = useState<string>('L');
-
   return (
     <div>
       <Radio.Group value={level} onChange={(e) => setLevel(e.target.value)}>

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { QrCode } from '@alipay/tech-ui';
-import { Spin } from 'antd';
+import { QrCode, Spin } from 'antd';
 import service from './service';
 import type { CertifyLPDTO } from './service';
 

@@ -1,11 +1,10 @@
 import React from 'react';
-import { QrCode } from '@alipay/tech-ui';
-import { Button } from 'antd';
+import { QrCode, Button } from 'antd';
 
 export default () => {
   const downloadQrCode = () => {
-    const canvas = document.getElementById('myqrcode').getElementsByTagName('canvas')[0];
-    const url = canvas.toDataURL(); // 转为 base
+    const canvas = document.getElementById('myqrcode')?.getElementsByTagName('canvas')[0];
+    const url = canvas?.toDataURL() || ''; // 转为 base
     const a = document.createElement('a');
     a.download = '二维码.png';
     a.href = url;
