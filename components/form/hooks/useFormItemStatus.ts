@@ -19,4 +19,7 @@ const useFormItemStatus: UseFormItemStatus = () => {
   return { status };
 };
 
+// Only used for compatible package. Not promise this will work on future version.
+(useFormItemStatus as any).Context = FormItemInputContext;
+
 export default useFormItemStatus;
