@@ -20,18 +20,12 @@ interface QRProps {
   imageSettings?: ImageSettings;
 }
 
-export type QRPropsSVG = QRProps & React.SVGProps<SVGSVGElement>;
-
 export type QRPropsCanvas = QRProps & React.CanvasHTMLAttributes<HTMLCanvasElement>;
 
 export interface QrCodeProps extends QRProps {
   className?: string;
   prefixCls?: string;
-  mode?: 'canvas' | 'svg';
-  logo?: string;
-  logoSize?: number;
-  popover?: boolean;
-  expired?: boolean;
-  errorLevel?: 'L' | 'M' | 'Q' | 'H' | string;
-  onRefresh?: React.MouseEventHandler<HTMLSpanElement>;
+  icon?: string;
+  iconSize?: number;
+  errorLevel?: 'L' | 'M' | 'Q' | 'H';
 }
