@@ -11,19 +11,19 @@ Mention component.
 
 When you need to mention someone or something.
 
-### Usage upgrade after 4.24.3
+### Usage upgrade after 4.24.4
 
 ```__react
 import Alert from '../alert';
-ReactDOM.render(<Alert message="After version 4.24.3, we provide a simpler usage <Mentions options={[...]} />  with better performance and potential of writing simpler code style in your applications. Meanwhile, we deprecated the old usage in browser console, we will remove it in antd 5.0." />, mountNode);
+ReactDOM.render(<Alert message="After version 4.24.4, we provide a simpler usage <Mentions options={[...]} />  with better performance and potential of writing simpler code style in your applications. Meanwhile, we deprecated the old usage in browser console, we will remove it in antd 5.0." />, mountNode);
 ```
 
 ```jsx
-// works when >=4.24.3, recommended ✅
+// works when >=4.24.4, recommended ✅
 const options = [{ value: 'sample', label: 'sample' }];
 return <Mentions options={options} />;
 
-// works when <4.24.3, deprecated when >=4.24.3 🙅🏻‍♀️
+// works when <4.24.4, deprecated when >=4.24.4 🙅🏻‍♀️
 <Mentions onChange={onChange}>
   <Mentions.Option value="sample">Sample</Mentions.Option>
 </Mentions>;
@@ -53,7 +53,7 @@ return <Mentions options={options} />;
 | onResize | The callback function that is triggered when textarea resize | function({ width, height }) | - |  |
 | onSearch | Trigger when prefix hit | (text: string, prefix: string) => void | - |  |
 | onSelect | Trigger when user select the option | (option: OptionProps, prefix: string) => void | - |  |
-| options | Option Configuration | [Options](#Option) | \[] | 4.24.3 |
+| options | Option Configuration | [Options](#Option) | \[] | 4.24.4 |
 
 ### Mention methods
 
