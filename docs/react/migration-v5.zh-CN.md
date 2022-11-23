@@ -159,9 +159,9 @@ npm install --save antd@5.x
 
 如果你使用到了 antd 的 less 变量，通过兼容包将 v5 变量转译成 v4 版本，并通过 less-loader 注入：
 
-```jsx
-import { theme } from 'antd';
-import { convertLegacyToken } from '@ant-design/compatible';
+```js
+const { theme } = require('antd/lib');
+const { convertLegacyToken } = require('@ant-design/compatible/lib');
 
 const { defaultAlgorithm, defaultSeed } = theme;
 

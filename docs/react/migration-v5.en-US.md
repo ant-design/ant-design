@@ -165,9 +165,9 @@ npm install --save antd@5.x
 
 If you using antd less variables, you can use compatible package to covert it into v4 less variables and use less-loader to inject them:
 
-```jsx
-import { theme } from 'antd';
-import { convertLegacyToken } from '@ant-design/compatible';
+```js
+const { theme } = require('antd/lib');
+const { convertLegacyToken } = require('@ant-design/compatible/lib');
 
 const { defaultAlgorithm, defaultSeed } = theme;
 
