@@ -27,14 +27,14 @@ function compactItemBorderVerticalRadius(prefixCls: string): CSSObject {
       borderRadius: 0,
     },
 
-    '&-item&-first-item': {
+    '&-item&-first-item:not(&-last-item)': {
       [`&, &${prefixCls}-sm, &${prefixCls}-lg`]: {
         borderEndEndRadius: 0,
         borderEndStartRadius: 0,
       },
     },
 
-    '&-item&-last-item': {
+    '&-item&-last-item:not(&-first-item)': {
       [`&, &${prefixCls}-sm, &${prefixCls}-lg`]: {
         borderStartStartRadius: 0,
         borderStartEndRadius: 0,

@@ -43,7 +43,7 @@ function compactItemBorderRadius(prefixCls: string, borderedElementCls?: string)
       borderRadius: 0,
     },
 
-    '&-item&-first-item': {
+    '&-item&-first-item:not(&-last-item)': {
       [`& ${childCombinator}, &${prefixCls}-sm ${childCombinator}, &${prefixCls}-lg ${childCombinator}`]:
         {
           borderStartEndRadius: 0,
@@ -51,7 +51,7 @@ function compactItemBorderRadius(prefixCls: string, borderedElementCls?: string)
         },
     },
 
-    '&-item&-last-item': {
+    '&-item&-last-item:not(&-first-item)': {
       [`& ${childCombinator}, &${prefixCls}-sm ${childCombinator}, &${prefixCls}-lg ${childCombinator}`]:
         {
           borderStartStartRadius: 0,
