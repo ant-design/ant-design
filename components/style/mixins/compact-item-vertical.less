@@ -3,12 +3,12 @@
     border-radius: 0;
   }
 
-  &-item&-first-item {
+  &-item&-first-item:not(&-last-item) {
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
   }
 
-  &-item&-last-item {
+  &-item&-last-item:not(&-first-item) {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
   }
