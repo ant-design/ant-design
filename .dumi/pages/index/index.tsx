@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, type FC } from 'react';
+import React, { type FC, useLayoutEffect } from 'react';
 import { useLocale as useDumiLocale } from 'dumi';
 import { css } from '@emotion/react';
 import useLocale from '../../hooks/useLocale';
@@ -6,7 +6,7 @@ import Banner from './components/Banner';
 import Group from './components/Group';
 import { useSiteData } from './components/util';
 import useSiteToken from '../../hooks/useSiteToken';
-import Theme from './components/theme/internal';
+import Theme from './components/theme';
 import BannerRecommends from './components/BannerRecommends';
 import ComponentsList from './components/ComponentsList';
 import DesignFramework from './components/DesignFramework';
