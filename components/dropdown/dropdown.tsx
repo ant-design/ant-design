@@ -13,6 +13,7 @@ import { cloneElement } from '../_util/reactNode';
 import { tuple } from '../_util/type';
 import warning from '../_util/warning';
 import DropdownButton from './dropdown-button';
+import { NoCompactStyle } from '../space/Compact';
 
 const Placements = tuple(
   'topLeft',
@@ -83,7 +84,7 @@ interface DropdownInterface extends React.FC<DropdownProps> {
   Button: typeof DropdownButton;
 }
 
-const Dropdown: DropdownInterface = props => {
+const Dropdown: DropdownInterface = (props) => {
   const {
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
@@ -244,7 +245,7 @@ const Dropdown: DropdownInterface = props => {
           );
         }}
       >
-        {overlayNode}
+        <NoCompactStyle>{overlayNode}</NoCompactStyle>
       </OverrideProvider>
     );
   };

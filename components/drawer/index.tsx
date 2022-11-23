@@ -9,6 +9,7 @@ import { NoFormStyle } from '../form/context';
 import { getTransitionName } from '../_util/motion';
 import { tuple } from '../_util/type';
 import warning from '../_util/warning';
+import { NoCompactStyle } from '../space/Compact';
 
 const SizeTypes = tuple('default', 'large');
 type sizeType = typeof SizeTypes[number];
@@ -163,7 +164,7 @@ function Drawer(props: DrawerProps) {
     motionDeadline: 500,
   };
 
-  const panelMotion: RcDrawerProps['motion'] = motionPlacement => ({
+  const panelMotion: RcDrawerProps['motion'] = (motionPlacement) => ({
     motionName: getTransitionName(prefixCls, `panel-motion-${motionPlacement}`),
     motionAppear: true,
     motionEnter: true,
@@ -173,35 +174,37 @@ function Drawer(props: DrawerProps) {
 
   // =========================== Render ===========================
   return (
-    <NoFormStyle status override>
-      <RcDrawer
-        prefixCls={prefixCls}
-        onClose={onClose}
-        {...rest}
-        open={open || visible}
-        mask={mask}
-        push={push}
-        width={mergedWidth}
-        height={mergedHeight}
-        rootClassName={drawerClassName}
-        getContainer={getContainer}
-        afterOpenChange={isOpen => {
-          afterOpenChange?.(isOpen);
-          afterVisibleChange?.(isOpen);
-        }}
-        maskMotion={maskMotion}
-        motion={panelMotion}
-        rootStyle={style}
-      >
-        <div className={`${prefixCls}-wrapper-body`} style={{ ...drawerStyle }}>
-          {renderHeader()}
-          <div className={`${prefixCls}-body`} style={bodyStyle}>
-            {children}
+    <NoCompactStyle>
+      <NoFormStyle status override>
+        <RcDrawer
+          prefixCls={prefixCls}
+          onClose={onClose}
+          {...rest}
+          open={open || visible}
+          mask={mask}
+          push={push}
+          width={mergedWidth}
+          height={mergedHeight}
+          rootClassName={drawerClassName}
+          getContainer={getContainer}
+          afterOpenChange={(isOpen) => {
+            afterOpenChange?.(isOpen);
+            afterVisibleChange?.(isOpen);
+          }}
+          maskMotion={maskMotion}
+          motion={panelMotion}
+          rootStyle={style}
+        >
+          <div className={`${prefixCls}-wrapper-body`} style={{ ...drawerStyle }}>
+            {renderHeader()}
+            <div className={`${prefixCls}-body`} style={bodyStyle}>
+              {children}
+            </div>
+            {renderFooter()}
           </div>
-          {renderFooter()}
-        </div>
-      </RcDrawer>
-    </NoFormStyle>
+        </RcDrawer>
+      </NoFormStyle>
+    </NoCompactStyle>
   );
 }
 
