@@ -14,9 +14,7 @@ group:
 
 能够将链接转换生成二维码的组件，支持自定义配色和 Logo 配置。
 
-<Alert type="info">
-若二维码无法扫码识别，可能是因为链接地址过长导致像素过于密集，可以通过 `size` 配置二维码更大，或者通过短链接服务等方式将链接变短。
-</Alert>
+<Alert message="若二维码无法扫码识别，可能是因为链接地址过长导致像素过于密集，可以通过 `size` 配置二维码更大，或者通过短链接服务等方式将链接变短。"></Alert>
 
 ## 何时使用
 
@@ -30,7 +28,7 @@ group:
 <code src="./demo/rendermode.tsx">渲染为 svg</code>
 <code src="./demo/outdated.tsx">过期状态</code>
 <code src="./demo/popover.tsx">popover 带 logo 例子</code>
-<code src="./demo/service.ts">轮询 & 过期刷新</code>
+<code src="./demo/refresh.tsx">轮询 & 过期刷新</code>
 <code src="./demo/download.tsx">下载二维码</code>
 <code src="./demo/errorlevel.tsx">纠错比例</code>
 
