@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 import type { CSSObject } from '@ant-design/cssinjs';
-import type { DerivativeToken } from '../theme';
+import type { DerivativeToken } from '../theme/internal';
 
 function compactItemVerticalBorder(token: DerivativeToken): CSSObject {
   return {

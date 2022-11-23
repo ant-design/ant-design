@@ -1,6 +1,6 @@
 import type { TabsToken } from '.';
-import type { GenerateStyle } from '../../theme';
 import { initSlideMotion } from '../../style/motion';
+import type { GenerateStyle } from '../../theme/internal';
 
 const genMotionStyle: GenerateStyle<TabsToken> = (token) => {
   const { componentCls, motionDurationSlow } = token;

@@ -43,6 +43,27 @@ export default App;
 
 ![themed button](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*CbF_RJfKEiwAAAAAAAAAAAAAARQnAQ)
 
+### 使用预设算法
+
+通过修改算法可以快速生成风格迥异的主题，5.0 版本中默认提供三套预设算法，分别是默认算法 `theme.defaultAlgorithm`、暗色算法 `theme.darkAlgorithm` 和紧凑算法 `theme.compactAlgorithm`。你可以通过修改 ConfigProvider 中 `theme` 属性的 `algorithm` 属性来切换算法。
+
+```tsx
+import React from 'react';
+import { ConfigProvider, Button, theme } from 'antd';
+
+const App: React.FC = () => (
+  <ConfigProvider
+    theme={{
+      algorithm: theme.darkAlgorithm,
+    }}
+  >
+    <Button />
+  </ConfigProvider>
+);
+
+export default App;
+```
+
 ### 修改组件变量 (Component Token)
 
 除了整体的 Design Token，各个组件也会开放自己的 Component Token 来实现针对组件的样式定制能力，不同的组件之间不会相互影响。同样地，也可以通过这种方式来覆盖组件的其他 Design Token。
@@ -203,7 +224,7 @@ const theme = {
 
 ### 基本算法（algorithm)
 
-基本算法用于将 Seed Token 展开为 Map Token，比如由一个基本色算出一个梯度色板，或者由一个基本的圆角算出各种大小的圆角。在 v5 中，我们默认提供了三种算法，分别是默认算法（defaultAlgorithm）、暗色算法（darkAlgorithm）和紧凑算法（compactAlgorithm）。算法可以任意地组合使用，比如可以将暗色算法和紧凑算法组合使用，得到一个暗色和紧凑相结合的主题。
+基本算法用于将 Seed Token 展开为 Map Token，比如由一个基本色算出一个梯度色板，或者由一个基本的圆角算出各种大小的圆角。算法可以单独使用，也可以任意地组合使用，比如可以将暗色算法和紧凑算法组合使用，得到一个暗色和紧凑相结合的主题。
 
 ```tsx
 import { theme } from 'antd';

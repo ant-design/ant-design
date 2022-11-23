@@ -4,8 +4,8 @@ import React from 'react';
 import ConfigProvider from '..';
 import { InputNumber } from '../..';
 import { render } from '../../../tests/utils';
-import { useToken } from '../../theme';
-import theme from '../../theme/export';
+import { useToken } from '../../theme/internal';
+import theme from '../../theme';
 import { resetWarned } from '../../_util/warning';
 
 const { defaultAlgorithm, darkAlgorithm, compactAlgorithm } = theme;
