@@ -183,6 +183,14 @@ You should only access the API by official doc with ref. Directly access interna
 
 For historical reasons, the display names of the pop components are not uniform, and both `open` and `visible` are used. This makes the memory cost that non-tsx users encounter when developing. It also leads to ambiguity about what name to choose when adding a feature. So we want to unify the attribute name, you can still use the original `visible` and it will still be backward compatible, but we will remove this attribute from the documentation as of v5.
 
+## Dynamic style using `:where` selector which not support old browser.
+
+Please ref dynamic theme document [Compatible Adjustment](/docs/react/customize-theme#compatible-adjustment) part.
+
+## How to support SSR？
+
+Please ref dynamic theme document [SSR](/docs/react/customize-theme#server-side-render-ssr) part.
+
 ## How to spell Ant Design correctly?
 
 - ✅ **Ant Design**: Capitalized with space, for the design language.

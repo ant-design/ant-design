@@ -5,7 +5,7 @@ import { act } from 'react-dom/test-utils';
 import Button from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, sleep } from '../../../tests/utils';
+import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
 describe('Button', () => {
@@ -242,6 +242,7 @@ describe('Button', () => {
   });
 
   it('should support to change loading', async () => {
+    jest.useFakeTimers();
     const { container, rerender, unmount } = render(<Button>Button</Button>);
     rerender(<Button loading />);
     expect(container.querySelectorAll('.ant-btn-loading').length).toBe(1);
@@ -249,12 +250,13 @@ describe('Button', () => {
     expect(container.querySelectorAll('.ant-btn-loading').length).toBe(0);
     rerender(<Button loading={{ delay: 50 }} />);
     expect(container.querySelectorAll('.ant-btn-loading').length).toBe(0);
-    await sleep(50);
+    await waitFakeTimer();
     expect(container.querySelectorAll('.ant-btn-loading').length).toBe(1);
     rerender(<Button loading={false} />);
-    await sleep(50);
+    await waitFakeTimer();
     expect(container.querySelectorAll('.ant-btn-loading').length).toBe(0);
     expect(unmount).not.toThrow();
+    jest.useRealTimers();
   });
 
   it('should warning when pass a string as icon props', () => {

@@ -1727,7 +1727,7 @@ exports[`renders ./components/badge/demo/overflow.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/badge/demo/ribbbon.tsx correctly 1`] = `
+exports[`renders ./components/badge/demo/ribbon.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
   style="width:100%"

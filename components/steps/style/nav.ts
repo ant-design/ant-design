@@ -1,7 +1,7 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { textEllipsis } from '../../style';
 import type { StepsToken } from '.';
-import type { GenerateStyle } from '../../theme';
+import type { GenerateStyle } from '../../theme/internal';
 
 const genStepsNavStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
   const {

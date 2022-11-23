@@ -64,14 +64,14 @@ return <Tabs items={items} />;
 ### Tabs
 
 | Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | activeKey | Current TabPane's key | string | - |  |
 | addIcon | Customize add icon | ReactNode | - | 4.4.0 |
 | animated | Whether to change tabs with animation. Only works while `tabPosition="top"` | boolean \| { inkBar: boolean, tabPane: boolean } | { inkBar: true, tabPane: false } |  |
 | centered | Centers tabs | boolean | false | 4.4.0 |
 | defaultActiveKey | Initial active TabPane's key, if `activeKey` is not set | string | - |  |
 | hideAdd | Hide plus icon or not. Only works while `type="editable-card"` | boolean | false |  |
-| items | Configure tab content | [TabItem](#TabItem) | [] | 4.23.0 |
+| items | Configure tab content | [TabItemType](#TabItemType) | [] | 4.23.0 |
 | moreIcon | The custom icon of ellipsis | ReactNode | &lt;EllipsisOutlined /> | 4.14.0 |
 | popupClassName | `className` for more dropdown. | string | - | 4.21.0 |
 | renderTabBar | Replace the TabBar | (props: DefaultTabBarProps, DefaultTabBar: React.ComponentClass) => React.ReactElement | - |  |
@@ -86,7 +86,6 @@ return <Tabs items={items} />;
 | onEdit | Callback executed when tab is added or removed. Only works while `type="editable-card"` | (action === 'add' ? event : targetKey, action): void | - |  |
 | onTabClick | Callback executed when tab is clicked | function(key: string, event: MouseEvent) | - |  |
 | onTabScroll | Trigger when tab scroll | function({ direction: `left` \| `right` \| `top` \| `bottom` }) | - | 4.3.0 |
-| items | TabItem content | [TabItemType](#TabItemType) | [] | 4.23.0 |
 
 More option at [rc-tabs tabs](https://github.com/react-component/tabs#tabs)
 

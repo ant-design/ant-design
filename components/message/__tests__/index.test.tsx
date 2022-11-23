@@ -1,7 +1,7 @@
 import React from 'react';
 import { SmileOutlined } from '@ant-design/icons';
 import message, { actWrapper } from '..';
-import { act, fireEvent, sleep } from '../../../tests/utils';
+import { act, fireEvent, waitFakeTimer } from '../../../tests/utils';
 import { awaitPromise, triggerMotionEnd } from './util';
 
 describe('message', () => {
@@ -139,7 +139,7 @@ describe('message', () => {
     act(() => {
       jest.advanceTimersByTime(1000);
     });
-    await sleep(); // Wait to let event loop run
+    await waitFakeTimer(); // Wait to let event loop run
     expect(onClose).toHaveBeenCalled();
   });
 

@@ -1,7 +1,7 @@
 import { TinyColor } from '@ctrl/tinycolor';
 import { genCollapseMotion, initSlideMotion, initZoomMotion } from '../../style/motion';
-import type { FullToken, GenerateStyle, UseComponentStyleResult } from '../../theme';
-import { genComponentStyleHook, mergeToken } from '../../theme';
+import type { FullToken, GenerateStyle, UseComponentStyleResult } from '../../theme/internal';
+import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import getHorizontalStyle from './horizontal';
 import getRTLStyle from './rtl';
 import getThemeStyle from './theme';

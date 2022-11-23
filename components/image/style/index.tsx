@@ -2,8 +2,8 @@ import type { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 import { genModalMaskStyle } from '../../modal/style';
 import { initZoomMotion, initFadeMotion } from '../../style/motion';
-import type { FullToken, GenerateStyle } from '../../theme';
-import { genComponentStyleHook, mergeToken } from '../../theme';
+import type { FullToken, GenerateStyle } from '../../theme/internal';
+import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import { resetComponent, textEllipsis } from '../../style';
 
 export interface ComponentToken {

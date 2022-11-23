@@ -34,6 +34,9 @@ demo:
 | onFinish | 引导完成时的回调 | `Function` | - |  |
 | mask | 是否启用蒙层 | `boolean` | `true` |  |
 | type | 类型，影响底色与文字颜色 | `default` \| `primary` | `default` |  |
+| open | 打开引导 | `boolean` | - |  |
+| onChange | 步骤改变时的回调，current 为当前前的步骤 | `(current: number) => void` | - |  |
+| current | 当前处于哪一步 | `number` | - |  |
 
 ### TourStep 引导步骤卡片
 

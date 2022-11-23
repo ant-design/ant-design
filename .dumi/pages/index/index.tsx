@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, type FC } from 'react';
+import React, { type FC, useLayoutEffect } from 'react';
 import { useLocale as useDumiLocale } from 'dumi';
 import { css } from '@emotion/react';
 import useLocale from '../../hooks/useLocale';

@@ -1,5 +1,5 @@
 import type { CSSObject } from '@ant-design/cssinjs';
-import type { GenerateStyle } from '../../theme';
+import type { GenerateStyle } from '../../theme/internal';
 import type { TableToken } from './index';
 
 const genSizeStyle: GenerateStyle<TableToken, CSSObject> = (token) => {

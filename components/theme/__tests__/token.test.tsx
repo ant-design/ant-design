@@ -3,7 +3,7 @@ import * as React from 'react';
 import genRadius from '../themes/shared/genRadius';
 import { render, renderHook } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
-import theme from '../export';
+import theme from '..';
 
 const { useToken } = theme;
 

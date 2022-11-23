@@ -1,5 +1,5 @@
 import type { UploadToken } from '.';
-import type { GenerateStyle } from '../../theme';
+import type { GenerateStyle } from '../../theme/internal';
 import { clearFix, textEllipsis } from '../../style';
 
 const genListStyle: GenerateStyle<UploadToken> = (token) => {

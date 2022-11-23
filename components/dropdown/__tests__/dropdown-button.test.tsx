@@ -145,4 +145,10 @@ describe('DropdownButton', () => {
     expect(errSpy).not.toHaveBeenCalled();
     errSpy.mockRestore();
   });
+
+  it('should support dropdownRender', () => {
+    const dropdownRender = jest.fn((menu) => <div>Custom Menu {menu}</div>);
+    render(<DropdownButton open dropdownRender={dropdownRender} />);
+    expect(dropdownRender).toHaveBeenCalled();
+  });
 });

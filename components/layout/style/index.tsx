@@ -1,6 +1,6 @@
 import type { CSSObject } from '@ant-design/cssinjs';
-import type { FullToken, GenerateStyle } from '../../theme';
-import { genComponentStyleHook, mergeToken } from '../../theme';
+import type { FullToken, GenerateStyle } from '../../theme/internal';
+import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import genLayoutLightStyle from './light';
 
 export interface ComponentToken {
@@ -109,7 +109,7 @@ const genLayoutStyle: GenerateStyle<LayoutToken, CSSObject> = (token) => {
           marginTop: -0.1,
           paddingTop: 0.1,
 
-          [`${antCls}-menu${antCls}menu-inline-collapsed`]: {
+          [`${antCls}-menu${antCls}-menu-inline-collapsed`]: {
             width: 'auto',
           },
         },

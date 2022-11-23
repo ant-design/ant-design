@@ -1,6 +1,6 @@
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import type { SelectToken } from '.';
-import { mergeToken } from '../../theme';
+import { mergeToken } from '../../theme/internal';
 import { resetIcon } from '../../style';
 
 const FIXED_ITEM_MARGIN = 2;

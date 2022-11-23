@@ -1,5 +1,5 @@
-import type { FullToken, GenerateStyle } from '../../theme';
-import { genComponentStyleHook } from '../../theme';
+import type { FullToken, GenerateStyle } from '../../theme/internal';
+import { genComponentStyleHook } from '../../theme/internal';
 import genSpaceCompactStyle from './compact';
 
 /** Component only token. Which will handle additional calculation of alias token */

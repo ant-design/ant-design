@@ -1,7 +1,8 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { Keyframes } from '@ant-design/cssinjs';
-import type { FullToken, GenerateStyle } from '../../theme';
-import { genComponentStyleHook, mergeToken } from '../../theme';
+import type { FullToken, GenerateStyle } from '../../theme/internal';
+import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { initFadeMotion } from '../../style/motion/fade';
 import { resetComponent } from '../../style';
 
 /** Component only token. Which will handle additional calculation of alias token */
@@ -233,10 +234,10 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
       },
     },
     [`${componentCls}-default`]: {
-      backgroundColor: token.colorBgContainer,
+      backgroundColor: token.floatButtonBackgroundColor,
       transition: `background-color ${token.motionDurationMid}`,
       [`${componentCls}-body`]: {
-        backgroundColor: token.colorBgContainer,
+        backgroundColor: token.floatButtonBackgroundColor,
         transition: `background-color ${token.motionDurationMid}`,
         '&:hover': {
           backgroundColor: token.colorFillContent,
@@ -284,7 +285,7 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
 export default genComponentStyleHook<'FloatButton'>('FloatButton', (token) => {
   const {
     colorTextLightSolid,
-    colorBgContainer,
+    colorBgElevated,
     controlHeightLG,
     marginXXL,
     marginLG,
@@ -293,7 +294,7 @@ export default genComponentStyleHook<'FloatButton'>('FloatButton', (token) => {
     controlItemBgHover,
   } = token;
   const floatButtonToken = mergeToken<FloatButtonToken>(token, {
-    floatButtonBackgroundColor: colorBgContainer,
+    floatButtonBackgroundColor: colorBgElevated,
     floatButtonColor: colorTextLightSolid,
     floatButtonHoverBackgroundColor: controlItemBgHover,
     floatButtonFontSize: fontSize,
@@ -303,5 +304,9 @@ export default genComponentStyleHook<'FloatButton'>('FloatButton', (token) => {
     floatButtonInsetBlockEnd: marginXXL,
     floatButtonInsetInlineEnd: marginLG,
   });
-  return [floatButtonGroupStyle(floatButtonToken), sharedFloatButtonStyle(floatButtonToken)];
+  return [
+    floatButtonGroupStyle(floatButtonToken),
+    sharedFloatButtonStyle(floatButtonToken),
+    initFadeMotion(token),
+  ];
 });
