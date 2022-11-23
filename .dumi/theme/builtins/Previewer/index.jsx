@@ -375,7 +375,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
             />
           </div>
           <div className="code-box-description">{introChildren}</div>
-          <Space wrap size="middle" className='code-box-actions'>
+          <Space wrap size="middle" className="code-box-actions">
             {showRiddleButton ? (
               <form
                 className="code-box-code-action"
