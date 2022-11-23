@@ -27,7 +27,7 @@ const BackTop: React.FC<BackTopProps> = (props) => {
     ...restProps
   } = props;
 
-  const [visible, setVisible] = useState<boolean>(false);
+  const [visible, setVisible] = useState<boolean>(visibilityHeight === 0);
 
   const ref = useRef<HTMLAnchorElement | HTMLButtonElement>(null);
   const scrollEvent = useRef<ReturnType<typeof addEventListener> | null>(null);

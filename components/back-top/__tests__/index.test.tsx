@@ -30,18 +30,11 @@ describe('BackTop', () => {
     jest.clearAllTimers();
   });
 
-  it('support onClick', async () => {
+  it('support onClick', () => {
     const onClick = jest.fn();
-    const { container } = render(<BackTop onClick={onClick} visibilityHeight={-1} />);
-    const scrollToSpy = jest.spyOn(window, 'scrollTo').mockImplementation((_, y) => {
-      window.scrollY = y;
-      window.pageYOffset = y;
-    });
-    document.dispatchEvent(new Event('scroll'));
-    window.scrollTo(0, 400);
-    fireEvent.click(container.querySelector('.ant-back-top')!);
+    const { container } = render(<BackTop onClick={onClick} visibilityHeight={0} />);
+    fireEvent.click(container.querySelector<HTMLElement>('.ant-back-top')!);
     expect(onClick).toHaveBeenCalled();
-    scrollToSpy.mockRestore();
   });
 
   it('invalid target', () => {

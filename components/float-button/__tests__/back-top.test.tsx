@@ -35,52 +35,22 @@ describe('BackTop', () => {
 
   it('support onClick', () => {
     const onClick = jest.fn();
-    const { container } = render(<BackTop visibilityHeight={-1} onClick={onClick} />);
-    const scrollToSpy = jest.spyOn(window, 'scrollTo').mockImplementation((_, y) => {
-      window.scrollY = y;
-      window.pageYOffset = y;
-    });
-    document.dispatchEvent(new Event('scroll'));
-    window.scrollTo(0, 400);
-    act(() => {
-      jest.runAllTimers();
-    });
+    const { container } = render(<BackTop visibilityHeight={0} onClick={onClick} />);
     fireEvent.click(container.querySelector<HTMLButtonElement>('.ant-float-btn')!);
     expect(onClick).toHaveBeenCalled();
-    scrollToSpy.mockRestore();
   });
 
-  it('invalid target', () => {
+  it('support invalid target', () => {
     const onClick = jest.fn();
     const { container } = render(
-      <BackTop onClick={onClick} visibilityHeight={-1} target={undefined} />,
+      <BackTop onClick={onClick} visibilityHeight={0} target={undefined} />,
     );
-    const scrollToSpy = jest.spyOn(window, 'scrollTo').mockImplementation((_, y) => {
-      window.scrollY = y;
-      window.pageYOffset = y;
-      document.documentElement.scrollTop = y;
-    });
-    window.scrollTo(0, 400);
-    act(() => {
-      jest.runAllTimers();
-    });
     fireEvent.click(container.querySelector<HTMLButtonElement>('.ant-float-btn')!);
     expect(onClick).toHaveBeenCalled();
-    scrollToSpy.mockRestore();
   });
 
-  it('pass style to float button', async () => {
-    const { container } = render(<BackTop style={{ color: 'red' }} visibilityHeight={-1} />);
-    const scrollToSpy = jest.spyOn(window, 'scrollTo').mockImplementation((_, y) => {
-      window.scrollY = y;
-      window.pageYOffset = y;
-      document.documentElement.scrollTop = y;
-    });
-    window.scrollTo(0, 400);
-    act(() => {
-      jest.runAllTimers();
-    });
+  it('pass style to float button', () => {
+    const { container } = render(<BackTop style={{ color: 'red' }} visibilityHeight={0} />);
     expect(container.querySelector<HTMLButtonElement>('.ant-float-btn')?.style.color).toBe('red');
-    scrollToSpy.mockRestore();
   });
 });

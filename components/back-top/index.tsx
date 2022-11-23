@@ -33,7 +33,7 @@ const BackTop: React.FC<BackTopProps> = (props) => {
     onClick,
     duration = 450,
   } = props;
-  const [visible, setVisible] = React.useState<boolean>(false);
+  const [visible, setVisible] = React.useState<boolean>(visibilityHeight === 0);
 
   const ref = React.useRef<HTMLDivElement>(null);
   const scrollEvent = React.useRef<ReturnType<typeof addEventListener> | null>(null);

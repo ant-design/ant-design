@@ -3,7 +3,6 @@ import type Group from './FloatButtonGroup';
 import type BackTop from './BackTop';
 import type { TooltipProps } from '../tooltip';
 import type PurePanel from './PurePanel';
-import type PureBackTop from './PureBackTop';
 
 export type FloatButtonType = 'default' | 'primary';
 
@@ -62,5 +61,4 @@ export type CompoundedComponent = React.ForwardRefExoticComponent<
   Group: typeof Group;
   BackTop: typeof BackTop;
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
-  _InternalPanelDoNotUseOrYouWillBeFiredBackTop: typeof PureBackTop;
 };
