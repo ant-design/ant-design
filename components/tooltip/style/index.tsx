@@ -5,8 +5,8 @@ import type {
   GenerateStyle,
   PresetColorType,
   UseComponentStyleResult,
-} from '../../theme';
-import { genComponentStyleHook, mergeToken, PresetColors } from '../../theme';
+} from '../../theme/internal';
+import { genComponentStyleHook, mergeToken, PresetColors } from '../../theme/internal';
 import { resetComponent } from '../../style';
 import getArrowStyle, { MAX_VERTICAL_CONTENT_RADIUS } from '../../style/placementArrow';
 

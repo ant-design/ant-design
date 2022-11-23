@@ -1,6 +1,6 @@
 import { getStyle as getCheckboxStyle } from '../../checkbox/style';
-import type { FullToken, GenerateStyle } from '../../theme';
-import { genComponentStyleHook } from '../../theme';
+import type { FullToken, GenerateStyle } from '../../theme/internal';
+import { genComponentStyleHook } from '../../theme/internal';
 import { textEllipsis } from '../../style';
 import { genCompactItemStyle } from '../../style/compact-item';
 
