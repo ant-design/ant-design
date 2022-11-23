@@ -11,12 +11,7 @@ const App: React.FC = () => {
         <Radio.Button value="Q">Q</Radio.Button>
         <Radio.Button value="H">H</Radio.Button>
       </Radio.Group>
-      <QrCode
-        style={{ marginTop: 16 }}
-        errorLevel={level}
-        value="https://ant.design/"
-        logo="https://gw.alipayobjects.com/zos/antfincdn/%24C9tmj978R/Carousel.svg"
-      />
+      <QrCode style={{ marginTop: 16 }} errorLevel={level} value="https://ant.design/" />
     </>
   );
 };
