@@ -33,16 +33,16 @@ group:
 
 ## API
 
-| 参数       | 说明                                     | 类型                        | 默认值     |
-| :--------- | :--------------------------------------- | :-------------------------- | :--------- |
-| mode       | 最终渲染出来的结构                       | `'svg' \| 'canvas'`         | `'canvas'` |
-| value      | 扫描后的地址                             | string                      | -          |
-| logo       | 二维码中图片的地址（目前只支持图片地址） | string                      | -          |
-| size       | 二维码图片大小                           | number                      | 128        |
-| logoSize   | 二维码中 logo 大小                       | number                      | 32         |
-| bgColor    | 二维码背景颜色                           | string                      | `'#fff'`   |
-| fgColor    | 二维码前景的颜色                         | string                      | `'#000'`   |
-| popover    | 是否展现气泡卡片                         | boolean                     | false      |
-| expired    | 是否过期                                 | boolean                     | false      |
-| onRefresh  | 点击点击刷新的回调                       | () => void                  | -          |
-| errorLevel | 纠错码的等级                             | `'L' \| 'M' \| 'Q' \| 'H' ` | `'L'`      |
+| 参数       | 说明                                     | 类型                        | 默认值   |
+| :--------- | :--------------------------------------- | :-------------------------- | :------- |
+| mode       | 最终渲染出来的结构                       | `'svg' \| 'canvas'`         | `canvas` |
+| value      | 扫描后的地址                             | string                      | -        |
+| logo       | 二维码中图片的地址（目前只支持图片地址） | string                      | -        |
+| size       | 二维码图片大小                           | number                      | 128      |
+| logoSize   | 二维码中 logo 大小                       | number                      | 32       |
+| bgColor    | 二维码背景颜色                           | string                      | `#fff`   |
+| fgColor    | 二维码前景的颜色                         | string                      | `#000`   |
+| popover    | 是否展现气泡卡片                         | boolean                     | false    |
+| expired    | 是否过期                                 | boolean                     | false    |
+| onRefresh  | 点击点击刷新的回调                       | () => void                  | -        |
+| errorLevel | 纠错码的等级                             | `'L' \| 'M' \| 'Q' \| 'H' ` | `L`      |

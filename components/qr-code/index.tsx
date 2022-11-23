@@ -1,13 +1,14 @@
 import React, { useMemo, useContext } from 'react';
 import { QRCodeCanvas, QRCodeSVG } from 'qrcode.react';
 import { ReloadOutlined } from '@ant-design/icons';
-import { Popover } from 'antd';
 import classNames from 'classnames';
 import { QRCODE, CLICK_REFRESH } from './constants';
 import { ConfigContext } from '../config-provider';
 import type { ConfigConsumerProps } from '../config-provider';
 import type { QrCodeProps, QRPropsCanvas, QRPropsSVG } from './interface';
+import warning from '../_util/warning';
 import useStyle from './style/index';
+import Popover from '../popover';
 
 const noop = () => {};
 
@@ -64,6 +65,9 @@ const QrCode: React.FC<QrCodeProps> = (props) => {
 
   if (popover) {
     if (!logo) {
+      if (process.env.NODE_ENV !== 'production') {
+        warning(false, 'QrCode', '`logo` is not in props');
+      }
       return null;
     }
     return (
