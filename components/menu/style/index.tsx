@@ -4,7 +4,7 @@ import type { FullToken, GenerateStyle, UseComponentStyleResult } from '../../th
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import getHorizontalStyle from './horizontal';
 import getRTLStyle from './rtl';
-import getThemeStyle from './theme/internal';
+import getThemeStyle from './theme';
 import getVerticalStyle from './vertical';
 import { clearFix, resetComponent, resetIcon } from '../../style';
 

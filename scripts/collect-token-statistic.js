@@ -8,7 +8,7 @@ const glob = require('glob');
 const path = require('path');
 const ProgressBar = require('progress');
 const { statistic } = require('../components/theme/util/statistic');
-const { DesignTokenContext } = require('../components/theme');
+const { DesignTokenContext } = require('../components/theme/internal');
 const seedToken = require('../components/theme/themes/seed');
 
 console.log(chalk.green(`🔥 Collecting token statistics...`));

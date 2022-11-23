@@ -2,7 +2,7 @@ import useMemo from 'rc-util/lib/hooks/useMemo';
 import shallowEqual from 'shallowequal';
 import type { OverrideToken } from '../../theme/interface';
 import type { ThemeConfig } from '../context';
-import { defaultConfig } from '../../theme';
+import { defaultConfig } from '../../theme/internal';
 
 export default function useTheme(
   theme?: ThemeConfig,

@@ -6,7 +6,7 @@ import Banner from './components/Banner';
 import Group from './components/Group';
 import { useSiteData } from './components/util';
 import useSiteToken from '../../hooks/useSiteToken';
-import Theme from './components/Theme';
+import Theme from './components/theme/internal';
 import BannerRecommends from './components/BannerRecommends';
 import ComponentsList from './components/ComponentsList';
 import DesignFramework from './components/DesignFramework';

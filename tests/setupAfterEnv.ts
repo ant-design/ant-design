@@ -2,7 +2,7 @@ import { toHaveNoViolations } from 'jest-axe';
 import '@testing-library/jest-dom';
 import format, { plugins } from 'pretty-format';
 import jsdom from 'jsdom';
-import { defaultConfig } from '../components/theme';
+import { defaultConfig } from '../components/theme/internal';
 
 // Not use dynamic hashed for test env since version will change hash dynamically.
 defaultConfig.hashed = false;
