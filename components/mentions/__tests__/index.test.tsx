@@ -1,5 +1,5 @@
 import React from 'react';
-import Mentions from '..';
+import Mentions,{ Option } from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -105,4 +105,18 @@ describe('Mentions', () => {
       wrapper.container.querySelector('.ant-mentions-dropdown-menu-item-active')?.textContent,
     ).toBe('Yesmeck');
   });
+  it('warning if use Mentions.Option', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(
+      <Mentions style={{ width: '100%' }} defaultValue="@afc163">
+        <Option value="afc163">afc163</Option>
+        <Option value="zombieJ">zombieJ</Option>
+        <Option value="yesmeck">yesmeck</Option>
+      </Mentions>,
+    );
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Mentions] `Mentions.Option` is deprecated. Please use `options` instead.',
+    );
+  });
+
 });
