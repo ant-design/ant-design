@@ -14,17 +14,15 @@ title:
 Basic usage.
 
 ```tsx
-import { Mentions } from 'antd';
-import type { OptionProps } from 'antd/es/mentions';
 import React from 'react';
-
-const { Option } = Mentions;
+import { Mentions } from 'antd';
+import type { MentionsOptionProps } from 'antd/es/mentions';
 
 const onChange = (value: string) => {
   console.log('Change:', value);
 };
 
-const onSelect = (option: OptionProps) => {
+const onSelect = (option: MentionsOptionProps) => {
   console.log('select', option);
 };
 
@@ -34,11 +32,21 @@ const App: React.FC = () => (
     onChange={onChange}
     onSelect={onSelect}
     defaultValue="@afc163"
-  >
-    <Option value="afc163">afc163</Option>
-    <Option value="zombieJ">zombieJ</Option>
-    <Option value="yesmeck">yesmeck</Option>
-  </Mentions>
+    options={[
+      {
+        value: 'afc163',
+        label: 'afc163',
+      },
+      {
+        value: 'zombieJ',
+        label: 'zombieJ',
+      },
+      {
+        value: 'yesmeck',
+        label: 'yesmeck',
+      },
+    ]}
+  />
 );
 
 export default App;

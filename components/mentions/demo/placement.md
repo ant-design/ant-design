@@ -14,17 +14,28 @@ title:
 Change the suggestions placement.
 
 ```tsx
-import { Mentions } from 'antd';
 import React from 'react';
-
-const { Option } = Mentions;
+import { Mentions } from 'antd';
 
 const App: React.FC = () => (
-  <Mentions style={{ width: '100%' }} placement="top">
-    <Option value="afc163">afc163</Option>
-    <Option value="zombieJ">zombieJ</Option>
-    <Option value="yesmeck">yesmeck</Option>
-  </Mentions>
+  <Mentions
+    style={{ width: '100%' }}
+    placement="top"
+    options={[
+      {
+        value: 'afc163',
+        label: 'afc163',
+      },
+      {
+        value: 'zombieJ',
+        label: 'zombieJ',
+      },
+      {
+        value: 'yesmeck',
+        label: 'yesmeck',
+      },
+    ]}
+  />
 );
 
 export default App;
