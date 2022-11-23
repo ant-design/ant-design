@@ -1,5 +1,5 @@
 import { imageDemoTest } from '../../../tests/shared/imageTest';
 
-describe('qr-code', () => {
+describe('QrCode image', () => {
   imageDemoTest('qr-code');
 });

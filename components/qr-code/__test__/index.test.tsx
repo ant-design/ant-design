@@ -4,7 +4,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render } from '../../../tests/utils';
 
-describe('qr-code', () => {
+describe('QrCode test', () => {
   mountTest(QrCode);
   rtlTest(QrCode);
   it('should correct render ', () => {
