@@ -10,7 +10,7 @@ export type UseMenuOptions = {
 
 const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => {
   const fullData = useFullSidebarData();
-  const { pathname } = useLocation();
+  const { pathname, search } = useLocation();
   const sidebarData = useSidebarData();
   const { before, after } = options;
 
@@ -60,7 +60,7 @@ const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => 
             childItems.push(
               ...childrenGroup.default.map((item) => ({
                 label: (
-                  <Link to={item.link}>
+                  <Link to={`${item.link}${search}`}>
                     {before}
                     {item.title}
                     {after}
@@ -77,7 +77,7 @@ const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => 
                   key: type,
                   children: children?.map((item) => ({
                     label: (
-                      <Link to={item.link}>
+                      <Link to={`${item.link}${search}`}>
                         {before}
                         {item.title}
                         {after}
@@ -100,7 +100,7 @@ const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => 
               key: group.title,
               children: group.children?.map((item) => ({
                 label: (
-                  <Link to={item.link}>
+                  <Link to={`${item.link}${search}`}>
                     {before}
                     <span key="english">{item.title}</span>
                     <span className="chinese" key="chinese">
@@ -117,7 +117,7 @@ const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => 
           result.push(
             ...group.children?.map((item) => ({
               label: (
-                <Link to={item.link}>
+                <Link to={`${item.link}${search}`}>
                   {before}
                   {item.title}
                   {after}
@@ -130,7 +130,7 @@ const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => 
         return result;
       }, []) ?? []
     );
-  }, [sidebarData, fullData, pathname]);
+  }, [sidebarData, fullData, pathname, search]);
 
   return [menuItems, pathname];
 };
