@@ -20,4 +20,4 @@ const genQrCodeStyle: GenerateStyle<QrCodeToken> = (token) => {
   };
 };
 
-export default genComponentStyleHook<'QrCode'>('QrCode', (token) => genQrCodeStyle(token));
+export default genComponentStyleHook<'QrCode'>('QrCode', genQrCodeStyle);
