@@ -150,5 +150,5 @@ export type { TypographyProps } from './typography';
 export { default as Upload } from './upload';
 export type { UploadFile, UploadProps } from './upload';
 export { default as QrCode } from './qr-code';
-export type { QrCodeProps, QRPropsSVG, QRPropsCanvas } from './qr-code/interface';
+export type { QrCodeProps, QRPropsCanvas } from './qr-code/interface';
 export { default as version } from './version';
