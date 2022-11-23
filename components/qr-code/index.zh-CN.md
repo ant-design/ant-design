@@ -23,8 +23,8 @@ group:
 ## 代码演示
 
 <!-- prettier-ignore -->
+<code src="./demo/base.tsx">基本使用</code>
 <code src="./demo/logo.tsx">带 logo 的例子</code>
-<code src="./demo/withoutlogo.tsx">不带 logo 的例子</code>
 <code src="./demo/download.tsx">下载二维码</code>
 <code src="./demo/errorlevel.tsx">纠错比例</code>
 
