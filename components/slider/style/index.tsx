@@ -1,8 +1,8 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import type * as React from 'react';
 import { TinyColor } from '@ctrl/tinycolor';
-import type { FullToken, GenerateStyle } from '../../theme';
-import { genComponentStyleHook, mergeToken } from '../../theme';
+import type { FullToken, GenerateStyle } from '../../theme/internal';
+import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import { resetComponent } from '../../style';
 
 // Direction naming standard:

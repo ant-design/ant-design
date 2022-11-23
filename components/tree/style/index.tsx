@@ -2,8 +2,8 @@ import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import { Keyframes } from '@ant-design/cssinjs';
 import { genCollapseMotion } from '../../style/motion';
 import { getStyle as getCheckboxStyle } from '../../checkbox/style';
-import type { DerivativeToken } from '../../theme';
-import { genComponentStyleHook, mergeToken } from '../../theme';
+import type { DerivativeToken } from '../../theme/internal';
+import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import { genFocusOutline, resetComponent } from '../../style';
 
 // ============================ Keyframes =============================
