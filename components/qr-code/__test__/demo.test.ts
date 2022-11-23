@@ -1,3 +1,3 @@
-import demoTest from '../../../tests/demo';
+import demoTest from '../../../tests/shared/demoTest';
 
-demoTest('QrCode');
+demoTest('qr-code');

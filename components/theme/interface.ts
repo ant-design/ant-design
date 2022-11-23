@@ -135,6 +135,7 @@ export interface ComponentTokenMap {
   Space?: SpaceComponentToken;
   Progress?: ProgressComponentToken;
   Tour?: TourComponentToken;
+  QrCode?: {};
 }
 
 export type OverrideToken = {

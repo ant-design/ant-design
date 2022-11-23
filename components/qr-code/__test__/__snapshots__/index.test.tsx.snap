@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`QrCode test rtl render component should be rendered correctly in RTL direction 1`] = `null`;
+
+exports[`QrCode test should correct render  1`] = `
+<div
+  class="ant-qrcode"
+  style="width: 128px; height: 128px;"
+>
+  <canvas
+    height="128"
+    style="height: 128px; width: 128px;"
+    width="128"
+  />
+</div>
+`;
