@@ -1,7 +1,7 @@
 import type React from 'react';
 import { initFadeMotion, initZoomMotion } from '../../style/motion';
-import type { AliasToken, FullToken, GenerateStyle } from '../../theme';
-import { genComponentStyleHook, mergeToken } from '../../theme';
+import type { AliasToken, FullToken, GenerateStyle } from '../../theme/internal';
+import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import type { TokenWithCommonCls } from '../../theme/util/genComponentStyleHook';
 import { clearFix, genFocusStyle, resetComponent } from '../../style';
 

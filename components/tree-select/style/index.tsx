@@ -1,6 +1,6 @@
 import { getStyle as getCheckboxStyle } from '../../checkbox/style';
-import type { AliasToken, FullToken, GenerateStyle } from '../../theme';
-import { genComponentStyleHook, mergeToken } from '../../theme';
+import type { AliasToken, FullToken, GenerateStyle } from '../../theme/internal';
+import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import { genTreeStyle } from '../../tree/style';
 
 interface TreeSelectToken extends FullToken<'TreeSelect'> {

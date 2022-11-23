@@ -1,6 +1,6 @@
 import { useStyleRegister } from '@ant-design/cssinjs';
 import { resetIcon } from '../../style';
-import { useToken } from '../../theme';
+import { useToken } from '../../theme/internal';
 
 const useStyle = (iconPrefixCls: string) => {
   const [theme, token] = useToken();

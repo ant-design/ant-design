@@ -10,7 +10,7 @@ import type { Locale } from '../locale-provider';
 import LocaleProvider, { ANT_MARK } from '../locale-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale/en_US';
-import { DesignTokenContext } from '../theme';
+import { DesignTokenContext } from '../theme/internal';
 import defaultSeedToken from '../theme/themes/seed';
 import type { ConfigConsumerProps, CSPConfig, DirectionType, Theme, ThemeConfig } from './context';
 import { ConfigConsumer, ConfigContext, defaultIconPrefixCls } from './context';

@@ -1,5 +1,5 @@
-import type { FullToken, GenerateStyle } from '../../theme';
-import { genComponentStyleHook, mergeToken } from '../../theme';
+import type { FullToken, GenerateStyle } from '../../theme/internal';
+import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import genDraggerStyle from './dragger';
 import genListStyle from './list';
 import genMotionStyle from './motion';

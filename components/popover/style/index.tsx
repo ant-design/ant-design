@@ -1,6 +1,6 @@
 import { initZoomMotion } from '../../style/motion';
-import type { FullToken, GenerateStyle, PresetColorType } from '../../theme';
-import { genComponentStyleHook, mergeToken, PresetColors } from '../../theme';
+import type { FullToken, GenerateStyle, PresetColorType } from '../../theme/internal';
+import { genComponentStyleHook, mergeToken, PresetColors } from '../../theme/internal';
 import { resetComponent } from '../../style';
 import getArrowStyle from '../../style/placementArrow';
 
