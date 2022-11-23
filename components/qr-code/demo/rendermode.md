@@ -1,6 +1,6 @@
 ## zh-CN
 
-`format` 属性指定格式。
+渲染为 svg
 
 ## en-US
 

@@ -1,6 +1,6 @@
 ## zh-CN
 
-`format` 属性指定格式。
+开启 popover 模式
 
 ## en-US
 

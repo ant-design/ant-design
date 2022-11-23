@@ -1,6 +1,6 @@
 ## zh-CN
 
-`format` 属性指定格式。
+不带 logo 的例子
 
 ## en-US
 

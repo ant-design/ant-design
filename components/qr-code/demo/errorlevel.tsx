@@ -1,8 +1,3 @@
-/**
- * uuid: f54dc6af
- * title: errorLevel例子
- */
-
 import React, { useState } from 'react';
 import { Radio, QrCode } from 'antd';
 
@@ -18,6 +13,7 @@ const App: React.FC = () => {
       </Radio.Group>
       <QrCode
         style={{ marginTop: 16 }}
+        mode="svg"
         errorLevel={level}
         value="https://ant.design/"
         logo="https://gw.alipayobjects.com/zos/antfincdn/%24C9tmj978R/Carousel.svg"

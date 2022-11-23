@@ -23,11 +23,11 @@ group:
 ## 代码演示
 
 <!-- prettier-ignore -->
-<code src="./demo/logo.tsx">带 logo 例子</code>
-<code src="./demo/withoutlogo.tsx">不带 logo 例子</code>
+<code src="./demo/logo.tsx">带 logo 的例子</code>
+<code src="./demo/withoutlogo.tsx">不带 logo 的例子</code>
 <code src="./demo/rendermode.tsx">渲染为 svg</code>
 <code src="./demo/outdated.tsx">过期状态</code>
-<code src="./demo/popover.tsx">popover 带 logo 例子</code>
+<code src="./demo/popover.tsx">开启 popover 模式</code>
 <code src="./demo/refresh.tsx">轮询 & 过期刷新</code>
 <code src="./demo/download.tsx">下载二维码</code>
 <code src="./demo/errorlevel.tsx">纠错比例</code>

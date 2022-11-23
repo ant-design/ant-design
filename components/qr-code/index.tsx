@@ -14,7 +14,7 @@ const noop = () => {};
 const QrCode: React.FC<QrCodeProps> = (props) => {
   const {
     mode = 'canvas',
-    value = '',
+    value,
     logo = '',
     size = 128,
     bgColor = '#fff',
@@ -51,10 +51,6 @@ const QrCode: React.FC<QrCodeProps> = (props) => {
     };
   }, [bgColor, errorLevel, fgColor, logo, logoSize, size, value]);
 
-  if (!value) {
-    return null;
-  }
-
   const qrcode =
     mode === 'svg' ? (
       <QRCodeSVG {...(qrCodeProps as QRPropsSVG)} />
@@ -62,7 +58,14 @@ const QrCode: React.FC<QrCodeProps> = (props) => {
       <QRCodeCanvas {...(qrCodeProps as QRPropsCanvas)} />
     );
 
+  if (!value) {
+    return null;
+  }
+
   if (popover) {
+    if (!logo) {
+      return null;
+    }
     return (
       <Popover trigger="hover" content={qrcode}>
         <img src={logo} width={logoSize} alt="qrcode" />
