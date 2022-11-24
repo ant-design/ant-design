@@ -99,7 +99,7 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
       insetInlineEnd: 0,
       zIndex: 1,
       height: pickerPanelCellHeight,
-      transform: 'translate3d(0, -50%, 0)',
+      transform: 'translateY(-50%)',
       transition: `all ${motionDurationSlow}`,
       content: '""',
     },
@@ -187,7 +187,7 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
         height: controlHeightSM,
         borderTop: `${lineWidth}px dashed ${pickerDateHoverRangeBorderColor}`,
         borderBottom: `${lineWidth}px dashed ${pickerDateHoverRangeBorderColor}`,
-        transform: 'translate3d(0, -50%, 0)',
+        transform: 'translateY(-50%)',
         transition: `all ${motionDurationSlow}`,
         content: '""',
       },
@@ -1078,7 +1078,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
           color: colorTextDisabled,
           lineHeight: 1,
           background: colorBgContainer,
-          transform: 'translate3d(0, -50%, 0)',
+          transform: 'translateY(-50%)',
           cursor: 'pointer',
           opacity: 0,
           transition: `opacity ${motionDurationMid}, color ${motionDurationMid}`,
@@ -1185,7 +1185,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
             [`${componentCls}-range-arrow`]: {
               top: 0,
               display: 'block',
-              transform: 'translate3d(0, -100%, 0)',
+              transform: 'translateY(-100%)',
             },
           },
 
@@ -1193,7 +1193,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
             [`${componentCls}-range-arrow`]: {
               bottom: 0,
               display: 'block',
-              transform: 'translate3d(0, 100%, 0) rotate(180deg)',
+              transform: 'translateY(100%) rotate(180deg)',
             },
           },
 

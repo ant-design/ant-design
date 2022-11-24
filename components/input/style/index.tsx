@@ -912,7 +912,7 @@ const genTextAreaStyle: GenerateStyle<InputToken> = (token) => {
           content: 'attr(data-count)',
           pointerEvents: 'none',
           display: 'block',
-          transform: 'translate3d(0, 100%, 0)',
+          transform: 'translateY(100%)',
         },
       },
     },

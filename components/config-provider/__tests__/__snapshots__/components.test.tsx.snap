@@ -603,7 +603,7 @@ exports[`ConfigProvider components Avatar configProvider 1`] = `
 >
   <span
     class="config-avatar-string"
-    style="transform: scale(1) translate3d(-50%, 0, 0);"
+    style="transform: scale(1) translateX(-50%);"
   />
 </span>
 `;
@@ -614,7 +614,7 @@ exports[`ConfigProvider components Avatar configProvider componentDisabled 1`] =
 >
   <span
     class="config-avatar-string"
-    style="transform: scale(1) translate3d(-50%, 0, 0);"
+    style="transform: scale(1) translateX(-50%);"
   />
 </span>
 `;
@@ -625,7 +625,7 @@ exports[`ConfigProvider components Avatar configProvider componentSize large 1`]
 >
   <span
     class="config-avatar-string"
-    style="transform: scale(1) translate3d(-50%, 0, 0);"
+    style="transform: scale(1) translateX(-50%);"
   />
 </span>
 `;
@@ -636,7 +636,7 @@ exports[`ConfigProvider components Avatar configProvider componentSize middle 1`
 >
   <span
     class="config-avatar-string"
-    style="transform: scale(1) translate3d(-50%, 0, 0);"
+    style="transform: scale(1) translateX(-50%);"
   />
 </span>
 `;
@@ -647,7 +647,7 @@ exports[`ConfigProvider components Avatar configProvider virtual and dropdownMat
 >
   <span
     class="ant-avatar-string"
-    style="transform: scale(1) translate3d(-50%, 0, 0);"
+    style="transform: scale(1) translateX(-50%);"
   />
 </span>
 `;
@@ -658,7 +658,7 @@ exports[`ConfigProvider components Avatar normal 1`] = `
 >
   <span
     class="ant-avatar-string"
-    style="transform: scale(1) translate3d(-50%, 0, 0);"
+    style="transform: scale(1) translateX(-50%);"
   />
 </span>
 `;
@@ -669,7 +669,7 @@ exports[`ConfigProvider components Avatar prefixCls 1`] = `
 >
   <span
     class="prefix-Avatar-string"
-    style="transform: scale(1) translate3d(-50%, 0, 0);"
+    style="transform: scale(1) translateX(-50%);"
   />
 </span>
 `;

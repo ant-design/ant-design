@@ -15,11 +15,11 @@ const getRTLStyle: GenerateStyle<MenuToken> = ({ componentCls, menuArrowOffset }
     ${componentCls}-submenu-rtl ${componentCls}-vertical`]: {
     [`${componentCls}-submenu-arrow`]: {
       '&::before': {
-        transform: `rotate(-45deg) translate3d(0, -${menuArrowOffset}, 0)`,
+        transform: `rotate(-45deg) translateY(-${menuArrowOffset})`,
       },
 
       '&::after': {
-        transform: `rotate(45deg) translate3d(0, ${menuArrowOffset}, 0)`,
+        transform: `rotate(45deg) translateY(${menuArrowOffset})`,
       },
     },
   },

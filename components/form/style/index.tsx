@@ -355,17 +355,17 @@ const genFormMotionStyle: GenerateStyle<FormToken> = (token) => {
 
         [`&-appear,
           &-enter`]: {
-          transform: `translate3d(0, -5px, 0)`,
+          transform: `translateY(-5px)`,
           opacity: 0,
 
           '&-active': {
-            transform: 'translate3d(0, 0, 0)',
+            transform: 'translateY(0)',
             opacity: 1,
           },
         },
 
         '&-leave-active': {
-          transform: `translate3d(0, -5px, 0)`,
+          transform: `translateY(-5px)`,
         },
       },
     },

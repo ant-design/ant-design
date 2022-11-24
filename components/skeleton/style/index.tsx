@@ -10,10 +10,10 @@ export type ComponentToken = {
 
 const skeletonClsLoading = new Keyframes(`ant-skeleton-loading`, {
   '0%': {
-    transform: 'translate3d(-37.5%, 0, 0)',
+    transform: 'translateX(-37.5%)',
   },
   '100%': {
-    transform: 'translate3d(37.5%, 0, 0)',
+    transform: 'translateX(37.5%)',
   },
 });
 

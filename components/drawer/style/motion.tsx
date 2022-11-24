@@ -49,16 +49,16 @@ const genMotionStyle: GenerateStyle<DrawerToken> = (token: DrawerToken) => {
           {
             '&-enter, &-appear': {
               '&-start': {
-                transform: 'translate3d(-100%, 0, 0) !important',
+                transform: 'translateX(-100%) !important',
               },
               '&-active': {
-                transform: 'translate3d(0, 0, 0)',
+                transform: 'translateX(0)',
               },
             },
             '&-leave': {
-              transform: 'translate3d(0, 0, 0)',
+              transform: 'translateX(0)',
               '&-active': {
-                transform: 'translate3d(-100%, 0, 0)',
+                transform: 'translateX(-100%)',
               },
             },
           },
@@ -70,16 +70,16 @@ const genMotionStyle: GenerateStyle<DrawerToken> = (token: DrawerToken) => {
           {
             '&-enter, &-appear': {
               '&-start': {
-                transform: 'translate3d(100%, 0, 0) !important',
+                transform: 'translateX(100%) !important',
               },
               '&-active': {
-                transform: 'translate3d(0, 0, 0)',
+                transform: 'translateX(0)',
               },
             },
             '&-leave': {
-              transform: 'translate3d(0, 0, 0)',
+              transform: 'translateX(0)',
               '&-active': {
-                transform: 'translate3d(100%, 0, 0)',
+                transform: 'translateX(100%)',
               },
             },
           },
@@ -91,16 +91,16 @@ const genMotionStyle: GenerateStyle<DrawerToken> = (token: DrawerToken) => {
           {
             '&-enter, &-appear': {
               '&-start': {
-                transform: 'translate3d(0, -100%, 0) !important',
+                transform: 'translateY(-100%) !important',
               },
               '&-active': {
-                transform: 'translate3d(0, 0, 0)',
+                transform: 'translateY(0)',
               },
             },
             '&-leave': {
-              transform: 'translate3d(0, 0, 0)',
+              transform: 'translateY(0)',
               '&-active': {
-                transform: 'translate3d(0, -100%, 0)',
+                transform: 'translateY(-100%)',
               },
             },
           },
@@ -112,16 +112,16 @@ const genMotionStyle: GenerateStyle<DrawerToken> = (token: DrawerToken) => {
           {
             '&-enter, &-appear': {
               '&-start': {
-                transform: 'translate3d(0, 100%, 0) !important',
+                transform: 'translateY(100%) !important',
               },
               '&-active': {
-                transform: 'translate3d(0, 0, 0)',
+                transform: 'translateY(0)',
               },
             },
             '&-leave': {
-              transform: 'translate3d(0, 0, 0)',
+              transform: 'translateY(0)',
               '&-active': {
-                transform: 'translate3d(0, 100%, 0)',
+                transform: 'translateY(100%)',
               },
             },
           },

@@ -9,7 +9,7 @@ export function getPlacementStyle(placement: NotificationPlacement, top: number,
     case 'top':
       style = {
         left: '50%',
-        transform: 'translate3d(-50%, 0, 0)',
+        transform: 'translateX(-50%)',
         right: 'auto',
         top,
         bottom: 'auto',
@@ -35,7 +35,7 @@ export function getPlacementStyle(placement: NotificationPlacement, top: number,
     case 'bottom':
       style = {
         left: '50%',
-        transform: 'translate3d(-50%, 0, 0)',
+        transform: 'translateX(-50%)',
         right: 'auto',
         top: 'auto',
         bottom,

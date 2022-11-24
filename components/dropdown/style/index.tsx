@@ -140,7 +140,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
         &-placement-topRight > ${componentCls}-arrow
       `]: {
           bottom: dropdownArrowDistance,
-          transform: 'translate3d(0, 100%, 0) rotate(180deg)',
+          transform: 'translateY(100%) rotate(180deg)',
         },
 
         [`&-placement-top > ${componentCls}-arrow`]: {
@@ -148,7 +148,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
             _skip_check_: true,
             value: '50%',
           },
-          transform: 'translate3d(-50%, 100%, 0) rotate(180deg)',
+          transform: 'translateX(-50%) translateY(100%) rotate(180deg)',
         },
 
         [`&-placement-topLeft > ${componentCls}-arrow`]: {
@@ -171,7 +171,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
           &-placement-bottomRight > ${componentCls}-arrow
         `]: {
           top: dropdownArrowDistance,
-          transform: `translate3d(0, -100%, 0)`,
+          transform: `translateY(-100%)`,
         },
 
         [`&-placement-bottom > ${componentCls}-arrow`]: {
@@ -179,7 +179,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
             _skip_check_: true,
             value: '50%',
           },
-          transform: `translate3d(-50%, -100%, 0)`,
+          transform: `translateY(-100%) translateX(-50%)`,
         },
 
         [`&-placement-bottomLeft > ${componentCls}-arrow`]: {

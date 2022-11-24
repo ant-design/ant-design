@@ -267,7 +267,7 @@ const genCarouselVerticalStyle: GenerateStyle<CarouselToken> = (token) => {
         width: token.dotHeight,
         height: 'auto',
         margin: 0,
-        transform: 'translate3d(0, -50%, 0)',
+        transform: 'translateY(-50%)',
 
         '&-left': {
           insetInlineEnd: 'auto',

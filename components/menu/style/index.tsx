@@ -329,7 +329,7 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
             insetInlineEnd: token.margin,
             width: menuArrowSize,
             color: 'currentcolor',
-            transform: 'translate3d(0, -50%, 0)',
+            transform: 'translateY(-50%)',
             transition: `transform ${motionDurationSlow} ${motionEaseInOut}`,
           },
 
@@ -351,11 +351,11 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
             },
 
             '&::before': {
-              transform: `rotate(45deg) translate3d(0, -${menuArrowOffset}, 0)`,
+              transform: `rotate(45deg) translateY(-${menuArrowOffset})`,
             },
 
             '&::after': {
-              transform: `rotate(-45deg) translate3d(0, ${menuArrowOffset}, 0)`,
+              transform: `rotate(-45deg) translateY(${menuArrowOffset})`,
             },
           },
         },
@@ -364,25 +364,25 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
         &-inline ${componentCls}-submenu-arrow`]: {
           // ↓
           '&::before': {
-            transform: `rotate(-45deg) translate3d(${menuArrowOffset}, 0, 0)`,
+            transform: `rotate(-45deg) translateX(${menuArrowOffset})`,
           },
 
           '&::after': {
-            transform: `rotate(45deg) translate3d(-${menuArrowOffset}, 0, 0)`,
+            transform: `rotate(45deg) translateX(-${menuArrowOffset})`,
           },
         },
 
         [`${componentCls}-submenu-open${componentCls}-submenu-inline > ${componentCls}-submenu-title > ${componentCls}-submenu-arrow`]:
           {
             // ↑
-            transform: `translate3d(0, -${menuArrowSize * 0.2}px, 0)`,
+            transform: `translateY(-${menuArrowSize * 0.2}px)`,
 
             '&::after': {
-              transform: `rotate(-45deg) translate3d(-${menuArrowOffset}, 0, 0)`,
+              transform: `rotate(-45deg) translateX(-${menuArrowOffset})`,
             },
 
             '&::before': {
-              transform: `rotate(45deg) translate3d(${menuArrowOffset}, 0, 0)`,
+              transform: `rotate(45deg) translateX(${menuArrowOffset})`,
             },
           },
       },

@@ -184,7 +184,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         top: '50%',
         insetInlineStart: token.inputPaddingHorizontalBase,
         insetInlineEnd: token.inputPaddingHorizontalBase,
-        transform: 'translate3d(0, -50%, 0)',
+        transform: 'translateY(-50%)',
         transition: `all ${token.motionDurationSlow}`,
       },
     },

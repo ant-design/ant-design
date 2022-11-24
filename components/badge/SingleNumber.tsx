@@ -112,7 +112,7 @@ export default function SingleNumber(props: SingleNumberProps) {
     // Calculate container offset value
     const unit = prevCount < count ? 1 : -1;
     offsetStyle = {
-      transform: `translate3d(0, ${-getOffset(prevValue, value, unit)}00%, 0)`,
+      transform: `translateY(${-getOffset(prevValue, value, unit)}00%)`,
     };
   }
 

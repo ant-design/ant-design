@@ -61,7 +61,7 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
           // Chrome not accept `inherit` in `border-top`
           borderBlockStartColor: 'inherit',
           borderBlockEnd: 0,
-          transform: 'translate3d(0, 50%, 0)',
+          transform: 'translateY(50%)',
           content: "''",
         },
       },

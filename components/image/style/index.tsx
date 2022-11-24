@@ -102,7 +102,7 @@ export const genPreviewOperationsStyle = (token: ImageToken): CSSObject => {
       '&-progress': {
         position: 'absolute',
         left: { _skip_check_: true, value: '50%' },
-        transform: 'translate3d(-50%, 0, 0)',
+        transform: 'translateX(-50%)',
       },
 
       '&-icon': {
@@ -139,7 +139,7 @@ export const genPreviewSwitchStyle = (token: ImageToken): CSSObject => {
       color: token.imagePreviewOperationColor,
       background: operationBg.toRgbString(),
       borderRadius: '50%',
-      transform: `translate3d(0, -50%, 0)`,
+      transform: `translateY(-50%)`,
       cursor: 'pointer',
       transition: `all ${motionDurationSlow}`,
       pointerEvents: 'auto',

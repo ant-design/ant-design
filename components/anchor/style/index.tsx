@@ -58,7 +58,7 @@ const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
             value: 0,
           },
           display: 'none',
-          transform: 'translate3d(0, -50%, 0)',
+          transform: 'translateY(-50%)',
           transition: `top ${motionDurationSlow} ease-in-out`,
           width: lineWidthBold,
           backgroundColor: colorPrimary,
