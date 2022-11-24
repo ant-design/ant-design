@@ -181,6 +181,10 @@ export interface SeedToken extends PresetColorType {
   motionEaseOut: string;
 
   // Radius
+  /**
+   * @desc 基础圆角
+   * @descEn Base border radius
+   */
   borderRadius: number;
 
   // Size
