@@ -45,9 +45,7 @@ const BackTop: React.FC<BackTopProps> = (props) => {
   const bindScrollEvent = () => {
     const getTarget = target || getDefaultTarget;
     const container = getTarget();
-    scrollEvent.current = addEventListener(container, 'scroll', (e: React.UIEvent<HTMLElement>) => {
-      handleScroll(e);
-    });
+    scrollEvent.current = addEventListener(container, 'scroll', handleScroll);
     handleScroll({ target: container });
   };
 
