@@ -16,7 +16,7 @@ describe('BackTop', () => {
 
   it('should scroll to top after click it', async () => {
     const { container } = render(<BackTop />);
-    const scrollToSpy = jest.spyOn(window, 'scrollTo').mockImplementation((_, y) => {
+    jest.spyOn(window, 'scrollTo').mockImplementation((_, y) => {
       window.scrollY = y;
       window.pageYOffset = y;
       document.documentElement.scrollTop = y;
@@ -26,7 +26,6 @@ describe('BackTop', () => {
     fireEvent.click(container.querySelector('.ant-back-top')!);
     await waitFakeTimer();
     expect(document.documentElement.scrollTop).toBe(0);
-    scrollToSpy.mockRestore();
     jest.clearAllTimers();
   });
 
