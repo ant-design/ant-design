@@ -1,4 +1,4 @@
-import React, { type FC, useEffect, useMemo, useRef, useLayoutEffect } from 'react';
+import React, { useEffect, useMemo, useRef, useLayoutEffect } from 'react';
 import 'dayjs/locale/zh-cn';
 import dayjs from 'dayjs';
 import { useOutlet, useSearchParams, Helmet } from 'dumi';
@@ -35,7 +35,7 @@ const locales = {
 
 const RESPONSIVE_MOBILE = 768;
 
-const DocLayout: FC = () => {
+const DocLayout: React.FC = () => {
   const outlet = useOutlet();
   const location = useLocation();
   const { pathname, search } = location;
