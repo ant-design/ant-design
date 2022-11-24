@@ -38,7 +38,7 @@ const BackTop: React.FC<BackTopProps> = (props) => {
   const handleScroll = throttleByAnimationFrame(
     (e: React.UIEvent<HTMLElement, UIEvent> | { target: any }) => {
       const scrollTop = getScroll(e.target, true);
-      setVisible(scrollTop > visibilityHeight);
+      setVisible(scrollTop >= visibilityHeight);
     },
   );
 

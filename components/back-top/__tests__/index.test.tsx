@@ -15,7 +15,7 @@ describe('BackTop', () => {
   rtlTest(BackTop);
 
   it('should scroll to top after click it', async () => {
-    const { container } = render(<BackTop visibilityHeight={-1} />);
+    const { container } = render(<BackTop />);
     const scrollToSpy = jest.spyOn(window, 'scrollTo').mockImplementation((_, y) => {
       window.scrollY = y;
       window.pageYOffset = y;
