@@ -217,19 +217,27 @@ exports[`Badge should be compatible with borderColor style 1`] = `
 exports[`Badge should display custom color and number is 0 1`] = `
 <div>
   <span
-    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+    class="ant-badge ant-badge-not-a-wrapper"
   >
-    <span
-      class="ant-badge-status-dot"
+    <sup
+      class="ant-scroll-number ant-badge-count"
+      data-show="true"
       style="background: rgb(255, 255, 0);"
-    />
+      title="0"
+    >
+      0
+    </sup>
   </span>
   <span
-    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+    class="ant-badge ant-badge-not-a-wrapper"
   >
-    <span
-      class="ant-badge-status-dot ant-badge-status-blue"
-    />
+    <sup
+      class="ant-scroll-number ant-badge-count ant-badge-status-blue"
+      data-show="true"
+      title="0"
+    >
+      0
+    </sup>
   </span>
   <span
     class="ant-badge ant-badge-not-a-wrapper"
@@ -243,7 +251,7 @@ exports[`Badge should display custom color and number is 0 1`] = `
     </sup>
   </span>
   <span
-    class="ant-badge ant-badge-status"
+    class="ant-badge"
   >
     <div />
     <sup
