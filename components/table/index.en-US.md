@@ -2,7 +2,7 @@
 category: Components
 group: Data Display
 title: Table
-cover: https://gw.alipayobjects.com/zos/alicdn/f-SbcX2Lx/Table.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*3yz3QqMlShYAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 A table displays rows of data.
@@ -142,11 +142,11 @@ Same as `onRow` `onHeaderRow` `onCell` `onHeaderCell`
 <Table
   onRow={(record, rowIndex) => {
     return {
-      onClick: event => {}, // click row
-      onDoubleClick: event => {}, // double click row
-      onContextMenu: event => {}, // right button click row
-      onMouseEnter: event => {}, // mouse enter row
-      onMouseLeave: event => {}, // mouse leave row
+      onClick: (event) => {}, // click row
+      onDoubleClick: (event) => {}, // double click row
+      onContextMenu: (event) => {}, // right button click row
+      onMouseEnter: (event) => {}, // mouse enter row
+      onMouseLeave: (event) => {}, // mouse leave row
     };
   }}
   onHeaderRow={(columns, index) => {
@@ -326,7 +326,7 @@ If `dataSource[i].key` is not provided, then you should specify the primary key 
 // primary key is uid
 return <Table rowKey="uid" />;
 // or
-return <Table rowKey={record => record.uid} />;
+return <Table rowKey={(record) => record.uid} />;
 ```
 
 ## Migrate to v4

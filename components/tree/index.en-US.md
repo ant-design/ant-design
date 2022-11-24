@@ -2,7 +2,7 @@
 category: Components
 group: Data Display
 title: Tree
-cover: https://gw.alipayobjects.com/zos/alicdn/Xh-oWqg9k/Tree.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Ag9_Q6ArswEAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -105,7 +105,7 @@ Before `3.4.0`: The number of treeNodes can be very large, but when `checkable=t
 {
   this.state.treeData.length ? (
     <Tree>
-      {this.state.treeData.map(data => (
+      {this.state.treeData.map((data) => (
         <TreeNode />
       ))}
     </Tree>

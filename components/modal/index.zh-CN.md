@@ -3,7 +3,7 @@ group: 反馈
 category: Components
 subtitle: 对话框
 title: Modal
-cover: https://gw.alipayobjects.com/zos/alicdn/3StSdUlSH/Modal.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*wM3qQ5XrhlcAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---

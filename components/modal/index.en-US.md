@@ -2,7 +2,7 @@
 group: Feedback
 category: Components
 title: Modal
-cover: https://gw.alipayobjects.com/zos/alicdn/3StSdUlSH/Modal.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*wM3qQ5XrhlcAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -125,7 +125,7 @@ modal.update({
 });
 
 // on 4.8.0 or above, you can pass a function to update modal
-modal.update(prevConfig => ({
+modal.update((prevConfig) => ({
   ...prevConfig,
   title: `${prevConfig.title} (New)`,
 }));

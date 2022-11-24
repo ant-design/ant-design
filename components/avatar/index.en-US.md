@@ -1,7 +1,7 @@
 ---
 category: Components
 title: Avatar
-cover: https://gw.alipayobjects.com/zos/antfincdn/aBcnbw68hP/Avatar.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*JJBSS5lBG4IAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 group:

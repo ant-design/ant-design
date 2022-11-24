@@ -2,7 +2,7 @@
 category: Components
 group: Data Display
 title: Popover
-cover: https://gw.alipayobjects.com/zos/alicdn/1PNL1p_cO/Popover.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*XhL3QpRw92kAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---

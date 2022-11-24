@@ -4,7 +4,7 @@ subtitle: 全局提示
 group: 反馈
 noinstant: true
 title: Message
-cover: https://gw.alipayobjects.com/zos/alicdn/hAkKTIW0K/Message.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*JjZBT6N1MusAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---

@@ -3,7 +3,7 @@ category: Components
 group: 数据录入
 title: DatePicker
 subtitle: 日期选择框
-cover: https://gw.alipayobjects.com/zos/alicdn/RT_USzA48/DatePicker.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*xXA9TJ8BTioAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
