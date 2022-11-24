@@ -69,7 +69,7 @@ const Badge: CompoundedComponent = ({
 
   const isZero = numberedDisplayCount === '0' || numberedDisplayCount === 0;
 
-  const ignoreCount = count === null || isZero;
+  const ignoreCount = count === null || (isZero && !showZero);
 
   const hasStatus =
     ((status !== null && status !== undefined) || (color !== null && color !== undefined)) &&
