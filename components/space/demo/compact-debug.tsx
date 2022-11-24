@@ -11,6 +11,7 @@ import {
   Dropdown,
   Drawer,
   InputNumber,
+  DatePicker,
 } from 'antd';
 
 const { Option } = Select;
@@ -81,19 +82,21 @@ const App: React.FC = () => {
       <br />
       <Space.Compact>
         <Button onClick={() => setShowModal(true)}>debug Modal context</Button>
-        <Modal title="Basic Modal" open={showModal} onCancel={() => setShowModal(false)}>
-          <Button>normal button A</Button>
-          <Button>normal button B</Button>
-          <br />
-          <br />
-          <Input />
-          <br />
-          <br />
-          <Space.Compact>
-            <Button>compact button A</Button>
-            <Button>compact button B</Button>
-          </Space.Compact>
-        </Modal>
+        {showModal && (
+          <Modal title="Basic Modal" open={showModal} onCancel={() => setShowModal(false)}>
+            <Button>normal button A</Button>
+            <Button>normal button B</Button>
+            <br />
+            <br />
+            <Input />
+            <br />
+            <br />
+            <Space.Compact>
+              <Button>compact button A</Button>
+              <Button>compact button B</Button>
+            </Space.Compact>
+          </Modal>
+        )}
       </Space.Compact>
       <Space.Compact>
         <Dropdown.Button
@@ -115,24 +118,81 @@ const App: React.FC = () => {
       </Space.Compact>
       <Space.Compact>
         <Button onClick={() => setShowDrawer(true)}>debug Drawer context</Button>
-        <Drawer
-          title="Basic Drawer"
-          placement="right"
-          onClose={() => setShowDrawer(false)}
-          open={showDrawer}
-        >
-          <Button>normal button A</Button>
-          <Button>normal button B</Button>
-          <br />
-          <br />
-          <Space.Compact>
-            <Button>compact button A</Button>
-            <Button>compact button B</Button>
-          </Space.Compact>
-        </Drawer>
+        {showDrawer && (
+          <Drawer
+            title="Basic Drawer"
+            placement="right"
+            onClose={() => setShowDrawer(false)}
+            open={showDrawer}
+          >
+            <Button>normal button A</Button>
+            <Button>normal button B</Button>
+            <br />
+            <br />
+            <Space.Compact>
+              <Button>compact button A</Button>
+              <Button>compact button B</Button>
+            </Space.Compact>
+          </Drawer>
+        )}
       </Space.Compact>
       <Space.Compact>
         <InputNumber addonBefore="+" addonAfter="$" defaultValue={100} />
+      </Space.Compact>
+      <Space.Compact>
+        <Select defaultValue="Sign Up">
+          <Option value="Sign Up">Sign Up</Option>
+          <Option value="Sign In">Sign In</Option>
+        </Select>
+      </Space.Compact>
+      <Space.Compact>
+        <DatePicker.RangePicker style={{ width: '70%' }} />
+      </Space.Compact>
+      <Space.Compact>
+        <InputNumber defaultValue={12} />
+      </Space.Compact>
+      <Space.Compact>
+        <Cascader
+          style={{ width: '70%' }}
+          options={[
+            {
+              value: 'zhejiang',
+              label: 'Zhejiang',
+              children: [
+                {
+                  value: 'hangzhou',
+                  label: 'Hangzhou',
+                  children: [
+                    {
+                      value: 'xihu',
+                      label: 'West Lake',
+                    },
+                  ],
+                },
+              ],
+            },
+            {
+              value: 'jiangsu',
+              label: 'Jiangsu',
+              children: [
+                {
+                  value: 'nanjing',
+                  label: 'Nanjing',
+                  children: [
+                    {
+                      value: 'zhonghuamen',
+                      label: 'Zhong Hua Men',
+                    },
+                  ],
+                },
+              ],
+            },
+          ]}
+          placeholder="Select Address"
+        />
+      </Space.Compact>
+      <Space.Compact direction="vertical">
+        <Button>vertical compact button A</Button>
       </Space.Compact>
     </Space>
   );
