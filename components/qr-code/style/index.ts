@@ -13,8 +13,8 @@ const genQrCodeStyle: GenerateStyle<QrCodeToken> = (token) => {
       width: '100%',
       height: '100%',
       '&-icon': {
-        marginBlockEnd: 8,
-        fontSize: '32px',
+        marginBlockEnd: token.marginXS,
+        fontSize: token.controlHeight,
       },
     },
   };
