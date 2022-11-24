@@ -21,7 +21,7 @@ export interface PurePanelProps
 const PureFloatButton: React.FC<PureFloatButtonProps> = ({ backTop, ...props }) =>
   backTop ? <BackTop {...props} visibilityHeight={0} /> : <FloatButton {...props} />;
 
-const PurePanel: React.FC<PurePanelProps> = ({ className, items, ...props }) => {
+function PurePanel({ className, items, ...props }: PurePanelProps) {
   const { prefixCls: customizePrefixCls } = props;
 
   const { getPrefixCls } = React.useContext(ConfigContext);
@@ -39,6 +39,6 @@ const PurePanel: React.FC<PurePanelProps> = ({ className, items, ...props }) => 
   }
 
   return <PureFloatButton className={classNames(className, pureCls)} {...props} />;
-};
+}
 
 export default React.memo(PurePanel);
