@@ -14,7 +14,7 @@ const QrCode: React.FC<QrCodeProps> = (props) => {
     bgColor = '#fff',
     fgColor = '#000',
     iconSize = 32,
-    errorLevel = 'L',
+    errorLevel = 'M',
     style,
     className,
     prefixCls: customizePrefixCls,
