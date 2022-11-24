@@ -100,7 +100,7 @@ module.exports = {
 
 ### 自定义主题
 
-参考 [配置主题](/docs/react/customize-theme-v5)，通过 ConfigProvider 进行主题配置：
+参考 [配置主题](/docs/react/customize-theme)，通过 ConfigProvider 进行主题配置：
 
 ```tsx
 import React from 'react';

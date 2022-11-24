@@ -61,7 +61,7 @@ Some components use dynamic style to support wave effect. You can config `csp` p
 | prefixCls | Set prefix className | string | `ant` |  |
 | renderEmpty | Set empty content of components. Ref [Empty](/components/empty/) | function(componentName: string): ReactNode | - |  |
 | space | Set Space `size`, ref [Space](/components/space) | { size: `small` \| `middle` \| `large` \| `number` } | - | 4.1.0 |
-| theme | Set theme, ref [Customize Theme](/docs/react/customize-theme-v5) | - | - | 5.0.0 |
+| theme | Set theme, ref [Customize Theme](/docs/react/customize-theme) | - | - | 5.0.0 |
 | virtual | Disable virtual scroll when set to `false` | boolean | - | 4.3.0 |
 
 ### ConfigProvider.config() `4.13.0+`
