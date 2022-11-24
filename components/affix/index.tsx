@@ -67,7 +67,7 @@ class Affix extends React.Component<InternalAffixProps, AffixState> {
 
   fixedNode: HTMLDivElement;
 
-  private timeout: any;
+  private timeout: NodeJS.Timeout | null;
 
   context: ConfigConsumerProps;
 
@@ -124,7 +124,10 @@ class Affix extends React.Component<InternalAffixProps, AffixState> {
   }
 
   componentWillUnmount() {
-    clearTimeout(this.timeout);
+    if (this.timeout) {
+      clearTimeout(this.timeout);
+      this.timeout = null;
+    }
     removeObserveTarget(this);
     this.updatePosition.cancel();
     // https://github.com/ant-design/ant-design/issues/22683
