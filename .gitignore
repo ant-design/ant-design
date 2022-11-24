@@ -49,6 +49,7 @@ server/
 scripts/previewEditor/index.html
 components/version/version.tsx
 components/version/token.tsx
+components/version/token-meta.json
 .dumi/tmp
 .dumi/tmp-test
 .dumi/tmp-production
