@@ -18,7 +18,7 @@ const App: React.FC = () => (
   <div id="myqrcode">
     <QrCode value="https://ant.design/" />
     <Button style={{ marginBlockStart: 16 }} onClick={downloadQrCode}>
-      下载二维码
+      Download
     </Button>
   </div>
 );
