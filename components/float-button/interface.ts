@@ -53,7 +53,6 @@ export interface BackTopProps extends Omit<FloatButtonProps, 'target'> {
   className?: string;
   style?: React.CSSProperties;
   duration?: number;
-  visible?: boolean; // Only for test. Don't use it.
 }
 
 export type CompoundedComponent = React.ForwardRefExoticComponent<

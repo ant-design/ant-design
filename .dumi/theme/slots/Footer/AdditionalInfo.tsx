@@ -6,7 +6,7 @@ const whereCls = 'ant-where-checker';
 
 const locales = {
   cn: {
-    whereNotSupport: `你的浏览器 ${navigator.userAgent} 不支持现代 CSS Selector，请使用现代浏览器（如 Chrome、Firefox 等等）查看官网。如果需要对旧版浏览器进行样式支持，欢迎查阅配置文档：`,
+    whereNotSupport: `你的浏览器不支持现代 CSS Selector，请使用现代浏览器（如 Chrome、Firefox 等等）查看官网。如果需要对旧版浏览器进行样式支持，欢迎查阅配置文档：`,
     whereDocTitle: '兼容性调整（请使用现代浏览器访问）',
     whereDocUrl: '/docs/react/customize-theme-cn#兼容性调整',
   },
