@@ -329,9 +329,7 @@ export default () => {
 | colorTextLightSolid | 亮色文本色 | `string` | `#fff` |
 | colorBgBase | 基础背景色 | `string` | `#fff` |
 | fontFamily | 字体 | `string` | `-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'` |
-| fontSizeBase | 基础字号 | `number` | `14` |
-| gridUnit | - | `number` | `4` |
-| gridBaseStep | - | `number` | `2` |
+| fontSize | 基础字号 | `number` | `14` |
 | lineWidth | 基础线宽 | `number` | `1` |
 | lineType | 线条样式 | `string` | `solid` |
 | motionUnit | 动画时长变化单位 | `number` | `0.1` |
@@ -343,9 +341,9 @@ export default () => {
 | motionEaseOutBack | - | `string` | `cubic-bezier(0.12, 0.4, 0.29, 1.46)` |
 | motionEaseInQuint | - | `string` | `cubic-bezier(0.645, 0.045, 0.355, 1)` |
 | motionEaseOutQuint | - | `string` | `cubic-bezier(0.23, 1, 0.32, 1)` |
-| radiusBase | 基础圆角 | `number` | `6` |
+| borderRadius | 基础圆角 | `number` | `6` |
 | sizeUnit | 尺寸变化单位 | `number` | `4` |
-| sizeBaseStep | 尺寸基础大小 | `number` | `4` |
+| sizeStep | 尺寸基础大小 | `number` | `4` |
 | sizePopupArrow | 组件箭头尺寸 | `number` | `16` |
 | controlHeight | - | `number` | `32` |
 | zIndexBase | 基础 `z-index` | `number` | `0` |
@@ -425,23 +423,23 @@ export default () => {
 | colorInfoText | 信息色的文本默认态 | `string` | `#1677ff` |
 | colorInfoTextActive | 信息色的文本激活态 | `string` | `#0958d9` |
 | colorBgMask | 浮层的背景蒙层颜色 | `string` | `rgba(0, 0, 0, 0.45)` |
-| sizeSpace | - | `number` | `12` |
-| sizeSpaceSM | - | `number` | `16` |
-| sizeSpaceXS | - | `number` | `8` |
-| sizeSpaceXXS | - | `number` | `4` |
-| gridSpaceSM | - | `number` | `4` |
-| gridSpaceBase | - | `number` | `8` |
-| gridSpaceLG | - | `number` | `12` |
-| gridSpaceXL | - | `number` | `16` |
-| gridSpaceXXL | - | `number` | `28` |
+| sizeXXL | - | `number` | `48` |
+| sizeXL | - | `number` | `32` |
+| sizeLG | - | `number` | `24` |
+| sizeMD | - | `number` | `20` |
+| sizeMS | - | `number` | `16` |
+| size | - | `number` | `16` |
+| sizeSM | - | `number` | `12` |
+| sizeXS | - | `number` | `8` |
+| sizeXXS | - | `number` | `4` |
 | lineWidthBold | 较粗的线宽 | `number` | `2` |
 | motionDurationFast | 动画速度快 | `string` | `0.1s` |
 | motionDurationMid | 动画速度中等 | `string` | `0.2s` |
 | motionDurationSlow | 动画速度慢 | `string` | `0.3s` |
-| radiusXS | 更小的圆角 | `number` | `2` |
-| radiusSM | 较小的圆角 | `number` | `4` |
-| radiusLG | 较大的圆角 | `number` | `8` |
-| radiusOuter | 向外的圆角（常用于箭头与其他元素相接处） | `number` | `4` |
+| borderRadiusXS | 更小的圆角 | `number` | `2` |
+| borderRadiusSM | 较小的圆角 | `number` | `4` |
+| borderRadiusLG | 较大的圆角 | `number` | `8` |
+| borderRadiusOuter | 向外的圆角（常用于箭头与其他元素相接处） | `number` | `4` |
 | controlHeightXS | - | `number` | `24` |
 | controlHeightSM | - | `number` | `16` |
 | controlHeightLG | - | `number` | `40` |
@@ -495,10 +493,6 @@ export default () => {
 | lineHeightHeading5 | - | `number` | `1.5` |
 | controlLineWidth | - | `number` | `1` |
 | controlLineType | - | `string` | `solid` |
-| controlRadius | - | `number` | `6` |
-| controlRadiusXS | - | `number` | `2` |
-| controlRadiusSM | - | `number` | `4` |
-| controlRadiusLG | - | `number` | `8` |
 | controlOutlineWidth | - | `number` | `8` |
 | controlItemBgHover | - | `string` | `rgba(0, 0, 0, 0.04)` |
 | controlItemBgActive | - | `string` | `#e6f4ff` |
