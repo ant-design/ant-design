@@ -2,7 +2,7 @@ import React from 'react';
 import FloatButton from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, act } from '../../../tests/utils';
+import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 
 const { BackTop } = FloatButton;
 describe('BackTop', () => {
@@ -15,28 +15,25 @@ describe('BackTop', () => {
   mountTest(BackTop);
   rtlTest(BackTop);
 
-  it('should scroll to top after click it', () => {
+  it('should scroll to top after click it', async () => {
     const { container } = render(<BackTop />);
-    jest.spyOn(window, 'scrollTo').mockImplementation((_, y) => {
+    const scrollToSpy = jest.spyOn(window, 'scrollTo').mockImplementation((_, y) => {
       window.scrollY = y;
       window.pageYOffset = y;
       document.documentElement.scrollTop = y;
     });
     window.scrollTo(0, 400);
-    act(() => {
-      jest.runAllTimers();
-    });
+    await waitFakeTimer();
     expect(document.documentElement.scrollTop).toBe(400);
     fireEvent.click(container.querySelector<HTMLButtonElement>('.ant-float-btn')!);
-    act(() => {
-      jest.runAllTimers();
-    });
+    await waitFakeTimer();
     expect(document.documentElement.scrollTop).toBe(0);
+    scrollToSpy.mockRestore();
   });
 
   it('support onClick', () => {
     const onClick = jest.fn();
-    const { container } = render(<BackTop visibilityHeight={0} onClick={onClick} />);
+    const { container } = render(<BackTop onClick={onClick} visibilityHeight={0} />);
     fireEvent.click(container.querySelector<HTMLButtonElement>('.ant-float-btn')!);
     expect(onClick).toHaveBeenCalled();
   });
