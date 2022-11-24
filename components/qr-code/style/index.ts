@@ -8,7 +8,7 @@ const genQrCodeStyle: GenerateStyle<QrCodeToken> = (token) => {
   const { componentCls } = token;
   return {
     [componentCls]: {
-      ...resetComponent?.(token),
+      ...resetComponent(token),
       position: 'relative',
       width: '100%',
       height: '100%',
