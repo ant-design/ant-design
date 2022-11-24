@@ -1,4 +1,4 @@
-import React, { useEffect, useState, type FC } from 'react';
+import React, { useEffect, useState } from 'react';
 // @ts-ignore
 import JsonML from 'jsonml.js/lib/utils';
 // @ts-ignore
@@ -36,7 +36,7 @@ function useShowRiddleButton() {
  */
 export default function fromDumiProps<P extends object>(
   WrappedComponent: React.ComponentType<P>,
-): FC<IPreviewerProps> {
+): React.FC<IPreviewerProps> {
   const hoc = function DumiPropsAntdPreviewer(props: IPreviewerProps) {
     const showRiddleButton = useShowRiddleButton();
     const location = useLocation();

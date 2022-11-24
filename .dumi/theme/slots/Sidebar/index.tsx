@@ -1,4 +1,4 @@
-import React, { type FC, useContext } from 'react';
+import React, { useContext } from 'react';
 import { useSidebarData } from 'dumi';
 import { Affix, Col, Menu } from 'antd';
 import MobileMenu from 'rc-drawer';
@@ -66,8 +66,8 @@ const useStyle = () => {
         // Nest Category > Type > Article
         &${antCls}-menu-inline {
           ${antCls}-menu-item-group-title {
-            padding-left: 60px;
             margin-left: 4px;
+            padding-left: 60px;
 
             ${antCls}-row-rtl & {
               padding-right: 60px;
@@ -124,7 +124,7 @@ const useStyle = () => {
   };
 };
 
-const Sidebar: FC = () => {
+const Sidebar: React.FC = () => {
   const sidebarData = useSidebarData();
   const { isMobile } = useContext(SiteContext);
   const styles = useStyle();
