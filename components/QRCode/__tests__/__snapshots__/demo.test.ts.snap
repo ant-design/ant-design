@@ -1,0 +1,136 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/QRCode/demo/base.tsx correctly 1`] = `
+<div
+  class="ant-qrcode"
+  style="width:128px;height:128px"
+>
+  <canvas
+    height="128"
+    style="height:128px;width:128px"
+    width="128"
+  />
+</div>
+`;
+
+exports[`renders ./components/QRCode/demo/download.tsx correctly 1`] = `
+<div
+  id="myqrcode"
+>
+  <div
+    class="ant-qrcode"
+    style="margin-bottom:16px;width:128px;height:128px"
+  >
+    <canvas
+      height="128"
+      style="height:128px;width:128px"
+      width="128"
+    />
+  </div>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Download
+    </span>
+  </button>
+</div>
+`;
+
+exports[`renders ./components/QRCode/demo/errorlevel.tsx correctly 1`] = `
+Array [
+  <div
+    class="ant-qrcode"
+    style="margin-bottom:16px;width:128px;height:128px"
+  >
+    <canvas
+      height="128"
+      style="height:128px;width:128px"
+      width="128"
+    />
+  </div>,
+  <div
+    class="ant-segmented"
+  >
+    <div
+      class="ant-segmented-group"
+    >
+      <label
+        class="ant-segmented-item ant-segmented-item-selected"
+      >
+        <input
+          checked=""
+          class="ant-segmented-item-input"
+          type="radio"
+        />
+        <div
+          class="ant-segmented-item-label"
+          title="L"
+        >
+          L
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          type="radio"
+        />
+        <div
+          class="ant-segmented-item-label"
+          title="M"
+        >
+          M
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          type="radio"
+        />
+        <div
+          class="ant-segmented-item-label"
+          title="Q"
+        >
+          Q
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          type="radio"
+        />
+        <div
+          class="ant-segmented-item-label"
+          title="H"
+        >
+          H
+        </div>
+      </label>
+    </div>
+  </div>,
+]
+`;
+
+exports[`renders ./components/QRCode/demo/icon.tsx correctly 1`] = `
+<div
+  class="ant-qrcode"
+  style="width:128px;height:128px"
+>
+  <canvas
+    height="128"
+    style="height:128px;width:128px"
+    width="128"
+  />
+  <img
+    src="https://gw.alipayobjects.com/zos/antfincdn/%24C9tmj978R/Carousel.svg"
+    style="display:none"
+  />
+</div>
+`;

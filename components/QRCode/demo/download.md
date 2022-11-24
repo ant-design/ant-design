@@ -4,4 +4,4 @@
 
 ## en-US
 
-A way to download QrCode.
+A way to download QRCode.

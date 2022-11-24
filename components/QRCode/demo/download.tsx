@@ -1,12 +1,12 @@
 import React from 'react';
-import { QrCode, Button } from 'antd';
+import { QRCode, Button } from 'antd';
 
-const downloadQrCode = () => {
+const downloadQRCode = () => {
   const canvas = document.getElementById('myqrcode')?.querySelector<HTMLCanvasElement>('canvas');
   const url = canvas?.toDataURL();
   if (url) {
     const a = document.createElement('a');
-    a.download = 'qr-code.png';
+    a.download = 'QRCode.png';
     a.href = url;
     document.body.appendChild(a);
     a.click();
@@ -16,8 +16,8 @@ const downloadQrCode = () => {
 
 const App: React.FC = () => (
   <div id="myqrcode">
-    <QrCode value="https://ant.design/" />
-    <Button style={{ marginBlockStart: 16 }} onClick={downloadQrCode}>
+    <QRCode value="https://ant.design/" style={{ marginBottom: 16 }} />
+    <Button type="primary" onClick={downloadQRCode}>
       Download
     </Button>
   </div>

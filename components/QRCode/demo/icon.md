@@ -4,4 +4,4 @@
 
 ## en-US
 
-QrCode with Icon.
+QRCode with Icon.

@@ -149,6 +149,6 @@ export { default as Typography } from './typography';
 export type { TypographyProps } from './typography';
 export { default as Upload } from './upload';
 export type { UploadFile, UploadProps } from './upload';
-export { default as QrCode } from './qr-code';
-export type { QrCodeProps, QRPropsCanvas } from './qr-code/interface';
+export { default as QRCode } from './QRCode';
+export type { QRCodeProps, QRPropsCanvas } from './QRCode/interface';
 export { default as version } from './version';

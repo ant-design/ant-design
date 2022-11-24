@@ -22,7 +22,7 @@ interface QRProps {
 
 export type QRPropsCanvas = QRProps & React.CanvasHTMLAttributes<HTMLCanvasElement>;
 
-export interface QrCodeProps extends QRProps {
+export interface QRCodeProps extends QRProps {
   className?: string;
   prefixCls?: string;
   icon?: string;

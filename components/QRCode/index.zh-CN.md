@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 二维码
-title: QrCode
+title: QRCode
 cover: https://gw.alipayobjects.com/zos/alicdn/xqsDu4ZyR/Progress.svg
 demo:
   cols: 2
@@ -10,7 +10,7 @@ group:
   order: 5
 ---
 
-# QrCode 二维码
+# QRCode 二维码
 
 能够将链接转换生成二维码的组件，支持自定义配色和 Logo 配置。
 
@@ -24,7 +24,7 @@ group:
 
 <!-- prettier-ignore -->
 <code src="./demo/base.tsx">基本使用</code>
-<code src="./demo/logo.tsx">带 logo 的例子</code>
+<code src="./demo/icon.tsx">带 Icon 的例子</code>
 <code src="./demo/download.tsx">下载二维码</code>
 <code src="./demo/errorlevel.tsx">纠错比例</code>
 

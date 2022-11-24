@@ -3,10 +3,10 @@ import { QRCodeCanvas } from 'qrcode.react';
 import classNames from 'classnames';
 import { ConfigContext } from '../config-provider';
 import type { ConfigConsumerProps } from '../config-provider';
-import type { QrCodeProps, QRPropsCanvas } from './interface';
+import type { QRCodeProps, QRPropsCanvas } from './interface';
 import useStyle from './style/index';
 
-const QrCode: React.FC<QrCodeProps> = (props) => {
+const QRCode: React.FC<QRCodeProps> = (props) => {
   const {
     value,
     icon = '',
@@ -24,7 +24,7 @@ const QrCode: React.FC<QrCodeProps> = (props) => {
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const qrCodeProps = useMemo<QRPropsCanvas>(() => {
-    const imageSettings: QrCodeProps['imageSettings'] = {
+    const imageSettings: QRCodeProps['imageSettings'] = {
       src: icon,
       x: undefined,
       y: undefined,
@@ -56,4 +56,4 @@ const QrCode: React.FC<QrCodeProps> = (props) => {
   );
 };
 
-export default QrCode;
+export default QRCode;

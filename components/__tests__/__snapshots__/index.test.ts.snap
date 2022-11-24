@@ -40,7 +40,7 @@ exports[`antd exports modules correctly 1`] = `
   "Popconfirm",
   "Popover",
   "Progress",
-  "QrCode",
+  "QRCode",
   "Radio",
   "Rate",
   "Result",

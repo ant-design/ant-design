@@ -2,9 +2,9 @@ import type { FullToken, GenerateStyle } from '../../theme';
 import { genComponentStyleHook } from '../../theme';
 import { resetComponent } from '../../style';
 
-interface QrCodeToken extends FullToken<'QrCode'> {}
+interface QRCodeToken extends FullToken<'QRCode'> {}
 
-const genQrCodeStyle: GenerateStyle<QrCodeToken> = (token) => {
+const genQRCodeStyle: GenerateStyle<QRCodeToken> = (token) => {
   const { componentCls } = token;
   return {
     [componentCls]: {
@@ -20,4 +20,4 @@ const genQrCodeStyle: GenerateStyle<QrCodeToken> = (token) => {
   };
 };
 
-export default genComponentStyleHook<'QrCode'>('QrCode', genQrCodeStyle);
+export default genComponentStyleHook<'QRCode'>('QRCode', genQRCodeStyle);
