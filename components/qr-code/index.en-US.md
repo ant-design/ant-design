@@ -11,15 +11,15 @@ group:
 
 # QrCode
 
-能够将链接转换生成二维码的组件，支持自定义配色和 Logo 配置。
+Components that can convert links into QR codes, and support custom color and logo.
 
-<Alert message="若二维码无法扫码识别，可能是因为链接地址过长导致像素过于密集，可以通过 `size` 配置二维码更大，或者通过短链接服务等方式将链接变短。"></Alert>
+<Alert message="If the QR code cannot be scanned for identification, it may be because the link address is too long, which leads to too dense pixels. You can configure the QR code to be larger through `size`, or shorten the link through short link services."></Alert>
 
-## 何时使用
+## When To Use
 
-当需要将链接转换成为二维码时使用。
+Used when the link needs to be converted into a QR Code.
 
-## 代码演示
+## Examples
 
 <!-- prettier-ignore -->
 <code src="./demo/base.tsx">base</code>
@@ -29,12 +29,12 @@ group:
 
 ## API
 
-| 参数       | 说明                                     | 类型                        | 默认值 |
-| :--------- | :--------------------------------------- | :-------------------------- | :----- |
-| value      | 扫描后的地址                             | string                      | -      |
-| size       | 二维码图片大小                           | number                      | 128    |
-| icon       | 二维码中图片的地址（目前只支持图片地址） | string                      | -      |
-| iconSize   | 二维码中图片的大小                       | number                      | 32     |
-| bgColor    | 二维码背景颜色                           | string                      | `#fff` |
-| fgColor    | 二维码前景的颜色                         | string                      | `#000` |
-| errorLevel | 纠错码的等级                             | `'L' \| 'M' \| 'Q' \| 'H' ` | `L`    |
+| Property   | Description                                 | Type                        | Default |
+| :--------- | :------------------------------------------ | :-------------------------- | :------ |
+| value      | scanned link                                | string                      | -       |
+| size       | QrCode size                                 | number                      | 128     |
+| icon       | include image url (only link are supported) | string                      | -       |
+| iconSize   | include image size                          | number                      | 32      |
+| bgColor    | QrCode Background Color                     | string                      | `#fff`  |
+| fgColor    | QrCode Foreground Color                     | string                      | `#000`  |
+| errorLevel | Error Code Level                            | `'L' \| 'M' \| 'Q' \| 'H' ` | `L`     |
