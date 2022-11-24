@@ -2,11 +2,12 @@ import classNames from 'classnames';
 import CSSMotion, { CSSMotionList } from 'rc-motion';
 import * as React from 'react';
 import { useMemo } from 'react';
-import { ConfigContext } from '../config-provider';
 import initCollapseMotion from '../_util/motion';
 import { FormItemPrefixContext } from './context';
 import type { ValidateStatus } from './FormItem';
 import useDebounce from './hooks/useDebounce';
+
+import useStyle from './style';
 
 const EMPTY_LIST: React.ReactNode[] = [];
 
@@ -49,12 +50,12 @@ export default function ErrorList({
   onVisibleChanged,
 }: ErrorListProps) {
   const { prefixCls } = React.useContext(FormItemPrefixContext);
-  const { getPrefixCls } = React.useContext(ConfigContext);
 
   const baseClassName = `${prefixCls}-item-explain`;
-  const rootPrefixCls = getPrefixCls();
 
-  const collapseMotion = useMemo(() => initCollapseMotion(rootPrefixCls), [rootPrefixCls]);
+  const [, hashId] = useStyle(prefixCls);
+
+  const collapseMotion = useMemo(() => initCollapseMotion(prefixCls), [prefixCls]);
 
   // We have to debounce here again since somewhere use ErrorList directly still need no shaking
   // ref: https://github.com/ant-design/ant-design/issues/36336
@@ -82,9 +83,8 @@ export default function ErrorList({
 
   return (
     <CSSMotion
-      {...collapseMotion}
       motionDeadline={collapseMotion.motionDeadline}
-      motionName={`${rootPrefixCls}-show-help`}
+      motionName={`${prefixCls}-show-help`}
       visible={!!fullKeyList.length}
       onVisibleChanged={onVisibleChanged}
     >
@@ -94,14 +94,14 @@ export default function ErrorList({
         return (
           <div
             {...helpProps}
-            className={classNames(baseClassName, holderClassName, rootClassName)}
+            className={classNames(baseClassName, holderClassName, rootClassName, hashId)}
             style={holderStyle}
             role="alert"
           >
             <CSSMotionList
               keys={fullKeyList}
-              {...initCollapseMotion(rootPrefixCls)}
-              motionName={`${rootPrefixCls}-show-help-item`}
+              {...initCollapseMotion(prefixCls)}
+              motionName={`${prefixCls}-show-help-item`}
               component={false}
             >
               {(itemProps) => {
