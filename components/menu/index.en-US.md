@@ -129,8 +129,8 @@ The legacy demo code for version `<4.20.0` could be found at [https://github.com
 
 #### SubMenuType
 
-| Param | Description | Type | Default value | Version |
-| --- | --- | --- | --- | --- | --- |
+| Property | Description | Type | Default value | Version |
+| --- | --- | --- | --- | --- |
 | children | Sub-menus or sub-menu items | [ItemType\[\]](#ItemType) | - |  |
 | disabled | Whether sub-menu is disabled | boolean | false |  |
 | icon | Icon of sub menu | ReactNode | - |  |
