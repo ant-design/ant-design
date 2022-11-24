@@ -2,7 +2,7 @@ import React from 'react';
 import FloatButton from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, act } from '../../../tests/utils';
+import { fireEvent, render } from '../../../tests/utils';
 
 const { BackTop } = FloatButton;
 describe('BackTop', () => {
@@ -23,9 +23,7 @@ describe('BackTop', () => {
       document.documentElement.scrollTop = y;
     });
     window.scrollTo(0, 400);
-    act(() => {
-      jest.runAllTimers();
-    });
+    jest.runAllTimers();
     expect(document.documentElement.scrollTop).toBe(400);
     fireEvent.click(container.querySelector<HTMLButtonElement>('.ant-float-btn')!);
     jest.runAllTimers();
