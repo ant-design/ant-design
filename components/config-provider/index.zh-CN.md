@@ -62,7 +62,7 @@ export default () => (
 | prefixCls | 设置统一样式前缀 | string | `ant` |  |
 | renderEmpty | 自定义组件空状态。参考 [空状态](/components/empty/) | function(componentName: string): ReactNode | - |  |
 | space | 设置 Space 的 `size`，参考 [Space](/components/space) | { size: `small` \| `middle` \| `large` \| `number` } | - | 4.1.0 |
-| theme | 设置主题，参考 [定制主题](/docs/react/customize-theme-v5-cn) | - | - | 5.0.0 |
+| theme | 设置主题，参考 [定制主题](/docs/react/customize-theme-cn) | - | - | 5.0.0 |
 | virtual | 设置 `false` 时关闭虚拟滚动 | boolean | - | 4.3.0 |
 
 ### ConfigProvider.config() `4.13.0+`
