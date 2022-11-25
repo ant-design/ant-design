@@ -18,7 +18,7 @@ const locales = {
     development: '研发',
     components: '组件',
     resources: '资源',
-    blog: '日志',
+    blog: '博客',
   },
   en: {
     design: 'Design',
@@ -123,7 +123,6 @@ export default ({
 
   const sidebarData = useFullSidebarData();
   const blogList = sidebarData['/docs/blog']?.[0]?.children || [];
-  console.log('>>>>', blogList);
 
   const style = useStyle();
 
