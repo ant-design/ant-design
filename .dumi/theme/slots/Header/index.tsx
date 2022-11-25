@@ -19,7 +19,7 @@ import { useLocation, useNavigate } from 'dumi';
 import { ClassNames, css } from '@emotion/react';
 import useSiteToken from '../../../hooks/useSiteToken';
 import useLocale from '../../../hooks/useLocale';
-import LangBtn from './LangBtn';
+import SwitchBtn from './SwitchBtn';
 import useSharedStyle from './style';
 
 const RESPONSIVE_XS = 1120;
@@ -414,15 +414,29 @@ const Header: React.FC<HeaderProps> = (props) => {
         {versionOptions}
       </Select>
     </Popover>,
-    <LangBtn onClick={onLangChange} cn={utils.isZhCN(pathname)} />,
-    <Button
-      size="small"
+    <SwitchBtn
+      key="lang"
+      onClick={onLangChange}
+      value={utils.isZhCN(pathname) ? 1 : 2}
+      label1="中"
+      label2="En"
+      tooltip1="中文 / English"
+      tooltip2="English / 中文"
+    />,
+    <SwitchBtn
+      key="direction"
       onClick={onDirectionChange}
-      css={sharedStyle.headerButton}
-      key="direction-button"
-    >
-      {nextDirectionText}
-    </Button>,
+      value={direction === 'rtl' ? 2 : 1}
+      label1={
+        <img src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*6k0CTJA-HxUAAAAAAAAAAAAADrJ8AQ/original" />
+      }
+      tooltip1="LTR"
+      label2={
+        <img src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*SZoaQqm2hwsAAAAAAAAAAAAADrJ8AQ/original" />
+      }
+      tooltip2="RTL"
+      pure
+    />,
     <More key="more" {...sharedProps} />,
     <Github key="github" responsive={responsive} />,
   ];

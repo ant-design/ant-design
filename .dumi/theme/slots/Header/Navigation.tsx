@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import { Link, useLocation, FormattedMessage } from 'dumi';
-import type { MenuProps } from 'antd';
+import { MenuProps, Tooltip } from 'antd';
 import { MenuOutlined } from '@ant-design/icons';
 import { Menu } from 'antd';
 import { getEcosystemGroup } from './More';
@@ -192,9 +192,14 @@ export default ({
     showTechUIButton
       ? {
           label: (
-            <a href="https://techui.alipay.com" target="__blank" rel="noopener noreferrer">
-              TechUI
-            </a>
+            <Tooltip title="TechUI">
+              <a href="https://techui.alipay.com" target="__blank" rel="noopener noreferrer">
+                <img
+                  style={{ width: '1em', height: '1em', transform: `scale(1.8) translateY(-5%)` }}
+                  src="https://gw.alipayobjects.com/zos/hitu-asset/562e1bb6-edd1-4c87-8e5c-fa01b768b7c8/hitu-1617851234091-image.png"
+                />
+              </a>
+            </Tooltip>
           ),
           key: 'tech-ui',
         }
