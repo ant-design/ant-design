@@ -35,7 +35,7 @@ const useStyle = () => {
         }
 
         .intro {
-          transform: translateY(0);
+          transform: translate3d(0, 0, 0);
 
           h4${token.antCls}-typography {
             padding-bottom: 0;
@@ -48,7 +48,7 @@ const useStyle = () => {
         right: 0;
         bottom: 0;
         left: 0;
-        transform: translateY(100%);
+        transform: translate3d(0, 100%, 0);
         transition: all ${token.motionDurationSlow};
 
         ${token.antCls}-typography {
@@ -62,7 +62,7 @@ const useStyle = () => {
         h4${token.antCls}-typography {
           position: absolute;
           padding: 0 ${token.paddingMD}px ${token.paddingMD}px;
-          transform: translateY(-100%);
+          transform: translate3d(0, -100%, 0);
         }
 
         div${token.antCls}-typography {

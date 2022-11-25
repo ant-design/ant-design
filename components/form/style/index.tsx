@@ -1,10 +1,11 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { genCollapseMotion, zoomIn } from '../../style/motion';
-import type { AliasToken, FullToken, GenerateStyle } from '../../theme';
-import { genComponentStyleHook, mergeToken } from '../../theme';
+import type { AliasToken, FullToken, GenerateStyle } from '../../theme/internal';
+import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import { resetComponent } from '../../style';
+import genFormValidateMotionStyle from './explain';
 
-interface FormToken extends FullToken<'Form'> {
+export interface FormToken extends FullToken<'Form'> {
   formItemCls: string;
   rootPrefixCls: string;
 }
@@ -261,7 +262,6 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
           color: token.colorTextDescription,
           fontSize: token.fontSize,
           lineHeight: token.lineHeight,
-          transition: `color ${token.motionDurationMid} ${token.motionEaseOut}`, // sync input color transition
         },
 
         '&-explain-connected': {
@@ -270,6 +270,7 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
 
         '&-extra': {
           minHeight: token.controlHeightSM,
+          transition: `color ${token.motionDurationMid} ${token.motionEaseOut}`, // sync input color transition
         },
 
         '&-explain': {
@@ -314,58 +315,6 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
 
         '&-validating': {
           color: token.colorPrimary,
-        },
-      },
-    },
-  };
-};
-
-const genFormMotionStyle: GenerateStyle<FormToken> = (token) => {
-  const { componentCls, rootPrefixCls } = token;
-
-  return {
-    [componentCls]: {
-      // Explain holder
-      [`.${rootPrefixCls}-show-help`]: {
-        transition: `opacity ${token.motionDurationSlow} ${token.motionEaseInOut}`,
-
-        '&-appear, &-enter': {
-          opacity: 0,
-
-          '&-active': {
-            opacity: 1,
-          },
-        },
-
-        '&-leave': {
-          opacity: 1,
-
-          '&-active': {
-            opacity: 0,
-          },
-        },
-      },
-
-      // Explain
-      [`.${rootPrefixCls}-show-help-item`]: {
-        overflow: 'hidden',
-        transition: `height ${token.motionDurationSlow} ${token.motionEaseInOut},
-                     opacity ${token.motionDurationSlow} ${token.motionEaseInOut},
-                     transform ${token.motionDurationSlow} ${token.motionEaseInOut} !important`,
-
-        [`&-appear,
-          &-enter`]: {
-          transform: `translateY(-5px)`,
-          opacity: 0,
-
-          '&-active': {
-            transform: 'translateY(0)',
-            opacity: 1,
-          },
-        },
-
-        '&-leave-active': {
-          transform: `translateY(-5px)`,
         },
       },
     },
@@ -543,7 +492,7 @@ export default genComponentStyleHook('Form', (token, { rootPrefixCls }) => {
   return [
     genFormStyle(formToken),
     genFormItemStyle(formToken),
-    genFormMotionStyle(formToken),
+    genFormValidateMotionStyle(formToken),
     genHorizontalStyle(formToken),
     genInlineStyle(formToken),
     genVerticalStyle(formToken),

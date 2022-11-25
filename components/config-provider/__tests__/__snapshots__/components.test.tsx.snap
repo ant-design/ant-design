@@ -15518,12 +15518,11 @@ exports[`ConfigProvider components Form configProvider 1`] = `
           style="display: flex; flex-wrap: nowrap;"
         >
           <div
-            class="config-form-item-explain config-show-help-appear config-show-help-appear-start config-show-help config-form-item-explain-connected"
+            class="config-form-item-explain config-form-show-help-appear config-form-show-help-appear-start config-form-show-help config-form-item-explain-connected"
             role="alert"
-            style="height: 0px; opacity: 0;"
           >
             <div
-              class="config-show-help-item-appear config-show-help-item-appear-start config-show-help-item config-form-item-explain-error"
+              class="config-form-show-help-item-appear config-form-show-help-item-appear-start config-form-show-help-item config-form-item-explain-error"
               style="height: 0px; opacity: 0;"
             >
               Bamboo is Light
@@ -15574,12 +15573,11 @@ exports[`ConfigProvider components Form configProvider componentDisabled 1`] = `
           style="display: flex; flex-wrap: nowrap;"
         >
           <div
-            class="config-form-item-explain config-show-help-appear config-show-help-appear-start config-show-help config-form-item-explain-connected"
+            class="config-form-item-explain config-form-show-help-appear config-form-show-help-appear-start config-form-show-help config-form-item-explain-connected"
             role="alert"
-            style="height: 0px; opacity: 0;"
           >
             <div
-              class="config-show-help-item-appear config-show-help-item-appear-start config-show-help-item config-form-item-explain-error"
+              class="config-form-show-help-item-appear config-form-show-help-item-appear-start config-form-show-help-item config-form-item-explain-error"
               style="height: 0px; opacity: 0;"
             >
               Bamboo is Light
@@ -15629,12 +15627,11 @@ exports[`ConfigProvider components Form configProvider componentSize large 1`] =
           style="display: flex; flex-wrap: nowrap;"
         >
           <div
-            class="config-form-item-explain config-show-help-appear config-show-help-appear-start config-show-help config-form-item-explain-connected"
+            class="config-form-item-explain config-form-show-help-appear config-form-show-help-appear-start config-form-show-help config-form-item-explain-connected"
             role="alert"
-            style="height: 0px; opacity: 0;"
           >
             <div
-              class="config-show-help-item-appear config-show-help-item-appear-start config-show-help-item config-form-item-explain-error"
+              class="config-form-show-help-item-appear config-form-show-help-item-appear-start config-form-show-help-item config-form-item-explain-error"
               style="height: 0px; opacity: 0;"
             >
               Bamboo is Light
@@ -15684,12 +15681,11 @@ exports[`ConfigProvider components Form configProvider componentSize middle 1`] 
           style="display: flex; flex-wrap: nowrap;"
         >
           <div
-            class="config-form-item-explain config-show-help-appear config-show-help-appear-start config-show-help config-form-item-explain-connected"
+            class="config-form-item-explain config-form-show-help-appear config-form-show-help-appear-start config-form-show-help config-form-item-explain-connected"
             role="alert"
-            style="height: 0px; opacity: 0;"
           >
             <div
-              class="config-show-help-item-appear config-show-help-item-appear-start config-show-help-item config-form-item-explain-error"
+              class="config-form-show-help-item-appear config-form-show-help-item-appear-start config-form-show-help-item config-form-item-explain-error"
               style="height: 0px; opacity: 0;"
             >
               Bamboo is Light
@@ -15739,12 +15735,11 @@ exports[`ConfigProvider components Form configProvider virtual and dropdownMatch
           style="display: flex; flex-wrap: nowrap;"
         >
           <div
-            class="ant-form-item-explain ant-show-help-appear ant-show-help-appear-start ant-show-help ant-form-item-explain-connected"
+            class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
             role="alert"
-            style="height: 0px; opacity: 0;"
           >
             <div
-              class="ant-show-help-item-appear ant-show-help-item-appear-start ant-show-help-item ant-form-item-explain-error"
+              class="ant-form-show-help-item-appear ant-form-show-help-item-appear-start ant-form-show-help-item ant-form-item-explain-error"
               style="height: 0px; opacity: 0;"
             >
               Bamboo is Light
@@ -15794,12 +15789,11 @@ exports[`ConfigProvider components Form normal 1`] = `
           style="display: flex; flex-wrap: nowrap;"
         >
           <div
-            class="ant-form-item-explain ant-show-help-appear ant-show-help-appear-start ant-show-help ant-form-item-explain-connected"
+            class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
             role="alert"
-            style="height: 0px; opacity: 0;"
           >
             <div
-              class="ant-show-help-item-appear ant-show-help-item-appear-start ant-show-help-item ant-form-item-explain-error"
+              class="ant-form-show-help-item-appear ant-form-show-help-item-appear-start ant-form-show-help-item ant-form-item-explain-error"
               style="height: 0px; opacity: 0;"
             >
               Bamboo is Light
@@ -15849,12 +15843,11 @@ exports[`ConfigProvider components Form prefixCls 1`] = `
           style="display: flex; flex-wrap: nowrap;"
         >
           <div
-            class="prefix-Form-item-explain ant-show-help-appear ant-show-help-appear-start ant-show-help prefix-Form-item-explain-connected"
+            class="prefix-Form-item-explain prefix-Form-show-help-appear prefix-Form-show-help-appear-start prefix-Form-show-help prefix-Form-item-explain-connected"
             role="alert"
-            style="height: 0px; opacity: 0;"
           >
             <div
-              class="ant-show-help-item-appear ant-show-help-item-appear-start ant-show-help-item prefix-Form-item-explain-error"
+              class="prefix-Form-show-help-item-appear prefix-Form-show-help-item-appear-start prefix-Form-show-help-item prefix-Form-item-explain-error"
               style="height: 0px; opacity: 0;"
             >
               Bamboo is Light

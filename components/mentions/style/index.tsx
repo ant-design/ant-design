@@ -7,8 +7,8 @@ import {
   genStatusStyle,
   initInputToken,
 } from '../../input/style';
-import type { FullToken, GenerateStyle } from '../../theme';
-import { genComponentStyleHook } from '../../theme';
+import type { FullToken, GenerateStyle } from '../../theme/internal';
+import { genComponentStyleHook } from '../../theme/internal';
 import { resetComponent, textEllipsis } from '../../style';
 
 export interface ComponentToken {

@@ -232,9 +232,9 @@ const Header: React.FC<HeaderProps> = (props) => {
   const onMenuVisibleChange = useCallback((visible: boolean) => {
     setHeaderState((prev) => ({ ...prev, menuVisible: visible }));
   }, []);
-  const onDirectionChange = useCallback(() => {
+  const onDirectionChange = () => {
     changeDirection?.(direction !== 'rtl' ? 'rtl' : 'ltr');
-  }, [direction]);
+  };
 
   useEffect(() => {
     handleHideMenu();

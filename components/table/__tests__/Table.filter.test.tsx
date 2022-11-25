@@ -11,7 +11,7 @@ import Select from '../../select';
 import Tooltip from '../../tooltip';
 import type { SelectProps } from '../../select';
 import type { ColumnGroupType, ColumnType, TableProps } from '..';
-import type { ColumnFilterItem, FilterDropdownProps, FilterValue } from '../interface';
+import type { ColumnFilterItem, FilterDropdownProps, FilterValue, ColumnsType } from '../interface';
 import { resetWarned } from '../../_util/warning';
 import type { TreeColumnFilterItem } from '../hooks/useFilter/FilterDropdown';
 
@@ -1824,6 +1824,189 @@ describe('Table.filter', () => {
     expect(container.querySelector('.ant-table-tbody .ant-table-cell')?.textContent).toEqual(
       `${66}`,
     );
+  });
+
+  it('Columns with filters should filter correctly after reset it.', () => {
+    interface DataType {
+      key: React.Key;
+      name?: string;
+      name1?: string;
+      age?: number;
+      address?: string;
+    }
+
+    const columns: ColumnsType<DataType> = [
+      {
+        title: 'Name',
+        dataIndex: 'name',
+        filters: [
+          {
+            text: 'Joe',
+            value: 'Joe',
+          },
+          {
+            text: 'Jim',
+            value: 'Jim',
+          },
+          {
+            text: 'Submenu',
+            value: 'Submenu',
+            children: [
+              {
+                text: 'Green',
+                value: 'Green',
+              },
+              {
+                text: 'Black',
+                value: 'Black',
+              },
+            ],
+          },
+        ],
+        // specify the condition of filtering result
+        // here is that finding the name started with `value`
+        onFilter: (value: string, record) => record.name?.indexOf(value) === 0,
+        sorter: (a, b) => a.name!.length - b.name!.length,
+        sortDirections: ['descend'],
+      },
+      {
+        title: 'Age',
+        dataIndex: 'age',
+        defaultSortOrder: 'descend',
+        sorter: (a, b) => a.age! - b.age!,
+      },
+      {
+        title: 'Address',
+        dataIndex: 'address',
+        filters: [
+          {
+            text: 'London',
+            value: 'London',
+          },
+          {
+            text: 'New York',
+            value: 'New York',
+          },
+        ],
+        onFilter: (value: string, record) => record.address?.indexOf(value) === 0,
+      },
+    ];
+
+    const App: React.FC = () => {
+      const [ddd, setData] = React.useState<Array<DataType>>([
+        {
+          key: '1',
+          name: 'John Brown',
+          age: 32,
+          address: 'New York No. 1 Lake Park',
+        },
+        {
+          key: '2',
+          name: 'Jim Green',
+          age: 42,
+          address: 'London No. 1 Lake Park',
+        },
+        {
+          key: '3',
+          name: 'Joe Black',
+          age: 32,
+          address: 'Sidney No. 1 Lake Park',
+        },
+        {
+          key: '4',
+          name: 'Jim Red',
+          age: 32,
+          address: 'London No. 2 Lake Park',
+        },
+      ]);
+      const [cs, setCs] = React.useState(columns);
+
+      const handleClick = () => {
+        setCs([
+          {
+            title: 'name1',
+            dataIndex: 'name1',
+          },
+          {
+            title: 'Address',
+            dataIndex: 'address',
+            filters: [
+              {
+                text: 'London',
+                value: 'London',
+              },
+              {
+                text: 'New York',
+                value: 'New York',
+              },
+            ],
+            onFilter: (value: string, record) => record.address?.indexOf(value) === 0,
+          },
+        ]);
+        setData([
+          {
+            key: '1',
+            name1: 'Joe Brown',
+            address: 'New York No. 1 Lake Park',
+          },
+          {
+            key: '2',
+            name1: 'Jim Green',
+            address: 'London No. 1 Lake Park',
+          },
+          {
+            key: '3',
+            name1: 'Joe Black',
+            address: 'Sidney No. 1 Lake Park',
+          },
+          {
+            key: '4',
+            name1: 'Jim Red',
+            address: 'London No. 2 Lake Park',
+          },
+        ]);
+      };
+
+      return (
+        <div>
+          <span className="rest-btn" onClick={handleClick}>
+            refresh
+          </span>
+          <Table columns={cs} dataSource={ddd} />
+        </div>
+      );
+    };
+
+    const { container } = render(<App />);
+
+    expect(container.querySelectorAll('.ant-table-tbody .ant-table-row').length).toEqual(4);
+    // Open
+    fireEvent.click(container.querySelector('.ant-table-filter-trigger')!);
+    function getFilterMenu() {
+      return container.querySelector('.ant-table-filter-dropdown');
+    }
+    // Seems raf not trigger when in useEffect for async update
+    // Need trigger multiple times
+    function refreshTimer() {
+      for (let i = 0; i < 3; i += 1) {
+        act(() => {
+          jest.runAllTimers();
+        });
+      }
+    }
+
+    const items = getFilterMenu()?.querySelectorAll('li.ant-dropdown-menu-item');
+    fireEvent.click(items?.[0]!);
+    fireEvent.click(
+      getFilterMenu()?.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary')!,
+    );
+    refreshTimer();
+
+    expect(container.querySelectorAll('.ant-table-tbody .ant-table-row').length).toEqual(1);
+
+    fireEvent.click(container.querySelector('.rest-btn')!);
+
+    expect(container.querySelectorAll('.ant-table-tbody .ant-table-row').length).toEqual(4);
   });
 
   describe('filter tree mode', () => {

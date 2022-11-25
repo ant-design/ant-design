@@ -1,4 +1,4 @@
-import React, { type FC } from 'react';
+import React from 'react';
 import { Col, Row } from 'antd';
 import { css } from '@emotion/react';
 import useSiteToken from '../../../hooks/useSiteToken';
@@ -70,7 +70,7 @@ export type ResourceCardProps = {
   resource: Resource;
 };
 
-const ResourceCard: FC<ResourceCardProps> = ({ resource }) => {
+const ResourceCard: React.FC<ResourceCardProps> = ({ resource }) => {
   const styles = useStyle();
 
   const { title: titleStr, description, cover, src, official } = resource;
@@ -105,7 +105,7 @@ export type ResourceCardsProps = {
   resources: Resource[];
 };
 
-const ResourceCards: FC<ResourceCardsProps> = ({ resources }) => {
+const ResourceCards: React.FC<ResourceCardsProps> = ({ resources }) => {
   return (
     <Row style={{ margin: '-12px -12px 0 -12px' }}>
       {resources.map((item) => (

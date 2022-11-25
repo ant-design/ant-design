@@ -164,7 +164,7 @@ const useStyle = () => {
 
     logoImgPureColor: css`
       img {
-        transform: translateX(-30px);
+        transform: translate3d(-30px, 0, 0);
       }
     `,
 
@@ -512,7 +512,7 @@ export default function Theme() {
               style={{
                 ...posStyle,
                 left: '50%',
-                transform: 'translateX(-900px)',
+                transform: 'translate3d(-900px, 0, 0)',
                 top: -100,
                 height: 500,
               }}
@@ -523,7 +523,7 @@ export default function Theme() {
               style={{
                 ...posStyle,
                 right: '50%',
-                transform: 'translateX(750px)',
+                transform: 'translate3d(750px, 0, 0)',
                 bottom: -100,
                 height: 287,
               }}

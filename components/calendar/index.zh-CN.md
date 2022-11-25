@@ -23,7 +23,7 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/dPQmLq08DI/Calendar.svg
 
 ## API
 
-**注意：**Calendar 部分 locale 是从 value 中读取，所以请先正确设置 dayjs 的 locale。
+**注意**：Calendar 部分 locale 是从 value 中读取，所以请先正确设置 dayjs 的 locale。
 
 ```jsx
 // 默认语言为 en-US，所以如果需要使用其他语言，推荐在入口文件全局设置 locale

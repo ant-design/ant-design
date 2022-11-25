@@ -1,17 +1,17 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { textEllipsis } from '../../style';
 import type { MenuToken } from '.';
-import type { GenerateStyle } from '../../theme';
+import type { GenerateStyle } from '../../theme/internal';
 
 const getVerticalInlineStyle: GenerateStyle<MenuToken, CSSObject> = (token) => {
   const {
     componentCls,
     menuItemHeight,
-    menuItemMarginInline,
     itemMarginInline,
     padding,
     menuArrowSize,
     fontSize,
+    marginXXS,
   } = token;
 
   const paddingWithArrow = menuArrowSize + fontSize;
@@ -29,7 +29,7 @@ const getVerticalInlineStyle: GenerateStyle<MenuToken, CSSObject> = (token) => {
       textOverflow: 'ellipsis',
 
       marginInline: itemMarginInline,
-      marginBlock: menuItemMarginInline,
+      marginBlock: marginXXS,
       width: `calc(100% - ${itemMarginInline * 2}px)`,
     },
 

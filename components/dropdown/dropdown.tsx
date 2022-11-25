@@ -13,6 +13,7 @@ import getPlacements from '../_util/placements';
 import { cloneElement } from '../_util/reactNode';
 import { tuple } from '../_util/type';
 import warning from '../_util/warning';
+import { NoCompactStyle } from '../space/Compact';
 import DropdownButton from './dropdown-button';
 import useStyle from './style';
 
@@ -264,7 +265,7 @@ const Dropdown: DropdownInterface = (props) => {
           );
         }}
       >
-        {overlayNode}
+        <NoCompactStyle>{overlayNode}</NoCompactStyle>
       </OverrideProvider>
     );
   };

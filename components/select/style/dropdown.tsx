@@ -8,7 +8,7 @@ import {
   slideUpIn,
   slideUpOut,
 } from '../../style/motion';
-import type { GenerateStyle } from '../../theme';
+import type { GenerateStyle } from '../../theme/internal';
 import { resetComponent, textEllipsis } from '../../style';
 
 const genItemStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {

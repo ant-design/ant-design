@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useMemo } from 'react';
 import { TinyColor } from '@ctrl/tinycolor';
-import { useToken } from '../theme';
+import { useToken } from '../theme/internal';
 
 const Simple = () => {
   const [, token] = useToken();

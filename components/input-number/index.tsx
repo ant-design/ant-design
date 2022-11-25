@@ -11,7 +11,7 @@ import DisabledContext from '../config-provider/DisabledContext';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
 import { FormItemInputContext, NoFormStyle } from '../form/context';
-import { useCompactItemContext } from '../space/Compact';
+import { NoCompactStyle, useCompactItemContext } from '../space/Compact';
 import { cloneElement } from '../_util/reactNode';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
@@ -188,15 +188,19 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
       <div className={mergedGroupClassName} style={props.style}>
         <div className={mergedWrapperClassName}>
           {addonBeforeNode && (
-            <NoFormStyle status override>
-              {addonBeforeNode}
-            </NoFormStyle>
+            <NoCompactStyle>
+              <NoFormStyle status override>
+                {addonBeforeNode}
+              </NoFormStyle>
+            </NoCompactStyle>
           )}
           {cloneElement(element, { style: null, disabled: mergedDisabled })}
           {addonAfterNode && (
-            <NoFormStyle status override>
-              {addonAfterNode}
-            </NoFormStyle>
+            <NoCompactStyle>
+              <NoFormStyle status override>
+                {addonAfterNode}
+              </NoFormStyle>
+            </NoCompactStyle>
           )}
         </div>
       </div>

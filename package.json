@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "description": "An enterprise-class UI design language and React components implementation",
   "title": "Ant Design",
   "keywords": [
@@ -37,7 +37,7 @@
     "locale"
   ],
   "sideEffects": [
-    "*.less"
+    "*.css"
   ],
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -55,11 +55,12 @@
     "clean": "antd-tools run clean && rm -rf es lib coverage dist report.html",
     "clean-lockfiles": "rm -rf package-lock.json yarn.lock",
     "collect-token-statistic": "ts-node --project tsconfig.node.json scripts/collect-token-statistic.js",
-    "prestart": "npm run version && npm run collect-token-statistic",
-    "precompile": "npm run version && npm run collect-token-statistic",
+    "token-meta": "node scripts/generate-token-meta.js",
+    "prestart": "npm run version & npm run collect-token-statistic & npm run token-meta",
+    "precompile": "npm run version & npm run collect-token-statistic & npm run token-meta",
     "pretest": "npm run version",
     "predist": "npm run version",
-    "presite": "npm run version && npm run collect-token-statistic",
+    "presite": "npm run version & npm run collect-token-statistic & npm run token-meta",
     "compile": "npm run clean && antd-tools run compile",
     "changelog": "node ./scripts/print-changelog",
     "predeploy": "antd-tools run clean && npm run site && cp CNAME _site && npm run site:test",
@@ -78,7 +79,7 @@
     "lint:script": "eslint . --ext .js,.jsx,.ts,.tsx",
     "pre-publish": "npm run test-all -- --skip-build",
     "prettier": "prettier -c --write **/*",
-    "pub": "npm run version && npm run collect-token-statistic && antd-tools run pub",
+    "pub": "npm run version && npm run collect-token-statistic && npm run token-meta && antd-tools run pub",
     "rome:format": "rome format --write .",
     "prepublishOnly": "antd-tools run guard",
     "postpublish": "node ./scripts/post-script.js",
@@ -129,7 +130,7 @@
     "rc-image": "~5.12.0",
     "rc-input": "~0.1.4",
     "rc-input-number": "~7.3.9",
-    "rc-mentions": "~1.13.0",
+    "rc-mentions": "~1.13.1",
     "rc-menu": "~9.8.0",
     "rc-motion": "^2.6.1",
     "rc-notification": "~5.0.0-alpha.9",
@@ -221,7 +222,7 @@
     "eslint-plugin-markdown": "^3.0.0",
     "eslint-plugin-react": "^7.31.8",
     "eslint-plugin-react-hooks": "^4.1.2",
-    "eslint-plugin-unicorn": "^44.0.0",
+    "eslint-plugin-unicorn": "^45.0.0",
     "fast-glob": "^3.2.11",
     "fetch-jsonp": "^1.1.3",
     "fs-extra": "^10.0.0",
@@ -299,6 +300,7 @@
     "sylvanas": "^0.6.1",
     "theme-switcher": "^1.0.2",
     "ts-node": "^10.8.2",
+    "typedoc": "^0.23.21",
     "typescript": "~4.9.3",
     "webpack-bundle-analyzer": "^4.1.0",
     "xhr-mock": "^2.4.1",

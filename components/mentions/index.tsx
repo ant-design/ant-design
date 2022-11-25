@@ -128,6 +128,18 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
     return (renderEmpty || defaultRenderEmpty)('Select');
   };
 
+  const getOptions = () => {
+    if (loading) {
+      return (
+        <Option value="ANTD_SEARCHING" disabled>
+          <Spin size="small" />
+        </Option>
+      );
+    }
+
+    return children;
+  };
+
   const mergedOptions = loading
     ? [
         {
@@ -175,7 +187,9 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
       dropdownClassName={classNames(popupClassName, hashId)}
       ref={mergedRef as any}
       options={mergedOptions}
-    />
+    >
+      {getOptions()}
+    </RcMentions>
   );
 
   if (hasFeedback) {

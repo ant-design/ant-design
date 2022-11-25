@@ -1,5 +1,5 @@
 import React from 'react';
-import Mentions,{Option} from '..';
+import Mentions, { Option } from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -88,10 +88,7 @@ describe('Mentions', () => {
   it('warning if use Mentions.Option', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(
-      <Mentions
-        style={{ width: '100%' }}
-        defaultValue="@afc163"
-      >
+      <Mentions style={{ width: '100%' }} defaultValue="@afc163">
         <Option value="afc163">afc163</Option>
         <Option value="zombieJ">zombieJ</Option>
         <Option value="yesmeck">yesmeck</Option>
@@ -100,5 +97,25 @@ describe('Mentions', () => {
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Mentions] `Mentions.Option` is deprecated. Please use `options` instead.',
     );
+  });
+
+  it('do not lose label when use children Option', () => {
+    const wrapper = render(
+      <Mentions style={{ width: '100%' }}>
+        <Mentions.Option value="afc163">Afc163</Mentions.Option>
+        <Mentions.Option value="zombieJ">ZombieJ</Mentions.Option>
+        <Mentions.Option value="yesmeck">Yesmeck</Mentions.Option>
+      </Mentions>,
+    );
+    simulateInput(wrapper, '@');
+    const { container } = wrapper;
+    fireEvent.mouseEnter(container.querySelector('li.ant-mentions-dropdown-menu-item:last-child')!);
+    fireEvent.focus(container.querySelector('textarea')!);
+    act(() => {
+      jest.runAllTimers();
+    });
+    expect(
+      wrapper.container.querySelector('.ant-mentions-dropdown-menu-item-active')?.textContent,
+    ).toBe('Yesmeck');
   });
 });

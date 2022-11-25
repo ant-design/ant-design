@@ -32,6 +32,9 @@ Use when you want to guide users through a product.
 | onClose | Callback function on shutdown | `Function` | - |  |
 | mask | Whether to enable masking | `boolean` | `true` |  |
 | type | Type, affects the background color and text color | `default` `primary` | `default` |  |
+| open | Open tour | `boolean` | - |  |
+| onChange | Callback when the step changes. Current is the previous step | `(current: number) => void` | - |  |
+| current | What is the current step | `number` | - |  |
 
 ### TourStep
 
