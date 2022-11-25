@@ -185,4 +185,22 @@ describe('Badge', () => {
 
     expect(container.querySelectorAll('.ant-badge > .ant-badge-status-text')).toHaveLength(0);
   });
+
+  // https://github.com/ant-design/ant-design/issues/38965
+  it('should display custom color and number is 0', () => {
+    const { container } = render(
+      <>
+        <Badge count={0} showZero color="#ff0" />
+        <Badge count={0} showZero color="blue" />
+        <Badge count={0} showZero />
+        <Badge count={0} showZero color='green'>
+          <div />
+        </Badge>
+      </>,
+    );
+
+    expect(container).toMatchSnapshot();
+    expect(container.querySelectorAll('.ant-badge-count')).toHaveLength(4);
+    expect(container.querySelectorAll('[title="0"]')).toHaveLength(4);
+  });
 });
