@@ -226,7 +226,11 @@ function useFilter<RecordType>({
 
     // Return if not controlled
     if (filteredKeysIsAllNotControlled) {
-      return filterStates;
+      // Filter column may have been removed
+      const keyList = (mergedColumns || []).map((column, index) =>
+        getColumnKey(column, getColumnPos(index)),
+      );
+      return filterStates.filter(({ key }) => keyList.includes(key));
     }
 
     warning(
