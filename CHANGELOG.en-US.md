@@ -15,6 +15,17 @@ timeline: true
 
 ---
 
+## 4.24.4
+
+`2022-11-25`
+
+- Space.Compact
+  - 💄 Optimize Space.Compact style when wrapping a single child component. [#38913](https://github.com/ant-design/ant-design/pull/38913) [@foryuki](https://github.com/foryuki)
+  - 💄 Optimize Space.Compact style when wrapping Modal, Dropdown, Drawer and other components. [#38887](https://github.com/ant-design/ant-design/pull/38887) [@foryuki](https://github.com/foryuki)
+- 🆕 Mentions support `options` prop. [#38876](https://github.com/ant-design/ant-design/pull/38876) [@heiyu4585](https://github.com/heiyu4585)
+- 🐞 Fix ConfigProvider that `componentDisabled` is not work. [#38886](https://github.com/ant-design/ant-design/pull/38886) [@lidianhao123](https://github.com/lidianhao123)
+- 🐞 Fix Message that `onClose` didn't triggered when `duration` is `0`. [#38669](https://github.com/ant-design/ant-design/pull/38669) [@kiner-tang](https://github.com/kiner-tang)
+
 ## 4.24.3
 
 `2022-11-17`
