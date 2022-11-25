@@ -35,7 +35,7 @@ const genSelectorStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
 
       input: {
         cursor: 'auto',
-        color: token.colorText,
+        color: 'inherit',
       },
     },
 
