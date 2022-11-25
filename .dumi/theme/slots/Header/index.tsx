@@ -19,6 +19,8 @@ import { useLocation, useNavigate } from 'dumi';
 import { ClassNames, css } from '@emotion/react';
 import useSiteToken from '../../../hooks/useSiteToken';
 import useLocale from '../../../hooks/useLocale';
+import LangBtn from './LangBtn';
+import useSharedStyle from './style';
 
 const RESPONSIVE_XS = 1120;
 const RESPONSIVE_SM = 1200;
@@ -55,8 +57,8 @@ const useStyle = () => {
       }
 
       .nav-search-wrapper {
-        flex: auto;
         display: flex;
+        flex: auto;
       }
 
       .dumi-default-search-bar {
@@ -120,10 +122,6 @@ const useStyle = () => {
           }
         }
       }
-    `,
-    headerButton: css`
-      color: ${token.colorText};
-      border-color: ${token.colorBorder};
     `,
     popoverMenu: {
       width: 300,
@@ -216,6 +214,7 @@ const Header: React.FC<HeaderProps> = (props) => {
   const navigate = useNavigate();
 
   const style = useStyle();
+  const sharedStyle = useSharedStyle();
 
   const handleHideMenu = useCallback(() => {
     setHeaderState((prev) => ({ ...prev, menuVisible: false }));
@@ -415,13 +414,11 @@ const Header: React.FC<HeaderProps> = (props) => {
         {versionOptions}
       </Select>
     </Popover>,
-    <Button size="small" onClick={onLangChange} css={style.headerButton} key="lang-button">
-      <FormattedMessage id="app.header.lang" />
-    </Button>,
+    <LangBtn onClick={onLangChange} cn={utils.isZhCN(pathname)} />,
     <Button
       size="small"
       onClick={onDirectionChange}
-      css={style.headerButton}
+      css={sharedStyle.headerButton}
       key="direction-button"
     >
       {nextDirectionText}
