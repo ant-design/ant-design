@@ -128,7 +128,7 @@ modal.update({
 });
 
 // 在 4.8.0 或更高版本中，可以通过传入函数的方式更新弹窗
-modal.update(prevConfig => ({
+modal.update((prevConfig) => ({
   ...prevConfig,
   title: `${prevConfig.title}（新）`,
 }));
@@ -191,7 +191,7 @@ return (
 );
 ```
 
-**异同：**通过 hooks 创建的 `contextHolder` 必须插入到子元素节点中才会生效，当你不需要上下文信息时请直接调用。
+**异同**：通过 hooks 创建的 `contextHolder` 必须插入到子元素节点中才会生效，当你不需要上下文信息时请直接调用。
 
 ### 如何关闭 Modal 动画？
 

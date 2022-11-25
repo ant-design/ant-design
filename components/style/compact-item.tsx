@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 import type { CSSObject } from '@ant-design/cssinjs';
-import type { DerivativeToken } from '../theme';
+import type { DerivativeToken } from '../theme/internal';
 
 // handle border collapse
 function compactItemBorder(
@@ -43,7 +43,7 @@ function compactItemBorderRadius(prefixCls: string, borderedElementCls?: string)
       borderRadius: 0,
     },
 
-    '&-item&-first-item': {
+    '&-item:not(&-last-item)&-first-item': {
       [`& ${childCombinator}, &${prefixCls}-sm ${childCombinator}, &${prefixCls}-lg ${childCombinator}`]:
         {
           borderStartEndRadius: 0,
@@ -51,7 +51,7 @@ function compactItemBorderRadius(prefixCls: string, borderedElementCls?: string)
         },
     },
 
-    '&-item&-last-item': {
+    '&-item:not(&-first-item)&-last-item': {
       [`& ${childCombinator}, &${prefixCls}-sm ${childCombinator}, &${prefixCls}-lg ${childCombinator}`]:
         {
           borderStartStartRadius: 0,

@@ -1,7 +1,7 @@
 /* eslint jsx-a11y/no-noninteractive-element-interactions: 0 */
 import { CheckOutlined, SnippetsOutlined, ThunderboltOutlined } from '@ant-design/icons';
 import stackblitzSdk from '@stackblitz/sdk';
-import { Alert, Badge, Tooltip } from 'antd';
+import { Alert, Badge, Tooltip, Space } from 'antd';
 import classNames from 'classnames';
 import LZString from 'lz-string';
 import React from 'react';
@@ -375,7 +375,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
             />
           </div>
           <div className="code-box-description">{introChildren}</div>
-          <div className="code-box-actions">
+          <Space wrap size="middle" className="code-box-actions">
             {showRiddleButton ? (
               <form
                 className="code-box-code-action"
@@ -466,7 +466,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
             <Tooltip
               title={<FormattedMessage id={`app.demo.code.${codeExpand ? 'hide' : 'show'}`} />}
             >
-              <span className="code-expand-icon code-box-code-action">
+              <div className="code-expand-icon code-box-code-action">
                 <img
                   alt="expand code"
                   src={
@@ -487,9 +487,9 @@ createRoot(document.getElementById('container')).render(<Demo />);
                   className={codeExpand ? 'code-expand-icon-show' : 'code-expand-icon-hide'}
                   onClick={() => this.handleCodeExpand(meta.id)}
                 />
-              </span>
+              </div>
             </Tooltip>
-          </div>
+          </Space>
         </section>
         <section className={highlightClass} key="code">
           <CodePreview

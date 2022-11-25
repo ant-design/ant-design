@@ -1,6 +1,6 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import type { LayoutToken } from '.';
-import type { GenerateStyle } from '../../theme';
+import type { GenerateStyle } from '../../theme/internal';
 
 const genLayoutLightStyle: GenerateStyle<LayoutToken, CSSObject> = (token) => {
   const { componentCls, colorBgContainer, colorBgBody, colorText } = token;

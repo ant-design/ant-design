@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, type FC } from 'react';
+import React from 'react';
 import { useLocale as useDumiLocale } from 'dumi';
 import { css } from '@emotion/react';
 import useLocale from '../../hooks/useLocale';
@@ -11,8 +11,6 @@ import BannerRecommends from './components/BannerRecommends';
 import ComponentsList from './components/ComponentsList';
 import DesignFramework from './components/DesignFramework';
 import { ConfigProvider } from 'antd';
-import dayjs from 'dayjs';
-import 'dayjs/locale/zh-cn';
 
 const useStyle = () => {
   const { token } = useSiteToken();
@@ -44,22 +42,14 @@ const locales = {
   },
 };
 
-const Homepage: FC = () => {
-  const [locale, lang] = useLocale(locales);
+const Homepage: React.FC = () => {
+  const [locale] = useLocale(locales);
   const { id: localeId } = useDumiLocale();
   const localeStr = localeId === 'zh-CN' ? 'cn' : 'en';
 
   const [siteData, loading] = useSiteData();
 
   const style = useStyle();
-
-  useLayoutEffect(() => {
-    if (lang === 'cn') {
-      dayjs.locale('zh-cn');
-    } else {
-      dayjs.locale('en');
-    }
-  }, []);
 
   return (
     <ConfigProvider theme={{ algorithm: undefined }}>

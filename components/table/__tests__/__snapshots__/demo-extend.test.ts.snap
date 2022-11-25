@@ -23936,10 +23936,17 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.tsx extend c
 `;
 
 exports[`renders ./components/table/demo/size.tsx extend context correctly 1`] = `
-<div>
-  <h4>
-    Middle size table
-  </h4>
+Array [
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      Middle size table
+    </span>
+  </div>,
   <div
     class="ant-table-wrapper"
   >
@@ -24132,10 +24139,17 @@ exports[`renders ./components/table/demo/size.tsx extend context correctly 1`] =
         </ul>
       </div>
     </div>
-  </div>
-  <h4>
-    Small size table
-  </h4>
+  </div>,
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      Small size table
+    </span>
+  </div>,
   <div
     class="ant-table-wrapper"
   >
@@ -24328,8 +24342,8 @@ exports[`renders ./components/table/demo/size.tsx extend context correctly 1`] =
         </ul>
       </div>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/table/demo/sticky.tsx extend context correctly 1`] = `

@@ -1,194 +1,88 @@
 import * as React from 'react';
-import { Modal, Button, Typography, Row, Col, Tour } from 'antd';
-import { SmileOutlined } from '@ant-design/icons';
-import { isLocalStorageNameSupported, ping } from '../../utils';
+import { updateCSS, removeCSS } from 'rc-util/lib/Dom/dynamicCSS';
 import useLocale from '../../../hooks/useLocale';
-import useSiteToken from '../../../hooks/useSiteToken';
+
+const whereCls = 'ant-where-checker';
 
 const locales = {
   cn: {
-    title: '🎉🎉🎉 Ant Design 5.0 发布！ 🎉🎉🎉',
-    ok: '知道了',
+    whereNotSupport: `你的浏览器不支持现代 CSS Selector，请使用现代浏览器（如 Chrome、Firefox 等等）查看官网。如果需要对旧版浏览器进行样式支持，欢迎查阅配置文档：`,
+    whereDocTitle: '兼容性调整（请使用现代浏览器访问）',
+    whereDocUrl: '/docs/react/customize-theme-cn#兼容性调整',
   },
   en: {
-    title: '🎉🎉🎉 Ant Design 5.0 is released! 🎉🎉🎉',
-    ok: 'Got it',
+    whereNotSupport:
+      'Your browser not support modern CSS Selector. Please use modern browser to view (e.g. Chrome, Firefox, etc). If you want to compatible style with legacy browser, please refer to the configuration document:',
+    whereDocTitle: 'Compatible adjustment (Please use modern browser to visit)',
+    whereDocUrl: '/docs/react/customize-theme#compatible-adjustment',
   },
 };
 
-const V5_NOTIFICATION = 'antd@4.0.0-notification-sent';
-const SHOULD_OPEN_ANT_DESIGN_MIRROR_MODAL = 'ANT_DESIGN_DO_NOT_OPEN_MIRROR_MODAL';
-
-function disableAntdMirrorModal() {
-  window.localStorage.setItem(SHOULD_OPEN_ANT_DESIGN_MIRROR_MODAL, 'true');
-}
-
-function shouldOpenAntdMirrorModal() {
-  return !window.localStorage.getItem(SHOULD_OPEN_ANT_DESIGN_MIRROR_MODAL);
-}
-
+// Check for browser support `:where` or not
+// Warning user if not support to modern browser
 export default function InfoNewVersion() {
-  return null;
-
-  const [locale, lang] = useLocale(locales);
-  const [notify, setNotify] = React.useState<null | boolean>(null);
-
-  const { token } = useSiteToken();
-
-  function onClose() {
-    setNotify(false);
-    localStorage.setItem(V5_NOTIFICATION, 'true');
-  }
+  const [location] = useLocale(locales);
+  const [supportWhere, setSupportWhere] = React.useState(true);
 
   React.useEffect(() => {
-    if (isLocalStorageNameSupported()) {
-      // 大版本发布后全局弹窗提示
-      //   1. 点击『知道了』之后不再提示
-      //   2. 超过截止日期后不再提示
-      if (
-        localStorage.getItem(V5_NOTIFICATION) !== 'true' &&
-        Date.now() < new Date('2022/12/31').getTime()
-      ) {
-        setNotify(true);
-        return;
-      }
-    }
+    const p = document.createElement('p');
+    p.className = whereCls;
+    p.style.position = 'fixed';
+    p.style.pointerEvents = 'none';
+    p.style.visibility = 'hidden';
+    p.style.opacity = '0';
+    document.body.appendChild(p);
+    updateCSS(
+      `
+:where(.${whereCls}) {
+  opacity: 0.3 !important;
+}
+    `,
+      whereCls,
+    );
 
-    setNotify(false);
+    // Check style
+    const { opacity } = getComputedStyle(p);
+    setSupportWhere(String(opacity) === '0.3');
+
+    return () => {
+      document.body.removeChild(p);
+      removeCSS(whereCls);
+    };
   }, []);
 
-  React.useEffect(() => {
-    const timeout = ping((status) => {
-      if (status !== 'timeout' && status !== 'error') {
-        if (
-          // process.env.NODE_ENV === 'production' &&
-          notify === false &&
-          window.location.host !== 'ant-design.antgroup.com' &&
-          shouldOpenAntdMirrorModal()
-        ) {
-          Modal.confirm({
-            title: '提示',
-            content: '内网用户推荐访问国内镜像以获得极速体验～',
-            okText: '🚀 立刻前往',
-            cancelText: '不再弹出',
-            closable: true,
-            onOk() {
-              window.open('https://ant-design.antgroup.com', '_self');
-              disableAntdMirrorModal();
-            },
-            onCancel() {
-              disableAntdMirrorModal();
-            },
-          });
-        }
-      }
-    });
-
-    return clearTimeout(timeout);
-  }, [notify]);
-
-  return (
-    <>
-      <Tour
-        open={!!notify}
-        mask={false}
-        steps={[
-          {
-            title: locale.title,
-            target: () => document.querySelector('#versionSelector')!,
-            description: (
-              <Typography style={{ marginTop: token.marginXS }}>
-                {lang === 'cn' ? (
-                  <>
-                    <p>
-                      点击{' '}
-                      <Typography.Link href="/changelog-cn" onClick={onClose}>
-                        此处查看
-                      </Typography.Link>{' '}
-                      完整更新日志。
-                    </p>
-                    <p>
-                      如果你需要访问 v4 版本的文档，请点击{' '}
-                      <Typography.Link href="https://4x.ant.design/" onClick={onClose}>
-                        此处查看
-                      </Typography.Link>
-                      。
-                    </p>
-                  </>
-                ) : (
-                  <>
-                    <p>
-                      Click{' '}
-                      <Typography.Link href="/changelog" onClick={onClose}>
-                        here
-                      </Typography.Link>{' '}
-                      to view full changelog.
-                    </p>
-                    <p>
-                      If you want to check v4 documentation, please click{' '}
-                      <Typography.Link href="https://4x.ant.design/" onClick={onClose}>
-                        here
-                      </Typography.Link>
-                      .
-                    </p>
-                  </>
-                )}
-              </Typography>
-            ),
-          },
-        ]}
-      />
-      {/* <Modal
-        open={!!notify}
-        title={locale.title}
-        closable={false}
-        footer={<Button onClick={onClose}>{locale.ok}</Button>}
+  return supportWhere ? null : (
+    <div
+      style={{
+        position: 'fixed',
+        left: 0,
+        right: 0,
+        top: 0,
+        bottom: 0,
+        zIndex: 99999999,
+        background: 'rgba(0,0,0,0.65)',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
+    >
+      <div
+        style={{
+          border: `1px solid #ffe58f`,
+          background: '#fffbe6',
+          color: 'rgba(0,0,0,0.88)',
+          padding: '8px 12px',
+          borderRadius: '8px',
+          zIndex: 9999999999,
+          lineHeight: '22px',
+          width: 520,
+        }}
       >
-        <Row gutter={16}>
-          <Col flex="none">
-            <SmileOutlined style={{ fontSize: 72, color: token.colorSuccess }} />
-          </Col>
-          <Col flex="auto">
-            <Typography style={{ marginTop: token.marginXS }}>
-              {lang === 'cn' ? (
-                <>
-                  <p>
-                    点击{' '}
-                    <Typography.Link href="/changelog-cn" onClick={onClose}>
-                      此处查看
-                    </Typography.Link>{' '}
-                    完整更新日志。
-                  </p>
-                  <p>
-                    如果你需要访问 v4 版本的文档，请点击{' '}
-                    <Typography.Link href="https://4x.ant.design/" onClick={onClose}>
-                      此处查看
-                    </Typography.Link>
-                    。
-                  </p>
-                </>
-              ) : (
-                <>
-                  <p>
-                    Click{' '}
-                    <Typography.Link href="/changelog" onClick={onClose}>
-                      here
-                    </Typography.Link>{' '}
-                    to view full changelog.
-                  </p>
-                  <p>
-                    If you want to check v4 documentation, please click{' '}
-                    <Typography.Link href="https://4x.ant.design/" onClick={onClose}>
-                      here
-                    </Typography.Link>
-                    .
-                  </p>
-                </>
-              )}
-            </Typography>
-          </Col>
-        </Row>
-      </Modal> */}
-    </>
+        {location.whereNotSupport}{' '}
+        <a style={{ color: '#1677ff', textDecoration: 'none' }} href={location.whereDocUrl}>
+          {location.whereDocTitle}
+        </a>
+      </div>
+    </div>
   );
 }

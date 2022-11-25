@@ -286,8 +286,11 @@ const GlobalStyles = () => {
           }
 
           .markdown .dumi-default-source-code {
+            margin: 1em 0;
             background-color: ${token.siteMarkdownCodeBg};
+            border-radius: ${token.borderRadius}px;
             > pre.prism-code {
+              padding: 12px 20px;
               font-size: 13px;
               line-height: 2;
             }
@@ -450,7 +453,7 @@ const GlobalStyles = () => {
 
           .markdown .dumi-default-table {
             table {
-              margin: 2em 0;
+              margin: 0;
               overflow-x: auto;
               overflow-y: hidden;
               font-size: ${Math.max(token.fontSize - 1, 12)}px;
@@ -1001,6 +1004,9 @@ const GlobalStyles = () => {
             }
 
             .code-expand-icon {
+              width: 16px;
+              height: 16px;
+              position: relative;
               cursor: pointer;
             }
 
@@ -1083,7 +1089,6 @@ const GlobalStyles = () => {
               align-items: center;
               width: 16px;
               height: 16px;
-              margin-left: 16px;
               color: ${token.colorTextSecondary};
               cursor: pointer;
               transition: all 0.24s;
@@ -1091,14 +1096,6 @@ const GlobalStyles = () => {
               ${antCls}-row-rtl & {
                 margin-right: 16px;
                 margin-left: 0;
-              }
-
-              &:first-child {
-                margin-left: 0;
-
-                ${antCls}-row-rtl & {
-                  margin-right: 0;
-                }
               }
 
               &:hover {

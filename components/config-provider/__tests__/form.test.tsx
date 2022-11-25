@@ -4,6 +4,7 @@ import ConfigProvider from '..';
 import { render } from '../../../tests/utils';
 import type { FormInstance } from '../../form';
 import Form from '../../form';
+import Input from '../../input';
 import zhCN from '../../locale/zh_CN';
 
 describe('ConfigProvider.Form', () => {
@@ -123,6 +124,26 @@ describe('ConfigProvider.Form', () => {
         </ConfigProvider>,
       );
       expect(container.querySelector('.ant-form-item-no-colon')).toBeFalsy();
+    });
+  });
+
+  describe('form disabled', () => {
+    it('set Input enabled', () => {
+      const { container } = render(
+        <Form disabled>
+          <ConfigProvider componentDisabled={false}>
+            <Form.Item name="input1" label="启用">
+              <Input />
+            </Form.Item>
+          </ConfigProvider>
+          <Form.Item name="input" label="禁用">
+            <Input />
+          </Form.Item>
+        </Form>,
+      );
+
+      expect(container.querySelector('#input1[disabled]')).toBeFalsy();
+      expect(container.querySelector('#input[disabled]')).toBeTruthy();
     });
   });
 });

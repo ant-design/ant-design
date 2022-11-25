@@ -1,8 +1,8 @@
 import { Keyframes, useStyleRegister } from '@ant-design/cssinjs';
 import { useContext } from 'react';
 import { ConfigContext } from '../../config-provider';
-import type { AliasToken, GenerateStyle, UseComponentStyleResult } from '../../theme';
-import { useToken } from '../../theme';
+import type { AliasToken, GenerateStyle, UseComponentStyleResult } from '../../theme/internal';
+import { useToken } from '../../theme/internal';
 
 interface WaveToken extends AliasToken {
   hashId: string;

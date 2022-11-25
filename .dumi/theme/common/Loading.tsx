@@ -1,8 +1,8 @@
-import React, { type FC } from 'react';
+import React from 'react';
 import { Skeleton, Space, Spin } from 'antd';
 import { useLocation } from 'dumi';
 
-const Loading: FC = () => {
+const Loading: React.FC = () => {
   const { pathname } = useLocation();
 
   if (

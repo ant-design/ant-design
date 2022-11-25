@@ -1,6 +1,6 @@
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
-import type { FullToken, GenerateStyle } from '../../theme';
-import { genComponentStyleHook, mergeToken } from '../../theme';
+import type { FullToken, GenerateStyle } from '../../theme/internal';
+import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import genGroupStyle from './group';
 import { genFocusStyle } from '../../style';
 import { genCompactItemStyle } from '../../style/compact-item';
@@ -44,10 +44,6 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
       // Leave a space between icon and text.
       [`> ${iconCls} + span, > span + ${iconCls}`]: {
         marginInlineStart: token.marginXS,
-      },
-
-      [`&${componentCls}-block`]: {
-        width: '100%',
       },
 
       '&:not(:disabled)': {
@@ -214,7 +210,7 @@ const genDefaultButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => 
     ...genHoverActiveButtonStyle(
       {
         color: token.colorErrorHover,
-        borderColor: token.colorErrorBorder,
+        borderColor: token.colorErrorBorderHover,
       },
       {
         color: token.colorErrorActive,
@@ -463,6 +459,17 @@ const genSizeLargeButtonStyle: GenerateStyle<ButtonToken> = (token) => {
   return genSizeButtonStyle(largeToken, `${token.componentCls}-lg`);
 };
 
+const genBlockButtonStyle: GenerateStyle<ButtonToken> = (token) => {
+  const { componentCls } = token;
+  return {
+    [componentCls]: {
+      [`&${componentCls}-block`]: {
+        width: '100%',
+      },
+    },
+  };
+};
+
 // ============================== Export ==============================
 export default genComponentStyleHook('Button', (token) => {
   const { controlTmpOutline, paddingContentHorizontal } = token;
@@ -480,6 +487,9 @@ export default genComponentStyleHook('Button', (token) => {
     genSizeSmallButtonStyle(buttonToken),
     genSizeBaseButtonStyle(buttonToken),
     genSizeLargeButtonStyle(buttonToken),
+
+    // Block
+    genBlockButtonStyle(buttonToken),
 
     // Group (type, ghost, danger, disabled, loading)
     genTypeButtonStyle(buttonToken),

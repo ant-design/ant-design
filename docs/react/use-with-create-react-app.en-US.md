@@ -122,7 +122,7 @@ module.exports = {
 
 ### Customize Theme
 
-Ref to the [Customize Theme documentation](/docs/react/customize-theme-v5). Modify theme with ConfigProvider:
+Ref to the [Customize Theme documentation](/docs/react/customize-theme). Modify theme with ConfigProvider:
 
 ```tsx
 import React from 'react';

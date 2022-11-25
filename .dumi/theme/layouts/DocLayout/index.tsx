@@ -1,4 +1,6 @@
-import React, { type FC, useEffect, useMemo, useRef } from 'react';
+import React, { useEffect, useMemo, useRef, useLayoutEffect } from 'react';
+import 'dayjs/locale/zh-cn';
+import dayjs from 'dayjs';
 import { useOutlet, useSearchParams, Helmet } from 'dumi';
 import Header from 'dumi/theme/slots/Header';
 import Footer from 'dumi/theme/slots/Footer';
@@ -33,7 +35,7 @@ const locales = {
 
 const RESPONSIVE_MOBILE = 768;
 
-const DocLayout: FC = () => {
+const DocLayout: React.FC = () => {
   const outlet = useOutlet();
   const location = useLocation();
   const { pathname, search } = location;
@@ -51,6 +53,14 @@ const DocLayout: FC = () => {
   const updateMobileMode = () => {
     setIsMobile(window.innerWidth < RESPONSIVE_MOBILE);
   };
+
+  useLayoutEffect(() => {
+    if (lang === 'cn') {
+      dayjs.locale('zh-cn');
+    } else {
+      dayjs.locale('en');
+    }
+  }, []);
 
   useEffect(() => {
     const nprogressHiddenStyle = document.getElementById('nprogress-style');

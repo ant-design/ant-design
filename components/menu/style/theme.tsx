@@ -40,6 +40,7 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
     colorDangerItemBgSelected,
 
     colorItemBgHover,
+    menuSubMenuBg,
   } = token;
 
   return {
@@ -145,7 +146,7 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
       },
 
       [`&${componentCls}-submenu > ${componentCls}`]: {
-        backgroundColor: colorItemBg,
+        backgroundColor: menuSubMenuBg,
       },
 
       [`&${componentCls}-popup > ${componentCls}`]: {
