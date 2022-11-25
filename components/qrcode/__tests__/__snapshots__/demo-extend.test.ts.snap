@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/QRCode/demo/base.tsx extend context correctly 1`] = `
+exports[`renders ./components/qrcode/demo/base.tsx extend context correctly 1`] = `
 <div
   class="ant-qrcode"
   style="width:128px;height:128px"
@@ -13,7 +13,7 @@ exports[`renders ./components/QRCode/demo/base.tsx extend context correctly 1`] 
 </div>
 `;
 
-exports[`renders ./components/QRCode/demo/download.tsx extend context correctly 1`] = `
+exports[`renders ./components/qrcode/demo/download.tsx extend context correctly 1`] = `
 <div
   id="myqrcode"
 >
@@ -38,7 +38,7 @@ exports[`renders ./components/QRCode/demo/download.tsx extend context correctly 
 </div>
 `;
 
-exports[`renders ./components/QRCode/demo/errorlevel.tsx extend context correctly 1`] = `
+exports[`renders ./components/qrcode/demo/errorlevel.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-qrcode"
@@ -118,7 +118,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/QRCode/demo/icon.tsx extend context correctly 1`] = `
+exports[`renders ./components/qrcode/demo/icon.tsx extend context correctly 1`] = `
 <div
   class="ant-qrcode"
   style="width:128px;height:128px"
@@ -129,7 +129,7 @@ exports[`renders ./components/QRCode/demo/icon.tsx extend context correctly 1`] 
     width="128"
   />
   <img
-    src="https://gw.alipayobjects.com/zos/antfincdn/%24C9tmj978R/Carousel.svg"
+    src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
     style="display:none"
   />
 </div>
