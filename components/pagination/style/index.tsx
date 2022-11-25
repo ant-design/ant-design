@@ -222,6 +222,7 @@ const genPaginationSimpleStyle: GenerateStyle<PaginationToken, CSSObject> = (tok
         borderRadius: token.borderRadius,
         outline: 'none',
         transition: `border-color ${token.motionDurationMid}`,
+        color: 'inherit',
 
         '&:hover': {
           borderColor: token.colorPrimary,
