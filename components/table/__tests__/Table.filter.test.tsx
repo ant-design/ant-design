@@ -2006,6 +2006,8 @@ describe('Table.filter', () => {
 
     fireEvent.click(container.querySelector('.rest-btn')!);
 
+    refreshTimer();
+
     expect(container.querySelectorAll('.ant-table-tbody .ant-table-row').length).toEqual(4);
   });
 
