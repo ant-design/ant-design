@@ -59,7 +59,7 @@ styleFiles.forEach((file) => {
 });
 
 (() => {
-  const tokenPath = `${process.cwd()}/components/version/token-statistic.json`;
+  const tokenPath = `${process.cwd()}/components/version/token.json`;
   fs.writeJsonSync(tokenPath, statistic, 'utf8');
 
   console.log(chalk.green(`✅  Collected token statistics successfully, check it in`), tokenPath);
