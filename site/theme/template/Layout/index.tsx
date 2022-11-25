@@ -32,6 +32,10 @@ if (typeof window !== 'undefined') {
     location.href = location.href.replace('next.ant.design', 'ant.design');
   }
 
+  if (!location.pathname.endsWith('/')) {
+    location.pathname += '/';
+  }
+
   // eslint-disable-next-line global-require
   require('../../static/style');
 
