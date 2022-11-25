@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Form, Mentions } from 'antd';
 
-const { Option, getMentions } = Mentions;
+const { getMentions } = Mentions;
 
 const App: React.FC = () => {
   const [form] = Form.useForm();
@@ -36,11 +36,23 @@ const App: React.FC = () => {
         wrapperCol={{ span: 16 }}
         rules={[{ validator: checkMention }]}
       >
-        <Mentions rows={1}>
-          <Option value="afc163">afc163</Option>
-          <Option value="zombieJ">zombieJ</Option>
-          <Option value="yesmeck">yesmeck</Option>
-        </Mentions>
+        <Mentions
+          rows={1}
+          options={[
+            {
+              value: 'afc163',
+              label: 'afc163',
+            },
+            {
+              value: 'zombieJ',
+              label: 'zombieJ',
+            },
+            {
+              value: 'yesmeck',
+              label: 'yesmeck',
+            },
+          ]}
+        />
       </Form.Item>
       <Form.Item
         name="bio"
@@ -49,11 +61,24 @@ const App: React.FC = () => {
         wrapperCol={{ span: 16 }}
         rules={[{ required: true }]}
       >
-        <Mentions rows={3} placeholder="You can use @ to ref user here">
-          <Option value="afc163">afc163</Option>
-          <Option value="zombieJ">zombieJ</Option>
-          <Option value="yesmeck">yesmeck</Option>
-        </Mentions>
+        <Mentions
+          rows={3}
+          placeholder="You can use @ to ref user here"
+          options={[
+            {
+              value: 'afc163',
+              label: 'afc163',
+            },
+            {
+              value: 'zombieJ',
+              label: 'zombieJ',
+            },
+            {
+              value: 'yesmeck',
+              label: 'yesmeck',
+            },
+          ]}
+        />
       </Form.Item>
       <Form.Item wrapperCol={{ span: 14, offset: 6 }}>
         <Button htmlType="submit" type="primary">
