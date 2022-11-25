@@ -211,6 +211,9 @@ function useFilter<RecordType>({
 
   const mergedFilterStates = React.useMemo(() => {
     const collectedStates = collectFilterStates(mergedColumns, false);
+    if (collectedStates.length === 0) {
+      return collectedStates;
+    }
     let filteredKeysIsAllNotControlled = true;
     let filteredKeysIsAllControlled = true;
     collectedStates.forEach(({ filteredKeys }) => {
