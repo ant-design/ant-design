@@ -20,7 +20,7 @@ function finalizeCompile() {
     let componentsLessContent = '';
     // Build components in one file: lib/style/components.less
     fs.readdir(componentsPath, (err, files) => {
-      files.forEach(file => {
+      files.forEach((file) => {
         if (fs.existsSync(path.join(componentsPath, file, 'style', 'index.less'))) {
           componentsLessContent += `@import "../${path.posix.join(
             file,
@@ -192,4 +192,5 @@ module.exports = {
   },
   generateThemeFileContent,
   bail: true,
+  tag: 'v4',
 };
