@@ -44,7 +44,7 @@ const useStyle = () => {
       padding: 0.2em 0.4em;
       font-size: 0.9em;
       background: ${token.siteMarkdownCodeBg};
-      border: 1px solid rgba(5, 5, 5, 0.06);
+      border: 1px solid ${token.colorSplit};
       border-radius: 3px;
       font-family: monospace;
     `,
