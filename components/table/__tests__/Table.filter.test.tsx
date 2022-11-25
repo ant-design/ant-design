@@ -1982,17 +1982,9 @@ describe('Table.filter', () => {
     expect(container.querySelectorAll('.ant-table-tbody .ant-table-row').length).toEqual(4);
     // Open
     fireEvent.click(container.querySelector('.ant-table-filter-trigger')!);
+
     function getFilterMenu() {
       return container.querySelector('.ant-table-filter-dropdown');
-    }
-    // Seems raf not trigger when in useEffect for async update
-    // Need trigger multiple times
-    function refreshTimer() {
-      for (let i = 0; i < 3; i += 1) {
-        act(() => {
-          jest.runAllTimers();
-        });
-      }
     }
 
     const items = getFilterMenu()?.querySelectorAll('li.ant-dropdown-menu-item');
@@ -2000,13 +1992,10 @@ describe('Table.filter', () => {
     fireEvent.click(
       getFilterMenu()?.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary')!,
     );
-    refreshTimer();
 
     expect(container.querySelectorAll('.ant-table-tbody .ant-table-row').length).toEqual(1);
 
     fireEvent.click(container.querySelector('.rest-btn')!);
-
-    refreshTimer();
 
     expect(container.querySelectorAll('.ant-table-tbody .ant-table-row').length).toEqual(4);
   });
