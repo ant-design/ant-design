@@ -1,4 +1,4 @@
-import React, { type FC } from 'react';
+import React from 'react';
 import { useLocale as useDumiLocale } from 'dumi';
 import { css } from '@emotion/react';
 import useLocale from '../../hooks/useLocale';
@@ -42,7 +42,7 @@ const locales = {
   },
 };
 
-const Homepage: FC = () => {
+const Homepage: React.FC = () => {
   const [locale] = useLocale(locales);
   const { id: localeId } = useDumiLocale();
   const localeStr = localeId === 'zh-CN' ? 'cn' : 'en';

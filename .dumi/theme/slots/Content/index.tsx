@@ -1,4 +1,4 @@
-import React, { ReactNode, type FC, useMemo, useState, useLayoutEffect, useContext } from 'react';
+import React, { ReactNode, useMemo, useState, useLayoutEffect, useContext } from 'react';
 import { useIntl, useRouteMeta } from 'dumi';
 import Footer from 'dumi/theme/slots/Footer';
 import { Col, Typography, Avatar, Tooltip, Affix, Anchor } from 'antd';
@@ -82,7 +82,8 @@ const useStyle = () => {
       }
 
       @media only screen and (max-width: ${token.screenLG}px) {
-        &, &.rtl {
+        &,
+        &.rtl {
           padding-right: 48px;
           padding-left: 48px;
         }
@@ -97,7 +98,7 @@ type AnchorItem = {
   children?: AnchorItem[];
 };
 
-const Content: FC<{ children: ReactNode }> = ({ children }) => {
+const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
   const meta = useRouteMeta();
   const { pathname } = useLocation();
   const { formatMessage } = useIntl();

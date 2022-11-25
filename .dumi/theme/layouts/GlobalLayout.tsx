@@ -1,4 +1,4 @@
-import React, { type FC, useLayoutEffect } from 'react';
+import React, { useLayoutEffect } from 'react';
 import { useOutlet } from 'dumi';
 import { ConfigProvider, theme as antdTheme } from 'antd';
 import { ThemeConfig } from 'antd/es/config-provider/context';
@@ -28,7 +28,7 @@ const getThemeString = (algorithm: typeof antdTheme.defaultAlgorithm) => {
   return 'light';
 };
 
-const GlobalLayout: FC = () => {
+const GlobalLayout: React.FC = () => {
   const outlet = useOutlet();
   const { pathname } = useLocation();
 
