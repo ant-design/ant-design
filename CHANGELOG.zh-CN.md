@@ -24,6 +24,7 @@ timeline: true
   - 💄 优化 Space.Compact 组件嵌套 Modal，Dropdown，Drawer 等组件时的样式。[#38887](https://github.com/ant-design/ant-design/pull/38887) [@foryuki](https://github.com/foryuki)
 - 🆕 Mentions 支持 `options` 数据驱动。[#38876](https://github.com/ant-design/ant-design/pull/38876) [@heiyu4585](https://github.com/heiyu4585)
 - 🐞 修复 ConfigProvider 组件 `componentDisabled` 失效问题。[#38886](https://github.com/ant-design/ant-design/pull/38886) [@lidianhao123](https://github.com/lidianhao123)
+- 🐞 修复 Message 组件 `duration` 为 `0` 时手动关闭不触发 `onClose` 的问题。[#38669](https://github.com/ant-design/ant-design/pull/38669) [@kiner-tang](https://github.com/kiner-tang)
 
 ## 4.24.3
 
