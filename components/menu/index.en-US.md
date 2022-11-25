@@ -129,6 +129,7 @@ The legacy demo code for version `<4.20.0` could be found at [https://github.com
 
 #### SubMenuType
 
+<!-- prettier-ignore -->
 | Property | Description | Type | Default value | Version |
 | --- | --- | --- | --- | --- |
 | children | Sub-menus or sub-menu items | [ItemType\[\]](#ItemType) | - |  |
