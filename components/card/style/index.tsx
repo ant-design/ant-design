@@ -174,6 +174,7 @@ const genCardMetaStyle: GenerateStyle<CardToken> = (token): CSSObject => ({
 
   '&-detail': {
     overflow: 'hidden',
+    flex: 1,
 
     '> div:not(:last-child)': {
       marginBottom: token.marginXS,
