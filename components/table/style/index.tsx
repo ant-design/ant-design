@@ -282,7 +282,6 @@ export default genComponentStyleHook('Table', (token) => {
     colorIconHover,
     opacityLoading,
     colorBgContainer,
-    colorFillSecondary,
     borderRadiusLG,
     colorFillContent,
     controlInteractiveSize: checkboxSize,
