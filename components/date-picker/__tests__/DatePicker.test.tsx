@@ -227,10 +227,23 @@ describe('DatePicker', () => {
       'Warning: [antd: DatePicker] `dropdownClassName` is deprecated which will be removed in next major version. Please use `popupClassName` instead.',
     );
   });
+  it('DatePicker should show warning when use popupClassName', () => {
+    render(<DatePicker popupClassName="myCustomClassName" />);
+    expect(errorSpy).not.toHaveBeenCalledWith(
+      'Warning: [antd: DatePicker] `dropdownClassName` is deprecated which will be removed in next major version. Please use `popupClassName` instead.',
+    );
+  });
 
   it('RangePicker should show warning when use dropdownClassName', () => {
     render(<DatePicker.RangePicker dropdownClassName="myCustomClassName" />);
     expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: RangePicker] `dropdownClassName` is deprecated which will be removed in next major version. Please use `popupClassName` instead.',
+    );
+  });
+
+  it('RangePicker should show warning when use popupClassName', () => {
+    render(<DatePicker.RangePicker popupClassName="myCustomClassName" />);
+    expect(errorSpy).not.toHaveBeenCalledWith(
       'Warning: [antd: RangePicker] `dropdownClassName` is deprecated which will be removed in next major version. Please use `popupClassName` instead.',
     );
   });

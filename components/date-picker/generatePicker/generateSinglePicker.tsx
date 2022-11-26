@@ -95,7 +95,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
 
         warning(
           !dropdownClassName,
-          'DatePicker',
+          mergedPicker === 'time' ? 'TimePicker' : 'DatePicker',
           '`dropdownClassName` is deprecated which will be removed in next major version. Please use `popupClassName` instead.',
         );
         // ===================== Size =====================
@@ -128,7 +128,6 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
                   placeholder={getPlaceholder(mergedPicker, locale, placeholder)}
                   suffixIcon={suffixNode}
                   dropdownAlign={transPlacement2DropdownAlign(direction, placement)}
-                  dropdownClassName={popupClassName || dropdownClassName}
                   clearIcon={<CloseCircleFilled />}
                   prevIcon={<span className={`${prefixCls}-prev-icon`} />}
                   nextIcon={<span className={`${prefixCls}-next-icon`} />}
@@ -159,6 +158,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
                   components={Components}
                   direction={direction}
                   disabled={mergedDisabled}
+                  dropdownClassName={popupClassName || dropdownClassName}
                 />
               );
             }}
