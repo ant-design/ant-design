@@ -22,6 +22,7 @@ const CollectionCreateForm: React.FC<CollectionCreateFormProps> = ({
   return (
     <Modal
       open={open}
+      destroyOnClose
       title="Create a new collection"
       okText="Create"
       cancelText="Cancel"
