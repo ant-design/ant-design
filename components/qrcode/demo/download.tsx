@@ -3,8 +3,8 @@ import { QRCode, Button } from 'antd';
 
 const downloadQRCode = () => {
   const canvas = document.getElementById('myqrcode')?.querySelector<HTMLCanvasElement>('canvas');
-  const url = canvas?.toDataURL();
-  if (url) {
+  if (canvas) {
+    const url = canvas.toDataURL();
     const a = document.createElement('a');
     a.download = 'QRCode.png';
     a.href = url;
