@@ -7,7 +7,7 @@ title: 组件级别的 CSS-in-JS
 
 在 2022 年 11 月 18 日，我们发布了 Ant Design 5.0 的正式版本，同时带入大家视野中的还有 Ant Design 独特的 CSS-in-JS 方案。通过这个方案，Ant Design 获得了相较于其他 CSS-in-JS 库更高的性能，但代价则是牺牲了其在应用中自由使用的灵活性。所以我们把它称为“组件级”的 CSS-in-JS 方案。 <a name="W668Z"></a>
 
-## Dilemma of CSS-in-JS
+## CSS-in-JS 的困境
 
 在 CSS-in-JS 中，hash 会用于确认一段 style 是否已经插入。而计算 hash 的方法通常是将一段完整的 css 转换为 hash 值。比如在 emotion 中，我们检查页面中的元素就可以看到这样的 style 标签，这样的 style 标签对应的 hash 值每一段都是不一样的：<br />![image.png](https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*X5tDQ5VIpcoAAAAAAAAAAAAADrJ8AQ/original)<br />如此便可以引入一个 CSS-in-JS 被诟病已久的问题：我们在编写代码时写的并不是最终的 css，所以每次都需要重新序列化得到 css 后再次计算 hash，这就在每次渲染组件时带来了而外的开销。如果你的页面或者组件带有非常复杂或者大量的 CSS-in-JS 代码，甚至样式会跟随组件的 props 变化，那么这个性能消耗便变得不可忽视。<br />针对这个问题，各个 CSS-in-JS 库会有自己的应对方式，这里就先不做赘述，让我们来看一看 Ant Design 的方案。 <a name="Wd3XQ"></a>
 
