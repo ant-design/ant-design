@@ -187,6 +187,10 @@ For historical reasons, the display names of the pop components are not uniform,
 
 Please ref dynamic theme document [Compatible Adjustment](/docs/react/customize-theme#compatible-adjustment) part.
 
+## CSS-in-JS css priority conflict with tailwindcss?
+
+Same as above. You can adjust antd css priority to override. Related issue: [#38794](https://github.com/ant-design/ant-design/issues/38794)
+
 ## How to support SSR？
 
 Please ref dynamic theme document [SSR](/docs/react/customize-theme#server-side-render-ssr) part.
