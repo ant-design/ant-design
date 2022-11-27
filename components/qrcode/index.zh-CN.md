@@ -23,6 +23,8 @@ group:
 <!-- prettier-ignore -->
 <code src="./demo/base.tsx">基本使用</code>
 <code src="./demo/icon.tsx">带 Icon 的例子</code>
+<code src="./demo/customSize.tsx">自定义尺寸</code>
+<code src="./demo/customColor.tsx">自定义颜色</code>
 <code src="./demo/download.tsx">下载二维码</code>
 <code src="./demo/errorlevel.tsx">纠错比例</code>
 
@@ -35,5 +37,5 @@ group:
 | size       | 二维码图片大小                           | number                      | 128    |
 | iconSize   | 二维码中图片的大小                       | number                      | 32     |
 | bgColor    | 二维码背景颜色                           | string                      | `#fff` |
-| fgColor    | 二维码前景的颜色                         | string                      | `#000` |
+| fgColor    | 二维码前景颜色                           | string                      | `#000` |
 | errorLevel | 纠错码的等级                             | `'L' \| 'M' \| 'Q' \| 'H' ` | `L`    |

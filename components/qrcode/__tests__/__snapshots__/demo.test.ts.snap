@@ -13,6 +13,134 @@ exports[`renders ./components/qrcode/demo/base.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/qrcode/demo/customColor.tsx correctly 1`] = `
+Array [
+  <div
+    class="ant-qrcode"
+    style="margin-bottom:16px;width:128px;height:128px"
+  >
+    <canvas
+      height="128"
+      style="height:128px;width:128px"
+      width="128"
+    />
+  </div>,
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center"
+  >
+    <div
+      class="ant-space-item"
+      style="margin-right:8px"
+    >
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
+      >
+        <span>
+          Background Color
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
+      >
+        <span>
+          Foreground Color
+        </span>
+      </button>
+    </div>
+  </div>,
+]
+`;
+
+exports[`renders ./components/qrcode/demo/customSize.tsx correctly 1`] = `
+Array [
+  <div
+    class="ant-btn-group"
+    style="margin-bottom:16px"
+  >
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span
+        aria-label="minus"
+        class="anticon anticon-minus"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="minus"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M872 474H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h720c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
+          />
+        </svg>
+      </span>
+      <span>
+        Smaller
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span
+        aria-label="plus"
+        class="anticon anticon-plus"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="plus"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <defs>
+            <style />
+          </defs>
+          <path
+            d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+          />
+          <path
+            d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+          />
+        </svg>
+      </span>
+      <span>
+        Larger
+      </span>
+    </button>
+  </div>,
+  <div
+    class="ant-qrcode"
+    style="width:128px;height:128px"
+  >
+    <canvas
+      height="128"
+      style="height:128px;width:128px"
+      width="128"
+    />
+    <img
+      src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+      style="display:none"
+    />
+  </div>,
+]
+`;
+
 exports[`renders ./components/qrcode/demo/download.tsx correctly 1`] = `
 <div
   id="myqrcode"
