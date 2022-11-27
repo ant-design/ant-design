@@ -3,22 +3,26 @@ import { MinusOutlined, PlusOutlined } from '@ant-design/icons';
 import { Button, Progress } from 'antd';
 
 const App: React.FC = () => {
-  const [percent, setPercent] = useState(0);
+  const [percent, setPercent] = useState<number>(0);
 
   const increase = () => {
-    let newPercent = percent + 10;
-    if (newPercent > 100) {
-      newPercent = 100;
-    }
-    setPercent(newPercent);
+    setPercent((prevPercent) => {
+      const newPercent = prevPercent + 10;
+      if (newPercent > 100) {
+        return 100;
+      }
+      return newPercent;
+    });
   };
 
   const decline = () => {
-    let newPercent = percent - 10;
-    if (newPercent < 0) {
-      newPercent = 0;
-    }
-    setPercent(newPercent);
+    setPercent((prevPercent) => {
+      const newPercent = prevPercent - 10;
+      if (newPercent < 0) {
+        return 0;
+      }
+      return newPercent;
+    });
   };
 
   return (

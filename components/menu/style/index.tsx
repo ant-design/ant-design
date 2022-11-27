@@ -60,10 +60,10 @@ export interface MenuToken extends FullToken<'Menu'> {
   menuItemHeight: number;
   menuHorizontalHeight: number;
   menuItemPaddingInline: number;
-  menuItemMarginInline: number;
   menuArrowSize: number;
   menuArrowOffset: string;
   menuPanelMaskInset: number;
+  menuSubMenuBg: string;
 }
 
 // =============================== Base ===============================
@@ -409,8 +409,14 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         return [];
       }
 
-      const { colorPrimary, colorError, colorErrorHover, colorTextLightSolid, colorTextSecondary } =
-        token;
+      const {
+        colorBgElevated,
+        colorPrimary,
+        colorError,
+        colorErrorHover,
+        colorTextLightSolid,
+        colorTextSecondary,
+      } = token;
 
       const { controlHeightLG, fontSize } = token;
 
@@ -420,11 +426,11 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
       const menuToken = mergeToken<MenuToken>(token, {
         menuItemHeight: controlHeightLG,
         menuItemPaddingInline: token.margin,
-        menuItemMarginInline: token.marginXXS,
         menuArrowSize,
         menuHorizontalHeight: controlHeightLG * 1.15,
         menuArrowOffset: `${menuArrowSize * 0.25}px`,
         menuPanelMaskInset: -7, // Still a hardcode here since it's offset by rc-align
+        menuSubMenuBg: colorBgElevated,
       });
 
       const menuDarkToken = mergeToken<MenuToken>(
@@ -451,6 +457,8 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
           colorDangerItemTextSelected: colorTextLightSolid,
           colorDangerItemBgActive: colorError,
           colorDangerItemBgSelected: colorError,
+
+          menuSubMenuBg: '#001529',
         },
         {
           ...overrideComponentToken,

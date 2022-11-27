@@ -58,10 +58,9 @@ styleFiles.forEach((file) => {
   );
 });
 
-(async () => {
-  const tokenPath = `${process.cwd()}/components/version/token.tsx`;
-  const content = `export default ${JSON.stringify(statistic, null, 2)}`;
-  await fs.writeFile(tokenPath, content, 'utf8');
+(() => {
+  const tokenPath = `${process.cwd()}/components/version/token.json`;
+  fs.writeJsonSync(tokenPath, statistic, 'utf8');
 
   console.log(chalk.green(`✅  Collected token statistics successfully, check it in`), tokenPath);
 })();
