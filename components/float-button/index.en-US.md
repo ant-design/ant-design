@@ -29,6 +29,8 @@ FloatButton. Available since `5.0.0`.
 
 ## API
 
+> This component is available since `antd@5.0.0`.
+
 ### common API
 
 | Property | Description | Type | Default | Version |
