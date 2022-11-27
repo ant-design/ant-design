@@ -1,15 +1,35 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { Link, useLocation, FormattedMessage } from 'dumi';
-import type { MenuProps } from 'antd';
+import { Link, useLocation, FormattedMessage, useFullSidebarData } from 'dumi';
+import { MenuProps, Tooltip } from 'antd';
 import { MenuOutlined } from '@ant-design/icons';
 import { Menu } from 'antd';
 import { getEcosystemGroup } from './More';
 import * as utils from '../../utils';
 import type { SharedProps } from './interface';
 import useSiteToken from '../../../hooks/useSiteToken';
+import useLocale from '../../../hooks/useLocale';
 import { css } from '@emotion/react';
 
+// ============================= Theme =============================
+const locales = {
+  cn: {
+    design: '设计',
+    development: '研发',
+    components: '组件',
+    resources: '资源',
+    blog: '博客',
+  },
+  en: {
+    design: 'Design',
+    development: 'Development',
+    components: 'Components',
+    resources: 'Resources',
+    blog: 'Blog',
+  },
+};
+
+// ============================= Style =============================
 const useStyle = () => {
   const { token } = useSiteToken();
 
@@ -99,6 +119,10 @@ export default ({
   onDirectionChange,
 }: NavigationProps) => {
   const { pathname, search } = useLocation();
+  const [locale] = useLocale(locales);
+
+  const sidebarData = useFullSidebarData();
+  const blogList = sidebarData['/docs/blog']?.[0]?.children || [];
 
   const style = useStyle();
 
@@ -160,7 +184,7 @@ export default ({
     {
       label: (
         <Link to={utils.getLocalizedPathname('/docs/spec/introduce', isZhCN, search)}>
-          <FormattedMessage id="app.header.menu.spec" />
+          {locale.design}
         </Link>
       ),
       key: 'docs/spec',
@@ -168,7 +192,7 @@ export default ({
     {
       label: (
         <Link to={utils.getLocalizedPathname('/docs/react/introduce', isZhCN, search)}>
-          <FormattedMessage id="app.header.menu.development" />
+          {locale.development}
         </Link>
       ),
       key: 'docs/react',
@@ -176,15 +200,25 @@ export default ({
     {
       label: (
         <Link to={utils.getLocalizedPathname('/components/overview/', isZhCN, search)}>
-          <FormattedMessage id="app.header.menu.components" />
+          {locale.components}
         </Link>
       ),
       key: 'components',
     },
+    blogList.length
+      ? {
+          label: (
+            <Link to={utils.getLocalizedPathname(blogList[0].link, isZhCN, search)}>
+              {locale.blog}
+            </Link>
+          ),
+          key: 'docs/blog',
+        }
+      : null,
     {
       label: (
         <Link to={utils.getLocalizedPathname('/docs/resources', isZhCN, search)}>
-          <FormattedMessage id="app.header.menu.resource" />
+          {locale.resources}
         </Link>
       ),
       key: 'docs/resources',
@@ -192,9 +226,14 @@ export default ({
     showTechUIButton
       ? {
           label: (
-            <a href="https://techui.alipay.com" target="__blank" rel="noopener noreferrer">
-              TechUI
-            </a>
+            <Tooltip title="TechUI">
+              <a href="https://techui.alipay.com" target="__blank" rel="noopener noreferrer">
+                <img
+                  style={{ width: '1em', height: '1em', transform: `scale(1.8) translateY(-5%)` }}
+                  src="https://gw.alipayobjects.com/zos/hitu-asset/562e1bb6-edd1-4c87-8e5c-fa01b768b7c8/hitu-1617851234091-image.png"
+                />
+              </a>
+            </Tooltip>
           ),
           key: 'tech-ui',
         }

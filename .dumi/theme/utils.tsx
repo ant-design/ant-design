@@ -139,6 +139,7 @@ export function getLocalizedPathname(
     fullPath = pathname.replace(/\/$/, '-cn/');
   } else {
     fullPath = `${pathname}-cn`;
+    fullPath = fullPath.replace(/(-cn)+/, '-cn');
   }
 
   if (hash) {
