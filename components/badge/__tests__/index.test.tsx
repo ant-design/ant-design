@@ -199,51 +199,7 @@ describe('Badge', () => {
       </>,
     );
 
-    // expect(container).toMatchInlineSnapshot(`
-    //   <div>
-    //     <span
-    //       class="ant-badge ant-badge-not-a-wrapper"
-    //     >
-    //       <sup
-    //         class="ant-scroll-number ant-badge-count"
-    //         data-show="true"
-    //         title="0"
-    //       >
-    //         0
-    //       </sup>
-    //     </span>
-    //     <span
-    //       class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-    //     >
-    //       <span
-    //         class="ant-badge-status-dot ant-badge-status-blue"
-    //       />
-    //     </span>
-    //     <span
-    //       class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-    //     >
-    //       <span
-    //         class="ant-badge-status-dot"
-    //         style="background: rgb(255, 0, 255);"
-    //       />
-    //     </span>
-    //     <span
-    //       class="ant-badge"
-    //     >
-    //       <div>
-    //         children
-    //       </div>
-    //       <sup
-    //         class="ant-scroll-number ant-badge-count"
-    //         data-show="true"
-    //         title="0"
-    //       >
-    //         0
-    //       </sup>
-    //     </span>
-    //   </div>
-    // `);
-
+    expect(container).toMatchSnapshot();
     expect(container.querySelectorAll('[title="0"]')).toHaveLength(4);
   });
 });
