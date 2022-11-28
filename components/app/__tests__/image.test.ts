@@ -1,5 +1,5 @@
 import { imageDemoTest } from '../../../tests/shared/imageTest';
 
 describe('app', () => {
-  imageDemoTest('tour');
+  imageDemoTest('app');
 });
