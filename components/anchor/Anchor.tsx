@@ -69,7 +69,7 @@ export interface AnchorProps {
   targetOffset?: number;
   /** Listening event when scrolling change active link */
   onChange?: (currentActiveLink: string) => void;
-  items: AnchorLinkItemProps[];
+  items?: AnchorLinkItemProps[];
 }
 
 interface InternalAnchorProps extends AnchorProps {
