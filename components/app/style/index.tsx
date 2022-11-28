@@ -3,10 +3,7 @@ import { genComponentStyleHook, mergeToken } from '../../theme';
 
 export interface ComponentToken {}
 
-interface AppToken extends FullToken<'Tour'> {
-  sliderWidth: number;
-  sliderHeight: number;
-}
+interface AppToken extends FullToken<'App'> {}
 
 // =============================== Base ===============================
 const genBaseStyle: GenerateStyle<AppToken> = () => [
@@ -219,10 +216,6 @@ const genBaseStyle: GenerateStyle<AppToken> = () => [
 ];
 
 // ============================== Export ==============================
-export default genComponentStyleHook('antdApp', (token) => {
-  const AppToken = mergeToken<AppToken>(token, {
-    sliderWidth: 6,
-    sliderHeight: 6,
-  });
-  return [genBaseStyle(AppToken)];
-});
+export default genComponentStyleHook('App', (token) => [
+  genBaseStyle(mergeToken<AppToken>(token, {})),
+]);

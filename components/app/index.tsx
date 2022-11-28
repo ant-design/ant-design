@@ -1,42 +1,54 @@
 import React, { useContext } from 'react';
+import type { ReactNode } from 'react';
 import classNames from 'classnames';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import useStyle from './style';
-import type { TourProps } from './interface';
 import message from '../message';
 import notification from '../notification';
-import Modal from '../modal';
+import modal from '../modal';
 
-const AntdApp: React.ForwardRefRenderFunction<HTMLDivElement, TourProps> & {
-  useApp: Function;
-} = (props) => {
-  const { prefixCls: customizePrefixCls, type, rootClassName, children, ...restProps } = props;
-  const { getPrefixCls, direction } = useContext<ConfigConsumerProps>(ConfigContext);
-  const prefixCls = getPrefixCls('app', customizePrefixCls);
-  const [wrapSSR, hashId] = useStyle(prefixCls);
-  const customClassName = classNames(
-    {
-      [`${prefixCls}-rtl`]: direction === 'rtl',
-    },
-    {
-      [`${prefixCls}-primary`]: type === 'primary',
-    },
-    hashId,
-    rootClassName,
-  );
-  return wrapSSR(<div className={customClassName}>{children}</div>);
+export type AppProps = {
+  className?: string;
+  prefixCls?: string;
+  children?: ReactNode;
 };
 
-const useApp = () => ({
-  message,
-  notification,
-  Modal,
-});
+let useApp = () => ({});
+
+const App: React.ForwardRefRenderFunction<HTMLDivElement, AppProps> & {
+  useApp: Function;
+} = (props) => {
+  const { prefixCls: customizePrefixCls, children, className } = props;
+  const { getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
+  const prefixCls = getPrefixCls('app', customizePrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const customClassName = classNames(hashId, className);
+
+  const [messageAPi, messageContextHolder] = message.useMessage();
+  const [notificationApi, notificationContextHolder] = notification.useNotification();
+  const [modalApi, ModalContextHolder] = modal.useModal();
+
+  useApp = () => ({
+    message: messageAPi,
+    notification: notificationApi,
+    Modal: modalApi,
+  });
+
+  return wrapSSR(
+    <div className={customClassName}>
+      {ModalContextHolder}
+      {messageContextHolder}
+      {notificationContextHolder}
+      {children}
+    </div>,
+  );
+};
 
 if (process.env.NODE_ENV !== 'production') {
-  AntdApp.displayName = 'AntdApp';
+  App.displayName = 'App';
 }
 
-AntdApp.useApp = useApp;
-export default AntdApp;
+App.useApp = useApp;
+
+export default App;

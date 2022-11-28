@@ -135,6 +135,7 @@ export { default as Tooltip } from './tooltip';
 export type { TooltipProps } from './tooltip';
 export { default as Tour } from './tour';
 export type { TourProps, TourStepProps } from './tour/interface';
+export { default as App } from './app';
 export { default as Transfer } from './transfer';
 export type { TransferProps } from './transfer';
 export { default as Tree } from './tree';
