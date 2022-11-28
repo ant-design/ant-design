@@ -1,7 +1,7 @@
 ## zh-CN
 
-纠错比例。
+通过设置 errorLevel 调整不同的容错等级。
 
 ## en-US
 
-Error Level.
+set Error Level.

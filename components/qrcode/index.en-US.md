@@ -25,6 +25,7 @@ Used when the link needs to be converted into a QR Code.
 <code src="./demo/customSize.tsx">Custom Size</code>
 <code src="./demo/customColor.tsx">Custom Color</code>
 <code src="./demo/download.tsx">Download QRCode</code>
+<code src="./demo/Popover.tsx">Advanced Usage</code>
 <code src="./demo/errorlevel.tsx">Error Level</code>
 
 ## API
