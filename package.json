@@ -43,6 +43,20 @@
   "module": "es/index.js",
   "unpkg": "dist/antd.min.js",
   "typings": "es/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./es/index.js",
+      "require": "./lib/index.js",
+      "types": "./es/index.js"
+    },
+    "./locale/*": {
+      "import": "./es/locale/*.js",
+      "require": "./lib/locale/*.js",
+      "default": "./locale/*.js",
+      "types": "./es/locale/*.js"
+    },
+    "./*": "./*"
+  },
   "scripts": {
     "prepare": "husky install",
     "api-collection": "antd-tools run api-collection",
