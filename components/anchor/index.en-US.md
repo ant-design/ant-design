@@ -44,6 +44,7 @@ For displaying anchor hyperlinks on page and jumping between them.
 | targetOffset | Anchor scroll offset, default as `offsetTop`, [example](#components-anchor-demo-targetOffset) | number | - |  |
 | onChange | Listening for anchor link change | (currentActiveLink: string) => void |  |  |
 | onClick | Set the handler to handle `click` event | function(e: Event, link: Object) | - |  |
+| items | Data configuration option content, support nesting through children | { href, title, target, children }\[] | - |  |
 
 ### Link Props
 
