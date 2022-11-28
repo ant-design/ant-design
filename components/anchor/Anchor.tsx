@@ -53,6 +53,9 @@ export interface AnchorProps {
   prefixCls?: string;
   className?: string;
   style?: React.CSSProperties;
+  /**
+   * @deprecated Please use `items` instead.
+   */
   children?: React.ReactNode;
   offsetTop?: number;
   bounds?: number;
