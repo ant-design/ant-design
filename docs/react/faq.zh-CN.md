@@ -208,6 +208,10 @@ ConfigProvider.config({
 
 请参考动态主题文档 [兼容性调整](/docs/react/customize-theme-cn#兼容性调整) 部分内容。
 
+## CSS-in-JS 与 tailwindcss 优先级冲突？
+
+同上，你可以调整 antd 样式优先级以覆盖。相关 issue: [#38794](https://github.com/ant-design/ant-design/issues/38794)
+
 ## 如何支持 SSR？
 
 请参考动态主题文档 [服务端渲染](/docs/react/customize-theme-cn#服务端渲染) 部分内容。
