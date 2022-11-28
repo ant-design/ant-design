@@ -187,7 +187,7 @@ describe('Badge', () => {
   });
 
   // https://github.com/ant-design/ant-design/issues/38965
-  it.only('Badge should display 0 when count is 0', () => {
+  it('Badge should display 0 when count is 0', () => {
     const { container } = render(
       <>
         <Badge count={0} showZero />
