@@ -1,12 +1,12 @@
-import React, { useRef, useState } from 'react';
-import { App, Button } from 'antd';
+import React from 'react';
+import { App } from 'antd';
 
 export default () => {
-  console.log('App.useApp()', App.useApp());
-  // const { message } = App.useApp();
-  // React.useEffect(() => {
-  //   message.success('Good!');
-  // }, []);
+  const { message } = App.useApp();
+
+  React.useEffect(() => {
+    message.success('Good!');
+  }, [message]);
 
   return <div>Hello World</div>;
 };

@@ -1,6 +1,6 @@
 ---
 category: Components
-group: Data Display
+group: container components
 title: App
 cover: https://gw.alipayobjects.com/zos/bmw-prod/cc3fcbfa-bf5b-4c8c-8a3d-c3f8388c75e8.svg
 demo:
@@ -18,6 +18,8 @@ Static function in React 18 concurrent mode will not well support. In v5, we rec
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/modal.tsx">modal</code>
+<code src="./demo/notification.tsx">notification</code>
+<code src="./demo/wrap.tsx">wrap</code>
 
 ## API
 

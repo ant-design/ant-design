@@ -6,15 +6,13 @@ import { ConfigContext } from '../config-provider';
 import useStyle from './style';
 import message from '../message';
 import notification from '../notification';
-import modal from '../modal';
+import Modal from '../modal';
 
 export type AppProps = {
   className?: string;
   prefixCls?: string;
   children?: ReactNode;
 };
-
-let useApp = () => ({});
 
 const App: React.ForwardRefRenderFunction<HTMLDivElement, AppProps> & {
   useApp: Function;
@@ -25,15 +23,9 @@ const App: React.ForwardRefRenderFunction<HTMLDivElement, AppProps> & {
   const [wrapSSR, hashId] = useStyle(prefixCls);
   const customClassName = classNames(hashId, className);
 
-  const [messageAPi, messageContextHolder] = message.useMessage();
-  const [notificationApi, notificationContextHolder] = notification.useNotification();
-  const [modalApi, ModalContextHolder] = modal.useModal();
-
-  useApp = () => ({
-    message: messageAPi,
-    notification: notificationApi,
-    Modal: modalApi,
-  });
+  const [, messageContextHolder] = message.useMessage();
+  const [, notificationContextHolder] = notification.useNotification();
+  const [, ModalContextHolder] = Modal.useModal();
 
   return wrapSSR(
     <div className={customClassName}>
@@ -48,6 +40,12 @@ const App: React.ForwardRefRenderFunction<HTMLDivElement, AppProps> & {
 if (process.env.NODE_ENV !== 'production') {
   App.displayName = 'App';
 }
+
+const useApp = () => ({
+  message,
+  notification,
+  Modal,
+});
 
 App.useApp = useApp;
 
