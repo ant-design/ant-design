@@ -117,7 +117,7 @@ describe('Table.filter', () => {
   });
 
   it('renders empty menu correctly', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => undefined);
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     const { container } = render(
       createTable({
         columns: [
