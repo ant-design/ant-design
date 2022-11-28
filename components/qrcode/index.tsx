@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import { ConfigContext } from '../config-provider';
 import type { ConfigConsumerProps } from '../config-provider';
 import type { QRCodeProps, QRPropsCanvas } from './interface';
+import warning from '../_util/warning';
 import useStyle from './style/index';
 
 const QRCode: React.FC<QRCodeProps> = (props) => {
@@ -43,6 +44,9 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
   }, [bgColor, errorLevel, fgColor, icon, iconSize, size, value]);
 
   if (!value) {
+    if (process.env.NODE_ENV !== 'production') {
+      warning(false, 'QRCode', 'need to receive `value` props');
+    }
     return null;
   }
 

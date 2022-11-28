@@ -11,9 +11,12 @@ describe('QRCode test', () => {
     const { container } = render(<QRCode value="test" />);
     expect(container.firstChild).toMatchSnapshot();
   });
-  it('should render `null` when value not exist', () => {
+  it('should render `null` and console Error when value not exist', () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     const { container } = render(<QRCode value={undefined as unknown as string} />);
     expect(container.firstChild).toBe(null);
+    expect(errSpy).toHaveBeenCalledWith('Warning: [antd: QRCode] need to receive `value` props');
+    errSpy.mockRestore();
   });
 
   it('support icon', () => {
