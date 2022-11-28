@@ -25,12 +25,12 @@ export interface EmptyProps {
   children?: React.ReactNode;
 }
 
-interface EmptyType extends React.FC<EmptyProps> {
+type CompoundedComponent = React.FC<EmptyProps> & {
   PRESENTED_IMAGE_DEFAULT: React.ReactNode;
   PRESENTED_IMAGE_SIMPLE: React.ReactNode;
-}
+};
 
-const Empty: EmptyType = ({
+const Empty: CompoundedComponent = ({
   className,
   prefixCls: customizePrefixCls,
   image = defaultEmptyImg,
