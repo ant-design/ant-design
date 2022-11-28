@@ -185,4 +185,65 @@ describe('Badge', () => {
 
     expect(container.querySelectorAll('.ant-badge > .ant-badge-status-text')).toHaveLength(0);
   });
+
+  // https://github.com/ant-design/ant-design/issues/38965
+  it.only('Badge should display 0 when count is 0', () => {
+    const { container } = render(
+      <>
+        <Badge count={0} showZero />
+        <Badge count={0} showZero color="blue" />
+        <Badge count={0} showZero color="#f0f" />
+        <Badge count={0} showZero>
+          <div>children</div>
+        </Badge>
+      </>,
+    );
+
+    // expect(container).toMatchInlineSnapshot(`
+    //   <div>
+    //     <span
+    //       class="ant-badge ant-badge-not-a-wrapper"
+    //     >
+    //       <sup
+    //         class="ant-scroll-number ant-badge-count"
+    //         data-show="true"
+    //         title="0"
+    //       >
+    //         0
+    //       </sup>
+    //     </span>
+    //     <span
+    //       class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+    //     >
+    //       <span
+    //         class="ant-badge-status-dot ant-badge-status-blue"
+    //       />
+    //     </span>
+    //     <span
+    //       class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+    //     >
+    //       <span
+    //         class="ant-badge-status-dot"
+    //         style="background: rgb(255, 0, 255);"
+    //       />
+    //     </span>
+    //     <span
+    //       class="ant-badge"
+    //     >
+    //       <div>
+    //         children
+    //       </div>
+    //       <sup
+    //         class="ant-scroll-number ant-badge-count"
+    //         data-show="true"
+    //         title="0"
+    //       >
+    //         0
+    //       </sup>
+    //     </span>
+    //   </div>
+    // `);
+
+    expect(container.querySelectorAll('[title="0"]')).toHaveLength(4);
+  });
 });
