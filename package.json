@@ -47,13 +47,13 @@
     ".": {
       "import": "./es/index.js",
       "require": "./lib/index.js",
-      "types": "./es/index.js"
+      "types": "./es/index.d.ts"
     },
     "./locale/*": {
       "import": "./es/locale/*.js",
       "require": "./lib/locale/*.js",
       "default": "./locale/*.js",
-      "types": "./es/locale/*.js"
+      "types": "./es/locale/*.d.ts"
     },
     "./*": "./*"
   },
