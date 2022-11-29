@@ -7,7 +7,7 @@ const App: React.FC = () => (
       {
         key: '1',
         href: '#components-anchor-demo-basic',
-        title: 'item Basic demo',
+        title: 'Basic demo',
       },
       {
         key: '2',
@@ -23,13 +23,11 @@ const App: React.FC = () => (
             key: '4',
             href: '#anchor-props',
             title: 'Anchor Props',
-            children: [
-              {
-                key: '5',
-                href: '#link-props',
-                title: 'Link Props',
-              },
-            ],
+          },
+          {
+            key: '5',
+            href: '#link-props',
+            title: 'Link Props',
           },
         ],
       },
