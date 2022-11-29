@@ -1,8 +1,9 @@
 import React from 'react';
 import { App } from 'antd';
+import MyPage from './MyPage';
 
 export default () => (
   <App>
-    <div>Hello World</div>
+    <MyPage />
   </App>
 );

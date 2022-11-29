@@ -17,10 +17,7 @@ React 18 并发模式下的静态函数不能很好地支持。在 v5 中，我�
 ## 代码演示
 
 <!-- prettier-ignore -->
-<code src="./demo/basic.tsx">基本</code>
-<code src="./demo/modal.tsx">对话框</code>
-<code src="./demo/notification.tsx">通知提醒框</code>
-<code src="./demo/wrap.tsx">容器</code>
+<code src="./demo/MyApp.tsx">基本</code>
 
 ## API
 

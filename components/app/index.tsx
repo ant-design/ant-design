@@ -4,9 +4,9 @@ import classNames from 'classnames';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import useStyle from './style';
-import message from '../message';
-import notification from '../notification';
-import Modal from '../modal';
+import useMessage from '../message/useMessage';
+import useNotification from '../notification/useNotification';
+import useModal from '../modal/useModal';
 import AppContext from './context';
 import type { useAppProps } from './context';
 
@@ -16,8 +16,10 @@ export type AppProps = {
   children?: ReactNode;
 };
 
+const useApp: () => useAppProps = () => React.useContext(AppContext);
+
 const App: React.ForwardRefRenderFunction<HTMLDivElement, AppProps> & {
-  useApp: () => useAppProps | undefined;
+  useApp: () => useAppProps;
 } = (props) => {
   const { prefixCls: customizePrefixCls, children, className } = props;
   const { getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
@@ -25,9 +27,9 @@ const App: React.ForwardRefRenderFunction<HTMLDivElement, AppProps> & {
   const [wrapSSR, hashId] = useStyle(prefixCls);
   const customClassName = classNames(hashId, className);
 
-  const [messageApi, messageContextHolder] = message.useMessage();
-  const [notificationApi, notificationContextHolder] = notification.useNotification();
-  const [ModalApi, ModalContextHolder] = Modal.useModal();
+  const [messageApi, messageContextHolder] = useMessage();
+  const [notificationApi, notificationContextHolder] = useNotification();
+  const [ModalApi, ModalContextHolder] = useModal();
 
   const memoizedContextValue = React.useMemo(
     () => ({
@@ -54,5 +56,5 @@ if (process.env.NODE_ENV !== 'production') {
   App.displayName = 'App';
 }
 
-App.useApp = () => useContext(AppContext);
+App.useApp = useApp;
 export default App;
