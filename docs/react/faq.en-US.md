@@ -191,6 +191,10 @@ Please ref dynamic theme document [Compatible Adjustment](/docs/react/customize-
 
 Same as above. You can adjust antd css priority to override. Related issue: [#38794](https://github.com/ant-design/ant-design/issues/38794)
 
+## How to let CSS-in-JS work with shadow DOM?
+
+Please ref document [Shadow Dom Usage](/docs/react/customize-theme#shadow-dom-usage).
+
 ## How to support SSR？
 
 Please ref dynamic theme document [SSR](/docs/react/customize-theme#server-side-render-ssr) part.

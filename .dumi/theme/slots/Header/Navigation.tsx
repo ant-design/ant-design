@@ -103,7 +103,6 @@ export interface NavigationProps extends SharedProps {
   isClient: boolean;
   responsive: null | 'narrow' | 'crowded';
   directionText: string;
-  showTechUIButton: boolean;
   onLangChange: () => void;
   onDirectionChange: () => void;
 }
@@ -114,7 +113,6 @@ export default ({
   isMobile,
   responsive,
   directionText,
-  showTechUIButton,
   onLangChange,
   onDirectionChange,
 }: NavigationProps) => {
@@ -223,21 +221,6 @@ export default ({
       ),
       key: 'docs/resources',
     },
-    showTechUIButton
-      ? {
-          label: (
-            <Tooltip title="TechUI">
-              <a href="https://techui.alipay.com" target="__blank" rel="noopener noreferrer">
-                <img
-                  style={{ width: '1em', height: '1em', transform: `scale(1.8) translateY(-5%)` }}
-                  src="https://gw.alipayobjects.com/zos/hitu-asset/562e1bb6-edd1-4c87-8e5c-fa01b768b7c8/hitu-1617851234091-image.png"
-                />
-              </a>
-            </Tooltip>
-          ),
-          key: 'tech-ui',
-        }
-      : null,
     isZhCN &&
     isClient &&
     window.location.host !== 'ant-design.antgroup.com' &&
