@@ -299,6 +299,27 @@ export default () => {
 };
 ```
 
+### Shadow DOM 场景
+
+在 Shadow DOM 场景中，由于其添加 `<style />` 标签的方式与普通 DOM 不同，所以需要使用 `@ant-design/cssinjs` 的 `StyleProvider` 配置 `container` 属性用于设置插入位置：
+
+```tsx
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import { StyleProvider } from '@ant-design/cssinjs';
+
+const shadowRoot = someEle.attachShadow({ mode: 'open' });
+const container = document.createElement('div');
+shadowRoot.appendChild(container);
+const root = createRoot(container);
+
+root.render(
+  <StyleProvider container={shadowRoot}>
+    <MyApp />
+  </StyleProvider>,
+);
+```
+
 ## API
 
 ### Theme

@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Button, Tooltip } from 'antd';
-import useSharedStyle from './style';
 import useSiteToken from '../../../hooks/useSiteToken';
 import { css } from '@emotion/react';
 
@@ -14,22 +13,47 @@ export interface LangBtnProps {
   onClick?: React.MouseEventHandler;
 }
 
+const BASE_SIZE = '1.2em';
+
 const useStyle = () => {
   const { token } = useSiteToken();
-  const { controlHeightSM } = token;
+  const { controlHeight, motionDurationMid } = token;
 
   return {
     btn: css`
+      color: ${token.colorText};
+      border-color: ${token.colorBorder};
       padding: 0 !important;
-      width: ${controlHeightSM}px;
-      height: ${controlHeightSM}px;
+      width: ${controlHeight}px;
+      height: ${controlHeight}px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      border: none;
+      background: transparent;
+      border-radius: ${token.borderRadius}px;
+      transition: all ${motionDurationMid};
+      cursor: pointer;
+
+      .btn-inner {
+        transition: all ${motionDurationMid};
+      }
+
+      &:hover {
+        background: ${token.colorBgTextHover};
+
+        .btn-inner {
+          transform: scale(1.1);
+        }
+      }
 
       img {
-        width: 1em;
-        height: 1em;
+        width: ${BASE_SIZE};
+        height: ${BASE_SIZE};
+      }
+
+      .anticon {
+        font-size: ${BASE_SIZE};
       }
     `,
   };
@@ -46,14 +70,13 @@ export default function LangBtn({
 }: LangBtnProps) {
   const { token } = useSiteToken();
   const style = useStyle();
-  const sharedStyle = useSharedStyle();
 
   let label1Style: React.CSSProperties;
   let label2Style: React.CSSProperties;
 
   const iconStyle: React.CSSProperties = {
     position: 'absolute',
-    fontSize: '1em',
+    fontSize: BASE_SIZE,
     lineHeight: 1,
     border: `1px solid ${token.colorText}`,
     color: token.colorText,
@@ -85,39 +108,36 @@ export default function LangBtn({
   }
 
   let node = (
-    <Button
-      size="small"
-      onClick={onClick}
-      css={[sharedStyle.headerButton, style.btn]}
-      key="lang-button"
-    >
-      {pure ? (
-        value === 1 ? (
-          label1
+    <button onClick={onClick} css={[style.btn]} key="lang-button">
+      <div className="btn-inner">
+        {pure ? (
+          value === 1 ? (
+            label1
+          ) : (
+            label2
+          )
         ) : (
-          label2
-        )
-      ) : (
-        <div style={{ position: 'relative', width: '1em', height: '1em' }}>
-          <span
-            style={{
-              ...iconStyle,
-              ...label1Style,
-            }}
-          >
-            {label1}
-          </span>
-          <span
-            style={{
-              ...iconStyle,
-              ...label2Style,
-            }}
-          >
-            {label2}
-          </span>
-        </div>
-      )}
-    </Button>
+          <div style={{ position: 'relative', width: BASE_SIZE, height: BASE_SIZE }}>
+            <span
+              style={{
+                ...iconStyle,
+                ...label1Style,
+              }}
+            >
+              {label1}
+            </span>
+            <span
+              style={{
+                ...iconStyle,
+                ...label2Style,
+              }}
+            >
+              {label2}
+            </span>
+          </div>
+        )}
+      </div>
+    </button>
   );
 
   if (tooltip1 || tooltip2) {

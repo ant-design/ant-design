@@ -2,9 +2,8 @@ import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } 
 import { FormattedMessage, useIntl } from 'dumi';
 import DumiSearchBar from 'dumi/theme-default/slots/SearchBar';
 import classNames from 'classnames';
-import { Button, Col, Modal, Popover, Row, Select, Typography } from 'antd';
-import { MenuOutlined } from '@ant-design/icons';
-import canUseDom from 'rc-util/lib/Dom/canUseDom';
+import { Col, Modal, Popover, Row, Select, Typography } from 'antd';
+import { MenuOutlined, GithubOutlined } from '@ant-design/icons';
 import type { DirectionType } from 'antd/es/config-provider';
 import * as utils from '../../utils';
 import { getThemeConfig, ping } from '../../utils';
@@ -20,7 +19,6 @@ import { ClassNames, css } from '@emotion/react';
 import useSiteToken from '../../../hooks/useSiteToken';
 import useLocale from '../../../hooks/useLocale';
 import SwitchBtn from './SwitchBtn';
-import useSharedStyle from './style';
 
 const RESPONSIVE_XS = 1120;
 const RESPONSIVE_SM = 1200;
@@ -164,7 +162,6 @@ interface HeaderState {
   menuVisible: boolean;
   windowWidth: number;
   searching: boolean;
-  showTechUIButton: boolean;
 }
 
 // ================================= Header =================================
@@ -205,7 +202,6 @@ const Header: React.FC<HeaderProps> = (props) => {
     menuVisible: false,
     windowWidth: 1400,
     searching: false,
-    showTechUIButton: false,
   });
   const { direction, isMobile } = useContext<SiteContextProps>(SiteContext);
   const pingTimer = useRef<NodeJS.Timeout | null>(null);
@@ -214,7 +210,6 @@ const Header: React.FC<HeaderProps> = (props) => {
   const navigate = useNavigate();
 
   const style = useStyle();
-  const sharedStyle = useSharedStyle();
 
   const handleHideMenu = useCallback(() => {
     setHeaderState((prev) => ({ ...prev, menuVisible: false }));
@@ -245,7 +240,6 @@ const Header: React.FC<HeaderProps> = (props) => {
     window.addEventListener('resize', onWindowResize);
     pingTimer.current = ping((status) => {
       if (status !== 'timeout' && status !== 'error') {
-        setHeaderState((prev) => ({ ...prev, showTechUIButton: true }));
         if (
           // process.env.NODE_ENV === 'production' &&
           window.location.host !== 'ant-design.antgroup.com' &&
@@ -316,7 +310,7 @@ const Header: React.FC<HeaderProps> = (props) => {
     [direction],
   );
 
-  const { menuVisible, windowWidth, searching, showTechUIButton } = headerState;
+  const { menuVisible, windowWidth, searching } = headerState;
   const docVersions: Record<string, string> = {
     [antdVersion]: antdVersion,
     ...themeConfig?.docVersions,
@@ -355,7 +349,6 @@ const Header: React.FC<HeaderProps> = (props) => {
       {...sharedProps}
       responsive={responsive}
       isMobile={isMobile}
-      showTechUIButton={showTechUIButton}
       directionText={nextDirectionText}
       onLangChange={onLangChange}
       onDirectionChange={onDirectionChange}
@@ -414,6 +407,7 @@ const Header: React.FC<HeaderProps> = (props) => {
         {versionOptions}
       </Select>
     </Popover>,
+    <More key="more" {...sharedProps} />,
     <SwitchBtn
       key="lang"
       onClick={onLangChange}
@@ -437,8 +431,16 @@ const Header: React.FC<HeaderProps> = (props) => {
       tooltip2="RTL"
       pure
     />,
-    <More key="more" {...sharedProps} />,
-    <Github key="github" responsive={responsive} />,
+    <a href="https://github.com/ant-design/ant-design" target="_blank">
+      <SwitchBtn
+        key="github"
+        value={1}
+        label1={<GithubOutlined />}
+        tooltip1="Github"
+        label2={null}
+        pure
+      />
+    </a>,
   ];
 
   if (windowWidth < RESPONSIVE_XS) {
