@@ -16,6 +16,8 @@ Static function in React 18 concurrent mode will not well support. In v5, we rec
 ## Examples
 
 <!-- prettier-ignore -->
+<code src="./demo/MyApp.tsx">基本</code>
+
 ## API
 
 | Property | Description | Type | Default | Version |
