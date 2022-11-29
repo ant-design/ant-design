@@ -348,6 +348,10 @@ export default () => {
 
 在 ConfigProvider 中我们通过 `DesignTokenContext` 传递 context，`theme` 为 `undefined` 时不会套一层 Provider，所以从无到有或者从有到无时 React 的 VirtualDOM 结构变化，导致组件重新 mount。解决方法：将 `undefined` 替换为空对象 `{}` 即可。
 
+### 为什么修改 `colorPrimary` 不会改变 `link` 类型的 Button 和 Typography.Link 的颜色？
+
+在 5.0 中，我们让 `colorLink` 跟随了 `colorInfo`，原因是在大部分场景下我们都希望链接和浏览器原生的一样是蓝色的，不跟随 `colorPrimary` 变化。但您仍然可以通过修改 `colorLink` 和 `colorLinkHover` 来覆盖这一默认取值。
+
 <div style="display: none;">
 - 在 Umi 4 中定制主题
 - 与 V4 定制主题的区别

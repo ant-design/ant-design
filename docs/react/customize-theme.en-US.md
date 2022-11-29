@@ -347,3 +347,7 @@ You can use this tool to freely modify Design Token to meet your theme expectati
 ### Why component re-mounted when `theme` changed from `undefined` to some object or to `undefined`?
 
 In ConfigProvider, we pass context through `DesignTokenContext`. When `theme` is `undefined`, a layer of Provider will not be set, so React VirtualDOM structure changes from scratch or from existence to nothing, causing components to be re-mounted. Solution: Replace `undefined` with an empty object `{}`.
+
+### Why color of `link` Button and Typography.Link cannot be changed by `colorPrimary`?
+
+In 5.0, we let `colorLink` follow `colorInfo`, because in most scenarios we want the link to be blue, as the browser's native one, and not follow the `colorPrimary` change. But you can still override link color by modifying `colorLink` and `colorLinkHover`.
