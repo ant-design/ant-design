@@ -171,7 +171,7 @@ return <div>{contextHolder}</div>;
 
 Modal 在关闭时会将内容进行 memo 从而避免关闭过程中的内容跳跃。也因此如果你在配合使用 Form 有关闭时重置 `initialValues` 的操作，请通过在 effect 中调用 `resetFields` 来重置。
 
-### 为什么 Modal 方法不能获取 context、redux、的内容和 ConfigProvider `locale/prefixCls` 配置？
+### 为什么 Modal 方法不能获取 context、redux、的内容和 ConfigProvider `locale/prefixCls/theme` 等配置？
 
 直接调用 Modal 方法，antd 会通过 `ReactDOM.render` 动态创建新的 React 实体。其 context 与当前代码所在 context 并不相同，因而无法获取 context 信息。
 
