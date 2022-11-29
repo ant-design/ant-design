@@ -3,7 +3,7 @@ order: 8
 title: V4 to V5
 ---
 
-This document will help you upgrade from antd `4.x` version to antd `5.x` version. If you are using `3.x` or older version, please refer to the previous [upgrade document](/docs/react/migration-v4) to 4.x.
+This document will help you upgrade from antd `4.x` version to antd `5.x` version. If you are using `3.x` or older version, please refer to the previous [upgrade document](https://4x.ant.design/docs/react/migration-v4) to 4.x.
 
 ## Upgrade preparation
 
