@@ -22,7 +22,7 @@ function main() {
 
   app.bootstrap({
     // typedoc options here
-    entryPoints: ['components/theme/interface.ts'],
+    entryPoints: ['components/theme/interface/index.ts'],
   });
 
   const project = app.convert();
