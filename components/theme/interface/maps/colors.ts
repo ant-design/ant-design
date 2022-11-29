@@ -1,4 +1,4 @@
-export interface NeutralColorMapToken {
+export interface ColorNeutralMapToken {
   /**
    * @internal
    */
@@ -8,6 +8,16 @@ export interface NeutralColorMapToken {
    * @internal
    */
   colorBgBase: string;
+
+  /**
+   * @name 纯白色
+   * @desc 不随主题变化的纯白色
+   * @descEn Pure white color don't changed by theme
+   * @default #FFFFFF
+   */
+  colorWhite: string;
+
+  // ----------   Text   ---------- //
 
   /**
    * @name 一级文本色
@@ -33,6 +43,22 @@ export interface NeutralColorMapToken {
    */
   colorTextQuaternary: string;
 
+  // ----------   Border   ---------- //
+
+  /**
+   * @name 一级边框色
+   * @desc 默认使用的边框颜色, 用于分割不同的元素，例如：表单的分割线、卡片的分割线等。
+   */
+  colorBorder: string;
+
+  /**
+   * @name 二级边框色
+   * @desc 比默认使用的边框色要浅一级，此颜色和 colorSplit 的颜色一致。使用的是实色。
+   */
+  colorBorderSecondary: string;
+
+  // ----------   Fill   ---------- //
+
   /**
    * @name 一级填充色
    * @desc 最深的填充色，用于拉开与二、三级填充色的区分度，目前只用在 Slider 的 hover 效果。
@@ -57,6 +83,14 @@ export interface NeutralColorMapToken {
    */
   colorFillQuaternary: string;
 
+  // ----------   Surface   ---------- //
+
+  /**
+   * @name 布局背景色
+   * @desc 该色用于页面整体布局的背景色，只有需要在页面中处于 B1 的视觉层级时才会使用该 token，其他用法都是错误的
+   */
+  colorBgLayout: string;
+
   /**
    * @name 组件容器背景色
    * @desc 组件的容器背景色，例如：默认按钮、输入框等。务必不要将其与 `colorBgElevated` 混淆。
@@ -70,82 +104,82 @@ export interface NeutralColorMapToken {
   colorBgElevated: string;
 
   /**
-   * @name 布局背景色
-   * @desc 该色用于页面整体布局的背景色，只有需要在页面中处于 B1 的视觉层级时才会使用该 token，其他用法都是错误的
-   */
-  colorBgLayout: string;
-
-  /**
    * @name 引起注意的背景色
    * @desc 该色用于引起用户强烈关注注意的背景色，目前只用在 Tooltip 的背景色上。
    */
   colorBgSpotlight: string;
 
   /**
-   * @name 一级边框色
-   * @desc 默认使用的边框颜色, 用于分割不同的元素，例如：表单的分割线、卡片的分割线等。
+   * @name 浮层的背景蒙层颜色
    */
-  colorBorder: string;
-
-  /**
-   * @name 二级边框色
-   * @desc 比默认使用的边框色要浅一级，此颜色和 colorSplit 的颜色一致。使用的是实色。
-   */
-  colorBorderSecondary: string;
+  colorBgMask: string;
 }
 
-export interface ColorMapToken extends NeutralColorMapToken {
-  // Primary
+/**
+ * 品牌色梯度变量
+ */
+interface ColorPrimaryMapToken {
   /**
-   * @name 主色的浅色背景颜色
+   * @name 品牌主色
+   * @desc 品牌色是体现产品特性和传播理念最直观的视觉元素之一，用于产品的主色调、主按钮、主图标、主文本等   */
+  colorPrimary: string; // 6
+
+  /**
+   * @name 主色浅色背景色
+   * @desc 主色浅色背景颜色，一般用于视觉层级较弱的选中状态。
    */
   colorPrimaryBg: string; // 1
 
   /**
-   * @name 主色的浅色背景色悬浮态
+   * @name 主色浅色背景悬浮态
+   * @desc 与主色浅色背景颜色相对应的悬浮态颜色。
    */
   colorPrimaryBgHover: string; // 2
 
   /**
-   * @name 主色的描边色
+   * @name 主色描边色
+   * @desc 主色梯度下的描边用色，用在 Slider 组件的描边上
    */
   colorPrimaryBorder: string; // 3
 
   /**
-   * @name 主色的描边色悬浮态
+   * @name 主色描边色悬浮态
+   * @desc 主色梯度下的描边用色的悬浮态，Slider 、Button 等组件的描边 Hover 时会使用
    */
   colorPrimaryBorderHover: string; // 4
 
   /**
-   * @name 主色的深色悬浮态
+   * @name 主色悬浮态
+   * @desc 主色梯度下的悬浮态，使用频率很高
    */
   colorPrimaryHover: string; // 5
 
   /**
-   * @name 品牌主色
-   */
-  colorPrimary: string; // 6
-
-  /**
-   * @name 主色的深色激活态
+   * @name 主色激活态
+   * @desc 主色梯度下的深色激活态
    */
   colorPrimaryActive: string; // 7
 
   /**
-   * @name 主色的文本悬浮态
+   * @name 主色文本悬浮态
+   * @desc 主色梯度下的文本悬浮态
    */
   colorPrimaryTextHover: string; // 8
 
   /**
-   * @name 主色的文本默认态
+   * @name 主色文本
+   * @desc 主色梯度下的文本颜色
    */
   colorPrimaryText: string; // 9
 
   /**
-   * @name 主色的文本激活态
+   * @name 主色文本
+   * @desc 主色梯度下的文本激活态
    */
   colorPrimaryTextActive: string; // 10
+}
 
+interface ColorSuccessMapToken {
   /**
    * @name 成功色的浅色背景颜色
    */
@@ -195,7 +229,9 @@ export interface ColorMapToken extends NeutralColorMapToken {
    * @name 成功色的文本激活态
    */
   colorSuccessTextActive: string; // 10
+}
 
+interface ColorWarningMapToken {
   /**
    * @name 警戒色的浅色背景颜色
    */
@@ -245,57 +281,9 @@ export interface ColorMapToken extends NeutralColorMapToken {
    * @name 警戒色的文本激活态
    */
   colorWarningTextActive: string; // 10
+}
 
-  /**
-   * @name 错误色的浅色背景颜色
-   */
-  colorErrorBg: string; // 1
-
-  /**
-   * @name 错误色的浅色背景色悬浮态
-   */
-  colorErrorBgHover: string; // 2
-
-  /**
-   * @name 错误色的描边色
-   */
-  colorErrorBorder: string; // 3
-
-  /**
-   * @name 错误色的描边色悬浮态
-   */
-  colorErrorBorderHover: string; // 4
-
-  /**
-   * @name 错误色的深色悬浮态
-   */
-  colorErrorHover: string; // 5
-
-  /**
-   * @name 错误色
-   */
-  colorError: string; // 6
-
-  /**
-   * @name 错误色的深色激活态
-   */
-  colorErrorActive: string; // 7
-
-  /**
-   * @name 错误色的文本悬浮态
-   */
-  colorErrorTextHover: string; // 8
-
-  /**
-   * @name 错误色的文本默认态
-   */
-  colorErrorText: string; // 9
-
-  /**
-   * @name 错误色的文本激活态
-   */
-  colorErrorTextActive: string; // 10
-
+interface ColorInfoMapToken {
   /**
    * @name 信息色的浅色背景颜色
    */
@@ -345,10 +333,64 @@ export interface ColorMapToken extends NeutralColorMapToken {
    * @name 信息色的文本激活态
    */
   colorInfoTextActive: string; // 10
+}
+
+interface ColorErrorMapToken {
+  /**
+   * @name 错误色的浅色背景颜色
+   */
+  colorErrorBg: string; // 1
 
   /**
-   * @name 浮层的背景蒙层颜色
+   * @name 错误色的浅色背景色悬浮态
    */
-  colorBgMask: string;
-  colorWhite: string;
+  colorErrorBgHover: string; // 2
+
+  /**
+   * @name 错误色的描边色
+   */
+  colorErrorBorder: string; // 3
+
+  /**
+   * @name 错误色的描边色悬浮态
+   */
+  colorErrorBorderHover: string; // 4
+
+  /**
+   * @name 错误色的深色悬浮态
+   */
+  colorErrorHover: string; // 5
+
+  /**
+   * @name 错误色
+   */
+  colorError: string; // 6
+
+  /**
+   * @name 错误色的深色激活态
+   */
+  colorErrorActive: string; // 7
+
+  /**
+   * @name 错误色的文本悬浮态
+   */
+  colorErrorTextHover: string; // 8
+
+  /**
+   * @name 错误色的文本默认态
+   */
+  colorErrorText: string; // 9
+
+  /**
+   * @name 错误色的文本激活态
+   */
+  colorErrorTextActive: string; // 10
 }
+
+export interface ColorMapToken
+  extends ColorNeutralMapToken,
+    ColorPrimaryMapToken,
+    ColorSuccessMapToken,
+    ColorWarningMapToken,
+    ColorErrorMapToken,
+    ColorInfoMapToken {}

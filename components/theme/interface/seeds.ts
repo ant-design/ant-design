@@ -5,9 +5,11 @@ import type { PresetColorType } from './presetColors';
 // 🔥🔥🔥🔥🔥🔥🔥 DO NOT MODIFY THIS. PLEASE CONTACT DESIGNER. 🔥🔥🔥🔥🔥🔥🔥
 
 export interface SeedToken extends PresetColorType {
+  //  ----------   Color   ---------- //
+
   /**
    * @name 品牌主色
-   * @desc 品牌色是体现产品特性和传播理念最直观的视觉元素之一，用于产品的主色调、主按钮、主图标、主文本等
+   * @desc 品牌色是体现产品特性和传播理念最直观的视觉元素之一。在你完成品牌主色的选取之后，我们会自动帮你生成一套完整的色板，并赋予它们有效的设计语义
    */
   colorPrimary: string;
 
@@ -38,12 +40,13 @@ export interface SeedToken extends PresetColorType {
   colorTextBase: string;
 
   /**
-   * Base component background color. Will derivative container background color with this
    * @name 基础背景色
+   * @descEn Base component background color. Will derivative container background color with this
    */
   colorBgBase: string;
 
-  // Font
+  //  ----------   Font   ---------- //
+
   /**
    * @name 字体
    */
@@ -56,9 +59,11 @@ export interface SeedToken extends PresetColorType {
    */
   fontSize: number;
 
+  //  ----------   Line   ---------- //
+
   /**
-   * Border width of base components
    * @name 基础线宽
+   * @descEn Border width of base components
    */
   lineWidth: number;
 
@@ -67,62 +72,15 @@ export interface SeedToken extends PresetColorType {
    */
   lineType: string;
 
-  /**
-   * @name 动画时长变化单位
-   */
-  motionUnit: number;
+  //  ----------   BorderRadius   ---------- //
 
-  /**
-   * @name 动画基础时长
-   */
-  motionBase: number;
-
-  /**
-   * @name
-   */
-  motionEaseOutCirc: string;
-
-  /**
-   * @name
-   */
-  motionEaseInOutCirc: string;
-
-  /**
-   * @name
-   */
-  motionEaseInOut: string;
-
-  /**
-   * @name
-   */
-  motionEaseOutBack: string;
-
-  /**
-   * @name
-   */
-  motionEaseInBack: string;
-
-  /**
-   * @name
-   */
-  motionEaseInQuint: string;
-
-  /**
-   * @name
-   */
-  motionEaseOutQuint: string;
-
-  /**
-   * @name
-   */
-  motionEaseOut: string;
-
-  // Radius
   /**
    * @name 基础圆角
    * @nameEn Base Border Radius
    */
   borderRadius: number;
+
+  //  ----------   Size   ---------- //
 
   /**
    * @name 尺寸变化单位
@@ -139,25 +97,32 @@ export interface SeedToken extends PresetColorType {
    */
   sizePopupArrow: number;
 
-  // Control Base
-
   /**
-   * @name
+   * @name 基础高度
+   * @desc Ant Design 中按钮和输入框等基础控件的高度
+   * @default 32
    */
   controlHeight: number;
 
+  //  ----------   zIndex   ---------- //
+
   /**
    * @name 基础 zIndex
-   * @nameEn Base popup component zIndex
+   * @descEn Base popup component zIndex
+   *
+   * @default 1000
    */
   zIndexBase: number;
   /**  */
 
   /**
    * @name 浮层基础 zIndex
-   * @nameEn Base zIndex of component like FloatButton, Affix which can be cover by large popup
+   * @nameEn popup base zIndex
+   * @descEn Base zIndex of component like FloatButton, Affix which can be cover by large popup
    */
   zIndexPopupBase: number;
+
+  //  ----------   Opacity   ---------- //
 
   /**
    * @name 图片不透明度
@@ -165,6 +130,69 @@ export interface SeedToken extends PresetColorType {
    * @internal
    */
   opacityImage: number;
+
+  //  ----------   motion   ---------- //
+  // TODO: 缺一个懂 motion 的人来收敛 Motion 相关的 Token
+
+  /**
+   * @name 动画时长变化单位
+   */
+  motionUnit: number;
+
+  /**
+   * @name 动画基础时长
+   */
+  motionBase: number;
+
+  /**
+   * @name
+   * @internal
+   */
+  motionEaseOutCirc: string;
+
+  /**
+   * @name
+   * @internal
+   */
+  motionEaseInOutCirc: string;
+
+  /**
+   * @name
+   * @internal
+   */
+  motionEaseInOut: string;
+
+  /**
+   * @name
+   * @internal
+   */
+  motionEaseOutBack: string;
+
+  /**
+   * @name
+   * @internal
+   */
+  motionEaseInBack: string;
+
+  /**
+   * @name
+   * @internal
+   */
+  motionEaseInQuint: string;
+
+  /**
+   * @name
+   * @internal
+   */
+  motionEaseOutQuint: string;
+
+  /**
+   * @name
+   * @internal
+   */
+  motionEaseOut: string;
+
+  //  ----------   Style   ---------- //
 
   /**
    * @name 线框化
