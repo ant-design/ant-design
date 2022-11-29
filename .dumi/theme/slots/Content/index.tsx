@@ -1,16 +1,17 @@
-import React, { ReactNode, useMemo, useState, useLayoutEffect, useContext } from 'react';
-import { useIntl, useRouteMeta } from 'dumi';
-import Footer from 'dumi/theme/slots/Footer';
+import type { ReactNode } from 'react';
+import React, { useMemo, useState, useLayoutEffect, useContext } from 'react';
+import { useIntl, useRouteMeta, FormattedMessage } from 'dumi';
 import { Col, Typography, Avatar, Tooltip, Affix, Anchor } from 'antd';
-import EditButton from '../../common/EditButton';
-import { FormattedMessage } from 'dumi';
-import useLocation from '../../../hooks/useLocation';
 import ContributorsList from '@qixian.cs/github-contributors-list';
-import useSiteToken from '../../../hooks/useSiteToken';
 import { css } from '@emotion/react';
-import PrevAndNext from '../../common/PrevAndNext';
-import DemoContext, { DemoContextProps } from '../DemoContext';
 import classNames from 'classnames';
+import Footer from '../Footer';
+import EditButton from '../../common/EditButton';
+import useLocation from '../../../hooks/useLocation';
+import useSiteToken from '../../../hooks/useSiteToken';
+import PrevAndNext from '../../common/PrevAndNext';
+import type { DemoContextProps } from '../DemoContext';
+import DemoContext from '../DemoContext';
 import SiteContext from '../SiteContext';
 
 const useStyle = () => {
@@ -120,20 +121,22 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
     [showDebug, debugDemos],
   );
 
-  const anchorItems = useMemo(() => {
-    return meta.toc.reduce<AnchorItem[]>((result, item) => {
-      if (item.depth === 2) {
-        result.push({ ...item });
-      } else if (item.depth === 3) {
-        const parent = result[result.length - 1];
-        if (parent) {
-          parent.children = parent.children || [];
-          parent.children.push({ ...item });
+  const anchorItems = useMemo(
+    () =>
+      meta.toc.reduce<AnchorItem[]>((result, item) => {
+        if (item.depth === 2) {
+          result.push({ ...item });
+        } else if (item.depth === 3) {
+          const parent = result[result.length - 1];
+          if (parent) {
+            parent.children = parent.children || [];
+            parent.children.push({ ...item });
+          }
         }
-      }
-      return result;
-    }, []);
-  }, [meta.toc]);
+        return result;
+      }, []),
+    [meta.toc],
+  );
 
   const isRTL = direction === 'rtl';
 

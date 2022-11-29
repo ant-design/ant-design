@@ -11,6 +11,8 @@ lib/**/*
 locale
 server
 .dumi/tmp
+.dumi/tmp-production
+!.dumi/
 node_modules
 _site
 dist

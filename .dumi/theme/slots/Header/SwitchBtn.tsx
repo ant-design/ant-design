@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { Button, Tooltip } from 'antd';
-import useSiteToken from '../../../hooks/useSiteToken';
+import { Tooltip } from 'antd';
 import { css } from '@emotion/react';
+import useSiteToken from '../../../hooks/useSiteToken';
 
 export interface LangBtnProps {
   label1: React.ReactNode;
@@ -110,13 +110,8 @@ export default function LangBtn({
   let node = (
     <button onClick={onClick} css={[style.btn]} key="lang-button">
       <div className="btn-inner">
-        {pure ? (
-          value === 1 ? (
-            label1
-          ) : (
-            label2
-          )
-        ) : (
+        {pure && (value === 1 ? label1 : label2)}
+        {!pure && (
           <div style={{ position: 'relative', width: BASE_SIZE, height: BASE_SIZE }}>
             <span
               style={{

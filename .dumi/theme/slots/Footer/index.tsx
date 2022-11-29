@@ -17,12 +17,12 @@ import {
   ZhihuOutlined,
   YuqueFilled,
 } from '@ant-design/icons';
-import useLocation from '../../../hooks/useLocation';
 import { css } from '@emotion/react';
-import useLocale from '../../../hooks/useLocale';
-import useSiteToken from '../../../hooks/useSiteToken';
 import { TinyColor } from '@ctrl/tinycolor';
 import getAlphaColor from 'antd/es/theme/util/getAlphaColor';
+import useLocation from '../../../hooks/useLocation';
+import useLocale from '../../../hooks/useLocale';
+import useSiteToken from '../../../hooks/useSiteToken';
 import AdditionalInfo from './AdditionalInfo';
 
 const locales = {

@@ -85,6 +85,7 @@ export default function ThemePicker({ value, onChange }: ThemePickerProps) {
                 onClick={() => {
                   onChange?.(theme);
                 }}
+                alt=""
               />
             </div>
             <span>{locale[theme as keyof typeof locale]}</span>

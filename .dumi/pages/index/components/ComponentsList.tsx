@@ -1,4 +1,4 @@
-import useSiteToken from '../../../hooks/useSiteToken';
+/* eslint-disable react/jsx-pascal-case */
 import React from 'react';
 import {
   Space,
@@ -14,6 +14,7 @@ import {
 import dayjs from 'dayjs';
 import { CustomerServiceOutlined, QuestionCircleOutlined, SyncOutlined } from '@ant-design/icons';
 import { css } from '@emotion/react';
+import useSiteToken from '../../../hooks/useSiteToken';
 import useLocale from '../../../hooks/useLocale';
 
 const SAMPLE_CONTENT_EN =

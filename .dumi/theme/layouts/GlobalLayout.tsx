@@ -1,8 +1,9 @@
 import React, { useLayoutEffect } from 'react';
 import { useOutlet } from 'dumi';
 import { ConfigProvider, theme as antdTheme } from 'antd';
-import { ThemeConfig } from 'antd/es/config-provider/context';
-import ThemeContext, { ThemeContextProps } from '../slots/ThemeContext';
+import type { ThemeConfig } from 'antd/es/config-provider/context';
+import type { ThemeContextProps } from '../slots/ThemeContext';
+import ThemeContext from '../slots/ThemeContext';
 import ThemeSwitch from '../common/ThemeSwitch';
 import useLocation from '../../hooks/useLocation';
 

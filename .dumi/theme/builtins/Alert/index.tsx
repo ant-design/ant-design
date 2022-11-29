@@ -1,8 +1,10 @@
-import { Alert, AlertProps } from 'antd';
-import React, { FC } from 'react';
+import type { AlertProps } from 'antd';
+import { Alert } from 'antd';
+import type { FC } from 'react';
+import React from 'react';
 
-const MdAlert: FC<AlertProps> = ({ style, ...props }) => {
-  return <Alert {...props} style={{ margin: '24px 0', ...style }} />;
-};
+const MdAlert: FC<AlertProps> = ({ style, ...props }) => (
+  <Alert {...props} style={{ margin: '24px 0', ...style }} />
+);
 
 export default MdAlert;

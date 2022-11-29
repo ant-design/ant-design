@@ -1,5 +1,6 @@
-import React, { ReactNode, useMemo } from 'react';
-import { MenuProps } from 'antd';
+import type { ReactNode } from 'react';
+import React, { useMemo } from 'react';
+import type { MenuProps } from 'antd';
 import { Link, useFullSidebarData, useSidebarData } from 'dumi';
 import useLocation from './useLocation';
 
@@ -115,7 +116,7 @@ const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => 
           }
         } else {
           result.push(
-            ...group.children?.map((item) => ({
+            ...(group.children?.map((item) => ({
               label: (
                 <Link to={`${item.link}${search}`}>
                   {before}
@@ -124,7 +125,7 @@ const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => 
                 </Link>
               ),
               key: item.link.replace(/(-cn$)/g, ''),
-            })),
+            })) ?? []),
           );
         }
         return result;
