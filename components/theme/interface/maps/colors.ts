@@ -9,14 +9,6 @@ export interface ColorNeutralMapToken {
    */
   colorBgBase: string;
 
-  /**
-   * @name 纯白色
-   * @desc 不随主题变化的纯白色
-   * @descEn Pure white color don't changed by theme
-   * @default #FFFFFF
-   */
-  colorWhite: string;
-
   // ----------   Text   ---------- //
 
   /**
@@ -108,11 +100,6 @@ export interface ColorNeutralMapToken {
    * @desc 该色用于引起用户强烈关注注意的背景色，目前只用在 Tooltip 的背景色上。
    */
   colorBgSpotlight: string;
-
-  /**
-   * @name 浮层的背景蒙层颜色
-   */
-  colorBgMask: string;
 }
 
 /**
@@ -393,4 +380,24 @@ export interface ColorMapToken
     ColorSuccessMapToken,
     ColorWarningMapToken,
     ColorErrorMapToken,
-    ColorInfoMapToken {}
+    ColorInfoMapToken {
+  /**
+   * @name 纯白色
+   * @desc 不随主题变化的纯白色
+   * @descEn Pure white color don't changed by theme
+   * @default #FFFFFF
+   */
+  colorWhite: string;
+
+  /**
+   * @name 浮层的背景蒙层颜色
+   */
+  colorBgMask: string;
+
+  /**
+   * @name 纯黑色
+   * @desc 不随主题变化的纯黑色
+   * @default #0000
+   */
+  // colorBlack: string;
+}
