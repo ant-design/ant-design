@@ -117,6 +117,7 @@ This document will help you upgrade from antd `4.x` version to antd `5.x` versio
   - Static methods are no longer allowed to dynamically set `prefixCls` `maxCount` `top` `bottom` `getContainer` in `open`, Notification static methods will now have only one instance. If you need a different configuration, use `useNotification`.
   - `close` was renamed to `destroy` to be consistent with message.
 - Drawer `style` & `className` are migrated to Drawer panel node, the original properties are replaced by `rootClassName` and `rootStyle`.
+- The deprecated `message.warn` in 4.x is now completely removed, please use `message.warning` instead.
 
 #### Component refactoring and removal
 
