@@ -422,7 +422,7 @@ export default function Theme() {
               />
             </Space>
           </Header>
-          <Layout css={style.transBg}>
+          <Layout css={style.transBg} hasSider>
             <Sider css={style.transBg} width={200} className="site-layout-background">
               <Menu
                 mode="inline"
