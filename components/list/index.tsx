@@ -21,7 +21,7 @@ export type { ListItemMetaProps, ListItemProps } from './Item';
 
 export type ColumnCount = number;
 
-export type ColumnType = 'gutter' | 'column' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
+export type ColumnType = 'gutter' | 'column' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'xxxl';
 
 export interface ListGridType {
   gutter?: number;
@@ -32,6 +32,7 @@ export interface ListGridType {
   lg?: ColumnCount;
   xl?: ColumnCount;
   xxl?: ColumnCount;
+  xxxl?: ColumnCount;
 }
 
 export type ListSize = 'small' | 'default' | 'large';
@@ -223,7 +224,7 @@ function List<T>({
   }
 
   const needResponsive = Object.keys(grid || {}).some((key) =>
-    ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].includes(key),
+    ['xs', 'sm', 'md', 'lg', 'xl', 'xxl', 'xxxl'].includes(key),
   );
   const screens = useBreakpoint(needResponsive);
   const currentBreakpoint = React.useMemo(() => {

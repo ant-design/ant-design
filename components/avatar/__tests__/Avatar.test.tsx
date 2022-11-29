@@ -13,7 +13,7 @@ describe('Avatar Render', () => {
   mountTest(Avatar);
   rtlTest(Avatar);
 
-  const sizes = { xs: 24, sm: 32, md: 40, lg: 64, xl: 80, xxl: 100 };
+  const sizes = { xs: 24, sm: 32, md: 40, lg: 64, xl: 80, xxl: 100, xxxl: 120 };
   let originOffsetWidth: PropertyDescriptor['get'];
   beforeAll(() => {
     // Mock offsetHeight

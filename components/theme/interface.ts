@@ -654,6 +654,7 @@ export interface ColorMapToken extends NeutralColorMapToken {
 
 export interface SizeMapToken {
   // Size
+  sizeXXXL: number;
   sizeXXL: number;
   sizeXL: number;
   sizeLG: number;
@@ -847,6 +848,9 @@ export interface AliasToken extends MapToken {
   screenXXL: number;
   screenXXLMin: number;
   screenXXLMax: number;
+  screenXXXL: number;
+  screenXXXLMin: number;
+  screenXXXLMax: number;
 
   /** Used for DefaultButton, Switch which has default outline */
   controlTmpOutline: string;

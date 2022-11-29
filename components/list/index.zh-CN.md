@@ -70,6 +70,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/5FrZKStG_/List.svg
 | lg     | `≥992px` 展示的列数  | number | -      |      |
 | xl     | `≥1200px` 展示的列数 | number | -      |      |
 | xxl    | `≥1600px` 展示的列数 | number | -      |      |
+| xxxl     | `≥2000px` 展示的列数 of grid   | number | -       | 5.0.x |
 
 ### List.Item
 

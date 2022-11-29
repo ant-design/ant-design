@@ -20,6 +20,7 @@ export interface DescriptionsContextProps {
 export const DescriptionsContext = React.createContext<DescriptionsContextProps>({});
 
 const DEFAULT_COLUMN_MAP: Record<Breakpoint, number> = {
+  xxxl: 4,
   xxl: 3,
   xl: 3,
   lg: 3,

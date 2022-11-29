@@ -69,6 +69,7 @@ More about pagination, please check [`Pagination`](/components/pagination/).
 | lg       | `≥992px` column of grid  | number | -       |         |
 | xl       | `≥1200px` column of grid | number | -       |         |
 | xxl      | `≥1600px` column of grid | number | -       |         |
+| xxxl     | `≥2000px` column of grid   | number | -       | 5.0.x |
 
 ### List.Item
 

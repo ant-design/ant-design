@@ -31,6 +31,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
   const screenLG = 992;
   const screenXL = 1200;
   const screenXXL = 1600;
+  const screenXXXL = 2000;
 
   const fontSizeSM = fontSizes[0];
 
@@ -174,6 +175,9 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     screenXXL,
     screenXXLMin: screenXXL,
     screenXXLMax: screenXXL - 1,
+    screenXXXL,
+    screenXXXLMin: screenXXXL,
+    screenXXXLMax: screenXXXL - 1,
 
     // FIXME: component box-shadow, should be removed
     boxShadowPopoverArrow: `3px 3px 7px rgba(0, 0, 0, 0.1)`,

@@ -31,6 +31,7 @@ export interface ColProps extends React.HTMLAttributes<HTMLDivElement> {
   lg?: ColSpanType | ColSize;
   xl?: ColSpanType | ColSize;
   xxl?: ColSpanType | ColSize;
+  xxxl?: ColSpanType | ColSize;
   prefixCls?: string;
 }
 
@@ -45,7 +46,7 @@ function parseFlex(flex: FlexType): string {
 
   return flex;
 }
-const sizes = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;
+const sizes = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl', 'xxxl'] as const;
 const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const { gutter, wrap, supportFlexGap } = React.useContext(RowContext);
