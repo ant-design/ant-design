@@ -57,8 +57,7 @@ export const DesignTokenContext = React.createContext<{
 // ================================== Hook ==================================
 // In dev env, we refresh salt per hour to avoid user use this
 // Note: Do not modify this to real time update which will make debug harder
-const saltPrefix =
-  process.env.NODE_ENV === 'production' ? version : `${version}-${new Date().getHours()}`;
+const saltPrefix = version;
 
 export function useToken(): [Theme<SeedToken, MapToken>, GlobalToken, string] {
   const {
