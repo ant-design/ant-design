@@ -3,7 +3,7 @@ import type { StepsProps } from 'antd';
 import { Button, Steps } from 'antd';
 
 const App: React.FC = () => {
-  const [percent, setPercentage] = useState(0);
+  const [percent, setPercentage] = useState<number | undefined>(0);
   const [current, setCurrent] = useState(1);
   const [status, setStatus] = useState<StepsProps['status']>('process');
   const description = 'This is a description.';
@@ -24,8 +24,8 @@ const App: React.FC = () => {
   ];
   return (
     <>
-      <Button onClick={() => setPercentage(0)}>Percentage to undefined</Button>
-      <Button onClick={() => setPercentage((percent + 10) % 100)}>Percentage +</Button>
+      <Button onClick={() => setPercentage(undefined)}>Percentage to undefined</Button>
+      <Button onClick={() => setPercentage(((percent ?? 0) + 10) % 100)}>Percentage +</Button>
       <Button
         onClick={() => {
           setCurrent((current + 1) % 3);
