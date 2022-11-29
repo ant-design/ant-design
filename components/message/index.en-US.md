@@ -36,7 +36,6 @@ This components provides some static methods, with usage and arguments as follow
 - `message.error(content, [duration], onClose)`
 - `message.info(content, [duration], onClose)`
 - `message.warning(content, [duration], onClose)`
-- `message.warn(content, [duration], onClose)` // alias of warning
 - `message.loading(content, [duration], onClose)`
 
 | Argument | Description | Type | Default |
@@ -59,7 +58,6 @@ Supports passing parameters wrapped in an object:
 - `message.error(config)`
 - `message.info(config)`
 - `message.warning(config)`
-- `message.warn(config)` // alias of warning
 - `message.loading(config)`
 
 The properties of config are as follows:
