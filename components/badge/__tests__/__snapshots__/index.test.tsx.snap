@@ -1,5 +1,58 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Badge Badge should display 0 when count is 0 1`] = `
+<div>
+  <span
+    class="ant-badge ant-badge-not-a-wrapper"
+  >
+    <sup
+      class="ant-scroll-number ant-badge-count"
+      data-show="true"
+      title="0"
+    >
+      0
+    </sup>
+  </span>
+  <span
+    class="ant-badge ant-badge-not-a-wrapper"
+  >
+    <sup
+      class="ant-scroll-number ant-badge-count ant-badge-status-blue"
+      data-show="true"
+      title="0"
+    >
+      0
+    </sup>
+  </span>
+  <span
+    class="ant-badge ant-badge-not-a-wrapper"
+  >
+    <sup
+      class="ant-scroll-number ant-badge-count"
+      data-show="true"
+      style="background: rgb(255, 0, 255);"
+      title="0"
+    >
+      0
+    </sup>
+  </span>
+  <span
+    class="ant-badge"
+  >
+    <div>
+      children
+    </div>
+    <sup
+      class="ant-scroll-number ant-badge-count"
+      data-show="true"
+      title="0"
+    >
+      0
+    </sup>
+  </span>
+</div>
+`;
+
 exports[`Badge render Badge status/color when contains children 1`] = `
 <div>
   <span

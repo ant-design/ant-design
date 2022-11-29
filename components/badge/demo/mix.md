@@ -44,6 +44,15 @@ const App: React.FC = () => (
     <Badge dot color="#fa541c">
       <Avatar shape="square" size="large" />
     </Badge>
+    <Badge count={0} showZero />
+    <Badge count={0} showZero color="blue" />
+    <Badge count={0} showZero color="#f0f" />
+    <Badge count={0} showZero>
+      <Avatar shape="square" size="large" />
+    </Badge>
+    <Badge count={0} showZero color="blue">
+      <Avatar shape="square" size="large" />
+    </Badge>
   </>
 );
 
