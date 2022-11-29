@@ -7,6 +7,8 @@ import useStyle from './style';
 import message from '../message';
 import notification from '../notification';
 import Modal from '../modal';
+import AppContext from './context';
+import type { useAppProps } from './context';
 
 export type AppProps = {
   className?: string;
@@ -15,7 +17,7 @@ export type AppProps = {
 };
 
 const App: React.ForwardRefRenderFunction<HTMLDivElement, AppProps> & {
-  useApp: Function;
+  useApp: () => useAppProps | undefined;
 } = (props) => {
   const { prefixCls: customizePrefixCls, children, className } = props;
   const { getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
@@ -23,17 +25,28 @@ const App: React.ForwardRefRenderFunction<HTMLDivElement, AppProps> & {
   const [wrapSSR, hashId] = useStyle(prefixCls);
   const customClassName = classNames(hashId, className);
 
-  const [, messageContextHolder] = message.useMessage();
-  const [, notificationContextHolder] = notification.useNotification();
-  const [, ModalContextHolder] = Modal.useModal();
+  const [messageApi, messageContextHolder] = message.useMessage();
+  const [notificationApi, notificationContextHolder] = notification.useNotification();
+  const [ModalApi, ModalContextHolder] = Modal.useModal();
+
+  const memoizedContextValue = React.useMemo(
+    () => ({
+      message: messageApi,
+      notification: notificationApi,
+      Modal: ModalApi,
+    }),
+    [messageApi, notificationApi, ModalApi],
+  );
 
   return wrapSSR(
-    <div className={customClassName}>
-      {ModalContextHolder}
-      {messageContextHolder}
-      {notificationContextHolder}
-      {children}
-    </div>,
+    <AppContext.Provider value={memoizedContextValue}>
+      <div className={customClassName}>
+        {ModalContextHolder}
+        {messageContextHolder}
+        {notificationContextHolder}
+        {children}
+      </div>
+    </AppContext.Provider>,
   );
 };
 
@@ -41,12 +54,5 @@ if (process.env.NODE_ENV !== 'production') {
   App.displayName = 'App';
 }
 
-const useApp = () => ({
-  message,
-  notification,
-  Modal,
-});
-
-App.useApp = useApp;
-
+App.useApp = () => useContext(AppContext);
 export default App;
