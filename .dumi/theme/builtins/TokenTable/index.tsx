@@ -64,7 +64,6 @@ const TokenTable: FC<TokenTableProps> = ({ type }) => {
       title: locale.description,
       key: 'desc',
       dataIndex: 'desc',
-      width: 300,
     },
     {
       title: locale.type,

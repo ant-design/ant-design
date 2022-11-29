@@ -39,13 +39,17 @@ export interface ColorNeutralMapToken {
 
   /**
    * @name 一级边框色
+   * @nameEn Default Border Color
    * @desc 默认使用的边框颜色, 用于分割不同的元素，例如：表单的分割线、卡片的分割线等。
+   * @descEn Default border color, used to separate different elements, such as: form separator, card separator, etc.
    */
   colorBorder: string;
 
   /**
    * @name 二级边框色
+   * @nameEn Secondary Border Color
    * @desc 比默认使用的边框色要浅一级，此颜色和 colorSplit 的颜色一致。使用的是实色。
+   * @descEn Slightly lighter than the default border color, this color is the same as `colorSplit`. Solid color is used.
    */
   colorBorderSecondary: string;
 
@@ -113,7 +117,9 @@ interface ColorPrimaryMapToken {
 
   /**
    * @name 主色浅色背景色
+   * @nameEn Light Background Color of Primary Color
    * @desc 主色浅色背景颜色，一般用于视觉层级较弱的选中状态。
+   * @descEn Light background color of primary color, usually used for weak visual level selection state.
    */
   colorPrimaryBg: string; // 1
 
@@ -169,51 +175,65 @@ interface ColorPrimaryMapToken {
 interface ColorSuccessMapToken {
   /**
    * @name 成功色的浅色背景颜色
+   * @nameEn Light Background Color of Success Color
+   * @desc 成功色的浅色背景颜色，用于 Tag 和 Alert 的成功态背景色
+   * @descEn Light background color of success color, used for Tag and Alert success state background color
    */
   colorSuccessBg: string; // 1
 
   /**
    * @name 成功色的浅色背景色悬浮态
+   * @nameEn Hover State Color of Light Success Background
+   * @desc 成功色浅色背景颜色，一般用于视觉层级较弱的选中状态，不过 antd 目前没有使用到该 token
+   * @descEn Light background color of success color, but antd does not use this token currently
    */
   colorSuccessBgHover: string; // 2
 
   /**
    * @name 成功色的描边色
+   * @desc 成功色的描边色，用于 Tag 和 Alert 的成功态描边色
    */
   colorSuccessBorder: string; // 3
 
   /**
    * @name 成功色的描边色悬浮态
+   * @desc 成功色的描边色悬浮态
    */
   colorSuccessBorderHover: string; // 4
 
   /**
    * @name 成功色的深色悬浮态
+   * @desc 成功色的深色悬浮态
    */
   colorSuccessHover: string; // 5
 
   /**
    * @name 成功色
+   * @desc 默认的成功色，如 Result、Progress 等组件中都有使用该颜色
    */
   colorSuccess: string; // 6
 
   /**
    * @name 成功色的深色激活态
+   * @desc 成功色的深色激活态
    */
   colorSuccessActive: string; // 7
 
   /**
    * @name 成功色的文本悬浮态
+   * @desc 成功色的文本悬浮态
    */
   colorSuccessTextHover: string; // 8
 
   /**
    * @name 成功色的文本默认态
+   * @desc 成功色的文本默认态
    */
   colorSuccessText: string; // 9
 
   /**
    * @name 成功色的文本激活态
+   * @desc 成功色的文本激活态
    */
   colorSuccessTextActive: string; // 10
 }
@@ -226,46 +246,55 @@ interface ColorWarningMapToken {
 
   /**
    * @name 警戒色的浅色背景色悬浮态
+   * @desc 警戒色的浅色背景色悬浮态
    */
   colorWarningBgHover: string; // 2
 
   /**
    * @name 警戒色的描边色
+   * @desc 警戒色的描边色
    */
   colorWarningBorder: string; // 3
 
   /**
    * @name 警戒色的描边色悬浮态
+   * @desc 警戒色的描边色悬浮态
    */
   colorWarningBorderHover: string; // 4
 
   /**
    * @name 警戒色的深色悬浮态
+   * @desc 警戒色的深色悬浮态
    */
   colorWarningHover: string; // 5
 
   /**
    * @name 警戒色
+   * @desc 最常用的警戒色，例如 Notification、 Alert等警告类组件或 Input 输入类等组件会使用该颜色
    */
   colorWarning: string; // 6
 
   /**
    * @name 警戒色的深色激活态
+   * @desc 警戒色的深色激活态
    */
   colorWarningActive: string; // 7
 
   /**
    * @name 警戒色的文本悬浮态
+   * @desc 警戒色的文本悬浮态
    */
   colorWarningTextHover: string; // 8
 
   /**
    * @name 警戒色的文本默认态
+   * @desc 警戒色的文本默认态
    */
   colorWarningText: string; // 9
 
   /**
    * @name 警戒色的文本激活态
+   * @desc 警戒色的文本激活态
    */
   colorWarningTextActive: string; // 10
 }
@@ -273,11 +302,13 @@ interface ColorWarningMapToken {
 interface ColorInfoMapToken {
   /**
    * @name 信息色的浅色背景颜色
+   * @desc 信息色的浅色背景颜色
    */
   colorInfoBg: string; // 1
 
   /**
    * @name 信息色的浅色背景色悬浮态
+   * @desc 信息色的浅色背景色悬浮态
    */
   colorInfoBgHover: string; // 2
 
@@ -391,6 +422,9 @@ export interface ColorMapToken
 
   /**
    * @name 浮层的背景蒙层颜色
+   * @nameEn Background color of the mask
+   * @desc 浮层的背景蒙层颜色，用于遮罩浮层下面的内容，Modal、Drawer 等组件的蒙层使用的是该 token
+   * @descEn The background color of the mask, used to cover the content below the mask, Modal, Drawer and other components use this token
    */
   colorBgMask: string;
 

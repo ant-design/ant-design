@@ -10,8 +10,11 @@ export interface AliasToken extends MapToken {
   // Background
   colorFillContentHover: string;
   colorFillAlter: string;
-  colorBgContainerDisabled: string;
   colorFillContent: string;
+
+  colorBgContainerDisabled: string;
+  colorBgTextHover: string;
+  colorBgTextActive: string;
 
   // Border
   colorBorderBg: string;
@@ -28,8 +31,6 @@ export interface AliasToken extends MapToken {
   colorTextLabel: string;
   colorTextDescription: string;
   colorTextLightSolid: string;
-  colorBgTextHover: string;
-  colorBgTextActive: string;
 
   /** Weak action. Such as `allowClear` or Alert close button */
   colorIcon: string;
@@ -54,10 +55,35 @@ export interface AliasToken extends MapToken {
   /** Operation icon in Select, Cascader, etc. icon fontSize. Normal is same as fontSizeSM */
   fontSizeIcon: number;
 
+  /**
+   * @name 一级标题字号
+   * @desc H1 标签所使用的字号
+   * @default 38
+   */
   fontSizeHeading1: number;
+  /**
+   * @name 二级标题字号
+   * @desc h2 标签所使用的字号
+   * @default 30
+   */
   fontSizeHeading2: number;
+  /**
+   * @name 三级标题字号
+   * @desc h3 标签使用的字号
+   * @default 24
+   */
   fontSizeHeading3: number;
+  /**
+   * @name 四级标题字号
+   * @desc h4 标签使用的字号
+   * @default 20
+   */
   fontSizeHeading4: number;
+  /**
+   * @name 五级标题字号
+   * @desc h5 标签使用的字号
+   * @default 16
+   */
   fontSizeHeading5: number;
 
   /** For heading like h1, h2, h3 or option selected item */
