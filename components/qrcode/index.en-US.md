@@ -1,7 +1,7 @@
 ---
 category: Components
 title: QRCode
-cover: https://gw.alipayobjects.com/zos/alicdn/xqsDu4ZyR/Progress.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*cJopQrf0ncwAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 group:
@@ -22,6 +22,7 @@ Used when the link needs to be converted into a QR Code.
 <!-- prettier-ignore -->
 <code src="./demo/base.tsx">base</code>
 <code src="./demo/icon.tsx">With Icon</code>
+<code src="./demo/status.tsx">other statu</code>
 <code src="./demo/customSize.tsx">Custom Size</code>
 <code src="./demo/customColor.tsx">Custom Color</code>
 <code src="./demo/download.tsx">Download QRCode</code>
@@ -38,9 +39,10 @@ Used when the link needs to be converted into a QR Code.
 | icon | include image url (only image link are supported) | string | - |
 | size | QRCode size | number | 128 |
 | iconSize | include image size | number | 32 |
-| bgColor | QRCode Background Color | string | `#fff` |
-| fgColor | QRCode Foreground Color | string | `#000` |
+| color | QRCode Color | string | `#000` |
 | errorLevel | Error Code Level | `'L' \| 'M' \| 'Q' \| 'H' ` | `M` |
+| status | QRCode statu | `active \| expired \| loading ` | `active` |
+| onRefresh | callback | `() => void` | - |
 
 ## FAQ
 

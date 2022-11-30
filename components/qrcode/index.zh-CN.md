@@ -2,7 +2,7 @@
 category: Components
 subtitle: 二维码
 title: QRCode
-cover: https://gw.alipayobjects.com/zos/alicdn/xqsDu4ZyR/Progress.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*cJopQrf0ncwAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 group:
@@ -23,6 +23,7 @@ group:
 <!-- prettier-ignore -->
 <code src="./demo/base.tsx">基本使用</code>
 <code src="./demo/icon.tsx">带 Icon 的例子</code>
+<code src="./demo/status.tsx">不同的状态</code>
 <code src="./demo/customSize.tsx">自定义尺寸</code>
 <code src="./demo/customColor.tsx">自定义颜色</code>
 <code src="./demo/download.tsx">下载二维码</code>
@@ -33,15 +34,16 @@ group:
 
 > 自 `antd@5.1.0` 版本开始提供该组件。
 
-| 参数       | 说明                                     | 类型                        | 默认值 |
-| :--------- | :--------------------------------------- | :-------------------------- | :----- |
-| value      | 扫描后的地址                             | string                      | -      |
-| icon       | 二维码中图片的地址（目前只支持图片地址） | string                      | -      |
-| size       | 二维码图片大小                           | number                      | 128    |
-| iconSize   | 二维码中图片的大小                       | number                      | 32     |
-| bgColor    | 二维码背景颜色                           | string                      | `#fff` |
-| fgColor    | 二维码前景颜色                           | string                      | `#000` |
-| errorLevel | 二维码的纠错等级                         | `'L' \| 'M' \| 'Q' \| 'H' ` | `M`    |
+| 参数 | 说明 | 类型 | 默认值 |
+| :-- | :-- | :-- | :-- |
+| value | 扫描后的地址 | string | - |
+| icon | 二维码中图片的地址（目前只支持图片地址） | string | - |
+| size | 二维码大小 | number | 160 |
+| iconSize | 二维码中图片的大小 | number | 40 |
+| color | 二维码颜色 | string | `#000` |
+| errorLevel | 二维码纠错等级 | `'L' \| 'M' \| 'Q' \| 'H' ` | `M` |
+| status | 二维码状态 | `active \| expired \| loading ` | `active` |
+| onRefresh | 点击"点击刷新"的回调 | `() => void` | - |
 
 ## FAQ
 

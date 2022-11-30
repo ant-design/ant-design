@@ -3,13 +3,13 @@ import { MinusOutlined, PlusOutlined } from '@ant-design/icons';
 import { QRCode, Button } from 'antd';
 
 const App: React.FC = () => {
-  const [size, setSize] = useState<number>(128);
+  const [size, setSize] = useState<number>(160);
 
   const increase = () => {
     setSize((prevSize) => {
-      const newSize = prevSize + 16;
-      if (newSize > 256) {
-        return 256;
+      const newSize = prevSize + 10;
+      if (newSize > 300) {
+        return 300;
       }
       return newSize;
     });
@@ -17,9 +17,9 @@ const App: React.FC = () => {
 
   const decline = () => {
     setSize((prevSize) => {
-      const newSize = prevSize - 16;
-      if (newSize < 16) {
-        return 16;
+      const newSize = prevSize - 10;
+      if (newSize < 40) {
+        return 40;
       }
       return newSize;
     });

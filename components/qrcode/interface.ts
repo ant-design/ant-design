@@ -13,8 +13,7 @@ interface QRProps {
   value: string;
   size?: number;
   level?: string;
-  bgColor?: string;
-  fgColor?: string;
+  color?: string;
   style?: CSSProperties;
   includeMargin?: boolean;
   imageSettings?: ImageSettings;
@@ -28,4 +27,10 @@ export interface QRCodeProps extends QRProps {
   icon?: string;
   iconSize?: number;
   errorLevel?: 'L' | 'M' | 'Q' | 'H';
+  status?: 'active' | 'expired' | 'loading';
+  onRefresh?: () => void;
+  // statusRender?: (
+  //   status: QRCodeProps['status'],
+  //   onRefresh: QRCodeProps['onRefresh'],
+  // ) => React.ReactNode;
 }

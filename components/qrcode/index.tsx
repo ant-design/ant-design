@@ -1,21 +1,25 @@
 import React, { useMemo, useContext } from 'react';
 import { QRCodeCanvas } from 'qrcode.react';
 import classNames from 'classnames';
+import { ReloadOutlined } from '@ant-design/icons';
 import { ConfigContext } from '../config-provider';
 import type { ConfigConsumerProps } from '../config-provider';
 import type { QRCodeProps, QRPropsCanvas } from './interface';
 import warning from '../_util/warning';
 import useStyle from './style/index';
+import Spin from '../spin';
+import Button from '../button';
 
 const QRCode: React.FC<QRCodeProps> = (props) => {
   const {
     value,
     icon = '',
-    size = 128,
-    bgColor = '#fff',
-    fgColor = '#000',
-    iconSize = 32,
+    size = 160,
+    iconSize = 40,
+    color = '#000',
     errorLevel = 'M',
+    status = 'active',
+    onRefresh,
     style,
     className,
     prefixCls: customizePrefixCls,
@@ -35,13 +39,13 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     };
     return {
       value,
-      size,
+      size: size - 20, // 两边各留10px
       level: errorLevel,
-      bgColor,
-      fgColor,
+      bgColor: 'transparent',
+      fgColor: color,
       imageSettings: icon ? imageSettings : undefined,
     };
-  }, [bgColor, errorLevel, fgColor, icon, iconSize, size, value]);
+  }, [errorLevel, color, icon, iconSize, size, value]);
 
   if (!value) {
     if (process.env.NODE_ENV !== 'production') {
@@ -55,6 +59,21 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
       style={{ ...style, width: size, height: size }}
       className={classNames(prefixCls, className, hashId)}
     >
+      {status !== 'active' && (
+        <div className={`${prefixCls}-mask ${hashId}`}>
+          {status === 'loading' && <Spin />}
+          {status === 'expired' && (
+            <>
+              <p>二维码过期</p>
+              {typeof onRefresh === 'function' && (
+                <Button type="link" icon={<ReloadOutlined />} onClick={onRefresh}>
+                  点击刷新
+                </Button>
+              )}
+            </>
+          )}
+        </div>
+      )}
       <QRCodeCanvas {...qrCodeProps} />
     </div>,
   );
