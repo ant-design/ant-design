@@ -26,7 +26,7 @@ exports[`renders ./components/qrcode/demo/customColor.tsx correctly 1`] = `
 Array [
   <div
     class="ant-qrcode"
-    style="margin-bottom:16px;width:160px;height:160px"
+    style="margin-bottom:12px;width:160px;height:160px"
   >
     <canvas
       height="140"
@@ -34,35 +34,14 @@ Array [
       width="140"
     />
   </div>,
-  <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
+  <button
+    class="ant-btn ant-btn-default"
+    type="button"
   >
-    <div
-      class="ant-space-item"
-      style="margin-right:8px"
-    >
-      <button
-        class="ant-btn ant-btn-default"
-        type="button"
-      >
-        <span>
-          Background Color
-        </span>
-      </button>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <button
-        class="ant-btn ant-btn-default"
-        type="button"
-      >
-        <span>
-          Foreground Color
-        </span>
-      </button>
-    </div>
-  </div>,
+    <span>
+      Change Color
+    </span>
+  </button>,
 ]
 `;
 
