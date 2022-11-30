@@ -260,12 +260,28 @@
 }
 
 // RTL Steps with progress
-.@{steps-prefix-cls}-rtl.@{steps-prefix-cls}-with-progress.@{steps-prefix-cls}-horizontal.@{steps-prefix-cls}-label-horizontal {
-  .@{steps-prefix-cls}-item:first-child {
+.@{steps-prefix-cls}-rtl.@{steps-prefix-cls}-with-progress {
+  &.@{steps-prefix-cls}-vertical > .@{steps-prefix-cls}-item {
     padding-right: 4px;
-    padding-left: 0;
-    &.@{steps-prefix-cls}-item-active {
+    > .@{steps-prefix-cls}-item-container > .@{steps-prefix-cls}-item-tail {
+      right: @steps-vertical-tail-width + 3;
+    }
+  }
+
+  &.@{steps-prefix-cls}-small.@{steps-prefix-cls}-vertical > .@{steps-prefix-cls}-item {
+    > .@{steps-prefix-cls}-item-container > .@{steps-prefix-cls}-item-tail {
+      right: @steps-vertical-tail-width-sm + 3;
+    }
+  }
+
+  &.@{steps-prefix-cls}-horizontal.@{steps-prefix-cls}-label-horizontal {
+    .@{steps-prefix-cls}-item:first-child {
       padding-right: 4px;
+      padding-left: 0;
+
+      &.@{steps-prefix-cls}-item-active {
+        padding-right: 4px;
+      }
     }
   }
 }
