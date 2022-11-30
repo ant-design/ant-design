@@ -4,8 +4,9 @@
   .@{steps-prefix-cls}-item {
     padding-top: 4px;
 
-    .@{steps-prefix-cls}-item-tail {
-      top: 4px !important;
+    & > .@{steps-prefix-cls}-item-container > .@{steps-prefix-cls}-item-tail {
+      top: 4px;
+      left: @steps-vertical-tail-width + 3;
     }
   }
 
@@ -15,6 +16,13 @@
       padding-bottom: 4px;
       padding-left: 4px;
     }
+  }
+
+  &.@{steps-prefix-cls}-small
+    > .@{steps-prefix-cls}-item
+    > .@{steps-prefix-cls}-item-container
+    > .@{steps-prefix-cls}-item-tail {
+    left: @steps-vertical-tail-width-sm + 3;
   }
 
   &.@{steps-prefix-cls}-vertical .@{steps-prefix-cls}-item {

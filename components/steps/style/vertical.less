@@ -33,7 +33,7 @@
     > .@{steps-prefix-cls}-item-tail {
     position: absolute;
     top: 0;
-    left: @steps-vertical-tail-width;
+    left: @steps-vertical-tail-width - 1; // line width
     width: 1px;
     height: 100%;
     padding: @steps-icon-size + 6px 0 6px;
@@ -63,7 +63,7 @@
     .@{steps-prefix-cls}-item-tail {
       position: absolute;
       top: 0;
-      left: @steps-vertical-tail-width-sm;
+      left: @steps-vertical-tail-width-sm - 1; // line width
       padding: @steps-small-icon-size + 6px 0 6px;
     }
     .@{steps-prefix-cls}-item-title {
