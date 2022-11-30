@@ -101,7 +101,7 @@ type AnchorItem = {
 
 const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
   const meta = useRouteMeta();
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
   const { formatMessage } = useIntl();
   const styles = useStyle();
   const { direction } = useContext(SiteContext);
@@ -112,8 +112,10 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
     [meta],
   );
 
+  const isDebugDemo = debugDemos.includes(hash.slice(1));
+
   useLayoutEffect(() => {
-    setShowDebug(process.env.NODE_ENV === 'development');
+    setShowDebug(process.env.NODE_ENV === 'development' || isDebugDemo);
   }, []);
 
   const contextValue = useMemo<DemoContextProps>(
