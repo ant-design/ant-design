@@ -28,10 +28,10 @@ const App: React.FC = () => {
   return (
     <>
       <Button.Group style={{ marginBottom: 16 }}>
-        <Button onClick={decline} disabled={size <= 16} icon={<MinusOutlined />}>
+        <Button onClick={decline} disabled={size <= 40} icon={<MinusOutlined />}>
           Smaller
         </Button>
-        <Button onClick={increase} disabled={size >= 256} icon={<PlusOutlined />}>
+        <Button onClick={increase} disabled={size >= 300} icon={<PlusOutlined />}>
           Larger
         </Button>
       </Button.Group>
