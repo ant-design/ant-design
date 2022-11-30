@@ -99,7 +99,7 @@ const TokenTable: FC<TokenTableProps> = ({ type }) => {
   const data = useMemo<TokenData[]>(() => {
     return tokenMeta[type].map((token) => {
       return {
-        name: token.name,
+        name: token.token,
         desc: lang === 'cn' ? token.desc : token.descEn,
         type: token.type,
         value: (defaultToken as any)[token.name],

@@ -6,11 +6,14 @@ const getTokenList = (list, source) =>
     .filter((item) => !item.comment?.blockTags.some((tag) => tag.tag === '@internal'))
     .map((item) => ({
       source,
-      name: item.name,
+      token: item.name,
       type: item.type.toString(),
       desc: item.comment?.blockTags?.find((tag) => tag.tag === '@desc')?.content[0]?.text || '-',
       descEn:
         item.comment?.blockTags?.find((tag) => tag.tag === '@descEn')?.content[0]?.text || '-',
+      name: item.comment?.blockTags?.find((tag) => tag.tag === '@name')?.content[0]?.text || '-',
+      nameEn:
+        item.comment?.blockTags?.find((tag) => tag.tag === '@nameEn')?.content[0]?.text || '-',
     }));
 
 function main() {
