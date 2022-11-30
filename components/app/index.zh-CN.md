@@ -12,7 +12,8 @@ demo:
 
 ## 何时使用
 
-在 v5 版本中，我们推荐通过`hooks`顶层注册的方式代替 `message`,`modal`,`notification` 的静态方法,因为静态方法无法消费上下文,可以通过`App`组件包裹,获取`context`上下文.
+- 提供可消费 React context 的 `message.xxx`、`Modal.xxx`、`notification.xxx` 的静态方法，可以简化 useMessage 等方法需要手动植入 `contextHolder` 的问题。
+- 提供基于 `.ant-app` 的默认重置样式，解决原生元素没有 antd 规范样式的问题。
 
 ## 代码演示
 
