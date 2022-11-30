@@ -1,15 +1,15 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { Link, useLocation, FormattedMessage, useFullSidebarData } from 'dumi';
-import { MenuProps, Tooltip } from 'antd';
-import { MenuOutlined } from '@ant-design/icons';
+import { FormattedMessage, Link, useFullSidebarData, useLocation } from 'dumi';
+import type { MenuProps } from 'antd';
 import { Menu } from 'antd';
+import { MenuOutlined } from '@ant-design/icons';
+import { css } from '@emotion/react';
 import { getEcosystemGroup } from './More';
 import * as utils from '../../utils';
 import type { SharedProps } from './interface';
 import useSiteToken from '../../../hooks/useSiteToken';
 import useLocale from '../../../hooks/useLocale';
-import { css } from '@emotion/react';
 
 // ============================= Theme =============================
 const locales = {

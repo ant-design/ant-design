@@ -86,7 +86,7 @@ const ResourceCard: React.FC<ResourceCardProps> = ({ resource }) => {
 
   return (
     <Col xs={24} sm={12} md={8} lg={6} style={{ padding: 12 }}>
-      <a css={styles.card} target="_blank" href={src}>
+      <a css={styles.card} target="_blank" href={src} rel="noreferrer">
         <img
           css={styles.image}
           src={cover}
@@ -105,14 +105,12 @@ export type ResourceCardsProps = {
   resources: Resource[];
 };
 
-const ResourceCards: React.FC<ResourceCardsProps> = ({ resources }) => {
-  return (
-    <Row style={{ margin: '-12px -12px 0 -12px' }}>
-      {resources.map((item) => (
-        <ResourceCard resource={item} key={item.title} />
-      ))}
-    </Row>
-  );
-};
+const ResourceCards: React.FC<ResourceCardsProps> = ({ resources }) => (
+  <Row style={{ margin: '-12px -12px 0 -12px' }}>
+    {resources.map((item) => (
+      <ResourceCard resource={item} key={item.title} />
+    ))}
+  </Row>
+);
 
 export default ResourceCards;

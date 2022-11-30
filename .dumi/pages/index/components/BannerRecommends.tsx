@@ -1,8 +1,8 @@
 import * as React from 'react';
+import { Skeleton, Typography } from 'antd';
+import { css } from '@emotion/react';
 import type { Extra, Icon } from './util';
 import useSiteToken from '../../../hooks/useSiteToken';
-import { Col, Row, Card, Typography, Skeleton } from 'antd';
-import { css } from '@emotion/react';
 
 const useStyle = () => {
   const { token } = useSiteToken();
@@ -52,20 +52,20 @@ export default function BannerRecommends({ extras = [], icons = [] }: BannerReco
         textAlign: 'start',
       }}
     >
-      {first3.map((extra, index) => {
+      {first3.map((extra) => {
         if (!extra) {
-          return <Skeleton key={index} />;
+          return <Skeleton key={extra.title} />;
         }
-        const icon = icons.find((icon) => icon.name === extra.source);
+        const icon = icons.find((i) => i.name === extra.source);
         return (
-          <a key={index} href={extra.href} target="_blank" css={style.card}>
+          <a key={extra.title} href={extra.href} target="_blank" css={style.card} rel="noreferrer">
             <Typography.Title level={5}>{extra.title}</Typography.Title>
             <Typography.Paragraph type="secondary" style={{ flex: 'auto' }}>
               {extra.description}
             </Typography.Paragraph>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
               <Typography.Text>{extra.date}</Typography.Text>
-              {icon && <img src={icon.href} style={{ height: token.fontSize }} />}
+              {icon && <img src={icon.href} style={{ height: token.fontSize }} alt="banner" />}
             </div>
           </a>
         );

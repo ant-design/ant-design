@@ -1,8 +1,8 @@
 import React from 'react';
 import { Global, css } from '@emotion/react';
-import useSiteToken from '../../hooks/useSiteToken';
 import { TinyColor } from '@ctrl/tinycolor';
-import ColorStyle from '../common/Color/ColorStyle';
+import useSiteToken from '../../hooks/useSiteToken';
+import ColorStyle from './Color/ColorStyle';
 
 const GlobalStyles = () => {
   const { token } = useSiteToken();

@@ -1,7 +1,8 @@
-import React, { FC } from 'react';
+import type { FC } from 'react';
+import React from 'react';
 import { FloatButton, theme } from 'antd';
-import ThemeIcon from './ThemeIcon';
 import { DarkTheme, Light, CompactTheme } from 'antd-token-previewer/es/icons';
+import ThemeIcon from './ThemeIcon';
 
 const { defaultAlgorithm, darkAlgorithm, compactAlgorithm } = theme;
 
