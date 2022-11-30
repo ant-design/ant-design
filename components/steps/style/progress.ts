@@ -20,10 +20,16 @@ const genStepsProgressStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         paddingInlineStart: token.paddingXXS,
         [`> ${componentCls}-item-container > ${componentCls}-item-tail`]: {
           top: token.marginXXS,
+          insetInlineStart: token.stepsIconSize / 2 - token.lineWidth + token.paddingXXS,
         },
       },
 
-      [`&, &${componentCls}-small`]: {
+      [`&${componentCls}-small`]: {
+        [`&${componentCls}-vertical > ${componentCls}-item > ${componentCls}-item-container > ${componentCls}-item-tail`]:
+          {
+            insetInlineStart: token.stepsSmallIconSize / 2 - token.lineWidth + token.paddingXXS,
+          },
+
         [`&${componentCls}-horizontal ${componentCls}-item:first-child`]: {
           paddingBottom: token.paddingXXS,
           paddingInlineStart: token.paddingXXS,
