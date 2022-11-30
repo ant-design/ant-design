@@ -4,8 +4,8 @@ import React, { useMemo } from 'react';
 // @ts-ignore
 import tokenMeta from 'antd/es/version/token-meta.json';
 import { getDesignToken } from 'antd-token-previewer';
-import type { TableProps } from 'antd';
 import { Table } from 'antd';
+import type { TableProps } from 'antd';
 import { css } from '@emotion/react';
 import useLocale from '../../../hooks/useLocale';
 import useSiteToken from '../../../hooks/useSiteToken';
@@ -68,7 +68,6 @@ const TokenTable: FC<TokenTableProps> = ({ type }) => {
       title: locale.description,
       key: 'desc',
       dataIndex: 'desc',
-      width: 300,
     },
     {
       title: locale.type,
@@ -104,7 +103,7 @@ const TokenTable: FC<TokenTableProps> = ({ type }) => {
   const data = useMemo<TokenData[]>(
     () =>
       tokenMeta[type].map((token) => ({
-        name: token.name,
+        name: token.token,
         desc: lang === 'cn' ? token.desc : token.descEn,
         type: token.type,
         value: (defaultToken as any)[token.name],

@@ -6,11 +6,14 @@ const getTokenList = (list, source) =>
     .filter((item) => !item.comment?.blockTags.some((tag) => tag.tag === '@internal'))
     .map((item) => ({
       source,
-      name: item.name,
+      token: item.name,
       type: item.type.toString(),
       desc: item.comment?.blockTags?.find((tag) => tag.tag === '@desc')?.content[0]?.text || '-',
       descEn:
-        item.comment?.blockTags?.find((tag) => tag.tag === '@descEn')?.content[0]?.text || '-',
+        item.comment?.blockTags?.find((tag) => tag.tag === '@descEN')?.content[0]?.text || '-',
+      name: item.comment?.blockTags?.find((tag) => tag.tag === '@nameZH')?.content[0]?.text || '-',
+      nameEn:
+        item.comment?.blockTags?.find((tag) => tag.tag === '@nameEN')?.content[0]?.text || '-',
     }));
 
 function main() {
@@ -22,7 +25,7 @@ function main() {
 
   app.bootstrap({
     // typedoc options here
-    entryPoints: ['components/theme/interface.ts'],
+    entryPoints: ['components/theme/interface/index.ts'],
   });
 
   const project = app.convert();
@@ -46,20 +49,20 @@ function main() {
 
     // Exclude preset colors
     tokenMeta.seed = tokenMeta.seed.filter(
-      (item) => !presetColors.some((color) => item.name.startsWith(color)),
+      (item) => !presetColors.some((color) => item.token.startsWith(color)),
     );
     tokenMeta.map = tokenMeta.map.filter(
-      (item) => !presetColors.some((color) => item.name.startsWith(color)),
+      (item) => !presetColors.some((color) => item.token.startsWith(color)),
     );
     tokenMeta.alias = tokenMeta.alias.filter(
-      (item) => !presetColors.some((color) => item.name.startsWith(color)),
+      (item) => !presetColors.some((color) => item.token.startsWith(color)),
     );
 
     tokenMeta.alias = tokenMeta.alias.filter(
-      (item) => !tokenMeta.map.some((mapItem) => mapItem.name === item.name),
+      (item) => !tokenMeta.map.some((mapItem) => mapItem.token === item.token),
     );
     tokenMeta.map = tokenMeta.map.filter(
-      (item) => !tokenMeta.seed.some((seedItem) => seedItem.name === item.name),
+      (item) => !tokenMeta.seed.some((seedItem) => seedItem.token === item.token),
     );
 
     fs.writeJsonSync(output, tokenMeta, 'utf8');
