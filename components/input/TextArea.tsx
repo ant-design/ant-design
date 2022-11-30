@@ -197,7 +197,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
           getStatusClassNames(prefixCls, mergedStatus),
           hashId,
         )}
-        style={showCount ? { resize: style?.resize } : style}
+        style={showCount ? { resize: style?.resize, height: style?.height } : style}
         prefixCls={prefixCls}
         onCompositionStart={onInternalCompositionStart}
         onChange={handleChange}
@@ -256,7 +256,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
             className,
             hashId,
           )}
-          style={style}
+          style={style && omit(style, ['height'])}
           data-count={dataCount}
         >
           {textareaNode}

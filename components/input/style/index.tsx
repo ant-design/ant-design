@@ -899,6 +899,9 @@ const genTextAreaStyle: GenerateStyle<InputToken> = (token) => {
       },
 
       '&-show-count': {
+        display: 'inline-block',
+        width: 'auto',
+
         // https://github.com/ant-design/ant-design/issues/33049
         [`> ${componentCls}`]: {
           height: '100%',
