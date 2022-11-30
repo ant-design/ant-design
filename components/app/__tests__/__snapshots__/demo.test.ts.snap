@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/app/demo/Modal.tsx correctly 1`] = `
+exports[`renders ./components/app/demo/modal.tsx correctly 1`] = `
 <div
   class=""
 >
@@ -9,7 +9,7 @@ exports[`renders ./components/app/demo/Modal.tsx correctly 1`] = `
     type="button"
   >
     <span>
-      Open Modal
+      Open modal
     </span>
   </button>
 </div>

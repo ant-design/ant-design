@@ -17,7 +17,7 @@ Static function in React 18 concurrent mode will not well support. In v5, we rec
 
 <!-- prettier-ignore -->
 <code src="./demo/message.tsx">message</code>
-<code src="./demo/Modal.tsx">modal</code>
+<code src="./demo/modal.tsx">modal</code>
 <code src="./demo/notification.tsx">notification</code>
 
 ## How to use
@@ -26,12 +26,12 @@ Static function in React 18 concurrent mode will not well support. In v5, we rec
 import React from 'react';
 import { App } from 'antd';
 const MyPage = () => {
-  const { message, notification, Modal } = App.useApp();
+  const { message, notification, modal } = App.useApp();
   message.success('Good!');
   notification.info({ message: 'Good' });
-  Modal.warning({ title: 'Good' });
+  modal.warning({ title: 'Good' });
   // ....
-  // other message,notification,Modal static function
+  // other message,notification,modal static function
   return <div>Hello word</div>;
 };
 

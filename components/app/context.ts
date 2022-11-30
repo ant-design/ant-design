@@ -7,13 +7,13 @@ type ModalType = Omit<ModalStaticFunctions, 'warn'>;
 export interface useAppProps {
   message: MessageInstance;
   notification: NotificationInstance;
-  Modal: ModalType;
+  modal: ModalType;
 }
 
 const AppContext = React.createContext<useAppProps>({
   message: {} as MessageInstance,
   notification: {} as NotificationInstance,
-  Modal: {} as ModalType,
+  modal: {} as ModalType,
 });
 
 export default AppContext;

@@ -35,7 +35,7 @@ const App: React.ForwardRefRenderFunction<HTMLDivElement, AppProps> & {
     () => ({
       message: messageApi,
       notification: notificationApi,
-      Modal: ModalApi,
+      modal: ModalApi,
     }),
     [messageApi, notificationApi, ModalApi],
   );

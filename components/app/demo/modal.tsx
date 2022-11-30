@@ -3,10 +3,10 @@ import { App, Button } from 'antd';
 
 // Sub page
 const MyPage = () => {
-  const { Modal } = App.useApp();
+  const { modal } = App.useApp();
 
   const showModal = () => {
-    Modal.warning({
+    modal.warning({
       title: 'This is a warning message',
       content: 'some messages...some messages...',
     });
@@ -14,7 +14,7 @@ const MyPage = () => {
 
   return (
     <Button type="primary" onClick={showModal}>
-      Open Modal
+      Open modal
     </Button>
   );
 };

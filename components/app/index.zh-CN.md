@@ -12,13 +12,13 @@ demo:
 
 ## 何时使用
 
-在 v5 版本中，我们推荐通过`hooks`顶层注册的方式代替 `message`,`Modal`,`notification` 的静态方法,因为静态方法无法消费上下文,可以通过`App`组件包裹,获取`context`上下文.
+在 v5 版本中，我们推荐通过`hooks`顶层注册的方式代替 `message`,`modal`,`notification` 的静态方法,因为静态方法无法消费上下文,可以通过`App`组件包裹,获取`context`上下文.
 
 ## 代码演示
 
 <!-- prettier-ignore -->
 <code src="./demo/message.tsx">message</code>
-<code src="./demo/Modal.tsx">modal</code>
+<code src="./demo/modal.tsx">modal</code>
 <code src="./demo/notification.tsx">notification</code>
 
 ## How to use
@@ -27,12 +27,12 @@ demo:
 import React from 'react';
 import { App } from 'antd';
 const MyPage = () => {
-  const { message, notification, Modal } = App.useApp();
+  const { message, notification, modal } = App.useApp();
   message.success('Good!');
   notification.info({ message: 'Good' });
-  Modal.warning({ title: 'Good' });
+  modal.warning({ title: 'Good' });
   // ....
-  // other message,notification,Modal static function
+  // other message,notification,modal static function
   return <div>Hello word</div>;
 };
 
