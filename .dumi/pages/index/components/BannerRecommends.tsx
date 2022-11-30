@@ -52,9 +52,9 @@ export default function BannerRecommends({ extras = [], icons = [] }: BannerReco
         textAlign: 'start',
       }}
     >
-      {first3.map((extra) => {
+      {first3.map((extra, index) => {
         if (!extra) {
-          return <Skeleton key={extra.title} />;
+          return <Skeleton key={index} />;
         }
         const icon = icons.find((i) => i.name === extra.source);
         return (
