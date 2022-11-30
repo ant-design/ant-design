@@ -1,6 +1,7 @@
 import React from 'react';
 import { App } from 'antd';
 
+// Sub page
 const MyPage = () => {
   const { message } = App.useApp();
   React.useEffect(() => {
@@ -10,4 +11,9 @@ const MyPage = () => {
   return <div>Hello World</div>;
 };
 
-export default MyPage;
+// Entry component
+export default () => (
+  <App>
+    <MyPage />
+  </App>
+);

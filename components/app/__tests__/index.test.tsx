@@ -1,33 +1,33 @@
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 import App from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, screen } from '../../../tests/utils';
+import { render } from '../../../tests/utils';
 
 describe('App', () => {
   mountTest(App);
   rtlTest(App);
 
   it('single', () => {
-    const Dome: React.FC = () => {
+    // Sub page
+    const MyPage = () => {
       const { message } = App.useApp();
-      const showMessage = () => {
-        message.success('success!!');
-      };
-      return (
-        <>
-          <button disabled type="button" onClick={showMessage}>
-            Cover
-          </button>
-          <App>
-            <div>Hello World</div>
-          </App>
-        </>
-      );
+      React.useEffect(() => {
+        message.success('Good!');
+      }, [message]);
+
+      return <div>Hello World</div>;
     };
-    const { getByText, container } = render(<Dome />);
-    expect(getByText('cover title')).toBeTruthy();
-    expect(getByText('cover description.')).toBeTruthy();
+
+    // Entry component
+    const MyApp = () => (
+      <App>
+        <MyPage />
+      </App>
+    );
+
+    const { getByText, container } = render(<MyApp />);
+    expect(getByText('Hello World')).toBeTruthy();
     expect(container.firstChild).toMatchSnapshot();
   });
 });

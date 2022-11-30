@@ -41,13 +41,13 @@ const genBaseStyle: GenerateStyle<AppToken> = () => [
       overflow: 'visible',
     },
     'h1, h2, h3, h4, h5, h6': {
-      marginTop: 0,
-      marginBottom: '0.5em',
+      marginBlockStart: 0,
+      marginBlockEnd: '0.5em',
       fontWeight: '500',
     },
     p: {
-      marginTop: '0',
-      marginBottom: '1em',
+      marginBlockStart: '0',
+      marginBlockEnd: '1em',
     },
     'abbr[title],abbr[data-original-title]': {
       WebkitTextDecoration: 'underline dotted',
@@ -56,7 +56,7 @@ const genBaseStyle: GenerateStyle<AppToken> = () => [
       cursor: 'help',
     },
     address: {
-      marginBottom: '1em',
+      marginBlockEnd: '1em',
       fontStyle: 'normal',
       lineHeight: 'inherit',
     },
@@ -64,18 +64,18 @@ const genBaseStyle: GenerateStyle<AppToken> = () => [
       WebkitAppearance: 'none',
     },
     'ol, ul, dl': {
-      marginTop: 0,
-      marginBottom: '1em',
+      marginBlockStart: 0,
+      marginBlockEnd: '1em',
     },
     'ol ol, ul ul, ol ul, ul ol': {
-      marginBottom: 0,
+      marginBlockEnd: 0,
     },
     dt: {
       fontWeight: 500,
     },
     dd: {
-      marginBottom: '0.5em',
-      marginLeft: 0,
+      marginBlockEnd: '0.5em',
+      marginInlineStart: 0,
     },
     blockquote: {
       margin: '0 0 1em',
@@ -106,8 +106,8 @@ const genBaseStyle: GenerateStyle<AppToken> = () => [
       fontFamily: "'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace",
     },
     pre: {
-      marginTop: '0',
-      marginBottom: '1em',
+      marginBlockStart: '0',
+      marginBlockEnd: '1em',
       overflow: 'auto',
     },
     figure: {
@@ -125,9 +125,9 @@ const genBaseStyle: GenerateStyle<AppToken> = () => [
       borderCollapse: 'collapse',
     },
     caption: {
-      paddingTop: '0.75em',
-      paddingBottom: '0.3em',
-      textAlign: 'left',
+      paddingBlockStart: '0.75em',
+      paddingBlockEnd: '0.3em',
+      textAlign: 'start',
       captionSide: 'bottom',
     },
     'input, button, select, optgroup, textarea': {
@@ -172,7 +172,7 @@ const genBaseStyle: GenerateStyle<AppToken> = () => [
       display: 'block',
       width: '100%',
       maxWidth: '100%',
-      marginBottom: '0.5em',
+      marginBlockEnd: '0.5em',
       padding: 0,
       color: 'inherit',
       fontSize: '1.5em',

@@ -17,10 +17,12 @@ React 18 并发模式下的静态函数不能很好地支持。在 v5 中，我�
 ## 代码演示
 
 <!-- prettier-ignore -->
-<code src="./demo/MyApp.tsx">基本</code>
+<code src="./demo/message.tsx">message</code>
+<code src="./demo/Modal.tsx">modal</code>
+<code src="./demo/notification.tsx">notification</code>
 
 ## API
 
 | 属性 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| arrow | 是否显示箭头，包含是否指向元素中心的配置 | `boolean` \| `{ pointAtCenter: boolean}` | `true` |  |
+| useApp | 用于获取 message,Modal,notification 的静态方法 | ()=>{message,notification,Modal} | - |  |

@@ -16,10 +16,12 @@ Static function in React 18 concurrent mode will not well support. In v5, we rec
 ## Examples
 
 <!-- prettier-ignore -->
-<code src="./demo/MyApp.tsx">基本</code>
+<code src="./demo/message.tsx">message</code>
+<code src="./demo/Modal.tsx">modal</code>
+<code src="./demo/notification.tsx">notification</code>
 
 ## API
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| arrow | Whether to show the arrow, including the configuration whether to point to the center of the element | `boolean`\|`{ pointAtCenter: boolean}` | `true` |  |
+| useApp | Static method for obtaining message, modal, and notification | ()=>{message,notification,Modal} | - |  |
