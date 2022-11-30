@@ -1,7 +1,7 @@
 /* eslint jsx-a11y/no-noninteractive-element-interactions: 0 */
 import { CheckOutlined, SnippetsOutlined, ThunderboltOutlined } from '@ant-design/icons';
 import stackblitzSdk from '@stackblitz/sdk';
-import { Alert, Badge, Tooltip } from 'antd';
+import { Alert, Badge, Tooltip, Space } from 'antd';
 import classNames from 'classnames';
 import LZString from 'lz-string';
 import React from 'react';
@@ -120,13 +120,6 @@ class Demo extends React.Component {
     });
   }
 
-  handleIframeReady = () => {
-    const { theme, setIframeTheme } = this.props;
-    if (this.iframeRef.current) {
-      // setIframeTheme(this.iframeRef.current, theme);
-    }
-  };
-
   render() {
     const { state } = this;
     const { props } = this;
@@ -167,7 +160,7 @@ class Demo extends React.Component {
     });
     const localizedTitle = meta.title[locale] || meta.title;
     const localizeIntro = content[locale] || content;
-    const introChildren = <div dangerouslySetInnerHTML={{ __html: localizeIntro }}></div>;
+    const introChildren = <div dangerouslySetInnerHTML={{ __html: localizeIntro }} />;
 
     const highlightClass = classNames('highlight-wrapper', {
       'highlight-wrapper-expand': codeExpand,
@@ -375,7 +368,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
             />
           </div>
           <div className="code-box-description">{introChildren}</div>
-          <div className="code-box-actions">
+          <Space wrap size="middle" className="code-box-actions">
             {showRiddleButton ? (
               <form
                 className="code-box-code-action"
@@ -458,7 +451,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
               </Tooltip>
             </CopyToClipboard>
             <Tooltip title={<FormattedMessage id="app.demo.separate" />}>
-              <a className="code-box-code-action" target="_blank" rel="noreferer" href={src}>
+              <a className="code-box-code-action" target="_blank" rel="noreferrer" href={src}>
                 <ExternalLinkIcon className="code-box-separate" />
               </a>
             </Tooltip>
@@ -466,7 +459,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
             <Tooltip
               title={<FormattedMessage id={`app.demo.code.${codeExpand ? 'hide' : 'show'}`} />}
             >
-              <span className="code-expand-icon code-box-code-action">
+              <div className="code-expand-icon code-box-code-action">
                 <img
                   alt="expand code"
                   src={
@@ -487,9 +480,9 @@ createRoot(document.getElementById('container')).render(<Demo />);
                   className={codeExpand ? 'code-expand-icon-show' : 'code-expand-icon-hide'}
                   onClick={() => this.handleCodeExpand(meta.id)}
                 />
-              </span>
+              </div>
             </Tooltip>
-          </div>
+          </Space>
         </section>
         <section className={highlightClass} key="code">
           <CodePreview

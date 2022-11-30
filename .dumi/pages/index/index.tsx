@@ -1,31 +1,14 @@
-import React, { type FC, useLayoutEffect } from 'react';
+import React from 'react';
 import { useLocale as useDumiLocale } from 'dumi';
-import { css } from '@emotion/react';
+import { ConfigProvider } from 'antd';
 import useLocale from '../../hooks/useLocale';
 import Banner from './components/Banner';
 import Group from './components/Group';
 import { useSiteData } from './components/util';
-import useSiteToken from '../../hooks/useSiteToken';
 import Theme from './components/Theme';
 import BannerRecommends from './components/BannerRecommends';
 import ComponentsList from './components/ComponentsList';
 import DesignFramework from './components/DesignFramework';
-import { ConfigProvider } from 'antd';
-import dayjs from 'dayjs';
-import 'dayjs/locale/zh-cn';
-
-const useStyle = () => {
-  const { token } = useSiteToken();
-
-  return {
-    container: css`
-      // padding: 0 116px;
-
-      // background: url(https://gw.alipayobjects.com/zos/bmw-prod/5741382d-cc22-4ede-b962-aea287a1d1a1/l4nq43o8_w2646_h1580.png);
-      // background-size: 20% 10%;
-    `,
-  };
-};
 
 const locales = {
   cn: {
@@ -44,22 +27,12 @@ const locales = {
   },
 };
 
-const Homepage: FC = () => {
-  const [locale, lang] = useLocale(locales);
+const Homepage: React.FC = () => {
+  const [locale] = useLocale(locales);
   const { id: localeId } = useDumiLocale();
   const localeStr = localeId === 'zh-CN' ? 'cn' : 'en';
 
-  const [siteData, loading] = useSiteData();
-
-  const style = useStyle();
-
-  useLayoutEffect(() => {
-    if (lang === 'cn') {
-      dayjs.locale('zh-cn');
-    } else {
-      dayjs.locale('en');
-    }
-  }, []);
+  const [siteData] = useSiteData();
 
   return (
     <ConfigProvider theme={{ algorithm: undefined }}>
@@ -68,7 +41,7 @@ const Homepage: FC = () => {
           <BannerRecommends extras={siteData?.extras?.[localeStr]} icons={siteData?.icons} />
         </Banner>
 
-        <div css={style.container}>
+        <div>
           <Theme />
           <Group
             background="#fff"
@@ -89,6 +62,7 @@ const Homepage: FC = () => {
                 <img
                   style={{ position: 'absolute', left: 0, top: -50, height: 160 }}
                   src="https://gw.alipayobjects.com/zos/bmw-prod/ba37a413-28e6-4be4-b1c5-01be1a0ebb1c.svg"
+                  alt=""
                 />
               </>
             }

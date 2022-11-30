@@ -216,14 +216,15 @@ import locale from 'antd/locale/zh_CN';
 
 ### 如何修改周的起始日？
 
-请使用正确的[语言包](/docs/react/i18n)（[#5605](https://github.com/ant-design/ant-design/issues/5605)），或者修改 dayjs 的 `locale` 配置：<https://codesandbox.io/s/moment-day-of-week-6dby5>
+请使用正确的[语言包](/docs/react/i18n-cn)（[#5605](https://github.com/ant-design/ant-design/issues/5605)），或者修改 dayjs 的 `locale` 配置：<https://codesandbox.io/s/dayjs-day-of-week-x9tuj2?file=/demo.tsx>
 
 ```js
-dayjs.locale('en', {
-  // 注意请修改你正在使用的 locale 语言，比如 zh-cn
-  week: {
-    dow: 1,
-  },
+import dayjs from 'dayjs';
+import 'dayjs/locale/zh-cn';
+import 'dayjs/plugin/updateLocale';
+
+dayjs.updateLocale('zh-cn', {
+  weekStart: 0,
 });
 ```
 

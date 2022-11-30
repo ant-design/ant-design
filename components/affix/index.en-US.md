@@ -5,7 +5,7 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*YSm4RI3iOJ8AAAAAAA
 demo:
   cols: 2
 group:
-  title: 其他
+  title: Other
   order: 7
 ---
 

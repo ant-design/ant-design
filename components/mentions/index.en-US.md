@@ -28,12 +28,6 @@ When you need to mention someone or something.
 
 ## API
 
-```jsx
-<Mentions onChange={onChange}>
-  <Mentions.Option value="sample">Sample</Mentions.Option>
-</Mentions>
-```
-
 ### Mention
 
 | Property | Description | Type | Default | Version |
@@ -56,6 +50,7 @@ When you need to mention someone or something.
 | onResize | The callback function that is triggered when textarea resize | function({ width, height }) | - |  |
 | onSearch | Trigger when prefix hit | (text: string, prefix: string) => void | - |  |
 | onSelect | Trigger when user select the option | (option: OptionProps, prefix: string) => void | - |  |
+| options | Option Configuration | [Options](#Option) | \[] | 5.1.0 |
 
 ### Mention methods
 
@@ -66,7 +61,10 @@ When you need to mention someone or something.
 
 ### Option
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| children | Suggestion content | ReactNode | - |
-| value | The value of suggestion, the value will insert into input filed while selected | string | - |
+| Property  | Description                 | Type                | Default |
+| --------- | --------------------------- | ------------------- | ------- |
+| label     | Title of the option         | React.ReactNode     | -       |
+| key       | The key value of the option | string              | -       |
+| disabled  | Optional                    | boolean             | -       |
+| className | className                   | string              | -       |
+| style     | The style of the option     | React.CSSProperties | -       |

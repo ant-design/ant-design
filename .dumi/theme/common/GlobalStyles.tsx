@@ -1,8 +1,8 @@
 import React from 'react';
 import { Global, css } from '@emotion/react';
-import useSiteToken from '../../hooks/useSiteToken';
 import { TinyColor } from '@ctrl/tinycolor';
-import ColorStyle from '../common/Color/ColorStyle';
+import useSiteToken from '../../hooks/useSiteToken';
+import ColorStyle from './Color/ColorStyle';
 
 const GlobalStyles = () => {
   const { token } = useSiteToken();
@@ -1004,6 +1004,9 @@ const GlobalStyles = () => {
             }
 
             .code-expand-icon {
+              width: 16px;
+              height: 16px;
+              position: relative;
               cursor: pointer;
             }
 
@@ -1086,7 +1089,6 @@ const GlobalStyles = () => {
               align-items: center;
               width: 16px;
               height: 16px;
-              margin-left: 16px;
               color: ${token.colorTextSecondary};
               cursor: pointer;
               transition: all 0.24s;
@@ -1094,14 +1096,6 @@ const GlobalStyles = () => {
               ${antCls}-row-rtl & {
                 margin-right: 16px;
                 margin-left: 0;
-              }
-
-              &:first-child {
-                margin-left: 0;
-
-                ${antCls}-row-rtl & {
-                  margin-right: 0;
-                }
               }
 
               &:hover {

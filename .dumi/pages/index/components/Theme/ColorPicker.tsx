@@ -1,10 +1,12 @@
-import useSiteToken from '../../../../hooks/useSiteToken';
 import { Input, Space, Popover } from 'antd';
-import React, { FC, useEffect, useState } from 'react';
+import type { FC } from 'react';
+import React, { useEffect, useState } from 'react';
 import { css } from '@emotion/react';
 import { TinyColor } from '@ctrl/tinycolor';
+import type { ColorPanelProps } from 'antd-token-previewer/es/ColorPanel';
+import ColorPanel from 'antd-token-previewer/es/ColorPanel';
 import { PRESET_COLORS } from './colorUtil';
-import ColorPanel, { ColorPanelProps } from 'antd-token-previewer/es/ColorPanel';
+import useSiteToken from '../../../../hooks/useSiteToken';
 
 const useStyle = () => {
   const { token } = useSiteToken();
@@ -109,10 +111,7 @@ export default function ColorPicker({ value, onChange }: RadiusPickerProps) {
                 key={color}
                 overlayInnerStyle={{ padding: 0 }}
                 content={
-                  <DebouncedColorPanel
-                    color={value || ''}
-                    onChange={(color) => onChange?.(color)}
-                  />
+                  <DebouncedColorPanel color={value || ''} onChange={(c) => onChange?.(c)} />
                 }
                 trigger="click"
                 showArrow={false}

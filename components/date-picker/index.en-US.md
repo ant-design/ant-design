@@ -221,14 +221,15 @@ See FAQ [Date-related-components-locale-is-not-working?](/docs/react/faq#Date-re
 
 Please use correct [language](/docs/react/i18n) ([#5605](https://github.com/ant-design/ant-design/issues/5605)), or update dayjs `locale` config:
 
-- Example: <https://codesandbox.io/s/moment-day-of-week-6dby5>
-- Alternate example: <https://stackblitz.com/edit/react-9aegkj>
+- Example: <https://codesandbox.io/s/dayjs-day-of-week-x9tuj2?file=/demo.tsx>
 
 ```js
-dayjs.locale('en', {
-  week: {
-    dow: 1,
-  },
+import dayjs from 'dayjs';
+import 'dayjs/locale/zh-cn';
+import 'dayjs/plugin/updateLocale';
+
+dayjs.updateLocale('zh-cn', {
+  weekStart: 0,
 });
 ```
 

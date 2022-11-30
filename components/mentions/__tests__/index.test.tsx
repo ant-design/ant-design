@@ -84,4 +84,24 @@ describe('Mentions', () => {
     expect(wrapper.container.querySelectorAll('li.ant-mentions-dropdown-menu-item').length).toBe(1);
     expect(wrapper.container.querySelectorAll('.bamboo-light').length).toBeTruthy();
   });
+
+  it('do not lose label when use children Option', () => {
+    const wrapper = render(
+      <Mentions style={{ width: '100%' }}>
+        <Mentions.Option value="afc163">Afc163</Mentions.Option>
+        <Mentions.Option value="zombieJ">ZombieJ</Mentions.Option>
+        <Mentions.Option value="yesmeck">Yesmeck</Mentions.Option>
+      </Mentions>,
+    );
+    simulateInput(wrapper, '@');
+    const { container } = wrapper;
+    fireEvent.mouseEnter(container.querySelector('li.ant-mentions-dropdown-menu-item:last-child')!);
+    fireEvent.focus(container.querySelector('textarea')!);
+    act(() => {
+      jest.runAllTimers();
+    });
+    expect(
+      wrapper.container.querySelector('.ant-mentions-dropdown-menu-item-active')?.textContent,
+    ).toBe('Yesmeck');
+  });
 });

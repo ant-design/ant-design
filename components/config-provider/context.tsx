@@ -71,7 +71,7 @@ const defaultGetPrefixCls = (suffixCls?: string, customizePrefixCls?: string) =>
   return suffixCls ? `ant-${suffixCls}` : 'ant';
 };
 
-// zombieJ: 🚨 Do not pass `defaultRenderEmpty` here since it will case circular dependency.
+// zombieJ: 🚨 Do not pass `defaultRenderEmpty` here since it will cause circular dependency.
 export const ConfigContext = React.createContext<ConfigConsumerProps>({
   // We provide a default function for Context without provider
   getPrefixCls: defaultGetPrefixCls,
@@ -98,7 +98,7 @@ export function withConfigConsumer<ExportProps extends BasicExportProps>(config:
   return function withConfigConsumerFunc<ComponentDef>(
     Component: React.ComponentType<ExportProps>,
   ): React.FC<ExportProps> & ComponentDef {
-    // Wrap with ConfigConsumer. Since we need compatible with react 15, be care when using ref methods
+    // Wrap with ConfigConsumer. Since we need compatible with react 15, be careful when using ref methods
     const SFC = ((props: ExportProps) => (
       <ConfigConsumer>
         {(configProps: ConfigConsumerProps) => {

@@ -37,7 +37,6 @@ demo:
 - `message.error(content, [duration], onClose)`
 - `message.info(content, [duration], onClose)`
 - `message.warning(content, [duration], onClose)`
-- `message.warn(content, [duration], onClose)` // alias of warning
 - `message.loading(content, [duration], onClose)`
 
 | 参数     | 说明                                        | 类型                | 默认值 |
@@ -60,7 +59,6 @@ demo:
 - `message.error(config)`
 - `message.info(config)`
 - `message.warning(config)`
-- `message.warn(config)` // alias of warning
 - `message.loading(config)`
 
 `config` 对象属性如下：
@@ -112,7 +110,7 @@ message.config({
 
 ## FAQ
 
-### 为什么 message 不能获取 context、redux 的内容和 ConfigProvider 的 `locale/prefixCls` 配置？
+### 为什么 message 不能获取 context、redux 的内容和 ConfigProvider 的 `locale/prefixCls/theme` 等配置？
 
 直接调用 message 方法，antd 会通过 `ReactDOM.render` 动态创建新的 React 实体。其 context 与当前代码所在 context 并不相同，因而无法获取 context 信息。
 
