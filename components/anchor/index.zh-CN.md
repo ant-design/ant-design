@@ -29,6 +29,7 @@ group:
 <code src="./demo/customizeHighlight.tsx">自定义锚点高亮</code>
 <code src="./demo/targetOffset.tsx">设置锚点滚动偏移量</code>
 <code src="./demo/onChange.tsx">监听锚点链接改变</code>
+<code src="./demo/legacy-anchor.tsx" debug>废弃的 JSX 示例</code>
 
 ## API
 
