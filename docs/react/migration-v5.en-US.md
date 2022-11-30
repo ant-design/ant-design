@@ -222,6 +222,22 @@ Replace moment.js locale with day.js locale:
 +   dayjs.locale('zh-cn');
 ```
 
+If you do not want to replace with day.js, you can use `@ant-design/moment-webpack-plugin` to keep moment.js:
+
+```bash
+npm install --save-dev @ant-design/moment-webpack-plugin
+```
+
+```javascript
+// webpack-config.js
+import AntdMomentWebpackPlugin from '@ant-design/moment-webpack-plugin';
+
+module.exports = {
+  // ...
+  plugins: [new AntdMomentWebpackPlugin()],
+};
+```
+
 ### Legacy browser support
 
 Ant Design v5 using `:where` css selector to reduce CSS-in-JS hash priority. You can use `@ant-design/cssinjs` `StyleProvider` to cancel this function. Please ref [Compatible adjustment](/docs/react/customize-theme#compatible-adjustment).
