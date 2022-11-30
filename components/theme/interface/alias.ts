@@ -19,7 +19,7 @@ export interface AliasToken extends MapToken {
   // Border
   colorBorderBg: string;
   /**
-   * @name 分割线颜色
+   * @nameZH 分割线颜色
    * @desc 用于作为分割线的颜色，此颜色和 colorBorderSecondary 的颜色一致，但是用的是透明色。
    */
   colorSplit: string;
@@ -56,31 +56,31 @@ export interface AliasToken extends MapToken {
   fontSizeIcon: number;
 
   /**
-   * @name 一级标题字号
+   * @nameZH 一级标题字号
    * @desc H1 标签所使用的字号
    * @default 38
    */
   fontSizeHeading1: number;
   /**
-   * @name 二级标题字号
+   * @nameZH 二级标题字号
    * @desc h2 标签所使用的字号
    * @default 30
    */
   fontSizeHeading2: number;
   /**
-   * @name 三级标题字号
+   * @nameZH 三级标题字号
    * @desc h3 标签使用的字号
    * @default 24
    */
   fontSizeHeading3: number;
   /**
-   * @name 四级标题字号
+   * @nameZH 四级标题字号
    * @desc h4 标签使用的字号
    * @default 20
    */
   fontSizeHeading4: number;
   /**
-   * @name 五级标题字号
+   * @nameZH 五级标题字号
    * @desc h5 标签使用的字号
    * @default 16
    */

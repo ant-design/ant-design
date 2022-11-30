@@ -1,44 +1,44 @@
 export interface SizeMapToken {
   /**
-   * @name XXL
+   * @nameZH XXL
    * @default 48
    */
   sizeXXL: number;
   /**
-   * @name XL
+   * @nameZH XL
    * @default 32
    */
   sizeXL: number;
   /**
-   * @name LG
+   * @nameZH LG
    * @default 24
    */
   sizeLG: number;
   /**
-   * @name MD
+   * @nameZH MD
    * @default 20
    */
   sizeMD: number;
   /** Same as size by default, but could be larger in compact mode */
   sizeMS: number;
   /**
-   * @name 默认
+   * @nameZH 默认
    * @desc 默认尺寸
    * @default 16
    */
   size: number;
   /**
-   * @name SM
+   * @nameZH SM
    * @default 12
    */
   sizeSM: number;
   /**
-   * @name XS
+   * @nameZH XS
    * @default 8
    */
   sizeXS: number;
   /**
-   * @name XXS
+   * @nameZH XXS
    * @default 4
    */
   sizeXXS: number;
@@ -46,9 +46,11 @@ export interface SizeMapToken {
 
 export interface HeightMapToken {
   // Control
-  /** @private Only Used for control inside component like Multiple Select inner selection item */
+  /** @internal Only Used for control inside component like Multiple Select inner selection item */
   controlHeightXS: number;
+  /** @internal */
   controlHeightSM: number;
+  /** @internal */
   controlHeightLG: number;
 }
 

@@ -1,7 +1,7 @@
 import React, { FC, useMemo } from 'react';
 import tokenMeta from 'antd/es/version/token-meta.json';
 import { getDesignToken } from 'antd-token-previewer';
-import { Table, TableProps, Tag } from 'antd';
+import { Table, TableProps } from 'antd';
 import useLocale from '../../../hooks/useLocale';
 import useSiteToken from '../../../hooks/useSiteToken';
 import { css } from '@emotion/react';
@@ -102,7 +102,7 @@ const TokenTable: FC<TokenTableProps> = ({ type }) => {
         name: token.token,
         desc: lang === 'cn' ? token.desc : token.descEn,
         type: token.type,
-        value: (defaultToken as any)[token.name],
+        value: (defaultToken as any)[token.token],
       };
     });
   }, [type, lang]);

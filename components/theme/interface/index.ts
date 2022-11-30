@@ -8,8 +8,18 @@ export type OverrideToken = {
 /** Final token which contains the components level override */
 export type GlobalToken = AliasToken & ComponentTokenMap;
 
-export * from './presetColors';
-export * from './seeds';
-export * from './maps';
-export * from './alias';
-export * from './components';
+export { PresetColors } from './presetColors';
+export type { PresetColorType, ColorPalettes } from './presetColors';
+export type { SeedToken } from './seeds';
+export type {
+  MapToken,
+  ColorMapToken,
+  ColorNeutralMapToken,
+  CommonMapToken,
+  HeightMapToken,
+  SizeMapToken,
+  FontSizeMapToken,
+  StyleMapToken,
+} from './maps';
+export type { AliasToken } from './alias';
+export type { ComponentTokenMap } from './components';
