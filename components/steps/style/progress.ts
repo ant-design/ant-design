@@ -24,7 +24,7 @@ const genStepsProgressStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         },
       },
 
-      [`&${componentCls}-small`]: {
+      [`&, &${componentCls}-small`]: {
         [`&${componentCls}-vertical > ${componentCls}-item > ${componentCls}-item-container > ${componentCls}-item-tail`]:
           {
             insetInlineStart: token.stepsSmallIconSize / 2 - token.lineWidth + token.paddingXXS,
