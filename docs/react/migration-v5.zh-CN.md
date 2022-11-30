@@ -3,7 +3,7 @@ order: 8
 title: 从 v4 到 v5
 ---
 
-本文档将帮助你从 antd `4.x` 版本升级到 antd `5.x` 版本，如果你是 `3.x` 或者更老的版本，请先参考之前的[升级文档](/docs/react/migration-v4-cn)升级到 4.x。
+本文档将帮助你从 antd `4.x` 版本升级到 antd `5.x` 版本，如果你是 `3.x` 或者更老的版本，请先参考之前的[升级文档](https://4x.ant.design/docs/react/migration-v4-cn)升级到 4.x。
 
 ## 升级准备
 
@@ -109,6 +109,7 @@ title: 从 v4 到 v5
   - 静态方法不再允许在 `open` 中动态设置 `prefixCls` `maxCount` `top` `bottom` `getContainer`，Notification 静态方法现在将只有一个实例。如果需要不同配置，请使用 `useNotification`。
   - `close` 改名为 `destroy`，和 message 保持一致。
 - Drawer `style` 和 `className` 迁移至 Drawer 弹层区域上，原属性替换为 `rootClassName` 和 `rootStyle`。
+- 4.x 中已经废弃的 `message.warn` 现在被彻底移除，请使用 `message.warning` 代替。
 
 #### 组件重构与移除
 

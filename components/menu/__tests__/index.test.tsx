@@ -1040,7 +1040,7 @@ describe('Menu', () => {
   });
 
   it('should not warning deprecated message when items={undefined}', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => undefined);
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(<Menu items={undefined} />);
     expect(errorSpy).not.toHaveBeenCalledWith(
       expect.stringContaining('`children` will be removed in next major version'),

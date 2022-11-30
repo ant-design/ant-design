@@ -1,10 +1,14 @@
-import React, { FC, useMemo } from 'react';
+import type { FC } from 'react';
+import React, { useMemo } from 'react';
+/* eslint import/no-unresolved: 0 */
+// @ts-ignore
 import tokenMeta from 'antd/es/version/token-meta.json';
 import { getDesignToken } from 'antd-token-previewer';
-import { Table, TableProps, Tag } from 'antd';
+import type { TableProps } from 'antd';
+import { Table } from 'antd';
+import { css } from '@emotion/react';
 import useLocale from '../../../hooks/useLocale';
 import useSiteToken from '../../../hooks/useSiteToken';
-import { css } from '@emotion/react';
 
 type TokenTableProps = {
   type: 'seed' | 'map' | 'alias';
@@ -89,7 +93,7 @@ const TokenTable: FC<TokenTableProps> = ({ type }) => {
                   boxShadow: 'inset 0 0 0 1px rgba(0, 0, 0, 0.06)',
                   marginRight: 4,
                 }}
-              ></span>
+              />
             )}
           {typeof record.value !== 'string' ? JSON.stringify(record.value) : record.value}
         </span>
@@ -97,16 +101,16 @@ const TokenTable: FC<TokenTableProps> = ({ type }) => {
     },
   ];
 
-  const data = useMemo<TokenData[]>(() => {
-    return tokenMeta[type].map((token) => {
-      return {
+  const data = useMemo<TokenData[]>(
+    () =>
+      tokenMeta[type].map((token) => ({
         name: token.name,
         desc: lang === 'cn' ? token.desc : token.descEn,
         type: token.type,
         value: (defaultToken as any)[token.name],
-      };
-    });
-  }, [type, lang]);
+      })),
+    [type, lang],
+  );
 
   return <Table dataSource={data} columns={columns} pagination={false} bordered />;
 };

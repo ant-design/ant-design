@@ -117,7 +117,7 @@ const columns = [
 | getPopupContainer | The render container of dropdowns in table | (triggerNode) => HTMLElement | () => TableHtmlElement |  |
 | loading | Loading status of table | boolean \| [Spin Props](/components/spin/#API) | false |  |
 | locale | The i18n text including filter, sort, empty text, etc | object | [Default Value](https://github.com/ant-design/ant-design/blob/6dae4a7e18ad1ba193aedd5ab6867e1d823e2aa4/components/locale/en_US.tsx#L19-L37) |  |
-| pagination | Config of pagination. You can ref table pagination [config](#pagination) or full [`pagination`](/components/pagination/) document, hide it by setting it to `false` | object | - |  |
+| pagination | Config of pagination. You can ref table pagination [config](#pagination) or full [`pagination`](/components/pagination/) document, hide it by setting it to `false` | object \| `false` | - |  |
 | rowClassName | Row's className | function(record, index): string | - |  |
 | rowKey | Row's unique key, could be a string or function that returns a string | string \| function(record): string | `key` |  |
 | rowSelection | Row selection [config](#rowSelection) | object | - |  |

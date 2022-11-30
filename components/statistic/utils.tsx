@@ -1,4 +1,3 @@
-import padStart from 'lodash/padStart';
 import type * as React from 'react';
 
 export type valueType = number | string;
@@ -46,7 +45,7 @@ export function formatTimeStr(duration: number, format: string) {
       leftDuration -= value * unit;
       return current.replace(new RegExp(`${name}+`, 'g'), (match: string) => {
         const len = match.length;
-        return padStart(value.toString(), len, '0');
+        return value.toString().padStart(len, '0');
       });
     }
     return current;

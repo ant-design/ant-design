@@ -1,20 +1,9 @@
+import React, { useState } from 'react';
 import { ThemeEditor } from 'antd-token-previewer';
-import { useState } from 'react';
-import useLocale from '../../hooks/useLocale';
 import { ConfigProvider } from 'antd';
-import { ThemeConfig } from 'antd/es/config-provider/context';
-
-const locales = {
-  cn: {
-    title: '主题编辑器',
-  },
-  en: {
-    title: 'Theme Editor',
-  },
-};
+import type { ThemeConfig } from 'antd/es/config-provider/context';
 
 const CustomTheme = () => {
-  const [locale] = useLocale(locales);
   const [theme, setTheme] = useState<ThemeConfig>({});
 
   return (

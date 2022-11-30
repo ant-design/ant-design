@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { useLocale as useDumiLocale } from 'dumi';
 
 export interface LocaleMap<Key extends string> {
