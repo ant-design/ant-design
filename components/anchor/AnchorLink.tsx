@@ -5,13 +5,16 @@ import { ConfigConsumer } from '../config-provider';
 import type { AntAnchor } from './Anchor';
 import AnchorContext from './context';
 
-export interface AnchorLinkProps {
+export interface AnchorLinkBaseProps {
   prefixCls?: string;
   href: string;
   target?: string;
   title: React.ReactNode;
-  children?: React.ReactNode;
   className?: string;
+}
+
+export interface AnchorLinkProps extends AnchorLinkBaseProps {
+  children?: React.ReactNode;
 }
 
 const AnchorLink: React.FC<AnchorLinkProps> = (props) => {
