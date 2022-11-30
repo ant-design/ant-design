@@ -566,6 +566,7 @@ const genAllowClearStyle = (token: InputToken): CSSObject => {
     '&-textarea-with-clear-btn': {
       padding: '0 !important',
       border: '0 !important',
+      width: 'auto',
 
       [`${componentCls}-clear-icon`]: {
         position: 'absolute',
