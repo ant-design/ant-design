@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 包裹组件
-group: 数据展示
+group: 其他
 title: App
 cover: https://gw.alipayobjects.com/zos/bmw-prod/cc3fcbfa-bf5b-4c8c-8a3d-c3f8388c75e8.svg
 demo:

@@ -25,7 +25,7 @@ const App: React.ForwardRefRenderFunction<HTMLDivElement, AppProps> & {
   const { getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('app', customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
-  const customClassName = classNames(hashId, className);
+  const customClassName = classNames(hashId, prefixCls, className);
 
   const [messageApi, messageContextHolder] = useMessage();
   const [notificationApi, notificationContextHolder] = useNotification();
