@@ -2,15 +2,19 @@
 
 exports[`QRCode test rtl render component should be rendered correctly in RTL direction 1`] = `null`;
 
-exports[`QRCode test should correct render  1`] = `
-<div
-  class="ant-qrcode"
-  style="width: 128px; height: 128px;"
->
-  <canvas
-    height="128"
-    style="height: 128px; width: 128px;"
-    width="128"
-  />
+exports[`QRCode test should correct render 1`] = `
+<div>
+  <div
+    class="ant-qrcode"
+    style="width: 128px; height: 128px;"
+  >
+    <canvas
+      height="128"
+      style="height: 128px; width: 128px;"
+      width="128"
+    />
+  </div>
 </div>
 `;
+
+exports[`QRCode test should render \`null\` and console Error when value not exist 1`] = `null`;
