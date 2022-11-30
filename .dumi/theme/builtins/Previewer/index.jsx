@@ -120,13 +120,6 @@ class Demo extends React.Component {
     });
   }
 
-  handleIframeReady = () => {
-    const { theme, setIframeTheme } = this.props;
-    if (this.iframeRef.current) {
-      // setIframeTheme(this.iframeRef.current, theme);
-    }
-  };
-
   render() {
     const { state } = this;
     const { props } = this;
@@ -167,7 +160,7 @@ class Demo extends React.Component {
     });
     const localizedTitle = meta.title[locale] || meta.title;
     const localizeIntro = content[locale] || content;
-    const introChildren = <div dangerouslySetInnerHTML={{ __html: localizeIntro }}></div>;
+    const introChildren = <div dangerouslySetInnerHTML={{ __html: localizeIntro }} />;
 
     const highlightClass = classNames('highlight-wrapper', {
       'highlight-wrapper-expand': codeExpand,
@@ -458,7 +451,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
               </Tooltip>
             </CopyToClipboard>
             <Tooltip title={<FormattedMessage id="app.demo.separate" />}>
-              <a className="code-box-code-action" target="_blank" rel="noreferer" href={src}>
+              <a className="code-box-code-action" target="_blank" rel="noreferrer" href={src}>
                 <ExternalLinkIcon className="code-box-separate" />
               </a>
             </Tooltip>

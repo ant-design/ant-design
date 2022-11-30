@@ -1,8 +1,9 @@
-import React, { FC, PropsWithChildren } from 'react';
+import type { FC, PropsWithChildren } from 'react';
+import React from 'react';
 import { useRouteMeta, FormattedMessage } from 'dumi';
-import Footer from 'dumi/theme/slots/Footer';
 import { Layout, Typography, ConfigProvider } from 'antd';
 import { css } from '@emotion/react';
+import Footer from '../../slots/Footer';
 import AffixTabs from './AffixTabs';
 import EditButton from '../../common/EditButton';
 import useSiteToken from '../../../hooks/useSiteToken';

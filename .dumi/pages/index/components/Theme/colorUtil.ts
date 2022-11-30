@@ -52,9 +52,9 @@ export function getClosetColor(colorPrimary?: string | null) {
   const distance = COLOR_IMAGES.map(({ color }) => {
     const colorObj = new TinyColor(color).toRgb();
     const dist = Math.sqrt(
-      Math.pow(colorObj.r - colorPrimaryRGB.r, 2) +
-        Math.pow(colorObj.g - colorPrimaryRGB.g, 2) +
-        Math.pow(colorObj.b - colorPrimaryRGB.b, 2),
+      (colorObj.r - colorPrimaryRGB.r) ** 2 +
+        (colorObj.g - colorPrimaryRGB.g) ** 2 +
+        (colorObj.b - colorPrimaryRGB.b) ** 2,
     );
 
     return { color, dist };
