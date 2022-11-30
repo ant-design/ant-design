@@ -2,7 +2,7 @@
 category: Components
 group: Data Display
 title: Tooltip
-cover: https://gw.alipayobjects.com/zos/alicdn/Vyyeu8jq2/Tooltp.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*3u9eSZO_4c0AAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---

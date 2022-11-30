@@ -2,7 +2,7 @@
 category: Components
 group: Data Entry
 title: Slider
-cover: https://gw.alipayobjects.com/zos/alicdn/HZ3meFc6W/Silder.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*_4heQaUrFn4AAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---

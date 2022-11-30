@@ -3,7 +3,7 @@ category: Components
 subtitle: 时间轴
 group: 数据展示
 title: Timeline
-cover: https://gw.alipayobjects.com/zos/antfincdn/vJmo00mmgR/Timeline.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*FkTySqNt3sYAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
