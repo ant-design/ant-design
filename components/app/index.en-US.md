@@ -20,8 +20,24 @@ Static function in React 18 concurrent mode will not well support. In v5, we rec
 <code src="./demo/Modal.tsx">modal</code>
 <code src="./demo/notification.tsx">notification</code>
 
-## API
+## How to use
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| useApp | Static method for obtaining message, modal, and notification | ()=>{message,notification,Modal} | - |  |
+```javascript
+import React from 'react';
+import { App } from 'antd';
+const MyPage = () => {
+  const { message, notification, Modal } = App.useApp();
+  message.success('Good!');
+  notification.info({ message: 'Good' });
+  Modal.warning({ title: 'Good' });
+  // ....
+  // other message,notification,Modal static function
+  return <div>Hello word</div>;
+};
+
+const MyApp = () => (
+  <App>
+    <MyPage />
+  </App>
+);
+```

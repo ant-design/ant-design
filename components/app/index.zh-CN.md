@@ -21,8 +21,24 @@ React 18 并发模式下的静态函数不能很好地支持。在 v5 中，我�
 <code src="./demo/Modal.tsx">modal</code>
 <code src="./demo/notification.tsx">notification</code>
 
-## API
+## How to use
 
-| 属性 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| useApp | 用于获取 message,Modal,notification 的静态方法 | ()=>{message,notification,Modal} | - |  |
+```javascript
+import React from 'react';
+import { App } from 'antd';
+const MyPage = () => {
+  const { message, notification, Modal } = App.useApp();
+  message.success('Good!');
+  notification.info({ message: 'Good' });
+  Modal.warning({ title: 'Good' });
+  // ....
+  // other message,notification,Modal static function
+  return <div>Hello word</div>;
+};
+
+const MyApp = () => (
+  <App>
+    <MyPage />
+  </App>
+);
+```

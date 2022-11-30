@@ -1,12 +1,12 @@
 import type { FullToken, GenerateStyle } from '../../theme';
 import { genComponentStyleHook, mergeToken } from '../../theme';
 
-export interface ComponentToken {}
-
-interface AppToken extends FullToken<'App'> {}
+interface AppToken extends FullToken<'App'> {
+  lineHeightBase: number;
+}
 
 // =============================== Base ===============================
-const genBaseStyle: GenerateStyle<AppToken> = () => [
+const genBaseStyle: GenerateStyle<AppToken> = (token) => [
   {
     'html, body': {
       width: '100%',
@@ -20,7 +20,7 @@ const genBaseStyle: GenerateStyle<AppToken> = () => [
     },
     html: {
       fontFamily: 'sans-serif',
-      lineHeight: 1.15,
+      lineHeight: token.lineHeightBase,
       WebkitTextSizeAdjust: '100%',
       MsTextSizeAdjust: '100%',
       MsOverflowStyle: 'scrollbar',
@@ -46,13 +46,13 @@ const genBaseStyle: GenerateStyle<AppToken> = () => [
       fontWeight: '500',
     },
     p: {
-      marginBlockStart: '0',
+      marginBlockStart: 0,
       marginBlockEnd: '1em',
     },
     'abbr[title],abbr[data-original-title]': {
       WebkitTextDecoration: 'underline dotted',
       textDecoration: 'underline dotted',
-      borderBottom: '0',
+      borderBottom: 0,
       cursor: 'help',
     },
     address: {
@@ -92,7 +92,7 @@ const genBaseStyle: GenerateStyle<AppToken> = () => [
     'sub, sup': {
       position: 'relative',
       fontSize: '75%',
-      lineHeight: '0',
+      lineHeight: 0,
       verticalAlign: 'baseline',
     },
     sub: {
@@ -106,7 +106,7 @@ const genBaseStyle: GenerateStyle<AppToken> = () => [
       fontFamily: "'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace",
     },
     pre: {
-      marginBlockStart: '0',
+      marginBlockStart: 0,
       marginBlockEnd: '1em',
       overflow: 'auto',
     },
@@ -131,7 +131,7 @@ const genBaseStyle: GenerateStyle<AppToken> = () => [
       captionSide: 'bottom',
     },
     'input, button, select, optgroup, textarea': {
-      margin: '0',
+      margin: 0,
       color: 'inherit',
       fontSize: 'inherit',
       fontFamily: 'inherit',
@@ -148,12 +148,12 @@ const genBaseStyle: GenerateStyle<AppToken> = () => [
     },
     "button::-moz-focus-inner, [type='button']::-moz-focus-inner, [type='reset']::-moz-focus-inner, [type='submit']::-moz-focus-inner":
       {
-        padding: '0',
+        padding: 0,
         borderStyle: 'none',
       },
     "input[type='radio'], input[type='checkbox']": {
       boxSizing: 'border-box',
-      padding: '0',
+      padding: 0,
     },
     "input[type='date'], input[type='time'], input[type='datetime-local'], input[type='month']": {
       WebkitAppearance: 'listbox',
