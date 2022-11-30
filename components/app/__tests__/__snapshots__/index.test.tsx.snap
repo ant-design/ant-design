@@ -2,13 +2,13 @@
 
 exports[`App rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
-  class=""
+  class="ant-app"
 />
 `;
 
 exports[`App single 1`] = `
 <div
-  class=""
+  class="ant-app"
 >
   <div>
     Hello World
