@@ -2,7 +2,7 @@
 category: Components
 group: Navigation
 title: Menu
-cover: https://gw.alipayobjects.com/zos/alicdn/3XZcjGpvK/Menu.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*KeyQQL5iKkkAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 A versatile menu for navigation.
@@ -130,7 +130,7 @@ The legacy demo code for version `<4.20.0` could be found at [https://github.com
 #### SubMenuType
 
 | Property | Description | Type | Default value | Version |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- |
 | children | Sub-menus or sub-menu items | [ItemType\[\]](#ItemType) | - |  |
 | disabled | Whether sub-menu is disabled | boolean | false |  |
 | icon | Icon of sub menu | ReactNode | - |  |
