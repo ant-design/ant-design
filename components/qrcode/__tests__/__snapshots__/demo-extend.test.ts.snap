@@ -65,7 +65,7 @@ exports[`renders ./components/qrcode/demo/customColor.tsx extend context correct
 Array [
   <div
     class="ant-qrcode"
-    style="margin-bottom:12px;width:160px;height:160px"
+    style="margin-bottom:16px;background-color:#f5f5f5;width:160px;height:160px"
   >
     <canvas
       height="140"
@@ -74,7 +74,7 @@ Array [
     />
   </div>,
   <button
-    class="ant-btn ant-btn-default"
+    class="ant-btn ant-btn-primary"
     type="button"
   >
     <span>

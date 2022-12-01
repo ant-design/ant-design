@@ -15,13 +15,17 @@ const App: React.FC = () => {
 
   return (
     <>
-      <QRCode value="https://ant.design/" color={color} style={{ marginBottom: 12 }} />
+      <QRCode
+        value="https://ant.design/"
+        color={color}
+        style={{ marginBottom: 16, backgroundColor: token.colorBgLayout }}
+      />
       <Popover
         trigger="click"
         placement="bottom"
         content={<SketchPicker color={color} onChange={onColorChange} />}
       >
-        <Button>Change Color</Button>
+        <Button type="primary">Change Color</Button>
       </Popover>
     </>
   );

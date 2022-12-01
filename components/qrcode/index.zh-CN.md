@@ -27,8 +27,8 @@ group:
 <code src="./demo/customSize.tsx">自定义尺寸</code>
 <code src="./demo/customColor.tsx">自定义颜色</code>
 <code src="./demo/download.tsx">下载二维码</code>
-<code src="./demo/Popover.tsx">高级用法</code>
 <code src="./demo/errorlevel.tsx">纠错比例</code>
+<code src="./demo/Popover.tsx">高级用法</code>
 
 ## API
 
