@@ -10,9 +10,9 @@ import type { FormatConfig, valueType } from './utils';
 
 import useStyle from './style';
 
-interface StatisticComponent {
+type CompoundedComponent = {
   Countdown: typeof Countdown;
-}
+};
 
 export interface StatisticProps extends FormatConfig {
   prefixCls?: string;
@@ -81,6 +81,6 @@ const Statistic: React.FC<StatisticProps & ConfigConsumerProps> = (props) => {
 
 const WrapperStatistic = withConfigConsumer<StatisticProps>({
   prefixCls: 'statistic',
-})<StatisticComponent>(Statistic);
+})<CompoundedComponent>(Statistic);
 
 export default WrapperStatistic;
