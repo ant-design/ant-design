@@ -94,7 +94,7 @@ const ResourceCard: React.FC<ResourceCardProps> = ({ resource }) => {
           style={coverColor ? { backgroundColor: coverColor } : {}}
         />
         {official && <div css={styles.badge}>Official</div>}
-        <p css={styles.title}>{title}</p>
+        <p css={styles?.title}>{title}</p>
         <p css={styles.description}>{description}</p>
       </a>
     </Col>
@@ -108,7 +108,7 @@ export type ResourceCardsProps = {
 const ResourceCards: React.FC<ResourceCardsProps> = ({ resources }) => (
   <Row style={{ margin: '-12px -12px 0 -12px' }}>
     {resources.map((item) => (
-      <ResourceCard resource={item} key={item.title} />
+      <ResourceCard resource={item} key={item?.title} />
     ))}
   </Row>
 );

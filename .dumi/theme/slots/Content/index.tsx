@@ -149,7 +149,7 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
           <section css={styles.tocWrapper} className={classNames({ rtl: isRTL })}>
             <Anchor css={styles.toc} affix={false} showInkInFixed>
               {anchorItems.map((item) => (
-                <Anchor.Link href={`#${item.id}`} title={item.title} key={item.id}>
+                <Anchor.Link href={`#${item.id}`} title={item?.title} key={item.id}>
                   {item.children
                     ?.filter((child) => showDebug || !debugDemos.includes(child.id))
                     .map((child) => (
@@ -159,7 +159,7 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
                           <span
                             className={classNames(debugDemos.includes(child.id) && 'toc-debug')}
                           >
-                            {child.title}
+                            {child?.title}
                           </span>
                         }
                         key={child.id}
@@ -172,7 +172,7 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
         </Affix>
         <article css={styles.articleWrapper} className={classNames({ rtl: isRTL })}>
           <Typography.Title style={{ fontSize: 30 }}>
-            {meta.frontmatter.title}
+            {meta.frontmatter?.title}
             {meta.frontmatter.subtitle && (
               <span style={{ marginLeft: 12 }}>{meta.frontmatter.subtitle}</span>
             )}

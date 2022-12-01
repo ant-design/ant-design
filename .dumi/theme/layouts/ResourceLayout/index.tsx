@@ -122,7 +122,7 @@ const ResourceLayout: FC<ResourceLayoutProps> = ({ children }) => {
           <AffixTabs />
           <div css={styles.banner}>
             <Typography.Title style={{ fontSize: 30 }}>
-              {meta.frontmatter.title}
+              {meta.frontmatter?.title}
               <EditButton
                 title={<FormattedMessage id="app.content.edit-page" />}
                 filename={meta.frontmatter.filename}

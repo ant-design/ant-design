@@ -341,7 +341,7 @@ const Header: React.FC<HeaderProps> = (props) => {
     <Popover
       key="version"
       open={!!notify}
-      title={locale.title}
+      title={locale?.title}
       content={
         <Typography style={{ marginTop: token.marginXS }}>
           {lang === 'cn' ? (
