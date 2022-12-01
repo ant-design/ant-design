@@ -111,7 +111,7 @@ Array [
                 style="width:100%;padding-bottom:75%;position:relative;overflow:hidden"
               >
                 <div
-                  style="position:absolute;top:0px;right:0px;bottom:0px;left:0px;background:hsl(0,100%, 50%)"
+                  style="position:absolute;top:0px;right:0px;bottom:0px;left:0px;background:hsl(100.23529411764706,100%, 50%)"
                 >
                   <style>
           .saturation-white {
@@ -132,7 +132,7 @@ Array [
                       style="position:absolute;top:0px;right:0px;bottom:0px;left:0px"
                     />
                     <div
-                      style="position:absolute;top:100%;left:0%;cursor:default"
+                      style="position:absolute;top:23.137254901960773%;left:86.73469387755102%;cursor:default"
                     >
                       <div
                         style="width:4px;height:4px;-ms-box-shadow:0 0 0 1.5px #fff, inset 0 0 1px 1px rgba(0,0,0,.3),
@@ -178,7 +178,7 @@ Array [
             }
                         </style>
                         <div
-                          style="position:absolute;left:0%"
+                          style="position:absolute;left:27.84313725490196%"
                         >
                           <div
                             style="margin-top:1px;width:4px;-ms-border-radius:1px;-moz-border-radius:1px;-o-border-radius:1px;-webkit-border-radius:1px;border-radius:1px;height:8px;-ms-box-shadow:0 0 2px rgba(0, 0, 0, .6);-moz-box-shadow:0 0 2px rgba(0, 0, 0, .6);-o-box-shadow:0 0 2px rgba(0, 0, 0, .6);-webkit-box-shadow:0 0 2px rgba(0, 0, 0, .6);box-shadow:0 0 2px rgba(0, 0, 0, .6);background:#fff;-ms-transform:translateX(-2px);-moz-transform:translateX(-2px);-o-transform:translateX(-2px);-webkit-transform:translateX(-2px);transform:translateX(-2px)"
@@ -201,8 +201,8 @@ Array [
                         />
                       </div>
                       <div
-                        style="position:absolute;top:0px;right:0px;bottom:0px;left:0px;background:linear-gradient(to right, rgba(0,0,0, 0) 0%,
-           rgba(0,0,0, 1) 100%)"
+                        style="position:absolute;top:0px;right:0px;bottom:0px;left:0px;background:linear-gradient(to right, rgba(82,196,26, 0) 0%,
+           rgba(82,196,26, 1) 100%)"
                       />
                       <div
                         style="position:relative;height:100%;margin:0 3px"
@@ -225,7 +225,7 @@ Array [
                     style="position:absolute;top:0px;right:0px;bottom:0px;left:0px;background:url(null) center left"
                   />
                   <div
-                    style="position:absolute;top:0px;right:0px;bottom:0px;left:0px;-ms-border-radius:2px;-moz-border-radius:2px;-o-border-radius:2px;-webkit-border-radius:2px;border-radius:2px;background:rgba(0,0,0,1);-ms-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25);-moz-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25);-o-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25);-webkit-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25)"
+                    style="position:absolute;top:0px;right:0px;bottom:0px;left:0px;-ms-border-radius:2px;-moz-border-radius:2px;-o-border-radius:2px;-webkit-border-radius:2px;border-radius:2px;background:rgba(82,196,26,1);-ms-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25);-moz-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25);-o-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25);-webkit-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25)"
                   />
                 </div>
               </div>
@@ -243,7 +243,7 @@ Array [
                       id="rc-editable-input-1"
                       spellcheck="false"
                       style="width:80%;padding:4px 10% 3px;border:none;-ms-box-shadow:inset 0 0 0 1px #ccc;-moz-box-shadow:inset 0 0 0 1px #ccc;-o-box-shadow:inset 0 0 0 1px #ccc;-webkit-box-shadow:inset 0 0 0 1px #ccc;box-shadow:inset 0 0 0 1px #ccc;font-size:11px"
-                      value="000000"
+                      value="52C41A"
                     />
                     <label
                       for="rc-editable-input-1"
@@ -263,7 +263,7 @@ Array [
                       id="rc-editable-input-2"
                       spellcheck="false"
                       style="width:80%;padding:4px 10% 3px;border:none;-ms-box-shadow:inset 0 0 0 1px #ccc;-moz-box-shadow:inset 0 0 0 1px #ccc;-o-box-shadow:inset 0 0 0 1px #ccc;-webkit-box-shadow:inset 0 0 0 1px #ccc;box-shadow:inset 0 0 0 1px #ccc;font-size:11px"
-                      value="0"
+                      value="82"
                     />
                     <label
                       for="rc-editable-input-2"
@@ -283,7 +283,7 @@ Array [
                       id="rc-editable-input-3"
                       spellcheck="false"
                       style="width:80%;padding:4px 10% 3px;border:none;-ms-box-shadow:inset 0 0 0 1px #ccc;-moz-box-shadow:inset 0 0 0 1px #ccc;-o-box-shadow:inset 0 0 0 1px #ccc;-webkit-box-shadow:inset 0 0 0 1px #ccc;box-shadow:inset 0 0 0 1px #ccc;font-size:11px"
-                      value="0"
+                      value="196"
                     />
                     <label
                       for="rc-editable-input-3"
@@ -303,7 +303,7 @@ Array [
                       id="rc-editable-input-4"
                       spellcheck="false"
                       style="width:80%;padding:4px 10% 3px;border:none;-ms-box-shadow:inset 0 0 0 1px #ccc;-moz-box-shadow:inset 0 0 0 1px #ccc;-o-box-shadow:inset 0 0 0 1px #ccc;-webkit-box-shadow:inset 0 0 0 1px #ccc;box-shadow:inset 0 0 0 1px #ccc;font-size:11px"
-                      value="0"
+                      value="26"
                     />
                     <label
                       for="rc-editable-input-4"

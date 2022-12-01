@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
-import { QRCode, Button, Popover } from 'antd';
+import { QRCode, Button, Popover, theme } from 'antd';
 import type { ColorResult } from 'react-color';
 import { SketchPicker } from 'react-color';
 
+const { useToken } = theme;
+
 const App: React.FC = () => {
-  const [color, setColor] = useState<string>('green');
+  const { token } = useToken();
+  const [color, setColor] = useState<string>(token.colorSuccessText);
 
   const onColorChange = ({ hex }: ColorResult) => {
     setColor(hex);
