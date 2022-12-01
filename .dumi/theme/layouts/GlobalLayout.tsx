@@ -75,11 +75,7 @@ const GlobalLayout: React.FC = () => {
 
   return (
     <StyleProvider cache={styleCache}>
-      <ConfigProvider
-        theme={{
-          ...theme,
-        }}
-      >
+      <ConfigProvider theme={theme}>
         {outlet}
         {!pathname.startsWith('/~demos') && (
           <ThemeSwitch
