@@ -1,10 +1,9 @@
 import * as React from 'react';
-import classNames from 'classnames';
 import throttle from 'lodash/throttle';
 import { Tabs } from 'antd';
+import { css } from '@emotion/react';
 import scrollTo from '../../../../components/_util/scrollTo';
 import useSiteToken from '../../../hooks/useSiteToken';
-import { css } from '@emotion/react';
 
 const useStyle = () => {
   const { token } = useSiteToken();

@@ -76,9 +76,8 @@ describe('Alert', () => {
   });
 
   it('should show error as ErrorBoundary when children have error', () => {
-    jest.spyOn(console, 'error').mockImplementation(() => undefined);
-    // eslint-disable-next-line no-console
-    expect(console.error).toHaveBeenCalledTimes(0);
+    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    expect(warnSpy).toHaveBeenCalledTimes(0);
     // @ts-expect-error
     // eslint-disable-next-line react/jsx-no-undef
     const ThrowError = () => <NotExisted />;
@@ -91,8 +90,7 @@ describe('Alert', () => {
     expect(screen.getByRole('alert')).toHaveTextContent(
       'ReferenceError: NotExisted is not defined',
     );
-    // eslint-disable-next-line no-console
-    (console.error as any).mockRestore();
+    warnSpy.mockRestore();
   });
 
   it('could be used with Tooltip', async () => {

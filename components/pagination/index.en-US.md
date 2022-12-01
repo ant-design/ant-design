@@ -2,7 +2,7 @@
 category: Components
 group: Navigation
 title: Pagination
-cover: https://gw.alipayobjects.com/zos/alicdn/1vqv2bj68/Pagination.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*8y_iTJGY_aUAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 A long list can be divided into several pages using `Pagination`, and only one page will be loaded at a time.

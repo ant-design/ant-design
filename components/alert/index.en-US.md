@@ -1,7 +1,7 @@
 ---
 category: Components
 title: Alert
-cover: https://gw.alipayobjects.com/zos/alicdn/8emPa3fjl/Alert.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Ct7bT7rrTTAAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 group:

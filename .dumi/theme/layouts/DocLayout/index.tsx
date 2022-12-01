@@ -1,17 +1,18 @@
-import React, { useEffect, useMemo, useRef, useLayoutEffect } from 'react';
+import React, { useEffect, useLayoutEffect, useMemo, useRef } from 'react';
 import 'dayjs/locale/zh-cn';
 import dayjs from 'dayjs';
-import { useOutlet, useSearchParams, Helmet } from 'dumi';
-import Header from 'dumi/theme/slots/Header';
-import Footer from 'dumi/theme/slots/Footer';
+import { Helmet, useOutlet, useSearchParams } from 'dumi';
 import '../../static/style';
-import useLocation from '../../../hooks/useLocation';
-import SiteContext from '../../slots/SiteContext';
-import ConfigProvider, { DirectionType } from 'antd/es/config-provider';
+import type { DirectionType } from 'antd/es/config-provider';
+import ConfigProvider from 'antd/es/config-provider';
 import classNames from 'classnames';
-import useLocale from '../../../hooks/useLocale';
 import zhCN from 'antd/es/locale/zh_CN';
 import { createCache, StyleProvider } from '@ant-design/cssinjs';
+import Header from '../../slots/Header';
+import Footer from '../../slots/Footer';
+import useLocale from '../../../hooks/useLocale';
+import SiteContext from '../../slots/SiteContext';
+import useLocation from '../../../hooks/useLocation';
 import ResourceLayout from '../ResourceLayout';
 import GlobalStyles from '../../common/GlobalStyles';
 import SidebarLayout from '../SidebarLayout';
@@ -94,9 +95,9 @@ const DocLayout: React.FC = () => {
     }
   }, [location]);
 
-  const changeDirection = (direction: DirectionType): void => {
-    setDirection(direction);
-    if (direction === 'ltr') {
+  const changeDirection = (dir: DirectionType): void => {
+    setDirection(dir);
+    if (dir === 'ltr') {
       searchParams.delete('direction');
     } else {
       searchParams.set('direction', 'rtl');
@@ -115,17 +116,27 @@ const DocLayout: React.FC = () => {
           <Footer />
         </>
       );
-    } else if (pathname.startsWith('/docs/resource')) {
+    }
+    if (pathname.startsWith('/docs/resource')) {
       return <ResourceLayout>{outlet}</ResourceLayout>;
-    } else if (pathname.startsWith('/theme-editor')) {
-      return <>{outlet}</>;
+    }
+    if (pathname.startsWith('/theme-editor')) {
+      return outlet;
     }
     return <SidebarLayout>{outlet}</SidebarLayout>;
   }, [pathname, outlet]);
 
+  const siteContextValue = useMemo(
+    () => ({
+      isMobile,
+      direction,
+    }),
+    [isMobile, direction],
+  );
+
   return (
     <StyleProvider cache={styleCache}>
-      <SiteContext.Provider value={{ isMobile, direction }}>
+      <SiteContext.Provider value={siteContextValue}>
         <Helmet encodeSpecialCharacters={false}>
           <html
             lang={lang}

@@ -2,7 +2,7 @@
 category: Components
 title: Divider
 subtitle: 分割线
-cover: https://gw.alipayobjects.com/zos/alicdn/5swjECahe/Divider.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*7sMiTbzvaDoAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 group:

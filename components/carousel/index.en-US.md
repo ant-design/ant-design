@@ -2,7 +2,7 @@
 category: Components
 group: Data Display
 title: Carousel
-cover: https://gw.alipayobjects.com/zos/antfincdn/%24C9tmj978R/Carousel.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*bPMSSqbaTMkAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---

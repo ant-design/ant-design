@@ -3,7 +3,7 @@ category: Components
 group: 反馈
 title: Spin
 subtitle: 加载中
-cover: https://gw.alipayobjects.com/zos/alicdn/LBcJqCPRv/Spin.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*5mC5TomY4B0AAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
