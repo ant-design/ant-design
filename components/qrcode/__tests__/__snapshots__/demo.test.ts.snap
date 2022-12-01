@@ -265,7 +265,7 @@ exports[`renders ./components/qrcode/demo/status.tsx correctly 1`] = `
       style="width:160px;height:160px"
     >
       <div
-        class="ant-qrcode-mask "
+        class="ant-qrcode-mask"
       >
         <div
           aria-busy="true"
@@ -306,7 +306,7 @@ exports[`renders ./components/qrcode/demo/status.tsx correctly 1`] = `
       style="width:160px;height:160px"
     >
       <div
-        class="ant-qrcode-mask "
+        class="ant-qrcode-mask"
       >
         <p>
           QRCode is expired
