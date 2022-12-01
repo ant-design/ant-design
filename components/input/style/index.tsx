@@ -904,15 +904,17 @@ const genTextAreaStyle: GenerateStyle<InputToken> = (token) => {
         },
 
         '&::after': {
-          position: 'absolute',
-          bottom: 0,
-          insetInlineEnd: 0,
           color: token.colorTextDescription,
           whiteSpace: 'nowrap',
           content: 'attr(data-count)',
           pointerEvents: 'none',
-          display: 'block',
-          transform: 'translateY(100%)',
+          float: 'right',
+        },
+      },
+
+      '&-rtl': {
+        '&::after': {
+          float: 'left',
         },
       },
     },
