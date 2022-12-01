@@ -69,7 +69,7 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
             display: 'inline-block',
             width: token.lineWidth,
             height: `calc(100% + ${token.lineWidth * 2}px)`,
-            backgroundColor: token.colorPrimaryBorder,
+            backgroundColor: token.colorPrimaryHover,
             content: '""',
           },
         },
@@ -87,7 +87,7 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
               display: 'inline-block',
               width: `calc(100% + ${token.lineWidth * 2}px)`,
               height: token.lineWidth,
-              backgroundColor: token.colorPrimaryBorder,
+              backgroundColor: token.colorPrimaryHover,
               content: '""',
             },
           },
@@ -100,6 +100,7 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
 const genHoverActiveButtonStyle = (hoverStyle: CSSObject, activeStyle: CSSObject): CSSObject => ({
   '&:not(:disabled)': {
     '&:hover': hoverStyle,
+    '&:focus': hoverStyle,
     '&:active': activeStyle,
   },
 });
