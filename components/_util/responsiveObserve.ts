@@ -1,3 +1,5 @@
+import { useToken } from '../theme/internal';
+
 export type Breakpoint = 'xxxl' | 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
 export type BreakpointMap = Record<Breakpoint, string>;
 export type ScreenMap = Partial<Record<Breakpoint, boolean>>;
@@ -5,14 +7,17 @@ export type ScreenSizeMap = Partial<Record<Breakpoint, number>>;
 
 export const responsiveArray: Breakpoint[] = ['xxxl', 'xxl', 'xl', 'lg', 'md', 'sm', 'xs'];
 
-export const responsiveMap: BreakpointMap = {
-  xs: '(max-width: 575px)',
-  sm: '(min-width: 576px)',
-  md: '(min-width: 768px)',
-  lg: '(min-width: 992px)',
-  xl: '(min-width: 1200px)',
-  xxl: '(min-width: 1600px)',
-  xxxl: '(min-width: 2000px)',
+const useResponsiveMap = (): BreakpointMap => {
+  const [, token] = useToken();
+  return {
+    xs: `(max-width: ${token.screenXS}px)`,
+    sm: `(max-width: ${token.screenSM}px)`,
+    md: `(max-width: ${token.screenMD}px)`,
+    lg: `(max-width: ${token.screenLG}px)`,
+    xl: `(max-width: ${token.screenXL}px)`,
+    xxl: `(max-width: ${token.screenXXL}px)`,
+    xxxl: `(max-width: ${token.screenXXXL}px)`,
+  } as BreakpointMap;
 };
 
 type SubscribeFunc = (screens: ScreenMap) => void;
@@ -44,6 +49,7 @@ const responsiveObserve = {
     if (!subscribers.size) this.unregister();
   },
   unregister() {
+    const responsiveMap: BreakpointMap = useResponsiveMap();
     Object.keys(responsiveMap).forEach((screen: Breakpoint) => {
       const matchMediaQuery = responsiveMap[screen];
       const handler = this.matchHandlers[matchMediaQuery];
@@ -52,6 +58,7 @@ const responsiveObserve = {
     subscribers.clear();
   },
   register() {
+    const responsiveMap: BreakpointMap = useResponsiveMap();
     Object.keys(responsiveMap).forEach((screen: Breakpoint) => {
       const matchMediaQuery = responsiveMap[screen];
       const listener = ({ matches }: { matches: boolean }) => {
