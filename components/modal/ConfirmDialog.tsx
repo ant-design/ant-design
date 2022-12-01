@@ -107,7 +107,9 @@ export function ConfirmContent(
               )}
               <div className={`${confirmPrefixCls}-content`}>{props.content}</div>
             </div>
-            {footer === undefined ? (
+            {footer !== undefined ? (
+              footer
+            ) : (
               <div className={`${confirmPrefixCls}-btns`}>
                 {cancelButton}
                 <ActionButton
@@ -121,8 +123,6 @@ export function ConfirmContent(
                   {okText || (mergedOkCancel ? mergedLocale?.okText : mergedLocale?.justOkText)}
                 </ActionButton>
               </div>
-            ) : (
-              footer
             )}
           </div>
         );
