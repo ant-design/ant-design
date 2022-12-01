@@ -1,0 +1,76 @@
+<!DOCTYPE html><html><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="theme-color" content="#1677ff">
+<link rel="shortcut icon" href="https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png">
+<link rel="stylesheet" href="/ssr-1669888617350.css">
+<link rel="stylesheet" href="/umi.7553e2d9.css">
+<script>
+    (function () {
+      function isLocalStorageNameSupported() {
+        var testKey = 'test';
+        var storage = window.localStorage;
+        try {
+          storage.setItem(testKey, '1');
+          storage.removeItem(testKey);
+          return true;
+        } catch (error) {
+          return false;
+        }
+      }
+      // 优先级提高到所有静态资源的前面，语言不对，加载其他静态资源没意义
+      var pathname = location.pathname;
+
+      function isZhCN(pathname) {
+        return /-cn\/?$/.test(pathname);
+      }
+      function getLocalizedPathname(path, zhCN) {
+        var pathname = path.indexOf('/') === 0 ? path : '/' + path;
+        if (!zhCN) {
+          // to enUS
+          return /\/?index(-cn)?/.test(pathname) ? '/' : pathname.replace('-cn', '');
+        } else if (pathname === '/') {
+          return '/index-cn';
+        } else if (pathname.indexOf('/') === pathname.length - 1) {
+          return pathname.replace(/\/$/, '-cn/');
+        }
+        return pathname + '-cn';
+      }
+
+      // 兼容旧的 URL， `?locale=...`
+      var queryString = location.search;
+      if (queryString) {
+        var isZhCNConfig = queryString.indexOf('zh-CN') > -1;
+        if (isZhCNConfig && !isZhCN(pathname)) {
+          location.pathname = getLocalizedPathname(pathname, isZhCNConfig);
+        }
+      }
+
+      // 首页无视链接里面的语言设置 https://github.com/ant-design/ant-design/issues/4552
+      if (isLocalStorageNameSupported() && (pathname === '/' || pathname === '/index-cn')) {
+        var lang =
+          (window.localStorage && localStorage.getItem('locale')) ||
+          ((navigator.language || navigator.browserLanguage).toLowerCase() === 'zh-cn'
+            ? 'zh-CN'
+            : 'en-US');
+        // safari is 'zh-cn', while other browser is 'zh-CN';
+        if ((lang === 'zh-CN') !== isZhCN(pathname)) {
+          location.pathname = getLocalizedPathname(pathname, lang === 'zh-CN');
+        }
+      }
+      document.documentElement.className += isZhCN(pathname) ? 'zh-cn' : 'en-us';
+    })();
+    </script>
+<script async="" src="//www.googletagmanager.com/gtag/js?id=UA-72788897-1"></script>
+<script>window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-72788897-1');</script>
+<title data-rh="true"></title>
+</head>
+<body>
+<noscript><b>Enable JavaScript to run this app.</b></noscript><div id="root"><!--$?--><template id="B:0"></template><div></div><!--/$--></div><script>window.__UMI_LOADER_DATA__ = {}</script>
+<script src="/umi.02404744.js"></script>
+
+</body></html><div hidden id="S:0"><!--$?--><template id="B:1"></template><div></div><!--/$--></div><script>function $RC(a,b){a=document.getElementById(a);b=document.getElementById(b);b.parentNode.removeChild(b);if(a){a=a.previousSibling;var f=a.parentNode,c=a.nextSibling,e=0;do{if(c&&8===c.nodeType){var d=c.data;if("/$"===d)if(0===e)break;else e--;else"$"!==d&&"$?"!==d&&"$!"!==d||e++}d=c.nextSibling;f.removeChild(c);c=d}while(c);for(;b.firstChild;)f.insertBefore(b.firstChild,c);a.data="$";a._reactRetry&&a._reactRetry()}};$RC("B:0","S:0")</script><div hidden id="S:1"><!--$?--><template id="B:2"></template><div></div><!--/$--></div><script>$RC("B:1","S:1")</script><div hidden id="S:2"><div class="ant-select ant-select-auto-complete css-hyzvow ant-select-single ant-select-customize-input ant-select-show-search" style="width:300px"><div class="ant-select-selector"><span class="ant-select-selection-search"><span class="ant-input-group-wrapper ant-input-search ant-input-search-large ant-input-search-with-button ant-select-selection-search-input ant-input-group-wrapper-lg css-hyzvow"><span class="ant-input-wrapper ant-input-group css-hyzvow"><input autoComplete="off" placeholder="input here" type="search" role="combobox" aria-haspopup="listbox" aria-owns="undefined_list" aria-autocomplete="list" aria-controls="undefined_list" aria-activedescendant="undefined_list_0" class="ant-input ant-input-lg css-hyzvow" value=""/><span class="ant-input-group-addon"><button type="button" class="ant-btn css-hyzvow ant-btn-primary ant-btn-lg ant-input-search-button"><span role="img" aria-label="search" class="anticon anticon-search"><svg viewBox="64 64 896 896" focusable="false" data-icon="search" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"></path></svg></span></button></span></span></span></span><span class="ant-select-selection-placeholder"></span></div></div></div><script>$RC("B:2","S:2")</script>

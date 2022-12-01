@@ -1,0 +1,76 @@
+<!DOCTYPE html><html><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="theme-color" content="#1677ff">
+<link rel="shortcut icon" href="https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png">
+<link rel="stylesheet" href="/ssr-1669888617350.css">
+<link rel="stylesheet" href="/umi.7553e2d9.css">
+<script>
+    (function () {
+      function isLocalStorageNameSupported() {
+        var testKey = 'test';
+        var storage = window.localStorage;
+        try {
+          storage.setItem(testKey, '1');
+          storage.removeItem(testKey);
+          return true;
+        } catch (error) {
+          return false;
+        }
+      }
+      // 优先级提高到所有静态资源的前面，语言不对，加载其他静态资源没意义
+      var pathname = location.pathname;
+
+      function isZhCN(pathname) {
+        return /-cn\/?$/.test(pathname);
+      }
+      function getLocalizedPathname(path, zhCN) {
+        var pathname = path.indexOf('/') === 0 ? path : '/' + path;
+        if (!zhCN) {
+          // to enUS
+          return /\/?index(-cn)?/.test(pathname) ? '/' : pathname.replace('-cn', '');
+        } else if (pathname === '/') {
+          return '/index-cn';
+        } else if (pathname.indexOf('/') === pathname.length - 1) {
+          return pathname.replace(/\/$/, '-cn/');
+        }
+        return pathname + '-cn';
+      }
+
+      // 兼容旧的 URL， `?locale=...`
+      var queryString = location.search;
+      if (queryString) {
+        var isZhCNConfig = queryString.indexOf('zh-CN') > -1;
+        if (isZhCNConfig && !isZhCN(pathname)) {
+          location.pathname = getLocalizedPathname(pathname, isZhCNConfig);
+        }
+      }
+
+      // 首页无视链接里面的语言设置 https://github.com/ant-design/ant-design/issues/4552
+      if (isLocalStorageNameSupported() && (pathname === '/' || pathname === '/index-cn')) {
+        var lang =
+          (window.localStorage && localStorage.getItem('locale')) ||
+          ((navigator.language || navigator.browserLanguage).toLowerCase() === 'zh-cn'
+            ? 'zh-CN'
+            : 'en-US');
+        // safari is 'zh-cn', while other browser is 'zh-CN';
+        if ((lang === 'zh-CN') !== isZhCN(pathname)) {
+          location.pathname = getLocalizedPathname(pathname, lang === 'zh-CN');
+        }
+      }
+      document.documentElement.className += isZhCN(pathname) ? 'zh-cn' : 'en-us';
+    })();
+    </script>
+<script async="" src="//www.googletagmanager.com/gtag/js?id=UA-72788897-1"></script>
+<script>window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-72788897-1');</script>
+<title data-rh="true"></title>
+</head>
+<body>
+<noscript><b>Enable JavaScript to run this app.</b></noscript><div id="root"><!--$?--><template id="B:0"></template><div></div><!--/$--></div><script>window.__UMI_LOADER_DATA__ = {}</script>
+<script src="/umi.02404744.js"></script>
+
+</body></html><div hidden id="S:0"><!--$?--><template id="B:1"></template><div></div><!--/$--></div><script>function $RC(a,b){a=document.getElementById(a);b=document.getElementById(b);b.parentNode.removeChild(b);if(a){a=a.previousSibling;var f=a.parentNode,c=a.nextSibling,e=0;do{if(c&&8===c.nodeType){var d=c.data;if("/$"===d)if(0===e)break;else e--;else"$"!==d&&"$?"!==d&&"$!"!==d||e++}d=c.nextSibling;f.removeChild(c);c=d}while(c);for(;b.firstChild;)f.insertBefore(b.firstChild,c);a.data="$";a._reactRetry&&a._reactRetry()}};$RC("B:0","S:0")</script><div hidden id="S:1"><!--$?--><template id="B:2"></template><div></div><!--/$--></div><script>$RC("B:1","S:1")</script><div hidden id="S:2"><div class="ant-table-wrapper css-hyzvow"><div class="ant-spin-nested-loading css-hyzvow"><div class="ant-spin-container"><div class="ant-table ant-table-bordered"><div class="ant-table-container"><div class="ant-table-content"><table style="table-layout:auto"><colgroup></colgroup><thead class="ant-table-thead"><tr><th class="ant-table-cell">Name</th><th class="ant-table-cell">Borrow</th><th class="ant-table-cell">Repayment</th></tr></thead><tbody class="ant-table-tbody"><tr data-row-key="1" class="ant-table-row ant-table-row-level-0"><td class="ant-table-cell">John Brown</td><td class="ant-table-cell">10</td><td class="ant-table-cell">33</td></tr><tr data-row-key="2" class="ant-table-row ant-table-row-level-0"><td class="ant-table-cell">Jim Green</td><td class="ant-table-cell">100</td><td class="ant-table-cell">0</td></tr><tr data-row-key="3" class="ant-table-row ant-table-row-level-0"><td class="ant-table-cell">Joe Black</td><td class="ant-table-cell">10</td><td class="ant-table-cell">10</td></tr><tr data-row-key="4" class="ant-table-row ant-table-row-level-0"><td class="ant-table-cell">Jim Red</td><td class="ant-table-cell">75</td><td class="ant-table-cell">45</td></tr></tbody><tfoot class="ant-table-summary"><tr><td class="ant-table-cell">Total</td><td class="ant-table-cell"><span class="ant-typography ant-typography-danger css-hyzvow">195</span></td><td class="ant-table-cell"><span class="ant-typography css-hyzvow">88</span></td></tr><tr><td class="ant-table-cell">Balance</td><td colSpan="2" class="ant-table-cell"><span class="ant-typography ant-typography-danger css-hyzvow">107</span></td></tr></tfoot></table></div></div></div></div></div></div><br/><div class="ant-table-wrapper css-hyzvow"><div class="ant-spin-nested-loading css-hyzvow"><div class="ant-spin-container"><div class="ant-table ant-table-bordered ant-table-fixed-header ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-left"><div class="ant-table-container"><div style="overflow:hidden" class="ant-table-header"><table style="table-layout:fixed;visibility:hidden"><colgroup></colgroup><thead class="ant-table-thead"><tr><th class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last" style="position:sticky;left:0">Name</th><th class="ant-table-cell">Description</th></tr></thead></table></div><div style="overflow-x:auto;overflow-y:scroll;max-height:500px" class="ant-table-body"><table style="width:2000px;min-width:100%;table-layout:fixed"><colgroup><col style="width:100px"/></colgroup><tbody class="ant-table-tbody"><tr aria-hidden="true" class="ant-table-measure-row" style="height:0;font-size:0"><td style="padding:0;border:0;height:0"><div style="height:0;overflow:hidden"> </div></td><td style="padding:0;border:0;height:0"><div style="height:0;overflow:hidden"> </div></td></tr><tr data-row-key="0" class="ant-table-row ant-table-row-level-0"><td class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last" style="position:sticky;left:0">Light</td><td class="ant-table-cell">Everything that has a beginning, has an end.</td></tr><tr data-row-key="1" class="ant-table-row ant-table-row-level-0"><td class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last" style="position:sticky;left:0">Bamboo</td><td class="ant-table-cell">Everything that has a beginning, has an end.</td></tr><tr data-row-key="2" class="ant-table-row ant-table-row-level-0"><td class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last" style="position:sticky;left:0">Little</td><td class="ant-table-cell">Everything that has a beginning, has an end.</td></tr><tr data-row-key="3" class="ant-table-row ant-table-row-level-0"><td class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last" style="position:sticky;left:0">Light</td><td class="ant-table-cell">Everything that has a beginning, has an end.</td></tr><tr data-row-key="4" class="ant-table-row ant-table-row-level-0"><td class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last" style="position:sticky;left:0">Bamboo</td><td class="ant-table-cell">Everything that has a beginning, has an end.</td></tr><tr data-row-key="5" class="ant-table-row ant-table-row-level-0"><td class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last" style="position:sticky;left:0">Little</td><td class="ant-table-cell">Everything that has a beginning, has an end.</td></tr><tr data-row-key="6" class="ant-table-row ant-table-row-level-0"><td class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last" style="position:sticky;left:0">Light</td><td class="ant-table-cell">Everything that has a beginning, has an end.</td></tr><tr data-row-key="7" class="ant-table-row ant-table-row-level-0"><td class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last" style="position:sticky;left:0">Bamboo</td><td class="ant-table-cell">Everything that has a beginning, has an end.</td></tr><tr data-row-key="8" class="ant-table-row ant-table-row-level-0"><td class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last" style="position:sticky;left:0">Little</td><td class="ant-table-cell">Everything that has a beginning, has an end.</td></tr><tr data-row-key="9" class="ant-table-row ant-table-row-level-0"><td class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last" style="position:sticky;left:0">Light</td><td class="ant-table-cell">Everything that has a beginning, has an end.</td></tr><tr data-row-key="10" class="ant-table-row ant-table-row-level-0"><td class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last" style="position:sticky;left:0">Bamboo</td><td class="ant-table-cell">Everything that has a beginning, has an end.</td></tr><tr data-row-key="11" class="ant-table-row ant-table-row-level-0"><td class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last" style="position:sticky;left:0">Little</td><td class="ant-table-cell">Everything that has a beginning, has an end.</td></tr><tr data-row-key="12" class="ant-table-row ant-table-row-level-0"><td class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last" style="position:sticky;left:0">Light</td><td class="ant-table-cell">Everything that has a beginning, has an end.</td></tr><tr data-row-key="13" class="ant-table-row ant-table-row-level-0"><td class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last" style="position:sticky;left:0">Bamboo</td><td class="ant-table-cell">Everything that has a beginning, has an end.</td></tr><tr data-row-key="14" class="ant-table-row ant-table-row-level-0"><td class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last" style="position:sticky;left:0">Little</td><td class="ant-table-cell">Everything that has a beginning, has an end.</td></tr><tr data-row-key="15" class="ant-table-row ant-table-row-level-0"><td class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last" style="position:sticky;left:0">Light</td><td class="ant-table-cell">Everything that has a beginning, has an end.</td></tr><tr data-row-key="16" class="ant-table-row ant-table-row-level-0"><td class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last" style="position:sticky;left:0">Bamboo</td><td class="ant-table-cell">Everything that has a beginning, has an end.</td></tr><tr data-row-key="17" class="ant-table-row ant-table-row-level-0"><td class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last" style="position:sticky;left:0">Little</td><td class="ant-table-cell">Everything that has a beginning, has an end.</td></tr><tr data-row-key="18" class="ant-table-row ant-table-row-level-0"><td class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last" style="position:sticky;left:0">Light</td><td class="ant-table-cell">Everything that has a beginning, has an end.</td></tr><tr data-row-key="19" class="ant-table-row ant-table-row-level-0"><td class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last" style="position:sticky;left:0">Bamboo</td><td class="ant-table-cell">Everything that has a beginning, has an end.</td></tr></tbody></table></div><div style="overflow:hidden" class="ant-table-summary"><table style="table-layout:fixed;visibility:hidden"><colgroup></colgroup><tfoot class="ant-table-summary"><tr><td class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last" style="position:sticky;left:0">Summary</td><td class="ant-table-cell">This is a summary content</td></tr></tfoot></table></div></div></div></div></div></div></div><script>$RC("B:2","S:2")</script>

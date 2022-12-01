@@ -1,0 +1,76 @@
+<!DOCTYPE html><html><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="theme-color" content="#1677ff">
+<link rel="shortcut icon" href="https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png">
+<link rel="stylesheet" href="/ssr-1669888617350.css">
+<link rel="stylesheet" href="/umi.7553e2d9.css">
+<script>
+    (function () {
+      function isLocalStorageNameSupported() {
+        var testKey = 'test';
+        var storage = window.localStorage;
+        try {
+          storage.setItem(testKey, '1');
+          storage.removeItem(testKey);
+          return true;
+        } catch (error) {
+          return false;
+        }
+      }
+      // 优先级提高到所有静态资源的前面，语言不对，加载其他静态资源没意义
+      var pathname = location.pathname;
+
+      function isZhCN(pathname) {
+        return /-cn\/?$/.test(pathname);
+      }
+      function getLocalizedPathname(path, zhCN) {
+        var pathname = path.indexOf('/') === 0 ? path : '/' + path;
+        if (!zhCN) {
+          // to enUS
+          return /\/?index(-cn)?/.test(pathname) ? '/' : pathname.replace('-cn', '');
+        } else if (pathname === '/') {
+          return '/index-cn';
+        } else if (pathname.indexOf('/') === pathname.length - 1) {
+          return pathname.replace(/\/$/, '-cn/');
+        }
+        return pathname + '-cn';
+      }
+
+      // 兼容旧的 URL， `?locale=...`
+      var queryString = location.search;
+      if (queryString) {
+        var isZhCNConfig = queryString.indexOf('zh-CN') > -1;
+        if (isZhCNConfig && !isZhCN(pathname)) {
+          location.pathname = getLocalizedPathname(pathname, isZhCNConfig);
+        }
+      }
+
+      // 首页无视链接里面的语言设置 https://github.com/ant-design/ant-design/issues/4552
+      if (isLocalStorageNameSupported() && (pathname === '/' || pathname === '/index-cn')) {
+        var lang =
+          (window.localStorage && localStorage.getItem('locale')) ||
+          ((navigator.language || navigator.browserLanguage).toLowerCase() === 'zh-cn'
+            ? 'zh-CN'
+            : 'en-US');
+        // safari is 'zh-cn', while other browser is 'zh-CN';
+        if ((lang === 'zh-CN') !== isZhCN(pathname)) {
+          location.pathname = getLocalizedPathname(pathname, lang === 'zh-CN');
+        }
+      }
+      document.documentElement.className += isZhCN(pathname) ? 'zh-cn' : 'en-us';
+    })();
+    </script>
+<script async="" src="//www.googletagmanager.com/gtag/js?id=UA-72788897-1"></script>
+<script>window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-72788897-1');</script>
+<title data-rh="true"></title>
+</head>
+<body>
+<noscript><b>Enable JavaScript to run this app.</b></noscript><div id="root"><!--$?--><template id="B:0"></template><div></div><!--/$--></div><script>window.__UMI_LOADER_DATA__ = {}</script>
+<script src="/umi.02404744.js"></script>
+
+</body></html><div hidden id="S:0"><!--$?--><template id="B:1"></template><div></div><!--/$--></div><script>function $RC(a,b){a=document.getElementById(a);b=document.getElementById(b);b.parentNode.removeChild(b);if(a){a=a.previousSibling;var f=a.parentNode,c=a.nextSibling,e=0;do{if(c&&8===c.nodeType){var d=c.data;if("/$"===d)if(0===e)break;else e--;else"$"!==d&&"$?"!==d&&"$!"!==d||e++}d=c.nextSibling;f.removeChild(c);c=d}while(c);for(;b.firstChild;)f.insertBefore(b.firstChild,c);a.data="$";a._reactRetry&&a._reactRetry()}};$RC("B:0","S:0")</script><div hidden id="S:1"><!--$?--><template id="B:2"></template><div></div><!--/$--></div><script>$RC("B:1","S:1")</script><div hidden id="S:2"><div><div style="margin-right:6px" class="ant-segmented ant-segmented-lg css-hyzvow"><div class="ant-segmented-group"><label class="ant-segmented-item ant-segmented-item-selected"><input class="ant-segmented-item-input" type="radio" checked=""/><div class="ant-segmented-item-label" title="Daily">Daily</div></label><label class="ant-segmented-item"><input class="ant-segmented-item-input" type="radio"/><div class="ant-segmented-item-label" title="Weekly">Weekly</div></label><label class="ant-segmented-item"><input class="ant-segmented-item-input" type="radio"/><div class="ant-segmented-item-label" title="Monthly">Monthly</div></label></div></div><button type="button" class="ant-btn css-hyzvow ant-btn-primary ant-btn-lg"><span>Button</span></button></div><div><div style="margin-right:6px" class="ant-segmented css-hyzvow"><div class="ant-segmented-group"><label class="ant-segmented-item ant-segmented-item-selected"><input class="ant-segmented-item-input" type="radio" checked=""/><div class="ant-segmented-item-label" title="Daily">Daily</div></label><label class="ant-segmented-item"><input class="ant-segmented-item-input" type="radio"/><div class="ant-segmented-item-label" title="Weekly">Weekly</div></label><label class="ant-segmented-item"><input class="ant-segmented-item-input" type="radio"/><div class="ant-segmented-item-label" title="Monthly">Monthly</div></label></div></div><input placeholder="default size" style="width:150px" class="ant-input css-hyzvow" type="text" value=""/></div><div><div style="margin-right:6px" class="ant-segmented ant-segmented-sm css-hyzvow"><div class="ant-segmented-group"><label class="ant-segmented-item ant-segmented-item-selected"><input class="ant-segmented-item-input" type="radio" checked=""/><div class="ant-segmented-item-label" title="Daily">Daily</div></label><label class="ant-segmented-item"><input class="ant-segmented-item-input" type="radio"/><div class="ant-segmented-item-label" title="Weekly">Weekly</div></label><label class="ant-segmented-item"><input class="ant-segmented-item-input" type="radio"/><div class="ant-segmented-item-label" title="Monthly">Monthly</div></label></div></div><div class="ant-select ant-select-sm css-hyzvow ant-select-single ant-select-show-arrow" style="width:150px"><div class="ant-select-selector"><span class="ant-select-selection-search"><input type="search" autoComplete="off" class="ant-select-selection-search-input" role="combobox" aria-haspopup="listbox" aria-owns="undefined_list" aria-autocomplete="list" aria-controls="undefined_list" aria-activedescendant="undefined_list_0" readonly="" unselectable="on" style="opacity:0" value=""/></span><span class="ant-select-selection-item" title="Lucy">Lucy</span></div><span class="ant-select-arrow" style="user-select:none;-webkit-user-select:none" unselectable="on" aria-hidden="true"><span role="img" aria-label="down" class="anticon anticon-down ant-select-suffix"><svg viewBox="64 64 896 896" focusable="false" data-icon="down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"></path></svg></span></span></div></div></div><script>$RC("B:2","S:2")</script>
