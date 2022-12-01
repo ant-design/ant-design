@@ -777,7 +777,7 @@ exports[`renders ./components/qrcode/demo/status.tsx extend context correctly 1`
         class="ant-qrcode-mask "
       >
         <p>
-          二维码过期
+          QRCode is expired
         </p>
         <button
           class="ant-btn ant-btn-link"
@@ -803,7 +803,7 @@ exports[`renders ./components/qrcode/demo/status.tsx extend context correctly 1`
             </svg>
           </span>
           <span>
-            点击刷新
+            click refresh
           </span>
         </button>
       </div>
