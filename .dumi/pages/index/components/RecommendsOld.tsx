@@ -91,7 +91,7 @@ export default function Recommends({ recommendations = [] }: RecommendsProps) {
             {data ? (
               <div css={style.card} style={{ backgroundImage: `url(${data.img})` }}>
                 <div className="intro">
-                  <Typography.Title level={4}>{data.title}</Typography.Title>
+                  <Typography.Title level={4}>{data?.title}</Typography.Title>
                   <Typography.Paragraph>{data.description}</Typography.Paragraph>
                 </div>
               </div>

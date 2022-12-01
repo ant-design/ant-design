@@ -143,13 +143,13 @@ const DocLayout: React.FC = () => {
             data-direction={direction}
             className={classNames({ [`rtl`]: direction === 'rtl' })}
           />
-          <title>{locale.title}</title>
+          <title>{locale?.title}</title>
           <link
             sizes="144x144"
             href="https://gw.alipayobjects.com/zos/antfincdn/UmVnt3t4T0/antd.png"
           />
           <meta name="description" content={locale.description} />
-          <meta property="og:title" content={locale.title} />
+          <meta property="og:title" content={locale?.title} />
           <meta property="og:type" content="website" />
           <meta
             property="og:image"

@@ -84,7 +84,7 @@ const ArticleList: React.FC<ArticleListProps> = ({ name, data = [], authors = []
                 </a>
                 <Divider type="vertical" />
                 <a href={article.href} target="_blank" rel="noreferrer">
-                  {article.title}
+                  {article?.title}
                 </a>
               </li>
             );

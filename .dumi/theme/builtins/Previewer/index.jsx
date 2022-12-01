@@ -158,7 +158,7 @@ class Demo extends React.Component {
       expand: codeExpand,
       'code-box-debug': meta.debug,
     });
-    const localizedTitle = meta.title[locale] || meta.title;
+    const localizedTitle = meta?.title[locale] || meta?.title;
     const localizeIntro = content[locale] || content;
     const introChildren = <div dangerouslySetInnerHTML={{ __html: localizeIntro }} />;
 
