@@ -3,6 +3,7 @@ import { QRCodeCanvas } from 'qrcode.react';
 import classNames from 'classnames';
 import { ReloadOutlined } from '@ant-design/icons';
 import { ConfigContext } from '../config-provider';
+import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import type { ConfigConsumerProps } from '../config-provider';
 import type { QRCodeProps, QRPropsCanvas } from './interface';
 import warning from '../_util/warning';
@@ -55,27 +56,31 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
   }
 
   return wrapSSR(
-    <div
-      style={{ ...style, width: size, height: size }}
-      className={classNames(prefixCls, className, hashId)}
-    >
-      {status !== 'active' && (
-        <div className={`${prefixCls}-mask ${hashId}`}>
-          {status === 'loading' && <Spin />}
-          {status === 'expired' && (
-            <>
-              <p>二维码过期</p>
-              {typeof onRefresh === 'function' && (
-                <Button type="link" icon={<ReloadOutlined />} onClick={onRefresh}>
-                  点击刷新
-                </Button>
+    <LocaleReceiver componentName="QRCode">
+      {(locale) => (
+        <div
+          style={{ ...style, width: size, height: size }}
+          className={classNames(prefixCls, className, hashId)}
+        >
+          {status !== 'active' && (
+            <div className={`${prefixCls}-mask ${hashId}`}>
+              {status === 'loading' && <Spin />}
+              {status === 'expired' && (
+                <>
+                  <p>{locale.expired}</p>
+                  {typeof onRefresh === 'function' && (
+                    <Button type="link" icon={<ReloadOutlined />} onClick={onRefresh}>
+                      {locale.refresh}
+                    </Button>
+                  )}
+                </>
               )}
-            </>
+            </div>
           )}
+          <QRCodeCanvas {...qrCodeProps} />
         </div>
       )}
-      <QRCodeCanvas {...qrCodeProps} />
-    </div>,
+    </LocaleReceiver>,
   );
 };
 
