@@ -81,11 +81,14 @@ const RoutesPlugin = (api: IApi) => {
         let styles = '';
 
         // extract all emotion style tags from body
-        file.content = file.content.replace(/<style data-emotion[\S\s]+?<\/style>/g, (s) => {
-          styles += s;
+        file.content = file.content.replace(
+          /<style data-(emotion|token-hash)[\S\s]+?<\/style>/g,
+          (s) => {
+            styles += s;
 
-          return '';
-        });
+            return '';
+          },
+        );
 
         // insert emotion style tags to head
         file.content = file.content.replace('</head>', `${styles}</head>`);
