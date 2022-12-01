@@ -61,6 +61,7 @@ site/theme/template/NotFound.jsx
 scripts/previewEditor/index.html
 components/version/version.tsx
 components/version/token.tsx
+.dumi
 
 # Image snapshot diff
 __diff_output__/
