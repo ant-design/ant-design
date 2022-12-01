@@ -2,10 +2,16 @@ import React, { useLayoutEffect } from 'react';
 import { useOutlet } from 'dumi';
 import { ConfigProvider, theme as antdTheme } from 'antd';
 import type { ThemeConfig } from 'antd/es/config-provider/context';
+import { createCache, StyleProvider } from '@ant-design/cssinjs';
 import type { ThemeContextProps } from '../slots/ThemeContext';
 import ThemeContext from '../slots/ThemeContext';
 import ThemeSwitch from '../common/ThemeSwitch';
 import useLocation from '../../hooks/useLocation';
+
+const styleCache = createCache();
+if (typeof global !== 'undefined') {
+  (global as any).styleCache = styleCache;
+}
 
 const ANT_DESIGN_SITE_THEME = 'antd-site-theme';
 
@@ -80,21 +86,23 @@ const GlobalLayout: React.FC = () => {
   }, []);
 
   return (
-    <ThemeContext.Provider value={contextValue}>
-      <ConfigProvider
-        theme={{
-          ...theme,
-        }}
-      >
-        {outlet}
-        {!pathname.startsWith('/~demos') && (
-          <ThemeSwitch
-            value={theme.algorithm as []}
-            onChange={(value) => handleThemeChange({ ...theme, algorithm: value }, false)}
-          />
-        )}
-      </ConfigProvider>
-    </ThemeContext.Provider>
+    <StyleProvider cache={styleCache}>
+      <ThemeContext.Provider value={contextValue}>
+        <ConfigProvider
+          theme={{
+            ...theme,
+          }}
+        >
+          {outlet}
+          {!pathname.startsWith('/~demos') && (
+            <ThemeSwitch
+              value={theme.algorithm as []}
+              onChange={(value) => handleThemeChange({ ...theme, algorithm: value }, false)}
+            />
+          )}
+        </ConfigProvider>
+      </ThemeContext.Provider>
+    </StyleProvider>
   );
 };
 
