@@ -102,12 +102,14 @@ const TokenTable: FC<TokenTableProps> = ({ type }) => {
 
   const data = useMemo<TokenData[]>(
     () =>
-      tokenMeta[type].map((token) => ({
-        name: token.token,
-        desc: lang === 'cn' ? token.desc : token.descEn,
-        type: token.type,
-        value: (defaultToken as any)[token.name],
-      })),
+      Object.entries(tokenMeta)
+        .filter(([, meta]) => meta.source === type)
+        .map(([token, meta]) => ({
+          name: token,
+          desc: lang === 'cn' ? meta.desc : meta.descEn,
+          type: meta.type,
+          value: (defaultToken as any)[token],
+        })),
     [type, lang],
   );
 

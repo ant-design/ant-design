@@ -65,7 +65,21 @@ function main() {
       (item) => !tokenMeta.seed.some((seedItem) => seedItem.token === item.token),
     );
 
-    fs.writeJsonSync(output, tokenMeta, 'utf8');
+    const finalMeta = Object.entries(tokenMeta).reduce((acc, [key, value]) => {
+      value.forEach((item) => {
+        acc[item.token] = {
+          name: item.name,
+          nameEn: item.nameEn,
+          desc: item.desc,
+          descEn: item.descEn,
+          type: item.type,
+          source: key,
+        };
+      });
+      return acc;
+    }, {});
+
+    fs.writeJsonSync(output, finalMeta, 'utf8');
     // eslint-disable-next-line no-console
     console.log(`✅  Token Meta has been written to ${output}`);
   }
