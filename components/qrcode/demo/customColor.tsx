@@ -4,7 +4,7 @@ import type { ColorResult } from 'react-color';
 import { SketchPicker } from 'react-color';
 
 const App: React.FC = () => {
-  const [color, setColor] = useState<string>('#000');
+  const [color, setColor] = useState<string>('green');
 
   const onColorChange = ({ hex }: ColorResult) => {
     setColor(hex);
