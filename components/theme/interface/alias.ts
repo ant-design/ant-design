@@ -166,7 +166,6 @@ export interface AliasToken extends MapToken {
   screenXLMax: number;
   screenXXL: number;
   screenXXLMin: number;
-  screenXXLMax: number;
 
   /** Used for DefaultButton, Switch which has default outline */
   controlTmpOutline: string;
