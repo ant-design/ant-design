@@ -1,10 +1,8 @@
-import React, { useLayoutEffect } from 'react';
+import React, { startTransition, useLayoutEffect } from 'react';
 import { useOutlet } from 'dumi';
 import { ConfigProvider, theme as antdTheme } from 'antd';
 import type { ThemeConfig } from 'antd/es/config-provider/context';
 import { createCache, StyleProvider } from '@ant-design/cssinjs';
-import type { ThemeContextProps } from '../slots/ThemeContext';
-import ThemeContext from '../slots/ThemeContext';
 import ThemeSwitch from '../common/ThemeSwitch';
 import useLocation from '../../hooks/useLocation';
 
@@ -60,48 +58,32 @@ const GlobalLayout: React.FC = () => {
     );
   };
 
-  const contextValue = React.useMemo<ThemeContextProps>(
-    () => ({
-      theme,
-      setTheme: handleThemeChange,
-    }),
-    [theme],
-  );
-
   useLayoutEffect(() => {
     const localTheme = localStorage.getItem(ANT_DESIGN_SITE_THEME);
     if (localTheme) {
-      try {
-        const themeConfig = JSON.parse(localTheme);
-        if (themeConfig.algorithm) {
-          themeConfig.algorithm = themeConfig.algorithm.map((item: string) => getAlgorithm(item));
-        } else {
-          themeConfig.algorithm = [antdTheme.defaultAlgorithm];
-        }
-        setTheme(themeConfig);
-      } catch (e) {
-        console.error(e);
+      const themeConfig = JSON.parse(localTheme);
+      if (themeConfig.algorithm) {
+        themeConfig.algorithm = themeConfig.algorithm.map((item: string) => getAlgorithm(item));
+      } else {
+        themeConfig.algorithm = [antdTheme.defaultAlgorithm];
       }
+      startTransition(() => {
+        setTheme(themeConfig);
+      });
     }
   }, []);
 
   return (
     <StyleProvider cache={styleCache}>
-      <ThemeContext.Provider value={contextValue}>
-        <ConfigProvider
-          theme={{
-            ...theme,
-          }}
-        >
-          {outlet}
-          {!pathname.startsWith('/~demos') && (
-            <ThemeSwitch
-              value={theme.algorithm as []}
-              onChange={(value) => handleThemeChange({ ...theme, algorithm: value }, false)}
-            />
-          )}
-        </ConfigProvider>
-      </ThemeContext.Provider>
+      <ConfigProvider theme={theme}>
+        {outlet}
+        {!pathname.startsWith('/~demos') && (
+          <ThemeSwitch
+            value={theme.algorithm as []}
+            onChange={(value) => handleThemeChange({ ...theme, algorithm: value }, false)}
+          />
+        )}
+      </ConfigProvider>
     </StyleProvider>
   );
 };
