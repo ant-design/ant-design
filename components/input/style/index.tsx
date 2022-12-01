@@ -911,6 +911,12 @@ const genTextAreaStyle: GenerateStyle<InputToken> = (token) => {
           float: 'right',
         },
       },
+
+      '&-rtl': {
+        '&::after': {
+          float: 'left',
+        },
+      },
     },
   };
 };
