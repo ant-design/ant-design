@@ -13,7 +13,7 @@ import useFormInstance from './hooks/useFormInstance';
 
 type InternalFormType = typeof InternalForm;
 
-interface FormInterface extends InternalFormType {
+type CompoundedComponent = InternalFormType & {
   useForm: typeof useForm;
   useFormInstance: typeof useFormInstance;
   useWatch: typeof useWatch;
@@ -24,9 +24,9 @@ interface FormInterface extends InternalFormType {
 
   /** @deprecated Only for warning usage. Do not use. */
   create: () => void;
-}
+};
 
-const Form = InternalForm as FormInterface;
+const Form = InternalForm as CompoundedComponent;
 
 Form.Item = Item;
 Form.List = List;

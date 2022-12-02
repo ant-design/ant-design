@@ -4,7 +4,7 @@ group: 反馈
 noinstant: true
 title: Notification
 subtitle: 通知提醒框
-cover: https://gw.alipayobjects.com/zos/alicdn/Jxm5nw61w/Notification.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*6RWNQ78WtvEAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---

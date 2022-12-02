@@ -2,7 +2,7 @@
 category: Components
 group: Data Display
 title: Tabs
-cover: https://gw.alipayobjects.com/zos/antfincdn/lkI2hNEDr2V/Tabs.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*72NDQqXkyOEAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 Tabs make it easy to switch between different views.
@@ -63,6 +63,7 @@ return <Tabs items={items} />;
 
 ### Tabs
 
+<!-- prettier-ignore -->
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- | --- |
 | activeKey | Current TabPane's key | string | - |  |

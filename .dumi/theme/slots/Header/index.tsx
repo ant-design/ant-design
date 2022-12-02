@@ -341,7 +341,7 @@ const Header: React.FC<HeaderProps> = (props) => {
     <Popover
       key="version"
       open={!!notify}
-      title={locale.title}
+      title={locale?.title}
       content={
         <Typography style={{ marginTop: token.marginXS }}>
           {lang === 'cn' ? (
@@ -352,7 +352,7 @@ const Header: React.FC<HeaderProps> = (props) => {
                   target="_blank"
                   href="https://github.com/ant-design/ant-design/issues/38463"
                 >
-                  Github Issue
+                  GitHub Issue
                 </Typography.Link>{' '}
                 反馈。
               </div>
@@ -366,7 +366,7 @@ const Header: React.FC<HeaderProps> = (props) => {
                   target="_blank"
                   href="https://github.com/ant-design/ant-design/issues/38463"
                 >
-                  Github Issue
+                  GitHub Issue
                 </Typography.Link>
                 .
               </div>
@@ -383,6 +383,7 @@ const Header: React.FC<HeaderProps> = (props) => {
         defaultValue={antdVersion}
         onChange={handleVersionChange}
         dropdownStyle={getDropdownStyle}
+        dropdownMatchSelectWidth={false}
         getPopupContainer={(trigger) => trigger.parentNode}
         onClick={onClose}
       >

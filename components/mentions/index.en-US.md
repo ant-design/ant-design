@@ -2,7 +2,7 @@
 category: Components
 group: Data Entry
 title: Mentions
-cover: https://gw.alipayobjects.com/zos/alicdn/0pF5j477V/Mentions.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*e4bXT7Uhi9YAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---

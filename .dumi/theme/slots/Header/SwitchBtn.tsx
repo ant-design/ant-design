@@ -41,10 +41,6 @@ const useStyle = () => {
 
       &:hover {
         background: ${token.colorBgTextHover};
-
-        .btn-inner {
-          transform: scale(1.1);
-        }
       }
 
       img {

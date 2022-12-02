@@ -2,7 +2,7 @@
 category: Components
 group: Data Display
 title: Card
-cover: https://gw.alipayobjects.com/zos/alicdn/keNB-R8Y9/Card.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*VXtCTp93KPAAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 Simple rectangular container.
