@@ -5,7 +5,7 @@ import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import { cloneElement } from '../_util/reactNode';
 import type { Breakpoint, ScreenMap } from '../_util/responsiveObserve';
-import ResponsiveObserve, { responsiveArray } from '../_util/responsiveObserve';
+import useResponsiveObserve, { responsiveArray } from '../_util/responsiveObserve';
 import warning from '../_util/warning';
 import DescriptionsItem from './Item';
 import Row from './Row';
@@ -139,7 +139,8 @@ function Descriptions({
 
   // Responsive
   React.useEffect(() => {
-    const token = ResponsiveObserve.subscribe((newScreens) => {
+    const responsiveObserve = useResponsiveObserve();
+    const token = responsiveObserve.subscribe((newScreens) => {
       if (typeof column !== 'object') {
         return;
       }
@@ -147,7 +148,7 @@ function Descriptions({
     });
 
     return () => {
-      ResponsiveObserve.unsubscribe(token);
+      responsiveObserve.unsubscribe(token);
     };
   }, []);
 

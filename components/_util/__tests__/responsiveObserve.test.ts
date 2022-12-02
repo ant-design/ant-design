@@ -1,14 +1,15 @@
-import ResponsiveObserve, { useResponsiveMap } from '../responsiveObserve';
+import useResponsiveObserve from '../responsiveObserve';
 
 describe('Test ResponsiveObserve', () => {
   it('test ResponsiveObserve subscribe and unsubscribe', () => {
-    const { xs } = useResponsiveMap();
+    const reponsiveObserve = useResponsiveObserve();
+    const { xs } = reponsiveObserve.responsiveMap;
     const subscribeFunc = jest.fn();
-    const token = ResponsiveObserve.subscribe(subscribeFunc);
-    expect(ResponsiveObserve.matchHandlers[xs].mql.matches).toBeTruthy();
+    const token = reponsiveObserve.subscribe(subscribeFunc);
+    expect(reponsiveObserve.matchHandlers[xs].mql.matches).toBeTruthy();
     expect(subscribeFunc).toHaveBeenCalledTimes(1);
 
-    ResponsiveObserve.unsubscribe(token);
-    expect(ResponsiveObserve.matchHandlers[xs].mql.removeListener).toHaveBeenCalled();
+    reponsiveObserve.unsubscribe(token);
+    expect(reponsiveObserve.matchHandlers[xs].mql.removeListener).toHaveBeenCalled();
   });
 });

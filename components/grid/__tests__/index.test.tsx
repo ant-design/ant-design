@@ -2,7 +2,7 @@ import React from 'react';
 import { Col, Row } from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import ResponsiveObserve from '../../_util/responsiveObserve';
+import useResponsiveObserve from '../../_util/responsiveObserve';
 import useBreakpoint from '../hooks/useBreakpoint';
 import { render, act } from '../../../tests/utils';
 
@@ -14,7 +14,8 @@ describe('Grid', () => {
   rtlTest(Col);
 
   afterEach(() => {
-    ResponsiveObserve.unregister();
+    const responsiveObserve = useResponsiveObserve();
+    responsiveObserve.unregister();
   });
 
   it('should render Col', () => {
@@ -89,7 +90,8 @@ describe('Grid', () => {
   });
 
   it('ResponsiveObserve.unsubscribe should be called when unmounted', () => {
-    const Unmount = jest.spyOn(ResponsiveObserve, 'unsubscribe');
+    const responsiveObserve = useResponsiveObserve();
+    const Unmount = jest.spyOn(responsiveObserve, 'unsubscribe');
     const { unmount } = render(<Row gutter={{ xs: 20 }} />);
     act(() => {
       unmount();
