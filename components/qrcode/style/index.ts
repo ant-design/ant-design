@@ -27,7 +27,7 @@ const genQRCodeStyle: GenerateStyle<QRCodeToken> = (token) => {
         alignItems: 'center',
         width: '100%',
         height: '100%',
-        color: '#000',
+        color: token.colorText,
         lineHeight: '1.5',
         textAlign: 'center',
         backgroundColor: '#fff',
