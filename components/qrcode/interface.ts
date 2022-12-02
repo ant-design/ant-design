@@ -26,6 +26,7 @@ export interface QRCodeProps extends QRProps {
   prefixCls?: string;
   icon?: string;
   iconSize?: number;
+  bordered?: boolean;
   errorLevel?: 'L' | 'M' | 'Q' | 'H';
   status?: 'active' | 'expired' | 'loading';
   onRefresh?: () => void;

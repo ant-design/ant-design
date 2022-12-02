@@ -1,8 +1,10 @@
 import type { FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook } from '../../theme/internal';
+import { mergeToken, genComponentStyleHook } from '../../theme/internal';
 import { resetComponent } from '../../style';
 
-interface QRCodeToken extends FullToken<'QRCode'> {}
+interface QRCodeToken extends FullToken<'QRCode'> {
+  QRCodeMaskBackgroundColor: string;
+}
 
 const genQRCodeStyle: GenerateStyle<QRCodeToken> = (token) => {
   const { componentCls } = token;
@@ -15,9 +17,9 @@ const genQRCodeStyle: GenerateStyle<QRCodeToken> = (token) => {
       position: 'relative',
       width: '100%',
       height: '100%',
-      '&-mask': {
+      overflow: 'hidden',
+      [`& > ${componentCls}-mask`]: {
         position: 'absolute',
-        borderRadius: token.borderRadiusLG,
         insetBlockStart: 0,
         insetInlineStart: 0,
         zIndex: 10,
@@ -29,16 +31,24 @@ const genQRCodeStyle: GenerateStyle<QRCodeToken> = (token) => {
         height: '100%',
         color: token.colorText,
         lineHeight: token.lineHeight,
+        background: token.QRCodeMaskBackgroundColor,
         textAlign: 'center',
-        backgroundColor: '#fff',
-        opacity: '0.96',
       },
       '&-icon': {
         marginBlockEnd: token.marginXS,
         fontSize: token.controlHeight,
       },
     },
+    [`${componentCls}-borderless`]: {
+      borderColor: 'transparent',
+    },
   };
 };
 
-export default genComponentStyleHook<'QRCode'>('QRCode', genQRCodeStyle);
+export default genComponentStyleHook<'QRCode'>('QRCode', (token) =>
+  genQRCodeStyle(
+    mergeToken<QRCodeToken>(token, {
+      QRCodeMaskBackgroundColor: 'rgba(255, 255, 255, 0.96)',
+    }),
+  ),
+);

@@ -10,6 +10,9 @@ import warning from '../_util/warning';
 import useStyle from './style/index';
 import Spin from '../spin';
 import Button from '../button';
+import theme from '../theme';
+
+const { useToken } = theme;
 
 const QRCode: React.FC<QRCodeProps> = (props) => {
   const {
@@ -20,6 +23,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     color = '#000',
     errorLevel = 'M',
     status = 'active',
+    bordered = true,
     onRefresh,
     style,
     className,
@@ -28,7 +32,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
   const { getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('qrcode', customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
-
+  const { token } = useToken();
   const qrCodeProps = useMemo<QRPropsCanvas>(() => {
     const imageSettings: QRCodeProps['imageSettings'] = {
       src: icon,
@@ -40,7 +44,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     };
     return {
       value,
-      size: size - 20, // 两边各留10px
+      size: size - (token.paddingXS + token.lineWidth) * 2,
       level: errorLevel,
       bgColor: 'transparent',
       fgColor: color,
@@ -55,13 +59,14 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     return null;
   }
 
+  const cls = classNames(prefixCls, className, hashId, {
+    [`${prefixCls}-borderless`]: !bordered,
+  });
+
   return wrapSSR(
     <LocaleReceiver componentName="QRCode">
       {(locale) => (
-        <div
-          style={{ ...style, width: size, height: size }}
-          className={classNames(prefixCls, className, hashId)}
-        >
+        <div style={{ ...style, width: size, height: size }} className={cls}>
           {status !== 'active' && (
             <div className={`${prefixCls}-mask`}>
               {status === 'loading' && <Spin />}
