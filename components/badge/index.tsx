@@ -153,7 +153,8 @@ const Badge: CompoundedComponent = ({
 
   const statusStyle: React.CSSProperties = {};
   if (color && !isPresetColor(color)) {
-    statusStyle.background = color;
+    statusStyle.color = color;
+    statusStyle.backgroundColor = color;
   }
 
   const badgeClassName = classNames(
@@ -212,7 +213,8 @@ const Badge: CompoundedComponent = ({
           let scrollNumberStyle: React.CSSProperties = { ...mergedStyle };
           if (color && !isPresetColor(color)) {
             scrollNumberStyle = scrollNumberStyle || {};
-            scrollNumberStyle.background = color;
+            scrollNumberStyle.color = color;
+            scrollNumberStyle.backgroundColor = color;
           }
 
           return (
