@@ -15,7 +15,7 @@ const App: React.FC = () => (
       <Badge status="success" text="Success" />
       <Badge status="error" text="Error" />
       <Badge status="default" text="Default" />
-      <Badge status="processing" color="#000" text="Processing" />
+      <Badge status="processing" text="Processing" />
       <Badge status="warning" text="Warning" />
     </Space>
   </>
