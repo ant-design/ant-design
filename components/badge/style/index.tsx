@@ -194,7 +194,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
             insetInlineStart: 0,
             width: '100%',
             height: '100%',
-            borderWidth: `${badgeShadowSize}px`,
+            borderWidth: badgeShadowSize,
             borderStyle: 'solid',
             borderColor: 'inherit',
             borderRadius: '50%',
