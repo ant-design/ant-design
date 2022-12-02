@@ -1,3 +1,4 @@
+/* istanbul ignore next */
 export const PresetColors = [
   'blue',
   'purple',
