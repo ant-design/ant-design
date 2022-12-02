@@ -9,9 +9,9 @@ exports[`QRCode test should correct render 1`] = `
     style="width: 160px; height: 160px;"
   >
     <canvas
-      height="142"
-      style="height: 142px; width: 142px;"
-      width="142"
+      height="134"
+      style="height: 134px; width: 134px;"
+      width="134"
     />
   </div>
 </div>

@@ -36,9 +36,9 @@ Array [
               style="width:160px;height:160px"
             >
               <canvas
-                height="142"
-                style="height:142px;width:142px"
-                width="142"
+                height="134"
+                style="height:134px;width:134px"
+                width="134"
               />
             </div>
           </div>
@@ -55,9 +55,9 @@ exports[`renders ./components/qrcode/demo/base.tsx extend context correctly 1`] 
   style="width:160px;height:160px"
 >
   <canvas
-    height="142"
-    style="height:142px;width:142px"
-    width="142"
+    height="134"
+    style="height:134px;width:134px"
+    width="134"
   />
 </div>
 `;
@@ -75,9 +75,9 @@ exports[`renders ./components/qrcode/demo/customColor.tsx extend context correct
       style="margin-bottom:16px;background-color:#f5f5f5;width:160px;height:160px"
     >
       <canvas
-        height="142"
-        style="height:142px;width:142px"
-        width="142"
+        height="134"
+        style="height:134px;width:134px"
+        width="134"
       />
     </div>
   </div>
@@ -89,9 +89,9 @@ exports[`renders ./components/qrcode/demo/customColor.tsx extend context correct
       style="margin-bottom:16px;background-color:#f5f5f5;width:160px;height:160px"
     >
       <canvas
-        height="142"
-        style="height:142px;width:142px"
-        width="142"
+        height="134"
+        style="height:134px;width:134px"
+        width="134"
       />
     </div>
   </div>
@@ -170,9 +170,9 @@ Array [
     style="width:160px;height:160px"
   >
     <canvas
-      height="142"
-      style="height:142px;width:142px"
-      width="142"
+      height="134"
+      style="height:134px;width:134px"
+      width="134"
     />
     <img
       src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
@@ -191,9 +191,9 @@ exports[`renders ./components/qrcode/demo/download.tsx extend context correctly 
     style="margin-bottom:16px;width:160px;height:160px"
   >
     <canvas
-      height="142"
-      style="height:142px;width:142px"
-      width="142"
+      height="134"
+      style="height:134px;width:134px"
+      width="134"
     />
   </div>
   <button
@@ -214,9 +214,9 @@ Array [
     style="margin-bottom:16px;width:160px;height:160px"
   >
     <canvas
-      height="142"
-      style="height:142px;width:142px"
-      width="142"
+      height="134"
+      style="height:134px;width:134px"
+      width="134"
     />
   </div>,
   <div
@@ -293,9 +293,9 @@ exports[`renders ./components/qrcode/demo/icon.tsx extend context correctly 1`] 
   style="width:160px;height:160px"
 >
   <canvas
-    height="142"
-    style="height:142px;width:142px"
-    width="142"
+    height="134"
+    style="height:134px;width:134px"
+    width="134"
   />
   <img
     src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
@@ -344,9 +344,9 @@ exports[`renders ./components/qrcode/demo/status.tsx extend context correctly 1`
         </div>
       </div>
       <canvas
-        height="142"
-        style="height:142px;width:142px"
-        width="142"
+        height="134"
+        style="height:134px;width:134px"
+        width="134"
       />
     </div>
   </div>
@@ -393,9 +393,9 @@ exports[`renders ./components/qrcode/demo/status.tsx extend context correctly 1`
         </button>
       </div>
       <canvas
-        height="142"
-        style="height:142px;width:142px"
-        width="142"
+        height="134"
+        style="height:134px;width:134px"
+        width="134"
       />
     </div>
   </div>
