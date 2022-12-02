@@ -1,33 +1,23 @@
-import React, { useState } from 'react';
-import { QRCode, Button, Popover, theme } from 'antd';
-import type { ColorResult } from 'react-color';
-import { SketchPicker } from 'react-color';
+import React from 'react';
+import { QRCode, Space, theme } from 'antd';
 
 const { useToken } = theme;
 
 const App: React.FC = () => {
   const { token } = useToken();
-  const [color, setColor] = useState<string>(token.colorSuccessText);
-
-  const onColorChange = ({ hex }: ColorResult) => {
-    setColor(hex);
-  };
-
   return (
-    <>
+    <Space>
       <QRCode
         value="https://ant.design/"
-        color={color}
+        color={token.colorSuccessText}
         style={{ marginBottom: 16, backgroundColor: token.colorBgLayout }}
       />
-      <Popover
-        trigger="click"
-        placement="bottom"
-        content={<SketchPicker color={color} onChange={onColorChange} />}
-      >
-        <Button type="primary">Change Color</Button>
-      </Popover>
-    </>
+      <QRCode
+        value="https://ant.design/"
+        color={token.colorInfoText}
+        style={{ marginBottom: 16, backgroundColor: token.colorBgLayout }}
+      />
+    </Space>
   );
 };
 

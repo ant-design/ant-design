@@ -7,9 +7,9 @@ const App: React.FC = () => {
   return (
     <>
       <QRCode
-        value="https://ant.design/"
         style={{ marginBottom: 16 }}
         errorLevel={level as QRCodeProps['errorLevel']}
+        value="https://picturesofpeoplescanningqrcodes.tumblr.com/"
       />
       <Segmented options={['L', 'M', 'Q', 'H']} value={level} onChange={setLevel} />
     </>
