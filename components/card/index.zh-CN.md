@@ -3,7 +3,7 @@ category: Components
 group: 数据展示
 title: Card
 subtitle: 卡片
-cover: https://gw.alipayobjects.com/zos/antfincdn/NqXt8DJhky/Card.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*VXtCTp93KPAAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 通用卡片容器。

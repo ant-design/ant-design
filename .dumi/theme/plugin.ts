@@ -81,7 +81,7 @@ const RoutesPlugin = (api: IApi) => {
         let styles = '';
 
         // extract all emotion style tags from body
-        file.content = file.content.replace(/<style data-emotion[\s\S\n]+?<\/style>/g, (s) => {
+        file.content = file.content.replace(/<style data-emotion[\S\s]+?<\/style>/g, (s) => {
           styles += s;
 
           return '';

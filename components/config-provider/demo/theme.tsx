@@ -23,8 +23,14 @@ export default () => {
     >
       <Form
         form={form}
-        onValuesChange={(_, nextData) => {
-          setData({ ...nextData, colorPrimary: nextData.colorPrimary.hex });
+        onValuesChange={(changedValues, allValues) => {
+          const colorObj = changedValues?.colorPrimary
+            ? { colorPrimary: allValues?.colorPrimary?.hex }
+            : {};
+          setData({
+            ...allValues,
+            ...colorObj,
+          });
         }}
         name="theme"
         initialValues={defaultData}

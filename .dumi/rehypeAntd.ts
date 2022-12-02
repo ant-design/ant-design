@@ -6,7 +6,7 @@ import { type HastRoot, type UnifiedTransformer, unistUtilVisit } from 'dumi';
  */
 function rehypeAntd(): UnifiedTransformer<HastRoot> {
   return (tree, vFile) => {
-    const filename = (vFile.data.frontmatter as any).filename;
+    const { filename } = vFile.data.frontmatter as any;
 
     unistUtilVisit.visit(tree, 'element', (node) => {
       if (node.tagName === 'DumiDemoGrid') {

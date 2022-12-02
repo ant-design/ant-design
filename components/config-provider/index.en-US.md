@@ -2,7 +2,7 @@
 category: Components
 group: Other
 title: ConfigProvider
-cover: https://gw.alipayobjects.com/zos/alicdn/kegYxl1wj/ConfigProvider.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*NVKORa7BCVwAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 `ConfigProvider` provides a uniform configuration support for components.
@@ -104,3 +104,7 @@ When you config `getPopupContainer` to parentNode globally, Modal will throw err
    <App />
  </ConfigProvider>
 ```
+
+#### Why can't ConfigProvider props (like `prefixCls` and `theme`) affect ReactNode inside `message.info`, `notification.open`, `Modal.confirm`?
+
+antd will dynamic create React instance by `ReactDOM.render` when call message methods. Whose context is different with origin code located context. We recommend `useMessage`, `useNotification` and `useModal` which , the methods came from `message/notification/Modal` has been deprecated in 5.x.

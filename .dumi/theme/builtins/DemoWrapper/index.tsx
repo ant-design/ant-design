@@ -1,4 +1,4 @@
-import React, { useContext, useLayoutEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { DumiDemoGrid, FormattedMessage } from 'dumi';
 import { Tooltip } from 'antd';
 import { BugFilled, BugOutlined, CodeFilled, CodeOutlined } from '@ant-design/icons';
@@ -55,7 +55,7 @@ const DemoWrapper: typeof DumiDemoGrid = ({ items }) => {
         </Tooltip>
       </span>
       {/* FIXME: find a new way instead of `key` to trigger re-render */}
-      <DumiDemoGrid items={filteredItems} key={expandAll + '' + showDebug} />
+      <DumiDemoGrid items={filteredItems} key={`${expandAll}${showDebug}`} />
     </div>
   );
 };

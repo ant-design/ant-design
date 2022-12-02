@@ -2,33 +2,34 @@ import * as React from 'react';
 import { css } from '@emotion/react';
 import { TinyColor } from '@ctrl/tinycolor';
 import {
-  HomeOutlined,
-  FolderOutlined,
   BellOutlined,
+  FolderOutlined,
+  HomeOutlined,
   QuestionCircleOutlined,
 } from '@ant-design/icons';
-import useLocale from '../../../../hooks/useLocale';
-import useSiteToken from '../../../../hooks/useSiteToken';
+import type { MenuProps } from 'antd';
 import {
-  Typography,
+  Breadcrumb,
+  Button,
+  Card,
+  ConfigProvider,
+  Form,
   Layout,
   Menu,
-  Breadcrumb,
-  MenuProps,
-  Space,
-  ConfigProvider,
-  Card,
-  Form,
   Radio,
+  Space,
   theme,
-  Button,
+  Typography,
 } from 'antd';
-import ThemePicker, { THEME } from './ThemePicker';
+import useLocale from '../../../../hooks/useLocale';
+import useSiteToken from '../../../../hooks/useSiteToken';
+import type { THEME } from './ThemePicker';
+import ThemePicker from './ThemePicker';
 import ColorPicker from './ColorPicker';
 import RadiusPicker from './RadiusPicker';
 import Group from '../Group';
 import BackgroundImage from './BackgroundImage';
-import { getClosetColor, DEFAULT_COLOR, getAvatarURL, PINK_COLOR } from './colorUtil';
+import { DEFAULT_COLOR, getAvatarURL, getClosetColor, PINK_COLOR } from './colorUtil';
 
 const { Header, Content, Sider } = Layout;
 
@@ -178,10 +179,6 @@ const useStyle = () => {
     `,
   };
 };
-
-interface PickerProps {
-  title: React.ReactNode;
-}
 
 // ========================== Menu Config ==========================
 const subMenuItems: MenuProps['items'] = [
@@ -403,6 +400,7 @@ export default function Theme() {
                         ? undefined
                         : `drop-shadow(30px 0 0 ${logoColor})`,
                   }}
+                  alt=""
                 />
               </div>
               <h1>Ant Design 5.0</h1>
@@ -422,7 +420,7 @@ export default function Theme() {
               />
             </Space>
           </Header>
-          <Layout css={style.transBg}>
+          <Layout css={style.transBg} hasSider>
             <Sider css={style.transBg} width={200} className="site-layout-background">
               <Menu
                 mode="inline"
@@ -517,6 +515,7 @@ export default function Theme() {
                 height: 500,
               }}
               src="https://gw.alipayobjects.com/zos/bmw-prod/bd71b0c6-f93a-4e52-9c8a-f01a9b8fe22b.svg"
+              alt=""
             />
             {/* Image Right Bottom */}
             <img
@@ -528,6 +527,7 @@ export default function Theme() {
                 height: 287,
               }}
               src="https://gw.alipayobjects.com/zos/bmw-prod/84ad805a-74cb-4916-b7ba-9cdc2bdec23a.svg"
+              alt=""
             />
           </div>
 
@@ -542,11 +542,13 @@ export default function Theme() {
             <img
               style={{ ...posStyle, left: 0, top: -100, height: 500 }}
               src="https://gw.alipayobjects.com/zos/bmw-prod/a213184a-f212-4afb-beec-1e8b36bb4b8a.svg"
+              alt=""
             />
             {/* Image Right Bottom */}
             <img
               style={{ ...posStyle, right: 0, bottom: -100, height: 287 }}
               src="https://gw.alipayobjects.com/zos/bmw-prod/bb74a2fb-bff1-4d0d-8c2d-2ade0cd9bb0d.svg"
+              alt=""
             />
           </div>
 

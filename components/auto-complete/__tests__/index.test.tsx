@@ -49,7 +49,7 @@ describe('AutoComplete', () => {
   });
 
   it('AutoComplete throws error when contains invalid dataSource', () => {
-    const spy = jest.spyOn(console, 'error').mockImplementation(() => undefined);
+    const spy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
     render(
       // @ts-ignore
@@ -82,13 +82,10 @@ describe('AutoComplete', () => {
   });
 
   it('should not warning when getInputElement is null', () => {
-    jest.spyOn(console, 'warn').mockImplementation(() => undefined);
+    const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
     render(<AutoComplete placeholder="input here" allowClear />);
-    // eslint-disable-next-line no-console
-    expect(console.warn).not.toHaveBeenCalled();
-    // @ts-ignore
-    // eslint-disable-next-line no-console
-    console.warn.mockRestore();
+    expect(warnSpy).not.toHaveBeenCalled();
+    warnSpy.mockRestore();
   });
 
   it('should not override custom input className', () => {

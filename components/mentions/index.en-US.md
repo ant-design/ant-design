@@ -2,7 +2,7 @@
 category: Components
 group: Data Entry
 title: Mentions
-cover: https://gw.alipayobjects.com/zos/alicdn/0pF5j477V/Mentions.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*e4bXT7Uhi9YAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -68,7 +68,7 @@ return <Mentions options={options} />;
 | onResize | The callback function that is triggered when textarea resize | function({ width, height }) | - |  |
 | onSearch | Trigger when prefix hit | (text: string, prefix: string) => void | - |  |
 | onSelect | Trigger when user select the option | (option: OptionProps, prefix: string) => void | - |  |
-| options | Option Configuration | [Options](#Option) | \[] | 5.1.0       |
+| options | Option Configuration | [Options](#Option) | \[] | 5.1.0 |
 
 ### Mention methods
 
@@ -79,10 +79,10 @@ return <Mentions options={options} />;
 
 ### Option
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| label | Title of the option | React.ReactNode | - |
-| key | The key value of the option | string | - |
-| disabled | Optional | boolean | - |
-| className | className | string | - |
-| style | The style of the option | React.CSSProperties | - |
+| Property  | Description                 | Type                | Default |
+| --------- | --------------------------- | ------------------- | ------- |
+| label     | Title of the option         | React.ReactNode     | -       |
+| key       | The key value of the option | string              | -       |
+| disabled  | Optional                    | boolean             | -       |
+| className | className                   | string              | -       |
+| style     | The style of the option     | React.CSSProperties | -       |

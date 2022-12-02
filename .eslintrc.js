@@ -98,6 +98,22 @@ module.exports = {
         'react/no-access-state-in-setstate': 0,
       },
     },
+    {
+      files: ['.dumi/**/*.ts', '.dumi/**/*.tsx', '.dumi/**/*.js', '.dumi/**/*.jsx'],
+      rules: {
+        'import/no-extraneous-dependencies': 0,
+        'no-console': 0,
+        'compat/compat': 0,
+        'react/no-unstable-nested-components': 0,
+        'jsx-a11y/control-has-associated-label': 0,
+        'class-methods-use-this': 0,
+        'react/no-access-state-in-setstate': 0,
+        'react/no-unknown-property': ['error', { ignore: ['css'] }],
+        'react/no-array-index-key': 0,
+        'react/button-has-type': 0,
+        'react/no-danger': 0,
+      },
+    },
   ],
   rules: {
     'react/jsx-one-expression-per-line': 0,

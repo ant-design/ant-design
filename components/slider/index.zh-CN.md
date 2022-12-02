@@ -3,7 +3,7 @@ category: Components
 subtitle: 滑动输入条
 group: 数据录入
 title: Slider
-cover: https://gw.alipayobjects.com/zos/alicdn/HZ3meFc6W/Silder.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*_4heQaUrFn4AAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---

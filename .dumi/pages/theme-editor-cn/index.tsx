@@ -1,1 +1,3 @@
-export { default } from '../theme-editor/index';
+import ThemeEditor from '../theme-editor';
+
+export default ThemeEditor;

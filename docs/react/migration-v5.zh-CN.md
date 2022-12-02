@@ -3,7 +3,7 @@ order: 8
 title: 从 v4 到 v5
 ---
 
-本文档将帮助你从 antd `4.x` 版本升级到 antd `5.x` 版本，如果你是 `3.x` 或者更老的版本，请先参考之前的[升级文档](/docs/react/migration-v4-cn)升级到 4.x。
+本文档将帮助你从 antd `4.x` 版本升级到 antd `5.x` 版本，如果你是 `3.x` 或者更老的版本，请先参考之前的[升级文档](https://4x.ant.design/docs/react/migration-v4-cn)升级到 4.x。
 
 ## 升级准备
 
@@ -109,6 +109,7 @@ title: 从 v4 到 v5
   - 静态方法不再允许在 `open` 中动态设置 `prefixCls` `maxCount` `top` `bottom` `getContainer`，Notification 静态方法现在将只有一个实例。如果需要不同配置，请使用 `useNotification`。
   - `close` 改名为 `destroy`，和 message 保持一致。
 - Drawer `style` 和 `className` 迁移至 Drawer 弹层区域上，原属性替换为 `rootClassName` 和 `rootStyle`。
+- 4.x 中已经废弃的 `message.warn` 现在被彻底移除，请使用 `message.warning` 代替。
 
 #### 组件重构与移除
 
@@ -196,9 +197,44 @@ Umi 用户可以在配置文件中关闭：
 export default {
   antd: {
 -   import: true,
++   import: false,
   },
 };
 ```
+
+### 替换 Day.js 语言包
+
+将 moment.js 的 locale 替换为 day.js 的 locale 引入：
+
+```diff
+-   import moment from 'moment';
++   import dayjs from 'dayjs';
+-   import 'moment/locale/zh-cn';
++   import 'dayjs/locale/zh-cn';
+
+-   moment.locale('zh-cn');
++   dayjs.locale('zh-cn');
+```
+
+如果你暂时不想替换 day.js，也可以使用 `@ant-design/moment-webpack-plugin` 插件将 day.js 替换回 moment.js：
+
+```bash
+npm install --save-dev @ant-design/moment-webpack-plugin
+```
+
+```javascript
+// webpack-config.js
+import AntdMomentWebpackPlugin from '@ant-design/moment-webpack-plugin';
+
+module.exports = {
+  // ...
+  plugins: [new AntdMomentWebpackPlugin()],
+};
+```
+
+### 旧版浏览器兼容
+
+Ant Design v5 使用 `:where` css selector 降低 CSS-in-JS hash 值优先级，如果你需要支持旧版本浏览器（如 IE 11、360 浏览器 等等）。可以通过 `@ant-design/cssinjs` 的 `StyleProvider` 去除降权操作。详情请参阅 [兼容性调整](/docs/react/customize-theme-cn#兼容性调整)。
 
 ## 遇到问题
 
