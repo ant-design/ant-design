@@ -2989,62 +2989,67 @@ exports[`renders ./components/steps/demo/progress.tsx extend context correctly 1
 
 exports[`renders ./components/steps/demo/progress-debug.tsx extend context correctly 1`] = `
 Array [
-  <button
-    class="ant-btn ant-btn-default"
-    type="button"
+  <div
+    class="ant-space-compact ant-space-compact-block"
   >
-    <span>
-      Percentage to undefined
-    </span>
-  </button>,
-  <button
-    class="ant-btn ant-btn-default"
-    type="button"
-  >
-    <span>
-      Percentage +
-    </span>
-  </button>,
-  <button
-    class="ant-btn ant-btn-default"
-    type="button"
-  >
-    <span>
-      Current +
-    </span>
-  </button>,
-  <button
-    class="ant-btn ant-btn-default"
-    type="button"
-  >
-    <span>
-      Status Wait
-    </span>
-  </button>,
-  <button
-    class="ant-btn ant-btn-default"
-    type="button"
-  >
-    <span>
-      Status Process
-    </span>
-  </button>,
-  <button
-    class="ant-btn ant-btn-default"
-    type="button"
-  >
-    <span>
-      Status Finish
-    </span>
-  </button>,
-  <button
-    class="ant-btn ant-btn-default"
-    type="button"
-  >
-    <span>
-      Status Error
-    </span>
-  </button>,
+    <button
+      class="ant-btn ant-btn-default ant-btn-compact-item ant-btn-compact-first-item"
+      type="button"
+    >
+      <span>
+        Percentage to undefined
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-compact-item"
+      type="button"
+    >
+      <span>
+        Percentage +
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-compact-item"
+      type="button"
+    >
+      <span>
+        Current +
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-compact-item"
+      type="button"
+    >
+      <span>
+        Status Wait
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-compact-item"
+      type="button"
+    >
+      <span>
+        Status Process
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-compact-item"
+      type="button"
+    >
+      <span>
+        Status Finish
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default ant-btn-compact-item ant-btn-compact-last-item"
+      type="button"
+    >
+      <span>
+        Status Error
+      </span>
+    </button>
+  </div>,
+  <br />,
   <div
     class="ant-steps ant-steps-horizontal ant-steps-with-progress ant-steps-label-horizontal"
   >

@@ -2,7 +2,7 @@
 category: Components
 group: Layout
 title: Grid
-cover: https://gw.alipayobjects.com/zos/alicdn/5rWLU27so/Grid.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*mfJeS6cqZrEAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 24 Grids System.
@@ -66,21 +66,21 @@ If the Ant Design grid layout component does not meet your needs, you can use th
 
 ### Col
 
-| Property | Description                                                                                           | Type | Default | Version |
-|----------|-------------------------------------------------------------------------------------------------------| --- | --- | --- |
-| flex     | Flex layout style                                                                                     | string \| number | - |  |
-| offset   | The number of cells to offset Col from the left                                                       | number | 0 |  |
-| order    | Raster order                                                                                          | number | 0 |  |
-| pull     | The number of cells that raster is moved to the left                                                  | number | 0 |  |
-| push     | The number of cells that raster is moved to the right                                                 | number | 0 |  |
-| span     | Raster number of cells to occupy, 0 corresponds to `display: none`                                    | number | none |  |
-| xs       | `screen < 576px` and also default setting, could be a `span` value or an object containing above props | number \| object | - |  |
-| sm       | `screen ≥ 576px`, could be a `span` value or an object containing above props                         | number \| object | - |  |
-| md       | `screen ≥ 768px`, could be a `span` value or an object containing above props                         | number \| object | - |  |
-| lg       | `screen ≥ 992px`, could be a `span` value or an object containing above props                         | number \| object | - |  |
-| xl       | `screen ≥ 1200px`, could be a `span` value or an object containing above props                        | number \| object | - |  |
-| xxl      | `screen ≥ 1600px`, could be a `span` value or an object containing above props                        | number \| object | - |  |
-| xxxl     | `screen ≥ 2000px`, could be a `span` value or an object containing above props                        | number \| object | - | 5.1.0 |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| flex | Flex layout style | string \| number | - |  |
+| offset | The number of cells to offset Col from the left | number | 0 |  |
+| order | Raster order | number | 0 |  |
+| pull | The number of cells that raster is moved to the left | number | 0 |  |
+| push | The number of cells that raster is moved to the right | number | 0 |  |
+| span | Raster number of cells to occupy, 0 corresponds to `display: none` | number | none |  |
+| xs | `screen < 576px` and also default setting, could be a `span` value or an object containing above props | number \| object | - |  |
+| sm | `screen ≥ 576px`, could be a `span` value or an object containing above props | number \| object | - |  |
+| md | `screen ≥ 768px`, could be a `span` value or an object containing above props | number \| object | - |  |
+| lg | `screen ≥ 992px`, could be a `span` value or an object containing above props | number \| object | - |  |
+| xl | `screen ≥ 1200px`, could be a `span` value or an object containing above props | number \| object | - |  |
+| xxl | `screen ≥ 1600px`, could be a `span` value or an object containing above props | number \| object | - |  |
+| xxxl | `screen ≥ 2000px`, could be a `span` value or an object containing above props | number \| object | - | 5.1.0 |
 
 The breakpoints of responsive grid follow [BootStrap 4 media queries rules](https://getbootstrap.com/docs/4.0/layout/overview/#responsive-breakpoints) (not including `occasionally part`).
 

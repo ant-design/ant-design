@@ -4,7 +4,7 @@ subtitle: 图片
 group: 数据展示
 title: Image
 cols: 2
-cover: https://gw.alipayobjects.com/zos/antfincdn/D1dXz9PZqa/image.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*FbOCS6aFMeUAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 可预览的图片。

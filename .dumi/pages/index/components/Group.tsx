@@ -58,7 +58,7 @@ export default function Group(props: GroupProps) {
         boxSizing: 'border-box',
         paddingInline: token.marginXXL,
       };
-  let childNode = (
+  const childNode = (
     <>
       <div style={{ textAlign: 'center' }}>
         <Typography.Title

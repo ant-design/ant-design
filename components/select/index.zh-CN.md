@@ -3,7 +3,7 @@ category: Components
 subtitle: 选择器
 group: 数据录入
 title: Select
-cover: https://gw.alipayobjects.com/zos/alicdn/_0XzgOis7/Select.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*zo76T7KQx2UAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -154,7 +154,7 @@ Select 当失去焦点时会关闭下拉框，如果你可以通过阻止默认�
 <Select
   dropdownRender={() => (
     <div
-      onMouseDown={e => {
+      onMouseDown={(e) => {
         e.preventDefault();
         e.stopPropagation();
       }}

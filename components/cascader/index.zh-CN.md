@@ -3,7 +3,7 @@ category: Components
 group: 数据录入
 title: Cascader
 subtitle: 级联选择
-cover: https://gw.alipayobjects.com/zos/alicdn/UdS8y8xyZ/Cascader.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*tokLTp73TsQAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---

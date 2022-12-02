@@ -3,7 +3,7 @@ category: Components
 subtitle: 面包屑
 group: 导航
 title: Breadcrumb
-cover: https://gw.alipayobjects.com/zos/alicdn/9Ltop8JwH/Breadcrumb.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*I5a2Tpqs3y0AAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---

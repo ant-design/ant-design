@@ -3,7 +3,7 @@ group: 反馈
 category: Components
 title: Result
 subtitle: 结果
-cover: https://gw.alipayobjects.com/zos/alicdn/9nepwjaLa/Result.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-e2IRroDJyEAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 用于反馈一系列操作任务的处理结果。

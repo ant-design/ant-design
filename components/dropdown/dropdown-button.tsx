@@ -28,12 +28,12 @@ export interface DropdownButtonProps extends ButtonGroupProps, DropdownProps {
   buttonsRender?: (buttons: React.ReactNode[]) => React.ReactNode[];
 }
 
-interface DropdownButtonInterface extends React.FC<DropdownButtonProps> {
+type CompoundedComponent = React.FC<DropdownButtonProps> & {
   /** @internal */
   __ANT_BUTTON: boolean;
-}
+};
 
-const DropdownButton: DropdownButtonInterface = (props) => {
+const DropdownButton: CompoundedComponent = (props) => {
   const {
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,

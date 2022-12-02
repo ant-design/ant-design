@@ -2,7 +2,7 @@
 category: Components
 group: Data Display
 title: List
-cover: https://gw.alipayobjects.com/zos/alicdn/5FrZKStG_/List.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*EYuhSpw1iSwAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -69,7 +69,7 @@ More about pagination, please check [`Pagination`](/components/pagination/).
 | lg       | `≥992px` column of grid  | number | -       |         |
 | xl       | `≥1200px` column of grid | number | -       |         |
 | xxl      | `≥1600px` column of grid | number | -       |         |
-| xxxl     | `≥2000px` column of grid   | number | -       | 5.1.0 |
+| xxxl     | `≥2000px` column of grid | number | -       | 5.1.0   |
 
 ### List.Item
 

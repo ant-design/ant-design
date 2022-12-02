@@ -3,7 +3,7 @@ category: Components
 subtitle: 栅格
 group: 布局
 title: Grid
-cover: https://gw.alipayobjects.com/zos/alicdn/5rWLU27so/Grid.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*mfJeS6cqZrEAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 24 栅格系统。
@@ -65,21 +65,21 @@ Ant Design 的布局组件若不能满足你的需求，你也可以直接使用
 
 ### Col
 
-| 成员     | 说明                                    | 类型 | 默认值 | 版本 |
-|--------|---------------------------------------| --- | --- | --- |
-| flex   | flex 布局属性                             | string \| number | - |  |
-| offset | 栅格左侧的间隔格数，间隔内不可以有栅格                   | number | 0 |  |
-| order  | 栅格顺序                                  | number | 0 |  |
-| pull   | 栅格向左移动格数                              | number | 0 |  |
-| push   | 栅格向右移动格数                              | number | 0 |  |
-| span   | 栅格占位格数，为 0 时相当于 `display: none`       | number | - |  |
-| xs     | `屏幕 < 576px` 响应式栅格，可为栅格数或一个包含其他属性的对象  | number \| object | - |  |
-| sm     | `屏幕 ≥ 576px` 响应式栅格，可为栅格数或一个包含其他属性的对象  | number \| object | - |  |
-| md     | `屏幕 ≥ 768px` 响应式栅格，可为栅格数或一个包含其他属性的对象  | number \| object | - |  |
-| lg     | `屏幕 ≥ 992px` 响应式栅格，可为栅格数或一个包含其他属性的对象  | number \| object | - |  |
-| xl     | `屏幕 ≥ 1200px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number \| object | - |  |
-| xxl    | `屏幕 ≥ 1600px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number \| object | - |  |
-| xxxl   | `屏幕 ≥ 2000px` 响应式栅格，可为栅格数或一个包含其他属性的对象    | number \| object | - | 5.1.0 |
+| 成员 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| flex | flex 布局属性 | string \| number | - |  |
+| offset | 栅格左侧的间隔格数，间隔内不可以有栅格 | number | 0 |  |
+| order | 栅格顺序 | number | 0 |  |
+| pull | 栅格向左移动格数 | number | 0 |  |
+| push | 栅格向右移动格数 | number | 0 |  |
+| span | 栅格占位格数，为 0 时相当于 `display: none` | number | - |  |
+| xs | `屏幕 < 576px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number \| object | - |  |
+| sm | `屏幕 ≥ 576px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number \| object | - |  |
+| md | `屏幕 ≥ 768px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number \| object | - |  |
+| lg | `屏幕 ≥ 992px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number \| object | - |  |
+| xl | `屏幕 ≥ 1200px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number \| object | - |  |
+| xxl | `屏幕 ≥ 1600px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number \| object | - |  |
+| xxxl | `屏幕 ≥ 2000px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number \| object | - | 5.1.0 |
 
 响应式栅格的断点扩展自 [BootStrap 4 的规则](https://getbootstrap.com/docs/4.0/layout/overview/#responsive-breakpoints)（不包含链接里 `occasionally` 的部分)。
 
