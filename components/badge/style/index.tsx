@@ -185,6 +185,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
         },
         [`${componentCls}-status-processing`]: {
           position: 'relative',
+          color: token.colorPrimary,
           backgroundColor: token.colorPrimary,
 
           '&::after': {
@@ -193,7 +194,9 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
             insetInlineStart: 0,
             width: '100%',
             height: '100%',
-            border: `${badgeShadowSize}px solid ${token.colorPrimary}`,
+            borderWidth: badgeShadowSize,
+            borderStyle: 'solid',
+            borderColor: 'inherit',
             borderRadius: '50%',
             animationName: antStatusProcessing,
             animationDuration: token.badgeProcessingDuration,
