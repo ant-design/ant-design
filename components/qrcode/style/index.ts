@@ -20,7 +20,7 @@ const genQRCodeStyle: GenerateStyle<QRCodeToken> = (token) => {
         borderRadius: 8,
         insetBlockStart: 0,
         insetInlineStart: 0,
-        zIndex: '10',
+        zIndex: 10,
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
