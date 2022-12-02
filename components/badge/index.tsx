@@ -213,7 +213,6 @@ const Badge: CompoundedComponent = ({
           let scrollNumberStyle: React.CSSProperties = { ...mergedStyle };
           if (color && !isPresetColor(color)) {
             scrollNumberStyle = scrollNumberStyle || {};
-            scrollNumberStyle.color = color;
             scrollNumberStyle.backgroundColor = color;
           }
 
