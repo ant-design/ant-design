@@ -40,6 +40,7 @@ Used when the link needs to be converted into a QR Code.
 | size | QRCode size | number | 128 |
 | iconSize | include image size | number | 32 |
 | color | QRCode Color | string | `#000` |
+| bordered | Whether has border style | boolean | `true` |
 | errorLevel | Error Code Level | `'L' \| 'M' \| 'Q' \| 'H' ` | `M` |
 | status | QRCode statu | `active \| expired \| loading ` | `active` |
 | onRefresh | callback | `() => void` | - |
