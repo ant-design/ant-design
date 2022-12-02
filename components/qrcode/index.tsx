@@ -63,7 +63,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
           className={classNames(prefixCls, className, hashId)}
         >
           {status !== 'active' && (
-            <div className={classNames(`${prefixCls}-mask`, hashId)}>
+            <div className={classNames(`${prefixCls}-mask`)}>
               {status === 'loading' && <Spin />}
               {status === 'expired' && (
                 <>
