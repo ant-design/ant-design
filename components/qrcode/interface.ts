@@ -29,8 +29,4 @@ export interface QRCodeProps extends QRProps {
   errorLevel?: 'L' | 'M' | 'Q' | 'H';
   status?: 'active' | 'expired' | 'loading';
   onRefresh?: () => void;
-  // statusRender?: (
-  //   status: QRCodeProps['status'],
-  //   onRefresh: QRCodeProps['onRefresh'],
-  // ) => React.ReactNode;
 }
