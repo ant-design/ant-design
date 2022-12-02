@@ -23,6 +23,7 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*fHdlTpif6XQAAAAAAA
 <code src="./demo/vertical.tsx">垂直</code>
 <code src="./demo/vertical-border.tsx">垂直带边框的</code>
 <code src="./demo/style.tsx" debug>自定义 label & wrapper 样式</code>
+<code src="./demo/nested-debug.tsx" debug>Nested Debug</code>
 
 ## API
 
