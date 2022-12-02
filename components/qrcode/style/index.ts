@@ -10,7 +10,7 @@ const genQRCodeStyle: GenerateStyle<QRCodeToken> = (token) => {
     [componentCls]: {
       ...resetComponent(token),
       padding: 10,
-      borderRadius: 8,
+      borderRadius: token.borderRadiusLG,
       border: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`
       position: 'relative',
       width: '100%',
