@@ -136,6 +136,10 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         padding: `0 0 ${treeNodePadding}px 0`,
         outline: 'none',
 
+        '&[aria-hidden="true"]': {
+          padding: 0,
+        },
+
         '&-rtl': {
           direction: 'rtl',
         },
