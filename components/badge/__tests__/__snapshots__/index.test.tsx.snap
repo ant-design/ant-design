@@ -51,7 +51,7 @@ exports[`Badge render Badge status/color when contains children 1`] = `
     <sup
       class="ant-scroll-number ant-badge-count"
       data-show="true"
-      style="background: rgb(0, 136, 204);"
+      style="background-color: rgb(0, 136, 204);"
       title="5"
     >
       <span
@@ -222,7 +222,7 @@ exports[`Badge should display custom color and number is 0 1`] = `
     <sup
       class="ant-scroll-number ant-badge-count"
       data-show="true"
-      style="background: rgb(255, 255, 0);"
+      style="background-color: rgb(255, 255, 0);"
       title="0"
     >
       0

@@ -549,7 +549,7 @@ Array [
       >
         <span
           class="ant-badge-status-dot"
-          style="background:#f50"
+          style="color:#f50;background-color:#f50"
         />
         <span
           class="ant-badge-status-text"
@@ -567,7 +567,7 @@ Array [
       >
         <span
           class="ant-badge-status-dot"
-          style="background:rgb(45, 183, 245)"
+          style="color:rgb(45, 183, 245);background-color:rgb(45, 183, 245)"
         />
         <span
           class="ant-badge-status-text"
@@ -585,7 +585,7 @@ Array [
       >
         <span
           class="ant-badge-status-dot"
-          style="background:hsl(102, 53%, 61%)"
+          style="color:hsl(102, 53%, 61%);background-color:hsl(102, 53%, 61%)"
         />
         <span
           class="ant-badge-status-text"
@@ -602,7 +602,7 @@ Array [
       >
         <span
           class="ant-badge-status-dot"
-          style="background:hwb(205 6% 9%)"
+          style="color:hwb(205 6% 9%);background-color:hwb(205 6% 9%)"
         />
         <span
           class="ant-badge-status-text"
@@ -1365,7 +1365,7 @@ exports[`renders ./components/badge/demo/mix.tsx extend context correctly 1`] = 
           <sup
             class="ant-scroll-number ant-badge-count"
             data-show="true"
-            style="background:#fa541c"
+            style="background-color:#fa541c"
             title="5"
           >
             <span
@@ -1462,7 +1462,7 @@ exports[`renders ./components/badge/demo/mix.tsx extend context correctly 1`] = 
           <sup
             class="ant-scroll-number ant-badge-dot"
             data-show="true"
-            style="background:#fa541c"
+            style="background-color:#fa541c"
           />
         </span>
       </div>
@@ -1518,7 +1518,7 @@ exports[`renders ./components/badge/demo/mix.tsx extend context correctly 1`] = 
           <sup
             class="ant-scroll-number ant-badge-count"
             data-show="true"
-            style="background:#f0f"
+            style="background-color:#f0f"
             title="0"
           >
             0
@@ -1617,7 +1617,7 @@ exports[`renders ./components/badge/demo/no-wrapper.tsx extend context correctly
       <sup
         class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
         data-show="true"
-        style="background:#faad14"
+        style="background-color:#faad14"
         title="11"
       >
         <span
