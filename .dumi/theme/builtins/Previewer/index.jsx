@@ -407,25 +407,24 @@ createRoot(document.getElementById('container')).render(<Demo />);
                 <CodeSandboxIcon className="code-box-codesandbox" />
               </Tooltip>
             </form>
-            <form
-              className="code-box-code-action"
-              action="https://codepen.io/pen/define"
-              method="POST"
-              target="_blank"
-              ref={this.codepenIconRef}
-              onClick={() => {
-                this.track({ type: 'codepen', demo: meta.id });
-                this.codepenIconRef.current.submit();
-              }}
-              style={{
-                display: sourceCode ? '' : 'none',
-              }}
-            >
-              <input type="hidden" name="data" value={JSON.stringify(codepenPrefillConfig)} />
-              <Tooltip title={<FormattedMessage id="app.demo.codepen" />}>
-                <CodePenIcon className="code-box-codepen" />
-              </Tooltip>
-            </form>
+            {sourceCode && (
+              <form
+                className="code-box-code-action"
+                action="https://codepen.io/pen/define"
+                method="POST"
+                target="_blank"
+                ref={this.codepenIconRef}
+                onClick={() => {
+                  this.track({ type: 'codepen', demo: meta.id });
+                  this.codepenIconRef.current.submit();
+                }}
+              >
+                <input type="hidden" name="data" value={JSON.stringify(codepenPrefillConfig)} />
+                <Tooltip title={<FormattedMessage id="app.demo.codepen" />}>
+                  <CodePenIcon className="code-box-codepen" />
+                </Tooltip>
+              </form>
+            )}
             <Tooltip title={<FormattedMessage id="app.demo.stackblitz" />}>
               <span
                 className="code-box-code-action"
