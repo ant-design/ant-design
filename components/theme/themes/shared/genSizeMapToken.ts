@@ -4,7 +4,6 @@ export default function genSizeMapToken(token: SeedToken): SizeMapToken {
   const { sizeUnit, sizeStep } = token;
 
   return {
-    sizeXXXL: sizeUnit * (sizeStep + 16), // 80
     sizeXXL: sizeUnit * (sizeStep + 8), // 48
     sizeXL: sizeUnit * (sizeStep + 4), // 32
     sizeLG: sizeUnit * (sizeStep + 2), // 24

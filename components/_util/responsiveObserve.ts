@@ -1,21 +1,20 @@
-import { GlobalToken } from '../theme/interface';
+import type { GlobalToken } from '../theme/interface';
 import { useToken } from '../theme/internal';
 
-export type Breakpoint = 'xxxl' | 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
+export type Breakpoint = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
 export type BreakpointMap = Record<Breakpoint, string>;
 export type ScreenMap = Partial<Record<Breakpoint, boolean>>;
 export type ScreenSizeMap = Partial<Record<Breakpoint, number>>;
 
-export const responsiveArray: Breakpoint[] = ['xxxl', 'xxl', 'xl', 'lg', 'md', 'sm', 'xs'];
+export const responsiveArray: Breakpoint[] = ['xxl', 'xl', 'lg', 'md', 'sm', 'xs'];
 
 const getResponsiveMap = (token: GlobalToken): BreakpointMap => ({
   xs: `(max-width: ${token.screenXS}px)`,
-  sm: `(max-width: ${token.screenSM}px)`,
-  md: `(max-width: ${token.screenMD}px)`,
-  lg: `(max-width: ${token.screenLG}px)`,
-  xl: `(max-width: ${token.screenXL}px)`,
-  xxl: `(max-width: ${token.screenXXL}px)`,
-  xxxl: `(max-width: ${token.screenXXXL}px)`,
+  sm: `(min-width: ${token.screenSM}px)`,
+  md: `(min-width: ${token.screenMD}px)`,
+  lg: `(min-width: ${token.screenLG}px)`,
+  xl: `(min-width: ${token.screenXL}px)`,
+  xxl: `(min-width: ${token.screenXXL}px)`,
 });
 
 type SubscribeFunc = (screens: ScreenMap) => void;
@@ -45,8 +44,8 @@ export default function useResponsiveObserve() {
       func(screens);
       return subUid;
     },
-    unsubscribe(token: number) {
-      subscribers.delete(token);
+    unsubscribe(paramToken: number) {
+      subscribers.delete(paramToken);
       if (!subscribers.size) this.unregister();
     },
     unregister() {

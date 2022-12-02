@@ -99,7 +99,7 @@ The sidebar.
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| breakpoint | [Breakpoints](/components/grid/#Col) of the responsive layout | `xs` \| `sm` \| `md` \| `lg` \| `xl` \| `xxl` \| `xxxl` | - |
+| breakpoint | [Breakpoints](/components/grid/#Col) of the responsive layout | `xs` \| `sm` \| `md` \| `lg` \| `xl` \| `xxl` | - |
 | className | Container className | string | - |
 | collapsed | To set the current status | boolean | - |
 | collapsedWidth | Width of the collapsed sidebar, by setting to 0 a special trigger will appear | number | 80 |
@@ -124,7 +124,6 @@ The sidebar.
   lg: '992px',
   xl: '1200px',
   xxl: '1600px',
-  xxxl: '2000px',
 }
 ```
 

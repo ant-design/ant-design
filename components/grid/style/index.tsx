@@ -160,7 +160,6 @@ export const useColStyle = genComponentStyleHook('Grid', (token) => {
     '-lg': gridToken.screenLGMin,
     '-xl': gridToken.screenXLMin,
     '-xxl': gridToken.screenXXLMin,
-    '-xxxl': gridToken.screenXXXLMin,
   };
 
   return [

@@ -143,7 +143,6 @@ describe('Grid', () => {
       lg: false,
       xl: false,
       xxl: false,
-      xxxl: false,
     });
   });
 

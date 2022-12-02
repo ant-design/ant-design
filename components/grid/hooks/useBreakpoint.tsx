@@ -6,9 +6,9 @@ import useResponsiveObserve from '../../_util/responsiveObserve';
 function useBreakpoint(refreshOnChange: boolean = true): ScreenMap {
   const screensRef = useRef<ScreenMap>({});
   const forceUpdate = useForceUpdate();
+  const responsiveObserve = useResponsiveObserve();
 
   useEffect(() => {
-    const responsiveObserve = useResponsiveObserve();
     const token = responsiveObserve.subscribe((supportScreens) => {
       screensRef.current = supportScreens;
       if (refreshOnChange) {

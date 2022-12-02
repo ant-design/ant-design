@@ -11,7 +11,7 @@ import { useRowStyle } from './style';
 const RowAligns = tuple('top', 'middle', 'bottom', 'stretch');
 const RowJustify = tuple('start', 'end', 'center', 'space-around', 'space-between', 'space-evenly');
 
-type Responsive = 'xxxl' | 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
+type Responsive = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
 type ResponsiveLike<T> = {
   [key in Responsive]?: T;
 };
@@ -77,7 +77,6 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
     lg: true,
     xl: true,
     xxl: true,
-    xxxl: true,
   });
   // to save screens info when responsiveObserve callback had been call
   const [curScreens, setCurScreens] = React.useState<ScreenMap>({
@@ -87,7 +86,6 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
     lg: false,
     xl: false,
     xxl: false,
-    xxxl: false,
   });
 
   // ================================== calc reponsive data ==================================
@@ -99,9 +97,10 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
 
   const gutterRef = React.useRef<Gutter | [Gutter, Gutter]>(gutter);
 
+  const responsiveObserve = useResponsiveObserve();
+
   // ================================== Effect ==================================
   React.useEffect(() => {
-    const responsiveObserve = useResponsiveObserve();
     const token = responsiveObserve.subscribe((screen) => {
       setCurScreens(screen);
       const currentGutter = gutterRef.current || 0;

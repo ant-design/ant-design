@@ -100,7 +100,7 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*4i58ToAcxaYAAAAAAA
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| breakpoint | 触发响应式布局的[断点](/components/grid/#Col) | `xs` \| `sm` \| `md` \| `lg` \| `xl` \| `xxl` \| `xxxl` | - |
+| breakpoint | 触发响应式布局的[断点](/components/grid/#Col) | `xs` \| `sm` \| `md` \| `lg` \| `xl` \| `xxl` | - |
 | className | 容器 className | string | - |
 | collapsed | 当前收起状态 | boolean | - |
 | collapsedWidth | 收缩宽度，设置为 0 会出现特殊 trigger | number | 80 |
@@ -125,7 +125,6 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*4i58ToAcxaYAAAAAAA
   lg: '992px',
   xl: '1200px',
   xxl: '1600px',
-  xxxl: '2000px',
 }
 ```
 

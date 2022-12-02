@@ -20,7 +20,6 @@ export interface DescriptionsContextProps {
 export const DescriptionsContext = React.createContext<DescriptionsContextProps>({});
 
 const DEFAULT_COLUMN_MAP: Record<Breakpoint, number> = {
-  xxxl: 4,
   xxl: 3,
   xl: 3,
   lg: 3,
@@ -136,10 +135,10 @@ function Descriptions({
   const mergedColumn = getColumn(column, screens);
 
   const [wrapSSR, hashId] = useStyle(prefixCls);
+  const responsiveObserve = useResponsiveObserve();
 
   // Responsive
   React.useEffect(() => {
-    const responsiveObserve = useResponsiveObserve();
     const token = responsiveObserve.subscribe((newScreens) => {
       if (typeof column !== 'object') {
         return;

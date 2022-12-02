@@ -17,7 +17,6 @@ const dimensionMaxMap = {
   lg: '991.98px',
   xl: '1199.98px',
   xxl: '1599.98px',
-  xxxl: '1999.98px',
 };
 
 export interface SiderContextProps {
@@ -41,7 +40,7 @@ export interface SiderProps extends React.HTMLAttributes<HTMLDivElement> {
   trigger?: React.ReactNode;
   width?: number | string;
   collapsedWidth?: number | string;
-  breakpoint?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'xxxl';
+  breakpoint?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
   theme?: SiderTheme;
   onBreakpoint?: (broken: boolean) => void;
 }

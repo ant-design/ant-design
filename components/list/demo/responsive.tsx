@@ -32,7 +32,6 @@ const App: React.FC = () => (
       lg: 4,
       xl: 6,
       xxl: 3,
-      xxxl: 2,
     }}
     dataSource={data}
     renderItem={(item) => (

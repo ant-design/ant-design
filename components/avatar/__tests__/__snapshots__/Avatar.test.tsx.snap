@@ -84,20 +84,6 @@ exports[`Avatar Render adjusts component size to 100 when window size is xxl 1`]
 </div>
 `;
 
-exports[`Avatar Render adjusts component size to 120 when window size is xxxl 1`] = `
-<div>
-  <span
-    class="ant-avatar ant-avatar-circle"
-    style="width: 120px; height: 120px; line-height: 120px; font-size: 18px;"
-  >
-    <span
-      class="ant-avatar-string"
-      style="transform: scale(0.32) translateX(-50%);"
-    />
-  </span>
-</div>
-`;
-
 exports[`Avatar Render fallback 1`] = `
 <span
   class="ant-avatar ant-avatar-circle"
