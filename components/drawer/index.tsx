@@ -93,6 +93,14 @@ function Drawer(props: DrawerProps) {
         `\`${deprecatedName}\` is deprecated, please use \`${newName}\` instead.`,
       );
     });
+
+    if (getContainer !== undefined && props.style?.position === 'absolute') {
+      warning(
+        false,
+        'Drawer',
+        '`style` is move to `rootStyle` in v5. Please confirm `position: absolute` is necessary.',
+      );
+    }
   }
 
   // ============================ Size ============================

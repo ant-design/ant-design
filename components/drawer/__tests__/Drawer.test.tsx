@@ -6,6 +6,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
+import { resetWarned } from '../../_util/warning';
 
 const DrawerTest: React.FC<DrawerProps> = ({ getContainer }) => (
   <div>
@@ -206,6 +207,40 @@ describe('Drawer', () => {
     const { container } = render(<Drawer getContainer={false} open zIndex={903} />);
     expect(container.querySelector('.ant-drawer')).toHaveStyle({
       zIndex: 903,
+    });
+  });
+
+  describe('style migrate', () => {
+    it('not warning with getContainer', () => {
+      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      resetWarned();
+
+      render(<Drawer getContainer={() => document.body} />);
+      expect(errorSpy).not.toHaveBeenCalled();
+
+      errorSpy.mockRestore();
+    });
+
+    it('not warning with getContainer false', () => {
+      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      resetWarned();
+
+      render(<Drawer getContainer={false} />);
+      expect(errorSpy).not.toHaveBeenCalled();
+
+      errorSpy.mockRestore();
+    });
+
+    it('warning with getContainer & style', () => {
+      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      resetWarned();
+
+      render(<Drawer getContainer={false} style={{ position: 'absolute' }} />);
+      expect(errorSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Drawer] `style` is move to `rootStyle` in v5. Please confirm `position: absolute` is necessary.',
+      );
+
+      errorSpy.mockRestore();
     });
   });
 });
