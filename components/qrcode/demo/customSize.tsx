@@ -18,8 +18,8 @@ const App: React.FC = () => {
   const decline = () => {
     setSize((prevSize) => {
       const newSize = prevSize - 10;
-      if (newSize < 40) {
-        return 40;
+      if (newSize < 48) {
+        return 48;
       }
       return newSize;
     });
@@ -28,7 +28,7 @@ const App: React.FC = () => {
   return (
     <>
       <Button.Group style={{ marginBottom: 16 }}>
-        <Button onClick={decline} disabled={size <= 40} icon={<MinusOutlined />}>
+        <Button onClick={decline} disabled={size <= 48} icon={<MinusOutlined />}>
           Smaller
         </Button>
         <Button onClick={increase} disabled={size >= 300} icon={<PlusOutlined />}>
