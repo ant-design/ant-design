@@ -1,5 +1,5 @@
 import { TinyColor } from '@ctrl/tinycolor';
-import type { AliasToken, MapToken, OverrideToken } from '../interface';
+import type { AliasToken, MapToken, OverrideToken, SeedToken } from '../interface';
 import getAlphaColor from './getAlphaColor';
 import seedToken from '../themes/seed';
 
@@ -16,7 +16,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
   const overrideTokens = { ...override };
 
   Object.keys(seedToken).forEach((token) => {
-    Reflect.deleteProperty(overrideTokens, token);
+    delete overrideTokens[token as keyof SeedToken];
   });
 
   const mergedToken = {
@@ -208,7 +208,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
 
     // Override AliasToken
     ...overrideTokens,
-  } as AliasToken;
+  };
 
   return aliasToken;
 }

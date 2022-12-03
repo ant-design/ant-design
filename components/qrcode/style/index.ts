@@ -2,6 +2,8 @@ import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { mergeToken, genComponentStyleHook } from '../../theme/internal';
 import { resetComponent } from '../../style';
 
+export interface ComponentToken {}
+
 interface QRCodeToken extends FullToken<'QRCode'> {
   QRCodeMaskBackgroundColor: string;
 }
