@@ -8,7 +8,7 @@
 
 Render in current dom. custom container, check `getContainer`.
 
-Note: `style` and `className` is move to Drawer panel in v5 which is align with Modal component. Origin `style` and `className` is replaced by `rootStyle` and `rootClassName`.
+Note: `style` and `className` props are moved to Drawer panel in v5 which is aligned with Modal component. Original `style` and `className` props are replaced by `rootStyle` and `rootClassName`.
 
 ```css
 .site-drawer-render-in-current-wrapper {

@@ -98,7 +98,7 @@ function Drawer(props: DrawerProps) {
       warning(
         false,
         'Drawer',
-        '`style` is move to `rootStyle` in v5. Please confirm `position: absolute` is necessary.',
+        '`style` is replaced by `rootStyle` in v5. Please check that `position: absolute` is necessary.',
       );
     }
   }
