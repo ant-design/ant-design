@@ -269,7 +269,6 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         ${treeCls}-node-content-wrapper,
         ${treeCls}-checkbox + span
       `]: {
-        flexWrap: 'nowrap',
         position: 'relative',
         zIndex: 'auto',
         minHeight: treeTitleHeight,
