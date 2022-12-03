@@ -197,7 +197,7 @@
     "antd-token-previewer": "^1.1.0-6",
     "array-move": "^4.0.0",
     "babel-plugin-add-react-displayname": "^0.0.5",
-    "bundlesize": "^0.18.0",
+    "bundlesize2": "^0.0.31",
     "chalk": "^4.0.0",
     "cheerio": "1.0.0-rc.12",
     "concurrently": "^7.0.0",
