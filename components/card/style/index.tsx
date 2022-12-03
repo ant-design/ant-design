@@ -117,6 +117,7 @@ const genCardActionsStyle: GenerateStyle<CardToken> = (token): CSSObject => {
     background: token.colorBgContainer,
     borderTop: `${token.lineWidth}px ${token.lineType} ${colorBorderSecondary}`,
     display: 'flex',
+    borderRadius: `0 0 ${token.borderRadiusLG}px ${token.borderRadiusLG}px `,
     ...clearFix(),
 
     '& > li': {
