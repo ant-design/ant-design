@@ -72,4 +72,11 @@ describe('QRCode test', () => {
     fireEvent.click(container?.querySelector<HTMLButtonElement>('button')!);
     expect(container.querySelector<HTMLDivElement>('.ant-spin-spinning')).toBeTruthy();
   });
+
+  it('support bordered', () => {
+    const { container } = render(<QRCode value="test" bordered={false} />);
+    expect(container?.querySelector<HTMLDivElement>('.ant-qrcode')).toHaveClass(
+      'ant-qrcode-borderless',
+    );
+  });
 });
