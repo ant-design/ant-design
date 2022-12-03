@@ -290,6 +290,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
     pickerPanelCellWidth,
     paddingSM,
     paddingXS,
+    paddingXXS,
     colorBgContainer,
     lineWidth,
     lineType,
@@ -779,7 +780,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
         '&-column': {
           flex: '1 0 auto',
           width: pickerTimePanelColumnWidth,
-          margin: 0,
+          margin: `${paddingXXS}px 0`,
           padding: 0,
           overflowY: 'hidden',
           textAlign: 'start',
@@ -791,10 +792,6 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
             display: 'block',
             height: pickerTimePanelColumnHeight - pickerTimePanelCellHeight,
             content: '""',
-            [`${componentCls}-datetime-panel &`]: {
-              height:
-                pickerTimePanelColumnHeight - pickerPanelWithoutTimeCellHeight + 2 * lineWidth,
-            },
           },
 
           '&:not(:first-child)': {
@@ -850,6 +847,10 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
             },
           },
         },
+      },
+      // https://github.com/ant-design/ant-design/issues/39227
+      [`&-datetime-panel ${componentCls}-time-panel-column:after`]: {
+        height: pickerTimePanelColumnHeight - pickerTimePanelCellHeight + paddingXXS * 2,
       },
     },
   };
