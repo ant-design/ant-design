@@ -48,7 +48,7 @@
     "api-collection": "antd-tools run api-collection",
     "authors": "node ./scripts/generate-authors",
     "build": "npm run compile && NODE_OPTIONS='--max-old-space-size=4096' npm run dist",
-    "bundlesize": "bundlesize",
+    "bundlesize": "bundlesize --enable-github-checks",
     "size-limit": "size-limit",
     "check-commit": "node ./scripts/check-commit",
     "check-ts-demo": "node ./scripts/check-ts-demo",
