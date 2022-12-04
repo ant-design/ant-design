@@ -263,12 +263,10 @@ const genSelectStyle: GenerateStyle<SelectToken> = (token) => {
           width: '100%',
         },
         // Space.Compact
-        ...genCompactItemStyle(
-          token,
-          componentCls,
-          `${componentCls}-selector`,
-          `${componentCls}-focused`,
-        ),
+        ...genCompactItemStyle(token, componentCls, {
+          borderedElementCls: `${componentCls}-selector`,
+          popoverFocusedCls: `${componentCls}-focused`,
+        }),
       },
     },
 
