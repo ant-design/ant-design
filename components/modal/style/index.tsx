@@ -154,7 +154,7 @@ const genModalStyle: GenerateStyle<ModalToken> = (token) => {
           fontWeight: token.fontWeightStrong,
           fontSize: token.modalHeaderTitleFontSize,
           lineHeight: token.modalHeaderTitleLineHeight,
-          wordWrap: 'break-word',
+          wordBreak: 'break-all',
         },
 
         [`${componentCls}-content`]: {
@@ -220,7 +220,7 @@ const genModalStyle: GenerateStyle<ModalToken> = (token) => {
         [`${componentCls}-body`]: {
           fontSize: token.fontSize,
           lineHeight: token.lineHeight,
-          wordWrap: 'break-word',
+          wordBreak: 'break-all',
         },
 
         [`${componentCls}-footer`]: {
@@ -297,7 +297,7 @@ const genModalConfirmStyle: GenerateStyle<ModalToken> = (token) => {
 
           [`+ ${confirmComponentCls}-content`]: {
             marginBlockStart: token.marginXS,
-            flexBasis: "100%",
+            flexBasis: '100%',
           },
         },
 
