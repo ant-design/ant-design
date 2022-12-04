@@ -59,6 +59,8 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
     let testMethod = options.skip === true ? test.skip : test;
     if (Array.isArray(options.skip) && options.skip.some((c) => file.includes(c))) {
       testMethod = test.skip;
+    } else {
+      testMethod = it;
     }
 
     if (!doInject && !cssinjsTest && testMethod !== test.skip) {
