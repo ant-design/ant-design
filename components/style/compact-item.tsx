@@ -4,11 +4,14 @@ import type { DerivativeToken } from '../theme/internal';
 
 interface CompactItemOptions {
   focus?: boolean;
-  /** Some component borders are implemented on child elements like `Select` */
+  /**
+   * Some component borders are implemented on child elements
+   * like `Select`
+   */
   borderedElementCls?: string;
   /**
-   * Some components have special `focus` className especially with popovers like `Select` and
-   * `DatePicker`
+   * Some components have special `focus` className especially with popovers
+   * like `Select` and `DatePicker`
    */
   popoverFocusedCls?: string;
 }
