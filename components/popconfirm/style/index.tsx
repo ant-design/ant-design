@@ -17,6 +17,7 @@ const genBaseStyle: GenerateStyle<PopconfirmToken> = (token) => {
     colorWarning,
     marginXS,
     fontSize,
+    fontWeightStrong,
     lineHeight,
   } = token;
 
@@ -49,6 +50,18 @@ const genBaseStyle: GenerateStyle<PopconfirmToken> = (token) => {
           flex: 'auto',
           marginInlineStart: marginXS,
         },
+
+        '&-title-only': {
+          fontWeight: fontWeightStrong,
+        },
+      },
+
+      [`${componentCls}-description`]: {
+        position: 'relative',
+        marginInlineStart: fontSize + marginXS,
+        marginBottom: marginXS,
+        color: colorText,
+        fontSize,
       },
 
       [`${componentCls}-buttons`]: {

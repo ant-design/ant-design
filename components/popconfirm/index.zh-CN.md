@@ -41,6 +41,7 @@ demo:
 | okType | 确认按钮类型 | string | `primary` |  |
 | showCancel | 是否显示取消按钮 | boolean | true | 4.18.0 |
 | title | 确认框的描述 | ReactNode \| () => ReactNode | - |  |
+| description | 对确认框标题的描述 | ReactNode \| () => ReactNode | - |  |
 | onCancel | 点击取消的回调 | function(e) | - |  |
 | onConfirm | 点击确认的回调 | function(e) | - |  |
 
