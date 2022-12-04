@@ -20,7 +20,7 @@ Add specific text or patterns to the page.
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/multi-line.tsx">Multi-line watermark</code>
 <code src="./demo/image.tsx">Image watermark</code>
-<code src="./demo/z-index.tsx">High priority</code>
+<code src="./demo/custom.tsx">Custom configuration</code>
 
 ## API
 
@@ -28,8 +28,8 @@ Add specific text or patterns to the page.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| width | The width of the watermark | number | 120 |  |
-| height | The height of the watermark | number | 64 |  |
+| width | The width of the watermark, the default value of `content` is its own width | number | 120 |  |
+| height | The height of the watermark, the default value of `content` is its own height | number | 64 |  |
 | rotate | When the watermark is drawn, the rotation Angle, unit `°` | number | -22 |  |
 | zIndex | The z-index of the appended watermark element | number | 9 |  |
 | image | Image source, it is recommended to export 2x or 3x image, high priority | string | - |  |

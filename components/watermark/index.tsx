@@ -1,6 +1,8 @@
 import React, { useEffect, useMemo, useRef } from 'react';
 import useMutationObserver from './useMutationObserver';
 
+const FontGap = 3;
+
 const getStyleStr = (style: Record<string, string | number>): string => {
   let styleStr = '';
   Object.keys(style).forEach((item) => {
@@ -39,8 +41,8 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
      */
     zIndex = 9,
     rotate = -22,
-    width = 120,
-    height = 64,
+    width,
+    height,
     image,
     content,
     font = {},
@@ -88,18 +90,18 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
     };
   }, [offset, gap]);
 
-  const markStyle: React.CSSProperties = {
+  const getMarkStyle = (markWidth: number) => ({
     zIndex,
     position: 'absolute',
     left: 0,
     top: 0,
     width: '100%',
     height: '100%',
-    backgroundSize: `${gapX + width}px`,
+    backgroundSize: `${gapX + markWidth}px`,
     pointerEvents: 'none',
     backgroundRepeat: 'repeat',
     ...offsetStyle,
-  };
+  });
 
   const containerRef = useRef<HTMLDivElement>(null);
   const watermarkDom = useRef<HTMLDivElement>();
@@ -133,14 +135,14 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
     return flag;
   };
 
-  const appendWatermark = (base64Url: string) => {
+  const appendWatermark = (base64Url: string, markWidth: number) => {
     if (containerRef.current && watermarkDom.current) {
       destroyObserver();
       watermarkDom.current.setAttribute(WATERMARK_ID_NAME, watermarkId);
       watermarkDom.current.setAttribute(
         'style',
         getStyleStr({
-          ...markStyle,
+          ...getMarkStyle(markWidth),
           backgroundImage: `url('${base64Url}')`,
         }),
       );
@@ -157,6 +159,23 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
     }
   };
 
+  /**
+   * Get the width and height of the watermark. The default values are as follows
+   * Image: [120, 64]; Content: It's calculated by content;
+   */
+  const getMarkSize = (ctx: CanvasRenderingContext2D) => {
+    let defaultWidth = 120;
+    let defaultHeight = 64;
+    if (!image && ctx.measureText) {
+      ctx.font = `${Number(fontSize)}px ${fontFamily}`;
+      const contents = Array.isArray(content) ? content : [content];
+      const widths = contents.map((item) => ctx.measureText(item as string).width);
+      defaultWidth = Math.ceil(Math.max(...widths));
+      defaultHeight = Number(fontSize) * contents.length + (contents.length - 1) * FontGap;
+    }
+    return [width ?? defaultWidth, height ?? defaultHeight];
+  };
+
   const renderWatermark = () => {
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
@@ -166,21 +185,21 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
         watermarkDom.current = document.createElement('div');
       }
 
-      const ratio = window.devicePixelRatio;
-      const canvasWidth = `${(gapX + width) * ratio}px`;
-      const canvasHeight = `${(gapY + height) * ratio}px`;
-
+      const ratio = window.devicePixelRatio || 1;
+      const [markWidth, markHeight] = getMarkSize(ctx);
+      const canvasWidth = `${(gapX + markWidth) * ratio}px`;
+      const canvasHeight = `${(gapY + markHeight) * ratio}px`;
       canvas.setAttribute('width', canvasWidth);
       canvas.setAttribute('height', canvasHeight);
 
-      const markWidth = width * ratio;
-      const markHeight = height * ratio;
+      const mergedMarkWidth = markWidth * ratio;
+      const mergedMarkHeight = markHeight * ratio;
       const gapXCenter = (gapX * ratio) / 2;
       const gapYCenter = (gapY * ratio) / 2;
 
       /** Rotate with the canvas as the center point */
-      const centerX = (markWidth + gapX * ratio) / 2;
-      const centerY = (markHeight + gapY * ratio) / 2;
+      const centerX = (mergedMarkWidth + gapX * ratio) / 2;
+      const centerY = (mergedMarkHeight + gapY * ratio) / 2;
       ctx.translate(centerX, centerY);
       ctx.rotate((Math.PI / 180) * Number(rotate));
       ctx.translate(-centerX, -centerY);
@@ -188,27 +207,27 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
       if (image) {
         const img = new Image();
         img.onload = () => {
-          ctx.drawImage(img, gapXCenter, gapYCenter, markWidth, markHeight);
-          appendWatermark(canvas.toDataURL());
+          ctx.drawImage(img, gapXCenter, gapYCenter, mergedMarkWidth, mergedMarkHeight);
+          appendWatermark(canvas.toDataURL(), markWidth);
         };
         img.crossOrigin = 'anonymous';
         img.referrerPolicy = 'no-referrer';
         img.src = image;
-      } else if (content) {
-        const markSize = Number(fontSize) * ratio;
-        const fontGap = ratio * 3;
-        ctx.font = `${fontStyle} normal ${fontWeight} ${markSize}px/${markHeight}px ${fontFamily}`;
+      } else {
+        const mergedFontSize = Number(fontSize) * ratio;
+        ctx.font = `${fontStyle} normal ${fontWeight} ${mergedFontSize}px/${mergedMarkHeight}px ${fontFamily}`;
         ctx.fillStyle = color;
         ctx.textAlign = 'center';
-        ctx.translate(markWidth / 2, markSize);
+        ctx.textBaseline = 'top';
+        ctx.translate(mergedMarkWidth / 2, 0);
         if (Array.isArray(content)) {
           content?.forEach((item: string, index: number) =>
-            ctx.fillText(item, gapXCenter, gapYCenter + index * (markSize + fontGap)),
+            ctx.fillText(item, gapXCenter, gapYCenter + index * (mergedFontSize + FontGap * ratio)),
           );
         } else {
-          ctx.fillText(content, gapXCenter, gapYCenter);
+          ctx.fillText(content ?? '', gapXCenter, gapYCenter);
         }
-        appendWatermark(canvas.toDataURL());
+        appendWatermark(canvas.toDataURL(), markWidth);
       }
     }
   };
