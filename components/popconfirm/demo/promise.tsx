@@ -8,7 +8,12 @@ const App: React.FC = () => {
     });
 
   return (
-    <Popconfirm title="Title" onConfirm={confirm} onOpenChange={() => console.log('open change')}>
+    <Popconfirm
+      title="Title"
+      description="Open Popconfirm with Promise"
+      onConfirm={confirm}
+      onOpenChange={() => console.log('open change')}
+    >
       <Button type="primary">Open Popconfirm with Promise</Button>
     </Popconfirm>
   );

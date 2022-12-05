@@ -3,7 +3,11 @@ import { QuestionCircleOutlined } from '@ant-design/icons';
 import { Popconfirm } from 'antd';
 
 const App: React.FC = () => (
-  <Popconfirm title="Are you sure？" icon={<QuestionCircleOutlined style={{ color: 'red' }} />}>
+  <Popconfirm
+    title="删除任务"
+    description="Are you sure？"
+    icon={<QuestionCircleOutlined style={{ color: 'red' }} />}
+  >
     <a href="#">Delete</a>
   </Popconfirm>
 );
