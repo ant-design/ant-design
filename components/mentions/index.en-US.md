@@ -68,7 +68,7 @@ return <Mentions options={options} />;
 | onResize | The callback function that is triggered when textarea resize | function({ width, height }) | - |  |
 | onSearch | Trigger when prefix hit | (text: string, prefix: string) => void | - |  |
 | onSelect | Trigger when user select the option | (option: OptionProps, prefix: string) => void | - |  |
-| options | Option Configuration | [Options](#Option) | \[] | 5.1.0       |
+| options | Option Configuration | [Options](#Option) | \[] | 5.1.0 |
 
 ### Mention methods
 
@@ -79,6 +79,7 @@ return <Mentions options={options} />;
 
 ### Option
 
+<!-- prettier-ignore -->
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
 | label | Title of the option | React.ReactNode | - |
