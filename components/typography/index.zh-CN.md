@@ -3,7 +3,7 @@ category: Components
 subtitle: 排版
 group: 通用
 title: Typography
-cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*MLt3R6m9huoAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 文本的基本格式。

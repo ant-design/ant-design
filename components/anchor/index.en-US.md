@@ -1,7 +1,7 @@
 ---
 category: Components
 title: Anchor
-cover: https://gw.alipayobjects.com/zos/bmw-prod/669b87c5-7b44-4c99-a5ea-4c38f8004788.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*TBTSR4PyVmkAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 group:
@@ -28,6 +28,7 @@ For displaying anchor hyperlinks on page and jumping between them.
 <code src="./demo/customizeHighlight.tsx">Customize the anchor highlight</code>
 <code src="./demo/targetOffset.tsx">Set Anchor scroll offset</code>
 <code src="./demo/onChange.tsx">Listening for anchor link change</code>
+<code src="./demo/legacy-anchor.tsx" debug>Deprecated JSX demo</code>
 
 ## API
 
@@ -44,6 +45,7 @@ For displaying anchor hyperlinks on page and jumping between them.
 | targetOffset | Anchor scroll offset, default as `offsetTop`, [example](#components-anchor-demo-targetOffset) | number | - |  |
 | onChange | Listening for anchor link change | (currentActiveLink: string) => void |  |  |
 | onClick | Set the handler to handle `click` event | function(e: Event, link: Object) | - |  |
+| items | Data configuration option content, support nesting through children | { href, title, target, children }\[] | - |  |
 
 ### Link Props
 

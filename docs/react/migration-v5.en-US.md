@@ -3,7 +3,7 @@ order: 8
 title: V4 to V5
 ---
 
-This document will help you upgrade from antd `4.x` version to antd `5.x` version. If you are using `3.x` or older version, please refer to the previous [upgrade document](/docs/react/migration-v4) to 4.x.
+This document will help you upgrade from antd `4.x` version to antd `5.x` version. If you are using `3.x` or older version, please refer to the previous [upgrade document](https://4x.ant.design/docs/react/migration-v4) to 4.x.
 
 ## Upgrade preparation
 
@@ -117,6 +117,7 @@ This document will help you upgrade from antd `4.x` version to antd `5.x` versio
   - Static methods are no longer allowed to dynamically set `prefixCls` `maxCount` `top` `bottom` `getContainer` in `open`, Notification static methods will now have only one instance. If you need a different configuration, use `useNotification`.
   - `close` was renamed to `destroy` to be consistent with message.
 - Drawer `style` & `className` are migrated to Drawer panel node, the original properties are replaced by `rootClassName` and `rootStyle`.
+- The deprecated `message.warn` in 4.x is now completely removed, please use `message.warning` instead.
 
 #### Component refactoring and removal
 
@@ -202,9 +203,44 @@ Umi user can disable by config：
 export default {
   antd: {
 -   import: true,
++   import: false,
   },
 };
 ```
+
+### Replace Day.js locale
+
+Replace moment.js locale with day.js locale:
+
+```diff
+-   import moment from 'moment';
++   import dayjs from 'dayjs';
+-   import 'moment/locale/zh-cn';
++   import 'dayjs/locale/zh-cn';
+
+-   moment.locale('zh-cn');
++   dayjs.locale('zh-cn');
+```
+
+If you do not want to replace with day.js, you can use `@ant-design/moment-webpack-plugin` to keep moment.js:
+
+```bash
+npm install --save-dev @ant-design/moment-webpack-plugin
+```
+
+```javascript
+// webpack-config.js
+import AntdMomentWebpackPlugin from '@ant-design/moment-webpack-plugin';
+
+module.exports = {
+  // ...
+  plugins: [new AntdMomentWebpackPlugin()],
+};
+```
+
+### Legacy browser support
+
+Ant Design v5 using `:where` css selector to reduce CSS-in-JS hash priority. You can use `@ant-design/cssinjs` `StyleProvider` to cancel this function. Please ref [Compatible adjustment](/docs/react/customize-theme#compatible-adjustment).
 
 ## Encounter problems
 

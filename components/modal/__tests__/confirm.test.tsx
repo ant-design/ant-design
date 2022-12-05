@@ -41,7 +41,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
   // });
   // jest.spyOn(window, 'cancelAnimationFrame').mockImplementation(id => window.clearTimeout(id));
 
-  const errorSpy = jest.spyOn(console, 'error');
+  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
   /* eslint-disable no-console */
   // Hack error to remove act warning

@@ -158,25 +158,24 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
 
     screenXS,
     screenXSMin: screenXS,
-    screenXSMax: screenXS - 1,
+    screenXSMax: screenSM - 1,
     screenSM,
     screenSMMin: screenSM,
-    screenSMMax: screenSM - 1,
+    screenSMMax: screenMD - 1,
     screenMD,
     screenMDMin: screenMD,
-    screenMDMax: screenMD - 1,
+    screenMDMax: screenLG - 1,
     screenLG,
     screenLGMin: screenLG,
-    screenLGMax: screenLG - 1,
+    screenLGMax: screenXL - 1,
     screenXL,
     screenXLMin: screenXL,
-    screenXLMax: screenXL - 1,
+    screenXLMax: screenXXL - 1,
     screenXXL,
     screenXXLMin: screenXXL,
-    screenXXLMax: screenXXL - 1,
 
     // FIXME: component box-shadow, should be removed
-    boxShadowPopoverArrow: `3px 3px 7px rgba(0, 0, 0, 0.1)`,
+    boxShadowPopoverArrow: '3px 3px 7px rgba(0, 0, 0, 0.1)',
     boxShadowCard: `
       0 1px 2px -2px ${new TinyColor('rgba(0, 0, 0, 0.16)').toRgbString()},
       0 3px 6px 0 ${new TinyColor('rgba(0, 0, 0, 0.12)').toRgbString()},
@@ -202,10 +201,10 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
       0 -3px 6px -4px rgba(0, 0, 0, 0.12),
       0 -9px 28px 8px rgba(0, 0, 0, 0.05)
     `,
-    boxShadowTabsOverflowLeft: `inset 10px 0 8px -8px rgba(0, 0, 0, 0.08)`,
-    boxShadowTabsOverflowRight: `inset -10px 0 8px -8px rgba(0, 0, 0, 0.08)`,
-    boxShadowTabsOverflowTop: `inset 0 10px 8px -8px rgba(0, 0, 0, 0.08)`,
-    boxShadowTabsOverflowBottom: `inset 0 -10px 8px -8px rgba(0, 0, 0, 0.08)`,
+    boxShadowTabsOverflowLeft: 'inset 10px 0 8px -8px rgba(0, 0, 0, 0.08)',
+    boxShadowTabsOverflowRight: 'inset -10px 0 8px -8px rgba(0, 0, 0, 0.08)',
+    boxShadowTabsOverflowTop: 'inset 0 10px 8px -8px rgba(0, 0, 0, 0.08)',
+    boxShadowTabsOverflowBottom: 'inset 0 -10px 8px -8px rgba(0, 0, 0, 0.08)',
 
     // Override AliasToken
     ...overrideTokens,

@@ -549,7 +549,7 @@ Array [
       >
         <span
           class="ant-badge-status-dot"
-          style="background:#f50"
+          style="color:#f50;background:#f50"
         />
         <span
           class="ant-badge-status-text"
@@ -567,7 +567,7 @@ Array [
       >
         <span
           class="ant-badge-status-dot"
-          style="background:rgb(45, 183, 245)"
+          style="color:rgb(45, 183, 245);background:rgb(45, 183, 245)"
         />
         <span
           class="ant-badge-status-text"
@@ -585,7 +585,7 @@ Array [
       >
         <span
           class="ant-badge-status-dot"
-          style="background:hsl(102, 53%, 61%)"
+          style="color:hsl(102, 53%, 61%);background:hsl(102, 53%, 61%)"
         />
         <span
           class="ant-badge-status-text"
@@ -602,7 +602,7 @@ Array [
       >
         <span
           class="ant-badge-status-dot"
-          style="background:hwb(205 6% 9%)"
+          style="color:hwb(205 6% 9%);background:hwb(205 6% 9%)"
         />
         <span
           class="ant-badge-status-text"

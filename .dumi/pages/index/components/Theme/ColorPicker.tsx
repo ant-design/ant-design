@@ -1,10 +1,12 @@
-import useSiteToken from '../../../../hooks/useSiteToken';
 import { Input, Space, Popover } from 'antd';
-import React, { FC, useEffect, useState } from 'react';
+import type { FC } from 'react';
+import React, { useEffect, useState } from 'react';
 import { css } from '@emotion/react';
 import { TinyColor } from '@ctrl/tinycolor';
+import type { ColorPanelProps } from 'antd-token-previewer/es/ColorPanel';
+import ColorPanel from 'antd-token-previewer/es/ColorPanel';
 import { PRESET_COLORS } from './colorUtil';
-import ColorPanel, { ColorPanelProps } from 'antd-token-previewer/es/ColorPanel';
+import useSiteToken from '../../../../hooks/useSiteToken';
 
 const useStyle = () => {
   const { token } = useSiteToken();
@@ -16,6 +18,17 @@ const useStyle = () => {
       border-radius: 100%;
       cursor: pointer;
       transition: all ${token.motionDurationFast};
+      display: inline-block;
+
+      & > input[type="radio"] {
+        width: 0;
+        height: 0;
+        opacity: 0;
+      }
+
+      &:focus-within {
+        // need ？
+      }
     `,
 
     colorActive: css`
@@ -89,7 +102,8 @@ export default function ColorPicker({ value, onChange }: RadiusPickerProps) {
       <Space size="middle">
         {matchColors.map(({ color, active, picker }) => {
           let colorNode = (
-            <div
+            // eslint-disable-next-line jsx-a11y/label-has-associated-control
+            <label
               key={color}
               css={[style.color, active && style.colorActive]}
               style={{
@@ -100,7 +114,9 @@ export default function ColorPicker({ value, onChange }: RadiusPickerProps) {
                   onChange?.(color);
                 }
               }}
-            />
+            >
+              <input type="radio" name={picker ? 'picker' : 'color'} tabIndex={picker ? -1 : 0} />
+            </label>
           );
 
           if (picker) {
@@ -109,10 +125,7 @@ export default function ColorPicker({ value, onChange }: RadiusPickerProps) {
                 key={color}
                 overlayInnerStyle={{ padding: 0 }}
                 content={
-                  <DebouncedColorPanel
-                    color={value || ''}
-                    onChange={(color) => onChange?.(color)}
-                  />
+                  <DebouncedColorPanel color={value || ''} onChange={(c) => onChange?.(c)} />
                 }
                 trigger="click"
                 showArrow={false}

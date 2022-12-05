@@ -2,6 +2,7 @@ import { getArrowOffset } from '../../style/placementArrow';
 import {
   initMoveMotion,
   initSlideMotion,
+  initZoomMotion,
   slideDownIn,
   slideDownOut,
   slideUpIn,
@@ -418,6 +419,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
       initSlideMotion(token, 'slide-down'),
       initMoveMotion(token, 'move-up'),
       initMoveMotion(token, 'move-down'),
+      initZoomMotion(token, 'zoom-big'),
     ],
   ];
 };

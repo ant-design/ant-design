@@ -6,11 +6,24 @@ const getTokenList = (list, source) =>
     .filter((item) => !item.comment?.blockTags.some((tag) => tag.tag === '@internal'))
     .map((item) => ({
       source,
-      name: item.name,
+      token: item.name,
       type: item.type.toString(),
-      desc: item.comment?.blockTags?.find((tag) => tag.tag === '@desc')?.content[0]?.text || '-',
+      desc:
+        item.comment?.blockTags
+          ?.find((tag) => tag.tag === '@desc')
+          ?.content.reduce((result, str) => result.concat(str.text), '') || '-',
       descEn:
-        item.comment?.blockTags?.find((tag) => tag.tag === '@descEn')?.content[0]?.text || '-',
+        item.comment?.blockTags
+          ?.find((tag) => tag.tag === '@descEN')
+          ?.content.reduce((result, str) => result.concat(str.text), '') || '-',
+      name:
+        item.comment?.blockTags
+          ?.find((tag) => tag.tag === '@nameZH')
+          ?.content.reduce((result, str) => result.concat(str.text), '') || '-',
+      nameEn:
+        item.comment?.blockTags
+          ?.find((tag) => tag.tag === '@nameEN')
+          ?.content.reduce((result, str) => result.concat(str.text), '') || '-',
     }));
 
 function main() {
@@ -22,7 +35,7 @@ function main() {
 
   app.bootstrap({
     // typedoc options here
-    entryPoints: ['components/theme/interface.ts'],
+    entryPoints: ['components/theme/interface/index.ts'],
   });
 
   const project = app.convert();
@@ -46,23 +59,37 @@ function main() {
 
     // Exclude preset colors
     tokenMeta.seed = tokenMeta.seed.filter(
-      (item) => !presetColors.some((color) => item.name.startsWith(color)),
+      (item) => !presetColors.some((color) => item.token.startsWith(color)),
     );
     tokenMeta.map = tokenMeta.map.filter(
-      (item) => !presetColors.some((color) => item.name.startsWith(color)),
+      (item) => !presetColors.some((color) => item.token.startsWith(color)),
     );
     tokenMeta.alias = tokenMeta.alias.filter(
-      (item) => !presetColors.some((color) => item.name.startsWith(color)),
+      (item) => !presetColors.some((color) => item.token.startsWith(color)),
     );
 
     tokenMeta.alias = tokenMeta.alias.filter(
-      (item) => !tokenMeta.map.some((mapItem) => mapItem.name === item.name),
+      (item) => !tokenMeta.map.some((mapItem) => mapItem.token === item.token),
     );
     tokenMeta.map = tokenMeta.map.filter(
-      (item) => !tokenMeta.seed.some((seedItem) => seedItem.name === item.name),
+      (item) => !tokenMeta.seed.some((seedItem) => seedItem.token === item.token),
     );
 
-    fs.writeJsonSync(output, tokenMeta, 'utf8');
+    const finalMeta = Object.entries(tokenMeta).reduce((acc, [key, value]) => {
+      value.forEach((item) => {
+        acc[item.token] = {
+          name: item.name,
+          nameEn: item.nameEn,
+          desc: item.desc,
+          descEn: item.descEn,
+          type: item.type,
+          source: key,
+        };
+      });
+      return acc;
+    }, {});
+
+    fs.writeJsonSync(output, finalMeta, 'utf8');
     // eslint-disable-next-line no-console
     console.log(`✅  Token Meta has been written to ${output}`);
   }

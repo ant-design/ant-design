@@ -180,12 +180,7 @@ export const genBasicInputStyle = (token: InputToken): CSSObject => ({
     lineHeight: token.lineHeight,
     verticalAlign: 'bottom',
     transition: `all ${token.motionDurationSlow}, height 0s`,
-  },
-
-  '&-textarea': {
-    '&-rtl': {
-      direction: 'rtl',
-    },
+    resize: 'vertical',
   },
 
   // Size
@@ -196,7 +191,12 @@ export const genBasicInputStyle = (token: InputToken): CSSObject => ({
     ...genInputSmallStyle(token),
   },
 
+  // RTL
   '&-rtl': {
+    direction: 'rtl',
+  },
+
+  '&-textarea-rtl': {
     direction: 'rtl',
   },
 });
@@ -904,15 +904,17 @@ const genTextAreaStyle: GenerateStyle<InputToken> = (token) => {
         },
 
         '&::after': {
-          position: 'absolute',
-          bottom: 0,
-          insetInlineEnd: 0,
           color: token.colorTextDescription,
           whiteSpace: 'nowrap',
           content: 'attr(data-count)',
           pointerEvents: 'none',
-          display: 'block',
-          transform: 'translateY(100%)',
+          float: 'right',
+        },
+      },
+
+      '&-rtl': {
+        '&::after': {
+          float: 'left',
         },
       },
     },

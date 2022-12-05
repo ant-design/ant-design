@@ -1,9 +1,9 @@
-import useSiteToken from '../../../hooks/useSiteToken';
 import { Col, Row, Typography } from 'antd';
 import React from 'react';
 import { css } from '@emotion/react';
-import useLocale from '../../../hooks/useLocale';
 import { Link, useLocation } from 'dumi';
+import useLocale from '../../../hooks/useLocale';
+import useSiteToken from '../../../hooks/useSiteToken';
 import * as utils from '../../../theme/utils';
 
 const SECONDARY_LIST = [
@@ -150,7 +150,7 @@ export default function DesignFramework() {
 
         return (
           <Col key={index} span={8}>
-            <a css={style.cardMini} target="_blank" href={url}>
+            <a css={style.cardMini} target="_blank" href={url} rel="noreferrer">
               <img alt={title} src={img} style={{ transform: `scale(${imgScale})` }} />
 
               <Typography.Title

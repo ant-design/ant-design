@@ -1,5 +1,6 @@
-import React, { ReactNode, useMemo } from 'react';
-import { MenuProps } from 'antd';
+import type { ReactNode } from 'react';
+import React, { useMemo } from 'react';
+import type { MenuProps } from 'antd';
 import { Link, useFullSidebarData, useSidebarData } from 'dumi';
 import useLocation from './useLocation';
 
@@ -43,7 +44,7 @@ const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => 
 
     return (
       sidebarItems?.reduce<Exclude<MenuProps['items'], undefined>>((result, group) => {
-        if (group.title) {
+        if (group?.title) {
           // 设计文档特殊处理二级分组
           if (pathname.startsWith('/docs/spec')) {
             const childrenGroup = group.children.reduce<
@@ -62,7 +63,7 @@ const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => 
                 label: (
                   <Link to={`${item.link}${search}`}>
                     {before}
-                    {item.title}
+                    {item?.title}
                     {after}
                   </Link>
                 ),
@@ -79,7 +80,7 @@ const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => 
                     label: (
                       <Link to={`${item.link}${search}`}>
                         {before}
-                        {item.title}
+                        {item?.title}
                         {after}
                       </Link>
                     ),
@@ -89,20 +90,20 @@ const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => 
               }
             });
             result.push({
-              label: group.title,
-              key: group.title,
+              label: group?.title,
+              key: group?.title,
               children: childItems,
             });
           } else {
             result.push({
               type: 'group',
-              label: group.title,
-              key: group.title,
+              label: group?.title,
+              key: group?.title,
               children: group.children?.map((item) => ({
                 label: (
                   <Link to={`${item.link}${search}`}>
                     {before}
-                    <span key="english">{item.title}</span>
+                    <span key="english">{item?.title}</span>
                     <span className="chinese" key="chinese">
                       {(item.frontmatter as any).subtitle}
                     </span>
@@ -115,16 +116,16 @@ const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => 
           }
         } else {
           result.push(
-            ...group.children?.map((item) => ({
+            ...(group.children?.map((item) => ({
               label: (
                 <Link to={`${item.link}${search}`}>
                   {before}
-                  {item.title}
+                  {item?.title}
                   {after}
                 </Link>
               ),
               key: item.link.replace(/(-cn$)/g, ''),
-            })),
+            })) ?? []),
           );
         }
         return result;

@@ -1,26 +1,22 @@
 import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
-import { FormattedMessage, useIntl } from 'dumi';
+import { useLocation } from 'dumi';
 import DumiSearchBar from 'dumi/theme-default/slots/SearchBar';
 import classNames from 'classnames';
-import { Button, Col, Modal, Popover, Row, Select, Typography } from 'antd';
-import { MenuOutlined } from '@ant-design/icons';
-import canUseDom from 'rc-util/lib/Dom/canUseDom';
+import { Col, Modal, Popover, Row, Select, Typography } from 'antd';
+import { GithubOutlined, MenuOutlined } from '@ant-design/icons';
 import type { DirectionType } from 'antd/es/config-provider';
+import { ClassNames, css } from '@emotion/react';
 import * as utils from '../../utils';
 import { getThemeConfig, ping } from '../../utils';
 import packageJson from '../../../../package.json';
 import Logo from './Logo';
 import More from './More';
 import Navigation from './Navigation';
-import Github from './Github';
 import type { SiteContextProps } from '../SiteContext';
 import SiteContext from '../SiteContext';
-import { useLocation, useNavigate } from 'dumi';
-import { ClassNames, css } from '@emotion/react';
 import useSiteToken from '../../../hooks/useSiteToken';
 import useLocale from '../../../hooks/useLocale';
 import SwitchBtn from './SwitchBtn';
-import useSharedStyle from './style';
 
 const RESPONSIVE_XS = 1120;
 const RESPONSIVE_SM = 1200;
@@ -137,18 +133,6 @@ export interface HeaderProps {
   changeDirection: (direction: DirectionType) => void;
 }
 
-let docsearch: any;
-const triggerDocSearchImport = () => {
-  if (docsearch) {
-    return Promise.resolve();
-  }
-
-  // @ts-ignore
-  return import('docsearch.js').then((ds) => {
-    docsearch = ds.default;
-  });
-};
-
 const V5_NOTIFICATION = 'antd@4.0.0-notification-sent';
 const SHOULD_OPEN_ANT_DESIGN_MIRROR_MODAL = 'ANT_DESIGN_DO_NOT_OPEN_MIRROR_MODAL';
 
@@ -164,12 +148,10 @@ interface HeaderState {
   menuVisible: boolean;
   windowWidth: number;
   searching: boolean;
-  showTechUIButton: boolean;
 }
 
 // ================================= Header =================================
 const Header: React.FC<HeaderProps> = (props) => {
-  const intl = useIntl();
   const { changeDirection } = props;
   const [isClient, setIsClient] = React.useState(false);
   const [locale, lang] = useLocale(locales);
@@ -205,25 +187,19 @@ const Header: React.FC<HeaderProps> = (props) => {
     menuVisible: false,
     windowWidth: 1400,
     searching: false,
-    showTechUIButton: false,
   });
   const { direction, isMobile } = useContext<SiteContextProps>(SiteContext);
   const pingTimer = useRef<NodeJS.Timeout | null>(null);
   const location = useLocation();
   const { pathname, search } = location;
-  const navigate = useNavigate();
 
   const style = useStyle();
-  const sharedStyle = useSharedStyle();
 
   const handleHideMenu = useCallback(() => {
     setHeaderState((prev) => ({ ...prev, menuVisible: false }));
   }, []);
   const onWindowResize = useCallback(() => {
     setHeaderState((prev) => ({ ...prev, windowWidth: window.innerWidth }));
-  }, []);
-  const onTriggerSearching = useCallback((searching: boolean) => {
-    setHeaderState((prev) => ({ ...prev, searching }));
   }, []);
   const handleShowMenu = useCallback(() => {
     setHeaderState((prev) => ({ ...prev, menuVisible: true }));
@@ -245,7 +221,6 @@ const Header: React.FC<HeaderProps> = (props) => {
     window.addEventListener('resize', onWindowResize);
     pingTimer.current = ping((status) => {
       if (status !== 'timeout' && status !== 'error') {
-        setHeaderState((prev) => ({ ...prev, showTechUIButton: true }));
         if (
           // process.env.NODE_ENV === 'production' &&
           window.location.host !== 'ant-design.antgroup.com' &&
@@ -316,7 +291,7 @@ const Header: React.FC<HeaderProps> = (props) => {
     [direction],
   );
 
-  const { menuVisible, windowWidth, searching, showTechUIButton } = headerState;
+  const { menuVisible, windowWidth, searching } = headerState;
   const docVersions: Record<string, string> = {
     [antdVersion]: antdVersion,
     ...themeConfig?.docVersions,
@@ -355,7 +330,6 @@ const Header: React.FC<HeaderProps> = (props) => {
       {...sharedProps}
       responsive={responsive}
       isMobile={isMobile}
-      showTechUIButton={showTechUIButton}
       directionText={nextDirectionText}
       onLangChange={onLangChange}
       onDirectionChange={onDirectionChange}
@@ -365,8 +339,9 @@ const Header: React.FC<HeaderProps> = (props) => {
   let menu: (React.ReactElement | null)[] = [
     navigationNode,
     <Popover
+      key="version"
       open={!!notify}
-      title={locale.title}
+      title={locale?.title}
       content={
         <Typography style={{ marginTop: token.marginXS }}>
           {lang === 'cn' ? (
@@ -377,7 +352,7 @@ const Header: React.FC<HeaderProps> = (props) => {
                   target="_blank"
                   href="https://github.com/ant-design/ant-design/issues/38463"
                 >
-                  Github Issue
+                  GitHub Issue
                 </Typography.Link>{' '}
                 反馈。
               </div>
@@ -391,7 +366,7 @@ const Header: React.FC<HeaderProps> = (props) => {
                   target="_blank"
                   href="https://github.com/ant-design/ant-design/issues/38463"
                 >
-                  Github Issue
+                  GitHub Issue
                 </Typography.Link>
                 .
               </div>
@@ -408,12 +383,14 @@ const Header: React.FC<HeaderProps> = (props) => {
         defaultValue={antdVersion}
         onChange={handleVersionChange}
         dropdownStyle={getDropdownStyle}
+        dropdownMatchSelectWidth={false}
         getPopupContainer={(trigger) => trigger.parentNode}
         onClick={onClose}
       >
         {versionOptions}
       </Select>
     </Popover>,
+    <More key="more" {...sharedProps} />,
     <SwitchBtn
       key="lang"
       onClick={onLangChange}
@@ -428,17 +405,29 @@ const Header: React.FC<HeaderProps> = (props) => {
       onClick={onDirectionChange}
       value={direction === 'rtl' ? 2 : 1}
       label1={
-        <img src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*6k0CTJA-HxUAAAAAAAAAAAAADrJ8AQ/original" />
+        <img
+          src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*6k0CTJA-HxUAAAAAAAAAAAAADrJ8AQ/original"
+          alt="direction"
+        />
       }
       tooltip1="LTR"
       label2={
-        <img src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*SZoaQqm2hwsAAAAAAAAAAAAADrJ8AQ/original" />
+        <img
+          src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*SZoaQqm2hwsAAAAAAAAAAAAADrJ8AQ/original"
+          alt="LTR"
+        />
       }
       tooltip2="RTL"
       pure
     />,
-    <More key="more" {...sharedProps} />,
-    <Github key="github" responsive={responsive} />,
+    <a
+      key="github"
+      href="https://github.com/ant-design/ant-design"
+      target="_blank"
+      rel="noreferrer"
+    >
+      <SwitchBtn value={1} label1={<GithubOutlined />} tooltip1="Github" label2={null} pure />
+    </a>,
   ];
 
   if (windowWidth < RESPONSIVE_XS) {
@@ -458,9 +447,9 @@ const Header: React.FC<HeaderProps> = (props) => {
     <header css={style.header} className={headerClassName}>
       {isMobile && (
         <ClassNames>
-          {({ css }) => (
+          {({ css: cssFn }) => (
             <Popover
-              overlayClassName={css(style.popoverMenu)}
+              overlayClassName={cssFn(style.popoverMenu)}
               placement="bottomRight"
               content={menu}
               trigger="click"

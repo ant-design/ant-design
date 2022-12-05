@@ -153,6 +153,7 @@ const Badge: CompoundedComponent = ({
 
   const statusStyle: React.CSSProperties = {};
   if (color && !isPresetColor(color)) {
+    statusStyle.color = color;
     statusStyle.background = color;
   }
 
