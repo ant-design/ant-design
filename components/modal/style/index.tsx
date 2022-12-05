@@ -297,7 +297,8 @@ const genModalConfirmStyle: GenerateStyle<ModalToken> = (token) => {
 
           [`+ ${confirmComponentCls}-content`]: {
             marginBlockStart: token.marginXS,
-            flexBasis: "100%",
+            flexBasis: '100%',
+            maxWidth: `calc(100% - ${token.modalConfirmIconSize + token.marginSM}px)`,
           },
         },
 
