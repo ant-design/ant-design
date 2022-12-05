@@ -15,6 +15,17 @@ timeline: true
 
 ---
 
+## 4.24.5
+
+`2022-12-05`
+
+- 🐞 Fix Menu.Item with `disabled` not prevent a element clickable. [aa8d7f5](https://github.com/ant-design/ant-design/commit/aa8d7f5) [@二货机器人](https://github.com/二货机器人)
+- 💄 Tweak Popconfirm icon position when `title` have multiple lines. [#39027](https://github.com/ant-design/ant-design/pull/39027) [@justanotheranonymoususer](https://github.com/justanotheranonymoususer)
+- 🐞 Fix Badge the color cannot be customized when `count` is `0`. [#39062](https://github.com/ant-design/ant-design/pull/39062) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 Fix Card.Meta width is not 100%. [#39039](https://github.com/ant-design/ant-design/pull/39039) [@justanotheranonymoususer](https://github.com/justanotheranonymoususer)
+- 🐞 Fix TimePicker pass to 'popupClassName' will display unexpected warning. [#39010](https://github.com/ant-design/ant-design/pull/39010) [@kiner-tang](https://github.com/kiner-tang)
+- 💄 Fix Steps set `size="small"` with progress not fully display. [#39103](https://github.com/ant-design/ant-design/pull/39103) [@Wxh16144](https://github.com/Wxh16144)
+
 ## 4.24.4
 
 `2022-11-25`
