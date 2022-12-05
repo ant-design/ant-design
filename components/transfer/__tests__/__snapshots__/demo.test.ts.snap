@@ -5153,7 +5153,7 @@ exports[`renders ./components/transfer/demo/tree-transfer.tsx correctly 1`] = `
           <div
             aria-hidden="true"
             class="ant-tree-treenode"
-            style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+            style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden;border:0;padding:0"
           >
             <div
               class="ant-tree-indent"
