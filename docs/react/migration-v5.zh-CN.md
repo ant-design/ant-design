@@ -169,8 +169,8 @@ pnpm --package=@ant-design/codemod-v5 dlx antd5-codemod src
 ```
 
 <video autoplay="" loop="" style="width: 100%; object-fit: contain;">
-  <source src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/file/A*Gmx4QbsvtbwAAAAAAAAAAAAADrJ8AQ" type="video/webm">
-  <source src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/file/A*5g8BSLz8xOAAAAAAAAAAAAAADrJ8AQ" type="video/mp4">
+  <source src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/file/A*Sjy5ToW6ow0AAAAAAAAAAAAADrJ8AQ" type="video/webm">
+  <source src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/file/A*hTDYQJ2HFTYAAAAAAAAAAAAADrJ8AQ" type="video/mp4">
 </video>
 
 > 注意 codemod 不能涵盖所有场景，建议还是要按不兼容的变化逐条排查。
