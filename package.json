@@ -48,7 +48,7 @@
     "api-collection": "antd-tools run api-collection",
     "authors": "node ./scripts/generate-authors",
     "build": "npm run compile && NODE_OPTIONS='--max-old-space-size=4096' npm run dist",
-    "bundlesize": "bundlesize",
+    "bundlesize": "bundlesize --enable-github-checks",
     "size-limit": "size-limit",
     "check-commit": "node ./scripts/check-commit",
     "check-ts-demo": "node ./scripts/check-ts-demo",
@@ -86,7 +86,7 @@
     "site": "dumi build && cp .surgeignore _site",
     "sort": "npx sort-package-json",
     "sort-api": "antd-tools run sort-api-table",
-    "start": "PORT=8001 dumi dev",
+    "start": "cross-env PORT=8001 dumi dev",
     "test": "jest --config .jest.js --cache=false",
     "test:update": "jest --config .jest.js --cache=false -u",
     "test-all": "sh -e ./scripts/test-all.sh",
@@ -152,7 +152,7 @@
     "rc-tree-select": "~5.5.4",
     "rc-trigger": "^5.2.10",
     "rc-upload": "~4.3.0",
-    "rc-util": "^5.22.5",
+    "rc-util": "^5.25.2",
     "scroll-into-view-if-needed": "^2.2.25",
     "shallowequal": "^1.1.0"
   },
@@ -197,7 +197,7 @@
     "antd-token-previewer": "^1.1.0-6",
     "array-move": "^4.0.0",
     "babel-plugin-add-react-displayname": "^0.0.5",
-    "bundlesize": "^0.18.0",
+    "bundlesize2": "^0.0.31",
     "chalk": "^4.0.0",
     "cheerio": "1.0.0-rc.12",
     "concurrently": "^7.0.0",
@@ -329,7 +329,7 @@
     "mode": "npm"
   },
   "lint-staged": {
-    "*.{ts,tsx,js}": "rome format --write",
+    "*.{ts,tsx,js,jsx}": "rome format --write",
     "*.{json,less,md}": "prettier --ignore-unknown --write"
   }
 }
