@@ -16,7 +16,7 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
-    style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+    style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden;border:0;padding:0"
   >
     <div
       class="ant-tree-indent"
@@ -334,7 +334,7 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
-    style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+    style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden;border:0;padding:0"
   >
     <div
       class="ant-tree-indent"
@@ -873,7 +873,7 @@ exports[`renders ./components/tree/demo/customized-icon.md correctly 1`] = `
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
-    style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+    style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden;border:0;padding:0"
   >
     <div
       class="ant-tree-indent"
@@ -1084,7 +1084,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
-    style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+    style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden;border:0;padding:0"
   >
     <div
       class="ant-tree-indent"
@@ -1512,7 +1512,7 @@ Array [
     <div
       aria-hidden="true"
       class="ant-tree-treenode"
-      style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+      style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden;border:0;padding:0"
     >
       <div
         class="ant-tree-indent"
@@ -2324,7 +2324,7 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
-    style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+    style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden;border:0;padding:0"
   >
     <div
       class="ant-tree-indent"
@@ -2896,7 +2896,7 @@ exports[`renders ./components/tree/demo/dynamic.md correctly 1`] = `
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
-    style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+    style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden;border:0;padding:0"
   >
     <div
       class="ant-tree-indent"
@@ -3148,7 +3148,7 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
     <div
       aria-hidden="true"
       class="ant-tree-treenode"
-      style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+      style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden;border:0;padding:0"
     >
       <div
         class="ant-tree-indent"
@@ -3635,7 +3635,7 @@ exports[`renders ./components/tree/demo/search.md correctly 1`] = `
     <div
       aria-hidden="true"
       class="ant-tree-treenode"
-      style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+      style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden;border:0;padding:0"
     >
       <div
         class="ant-tree-indent"
@@ -3805,7 +3805,7 @@ exports[`renders ./components/tree/demo/switcher-icon.md correctly 1`] = `
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
-    style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+    style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden;border:0;padding:0"
   >
     <div
       class="ant-tree-indent"
