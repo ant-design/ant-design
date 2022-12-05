@@ -470,13 +470,12 @@ describe('Anchor Render', () => {
       />,
     );
     expect(container.querySelectorAll('.ant-anchor .ant-anchor-link').length).toBe(5);
-    const linkTitles = Array.from(container.querySelector('.ant-anchor')?.childNodes!)
-      .slice(1)
-      .map((n) => (n as HTMLElement).querySelector('.ant-anchor-link-title'));
+    const linkTitles = Array.from(container.querySelector('.ant-anchor')?.childNodes!).map((n) =>
+      (n as HTMLElement).querySelector('.ant-anchor-link-title'),
+    );
     expect((linkTitles[0] as HTMLAnchorElement).href).toContain('#components-anchor-demo-basic');
     expect((linkTitles[1] as HTMLAnchorElement).href).toContain('#components-anchor-demo-static');
     expect((linkTitles[2] as HTMLAnchorElement).href).toContain('#api');
-    expect(asFragment().firstChild).toMatchSnapshot();
     expect(
       (
         container.querySelector(
@@ -491,5 +490,37 @@ describe('Anchor Render', () => {
         ) as HTMLAnchorElement
       )?.href,
     ).toContain('#link-props');
+    expect(asFragment().firstChild).toMatchSnapshot();
+  });
+});
+
+describe('horizontal anchor', () => {
+  it('test direction prop', () => {
+    const { container, asFragment } = render(
+      <Anchor
+        direction='horizontal'
+        items={[
+          {
+            key: '1',
+            href: '#components-anchor-demo-basic',
+            title: 'Item Basic Demo',
+          },
+          {
+            key: '2',
+            href: '#components-anchor-demo-static',
+            title: 'Static demo',
+          },
+          {
+            key: '3',
+            href: '#api',
+            title: 'API',
+          },
+        ]}
+      />,
+    );
+    expect(container.querySelectorAll('.ant-anchor-ink-ball-horizontal').length).toBe(1);
+    expect(
+      container.querySelector('.ant-anchor-wrapper')?.classList.contains('ant-anchor-horizontal'),
+    ).toBeTruthy();
   });
 });

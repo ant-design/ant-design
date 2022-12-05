@@ -13,13 +13,6 @@ exports[`Anchor Render renders items correctly 1`] = `
         class="ant-anchor"
       >
         <div
-          class="ant-anchor-ink"
-        >
-          <span
-            class="ant-anchor-ink-ball"
-          />
-        </div>
-        <div
           class="ant-anchor-link"
         >
           <a
@@ -73,6 +66,13 @@ exports[`Anchor Render renders items correctly 1`] = `
               </a>
             </div>
           </div>
+        </div>
+        <div
+          class="ant-anchor-ink"
+        >
+          <span
+            class="ant-anchor-ink-ball"
+          />
         </div>
       </div>
     </div>
