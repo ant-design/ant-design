@@ -17,8 +17,8 @@ Static function in React 18 concurrent mode will not well support. In v5, we rec
 
 <!-- prettier-ignore -->
 <code src="./demo/message.tsx">message</code>
-<code src="./demo/modal.tsx">modal</code>
 <code src="./demo/notification.tsx">notification</code>
+<code src="./demo/modal.tsx">modal</code>
 
 ## How to use
 
