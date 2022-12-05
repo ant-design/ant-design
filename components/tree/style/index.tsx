@@ -265,14 +265,12 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
 
       // >>> Title
       // add `${treeCls}-checkbox + span` to cover checkbox `${checkboxCls} + span`
+      [`${treeCls}-node-content-wrapper, ${treeCls}-checkbox + span`]: {
+        paddingInline: 0,
+      },
       [`${treeCls}-node-content-wrapper`]: {
         display: 'flex',
         flexWrap: 'nowrap',
-      },
-      [`
-        ${treeCls}-node-content-wrapper,
-        ${treeCls}-checkbox + span
-      `]: {
         position: 'relative',
         zIndex: 'auto',
         minHeight: treeTitleHeight,
