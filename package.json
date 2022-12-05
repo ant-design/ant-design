@@ -280,6 +280,7 @@
     "react-router-dom": "^6.0.2",
     "react-sticky": "^6.0.3",
     "react-window": "^1.8.5",
+    "remark-cli": "^11.0.0",
     "remark": "^14.0.1",
     "remark-lint": "^9.0.0",
     "remark-preset-lint-recommended": "^6.0.0",
