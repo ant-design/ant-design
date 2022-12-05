@@ -3,7 +3,7 @@ category: Components
 subtitle: 栅格
 group: 布局
 title: Grid
-cover: https://gw.alipayobjects.com/zos/alicdn/5rWLU27so/Grid.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*mfJeS6cqZrEAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 24 栅格系统。

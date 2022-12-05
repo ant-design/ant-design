@@ -3,7 +3,7 @@ category: Components
 group: 数据展示
 title: Table
 subtitle: 表格
-cover: https://gw.alipayobjects.com/zos/alicdn/f-SbcX2Lx/Table.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*3yz3QqMlShYAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 展示行列数据。
@@ -118,7 +118,7 @@ const columns = [
 | getPopupContainer | 设置表格内各类浮层的渲染节点，如筛选菜单 | (triggerNode) => HTMLElement | () => TableHtmlElement |  |
 | loading | 页面是否加载中 | boolean \| [Spin Props](/components/spin/#API) | false |  |
 | locale | 默认文案设置，目前包括排序、过滤、空数据文案 | object | [默认值](https://github.com/ant-design/ant-design/blob/6dae4a7e18ad1ba193aedd5ab6867e1d823e2aa4/components/locale/zh_CN.tsx#L20-L37) |  |
-| pagination | 分页器，参考[配置项](#pagination)或 [pagination](/components/pagination/) 文档，设为 false 时不展示和进行分页 | object | - |  |
+| pagination | 分页器，参考[配置项](#pagination)或 [pagination](/components/pagination/) 文档，设为 false 时不展示和进行分页 | object \| `false` | - |  |
 | rowClassName | 表格行的类名 | function(record, index): string | - |  |
 | rowKey | 表格行 key 的取值，可以是字符串或一个函数 | string \| function(record): string | `key` |  |
 | rowSelection | 表格行是否可选择，[配置项](#rowSelection) | object | - |  |
@@ -162,6 +162,7 @@ const columns = [
 
 列描述数据对象，是 columns 中的一项，Column 使用相同的 API。
 
+<!-- prettier-ignore -->
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- | --- |
 | align | 设置列的对齐方式 | `left` \| `right` \| `center` | `left` |  |

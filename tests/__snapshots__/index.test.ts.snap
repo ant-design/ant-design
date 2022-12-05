@@ -40,6 +40,7 @@ exports[`antd dist files exports modules correctly 1`] = `
   "Popconfirm",
   "Popover",
   "Progress",
+  "QRCode",
   "Radio",
   "Rate",
   "Result",

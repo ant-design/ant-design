@@ -177,7 +177,6 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
           },
 
           [`&:hover, &-active, &-open`]: {
-            color: colorItemTextSelectedHorizontal,
             '&::after': {
               borderWidth: `${colorActiveBarHeight}px`,
               borderBottomColor: colorItemTextSelectedHorizontal,

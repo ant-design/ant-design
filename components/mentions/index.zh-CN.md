@@ -3,7 +3,7 @@ category: Components
 subtitle: 提及
 group: 数据录入
 title: Mentions
-cover: https://gw.alipayobjects.com/zos/alicdn/jPE-itMFM/Mentions.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*e4bXT7Uhi9YAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---

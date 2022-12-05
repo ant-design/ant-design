@@ -2,7 +2,7 @@
 category: Components
 group: Feedback
 title: Spin
-cover: https://gw.alipayobjects.com/zos/alicdn/LBcJqCPRv/Spin.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*5mC5TomY4B0AAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---

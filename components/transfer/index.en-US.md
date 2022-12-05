@@ -2,7 +2,7 @@
 category: Components
 group: Data Entry
 title: Transfer
-cover: https://gw.alipayobjects.com/zos/alicdn/QAXskNI4G/Transfer.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*EAApQ5ephigAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 Double column transfer choice box.

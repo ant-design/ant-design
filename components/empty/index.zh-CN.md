@@ -3,7 +3,7 @@ category: Components
 subtitle: 空状态
 group: 数据展示
 title: Empty
-cover: https://gw.alipayobjects.com/zos/alicdn/MNbKfLBVb/Empty.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ZdiZSLzEV0wAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 空状态时的展示占位图。

@@ -3,7 +3,7 @@ category: Components
 subtitle: 输入框
 group: 数据录入
 title: Input
-cover: https://gw.alipayobjects.com/zos/alicdn/xS9YEJhfe/Input.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Y3R0RowXHlAAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---

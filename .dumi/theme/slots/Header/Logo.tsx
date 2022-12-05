@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Link, useLocation } from 'dumi';
-import * as utils from '../../utils';
 import { css } from '@emotion/react';
+import * as utils from '../../utils';
 import useSiteToken from '../../../hooks/useSiteToken';
 
 const useStyle = () => {

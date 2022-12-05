@@ -3,7 +3,7 @@ category: Components
 group: 数据展示
 title: List
 subtitle: 列表
-cover: https://gw.alipayobjects.com/zos/alicdn/5FrZKStG_/List.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*EYuhSpw1iSwAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 通用列表。

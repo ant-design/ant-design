@@ -299,6 +299,27 @@ export default () => {
 };
 ```
 
+### Shadow DOM Usage
+
+Since `<style />` tag insertion is different from normal DOM in Shadow DOM scenario, you need to use `StyleProvider` of `@ant-design/cssinjs` to configure the `container` property to set the insertion position:
+
+```tsx
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import { StyleProvider } from '@ant-design/cssinjs';
+
+const shadowRoot = someEle.attachShadow({ mode: 'open' });
+const container = document.createElement('div');
+shadowRoot.appendChild(container);
+const root = createRoot(container);
+
+root.render(
+  <StyleProvider container={shadowRoot}>
+    <MyApp />
+  </StyleProvider>,
+);
+```
+
 ## API
 
 ### Theme
@@ -334,7 +355,7 @@ export default () => {
 
 ## How to Debug your Theme
 
-We provide tools to help users debug themes: [Theme Editor](https://ant-design.github.io/antd-token-previewer/~demos/docs-theme-editor-simple)
+We provide tools to help users debug themes: [Theme Editor](/theme-editor)
 
 You can use this tool to freely modify Design Token to meet your theme expectations.
 
