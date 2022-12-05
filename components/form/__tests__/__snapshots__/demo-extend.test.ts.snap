@@ -2764,7 +2764,7 @@ Array [
                           <div
                             aria-hidden="true"
                             class="ant-select-tree-treenode"
-                            style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+                            style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden;border:0;padding:0"
                           >
                             <div
                               class="ant-select-tree-indent"
@@ -9858,7 +9858,7 @@ exports[`renders ./components/form/demo/size.md extend context correctly 1`] = `
                         <div
                           aria-hidden="true"
                           class="ant-select-tree-treenode"
-                          style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+                          style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden;border:0;padding:0"
                         >
                           <div
                             class="ant-select-tree-indent"
@@ -24379,7 +24379,7 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
                         <div
                           aria-hidden="true"
                           class="ant-select-tree-treenode"
-                          style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+                          style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden;border:0;padding:0"
                         >
                           <div
                             class="ant-select-tree-indent"
