@@ -1,13 +1,10 @@
 name: 📦 Size Limit
 
 on:
-  pull_request:
-    types: [opened, synchronize]
-
-# Cancel prev CI if new commit come
-concurrency:
-  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
-  cancel-in-progress: true
+  workflow_run:
+    workflows: ["✅ test"]
+    types:
+      - completed
 
 permissions:
   contents: read
@@ -26,4 +23,4 @@ jobs:
     - uses: andresz1/size-limit-action@v1
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        script: npx size-limit --json --why
+        skip_step: build
