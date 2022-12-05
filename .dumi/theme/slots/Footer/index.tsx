@@ -15,7 +15,6 @@ import {
   TwitterOutlined,
   UsergroupAddOutlined,
   ZhihuOutlined,
-  YuqueFilled,
 } from '@ant-design/icons';
 import { css } from '@emotion/react';
 import { TinyColor } from '@ctrl/tinycolor';
