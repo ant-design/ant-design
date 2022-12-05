@@ -153,7 +153,7 @@
     "rc-trigger": "^5.2.10",
     "rc-upload": "~4.3.0",
     "rc-util": "^5.25.2",
-    "scroll-into-view-if-needed": "^2.2.25",
+    "scroll-into-view-if-needed": "^3.0.3",
     "shallowequal": "^1.1.0"
   },
   "devDependencies": {
