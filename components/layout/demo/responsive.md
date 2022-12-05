@@ -20,14 +20,4 @@ Layout.Sider supports responsive layout.
 #components-layout-demo-responsive .site-layout-sub-header-background {
   background: #fff;
 }
-
-#components-layout-demo-responsive .site-layout-background {
-  background: #fff;
-}
 ```
-
-<style>
-  [data-theme="dark"] .site-layout-sub-header-background {
-    background: #141414;
-  }
-</style>
