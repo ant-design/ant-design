@@ -22,7 +22,7 @@ timeline: true
 - Modal
   - 🐞 Fix Modal with long content exceed the panel. [#39249](https://github.com/ant-design/ant-design/pull/39249) [@MuxinFeng](https://github.com/MuxinFeng)
   - 🐞 Fix Modal.info content width when without icon. [#39047](https://github.com/ant-design/ant-design/pull/39047) [@owjs3901](https://github.com/owjs3901)
-- 🐞 Fix Tree with `blockNode` not working. [#39209](https://github.com/ant-design/ant-design/pull/39209) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 Fix Tree config `checkable` and `blockNode` not makes `title` stretch issue. [#39209](https://github.com/ant-design/ant-design/pull/39209) [@Wxh16144](https://github.com/Wxh16144)
 - 🐞 Fix Dropdown sub menu missing motion. [#39235](https://github.com/ant-design/ant-design/pull/39235)
 - 💄 Fix RangePicker time panel padding style. [#39228](https://github.com/ant-design/ant-design/pull/39228)
 - 🐞 Fix Card action button round style. [#39210](https://github.com/ant-design/ant-design/pull/39210) [@muxin](https://github.com/muxin)
@@ -32,7 +32,6 @@ timeline: true
 - 🐞 Fix Transfer clicking the checkbox position cannot be unchecked and onSelectChange is triggered twice. [#39078](https://github.com/ant-design/ant-design/pull/39078) [@edc-hui](https://github.com/edc-hui)
 - 🐞 Fix Steps connection line and icon align style issue. [#39100](https://github.com/ant-design/ant-design/pull/39100) [@Wxh16144](https://github.com/Wxh16144)
 - 🐞 Fix Form horizontal layout with `xs` responsive config not work. [#39130](https://github.com/ant-design/ant-design/pull/39130)
-- 🛠 Improve Drawer warning message. [#39207](https://github.com/ant-design/ant-design/pull/39207) [@abenhamdine](https://github.com/abenhamdine)
 
 ## 5.0.3
 
