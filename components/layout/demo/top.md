@@ -16,7 +16,6 @@ Top-bottom structure is conform with the top-bottom viewing habit, it's a classi
 .site-layout-content {
   min-height: 280px;
   padding: 24px;
-  background: #fff;
 }
 #components-layout-demo-top .logo {
   float: left;
@@ -30,9 +29,3 @@ Top-bottom structure is conform with the top-bottom viewing habit, it's a classi
   margin: 16px 0 16px 24px;
 }
 ```
-
-<style>
-  [data-theme="dark"] .site-layout-content {
-    background: #141414;
-  }
-</style>
