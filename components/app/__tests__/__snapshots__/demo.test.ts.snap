@@ -4,9 +4,14 @@ exports[`renders ./components/app/demo/message.tsx correctly 1`] = `
 <div
   class="ant-app"
 >
-  <div>
-    Hello World
-  </div>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Open message
+    </span>
+  </button>
 </div>
 `;
 
@@ -34,7 +39,7 @@ exports[`renders ./components/app/demo/notification.tsx correctly 1`] = `
     type="button"
   >
     <span>
-      Open Notification
+      Open notification
     </span>
   </button>
 </div>
