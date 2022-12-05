@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import JsonML from 'jsonml.js/lib/utils';
 // @ts-ignore
 import toReactComponent from 'jsonml-to-react-element';
-// @ts-ignore
 import Prism from 'prismjs';
 import { useLocation, useIntl, type IPreviewerProps } from 'dumi';
 import { ping } from '../../utils';
