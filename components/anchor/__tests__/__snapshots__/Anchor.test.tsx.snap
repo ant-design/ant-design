@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Anchor Render renders items correctly 1`] = `
+<div>
+  <div
+    class=""
+  >
+    <div
+      class="ant-anchor-wrapper"
+      style="max-height: 100vh;"
+    >
+      <div
+        class="ant-anchor"
+      >
+        <div
+          class="ant-anchor-ink"
+        >
+          <span
+            class="ant-anchor-ink-ball"
+          />
+        </div>
+        <div
+          class="ant-anchor-link"
+        >
+          <a
+            class="ant-anchor-link-title"
+            href="#components-anchor-demo-basic"
+            title="Item Basic Demo"
+          >
+            Item Basic Demo
+          </a>
+        </div>
+        <div
+          class="ant-anchor-link"
+        >
+          <a
+            class="ant-anchor-link-title"
+            href="#components-anchor-demo-static"
+            title="Static demo"
+          >
+            Static demo
+          </a>
+        </div>
+        <div
+          class="ant-anchor-link"
+        >
+          <a
+            class="ant-anchor-link-title"
+            href="#api"
+            title="API"
+          >
+            API
+          </a>
+          <div
+            class="ant-anchor-link"
+          >
+            <a
+              class="ant-anchor-link-title"
+              href="#anchor-props"
+              title="Anchor Props"
+            >
+              Anchor Props
+            </a>
+            <div
+              class="ant-anchor-link"
+            >
+              <a
+                class="ant-anchor-link-title"
+                href="#link-props"
+                title="Link Props"
+              >
+                Link Props
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
