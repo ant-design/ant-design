@@ -79,10 +79,11 @@ return <Mentions options={options} />;
 
 ### Option
 
-| Property  | Description                 | Type                | Default |
-| --------- | --------------------------- | ------------------- | ------- |
-| label     | Title of the option         | React.ReactNode     | -       |
-| key       | The key value of the option | string              | -       |
-| disabled  | Optional                    | boolean             | -       |
-| className | className                   | string              | -       |
-| style     | The style of the option     | React.CSSProperties | -       |
+<!-- prettier-ignore -->
+| Property | Description | Type | Default |
+| --- | --- | --- | --- |
+| label | Title of the option | React.ReactNode | - |
+| key | The key value of the option | string | - |
+| disabled | Optional | boolean | - |
+| className | className | string | - |
+| style | The style of the option | React.CSSProperties | - |

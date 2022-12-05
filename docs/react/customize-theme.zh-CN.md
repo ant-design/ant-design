@@ -355,7 +355,7 @@ root.render(
 
 ## 调试主题
 
-我们提供了帮助用户调试主题的工具：[主题编辑器](https://ant-design.github.io/antd-token-previewer/~demos/docs-theme-editor-simple)
+我们提供了帮助用户调试主题的工具：[主题编辑器](/theme-editor-cn)
 
 你可以使用此工具自由地修改 Design Token，以达到您对主题的期望。
 
