@@ -15,7 +15,6 @@ import {
   TwitterOutlined,
   UsergroupAddOutlined,
   ZhihuOutlined,
-  YuqueFilled,
 } from '@ant-design/icons';
 import { css } from '@emotion/react';
 import { TinyColor } from '@ctrl/tinycolor';
@@ -154,7 +153,7 @@ const Footer = () => {
         },
         {
           title: <FormattedMessage id="app.footer.chinamirror" />,
-          url: 'https://ant-design.gitee.io/',
+          url: 'https://ant-design.antgroup.com',
         },
       ],
     };
@@ -181,19 +180,24 @@ const Footer = () => {
           openExternal: true,
         },
         {
-          icon: <YuqueFilled style={{ color: '#00b96b' }} />,
+          icon: (
+            <img
+              src="https://gw.alipayobjects.com/zos/rmsportal/XuVpGqBFxXplzvLjJBZB.svg"
+              alt="yuque"
+            />
+          ),
           title: <FormattedMessage id="app.footer.yuque.repo" />,
           url: 'https://yuque.com/ant-design/ant-design',
           openExternal: true,
         },
         {
-          icon: <ZhihuOutlined style={{ color: '#0084ff' }} />,
+          icon: <ZhihuOutlined style={{ color: '#056de8' }} />,
           title: <FormattedMessage id="app.footer.zhihu" />,
           url: 'https://www.zhihu.com/column/c_1564262000561106944',
           openExternal: true,
         },
         {
-          icon: <ZhihuOutlined style={{ color: '#0084ff' }} />,
+          icon: <ZhihuOutlined style={{ color: '#056de8' }} />,
           title: <FormattedMessage id="app.footer.zhihu.xtech" />,
           url: 'http://zhuanlan.zhihu.com/xtech',
           openExternal: true,
