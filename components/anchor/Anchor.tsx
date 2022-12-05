@@ -12,6 +12,7 @@ import type { AnchorLinkBaseProps } from './AnchorLink';
 import AnchorLink from './AnchorLink';
 
 import useStyle from './style';
+import AnchorInk from './AnchorInk';
 
 export interface AnchorLinkItemProps extends AnchorLinkBaseProps {
   key: React.Key;
@@ -73,6 +74,7 @@ export interface AnchorProps {
   /** Listening event when scrolling change active link */
   onChange?: (currentActiveLink: string) => void;
   items?: AnchorLinkItemProps[];
+  direction?: 'vertical' | 'horizontal';
 }
 
 interface InternalAnchorProps extends AnchorProps {
@@ -113,6 +115,7 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
     showInkInFixed = false,
     children,
     items,
+    direction: anchorDirection = 'vertical',
     bounds,
     targetOffset,
     onClick,
@@ -165,6 +168,19 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
     if (linkNode && spanLinkNode.current) {
       spanLinkNode.current.style.top = `${linkNode.offsetTop + linkNode.clientHeight / 2}px`;
       spanLinkNode.current.style.height = `${linkNode.clientHeight}px`;
+    }
+  };
+
+  const updateHorizontalInk = () => {
+    const linkNode = wrapperRef.current?.querySelector<HTMLElement>(
+      `.${prefixCls}-link-title-active`,
+    );
+    if (linkNode && spanLinkNode.current) {
+      // spanLinkNode.current.style.left = `${linkNode.offsetLeft + linkNode.clientWidth / 2}px`;
+
+      spanLinkNode.current.style.left = `${linkNode.offsetLeft}px`;
+      spanLinkNode.current.style.width = `${linkNode.clientWidth}px`;
+      linkNode.scrollIntoView({ behavior: 'auto' });
     }
   };
 
@@ -250,18 +266,12 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
     [targetOffset, offsetTop],
   );
 
-  const inkClass = classNames(
-    {
-      [`${prefixCls}-ink-ball-visible`]: activeLink,
-    },
-    `${prefixCls}-ink-ball`,
-  );
-
   const wrapperClass = classNames(
     rootClassName,
     `${prefixCls}-wrapper`,
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',
+      [`${prefixCls}-horizontal`]: anchorDirection === 'horizontal',
     },
     className,
   );
@@ -287,9 +297,12 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
   const anchorContent = (
     <div ref={wrapperRef} className={wrapperClass} style={wrapperStyle}>
       <div className={anchorClass}>
-        <div className={`${prefixCls}-ink`}>
-          <span className={inkClass} ref={spanLinkNode} />
-        </div>
+        <AnchorInk
+          direction={anchorDirection}
+          anchorPrefixCls={prefixCls}
+          activeLink={activeLink}
+          ref={spanLinkNode}
+        />
         {'items' in props ? createNestedLink(items) : children}
       </div>
     </div>
@@ -311,8 +324,9 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
   }, [getCurrentAnchor]);
 
   React.useEffect(() => {
-    updateInk();
-  }, [getCurrentAnchor, dependencyListItem, activeLink]);
+    if (anchorDirection === 'horizontal') updateHorizontalInk();
+    else updateInk();
+  }, [anchorDirection, getCurrentAnchor, dependencyListItem, activeLink]);
 
   const memoizedContextValue = React.useMemo<AntAnchor>(
     () => ({

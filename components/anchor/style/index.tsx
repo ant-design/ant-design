@@ -103,6 +103,41 @@ const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
   };
 };
 
+const genSharedAnchorHorizontalStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
+  const { componentCls, motionDurationSlow, lineWidthBold } = token;
+
+  return {
+    [`${componentCls}-horizontal`]: {
+      [componentCls]: {
+        overflowX: 'scroll',
+        position: 'relative',
+        borderBottom: `${lineWidthBold}px ${token.lineType} ${token.colorSplit}`,
+        display: 'flex',
+
+        // '&::before': {
+        //   display: 'block',
+        //   height: lineWidthBold,
+        //   margin: '0 auto',
+        //   width: '100%',
+        //   backgroundColor: token.colorSplit,
+        //   content: '" "',
+        // },
+
+        [`${componentCls}-ink-ball`]: {
+          left: {
+            _skip_check_: true,
+            value: 0,
+          },
+          bottom: lineWidthBold * -2,
+          display: 'none',
+          transition: `left ${motionDurationSlow} ease-in-out`,
+          height: lineWidthBold,
+        },
+      },
+    },
+  };
+};
+
 // ============================== Export ==============================
 export default genComponentStyleHook('Anchor', (token) => {
   const { fontSize, fontSizeLG, padding, paddingXXS } = token;
@@ -115,5 +150,5 @@ export default genComponentStyleHook('Anchor', (token) => {
     anchorTitleBlock: (fontSize / 14) * 3,
     anchorBallSize: fontSizeLG / 2,
   });
-  return [genSharedAnchorStyle(anchorToken)];
+  return [genSharedAnchorStyle(anchorToken), genSharedAnchorHorizontalStyle(anchorToken)];
 });
