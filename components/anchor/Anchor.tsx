@@ -294,24 +294,14 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
 
   const anchorContent = (
     <div ref={wrapperRef} className={wrapperClass} style={wrapperStyle}>
-      {anchorDirection === 'horizontal' ? (
+      <div className={anchorClass}>
+        {'items' in props ? createNestedLink(items) : children}
         <AnchorInk
           direction={anchorDirection}
           anchorPrefixCls={prefixCls}
           activeLink={activeLink}
           ref={spanLinkNode}
         />
-      ) : null}
-      <div className={anchorClass}>
-        {anchorDirection === 'vertical' ? (
-          <AnchorInk
-            direction={anchorDirection}
-            anchorPrefixCls={prefixCls}
-            activeLink={activeLink}
-            ref={spanLinkNode}
-          />
-        ) : null}
-        {'items' in props ? createNestedLink(items) : children}
       </div>
     </div>
   );

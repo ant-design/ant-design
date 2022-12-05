@@ -119,6 +119,20 @@ const genSharedAnchorHorizontalStyle: GenerateStyle<AnchorToken> = (token): CSSO
         content: '" "',
       },
 
+      [componentCls]: {
+        overflowX: 'scroll',
+        position: 'relative',
+        display: 'flex',
+
+        '&::-webkit-scrollbar': {
+          display: 'none' /* Safari and Chrome */,
+        },
+
+        [`${componentCls}-link:first-child`]: {
+          paddingInline: 0,
+        },
+      },
+
       [`${componentCls}-ink-ball-horizontal`]: {
         position: 'absolute',
         left: 0,
@@ -126,16 +140,6 @@ const genSharedAnchorHorizontalStyle: GenerateStyle<AnchorToken> = (token): CSSO
         transition: `left ${motionDurationSlow} ease-in-out`,
         height: lineWidthBold,
         backgroundColor: token.colorPrimary,
-      },
-
-      [componentCls]: {
-        overflowX: 'scroll',
-        position: 'relative',
-        display: 'flex',
-
-        [`${componentCls}-link:first-child`]: {
-          paddingInline: 0,
-        },
       },
     },
   };
