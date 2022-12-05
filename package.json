@@ -87,6 +87,7 @@
     "sort": "npx sort-package-json",
     "sort-api": "antd-tools run sort-api-table",
     "start": "PORT=8001 dumi dev",
+    "start-win": "set PORT=8081 && dumi dev",
     "test": "jest --config .jest.js --cache=false",
     "test:update": "jest --config .jest.js --cache=false -u",
     "test-all": "sh -e ./scripts/test-all.sh",
