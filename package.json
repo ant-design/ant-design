@@ -285,7 +285,6 @@
     "remark-cli": "^11.0.0",
     "remark-lint": "^9.0.0",
     "remark-preset-lint-recommended": "^6.0.0",
-    "rimraf": "^3.0.0",
     "rome": "^10.0.1",
     "semver": "^7.3.5",
     "simple-git": "^3.0.0",
