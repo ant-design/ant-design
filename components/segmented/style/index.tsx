@@ -197,7 +197,7 @@ export default genComponentStyleHook('Segmented', (token) => {
     colorTextLabel,
     colorText,
     colorFillSecondary,
-    colorFillQuaternary,
+    colorBgLayout,
     colorBgElevated,
   } = token;
 
@@ -207,7 +207,7 @@ export default genComponentStyleHook('Segmented', (token) => {
     segmentedContainerPadding: lineWidthBold,
     labelColor: colorTextLabel,
     labelColorHover: colorText,
-    bgColor: colorFillQuaternary,
+    bgColor: colorBgLayout,
     bgColorHover: colorFillSecondary,
     bgColorSelected: colorBgElevated,
   });
