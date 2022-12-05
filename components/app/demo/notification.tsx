@@ -15,7 +15,7 @@ const MyPage = () => {
 
   return (
     <Button type="primary" onClick={showNotification}>
-      Open Notification
+      Open notification
     </Button>
   );
 };

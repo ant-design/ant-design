@@ -4,4 +4,4 @@
 
 ## en-US
 
-Static method for `obtaining message`.
+Static method for `message`.

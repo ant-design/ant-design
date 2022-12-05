@@ -1,14 +1,19 @@
 import React from 'react';
-import { App } from 'antd';
+import { App, Button } from 'antd';
 
 // Sub page
 const MyPage = () => {
   const { message } = App.useApp();
-  React.useEffect(() => {
-    message.success('Good!');
-  }, [message]);
 
-  return <div>Hello World</div>;
+  const showMessage = () => {
+    message.success('Success!');
+  };
+
+  return (
+    <Button type="primary" onClick={showMessage}>
+      Open message
+    </Button>
+  );
 };
 
 // Entry component
