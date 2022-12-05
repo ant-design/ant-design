@@ -16,8 +16,4 @@ Layout.Sider supports responsive layout.
   margin: 16px;
   background: rgba(255, 255, 255, 0.2);
 }
-
-#components-layout-demo-responsive .site-layout-sub-header-background {
-  background: #fff;
-}
 ```

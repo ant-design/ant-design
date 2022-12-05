@@ -1906,8 +1906,8 @@ exports[`renders ./components/layout/demo/responsive.tsx extend context correctl
     class="ant-layout"
   >
     <header
-      class="ant-layout-header site-layout-sub-header-background"
-      style="padding:0"
+      class="ant-layout-header"
+      style="padding:0;background:#ffffff"
     />
     <main
       class="ant-layout-content"
