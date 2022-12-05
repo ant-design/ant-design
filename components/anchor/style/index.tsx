@@ -108,30 +108,33 @@ const genSharedAnchorHorizontalStyle: GenerateStyle<AnchorToken> = (token): CSSO
 
   return {
     [`${componentCls}-horizontal`]: {
+      position: 'relative',
+
+      '&::before': {
+        position: 'absolute',
+        right: 0,
+        left: 0,
+        bottom: 0,
+        borderBottom: `1px ${token.lineType} ${token.colorSplit}`,
+        content: '" "',
+      },
+
+      [`${componentCls}-ink-ball-horizontal`]: {
+        position: 'absolute',
+        left: 0,
+        bottom: 0,
+        transition: `left ${motionDurationSlow} ease-in-out`,
+        height: lineWidthBold,
+        backgroundColor: token.colorPrimary,
+      },
+
       [componentCls]: {
         overflowX: 'scroll',
         position: 'relative',
-        borderBottom: `${lineWidthBold}px ${token.lineType} ${token.colorSplit}`,
         display: 'flex',
 
-        // '&::before': {
-        //   display: 'block',
-        //   height: lineWidthBold,
-        //   margin: '0 auto',
-        //   width: '100%',
-        //   backgroundColor: token.colorSplit,
-        //   content: '" "',
-        // },
-
-        [`${componentCls}-ink-ball`]: {
-          left: {
-            _skip_check_: true,
-            value: 0,
-          },
-          bottom: lineWidthBold * -2,
-          display: 'none',
-          transition: `left ${motionDurationSlow} ease-in-out`,
-          height: lineWidthBold,
+        [`${componentCls}-link:first-child`]: {
+          paddingInline: 0,
         },
       },
     },

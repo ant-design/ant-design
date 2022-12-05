@@ -176,8 +176,6 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
       `.${prefixCls}-link-title-active`,
     );
     if (linkNode && spanLinkNode.current) {
-      // spanLinkNode.current.style.left = `${linkNode.offsetLeft + linkNode.clientWidth / 2}px`;
-
       spanLinkNode.current.style.left = `${linkNode.offsetLeft}px`;
       spanLinkNode.current.style.width = `${linkNode.clientWidth}px`;
       linkNode.scrollIntoView({ behavior: 'auto' });
@@ -296,13 +294,23 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
 
   const anchorContent = (
     <div ref={wrapperRef} className={wrapperClass} style={wrapperStyle}>
-      <div className={anchorClass}>
+      {anchorDirection === 'horizontal' ? (
         <AnchorInk
           direction={anchorDirection}
           anchorPrefixCls={prefixCls}
           activeLink={activeLink}
           ref={spanLinkNode}
         />
+      ) : null}
+      <div className={anchorClass}>
+        {anchorDirection === 'vertical' ? (
+          <AnchorInk
+            direction={anchorDirection}
+            anchorPrefixCls={prefixCls}
+            activeLink={activeLink}
+            ref={spanLinkNode}
+          />
+        ) : null}
         {'items' in props ? createNestedLink(items) : children}
       </div>
     </div>
