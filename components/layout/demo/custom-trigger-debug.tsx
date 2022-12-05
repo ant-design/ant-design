@@ -9,7 +9,7 @@ import {
   UserOutlined,
 } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
-import { Layout, Menu } from 'antd';
+import { Layout, Menu, theme } from 'antd';
 
 const { Header, Sider, Content } = Layout;
 
@@ -66,6 +66,9 @@ const items: MenuProps['items'] = [
 
 const App: React.FC = () => {
   const [collapsed, setCollapsed] = useState(true);
+  const {
+    token: { colorBgContainer },
+  } = theme.useToken();
 
   return (
     <Layout>
@@ -80,18 +83,18 @@ const App: React.FC = () => {
         />
       </Sider>
       <Layout>
-        <Header className="site-layout-background" style={{ padding: 0 }}>
+        <Header style={{ padding: 0, background: colorBgContainer }}>
           {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
             className: 'trigger',
             onClick: () => setCollapsed(!collapsed),
           })}
         </Header>
         <Content
-          className="site-layout-background"
           style={{
             margin: '24px 16px',
             padding: 24,
             minHeight: 280,
+            background: colorBgContainer,
           }}
         >
           Content
