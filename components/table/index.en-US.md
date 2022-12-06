@@ -329,12 +329,6 @@ return <Table rowKey="uid" />;
 return <Table rowKey={(record) => record.uid} />;
 ```
 
-## Migrate to v4
-
-Table removes `onRowClick`, `onRowDoubleClick`, `onRowMouseEnter`, `onRowMouseLeave` and some other api which is already deprecated in v3. If you only use api listing in official document, that's OK.
-
-Besides, the breaking change is changing `dataIndex` from nest string path like `user.age` to string array path like `['user', 'age']`. This help to resolve developer should additional work on the field which contains `.`.
-
 ## FAQ
 
 ### How to hide pagination when single page or no data?
