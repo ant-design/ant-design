@@ -531,14 +531,14 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
       [`&-date-panel
         ${componentCls}-cell-in-view${componentCls}-cell-in-range${componentCls}-cell-range-hover-start
         ${pickerCellInnerCls}::after`]: {
-        insetInlineEnd: (pickerPanelCellWidth - pickerPanelCellHeight) / 2,
+        insetInlineEnd: -(pickerPanelCellWidth - pickerPanelCellHeight) / 2,
         insetInlineStart: 0,
       },
 
       [`&-date-panel ${componentCls}-cell-in-view${componentCls}-cell-in-range${componentCls}-cell-range-hover-end ${pickerCellInnerCls}::after`]:
         {
           insetInlineEnd: 0,
-          insetInlineStart: (pickerPanelCellWidth - pickerPanelCellHeight) / 2,
+          insetInlineStart: -(pickerPanelCellWidth - pickerPanelCellHeight) / 2,
         },
 
       // Hover with range start & end

@@ -35,15 +35,15 @@ export default function InfoNewVersion() {
     updateCSS(
       `
 :where(.${whereCls}) {
-  width: 93px !important;
+  content: "__CHECK__";
 }
     `,
       whereCls,
     );
 
     // Check style
-    const { width } = getComputedStyle(p);
-    setSupportWhere(String(width) === '93px');
+    const { content } = getComputedStyle(p);
+    setSupportWhere(String(content).includes('CHECK'));
 
     return () => {
       document.body.removeChild(p);
