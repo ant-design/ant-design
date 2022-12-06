@@ -266,11 +266,6 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
       // >>> Title
       // add `${treeCls}-checkbox + span` to cover checkbox `${checkboxCls} + span`
       [`${treeCls}-node-content-wrapper, ${treeCls}-checkbox + span`]: {
-        paddingInline: 0,
-      },
-      [`${treeCls}-node-content-wrapper`]: {
-        display: 'flex',
-        flexWrap: 'nowrap',
         position: 'relative',
         zIndex: 'auto',
         minHeight: treeTitleHeight,
@@ -304,6 +299,10 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
             display: 'none',
           },
         },
+      },
+
+      [`${treeCls}-checkbox + span`]: {
+        paddingInline: 0,
       },
 
       // https://github.com/ant-design/ant-design/issues/28217
