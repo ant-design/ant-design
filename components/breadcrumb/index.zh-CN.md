@@ -16,36 +16,6 @@ demo:
 - 当需要告知用户『你在哪里』时；
 - 当需要向上导航的功能时。
 
-### 4.24.0 用法升级
-
-<Alert message="在 4.24.0 版本后，我们提供了 &lt;Breadcrumb.Item menu={{ items: [...] }}&gt; 的简写方式，有更好的性能和更方便的数据组织方式，开发者不再需要自行拼接 JSX。同时我们废弃了原先的写法，你还是可以在 4.x 继续使用，但会在控制台看到警告，并会在 5.0 后移除。"></Alert>
-
-```jsx
-// >=4.24.0 可用，推荐的写法 ✅
-const items = [
-  { label: '菜单项一', key: 'item-1' }, // 菜单项务必填写 key
-  { label: '菜单项二', key: 'item-2' },
-];
-return (
-  <Breadcrumb>
-    <Breadcrumb.Item menu={{ items }}>Ant Design</Breadcrumb.Item>
-  </Breadcrumb>
-);
-
-// <4.24.0 可用，>=4.24.0 时不推荐 🙅🏻‍♀️
-const menu = (
-  <Menu>
-    <Menu.Item>菜单项一</Menu.Item>
-    <Menu.Item>菜单项二</Menu.Item>
-  </Menu>
-);
-return (
-  <Breadcrumb>
-    <Breadcrumb.Item overlay={menu}>Ant Design</Breadcrumb.Item>
-  </Breadcrumb>
-);
-```
-
 ## 代码演示
 
 <!-- prettier-ignore -->
