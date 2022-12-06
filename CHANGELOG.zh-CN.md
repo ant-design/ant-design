@@ -15,6 +15,17 @@ timeline: true
 
 ---
 
+## 4.24.5
+
+`2022-12-05`
+
+- 🐞 修复 Menu.Item 配置 `disabled` 属性时其中的 a 标签仍可以点击的问题。[aa8d7f5](https://github.com/ant-design/ant-design/commit/aa8d7f5) [@二货机器人](https://github.com/二货机器人)
+- 💄 优化 Popconfirm 内容换行时的图标位置。[#39027](https://github.com/ant-design/ant-design/pull/39027) [@justanotheranonymoususer](https://github.com/justanotheranonymoususer)
+- 🐞 修复 Badge `count` 为 `0` 时无法自定义颜色问题。[#39062](https://github.com/ant-design/ant-design/pull/39062) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 修复 Card.Meta 宽度没有默认填满容器的问题。[#39039](https://github.com/ant-design/ant-design/pull/39039) [@justanotheranonymoususer](https://github.com/justanotheranonymoususer)
+- 🐞 解决当 TimePicker 传递 `popupClassName` 属性会显示异常警告的问题。[#39010](https://github.com/ant-design/ant-design/pull/39010) [@kiner-tang](https://github.com/kiner-tang)
+- 💄 修复 Steps `size="small"` 第一项带有进度时，进度条显示不全的问题。[#39103](https://github.com/ant-design/ant-design/pull/39103) [@Wxh16144](https://github.com/Wxh16144)
+
 ## 4.24.4
 
 `2022-11-25`

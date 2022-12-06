@@ -7257,7 +7257,7 @@ exports[`renders ./components/table/demo/filter-in-tree.md extend context correc
                                 <div
                                   aria-hidden="true"
                                   class="ant-tree-treenode"
-                                  style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+                                  style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden;border:0;padding:0"
                                 >
                                   <div
                                     class="ant-tree-indent"
@@ -8253,7 +8253,7 @@ exports[`renders ./components/table/demo/filter-search.md extend context correct
                                 <div
                                   aria-hidden="true"
                                   class="ant-tree-treenode"
-                                  style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+                                  style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden;border:0;padding:0"
                                 >
                                   <div
                                     class="ant-tree-indent"

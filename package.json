@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "4.24.4",
+  "version": "4.24.5",
   "description": "An enterprise-class UI design language and React components implementation",
   "title": "Ant Design",
   "keywords": [
@@ -309,45 +309,45 @@
   "size-limit": [
     {
       "path": "./dist/antd.min.js",
-      "limit": "282 kB"
+      "limit": "285 kB"
     },
     {
       "path": "./dist/antd.min.css",
-      "limit": "66 kB"
+      "limit": "70 kB"
     },
     {
       "path": "./dist/antd.dark.min.css",
-      "limit": "67.5 kB"
+      "limit": "70 kB"
     },
     {
       "path": "./dist/antd.compact.min.css",
-      "limit": "66 kB"
+      "limit": "70 kB"
     },
     {
       "path": "./dist/antd.variable.min.css",
-      "limit": "67 kB"
+      "limit": "70 kB"
     }
   ],
   "bundlesize": [
     {
       "path": "./dist/antd.min.js",
-      "maxSize": "283 kB"
+      "maxSize": "285 kB"
     },
     {
       "path": "./dist/antd.min.css",
-      "maxSize": "66.5 kB"
+      "maxSize": "70 kB"
     },
     {
       "path": "./dist/antd.dark.min.css",
-      "maxSize": "68 kB"
+      "maxSize": "70 kB"
     },
     {
       "path": "./dist/antd.compact.min.css",
-      "maxSize": "66.5 kB"
+      "maxSize": "70 kB"
     },
     {
       "path": "./dist/antd.variable.min.css",
-      "maxSize": "67 kB"
+      "maxSize": "70 kB"
     }
   ],
   "tnpm": {
