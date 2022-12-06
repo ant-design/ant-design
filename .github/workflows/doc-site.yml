@@ -1,0 +1,65 @@
+# ref: https://github.com/ant-design/ant-design-mobile/blob/72b8225153c4f4d23fa2c81f48b61d3a320d16eb/.github/workflows/doc-site.yml
+
+name: Doc Site
+on:
+  release:
+    types: [published]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: cache package-lock.json
+        uses: actions/cache@v3
+        with:
+          path: package-temp-dir
+          key: lock-${{ github.sha }}
+
+      - name: create package-lock.json
+        run: npm i --package-lock-only --ignore-scripts
+
+      - name: hack for single file
+        run: |
+          if [ ! -d "package-temp-dir" ]; then
+            mkdir package-temp-dir
+          fi
+          cp package-lock.json package-temp-dir
+
+      - name: cache node_modules
+        id: node_modules_cache_id
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
+
+      - name: install
+        if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
+        run: npm ci
+
+      - name: npm run site
+        id: site
+        run: npm run site
+        env:
+          NODE_OPTIONS: --max_old_space_size=4096
+
+      # transform version e.g. v1.23.4 to 1-23-4
+      - name: Get version
+        id: publish-version
+        run: echo "VERSION=$(echo ${{ github.ref_name }} | sed 's/v//g' | sed 's/\./-/g')" >> $GITHUB_OUTPUT
+
+      - name: Deploy to Surge (with TAG)
+        id: deploy
+        run: |
+          export DEPLOY_DOMAIN=ant-design-${{ steps.publish-version.outputs.VERSION }}.surge.sh
+          npx surge --project ./_site --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
+
+      - name: Create Commit Comment
+        uses: peter-evans/commit-comment@v1
+        with:
+          body: |
+            Doc site for this release: https://ant-design-${{ steps.publish-version.outputs.VERSION }}.surge.sh
