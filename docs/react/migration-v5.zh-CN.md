@@ -168,7 +168,7 @@ npx -p @ant-design/codemod-v5 antd5-codemod src
 pnpm --package=@ant-design/codemod-v5 dlx antd5-codemod src
 ```
 
-<video autoplay="" loop="" style="width: 100%; object-fit: contain;">
+<video autoplay="" loop="" style="width: 100%; max-height: 600px; object-fit: contain;">
   <source src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/file/A*Sjy5ToW6ow0AAAAAAAAAAAAADrJ8AQ" type="video/webm">
   <source src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/file/A*hTDYQJ2HFTYAAAAAAAAAAAAADrJ8AQ" type="video/mp4">
 </video>
