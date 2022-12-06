@@ -39,7 +39,7 @@ demo:
 | defaultChecked | 初始是否选中                            | boolean           | false  |      |
 | disabled       | 失效状态                                | boolean           | false  |      |
 | indeterminate  | 设置 indeterminate 状态，只负责样式控制 | boolean           | false  |      |
-| onChange       | 变化时的回调函数                        | function(e:Event) | -      |      |
+| onChange       | 变化时的回调函数                        | function(e: CheckboxChangeEvent) | -      |      |
 
 #### Checkbox Group
 
