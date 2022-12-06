@@ -212,8 +212,9 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
       },
 
       [`${componentCls}-body`]: {
-        width: floatButtonSize,
-        height: floatButtonSize,
+        margin: 'auto',
+        width: '100%',
+        height: '100%',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
