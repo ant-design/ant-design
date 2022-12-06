@@ -167,7 +167,6 @@
     "@emotion/server": "^11.4.0",
     "@qixian.cs/github-contributors-list": "^1.0.3",
     "@size-limit/file": "^8.1.0",
-    "@size-limit/webpack-why": "^8.1.0",
     "@stackblitz/sdk": "^1.3.0",
     "@testing-library/dom": "^8.17.1",
     "@testing-library/jest-dom": "^5.16.3",
@@ -312,11 +311,11 @@
   "size-limit": [
     {
       "path": "./dist/antd.min.js",
-      "limit": "390 kB"
+      "limit": "377 KiB"
     },
     {
       "path": "./dist/antd-with-locales.min.js",
-      "limit": "450 kB"
+      "limit": "430 KiB"
     }
   ],
   "bundlesize": [
