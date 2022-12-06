@@ -192,5 +192,5 @@ module.exports = {
   },
   generateThemeFileContent,
   bail: true,
-  tag: 'version-4',
+  tag: 'latest-4',
 };
