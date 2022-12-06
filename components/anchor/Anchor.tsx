@@ -85,7 +85,7 @@ export interface AntAnchor {
   activeLink: string | null;
   scrollTo: (link: string) => void;
   onClick?: (
-    e: React.MouseEvent<HTMLElement>,
+    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
     link: { title: React.ReactNode; href: string },
   ) => void;
 }
