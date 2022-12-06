@@ -494,6 +494,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     <div className={`${prefixCls}-column`}>
       <span className={`${tablePrefixCls}-column-title`}>{children}</span>
       <Dropdown
+        autoFocus
         dropdownRender={menu}
         trigger={['click']}
         open={mergedVisible}
@@ -503,11 +504,21 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
       >
         <span
           role="button"
-          tabIndex={-1}
+          tabIndex={0}
           className={classNames(`${prefixCls}-trigger`, {
             active: filtered,
           })}
           onClick={(e) => {
+            e.stopPropagation();
+          }}
+          onKeyDown={(e) => {
+            const {key} = e;
+            if (key === 'Enter' || key===' ') {
+              triggerVisible(true);
+            }
+            if (key === 'Escape') {
+              triggerVisible(false);
+            }
             e.stopPropagation();
           }}
         >

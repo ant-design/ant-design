@@ -26694,7 +26694,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                       <span
                         class="config-dropdown-trigger config-table-filter-trigger config-dropdown-open"
                         role="button"
-                        tabindex="-1"
+                        tabindex="0"
                       >
                         <span
                           aria-label="filter"
@@ -26999,7 +26999,7 @@ exports[`ConfigProvider components Table configProvider componentDisabled 1`] = 
                       <span
                         class="config-dropdown-trigger config-table-filter-trigger config-dropdown-open"
                         role="button"
-                        tabindex="-1"
+                        tabindex="0"
                       >
                         <span
                           aria-label="filter"
@@ -27306,7 +27306,7 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                       <span
                         class="config-dropdown-trigger config-table-filter-trigger config-dropdown-open"
                         role="button"
-                        tabindex="-1"
+                        tabindex="0"
                       >
                         <span
                           aria-label="filter"
@@ -27611,7 +27611,7 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                       <span
                         class="config-dropdown-trigger config-table-filter-trigger config-dropdown-open"
                         role="button"
-                        tabindex="-1"
+                        tabindex="0"
                       >
                         <span
                           aria-label="filter"
@@ -27916,7 +27916,7 @@ exports[`ConfigProvider components Table configProvider virtual and dropdownMatc
                       <span
                         class="ant-dropdown-trigger ant-table-filter-trigger ant-dropdown-open"
                         role="button"
-                        tabindex="-1"
+                        tabindex="0"
                       >
                         <span
                           aria-label="filter"
@@ -28221,7 +28221,7 @@ exports[`ConfigProvider components Table normal 1`] = `
                       <span
                         class="ant-dropdown-trigger ant-table-filter-trigger ant-dropdown-open"
                         role="button"
-                        tabindex="-1"
+                        tabindex="0"
                       >
                         <span
                           aria-label="filter"
@@ -28526,7 +28526,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                       <span
                         class="ant-dropdown-trigger prefix-Table-filter-trigger ant-dropdown-open"
                         role="button"
-                        tabindex="-1"
+                        tabindex="0"
                       >
                         <span
                           aria-label="filter"

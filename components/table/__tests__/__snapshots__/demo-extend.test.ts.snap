@@ -1286,7 +1286,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.tsx extend context 
                       <span
                         class="ant-dropdown-trigger ant-table-filter-trigger"
                         role="button"
-                        tabindex="-1"
+                        tabindex="0"
                       >
                         <span
                           aria-label="search"
@@ -1422,7 +1422,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.tsx extend context 
                       <span
                         class="ant-dropdown-trigger ant-table-filter-trigger"
                         role="button"
-                        tabindex="-1"
+                        tabindex="0"
                       >
                         <span
                           aria-label="search"
@@ -1638,7 +1638,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.tsx extend context 
                       <span
                         class="ant-dropdown-trigger ant-table-filter-trigger"
                         role="button"
-                        tabindex="-1"
+                        tabindex="0"
                       >
                         <span
                           aria-label="search"
@@ -3281,7 +3281,7 @@ Array [
                         <span
                           class="ant-dropdown-trigger ant-table-filter-trigger"
                           role="button"
-                          tabindex="-1"
+                          tabindex="0"
                         >
                           <span
                             aria-label="filter"
@@ -4834,63 +4834,59 @@ exports[`renders ./components/table/demo/edit-cell.tsx extend context correctly 
                               role="tooltip"
                             >
                               <div
-                                class="ant-popover-inner-content"
+                                class="ant-popconfirm-inner-content"
                               >
                                 <div
-                                  class="ant-popconfirm-inner-content"
+                                  class="ant-popconfirm-message"
                                 >
-                                  <div
-                                    class="ant-popconfirm-message"
+                                  <span
+                                    class="ant-popconfirm-message-icon"
                                   >
                                     <span
-                                      class="ant-popconfirm-message-icon"
+                                      aria-label="exclamation-circle"
+                                      class="anticon anticon-exclamation-circle"
+                                      role="img"
                                     >
-                                      <span
-                                        aria-label="exclamation-circle"
-                                        class="anticon anticon-exclamation-circle"
-                                        role="img"
+                                      <svg
+                                        aria-hidden="true"
+                                        data-icon="exclamation-circle"
+                                        fill="currentColor"
+                                        focusable="false"
+                                        height="1em"
+                                        viewBox="64 64 896 896"
+                                        width="1em"
                                       >
-                                        <svg
-                                          aria-hidden="true"
-                                          data-icon="exclamation-circle"
-                                          fill="currentColor"
-                                          focusable="false"
-                                          height="1em"
-                                          viewBox="64 64 896 896"
-                                          width="1em"
-                                        >
-                                          <path
-                                            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                                          />
-                                        </svg>
-                                      </span>
+                                        <path
+                                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                                        />
+                                      </svg>
                                     </span>
-                                    <div
-                                      class="ant-popconfirm-message-title"
-                                    >
-                                      Sure to delete?
-                                    </div>
-                                  </div>
+                                  </span>
                                   <div
-                                    class="ant-popconfirm-buttons"
+                                    class="ant-popconfirm-message-title"
                                   >
-                                    <button
-                                      class="ant-btn ant-btn-default ant-btn-sm"
-                                      type="button"
-                                    >
-                                      <span>
-                                        Cancel
-                                      </span>
-                                    </button>
-                                    <button
-                                      class="ant-btn ant-btn-primary ant-btn-sm"
-                                      type="button"
-                                    >
-                                      <span>
-                                        OK
-                                      </span>
-                                    </button>
+                                    Sure to delete?
                                   </div>
+                                </div>
+                                <div
+                                  class="ant-popconfirm-buttons"
+                                >
+                                  <button
+                                    class="ant-btn ant-btn-default ant-btn-sm"
+                                    type="button"
+                                  >
+                                    <span>
+                                      Cancel
+                                    </span>
+                                  </button>
+                                  <button
+                                    class="ant-btn ant-btn-primary ant-btn-sm"
+                                    type="button"
+                                  >
+                                    <span>
+                                      OK
+                                    </span>
+                                  </button>
                                 </div>
                               </div>
                             </div>
@@ -4949,63 +4945,59 @@ exports[`renders ./components/table/demo/edit-cell.tsx extend context correctly 
                               role="tooltip"
                             >
                               <div
-                                class="ant-popover-inner-content"
+                                class="ant-popconfirm-inner-content"
                               >
                                 <div
-                                  class="ant-popconfirm-inner-content"
+                                  class="ant-popconfirm-message"
                                 >
-                                  <div
-                                    class="ant-popconfirm-message"
+                                  <span
+                                    class="ant-popconfirm-message-icon"
                                   >
                                     <span
-                                      class="ant-popconfirm-message-icon"
+                                      aria-label="exclamation-circle"
+                                      class="anticon anticon-exclamation-circle"
+                                      role="img"
                                     >
-                                      <span
-                                        aria-label="exclamation-circle"
-                                        class="anticon anticon-exclamation-circle"
-                                        role="img"
+                                      <svg
+                                        aria-hidden="true"
+                                        data-icon="exclamation-circle"
+                                        fill="currentColor"
+                                        focusable="false"
+                                        height="1em"
+                                        viewBox="64 64 896 896"
+                                        width="1em"
                                       >
-                                        <svg
-                                          aria-hidden="true"
-                                          data-icon="exclamation-circle"
-                                          fill="currentColor"
-                                          focusable="false"
-                                          height="1em"
-                                          viewBox="64 64 896 896"
-                                          width="1em"
-                                        >
-                                          <path
-                                            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                                          />
-                                        </svg>
-                                      </span>
+                                        <path
+                                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                                        />
+                                      </svg>
                                     </span>
-                                    <div
-                                      class="ant-popconfirm-message-title"
-                                    >
-                                      Sure to delete?
-                                    </div>
-                                  </div>
+                                  </span>
                                   <div
-                                    class="ant-popconfirm-buttons"
+                                    class="ant-popconfirm-message-title"
                                   >
-                                    <button
-                                      class="ant-btn ant-btn-default ant-btn-sm"
-                                      type="button"
-                                    >
-                                      <span>
-                                        Cancel
-                                      </span>
-                                    </button>
-                                    <button
-                                      class="ant-btn ant-btn-primary ant-btn-sm"
-                                      type="button"
-                                    >
-                                      <span>
-                                        OK
-                                      </span>
-                                    </button>
+                                    Sure to delete?
                                   </div>
+                                </div>
+                                <div
+                                  class="ant-popconfirm-buttons"
+                                >
+                                  <button
+                                    class="ant-btn ant-btn-default ant-btn-sm"
+                                    type="button"
+                                  >
+                                    <span>
+                                      Cancel
+                                    </span>
+                                  </button>
+                                  <button
+                                    class="ant-btn ant-btn-primary ant-btn-sm"
+                                    type="button"
+                                  >
+                                    <span>
+                                      OK
+                                    </span>
+                                  </button>
                                 </div>
                               </div>
                             </div>
@@ -7035,7 +7027,7 @@ exports[`renders ./components/table/demo/filter-in-tree.tsx extend context corre
                       <span
                         class="ant-dropdown-trigger ant-table-filter-trigger"
                         role="button"
-                        tabindex="-1"
+                        tabindex="0"
                       >
                         <span
                           aria-label="filter"
@@ -7558,7 +7550,7 @@ exports[`renders ./components/table/demo/filter-in-tree.tsx extend context corre
                       <span
                         class="ant-dropdown-trigger ant-table-filter-trigger"
                         role="button"
-                        tabindex="-1"
+                        tabindex="0"
                       >
                         <span
                           aria-label="filter"
@@ -8031,7 +8023,7 @@ exports[`renders ./components/table/demo/filter-search.tsx extend context correc
                       <span
                         class="ant-dropdown-trigger ant-table-filter-trigger"
                         role="button"
-                        tabindex="-1"
+                        tabindex="0"
                       >
                         <span
                           aria-label="filter"
@@ -8378,7 +8370,7 @@ exports[`renders ./components/table/demo/filter-search.tsx extend context correc
                       <span
                         class="ant-dropdown-trigger ant-table-filter-trigger"
                         role="button"
-                        tabindex="-1"
+                        tabindex="0"
                       >
                         <span
                           aria-label="filter"
@@ -11886,7 +11878,7 @@ exports[`renders ./components/table/demo/grouping-columns.tsx extend context cor
                       <span
                         class="ant-dropdown-trigger ant-table-filter-trigger"
                         role="button"
-                        tabindex="-1"
+                        tabindex="0"
                       >
                         <span
                           aria-label="filter"
@@ -13293,7 +13285,7 @@ exports[`renders ./components/table/demo/head.tsx extend context correctly 1`] =
                       <span
                         class="ant-dropdown-trigger ant-table-filter-trigger"
                         role="button"
-                        tabindex="-1"
+                        tabindex="0"
                       >
                         <span
                           aria-label="filter"
@@ -13801,7 +13793,7 @@ exports[`renders ./components/table/demo/head.tsx extend context correctly 1`] =
                       <span
                         class="ant-dropdown-trigger ant-table-filter-trigger"
                         role="button"
-                        tabindex="-1"
+                        tabindex="0"
                       >
                         <span
                           aria-label="filter"
@@ -20336,7 +20328,7 @@ Array [
                         <span
                           class="ant-dropdown-trigger ant-table-filter-trigger"
                           role="button"
-                          tabindex="-1"
+                          tabindex="0"
                         >
                           <span
                             aria-label="filter"
@@ -20729,7 +20721,7 @@ Array [
                         <span
                           class="ant-dropdown-trigger ant-table-filter-trigger"
                           role="button"
-                          tabindex="-1"
+                          tabindex="0"
                         >
                           <span
                             aria-label="filter"
