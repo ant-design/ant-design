@@ -328,28 +328,6 @@
       "limit": "70 kB"
     }
   ],
-  "bundlesize": [
-    {
-      "path": "./dist/antd.min.js",
-      "maxSize": "285 kB"
-    },
-    {
-      "path": "./dist/antd.min.css",
-      "maxSize": "70 kB"
-    },
-    {
-      "path": "./dist/antd.dark.min.css",
-      "maxSize": "70 kB"
-    },
-    {
-      "path": "./dist/antd.compact.min.css",
-      "maxSize": "70 kB"
-    },
-    {
-      "path": "./dist/antd.variable.min.css",
-      "maxSize": "70 kB"
-    }
-  ],
   "tnpm": {
     "mode": "npm"
   },
