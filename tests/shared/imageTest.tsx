@@ -7,6 +7,7 @@ import glob from 'glob';
 import { configureToMatchImageSnapshot } from 'jest-image-snapshot';
 import MockDate from 'mockdate';
 import ReactDOMServer from 'react-dom/server';
+import { App } from '../../components';
 
 const toMatchImageSnapshot = configureToMatchImageSnapshot({
   customSnapshotsDir: `${process.cwd()}/imageSnapshots`,
@@ -35,7 +36,9 @@ export default function imageTest(component: React.ReactElement) {
 
     const cache = createCache();
     const html = ReactDOMServer.renderToString(
-      <StyleProvider cache={cache}>{component}</StyleProvider>,
+      <App>
+        <StyleProvider cache={cache}>{component}</StyleProvider>,
+      </App>,
     );
     const styleStr = extractStyle(cache);
 
