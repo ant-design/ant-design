@@ -50,6 +50,7 @@
     "api-collection": "antd-tools run api-collection",
     "authors": "node ./scripts/generate-authors",
     "build": "npm run compile && NODE_OPTIONS='--max-old-space-size=4096' npm run dist",
+    "bundlesize": "bundlesize",
     "size-limit": "size-limit",
     "check-commit": "node ./scripts/check-commit",
     "check-ts-demo": "node ./scripts/check-ts-demo",
@@ -197,6 +198,7 @@
     "bisheng-plugin-description": "^0.1.4",
     "bisheng-plugin-react": "^1.2.0",
     "bisheng-plugin-toc": "^0.4.4",
+    "bundlesize": "^0.18.0",
     "chalk": "^4.0.0",
     "cheerio": "1.0.0-rc.12",
     "concurrently": "^7.0.0",
@@ -324,6 +326,28 @@
     {
       "path": "./dist/antd.variable.min.css",
       "limit": "70 kB"
+    }
+  ],
+  "bundlesize": [
+    {
+      "path": "./dist/antd.min.js",
+      "maxSize": "285 kB"
+    },
+    {
+      "path": "./dist/antd.min.css",
+      "maxSize": "70 kB"
+    },
+    {
+      "path": "./dist/antd.dark.min.css",
+      "maxSize": "70 kB"
+    },
+    {
+      "path": "./dist/antd.compact.min.css",
+      "maxSize": "70 kB"
+    },
+    {
+      "path": "./dist/antd.variable.min.css",
+      "maxSize": "70 kB"
     }
   ],
   "tnpm": {
