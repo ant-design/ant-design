@@ -26,4 +26,3 @@ jobs:
     - uses: ant-design/size-limit-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        script: npx size-limit --json --why
