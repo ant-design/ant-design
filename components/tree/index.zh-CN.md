@@ -29,7 +29,7 @@ demo:
 <code src="./demo/virtual-scroll.tsx">虚拟滚动</code>
 <code src="./demo/drag-debug.tsx" debug>Drag Debug</code>
 <code src="./demo/big-data.tsx" debug>大数据</code>
-<code src="./demo/block-select-debug.tsx" debug>blockNode</code>
+<code src="./demo/block-node.tsx">占据整行</code>
 
 ## API
 

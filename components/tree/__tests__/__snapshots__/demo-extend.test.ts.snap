@@ -857,7 +857,7 @@ exports[`renders ./components/tree/demo/basic-controlled.tsx extend context corr
 </div>
 `;
 
-exports[`renders ./components/tree/demo/block-select-debug.tsx extend context correctly 1`] = `
+exports[`renders ./components/tree/demo/block-node.tsx extend context correctly 1`] = `
 <div
   class="ant-tree ant-tree-icon-hide ant-tree-block-node"
   role="tree"
@@ -897,7 +897,7 @@ exports[`renders ./components/tree/demo/block-select-debug.tsx extend context co
         >
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected ant-tree-treenode-leaf-last"
+            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
             draggable="false"
           >
             <span
@@ -935,17 +935,13 @@ exports[`renders ./components/tree/demo/block-select-debug.tsx extend context co
               />
             </span>
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open ant-tree-node-selected"
-              title=""
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
+              title="parent"
             >
               <span
                 class="ant-tree-title"
               >
-                <div
-                  style="box-shadow:inset 0 0 0 1px red"
-                >
-                  parent 1
-                </div>
+                parent
               </span>
             </span>
           </div>
@@ -974,18 +970,18 @@ exports[`renders ./components/tree/demo/block-select-debug.tsx extend context co
             </span>
             <span
               class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
-              title="parent 1"
+              title="child 1"
             >
               <span
                 class="ant-tree-title"
               >
-                parent 1
+                child 1
               </span>
             </span>
           </div>
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected ant-tree-treenode-leaf-last"
             draggable="false"
           >
             <span
@@ -1007,13 +1003,13 @@ exports[`renders ./components/tree/demo/block-select-debug.tsx extend context co
               />
             </span>
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
-              title="parent 2"
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal ant-tree-node-selected"
+              title="child 2"
             >
               <span
                 class="ant-tree-title"
               >
-                parent 2
+                child 2
               </span>
             </span>
           </div>

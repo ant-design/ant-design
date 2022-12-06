@@ -301,10 +301,6 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         },
       },
 
-      [`${treeCls}-checkbox + span`]: {
-        paddingInline: 0,
-      },
-
       // https://github.com/ant-design/ant-design/issues/28217
       [`${treeCls}-unselectable ${treeCls}-node-content-wrapper:hover`]: {
         backgroundColor: 'transparent',
