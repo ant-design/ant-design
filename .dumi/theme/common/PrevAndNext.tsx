@@ -1,10 +1,11 @@
-import React, { ReactElement, useMemo } from 'react';
+import type { ReactElement } from 'react';
+import React, { useMemo } from 'react';
 import { ClassNames, css } from '@emotion/react';
-import useSiteToken from '../../hooks/useSiteToken';
-import { Menu, MenuProps, Typography } from 'antd';
-import useMenu from '../../hooks/useMenu';
-import { MenuItemType } from 'antd/es/menu/hooks/useItems';
+import type { MenuProps } from 'antd';
+import type { MenuItemType } from 'antd/es/menu/hooks/useItems';
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
+import useMenu from '../../hooks/useMenu';
+import useSiteToken from '../../hooks/useSiteToken';
 
 const useStyle = () => {
   const { token } = useSiteToken();
@@ -114,9 +115,10 @@ const PrevAndNext = () => {
         activeMenuItemIndex = i;
       }
     });
-    const prev = flatMenu[activeMenuItemIndex - 1];
-    const next = flatMenu[activeMenuItemIndex + 1];
-    return [prev as MenuItemType, next as MenuItemType];
+    return [
+      flatMenu[activeMenuItemIndex - 1] as MenuItemType,
+      flatMenu[activeMenuItemIndex + 1] as MenuItemType,
+    ];
   }, [menuItems, selectedKey]);
 
   return (

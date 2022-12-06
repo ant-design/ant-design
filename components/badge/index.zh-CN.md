@@ -2,7 +2,7 @@
 category: Components
 subtitle: 徽标数
 title: Badge
-cover: https://gw.alipayobjects.com/zos/antfincdn/6%26GF9WHwvY/Badge.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*e0qITYqF394AAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 group: 数据展示

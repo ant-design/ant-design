@@ -4,4 +4,10 @@
 
 ## en-US
 
-Customized description content.
+```css
+.content {
+  padding: 50px;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+}
+```

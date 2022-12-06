@@ -2,7 +2,7 @@
 category: Components
 group: Data Entry
 title: Transfer
-cover: https://gw.alipayobjects.com/zos/alicdn/QAXskNI4G/Transfer.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*EAApQ5ephigAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 Double column transfer choice box.
@@ -73,7 +73,7 @@ Transfer accept `children` to customize render list, using follow props:
 #### example
 
 ```jsx
-<Transfer {...props}>{listProps => <YourComponent {...listProps} />}</Transfer>
+<Transfer {...props}>{(listProps) => <YourComponent {...listProps} />}</Transfer>
 ```
 
 ## Warning
@@ -84,7 +84,7 @@ If there's no `key` in your data, you should use `rowKey` to specify the key tha
 
 ```jsx
 // eg. your primary key is `uid`
-return <Transfer rowKey={record => record.uid} />;
+return <Transfer rowKey={(record) => record.uid} />;
 ```
 
 ## FAQ

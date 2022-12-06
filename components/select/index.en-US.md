@@ -2,7 +2,7 @@
 category: Components
 group: Data Entry
 title: Select
-cover: https://gw.alipayobjects.com/zos/alicdn/_0XzgOis7/Select.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*zo76T7KQx2UAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -153,7 +153,7 @@ Select will close when it lose focus. You can prevent event to handle this:
 <Select
   dropdownRender={() => (
     <div
-      onMouseDown={e => {
+      onMouseDown={(e) => {
         e.preventDefault();
         e.stopPropagation();
       }}

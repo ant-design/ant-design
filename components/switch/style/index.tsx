@@ -182,6 +182,7 @@ const genSwitchInnerStyle: GenerateStyle<SwitchToken, CSSObject> = (token) => {
         display: 'block',
         overflow: 'hidden',
         borderRadius: 100,
+        height: '100%',
 
         [`${switchInnerCls}-checked, ${switchInnerCls}-unchecked`]: {
           display: 'block',

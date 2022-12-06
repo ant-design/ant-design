@@ -3,7 +3,7 @@ category: Components
 subtitle: 时间选择框
 group: 数据录入
 title: TimePicker
-cover: https://gw.alipayobjects.com/zos/alicdn/h04Zsl98I/TimePicker.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*kGmGSLk_1fwAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -11,8 +11,6 @@ demo:
 输入或选择时间的控件。
 
 ## 何时使用
-
----
 
 当用户需要输入一个时间，可以点击标准输入框，弹出时间面板进行选择。
 

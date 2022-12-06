@@ -1,11 +1,11 @@
-import React, { useState, memo, useMemo } from 'react';
-import { Link, useRouteMeta, useIntl, useSidebarData, Helmet } from 'dumi';
+import React, { memo, useMemo, useState } from 'react';
+import { Link, useIntl, useSidebarData } from 'dumi';
 import { css } from '@emotion/react';
 import debounce from 'lodash/debounce';
-import { Input, Divider, Row, Col, Card, Typography, Tag, Space } from 'antd';
+import { Card, Col, Divider, Input, Row, Space, Tag, Typography } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
-import proComponentsList from './ProComponentsList';
 import type { Component } from './ProComponentsList';
+import proComponentsList from './ProComponentsList';
 import useSiteToken from '../../../hooks/useSiteToken';
 
 const useStyle = () => {
@@ -80,11 +80,9 @@ const { Title } = Typography;
 
 const Overview: React.FC = () => {
   const style = useStyle();
-  const meta = useRouteMeta();
   const data = useSidebarData();
 
   const { locale, formatMessage } = useIntl();
-  const documentTitle = `${meta.frontmatter.title} - Ant Design`;
 
   const [search, setSearch] = useState<string>('');
 
@@ -96,30 +94,30 @@ const Overview: React.FC = () => {
     }
   };
 
-  const groups = useMemo<{ title: string; children: Component[] }[]>(() => {
-    return data
-      .filter((item) => item.title)
-      .map<{ title: string; children: Component[] }>((item) => {
-        return {
-          title: item.title!,
+  const groups = useMemo<{ title: string; children: Component[] }[]>(
+    () =>
+      data
+        .filter((item) => item?.title)
+        .map<{ title: string; children: Component[] }>((item) => ({
+          title: item?.title,
           children: item.children.map((child) => ({
-            title: child.frontmatter.title,
+            title: child.frontmatter?.title,
             subtitle: child.frontmatter.subtitle,
             cover: child.frontmatter.cover,
             link: child.link,
           })),
-        };
-      })
-      .concat([
-        {
-          title: locale === 'zh-CN' ? '重型组件' : 'Others',
-          children:
-            locale === 'zh-CN'
-              ? proComponentsList
-              : proComponentsList.map((component) => ({ ...component, subtitle: '' })),
-        },
-      ]);
-  }, [data, locale]);
+        }))
+        .concat([
+          {
+            title: locale === 'zh-CN' ? '重型组件' : 'Others',
+            children:
+              locale === 'zh-CN'
+                ? proComponentsList
+                : proComponentsList.map((component) => ({ ...component, subtitle: '' })),
+          },
+        ]),
+    [data, locale],
+  );
 
   return (
     <section className="markdown" ref={sectionRef}>
@@ -138,19 +136,19 @@ const Overview: React.FC = () => {
       />
       <Divider />
       {groups
-        .filter((i) => i.title)
+        .filter((i) => i?.title)
         .map((group) => {
           const components = group?.children?.filter(
             (component) =>
               !search.trim() ||
-              component.title.toLowerCase().includes(search.trim().toLowerCase()) ||
+              component?.title?.toLowerCase()?.includes(search.trim().toLowerCase()) ||
               (component?.subtitle || '').toLowerCase().includes(search.trim().toLowerCase()),
           );
           return components?.length ? (
-            <div key={group.title} css={style.componentsOverview}>
+            <div key={group?.title} css={style.componentsOverview}>
               <Title level={2} css={style.componentsOverviewGroupTitle}>
                 <Space align="center">
-                  <span style={{ fontSize: 24 }}>{group.title}</span>
+                  <span style={{ fontSize: 24 }}>{group?.title}</span>
                   <Tag style={{ display: 'block' }}>{components.length}</Tag>
                 </Space>
               </Title>
@@ -162,7 +160,7 @@ const Overview: React.FC = () => {
                   const ComponentLink = !url.startsWith('http') ? Link : 'a';
 
                   return (
-                    <Col xs={24} sm={12} lg={8} xl={6} key={component.title}>
+                    <Col xs={24} sm={12} lg={8} xl={6} key={component?.title}>
                       <ComponentLink to={url} href={url} onClick={() => onClickCard(url)}>
                         <Card
                           bodyStyle={{
@@ -174,12 +172,12 @@ const Overview: React.FC = () => {
                           css={style.componentsOverviewCard}
                           title={
                             <div css={style.componentsOverviewTitle}>
-                              {component.title} {component.subtitle}
+                              {component?.title} {component.subtitle}
                             </div>
                           }
                         >
                           <div css={style.componentsOverviewImg}>
-                            <img src={component.cover} alt={component.title} />
+                            <img src={component.cover} alt={component?.title} />
                           </div>
                         </Card>
                       </ComponentLink>

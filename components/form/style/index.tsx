@@ -404,9 +404,7 @@ const makeVerticalLayout = (token: FormToken): CSSObject => {
   const { componentCls, formItemCls } = token;
 
   return {
-    [`${formItemCls} ${formItemCls}-label`]: {
-      ...makeVerticalLayoutLabel(token),
-    },
+    [`${formItemCls} ${formItemCls}-label`]: makeVerticalLayoutLabel(token),
     [componentCls]: {
       [formItemCls]: {
         flexWrap: 'wrap',
@@ -443,40 +441,32 @@ const genVerticalStyle: GenerateStyle<FormToken> = (token) => {
 
     [`${componentCls}-vertical ${formItemCls}-label,
       .${rootPrefixCls}-col-24${formItemCls}-label,
-      .${rootPrefixCls}-col-xl-24${formItemCls}-label`]: {
-      ...makeVerticalLayoutLabel(token),
-    },
+      .${rootPrefixCls}-col-xl-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
 
-    [`@media (max-width: ${token.screenSMMax}px)`]: {
-      ...makeVerticalLayout(token),
-      [componentCls]: {
-        [`.${rootPrefixCls}-col-xs-24${formItemCls}-label`]: {
-          ...makeVerticalLayoutLabel(token),
+    [`@media (max-width: ${token.screenXSMax}px)`]: [
+      makeVerticalLayout(token),
+      {
+        [componentCls]: {
+          [`.${rootPrefixCls}-col-xs-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
         },
       },
-    },
+    ],
 
     [`@media (max-width: ${token.screenSMMax}px)`]: {
       [componentCls]: {
-        [`.${rootPrefixCls}-col-sm-24${formItemCls}-label`]: {
-          ...makeVerticalLayoutLabel(token),
-        },
+        [`.${rootPrefixCls}-col-sm-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
       },
     },
 
     [`@media (max-width: ${token.screenMDMax}px)`]: {
       [componentCls]: {
-        [`.${rootPrefixCls}-col-md-24${formItemCls}-label`]: {
-          ...makeVerticalLayoutLabel(token),
-        },
+        [`.${rootPrefixCls}-col-md-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
       },
     },
 
     [`@media (max-width: ${token.screenLGMax}px)`]: {
       [componentCls]: {
-        [`.${rootPrefixCls}-col-lg-24${formItemCls}-label`]: {
-          ...makeVerticalLayoutLabel(token),
-        },
+        [`.${rootPrefixCls}-col-lg-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
       },
     },
   };

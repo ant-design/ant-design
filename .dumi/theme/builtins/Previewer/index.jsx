@@ -120,13 +120,6 @@ class Demo extends React.Component {
     });
   }
 
-  handleIframeReady = () => {
-    const { theme, setIframeTheme } = this.props;
-    if (this.iframeRef.current) {
-      // setIframeTheme(this.iframeRef.current, theme);
-    }
-  };
-
   render() {
     const { state } = this;
     const { props } = this;
@@ -165,9 +158,9 @@ class Demo extends React.Component {
       expand: codeExpand,
       'code-box-debug': meta.debug,
     });
-    const localizedTitle = meta.title[locale] || meta.title;
+    const localizedTitle = meta?.title[locale] || meta?.title;
     const localizeIntro = content[locale] || content;
-    const introChildren = <div dangerouslySetInnerHTML={{ __html: localizeIntro }}></div>;
+    const introChildren = <div dangerouslySetInnerHTML={{ __html: localizeIntro }} />;
 
     const highlightClass = classNames('highlight-wrapper', {
       'highlight-wrapper-expand': codeExpand,
@@ -414,25 +407,24 @@ createRoot(document.getElementById('container')).render(<Demo />);
                 <CodeSandboxIcon className="code-box-codesandbox" />
               </Tooltip>
             </form>
-            <form
-              className="code-box-code-action"
-              action="https://codepen.io/pen/define"
-              method="POST"
-              target="_blank"
-              ref={this.codepenIconRef}
-              onClick={() => {
-                this.track({ type: 'codepen', demo: meta.id });
-                this.codepenIconRef.current.submit();
-              }}
-              style={{
-                display: sourceCode ? '' : 'none',
-              }}
-            >
-              <input type="hidden" name="data" value={JSON.stringify(codepenPrefillConfig)} />
-              <Tooltip title={<FormattedMessage id="app.demo.codepen" />}>
-                <CodePenIcon className="code-box-codepen" />
-              </Tooltip>
-            </form>
+            {sourceCode && (
+              <form
+                className="code-box-code-action"
+                action="https://codepen.io/pen/define"
+                method="POST"
+                target="_blank"
+                ref={this.codepenIconRef}
+                onClick={() => {
+                  this.track({ type: 'codepen', demo: meta.id });
+                  this.codepenIconRef.current.submit();
+                }}
+              >
+                <input type="hidden" name="data" value={JSON.stringify(codepenPrefillConfig)} />
+                <Tooltip title={<FormattedMessage id="app.demo.codepen" />}>
+                  <CodePenIcon className="code-box-codepen" />
+                </Tooltip>
+              </form>
+            )}
             <Tooltip title={<FormattedMessage id="app.demo.stackblitz" />}>
               <span
                 className="code-box-code-action"
@@ -458,7 +450,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
               </Tooltip>
             </CopyToClipboard>
             <Tooltip title={<FormattedMessage id="app.demo.separate" />}>
-              <a className="code-box-code-action" target="_blank" rel="noreferer" href={src}>
+              <a className="code-box-code-action" target="_blank" rel="noreferrer" href={src}>
                 <ExternalLinkIcon className="code-box-separate" />
               </a>
             </Tooltip>

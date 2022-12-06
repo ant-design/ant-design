@@ -2,7 +2,7 @@
 category: Components
 group: Data Entry
 title: Form
-cover: https://gw.alipayobjects.com/zos/alicdn/ORmcdeaoO/Form.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-lcdS5Qm1bsAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 High performance Form component with data scope management. Including data collection, verification, and styles.
@@ -214,9 +214,9 @@ Provides array management for fields.
 
 ```tsx
 <Form.List>
-  {fields => (
+  {(fields) => (
     <div>
-      {fields.map(field => (
+      {fields.map((field) => (
         <Form.Item {...field}>
           <Input />
         </Form.Item>
@@ -257,7 +257,7 @@ Provide linkage between forms. If a sub form with `name` prop update, it will au
 
 ```jsx
 <Form.Provider
-  onFormFinish={name => {
+  onFormFinish={(name) => {
     if (name === 'form1') {
       // Do something...
     }
@@ -292,7 +292,7 @@ Provide linkage between forms. If a sub form with `name` prop update, it will au
 
 ```jsx
 validateFields()
-  .then(values => {
+  .then((values) => {
     /*
   values:
     {
@@ -301,7 +301,7 @@ validateFields()
     }
   */
   })
-  .catch(errorInfo => {
+  .catch((errorInfo) => {
     /*
     errorInfo:
       {
@@ -525,8 +525,8 @@ Your name path should also contain Form.List `name`:
 
 ```tsx
 <Form.List name="users">
-  {fields =>
-    fields.map(field => (
+  {(fields) =>
+    fields.map((field) => (
       <React.Fragment key={field.key}>
         <Form.Item name={[field.name, 'name']} {...someRest1} />
         <Form.Item name={[field.name, 'age']} {...someRest1} />

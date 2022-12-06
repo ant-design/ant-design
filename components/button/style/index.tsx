@@ -50,7 +50,7 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
         ...genFocusStyle(token),
       },
 
-      ...genCompactItemStyle(token, componentCls),
+      ...genCompactItemStyle(token, componentCls, { focus: false }),
       ...genCompactItemVerticalStyle(token, componentCls),
 
       // make `btn-icon-only` not too narrow
@@ -62,7 +62,7 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
         '&:not([disabled]) + &:not([disabled])': {
           position: 'relative',
 
-          '&:after': {
+          '&:before': {
             position: 'absolute',
             top: -token.lineWidth,
             insetInlineStart: -token.lineWidth,
@@ -80,7 +80,7 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
           '&:not([disabled]) + &:not([disabled])': {
             position: 'relative',
 
-            '&:after': {
+            '&:before': {
               position: 'absolute',
               top: -token.lineWidth,
               insetInlineStart: -token.lineWidth,

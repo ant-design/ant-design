@@ -3,7 +3,7 @@ category: Components
 group: Feedback
 noinstant: true
 title: Notification
-cover: https://gw.alipayobjects.com/zos/alicdn/Jxm5nw61w/Notification.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*6RWNQ78WtvEAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -93,7 +93,7 @@ notification.config({
 
 ## FAQ
 
-### Why I can not access context, redux, ConfigProvider `locale/prefixCls` in notification?
+### Why I can not access context, redux, ConfigProvider `locale/prefixCls/theme` in notification?
 
 antd will dynamic create React instance by `ReactDOM.render` when call notification methods. Whose context is different with origin code located context.
 
