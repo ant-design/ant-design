@@ -50,6 +50,7 @@ return <Steps items={items} />;
 <code src="./demo/progress-debug.tsx" debug>Progress Debug</code>
 <code src="./demo/steps-in-steps.tsx" debug>Steps 嵌套 Steps</code>
 <code src="./demo/inline.tsx">内联步骤</code>
+<code src="./demo/wireframe.tsx" debug>线框风格</code>
 
 ## API
 
