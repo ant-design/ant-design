@@ -294,6 +294,9 @@ exports[`renders ./components/space/demo/base.tsx extend context correctly 1`] =
                 </div>
               </div>
               <div
+                class="ant-popconfirm-description"
+              />
+              <div
                 class="ant-popconfirm-buttons"
               >
                 <button
@@ -14512,6 +14515,9 @@ exports[`renders ./components/space/demo/debug.tsx extend context correctly 1`] 
                 </div>
               </div>
               <div
+                class="ant-popconfirm-description"
+              />
+              <div
                 class="ant-popconfirm-buttons"
               >
                 <button
@@ -14610,6 +14616,9 @@ exports[`renders ./components/space/demo/debug.tsx extend context correctly 1`] 
                   Are you sure delete this task?
                 </div>
               </div>
+              <div
+                class="ant-popconfirm-description"
+              />
               <div
                 class="ant-popconfirm-buttons"
               >

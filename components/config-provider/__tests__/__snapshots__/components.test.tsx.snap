@@ -20993,6 +20993,9 @@ exports[`ConfigProvider components Popconfirm configProvider 1`] = `
               />
             </div>
             <div
+              class="config-popconfirm-description"
+            />
+            <div
               class="config-popconfirm-buttons"
             >
               <button
@@ -21079,6 +21082,9 @@ exports[`ConfigProvider components Popconfirm configProvider componentDisabled 1
                 class="config-popconfirm-message-title"
               />
             </div>
+            <div
+              class="config-popconfirm-description"
+            />
             <div
               class="config-popconfirm-buttons"
             >
@@ -21169,6 +21175,9 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize large
               />
             </div>
             <div
+              class="config-popconfirm-description"
+            />
+            <div
               class="config-popconfirm-buttons"
             >
               <button
@@ -21255,6 +21264,9 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize middl
                 class="config-popconfirm-message-title"
               />
             </div>
+            <div
+              class="config-popconfirm-description"
+            />
             <div
               class="config-popconfirm-buttons"
             >
@@ -21343,6 +21355,9 @@ exports[`ConfigProvider components Popconfirm configProvider virtual and dropdow
               />
             </div>
             <div
+              class="ant-popconfirm-description"
+            />
+            <div
               class="ant-popconfirm-buttons"
             >
               <button
@@ -21430,6 +21445,9 @@ exports[`ConfigProvider components Popconfirm normal 1`] = `
               />
             </div>
             <div
+              class="ant-popconfirm-description"
+            />
+            <div
               class="ant-popconfirm-buttons"
             >
               <button
@@ -21516,6 +21534,9 @@ exports[`ConfigProvider components Popconfirm prefixCls 1`] = `
                 class="prefix-Popconfirm-message-title"
               />
             </div>
+            <div
+              class="prefix-Popconfirm-description"
+            />
             <div
               class="prefix-Popconfirm-buttons"
             >
