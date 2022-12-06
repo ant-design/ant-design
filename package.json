@@ -311,11 +311,11 @@
   "size-limit": [
     {
       "path": "./dist/antd.min.js",
-      "limit": "390 kB"
+      "limit": "377 kB"
     },
     {
       "path": "./dist/antd-with-locales.min.js",
-      "limit": "450 kB"
+      "limit": "410 kB"
     }
   ],
   "bundlesize": [
