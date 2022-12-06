@@ -38,7 +38,7 @@ Checkbox component.
 | defaultChecked | Specifies the initial state: whether or not the checkbox is selected | boolean | false |  |
 | disabled | If disable checkbox | boolean | false |  |
 | indeterminate | The indeterminate checked state of checkbox | boolean | false |  |
-| onChange | The callback function that is triggered when the state changes | function(e:Event) | - |  |
+| onChange | The callback function that is triggered when the state changes | function(e: CheckboxChangeEvent) | - |  |
 
 #### Checkbox Group
 
