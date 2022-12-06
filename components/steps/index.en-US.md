@@ -31,6 +31,7 @@ When a given task is complicated or has a certain sequence in the series of subt
 <code src="./demo/progress-debug.tsx" debug>Progress Debug</code>
 <code src="./demo/steps-in-steps.tsx" debug>Steps inside Steps</code>
 <code src="./demo/inline.tsx">Inline Steps</code>
+<code src="./demo/wireframe.tsx" debug>Wireframe</code>
 
 ## API
 

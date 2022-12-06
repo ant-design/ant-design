@@ -105,8 +105,7 @@ export default function PurePanel(props: PurePanelProps) {
       placement={placement}
       className={classNames(prefixCls, className)}
       style={style}
-    >
-      <Overlay {...restProps} prefixCls={prefixCls} />
-    </PopoverPurePanel>,
+      content={<Overlay prefixCls={prefixCls} {...restProps} />}
+    />,
   );
 }
