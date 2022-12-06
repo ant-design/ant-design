@@ -5,12 +5,17 @@ import type { DataNode, TreeProps } from 'antd/es/tree';
 const treeData: DataNode[] = [
   {
     title: <div style={{ boxShadow: 'inset 0 0 0 1px red' }}>parent 1</div>,
-    key: '0-0',
+    key: '0',
     children: [
       {
-        title: 'parent 1-0',
-        key: '0-0-0',
+        title: 'parent 1',
+        key: '0-0',
         disabled: true,
+      },
+      {
+        title: 'parent 2',
+        key: '0-1',
+        disableCheckbox: true,
       },
     ],
   },
@@ -28,7 +33,7 @@ const App: React.FC = () => {
   return (
     <Tree
       checkable
-      defaultSelectedKeys={['0-0']}
+      defaultSelectedKeys={['0']}
       defaultExpandAll
       onSelect={onSelect}
       onCheck={onCheck}
