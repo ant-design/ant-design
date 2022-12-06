@@ -975,7 +975,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
 
         // Space.Compact
         ...genCompactItemStyle(token, componentCls, {
-          popoverFocusedCls: `${componentCls}-focused`,
+          focusElCls: `${componentCls}-focused`,
         }),
 
         '&:hover, &-focused': {

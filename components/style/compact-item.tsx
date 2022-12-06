@@ -8,17 +8,17 @@ interface CompactItemOptions {
    * Some component borders are implemented on child elements
    * like `Select`
    */
-  borderedElementCls?: string;
+  borderElCls?: string;
   /**
    * Some components have special `focus` className especially with popovers
    * like `Select` and `DatePicker`
    */
-  popoverFocusedCls?: string;
+  focusElCls?: string;
 }
 
 // handle border collapse
 function compactItemBorder(token: DerivativeToken, options: CompactItemOptions): CSSObject {
-  const childCombinator = options.borderedElementCls ? '> *' : '';
+  const childCombinator = options.borderElCls ? '> *' : '';
   const hoverEffects = ['hover', options.focus ? 'focus' : null, 'active']
     .filter(Boolean)
     .map((n) => `&:${n} ${childCombinator}`)
@@ -33,9 +33,9 @@ function compactItemBorder(token: DerivativeToken, options: CompactItemOptions):
         zIndex: 2,
       },
 
-      ...(options.popoverFocusedCls
+      ...(options.focusElCls
         ? {
-            [`&${options.popoverFocusedCls}`]: {
+            [`&${options.focusElCls}`]: {
               zIndex: 2,
             },
           }
@@ -50,7 +50,7 @@ function compactItemBorder(token: DerivativeToken, options: CompactItemOptions):
 
 // handle border-radius
 function compactItemBorderRadius(prefixCls: string, options: CompactItemOptions): CSSObject {
-  const childCombinator = options.borderedElementCls ? `> ${options.borderedElementCls}` : '';
+  const childCombinator = options.borderElCls ? `> ${options.borderElCls}` : '';
 
   return {
     [`&-item:not(&-first-item):not(&-last-item) ${childCombinator}`]: {
