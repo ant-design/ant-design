@@ -130,7 +130,7 @@ const CustomTheme = () => {
         </div>
         <ThemeEditor
           theme={{ name: 'Custom Theme', key: 'test', config: theme }}
-          style={{ height: 'calc(100vh - 64px)' }}
+          style={{ height: 'calc(100vh - 64px - 56px)' }}
           onThemeChange={(newTheme) => {
             setTheme(newTheme.config);
           }}
