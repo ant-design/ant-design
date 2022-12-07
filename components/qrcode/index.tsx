@@ -63,7 +63,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     warning(
       !(icon && errorLevel === 'L'),
       'QRCode',
-      'errorLevel `L` is not recommended to be used with `icon`, for low errorLevel will affect scanning result',
+      'ErrorLevel `L` is not recommended to be used with `icon`, for scanning result would be affected by low level.',
     );
   }
 
