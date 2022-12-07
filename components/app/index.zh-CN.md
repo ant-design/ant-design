@@ -18,9 +18,7 @@ demo:
 ## 代码演示
 
 <!-- prettier-ignore -->
-<code src="./demo/message.tsx">message</code>
-<code src="./demo/notification.tsx">notification</code>
-<code src="./demo/modal.tsx">modal</code>
+<code src="./demo/basic.tsx">basic</code>
 
 ## How to use
 
