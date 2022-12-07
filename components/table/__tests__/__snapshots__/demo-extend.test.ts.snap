@@ -20336,7 +20336,7 @@ Array [
                         <span
                           class="ant-dropdown-trigger ant-table-filter-trigger"
                           role="button"
-                          tabindex="-1"
+                          tabindex="0"
                         >
                           <span
                             aria-label="filter"
@@ -20729,7 +20729,7 @@ Array [
                         <span
                           class="ant-dropdown-trigger ant-table-filter-trigger"
                           role="button"
-                          tabindex="-1"
+                          tabindex="0"
                         >
                           <span
                             aria-label="filter"
