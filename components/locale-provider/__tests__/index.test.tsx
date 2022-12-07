@@ -145,6 +145,7 @@ import tkTK from '../tk_TK';
 import trTR from '../tr_TR';
 import ukUA from '../uk_UA';
 import urPK from '../ur_PK';
+import uzUZ from '../uz_UZ';
 import viVN from '../vi_VN';
 import zhCN from '../zh_CN';
 import zhHK from '../zh_HK';
@@ -213,6 +214,7 @@ const locales = [
   trTR,
   tkTK,
   ukUA,
+  uzUZ,
   viVN,
   idID,
   lvLV,
