@@ -19,4 +19,4 @@ const genBaseStyle: GenerateStyle<AppToken> = (token) => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('App', (token) => [genBaseStyle(token)]);
+export default genComponentStyleHook('App', genBaseStyle);

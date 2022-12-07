@@ -22,16 +22,17 @@ Static function in React 18 concurrent mode will not well support. In v5, we rec
 
 ## How to use
 
-```javascript
+```tsx
 import React from 'react';
 import { App } from 'antd';
+
 const MyPage = () => {
   const { message, notification, modal } = App.useApp();
   message.success('Good!');
   notification.info({ message: 'Good' });
   modal.warning({ title: 'Good' });
   // ....
-  // other message,notification,modal static function
+  // other message, notification, modal static function
   return <div>Hello word</div>;
 };
 
@@ -40,4 +41,6 @@ const MyApp = () => (
     <MyPage />
   </App>
 );
+
+export default MyApp;
 ```
