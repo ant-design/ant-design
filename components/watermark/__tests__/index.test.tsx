@@ -54,17 +54,16 @@ describe('Watermark', () => {
   it('MutationObserver should work properly', () => {
     const { container } = render(<Watermark className="watermark" content="MutationObserver" />);
     const target = container.querySelector('.watermark div') as HTMLDivElement;
-    target.style.zIndex = '0';
     target.remove();
     expect(container).toMatchSnapshot();
   });
 
-  it('Observe the modification of data-watermark-id', () => {
+  it('Observe the modification of style', () => {
     const { container } = render(
       <Watermark offset={[-200, -200]} className="watermark" content="MutationObserver" />,
     );
     const target = container.querySelector('.watermark div') as HTMLDivElement;
-    target.setAttribute('data-watermark-id', 'jfei');
+    target.setAttribute('style', '');
     expect(container).toMatchSnapshot();
   });
 });

@@ -6,8 +6,7 @@ exports[`Watermark Image watermark snapshot 1`] = `
     style="position: relative;"
   >
     <div
-      data-watermark-id="7mte-1669650061677"
-      style="z-index: 9; position: absolute; left: 0; top: 0; width: 100%; height: 100%; background-size: 320px; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); "
+      style="z-index: 9; position: absolute; left: 0; top: 0; width: 100%; height: 100%; background-size: 320px; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00');"
     />
   </div>
 </div>
@@ -30,7 +29,20 @@ exports[`Watermark Observe the modification of data-watermark-id 1`] = `
   >
     <div
       data-watermark-id="jfei"
-      style="z-index: 9; position: absolute; left: 0; top: 0; width: 100%; height: 100%; background-size: 216px; pointer-events: none; background-repeat: repeat; background-position: -300px -300px; background-image: url('data:image/png;base64,00'); "
+      style="z-index: 9; position: absolute; left: 0; top: 0; width: 100%; height: 100%; background-size: 216px; pointer-events: none; background-repeat: repeat; background-position: -300px -300px; background-image: url('data:image/png;base64,00');"
+    />
+  </div>
+</div>
+`;
+
+exports[`Watermark Observe the modification of style 1`] = `
+<div>
+  <div
+    class="watermark"
+    style="position: relative;"
+  >
+    <div
+      style=""
     />
   </div>
 </div>
@@ -43,8 +55,7 @@ exports[`Watermark The offset should be correct 1`] = `
     style="position: relative;"
   >
     <div
-      data-watermark-id="7mte-1669650061677"
-      style="z-index: 9; position: absolute; left: 100px; top: 100px; width: calc(100% - 100px); height: calc(100% - 100px); background-size: 214px; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); "
+      style="z-index: 9; position: absolute; left: 100px; top: 100px; width: calc(100% - 100px); height: calc(100% - 100px); background-size: 214px; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00');"
     />
   </div>
 </div>
@@ -57,8 +68,7 @@ exports[`Watermark The watermark should render successfully 1`] = `
     style="position: relative;"
   >
     <div
-      data-watermark-id="7mte-1669650061677"
-      style="z-index: 9; position: absolute; left: 0; top: 0; width: 100%; height: 100%; background-size: 210px; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); "
+      style="z-index: 9; position: absolute; left: 0; top: 0; width: 100%; height: 100%; background-size: 210px; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00');"
     />
   </div>
 </div>
@@ -69,8 +79,7 @@ exports[`Watermark rtl render component should be rendered correctly in RTL dire
   style="position: relative;"
 >
   <div
-    data-watermark-id="7mte-1669650061677"
-    style="z-index: 9; position: absolute; left: 0; top: 0; width: 100%; height: 100%; background-size: 200px; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); "
+    style="z-index: 9; position: absolute; left: 0; top: 0; width: 100%; height: 100%; background-size: 200px; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00');"
   />
 </div>
 `;

@@ -121,7 +121,6 @@ const App: React.FC = () => {
         initialValues={config}
         onValuesChange={(_, values) => {
           setConfig(values);
-          console.log(_, values);
         }}
       >
         <Form.Item name="content" label="Content">
