@@ -2,7 +2,7 @@
 group: Feedback
 category: Components
 title: Modal
-cover: https://gw.alipayobjects.com/zos/alicdn/3StSdUlSH/Modal.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*wM3qQ5XrhlcAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -31,7 +31,8 @@ When requiring users to interact with the application, but without jumping to a 
 <code src="./demo/modal-render.tsx">Custom modal content render</code>
 <code src="./demo/width.tsx">To customize the width of modal</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
-<code src="./demo/custom-mouse-position.tsx" debug>控制弹框动画原点</code>
+<code src="./demo/custom-mouse-position.tsx" debug>Control modal's animation origin position</code>
+<code src="./demo/wireframe.tsx" debug>Wireframe</code>
 
 ## API
 

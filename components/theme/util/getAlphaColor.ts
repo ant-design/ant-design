@@ -16,8 +16,9 @@ function getAlphaColor(frontColor: string, backgroundColor: string): string {
     const r = Math.round((fR - bR * (1 - fA)) / fA);
     const g = Math.round((fG - bG * (1 - fA)) / fA);
     const b = Math.round((fB - bB * (1 - fA)) / fA);
-    if (isStableColor(r) && isStableColor(g) && isStableColor(b))
+    if (isStableColor(r) && isStableColor(g) && isStableColor(b)) {
       return new TinyColor({ r, g, b, a: Math.round(fA * 100) / 100 }).toRgbString();
+    }
   }
 
   // fallback

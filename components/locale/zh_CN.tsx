@@ -136,6 +136,10 @@ const localeValues: Locale = {
   Image: {
     preview: '预览',
   },
+  QRCode: {
+    expired: '二维码过期',
+    refresh: '点击刷新',
+  },
 };
 
 export default localeValues;

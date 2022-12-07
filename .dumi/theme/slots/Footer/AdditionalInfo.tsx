@@ -30,20 +30,20 @@ export default function InfoNewVersion() {
     p.style.position = 'fixed';
     p.style.pointerEvents = 'none';
     p.style.visibility = 'hidden';
-    p.style.opacity = '0';
+    p.style.width = '0';
     document.body.appendChild(p);
     updateCSS(
       `
 :where(.${whereCls}) {
-  opacity: 0.3 !important;
+  content: "__CHECK__";
 }
     `,
       whereCls,
     );
 
     // Check style
-    const { opacity } = getComputedStyle(p);
-    setSupportWhere(String(opacity) === '0.3');
+    const { content } = getComputedStyle(p);
+    setSupportWhere(String(content).includes('CHECK'));
 
     return () => {
       document.body.removeChild(p);

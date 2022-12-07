@@ -2,7 +2,7 @@
 category: Components
 group: Data Entry
 title: Form
-cover: https://gw.alipayobjects.com/zos/alicdn/ORmcdeaoO/Form.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-lcdS5Qm1bsAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 High performance Form component with data scope management. Including data collection, verification, and styles.
@@ -439,10 +439,6 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 | validator | Customize validation rule. Accept Promise as return. See [example](#components-form-demo-register) | ([rule](#Rule), value) => Promise |  |
 | warningOnly | Warning only. Not block form submit | boolean | 4.17.0 |
 | whitespace | Failed if only has whitespace, only work with `type: 'string'` rule | boolean |  |
-
-## Migrate to v4
-
-If you are a user of v3, you can ref [migrate doc](/components/form/v3)。
 
 <style>
 .code-box-demo .ant-form:not(.ant-form-inline):not(.ant-form-vertical) {

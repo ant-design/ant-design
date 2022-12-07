@@ -3,7 +3,7 @@ category: Components
 subtitle: 气泡卡片
 group: 数据展示
 title: Popover
-cover: https://gw.alipayobjects.com/zos/alicdn/1PNL1p_cO/Popover.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*XhL3QpRw92kAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -26,6 +26,7 @@ demo:
 <code src="./demo/arrow-point-at-center.tsx">箭头指向</code>
 <code src="./demo/hover-with-click.tsx">悬停点击弹出窗口</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/wireframe.tsx" debug>线框风格</code>
 
 ## API
 

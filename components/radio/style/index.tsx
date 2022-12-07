@@ -484,7 +484,7 @@ export default genComponentStyleHook('Radio', (token) => {
   const {
     padding,
     lineWidth,
-    colorBgContainerDisabled,
+    controlItemBgActiveDisabled,
     colorTextDisabled,
     colorBgContainer,
     fontSize,
@@ -535,7 +535,7 @@ export default genComponentStyleHook('Radio', (token) => {
     radioButtonHoverColor,
     radioButtonActiveColor,
     radioButtonPaddingHorizontal,
-    radioDisabledButtonCheckedBg: colorBgContainerDisabled,
+    radioDisabledButtonCheckedBg: controlItemBgActiveDisabled,
     radioDisabledButtonCheckedColor,
     radioWrapperMarginRight,
   });

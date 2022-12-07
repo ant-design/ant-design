@@ -2,7 +2,7 @@
 category: Components
 group: Layout
 title: Layout
-cover: https://gw.alipayobjects.com/zos/alicdn/hzEndUVEx/Layout.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*4i58ToAcxaYAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 Handling the overall layout of a page.
@@ -126,12 +126,3 @@ The sidebar.
   xxl: '1600px',
 }
 ```
-
-<style>
-  [data-theme="dark"] .site-layout-background {
-    background: #141414;
-  }
-  [data-theme="dark"] .site-layout-header-background {
-    background: #1f1f1f;
-  }
-</style>

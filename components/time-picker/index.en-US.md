@@ -2,7 +2,7 @@
 category: Components
 group: Data Entry
 title: TimePicker
-cover: https://gw.alipayobjects.com/zos/alicdn/h04Zsl98I/TimePicker.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*kGmGSLk_1fwAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -10,8 +10,6 @@ demo:
 To select/input a time.
 
 ## When To Use
-
----
 
 By clicking the input box, you can select a time from a popup panel.
 

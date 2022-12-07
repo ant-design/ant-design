@@ -7,6 +7,7 @@ import glob from 'glob';
 import { configureToMatchImageSnapshot } from 'jest-image-snapshot';
 import MockDate from 'mockdate';
 import ReactDOMServer from 'react-dom/server';
+import { App } from '../../components';
 
 const toMatchImageSnapshot = configureToMatchImageSnapshot({
   customSnapshotsDir: `${process.cwd()}/imageSnapshots`,
@@ -34,9 +35,14 @@ export default function imageTest(component: React.ReactElement) {
     await page.addStyleTag({ path: `${process.cwd()}/dist/reset.css` });
 
     const cache = createCache();
-    const html = ReactDOMServer.renderToString(
-      <StyleProvider cache={cache}>{component}</StyleProvider>,
+
+    const element = (
+      <App>
+        <StyleProvider cache={cache}>{component}</StyleProvider>
+      </App>
     );
+
+    const html = ReactDOMServer.renderToString(element);
     const styleStr = extractStyle(cache);
 
     await page.evaluate(
@@ -65,14 +71,16 @@ type Options = {
 
 // eslint-disable-next-line jest/no-export
 export function imageDemoTest(component: string, options: Options = {}) {
-  let testMethod = options.skip === true ? describe.skip : describe;
+  let describeMethod = options.skip === true ? describe.skip : describe;
   const files = glob.sync(`./components/${component}/demo/*.tsx`);
 
   files.forEach((file) => {
     if (Array.isArray(options.skip) && options.skip.some((c) => file.includes(c))) {
-      testMethod = test.skip;
+      describeMethod = describe.skip;
+    } else {
+      describeMethod = describe;
     }
-    testMethod(`Test ${file} image`, () => {
+    describeMethod(`Test ${file} image`, () => {
       // eslint-disable-next-line global-require,import/no-dynamic-require
       let Demo = require(`../.${file}`).default;
       if (typeof Demo === 'function') {

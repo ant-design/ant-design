@@ -3,7 +3,7 @@ category: Components
 subtitle: 表单
 group: 数据录入
 title: Form
-cover: https://gw.alipayobjects.com/zos/alicdn/ORmcdeaoO/Form.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-lcdS5Qm1bsAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 高性能表单控件，自带数据域管理。包含数据录入、校验以及对应样式。
@@ -215,8 +215,8 @@ Form 通过增量更新方式，只更新被修改的字段相关组件以达到
 
 ```tsx
 <Form.List>
-  {fields =>
-    fields.map(field => (
+  {(fields) =>
+    fields.map((field) => (
       <Form.Item {...field}>
         <Input />
       </Form.Item>
@@ -256,7 +256,7 @@ Form.List 渲染表单相关操作函数。
 
 ```jsx
 <Form.Provider
-  onFormFinish={name => {
+  onFormFinish={(name) => {
     if (name === 'form1') {
       // Do something...
     }
@@ -291,7 +291,7 @@ Form.List 渲染表单相关操作函数。
 
 ```jsx
 validateFields()
-  .then(values => {
+  .then((values) => {
     /*
   values:
     {
@@ -300,7 +300,7 @@ validateFields()
     }
   */
   })
-  .catch(errorInfo => {
+  .catch((errorInfo) => {
     /*
     errorInfo:
       {
@@ -439,10 +439,6 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 | warningOnly | 仅警告，不阻塞表单提交 | boolean | 4.17.0 |
 | whitespace | 如果字段仅包含空格则校验不通过，只在 `type: 'string'` 时生效 | boolean |  |
 
-## 从 v3 升级到 v4
-
-如果你是 antd v3 的用户，你可以参考[迁移示例](/components/form/v3)。
-
 <style>
 .code-box-demo .ant-form:not(.ant-form-inline):not(.ant-form-vertical) {
   max-width: 600px;
@@ -524,8 +520,8 @@ Form.List 下的字段需要包裹 Form.List 本身的 `name`，比如：
 
 ```tsx
 <Form.List name="users">
-  {fields =>
-    fields.map(field => (
+  {(fields) =>
+    fields.map((field) => (
       <React.Fragment key={field.key}>
         <Form.Item name={[field.name, 'name']} {...someRest1} />
         <Form.Item name={[field.name, 'age']} {...someRest1} />

@@ -1,11 +1,15 @@
-import React, { useLayoutEffect } from 'react';
+import React, { startTransition, useLayoutEffect } from 'react';
 import { useOutlet } from 'dumi';
 import { ConfigProvider, theme as antdTheme } from 'antd';
 import type { ThemeConfig } from 'antd/es/config-provider/context';
-import type { ThemeContextProps } from '../slots/ThemeContext';
-import ThemeContext from '../slots/ThemeContext';
+import { createCache, StyleProvider } from '@ant-design/cssinjs';
 import ThemeSwitch from '../common/ThemeSwitch';
 import useLocation from '../../hooks/useLocation';
+
+const styleCache = createCache();
+if (typeof global !== 'undefined') {
+  (global as any).styleCache = styleCache;
+}
 
 const ANT_DESIGN_SITE_THEME = 'antd-site-theme';
 
@@ -54,38 +58,24 @@ const GlobalLayout: React.FC = () => {
     );
   };
 
-  const contextValue = React.useMemo<ThemeContextProps>(
-    () => ({
-      theme,
-      setTheme: handleThemeChange,
-    }),
-    [theme],
-  );
-
   useLayoutEffect(() => {
     const localTheme = localStorage.getItem(ANT_DESIGN_SITE_THEME);
     if (localTheme) {
-      try {
-        const themeConfig = JSON.parse(localTheme);
-        if (themeConfig.algorithm) {
-          themeConfig.algorithm = themeConfig.algorithm.map((item: string) => getAlgorithm(item));
-        } else {
-          themeConfig.algorithm = [antdTheme.defaultAlgorithm];
-        }
-        setTheme(themeConfig);
-      } catch (e) {
-        console.error(e);
+      const themeConfig = JSON.parse(localTheme);
+      if (themeConfig.algorithm) {
+        themeConfig.algorithm = themeConfig.algorithm.map((item: string) => getAlgorithm(item));
+      } else {
+        themeConfig.algorithm = [antdTheme.defaultAlgorithm];
       }
+      startTransition(() => {
+        setTheme(themeConfig);
+      });
     }
   }, []);
 
   return (
-    <ThemeContext.Provider value={contextValue}>
-      <ConfigProvider
-        theme={{
-          ...theme,
-        }}
-      >
+    <StyleProvider cache={styleCache}>
+      <ConfigProvider theme={theme}>
         {outlet}
         {!pathname.startsWith('/~demos') && (
           <ThemeSwitch
@@ -94,7 +84,7 @@ const GlobalLayout: React.FC = () => {
           />
         )}
       </ConfigProvider>
-    </ThemeContext.Provider>
+    </StyleProvider>
   );
 };
 

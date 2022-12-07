@@ -3,7 +3,7 @@ category: Components
 group: 数据展示
 title: Table
 subtitle: 表格
-cover: https://gw.alipayobjects.com/zos/alicdn/f-SbcX2Lx/Table.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*3yz3QqMlShYAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 展示行列数据。
@@ -162,6 +162,7 @@ const columns = [
 
 列描述数据对象，是 columns 中的一项，Column 使用相同的 API。
 
+<!-- prettier-ignore -->
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- | --- |
 | align | 设置列的对齐方式 | `left` \| `right` \| `center` | `left` |  |
@@ -330,12 +331,6 @@ return <Table rowKey="uid" />;
 // 或
 return <Table rowKey={(record) => record.uid} />;
 ```
-
-## 从 v3 升级到 v4
-
-Table 移除了在 v3 中废弃的 `onRowClick`、`onRowDoubleClick`、`onRowMouseEnter`、`onRowMouseLeave` 等方法。如果你使用的 api 为文档中列举的 api，那你不用担心会丢失功能。
-
-此外，比较重大的改动为 `dataIndex` 从支持路径嵌套如 `user.age` 改成了数组路径如 `['user', 'age']`。以解决过去属性名带 `.` 需要额外的数据转化问题。
 
 ## FAQ
 

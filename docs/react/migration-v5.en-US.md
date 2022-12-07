@@ -164,6 +164,27 @@ Use git to save your code and install latest version:
 npm install --save antd@5.x
 ```
 
+You can manually check the code one by one against the above list for modification. In addition, we also provide a codemod cli tool [@ant-design/codemod-v5](https://github.com/ant-design/codemod-v5) To help you quickly upgrade to v5.
+
+Before running codemod cli, please submit your local code changes.
+
+```shell
+# Run directly through npx
+npx -p @ant-design/codemod-v5 antd5-codemod src
+
+# Or run directly through pnpm
+pnpm --package=@ant-design/codemod-v5 dlx antd5-codemod src
+```
+
+<video autoplay="" loop="" style="width: 100%; max-height: 600px; object-fit: contain;">
+  <source src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/file/A*Sjy5ToW6ow0AAAAAAAAAAAAADrJ8AQ" type="video/webm">
+  <source src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/file/A*hTDYQJ2HFTYAAAAAAAAAAAAADrJ8AQ" type="video/mp4">
+</video>
+
+> Note that codemod cannot cover all scenarios, and it is recommended to check for incompatible changes one by one.
+
+### less migration
+
 If you using antd less variables, you can use compatible package to covert it into v4 less variables and use less-loader to inject them:
 
 ```js
@@ -203,9 +224,44 @@ Umi user can disable by config：
 export default {
   antd: {
 -   import: true,
++   import: false,
   },
 };
 ```
+
+### Replace Day.js locale
+
+Replace moment.js locale with day.js locale:
+
+```diff
+-   import moment from 'moment';
++   import dayjs from 'dayjs';
+-   import 'moment/locale/zh-cn';
++   import 'dayjs/locale/zh-cn';
+
+-   moment.locale('zh-cn');
++   dayjs.locale('zh-cn');
+```
+
+If you do not want to replace with day.js, you can use `@ant-design/moment-webpack-plugin` to keep moment.js:
+
+```bash
+npm install --save-dev @ant-design/moment-webpack-plugin
+```
+
+```javascript
+// webpack-config.js
+import AntdMomentWebpackPlugin from '@ant-design/moment-webpack-plugin';
+
+module.exports = {
+  // ...
+  plugins: [new AntdMomentWebpackPlugin()],
+};
+```
+
+### Legacy browser support
+
+Ant Design v5 using `:where` css selector to reduce CSS-in-JS hash priority. You can use `@ant-design/cssinjs` `StyleProvider` to cancel this function. Please ref [Compatible adjustment](/docs/react/customize-theme#compatible-adjustment).
 
 ## Encounter problems
 

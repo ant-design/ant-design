@@ -46,6 +46,10 @@ export interface Locale {
   Image?: {
     preview: string;
   };
+  QRCode?: {
+    expired: string;
+    refresh: string;
+  };
 }
 
 export interface LocaleProviderProps {

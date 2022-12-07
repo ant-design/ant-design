@@ -97,11 +97,11 @@ const Overview: React.FC = () => {
   const groups = useMemo<{ title: string; children: Component[] }[]>(
     () =>
       data
-        .filter((item) => item.title)
+        .filter((item) => item?.title)
         .map<{ title: string; children: Component[] }>((item) => ({
-          title: item.title!,
+          title: item?.title,
           children: item.children.map((child) => ({
-            title: child.frontmatter.title,
+            title: child.frontmatter?.title,
             subtitle: child.frontmatter.subtitle,
             cover: child.frontmatter.cover,
             link: child.link,
@@ -136,19 +136,19 @@ const Overview: React.FC = () => {
       />
       <Divider />
       {groups
-        .filter((i) => i.title)
+        .filter((i) => i?.title)
         .map((group) => {
           const components = group?.children?.filter(
             (component) =>
               !search.trim() ||
-              component.title.toLowerCase().includes(search.trim().toLowerCase()) ||
+              component?.title?.toLowerCase()?.includes(search.trim().toLowerCase()) ||
               (component?.subtitle || '').toLowerCase().includes(search.trim().toLowerCase()),
           );
           return components?.length ? (
-            <div key={group.title} css={style.componentsOverview}>
+            <div key={group?.title} css={style.componentsOverview}>
               <Title level={2} css={style.componentsOverviewGroupTitle}>
                 <Space align="center">
-                  <span style={{ fontSize: 24 }}>{group.title}</span>
+                  <span style={{ fontSize: 24 }}>{group?.title}</span>
                   <Tag style={{ display: 'block' }}>{components.length}</Tag>
                 </Space>
               </Title>
@@ -160,7 +160,7 @@ const Overview: React.FC = () => {
                   const ComponentLink = !url.startsWith('http') ? Link : 'a';
 
                   return (
-                    <Col xs={24} sm={12} lg={8} xl={6} key={component.title}>
+                    <Col xs={24} sm={12} lg={8} xl={6} key={component?.title}>
                       <ComponentLink to={url} href={url} onClick={() => onClickCard(url)}>
                         <Card
                           bodyStyle={{
@@ -172,12 +172,12 @@ const Overview: React.FC = () => {
                           css={style.componentsOverviewCard}
                           title={
                             <div css={style.componentsOverviewTitle}>
-                              {component.title} {component.subtitle}
+                              {component?.title} {component.subtitle}
                             </div>
                           }
                         >
                           <div css={style.componentsOverviewImg}>
-                            <img src={component.cover} alt={component.title} />
+                            <img src={component.cover} alt={component?.title} />
                           </div>
                         </Card>
                       </ComponentLink>

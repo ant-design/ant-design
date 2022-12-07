@@ -41,7 +41,7 @@ export function getMenuItems(
     if (meta.type) {
       meta.type = meta.type[locale] || meta.type;
     }
-    if (meta.title) {
+    if (meta?.title) {
       meta.title = meta.title[locale] || meta.title;
     }
 
@@ -52,7 +52,7 @@ export function getMenuItems(
 
     // Component
     if (meta.category === 'Components' && meta.type) {
-      let type = menuItems.find((i) => i.title === meta.type);
+      let type = menuItems.find((i) => i?.title === meta.type);
       if (!type) {
         type = {
           type: 'type',
@@ -67,7 +67,7 @@ export function getMenuItems(
       return;
     }
 
-    let group = menuItems.find((i) => i.title === meta.category);
+    let group = menuItems.find((i) => i?.title === meta.category);
 
     if (!group) {
       group = {
@@ -82,7 +82,7 @@ export function getMenuItems(
     group.children = group.children || [];
 
     if (meta.type) {
-      let type = group.children.filter((i) => i.title === meta.type)[0];
+      let type = group.children.filter((i) => i?.title === meta.type)[0];
       if (!type) {
         type = {
           type: 'type',

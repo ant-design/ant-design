@@ -33,6 +33,7 @@ const genPictureStyle: GenerateStyle<UploadToken> = (token) => {
 
             [iconCls]: {
               fontSize: token.fontSizeHeading2,
+              color: token.colorPrimary,
             },
 
             img: {
@@ -79,6 +80,7 @@ const genPictureStyle: GenerateStyle<UploadToken> = (token) => {
 
 const genPictureCardStyle: GenerateStyle<UploadToken> = (token) => {
   const { componentCls, iconCls, fontSizeLG, colorTextLightSolid } = token;
+
   const listCls = `${componentCls}-list`;
   const itemCls = `${listCls}-item`;
 

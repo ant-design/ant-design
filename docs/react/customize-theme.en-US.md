@@ -355,7 +355,7 @@ root.render(
 
 ## How to Debug your Theme
 
-We provide tools to help users debug themes: [Theme Editor](https://ant-design.github.io/antd-token-previewer/~demos/docs-theme-editor-simple)
+We provide tools to help users debug themes: [Theme Editor](/theme-editor)
 
 You can use this tool to freely modify Design Token to meet your theme expectations.
 

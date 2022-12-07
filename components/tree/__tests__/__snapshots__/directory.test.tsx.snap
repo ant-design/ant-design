@@ -16,7 +16,7 @@ exports[`Directory Tree DirectoryTree should expend all when use treeData and de
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
-    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
   >
     <div
       class="ant-tree-indent"
@@ -250,7 +250,7 @@ exports[`Directory Tree defaultExpandAll 1`] = `
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
-    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
   >
     <div
       class="ant-tree-indent"
@@ -627,7 +627,7 @@ exports[`Directory Tree defaultExpandParent 1`] = `
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
-    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
   >
     <div
       class="ant-tree-indent"
@@ -804,7 +804,7 @@ exports[`Directory Tree expand with state control click 1`] = `
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
-    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
   >
     <div
       class="ant-tree-indent"
@@ -965,7 +965,7 @@ exports[`Directory Tree expand with state control doubleClick 1`] = `
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
-    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
   >
     <div
       class="ant-tree-indent"
@@ -1126,7 +1126,7 @@ exports[`Directory Tree expandedKeys update 1`] = `
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
-    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
   >
     <div
       class="ant-tree-indent"
@@ -1403,7 +1403,7 @@ exports[`Directory Tree group select 1`] = `
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
-    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
   >
     <div
       class="ant-tree-indent"
@@ -1780,7 +1780,7 @@ exports[`Directory Tree group select 2`] = `
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
-    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
   >
     <div
       class="ant-tree-indent"
@@ -2157,7 +2157,7 @@ exports[`Directory Tree rtl render component should be rendered correctly in RTL
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
-    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
   >
     <div
       class="ant-tree-indent"
@@ -2201,7 +2201,7 @@ exports[`Directory Tree rtl render component should be rendered correctly in RTL
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
-    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
   >
     <div
       class="ant-tree-indent"
@@ -2245,7 +2245,7 @@ exports[`Directory Tree selectedKeys update 1`] = `
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
-    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
   >
     <div
       class="ant-tree-indent"

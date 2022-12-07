@@ -3,7 +3,7 @@ category: Components
 subtitle: 气泡确认框
 group: 反馈
 title: Popconfirm
-cover: https://gw.alipayobjects.com/zos/alicdn/fjMCD9xRq/Popconfirm.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*sAGpRoBtTXcAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -27,6 +27,7 @@ demo:
 <code src="./demo/async.tsx">异步关闭</code>
 <code src="./demo/promise.tsx">基于 Promise 的异步关闭</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/wireframe.tsx" debug>线框风格</code>
 
 ## API
 

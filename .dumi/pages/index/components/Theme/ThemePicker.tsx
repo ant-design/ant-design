@@ -37,6 +37,13 @@ const useStyle = () => {
       cursor: pointer;
       transition: all ${token.motionDurationSlow};
       overflow: hidden;
+      display: inline-block;
+
+      & > input[type="radio"] {
+        width: 0;
+        height: 0;
+        opacity: 0;
+      }
 
       img {
         vertical-align: top;
@@ -44,6 +51,7 @@ const useStyle = () => {
           0 9px 28px 8px rgba(0, 0, 0, 0.05);
       }
 
+      &:focus-within,
       &:hover {
         transform: scale(1.04);
       }
@@ -54,7 +62,7 @@ const useStyle = () => {
         0 0 0 ${token.controlOutlineWidth * 2 + 1}px ${token.colorPrimary};
 
       &,
-      &:hover {
+      &:hover:not(:focus-within) {
         transform: scale(1);
       }
     `,
@@ -79,15 +87,16 @@ export default function ThemePicker({ value, onChange }: ThemePickerProps) {
 
         return (
           <Space key={theme} direction="vertical" align="center">
-            <div css={[style.themeCard, value === theme && style.themeCardActive]}>
-              <img
-                src={url}
-                onClick={() => {
-                  onChange?.(theme);
-                }}
-                alt=""
-              />
-            </div>
+            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+            <label
+              css={[style.themeCard, value === theme && style.themeCardActive]}
+              onClick={() => {
+                onChange?.(theme);
+              }}
+            >
+              <input type="radio" name="theme" />
+              <img src={url} alt={theme} />
+            </label>
             <span>{locale[theme as keyof typeof locale]}</span>
           </Space>
         );

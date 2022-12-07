@@ -2,7 +2,7 @@
 category: Components
 title: Anchor
 subtitle: 锚点
-cover: https://gw.alipayobjects.com/zos/bmw-prod/669b87c5-7b44-4c99-a5ea-4c38f8004788.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*TBTSR4PyVmkAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 group:
@@ -45,7 +45,7 @@ group:
 | showInkInFixed | `affix={false}` 时是否显示小圆点 | boolean | false |  |
 | targetOffset | 锚点滚动偏移量，默认与 offsetTop 相同，[例子](#components-anchor-demo-targetOffset) | number | - |  |
 | onChange | 监听锚点链接改变 | (currentActiveLink: string) => void | - |  |
-| onClick | `click` 事件的 handler | function(e: Event, link: Object) | - |  |
+| onClick | `click` 事件的 handler | (e: MouseEvent, link: object) => void | - |  |
 | items | 数据化配置选项内容，支持通过 children 嵌套 | { href, title, target, children }\[] | - |  |
 
 ### Link Props

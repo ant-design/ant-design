@@ -2,7 +2,7 @@
 category: Components
 group: Feedback
 title: Popconfirm
-cover: https://gw.alipayobjects.com/zos/alicdn/fjMCD9xRq/Popconfirm.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*sAGpRoBtTXcAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -26,6 +26,7 @@ The difference with the `confirm` modal dialog is that it's more lightweight tha
 <code src="./demo/async.tsx">Asynchronously close</code>
 <code src="./demo/promise.tsx">Asynchronously close on Promise</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/wireframe.tsx" debug>Wireframe</code>
 
 ## API
 
