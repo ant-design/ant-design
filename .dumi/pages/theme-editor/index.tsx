@@ -2,11 +2,11 @@ import React, { useEffect } from 'react';
 import { enUS, ThemeEditor, zhCN } from 'antd-token-previewer';
 import { Button, ConfigProvider, message, Modal, Typography } from 'antd';
 import type { ThemeConfig } from 'antd/es/config-provider/context';
-import useLocale from '../../hooks/useLocale';
 import { Helmet } from 'dumi';
 import { css } from '@emotion/react';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import { CopyOutlined } from '@ant-design/icons';
+import useLocale from '../../hooks/useLocale';
 
 const locales = {
   cn: {
