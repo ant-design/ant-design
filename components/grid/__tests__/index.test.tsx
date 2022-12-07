@@ -3,7 +3,7 @@ import { Col, Row } from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import useBreakpoint from '../hooks/useBreakpoint';
-import { render, act } from '../../../tests/utils';
+import { render } from '../../../tests/utils';
 
 describe('Grid', () => {
   mountTest(Row);
