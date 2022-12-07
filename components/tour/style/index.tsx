@@ -153,7 +153,7 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
         },
 
         // ============================= primary type ===========================
-        [`&${componentCls}-primary`]: {
+        [`${componentCls}-primary`]: {
           '--antd-arrow-background-color': colorPrimary,
           [`${componentCls}-inner`]: {
             color: colorTextLightSolid,
@@ -180,6 +180,7 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
             [`${componentCls}-prev-btn`]: {
               color: colorTextLightSolid,
               borderColor: new TinyColor(colorTextLightSolid).setAlpha(0.15).toRgbString(),
+              backgroundColor: colorPrimary,
 
               '&:hover': {
                 backgroundColor: new TinyColor(colorTextLightSolid).setAlpha(0.15).toRgbString(),
