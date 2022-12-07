@@ -4869,9 +4869,6 @@ exports[`renders ./components/table/demo/edit-cell.tsx extend context correctly 
                                   </div>
                                 </div>
                                 <div
-                                  class="ant-popconfirm-description"
-                                />
-                                <div
                                   class="ant-popconfirm-buttons"
                                 >
                                   <button
@@ -4982,9 +4979,6 @@ exports[`renders ./components/table/demo/edit-cell.tsx extend context correctly 
                                     Sure to delete?
                                   </div>
                                 </div>
-                                <div
-                                  class="ant-popconfirm-description"
-                                />
                                 <div
                                   class="ant-popconfirm-buttons"
                                 >

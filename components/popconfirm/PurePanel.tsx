@@ -70,7 +70,9 @@ export const Overlay: React.FC<OverlayProps> = (props) => {
               {getRenderPropValue(title)}
             </div>
           </div>
-          <div className={`${prefixCls}-description`}>{getRenderPropValue(description)}</div>
+          {description && (
+            <div className={`${prefixCls}-description`}>{getRenderPropValue(description)}</div>
+          )}
           <div className={`${prefixCls}-buttons`}>
             {showCancel && (
               <Button onClick={onCancel} size="small" {...cancelButtonProps}>
