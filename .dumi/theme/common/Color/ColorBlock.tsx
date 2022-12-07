@@ -2,7 +2,13 @@ import React, { Component } from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import { message } from 'antd';
 
-export default class ColorBlock extends Component {
+interface ColorBlockProps {
+  color: string;
+  index: number;
+  dark?: boolean;
+}
+
+class ColorBlock extends Component<ColorBlockProps> {
   getTextStyle() {
     const { color, index, dark } = this.props;
     const colorMap = {
@@ -25,7 +31,7 @@ export default class ColorBlock extends Component {
   render() {
     const { color, index } = this.props;
     return (
-      <CopyToClipboard text={color} onCopy={this.onCopied} title="click to copy color">
+      <CopyToClipboard text={color} onCopy={this.onCopied}>
         <div className="main-color-item" style={this.getTextStyle()}>
           color-{index}
           <span className="main-color-value">{color.toLowerCase()}</span>
@@ -34,3 +40,5 @@ export default class ColorBlock extends Component {
     );
   }
 }
+
+export default ColorBlock;
