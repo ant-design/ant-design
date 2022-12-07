@@ -7,4 +7,6 @@ FloatButton.BackTop = BackTop;
 FloatButton.Group = FloatButtonGroup;
 FloatButton._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 
+export * from './interface';
+
 export default FloatButton;

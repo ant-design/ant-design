@@ -13,8 +13,6 @@ import PurePanel from './PurePanel';
 import useMessage, { useInternalMessage } from './useMessage';
 import { wrapPromiseFn } from './util';
 
-export { ArgsProps };
-
 const methods: NoticeType[] = ['success', 'info', 'warning', 'error', 'loading'];
 
 let message: GlobalMessage | null = null;
@@ -356,5 +354,7 @@ if (process.env.NODE_ENV === 'test') {
     message = null;
   };
 }
+
+export * from './interface';
 
 export default staticMethods;

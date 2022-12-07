@@ -15,12 +15,12 @@ import List from './list';
 import type { TransferListBodyProps } from './ListBody';
 import Operation from './operation';
 import Search from './search';
-
 import useStyle from './style';
 
 export type { TransferListProps } from './list';
 export type { TransferOperationProps } from './operation';
 export type { TransferSearchProps } from './search';
+export * from './interface';
 
 export type TransferDirection = 'left' | 'right';
 

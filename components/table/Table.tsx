@@ -51,10 +51,7 @@ import type {
   ColumnsType,
   TablePaginationConfig,
 } from './interface';
-
 import useStyle from './style';
-
-export type { ColumnsType, TablePaginationConfig };
 
 const EMPTY_LIST: any[] = [];
 

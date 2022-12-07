@@ -14,6 +14,8 @@ function useToken() {
   return { theme, token, hashId };
 }
 
+export * from './interface';
+
 export default {
   /** @private Test Usage. Do not use in production. */
   defaultConfig,

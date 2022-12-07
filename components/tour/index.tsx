@@ -56,4 +56,6 @@ if (process.env.NODE_ENV !== 'production') {
 
 Tour._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 
+export * from './interface';
+
 export default Tour;

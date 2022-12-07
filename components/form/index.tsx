@@ -56,4 +56,6 @@ export type {
   FormListOperation,
 };
 
+export * from './interface';
+
 export default Form;

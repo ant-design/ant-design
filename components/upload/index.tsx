@@ -3,13 +3,7 @@ import type { UploadProps } from './Upload';
 import InternalUpload, { LIST_IGNORE } from './Upload';
 
 export type { DraggerProps } from './Dragger';
-export type {
-  RcFile,
-  UploadChangeParam,
-  UploadFile,
-  UploadListProps,
-  UploadProps,
-} from './interface';
+export * from './interface';
 
 type InternalUploadType = typeof InternalUpload;
 type CompoundedComponent<T = any> = InternalUploadType & {
