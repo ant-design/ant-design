@@ -4,6 +4,7 @@ import JsonML from 'jsonml.js/lib/utils';
 // @ts-ignore
 import toReactComponent from 'jsonml-to-react-element';
 import Prism from 'prismjs';
+import 'prismjs/components/prism-typescript';
 import { useLocation, useIntl, type IPreviewerProps } from 'dumi';
 import { ping } from '../../utils';
 
@@ -75,9 +76,13 @@ export default function fromDumiProps<P extends object>(
       },
       intl: { locale: intl.locale },
       showRiddleButton,
+      sourceCodes: {
+        jsx: meta.jsx,
+        tsx: entryCode,
+      },
       highlightedCodes: {
         jsx: Prism.highlight(meta.jsx, Prism.languages.javascript, 'jsx'),
-        tsx: Prism.highlight(entryCode, Prism.languages.javascript, 'tsx'),
+        tsx: Prism.highlight(entryCode, Prism.languages.typescript, 'tsx'),
       },
       style: meta.style,
       location,
