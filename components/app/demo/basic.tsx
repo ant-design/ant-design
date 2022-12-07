@@ -32,11 +32,9 @@ const MyPage = () => {
       <Button type="primary" onClick={showModal}>
         Open modal
       </Button>
-      <App>
-        <Button type="primary" onClick={showNotification}>
-          Open notification
-        </Button>
-      </App>
+      <Button type="primary" onClick={showNotification}>
+        Open notification
+      </Button>
     </Space>
   );
 };
