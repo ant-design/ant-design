@@ -26,7 +26,7 @@ Static function in React 18 concurrent mode will not well support. In v5, we rec
 import React from 'react';
 import { App } from 'antd';
 
-const MyPage = () => {
+const MyPage: React.FC = () => {
   const { message, notification, modal } = App.useApp();
   message.success('Good!');
   notification.info({ message: 'Good' });
@@ -36,7 +36,7 @@ const MyPage = () => {
   return <div>Hello word</div>;
 };
 
-const MyApp = () => (
+const MyApp: React.FC = () => (
   <App>
     <MyPage />
   </App>
