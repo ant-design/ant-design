@@ -1,7 +1,6 @@
 import classNames from 'classnames';
 import RcCheckbox from 'rc-checkbox';
 import * as React from 'react';
-import { useContext } from 'react';
 import { ConfigContext } from '../config-provider';
 import { FormItemInputContext } from '../form/context';
 import warning from '../_util/warning';
@@ -65,8 +64,8 @@ const InternalCheckbox: React.ForwardRefRenderFunction<HTMLInputElement, Checkbo
 ) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const checkboxGroup = React.useContext(GroupContext);
-  const { isFormItemInput } = useContext(FormItemInputContext);
-  const contextDisabled = useContext(DisabledContext);
+  const { isFormItemInput } = React.useContext(FormItemInputContext);
+  const contextDisabled = React.useContext(DisabledContext);
   const mergedDisabled = (checkboxGroup?.disabled || disabled) ?? contextDisabled;
 
   const prevValue = React.useRef(restProps.value);

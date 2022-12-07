@@ -33,6 +33,21 @@ Array [
     role="separator"
     style="height:60px;border-color:#7cb305"
   />,
+  <div
+    style="display:flex;flex-direction:column;height:50px;box-shadow:0 0 1px red"
+  >
+    <div
+      class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+      role="separator"
+      style="background:rgba(0,255,0,0.05)"
+    >
+      <span
+        class="ant-divider-inner-text"
+      >
+        Text
+      </span>
+    </div>
+  </div>,
 ]
 `;
 

@@ -13,7 +13,6 @@ import type {
 import RcCascader from 'rc-cascader';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
-import { useContext } from 'react';
 import { ConfigContext } from '../config-provider';
 import defaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import DisabledContext from '../config-provider/DisabledContext';
@@ -158,7 +157,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
     direction: rootDirection,
     // virtual,
     // dropdownMatchSelectWidth,
-  } = useContext(ConfigContext);
+  } = React.useContext(ConfigContext);
 
   const mergedDirection = direction || rootDirection;
   const isRtl = mergedDirection === 'rtl';
@@ -169,7 +168,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
     hasFeedback,
     isFormItemInput,
     feedbackIcon,
-  } = useContext(FormItemInputContext);
+  } = React.useContext(FormItemInputContext);
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
   // =================== Warning =====================

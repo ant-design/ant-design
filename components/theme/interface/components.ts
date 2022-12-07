@@ -47,6 +47,7 @@ import type { ComponentToken as TypographyComponentToken } from '../../typograph
 import type { ComponentToken as UploadComponentToken } from '../../upload/style';
 import type { ComponentToken as TourComponentToken } from '../../tour/style';
 import type { ComponentToken as QRCodeComponentToken } from '../../qrcode/style';
+import type { ComponentToken as AppComponentToken } from '../../app/style';
 
 export interface ComponentTokenMap {
   Affix?: {};
@@ -110,4 +111,5 @@ export interface ComponentTokenMap {
   Progress?: ProgressComponentToken;
   Tour?: TourComponentToken;
   QRCode?: QRCodeComponentToken;
+  App?: AppComponentToken;
 }

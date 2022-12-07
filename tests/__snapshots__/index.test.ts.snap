@@ -5,6 +5,7 @@ exports[`antd dist files exports modules correctly 1`] = `
   "Affix",
   "Alert",
   "Anchor",
+  "App",
   "AutoComplete",
   "Avatar",
   "BackTop",

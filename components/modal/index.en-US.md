@@ -31,7 +31,8 @@ When requiring users to interact with the application, but without jumping to a 
 <code src="./demo/modal-render.tsx">Custom modal content render</code>
 <code src="./demo/width.tsx">To customize the width of modal</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
-<code src="./demo/custom-mouse-position.tsx" debug>控制弹框动画原点</code>
+<code src="./demo/custom-mouse-position.tsx" debug>Control modal's animation origin position</code>
+<code src="./demo/wireframe.tsx" debug>Wireframe</code>
 
 ## API
 
@@ -97,6 +98,7 @@ The items listed above are all functions, expecting a settings object as paramet
 | closable | Whether a close (x) button is visible on top right of the confirm dialog or not | boolean | false | 4.9.0 |
 | closeIcon | Custom close icon | ReactNode | undefined | 4.9.0 |
 | content | Content | ReactNode | - |  |
+| footer | Footer content, set as `footer: null` when you don't need default buttons	| ReactNode | - | 5.1.0 |
 | getContainer | Return the mount node for Modal | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
 | icon | Custom icon | ReactNode | &lt;QuestionCircle /> |  |
 | keyboard | Whether support press esc to close | boolean | true |  |

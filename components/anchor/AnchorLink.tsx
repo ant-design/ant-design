@@ -31,7 +31,7 @@ const AnchorLink: React.FC<AnchorLinkProps> = (props) => {
     };
   }, [href, registerLink, unregisterLink]);
 
-  const handleClick = (e: React.MouseEvent<HTMLElement>) => {
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     onClick?.(e, { title, href });
     scrollTo?.(href);
   };

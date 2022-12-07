@@ -531,14 +531,14 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
       [`&-date-panel
         ${componentCls}-cell-in-view${componentCls}-cell-in-range${componentCls}-cell-range-hover-start
         ${pickerCellInnerCls}::after`]: {
-        insetInlineEnd: (pickerPanelCellWidth - pickerPanelCellHeight) / 2,
+        insetInlineEnd: -(pickerPanelCellWidth - pickerPanelCellHeight) / 2,
         insetInlineStart: 0,
       },
 
       [`&-date-panel ${componentCls}-cell-in-view${componentCls}-cell-in-range${componentCls}-cell-range-hover-end ${pickerCellInnerCls}::after`]:
         {
           insetInlineEnd: 0,
-          insetInlineStart: (pickerPanelCellWidth - pickerPanelCellHeight) / 2,
+          insetInlineStart: -(pickerPanelCellWidth - pickerPanelCellHeight) / 2,
         },
 
       // Hover with range start & end
@@ -974,7 +974,9 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
         transition: `border ${motionDurationMid}, box-shadow ${motionDurationMid}`,
 
         // Space.Compact
-        ...genCompactItemStyle(token, componentCls, '', `${componentCls}-focused`),
+        ...genCompactItemStyle(token, componentCls, {
+          focusElCls: `${componentCls}-focused`,
+        }),
 
         '&:hover, &-focused': {
           ...genHoverStyle(token),
