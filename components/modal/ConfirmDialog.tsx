@@ -41,7 +41,7 @@ export function ConfirmContent(
     rootPrefixCls,
     type,
     okCancel,
-
+    footer,
     // Legacy for static function usage
     locale: staticLocale,
   } = props;
@@ -107,19 +107,23 @@ export function ConfirmContent(
               )}
               <div className={`${confirmPrefixCls}-content`}>{props.content}</div>
             </div>
-            <div className={`${confirmPrefixCls}-btns`}>
-              {cancelButton}
-              <ActionButton
-                type={okType}
-                actionFn={onOk}
-                close={close}
-                autoFocus={autoFocusButton === 'ok'}
-                buttonProps={okButtonProps}
-                prefixCls={`${rootPrefixCls}-btn`}
-              >
-                {okText || (mergedOkCancel ? mergedLocale?.okText : mergedLocale?.justOkText)}
-              </ActionButton>
-            </div>
+            {footer !== undefined ? (
+              footer
+            ) : (
+              <div className={`${confirmPrefixCls}-btns`}>
+                {cancelButton}
+                <ActionButton
+                  type={okType}
+                  actionFn={onOk}
+                  close={close}
+                  autoFocus={autoFocusButton === 'ok'}
+                  buttonProps={okButtonProps}
+                  prefixCls={`${rootPrefixCls}-btn`}
+                >
+                  {okText || (mergedOkCancel ? mergedLocale?.okText : mergedLocale?.justOkText)}
+                </ActionButton>
+              </div>
+            )}
           </div>
         );
       }}
