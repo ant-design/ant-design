@@ -309,23 +309,23 @@
   "size-limit": [
     {
       "path": "./dist/antd.min.js",
-      "limit": "285 kB"
+      "limit": "285 KiB"
     },
     {
       "path": "./dist/antd.min.css",
-      "limit": "70 kB"
+      "limit": "70 KiB"
     },
     {
       "path": "./dist/antd.dark.min.css",
-      "limit": "70 kB"
+      "limit": "70 KiB"
     },
     {
       "path": "./dist/antd.compact.min.css",
-      "limit": "70 kB"
+      "limit": "70 KiB"
     },
     {
       "path": "./dist/antd.variable.min.css",
-      "limit": "70 kB"
+      "limit": "70 KiB"
     }
   ],
   "bundlesize": [
