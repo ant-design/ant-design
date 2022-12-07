@@ -63,16 +63,8 @@ class Demo extends React.Component {
   }
 
   getSourceCode() {
-    const { highlightedCodes } = this.props;
-    const { codeType } = this.state;
-    if (typeof document !== 'undefined') {
-      const div = document.createElement('div');
-      const divJSX = document.createElement('div');
-      div.innerHTML = highlightedCodes[codeType] || highlightedCodes.jsx;
-      divJSX.innerHTML = highlightedCodes.jsx;
-      return [divJSX.textContent, div.textContent];
-    }
-    return ['', ''];
+    const { sourceCodes } = this.props;
+    return [sourceCodes.jsx, sourceCodes.tsx];
   }
 
   handleCodeExpand = (demo) => {
@@ -407,24 +399,22 @@ createRoot(document.getElementById('container')).render(<Demo />);
                 <CodeSandboxIcon className="code-box-codesandbox" />
               </Tooltip>
             </form>
-            {sourceCode && (
-              <form
-                className="code-box-code-action"
-                action="https://codepen.io/pen/define"
-                method="POST"
-                target="_blank"
-                ref={this.codepenIconRef}
-                onClick={() => {
-                  this.track({ type: 'codepen', demo: meta.id });
-                  this.codepenIconRef.current.submit();
-                }}
-              >
-                <input type="hidden" name="data" value={JSON.stringify(codepenPrefillConfig)} />
-                <Tooltip title={<FormattedMessage id="app.demo.codepen" />}>
-                  <CodePenIcon className="code-box-codepen" />
-                </Tooltip>
-              </form>
-            )}
+            <form
+              className="code-box-code-action"
+              action="https://codepen.io/pen/define"
+              method="POST"
+              target="_blank"
+              ref={this.codepenIconRef}
+              onClick={() => {
+                this.track({ type: 'codepen', demo: meta.id });
+                this.codepenIconRef.current.submit();
+              }}
+            >
+              <input type="hidden" name="data" value={JSON.stringify(codepenPrefillConfig)} />
+              <Tooltip title={<FormattedMessage id="app.demo.codepen" />}>
+                <CodePenIcon className="code-box-codepen" />
+              </Tooltip>
+            </form>
             <Tooltip title={<FormattedMessage id="app.demo.stackblitz" />}>
               <span
                 className="code-box-code-action"
