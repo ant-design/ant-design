@@ -13,11 +13,6 @@ describe('Grid', () => {
   rtlTest(Row);
   rtlTest(Col);
 
-  afterEach(() => {
-    const responsiveObserve = useResponsiveObserve();
-    responsiveObserve.unregister();
-  });
-
   it('should render Col', () => {
     const { asFragment } = render(<Col span={2} />);
     expect(asFragment().firstChild).toMatchSnapshot();
@@ -90,8 +85,14 @@ describe('Grid', () => {
   });
 
   it('ResponsiveObserve.unsubscribe should be called when unmounted', () => {
-    const responsiveObserve = useResponsiveObserve();
-    const Unmount = jest.spyOn(responsiveObserve, 'unsubscribe');
+    let responsiveObserveRef: any;
+    const Demo = () => {
+      const responsiveObserve = useResponsiveObserve();
+      responsiveObserveRef = responsiveObserve;
+      return null;
+    };
+    render(<Demo />);
+    const Unmount = jest.spyOn(responsiveObserveRef, 'unsubscribe');
     const { unmount } = render(<Row gutter={{ xs: 20 }} />);
     act(() => {
       unmount();
