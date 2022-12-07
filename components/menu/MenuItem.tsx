@@ -66,7 +66,7 @@ export default class MenuItem extends React.Component<MenuItemProps> {
         {...rest}
         className={classNames(
           {
-            [`${prefixCls}-item-danger`]: danger,
+            [`${prefixCls}-item-danger`]: this.props.disabled ? false : danger,
             [`${prefixCls}-item-only-child`]: (icon ? childrenLength + 1 : childrenLength) === 1,
           },
           className,
