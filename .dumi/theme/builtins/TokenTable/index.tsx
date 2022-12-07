@@ -4,11 +4,12 @@ import React, { useMemo } from 'react';
 // @ts-ignore
 import tokenMeta from 'antd/es/version/token-meta.json';
 import { getDesignToken } from 'antd-token-previewer';
-import { Table, Badge } from 'antd';
+import { Table } from 'antd';
 import type { TableProps } from 'antd';
 import { css } from '@emotion/react';
 import useLocale from '../../../hooks/useLocale';
 import useSiteToken from '../../../hooks/useSiteToken';
+import ColorChunk from '../ColorChunk';
 
 type TokenTableProps = {
   type: 'seed' | 'map' | 'alias';
@@ -83,7 +84,7 @@ const TokenTable: FC<TokenTableProps> = ({ type }) => {
           typeof record.value === 'string' &&
           (record.value.startsWith('#') || record.value.startsWith('rgb'));
         if (isColor) {
-          return <Badge color={record.value} text={record.value} />;
+          return <ColorChunk color={record.value}>{record.value}</ColorChunk>;
         }
         return typeof record.value !== 'string' ? JSON.stringify(record.value) : record.value;
       },
