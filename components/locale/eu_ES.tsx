@@ -8,7 +8,7 @@ import TimePicker from '../time-picker/locale/eu_ES';
 const typeTemplate = '${label} ez da ${type} balioduna';
 
 const localeValues: Locale = {
-  locale: 'eu-ES',
+  locale: 'eu',
   Pagination,
   DatePicker,
   TimePicker,
