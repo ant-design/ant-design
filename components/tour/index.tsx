@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useMemo, useState } from 'react';
 import RCTour from '@rc-component/tour';
 import classNames from 'classnames';
 import panelRender from './panelRender';
@@ -23,19 +23,30 @@ const Tour: React.ForwardRefRenderFunction<HTMLDivElement, TourProps> & {
   const prefixCls = getPrefixCls('tour', customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
+  const [curStepIndex, setCurStepIndex] = useState<TourProps['current']>(current);
+
+  const isShowPrimaryStyle = useMemo(() => {
+    if (typeof curStepIndex === 'number' && steps?.length) {
+      return type === 'primary' || steps[curStepIndex].type === 'primary';
+    }
+    return type === 'primary';
+  }, [type, curStepIndex]);
+
   const customClassName = classNames(
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     {
-      [`${prefixCls}-primary`]: type === 'primary',
+      [`${prefixCls}-primary`]: isShowPrimaryStyle,
     },
     hashId,
     rootClassName,
   );
 
-  const mergedRenderPanel = (stepProps: TourStepProps, stepCurrent: number) =>
-    panelRender(stepProps, stepCurrent, type);
+  const mergedRenderPanel = (stepProps: TourStepProps, stepCurrent: number) => {
+    setCurStepIndex(stepCurrent);
+    return panelRender(stepProps, stepCurrent, stepProps.type);
+  };
 
   return wrapSSR(
     <RCTour
