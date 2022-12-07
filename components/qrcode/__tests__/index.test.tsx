@@ -80,7 +80,7 @@ describe('QRCode test', () => {
     );
   });
 
-  it('should console Error when icon exist && errorLevel === `L`', () => {
+  it('should console Error when icon exist && errorLevel is `L`', () => {
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(<QRCode value="test" icon="test" errorLevel="L" />);
     expect(errSpy).toHaveBeenCalledWith(
