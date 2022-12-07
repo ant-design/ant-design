@@ -112,8 +112,8 @@ const genSharedAnchorHorizontalStyle: GenerateStyle<AnchorToken> = (token): CSSO
 
       '&::before': {
         position: 'absolute',
-        right: 0,
-        left: 0,
+        offsetInlineStart: 0,
+        offsetInlineEnd: 0,
         bottom: 0,
         borderBottom: `1px ${token.lineType} ${token.colorSplit}`,
         content: '" "',
@@ -135,7 +135,7 @@ const genSharedAnchorHorizontalStyle: GenerateStyle<AnchorToken> = (token): CSSO
 
       [`${componentCls}-ink-ball-horizontal`]: {
         position: 'absolute',
-        left: 0,
+        offsetInlineEnd: 0,
         bottom: 0,
         transition: `left ${motionDurationSlow} ease-in-out`,
         height: lineWidthBold,

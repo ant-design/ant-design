@@ -130,6 +130,14 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
     warning(!children, 'Anchor', '`Anchor children` is deprecated. Please use `items` instead.');
   }
 
+  if (process.env.NODE_ENV !== 'production') {
+    warning(
+      !(anchorDirection === 'horizontal' && items?.some((n) => 'children' in n)),
+      'Anchor',
+      '`Anchor items#children` is not supported when `Anchor` direction is horizontal',
+    );
+  }
+
   const [links, setLinks] = React.useState<string[]>([]);
   const [activeLink, setActiveLink] = React.useState<string | null>(null);
   const activeLinkRef = React.useRef<string | null>(activeLink);
@@ -284,21 +292,11 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
     ...style,
   };
 
-  const createHorizontalLink = (options?: AnchorLinkItemProps[]) =>
-    Array.isArray(options)
-      ? options
-          .map(({ children: itemChildren, ...item }) => item)
-          .map((item) => <AnchorLink {...item} key={item.key} direction={anchorDirection} />)
-      : null;
-
   const createNestedLink = (options?: AnchorLinkItemProps[]) => {
-    if (anchorDirection === 'horizontal') {
-      return createHorizontalLink(options);
-    }
     return Array.isArray(options)
       ? options.map((item) => (
           <AnchorLink {...item} key={item.key} direction={anchorDirection}>
-            {createNestedLink(item.children)}
+            {anchorDirection === 'vertical' && createNestedLink(item.children)}
           </AnchorLink>
         ))
       : null;

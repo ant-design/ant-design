@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import * as React from 'react';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigConsumer } from '../config-provider';
+import warning from '../_util/warning';
 import type { AntAnchor } from './Anchor';
 import AnchorContext from './context';
 
@@ -26,7 +27,7 @@ const AnchorLink: React.FC<AnchorLinkProps> = (props) => {
     children,
     className,
     target,
-    direction: anchorDirection = 'vertical',
+    direction = 'vertical',
   } = props;
 
   const context = React.useContext<AntAnchor | undefined>(AnchorContext);
@@ -44,6 +45,15 @@ const AnchorLink: React.FC<AnchorLinkProps> = (props) => {
     onClick?.(e, { title, href });
     scrollTo?.(href);
   };
+
+  // =================== Warning =====================
+  if (process.env.NODE_ENV !== 'production') {
+    warning(
+      !(children && direction === 'horizontal'),
+      'Anchor.Link',
+      '`Anchor.Link children` is not supported when `Anchor` direction is horizontal',
+    );
+  }
 
   return (
     <ConfigConsumer>
@@ -67,7 +77,7 @@ const AnchorLink: React.FC<AnchorLinkProps> = (props) => {
             >
               {title}
             </a>
-            {anchorDirection !== 'horizontal' ? children : null}
+            {direction !== 'horizontal' ? children : null}
           </div>
         );
       }}

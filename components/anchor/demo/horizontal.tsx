@@ -9,6 +9,18 @@ const App: React.FC = () => (
         key: '1',
         href: '#components-anchor-demo-basic',
         title: 'Basic demo',
+        children: [
+          {
+            key: '4',
+            href: '#anchor-props',
+            title: 'Anchor Props',
+          },
+          {
+            key: '5',
+            href: '#link-props',
+            title: 'Link Props',
+          },
+        ],
       },
       {
         key: '2',

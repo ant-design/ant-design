@@ -496,7 +496,7 @@ describe('Anchor Render', () => {
 
 describe('horizontal anchor', () => {
   it('test direction prop', () => {
-    const { container, asFragment } = render(
+    const { container } = render(
       <Anchor
         direction='horizontal'
         items={[
