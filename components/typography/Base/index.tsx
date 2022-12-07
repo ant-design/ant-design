@@ -12,7 +12,7 @@ import omit from 'rc-util/lib/omit';
 import { composeRef } from 'rc-util/lib/ref';
 import * as React from 'react';
 import { ConfigContext } from '../../config-provider';
-import { useLocaleReceiver } from '../../locale-provider/LocaleReceiver';
+import { useLocaleReceiver } from '../../locale/LocaleReceiver';
 import TransButton from '../../_util/transButton';
 import { isStyleSupport } from '../../_util/styleChecker';
 import type { TooltipProps } from '../../tooltip';

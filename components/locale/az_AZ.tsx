@@ -2,7 +2,7 @@
 import Pagination from 'rc-pagination/lib/locale/az_AZ';
 import Calendar from '../calendar/locale/az_AZ';
 import DatePicker from '../date-picker/locale/az_AZ';
-import type { Locale } from '../locale-provider';
+import type { Locale } from '../locale';
 import TimePicker from '../time-picker/locale/az_AZ';
 
 const typeTemplate = '${label}Hökmlü deyil${type}';

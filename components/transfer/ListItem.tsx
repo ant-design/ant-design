@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import * as React from 'react';
 import type { KeyWiseTransferItem } from '.';
 import Checkbox from '../checkbox';
-import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import LocaleReceiver from '../locale/LocaleReceiver';
 import defaultLocale from '../locale/en_US';
 import TransButton from '../_util/transButton';
 

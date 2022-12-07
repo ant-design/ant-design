@@ -68,8 +68,8 @@ import preParsePostFormat from 'dayjs/plugin/preParsePostFormat';
 import MockDate from 'mockdate';
 import React from 'react';
 import { render } from '../../../tests/utils';
-import type { Locale } from '..';
-import LocaleProvider from '..';
+import type { Locale } from '../';
+import LocaleProvider from '../';
 import {
   Calendar,
   DatePicker,
