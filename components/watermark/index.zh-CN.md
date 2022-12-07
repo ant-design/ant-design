@@ -36,17 +36,16 @@ demo:
 | image | 图片源，建议导出 2 倍或 3 倍图，优先级高 | string | - |  |
 | content | 水印文字内容 | string \| string[] | - |  |
 | font | 文字样式 | [Font](#Font) | [Font](#Font) |  |
-| style | 容器层的样式 | React.CSSProperties | - |  |
-| className | 容器层的类名 | string | - |  |
 | gap | 水印之间的间距 | \[number, number\] | \[200, 200\] |  |
 | offset | 水印距离容器左上角的偏移量，默认为 `gap/2` | \[number, number\] | \[gap\[0\]/2, gap\[1\]/2\] |  |
 
 ### Font
 
-| 参数       | 说明     | 类型                                        | 默认值          | 版本 |
-| ---------- | -------- | ------------------------------------------- | --------------- | ---- |
-| color      | 字体颜色 | string                                      | rgba(0,0,0,.15) |      |
-| fontSize   | 字体大小 | number                                      | 16              |      |
-| fontWeight | 字体粗细 | `normal` \| `light` \| `weight` \| number   | normal          |      |
-| fontFamily | 字体类型 | string                                      | sans-serif      |      |
-| fontStyle  | 字体样式 | `none` \| `normal` \| `italic` \| `oblique` | normal          |      |
+<!-- prettier-ignore -->
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| color | 字体颜色 | string | rgba(0,0,0,.15) |  |
+| fontSize | 字体大小 | number | 16 |  |
+| fontWeight | 字体粗细 | `normal` \| `light` \| `weight` \| number | normal |  |
+| fontFamily | 字体类型 | string | sans-serif |  |
+| fontStyle | 字体样式 | `none` \| `normal` \| `italic` \| `oblique` | normal |  |
