@@ -1083,7 +1083,7 @@ const GlobalStyles = () => {
               }
             }
 
-            &-actions > &-code-action {
+            &-actions &-code-action {
               position: relative;
               display: flex;
               align-items: center;
@@ -1111,10 +1111,6 @@ const GlobalStyles = () => {
               background: ${token.colorBgContainer};
               cursor: pointer;
               transition: transform 0.24s;
-
-              &:hover {
-                transform: scale(1.1);
-              }
 
               &${iconCls}-check {
                 color: ${token['green-6']} !important;
