@@ -164,6 +164,27 @@ Use git to save your code and install latest version:
 npm install --save antd@5.x
 ```
 
+You can manually check the code one by one against the above list for modification. In addition, we also provide a codemod cli tool [@ant-design/codemod-v5](https://github.com/ant-design/codemod-v5) To help you quickly upgrade to v5.
+
+Before running codemod cli, please submit your local code changes.
+
+```shell
+# Run directly through npx
+npx -p @ant-design/codemod-v5 antd5-codemod src
+
+# Or run directly through pnpm
+pnpm --package=@ant-design/codemod-v5 dlx antd5-codemod src
+```
+
+<video autoplay="" loop="" style="width: 100%; max-height: 600px; object-fit: contain;">
+  <source src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/file/A*Sjy5ToW6ow0AAAAAAAAAAAAADrJ8AQ" type="video/webm">
+  <source src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/file/A*hTDYQJ2HFTYAAAAAAAAAAAAADrJ8AQ" type="video/mp4">
+</video>
+
+> Note that codemod cannot cover all scenarios, and it is recommended to check for incompatible changes one by one.
+
+### less migration
+
 If you using antd less variables, you can use compatible package to covert it into v4 less variables and use less-loader to inject them:
 
 ```js

@@ -156,6 +156,25 @@ title: 从 v4 到 v5
 npm install --save antd@5.x
 ```
 
+你可以手动对照上面的列表逐条检查代码进行修改，另外，我们也提供了一个 codemod cli 工具 [@ant-design/codemod-v5](https://github.com/ant-design/codemod-v5) 以帮助你快速升级到 v5 版本。
+
+在运行 codemod cli 前，请先提交你的本地代码修改。
+
+```shell
+# 使用 npx 直接运行
+npx -p @ant-design/codemod-v5 antd5-codemod src
+
+# 或者使用 pnpm 直接运行
+pnpm --package=@ant-design/codemod-v5 dlx antd5-codemod src
+```
+
+<video autoplay="" loop="" style="width: 100%; max-height: 600px; object-fit: contain;">
+  <source src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/file/A*Sjy5ToW6ow0AAAAAAAAAAAAADrJ8AQ" type="video/webm">
+  <source src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/file/A*hTDYQJ2HFTYAAAAAAAAAAAAADrJ8AQ" type="video/mp4">
+</video>
+
+> 注意 codemod 不能涵盖所有场景，建议还是要按不兼容的变化逐条排查。
+
 ### less 迁移
 
 如果你使用到了 antd 的 less 变量，通过兼容包将 v5 变量转译成 v4 版本，并通过 less-loader 注入：
