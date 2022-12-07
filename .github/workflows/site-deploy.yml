@@ -2,7 +2,8 @@
 
 name: Deploy website
 on:
-  create
+  release:
+    types: [published]
 
 permissions:
   contents: write
@@ -10,7 +11,7 @@ permissions:
 jobs:
   setup:
     runs-on: ubuntu-latest
-    if: github.event.ref_type == 'tag' && (contains(github.event.ref, '-') == false)
+    if: startsWith(github.ref, 'refs/tags/') && (contains(github.ref_name, '-') == false)
     steps:
       - name: checkout
         uses: actions/checkout@v3
@@ -63,9 +64,24 @@ jobs:
       - name: build
         run: npm run predeploy
 
-      - name: deploy
+      - name: Get version
+        id: publish-version
+        run: echo "VERSION=$(echo ${{ github.ref_name }} | sed 's/\./-/g')" >> $GITHUB_OUTPUT
+
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./_site
           force_orphan: true
+
+      - name: Deploy to Surge (with TAG)
+        run: |
+          export DEPLOY_DOMAIN=ant-design-${{ steps.publish-version.outputs.VERSION }}.surge.sh
+          npx surge --project ./_site --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
+
+      - name: Create Commit Comment
+        uses: peter-evans/commit-comment@v1
+        with:
+          body: |
+            Doc site for this release: https://ant-design-${{ steps.publish-version.outputs.VERSION }}.surge.sh
