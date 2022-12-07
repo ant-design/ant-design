@@ -109,7 +109,7 @@ exports[`renders ./components/table/demo/ajax.tsx correctly 1`] = `
                       <span
                         class="ant-dropdown-trigger ant-table-filter-trigger"
                         role="button"
-                        tabindex="-1"
+                        tabindex="0"
                       >
                         <span
                           aria-label="filter"
