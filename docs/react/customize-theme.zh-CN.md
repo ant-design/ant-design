@@ -39,7 +39,7 @@ const App: React.FC = () => (
 export default App;
 ```
 
-这将会得到一个以 <div style="display: inline-block; width: 16px; height: 16px; border-radius: 4px; background: #00b96b; vertical-align: text-bottom;"></div> `#00b96b` 为主色的主题，以 Button 组件为例可以看到相应的变化：
+这将会得到一个以 <ColorChunk color="#00b96b" /></ColorChunk> 为主色的主题，以 Button 组件为例可以看到相应的变化：
 
 ![themed button](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*CbF_RJfKEiwAAAAAAAAAAAAAARQnAQ)
 
@@ -90,7 +90,7 @@ const App: React.FC = () => (
 export default App;
 ```
 
-通过这种方式，我们可以仅将 Radio 组件的主色改为 <div style="display: inline-block; width: 16px; height: 16px; border-radius: 4px; background: #00b96b; vertical-align: text-bottom;"></div> `#00b96b`，而不会影响其他组件。
+通过这种方式，我们可以仅将 Radio 组件的主色改为 <ColorChunk color="#00b96b" /></ColorChunk> 而不会影响其他组件。
 
 ![component token](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*EMY0QrHFDjsAAAAAAAAAAAAAARQnAQ)
 

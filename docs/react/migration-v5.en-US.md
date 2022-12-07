@@ -14,7 +14,7 @@ This document will help you upgrade from antd `4.x` version to antd `5.x` versio
 ### Design specification
 
 - Basic rounded corner adjustment, changed from `2px` to four layers of radius, which are `2px` `4px` `6px` and `8px`. For example, radius of default Button is modified from `2px` to `6px`.
-- Primary color adjustment, changed from <div style="display: inline-block; width: 16px; height: 16px; border-radius: 4px; background: #1890ff; vertical-align: text-bottom;"></div> `#1890ff` to <div style="display: inline-block; width: 16px; height: 16px; border-radius: 4px; background: #1677ff; vertical-align: text-bottom;"></div> `#1677ff`.
+- Primary color adjustment, changed from <ColorChunk color="#1890ff" /></ColorChunk> to <ColorChunk color="#1677ff" /></ColorChunk>.
 - Global shadow optimization, adjusted from three layers of shadows to two layers, which are used in common components (Card .e.g) and popup components (Dropdown .e.g).
 - Overall reduction in wireframe usage.
 
