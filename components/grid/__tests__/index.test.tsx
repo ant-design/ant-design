@@ -2,7 +2,6 @@ import React from 'react';
 import { Col, Row } from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import useResponsiveObserve from '../../_util/responsiveObserve';
 import useBreakpoint from '../hooks/useBreakpoint';
 import { render, act } from '../../../tests/utils';
 
@@ -82,22 +81,6 @@ describe('Grid', () => {
     );
 
     expect(asFragment().firstChild).toMatchSnapshot();
-  });
-
-  it('ResponsiveObserve.unsubscribe should be called when unmounted', () => {
-    let responsiveObserveRef: any;
-    const Demo = () => {
-      const responsiveObserve = useResponsiveObserve();
-      responsiveObserveRef = responsiveObserve;
-      return null;
-    };
-    render(<Demo />);
-    const Unmount = jest.spyOn(responsiveObserveRef, 'unsubscribe');
-    const { unmount } = render(<Row gutter={{ xs: 20 }} />);
-    act(() => {
-      unmount();
-    });
-    expect(Unmount).toHaveBeenCalled();
   });
 
   it('should work correct when gutter is object', () => {
