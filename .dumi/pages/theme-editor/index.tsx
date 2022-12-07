@@ -27,18 +27,16 @@ const locales = {
   },
 };
 
-const useStyle = () => {
-  return {
-    header: css({
-      display: 'flex',
-      height: 56,
-      alignItems: 'center',
-      padding: '0 24px',
-      justifyContent: 'space-between',
-      borderBottom: '1px solid #F0F0F0',
-    }),
-  };
-};
+const useStyle = () => ({
+  header: css({
+    display: 'flex',
+    height: 56,
+    alignItems: 'center',
+    padding: '0 24px',
+    justifyContent: 'space-between',
+    borderBottom: '1px solid #F0F0F0',
+  }),
+});
 
 const ANT_DESIGN_V5_THEME_EDITOR_THEME = 'ant-design-v5-theme-editor-theme';
 
@@ -65,9 +63,9 @@ const CustomTheme = () => {
 
   const onCopy = (text: string, result: boolean) => {
     if (result) {
-      message.error('Copy theme config successfully!');
+      messageApi.success('Copy theme config successfully!');
     } else {
-      message.error('Copy failed, please try again.');
+      messageApi.error('Copy failed, please try again.');
     }
   };
 
