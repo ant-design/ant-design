@@ -35,21 +35,21 @@ demo:
 
 ### Radio/Radio.Button
 
-| 参数           | 说明                              | 类型    | 默认值 |
-| -------------- | --------------------------------- | ------- | ------ |
-| autoFocus      | 自动获取焦点                      | boolean | false  |
-| checked        | 指定当前是否选中                  | boolean | false  |
-| defaultChecked | 初始是否选中                      | boolean | false  |
-| disabled       | 禁用 Radio                        | boolean | false  |
-| value          | 根据 value 进行比较，判断是否选中 | any     | -      |
+<!-- prettier-ignore -->
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| autoFocus | 自动获取焦点 | boolean | false |
+| checked | 指定当前是否选中 | boolean | false |
+| defaultChecked | 初始是否选中 | boolean | false |
+| disabled | 禁用 Radio | boolean | false |
+| value | 根据 value 进行比较，判断是否选中 | any | - |
 
 ### Radio.Group
 
 单选框组合，用于包裹一组 `Radio`。
 
-<!-- prettier-ignore -->
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- |
 | buttonStyle | RadioButton 的风格样式，目前有描边和填色两种风格 | `outline` \| `solid` | `outline` |  |  |
 | defaultValue | 默认选中的值 | any | - |  |  |
 | disabled | 禁选所有子单选器 | boolean | false |  |  |
