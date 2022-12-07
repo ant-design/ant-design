@@ -1,3 +1,4 @@
+import type { ChangeEvent } from 'react';
 import React, { Component } from 'react';
 import { FormattedMessage } from 'dumi';
 import { Row, Col } from 'antd';
@@ -7,26 +8,25 @@ import ColorPatterns from './ColorPatterns';
 const primaryMinSaturation = 70; // 主色推荐最小饱和度
 const primaryMinBrightness = 70; // 主色推荐最小亮度
 
-export default class ColorPaletteTool extends Component {
+class ColorPaletteTool extends Component {
   state = {
     primaryColor: '#1890ff',
     backgroundColor: '#141414',
     primaryColorInstance: null,
   };
 
-  handleChangeColor = (e, color) => {
-    const value = e.target ? e.target.value : e;
-    this.setState({
-      primaryColor: value,
-      primaryColorInstance: color,
-    });
+  handleChangeColor = (e: string | ChangeEvent, color: { hex: string }) => {
+    const value = (e as ChangeEvent<HTMLInputElement>).target
+      ? (e as ChangeEvent<HTMLInputElement>).target.value
+      : e;
+    this.setState({ primaryColor: value, primaryColorInstance: color });
   };
 
-  handleChangeBackgroundColor = (e) => {
-    const value = e.target ? e.target.value : e;
-    this.setState({
-      backgroundColor: value,
-    });
+  handleChangeBackgroundColor = (e: string | ChangeEvent) => {
+    const value = (e as ChangeEvent<HTMLInputElement>).target
+      ? (e as ChangeEvent<HTMLInputElement>).target.value
+      : e;
+    this.setState({ backgroundColor: value });
   };
 
   renderColorValidation() {
@@ -56,7 +56,7 @@ export default class ColorPaletteTool extends Component {
     return (
       <div className="color-palette-horizontal color-palette-horizontal-dark">
         <div className="main-color">
-          <ColorPatterns color={primaryColor} dark backgroundColor={backgroundColor} />
+          {ColorPatterns({ color: primaryColor, dark: true, backgroundColor })}
         </div>
         <div className="color-palette-picker">
           <Row>
@@ -67,11 +67,7 @@ export default class ColorPaletteTool extends Component {
               <span style={{ display: 'inline-block', verticalAlign: 'middle' }}>
                 <Row>
                   <Col span={18}>
-                    <ColorPicker
-                      type="chrome"
-                      color={primaryColor}
-                      onChange={this.handleChangeColor}
-                    />
+                    <ColorPicker color={primaryColor} onChange={this.handleChangeColor} />
                   </Col>
                   <Col span={6}>
                     <span className="color-palette-pick-hex">{primaryColor}</span>
@@ -87,7 +83,6 @@ export default class ColorPaletteTool extends Component {
                 <Row>
                   <Col span={18}>
                     <ColorPicker
-                      type="chrome"
                       color={backgroundColor}
                       onChange={this.handleChangeBackgroundColor}
                     />
@@ -105,3 +100,5 @@ export default class ColorPaletteTool extends Component {
     );
   }
 }
+
+export default ColorPaletteTool;

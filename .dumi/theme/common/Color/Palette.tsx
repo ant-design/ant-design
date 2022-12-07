@@ -3,7 +3,7 @@ import { message } from 'antd';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import { presetDarkPalettes } from '@ant-design/colors';
 
-const rgbToHex = (rgbString) => {
+const rgbToHex = (rgbString: string): string => {
   const rgb = rgbString.match(/\d+/g);
   let r = parseInt(rgb[0], 10).toString(16);
   let g = parseInt(rgb[1], 10).toString(16);
@@ -14,10 +14,21 @@ const rgbToHex = (rgbString) => {
   return `#${r}${g}${b}`;
 };
 
-export default class Palette extends React.Component {
+interface PaletteProps {
+  showTitle?: boolean;
+  direction?: 'horizontal' | 'vertical';
+  dark?: boolean;
+  color?: any;
+}
+
+class Palette extends React.Component<PaletteProps> {
+  hexColors: Record<PropertyKey, string>;
+
+  colorNodes: Record<PropertyKey, Element>;
+
   componentDidMount() {
     this.hexColors = {};
-    Object.keys(this.colorNodes).forEach((key) => {
+    Object.keys(this.colorNodes || {}).forEach((key) => {
       const computedColor = getComputedStyle(this.colorNodes[key])['background-color'];
       if (computedColor.includes('rgba')) {
         this.hexColors[key] = computedColor;
@@ -34,10 +45,10 @@ export default class Palette extends React.Component {
       showTitle,
       direction,
       dark,
-      color: { name, description, english, chinese, count = 10 },
+      color: { name, description, english, chinese, count } = { name: 'gray', count: 13 },
     } = this.props;
     const className = direction === 'horizontal' ? 'color-palette-horizontal' : 'color-palette';
-    const colors = [];
+    const colors: React.ReactNode[] = [];
     const colorName = `${english} / ${chinese}`;
     const colorPaletteMap = {
       dark: ['#fff', 'unset'],
@@ -88,6 +99,4 @@ export default class Palette extends React.Component {
   }
 }
 
-Palette.defaultProps = {
-  color: { name: 'gray', count: 13 },
-};
+export default Palette;
