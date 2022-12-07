@@ -1,3 +1,4 @@
+import React from 'react';
 import { render } from '../../../tests/utils';
 import useResponsiveObserve from '../responsiveObserve';
 
