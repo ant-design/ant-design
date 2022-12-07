@@ -35,11 +35,14 @@ export default function imageTest(component: React.ReactElement) {
     await page.addStyleTag({ path: `${process.cwd()}/dist/reset.css` });
 
     const cache = createCache();
-    const html = ReactDOMServer.renderToString(
+
+    const element = (
       <App>
-        <StyleProvider cache={cache}>{component}</StyleProvider>,
-      </App>,
+        <StyleProvider cache={cache}>{component}</StyleProvider>
+      </App>
     );
+
+    const html = ReactDOMServer.renderToString(element);
     const styleStr = extractStyle(cache);
 
     await page.evaluate(
