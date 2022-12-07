@@ -439,10 +439,6 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 | warningOnly | 仅警告，不阻塞表单提交 | boolean | 4.17.0 |
 | whitespace | 如果字段仅包含空格则校验不通过，只在 `type: 'string'` 时生效 | boolean |  |
 
-## 从 v3 升级到 v4
-
-如果你是 antd v3 的用户，你可以参考[迁移示例](/components/form/v3)。
-
 <style>
 .code-box-demo .ant-form:not(.ant-form-inline):not(.ant-form-vertical) {
   max-width: 600px;

@@ -1,4 +1,3 @@
-import type { FC } from 'react';
 import React from 'react';
 import { FloatButton, theme } from 'antd';
 import { DarkTheme, Light, CompactTheme } from 'antd-token-previewer/es/icons';
@@ -11,7 +10,7 @@ export type ThemeSwitchProps = {
   onChange: (value: typeof defaultAlgorithm[]) => void;
 };
 
-const ThemeSwitch: FC<ThemeSwitchProps> = ({ value, onChange }) => {
+const ThemeSwitch: React.FC<ThemeSwitchProps> = ({ value, onChange }) => {
   const handleLightSwitch = () => {
     let newValue = [...value];
     if (value.includes(darkAlgorithm)) {

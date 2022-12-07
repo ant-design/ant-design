@@ -11,27 +11,9 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*677sTqCpE3wAAAAAAA
 
 When a given task is complicated or has a certain sequence in the series of subtasks, we can decompose it into several steps to make things easier.
 
-### Usage upgrade after 4.24.0
-
-<Alert message="After version 4.24.0, we provide a simpler usage &lt;Steps items={[...]} /&gt; with better performance and potential of writing simpler code style in your applications. Meanwhile, we deprecated the old usage in browser console, we will remove it in antd 5.0."></Alert>
-
-```jsx
-// works when >=4.24.0, recommended ✅
-const items = [{ title: 'first step' }, { title: 'second step' }, { title: 'third step' }];
-return <Steps items={items} />;
-
-// works when <4.24.0, deprecated when >=4.24.0 🙅🏻‍♀️
-<Steps>
-  <Step title="first step" />
-  <Step title="second step" />
-  <Step title="third step" />
-</Steps>;
-```
-
 ## Examples
 
 <!-- prettier-ignore -->
-<code src="./demo/deprecated.tsx">Basic (deprecated syntactic sugar)</code>
 <code src="./demo/simple.tsx">Basic</code>
 <code src="./demo/small-size.tsx">Mini version</code>
 <code src="./demo/icon.tsx">With icon</code>
@@ -49,6 +31,7 @@ return <Steps items={items} />;
 <code src="./demo/progress-debug.tsx" debug>Progress Debug</code>
 <code src="./demo/steps-in-steps.tsx" debug>Steps inside Steps</code>
 <code src="./demo/inline.tsx">Inline Steps</code>
+<code src="./demo/wireframe.tsx" debug>Wireframe</code>
 
 ## API
 

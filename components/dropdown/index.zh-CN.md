@@ -17,40 +17,9 @@ demo:
 - 用于收罗一组命令操作。
 - Select 用于选择，而 Dropdown 是命令集合。
 
-### 4.24.0 用法升级
-
-<Alert message="在 4.24.0 版本后，我们提供了 &lt;Dropdown menu={{ items: [...] }} /&gt; 的简写方式，有更好的性能和更方便的数据组织方式，开发者不再需要自行拼接 JSX。同时我们废弃了原先的写法，你还是可以在 4.x 继续使用，但会在控制台看到警告，并会在 5.0 后移除。"></Alert>
-
-```jsx
-// >=4.24.0 可用，推荐的写法 ✅
-const items = [
-  { label: '菜单项一', key: 'item-1' }, // 菜单项务必填写 key
-  { label: '菜单项二', key: 'item-2' },
-];
-return (
-  <Dropdown menu={{ items }}>
-    <a>Hover me</a>
-  </Dropdown>
-);
-
-// <4.24.0 可用，>=4.24.0 时不推荐 🙅🏻‍♀️
-const menu = (
-  <Menu>
-    <Menu.Item>菜单项一</Menu.Item>
-    <Menu.Item>菜单项二</Menu.Item>
-  </Menu>
-);
-return (
-  <Dropdown overlay={menu}>
-    <a>Hover me</a>
-  </Dropdown>
-);
-```
-
 ## 代码演示
 
 <!-- prettier-ignore -->
-<code src="./demo/deprecated.tsx">基础用法（废弃的语法糖）</code>
 <code src="./demo/basic.tsx">基本</code>
 <code src="./demo/placement.tsx">弹出位置</code>
 <code src="./demo/arrow.tsx">箭头</code>

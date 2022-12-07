@@ -15,33 +15,9 @@ Ant Design has 3 types of Tabs for different situations.
 - Normal Tabs: for functional aspects of a page.
 - [Radio.Button](/components/radio/#components-radio-demo-radiobutton): for secondary tabs.
 
-### Usage upgrade after 4.23.0
-
-<Alert message="After version 4.23.0, we provide a simpler usage &lt;Tabs items={[...]} /&gt; with better performance and potential of writing simpler code style in your applications. Meanwhile, we deprecated the old usage in browser console, we will remove it in antd 5.0."></Alert>
-
-```jsx
-// works when >=4.23.0, recommended ✅
-const items = [
-  { label: 'Tab 1', key: 'item-1', children: 'Content 1' }, // remember to pass the key prop
-  { label: 'Tab 2', key: 'item-2', children: 'Content 2' },
-];
-return <Tabs items={items} />;
-
-// works when <4.23.0, deprecated when >=4.23.0 🙅🏻‍♀️
-<Tabs>
-  <Tabs.TabPane tab="Tab 1" key="item-1">
-    Content 1
-  </Tabs.TabPane>
-  <Tabs.TabPane tab="Tab 2" key="item-2">
-    Content 2
-  </Tabs.TabPane>
-</Tabs>;
-```
-
 ## Examples
 
 <!-- prettier-ignore -->
-<code src="./demo/deprecated.tsx">Basic usage (deprecated syntactic sugar)</code>
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/disabled.tsx">Disabled</code>
 <code src="./demo/centered.tsx">Centered</code>

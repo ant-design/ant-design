@@ -24,6 +24,7 @@ Vertical display timeline.
 <code src="./demo/custom.tsx">Custom</code>
 <code src="./demo/right.tsx">Right alternate</code>
 <code src="./demo/label.tsx">Label</code>
+<code src="./demo/wireframe.tsx" debug>Wireframe</code>
 
 ## API
 

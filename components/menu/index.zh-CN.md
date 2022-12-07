@@ -19,39 +19,9 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*KeyQQL5iKkkAAAAAAA
 - Menu 元素为 `ul`，因而仅支持 [`li` 以及 `script-supporting` 子元素](https://html.spec.whatwg.org/multipage/grouping-content.html#the-ul-element)。因而你的子节点元素应该都在 `Menu.Item` 内使用。
 - Menu 需要计算节点结构，因而其子元素仅支持 `Menu.*` 以及对此进行封装的 HOC 组件。
 
-### 4.20.0 用法升级
-
-<Alert message="在 4.20.0 版本后，我们提供了 &lt;Menu items={[...]} /&gt; 的简写方式，有更好的性能和更方便的数据组织方式，开发者不再需要自行拼接 JSX。同时我们废弃了原先的写法，你还是可以在 4.x 继续使用，但会在控制台看到警告，并会在 5.0 后移除。"></Alert>
-
-```jsx
-// >=4.20.0 可用，推荐的写法 ✅
-const items = [
-  { label: '菜单项一', key: 'item-1' }, // 菜单项务必填写 key
-  { label: '菜单项二', key: 'item-2' },
-  {
-    label: '子菜单',
-    key: 'submenu',
-    children: [{ label: '子菜单项', key: 'submenu-item-1' }],
-  },
-];
-return <Menu items={items} />;
-
-// <4.20.0 可用，>=4.20.0 时不推荐 🙅🏻‍♀️
-<Menu>
-  <Menu.Item>菜单项一</Menu.Item>
-  <Menu.Item>菜单项二</Menu.Item>
-  <Menu.SubMenu title="子菜单">
-    <Menu.Item>子菜单项</Menu.Item>
-  </Menu.SubMenu>
-</Menu>;
-```
-
-`<4.20.0` 版本的 JSX 演示写法可以参考 [https://github.com/ant-design/ant-design/tree/4.19.5/components/menu/demo](https://github.com/ant-design/ant-design/tree/4.19.5/components/menu/demo)。
-
 ## 代码演示
 
 <!-- prettier-ignore -->
-<code src="./demo/deprecated.tsx">基础用法（废弃的语法糖）</code>
 <code src="./demo/horizontal.tsx">顶部导航</code>
 <code src="./demo/inline.tsx">内嵌菜单</code>
 <code src="./demo/inline-collapsed.tsx">缩起内嵌菜单</code>
@@ -108,25 +78,6 @@ return <Menu items={items} />;
 | key      | item 的唯一标志          | string    | -      |      |
 | label    | 菜单项标题               | ReactNode | -      |      |
 | title    | 设置收缩时展示的悬浮标题 | string    | -      |      |
-
-> 注意：`icon` 是 `4.2.0` 新增的属性，之前的版本请使用下面的方式定义图标。
->
-> ```jsx
-> <Menu.Item>
->   <PieChartOutlined />
->   <span>Option 1</span>
-> </Menu.Item>
-> <Menu.SubMenu
->   title={
->     <>
->       <PieChartOutlined />
->       <span>Option 2</span>
->     </>
->   }
-> >
->   ...
-> </Menu.SubMenu>
-> ```
 
 #### SubMenuType
 
