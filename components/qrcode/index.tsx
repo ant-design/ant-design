@@ -59,6 +59,14 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     return null;
   }
 
+  if (process.env.NODE_ENV !== 'production') {
+    warning(
+      !(icon && errorLevel === 'L'),
+      'QRCode',
+      'ErrorLevel `L` is not recommended to be used with `icon`, for scanning result would be affected by low level.',
+    );
+  }
+
   const cls = classNames(prefixCls, className, hashId, {
     [`${prefixCls}-borderless`]: !bordered,
   });
