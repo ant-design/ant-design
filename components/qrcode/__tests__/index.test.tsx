@@ -79,4 +79,13 @@ describe('QRCode test', () => {
       'ant-qrcode-borderless',
     );
   });
+
+  it('should console Error when icon exist && errorLevel === `L`', () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(<QRCode value="test" icon="test" errorLevel="L" />);
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: QRCode] errorLevel `L` is not recommended to be used with `icon`, for low errorLevel will affect scanning result',
+    );
+    errSpy.mockRestore();
+  });
 });

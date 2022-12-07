@@ -12,7 +12,6 @@ interface ImageSettings {
 interface QRProps {
   value: string;
   size?: number;
-  level?: string;
   color?: string;
   style?: CSSProperties;
   includeMargin?: boolean;

@@ -36,6 +36,7 @@ const App: React.FC = () => {
         </Button>
       </Button.Group>
       <QRCode
+        errorLevel="H"
         size={size}
         iconSize={size / 4}
         value="https://ant.design/"
