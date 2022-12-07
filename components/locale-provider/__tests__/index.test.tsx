@@ -96,6 +96,7 @@ import enGB from '../en_GB';
 import enUS from '../en_US';
 import esES from '../es_ES';
 import etEE from '../et_EE';
+import euES from '../eu_ES';
 import faIR from '../fa_IR';
 import fiFI from '../fi_FI';
 import frBE from '../fr_BE';
@@ -167,6 +168,7 @@ const locales = [
   enUS,
   esES,
   etEE,
+  euES,
   faIR,
   fiFI,
   frBE,
