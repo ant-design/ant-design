@@ -1,7 +1,7 @@
 import React from 'react';
 import Icon from '@ant-design/icons';
 
-const ThemeIcon = (props: any) => {
+const ThemeIcon: React.FC<{ className?: string }> = (props) => {
   const SVGIcon = React.useCallback(
     () => (
       <svg width={21} height={21} viewBox="0 0 21 21" fill="currentColor" {...props}>

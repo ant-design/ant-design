@@ -5,11 +5,11 @@ const noop = () => {};
 
 interface ColorPickerProps {
   color?: string;
-  small: boolean;
-  position: string;
+  small?: boolean;
+  position?: string;
   presetColors?: string[];
-  onChange: (hex: string, color: { hex: string }) => void;
-  onChangeComplete: (hex: string) => void;
+  onChange?: (hex: string, color: { hex: string }) => void;
+  onChangeComplete?: (hex: string) => void;
 }
 
 export default class ColorPicker extends Component<ColorPickerProps> {

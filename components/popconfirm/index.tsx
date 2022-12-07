@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import KeyCode from 'rc-util/lib/KeyCode';
 import * as React from 'react';
+import omit from 'rc-util/lib/omit';
 import type { ButtonProps, LegacyButtonType } from '../button/button';
 import { ConfigContext } from '../config-provider';
 import Popover from '../popover';
@@ -10,7 +11,6 @@ import type { AbstractTooltipProps } from '../tooltip';
 import type { RenderFunction } from '../_util/getRenderPropValue';
 import { cloneElement } from '../_util/reactNode';
 import PurePanel, { Overlay } from './PurePanel';
-
 import usePopconfirmStyle from './style';
 
 export interface PopconfirmProps extends AbstractTooltipProps {
@@ -94,14 +94,14 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
 
   return wrapSSR(
     <Popover
-      {...restProps}
+      {...omit(restProps, ['title'])}
       trigger={trigger}
       placement={placement}
       onOpenChange={onOpenChange}
       open={open}
       ref={ref}
       overlayClassName={overlayClassNames}
-      _overlay={
+      content={
         <Overlay
           okType={okType}
           icon={icon}

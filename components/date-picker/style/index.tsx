@@ -974,7 +974,9 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
         transition: `border ${motionDurationMid}, box-shadow ${motionDurationMid}`,
 
         // Space.Compact
-        ...genCompactItemStyle(token, componentCls, '', `${componentCls}-focused`),
+        ...genCompactItemStyle(token, componentCls, {
+          focusElCls: `${componentCls}-focused`,
+        }),
 
         '&:hover, &-focused': {
           ...genHoverStyle(token),

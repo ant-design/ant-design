@@ -25,7 +25,7 @@ module.exports = {
     },
   },
   parser: '@typescript-eslint/parser',
-  plugins: ['react', 'babel', 'jest', '@typescript-eslint', 'react-hooks', 'unicorn', 'markdown'],
+  plugins: ['react', '@babel', 'jest', '@typescript-eslint', 'react-hooks', 'unicorn', 'markdown'],
   // https://github.com/typescript-eslint/typescript-eslint/issues/46#issuecomment-470486034
   overrides: [
     {
@@ -67,6 +67,11 @@ module.exports = {
       },
       rules: {
         indent: 0,
+        '@babel/new-cap': 0,
+        '@babel/no-invalid-this': 0,
+        '@babel/no-unused-expressions': 2,
+        '@babel/object-curly-spacing': 0,
+        '@babel/semi': 2,
         'default-case': 0,
         'eol-last': 0,
         'no-console': 0,

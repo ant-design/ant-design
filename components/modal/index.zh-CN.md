@@ -34,7 +34,8 @@ demo:
 <code src="./demo/modal-render.tsx">自定义渲染对话框</code>
 <code src="./demo/width.tsx">自定义模态的宽度</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
-<code src="./demo/custom-mouse-position.tsx" debug>control modal's animation origin position</code>
+<code src="./demo/custom-mouse-position.tsx" debug>控制弹框动画原点</code>
+<code src="./demo/wireframe.tsx" debug>线框风格</code>
 
 ## API
 
@@ -100,6 +101,7 @@ demo:
 | closable | 是否显示右上角的关闭按钮 | boolean | false | 4.9.0 |
 | closeIcon | 自定义关闭图标 | ReactNode | undefined | 4.9.0 |
 | content | 内容 | ReactNode | - |  |
+| footer | 底部内容，当不需要默认底部按钮时，可以设为 `footer: null` | ReactNode | - | 5.1.0  |
 | getContainer | 指定 Modal 挂载的 HTML 节点, false 为挂载在当前 dom | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
 | icon | 自定义图标 | ReactNode | &lt;QuestionCircle /> |  |
 | keyboard | 是否支持键盘 esc 关闭 | boolean | true |  |

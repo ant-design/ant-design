@@ -703,4 +703,28 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     jest.useRealTimers();
     errSpy.mockRestore();
   });
+
+  it('null of Footer', async () => {
+    Modal.confirm({
+      footer: null,
+    });
+
+    await waitFakeTimer();
+
+    expect($$('.ant-modal-confirm-btns')).toHaveLength(0);
+  });
+
+  it('Update Footer', async () => {
+    Modal.confirm({
+      footer: (
+        <div>
+          <button className="custom-modal-footer" type="button">
+            Custom Modal Footer
+          </button>
+        </div>
+      ),
+    });
+    await waitFakeTimer();
+    expect($$('.custom-modal-footer')).toHaveLength(1);
+  });
 });
