@@ -26,7 +26,8 @@ Radio.
 <code src="./demo/radiogroup-with-name.tsx">Radio.Group with name</code>
 <code src="./demo/size.tsx">Size</code>
 <code src="./demo/radiobutton-solid.tsx">Solid radio button</code>
-<code src="./demo/badge.tsx" debug>测试 Badge 的样式</code>
+<code src="./demo/badge.tsx" debug>Badge style</code>
+<code src="./demo/wireframe.tsx" debug>Wireframe</code>
 
 ## API
 

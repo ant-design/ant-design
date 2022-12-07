@@ -2,7 +2,6 @@ import EyeOutlined from '@ant-design/icons/EyeOutlined';
 import classNames from 'classnames';
 import RcImage, { type ImageProps } from 'rc-image';
 import * as React from 'react';
-import { useContext } from 'react';
 import { ConfigContext } from '../config-provider';
 import defaultLocale from '../locale/en_US';
 import { getTransitionName } from '../_util/motion';
@@ -24,7 +23,7 @@ const Image: CompositionImage<ImageProps> = ({
     getPrefixCls,
     locale: contextLocale = defaultLocale,
     getPopupContainer: getContextPopupContainer,
-  } = useContext(ConfigContext);
+  } = React.useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('image', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();

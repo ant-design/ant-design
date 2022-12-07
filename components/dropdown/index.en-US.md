@@ -13,40 +13,9 @@ A dropdown list.
 
 When there are more than a few options to choose from, you can wrap them in a `Dropdown`. By hovering or clicking on the trigger, a dropdown menu will appear, which allows you to choose an option and execute the relevant action.
 
-### Usage upgrade after 4.24.0
-
-<Alert message="After version 4.24.0, we provide a simpler usage &lt;Dropdown menu={{ items: [...] }} /&gt; with better performance and potential of writing simpler code style in your applications. Meanwhile, we deprecated the old usage in browser console, we will remove it in antd 5.0."></Alert>
-
-```jsx
-// works when >=4.24.0, recommended ✅
-const items = [
-  { label: 'item 1', key: 'item-1' }, // remember to pass the key prop
-  { label: 'item 2', key: 'item-2' },
-];
-return (
-  <Dropdown menu={{ items }}>
-    <a>Hover me</a>
-  </Dropdown>
-);
-
-// works when <4.24.0, deprecated when >=4.24.0 🙅🏻‍♀️
-const menu = (
-  <Menu>
-    <Menu.Item>item 1</Menu.Item>
-    <Menu.Item>item 2</Menu.Item>
-  </Menu>
-);
-return (
-  <Dropdown overlay={menu}>
-    <a>Hover me</a>
-  </Dropdown>
-);
-```
-
 ## Examples
 
 <!-- prettier-ignore -->
-<code src="./demo/deprecated.tsx">Basic usage (deprecated syntactic sugar)</code>
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/placement.tsx">Placement</code>
 <code src="./demo/arrow.tsx">Arrow</code>

@@ -1,3 +1,4 @@
+import type { ChangeEvent } from 'react';
 import React, { Component } from 'react';
 import { FormattedMessage } from 'dumi';
 import ColorPicker from './ColorPicker';
@@ -6,18 +7,17 @@ import ColorPatterns from './ColorPatterns';
 const primaryMinSaturation = 70; // 主色推荐最小饱和度
 const primaryMinBrightness = 70; // 主色推荐最小亮度
 
-export default class ColorPaletteTool extends Component {
+class ColorPaletteTool extends Component {
   state = {
     primaryColor: '#1890ff',
     primaryColorInstance: null,
   };
 
-  handleChangeColor = (e, color) => {
-    const value = e.target ? e.target.value : e;
-    this.setState({
-      primaryColor: value,
-      primaryColorInstance: color,
-    });
+  handleChangeColor = (e: string | ChangeEvent, color: { hex: string }) => {
+    const value = (e as ChangeEvent<HTMLInputElement>).target
+      ? (e as ChangeEvent<HTMLInputElement>).target.value
+      : e;
+    this.setState({ primaryColor: value, primaryColorInstance: color });
   };
 
   renderColorValidation() {
@@ -45,12 +45,10 @@ export default class ColorPaletteTool extends Component {
         <div className="color-palette-pick">
           <FormattedMessage id="app.docs.color.pick-primary" />
         </div>
-        <div className="main-color">
-          <ColorPatterns color={primaryColor} />
-        </div>
+        <div className="main-color">{ColorPatterns({ color: primaryColor })}</div>
         <div className="color-palette-picker">
           <span style={{ display: 'inline-block', verticalAlign: 'middle' }}>
-            <ColorPicker type="chrome" color={primaryColor} onChange={this.handleChangeColor} />
+            <ColorPicker color={primaryColor} onChange={this.handleChangeColor} />
           </span>
           <span className="color-palette-picker-value">{primaryColor}</span>
           {this.renderColorValidation()}
@@ -59,3 +57,5 @@ export default class ColorPaletteTool extends Component {
     );
   }
 }
+
+export default ColorPaletteTool;
