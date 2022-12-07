@@ -1,0 +1,1522 @@
+{
+  "boxShadow": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "string",
+    "source": "alias"
+  },
+  "boxShadowSecondary": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "string",
+    "source": "alias"
+  },
+  "colorBgContainerDisabled": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "string",
+    "source": "alias"
+  },
+  "colorBgTextActive": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "string",
+    "source": "alias"
+  },
+  "colorBgTextHover": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "string",
+    "source": "alias"
+  },
+  "colorBorderBg": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "string",
+    "source": "alias"
+  },
+  "colorErrorOutline": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "string",
+    "source": "alias"
+  },
+  "colorFillAlter": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "string",
+    "source": "alias"
+  },
+  "colorFillContent": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "string",
+    "source": "alias"
+  },
+  "colorFillContentHover": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "string",
+    "source": "alias"
+  },
+  "colorHighlight": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "string",
+    "source": "alias"
+  },
+  "colorIcon": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "string",
+    "source": "alias"
+  },
+  "colorIconHover": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "string",
+    "source": "alias"
+  },
+  "colorLink": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "string",
+    "source": "alias"
+  },
+  "colorLinkActive": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "string",
+    "source": "alias"
+  },
+  "colorLinkHover": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "string",
+    "source": "alias"
+  },
+  "colorSplit": {
+    "name": "分割线颜色",
+    "nameEn": "-",
+    "desc": "用于作为分割线的颜色，此颜色和 colorBorderSecondary 的颜色一致，但是用的是透明色。",
+    "descEn": "-",
+    "type": "string",
+    "source": "alias"
+  },
+  "colorTextDescription": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "string",
+    "source": "alias"
+  },
+  "colorTextDisabled": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "string",
+    "source": "alias"
+  },
+  "colorTextHeading": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "string",
+    "source": "alias"
+  },
+  "colorTextLabel": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "string",
+    "source": "alias"
+  },
+  "colorTextLightSolid": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "string",
+    "source": "alias"
+  },
+  "colorTextPlaceholder": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "string",
+    "source": "alias"
+  },
+  "colorWarningOutline": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "string",
+    "source": "alias"
+  },
+  "controlInteractiveSize": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "controlItemBgActive": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "string",
+    "source": "alias"
+  },
+  "controlItemBgActiveDisabled": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "string",
+    "source": "alias"
+  },
+  "controlItemBgActiveHover": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "string",
+    "source": "alias"
+  },
+  "controlItemBgHover": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "string",
+    "source": "alias"
+  },
+  "controlOutline": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "string",
+    "source": "alias"
+  },
+  "controlOutlineWidth": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "controlPaddingHorizontal": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "controlPaddingHorizontalSM": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "controlTmpOutline": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "string",
+    "source": "alias"
+  },
+  "fontSizeHeading1": {
+    "name": "一级标题字号",
+    "nameEn": "-",
+    "desc": "H1 标签所使用的字号",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "fontSizeHeading2": {
+    "name": "二级标题字号",
+    "nameEn": "-",
+    "desc": "h2 标签所使用的字号",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "fontSizeHeading3": {
+    "name": "三级标题字号",
+    "nameEn": "-",
+    "desc": "h3 标签使用的字号",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "fontSizeHeading4": {
+    "name": "四级标题字号",
+    "nameEn": "-",
+    "desc": "h4 标签使用的字号",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "fontSizeHeading5": {
+    "name": "五级标题字号",
+    "nameEn": "-",
+    "desc": "h5 标签使用的字号",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "fontSizeIcon": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "fontSizeLG": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "fontSizeSM": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "fontSizeXL": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "fontWeightStrong": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "lineHeight": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "lineHeightHeading1": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "lineHeightHeading2": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "lineHeightHeading3": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "lineHeightHeading4": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "lineHeightHeading5": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "lineHeightLG": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "lineHeightSM": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "linkDecoration": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "undefined | TextDecoration<string | number>",
+    "source": "alias"
+  },
+  "linkFocusDecoration": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "undefined | TextDecoration<string | number>",
+    "source": "alias"
+  },
+  "linkHoverDecoration": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "undefined | TextDecoration<string | number>",
+    "source": "alias"
+  },
+  "margin": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "marginLG": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "marginMD": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "marginSM": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "marginXL": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "marginXS": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "marginXXL": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "marginXXS": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "opacityLoading": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "padding": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "paddingContentHorizontal": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "paddingContentHorizontalLG": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "paddingContentHorizontalSM": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "paddingContentVertical": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "paddingContentVerticalLG": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "paddingContentVerticalSM": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "paddingLG": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "paddingMD": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "paddingSM": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "paddingXL": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "paddingXS": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "paddingXXS": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "screenLG": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "screenLGMax": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "screenLGMin": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "screenMD": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "screenMDMax": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "screenMDMin": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "screenSM": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "screenSMMax": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "screenSMMin": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "screenXL": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "screenXLMax": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "screenXLMin": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "screenXS": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "screenXSMax": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "screenXSMin": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "screenXXL": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "screenXXLMin": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "alias"
+  },
+  "borderRadiusLG": {
+    "name": "LG号圆角",
+    "nameEn": "LG Border Radius",
+    "desc": "LG号圆角，用于组件中的一些大圆角，如 Card、Modal 等一些组件样式。",
+    "descEn": "LG size border radius, used in some large border radius components, such as Card, Modal and other components.",
+    "type": "number",
+    "source": "map"
+  },
+  "borderRadiusSM": {
+    "name": "SM号圆角",
+    "nameEn": "SM Border Radius",
+    "desc": "SM号圆角，用于组件小尺寸下的圆角，如 Button、Input、Select 等输入类控件在 small size 下的圆角",
+    "descEn": "SM size border radius, used in small size components, such as Button, Input, Select and other input components in small size",
+    "type": "number",
+    "source": "map"
+  },
+  "borderRadiusXS": {
+    "name": "XS号圆角",
+    "nameEn": "-",
+    "desc": "XS号圆角，用于组件中的一些小圆角，如 Segmented 、Arrow 等一些内部圆角的组件样式中。",
+    "descEn": "XS size border radius, used in some small border radius components, such as Segmented, Arrow and other components.",
+    "type": "number",
+    "source": "map"
+  },
+  "colorBgContainer": {
+    "name": "组件容器背景色",
+    "nameEn": "-",
+    "desc": "组件的容器背景色，例如：默认按钮、输入框等。务必不要将其与 `colorBgElevated` 混淆。",
+    "descEn": "-",
+    "type": "string",
+    "source": "map"
+  },
+  "colorBgElevated": {
+    "name": "浮层容器背景色",
+    "nameEn": "-",
+    "desc": "浮层容器背景色，在暗色模式下该 token 的色值会比 `colorBgContainer` 要亮一些。例如：模态框、弹出框、菜单等。",
+    "descEn": "-",
+    "type": "string",
+    "source": "map"
+  },
+  "colorBgLayout": {
+    "name": "布局背景色",
+    "nameEn": "-",
+    "desc": "该色用于页面整体布局的背景色，只有需要在页面中处于 B1 的视觉层级时才会使用该 token，其他用法都是错误的",
+    "descEn": "-",
+    "type": "string",
+    "source": "map"
+  },
+  "colorBgMask": {
+    "name": "浮层的背景蒙层颜色",
+    "nameEn": "Background color of the mask",
+    "desc": "浮层的背景蒙层颜色，用于遮罩浮层下面的内容，Modal、Drawer 等组件的蒙层使用的是该 token",
+    "descEn": "The background color of the mask, used to cover the content below the mask, Modal, Drawer and other components use this token",
+    "type": "string",
+    "source": "map"
+  },
+  "colorBgSpotlight": {
+    "name": "引起注意的背景色",
+    "nameEn": "-",
+    "desc": "该色用于引起用户强烈关注注意的背景色，目前只用在 Tooltip 的背景色上。",
+    "descEn": "-",
+    "type": "string",
+    "source": "map"
+  },
+  "colorBorder": {
+    "name": "一级边框色",
+    "nameEn": "Default Border Color",
+    "desc": "默认使用的边框颜色, 用于分割不同的元素，例如：表单的分割线、卡片的分割线等。",
+    "descEn": "Default border color, used to separate different elements, such as: form separator, card separator, etc.",
+    "type": "string",
+    "source": "map"
+  },
+  "colorBorderSecondary": {
+    "name": "二级边框色",
+    "nameEn": "Secondary Border Color",
+    "desc": "比默认使用的边框色要浅一级，此颜色和 colorSplit 的颜色一致。使用的是实色。",
+    "descEn": "Slightly lighter than the default border color, this color is the same as `colorSplit`. Solid color is used.",
+    "type": "string",
+    "source": "map"
+  },
+  "colorErrorActive": {
+    "name": "错误色的深色激活态",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "string",
+    "source": "map"
+  },
+  "colorErrorBg": {
+    "name": "错误色的浅色背景颜色",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "string",
+    "source": "map"
+  },
+  "colorErrorBgHover": {
+    "name": "错误色的浅色背景色悬浮态",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "string",
+    "source": "map"
+  },
+  "colorErrorBorder": {
+    "name": "错误色的描边色",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "string",
+    "source": "map"
+  },
+  "colorErrorBorderHover": {
+    "name": "错误色的描边色悬浮态",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "string",
+    "source": "map"
+  },
+  "colorErrorHover": {
+    "name": "错误色的深色悬浮态",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "string",
+    "source": "map"
+  },
+  "colorErrorText": {
+    "name": "错误色的文本默认态",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "string",
+    "source": "map"
+  },
+  "colorErrorTextActive": {
+    "name": "错误色的文本激活态",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "string",
+    "source": "map"
+  },
+  "colorErrorTextHover": {
+    "name": "错误色的文本悬浮态",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "string",
+    "source": "map"
+  },
+  "colorFill": {
+    "name": "一级填充色",
+    "nameEn": "-",
+    "desc": "最深的填充色，用于拉开与二、三级填充色的区分度，目前只用在 Slider 的 hover 效果。",
+    "descEn": "-",
+    "type": "string",
+    "source": "map"
+  },
+  "colorFillQuaternary": {
+    "name": "四级填充色",
+    "nameEn": "-",
+    "desc": "最弱一级的填充色，适用于不易引起注意的色块，例如斑马纹、区分边界的色块等。",
+    "descEn": "-",
+    "type": "string",
+    "source": "map"
+  },
+  "colorFillSecondary": {
+    "name": "二级填充色",
+    "nameEn": "-",
+    "desc": "二级填充色可以较为明显地勾勒出元素形体，如 Rate、Skeleton 等。也可以作为三级填充色的 Hover 状态，如 Table 等。",
+    "descEn": "-",
+    "type": "string",
+    "source": "map"
+  },
+  "colorFillTertiary": {
+    "name": "三级填充色",
+    "nameEn": "-",
+    "desc": "三级填充色用于勾勒出元素形体的场景，如 Slider、Segmented 等。如无强调需求的情况下，建议使用三级填色作为默认填色。",
+    "descEn": "-",
+    "type": "string",
+    "source": "map"
+  },
+  "colorInfoActive": {
+    "name": "信息色的深色激活态",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "string",
+    "source": "map"
+  },
+  "colorInfoBg": {
+    "name": "信息色的浅色背景颜色",
+    "nameEn": "-",
+    "desc": "信息色的浅色背景颜色",
+    "descEn": "-",
+    "type": "string",
+    "source": "map"
+  },
+  "colorInfoBgHover": {
+    "name": "信息色的浅色背景色悬浮态",
+    "nameEn": "-",
+    "desc": "信息色的浅色背景色悬浮态",
+    "descEn": "-",
+    "type": "string",
+    "source": "map"
+  },
+  "colorInfoBorder": {
+    "name": "信息色的描边色",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "string",
+    "source": "map"
+  },
+  "colorInfoBorderHover": {
+    "name": "信息色的描边色悬浮态",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "string",
+    "source": "map"
+  },
+  "colorInfoHover": {
+    "name": "信息色的深色悬浮态",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "string",
+    "source": "map"
+  },
+  "colorInfoText": {
+    "name": "信息色的文本默认态",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "string",
+    "source": "map"
+  },
+  "colorInfoTextActive": {
+    "name": "信息色的文本激活态",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "string",
+    "source": "map"
+  },
+  "colorInfoTextHover": {
+    "name": "信息色的文本悬浮态",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "string",
+    "source": "map"
+  },
+  "colorPrimaryActive": {
+    "name": "主色激活态",
+    "nameEn": "-",
+    "desc": "主色梯度下的深色激活态",
+    "descEn": "-",
+    "type": "string",
+    "source": "map"
+  },
+  "colorPrimaryBg": {
+    "name": "主色浅色背景色",
+    "nameEn": "Light Background Color of Primary Color",
+    "desc": "主色浅色背景颜色，一般用于视觉层级较弱的选中状态。",
+    "descEn": "Light background color of primary color, usually used for weak visual level selection state.",
+    "type": "string",
+    "source": "map"
+  },
+  "colorPrimaryBgHover": {
+    "name": "主色浅色背景悬浮态",
+    "nameEn": "-",
+    "desc": "与主色浅色背景颜色相对应的悬浮态颜色。",
+    "descEn": "-",
+    "type": "string",
+    "source": "map"
+  },
+  "colorPrimaryBorder": {
+    "name": "主色描边色",
+    "nameEn": "-",
+    "desc": "主色梯度下的描边用色，用在 Slider 组件的描边上",
+    "descEn": "-",
+    "type": "string",
+    "source": "map"
+  },
+  "colorPrimaryBorderHover": {
+    "name": "主色描边色悬浮态",
+    "nameEn": "-",
+    "desc": "主色梯度下的描边用色的悬浮态，Slider 、Button 等组件的描边 Hover 时会使用",
+    "descEn": "-",
+    "type": "string",
+    "source": "map"
+  },
+  "colorPrimaryHover": {
+    "name": "主色悬浮态",
+    "nameEn": "-",
+    "desc": "主色梯度下的悬浮态，使用频率很高",
+    "descEn": "-",
+    "type": "string",
+    "source": "map"
+  },
+  "colorPrimaryText": {
+    "name": "主色文本",
+    "nameEn": "-",
+    "desc": "主色梯度下的文本颜色",
+    "descEn": "-",
+    "type": "string",
+    "source": "map"
+  },
+  "colorPrimaryTextActive": {
+    "name": "主色文本",
+    "nameEn": "-",
+    "desc": "主色梯度下的文本激活态",
+    "descEn": "-",
+    "type": "string",
+    "source": "map"
+  },
+  "colorPrimaryTextHover": {
+    "name": "主色文本悬浮态",
+    "nameEn": "-",
+    "desc": "主色梯度下的文本悬浮态",
+    "descEn": "-",
+    "type": "string",
+    "source": "map"
+  },
+  "colorSuccessActive": {
+    "name": "成功色的深色激活态",
+    "nameEn": "-",
+    "desc": "成功色的深色激活态",
+    "descEn": "-",
+    "type": "string",
+    "source": "map"
+  },
+  "colorSuccessBg": {
+    "name": "成功色的浅色背景颜色",
+    "nameEn": "Light Background Color of Success Color",
+    "desc": "成功色的浅色背景颜色，用于 Tag 和 Alert 的成功态背景色",
+    "descEn": "Light background color of success color, used for Tag and Alert success state background color",
+    "type": "string",
+    "source": "map"
+  },
+  "colorSuccessBgHover": {
+    "name": "成功色的浅色背景色悬浮态",
+    "nameEn": "Hover State Color of Light Success Background",
+    "desc": "成功色浅色背景颜色，一般用于视觉层级较弱的选中状态，不过 antd 目前没有使用到该 token",
+    "descEn": "Light background color of success color, but antd does not use this token currently",
+    "type": "string",
+    "source": "map"
+  },
+  "colorSuccessBorder": {
+    "name": "成功色的描边色",
+    "nameEn": "-",
+    "desc": "成功色的描边色，用于 Tag 和 Alert 的成功态描边色",
+    "descEn": "-",
+    "type": "string",
+    "source": "map"
+  },
+  "colorSuccessBorderHover": {
+    "name": "成功色的描边色悬浮态",
+    "nameEn": "-",
+    "desc": "成功色的描边色悬浮态",
+    "descEn": "-",
+    "type": "string",
+    "source": "map"
+  },
+  "colorSuccessHover": {
+    "name": "成功色的深色悬浮态",
+    "nameEn": "-",
+    "desc": "成功色的深色悬浮态",
+    "descEn": "-",
+    "type": "string",
+    "source": "map"
+  },
+  "colorSuccessText": {
+    "name": "成功色的文本默认态",
+    "nameEn": "-",
+    "desc": "成功色的文本默认态",
+    "descEn": "-",
+    "type": "string",
+    "source": "map"
+  },
+  "colorSuccessTextActive": {
+    "name": "成功色的文本激活态",
+    "nameEn": "-",
+    "desc": "成功色的文本激活态",
+    "descEn": "-",
+    "type": "string",
+    "source": "map"
+  },
+  "colorSuccessTextHover": {
+    "name": "成功色的文本悬浮态",
+    "nameEn": "-",
+    "desc": "成功色的文本悬浮态",
+    "descEn": "-",
+    "type": "string",
+    "source": "map"
+  },
+  "colorText": {
+    "name": "一级文本色",
+    "nameEn": "-",
+    "desc": "最深的文本色。为了符合W3C标准，默认的文本颜色使用了该色，同时这个颜色也是最深的中性色。",
+    "descEn": "-",
+    "type": "string",
+    "source": "map"
+  },
+  "colorTextQuaternary": {
+    "name": "四级文本色",
+    "nameEn": "-",
+    "desc": "第四级文本色是最浅的文本色，例如表单的输入提示文本、禁用色文本等。",
+    "descEn": "-",
+    "type": "string",
+    "source": "map"
+  },
+  "colorTextSecondary": {
+    "name": "二级文本色",
+    "nameEn": "-",
+    "desc": "作为第二梯度的文本色，一般用在不那么需要强化文本颜色的场景，例如 Label 文本、Menu 的文本选中态等场景。",
+    "descEn": "-",
+    "type": "string",
+    "source": "map"
+  },
+  "colorTextTertiary": {
+    "name": "三级文本色",
+    "nameEn": "-",
+    "desc": "第三级文本色一般用于描述性文本，例如表单的中的补充说明文本、列表的描述性文本等场景。",
+    "descEn": "-",
+    "type": "string",
+    "source": "map"
+  },
+  "colorWarningActive": {
+    "name": "警戒色的深色激活态",
+    "nameEn": "-",
+    "desc": "警戒色的深色激活态",
+    "descEn": "-",
+    "type": "string",
+    "source": "map"
+  },
+  "colorWarningBg": {
+    "name": "警戒色的浅色背景颜色",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "string",
+    "source": "map"
+  },
+  "colorWarningBgHover": {
+    "name": "警戒色的浅色背景色悬浮态",
+    "nameEn": "-",
+    "desc": "警戒色的浅色背景色悬浮态",
+    "descEn": "-",
+    "type": "string",
+    "source": "map"
+  },
+  "colorWarningBorder": {
+    "name": "警戒色的描边色",
+    "nameEn": "-",
+    "desc": "警戒色的描边色",
+    "descEn": "-",
+    "type": "string",
+    "source": "map"
+  },
+  "colorWarningBorderHover": {
+    "name": "警戒色的描边色悬浮态",
+    "nameEn": "-",
+    "desc": "警戒色的描边色悬浮态",
+    "descEn": "-",
+    "type": "string",
+    "source": "map"
+  },
+  "colorWarningHover": {
+    "name": "警戒色的深色悬浮态",
+    "nameEn": "-",
+    "desc": "警戒色的深色悬浮态",
+    "descEn": "-",
+    "type": "string",
+    "source": "map"
+  },
+  "colorWarningText": {
+    "name": "警戒色的文本默认态",
+    "nameEn": "-",
+    "desc": "警戒色的文本默认态",
+    "descEn": "-",
+    "type": "string",
+    "source": "map"
+  },
+  "colorWarningTextActive": {
+    "name": "警戒色的文本激活态",
+    "nameEn": "-",
+    "desc": "警戒色的文本激活态",
+    "descEn": "-",
+    "type": "string",
+    "source": "map"
+  },
+  "colorWarningTextHover": {
+    "name": "警戒色的文本悬浮态",
+    "nameEn": "-",
+    "desc": "警戒色的文本悬浮态",
+    "descEn": "-",
+    "type": "string",
+    "source": "map"
+  },
+  "colorWhite": {
+    "name": "纯白色",
+    "nameEn": "-",
+    "desc": "不随主题变化的纯白色",
+    "descEn": "Pure white color don't changed by theme",
+    "type": "string",
+    "source": "map"
+  },
+  "lineWidthBold": {
+    "name": "线宽",
+    "nameEn": "Line Width",
+    "desc": "描边类组件的默认线宽，如 Button、Input、Select 等输入类控件。",
+    "descEn": "The default line width of the outline class components, such as Button, Input, Select, etc.",
+    "type": "number",
+    "source": "map"
+  },
+  "motionDurationFast": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "string",
+    "source": "map"
+  },
+  "motionDurationMid": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "string",
+    "source": "map"
+  },
+  "motionDurationSlow": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "string",
+    "source": "map"
+  },
+  "size": {
+    "name": "默认",
+    "nameEn": "-",
+    "desc": "默认尺寸",
+    "descEn": "-",
+    "type": "number",
+    "source": "map"
+  },
+  "sizeLG": {
+    "name": "LG",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "map"
+  },
+  "sizeMD": {
+    "name": "MD",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "map"
+  },
+  "sizeMS": {
+    "name": "-",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "map"
+  },
+  "sizeSM": {
+    "name": "SM",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "map"
+  },
+  "sizeXL": {
+    "name": "XL",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "map"
+  },
+  "sizeXS": {
+    "name": "XS",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "map"
+  },
+  "sizeXXL": {
+    "name": "XXL",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "map"
+  },
+  "sizeXXS": {
+    "name": "XXS",
+    "nameEn": "-",
+    "desc": "-",
+    "descEn": "-",
+    "type": "number",
+    "source": "map"
+  },
+  "borderRadius": {
+    "name": "基础圆角",
+    "nameEn": "Base Border Radius",
+    "desc": "基础组件的圆角大小，例如按钮、输入框、卡片等",
+    "descEn": "Border radius of base components",
+    "type": "number",
+    "source": "seed"
+  },
+  "colorBgBase": {
+    "name": "基础背景色",
+    "nameEn": "Seed Background Color",
+    "desc": "用于派生背景色梯度的基础变量，v5 中我们添加了一层背景色的派生算法可以产出梯度明确的背景色的梯度变量。但 **请不要在代码中直接使用该 Seed Token** ！",
+    "descEn": "Used to derive the base variable of the background color gradient. In v5, we added a layer of background color derivation algorithm to produce map token of background color. But PLEASE DO NOT USE this Seed Token directly in the code!",
+    "type": "string",
+    "source": "seed"
+  },
+  "colorError": {
+    "name": "错误色",
+    "nameEn": "Error Color",
+    "desc": "用于表示操作失败的 Token 序列，如失败按钮、错误状态提示（Result）组件等。",
+    "descEn": "Used to represent the visual elements of the operation failure, such as the error Button, error Result component, etc.",
+    "type": "string",
+    "source": "seed"
+  },
+  "colorInfo": {
+    "name": "信息色",
+    "nameEn": "-",
+    "desc": "用于表示操作信息的 Token 序列，如 Alert 、Tag、 Progress 等组件都有用到该组梯度变量。",
+    "descEn": "Used to represent the operation information of the Token sequence, such as Alert, Tag, Progress, and other components use these map tokens.",
+    "type": "string",
+    "source": "seed"
+  },
+  "colorPrimary": {
+    "name": "品牌主色",
+    "nameEn": "Brand Color",
+    "desc": "品牌色是体现产品特性和传播理念最直观的视觉元素之一。在你完成品牌主色的选取之后，我们会自动帮你生成一套完整的色板，并赋予它们有效的设计语义",
+    "descEn": "Brand color is one of the most direct visual elements to reflect the characteristics and communication of the product. After you have selected the brand color, we will automatically generate a complete color palette and assign it effective design semantics.",
+    "type": "string",
+    "source": "seed"
+  },
+  "colorSuccess": {
+    "name": "成功色",
+    "nameEn": "Success Color",
+    "desc": "用于表示操作成功的 Token 序列，如 Result、Progress 等组件会使用该组梯度变量。",
+    "descEn": "Used to represent the token sequence of operation success, such as Result, Progress and other components will use these map tokens.",
+    "type": "string",
+    "source": "seed"
+  },
+  "colorTextBase": {
+    "name": "基础文本色",
+    "nameEn": "Seed Text Color",
+    "desc": "用于派生文本色梯度的基础变量，v5 中我们添加了一层文本色的派生算法可以产出梯度明确的文本色的梯度变量。但**请不要在代码中直接使用该 Seed Token**！",
+    "descEn": "Used to derive the base variable of the text color gradient. In v5, we added a layer of text color derivation algorithm to produce gradient variables of text color gradient. But please do not use this Seed Token directly in the code!",
+    "type": "string",
+    "source": "seed"
+  },
+  "colorWarning": {
+    "name": "警戒色",
+    "nameEn": "Warning Color",
+    "desc": "用于表示操作警告的 Token 序列，如 Notification、 Alert等警告类组件或 Input 输入类等组件会使用该组梯度变量。",
+    "descEn": "Used to represent the warning map token, such as Notification, Alert, etc. Alert or Control component(like Input) will use these map tokens.",
+    "type": "string",
+    "source": "seed"
+  },
+  "controlHeight": {
+    "name": "基础高度",
+    "nameEn": "Base Control Height",
+    "desc": "Ant Design 中按钮和输入框等基础控件的高度",
+    "descEn": "The height of the basic controls such as buttons and input boxes in Ant Design",
+    "type": "number",
+    "source": "seed"
+  },
+  "fontFamily": {
+    "name": "字体",
+    "nameEn": "FontFamily",
+    "desc": "Ant Design 的字体家族中优先使用系统默认的界面字体，同时提供了一套利于屏显的备用字体库，来维护在不同平台以及浏览器的显示下，字体始终保持良好的易读性和可读性，体现了友好、稳定和专业的特性。",
+    "descEn": "-",
+    "type": "string",
+    "source": "seed"
+  },
+  "fontSize": {
+    "name": "默认字号",
+    "nameEn": "-",
+    "desc": "设计系统中使用最广泛的字体大小，文本梯度也将基于该字号进行派生。",
+    "descEn": "-",
+    "type": "number",
+    "source": "seed"
+  },
+  "lineType": {
+    "name": "线条样式",
+    "nameEn": "Line Style",
+    "desc": "用于控制组件边框、分割线等的样式，默认是实线",
+    "descEn": "Border style of base components",
+    "type": "string",
+    "source": "seed"
+  },
+  "lineWidth": {
+    "name": "基础线宽",
+    "nameEn": "Base Line Width",
+    "desc": "用于控制组件边框、分割线等的宽度",
+    "descEn": "Border width of base components",
+    "type": "number",
+    "source": "seed"
+  },
+  "motionUnit": {
+    "name": "动画时长变化单位",
+    "nameEn": "Animation Duration Unit",
+    "desc": "用于控制动画时长的变化单位",
+    "descEn": "The unit of animation duration change",
+    "type": "number",
+    "source": "seed"
+  },
+  "sizeStep": {
+    "name": "尺寸步长",
+    "nameEn": "Size Base Step",
+    "desc": "用于控制组件尺寸的基础步长，尺寸步长结合尺寸变化单位，就可以派生各种尺寸梯度。通过调整步长即可得到不同的布局模式，例如 V5 紧凑模式下的尺寸步长为 2",
+    "descEn": "The base step of size change, the size step combined with the size change unit, can derive various size steps. By adjusting the step, you can get different layout modes, such as the size step of the compact mode of V5 is 2",
+    "type": "number",
+    "source": "seed"
+  },
+  "sizeUnit": {
+    "name": "尺寸变化单位",
+    "nameEn": "Size Change Unit",
+    "desc": "用于控制组件尺寸的变化单位，在 Ant Design 中我们的基础单位为 4 ，便于更加细致地控制尺寸梯度",
+    "descEn": "The unit of size change, in Ant Design, our base unit is 4, which is more fine-grained control of the size step",
+    "type": "number",
+    "source": "seed"
+  },
+  "wireframe": {
+    "name": "线框化",
+    "nameEn": "-",
+    "desc": "用于将组件的视觉效果变为线框化，如果需要使用 V4 的效果，需要开启配置项",
+    "descEn": "-",
+    "type": "boolean",
+    "source": "seed"
+  },
+  "zIndexBase": {
+    "name": "基础 zIndex",
+    "nameEn": "Base zIndex",
+    "desc": "所有组件的基础 Z 轴值，用于一些悬浮类的组件的可以基于该值 Z 轴控制层级，例如 BackTop、 Affix 等",
+    "descEn": "The base Z axis value of all components, which can be used to control the level of some floating components based on the Z axis value, such as BackTop, Affix, etc.",
+    "type": "number",
+    "source": "seed"
+  },
+  "zIndexPopupBase": {
+    "name": "浮层基础 zIndex",
+    "nameEn": "popup base zIndex",
+    "desc": "浮层类组件的基础 Z 轴值，用于一些悬浮类的组件的可以基于该值 Z 轴控制层级，例如 FloatButton、 Affix、Modal 等",
+    "descEn": "Base zIndex of component like FloatButton, Affix which can be cover by large popup",
+    "type": "number",
+    "source": "seed"
+  }
+}
