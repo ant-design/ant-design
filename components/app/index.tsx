@@ -16,11 +16,9 @@ export type AppProps = {
   children?: ReactNode;
 };
 
-const useApp: () => useAppProps = () => React.useContext(AppContext);
+const useApp = () => React.useContext<useAppProps>(AppContext);
 
-const App: React.ForwardRefRenderFunction<HTMLDivElement, AppProps> & {
-  useApp: () => useAppProps;
-} = (props) => {
+const App: React.FC<AppProps> & { useApp: () => useAppProps } = (props) => {
   const { prefixCls: customizePrefixCls, children, className } = props;
   const { getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('app', customizePrefixCls);
@@ -31,7 +29,7 @@ const App: React.ForwardRefRenderFunction<HTMLDivElement, AppProps> & {
   const [notificationApi, notificationContextHolder] = useNotification();
   const [ModalApi, ModalContextHolder] = useModal();
 
-  const memoizedContextValue = React.useMemo(
+  const memoizedContextValue = React.useMemo<useAppProps>(
     () => ({
       message: messageApi,
       notification: notificationApi,
@@ -57,4 +55,5 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 App.useApp = useApp;
+
 export default App;
