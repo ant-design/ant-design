@@ -177,7 +177,7 @@
     "@types/jest": "^29.0.0",
     "@types/jest-axe": "^3.5.3",
     "@types/jest-environment-puppeteer": "^5.0.0",
-    "@types/jest-image-snapshot": "^5.1.0",
+    "@types/jest-image-snapshot": "^6.1.0",
     "@types/jquery": "^3.5.14",
     "@types/lodash": "^4.14.139",
     "@types/prismjs": "^1.26.0",
