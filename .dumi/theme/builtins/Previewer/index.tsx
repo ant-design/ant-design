@@ -1,6 +1,7 @@
 /* eslint jsx-a11y/no-noninteractive-element-interactions: 0 */
 import { CheckOutlined, SnippetsOutlined, ThunderboltOutlined } from '@ant-design/icons';
-import stackblitzSdk, { Project } from '@stackblitz/sdk';
+import stackblitzSdk from '@stackblitz/sdk';
+import type { Project } from '@stackblitz/sdk';
 import { Alert, Badge, Tooltip, Space } from 'antd';
 import classNames from 'classnames';
 import LZString from 'lz-string';
@@ -20,12 +21,12 @@ import { version } from '../../../../package.json';
 
 const { ErrorBoundary } = Alert;
 
-const compress = (string: string): string => {
+function compress(string: string): string {
   return LZString.compressToBase64(string)
     .replace(/\+/g, '-') // Convert '+' to '-'
     .replace(/\//g, '_') // Convert '/' to '_'
     .replace(/=+$/, ''); // Remove ending '='
-};
+}
 
 interface DemoProps {
   meta: any;
