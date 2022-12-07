@@ -15,10 +15,19 @@ export interface AnchorLinkBaseProps {
 
 export interface AnchorLinkProps extends AnchorLinkBaseProps {
   children?: React.ReactNode;
+  direction?: 'horizontal' | 'vertical';
 }
 
 const AnchorLink: React.FC<AnchorLinkProps> = (props) => {
-  const { href = '#', title, prefixCls: customizePrefixCls, children, className, target } = props;
+  const {
+    href = '#',
+    title,
+    prefixCls: customizePrefixCls,
+    children,
+    className,
+    target,
+    direction: anchorDirection = 'vertical',
+  } = props;
 
   const context = React.useContext<AntAnchor | undefined>(AnchorContext);
 
@@ -58,7 +67,7 @@ const AnchorLink: React.FC<AnchorLinkProps> = (props) => {
             >
               {title}
             </a>
-            {children}
+            {anchorDirection !== 'horizontal' ? children : null}
           </div>
         );
       }}

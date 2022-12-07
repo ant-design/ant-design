@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
+import toArray from 'rc-util/lib/Children/toArray';
 import * as React from 'react';
 import Affix from '../affix';
 import type { ConfigConsumerProps } from '../config-provider';
@@ -283,19 +284,35 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
     ...style,
   };
 
-  const createNestedLink = (options?: AnchorLinkItemProps[]) =>
+  const createHorizontalLink = (options?: AnchorLinkItemProps[]) =>
     Array.isArray(options)
+      ? options
+          .map(({ children: itemChildren, ...item }) => item)
+          .map((item) => <AnchorLink {...item} key={item.key} direction={anchorDirection} />)
+      : null;
+
+  const createNestedLink = (options?: AnchorLinkItemProps[]) => {
+    if (anchorDirection === 'horizontal') {
+      return createHorizontalLink(options);
+    }
+    return Array.isArray(options)
       ? options.map((item) => (
-          <AnchorLink {...item} key={item.key}>
+          <AnchorLink {...item} key={item.key} direction={anchorDirection}>
             {createNestedLink(item.children)}
           </AnchorLink>
         ))
       : null;
+  };
+
+  const renderChildren = (anchorChildren: React.ReactNode) =>
+    toArray(anchorChildren).map((child) =>
+      React.cloneElement(child, { direction: anchorDirection }),
+    );
 
   const anchorContent = (
     <div ref={wrapperRef} className={wrapperClass} style={wrapperStyle}>
       <div className={anchorClass}>
-        {'items' in props ? createNestedLink(items) : children}
+        {'items' in props ? createNestedLink(items) : renderChildren(children)}
         <AnchorInk
           direction={anchorDirection}
           anchorPrefixCls={prefixCls}
