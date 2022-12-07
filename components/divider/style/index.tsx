@@ -45,6 +45,7 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
 
       '&-horizontal&-with-text': {
         display: 'flex',
+        alignItems: 'center',
         margin: `${token.dividerHorizontalWithTextGutterMargin}px 0`,
         color: token.colorTextHeading,
         fontWeight: 500,
@@ -55,7 +56,6 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
 
         '&::before, &::after': {
           position: 'relative',
-          top: '50%',
           width: '50%',
           borderBlockStart: `${lineWidth}px solid transparent`,
           // Chrome not accept `inherit` in `border-top`
@@ -68,24 +68,20 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
 
       '&-horizontal&-with-text-left': {
         '&::before': {
-          top: '50%',
           width: '5%',
         },
 
         '&::after': {
-          top: '50%',
           width: '95%',
         },
       },
 
       '&-horizontal&-with-text-right': {
         '&::before': {
-          top: '50%',
           width: '95%',
         },
 
         '&::after': {
-          top: '50%',
           width: '5%',
         },
       },
