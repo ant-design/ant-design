@@ -158,7 +158,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
     if (!image && ctx.measureText) {
       ctx.font = `${Number(fontSize)}px ${fontFamily}`;
       const contents = Array.isArray(content) ? content : [content];
-      const widths = contents.map((item) => ctx.measureText(item as string).width);
+      const widths = contents.map((item) => ctx.measureText(item!).width);
       defaultWidth = Math.ceil(Math.max(...widths));
       defaultHeight = Number(fontSize) * contents.length + (contents.length - 1) * FontGap;
     }
