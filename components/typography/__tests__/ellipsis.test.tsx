@@ -147,6 +147,22 @@ describe('Typography.Ellipsis', () => {
     unmount();
   });
 
+  it('should ellipsis without showing expanded first', async () => {
+    const ref = React.createRef<HTMLElement>();
+    const { container: wrapper, unmount } = render(
+      <Base ellipsis={{ rows: 1, expandable:true }} component="p" ref={ref}>
+        {fullStr}
+      </Base>,
+    );
+
+    triggerResize(ref.current!);
+    expect(wrapper.querySelector('p')?.textContent).not.toContain (fullStr);
+    await waitFakeTimer();
+
+    expect(wrapper.querySelector('p')?.textContent).toContain('Bamboo is L...Expand');
+    unmount();
+  });
+  
   it('should middle ellipsis', async () => {
     const suffix = '--suffix';
     const ref = React.createRef<any>();
