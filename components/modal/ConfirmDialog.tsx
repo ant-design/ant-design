@@ -9,6 +9,7 @@ import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import ActionButton from '../_util/ActionButton';
 import { getTransitionName } from '../_util/motion';
 import warning from '../_util/warning';
+import useCombineConfigContext from './hooks/useCombineConfigContext';
 import type { ModalFuncProps, ModalLocale } from './Modal';
 import Dialog from './Modal';
 
@@ -173,8 +174,15 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
     props.className,
   );
 
+  // Connect the content of `ConfigContext`
+  const confirmDialogConfigContext = useCombineConfigContext({
+    prefixCls: rootPrefixCls,
+    iconPrefixCls,
+    direction,
+  });
+
   return (
-    <ConfigProvider prefixCls={rootPrefixCls} iconPrefixCls={iconPrefixCls} direction={direction}>
+    <ConfigProvider {...confirmDialogConfigContext}>
       <Dialog
         prefixCls={prefixCls}
         className={classString}
