@@ -23,7 +23,7 @@ jobs:
       - name: release antd
         uses: actions-cool/release-helper@v2
         with:
-          triger: 'tag'
+          trigger: 'tag'
           changelogs: 'CHANGELOG.en-US.md, CHANGELOG.zh-CN.md'
           branch: 'master, 4.x-stable'
           tag: '5*, 4*'
@@ -39,7 +39,7 @@ jobs:
       - name: notice bigfish
         uses: actions-cool/release-helper@v2
         with:
-          triger: 'tag'
+          trigger: 'tag'
           changelogs: 'CHANGELOG.en-US.md, CHANGELOG.zh-CN.md'
           branch: 'master, 4.x-stable'
           tag: '5*, 4*'
