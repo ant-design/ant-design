@@ -1,10 +1,9 @@
 import React from 'react';
 import { css, Global } from '@emotion/react';
 
-export default () => {
-  return (
-    <Global
-      styles={css`
+export default () => (
+  <Global
+    styles={css`
 h1,
 h2,
 h3,
@@ -40,6 +39,5 @@ h6 {
   }
 }
     `}
-    />
-  );
-};
+  />
+);
