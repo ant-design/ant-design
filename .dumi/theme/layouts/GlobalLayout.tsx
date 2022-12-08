@@ -1,7 +1,7 @@
 import React from 'react';
 import { useOutlet, useSearchParams } from 'dumi';
 import { ConfigProvider, theme as antdTheme } from 'antd';
-import { createCache, StyleProvider, Theme } from '@ant-design/cssinjs';
+import { createCache, StyleProvider } from '@ant-design/cssinjs';
 import ThemeSwitch from '../common/ThemeSwitch';
 import type { ThemeName } from '../common/ThemeSwitch';
 import useLocation from '../../hooks/useLocation';
