@@ -271,13 +271,12 @@ export default () => {
               cursor: pointer;
               transition: all 0.24s;
 
-              ${antCls}-row-rtl & {
-                margin-right: 16px;
-                margin-left: 0;
-              }
-
               &:hover {
                 color: ${token.colorText};
+              }
+
+              ${iconCls} {
+                display: block;
               }
             }
 
