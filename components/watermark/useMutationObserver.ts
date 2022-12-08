@@ -23,10 +23,7 @@ export default function useMutationObserver() {
     }
   };
 
-  useEffect(() => () => destroyObserver(), []);
+  useEffect(() => destroyObserver, []);
 
-  return {
-    createObserver,
-    destroyObserver,
-  };
+  return { createObserver, destroyObserver };
 }

@@ -41,7 +41,7 @@ Add specific text or patterns to the page.
 ### Font
 
 <!-- prettier-ignore -->
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | color | font color | string | rgba(0,0,0,.15) |  |
 | fontSize | font size | number | 16 |  |
