@@ -18,7 +18,7 @@ export type AppProps = {
 
 const useApp = () => React.useContext<useAppProps>(AppContext);
 
-const App: React.FC<AppProps> & { useApp: () => useAppProps } = (props) => {
+const App: React.FC<AppProps> & { useApp: () => useAppProps; __ANT_APP: boolean } = (props) => {
   const { prefixCls: customizePrefixCls, children, className } = props;
   const { getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('app', customizePrefixCls);
