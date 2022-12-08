@@ -243,6 +243,7 @@
     "isomorphic-fetch": "^3.0.0",
     "jest": "^29.0.0",
     "jest-axe": "^7.0.0",
+    "jest-canvas-mock": "^2.4.0",
     "jest-environment-jsdom": "^29.0.1",
     "jest-environment-node": "^29.0.0",
     "jest-image-snapshot": "^6.0.0",
@@ -312,7 +313,7 @@
   "size-limit": [
     {
       "path": "./dist/antd.min.js",
-      "limit": "381 KiB"
+      "limit": "382 KiB"
     },
     {
       "path": "./dist/antd-with-locales.min.js",
@@ -322,7 +323,7 @@
   "bundlesize": [
     {
       "path": "./dist/antd.min.js",
-      "maxSize": "381 kB"
+      "maxSize": "382 kB"
     }
   ],
   "tnpm": {

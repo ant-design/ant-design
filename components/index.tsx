@@ -150,6 +150,8 @@ export { default as Typography } from './typography';
 export type { TypographyProps } from './typography';
 export { default as Upload } from './upload';
 export type { UploadFile, UploadProps } from './upload';
+export { default as Watermark } from './watermark';
+export type { WatermarkProps } from './watermark';
 export { default as QRCode } from './qrcode';
 export type { QRCodeProps, QRPropsCanvas } from './qrcode/interface';
 export { default as version } from './version';
