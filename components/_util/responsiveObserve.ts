@@ -9,7 +9,7 @@ export type ScreenSizeMap = Partial<Record<Breakpoint, number>>;
 export const responsiveArray: Breakpoint[] = ['xxl', 'xl', 'lg', 'md', 'sm', 'xs'];
 
 const getResponsiveMap = (token: GlobalToken): BreakpointMap => ({
-  xs: `(max-width: ${token.screenXS}px)`,
+  xs: `(max-width: ${token.screenXSMax}px)`,
   sm: `(min-width: ${token.screenSM}px)`,
   md: `(min-width: ${token.screenMD}px)`,
   lg: `(min-width: ${token.screenLG}px)`,
