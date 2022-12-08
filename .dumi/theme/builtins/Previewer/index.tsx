@@ -1,6 +1,7 @@
 /* eslint jsx-a11y/no-noninteractive-element-interactions: 0 */
 import { CheckOutlined, SnippetsOutlined, ThunderboltOutlined } from '@ant-design/icons';
 import stackblitzSdk from '@stackblitz/sdk';
+import type { Project } from '@stackblitz/sdk';
 import { Alert, Badge, Tooltip, Space } from 'antd';
 import classNames from 'classnames';
 import LZString from 'lz-string';
@@ -16,26 +17,55 @@ import CodeSandboxIcon from '../../common/CodeSandboxIcon';
 import RiddleIcon from '../../common/RiddleIcon';
 import ExternalLinkIcon from '../../common/ExternalLinkIcon';
 import fromDumiProps from './fromDumiProps';
+import { version } from '../../../../package.json';
 
 const { ErrorBoundary } = Alert;
 
-function compress(string) {
+function compress(string: string): string {
   return LZString.compressToBase64(string)
     .replace(/\+/g, '-') // Convert '+' to '-'
     .replace(/\//g, '_') // Convert '/' to '_'
     .replace(/=+$/, ''); // Remove ending '='
 }
 
-class Demo extends React.Component {
-  iframeRef = React.createRef();
+interface DemoProps {
+  meta: any;
+  src: string;
+  content: string;
+  preview: (react: typeof React, reactDOM: typeof ReactDOM) => React.ReactNode;
+  highlightedCodes: Record<PropertyKey, string>;
+  style: string;
+  highlightedStyle: string;
+  expand: boolean;
+  intl: any;
+  theme: string;
+  sourceCodes: Record<'jsx' | 'tsx', string>;
+  location: Location;
+  showRiddleButton: boolean;
+  utils?: any;
+}
 
-  codeSandboxIconRef = React.createRef();
+interface DemoState {
+  codeType?: string;
+  copied?: boolean;
+  codeExpand?: boolean;
+  copyTooltipOpen?: boolean | string;
+}
 
-  riddleIconRef = React.createRef();
+class Demo extends React.Component<DemoProps, DemoState> {
+  liveDemo: any;
 
-  codepenIconRef = React.createRef();
+  iframeRef = React.createRef<HTMLIFrameElement>();
 
-  state = {
+  anchorRef = React.createRef<HTMLAnchorElement>();
+
+  codeSandboxIconRef = React.createRef<HTMLFormElement>();
+
+  riddleIconRef = React.createRef<HTMLFormElement>();
+
+  codepenIconRef = React.createRef<HTMLFormElement>();
+
+  state: DemoState = {
     codeExpand: false,
     copied: false,
     copyTooltipOpen: false,
@@ -45,11 +75,11 @@ class Demo extends React.Component {
   componentDidMount() {
     const { meta, location } = this.props;
     if (meta.id === location.hash.slice(1)) {
-      this.anchor.click();
+      this.anchorRef.current?.click();
     }
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
+  shouldComponentUpdate(nextProps: DemoProps, nextState: DemoState) {
     const { codeExpand, copied, copyTooltipOpen, codeType } = this.state;
     const { expand, theme, showRiddleButton } = this.props;
     return (
@@ -62,47 +92,31 @@ class Demo extends React.Component {
     );
   }
 
-  getSourceCode() {
+  getSourceCode = (): [string, string] => {
     const { sourceCodes } = this.props;
     return [sourceCodes.jsx, sourceCodes.tsx];
-  }
+  };
 
-  handleCodeExpand = (demo) => {
+  handleCodeExpand = (demo: string) => {
     const { codeExpand } = this.state;
     this.setState({ codeExpand: !codeExpand });
-    this.track({
-      type: 'expand',
-      demo,
-    });
+    this.track({ type: 'expand', demo });
   };
 
-  saveAnchor = (anchor) => {
-    this.anchor = anchor;
-  };
-
-  handleCodeCopied = (demo) => {
+  handleCodeCopied = (demo: string) => {
     this.setState({ copied: true });
-    this.track({
-      type: 'copy',
-      demo,
-    });
+    this.track({ type: 'copy', demo });
   };
 
-  onCopyTooltipOpenChange = (open) => {
+  onCopyTooltipOpenChange = (open: boolean) => {
     if (open) {
-      this.setState({
-        copyTooltipOpen: open,
-        copied: false,
-      });
+      this.setState({ copyTooltipOpen: open, copied: false });
       return;
     }
-    this.setState({
-      copyTooltipOpen: open,
-    });
+    this.setState({ copyTooltipOpen: open });
   };
 
-  // eslint-disable-next-line class-methods-use-this
-  track({ type, demo }) {
+  track = ({ type, demo }: { type: string; demo: string }) => {
     if (!window.gtag) {
       return;
     }
@@ -110,7 +124,7 @@ class Demo extends React.Component {
       event_category: type,
       event_label: demo,
     });
-  }
+  };
 
   render() {
     const { state } = this;
@@ -134,7 +148,6 @@ class Demo extends React.Component {
         <BrowserFrame>
           <iframe
             ref={this.iframeRef}
-            onLoad={this.handleIframeReady}
             src={src}
             height={meta.iframe}
             title="demo"
@@ -183,7 +196,7 @@ class Demo extends React.Component {
     const [sourceCode, sourceCodeTyped] = this.getSourceCode();
     const suffix = codeType === 'tsx' ? 'tsx' : 'js';
 
-    const dependencies = sourceCode.split('\n').reduce(
+    const dependencies: Record<PropertyKey, string> = sourceCode.split('\n').reduce(
       (acc, line) => {
         const matches = line.match(/import .+? from '(.+)';$/);
         if (matches && matches[1] && !line.includes('antd')) {
@@ -196,8 +209,7 @@ class Demo extends React.Component {
         }
         return acc;
       },
-      // eslint-disable-next-line no-undef
-      { antd: antdReproduceVersion },
+      { antd: version },
     );
 
     dependencies['@ant-design/icons'] = 'latest';
@@ -229,12 +241,10 @@ class Demo extends React.Component {
         )}\n\ncreateRoot(mountNode).render(<ComponentDemo />);\n`,
       editors: '001',
       css: '',
-      // eslint-disable-next-line no-undef
       js_external: [
         'react@18/umd/react.development.js',
         'react-dom@18/umd/react-dom.development.js',
-        // eslint-disable-next-line no-undef
-        `antd@${antdReproduceVersion}/dist/antd-with-locales.js`,
+        `antd@${version}/dist/antd-with-locales.js`,
         `@ant-design/icons/dist/index.umd.js`,
         'react-router-dom/umd/react-router-dom.min.js',
         'react-router@3.x/umd/ReactRouter.min.js',
@@ -324,10 +334,11 @@ createRoot(document.getElementById('container')).render(<Demo />);
         },
       },
     };
-    const stackblitzPrefillConfig = {
+    const stackblitzPrefillConfig: Project = {
       title: `${localizedTitle} - antd@${dependencies.antd}`,
       template: 'create-react-app',
       dependencies,
+      description: '',
       files: {
         'index.css': indexCssContent,
         [`index.${suffix}`]: indexJsContent,
@@ -335,6 +346,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
         'index.html': html,
       },
     };
+
     if (suffix === 'tsx') {
       stackblitzPrefillConfig.files['tsconfig.json'] = tsconfig;
     }
@@ -350,7 +362,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
         <section className="code-box-meta markdown">
           <div className="code-box-title">
             <Tooltip title={meta.debug ? <FormattedMessage id="app.demo.debug" /> : ''}>
-              <a href={`#${meta.id}`} ref={this.saveAnchor}>
+              <a href={`#${meta.id}`} ref={this.anchorRef}>
                 {localizedTitle}
               </a>
             </Tooltip>
@@ -407,7 +419,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
               ref={this.codepenIconRef}
               onClick={() => {
                 this.track({ type: 'codepen', demo: meta.id });
-                this.codepenIconRef.current.submit();
+                this.codepenIconRef.current?.submit();
               }}
             >
               <input type="hidden" name="data" value={JSON.stringify(codepenPrefillConfig)} />
@@ -430,7 +442,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
             </Tooltip>
             <CopyToClipboard text={sourceCodeTyped} onCopy={() => this.handleCodeCopied(meta.id)}>
               <Tooltip
-                open={copyTooltipOpen}
+                open={copyTooltipOpen as boolean}
                 onOpenChange={this.onCopyTooltipOpenChange}
                 title={<FormattedMessage id={`app.demo.${copied ? 'copied' : 'copy'}`} />}
               >
@@ -475,8 +487,8 @@ createRoot(document.getElementById('container')).render(<Demo />);
         </section>
         <section className={highlightClass} key="code">
           <CodePreview
-            toReactComponent={props.utils.toReactComponent}
             codes={highlightedCodes}
+            toReactComponent={props.utils?.toReactComponent}
             onCodeTypeChange={(type) => this.setState({ codeType: type })}
           />
           {highlightedStyle ? (
