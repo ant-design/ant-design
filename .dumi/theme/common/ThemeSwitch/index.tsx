@@ -4,29 +4,45 @@ import { FormattedMessage } from 'dumi';
 import { DarkTheme, Light, CompactTheme } from 'antd-token-previewer/es/icons';
 import ThemeIcon from './ThemeIcon';
 
+export type ThemeName = 'light' | 'dark' | 'compact';
+
 export type ThemeSwitchProps = {
-  value?: 'light' | 'dark' | 'compact';
-  onChange: (value: 'light' | 'dark' | 'compact') => void;
+  value?: ThemeName[];
+  onChange: (value: ThemeName[]) => void;
 };
 
 const ThemeSwitch: React.FC<ThemeSwitchProps> = ({ value, onChange }) => (
   <FloatButton.Group trigger="click" icon={<ThemeIcon />}>
     <FloatButton
       icon={<Light />}
-      type={value === 'light' || !value ? 'primary' : 'default'}
-      onClick={() => onChange('light')}
+      type={!value.includes('dark') ? 'primary' : 'default'}
+      onClick={() => {
+        if (value.includes('dark')) {
+          onChange(value.filter((theme) => theme !== 'dark'));
+        }
+      }}
       tooltip={<FormattedMessage id="app.theme.switch.default" />}
     />
     <FloatButton
       icon={<DarkTheme />}
-      type={value === 'dark' ? 'primary' : 'default'}
-      onClick={() => onChange('dark')}
+      type={value.includes('dark') ? 'primary' : 'default'}
+      onClick={() => {
+        if (!value.includes('dark')) {
+          onChange([...value, 'dark']);
+        }
+      }}
       tooltip={<FormattedMessage id="app.theme.switch.dark" />}
     />
     <FloatButton
       icon={<CompactTheme />}
-      type={value === 'compact' ? 'primary' : 'default'}
-      onClick={() => onChange('compact')}
+      type={value.includes('compact') ? 'primary' : 'default'}
+      onClick={() => {
+        if (value.includes('compact')) {
+          onChange(value.filter((theme) => theme !== 'compact'));
+        } else {
+          onChange([...value, 'compact']);
+        }
+      }}
       tooltip={<FormattedMessage id="app.theme.switch.compact" />}
     />
   </FloatButton.Group>
