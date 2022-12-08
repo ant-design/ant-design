@@ -292,15 +292,14 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
     ...style,
   };
 
-  const createNestedLink = (options?: AnchorLinkItemProps[]) => {
-    return Array.isArray(options)
+  const createNestedLink = (options?: AnchorLinkItemProps[]) =>
+    Array.isArray(options)
       ? options.map((item) => (
           <AnchorLink {...item} key={item.key} direction={anchorDirection}>
             {anchorDirection === 'vertical' && createNestedLink(item.children)}
           </AnchorLink>
         ))
       : null;
-  };
 
   const renderChildren = (anchorChildren: React.ReactNode) =>
     toArray(anchorChildren).map((child) =>
