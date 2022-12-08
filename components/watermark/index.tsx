@@ -140,6 +140,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
         mutations.forEach((mutation) => {
           if (reRendering(mutation)) {
             destroyWatermark();
+            // eslint-disable-next-line @typescript-eslint/no-use-before-define
             renderWatermark();
           }
         });
