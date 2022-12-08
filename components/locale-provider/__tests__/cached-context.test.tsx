@@ -1,6 +1,6 @@
 import React, { memo, useContext } from 'react';
 import { fireEvent, pureRender } from '../../../tests/utils';
-import LocaleProvider from '../LocaleReceiver';
+import LocaleProvider from '../../locale';
 import LocaleContext from '../../locale/context';
 
 let innerCount = 0;
