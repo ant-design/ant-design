@@ -21,6 +21,7 @@ const DEPRECIATED_VERSION = {
     'https://github.com/ant-design/ant-design/issues/37931',
   ],
   '4.24.0': ['https://github.com/ant-design/ant-design/issues/38371'],
+  '5.0.4': ['https://github.com/ant-design/ant-design/issues/39284'],
 };
 
 function matchDeprecated(version) {
