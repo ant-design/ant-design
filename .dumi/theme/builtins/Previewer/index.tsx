@@ -246,8 +246,8 @@ class Demo extends React.Component<DemoProps, DemoState> {
         'react-dom@18/umd/react-dom.development.js',
         `antd@${version}/dist/antd-with-locales.js`,
         `@ant-design/icons/dist/index.umd.js`,
-        'react-router-dom/umd/react-router-dom.min.js',
-        'react-router@3.x/umd/ReactRouter.min.js',
+        'react-router-dom/dist/umd/react-router-dom.production.min.js',
+        'react-router/dist/umd/react-router.production.min.js',
       ]
         .map((url) => `https://unpkg.com/${url}`)
         .join(';'),
