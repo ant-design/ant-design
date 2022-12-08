@@ -72,4 +72,5 @@ module.exports = {
     url: 'http://localhost',
   },
   // bail: true,
+  maxWorkers: '50%',
 };
