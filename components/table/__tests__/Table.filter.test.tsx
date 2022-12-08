@@ -116,6 +116,18 @@ describe('Table.filter', () => {
     );
   });
 
+  it('opens/closes menu with keyboard', async () => {
+    const { container } = render(createTable());
+    fireEvent.keyDown(container.querySelector('span.ant-dropdown-trigger')!, {key: 'Enter'});
+    await waitFor(() =>
+      expect(container.querySelector('.ant-dropdown-open')).toBeTruthy(),
+    );
+    fireEvent.keyDown(container.querySelector('span.ant-dropdown-trigger')!, {key: 'Escape'});
+    await waitFor(() =>
+      expect(container.querySelector('.ant-dropdown-open')).toBeFalsy(),
+    );
+  });
+
   it('renders empty menu correctly', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     const { container } = render(
