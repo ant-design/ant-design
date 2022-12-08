@@ -12,9 +12,7 @@ describe('Watermark', () => {
 
   beforeAll(() => {
     mockSrcSet.mockImplementation(function fn() {
-      if (this.onload) {
-        this.onload();
-      }
+      this.onload?.();
     });
   });
 
@@ -36,11 +34,11 @@ describe('Watermark', () => {
         content={['Ant Design', 'Ant Design Pro']}
       />,
     );
-    const target = container.querySelector('.watermark div') as HTMLDivElement;
-    expect(target.style.left).toBe('100px');
-    expect(target.style.top).toBe('100px');
-    expect(target.style.width).toBe('calc(100% - 100px)');
-    expect(target.style.height).toBe('calc(100% - 100px)');
+    const target = container.querySelector<HTMLDivElement>('.watermark div');
+    expect(target?.style.left).toBe('100px');
+    expect(target?.style.top).toBe('100px');
+    expect(target?.style.width).toBe('calc(100% - 100px)');
+    expect(target?.style.height).toBe('calc(100% - 100px)');
     expect(container).toMatchSnapshot();
   });
 
@@ -53,8 +51,8 @@ describe('Watermark', () => {
 
   it('MutationObserver should work properly', () => {
     const { container } = render(<Watermark className="watermark" content="MutationObserver" />);
-    const target = container.querySelector('.watermark div') as HTMLDivElement;
-    target.remove();
+    const target = container.querySelector<HTMLDivElement>('.watermark div');
+    target?.remove();
     expect(container).toMatchSnapshot();
   });
 
@@ -62,8 +60,8 @@ describe('Watermark', () => {
     const { container } = render(
       <Watermark offset={[-200, -200]} className="watermark" content="MutationObserver" />,
     );
-    const target = container.querySelector('.watermark div') as HTMLDivElement;
-    target.setAttribute('style', '');
+    const target = container.querySelector<HTMLDivElement>('.watermark div');
+    target?.setAttribute('style', '');
     expect(container).toMatchSnapshot();
   });
 });

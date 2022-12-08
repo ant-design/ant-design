@@ -3,8 +3,8 @@ import useMutationObserver from './useMutationObserver';
 
 const FontGap = 3;
 
-const getStyleStr = (style: Record<string, string | number>): string => {
-  const styleArr = Object.keys(style).map((item) => {
+const getStyleStr = (style: React.CSSProperties): string => {
+  const styleArr = Object.keys(style).map((item: keyof React.CSSProperties) => {
     const key = item.replace(/([A-Z])/g, '-$1').toLowerCase();
     return `${key}: ${style[item]};`;
   });
@@ -158,7 +158,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
     if (!image && ctx.measureText) {
       ctx.font = `${Number(fontSize)}px ${fontFamily}`;
       const contents = Array.isArray(content) ? content : [content];
-      const widths = contents.map((item) => ctx.measureText(item as string).width);
+      const widths = contents.map((item) => ctx.measureText(item!).width);
       defaultWidth = Math.ceil(Math.max(...widths));
       defaultHeight = Number(fontSize) * contents.length + (contents.length - 1) * FontGap;
     }
@@ -209,25 +209,20 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
         ctx.textAlign = 'center';
         ctx.textBaseline = 'top';
         ctx.translate(mergedMarkWidth / 2, 0);
-        if (Array.isArray(content)) {
-          content?.forEach((item: string, index: number) =>
-            ctx.fillText(
-              item,
-              mergedGapXCenter,
-              mergedGapYCenter + index * (mergedFontSize + FontGap * ratio),
-            ),
+        const contents = Array.isArray(content) ? content : [content];
+        contents?.forEach((item, index) => {
+          ctx.fillText(
+            item ?? '',
+            mergedGapXCenter,
+            mergedGapYCenter + index * (mergedFontSize + FontGap * ratio),
           );
-        } else {
-          ctx.fillText(content ?? '', mergedGapXCenter, mergedGapYCenter);
-        }
+        });
         appendWatermark(canvas.toDataURL(), markWidth);
       }
     }
   };
 
-  useEffect(() => {
-    renderWatermark();
-  }, [
+  useEffect(renderWatermark, [
     rotate,
     zIndex,
     width,
@@ -246,14 +241,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
   ]);
 
   return (
-    <div
-      ref={containerRef}
-      style={{
-        position: 'relative',
-        ...style,
-      }}
-      className={className}
-    >
+    <div ref={containerRef} className={className} style={{ position: 'relative', ...style }}>
       {children}
     </div>
   );
