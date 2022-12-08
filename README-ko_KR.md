@@ -8,22 +8,13 @@
 
 <div align="center">
 
-An enterprise-class UI design language and React UI library.
+엔터브라이즈급 UI 디자인 언어 그리고 React UI 라이브러리.
 
-[![CI status][github-action-image]][github-action-url]
-[![codecov][codecov-image]][codecov-url]
-[![NPM version][npm-image]][npm-url]
-[![NPM downloads][download-image]][download-url]
+[![CI status][github-action-image]][github-action-url] [![codecov][codecov-image]][codecov-url] [![NPM version][npm-image]][npm-url] [![NPM downloads][download-image]][download-url]
 
-[![Total alerts][lgtm-image]][lgtm-url]
-[![][bundlephobia-image]][bundlephobia-url]
-[![][bundlesize-js-image]][unpkg-js-url]
-[![FOSSA Status][fossa-image]][fossa-url]
+[![Total alerts][lgtm-image]][lgtm-url] [![][bundlephobia-image]][bundlephobia-url] [![][bundlesize-js-image]][unpkg-js-url] [![FOSSA Status][fossa-image]][fossa-url]
 
-[![Follow Twitter][twitter-image]][twitter-url]
-[![Renovate status][renovate-image]][renovate-dashboard-url]
-[![][issues-helper-image]][issues-helper-url]
-[![Issues need help][help-wanted-image]][help-wanted-url]
+[![Follow Twitter][twitter-image]][twitter-url] [![Renovate status][renovate-image]][renovate-dashboard-url] [![][issues-helper-image]][issues-helper-url] [![Issues need help][help-wanted-image]][help-wanted-url]
 
 [npm-image]: http://img.shields.io/npm/v/antd.svg?style=flat-square
 [npm-url]: http://npmjs.org/package/antd
@@ -54,28 +45,28 @@ An enterprise-class UI design language and React UI library.
 
 [![](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Yl83RJhUE7kAAAAAAAAAAABkARQnAQ)](https://ant.design)
 
-English | [Português](./README-pt_BR.md) | [简体中文](./README-zh_CN.md) | [Українською](./README-uk_UA.md) | [Spanish](./README-sp_MX.md) | [日本語](./README-ja_JP.md) | [한국어](./README-ko_KR.md)
+[English](./README.md) | [Português](./README-pt_BR.md) | [简体中文](./README-zh_CN.md) | [Українською](./README-uk_UA.md) | [Spanish](./README-sp_MX.md) | [日本語](./README-ja_JP.md) | 한국어
 
-## ✨ Features
+## ✨ 기능
 
-- 🌈 Enterprise-class UI designed for web applications.
-- 📦 A set of high-quality React components out of the box.
-- 🛡 Written in TypeScript with predictable static types.
-- ⚙️ Whole package of design resources and development tools.
-- 🌍 Internationalization support for dozens of languages.
-- 🎨 Powerful theme customization in every detail.
+- 🌈 웹 어플리케이션을 위한 엔터프라이즈급 UI 디자인.
+- 📦 바로 사용할 수 있는 높은 품질의 React 컴포넌트.
+- 🛡 TypeScript 로 작성되어 예측 가능한 타입.
+- ⚙️ 디자인리소스와 개발 도구를 모두 포함한 구성.
+- 🌍 수십가지 언어에 대한 국제화 지원.
+- 🎨 모든 세부 요소에 대한 강력한 테마 커스터마이징.
 
-## 🖥 Environment Support
+## 🖥 지원 환경
 
-- Modern browsers
-- Server-side Rendering
+- 최신 브라우저
+- 서버 사이드 렌더링
 - [Electron](https://www.electronjs.org/)
 
 | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/electron/electron_48x48.png" alt="Electron" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Electron |
 | --- | --- | --- | --- | --- |
 | Edge | last 2 versions | last 2 versions | last 2 versions | last 2 versions |
 
-## 📦 Install
+## 📦 설치
 
 ```bash
 npm install antd
@@ -85,7 +76,7 @@ npm install antd
 yarn add antd
 ```
 
-## 🔨 Usage
+## 🔨 사용법
 
 ```jsx
 import { Button, DatePicker } from 'antd';
@@ -100,18 +91,18 @@ const App = () => (
 
 ### TypeScript
 
-`antd` is written in TypeScript with complete definitions, check [Use in TypeScript](https://ant.design/docs/react/use-in-typescript) to get started.
+`antd` 는 TypeScript 로 작성되어 완벽한 타입 정의가 포함되어있습니다, [TypeScript 와 함께 사용하는 방법](https://ant.design/docs/react/use-in-typescript)을 읽고 시작하세요.
 
-## 🌍 Internationalization
+## 🌍 국제화
 
-Dozens of languages supported in `antd`, see [i18n](https://ant.design/docs/react/i18n).
+`antd`는 수십개의 언어를 지원합니다. [i18n](https://ant.design/docs/react/i18n)문서를 확인하세요.
 
-## 🔗 Links
+## 🔗 링크
 
-- [Home page](https://ant.design/)
-- [Components Overview](https://ant.design/components/overview)
+- [홈페이지](https://ant.design/)
+- [컴포넌트 개요](https://ant.design/components/overview)
 - [Ant Design Pro](http://pro.ant.design/)
-- [Change Log](CHANGELOG.en-US.md)
+- [변경사항](CHANGELOG.en-US.md)
 - [rc-components](http://react-component.github.io/)
 - [Mobile UI](http://mobile.ant.design)
 - [Ant Design Pro Components](https://procomponents.ant.design)
@@ -121,20 +112,20 @@ Dozens of languages supported in `antd`, see [i18n](https://ant.design/docs/reac
 - [Landing Pages](https://landing.ant.design)
 - [Motion](https://motion.ant.design)
 - [Scaffold Market](http://scaffold.ant.design)
-- [Developer Instruction](https://github.com/ant-design/ant-design/wiki/Development)
-- [Versioning Release Note](https://github.com/ant-design/ant-design/wiki/%E8%BD%AE%E5%80%BC%E8%A7%84%E5%88%99%E5%92%8C%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B)
+- [개발자 지침](https://github.com/ant-design/ant-design/wiki/Development)
+- [릴리즈 노트](https://github.com/ant-design/ant-design/wiki/%E8%BD%AE%E5%80%BC%E8%A7%84%E5%88%99%E5%92%8C%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B)
 - [FAQ](https://ant.design/docs/react/faq)
-- [CodeSandbox Template](https://u.ant.design/codesandbox-repro) for bug reports
-- [Customize Theme](https://ant.design/docs/react/customize-theme)
-- [How to Apply for Being A Collaborator](https://github.com/ant-design/ant-design/wiki/Collaborators#how-to-apply-for-being-a-collaborator)
+- [CodeSandbox 템플릿](https://u.ant.design/codesandbox-repro) for bug reports
+- [커스터마이징 테마](https://ant.design/docs/react/customize-theme)
+- [콜라보레이터 신청 방법](https://github.com/ant-design/ant-design/wiki/Collaborators#how-to-apply-for-being-a-collaborator)
 
-## ⌨️ Development
+## ⌨️ 개발
 
-Use Gitpod, a free online dev environment for GitHub.
+Gitpod 는 GitHb을 위한 무료 온라인 개발환경입니다.
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/ant-design/ant-design)
 
-Or clone locally:
+혹은 로컬에서 clone:
 
 ```bash
 $ git clone git@github.com:ant-design/ant-design.git
@@ -143,19 +134,19 @@ $ npm install
 $ npm start
 ```
 
-Open your browser and visit http://127.0.0.1:8001 , see more at [Development](https://github.com/ant-design/ant-design/wiki/Development).
+브라우저를 열고 http://127.0.0.1:8001 에 접속하세요, 관련 정보를 더 얻고 싶다면 [개발문서](https://github.com/ant-design/ant-design/wiki/Development)를 확인하세요.
 
-## 🤝 Contributing [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+## 🤝 기여 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
-Read our [contributing guide](https://ant.design/docs/react/contributing) and let's build a better antd together.
+우리의 [기여 가이드](https://ant.design/docs/react/contributing)를 읽고 더 나은 `antd`를 함께 만들어 봅시다.
 
-We welcome all contributions. Please read our [CONTRIBUTING.md](https://github.com/ant-design/ant-design/blob/master/.github/CONTRIBUTING.md) first. You can submit any ideas as [pull requests](https://github.com/ant-design/ant-design/pulls) or as [GitHub issues](https://github.com/ant-design/ant-design/issues). If you'd like to improve code, check out the [Development Instructions](https://github.com/ant-design/ant-design/wiki/Development) and have a good time! :)
+우리는 모든 기여자를 환영합니다. 먼저 [CONTRIBUTING.md](https://github.com/ant-design/ant-design/blob/master/.github/CONTRIBUTING.md)를 읽어주세요. 당신은 여러 아이디어를 [풀 리퀘스트](https://github.com/ant-design/ant-design/pulls)나 [GitHub 이슈](https://github.com/ant-design/ant-design/issues)를 통하여 제출할 수 있습니다. 만약 코드로 개선하는 것을 좋아한다면, [개발 지침](https://github.com/ant-design/ant-design/wiki/Development)을 확인해주세요. 즐겁게 `antd`에 기여길 바랍니다.
 
-If you are a collaborator, please follow our [Pull Request principle](https://github.com/ant-design/ant-design/wiki/PR-principle) to create a Pull Request with [collaborator template](https://github.com/ant-design/ant-design/compare?expand=1&template=collaborator.md).
+만약 당신이 콜라보레이터라면, [콜라보레이터 템플릿](https://github.com/ant-design/ant-design/compare?expand=1&template=collaborator.md)을 통한 풀 리퀘스트 생성시, [풀 리퀘스트 원칙](https://github.com/ant-design/ant-design/wiki/PR-principle)을 따라주세요.
 
 [![Let's fund issues in this repository](https://issuehunt.io/static/embed/issuehunt-button-v1.svg)](https://issuehunt.io/repos/34526884)
 
-## ❤️ Sponsors and Backers [![](https://opencollective.com/ant-design/tiers/sponsors/badge.svg?label=Sponsors&color=brightgreen)](https://opencollective.com/ant-design#support) [![](https://opencollective.com/ant-design/tiers/backers/badge.svg?label=Backers&color=brightgreen)](https://opencollective.com/ant-design#support)
+## ❤️ 스폰서 및 후원자 [![](https://opencollective.com/ant-design/tiers/sponsors/badge.svg?label=Sponsors&color=brightgreen)](https://opencollective.com/ant-design#support) [![](https://opencollective.com/ant-design/tiers/backers/badge.svg?label=Backers&color=brightgreen)](https://opencollective.com/ant-design#support)
 
 [![](https://opencollective.com/ant-design/tiers/sponsors.svg?avatarHeight=36)](https://opencollective.com/ant-design#support)
 
