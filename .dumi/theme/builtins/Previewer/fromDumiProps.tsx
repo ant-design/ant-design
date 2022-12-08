@@ -89,7 +89,7 @@ export default function fromDumiProps<P extends object>(
       expand,
       // FIXME: confirm is there has any case?
       highlightedStyle: '',
-      theme: searchParams.theme,
+      theme: searchParams.get('theme'),
     } as P;
 
     return <WrappedComponent {...transformedProps} />;
