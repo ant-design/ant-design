@@ -25,7 +25,7 @@ const transformIgnorePatterns = [
 ];
 
 function getTestRegex(libDir) {
-  if (libDir === 'dist') {
+  if (['dist', 'lib', 'es'].includes(libDir)) {
     return 'demo\\.test\\.(j|t)s$';
   }
   return '.*\\.test\\.(j|t)sx?$';
