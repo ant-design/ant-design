@@ -3,6 +3,7 @@ import { Global, css } from '@emotion/react';
 import { TinyColor } from '@ctrl/tinycolor';
 import useSiteToken from '../../hooks/useSiteToken';
 import ColorStyle from './Color/ColorStyle';
+import HeadingAnchor from './styles/HeadingAnchor';
 
 const GlobalStyles = () => {
   const { token } = useSiteToken();
@@ -2007,6 +2008,7 @@ const GlobalStyles = () => {
       />
 
       <ColorStyle />
+      <HeadingAnchor />
     </>
   );
 };
