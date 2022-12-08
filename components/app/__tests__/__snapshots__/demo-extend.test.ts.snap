@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/app/demo/message.tsx extend context correctly 1`] = `
+<div
+  class="ant-app"
+>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Open message
+    </span>
+  </button>
+</div>
+`;
+
+exports[`renders ./components/app/demo/modal.tsx extend context correctly 1`] = `
+<div
+  class="ant-app"
+>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Open modal
+    </span>
+  </button>
+</div>
+`;
+
+exports[`renders ./components/app/demo/notification.tsx extend context correctly 1`] = `
+<div
+  class="ant-app"
+>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Open notification
+    </span>
+  </button>
+</div>
+`;

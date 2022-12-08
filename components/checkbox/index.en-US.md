@@ -38,17 +38,17 @@ Checkbox component.
 | defaultChecked | Specifies the initial state: whether or not the checkbox is selected | boolean | false |  |
 | disabled | If disable checkbox | boolean | false |  |
 | indeterminate | The indeterminate checked state of checkbox | boolean | false |  |
-| onChange | The callback function that is triggered when the state changes | function(e:Event) | - |  |
+| onChange | The callback function that is triggered when the state changes | function(e: CheckboxChangeEvent) | - |  |
 
 #### Checkbox Group
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| defaultValue | Default selected value | string\[] | \[] |  |
+| defaultValue | Default selected value | (string \| number)\[] | \[] |  |
 | disabled | If disable all checkboxes | boolean | false |  |
 | name | The `name` property of all `input[type="checkbox"]` children | string | - |  |
 | options | Specifies options | string\[] \| number\[] \| Option\[] | \[] |  |
-| value | Used for setting the currently selected value | string\[] | \[] |  |
+| value | Used for setting the currently selected value | (string \| number)\[] | \[] |  |
 | onChange | The callback function that is triggered when the state changes | function(checkedValue) | - |  |
 
 ### Methods

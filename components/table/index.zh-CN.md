@@ -332,12 +332,6 @@ return <Table rowKey="uid" />;
 return <Table rowKey={(record) => record.uid} />;
 ```
 
-## 从 v3 升级到 v4
-
-Table 移除了在 v3 中废弃的 `onRowClick`、`onRowDoubleClick`、`onRowMouseEnter`、`onRowMouseLeave` 等方法。如果你使用的 api 为文档中列举的 api，那你不用担心会丢失功能。
-
-此外，比较重大的改动为 `dataIndex` 从支持路径嵌套如 `user.age` 改成了数组路径如 `['user', 'age']`。以解决过去属性名带 `.` 需要额外的数据转化问题。
-
 ## FAQ
 
 ### 如何在没有数据或只有一页数据时隐藏分页栏

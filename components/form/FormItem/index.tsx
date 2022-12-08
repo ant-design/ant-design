@@ -6,7 +6,6 @@ import type { Meta, NamePath } from 'rc-field-form/lib/interface';
 import useState from 'rc-util/lib/hooks/useState';
 import { supportRef } from 'rc-util/lib/ref';
 import * as React from 'react';
-import { useContext } from 'react';
 import useFormItemStatus from '../hooks/useFormItemStatus';
 import { ConfigContext } from '../../config-provider';
 import { cloneElement, isValidElement } from '../../_util/reactNode';
@@ -107,12 +106,12 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
     validateTrigger,
     hidden,
   } = props;
-  const { getPrefixCls } = useContext(ConfigContext);
-  const { name: formName } = useContext(FormContext);
+  const { getPrefixCls } = React.useContext(ConfigContext);
+  const { name: formName } = React.useContext(FormContext);
   const isRenderProps = typeof children === 'function';
-  const notifyParentMetaChange = useContext(NoStyleItemContext);
+  const notifyParentMetaChange = React.useContext(NoStyleItemContext);
 
-  const { validateTrigger: contextValidateTrigger } = useContext(FieldContext);
+  const { validateTrigger: contextValidateTrigger } = React.useContext(FieldContext);
   const mergedValidateTrigger =
     validateTrigger !== undefined ? validateTrigger : contextValidateTrigger;
 

@@ -36,7 +36,11 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
         ...resetComponent(token),
         position: 'absolute',
         top: 0,
-        insetInlineStart: 0,
+        // use `left` to fix https://github.com/ant-design/ant-design/issues/39195
+        left: {
+          _skip_check_: true,
+          value: 0,
+        },
         zIndex: zIndexPopup,
         fontWeight: 'normal',
         whiteSpace: 'normal',
