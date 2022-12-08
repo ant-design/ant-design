@@ -3,7 +3,7 @@ import JsonML from 'jsonml.js/lib/utils';
 import toReactComponent from 'jsonml-to-react-element';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-typescript';
-import { useLocation, useIntl, type IPreviewerProps } from 'dumi';
+import { useLocation, useSearchParams, useIntl, type IPreviewerProps } from 'dumi';
 import { ping } from '../../utils';
 
 let pingDeferrer: PromiseLike<boolean>;
@@ -36,6 +36,7 @@ export default function fromDumiProps<P extends object>(
   const hoc = function DumiPropsAntdPreviewer(props: IPreviewerProps) {
     const showRiddleButton = useShowRiddleButton();
     const location = useLocation();
+    const [searchParams] = useSearchParams();
     const { asset, children, demoUrl, expand, description = '', ...meta } = props;
     const intl = useIntl();
     const entryCode = asset.dependencies['index.tsx'].value;
@@ -88,8 +89,7 @@ export default function fromDumiProps<P extends object>(
       expand,
       // FIXME: confirm is there has any case?
       highlightedStyle: '',
-      // FIXME: dumi support usePrefersColor
-      theme: 'light',
+      theme: searchParams.get('theme'),
     } as P;
 
     return <WrappedComponent {...transformedProps} />;
