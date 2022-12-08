@@ -1,5 +1,6 @@
 import React from 'react';
 import { FloatButton } from 'antd';
+import { FormattedMessage } from 'dumi';
 import { DarkTheme, Light, CompactTheme } from 'antd-token-previewer/es/icons';
 import ThemeIcon from './ThemeIcon';
 
@@ -14,19 +15,19 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = ({ value, onChange }) => (
       icon={<Light />}
       type={value === 'light' || !value ? 'primary' : 'default'}
       onClick={() => onChange('light')}
-      tooltip="Light"
+      tooltip={<FormattedMessage id="app.theme.switch.default" />}
     />
     <FloatButton
       icon={<DarkTheme />}
       type={value === 'dark' ? 'primary' : 'default'}
       onClick={() => onChange('dark')}
-      tooltip="Dark"
+      tooltip={<FormattedMessage id="app.theme.switch.dark" />}
     />
     <FloatButton
       icon={<CompactTheme />}
       type={value === 'compact' ? 'primary' : 'default'}
       onClick={() => onChange('compact')}
-      tooltip="Compact"
+      tooltip={<FormattedMessage id="app.theme.switch.compact" />}
     />
   </FloatButton.Group>
 );
