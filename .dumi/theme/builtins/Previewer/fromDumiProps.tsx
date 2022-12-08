@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
-// @ts-ignore
 import JsonML from 'jsonml.js/lib/utils';
-// @ts-ignore
 import toReactComponent from 'jsonml-to-react-element';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-typescript';
