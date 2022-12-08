@@ -15,8 +15,6 @@ const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => 
   const sidebarData = useSidebarData();
   const { before, after } = options;
 
-  console.log('sidebarData:', sidebarData);
-
   const menuItems = useMemo<MenuProps['items']>(() => {
     const sidebarItems = [...(sidebarData ?? [])];
 
@@ -118,7 +116,7 @@ const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => 
           }
         } else {
           const list = group.children || [];
-          // 如果有 date 字段，我们就对齐进行排序
+          // 如果有 date 字段，我们就对其进行排序
           if (list.every((info) => info?.frontmatter?.date)) {
             list.sort((a, b) => (a.frontmatter.date > b.frontmatter.date ? -1 : 1));
           }
