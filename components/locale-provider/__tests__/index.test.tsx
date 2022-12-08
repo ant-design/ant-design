@@ -69,7 +69,7 @@ import MockDate from 'mockdate';
 import React from 'react';
 import { render } from '../../../tests/utils';
 import type { Locale } from '../../locale';
-import LocaleProvider from '../LocaleReceiver';
+import LocaleProvider from '../../locale';
 import {
   Calendar,
   DatePicker,
