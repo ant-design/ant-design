@@ -1,7 +1,7 @@
 import Pagination from 'rc-pagination/lib/locale/bg_BG';
 import Calendar from '../calendar/locale/bg_BG';
 import DatePicker from '../date-picker/locale/bg_BG';
-import type { Locale } from '../locale-provider';
+import type { Locale } from '../locale';
 import TimePicker from '../time-picker/locale/bg_BG';
 
 const localeValues: Locale = {

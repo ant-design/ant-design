@@ -3,7 +3,7 @@ import { QRCodeCanvas } from 'qrcode.react';
 import classNames from 'classnames';
 import { ReloadOutlined } from '@ant-design/icons';
 import { ConfigContext } from '../config-provider';
-import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import LocaleReceiver from '../locale/LocaleReceiver';
 import type { ConfigConsumerProps } from '../config-provider';
 import type { QRCodeProps, QRPropsCanvas } from './interface';
 import warning from '../_util/warning';

@@ -2,7 +2,7 @@
 import Pagination from 'rc-pagination/lib/locale/cs_CZ';
 import Calendar from '../calendar/locale/cs_CZ';
 import DatePicker from '../date-picker/locale/cs_CZ';
-import type { Locale } from '../locale-provider';
+import type { Locale } from '../locale';
 import TimePicker from '../time-picker/locale/cs_CZ';
 
 const typeTemplate = '${label} není platný ${type}';
