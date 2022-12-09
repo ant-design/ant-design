@@ -206,7 +206,13 @@ export default ({
     blogList.length
       ? {
           label: (
-            <Link to={utils.getLocalizedPathname(blogList[0].link, isZhCN, search)}>
+            <Link
+              to={utils.getLocalizedPathname(
+                blogList.sort((a, b) => (a.frontmatter.date > b.frontmatter.date ? -1 : 1))[0].link,
+                isZhCN,
+                search,
+              )}
+            >
               {locale.blog}
             </Link>
           ),

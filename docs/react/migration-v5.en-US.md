@@ -207,6 +207,15 @@ const v4Token = convertLegacyToken(mapToken);
 }
 ```
 
+Ant then remove antd less reference in your less file:
+
+```diff
+// Your less file
+--  @import (reference) '~antd/es/style/themes/index';
+or
+--  @import '~antd/es/style/some-other-less-file-ref';
+```
+
 ### Remove babel-plugin-import
 
 Remove `babel-plugin-import` from package.json and modify `.babelrc`:

@@ -329,7 +329,7 @@ export default genComponentStyleHook(
   (token, { rootPrefixCls }) => {
     const selectToken: SelectToken = mergeToken<SelectToken>(token, {
       rootPrefixCls,
-      inputPaddingHorizontalBase: token.controlPaddingHorizontal - 1,
+      inputPaddingHorizontalBase: token.paddingSM - 1,
     });
 
     return [genSelectStyle(selectToken)];

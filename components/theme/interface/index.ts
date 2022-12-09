@@ -18,7 +18,7 @@ export type {
   CommonMapToken,
   HeightMapToken,
   SizeMapToken,
-  FontSizeMapToken,
+  FontMapToken,
   StyleMapToken,
 } from './maps';
 export type { AliasToken } from './alias';
