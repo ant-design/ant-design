@@ -4,7 +4,7 @@ date: 2022-12-08
 author: zombieJ
 ---
 
-在网页开发中，我们时长会遇到弹出元素的需求，比如 Select 的下拉框、或者是 Modal 组件。直接将其渲染到当前节点下时，可能会被父节点的 `overflow: hidden` 裁剪掉：
+在网页开发中，我们时常会遇到弹出元素的需求，比如 Select 的下拉框、或者是 Modal 组件。直接将其渲染到当前节点下时，可能会被父节点的 `overflow: hidden` 裁剪掉：
 
 ![Overflow](https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Noh-TYJ0BdcAAAAAAAAAAAAADrJ8AQ/original)
 
