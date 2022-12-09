@@ -548,7 +548,7 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         colorItemTextHover: colorText,
         colorItemTextHoverHorizontal: colorPrimary,
         colorGroupTitle: colorTextDescription,
-        colorItemTextSelected: colorText,
+        colorItemTextSelected: colorPrimary,
         colorItemTextSelectedHorizontal: colorPrimary,
         colorItemBg: colorBgContainer,
         colorItemBgHover: colorBgTextHover,
