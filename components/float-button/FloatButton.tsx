@@ -53,7 +53,9 @@ const FloatButton: React.ForwardRefRenderFunction<
     [prefixCls, description, icon, type],
   );
 
-  const buttonNode = tooltip ? (
+  const hasTooltip = tooltip !== undefined && tooltip !== null;
+
+  const buttonNode = hasTooltip ? (
     <Tooltip title={tooltip} placement="left">
       <div className={`${prefixCls}-body`}>
         <Content {...contentProps} />
