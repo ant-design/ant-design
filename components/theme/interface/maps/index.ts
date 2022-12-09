@@ -10,7 +10,7 @@ export * from './style';
 export * from './size';
 export * from './font';
 
-export interface CommonMapToken extends StyleMapToken, FontMapToken {
+export interface CommonMapToken extends StyleMapToken {
   // Motion
   motionDurationFast: string;
   motionDurationMid: string;
