@@ -452,40 +452,6 @@ export default () => {
               margin-bottom: 0;
             }
           }
-
-          // For Changelog
-          .markdown ul${antCls}-timeline {
-            line-height: 2;
-
-            li${antCls}-timeline-item {
-              margin: 0;
-              padding: 0 0 30px;
-              list-style: none;
-
-              ${antCls}-timeline-item-content {
-                position: relative;
-                top: -14px;
-                padding-left: 32px;
-                font-size: 14px;
-
-                > h2 {
-                  margin-top: 0;
-                  padding-top: 4px;
-                  direction: ltr;
-
-                  span {
-                    ${antCls}-row-rtl & {
-                      float: right;
-                    }
-                  }
-                }
-              }
-            }
-
-            li${antCls}-timeline-item:first-child {
-              margin-top: 40px;
-            }
-          }
         `}
     />
   );
