@@ -2,7 +2,7 @@ import React from 'react';
 import FloatButton from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render } from '../../../tests/utils';
+import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 
 describe('FloatButton', () => {
   mountTest(FloatButton);
@@ -50,5 +50,16 @@ describe('FloatButton', () => {
       'Warning: [antd: FloatButton] supported only when `shape` is `square`. Due to narrow space for text, short sentence is recommended.',
     );
     errSpy.mockRestore();
+  });
+
+  it('tooltip should support number `0`', async () => {
+    jest.useFakeTimers();
+    const { container } = render(<FloatButton tooltip={0} />);
+    fireEvent.mouseEnter(container.querySelector<HTMLDivElement>('.ant-float-btn-body')!);
+    await waitFakeTimer();
+    const element = container.querySelector('.ant-tooltip')?.querySelector('.ant-tooltip-inner');
+    expect(element?.textContent).toBe('0');
+    jest.clearAllTimers();
+    jest.useRealTimers();
   });
 });
