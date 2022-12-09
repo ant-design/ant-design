@@ -122,7 +122,7 @@ export interface FilterDropdownProps<RecordType> {
   filterResetToDefaultFilteredValue?: boolean;
 }
 
-const dropdownRef:React.RefObject<HTMLElement> = React.createRef();
+const dropdownRef: React.RefObject<HTMLElement> = React.createRef();
 
 function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   const {
@@ -513,14 +513,14 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
             e.stopPropagation();
           }}
           onKeyDown={(e) => {
-            const {key} = e;
-            if (key === 'Enter' || key===' ') {
+            const { key } = e;
+            if (key === 'Enter' || key === ' ') {
               triggerVisible(true);
-              setTimeout(() => {
-                if (dropdownRef && dropdownRef.current) {
-                  dropdownRef.current.focus();
-                }
-              }, 100);
+              /* istanbul ignore next */
+              setTimeout(
+                () => dropdownRef && dropdownRef.current && dropdownRef.current.focus(),
+                100,
+              );
             }
             if (key === 'Escape') {
               triggerVisible(false);
