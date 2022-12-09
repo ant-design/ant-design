@@ -2,7 +2,7 @@ import React from 'react';
 import Watermark from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render } from '../../../tests/utils';
+import { render, waitFor } from '../../../tests/utils';
 
 describe('Watermark', () => {
   mountTest(Watermark);
@@ -49,19 +49,21 @@ describe('Watermark', () => {
     expect(container).toMatchSnapshot();
   });
 
-  it('MutationObserver should work properly', () => {
+  it('MutationObserver should work properly', async () => {
     const { container } = render(<Watermark className="watermark" content="MutationObserver" />);
     const target = container.querySelector<HTMLDivElement>('.watermark div');
     target?.remove();
+    await waitFor(() => expect(target).toBeTruthy());
     expect(container).toMatchSnapshot();
   });
 
-  it('Observe the modification of style', () => {
+  it('Observe the modification of style', async () => {
     const { container } = render(
       <Watermark offset={[-200, -200]} className="watermark" content="MutationObserver" />,
     );
     const target = container.querySelector<HTMLDivElement>('.watermark div');
     target?.setAttribute('style', '');
+    await waitFor(() => expect(target).toBeTruthy());
     expect(container).toMatchSnapshot();
   });
 });
