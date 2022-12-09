@@ -167,7 +167,7 @@ export default genComponentStyleHook(
     const combinedToken = mergeToken<MessageToken>(token, {
       messageNoticeContentPadding: `${
         (token.controlHeightLG - token.fontSize * token.lineHeight) / 2
-      }px ${token.paddingContentVertical}px`,
+      }px 12px`, // Fixed horizontal padding
     });
     return [genMessageStyle(combinedToken)];
   },

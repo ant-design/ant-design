@@ -535,7 +535,7 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         colorFillContent,
         lineWidth,
         lineWidthBold,
-        controlItemBgActiveHover,
+        controlItemBgActive,
         colorBgTextHover,
       } = token;
 
@@ -554,7 +554,7 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         colorItemBgHover: colorBgTextHover,
         colorItemBgActive: colorFillContent,
         colorSubItemBg: colorFillAlter,
-        colorItemBgSelected: controlItemBgActiveHover,
+        colorItemBgSelected: controlItemBgActive,
         colorItemBgSelectedHorizontal: 'transparent',
         colorActiveBarWidth: 0,
         colorActiveBarHeight: lineWidthBold,
