@@ -4,6 +4,9 @@ name: Deploy website
 on:
   release:
     types: [published]
+  # We expect the release of `release-helper` to trigger the job.
+  # but Github Action has limitations, so we're adding a temporary manual trigger build
+  workflow_dispatch:
 
 permissions:
   contents: write
