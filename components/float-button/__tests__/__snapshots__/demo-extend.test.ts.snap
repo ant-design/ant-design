@@ -64,6 +64,28 @@ exports[`renders ./components/float-button/demo/basic.tsx extend context correct
       </div>
     </div>
   </div>
+  <div>
+    <div
+      class="ant-tooltip"
+      style="opacity:0"
+    >
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-arrow"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        />
+      </div>
+    </div>
+  </div>
 </button>
 `;
 
@@ -110,6 +132,28 @@ Array [
         </div>
       </div>
     </div>
+    <div>
+      <div
+        class="ant-tooltip"
+        style="opacity:0"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
   </button>,
   <button
     class="ant-float-btn ant-float-btn-default ant-float-btn-square"
@@ -126,6 +170,28 @@ Array [
           class="ant-float-btn-description"
         >
           HELP INFO
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip"
+        style="opacity:0"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
         </div>
       </div>
     </div>
@@ -168,6 +234,28 @@ Array [
           class="ant-float-btn-description"
         >
           HELP
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip"
+        style="opacity:0"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
         </div>
       </div>
     </div>
@@ -219,6 +307,28 @@ Array [
           </div>
         </div>
       </div>
+      <div>
+        <div
+          class="ant-tooltip"
+          style="opacity:0"
+        >
+          <div
+            class="ant-tooltip-content"
+          >
+            <div
+              class="ant-tooltip-arrow"
+            >
+              <span
+                class="ant-tooltip-arrow-content"
+              />
+            </div>
+            <div
+              class="ant-tooltip-inner"
+              role="tooltip"
+            />
+          </div>
+        </div>
+      </div>
     </button>
     <button
       class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
@@ -252,6 +362,28 @@ Array [
                 />
               </svg>
             </span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div
+          class="ant-tooltip"
+          style="opacity:0"
+        >
+          <div
+            class="ant-tooltip-content"
+          >
+            <div
+              class="ant-tooltip-arrow"
+            >
+              <span
+                class="ant-tooltip-arrow-content"
+              />
+            </div>
+            <div
+              class="ant-tooltip-inner"
+              role="tooltip"
+            />
           </div>
         </div>
       </div>
@@ -299,6 +431,28 @@ Array [
           </div>
         </div>
       </div>
+      <div>
+        <div
+          class="ant-tooltip"
+          style="opacity:0"
+        >
+          <div
+            class="ant-tooltip-content"
+          >
+            <div
+              class="ant-tooltip-arrow"
+            >
+              <span
+                class="ant-tooltip-arrow-content"
+              />
+            </div>
+            <div
+              class="ant-tooltip-inner"
+              role="tooltip"
+            />
+          </div>
+        </div>
+      </div>
     </button>
     <button
       class="ant-float-btn ant-float-btn-default ant-float-btn-square"
@@ -335,6 +489,28 @@ Array [
           </div>
         </div>
       </div>
+      <div>
+        <div
+          class="ant-tooltip"
+          style="opacity:0"
+        >
+          <div
+            class="ant-tooltip-content"
+          >
+            <div
+              class="ant-tooltip-arrow"
+            >
+              <span
+                class="ant-tooltip-arrow-content"
+              />
+            </div>
+            <div
+              class="ant-tooltip-inner"
+              role="tooltip"
+            />
+          </div>
+        </div>
+      </div>
     </button>
     <button
       class="ant-float-btn ant-float-btn-default ant-float-btn-square"
@@ -368,6 +544,28 @@ Array [
                 />
               </svg>
             </span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div
+          class="ant-tooltip"
+          style="opacity:0"
+        >
+          <div
+            class="ant-tooltip-content"
+          >
+            <div
+              class="ant-tooltip-arrow"
+            >
+              <span
+                class="ant-tooltip-arrow-content"
+              />
+            </div>
+            <div
+              class="ant-tooltip-inner"
+              role="tooltip"
+            />
           </div>
         </div>
       </div>
@@ -415,6 +613,28 @@ exports[`renders ./components/float-button/demo/group-menu.tsx extend context co
         </div>
       </div>
     </div>
+    <div>
+      <div
+        class="ant-tooltip"
+        style="opacity:0"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
   </button>
 </div>
 `;
@@ -458,6 +678,28 @@ exports[`renders ./components/float-button/demo/render-panel.tsx extend context 
         </div>
       </div>
     </div>
+    <div>
+      <div
+        class="ant-tooltip"
+        style="opacity:0"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
   </button>
   <button
     class="ant-float-btn ant-float-btn-pure ant-float-btn-default ant-float-btn-circle"
@@ -491,6 +733,28 @@ exports[`renders ./components/float-button/demo/render-panel.tsx extend context 
               />
             </svg>
           </span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip"
+        style="opacity:0"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
         </div>
       </div>
     </div>
@@ -538,6 +802,28 @@ exports[`renders ./components/float-button/demo/render-panel.tsx extend context 
         </div>
       </div>
     </div>
+    <div>
+      <div
+        class="ant-tooltip"
+        style="opacity:0"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
   </button>
   <div
     class="ant-float-btn-group ant-float-btn-pure ant-float-btn-group-square ant-float-btn-group-square-shadow"
@@ -580,6 +866,28 @@ exports[`renders ./components/float-button/demo/render-panel.tsx extend context 
           </div>
         </div>
       </div>
+      <div>
+        <div
+          class="ant-tooltip"
+          style="opacity:0"
+        >
+          <div
+            class="ant-tooltip-content"
+          >
+            <div
+              class="ant-tooltip-arrow"
+            >
+              <span
+                class="ant-tooltip-arrow-content"
+              />
+            </div>
+            <div
+              class="ant-tooltip-inner"
+              role="tooltip"
+            />
+          </div>
+        </div>
+      </div>
     </button>
     <button
       class="ant-float-btn ant-float-btn-default ant-float-btn-square"
@@ -616,6 +924,28 @@ exports[`renders ./components/float-button/demo/render-panel.tsx extend context 
           </div>
         </div>
       </div>
+      <div>
+        <div
+          class="ant-tooltip"
+          style="opacity:0"
+        >
+          <div
+            class="ant-tooltip-content"
+          >
+            <div
+              class="ant-tooltip-arrow"
+            >
+              <span
+                class="ant-tooltip-arrow-content"
+              />
+            </div>
+            <div
+              class="ant-tooltip-inner"
+              role="tooltip"
+            />
+          </div>
+        </div>
+      </div>
     </button>
     <button
       class="ant-float-btn ant-float-btn-default ant-float-btn-square"
@@ -649,6 +979,28 @@ exports[`renders ./components/float-button/demo/render-panel.tsx extend context 
                 />
               </svg>
             </span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div
+          class="ant-tooltip"
+          style="opacity:0"
+        >
+          <div
+            class="ant-tooltip-content"
+          >
+            <div
+              class="ant-tooltip-arrow"
+            >
+              <span
+                class="ant-tooltip-arrow-content"
+              />
+            </div>
+            <div
+              class="ant-tooltip-inner"
+              role="tooltip"
+            />
           </div>
         </div>
       </div>
@@ -698,6 +1050,28 @@ exports[`renders ./components/float-button/demo/render-panel.tsx extend context 
             </div>
           </div>
         </div>
+        <div>
+          <div
+            class="ant-tooltip"
+            style="opacity:0"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
+        </div>
       </button>
       <button
         class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
@@ -731,6 +1105,28 @@ exports[`renders ./components/float-button/demo/render-panel.tsx extend context 
                   />
                 </svg>
               </span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div
+            class="ant-tooltip"
+            style="opacity:0"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
             </div>
           </div>
         </div>
@@ -770,6 +1166,28 @@ exports[`renders ./components/float-button/demo/render-panel.tsx extend context 
             </div>
           </div>
         </div>
+        <div>
+          <div
+            class="ant-tooltip"
+            style="opacity:0"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
+        </div>
       </button>
     </div>
     <button
@@ -804,6 +1222,28 @@ exports[`renders ./components/float-button/demo/render-panel.tsx extend context 
                 />
               </svg>
             </span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div
+          class="ant-tooltip"
+          style="opacity:0"
+        >
+          <div
+            class="ant-tooltip-content"
+          >
+            <div
+              class="ant-tooltip-arrow"
+            >
+              <span
+                class="ant-tooltip-arrow-content"
+              />
+            </div>
+            <div
+              class="ant-tooltip-inner"
+              role="tooltip"
+            />
           </div>
         </div>
       </div>
@@ -890,6 +1330,28 @@ Array [
               />
             </svg>
           </span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip"
+        style="opacity:0"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
         </div>
       </div>
     </div>
@@ -1003,6 +1465,28 @@ Array [
         </div>
       </div>
     </div>
+    <div>
+      <div
+        class="ant-tooltip"
+        style="opacity:0"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
   </button>,
   <button
     class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
@@ -1040,6 +1524,28 @@ Array [
               />
             </svg>
           </span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip"
+        style="opacity:0"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
         </div>
       </div>
     </div>
