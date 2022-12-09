@@ -863,7 +863,7 @@ export function initInputToken<T extends GlobalToken = GlobalToken>(token: T): I
     ),
     inputPaddingHorizontal: token.paddingSM - token.lineWidth,
     inputPaddingHorizontalSM: token.paddingXS - token.lineWidth,
-    inputPaddingHorizontalLG: 12 - token.lineWidth, // Fixed value
+    inputPaddingHorizontalLG: token.controlPaddingHorizontal - token.lineWidth,
     inputBorderHoverColor: token.colorPrimaryHover,
     inputBorderActiveColor: token.colorPrimaryHover,
   });
