@@ -121,6 +121,7 @@ export interface FilterDropdownProps<RecordType> {
   getPopupContainer?: GetPopupContainer;
   filterResetToDefaultFilteredValue?: boolean;
 }
+let dropdownRef = React.createRef();
 
 function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   const {
@@ -460,7 +461,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
           <Button type="link" size="small" disabled={getResetDisabled()} onClick={() => onReset()}>
             {locale.filterReset}
           </Button>
-          <Button type="primary" size="small" onClick={onConfirm}>
+          <Button type="primary" size="small" onClick={onConfirm} ref={dropdownRef}>
             {locale.filterConfirm}
           </Button>
         </div>
@@ -494,7 +495,6 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     <div className={`${prefixCls}-column`}>
       <span className={`${tablePrefixCls}-column-title`}>{children}</span>
       <Dropdown
-        autoFocus
         dropdownRender={menu}
         trigger={['click']}
         open={mergedVisible}
@@ -515,6 +515,12 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
             const {key} = e;
             if (key === 'Enter' || key===' ') {
               triggerVisible(true);
+              setTimeout(() => {
+                if (dropdownRef && dropdownRef.current) {
+                  console.log(dropdownRef, dropdownRef.current);
+                  dropdownRef.current.focus();
+                }
+              }, 100);
             }
             if (key === 'Escape') {
               triggerVisible(false);
