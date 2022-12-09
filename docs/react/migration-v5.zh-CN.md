@@ -199,6 +199,15 @@ const v4Token = convertLegacyToken(mapToken);
 }
 ```
 
+同时移除对 antd less 文件的直接引用：
+
+```diff
+// Your less file
+--  @import (reference) '~antd/es/style/themes/index';
+or
+--  @import '~antd/es/style/some-other-less-file-ref';
+```
+
 ### 移除 babel-plugin-import
 
 从 package.json 中移除 `babel-plugin-import`，并从 `.babelrc` 移除该插件：
