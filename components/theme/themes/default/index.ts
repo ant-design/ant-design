@@ -6,7 +6,7 @@ import { defaultPresetColors } from '../seed';
 import genColorMapToken from '../shared/genColorMapToken';
 import genCommonMapToken from '../shared/genCommonMapToken';
 import { generateColorPalettes, generateNeutralColorPalettes } from './colors';
-import genFontMapToken from 'antd/es/theme/themes/shared/genFontMapToken';
+import genFontMapToken from '../shared/genFontMapToken';
 
 export default function derivative(token: SeedToken): MapToken {
   const colorPalettes = Object.keys(defaultPresetColors)
