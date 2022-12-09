@@ -11,19 +11,19 @@ const getTokenList = (list, source) =>
       desc:
         item.comment?.blockTags
           ?.find((tag) => tag.tag === '@desc')
-          ?.content.reduce((result, str) => result.concat(str.text), '') || '-',
+          ?.content.reduce((result, str) => result.concat(str.text), '') || '',
       descEn:
         item.comment?.blockTags
           ?.find((tag) => tag.tag === '@descEN')
-          ?.content.reduce((result, str) => result.concat(str.text), '') || '-',
+          ?.content.reduce((result, str) => result.concat(str.text), '') || '',
       name:
         item.comment?.blockTags
           ?.find((tag) => tag.tag === '@nameZH')
-          ?.content.reduce((result, str) => result.concat(str.text), '') || '-',
+          ?.content.reduce((result, str) => result.concat(str.text), '') || '',
       nameEn:
         item.comment?.blockTags
           ?.find((tag) => tag.tag === '@nameEN')
-          ?.content.reduce((result, str) => result.concat(str.text), '') || '-',
+          ?.content.reduce((result, str) => result.concat(str.text), '') || '',
     }));
 
 function main() {
