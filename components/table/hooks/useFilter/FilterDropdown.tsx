@@ -121,7 +121,8 @@ export interface FilterDropdownProps<RecordType> {
   getPopupContainer?: GetPopupContainer;
   filterResetToDefaultFilteredValue?: boolean;
 }
-let dropdownRef = React.createRef();
+
+const dropdownRef:React.RefObject<HTMLElement> = React.createRef();
 
 function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   const {
@@ -517,7 +518,6 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
               triggerVisible(true);
               setTimeout(() => {
                 if (dropdownRef && dropdownRef.current) {
-                  console.log(dropdownRef, dropdownRef.current);
                   dropdownRef.current.focus();
                 }
               }, 100);
