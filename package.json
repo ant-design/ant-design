@@ -300,10 +300,6 @@
     {
       "path": "./dist/antd.min.js",
       "limit": "377 KiB"
-    },
-    {
-      "path": "./dist/antd-with-locales.min.js",
-      "limit": "430 KiB"
     }
   ],
   "bundlesize": [
