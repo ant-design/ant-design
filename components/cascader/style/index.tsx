@@ -81,6 +81,7 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token) => {
               flexGrow: 1,
               minWidth: token.controlItemWidth,
               height: token.dropdownHeight,
+              margin: 0,
               padding: token.paddingXXS,
               overflow: 'auto',
               verticalAlign: 'top',
