@@ -1,11 +1,9 @@
+import genFontMapToken from 'antd/es/theme/themes/shared/genFontMapToken';
 import type { CommonMapToken, SeedToken } from '../../interface';
-import genFontSizes from './genFontSizes';
 import genRadius from './genRadius';
 
 export default function genCommonMapToken(token: SeedToken): CommonMapToken {
-  const { motionUnit, motionBase, fontSize, borderRadius, lineWidth } = token;
-
-  const fontSizes = genFontSizes(fontSize);
+  const { motionUnit, motionBase, borderRadius, lineWidth, fontSize } = token;
 
   return {
     // motion
@@ -14,8 +12,7 @@ export default function genCommonMapToken(token: SeedToken): CommonMapToken {
     motionDurationSlow: `${(motionBase + motionUnit * 3).toFixed(1)}s`,
 
     // font
-    fontSizes: fontSizes.map((fs) => fs.size),
-    lineHeights: fontSizes.map((fs) => fs.lineHeight),
+    ...genFontMapToken(fontSize),
 
     // line
     lineWidthBold: lineWidth + 1,
