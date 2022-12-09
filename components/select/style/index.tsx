@@ -231,6 +231,7 @@ const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
       '&:hover': {
         [`${componentCls}-clear`]: {
           opacity: 1,
+          zIndex: 2,
         },
       },
     },

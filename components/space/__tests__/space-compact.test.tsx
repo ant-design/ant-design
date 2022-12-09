@@ -1,9 +1,10 @@
 /* eslint-disable no-console */
 import React from 'react';
+import { waitFor } from '@testing-library/react';
 import Space from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render } from '../../../tests/utils';
+import { fireEvent, render } from '../../../tests/utils';
 import Input from '../../input';
 import Button from '../../button';
 import AutoComplete from '../../auto-complete';
@@ -246,5 +247,41 @@ describe('Space.Compact', () => {
         ?.querySelector('.ant-btn')
         ?.classList.contains('ant-btn-compact-item'),
     ).toBe(false);
+  });
+
+  [
+    {
+      name: 'AutoComplete',
+      component: AutoComplete,
+      defaultProps: { defaultValue: 'AutoComplete' },
+    },
+    {
+      name: 'Cascader',
+      component: Cascader,
+      defaultProps: { defaultValue: ['Cascader'] },
+    },
+    {
+      name: 'Select',
+      component: Select,
+      defaultProps: { defaultValue: 'Select' },
+    },
+    {
+      name: 'TreeSelect',
+      component: TreeSelect,
+      defaultProps: { defaultValue: 'TreeSelect' },
+    },
+  ].forEach(({ component, name, defaultProps }) => {
+    it(`clear icon is show when allowClear prop is enable for ${name}`, () => {
+      const { container } = render(
+        <Space.Compact>
+          {React.createElement(component as any, { allowClear: true, ...defaultProps })}
+        </Space.Compact>,
+      );
+      const element = container.querySelector(`.ant-select`);
+      fireEvent.mouseEnter(element as Element);
+      waitFor(() => {
+        expect(container.querySelector('.ant-select-clear')).toHaveStyle({ zIndex: 2 });
+      });
+    });
   });
 });
