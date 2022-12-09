@@ -497,6 +497,7 @@ export default genComponentStyleHook('Radio', (token) => {
     colorPrimary,
     marginXS,
     controlOutlineWidth,
+    colorTextLightSolid,
     wireframe,
   } = token;
 
@@ -528,7 +529,7 @@ export default genComponentStyleHook('Radio', (token) => {
     radioDotDisabledSize,
     radioCheckedColor,
     radioDotDisabledColor: colorTextDisabled,
-    radioSolidCheckedColor: colorBgContainer,
+    radioSolidCheckedColor: colorTextLightSolid,
     radioButtonBg: colorBgContainer,
     radioButtonCheckedBg: colorBgContainer,
     radioButtonColor,
