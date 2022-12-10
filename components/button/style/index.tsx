@@ -367,6 +367,15 @@ const genTextButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
   },
 });
 
+// Href and Disabled
+const genDisabledButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
+  cursor: 'not-allowed',
+  borderColor: token.colorBorder,
+  color: token.colorTextDisabled,
+  backgroundColor: token.colorBgContainerDisabled,
+  boxShadow: 'none',
+});
+
 const genTypeButtonStyle: GenerateStyle<ButtonToken> = (token) => {
   const { componentCls } = token;
 
@@ -376,6 +385,7 @@ const genTypeButtonStyle: GenerateStyle<ButtonToken> = (token) => {
     [`${componentCls}-dashed`]: genDashedButtonStyle(token),
     [`${componentCls}-link`]: genLinkButtonStyle(token),
     [`${componentCls}-text`]: genTextButtonStyle(token),
+    [`${componentCls}-disabled`]: genDisabledButtonStyle(token),
   };
 };
 
