@@ -265,5 +265,21 @@ describe('Typography copy', () => {
       expect(spy.mock.calls[0][0]).toEqual(nextText);
       jest.useRealTimers();
     });
+
+    it('tooltip should hide when mouse leave', () => {
+      const { container } = render(
+        <Base component="p" copyable>
+          test copy
+        </Base>,
+      );
+
+      expect(container.getElementsByTagName('span')).toHaveLength(1);
+      const button = container.getElementsByTagName('span')[0];
+
+      fireEvent.mouseOver(button);
+      expect(container.querySelector('.ant-tooltip-open')).not.toBeNull();
+      fireEvent.mouseLeave(button);
+      expect(container.querySelector('.ant-tooltip-open')).toBeNull();
+    });
   });
 });

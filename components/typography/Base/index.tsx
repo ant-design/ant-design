@@ -191,15 +191,19 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   // ========================== Copyable ==========================
   const [enableCopy, copyConfig] = useMergedConfig<CopyConfig>(copyable);
   const [copied, setCopied] = React.useState(false);
-  const copyIdRef = React.useRef<number>();
+  const [copyTooltipVisible, setCopyTootipVisible] = React.useState(false);
+  const copyIdsRef = React.useRef<number[]>([]);
+
+  const copyVisibleTime = 3000;
 
   const copyOptions: Pick<CopyConfig, 'format'> = {};
   if (copyConfig.format) {
     copyOptions.format = copyConfig.format;
   }
 
-  const cleanCopyId = () => {
-    window.clearTimeout(copyIdRef.current!);
+  const cleanCopyIds = () => {
+    copyIdsRef.current.forEach((id) => window.clearTimeout(id));
+    copyIdsRef.current = [];
   };
 
   const onCopyClick = (e?: React.MouseEvent<HTMLDivElement>) => {
@@ -211,15 +215,27 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     setCopied(true);
 
     // Trigger tips update
-    cleanCopyId();
-    copyIdRef.current = window.setTimeout(() => {
+    cleanCopyIds();
+    const copyTimeoutId = window.setTimeout(() => {
       setCopied(false);
-    }, 3000);
+    }, copyVisibleTime);
+    const copyVisibleTimeoutId = window.setTimeout(() => {
+      setCopyTootipVisible(false);
+    }, copyVisibleTime - 50);
+    copyIdsRef.current.push(copyTimeoutId, copyVisibleTimeoutId);
 
     copyConfig.onCopy?.(e);
   };
 
-  React.useEffect(() => cleanCopyId, []);
+  const onCopyMouseOver = () => {
+    setCopyTootipVisible(true);
+  };
+
+  const onCopyMouseLeft = () => {
+    setCopyTootipVisible(false);
+  };
+
+  React.useEffect(() => cleanCopyIds, []);
 
   // ========================== Ellipsis ==========================
   const [isLineClampSupport, setIsLineClampSupport] = React.useState(false);
@@ -459,12 +475,16 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     const systemStr = copied ? textLocale.copied : textLocale.copy;
     const ariaLabel = typeof copyTitle === 'string' ? copyTitle : systemStr;
 
+    const tooltipVisible = copyTooltipVisible && !!copyTitle;
+
     return (
-      <Tooltip key="copy" title={copyTitle}>
+      <Tooltip key="copy" title={copyTitle} visible={tooltipVisible}>
         <TransButton
           className={classNames(`${prefixCls}-copy`, copied && `${prefixCls}-copy-success`)}
           onClick={onCopyClick}
           aria-label={ariaLabel}
+          onMouseOver={onCopyMouseOver}
+          onMouseLeave={onCopyMouseLeft}
         >
           {copied
             ? getNode(iconNodes[1], <CheckOutlined />, true)
