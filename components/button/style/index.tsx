@@ -120,6 +120,16 @@ const genRoundButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
 });
 
 // =============================== Type ===============================
+const genDisabledStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => {
+  return {
+    cursor: 'not-allowed',
+    borderColor: token.colorBorder,
+    color: token.colorTextDisabled,
+    backgroundColor: token.colorBgContainerDisabled,
+    boxShadow: 'none',
+  };
+};
+
 const genGhostButtonStyle = (
   btnCls: string,
   textColor: string | false,
@@ -156,11 +166,7 @@ const genGhostButtonStyle = (
 
 const genSolidDisabledButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
   '&:disabled': {
-    cursor: 'not-allowed',
-    borderColor: token.colorBorder,
-    color: token.colorTextDisabled,
-    backgroundColor: token.colorBgContainerDisabled,
-    boxShadow: 'none',
+    ...genDisabledStyle(token),
   },
 });
 
@@ -300,7 +306,6 @@ const genPrimaryButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => 
 // Type: Dashed
 const genDashedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
   ...genDefaultButtonStyle(token),
-
   borderStyle: 'dashed',
 });
 
@@ -369,11 +374,10 @@ const genTextButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
 
 // Href and Disabled
 const genDisabledButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
-  cursor: 'not-allowed',
-  borderColor: token.colorBorder,
-  color: token.colorTextDisabled,
-  backgroundColor: token.colorBgContainerDisabled,
-  boxShadow: 'none',
+  ...genDisabledStyle(token),
+  '&:hover': {
+    ...genDisabledStyle(token),
+  },
 });
 
 const genTypeButtonStyle: GenerateStyle<ButtonToken> = (token) => {
