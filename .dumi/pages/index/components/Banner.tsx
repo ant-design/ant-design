@@ -38,15 +38,15 @@ const useStyle = () => {
           h1& {
             margin-bottom: ${token.margin}px;
             font-weight: normal;
-            font-size: ${token.fontSizes[6] + 2}px;
-            line-height: ${token.lineHeights[5]};
+            font-size: ${token.fontSizeHeading1 + 2}px;
+            line-height: ${token.lineHeightHeading2};
           }
         `
       : css`
           h1& {
             margin-bottom: ${token.marginMD}px;
             font-weight: 900;
-            font-size: ${token.fontSizes[9]}px;
+            font-size: 68px;
           }
         `,
   };
