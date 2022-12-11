@@ -1,10 +1,11 @@
 import { Col, Row, Typography } from 'antd';
-import React from 'react';
+import React, { useContext } from 'react';
 import { css } from '@emotion/react';
 import { Link, useLocation } from 'dumi';
 import useLocale from '../../../hooks/useLocale';
 import useSiteToken from '../../../hooks/useSiteToken';
 import * as utils from '../../../theme/utils';
+import SiteContext from './SiteContext';
 
 const SECONDARY_LIST = [
   {
@@ -98,6 +99,8 @@ export default function DesignFramework() {
   const style = useStyle();
   const { pathname, search } = useLocation();
   const isZhCN = utils.isZhCN(pathname);
+  const { isMobile } = useContext(SiteContext);
+  const colSpan = isMobile ? 24 : 8;
 
   const MAINLY_LIST = [
     {
@@ -124,7 +127,7 @@ export default function DesignFramework() {
         const desc = locale[`${key}Desc` as keyof typeof locale];
 
         return (
-          <Col key={index} span={8}>
+          <Col key={index} span={colSpan}>
             <Link to={path}>
               <div css={style.card}>
                 <img alt={title} src={img} />
@@ -149,7 +152,7 @@ export default function DesignFramework() {
         const desc = locale[`${key}Desc` as keyof typeof locale];
 
         return (
-          <Col key={index} span={8}>
+          <Col key={index} span={colSpan}>
             <a css={style.cardMini} target="_blank" href={url} rel="noreferrer">
               <img alt={title} src={img} style={{ transform: `scale(${imgScale})` }} />
 
