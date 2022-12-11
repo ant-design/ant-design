@@ -397,6 +397,9 @@ export default genComponentStyleHook(
     return [
       genInputNumberStyles(inputNumberToken),
       genAffixWrapperStyles(inputNumberToken),
+      // =====================================================
+      // ==             Space Compact                       ==
+      // =====================================================
       genCompactItemStyle(inputNumberToken),
     ];
   },

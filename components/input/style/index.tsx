@@ -932,6 +932,9 @@ export default genComponentStyleHook('Input', (token) => {
     genAffixStyle(inputToken),
     genGroupStyle(inputToken),
     genSearchInputStyle(inputToken),
+    // =====================================================
+    // ==             Space Compact                       ==
+    // =====================================================
     genCompactItemStyle(inputToken),
   ];
 });

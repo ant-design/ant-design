@@ -1424,6 +1424,9 @@ export default genComponentStyleHook(
     return [
       genPickerStyle(pickerToken),
       genPickerStatusStyle(pickerToken),
+      // =====================================================
+      // ==             Space Compact                       ==
+      // =====================================================
       genCompactItemStyle(token, {
         focusElCls: `${token.componentCls}-focused`,
       }),

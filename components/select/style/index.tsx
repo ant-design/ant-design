@@ -316,7 +316,7 @@ const genSelectStyle: GenerateStyle<SelectToken> = (token) => {
       true,
     ),
     // =====================================================
-    // ==                    Compact                      ==
+    // ==             Space Compact                       ==
     // =====================================================
     genCompactItemStyle(token, {
       borderElCls: `${componentCls}-selector`,

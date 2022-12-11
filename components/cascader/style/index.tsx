@@ -152,7 +152,9 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token) => {
         direction: 'rtl',
       },
     },
-
+    // =====================================================
+    // ==             Space Compact                       ==
+    // =====================================================
     genCompactItemStyle(token),
   ];
 };
