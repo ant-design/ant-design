@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-pascal-case */
 import React, { useContext } from 'react';
 import {
   Space,
