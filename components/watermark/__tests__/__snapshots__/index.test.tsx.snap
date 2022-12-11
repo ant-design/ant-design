@@ -12,6 +12,31 @@ exports[`Watermark Image watermark snapshot 1`] = `
 </div>
 `;
 
+exports[`Watermark Interleaved image watermark snapshot 1`] = `
+<div>
+  <div
+    style="position: relative;"
+  >
+    <div
+      style="z-index: 9; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); background-size: 640px;"
+    />
+  </div>
+</div>
+`;
+
+exports[`Watermark Interleaved watermark backgroundSize is correct 1`] = `
+<div>
+  <div
+    class="watermark"
+    style="position: relative;"
+  >
+    <div
+      style="z-index: 9; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); background-size: 600px;"
+    />
+  </div>
+</div>
+`;
+
 exports[`Watermark MutationObserver should work properly 1`] = `
 <div>
   <div

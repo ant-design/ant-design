@@ -1279,6 +1279,16 @@ exports[`renders ./components/watermark/demo/image.tsx extend context correctly 
 </div>
 `;
 
+exports[`renders ./components/watermark/demo/interlace.tsx extend context correctly 1`] = `
+<div
+  style="position:relative"
+>
+  <div
+    style="height:500px"
+  />
+</div>
+`;
+
 exports[`renders ./components/watermark/demo/multi-line.tsx extend context correctly 1`] = `
 <div
   style="position:relative"

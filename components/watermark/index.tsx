@@ -9,6 +9,7 @@ export interface WatermarkProps {
   rotate?: number;
   width?: number;
   height?: number;
+  interlace?: boolean;
   image?: string;
   content?: string | string[];
   font?: {
@@ -35,6 +36,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
     rotate = -22,
     width,
     height,
+    interlace = false,
     image,
     content,
     font = {},
@@ -58,6 +60,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
   const gapYCenter = gapY / 2;
   const offsetLeft = offset?.[0] ?? gapXCenter;
   const offsetTop = offset?.[1] ?? gapYCenter;
+  const cardinalitySize = interlace ? 2 : 1;
 
   const getMarkStyle = () => {
     const markStyle: React.CSSProperties = {
@@ -108,7 +111,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
         getStyleStr({
           ...getMarkStyle(),
           backgroundImage: `url('${base64Url}')`,
-          backgroundSize: `${gapX + markWidth}px`,
+          backgroundSize: `${(gapX + markWidth) * cardinalitySize}px`,
         }),
       );
       containerRef.current?.append(watermarkRef.current);
@@ -141,6 +144,26 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
     return [width ?? defaultWidth, height ?? defaultHeight] as const;
   };
 
+  const fillTexts = (
+    ctx: CanvasRenderingContext2D,
+    drawX: number,
+    drawY: number,
+    drawWidth: number,
+    drawHeight: number,
+  ) => {
+    const ratio = getPixelRatio();
+    const mergedFontSize = Number(fontSize) * ratio;
+    ctx.font = `${fontStyle} normal ${fontWeight} ${mergedFontSize}px/${drawHeight}px ${fontFamily}`;
+    ctx.fillStyle = color;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'top';
+    ctx.translate(drawWidth / 2, 0);
+    const contents = Array.isArray(content) ? content : [content];
+    contents?.forEach((item, index) => {
+      ctx.fillText(item ?? '', drawX, drawY + index * (mergedFontSize + FontGap * ratio));
+    });
+  };
+
   const renderWatermark = () => {
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
@@ -152,10 +175,10 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
 
       const ratio = getPixelRatio();
       const [markWidth, markHeight] = getMarkSize(ctx);
-      const canvasWidth = `${(gapX + markWidth) * ratio}px`;
-      const canvasHeight = `${(gapY + markHeight) * ratio}px`;
-      canvas.setAttribute('width', canvasWidth);
-      canvas.setAttribute('height', canvasHeight);
+      const canvasWidth = (gapX + markWidth) * ratio;
+      const canvasHeight = (gapY + markHeight) * ratio;
+      canvas.setAttribute('width', `${canvasWidth * cardinalitySize}px`);
+      canvas.setAttribute('height', `${canvasHeight * cardinalitySize}px`);
 
       const drawX = (gapX * ratio) / 2;
       const drawY = (gapY * ratio) / 2;
@@ -163,28 +186,38 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
       const drawHeight = markHeight * ratio;
       const rotateX = (drawWidth + gapX * ratio) / 2;
       const rotateY = (drawHeight + gapY * ratio) / 2;
+      /** Interlace drawing parameters */
+      const interlaceDrawX = drawX + canvasWidth;
+      const interlaceDrawY = drawY + canvasHeight;
+      const interlaceRotateX = rotateX + canvasWidth;
+      const interlaceRotateY = rotateY + canvasHeight;
+
+      ctx.save();
       rotateWatermark(ctx, rotateX, rotateY, rotate);
 
       if (image) {
         const img = new Image();
         img.onload = () => {
           ctx.drawImage(img, drawX, drawY, drawWidth, drawHeight);
+          if (interlace) {
+            /** Draw interleaved pictures after rotation */
+            ctx.restore();
+            rotateWatermark(ctx, interlaceRotateX, interlaceRotateY, rotate);
+            ctx.drawImage(img, interlaceDrawX, interlaceDrawY, drawWidth, drawHeight);
+          }
           appendWatermark(canvas.toDataURL(), markWidth);
         };
         img.crossOrigin = 'anonymous';
         img.referrerPolicy = 'no-referrer';
         img.src = image;
       } else {
-        const mergedFontSize = Number(fontSize) * ratio;
-        ctx.font = `${fontStyle} normal ${fontWeight} ${mergedFontSize}px/${drawHeight}px ${fontFamily}`;
-        ctx.fillStyle = color;
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'top';
-        ctx.translate(drawWidth / 2, 0);
-        const contents = Array.isArray(content) ? content : [content];
-        contents?.forEach((item, index) => {
-          ctx.fillText(item ?? '', drawX, drawY + index * (mergedFontSize + FontGap * ratio));
-        });
+        fillTexts(ctx, drawX, drawY, drawWidth, drawHeight);
+        if (interlace) {
+          /** Fill the interleaved text after rotation */
+          ctx.restore();
+          rotateWatermark(ctx, interlaceRotateX, interlaceRotateY, rotate);
+          fillTexts(ctx, interlaceDrawX, interlaceDrawY, drawWidth, drawHeight);
+        }
         appendWatermark(canvas.toDataURL(), markWidth);
       }
     }

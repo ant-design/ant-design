@@ -20,6 +20,7 @@ Add specific text or patterns to the page.
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/multi-line.tsx">Multi-line watermark</code>
 <code src="./demo/image.tsx">Image watermark</code>
+<code src="./demo/interlace.tsx">Interlaced display</code>
 <code src="./demo/custom.tsx">Custom configuration</code>
 
 ## API
@@ -32,6 +33,7 @@ Add specific text or patterns to the page.
 | height | The height of the watermark, the default value of `content` is its own height | number | 64 |  |
 | rotate | When the watermark is drawn, the rotation Angle, unit `°` | number | -22 |  |
 | zIndex | The z-index of the appended watermark element | number | 9 |  |
+| interlace | Watermark interleaved display | boolean | false |  |
 | image | Image source, it is recommended to export 2x or 3x image, high priority | string | - |  |
 | content | Watermark text content | string \| string[] | - |  |
 | font | Text style | [Font](#Font) | [Font](#Font) |  |

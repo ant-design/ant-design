@@ -42,9 +42,35 @@ describe('Watermark', () => {
     expect(container).toMatchSnapshot();
   });
 
+  it('Interleaved watermark backgroundSize is correct', () => {
+    const { container } = render(
+      <Watermark
+        className="watermark"
+        width={200}
+        height={200}
+        interlace
+        content="Ant Design"
+        gap={[100, 100]}
+      />,
+    );
+    const target = container.querySelector<HTMLDivElement>('.watermark div');
+    expect(target?.style.backgroundSize).toBe('600px');
+    expect(container).toMatchSnapshot();
+  });
+
   it('Image watermark snapshot', () => {
     const { container } = render(
       <Watermark image="https://gw.alipayobjects.com/zos/bmw-prod/59a18171-ae17-4fc5-93a0-2645f64a3aca.svg" />,
+    );
+    expect(container).toMatchSnapshot();
+  });
+
+  it('Interleaved image watermark snapshot', () => {
+    const { container } = render(
+      <Watermark
+        interlace
+        image="https://gw.alipayobjects.com/zos/bmw-prod/59a18171-ae17-4fc5-93a0-2645f64a3aca.svg"
+      />,
     );
     expect(container).toMatchSnapshot();
   });

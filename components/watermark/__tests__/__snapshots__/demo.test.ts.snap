@@ -777,6 +777,16 @@ exports[`renders ./components/watermark/demo/image.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/watermark/demo/interlace.tsx correctly 1`] = `
+<div
+  style="position:relative"
+>
+  <div
+    style="height:500px"
+  />
+</div>
+`;
+
 exports[`renders ./components/watermark/demo/multi-line.tsx correctly 1`] = `
 <div
   style="position:relative"
