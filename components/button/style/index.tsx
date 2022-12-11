@@ -50,8 +50,6 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
         ...genFocusStyle(token),
       },
 
-      ...genCompactItemVerticalStyle(token, componentCls),
-
       // make `btn-icon-only` not too narrow
       '&-icon-only&-compact-item': {
         flex: 'none',
@@ -498,5 +496,6 @@ export default genComponentStyleHook('Button', (token) => {
 
     // Space Compact
     genCompactItemStyle(token, { focus: false }),
+    genCompactItemVerticalStyle(token),
   ];
 });
