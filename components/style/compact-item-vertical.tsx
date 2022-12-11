@@ -1,7 +1,7 @@
 /* eslint-disable import/prefer-default-export */
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import type { DerivativeToken, FullToken } from '../theme/internal';
-import { OverrideComponent } from '../theme/util/genComponentStyleHook';
+import type { OverrideComponent } from '../theme/util/genComponentStyleHook';
 
 function compactItemVerticalBorder(token: DerivativeToken): CSSObject {
   return {
