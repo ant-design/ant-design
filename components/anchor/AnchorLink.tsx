@@ -16,23 +16,14 @@ export interface AnchorLinkBaseProps {
 
 export interface AnchorLinkProps extends AnchorLinkBaseProps {
   children?: React.ReactNode;
-  direction?: 'horizontal' | 'vertical';
 }
 
 const AnchorLink: React.FC<AnchorLinkProps> = (props) => {
-  const {
-    href = '#',
-    title,
-    prefixCls: customizePrefixCls,
-    children,
-    className,
-    target,
-    direction = 'vertical',
-  } = props;
+  const { href = '#', title, prefixCls: customizePrefixCls, children, className, target } = props;
 
   const context = React.useContext<AntAnchor | undefined>(AnchorContext);
 
-  const { registerLink, unregisterLink, scrollTo, onClick, activeLink } = context || {};
+  const { registerLink, unregisterLink, scrollTo, onClick, activeLink, direction } = context || {};
 
   React.useEffect(() => {
     registerLink?.(href);

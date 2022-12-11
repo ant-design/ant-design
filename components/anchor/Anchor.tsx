@@ -75,7 +75,7 @@ export interface AnchorProps {
   /** Listening event when scrolling change active link */
   onChange?: (currentActiveLink: string) => void;
   items?: AnchorLinkItemProps[];
-  direction?: 'vertical' | 'horizontal';
+  direction?: AnchorDirection;
 }
 
 interface InternalAnchorProps extends AnchorProps {
@@ -94,6 +94,8 @@ export interface AnchorDefaultProps extends AnchorProps {
   getContainer: () => AnchorContainer;
 }
 
+export type AnchorDirection = 'vertical' | 'horizontal';
+
 export interface AntAnchor {
   registerLink: (link: string) => void;
   unregisterLink: (link: string) => void;
@@ -103,6 +105,7 @@ export interface AntAnchor {
     e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
     link: { title: React.ReactNode; href: string },
   ) => void;
+  direction: AnchorDirection;
 }
 
 const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
@@ -295,21 +298,16 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
   const createNestedLink = (options?: AnchorLinkItemProps[]) =>
     Array.isArray(options)
       ? options.map((item) => (
-          <AnchorLink {...item} key={item.key} direction={anchorDirection}>
+          <AnchorLink {...item} key={item.key}>
             {anchorDirection === 'vertical' && createNestedLink(item.children)}
           </AnchorLink>
         ))
       : null;
 
-  const renderChildren = (anchorChildren: React.ReactNode) =>
-    toArray(anchorChildren).map((child) =>
-      React.cloneElement(child, { direction: anchorDirection }),
-    );
-
   const anchorContent = (
     <div ref={wrapperRef} className={wrapperClass} style={wrapperStyle}>
       <div className={anchorClass}>
-        {'items' in props ? createNestedLink(items) : renderChildren(children)}
+        {'items' in props ? createNestedLink(items) : children}
         <AnchorInk
           direction={anchorDirection}
           anchorPrefixCls={prefixCls}
@@ -347,8 +345,9 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
       scrollTo: handleScrollTo,
       activeLink,
       onClick,
+      direction: anchorDirection,
     }),
-    [activeLink, onClick, handleScrollTo],
+    [activeLink, onClick, handleScrollTo, anchorDirection],
   );
 
   return (

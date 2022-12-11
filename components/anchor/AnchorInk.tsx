@@ -1,9 +1,10 @@
 import classNames from 'classnames';
 import * as React from 'react';
+import type { AnchorDirection } from './Anchor';
 
 export interface AnchorInkProps {
   anchorPrefixCls: string;
-  direction: 'vertical' | 'horizontal';
+  direction: AnchorDirection;
   activeLink: string | null;
 }
 
