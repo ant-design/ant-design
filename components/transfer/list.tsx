@@ -1,6 +1,6 @@
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import classNames from 'classnames';
-import omit from 'lodash/omit';
+import omit from 'rc-util/lib/omit';
 import * as React from 'react';
 import Checkbox from '../checkbox';
 import Dropdown from '../dropdown';
