@@ -36,6 +36,8 @@ export interface FloatButtonGroupProps extends FloatButtonProps {
   children: React.ReactNode;
   // 触发方式 (有触发方式为菜单模式）
   trigger?: FloatButtonGroupTrigger;
+  // 触发方式为 click 时，是否开启点击外侧自动关闭
+  clickOutAutoClose?: boolean;
   // 受控展开
   open?: boolean;
   // 关闭按钮自定义图标

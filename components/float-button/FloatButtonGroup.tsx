@@ -1,4 +1,4 @@
-import React, { useRef, memo, useContext } from 'react';
+import React, { useRef, memo, useContext, useEffect, useState } from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import FileTextOutlined from '@ant-design/icons/FileTextOutlined';
 import classNames from 'classnames';
@@ -23,6 +23,7 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
     description,
     trigger,
     children,
+    clickOutAutoClose,
     onOpenChange,
   } = props;
 
@@ -41,37 +42,82 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
 
   const [open, setOpen] = useMergedState(false, { value: props.open });
 
-  const clickAction = useRef<React.HTMLAttributes<HTMLAnchorElement | HTMLButtonElement>>({});
+  const floatButtonGroupRef = useRef(null);
+  const floatButtonRef = useRef(null);
 
-  const hoverAction = useRef<React.HTMLAttributes<HTMLDivElement>>({});
+  const [clickAction, setClickAction] = useState({});
 
-  if (trigger === 'click') {
-    clickAction.current = {
-      onClick() {
-        setOpen((prevState) => {
-          onOpenChange?.(!prevState);
-          return !prevState;
-        });
-      },
-    };
-  }
+  const [hoverAction, setHoverAction] = useState({});
 
-  if (trigger === 'hover') {
-    hoverAction.current = {
-      onMouseEnter() {
-        setOpen(true);
-        onOpenChange?.(true);
-      },
-      onMouseLeave() {
-        setOpen(false);
-        onOpenChange?.(false);
-      },
-    };
-  }
+  const openChange = () => {
+    setOpen((prevState) => {
+      onOpenChange?.(!prevState);
+      return !prevState;
+    });
+  };
+
+  const clickTypeAction = {
+    onClick() {
+      openChange();
+    },
+  };
+
+  const hoverTypeAction = {
+    onMouseEnter() {
+      setOpen(true);
+      onOpenChange?.(true);
+    },
+    onMouseLeave() {
+      setOpen(false);
+      onOpenChange?.(false);
+    },
+  };
+
+  useEffect(() => {
+    if (trigger === 'click') {
+      if (clickOutAutoClose) {
+        const BigestEl = document;
+        const clickFn = (e: MouseEvent) => {
+          let clickTarget = e.target as Node;
+          let clickWhich = null;
+          // Distinguish between clicking a button and expanding it in a group
+          const clickMap: Record<string, any> = {
+            clickButton: openChange,
+            clickOther: () => {},
+          };
+          while (clickTarget) {
+            if (clickTarget === floatButtonRef.current) {
+              clickWhich = 'clickButton';
+              break;
+            }
+            if (clickTarget === floatButtonGroupRef.current) {
+              clickWhich = 'clickOther';
+            }
+            clickTarget = clickTarget.parentNode!;
+          }
+          if (clickWhich) {
+            clickMap[clickWhich]();
+            return;
+          }
+          setOpen(false);
+        };
+        BigestEl?.addEventListener('click', clickFn);
+      } else {
+        setClickAction(clickTypeAction);
+      }
+    }
+    if (trigger === 'hover') {
+      setHoverAction(hoverTypeAction);
+    }
+    //  非严格模式下 会在组件卸载时自动 remove ，在合并前取消注释
+    // return (
+    //   BigestEl?.removeEventListener('click', clickFn)
+    // )
+  }, []);
 
   return wrapSSR(
     <FloatButtonGroupProvider value={shape}>
-      <div className={groupCls} style={style} {...hoverAction.current}>
+      <div ref={floatButtonGroupRef} className={groupCls} style={style} {...hoverAction}>
         {trigger && ['click', 'hover'].includes(trigger) ? (
           <>
             <CSSMotion visible={open} motionName={`${groupPrefixCls}-wrap`}>
@@ -80,11 +126,12 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
               )}
             </CSSMotion>
             <FloatButton
+              ref={floatButtonRef}
               type={type}
               shape={shape}
               icon={open ? closeIcon : icon}
               description={description}
-              {...clickAction.current}
+              {...clickAction}
             />
           </>
         ) : (
