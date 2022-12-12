@@ -9,18 +9,6 @@ const App: React.FC = () => (
         key: '1',
         href: '#components-anchor-demo-basic',
         title: 'Basic demo',
-        children: [
-          {
-            key: '4',
-            href: '#anchor-props',
-            title: 'Anchor Props',
-          },
-          {
-            key: '5',
-            href: '#link-props',
-            title: 'Link Props',
-          },
-        ],
       },
       {
         key: '2',
@@ -29,18 +17,30 @@ const App: React.FC = () => (
       },
       {
         key: '3',
-        href: '#api',
+        href: '#components-anchor-demo-customizehighlight',
         title: 'API',
       },
       {
         key: '4',
-        href: '#anchor-props',
+        href: '#components-anchor-demo-onchange',
         title: 'Anchor Props',
       },
       {
         key: '5',
-        href: '#link-props',
+        href: '#api',
         title: 'Link Props',
+        children: [
+          {
+            key: '5.1',
+            href: '#anchor-props',
+            title: 'Anchor Props',
+          },
+          {
+            key: '5.2',
+            href: '#link-props',
+            title: 'Link Props',
+          },
+        ],
       },
     ]}
   />

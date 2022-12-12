@@ -1,6 +1,5 @@
 import classNames from 'classnames';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
-import toArray from 'rc-util/lib/Children/toArray';
 import * as React from 'react';
 import Affix from '../affix';
 import type { ConfigConsumerProps } from '../config-provider';
