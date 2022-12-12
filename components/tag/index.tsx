@@ -8,7 +8,7 @@ import Wave from '../_util/wave';
 import warning from '../_util/warning';
 import CheckableTag from './CheckableTag';
 import useStyle from './style';
-import { LiteralUnion } from '../_util/type';
+import type { LiteralUnion } from '../_util/type';
 
 export type { CheckableTagProps } from './CheckableTag';
 

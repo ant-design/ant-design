@@ -11,7 +11,7 @@ import { getTransitionName } from '../_util/motion';
 import type { AdjustOverflow, PlacementsConfig } from '../_util/placements';
 import getPlacements from '../_util/placements';
 import { cloneElement, isValidElement, isFragment } from '../_util/reactNode';
-import { LiteralUnion } from '../_util/type';
+import type { LiteralUnion } from '../_util/type';
 import warning from '../_util/warning';
 import PurePanel from './PurePanel';
 import useStyle from './style';

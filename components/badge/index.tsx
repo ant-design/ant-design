@@ -5,7 +5,7 @@ import { useMemo, useRef } from 'react';
 import { ConfigContext } from '../config-provider';
 import type { PresetColorType, PresetStatusColorType } from '../_util/colors';
 import { cloneElement } from '../_util/reactNode';
-import { LiteralUnion } from '../_util/type';
+import type { LiteralUnion } from '../_util/type';
 import Ribbon from './Ribbon';
 import ScrollNumber from './ScrollNumber';
 import useStyle from './style';
