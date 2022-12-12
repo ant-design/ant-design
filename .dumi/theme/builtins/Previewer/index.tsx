@@ -17,6 +17,8 @@ import CodeSandboxIcon from '../../common/CodeSandboxIcon';
 import RiddleIcon from '../../common/RiddleIcon';
 import ExternalLinkIcon from '../../common/ExternalLinkIcon';
 import fromDumiProps from './fromDumiProps';
+import type { SiteContextProps } from '../../slots/SiteContext';
+import SiteContext from '../../slots/SiteContext';
 import { version } from '../../../../package.json';
 
 const { ErrorBoundary } = Alert;
@@ -38,7 +40,6 @@ interface DemoProps {
   highlightedStyle: string;
   expand: boolean;
   intl: any;
-  theme: string;
   sourceCodes: Record<'jsx' | 'tsx', string>;
   location: Location;
   showRiddleButton: boolean;
@@ -53,6 +54,8 @@ interface DemoState {
 }
 
 class Demo extends React.Component<DemoProps, DemoState> {
+  static contextType = SiteContext;
+
   liveDemo: any;
 
   iframeRef = React.createRef<HTMLIFrameElement>();
@@ -81,13 +84,12 @@ class Demo extends React.Component<DemoProps, DemoState> {
 
   shouldComponentUpdate(nextProps: DemoProps, nextState: DemoState) {
     const { codeExpand, copied, copyTooltipOpen, codeType } = this.state;
-    const { expand, theme, showRiddleButton } = this.props;
+    const { expand, showRiddleButton } = this.props;
     return (
       (codeExpand || expand) !== (nextState.codeExpand || nextProps.expand) ||
       copied !== nextState.copied ||
       copyTooltipOpen !== nextState.copyTooltipOpen ||
       codeType !== nextState.copyTooltipOpen ||
-      nextProps.theme !== theme ||
       nextProps.showRiddleButton !== showRiddleButton
     );
   }
@@ -129,6 +131,7 @@ class Demo extends React.Component<DemoProps, DemoState> {
   render() {
     const { state } = this;
     const { props } = this;
+    const site: SiteContextProps = this.context;
     const {
       meta,
       src,
@@ -139,7 +142,6 @@ class Demo extends React.Component<DemoProps, DemoState> {
       highlightedStyle,
       expand,
       intl: { locale },
-      theme,
       showRiddleButton,
     } = props;
     const { copied, copyTooltipOpen, codeType } = state;
@@ -465,7 +467,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
                 <img
                   alt="expand code"
                   src={
-                    theme === 'dark'
+                    site.theme.includes('dark')
                       ? 'https://gw.alipayobjects.com/zos/antfincdn/btT3qDZn1U/wSAkBuJFbdxsosKKpqyq.svg'
                       : 'https://gw.alipayobjects.com/zos/antfincdn/Z5c7kzvi30/expand.svg'
                   }
@@ -475,7 +477,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
                 <img
                   alt="expand code"
                   src={
-                    theme === 'dark'
+                    site.theme.includes('dark')
                       ? 'https://gw.alipayobjects.com/zos/antfincdn/CjZPwcKUG3/OpROPHYqWmrMDBFMZtKF.svg'
                       : 'https://gw.alipayobjects.com/zos/antfincdn/4zAaozCvUH/unexpand.svg'
                   }
