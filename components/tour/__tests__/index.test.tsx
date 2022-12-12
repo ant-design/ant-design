@@ -214,7 +214,6 @@ describe('Tour', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Next' }));
     expect(getByText('primary description.')).toBeTruthy();
     expect(container.querySelector('.ant-tour-content.ant-tour-primary')).toBeTruthy();
-    expect(container.firstChild).toMatchSnapshot();
   });
 
   it('basic', () => {
