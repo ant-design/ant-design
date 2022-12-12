@@ -139,13 +139,6 @@ exports[`ConfigProvider components Anchor configProvider 1`] = `
         class="config-anchor"
       >
         <div
-          class="config-anchor-ink"
-        >
-          <span
-            class="config-anchor-ink-ball"
-          />
-        </div>
-        <div
           class="config-anchor-link"
         >
           <a
@@ -155,6 +148,13 @@ exports[`ConfigProvider components Anchor configProvider 1`] = `
           >
             Little Light
           </a>
+        </div>
+        <div
+          class="config-anchor-ink"
+        >
+          <span
+            class="config-anchor-ink-ball"
+          />
         </div>
       </div>
     </div>
@@ -175,13 +175,6 @@ exports[`ConfigProvider components Anchor configProvider componentDisabled 1`] =
         class="config-anchor"
       >
         <div
-          class="config-anchor-ink"
-        >
-          <span
-            class="config-anchor-ink-ball"
-          />
-        </div>
-        <div
           class="config-anchor-link"
         >
           <a
@@ -191,6 +184,13 @@ exports[`ConfigProvider components Anchor configProvider componentDisabled 1`] =
           >
             Little Light
           </a>
+        </div>
+        <div
+          class="config-anchor-ink"
+        >
+          <span
+            class="config-anchor-ink-ball"
+          />
         </div>
       </div>
     </div>
@@ -211,13 +211,6 @@ exports[`ConfigProvider components Anchor configProvider componentSize large 1`]
         class="config-anchor"
       >
         <div
-          class="config-anchor-ink"
-        >
-          <span
-            class="config-anchor-ink-ball"
-          />
-        </div>
-        <div
           class="config-anchor-link"
         >
           <a
@@ -227,6 +220,13 @@ exports[`ConfigProvider components Anchor configProvider componentSize large 1`]
           >
             Little Light
           </a>
+        </div>
+        <div
+          class="config-anchor-ink"
+        >
+          <span
+            class="config-anchor-ink-ball"
+          />
         </div>
       </div>
     </div>
@@ -247,13 +247,6 @@ exports[`ConfigProvider components Anchor configProvider componentSize middle 1`
         class="config-anchor"
       >
         <div
-          class="config-anchor-ink"
-        >
-          <span
-            class="config-anchor-ink-ball"
-          />
-        </div>
-        <div
           class="config-anchor-link"
         >
           <a
@@ -263,6 +256,13 @@ exports[`ConfigProvider components Anchor configProvider componentSize middle 1`
           >
             Little Light
           </a>
+        </div>
+        <div
+          class="config-anchor-ink"
+        >
+          <span
+            class="config-anchor-ink-ball"
+          />
         </div>
       </div>
     </div>
@@ -283,13 +283,6 @@ exports[`ConfigProvider components Anchor configProvider virtual and dropdownMat
         class="ant-anchor"
       >
         <div
-          class="ant-anchor-ink"
-        >
-          <span
-            class="ant-anchor-ink-ball"
-          />
-        </div>
-        <div
           class="ant-anchor-link"
         >
           <a
@@ -299,6 +292,13 @@ exports[`ConfigProvider components Anchor configProvider virtual and dropdownMat
           >
             Little Light
           </a>
+        </div>
+        <div
+          class="ant-anchor-ink"
+        >
+          <span
+            class="ant-anchor-ink-ball"
+          />
         </div>
       </div>
     </div>
@@ -319,13 +319,6 @@ exports[`ConfigProvider components Anchor normal 1`] = `
         class="ant-anchor"
       >
         <div
-          class="ant-anchor-ink"
-        >
-          <span
-            class="ant-anchor-ink-ball"
-          />
-        </div>
-        <div
           class="ant-anchor-link"
         >
           <a
@@ -335,6 +328,13 @@ exports[`ConfigProvider components Anchor normal 1`] = `
           >
             Little Light
           </a>
+        </div>
+        <div
+          class="ant-anchor-ink"
+        >
+          <span
+            class="ant-anchor-ink-ball"
+          />
         </div>
       </div>
     </div>
@@ -355,13 +355,6 @@ exports[`ConfigProvider components Anchor prefixCls 1`] = `
         class="prefix-Anchor"
       >
         <div
-          class="prefix-Anchor-ink"
-        >
-          <span
-            class="prefix-Anchor-ink-ball"
-          />
-        </div>
-        <div
           class="prefix-Anchor-link"
         >
           <a
@@ -371,6 +364,13 @@ exports[`ConfigProvider components Anchor prefixCls 1`] = `
           >
             Little Light
           </a>
+        </div>
+        <div
+          class="prefix-Anchor-ink"
+        >
+          <span
+            class="prefix-Anchor-ink-ball"
+          />
         </div>
       </div>
     </div>
@@ -40531,7 +40531,7 @@ exports[`ConfigProvider components Tree configProvider componentDisabled 1`] = `
     <div
       aria-hidden="true"
       class="config-tree-treenode"
-      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
     >
       <div
         class="config-tree-indent"
@@ -40624,7 +40624,7 @@ exports[`ConfigProvider components Tree configProvider componentSize large 1`] =
     <div
       aria-hidden="true"
       class="config-tree-treenode"
-      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
     >
       <div
         class="config-tree-indent"
@@ -40689,7 +40689,7 @@ exports[`ConfigProvider components Tree configProvider componentSize large 1`] =
     <div
       aria-hidden="true"
       class="config-tree-treenode"
-      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
     >
       <div
         class="config-tree-indent"
@@ -40782,7 +40782,7 @@ exports[`ConfigProvider components Tree configProvider componentSize middle 1`] 
     <div
       aria-hidden="true"
       class="config-tree-treenode"
-      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
     >
       <div
         class="config-tree-indent"
@@ -40847,7 +40847,7 @@ exports[`ConfigProvider components Tree configProvider componentSize middle 1`] 
     <div
       aria-hidden="true"
       class="config-tree-treenode"
-      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
     >
       <div
         class="config-tree-indent"
@@ -40940,7 +40940,7 @@ exports[`ConfigProvider components Tree configProvider virtual and dropdownMatch
     <div
       aria-hidden="true"
       class="ant-tree-treenode"
-      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
     >
       <div
         class="ant-tree-indent"
@@ -41005,7 +41005,7 @@ exports[`ConfigProvider components Tree configProvider virtual and dropdownMatch
     <div
       aria-hidden="true"
       class="ant-tree-treenode"
-      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
     >
       <div
         class="ant-tree-indent"
@@ -41098,7 +41098,7 @@ exports[`ConfigProvider components Tree normal 1`] = `
     <div
       aria-hidden="true"
       class="ant-tree-treenode"
-      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
     >
       <div
         class="ant-tree-indent"
@@ -41163,7 +41163,7 @@ exports[`ConfigProvider components Tree normal 1`] = `
     <div
       aria-hidden="true"
       class="ant-tree-treenode"
-      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
     >
       <div
         class="ant-tree-indent"
@@ -41256,7 +41256,7 @@ exports[`ConfigProvider components Tree prefixCls 1`] = `
     <div
       aria-hidden="true"
       class="prefix-Tree-treenode"
-      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
     >
       <div
         class="prefix-Tree-indent"
@@ -41321,7 +41321,7 @@ exports[`ConfigProvider components Tree prefixCls 1`] = `
     <div
       aria-hidden="true"
       class="prefix-Tree-treenode"
-      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
     >
       <div
         class="prefix-Tree-indent"
@@ -41450,7 +41450,7 @@ exports[`ConfigProvider components TreeSelect configProvider 1`] = `
             <div
               aria-hidden="true"
               class="config-select-tree-treenode"
-              style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+              style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
             >
               <div
                 class="config-select-tree-indent"
@@ -41648,7 +41648,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize large
             <div
               aria-hidden="true"
               class="config-select-tree-treenode"
-              style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+              style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
             >
               <div
                 class="config-select-tree-indent"
@@ -41785,7 +41785,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize middl
             <div
               aria-hidden="true"
               class="config-select-tree-treenode"
-              style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+              style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
             >
               <div
                 class="config-select-tree-indent"
@@ -41922,7 +41922,7 @@ exports[`ConfigProvider components TreeSelect configProvider virtual and dropdow
             <div
               aria-hidden="true"
               class="ant-select-tree-treenode"
-              style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+              style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
             >
               <div
                 class="ant-select-tree-indent"
@@ -42059,7 +42059,7 @@ exports[`ConfigProvider components TreeSelect normal 1`] = `
             <div
               aria-hidden="true"
               class="ant-select-tree-treenode"
-              style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+              style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
             >
               <div
                 class="ant-select-tree-indent"
