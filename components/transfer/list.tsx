@@ -200,11 +200,11 @@ export default class TransferList<
     ) : null;
 
     const { bodyContent, customize } = this.renderListBody(renderList, {
-      ...omit(this.props, OmitProps),
+      ...omit(this.props, OmitProps as unknown as (keyof TransferListProps<RecordType>)[]),
       filteredItems,
       filteredRenderItems,
       selectedKeys: checkedKeys,
-    });
+    } as any);
 
     const getNotFoundContent = () => {
       const contentIndex = this.props.direction === 'left' ? 0 : 1;
