@@ -176,7 +176,44 @@ describe('Tour', () => {
     };
     const { getByText, container } = render(<App />);
     expect(getByText('primary description.')).toBeTruthy();
-    expect(container.querySelector('.ant-tour')).toHaveClass('ant-tour-primary');
+    expect(container.querySelector('.ant-tour-content')).toHaveClass('ant-tour-primary');
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it('step support Primary', () => {
+    const App: React.FC = () => {
+      const coverBtnRef = useRef<HTMLButtonElement>(null);
+      return (
+        <>
+          <button disabled ref={coverBtnRef} type="button">
+            Cover
+          </button>
+
+          <Tour
+            type="default"
+            steps={[
+              {
+                title: 'cover title',
+                description: 'cover description.',
+                target: () => coverBtnRef.current!,
+              },
+              {
+                title: 'primary title',
+                description: 'primary description.',
+                target: () => coverBtnRef.current!,
+                type: 'primary',
+              },
+            ]}
+          />
+        </>
+      );
+    };
+    const { getByText, container } = render(<App />);
+    expect(getByText('cover description.')).toBeTruthy();
+    expect(container.querySelector('.ant-tour-content.ant-tour-primary')).toBeFalsy();
+    fireEvent.click(screen.getByRole('button', { name: 'Next' }));
+    expect(getByText('primary description.')).toBeTruthy();
+    expect(container.querySelector('.ant-tour-content')).toHaveClass('ant-tour-primary');
     expect(container.firstChild).toMatchSnapshot();
   });
 
