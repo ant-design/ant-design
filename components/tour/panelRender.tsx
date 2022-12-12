@@ -93,13 +93,7 @@ const panelRender = (
   return (
     <LocaleReceiver componentName="Tour" defaultLocale={defaultLocale.Tour}>
       {(contextLocale) => (
-        <div
-          className={classNames(
-            mergedType === 'primary' ? `${prefixCls}-primary` : '',
-            className,
-            `${prefixCls}-content`,
-          )}
-        >
+        <div className={classNames(className, `${prefixCls}-content`)}>
           {arrow && <div className={`${prefixCls}-arrow`} key="arrow" />}
           <div className={`${prefixCls}-inner`}>
             <CloseOutlined className={`${prefixCls}-close`} onClick={onClose} />
