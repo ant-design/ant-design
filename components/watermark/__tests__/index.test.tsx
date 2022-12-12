@@ -35,10 +35,10 @@ describe('Watermark', () => {
       />,
     );
     const target = container.querySelector<HTMLDivElement>('.watermark div');
-    expect(target?.style.left).toBe('100px');
-    expect(target?.style.top).toBe('100px');
-    expect(target?.style.width).toBe('calc(100% - 100px)');
-    expect(target?.style.height).toBe('calc(100% - 100px)');
+    expect(target?.style.left).toBe('150px');
+    expect(target?.style.top).toBe('150px');
+    expect(target?.style.width).toBe('calc(100% - 150px)');
+    expect(target?.style.height).toBe('calc(100% - 150px)');
     expect(container).toMatchSnapshot();
   });
 
@@ -48,7 +48,6 @@ describe('Watermark', () => {
         className="watermark"
         width={200}
         height={200}
-        interlace
         content="Ant Design"
         gap={[100, 100]}
       />,
@@ -61,16 +60,6 @@ describe('Watermark', () => {
   it('Image watermark snapshot', () => {
     const { container } = render(
       <Watermark image="https://gw.alipayobjects.com/zos/bmw-prod/59a18171-ae17-4fc5-93a0-2645f64a3aca.svg" />,
-    );
-    expect(container).toMatchSnapshot();
-  });
-
-  it('Interleaved image watermark snapshot', () => {
-    const { container } = render(
-      <Watermark
-        interlace
-        image="https://gw.alipayobjects.com/zos/bmw-prod/59a18171-ae17-4fc5-93a0-2645f64a3aca.svg"
-      />,
     );
     expect(container).toMatchSnapshot();
   });

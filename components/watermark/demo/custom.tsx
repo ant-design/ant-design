@@ -49,7 +49,7 @@ const App: React.FC = () => {
     fontSize: 16,
     zIndex: 11,
     rotate: -22,
-    gap: [200, 200] as [number, number],
+    gap: [100, 100] as [number, number],
     offset: undefined,
   });
   const { content, color, fontSize, zIndex, rotate, gap, offset } = config;

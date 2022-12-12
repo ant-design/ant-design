@@ -2,6 +2,11 @@ import React, { useEffect, useRef } from 'react';
 import useMutationObserver from './useMutationObserver';
 import { getStyleStr, getPixelRatio, rotateWatermark } from './utils';
 
+/**
+ * Base size of the canvas, 1 for parallel layout and 2 for alternate layout
+ * Only alternate layout is currently supported
+ */
+const BaseSize = 2;
 const FontGap = 3;
 
 export interface WatermarkProps {
@@ -9,7 +14,6 @@ export interface WatermarkProps {
   rotate?: number;
   width?: number;
   height?: number;
-  interlace?: boolean;
   image?: string;
   content?: string | string[];
   font?: {
@@ -36,13 +40,12 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
     rotate = -22,
     width,
     height,
-    interlace = false,
     image,
     content,
     font = {},
     style,
     className,
-    gap = [200, 200],
+    gap = [100, 100],
     offset,
     children,
   } = props;
@@ -60,7 +63,6 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
   const gapYCenter = gapY / 2;
   const offsetLeft = offset?.[0] ?? gapXCenter;
   const offsetTop = offset?.[1] ?? gapYCenter;
-  const cardinalitySize = interlace ? 2 : 1;
 
   const getMarkStyle = () => {
     const markStyle: React.CSSProperties = {
@@ -111,7 +113,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
         getStyleStr({
           ...getMarkStyle(),
           backgroundImage: `url('${base64Url}')`,
-          backgroundSize: `${(gapX + markWidth) * cardinalitySize}px`,
+          backgroundSize: `${(gapX + markWidth) * BaseSize}px`,
         }),
       );
       containerRef.current?.append(watermarkRef.current);
@@ -177,8 +179,8 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
       const [markWidth, markHeight] = getMarkSize(ctx);
       const canvasWidth = (gapX + markWidth) * ratio;
       const canvasHeight = (gapY + markHeight) * ratio;
-      canvas.setAttribute('width', `${canvasWidth * cardinalitySize}px`);
-      canvas.setAttribute('height', `${canvasHeight * cardinalitySize}px`);
+      canvas.setAttribute('width', `${canvasWidth * BaseSize}px`);
+      canvas.setAttribute('height', `${canvasHeight * BaseSize}px`);
 
       const drawX = (gapX * ratio) / 2;
       const drawY = (gapY * ratio) / 2;
@@ -186,11 +188,11 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
       const drawHeight = markHeight * ratio;
       const rotateX = (drawWidth + gapX * ratio) / 2;
       const rotateY = (drawHeight + gapY * ratio) / 2;
-      /** Interlace drawing parameters */
-      const interlaceDrawX = drawX + canvasWidth;
-      const interlaceDrawY = drawY + canvasHeight;
-      const interlaceRotateX = rotateX + canvasWidth;
-      const interlaceRotateY = rotateY + canvasHeight;
+      /** Alternate drawing parameters */
+      const alternateDrawX = drawX + canvasWidth;
+      const alternateDrawY = drawY + canvasHeight;
+      const alternateRotateX = rotateX + canvasWidth;
+      const alternateRotateY = rotateY + canvasHeight;
 
       ctx.save();
       rotateWatermark(ctx, rotateX, rotateY, rotate);
@@ -199,12 +201,10 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
         const img = new Image();
         img.onload = () => {
           ctx.drawImage(img, drawX, drawY, drawWidth, drawHeight);
-          if (interlace) {
-            /** Draw interleaved pictures after rotation */
-            ctx.restore();
-            rotateWatermark(ctx, interlaceRotateX, interlaceRotateY, rotate);
-            ctx.drawImage(img, interlaceDrawX, interlaceDrawY, drawWidth, drawHeight);
-          }
+          /** Draw interleaved pictures after rotation */
+          ctx.restore();
+          rotateWatermark(ctx, alternateRotateX, alternateRotateY, rotate);
+          ctx.drawImage(img, alternateDrawX, alternateDrawY, drawWidth, drawHeight);
           appendWatermark(canvas.toDataURL(), markWidth);
         };
         img.crossOrigin = 'anonymous';
@@ -212,12 +212,10 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
         img.src = image;
       } else {
         fillTexts(ctx, drawX, drawY, drawWidth, drawHeight);
-        if (interlace) {
-          /** Fill the interleaved text after rotation */
-          ctx.restore();
-          rotateWatermark(ctx, interlaceRotateX, interlaceRotateY, rotate);
-          fillTexts(ctx, interlaceDrawX, interlaceDrawY, drawWidth, drawHeight);
-        }
+        /** Fill the interleaved text after rotation */
+        ctx.restore();
+        rotateWatermark(ctx, alternateRotateX, alternateRotateY, rotate);
+        fillTexts(ctx, alternateDrawX, alternateDrawY, drawWidth, drawHeight);
         appendWatermark(canvas.toDataURL(), markWidth);
       }
     }

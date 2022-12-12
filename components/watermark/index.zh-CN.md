@@ -21,7 +21,6 @@ demo:
 <code src="./demo/basic.tsx">基本</code>
 <code src="./demo/multi-line.tsx">多行水印</code>
 <code src="./demo/image.tsx">图片水印</code>
-<code src="./demo/interlace.tsx">交错显示</code>
 <code src="./demo/custom.tsx">自定义配置</code>
 
 ## API
@@ -34,11 +33,10 @@ demo:
 | height | 水印的高度，`content` 的默认值为自身的高度 | number | 64 |  |
 | rotate | 水印绘制时，旋转的角度，单位 `°` | number | -22 |  |
 | zIndex | 追加的水印元素的 z-index | number | 9 |  |
-| interlace | 水印交错显示 | boolean | false |  |
 | image | 图片源，建议导出 2 倍或 3 倍图，优先级高 | string | - |  |
 | content | 水印文字内容 | string \| string[] | - |  |
 | font | 文字样式 | [Font](#Font) | [Font](#Font) |  |
-| gap | 水印之间的间距 | \[number, number\] | \[200, 200\] |  |
+| gap | 水印之间的间距 | \[number, number\] | \[100, 100\] |  |
 | offset | 水印距离容器左上角的偏移量，默认为 `gap/2` | \[number, number\] | \[gap\[0\]/2, gap\[1\]/2\] |  |
 
 ### Font
