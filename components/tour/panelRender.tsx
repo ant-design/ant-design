@@ -101,7 +101,7 @@ const panelRender = (
           )}
         >
           {arrow && <div className={`${prefixCls}-arrow`} key="arrow" />}
-          <div className={classNames(`${prefixCls}-inner`, className)}>
+          <div className={`${prefixCls}-inner`}>
             <CloseOutlined className={`${prefixCls}-close`} onClick={onClose} />
             {coverNode}
             {headerNode}
