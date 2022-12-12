@@ -2,7 +2,6 @@ import classNames from 'classnames';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import type { PresetColorType } from '../_util/colors';
-import type { LiteralUnion } from '../_util/type';
 import useStyle from './style';
 import { isPresetColor } from './utils';
 
@@ -13,7 +12,7 @@ export interface RibbonProps {
   prefixCls?: string;
   style?: React.CSSProperties; // style of ribbon element, not the wrapper
   text?: React.ReactNode;
-  color?: LiteralUnion<PresetColorType, string>;
+  color?: PresetColorType | (string & {});
   children?: React.ReactNode;
   placement?: RibbonPlacement;
 }

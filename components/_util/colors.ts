@@ -1,5 +1,3 @@
-import type { ElementOf } from './type';
-
 export const PresetStatusColorTypes = [
   'success',
   'processing',
@@ -7,7 +5,7 @@ export const PresetStatusColorTypes = [
   'default',
   'warning',
 ] as const;
-// eslint-disable-next-line import/prefer-default-export
+
 export const PresetColorTypes = [
   'pink',
   'red',
@@ -24,5 +22,6 @@ export const PresetColorTypes = [
   'lime',
 ] as const;
 
-export type PresetColorType = ElementOf<typeof PresetColorTypes>;
-export type PresetStatusColorType = ElementOf<typeof PresetStatusColorTypes>;
+export type PresetColorType = typeof PresetColorTypes[number];
+
+export type PresetStatusColorType = typeof PresetStatusColorTypes[number];
