@@ -13,7 +13,6 @@ const App: React.FC = () => (
     <FloatButton.Group shape="square" style={{ right: 94 }}>
       <FloatButton icon={<QuestionCircleOutlined />} />
       <FloatButton />
-      <FloatButton icon={<SyncOutlined />} />
       <FloatButton.BackTop visibilityHeight={0} />
     </FloatButton.Group>
   </>
