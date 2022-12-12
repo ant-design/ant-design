@@ -217,7 +217,7 @@ exports[`renders ./components/anchor/demo/horizontal.tsx correctly 1`] = `
         >
           <a
             class="ant-anchor-link-title"
-            href="#api"
+            href="#components-anchor-demo-customizehighlight"
             title="API"
           >
             API
@@ -228,7 +228,7 @@ exports[`renders ./components/anchor/demo/horizontal.tsx correctly 1`] = `
         >
           <a
             class="ant-anchor-link-title"
-            href="#anchor-props"
+            href="#components-anchor-demo-onchange"
             title="Anchor Props"
           >
             Anchor Props
@@ -239,7 +239,7 @@ exports[`renders ./components/anchor/demo/horizontal.tsx correctly 1`] = `
         >
           <a
             class="ant-anchor-link-title"
-            href="#link-props"
+            href="#api"
             title="Link Props"
           >
             Link Props
