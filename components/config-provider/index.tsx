@@ -4,11 +4,13 @@ import { FormProvider as RcFormProvider } from 'rc-field-form';
 import type { ValidateMessages } from 'rc-field-form/lib/interface';
 import useMemo from 'rc-util/lib/hooks/useMemo';
 import * as React from 'react';
+import type { FormProps as RcFormProps } from 'rc-field-form/lib/Form';
 import type { ReactElement } from 'react';
+import type { Options } from 'scroll-into-view-if-needed';
 import type { RequiredMark } from '../form/Form';
-import type { Locale } from '../locale';
-import LocaleProvider, { ANT_MARK } from '../locale';
-import LocaleReceiver from '../locale/LocaleReceiver';
+import type { Locale } from '../locale-provider';
+import LocaleProvider, { ANT_MARK } from '../locale-provider';
+import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale/en_US';
 import { DesignTokenContext } from '../theme/internal';
 import defaultSeedToken from '../theme/themes/seed';
@@ -21,6 +23,7 @@ import useTheme from './hooks/useTheme';
 import type { SizeType } from './SizeContext';
 import SizeContext, { SizeContextProvider } from './SizeContext';
 import useStyle from './style';
+import ScrollErrorContext from './ScrollErrorContext';
 
 export {
   type RenderEmptyHandler,
@@ -68,6 +71,7 @@ export interface ConfigProviderProps {
     validateMessages?: ValidateMessages;
     requiredMark?: RequiredMark;
     colon?: boolean;
+    scrollToFirstError?: Options | boolean;
   };
   input?: {
     autoComplete?: string;
@@ -235,8 +239,18 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     validateMessages = { ...validateMessages, ...form.validateMessages };
   }
 
-  if (Object.keys(validateMessages).length > 0) {
-    childNode = <RcFormProvider validateMessages={validateMessages}>{children}</RcFormProvider>;
+  if (Object.keys(validateMessages).length > 0 || form?.scrollToFirstError) {
+    const tempProps: RcFormProps = {};
+    if (Object.keys(validateMessages).length > 0) {
+      tempProps.validateMessages = validateMessages;
+    }
+    childNode = (
+      <RcFormProvider {...tempProps}>
+        <ScrollErrorContext.Provider value={form?.scrollToFirstError || false}>
+          {children}
+        </ScrollErrorContext.Provider>
+      </RcFormProvider>
+    );
   }
 
   if (locale) {

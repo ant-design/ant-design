@@ -7,6 +7,7 @@ import { useMemo } from 'react';
 import type { Options } from 'scroll-into-view-if-needed';
 import { ConfigContext } from '../config-provider';
 import DisabledContext, { DisabledContextProvider } from '../config-provider/DisabledContext';
+import ScrollErrorContext from '../config-provider/ScrollErrorContext';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext, { SizeContextProvider } from '../config-provider/SizeContext';
 import type { ColProps } from '../grid/col';
@@ -41,8 +42,9 @@ export interface FormProps<Values = any> extends Omit<RcFormProps<Values>, 'form
 const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (props, ref) => {
   const contextSize = React.useContext(SizeContext);
   const contextDisabled = React.useContext(DisabledContext);
-  const { getPrefixCls, direction, form: contextForm } = React.useContext(ConfigContext);
+  const contextScrollToFirstError = React.useContext(ScrollErrorContext);
 
+  const { getPrefixCls, direction, form: contextForm } = React.useContext(ConfigContext);
   const {
     prefixCls: customizePrefixCls,
     className = '',
@@ -56,7 +58,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
     wrapperCol,
     hideRequiredMark,
     layout = 'horizontal',
-    scrollToFirstError,
+    scrollToFirstError = contextScrollToFirstError,
     requiredMark,
     onFinishFailed,
     name,

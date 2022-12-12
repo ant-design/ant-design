@@ -1,19 +1,36 @@
 import React from 'react';
 import { act } from 'react-dom/test-utils';
+import scrollIntoView from 'scroll-into-view-if-needed';
 import ConfigProvider from '..';
-import { render } from '../../../tests/utils';
+import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import type { FormInstance } from '../../form';
 import Form from '../../form';
+import Button from '../../button';
 import Input from '../../input';
 import zhCN from '../../locale/zh_CN';
+jest.mock('scroll-into-view-if-needed');
 
 describe('ConfigProvider.Form', () => {
   beforeAll(() => {
     jest.useFakeTimers();
   });
-
+  afterEach(() => {
+    errorSpy.mockReset();
+  });
   afterAll(() => {
+    jest.clearAllTimers();
     jest.useRealTimers();
+    errorSpy.mockRestore();
+    warnSpy.mockRestore();
+    (scrollIntoView as any).mockRestore();
+  });
+  (scrollIntoView as any).mockImplementation(() => {});
+  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
+  beforeEach(() => {
+    document.body.innerHTML = '';
+    jest.useFakeTimers();
+    (scrollIntoView as any).mockReset();
   });
 
   describe('form validateMessages', () => {
@@ -96,6 +113,34 @@ describe('ConfigProvider.Form', () => {
         </ConfigProvider>,
       );
       expect(container.firstChild).toMatchSnapshot();
+    });
+  });
+
+  describe('form scrollToFirstError', () => {
+    it('set scrollToFirstError center', async () => {
+      const onFinishFailed = jest.fn();
+      const { container } = render(
+        <ConfigProvider form={{ scrollToFirstError: { block: 'center' } }}>
+          <Form onFinishFailed={onFinishFailed}>
+            <Form.Item name="test" rules={[{ required: true }]}>
+              <input />
+            </Form.Item>
+            <Form.Item>
+              <Button htmlType="submit">Submit</Button>
+            </Form.Item>
+          </Form>
+        </ConfigProvider>,
+      );
+      expect(scrollIntoView).not.toHaveBeenCalled();
+      fireEvent.submit(container.querySelector('form')!);
+      await waitFakeTimer();
+
+      const inputNode = document.getElementById('test');
+      expect(scrollIntoView).toHaveBeenCalledWith(inputNode, {
+        block: 'center',
+        scrollMode: 'if-needed',
+      });
+      expect(onFinishFailed).toHaveBeenCalled();
     });
   });
 
