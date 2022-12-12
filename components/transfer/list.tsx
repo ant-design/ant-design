@@ -15,7 +15,7 @@ import type {
   TransferLocale,
 } from './index';
 import type { PaginationType } from './interface';
-import type { TransferListBodyProps } from './ListBody';
+import type { OmitProp, TransferListBodyProps } from './ListBody';
 import DefaultListBody, { OmitProps } from './ListBody';
 import Search from './search';
 
@@ -199,12 +199,14 @@ export default class TransferList<
       </div>
     ) : null;
 
-    const { bodyContent, customize } = this.renderListBody(renderList, {
-      ...omit(this.props, OmitProps as unknown as (keyof TransferListProps<RecordType>)[]),
+    const bodyProps: TransferListBodyProps<RecordType> = {
+      ...omit(this.props, OmitProps as unknown as OmitProp[]),
       filteredItems,
       filteredRenderItems,
       selectedKeys: checkedKeys,
-    } as any);
+    };
+
+    const { bodyContent, customize } = this.renderListBody(renderList, bodyProps);
 
     const getNotFoundContent = () => {
       const contentIndex = this.props.direction === 'left' ? 0 : 1;
