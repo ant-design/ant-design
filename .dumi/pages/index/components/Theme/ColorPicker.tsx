@@ -20,7 +20,7 @@ const useStyle = () => {
       transition: all ${token.motionDurationFast};
       display: inline-block;
 
-      & > input[type='radio'] {
+      & > input[type="radio"] {
         width: 0;
         height: 0;
         opacity: 0;
