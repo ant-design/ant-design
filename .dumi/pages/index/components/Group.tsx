@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useContext } from 'react';
 import { Typography } from 'antd';
 import useSiteToken from '../../../hooks/useSiteToken';
-import SiteContext from './SiteContext';
+import SiteContext from '../../../theme/slots/SiteContext';
 
 export interface GroupMaskProps {
   style?: React.CSSProperties;
