@@ -7,6 +7,7 @@ export type ScreenMap = Partial<Record<Breakpoint, boolean>>;
 export type ScreenSizeMap = Partial<Record<Breakpoint, number>>;
 
 export const responsiveArray: Breakpoint[] = ['xxl', 'xl', 'lg', 'md', 'sm', 'xs'];
+type SubscribeFunc = (screens: ScreenMap) => void;
 
 const getResponsiveMap = (token: GlobalToken): BreakpointMap => ({
   xs: `(max-width: ${token.screenXSMax}px)`,
@@ -16,8 +17,6 @@ const getResponsiveMap = (token: GlobalToken): BreakpointMap => ({
   xl: `(min-width: ${token.screenXL}px)`,
   xxl: `(min-width: ${token.screenXXL}px)`,
 });
-
-type SubscribeFunc = (screens: ScreenMap) => void;
 
 export default function useResponsiveObserve() {
   const [, token] = useToken();
