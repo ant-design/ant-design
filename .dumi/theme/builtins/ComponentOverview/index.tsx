@@ -1,5 +1,5 @@
 import React, { memo, useMemo, useState } from 'react';
-import { Link, useIntl, useSidebarData } from 'dumi';
+import { Link, useIntl, useSidebarData, useLocation } from 'dumi';
 import { css } from '@emotion/react';
 import debounce from 'lodash/debounce';
 import { Card, Col, Divider, Input, Row, Space, Tag, Typography } from 'antd';
@@ -81,7 +81,7 @@ const { Title } = Typography;
 const Overview: React.FC = () => {
   const style = useStyle();
   const data = useSidebarData();
-
+  const { search: urlSearch } = useLocation();
   const { locale, formatMessage } = useIntl();
 
   const [search, setSearch] = useState<string>('');
@@ -154,10 +154,16 @@ const Overview: React.FC = () => {
               </Title>
               <Row gutter={[24, 24]}>
                 {components.map((component) => {
-                  const url = `${component.link}/`;
+                  /** 是否是外链 */
+                  const isExternalLink = component.link.startsWith('http');
+                  let url = `${component.link}`;
+
+                  if (!isExternalLink) {
+                    url += urlSearch;
+                  }
 
                   /** Link 不能跳转到外链 */
-                  const ComponentLink = !url.startsWith('http') ? Link : 'a';
+                  const ComponentLink = isExternalLink ? 'a' : Link;
 
                   return (
                     <Col xs={24} sm={12} lg={8} xl={6} key={component?.title}>
