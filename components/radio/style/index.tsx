@@ -483,8 +483,6 @@ export default genComponentStyleHook('Radio', (token) => {
     controlItemBgActiveDisabled,
     colorTextDisabled,
     colorBgContainer,
-    fontSize,
-    lineHeight,
     fontSizeLG,
     controlOutline,
     colorPrimaryHover,
