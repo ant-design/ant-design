@@ -24,25 +24,12 @@ demo:
 
 ### 1. 基础用法
 
-```tsx
-import React from 'react';
-import { App } from 'antd';
+```markdown
+import React from 'react'; import { App } from 'antd';
 
-const MyPage: React.FC = () => {
-  const { message, notification, modal } = App.useApp();
-  message.success('Good!');
-  notification.info({ message: 'Good' });
-  modal.warning({ title: 'Good' });
-  // ....
-  // other message, notification, modal static function
-  return <div>Hello word</div>;
-};
+const MyPage: React.FC = () => { const { message, notification, modal } = App.useApp(); message.success('Good!'); notification.info({ message: 'Good' }); modal.warning({ title: 'Good' }); // .... // other message, notification, modal static function return <div>Hello word</div>; };
 
-const MyApp: React.FC = () => (
-  <App>
-    <MyPage />
-  </App>
-);
+const MyApp: React.FC = () => ( <App> <MyPage /> </App> );
 
 export default MyApp;
 ```
@@ -53,120 +40,40 @@ export default MyApp;
 
 ### 4. 内嵌使用场景（如无必要，尽量不做嵌套）
 
-```tsx
-import React from 'react';
-import { App, Button, Space } from 'antd';
+```markdown
+import React from 'react'; import { App, Button, Space } from 'antd';
 
-const MyApp: React.FC = () => {
-  const { message, modal, notification } = App.useApp();
+const MyApp: React.FC = () => { const { message, modal, notification } = App.useApp();
 
-  const showMessage = () => {
-    message.success('Success!');
-  };
+const showMessage = () => { message.success('Success!'); };
 
-  const showModal = () => {
-    modal.warning({
-      title: 'This is a warning message',
-      content: 'some messages...some messages...',
-    });
-  };
+const showModal = () => { modal.warning({ title: 'This is a warning message', content: 'some messages...some messages...', }); };
 
-  const showNotification = () => {
-    notification.info({
-      message: `Notification topLeft`,
-      description: 'Hello, Ant Design!!',
-      placement: 'topLeft',
-    });
-  };
+const showNotification = () => { notification.info({ message: `Notification topLeft`, description: 'Hello, Ant Design!!', placement: 'topLeft', }); };
 
-  return (
-    <App>
-      <Space>
-        <Button type="primary" onClick={showMessage}>
-          Open message
-        </Button>
-        <App>
-          <Button type="primary" onClick={showModal}>
-            Open modal
-          </Button>
-          <Button type="primary" onClick={showNotification}>
-            Open notification
-          </Button>
-        </App>
-      </Space>
-    </App>
-  );
-};
+return ( <App> <Space> <Button type="primary" onClick={showMessage}> Open message </Button> <App> <Button type="primary" onClick={showModal}> Open modal </Button> <Button type="primary" onClick={showNotification}> Open notification </Button> </App> </Space> </App> ); };
 ```
 
 ### 5. 全局场景（rudux 场景）
 
-```tsx
-//  store.js
-import React, { useEffect } from 'react';
-import { App } from 'antd';
-import type { MessageInstance } from 'antd/es/message/interface';
-import type { NotificationInstance } from 'antd/es/notification/interface';
-import type { ModalStaticFunctions } from 'antd/es/modal/confirm';
+```markdown
+// store.js import React, { useEffect } from 'react'; import { App } from 'antd'; import type { MessageInstance } from 'antd/es/message/interface'; import type { NotificationInstance } from 'antd/es/notification/interface'; import type { ModalStaticFunctions } from 'antd/es/modal/confirm';
 
-let message: MessageInstance;
-let notification: NotificationInstance;
-let modal: Omit<ModalStaticFunctions, 'warn'>;
+let message: MessageInstance; let notification: NotificationInstance; let modal: Omit<ModalStaticFunctions, 'warn'>;
 
-// Entry component
-export default () => {
-  const staticFunction = App.useApp();
-  message = staticFunction.message;
-  modal = staticFunction.modal;
-  notification = staticFunction.notification;
-  useEffect(() => {}, []);
-  return null;
-};
+// Entry component export default () => { const staticFunction = App.useApp(); message = staticFunction.message; modal = staticFunction.modal; notification = staticFunction.notification; useEffect(() => {}, []); return null; };
 
 export { message, notification, modal };
 ```
 
-```tsx
-// sub page
-import React from 'react';
-import { Button, Space } from 'antd';
-import { message, modal, notification } from './store';
+```markdown
+// sub page import React from 'react'; import { Button, Space } from 'antd'; import { message, modal, notification } from './store';
 
-// Sub page
-export default () => {
-  const showMessage = () => {
-    console.log('message', message);
-    console.log('modal', modal);
-    message.success('Success!');
-  };
+// Sub page export default () => { const showMessage = () => { console.log('message', message); console.log('modal', modal); message.success('Success!'); };
 
-  const showModal = () => {
-    modal.warning({
-      title: 'This is a warning message',
-      content: 'some messages...some messages...',
-    });
-  };
+const showModal = () => { modal.warning({ title: 'This is a warning message', content: 'some messages...some messages...', }); };
 
-  const showNotification = () => {
-    notification.info({
-      message: `Notification topLeft`,
-      description: 'Hello, Ant Design!!',
-      placement: 'topLeft',
-    });
-  };
+const showNotification = () => { notification.info({ message: `Notification topLeft`, description: 'Hello, Ant Design!!', placement: 'topLeft', }); };
 
-  return (
-    <Space>
-      <Button type="primary" onClick={showMessage}>
-        Open message
-      </Button>
-      <Button type="primary" onClick={showModal}>
-        Open modal
-      </Button>
-      <Button type="primary" onClick={showNotification}>
-        Open notification
-      </Button>
-    </Space>
-  );
-};
+return ( <Space> <Button type="primary" onClick={showMessage}> Open message </Button> <Button type="primary" onClick={showModal}> Open modal </Button> <Button type="primary" onClick={showNotification}> Open notification </Button> </Space> ); };
 ```
