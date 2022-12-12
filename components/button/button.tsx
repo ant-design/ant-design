@@ -261,7 +261,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
     hashId,
     {
       [`${prefixCls}-${shape}`]: shape !== 'default' && shape, // Note: Shape also has `default`
-      [`${prefixCls}-${type}`]: !hrefAndDisabled && type,
+      [`${prefixCls}-${type}`]: type,
       [`${prefixCls}-${sizeCls}`]: sizeCls,
       [`${prefixCls}-icon-only`]: !children && children !== 0 && !!iconType,
       [`${prefixCls}-background-ghost`]: ghost && !isUnBorderedButtonType(type),
