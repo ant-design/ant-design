@@ -1,9 +1,14 @@
 import type { ElementOf } from './type';
-import { tuple } from './type';
 
-export const PresetStatusColorTypes = tuple('success', 'processing', 'error', 'default', 'warning');
+export const PresetStatusColorTypes = [
+  'success',
+  'processing',
+  'error',
+  'default',
+  'warning',
+] as const;
 // eslint-disable-next-line import/prefer-default-export
-export const PresetColorTypes = tuple(
+export const PresetColorTypes = [
   'pink',
   'red',
   'yellow',
@@ -17,7 +22,7 @@ export const PresetColorTypes = tuple(
   'volcano',
   'gold',
   'lime',
-);
+] as const;
 
 export type PresetColorType = ElementOf<typeof PresetColorTypes>;
 export type PresetStatusColorType = ElementOf<typeof PresetStatusColorTypes>;

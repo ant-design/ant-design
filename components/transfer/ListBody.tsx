@@ -3,12 +3,11 @@ import * as React from 'react';
 import type { KeyWiseTransferItem } from '.';
 import Pagination from '../pagination';
 import type { ElementOf } from '../_util/type';
-import { tuple } from '../_util/type';
 import type { PaginationType } from './interface';
 import type { RenderedItem, TransferListProps } from './list';
 import ListItem from './ListItem';
 
-export const OmitProps = tuple('handleFilter', 'handleClear', 'checkedKeys');
+export const OmitProps = ['handleFilter', 'handleClear', 'checkedKeys'] as const;
 export type OmitProp = ElementOf<typeof OmitProps>;
 type PartialTransferListProps<RecordType> = Omit<TransferListProps<RecordType>, OmitProp>;
 

@@ -14,7 +14,6 @@ import type {
 import type { SizeType } from '../../config-provider/SizeContext';
 import type { TimePickerLocale } from '../../time-picker';
 import type { InputStatus } from '../../_util/statusUtils';
-import { tuple } from '../../_util/type';
 import PickerButton from '../PickerButton';
 import generateRangePicker from './generateRangePicker';
 import generateSinglePicker from './generateSinglePicker';
@@ -70,7 +69,7 @@ export function getTimeProps<DateType, DisabledTime>(
     showTime: showTimeObj,
   };
 }
-const DataPickerPlacements = tuple('bottomLeft', 'bottomRight', 'topLeft', 'topRight');
+const DataPickerPlacements = ['bottomLeft', 'bottomRight', 'topLeft', 'topRight'] as const;
 type DataPickerPlacement = typeof DataPickerPlacements[number];
 
 type InjectDefaultProps<Props> = Omit<
