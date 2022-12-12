@@ -18,13 +18,15 @@ const getResponsiveMap = (token: GlobalToken): BreakpointMap => ({
 });
 
 type SubscribeFunc = (screens: ScreenMap) => void;
-const subscribers = new Map<Number, SubscribeFunc>();
-let subUid = -1;
-let screens = {};
 
 export default function useResponsiveObserve() {
   const [, token] = useToken();
   const responsiveMap: BreakpointMap = getResponsiveMap(token);
+
+  const subscribers = new Map<Number, SubscribeFunc>();
+  let subUid = -1;
+  let screens = {};
+
   return {
     matchHandlers: {} as {
       [prop: string]: {
