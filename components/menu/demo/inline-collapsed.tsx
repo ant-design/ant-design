@@ -9,7 +9,7 @@ import {
   PieChartOutlined,
 } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
-import { Button, Menu } from 'antd';
+import { Button, ConfigProvider, Menu } from 'antd';
 
 type MenuItem = Required<MenuProps>['items'][number];
 
@@ -61,14 +61,16 @@ const App: React.FC = () => {
       <Button type="primary" onClick={toggleCollapsed} style={{ marginBottom: 16 }}>
         {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
       </Button>
-      <Menu
-        defaultSelectedKeys={['1']}
-        defaultOpenKeys={['sub1']}
-        mode="inline"
-        theme="dark"
-        inlineCollapsed={collapsed}
-        items={items}
-      />
+      <ConfigProvider theme={{ components: { Menu: { disableCollapseMotion: true } } }}>
+        <Menu
+          defaultSelectedKeys={['1']}
+          defaultOpenKeys={['sub1']}
+          mode="inline"
+          theme="dark"
+          inlineCollapsed={collapsed}
+          items={items}
+        />
+      </ConfigProvider>
     </div>
   );
 };

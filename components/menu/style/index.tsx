@@ -55,6 +55,8 @@ export interface ComponentToken {
   colorActiveBarBorderSize: number;
 
   itemMarginInline: number;
+
+  disableCollapseMotion: boolean;
 }
 
 export interface MenuToken extends FullToken<'Menu'> {
@@ -77,6 +79,7 @@ const genMenuItemStyle = (token: MenuToken): CSSObject => {
     motionEaseOut,
     iconCls,
     controlHeightSM,
+    disableCollapseMotion,
   } = token;
 
   return {
@@ -90,8 +93,10 @@ const genMenuItemStyle = (token: MenuToken): CSSObject => {
       transition: [
         `border-color ${motionDurationSlow}`,
         `background ${motionDurationSlow}`,
-        `padding ${motionDurationSlow} ${motionEaseInOut}`,
-      ].join(','),
+        disableCollapseMotion ? '' : `padding ${motionDurationSlow} ${motionEaseInOut}`,
+      ]
+        .filter((style) => style)
+        .join(','),
 
       [`${componentCls}-item-icon, ${iconCls}`]: {
         minWidth: fontSize,
@@ -217,6 +222,7 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
     menuArrowOffset,
     lineType,
     menuPanelMaskInset,
+    disableCollapseMotion,
   } = token;
 
   return [
@@ -250,8 +256,10 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
         transition: [
           `background ${motionDurationSlow}`,
           // Magic cubic here but smooth transition
-          `width ${motionDurationSlow} cubic-bezier(0.2, 0, 0, 1) 0s`,
-        ].join(','),
+          disableCollapseMotion ? '' : `width ${motionDurationSlow} cubic-bezier(0.2, 0, 0, 1) 0s`,
+        ]
+          .filter((style) => style)
+          .join(','),
 
         [`ul, ol`]: {
           margin: 0,
@@ -571,6 +579,8 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         colorDangerItemBgSelected: colorErrorBg,
 
         itemMarginInline: token.marginXXS,
+
+        disableCollapseMotion: false,
       };
     },
   );
