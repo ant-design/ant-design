@@ -1,6 +1,6 @@
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import classNames from 'classnames';
-import omit from 'rc-util/lib/omit';
+import omit from 'lodash/omit';
 import * as React from 'react';
 import Checkbox from '../checkbox';
 import Dropdown from '../dropdown';
@@ -15,7 +15,7 @@ import type {
   TransferLocale,
 } from './index';
 import type { PaginationType } from './interface';
-import type { OmitProp, TransferListBodyProps } from './ListBody';
+import type { TransferListBodyProps } from './ListBody';
 import DefaultListBody, { OmitProps } from './ListBody';
 import Search from './search';
 
@@ -200,7 +200,7 @@ export default class TransferList<
     ) : null;
 
     const { bodyContent, customize } = this.renderListBody(renderList, {
-      ...omit(this.props, OmitProps as unknown as OmitProp[]),
+      ...omit(this.props, OmitProps),
       filteredItems,
       filteredRenderItems,
       selectedKeys: checkedKeys,
