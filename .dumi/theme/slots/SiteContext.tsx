@@ -6,14 +6,14 @@ export interface SiteContextProps {
   isMobile: boolean;
   direction: DirectionType;
   theme: ThemeName[];
-  updateSiteContext: (props: Partial<SiteContextProps>) => void;
+  updateSiteConfig: (props: Partial<SiteContextProps>) => void;
 }
 
 const SiteContext = React.createContext<SiteContextProps>({
   isMobile: false,
   direction: 'ltr',
   theme: ['light'],
-  updateSiteContext: () => {},
+  updateSiteConfig: () => {},
 });
 
 export default SiteContext;

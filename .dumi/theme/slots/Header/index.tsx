@@ -182,7 +182,7 @@ const Header: React.FC = () => {
     windowWidth: 1400,
     searching: false,
   });
-  const { direction, isMobile, updateSiteContext } = useContext<SiteContextProps>(SiteContext);
+  const { direction, isMobile, updateSiteConfig } = useContext<SiteContextProps>(SiteContext);
   const pingTimer = useRef<NodeJS.Timeout | null>(null);
   const location = useLocation();
   const { pathname, search } = location;
@@ -202,7 +202,7 @@ const Header: React.FC = () => {
     setHeaderState((prev) => ({ ...prev, menuVisible: visible }));
   }, []);
   const onDirectionChange = () => {
-    updateSiteContext({ direction: direction !== 'rtl' ? 'rtl' : 'ltr' });
+    updateSiteConfig({ direction: direction !== 'rtl' ? 'rtl' : 'ltr' });
   };
 
   useEffect(() => {

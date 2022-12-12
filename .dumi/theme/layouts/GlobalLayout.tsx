@@ -40,37 +40,45 @@ const GlobalLayout: React.FC = () => {
     theme: ['light'],
   });
 
-  const updateSiteContext = useCallback((props: SiteState) => {
-    setSiteState((prev) => ({ ...prev, ...props }));
+  const updateSiteConfig = useCallback(
+    (props: SiteState) => {
+      setSiteState((prev) => ({ ...prev, ...props }));
 
-    let nextSearchParams: URLSearchParams = searchParams;
-    (Object.entries(props) as Entries<SiteContextProps>).forEach(([key, value]) => {
-      if (key === 'direction') {
-        if (value === 'rtl') {
-          nextSearchParams.set('direction', 'rtl');
-        } else {
-          nextSearchParams.delete('direction');
+      // updating `searchParams` will clear the hash
+      const oldSearchStr = searchParams.toString();
+
+      let nextSearchParams: URLSearchParams = searchParams;
+      (Object.entries(props) as Entries<SiteContextProps>).forEach(([key, value]) => {
+        if (key === 'direction') {
+          if (value === 'rtl') {
+            nextSearchParams.set('direction', 'rtl');
+          } else {
+            nextSearchParams.delete('direction');
+          }
         }
-      }
-      if (key === 'theme') {
-        nextSearchParams = createSearchParams({
-          ...nextSearchParams,
-          theme: value.filter((t) => t !== 'light'),
-        });
-      }
-    });
+        if (key === 'theme') {
+          nextSearchParams = createSearchParams({
+            ...nextSearchParams,
+            theme: value.filter((t) => t !== 'light'),
+          });
+        }
+      });
 
-    setSearchParams(nextSearchParams);
-  }, [searchParams, setSearchParams]);
+      if (nextSearchParams.toString() !== oldSearchStr) {
+        setSearchParams(nextSearchParams);
+      }
+    },
+    [searchParams, setSearchParams],
+  );
 
   const updateMobileMode = () => {
-    updateSiteContext({ isMobile: window.innerWidth < RESPONSIVE_MOBILE });
+    updateSiteConfig({ isMobile: window.innerWidth < RESPONSIVE_MOBILE });
   };
 
   useEffect(() => {
     const _theme = searchParams.getAll('theme') as ThemeName[];
     const _direction = searchParams.get('direction') as DirectionType;
-    setSiteState({ theme: _theme, direction: _direction });
+    setSiteState({ theme: _theme, direction: _direction === 'rtl' ? 'rtl' : 'ltr' });
 
     // Handle isMobile
     updateMobileMode();
@@ -83,11 +91,11 @@ const GlobalLayout: React.FC = () => {
   const siteContextValue = useMemo(
     () => ({
       direction,
-      updateSiteContext,
+      updateSiteConfig,
       theme: theme!,
       isMobile: isMobile!,
     }),
-    [isMobile, direction, updateSiteContext, theme],
+    [isMobile, direction, updateSiteConfig, theme],
   );
 
   return (
@@ -102,7 +110,7 @@ const GlobalLayout: React.FC = () => {
           {!pathname.startsWith('/~demos') && (
             <ThemeSwitch
               value={theme}
-              onChange={(nextTheme) => updateSiteContext({ theme: nextTheme })}
+              onChange={(nextTheme) => updateSiteConfig({ theme: nextTheme })}
             />
           )}
         </ConfigProvider>
