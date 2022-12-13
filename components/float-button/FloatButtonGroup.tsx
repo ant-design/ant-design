@@ -56,9 +56,7 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
     },
   };
   const hoverAction = useMemo(() => {
-    if (trigger === 'hover') {
-      return hoverTypeAction;
-    }
+    return trigger === 'hover' ? hoverTypeAction : {};
   }, [trigger]);
 
   const handleOpenChange = () => {
