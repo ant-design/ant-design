@@ -1,4 +1,4 @@
-import React, { useRef, memo, useContext, useEffect, useState } from 'react';
+import React, { useRef, memo, useContext, useEffect, useCallback, useMemo } from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import FileTextOutlined from '@ant-design/icons/FileTextOutlined';
 import classNames from 'classnames';
@@ -23,7 +23,7 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
     description,
     trigger,
     children,
-    clickOutAutoClose,
+    clickOutAutoClose = true,
     onOpenChange,
   } = props;
 
@@ -42,25 +42,8 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
 
   const [open, setOpen] = useMergedState(false, { value: props.open });
 
-  const floatButtonGroupRef = useRef(null);
-  const floatButtonRef = useRef(null);
-
-  const [clickAction, setClickAction] = useState({});
-
-  const [hoverAction, setHoverAction] = useState({});
-
-  const openChange = () => {
-    setOpen((prevState) => {
-      onOpenChange?.(!prevState);
-      return !prevState;
-    });
-  };
-
-  const clickTypeAction = {
-    onClick() {
-      openChange();
-    },
-  };
+  const floatButtonGroupRef = useRef<HTMLElement>(null);
+  const floatButtonRef = useRef<HTMLElement>(null);
 
   const hoverTypeAction = {
     onMouseEnter() {
@@ -72,47 +55,43 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
       onOpenChange?.(false);
     },
   };
+  const hoverAction = useMemo(() => {
+    if (trigger === 'hover') {
+      return hoverTypeAction;
+    }
+  }, [trigger]);
+
+  const openChange = () => {
+    setOpen((prevState) => {
+      onOpenChange?.(!prevState);
+      return !prevState;
+    });
+  };
+
+  const onClick = useCallback(
+    (e: MouseEvent) => {
+      if (trigger !== 'click') return;
+      const target = e.target;
+      if (floatButtonGroupRef.current!.contains(target as Node)) {
+        if (floatButtonRef.current!.contains(target as Node)) {
+          openChange();
+          return;
+        } else {
+          return;
+        }
+      }
+      if (clickOutAutoClose) {
+        setOpen(false);
+      }
+    },
+    [clickOutAutoClose, trigger],
+  );
 
   useEffect(() => {
-    if (trigger === 'click') {
-      if (clickOutAutoClose) {
-        const BigestEl = document;
-        const clickFn = (e: MouseEvent) => {
-          let clickTarget = e.target as Node;
-          let clickWhich = null;
-          // Distinguish between clicking a button and expanding it in a group
-          const clickMap: Record<string, any> = {
-            clickButton: openChange,
-            clickOther: () => {},
-          };
-          while (clickTarget) {
-            if (clickTarget === floatButtonRef.current) {
-              clickWhich = 'clickButton';
-              break;
-            }
-            if (clickTarget === floatButtonGroupRef.current) {
-              clickWhich = 'clickOther';
-            }
-            clickTarget = clickTarget.parentNode!;
-          }
-          if (clickWhich) {
-            clickMap[clickWhich]();
-            return;
-          }
-          setOpen(false);
-        };
-        BigestEl?.addEventListener('click', clickFn);
-      } else {
-        setClickAction(clickTypeAction);
-      }
-    }
-    if (trigger === 'hover') {
-      setHoverAction(hoverTypeAction);
-    }
-    //  非严格模式下 会在组件卸载时自动 remove ，在合并前取消注释
-    // return (
-    //   BigestEl?.removeEventListener('click', clickFn)
-    // )
+    document.addEventListener('click', onClick);
+    return () => {
+      document.removeEventListener('click', onClick);
+    };
   }, []);
 
   return wrapSSR(
@@ -131,7 +110,6 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
               shape={shape}
               icon={open ? closeIcon : icon}
               description={description}
-              {...clickAction}
             />
           </>
         ) : (
