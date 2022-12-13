@@ -78,6 +78,7 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
       }
       if (clickOutAutoClose) {
         setOpen(false);
+        onOpenChange?.(false);
       }
     },
     [clickOutAutoClose, trigger],
