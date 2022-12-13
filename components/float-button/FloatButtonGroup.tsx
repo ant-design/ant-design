@@ -61,7 +61,7 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
     }
   }, [trigger]);
 
-  const openChange = () => {
+  const handleOpenChange = () => {
     setOpen((prevState) => {
       onOpenChange?.(!prevState);
       return !prevState;
@@ -73,7 +73,7 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
       if (trigger !== 'click') return;
       if (floatButtonGroupRef.current!.contains(e.target as Node)) {
         if (!floatButtonRef.current!.contains(e.target as Node)) return;
-        openChange();
+        handleOpenChange();
         return;
       }
       if (clickOutAutoClose) {
