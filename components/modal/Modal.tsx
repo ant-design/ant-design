@@ -45,9 +45,9 @@ export interface ModalProps {
   /** 是否显示右上角的关闭按钮 */
   closable?: boolean;
   /** 点击确定回调 */
-  onOk?: (e: React.MouseEvent<HTMLElement>) => void;
+  onOk?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   /** 点击模态框右上角叉、取消按钮、Props.maskClosable 值为 true 时的遮罩层或键盘按下 Esc 时的回调 */
-  onCancel?: (e: React.MouseEvent<HTMLElement>) => void;
+  onCancel?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   afterClose?: () => void;
   /** 垂直居中 */
   centered?: boolean;
@@ -104,8 +104,8 @@ export interface ModalFuncProps {
   closable?: boolean;
   content?: React.ReactNode;
   // TODO: find out exact types
-  onOk?: (...args: any[]) => any;
-  onCancel?: (...args: any[]) => any;
+  onOk?: (args: React.MouseEvent<HTMLButtonElement>) => void;
+  onCancel?: (args: React.MouseEvent<HTMLButtonElement>) => void;
   afterClose?: () => void;
   okButtonProps?: ButtonProps;
   cancelButtonProps?: ButtonProps;
@@ -201,11 +201,7 @@ const Modal: React.FC<ModalProps> = (props) => {
         <Dialog
           width={width}
           {...restProps}
-          getContainer={
-            getContainer === undefined
-              ? (getContextPopupContainer as getContainerFunc)
-              : getContainer
-          }
+          getContainer={getContainer === undefined ? getContextPopupContainer : getContainer}
           prefixCls={prefixCls}
           rootClassName={hashId}
           wrapClassName={wrapClassNameExtended}
