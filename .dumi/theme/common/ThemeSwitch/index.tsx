@@ -14,7 +14,7 @@ export type ThemeSwitchProps = {
 
 const ThemeSwitch: React.FC<ThemeSwitchProps> = ({ value, onChange }) => (
   <FloatButton.Group trigger="click" icon={<ThemeIcon />}>
-    <Link to="/theme-editor">
+    <Link to="/theme-editor" style={{ display: 'block', marginBottom: 16 }}>
       <FloatButton
         icon={<BgColorsOutlined />}
         tooltip={<FormattedMessage id="app.footer.theme" />}
