@@ -42,8 +42,8 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
 
   const [open, setOpen] = useMergedState(false, { value: props.open });
 
-  const floatButtonGroupRef = useRef<HTMLElement>(null);
-  const floatButtonRef = useRef<HTMLElement>(null);
+  const floatButtonGroupRef = useRef<HTMLDivElement>(null);
+  const floatButtonRef = useRef<HTMLButtonElement>(null);
 
   const hoverTypeAction = {
     onMouseEnter() {
@@ -71,14 +71,10 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
   const onClick = useCallback(
     (e: MouseEvent) => {
       if (trigger !== 'click') return;
-      const target = e.target;
-      if (floatButtonGroupRef.current!.contains(target as Node)) {
-        if (floatButtonRef.current!.contains(target as Node)) {
-          openChange();
-          return;
-        } else {
-          return;
-        }
+      if (floatButtonGroupRef.current!.contains(e.target as Node)) {
+        if (!floatButtonRef.current!.contains(e.target as Node)) return;
+        openChange();
+        return;
       }
       if (clickOutAutoClose) {
         setOpen(false);
