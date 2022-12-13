@@ -83,11 +83,13 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
   );
 
   useEffect(() => {
-    document.addEventListener('click', onClick);
-    return () => {
-      document.removeEventListener('click', onClick);
-    };
-  }, []);
+    if (trigger === 'click') {
+      document.addEventListener('click', onClick);
+      return () => {
+        document.removeEventListener('click', onClick);
+      };
+    }
+  }, [trigger]);
 
   return wrapSSR(
     <FloatButtonGroupProvider value={shape}>
