@@ -373,7 +373,7 @@ const genTextButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
 // Href and Disabled
 const genDisabledButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
   ...genDisabledStyle(token),
-  '.ant-btn&:hover': {
+  [`&${token.componentCls}:hover`]: {
     ...genDisabledStyle(token),
   },
 });
