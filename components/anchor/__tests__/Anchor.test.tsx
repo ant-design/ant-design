@@ -1,4 +1,6 @@
 import React from 'react';
+import { resetWarned } from 'rc-util/lib/warning';
+
 import Anchor from '..';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 
@@ -498,7 +500,7 @@ describe('horizontal anchor', () => {
   it('test direction prop', () => {
     const { container } = render(
       <Anchor
-        direction='horizontal'
+        direction="horizontal"
         items={[
           {
             key: '1',
@@ -522,5 +524,144 @@ describe('horizontal anchor', () => {
     expect(
       container.querySelector('.ant-anchor-wrapper')?.classList.contains('ant-anchor-horizontal'),
     ).toBeTruthy();
+  });
+
+  it('nested children via items should be filtered out when direction is horizontal', () => {
+    const { container } = render(
+      <Anchor
+        direction="horizontal"
+        items={[
+          {
+            key: '1',
+            href: '#components-anchor-demo-basic',
+            title: 'Item Basic Demo',
+          },
+          {
+            key: '2',
+            href: '#components-anchor-demo-static',
+            title: 'Static demo',
+          },
+          {
+            key: '3',
+            href: '#api',
+            title: 'API',
+            children: [
+              {
+                key: '4',
+                href: '#anchor-props',
+                title: 'Anchor Props',
+              },
+              {
+                key: '5',
+                href: '#link-props',
+                title: 'Link Props',
+              },
+            ],
+          },
+        ]}
+      />,
+    );
+    expect(container.querySelectorAll('.ant-anchor-link').length).toBe(3);
+  });
+
+  it('nested children via jsx should be filtered out when direction is horizontal', () => {
+    const { container } = render(
+      <Anchor direction="horizontal">
+        <Link href="#components-anchor-demo-basic" title="Basic demo" />
+        <Link href="#components-anchor-demo-static" title="Static demo" />
+        <Link href="#api" title="API">
+          <Link href="#anchor-props" title="Anchor Props" />
+          <Link href="#link-props" title="Link Props" />
+        </Link>
+      </Anchor>,
+    );
+    expect(container.querySelectorAll('.ant-anchor-link').length).toBe(3);
+  });
+});
+
+describe('warning', () => {
+  let errSpy: jest.SpyInstance;
+  beforeEach(() => {
+    resetWarned();
+    errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  });
+
+  afterEach(() => {
+    errSpy.mockRestore();
+  });
+
+  it('deprecated jsx style', () => {
+    render(
+      <Anchor direction="horizontal">
+        <Link href="#components-anchor-demo-basic" title="Basic demo" />
+        <Link href="#components-anchor-demo-static" title="Static demo" />
+      </Anchor>,
+    );
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Anchor] `Anchor children` is deprecated. Please use `items` instead.',
+    );
+  });
+
+  it('warning nested children when direction is horizontal ', () => {
+    render(
+      <Anchor
+        direction="horizontal"
+        items={[
+          {
+            key: '1',
+            href: '#components-anchor-demo-basic',
+            title: 'Item Basic Demo',
+          },
+          {
+            key: '2',
+            href: '#components-anchor-demo-static',
+            title: 'Static demo',
+          },
+          {
+            key: '3',
+            href: '#api',
+            title: 'API',
+            children: [
+              {
+                key: '4',
+                href: '#anchor-props',
+                title: 'Anchor Props',
+              },
+            ],
+          },
+        ]}
+      />,
+    );
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Anchor] `Anchor items#children` is not supported when `Anchor` direction is horizontal.',
+    );
+  });
+
+  it('deprecated jsx style for direction#vertical', () => {
+    render(
+      <Anchor>
+        <Link href="#components-anchor-demo-basic" title="Basic demo" />
+        <Link href="#components-anchor-demo-static" title="Static demo" />
+      </Anchor>,
+    );
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Anchor] `Anchor children` is deprecated. Please use `items` instead.',
+    );
+  });
+
+  it('deprecated jsx style for direction#vertical 1: with nested children', () => {
+    render(
+      <Anchor direction="horizontal">
+        <Link href="#api" title="API">
+          <Link href="#anchor-props" title="Anchor Props" />
+        </Link>
+      </Anchor>,
+    );
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Anchor] `Anchor children` is deprecated. Please use `items` instead.',
+    );
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Anchor.Link] `Anchor.Link children` is not supported when `Anchor` direction is horizontal',
+    );
   });
 });

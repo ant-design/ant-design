@@ -136,7 +136,7 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
     warning(
       !(anchorDirection === 'horizontal' && items?.some((n) => 'children' in n)),
       'Anchor',
-      '`Anchor items#children` is not supported when `Anchor` direction is horizontal',
+      '`Anchor items#children` is not supported when `Anchor` direction is horizontal.',
     );
   }
 
