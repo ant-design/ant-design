@@ -23,7 +23,6 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
     description,
     trigger,
     children,
-    clickOutAutoClose = true,
     onOpenChange,
   } = props;
 
@@ -72,12 +71,8 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
         handleOpenChange();
         return;
       }
-      if (clickOutAutoClose) {
-        setOpen(false);
-        onOpenChange?.(false);
-      }
     },
-    [clickOutAutoClose, trigger],
+    [trigger],
   );
 
   useEffect(() => {
