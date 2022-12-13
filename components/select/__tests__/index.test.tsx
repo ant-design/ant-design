@@ -7,6 +7,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, act } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
+import getIcons from '../utils/iconUtil';
 
 const { Option } = Select;
 
@@ -146,6 +147,11 @@ describe('Select', () => {
       expect(container.querySelector('.legacy')).toBeTruthy();
 
       errSpy.mockRestore();
+    });
+    it('loading Icons', () => {
+      const { suffixIcon } = getIcons({ prefixCls: 'test', loading: true });
+      const { container } = render(suffixIcon as React.ReactElement);
+      expect(container).toMatchSnapshot();
     });
   });
 });
