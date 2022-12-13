@@ -4,8 +4,10 @@ const semver = require('semver');
 const dayjs = require('dayjs');
 const chalk = require('chalk');
 const { spawnSync } = require('child_process');
+const relativeTime = require('dayjs/plugin/relativeTime');
 // const packageJson = require('../package.json');
 
+dayjs.extend(relativeTime);
 const CONCH_TAG = 'conch-v5';
 
 const DEPRECIATED_VERSION = {
