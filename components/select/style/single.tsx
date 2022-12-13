@@ -165,7 +165,6 @@ export default function genSingleStyle(token: SelectToken): CSSInterpolation {
 
           // With arrow should provides `padding-right` to show the arrow
           [`&${componentCls}-show-arrow ${componentCls}-selection-search`]: {
-            insetInlineStart: 'auto',
             insetInlineEnd: inputPaddingHorizontalSM + token.fontSize * 1.5,
           },
 

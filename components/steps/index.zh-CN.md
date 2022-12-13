@@ -12,27 +12,9 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*677sTqCpE3wAAAAAAA
 
 当任务复杂或者存在先后关系时，将其分解成一系列步骤，从而简化任务。
 
-### 4.24.0 用法升级
-
-<Alert message="在 4.24.0 版本后，我们提供了 &lt;Steps items={[...]} /&gt; 的简写方式，有更好的性能和更方便的数据组织方式，开发者不再需要自行拼接 JSX。同时我们废弃了原先的写法，你还是可以在 4.x 继续使用，但会在控制台看到警告，并会在 5.0 后移除。"></Alert>
-
-```jsx
-// >=4.24.0 可用，推荐的写法 ✅
-const items = [{ title: '第一步' }, { title: '第二步' }, { title: '第三步' }];
-return <Steps items={items} />;
-
-// <4.24.0 可用，>=4.24.0 时不推荐 🙅🏻‍♀️
-<Steps>
-  <Step title="第一步" />
-  <Step title="第二步" />
-  <Step title="第三步" />
-</Steps>;
-```
-
 ## 代码演示
 
 <!-- prettier-ignore -->
-<code src="./demo/deprecated.tsx">基本用法 (废弃的语法糖)</code>
 <code src="./demo/simple.tsx">基本用法</code>
 <code src="./demo/small-size.tsx">迷你版</code>
 <code src="./demo/icon.tsx">带图标的步骤条</code>
@@ -50,6 +32,7 @@ return <Steps items={items} />;
 <code src="./demo/progress-debug.tsx" debug>Progress Debug</code>
 <code src="./demo/steps-in-steps.tsx" debug>Steps 嵌套 Steps</code>
 <code src="./demo/inline.tsx">内联步骤</code>
+<code src="./demo/wireframe.tsx" debug>线框风格</code>
 
 ## API
 

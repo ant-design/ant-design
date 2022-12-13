@@ -2,14 +2,12 @@
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
-
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
 import { useCompactItemContext } from '../space/Compact';
 import { cloneElement, isFragment } from '../_util/reactNode';
-import { tuple } from '../_util/type';
 import warning from '../_util/warning';
 import Wave from '../_util/wave';
 import Group, { GroupSizeContext } from './button-group';
@@ -78,11 +76,13 @@ function spaceChildren(children: React.ReactNode, needInserted: boolean) {
   );
 }
 
-const ButtonTypes = tuple('default', 'primary', 'ghost', 'dashed', 'link', 'text');
+const ButtonTypes = ['default', 'primary', 'ghost', 'dashed', 'link', 'text'] as const;
 export type ButtonType = typeof ButtonTypes[number];
-const ButtonShapes = tuple('default', 'circle', 'round');
+
+const ButtonShapes = ['default', 'circle', 'round'] as const;
 export type ButtonShape = typeof ButtonShapes[number];
-const ButtonHTMLTypes = tuple('submit', 'button', 'reset');
+
+const ButtonHTMLTypes = ['submit', 'button', 'reset'] as const;
 export type ButtonHTMLType = typeof ButtonHTMLTypes[number];
 
 export type LegacyButtonType = ButtonType | 'danger';

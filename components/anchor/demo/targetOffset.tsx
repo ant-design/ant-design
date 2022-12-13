@@ -1,24 +1,57 @@
 import React, { useEffect, useState } from 'react';
-import { Anchor } from 'antd';
+import { Anchor, Row, Col } from 'antd';
 
 const { Link } = Anchor;
 
 const App: React.FC = () => {
+  const topRef = React.useRef<HTMLDivElement>(null);
   const [targetOffset, setTargetOffset] = useState<number | undefined>(undefined);
 
   useEffect(() => {
-    setTargetOffset(window.innerHeight / 2);
+    setTargetOffset(topRef.current?.clientHeight);
   }, []);
 
   return (
-    <Anchor targetOffset={targetOffset}>
-      <Link href="#components-anchor-demo-basic" title="Basic demo" />
-      <Link href="#components-anchor-demo-static" title="Static demo" />
-      <Link href="#api" title="API">
-        <Link href="#anchor-props" title="Anchor Props" />
-        <Link href="#link-props" title="Link Props" />
-      </Link>
-    </Anchor>
+    <div>
+      <Row>
+        <Col span={18}>
+          <div
+            id="part-1"
+            style={{ height: '100vh', background: 'rgba(255,0,0,0.02)', marginTop: '30vh' }}
+          >
+            Part 1
+          </div>
+          <div id="part-2" style={{ height: '100vh', background: 'rgba(0,255,0,0.02)' }}>
+            Part 2
+          </div>
+          <div id="part-3" style={{ height: '100vh', background: 'rgba(0,0,255,0.02)' }}>
+            Part 3
+          </div>
+        </Col>
+        <Col span={6}>
+          <Anchor targetOffset={targetOffset}>
+            <Link href="#part-1" title="Part 1" />
+            <Link href="#part-2" title="Part 2" />
+            <Link href="#part-3" title="Part 3" />
+          </Anchor>
+        </Col>
+      </Row>
+
+      <div
+        style={{
+          height: '30vh',
+          background: 'rgba(0,0,0,0.85)',
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '75%',
+          color: '#FFF',
+        }}
+        ref={topRef}
+      >
+        <div>Fixed Top Block</div>
+      </div>
+    </div>
   );
 };
 

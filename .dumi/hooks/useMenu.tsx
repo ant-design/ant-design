@@ -115,8 +115,14 @@ const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => 
             });
           }
         } else {
+          const list = group.children || [];
+          // 如果有 date 字段，我们就对其进行排序
+          if (list.every((info) => info?.frontmatter?.date)) {
+            list.sort((a, b) => (a.frontmatter.date > b.frontmatter.date ? -1 : 1));
+          }
+
           result.push(
-            ...(group.children?.map((item) => ({
+            ...list.map((item) => ({
               label: (
                 <Link to={`${item.link}${search}`}>
                   {before}
@@ -125,7 +131,7 @@ const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => 
                 </Link>
               ),
               key: item.link.replace(/(-cn$)/g, ''),
-            })) ?? []),
+            })),
           );
         }
         return result;

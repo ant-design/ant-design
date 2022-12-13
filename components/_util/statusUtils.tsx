@@ -1,8 +1,8 @@
 import classNames from 'classnames';
 import type { ValidateStatus } from '../form/FormItem';
-import { tuple } from './type';
 
-const InputStatuses = tuple('warning', 'error', '');
+const InputStatuses = ['warning', 'error', ''] as const;
+
 export type InputStatus = typeof InputStatuses[number];
 
 export function getStatusClassNames(

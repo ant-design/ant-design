@@ -26,6 +26,7 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*8y_iTJGY_aUAAAAAAA
 <code src="./demo/total.tsx">总数</code>
 <code src="./demo/all.tsx">全部展示</code>
 <code src="./demo/itemRender.tsx">上一步和下一步</code>
+<code src="./demo/wireframe.tsx" debug>线框风格</code>
 
 ## API
 

@@ -63,8 +63,6 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
         border: `${lineWidth}px ${lineType} ${colorBorder}`,
         borderRadius,
 
-        ...genCompactItemStyle(token, componentCls),
-
         '&-rtl': {
           direction: 'rtl',
 
@@ -396,7 +394,14 @@ export default genComponentStyleHook(
   'InputNumber',
   (token) => {
     const inputNumberToken = initInputToken<FullToken<'InputNumber'>>(token);
-    return [genInputNumberStyles(inputNumberToken), genAffixWrapperStyles(inputNumberToken)];
+    return [
+      genInputNumberStyles(inputNumberToken),
+      genAffixWrapperStyles(inputNumberToken),
+      // =====================================================
+      // ==             Space Compact                       ==
+      // =====================================================
+      genCompactItemStyle(inputNumberToken),
+    ];
   },
   (token) => ({
     controlWidth: 90,

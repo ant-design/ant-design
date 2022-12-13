@@ -117,4 +117,4 @@ return (
 
 ### 静态方法如何设置 prefixCls ？
 
-你可以通过 [`ConfigProvider.config`](</components/config-provider/#ConfigProvider.config()-4.13.0+>) 进行设置。
+你可以通过 [`ConfigProvider.config`](</components/config-provider-cn#ConfigProvider.config()-4.13.0+>) 进行设置。

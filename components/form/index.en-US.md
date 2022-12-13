@@ -440,10 +440,6 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 | warningOnly | Warning only. Not block form submit | boolean | 4.17.0 |
 | whitespace | Failed if only has whitespace, only work with `type: 'string'` rule | boolean |  |
 
-## Migrate to v4
-
-If you are a user of v3, you can ref [migrate doc](/components/form/v3)。
-
 <style>
 .code-box-demo .ant-form:not(.ant-form-inline):not(.ant-form-vertical) {
   max-width: 600px;

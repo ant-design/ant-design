@@ -1,14 +1,9 @@
 <!--
 First of all, thank you for your contribution! 😄
-
 For requesting to pull a new feature or bugfix, please send it from a feature/bugfix branch based on the `master` branch.
-
 Before submitting your pull request, please make sure the checklist below is confirmed.
-
 Your pull requests will be merged after one of the collaborators approve.
-
 Thank you!
-
 -->
 
 [[中文版模板 / Chinese template](https://github.com/ant-design/ant-design/blob/master/.github/PULL_REQUEST_TEMPLATE/pr_cn.md)]
@@ -29,12 +24,14 @@ Thank you!
 - [ ] Code style optimization
 - [ ] Test Case
 - [ ] Branch merge
+- [ ] Workflow
 - [ ] Other (about what?)
 
 ### 🔗 Related issue link
 
 <!--
 1. Put the related issue or discussion links here.
+2. close #xxxx or fix #xxxx for instance.
 -->
 
 ### 💡 Background and solution
