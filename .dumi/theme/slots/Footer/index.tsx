@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import RcFooter from 'rc-footer';
 import { Link, FormattedMessage } from 'dumi';
 import type { FooterColumn } from 'rc-footer/lib/column';
@@ -23,6 +23,7 @@ import useLocation from '../../../hooks/useLocation';
 import useLocale from '../../../hooks/useLocale';
 import useSiteToken from '../../../hooks/useSiteToken';
 import AdditionalInfo from './AdditionalInfo';
+import SiteContext from '../SiteContext';
 
 const locales = {
   cn: {
@@ -35,6 +36,7 @@ const locales = {
 
 const useStyle = () => {
   const { token } = useSiteToken();
+  const { isMobile } = useContext(SiteContext);
   const background = new TinyColor(getAlphaColor('#f0f3fa', '#fff'))
     .onBackground(token.colorBgContainer)
     .toHexString();
@@ -59,7 +61,10 @@ const useStyle = () => {
       }
 
       .rc-footer-column {
-        margin-bottom: 0;
+        margin-bottom: ${isMobile ? 60 : 0}px;
+        :last-child {
+          margin-bottom: ${isMobile ? 20 : 0}px;
+        }
       }
 
       .rc-footer-container {
@@ -69,8 +74,10 @@ const useStyle = () => {
       }
 
       .rc-footer-bottom {
-        font-size: ${token.fontSize}px;
         box-shadow: inset 0 106px 36px -116px rgba(0, 0, 0, 0.14);
+        .rc-footer-bottom-container {
+          font-size: ${token.fontSize}px;
+        }
       }
     `,
   };
@@ -369,7 +376,10 @@ const Footer = () => {
         css={style.footer}
         bottom={
           <>
-            Made with <span style={{ color: '#fff' }}>❤</span> by {locale.owner}
+            <div style={{ opacity: '0.4' }}>
+              Made with <span style={{ color: '#fff' }}>❤</span> by
+            </div>
+            <div>{locale.owner}</div>
           </>
         }
       />

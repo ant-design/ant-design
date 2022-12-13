@@ -504,7 +504,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
 };
 
 const genInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
-  const { prefixCls, componentCls, controlHeightSM, lineWidth } = token;
+  const { componentCls, controlHeightSM, lineWidth } = token;
 
   const FIXED_CHROME_COLOR_HEIGHT = 16;
   const colorSmallPadding = (controlHeightSM - lineWidth * 2 - FIXED_CHROME_COLOR_HEIGHT) / 2;
@@ -514,7 +514,6 @@ const genInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
       ...resetComponent(token),
       ...genBasicInputStyle(token),
       ...genStatusStyle(token),
-      ...genCompactItemStyle(token, prefixCls),
 
       '&[type="color"]': {
         height: token.controlHeight,
@@ -933,5 +932,9 @@ export default genComponentStyleHook('Input', (token) => {
     genAffixStyle(inputToken),
     genGroupStyle(inputToken),
     genSearchInputStyle(inputToken),
+    // =====================================================
+    // ==             Space Compact                       ==
+    // =====================================================
+    genCompactItemStyle(inputToken),
   ];
 });

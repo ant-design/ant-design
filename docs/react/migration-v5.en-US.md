@@ -164,6 +164,13 @@ Use git to save your code and install latest version:
 npm install --save antd@5.x
 ```
 
+If you want to use v4 deprecated component like `Comment` or `PageHeader`. You can install `@ant-design/compatible` and `@ant-design/pro-layout` for compatible:
+
+```bash
+npm install --save @ant-design/compatible@v5-compatible-v4
+npm install --save @ant-design/pro-layout
+```
+
 You can manually check the code one by one against the above list for modification. In addition, we also provide a codemod cli tool [@ant-design/codemod-v5](https://github.com/ant-design/codemod-v5) To help you quickly upgrade to v5.
 
 Before running codemod cli, please submit your local code changes.

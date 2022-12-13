@@ -22,11 +22,11 @@ For displaying anchor hyperlinks on page and jumping between them.
 ## Examples
 
 <!-- prettier-ignore -->
-<code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/basic.tsx" iframe="200">Basic</code>
 <code src="./demo/static.tsx">Static Anchor</code>
 <code src="./demo/onClick.tsx">Customize the onClick event</code>
 <code src="./demo/customizeHighlight.tsx">Customize the anchor highlight</code>
-<code src="./demo/targetOffset.tsx">Set Anchor scroll offset</code>
+<code src="./demo/targetOffset.tsx" iframe="200">Set Anchor scroll offset</code>
 <code src="./demo/onChange.tsx">Listening for anchor link change</code>
 <code src="./demo/legacy-anchor.tsx" debug>Deprecated JSX demo</code>
 

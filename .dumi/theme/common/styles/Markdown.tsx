@@ -181,37 +181,6 @@ export default () => {
             }
           }
 
-          .markdown .dumi-default-table-content > table,
-          .markdown > table {
-            width: 100%;
-            margin: 8px 0 16px;
-            direction: ltr;
-            empty-cells: show;
-            border: 1px solid ${token.colorSplit};
-            border-collapse: collapse;
-            border-spacing: 0;
-          }
-
-          .markdown .dumi-default-table-content,
-          .markdown {
-            > table th {
-              color: #5c6b77;
-              font-weight: 500;
-              white-space: nowrap;
-              background: rgba(0, 0, 0, 0.02);
-            }
-          }
-
-          .markdown .dumi-default-table-content,
-          .markdown {
-            > table th,
-            > table td {
-              padding: 16px 24px;
-              text-align: left;
-              border: 1px solid ${token.colorSplit};
-            }
-          }
-
           .markdown table td > a:not(:last-child) {
             margin-right: 0 !important;
 
@@ -294,12 +263,72 @@ export default () => {
           }
 
           .markdown .dumi-default-table {
-            .component-api-table {
-              display: block;
+            table {
+              margin: 0;
+              overflow-x: auto;
+              overflow-y: hidden;
+              margin: 8px 0 16px;
+              direction: ltr;
+              empty-cells: show;
+              border: 1px solid ${token.colorSplit};
+              border-collapse: collapse;
+              border-spacing: 0;
+
+              th,
+              td {
+                padding: 12px 24px;
+                text-align: left;
+                border: 1px solid ${token.colorSplit};
+
+                &:first-child {
+                  border-left: 1px solid ${token.colorSplit};
+                }
+
+                &:last-child {
+                  border-right: 1px solid ${token.colorSplit};
+                }
+
+                img {
+                  max-width: unset;
+                }
+              }
+
+              th {
+                color: #5c6b77;
+                border-width: 1px 1px 2px;
+                font-weight: 500;
+                white-space: nowrap;
+                background: rgba(0, 0, 0, 0.02);
+              }
+
+              tbody tr {
+                transition: all 0.3s;
+
+                &:hover {
+                  background: rgba(60, 90, 100, 0.04);
+                }
+              }
+            }
+
+            table.component-api-table {
+              margin: 2em 0;
+              overflow-x: auto;
+              overflow-y: hidden;
+              font-size: ${Math.max(token.fontSize - 1, 12)}px;
+              font-family: ${token.codeFamily};
+              line-height: ${token.lineHeight};
+              border: 1px solid ${token.colorSplit};
+              border-width: 0 1px;
+
+              th {
+                border-width: 1px 0 2px;
+              }
 
               td {
+                border-width: 1px 0;
                 &:first-child {
                   width: 18%;
+                  min-width: 58px;
                   color: #595959;
                   font-weight: 600;
                   white-space: nowrap;
@@ -307,6 +336,7 @@ export default () => {
 
                 &:nth-child(2) {
                   width: 55%;
+                  min-width: 160px;
                 }
 
                 &:nth-child(3) {
@@ -336,116 +366,10 @@ export default () => {
             }
           }
 
-          .markdown .dumi-default-table {
-            table {
-              margin: 0;
-              overflow-x: auto;
-              overflow-y: hidden;
-              font-size: ${Math.max(token.fontSize - 1, 12)}px;
-              font-family: ${token.codeFamily};
-              line-height: ${token.lineHeight};
-              border: 0;
-              -webkit-overflow-scrolling: touch;
-
-              th,
-              td {
-                padding: 12px;
-                border-color: ${token.colorSplit};
-                border-width: 1px 0;
-
-                &:first-child {
-                  border-left: 1px solid ${token.colorSplit};
-                }
-
-                &:last-child {
-                  border-right: 1px solid ${token.colorSplit};
-                }
-              }
-
-              th {
-                padding-top: 14px;
-                border-width: 1px 0 2px;
-              }
-
-              tbody tr {
-                transition: all 0.3s;
-
-                &:hover {
-                  background: rgba(60, 90, 100, 0.04);
-                }
-              }
-
-              td {
-                &:first-child {
-                  min-width: 58px;
-                }
-              }
-            }
-
-            hr {
-              margin: 12px 0;
-            }
-          }
-
           .grid-demo,
           [id^='components-grid-demo-'] {
-            .demo-row,
-            .code-box-demo .demo-row {
-              margin-bottom: 8px;
-              overflow: hidden;
-              background-image: linear-gradient(
-                90deg,
-                #f5f5f5 4.16666667%,
-                transparent 4.16666667%,
-                transparent 8.33333333%,
-                #f5f5f5 8.33333333%,
-                #f5f5f5 12.5%,
-                transparent 12.5%,
-                transparent 16.66666667%,
-                #f5f5f5 16.66666667%,
-                #f5f5f5 20.83333333%,
-                transparent 20.83333333%,
-                transparent 25%,
-                #f5f5f5 25%,
-                #f5f5f5 29.16666667%,
-                transparent 29.16666667%,
-                transparent 33.33333333%,
-                #f5f5f5 33.33333333%,
-                #f5f5f5 37.5%,
-                transparent 37.5%,
-                transparent 41.66666667%,
-                #f5f5f5 41.66666667%,
-                #f5f5f5 45.83333333%,
-                transparent 45.83333333%,
-                transparent 50%,
-                #f5f5f5 50%,
-                #f5f5f5 54.16666667%,
-                transparent 54.16666667%,
-                transparent 58.33333333%,
-                #f5f5f5 58.33333333%,
-                #f5f5f5 62.5%,
-                transparent 62.5%,
-                transparent 66.66666667%,
-                #f5f5f5 66.66666667%,
-                #f5f5f5 70.83333333%,
-                transparent 70.83333333%,
-                transparent 75%,
-                #f5f5f5 75%,
-                #f5f5f5 79.16666667%,
-                transparent 79.16666667%,
-                transparent 83.33333333%,
-                #f5f5f5 83.33333333%,
-                #f5f5f5 87.5%,
-                transparent 87.5%,
-                transparent 91.66666667%,
-                #f5f5f5 91.66666667%,
-                #f5f5f5 95.83333333%,
-                transparent 95.83333333%
-              );
-            }
-
             ${antCls}-row > div,
-  .code-box-demo ${antCls}-row > div {
+            .code-box-demo ${antCls}-row > div {
               min-height: 30px;
               margin-top: 8px;
               margin-bottom: 8px;
@@ -464,7 +388,7 @@ export default () => {
             }
 
             ${antCls}-row .demo-col,
-  .code-box-demo ${antCls}-row .demo-col {
+            .code-box-demo ${antCls}-row .demo-col {
               margin-top: 0;
               margin-bottom: 0;
               padding: 30px 0;
@@ -479,23 +403,23 @@ export default () => {
             }
 
             ${antCls}-row .demo-col-2,
-  .code-box-demo ${antCls}-row .demo-col-2 {
+            .code-box-demo ${antCls}-row .demo-col-2 {
               background: ${new TinyColor(demoGridColor).setAlpha(0.75).toHexString()};
             }
 
             ${antCls}-row .demo-col-3,
-  .code-box-demo ${antCls}-row .demo-col-3 {
+            .code-box-demo ${antCls}-row .demo-col-3 {
               color: #999;
               background: rgba(255, 255, 255, 0.2);
             }
 
             ${antCls}-row .demo-col-4,
-  .code-box-demo ${antCls}-row .demo-col-4 {
+            .code-box-demo ${antCls}-row .demo-col-4 {
               background: ${new TinyColor(demoGridColor).setAlpha(0.6).toHexString()};
             }
 
             ${antCls}-row .demo-col-5,
-  .code-box-demo ${antCls}-row .demo-col-5 {
+            .code-box-demo ${antCls}-row .demo-col-5 {
               color: #999;
               background: rgba(255, 255, 255, 0.2);
             }
@@ -526,40 +450,6 @@ export default () => {
             > .code-box-demo ${antCls}-row > div {
               margin-top: 0;
               margin-bottom: 0;
-            }
-          }
-
-          // For Changelog
-          .markdown ul${antCls}-timeline {
-            line-height: 2;
-
-            li${antCls}-timeline-item {
-              margin: 0;
-              padding: 0 0 30px;
-              list-style: none;
-
-              ${antCls}-timeline-item-content {
-                position: relative;
-                top: -14px;
-                padding-left: 32px;
-                font-size: 14px;
-
-                > h2 {
-                  margin-top: 0;
-                  padding-top: 4px;
-                  direction: ltr;
-
-                  span {
-                    ${antCls}-row-rtl & {
-                      float: right;
-                    }
-                  }
-                }
-              }
-            }
-
-            li${antCls}-timeline-item:first-child {
-              margin-top: 40px;
             }
           }
         `}
