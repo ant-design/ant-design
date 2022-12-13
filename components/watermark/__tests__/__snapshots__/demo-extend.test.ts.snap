@@ -904,14 +904,14 @@ exports[`renders ./components/watermark/demo/custom.tsx extend context correctly
                                 class="ant-input-number-input-wrap"
                               >
                                 <input
-                                  aria-valuenow="200"
+                                  aria-valuenow="100"
                                   autocomplete="off"
                                   class="ant-input-number-input"
                                   id="gap_0"
                                   placeholder="gapX"
                                   role="spinbutton"
                                   step="1"
-                                  value="200"
+                                  value="100"
                                 />
                               </div>
                             </div>
@@ -1005,14 +1005,14 @@ exports[`renders ./components/watermark/demo/custom.tsx extend context correctly
                                 class="ant-input-number-input-wrap"
                               >
                                 <input
-                                  aria-valuenow="200"
+                                  aria-valuenow="100"
                                   autocomplete="off"
                                   class="ant-input-number-input"
                                   id="gap_1"
                                   placeholder="gapY"
                                   role="spinbutton"
                                   step="1"
-                                  value="200"
+                                  value="100"
                                 />
                               </div>
                             </div>

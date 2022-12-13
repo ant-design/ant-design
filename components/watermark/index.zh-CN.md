@@ -36,7 +36,7 @@ demo:
 | image | 图片源，建议导出 2 倍或 3 倍图，优先级高 | string | - |  |
 | content | 水印文字内容 | string \| string[] | - |  |
 | font | 文字样式 | [Font](#Font) | [Font](#Font) |  |
-| gap | 水印之间的间距 | \[number, number\] | \[200, 200\] |  |
+| gap | 水印之间的间距 | \[number, number\] | \[100, 100\] |  |
 | offset | 水印距离容器左上角的偏移量，默认为 `gap/2` | \[number, number\] | \[gap\[0\]/2, gap\[1\]/2\] |  |
 
 ### Font

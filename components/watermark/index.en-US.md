@@ -35,7 +35,7 @@ Add specific text or patterns to the page.
 | image | Image source, it is recommended to export 2x or 3x image, high priority | string | - |  |
 | content | Watermark text content | string \| string[] | - |  |
 | font | Text style | [Font](#Font) | [Font](#Font) |  |
-| gap | The spacing between watermarks | \[number, number\] | \[200, 200\] |  |
+| gap | The spacing between watermarks | \[number, number\] | \[100, 100\] |  |
 | offset | The offset of the watermark from the upper left corner of the container. The default is `gap/2` | \[number, number\] | \[gap\[0\]/2, gap\[1\]/2\] |  |
 
 ### Font
