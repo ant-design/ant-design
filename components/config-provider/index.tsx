@@ -181,7 +181,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
 
   const mergedTheme = useTheme(theme, parentContext.theme);
 
-  const currentConfig = {
+  const baseConfig = {
     csp,
     autoInsertSpaceInButton,
     locale: locale || legacyLocale,
@@ -198,9 +198,9 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     ...parentContext,
   };
 
-  Object.keys(currentConfig).forEach((key: keyof typeof currentConfig) => {
-    if (currentConfig[key] !== undefined) {
-      (config as any)[key] = currentConfig[key];
+  Object.keys(baseConfig).forEach((key: keyof typeof baseConfig) => {
+    if (baseConfig[key] !== undefined) {
+      (config as any)[key] = baseConfig[key];
     }
   });
 
