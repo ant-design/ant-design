@@ -10,7 +10,7 @@ export interface ScrollErrorContextProps {
   children?: React.ReactNode;
 }
 
-export const DisabledContextProvider: React.FC<ScrollErrorContextProps> = ({
+export const ScrollErrorContextProvider: React.FC<ScrollErrorContextProps> = ({
   children,
   scrollToFirstError,
 }) => (

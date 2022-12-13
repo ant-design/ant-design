@@ -23,7 +23,7 @@ import useTheme from './hooks/useTheme';
 import type { SizeType } from './SizeContext';
 import SizeContext, { SizeContextProvider } from './SizeContext';
 import useStyle from './style';
-import ScrollErrorContext from './ScrollErrorContext';
+import { ScrollErrorContextProvider } from './ScrollErrorContext';
 
 export {
   type RenderEmptyHandler,
@@ -246,9 +246,9 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     }
     childNode = (
       <RcFormProvider {...tempProps}>
-        <ScrollErrorContext.Provider value={form?.scrollToFirstError || false}>
+        <ScrollErrorContextProvider scrollToFirstError={form?.scrollToFirstError || false}>
           {children}
-        </ScrollErrorContext.Provider>
+        </ScrollErrorContextProvider>
       </RcFormProvider>
     );
   }
