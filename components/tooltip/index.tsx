@@ -14,7 +14,6 @@ import { cloneElement, isValidElement, isFragment } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
 import warning from '../_util/warning';
 import PurePanel from './PurePanel';
-
 import useStyle from './style';
 import { parseColor } from './util';
 
