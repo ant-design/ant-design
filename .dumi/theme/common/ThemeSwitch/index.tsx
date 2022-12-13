@@ -1,6 +1,6 @@
 import React from 'react';
 import { FloatButton } from 'antd';
-import { FormattedMessage } from 'dumi';
+import { FormattedMessage, Link } from 'dumi';
 import { DarkTheme, CompactTheme } from 'antd-token-previewer/es/icons';
 import { BgColorsOutlined } from '@ant-design/icons';
 import ThemeIcon from './ThemeIcon';
@@ -14,11 +14,12 @@ export type ThemeSwitchProps = {
 
 const ThemeSwitch: React.FC<ThemeSwitchProps> = ({ value, onChange }) => (
   <FloatButton.Group trigger="click" icon={<ThemeIcon />}>
-    <FloatButton
-      icon={<BgColorsOutlined />}
-      tooltip={<FormattedMessage id="app.footer.theme" />}
-      href="/theme-editor"
-    />
+    <Link to="/theme-editor">
+      <FloatButton
+        icon={<BgColorsOutlined />}
+        tooltip={<FormattedMessage id="app.footer.theme" />}
+      />
+    </Link>
     <FloatButton
       icon={<DarkTheme />}
       type={value.includes('dark') ? 'primary' : 'default'}
