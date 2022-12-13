@@ -22,7 +22,7 @@ demo:
 
 ## 如何使用
 
-### 1. 基础用法
+### 基础用法
 
 App 通过 Context 提供上下文方法调用，因而 useApp 需要作为子组件才能使用。我们推荐在应用中顶层包裹 App：
 
@@ -51,7 +51,7 @@ export default MyApp;
 
 注意：App.useApp 必须在 App 之下方可使用。
 
-### 2. 与 ConfigProvider 先后顺序
+### 与 ConfigProvider 先后顺序
 
 App 组件在能在`ConfigProvider`才能使用 token, 如果需要使用 Token,则 ConfigProvider 与 App 组件必须成对出现,不使用 token,则 App 可单独使用。
 
@@ -63,7 +63,7 @@ App 组件在能在`ConfigProvider`才能使用 token, 如果需要使用 Token,
 </ConfigProvider>
 ```
 
-### 3. 内嵌使用场景（如无必要，尽量不做嵌套）
+### 内嵌使用场景（如无必要，尽量不做嵌套）
 
 ```tsx
 <App>
@@ -74,7 +74,7 @@ App 组件在能在`ConfigProvider`才能使用 token, 如果需要使用 Token,
 </App>
 ```
 
-### 4. 全局场景（rudux 场景）
+### 全局场景（rudux 场景）
 
 ```tsx
 // Entry component
