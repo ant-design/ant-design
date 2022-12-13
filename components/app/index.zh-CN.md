@@ -3,7 +3,7 @@ category: Components
 subtitle: 包裹组件
 group: 其他
 title: App
-cover: https://gw.alipayobjects.com/zos/bmw-prod/cc3fcbfa-bf5b-4c8c-8a3d-c3f8388c75e8.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*POCkQrmy5TcAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
