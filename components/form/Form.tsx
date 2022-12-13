@@ -135,12 +135,12 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
     if (errorInfo.errorFields.length) {
       const fieldName = errorInfo.errorFields[0].name;
       if (scrollToFirstError !== undefined) {
-        scrollToField(scrollToFirstError,fieldName)
+        scrollToField(scrollToFirstError, fieldName)
         return;
       }
 
       if (contextForm && contextForm.scrollToFirstError !== undefined) {
-        scrollToField(contextForm.scrollToFirstError,fieldName)
+        scrollToField(contextForm.scrollToFirstError, fieldName)
       }
     }
   };
