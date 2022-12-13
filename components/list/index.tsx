@@ -50,7 +50,7 @@ export interface ListProps<T> {
   itemLayout?: ListItemLayout;
   loading?: boolean | SpinProps;
   loadMore?: React.ReactNode;
-  pagination?: PaginationConfig | false;
+  pagination?: PaginationConfig;
   prefixCls?: string;
   rowKey?: ((item: T) => React.Key) | keyof T;
   renderItem?: (item: T, index: number) => React.ReactNode;
@@ -195,10 +195,10 @@ function List<T>({
     total: dataSource.length,
     current: paginationCurrent,
     ...(pagination || {}),
-    pageSize: paginationSize,
+    pageSize: (pagination || {}).pageSize ? pagination!.pageSize : paginationSize,
   };
 
-  const largestPage = Math.ceil(paginationProps.total / paginationProps.pageSize);
+  const largestPage = Math.ceil(paginationProps.total / paginationProps.pageSize!);
   if (paginationProps.current > largestPage) {
     paginationProps.current = largestPage;
   }
@@ -214,9 +214,9 @@ function List<T>({
 
   let splitDataSource = [...dataSource];
   if (pagination) {
-    if (dataSource.length > (paginationProps.current - 1) * paginationProps.pageSize) {
+    if (dataSource.length > (paginationProps.current - 1) * paginationProps.pageSize!) {
       splitDataSource = [...dataSource].splice(
-        (paginationProps.current - 1) * paginationProps.pageSize,
+        (paginationProps.current - 1) * paginationProps.pageSize!,
         paginationProps.pageSize,
       );
     }

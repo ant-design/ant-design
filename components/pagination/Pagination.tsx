@@ -25,6 +25,7 @@ export type PaginationPosition = 'top' | 'bottom' | 'both';
 
 export interface PaginationConfig extends PaginationProps {
   position?: PaginationPosition;
+  pageSize?: number;
 }
 
 export type { PaginationLocale };
