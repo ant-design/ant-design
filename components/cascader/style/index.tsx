@@ -32,7 +32,6 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token) => {
     {
       [componentCls]: {
         width: token.controlWidth,
-        ...genCompactItemStyle(token, componentCls),
       },
     },
     // =====================================================
@@ -153,6 +152,10 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token) => {
         direction: 'rtl',
       },
     },
+    // =====================================================
+    // ==             Space Compact                       ==
+    // =====================================================
+    genCompactItemStyle(token),
   ];
 };
 
