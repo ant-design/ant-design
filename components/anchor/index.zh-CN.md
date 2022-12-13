@@ -41,7 +41,7 @@ group:
 | getContainer | 指定滚动的容器 | () => HTMLElement | () => window |  |
 | getCurrentAnchor | 自定义高亮的锚点 | (activeLink: string) => string | - |  |
 | offsetTop | 距离窗口顶部达到指定偏移量后触发 | number |  |  |
-| showInkInFixed | `affix={false}` 时是否显示小圆点 | boolean | false |  |
+| showInkInFixed | `affix={false}` 时是否显示小方块 | boolean | false |  |
 | targetOffset | 锚点滚动偏移量，默认与 offsetTop 相同，[例子](#components-anchor-demo-targetOffset) | number | - |  |
 | onChange | 监听锚点链接改变 | (currentActiveLink: string) => void | - |  |
 | onClick | `click` 事件的 handler | (e: MouseEvent, link: object) => void | - |  |
