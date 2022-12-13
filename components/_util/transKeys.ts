@@ -11,7 +11,7 @@ export const groupKeysMap = (keys: string[]) => {
   });
   return map;
 };
-export function groupDisabledKeysMap<RecordType extends any[]>(dataSource: RecordType) {
+export const groupDisabledKeysMap = <RecordType extends any[]>(dataSource: RecordType) => {
   const map: MapType = {};
   dataSource.forEach((d, i) => {
     if (d.disabled) {
@@ -22,4 +22,4 @@ export function groupDisabledKeysMap<RecordType extends any[]>(dataSource: Recor
     }
   });
   return map;
-}
+};
