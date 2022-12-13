@@ -1,10 +1,13 @@
 import * as React from 'react';
 import { Button, Space, Typography } from 'antd';
 import { Link, useLocation } from 'dumi';
+import { css } from '@emotion/react';
 import useLocale from '../../../hooks/useLocale';
 import useSiteToken from '../../../hooks/useSiteToken';
 import { GroupMask } from './Group';
 import * as utils from '../../../theme/utils';
+import SiteContext from './SiteContext';
+import topicImage from './images/topic.png';
 
 const locales = {
   cn: {
@@ -20,6 +23,35 @@ const locales = {
   },
 };
 
+const useStyle = () => {
+  const { token } = useSiteToken();
+  const { isMobile } = React.useContext(SiteContext);
+
+  return {
+    titleBase: css`
+      h1& {
+        font-family: AliPuHui, ${token.fontFamily};
+      }
+    `,
+    title: isMobile
+      ? css`
+          h1& {
+            margin-bottom: ${token.margin}px;
+            font-weight: normal;
+            font-size: ${token.fontSizeHeading1 + 2}px;
+            line-height: ${token.lineHeightHeading2};
+          }
+        `
+      : css`
+          h1& {
+            margin-bottom: ${token.marginMD}px;
+            font-weight: 900;
+            font-size: 68px;
+          }
+        `,
+  };
+};
+
 export interface BannerProps {
   children?: React.ReactNode;
 }
@@ -28,53 +60,59 @@ export default function Banner({ children }: BannerProps) {
   const [locale] = useLocale(locales);
   const { pathname, search } = useLocation();
   const { token } = useSiteToken();
+  const styles = useStyle();
+  const { isMobile } = React.useContext(SiteContext);
 
   const isZhCN = utils.isZhCN(pathname);
 
   return (
     <>
       {/* Banner Placeholder Motion */}
-      <div
-        style={{
-          height: 320,
-          background: '#77C6FF',
-          display: 'flex',
-          flexWrap: 'nowrap',
-          justifyContent: 'center',
-        }}
-      >
+      {isMobile ? (
+        <img src={topicImage} alt="" style={{ width: '100%' }} />
+      ) : (
         <div
           style={{
-            backgroundImage: `url(https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*6d50SboraPIAAAAAAAAAAAAAARQnAQ)`,
-            flex: 'auto',
-            backgroundRepeat: 'repeat-x',
-            backgroundPosition: '100% 0',
-            backgroundSize: 'auto 100%',
+            height: 320,
+            background: '#77C6FF',
+            display: 'flex',
+            flexWrap: 'nowrap',
+            justifyContent: 'center',
           }}
-        />
-
-        <video style={{ height: '100%', objectFit: 'contain' }} autoPlay muted loop>
-          <source
-            src="https://mdn.alipayobjects.com/huamei_iwk9zp/afts/file/A*uYT7SZwhJnUAAAAAAAAAAAAADgCCAQ"
-            type="video/webm"
+        >
+          <div
+            style={{
+              backgroundImage: `url(https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*6d50SboraPIAAAAAAAAAAAAAARQnAQ)`,
+              flex: 'auto',
+              backgroundRepeat: 'repeat-x',
+              backgroundPosition: '100% 0',
+              backgroundSize: 'auto 100%',
+            }}
           />
-          <source
-            src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/file/A*XYYNQJ3NbmMAAAAAAAAAAAAAARQnAQ"
-            type="video/mp4"
-          />
-        </video>
 
-        <div
-          style={{
-            backgroundImage: `url(https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*8ILtRrQlVDMAAAAAAAAAAAAAARQnAQ)`,
-            flex: 'auto',
-            backgroundRepeat: 'repeat-x',
-            backgroundPosition: '0 0',
-            backgroundSize: 'auto 100%',
-            marginLeft: -1,
-          }}
-        />
-      </div>
+          <video style={{ height: '100%', objectFit: 'contain' }} autoPlay muted loop>
+            <source
+              src="https://mdn.alipayobjects.com/huamei_iwk9zp/afts/file/A*uYT7SZwhJnUAAAAAAAAAAAAADgCCAQ"
+              type="video/webm"
+            />
+            <source
+              src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/file/A*XYYNQJ3NbmMAAAAAAAAAAAAAARQnAQ"
+              type="video/mp4"
+            />
+          </video>
+
+          <div
+            style={{
+              backgroundImage: `url(https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*8ILtRrQlVDMAAAAAAAAAAAAAARQnAQ)`,
+              flex: 'auto',
+              backgroundRepeat: 'repeat-x',
+              backgroundPosition: '0 0',
+              backgroundSize: 'auto 100%',
+              marginLeft: -1,
+            }}
+          />
+        </div>
+      )}
 
       {/* Logo */}
       <div style={{ position: 'relative', background: '#fff' }}>
@@ -94,34 +132,26 @@ export default function Banner({ children }: BannerProps) {
         >
           {/* Image Left Top */}
           <img
-            style={{ position: 'absolute', left: 0, top: 0, width: 240 }}
+            style={{ position: 'absolute', left: isMobile ? -120 : 0, top: 0, width: 240 }}
             src="https://gw.alipayobjects.com/zos/bmw-prod/49f963db-b2a8-4f15-857a-270d771a1204.svg"
             alt="bg"
           />
-          {/* Image Left Top */}
+          {/* Image Right Top */}
           <img
-            style={{ position: 'absolute', right: 120, top: 0, width: 240 }}
+            style={{ position: 'absolute', right: isMobile ? 0 : 120, top: 0, width: 240 }}
             src="https://gw.alipayobjects.com/zos/bmw-prod/e152223c-bcae-4913-8938-54fda9efe330.svg"
             alt="bg"
           />
 
-          <Typography.Title
-            level={1}
-            style={{
-              fontFamily: `AliPuHui, ${token.fontFamily}`,
-              fontSize: token.fontSizes[9],
-              lineHeight: token.lineHeights[9],
-              fontWeight: 900,
-              marginBottom: token.marginMD,
-            }}
-          >
+          <Typography.Title level={1} css={[styles.titleBase, styles.title]}>
             Ant Design 5.0
           </Typography.Title>
           <Typography.Paragraph
             style={{
-              fontSize: token.fontSizeHeading5,
-              lineHeight: token.lineHeightHeading5,
+              fontSize: isMobile ? token.fontSizeHeading5 - 2 : token.fontSizeHeading5,
+              lineHeight: isMobile ? token.lineHeightSM : token.lineHeightHeading5,
               marginBottom: token.marginMD * 2,
+              padding: isMobile ? `0 ${token.paddingLG + 2}px` : 0,
             }}
           >
             <div>{locale.slogan}</div>

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { enUS, ThemeEditor, zhCN } from 'antd-token-previewer';
+import { enUS, zhCN, ThemeEditor } from 'antd-token-previewer';
 import { Button, ConfigProvider, message, Modal, Typography } from 'antd';
 import type { ThemeConfig } from 'antd/es/config-provider/context';
 import { Helmet } from 'dumi';
