@@ -43,10 +43,10 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
         ...resetComponent(token),
 
         display: 'inline-flex',
-        alignItems: 'baseline',
-        lineHeight: 'unset',
+        alignItems: 'center',
+        lineHeight: 0,
         cursor: 'pointer',
-
+        transform: 'translateY(0.2em)',
         // Fix checkbox & radio in flex align #30260
         '&:after': {
           display: 'inline-block',
@@ -72,7 +72,6 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
       [checkboxCls]: {
         ...resetComponent(token),
 
-        top: '0.2em',
         position: 'relative',
         whiteSpace: 'nowrap',
         lineHeight: 1,

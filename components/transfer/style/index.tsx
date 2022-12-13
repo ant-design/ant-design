@@ -85,6 +85,7 @@ const genTransferStatusStyle: GenerateStyle<TransferToken> = (token: TransferTok
 
 const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken): CSSObject => {
   const {
+    antCls,
     componentCls,
     colorBorder,
     colorSplit,
@@ -106,7 +107,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
     iconCls,
     motionDurationSlow,
   } = token;
-
+  const checkboxCls = `${antCls}-checkbox`;
   return {
     display: 'flex',
     flexDirection: 'column',
@@ -114,6 +115,10 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
     height: listHeight,
     border: `${lineWidth}px ${lineType} ${colorBorder}`,
     borderRadius: token.borderRadiusLG,
+
+    [`${checkboxCls}-wrapper`]: {
+      transform: 'unset',
+    },
 
     '&-with-pagination': {
       width: listWidthLG,
