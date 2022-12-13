@@ -4,7 +4,7 @@ const semver = require('semver');
 const dayjs = require('dayjs');
 const chalk = require('chalk');
 const { spawnSync } = require('child_process');
-const packageJson = require('../package.json');
+// const packageJson = require('../package.json');
 
 const CONCH_TAG = 'conch-v5';
 
@@ -43,10 +43,10 @@ const SAFE_DAYS_DIFF = 1000 * 60 * 60 * 24 * 3; // 3 days not update seems to be
 (async function process() {
   console.log(chalk.cyan('🤖 Post Publish Scripting...\n'));
 
-  if (packageJson.version.startsWith('5.0')) {
-    console.log(chalk.green('🤖 Next version, skipped.'));
-    return;
-  }
+  // if (packageJson.version.startsWith('5.0')) {
+  //   console.log(chalk.green('🤖 Next version, skipped.'));
+  //   return;
+  // }
 
   const { time, 'dist-tags': distTags } = await fetch('http://registry.npmjs.org/antd').then(
     (res) => res.json(),
