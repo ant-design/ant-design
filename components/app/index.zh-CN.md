@@ -24,6 +24,8 @@ demo:
 
 ### 1. 基础用法
 
+App 通过 Context 提供上下文方法调用，因而 useApp 需要作为子组件才能使用。我们推荐在应用中顶层包裹 App：
+
 ```tsx
 import React from 'react';
 import { App } from 'antd';
@@ -47,62 +49,35 @@ const MyApp: React.FC = () => (
 export default MyApp;
 ```
 
-### 2. App 组件在能在`ConfigProvider`才能使用 token, 如果需要使用 Token,则 ConfigProvider 与 App 组件必须成对出现,不使用 token,则 App 可单独使用。
+注意：App.useApp 必须在 App 之下方可使用。
 
-### 3. App.useApp 需要在 App 包裹内才可以使用.
+### 2. 与 ConfigProvider 先后顺序
 
-### 4. 内嵌使用场景（如无必要，尽量不做嵌套）
+App 组件在能在`ConfigProvider`才能使用 token, 如果需要使用 Token,则 ConfigProvider 与 App 组件必须成对出现,不使用 token,则 App 可单独使用。
 
 ```tsx
-import React from 'react';
-import { App, Button, Space } from 'antd';
-
-const MyApp: React.FC = () => {
-  const { message, modal, notification } = App.useApp();
-
-  const showMessage = () => {
-    message.success('Success!');
-  };
-
-  const showModal = () => {
-    modal.warning({
-      title: 'This is a warning message',
-      content: 'some messages...some messages...',
-    });
-  };
-
-  const showNotification = () => {
-    notification.info({
-      message: `Notification topLeft`,
-      description: 'Hello, Ant Design!!',
-      placement: 'topLeft',
-    });
-  };
-
-  return (
-    <App>
-      <Space>
-        <Button type="primary" onClick={showMessage}>
-          Open message
-        </Button>
-        <App>
-          <Button type="primary" onClick={showModal}>
-            Open modal
-          </Button>
-          <Button type="primary" onClick={showNotification}>
-            Open notification
-          </Button>
-        </App>
-      </Space>
-    </App>
-  );
-};
+<ConfigProvider theme={{ ... }}>
+  <App>
+    ...
+  </App>
+</ConfigProvider>
 ```
 
-### 5. 全局场景（rudux 场景）
+### 3. 内嵌使用场景（如无必要，尽量不做嵌套）
 
 ```tsx
-//  store.js
+<App>
+  <Space>
+    ...
+    <App>...</App>
+  </Space>
+</App>
+```
+
+### 4. 全局场景（rudux 场景）
+
+```tsx
+// Entry component
 import React, { useEffect } from 'react';
 import { App } from 'antd';
 import type { MessageInstance } from 'antd/es/message/interface';
@@ -113,7 +88,6 @@ let message: MessageInstance;
 let notification: NotificationInstance;
 let modal: Omit<ModalStaticFunctions, 'warn'>;
 
-// Entry component
 export default () => {
   const staticFunction = App.useApp();
   message = staticFunction.message;
@@ -132,7 +106,6 @@ import React from 'react';
 import { Button, Space } from 'antd';
 import { message, modal, notification } from './store';
 
-// Sub page
 export default () => {
   const showMessage = () => {
     console.log('message', message);
@@ -140,31 +113,10 @@ export default () => {
     message.success('Success!');
   };
 
-  const showModal = () => {
-    modal.warning({
-      title: 'This is a warning message',
-      content: 'some messages...some messages...',
-    });
-  };
-
-  const showNotification = () => {
-    notification.info({
-      message: `Notification topLeft`,
-      description: 'Hello, Ant Design!!',
-      placement: 'topLeft',
-    });
-  };
-
   return (
     <Space>
       <Button type="primary" onClick={showMessage}>
         Open message
-      </Button>
-      <Button type="primary" onClick={showModal}>
-        Open modal
-      </Button>
-      <Button type="primary" onClick={showNotification}>
-        Open notification
       </Button>
     </Space>
   );
