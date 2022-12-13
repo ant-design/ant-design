@@ -1,6 +1,7 @@
 {
   "app.theme.switch.dynamic": "Dynamic Theme",
   "app.theme.switch.default": "Default theme",
+  "app.theme.switch.light": "Light theme",
   "app.theme.switch.dark": "Dark theme",
   "app.theme.switch.compact": "Compact theme",
   "app.header.search": "Search...",
