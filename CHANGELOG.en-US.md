@@ -15,6 +15,14 @@ timeline: true
 
 ---
 
+## 5.0.7
+
+`2022-12-13`
+
+- 🐞 Fix Popover arrow background color with customized `color`. [#39517](https://github.com/ant-design/ant-design/pull/39517)
+- 🐞 Fix Modal hooks not pass ConfigProvider config correctly. [#39513](https://github.com/ant-design/ant-design/pull/39513)
+- 🐞 Fix Radio align issue with custom size. [#39476](https://github.com/ant-design/ant-design/pull/39476)
+
 ## 5.0.6
 
 `2022-12-12`
