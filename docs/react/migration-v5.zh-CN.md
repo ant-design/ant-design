@@ -156,6 +156,13 @@ title: 从 v4 到 v5
 npm install --save antd@5.x
 ```
 
+如果你需要使用 v4 废弃组件如 `Comment`、`PageHeader`，请安装 `@ant-design/compatible` 与 `@ant-design/pro-layout` 做兼容：
+
+```bash
+npm install --save @ant-design/compatible@v5-compatible-v4
+npm install --save @ant-design/pro-layout
+```
+
 你可以手动对照上面的列表逐条检查代码进行修改，另外，我们也提供了一个 codemod cli 工具 [@ant-design/codemod-v5](https://github.com/ant-design/codemod-v5) 以帮助你快速升级到 v5 版本。
 
 在运行 codemod cli 前，请先提交你的本地代码修改。

@@ -973,11 +973,6 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
         borderRadius,
         transition: `border ${motionDurationMid}, box-shadow ${motionDurationMid}`,
 
-        // Space.Compact
-        ...genCompactItemStyle(token, componentCls, {
-          focusElCls: `${componentCls}-focused`,
-        }),
-
         '&:hover, &-focused': {
           ...genHoverStyle(token),
         },
@@ -1426,7 +1421,16 @@ export default genComponentStyleHook(
       initInputToken<FullToken<'DatePicker'>>(token),
       initPickerPanelToken(token),
     );
-    return [genPickerStyle(pickerToken), genPickerStatusStyle(pickerToken)];
+    return [
+      genPickerStyle(pickerToken),
+      genPickerStatusStyle(pickerToken),
+      // =====================================================
+      // ==             Space Compact                       ==
+      // =====================================================
+      genCompactItemStyle(token, {
+        focusElCls: `${token.componentCls}-focused`,
+      }),
+    ];
   },
   (token) => ({
     presetsWidth: 120,

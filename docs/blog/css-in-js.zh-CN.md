@@ -12,7 +12,7 @@ author: MadCcc
 
 ![image.png](https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*X5tDQ5VIpcoAAAAAAAAAAAAADrJ8AQ/original)
 
-如此便可以引入一个 CSS-in-JS 被诟病已久的问题：我们在编写代码时写的并不是最终的 css，所以每次都需要重新序列化得到 css 后再次计算 hash，这就在每次渲染组件时带来了而外的开销。如果你的页面或者组件带有非常复杂或者大量的 CSS-in-JS 代码，甚至样式会跟随组件的 props 变化，那么这个性能消耗便变得不可忽视。<br />针对这个问题，各个 CSS-in-JS 库会有自己的应对方式，这里就先不做赘述，让我们来看一看 Ant Design 的方案。
+如此便可以引入一个 CSS-in-JS 被诟病已久的问题：我们在编写代码时写的并不是最终的 css，所以每次都需要重新序列化得到 css 后再次计算 hash，这就在每次渲染组件时带来了额外的开销。如果你的页面或者组件带有非常复杂或者大量的 CSS-in-JS 代码，甚至样式会跟随组件的 props 变化，那么这个性能消耗便变得不可忽视。<br />针对这个问题，各个 CSS-in-JS 库会有自己的应对方式，这里就先不做赘述，让我们来看一看 Ant Design 的方案。
 
 ## 计算 hash
 
