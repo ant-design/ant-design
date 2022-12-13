@@ -120,29 +120,27 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
 
   React.useImperativeHandle(ref, () => wrapForm);
 
-  const scrollToField = (fieldName: InternalNamePath, options: true | Options) => {
-    let defaultScrollToFirstError: Options = { block: 'nearest' };
-    if (typeof options === 'object') {
-      defaultScrollToFirstError = options;
+  const scrollToField = (options: boolean | Options, fieldName: InternalNamePath) => {
+    if(options) {
+      let defaultScrollToFirstError: Options = { block: 'nearest' };
+      if (typeof options === 'object') {
+        defaultScrollToFirstError = options;
+      }
+      wrapForm.scrollToField(fieldName, defaultScrollToFirstError);
     }
-    wrapForm.scrollToField(fieldName, defaultScrollToFirstError);
   };
 
   const onInternalFinishFailed = (errorInfo: ValidateErrorEntity) => {
     onFinishFailed?.(errorInfo);
-
     if (errorInfo.errorFields.length) {
-      if (scrollToFirstError) {
-        scrollToField(errorInfo.errorFields[0].name, scrollToFirstError);
+      const fieldName = errorInfo.errorFields[0].name;
+      if (scrollToFirstError !== undefined) {
+        scrollToField(scrollToFirstError,fieldName)
         return;
       }
 
-      if (scrollToFirstError === false) {
-        return;
-      }
-
-      if (contextForm && contextForm.scrollToFirstError) {
-        scrollToField(errorInfo.errorFields[0].name, contextForm.scrollToFirstError);
+      if (contextForm && contextForm.scrollToFirstError !== undefined) {
+        scrollToField(contextForm.scrollToFirstError,fieldName)
       }
     }
   };
