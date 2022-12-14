@@ -999,6 +999,40 @@ exports[`renders ./components/button/demo/disabled.tsx correctly 1`] = `
         class="ant-space-item"
         style="margin-right:8px"
       >
+        <a
+          class="ant-btn ant-btn-primary"
+          href="https://ant.design/index-cn"
+        >
+          <span>
+            Href Primary
+          </span>
+        </a>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <a
+          class="ant-btn ant-btn-primary ant-btn-disabled"
+          href="https://ant.design/index-cn"
+        >
+          <span>
+            Href Primary(disabled)
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
+  >
+    <div
+      class="ant-space ant-space-horizontal ant-space-align-center"
+    >
+      <div
+        class="ant-space-item"
+        style="margin-right:8px"
+      >
         <button
           class="ant-btn ant-btn-default ant-btn-dangerous"
           type="button"
