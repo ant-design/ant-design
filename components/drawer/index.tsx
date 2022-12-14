@@ -180,7 +180,7 @@ function Drawer(props: DrawerProps) {
           prefixCls={prefixCls}
           onClose={onClose}
           {...rest}
-          open={open || visible}
+          open={open ?? visible}
           mask={mask}
           push={push}
           width={mergedWidth}
