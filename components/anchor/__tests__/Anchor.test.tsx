@@ -21,6 +21,7 @@ describe('Anchor Render', () => {
     'getBoundingClientRect',
   );
   const getClientRectsMock = jest.spyOn(HTMLHeadingElement.prototype, 'getClientRects');
+  const scrollIntoViewMock = jest.fn();
 
   beforeAll(() => {
     jest.useFakeTimers();
@@ -34,11 +35,13 @@ describe('Anchor Render', () => {
 
   beforeEach(() => {
     jest.useFakeTimers();
+    HTMLElement.prototype.scrollIntoView = scrollIntoViewMock;
   });
 
   afterEach(() => {
     jest.clearAllTimers();
     jest.useRealTimers();
+    scrollIntoViewMock.mockReset();
   });
 
   afterAll(() => {
@@ -48,22 +51,133 @@ describe('Anchor Render', () => {
     getClientRectsMock.mockRestore();
   });
 
-  it('renders correctly', () => {
-    const hash = getHashUrl();
-    const { container } = render(
-      <Anchor>
-        <Link href={`#${hash}`} title={hash} />
+  it('renders items correctly', () => {
+    const { container, asFragment } = render(
+      <Anchor
+        items={[
+          {
+            key: '1',
+            href: '#components-anchor-demo-basic',
+            title: 'Item Basic Demo',
+          },
+          {
+            key: '2',
+            href: '#components-anchor-demo-static',
+            title: 'Static demo',
+          },
+          {
+            key: '3',
+            href: '#api',
+            title: 'API',
+            children: [
+              {
+                key: '4',
+                href: '#anchor-props',
+                title: 'Anchor Props',
+                children: [
+                  {
+                    key: '5',
+                    href: '#link-props',
+                    title: 'Link Props',
+                  },
+                ],
+              },
+            ],
+          },
+        ]}
+      />,
+    );
+    expect(container.querySelectorAll('.ant-anchor .ant-anchor-link').length).toBe(5);
+    const linkTitles = Array.from(container.querySelector('.ant-anchor')?.childNodes!).map((n) =>
+      (n as HTMLElement).querySelector('.ant-anchor-link-title'),
+    );
+    expect((linkTitles[0] as HTMLAnchorElement).href).toContain('#components-anchor-demo-basic');
+    expect((linkTitles[1] as HTMLAnchorElement).href).toContain('#components-anchor-demo-static');
+    expect((linkTitles[2] as HTMLAnchorElement).href).toContain('#api');
+    expect(
+      (
+        container.querySelector(
+          '.ant-anchor .ant-anchor-link .ant-anchor-link .ant-anchor-link-title',
+        ) as HTMLAnchorElement
+      )?.href,
+    ).toContain('#anchor-props');
+    expect(
+      (
+        container.querySelector(
+          '.ant-anchor .ant-anchor-link .ant-anchor-link .ant-anchor-link .ant-anchor-link-title',
+        ) as HTMLAnchorElement
+      )?.href,
+    ).toContain('#link-props');
+    expect(asFragment().firstChild).toMatchSnapshot();
+  });
+
+  it('renders items correctly#horizontal', () => {
+    const { container, asFragment } = render(
+      <Anchor
+        items={[
+          {
+            key: '1',
+            href: '#components-anchor-demo-basic',
+            title: 'Item Basic Demo',
+          },
+          {
+            key: '2',
+            href: '#components-anchor-demo-static',
+            title: 'Static demo',
+          },
+          {
+            key: '3',
+            href: '#api',
+            title: 'API',
+          },
+        ]}
+      />,
+    );
+    expect(container.querySelectorAll('.ant-anchor .ant-anchor-link').length).toBe(3);
+    const linkTitles = Array.from(container.querySelector('.ant-anchor')?.childNodes!).map((n) =>
+      (n as HTMLElement).querySelector('.ant-anchor-link-title'),
+    );
+    expect((linkTitles[0] as HTMLAnchorElement).href).toContain('#components-anchor-demo-basic');
+    expect((linkTitles[1] as HTMLAnchorElement).href).toContain('#components-anchor-demo-static');
+    expect((linkTitles[2] as HTMLAnchorElement).href).toContain('#api');
+    expect(asFragment().firstChild).toMatchSnapshot();
+  });
+
+  it('render items and ignore jsx children', () => {
+    const { container, asFragment } = render(
+      <Anchor
+        items={[
+          {
+            key: '1',
+            href: '#components-anchor-demo-basic',
+            title: 'Item Basic Demo',
+          },
+        ]}
+      >
+        <Link href="#api" title="API" />
       </Anchor>,
     );
-    expect(container.querySelector(`a[href="#${hash}"]`)).not.toBe(null);
+    expect(container.querySelectorAll('.ant-anchor .ant-anchor-link').length).toBe(1);
+    expect(
+      (container.querySelector('.ant-anchor .ant-anchor-link-title') as HTMLAnchorElement).href,
+    ).toContain('#components-anchor-demo-basic');
+    expect(asFragment().firstChild).toMatchSnapshot();
   });
 
   it('actives the target when clicking a link', async () => {
     const hash = getHashUrl();
     const { container } = render(
-      <Anchor prefixCls="ant-anchor">
-        <Link href={`http://www.example.com/#${hash}`} title={hash} />
-      </Anchor>,
+      <Anchor
+        prefixCls="ant-anchor"
+        direction="horizontal"
+        items={[
+          {
+            key: hash,
+            title: hash,
+            href: `http://www.example.com/#${hash}`,
+          },
+        ]}
+      />,
     );
     const link = container.querySelector(`a[href="http://www.example.com/#${hash}"]`)!;
     fireEvent.click(link);
@@ -76,9 +190,7 @@ describe('Anchor Render', () => {
     const scrollToSpy = jest.spyOn(window, 'scrollTo');
     render(<div id="/faq?locale=en#Q1">Q1</div>, { container: root });
     const { container } = render(
-      <Anchor>
-        <Link href="/#/faq?locale=en#Q1" title="Q1" />
-      </Anchor>,
+      <Anchor items={[{ key: 'Q1', title: 'Q1', href: '/#/faq?locale=en#Q1' }]} />,
     );
     const link = container.querySelector(`a[href="/#/faq?locale=en#Q1"]`)!;
     fireEvent.click(link);
@@ -99,10 +211,13 @@ describe('Anchor Render', () => {
       { container: root },
     );
     const { container } = render(
-      <Anchor onChange={onChange}>
-        <Link href={`#${hash1}`} title={hash1} />
-        <Link href={`#${hash2}`} title={hash2} />
-      </Anchor>,
+      <Anchor
+        onChange={onChange}
+        items={[
+          { key: hash1, href: `#${hash1}`, title: hash1 },
+          { key: hash2, href: `#${hash2}`, title: hash2 },
+        ]}
+      />,
     );
     onChange.mockClear();
 
@@ -121,9 +236,7 @@ describe('Anchor Render', () => {
   it('should update DOM when children are unmounted', () => {
     const hash = getHashUrl();
     const { container, rerender } = render(
-      <Anchor>
-        <Link href={`#${hash}`} title={hash} />
-      </Anchor>,
+      <Anchor items={[{ key: hash, href: `#${hash}`, title: hash }]} />,
     );
 
     expect(container.querySelectorAll('.ant-anchor-link-title')).toHaveLength(1);
@@ -136,11 +249,7 @@ describe('Anchor Render', () => {
   it('should update DOM when link href is changed', async () => {
     const hash = getHashUrl();
     function AnchorUpdate({ href }: { href: string }) {
-      return (
-        <Anchor>
-          <Link href={href} title={hash} />
-        </Anchor>
-      );
+      return <Anchor items={[{ key: hash, href, title: hash }]} />;
     }
     const { container, rerender } = render(<AnchorUpdate href={`#${hash}`} />);
 
@@ -156,17 +265,11 @@ describe('Anchor Render', () => {
     const root = createDiv();
     render(<h1 id={hash}>Hello</h1>, { container: root });
     const { container, rerender } = render(
-      <Anchor>
-        <Link href={`#${hash}`} title={hash} />
-      </Anchor>,
+      <Anchor items={[{ key: hash, href: `#${hash}`, title: hash }]} />,
     );
 
     const setProps = (props: Record<string, any>) =>
-      rerender(
-        <Anchor {...props}>
-          <Link href={`#${hash}`} title={hash} />
-        </Anchor>,
-      );
+      rerender(<Anchor {...props} items={[{ key: hash, href: `#${hash}`, title: hash }]} />);
 
     fireEvent.click(container.querySelector(`a[href="#${hash}"]`)!);
     await waitFakeTimer();
@@ -193,17 +296,11 @@ describe('Anchor Render', () => {
     const root = createDiv();
     render(<h1 id={hash}>Hello</h1>, { container: root });
     const { container, rerender } = render(
-      <Anchor>
-        <Link href={`#${hash}`} title={hash} />
-      </Anchor>,
+      <Anchor items={[{ key: hash, href: `#${hash}`, title: hash }]} />,
     );
 
     const setProps = (props: Record<string, any>) =>
-      rerender(
-        <Anchor {...props}>
-          <Link href={`#${hash}`} title={hash} />
-        </Anchor>,
-      );
+      rerender(<Anchor {...props} items={[{ key: hash, href: `#${hash}`, title: hash }]} />);
 
     fireEvent.click(container.querySelector(`a[href="#${hash}"]`)!);
     await waitFakeTimer();
@@ -235,9 +332,7 @@ describe('Anchor Render', () => {
     const href = `#${hash}`;
     const title = hash;
     const { container } = render(
-      <Anchor onClick={handleClick}>
-        <Link href={href} title={title} />
-      </Anchor>,
+      <Anchor onClick={handleClick} items={[{ key: hash, href, title }]} />,
     );
 
     fireEvent.click(container.querySelector(`a[href="${href}"]`)!);
@@ -250,10 +345,21 @@ describe('Anchor Render', () => {
     const hash2 = getHashUrl();
     const onChange = jest.fn();
     const { container } = render(
-      <Anchor onChange={onChange}>
-        <Link href={`#${hash1}`} title={hash1} />
-        <Link href={`#${hash2}`} title={hash2} />
-      </Anchor>,
+      <Anchor
+        onChange={onChange}
+        items={[
+          {
+            key: hash1,
+            href: `#${hash1}`,
+            title: hash1,
+          },
+          {
+            key: hash2,
+            href: `#${hash2}`,
+            title: hash2,
+          },
+        ]}
+      />,
       // https://github.com/testing-library/react-testing-library/releases/tag/v13.0.0
       // @ts-ignore
       { legacyRoot: true },
@@ -267,9 +373,7 @@ describe('Anchor Render', () => {
 
   it('handles invalid hash correctly', () => {
     const { container } = render(
-      <Anchor>
-        <Link href="notexsited" title="title" />
-      </Anchor>,
+      <Anchor items={[{ key: 'title', href: 'notexsited', title: 'title' }]} />,
     );
 
     const link = container.querySelector(`a[href="notexsited"]`)!;
@@ -359,10 +463,13 @@ describe('Anchor Render', () => {
       const hash2 = getHashUrl();
       const getCurrentAnchor = () => `#${hash2}`;
       const { container } = render(
-        <Anchor getCurrentAnchor={getCurrentAnchor}>
-          <Link href={`#${hash1}`} title={hash1} />
-          <Link href={`#${hash2}`} title={hash2} />
-        </Anchor>,
+        <Anchor
+          getCurrentAnchor={getCurrentAnchor}
+          items={[
+            { key: hash1, href: `#${hash1}`, title: hash1 },
+            { key: hash2, href: `#${hash2}`, title: hash2 },
+          ]}
+        />,
       );
 
       expect(container.querySelector(`.ant-anchor-link-title-active`)?.textContent).toBe(hash2);
@@ -374,10 +481,14 @@ describe('Anchor Render', () => {
       const hash2 = getHashUrl();
       const onChange = jest.fn();
       const { container } = render(
-        <Anchor onChange={onChange} getCurrentAnchor={() => hash1}>
-          <Link href={`#${hash1}`} title={hash1} />
-          <Link href={`#${hash2}`} title={hash2} />
-        </Anchor>,
+        <Anchor
+          onChange={onChange}
+          getCurrentAnchor={() => hash1}
+          items={[
+            { key: hash1, href: `#${hash1}`, title: hash1 },
+            { key: hash2, href: `#${hash2}`, title: hash2 },
+          ]}
+        />,
         // https://github.com/testing-library/react-testing-library/releases/tag/v13.0.0
         // @ts-ignore
         { legacyRoot: true },
@@ -395,10 +506,13 @@ describe('Anchor Render', () => {
       const hash2 = getHashUrl();
       const getCurrentAnchor = jest.fn();
       const { container } = render(
-        <Anchor getCurrentAnchor={getCurrentAnchor}>
-          <Link href={`#${hash1}`} title={hash1} />
-          <Link href={`#${hash2}`} title={hash2} />
-        </Anchor>,
+        <Anchor
+          getCurrentAnchor={getCurrentAnchor}
+          items={[
+            { key: hash1, href: `#${hash1}`, title: hash1 },
+            { key: hash2, href: `#${hash2}`, title: hash2 },
+          ]}
+        />,
       );
 
       fireEvent.click(container.querySelector(`a[href="#${hash1}"]`)!);
@@ -412,10 +526,13 @@ describe('Anchor Render', () => {
       const hash1 = getHashUrl();
       const hash2 = getHashUrl();
       const Demo: React.FC<{ current: string }> = ({ current }) => (
-        <Anchor getCurrentAnchor={() => `#${current}`}>
-          <Link href={`#${hash1}`} title={hash1} />
-          <Link href={`#${hash2}`} title={hash2} />
-        </Anchor>
+        <Anchor
+          getCurrentAnchor={() => `#${current}`}
+          items={[
+            { key: hash1, href: `#${hash1}`, title: hash1 },
+            { key: hash2, href: `#${hash2}`, title: hash2 },
+          ]}
+        />
       );
       const { container, rerender } = render(<Demo current={hash1} />);
       expect(container.querySelector(`.ant-anchor-link-title-active`)?.textContent).toBe(hash1);
@@ -426,95 +543,45 @@ describe('Anchor Render', () => {
     it('should render correctly when href is null', () => {
       expect(() => {
         render(
-          <Anchor>
-            <Link href={null as unknown as string} title="test" />
-          </Anchor>,
+          <Anchor items={[{ key: 'test', href: null as unknown as string, title: 'test' }]} />,
         );
         fireEvent.scroll(window || document);
       }).not.toThrow();
     });
   });
 
-  it('renders items correctly', () => {
-    const { container, asFragment } = render(
-      <Anchor
-        items={[
-          {
-            key: '1',
-            href: '#components-anchor-demo-basic',
-            title: 'Item Basic Demo',
-          },
-          {
-            key: '2',
-            href: '#components-anchor-demo-static',
-            title: 'Static demo',
-          },
-          {
-            key: '3',
-            href: '#api',
-            title: 'API',
-            children: [
-              {
-                key: '4',
-                href: '#anchor-props',
-                title: 'Anchor Props',
-                children: [
-                  {
-                    key: '5',
-                    href: '#link-props',
-                    title: 'Link Props',
-                  },
-                ],
-              },
-            ],
-          },
-        ]}
-      />,
-    );
-    expect(container.querySelectorAll('.ant-anchor .ant-anchor-link').length).toBe(5);
-    const linkTitles = Array.from(container.querySelector('.ant-anchor')?.childNodes!).map((n) =>
-      (n as HTMLElement).querySelector('.ant-anchor-link-title'),
-    );
-    expect((linkTitles[0] as HTMLAnchorElement).href).toContain('#components-anchor-demo-basic');
-    expect((linkTitles[1] as HTMLAnchorElement).href).toContain('#components-anchor-demo-static');
-    expect((linkTitles[2] as HTMLAnchorElement).href).toContain('#api');
-    expect(
-      (
-        container.querySelector(
-          '.ant-anchor .ant-anchor-link .ant-anchor-link .ant-anchor-link-title',
-        ) as HTMLAnchorElement
-      )?.href,
-    ).toContain('#anchor-props');
-    expect(
-      (
-        container.querySelector(
-          '.ant-anchor .ant-anchor-link .ant-anchor-link .ant-anchor-link .ant-anchor-link-title',
-        ) as HTMLAnchorElement
-      )?.href,
-    ).toContain('#link-props');
-    expect(asFragment().firstChild).toMatchSnapshot();
-  });
-
   describe('horizontal anchor', () => {
     describe('scroll x', () => {
       it('targetOffset horizontal', async () => {
         const hash = getHashUrl();
-
-        const scrollIntoViewMock = jest.fn();
-        window.HTMLElement.prototype.scrollIntoView = scrollIntoViewMock;
         const scrollToSpy = jest.spyOn(window, 'scrollTo');
         const root = createDiv();
         render(<h1 id={hash}>Hello</h1>, { container: root });
         const { container, rerender } = render(
-          <Anchor direction="horizontal">
-            <Link href={`#${hash}`} title={hash} />
-          </Anchor>,
+          <Anchor
+            direction="horizontal"
+            items={[
+              {
+                key: hash,
+                href: `#${hash}`,
+                title: hash,
+              },
+            ]}
+          />,
         );
         const setProps = (props: Record<string, any>) =>
           rerender(
-            <Anchor {...props} direction="horizontal">
-              <Link href={`#${hash}`} title={hash} />
-            </Anchor>,
+            <Anchor
+              {...props}
+              direction="horizontal"
+              items={[
+                {
+                  key: hash,
+                  href: `#${hash}`,
+                  title: hash,
+                },
+              ]}
+            />,
           );
         fireEvent.click(container.querySelector(`a[href="#${hash}"]`)!);
         await waitFakeTimer();
@@ -614,6 +681,121 @@ describe('Anchor Render', () => {
         </Anchor>,
       );
       expect(container.querySelectorAll('.ant-anchor-link').length).toBe(3);
+    });
+  });
+
+  describe('deprecated/legacy jsx syntax', () => {
+    it('renders jsx correctly', () => {
+      const hash = getHashUrl();
+      const { container } = render(
+        <Anchor>
+          <Link href={`#${hash}`} title={hash} />
+        </Anchor>,
+      );
+      expect(container.querySelector(`a[href="#${hash}"]`)).not.toBe(null);
+    });
+
+    it('actives the target when clicking a link', async () => {
+      const hash = getHashUrl();
+      const { container } = render(
+        <Anchor prefixCls="ant-anchor">
+          <Link href={`http://www.example.com/#${hash}`} title={hash} />
+        </Anchor>,
+      );
+      const link = container.querySelector(`a[href="http://www.example.com/#${hash}"]`)!;
+      fireEvent.click(link);
+      await waitFakeTimer();
+      expect(link.classList).toContain('ant-anchor-link-title-active');
+    });
+
+    it('scrolls the page when clicking a link', async () => {
+      const root = createDiv();
+      const scrollToSpy = jest.spyOn(window, 'scrollTo');
+      render(<div id="/faq?locale=en#Q1">Q1</div>, { container: root });
+      const { container } = render(
+        <Anchor>
+          <Link href="/#/faq?locale=en#Q1" title="Q1" />
+        </Anchor>,
+      );
+      const link = container.querySelector(`a[href="/#/faq?locale=en#Q1"]`)!;
+      fireEvent.click(link);
+      await waitFakeTimer();
+      expect(scrollToSpy).toHaveBeenCalled();
+    });
+
+    it('handleScroll should not be triggered when scrolling caused by clicking a link', async () => {
+      const hash1 = getHashUrl();
+      const hash2 = getHashUrl();
+      const root = createDiv();
+      const onChange = jest.fn();
+      render(
+        <div>
+          <div id={hash1}>Hello</div>
+          <div id={hash2}>World</div>
+        </div>,
+        { container: root },
+      );
+      const { container } = render(
+        <Anchor onChange={onChange}>
+          <Link href={`#${hash1}`} title={hash1} />
+          <Link href={`#${hash2}`} title={hash2} />
+        </Anchor>,
+      );
+      onChange.mockClear();
+
+      const link = container.querySelector(`a[href="#${hash2}"]`)!;
+      // this will trigger 1 onChange
+      fireEvent.click(link);
+      // smooth scroll caused by clicking needs time to finish.
+      // we scroll the window before it finish, the scroll listener should not be triggered,
+      fireEvent.scroll(window);
+
+      await waitFakeTimer();
+      // if the scroll listener is triggered, we will get 2 onChange, now we expect only 1.
+      expect(onChange).toHaveBeenCalledTimes(1);
+    });
+
+    it('should update DOM when children are unmounted', () => {
+      const hash = getHashUrl();
+      const { container, rerender } = render(
+        <Anchor>
+          <Link href={`#${hash}`} title={hash} />
+        </Anchor>,
+      );
+
+      expect(container.querySelectorAll('.ant-anchor-link-title')).toHaveLength(1);
+      expect(container.querySelector('.ant-anchor-link-title')).toHaveAttribute('href', `#${hash}`);
+
+      rerender(<Anchor />);
+      expect(container.querySelector('.ant-anchor-link-title')).toBeFalsy();
+    });
+
+    it('should update DOM when link href is changed', async () => {
+      const hash = getHashUrl();
+      function AnchorUpdate({ href }: { href: string }) {
+        return (
+          <Anchor>
+            <Link href={href} title={hash} />
+          </Anchor>
+        );
+      }
+      const { container, rerender } = render(<AnchorUpdate href={`#${hash}`} />);
+
+      expect(container.querySelector(`a[href="#${hash}"]`)).toBeTruthy();
+      rerender(<AnchorUpdate href={`#${hash}_1`} />);
+      expect(container.querySelector(`a[href="#${hash}_1"]`)).toBeTruthy();
+    });
+
+    it('handles invalid hash correctly', () => {
+      const { container } = render(
+        <Anchor>
+          <Link href="notexsited" title="title" />
+        </Anchor>,
+      );
+
+      const link = container.querySelector(`a[href="notexsited"]`)!;
+      fireEvent.click(link);
+      expect(container.querySelector(`.ant-anchor-link-title-active`)?.textContent).toBe('title');
     });
   });
 
