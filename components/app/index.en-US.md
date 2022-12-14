@@ -91,7 +91,6 @@ export default () => {
   message = staticFunction.message;
   modal = staticFunction.modal;
   notification = staticFunction.notification;
-  useEffect(() => {}, []);
   return null;
 };
 
