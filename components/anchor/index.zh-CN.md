@@ -48,6 +48,7 @@ group:
 | onChange | 监听锚点链接改变 | (currentActiveLink: string) => void | - |  |
 | onClick | `click` 事件的 handler | (e: MouseEvent, link: object) => void | - |  |
 | items | 数据化配置选项内容，支持通过 children 嵌套 | { href, title, target, children }\[] | - |  |
+| direction | 设置导航方向 | `vertical` \| `horizontal` | `horizontal` | 5.1.0 |
 
 ### Link Props
 
