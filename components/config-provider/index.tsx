@@ -185,8 +185,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
 
   const mergedTheme = useTheme(theme, parentContext.theme);
 
-  const config = {
-    ...parentContext,
+  const baseConfig = {
     csp,
     autoInsertSpaceInButton,
     locale: locale || legacyLocale,
@@ -198,6 +197,16 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     iconPrefixCls,
     theme: mergedTheme,
   };
+
+  const config = {
+    ...parentContext,
+  };
+
+  Object.keys(baseConfig).forEach((key: keyof typeof baseConfig) => {
+    if (baseConfig[key] !== undefined) {
+      (config as any)[key] = baseConfig[key];
+    }
+  });
 
   // Pass the props used by `useContext` directly with child component.
   // These props should merged into `config`.
