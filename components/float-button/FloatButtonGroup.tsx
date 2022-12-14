@@ -44,17 +44,19 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
   const floatButtonGroupRef = useRef<HTMLDivElement>(null);
   const floatButtonRef = useRef<HTMLButtonElement>(null);
 
-  const hoverTypeAction = {
-    onMouseEnter() {
-      setOpen(true);
-      onOpenChange?.(true);
-    },
-    onMouseLeave() {
-      setOpen(false);
-      onOpenChange?.(false);
-    },
-  };
-  const hoverAction = useMemo(() => (trigger === 'hover' ? hoverTypeAction : {}), [trigger]);
+  const hoverAction = useMemo(() => {
+    const hoverTypeAction = {
+      onMouseEnter() {
+        setOpen(true);
+        onOpenChange?.(true);
+      },
+      onMouseLeave() {
+        setOpen(false);
+        onOpenChange?.(false);
+      },
+    };
+    return trigger === 'hover' ? hoverTypeAction : {};
+  }, [trigger]);
 
   const handleOpenChange = () => {
     setOpen((prevState) => {
@@ -65,12 +67,14 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
 
   const onClick = useCallback(
     (e: MouseEvent) => {
-      if (trigger !== 'click') return;
       if (floatButtonGroupRef.current!.contains(e.target as Node)) {
-        if (!floatButtonRef.current!.contains(e.target as Node)) return;
-        handleOpenChange();
+        if (floatButtonRef.current!.contains(e.target as Node)) {
+          handleOpenChange();
+        }
         return;
       }
+      setOpen(false);
+      onOpenChange?.(false);
     },
     [trigger],
   );
