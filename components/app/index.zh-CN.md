@@ -3,7 +3,7 @@ category: Components
 subtitle: 包裹组件
 group: 其他
 title: App
-cover: https://gw.alipayobjects.com/zos/bmw-prod/cc3fcbfa-bf5b-4c8c-8a3d-c3f8388c75e8.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HJz8SZos2wgAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -18,11 +18,13 @@ demo:
 ## 代码演示
 
 <!-- prettier-ignore -->
-<code src="./demo/message.tsx">message</code>
-<code src="./demo/notification.tsx">notification</code>
-<code src="./demo/modal.tsx">modal</code>
+<code src="./demo/basic.tsx">basic</code>
 
-## How to use
+## 如何使用
+
+### 基础用法
+
+App 组件通过 `Context` 提供上下文方法调用，因而 useApp 需要作为子组件才能使用，我们推荐在应用中顶层包裹 App。
 
 ```tsx
 import React from 'react';
@@ -45,4 +47,75 @@ const MyApp: React.FC = () => (
 );
 
 export default MyApp;
+```
+
+注意：App.useApp 必须在 App 之下方可使用。
+
+### 与 ConfigProvider 先后顺序
+
+App 组件在能在`ConfigProvider`才能使用 token， 如果需要使用 Token，则 ConfigProvider 与 App 组件必须成对出现。
+
+```tsx
+<ConfigProvider theme={{ ... }}>
+  <App>
+    ...
+  </App>
+</ConfigProvider>
+```
+
+### 内嵌使用场景（如无必要，尽量不做嵌套）
+
+```tsx
+<App>
+  <Space>
+    ...
+    <App>...</App>
+  </Space>
+</App>
+```
+
+### 全局场景（redux 场景）
+
+```tsx
+// Entry component
+import React, { useEffect } from 'react';
+import { App } from 'antd';
+import type { MessageInstance } from 'antd/es/message/interface';
+import type { NotificationInstance } from 'antd/es/notification/interface';
+import type { ModalStaticFunctions } from 'antd/es/modal/confirm';
+
+let message: MessageInstance;
+let notification: NotificationInstance;
+let modal: Omit<ModalStaticFunctions, 'warn'>;
+
+export default () => {
+  const staticFunction = App.useApp();
+  message = staticFunction.message;
+  modal = staticFunction.modal;
+  notification = staticFunction.notification;
+  return null;
+};
+
+export { message, notification, modal };
+```
+
+```tsx
+// sub page
+import React from 'react';
+import { Button, Space } from 'antd';
+import { message, modal, notification } from './store';
+
+export default () => {
+  const showMessage = () => {
+    message.success('Success!');
+  };
+
+  return (
+    <Space>
+      <Button type="primary" onClick={showMessage}>
+        Open message
+      </Button>
+    </Space>
+  );
+};
 ```
