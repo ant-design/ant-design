@@ -104,8 +104,8 @@ export interface ModalFuncProps {
   closable?: boolean;
   content?: React.ReactNode;
   // TODO: find out exact types
-  onOk?: (args: React.MouseEvent<HTMLButtonElement>) => void;
-  onCancel?: (args: React.MouseEvent<HTMLButtonElement>) => void;
+  onOk?: (...args: any[]) => any;
+  onCancel?: (...args: any[]) => any;
   afterClose?: () => void;
   okButtonProps?: ButtonProps;
   cancelButtonProps?: ButtonProps;
