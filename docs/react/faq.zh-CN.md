@@ -21,6 +21,10 @@ title: FAQ
 
 不推荐。对内接口不保证兼容性，它很可能在某个版本中因重构而移除。如果你确实需要使用，需自行确保版本升级时隐藏接口仍旧可用，或者锁定版本。
 
+## 为何新增 API 请求需要严格讨论？
+
+我们在添加 API 时十分谨慎，因为一些 API 可能不够抽象从而变成历史债务。例如当需要对交互方式进行更改，这些不良抽象可能会引发 Breaking Change。为了避免诸如此类问题，我们推荐新功能优先通过 HOC 实现。
+
 ## 当我点击 `Select Dropdown DatePicker TimePicker Popover Popconfirm` 内的另一个 popup 组件时它会消失，如何解决？
 
 该问题在 `3.11.0` 后已经解决。如果你仍在使用旧版本，你可以通过 `<Select getPopupContainer={trigger => trigger.parentElement}>` 来在 Popover 中渲染组件，或者使用其他的 `getXxxxContainer` 参数。
