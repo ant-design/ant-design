@@ -24,7 +24,7 @@ demo:
 
 ### 基础用法
 
-App 通过 Context 提供上下文方法调用，因而 useApp 需要作为子组件才能使用。我们推荐在应用中顶层包裹 App：
+App 组件通过 `Context` 提供上下文方法调用，因而 useApp 需要作为子组件才能使用，我们推荐在应用中顶层包裹 App。
 
 ```tsx
 import React from 'react';
@@ -74,7 +74,7 @@ App 组件在能在`ConfigProvider`才能使用 token， 如果需要使用 Toke
 </App>
 ```
 
-### 全局场景（rudux 场景）
+### 全局场景（redux 场景）
 
 ```tsx
 // Entry component
