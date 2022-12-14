@@ -190,7 +190,7 @@ For historical reasons, the display names of the pop components are not uniform,
 
 Because `@line-height-base` is involved in the layout calculation of some components, only `number` units are supported. If `20px` is passed, it will be interpreted as `20 ` for calculation, resulting in a layout exception.
 
-Related issue: [#39451](https://github.com/ant-design/ant-design/issues/39451#issuecomment-1351369170)
+Related issue: [#39451](https://github.com/ant-design/ant-design/issues/39451)
 
 ## How to spell Ant Design correctly?
 

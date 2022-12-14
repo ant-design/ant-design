@@ -210,7 +210,7 @@ ConfigProvider.config({
 
 因为 `@line-height-base` 参与了部分组件的布局计算，所以只支持 `number` 类型的单位。如果传入了 `20px`，会被解析成 `20` 进行计算，导致布局异常。
 
-相关 issue：[#39451](https://github.com/ant-design/ant-design/issues/39451#issuecomment-1351369170)
+相关 issue：[#39451](https://github.com/ant-design/ant-design/issues/39451)
 
 ## 如何正确的拼写 Ant Design？
 
