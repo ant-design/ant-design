@@ -497,6 +497,77 @@ describe('Anchor Render', () => {
 });
 
 describe('horizontal anchor', () => {
+  describe('scroll x', () => {
+    const getBoundingClientRectMock = jest.spyOn(
+      HTMLHeadingElement.prototype,
+      'getBoundingClientRect',
+    );
+    const getClientRectsMock = jest.spyOn(HTMLHeadingElement.prototype, 'getClientRects');
+
+    beforeAll(() => {
+      jest.useFakeTimers();
+      getBoundingClientRectMock.mockReturnValue({
+        width: 100,
+        height: 100,
+        left: 1000,
+      } as DOMRect);
+      getClientRectsMock.mockReturnValue({ length: 1 } as DOMRectList);
+    });
+
+    beforeEach(() => {
+      jest.useFakeTimers();
+    });
+
+    afterEach(() => {
+      jest.clearAllTimers();
+      jest.useRealTimers();
+    });
+
+    afterAll(() => {
+      jest.clearAllTimers();
+      jest.useRealTimers();
+      getBoundingClientRectMock.mockRestore();
+      getClientRectsMock.mockRestore();
+    });
+
+    it('targetOffset horizontal', async () => {
+      const hash = getHashUrl();
+
+      const scrollIntoViewMock = jest.fn();
+      window.HTMLElement.prototype.scrollIntoView = scrollIntoViewMock;
+      const scrollToSpy = jest.spyOn(window, 'scrollTo');
+      const root = createDiv();
+      render(<h1 id={hash}>Hello</h1>, { container: root });
+      const { container, rerender } = render(
+        <Anchor direction="horizontal">
+          <Link href={`#${hash}`} title={hash} />
+        </Anchor>,
+      );
+      const setProps = (props: Record<string, any>) =>
+        rerender(
+          <Anchor {...props}>
+            <Link href={`#${hash}`} title={hash} />
+          </Anchor>,
+        );
+      fireEvent.click(container.querySelector(`a[href="#${hash}"]`)!);
+      await waitFakeTimer();
+      expect(scrollIntoViewMock).toHaveBeenCalled();
+
+      expect(scrollToSpy).toHaveBeenLastCalledWith(0, 1000);
+
+      setProps({ offsetLeft: 100 });
+
+      fireEvent.click(container.querySelector(`a[href="#${hash}"]`)!);
+      await waitFakeTimer();
+      expect(scrollToSpy).toHaveBeenLastCalledWith(0, 900);
+
+      setProps({ targetOffset: 200 });
+      fireEvent.click(container.querySelector(`a[href="#${hash}"]`)!);
+      await waitFakeTimer();
+      expect(scrollToSpy).toHaveBeenLastCalledWith(0, 800);
+    });
+  });
+
   it('test direction prop', () => {
     const { container } = render(
       <Anchor
