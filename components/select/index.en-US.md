@@ -177,3 +177,5 @@ Note: `listItemHeight` and `listHeight` are internal props. Please only modify w
 ### Why a11y test report missing `aria-` props?
 
 Select only create a11y auxiliary node when operating on. Please open Select and retry. For `aria-label` & `aria-labelledby` miss warning, please add related prop to Select with your own requirement.
+
+Default virtual scrolling will create a mock element to simulate an accessible binding. If a screen reader needs to fully access the entire list, you can set `virtual={false}` to disable virtual scrolling and the accessibility option will be bound to the actual element.

@@ -8,10 +8,9 @@ import { FormItemInputContext } from '../form/context';
 import { cloneElement } from '../_util/reactNode';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
-import { tuple } from '../_util/type';
 import type { InputProps } from './Input';
 
-const ClearableInputType = tuple('text', 'input');
+const ClearableInputType = ['text', 'input'] as const;
 
 function hasAddon(props: InputProps | ClearableInputProps) {
   return !!(props.addonBefore || props.addonAfter);

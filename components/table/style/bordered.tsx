@@ -77,7 +77,7 @@ const genBorderedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
               },
 
               // ========================== Expandable ==========================
-              '> table > tbody > tr > td': {
+              '> tbody > tr > td': {
                 [`> ${componentCls}-expanded-row-fixed`]: {
                   margin: `-${token.tablePaddingVertical}px -${
                     token.tablePaddingHorizontal + token.lineWidth
