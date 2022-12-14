@@ -60,6 +60,7 @@ import 'dayjs/locale/tk';
 import 'dayjs/locale/tr';
 import 'dayjs/locale/uk';
 import 'dayjs/locale/ur';
+import 'dayjs/locale/uz-latn';
 import 'dayjs/locale/vi';
 import 'dayjs/locale/zh-cn';
 import 'dayjs/locale/zh-hk';
@@ -146,6 +147,7 @@ import tkTK from '../../locale/tk_TK';
 import trTR from '../../locale/tr_TR';
 import ukUA from '../../locale/uk_UA';
 import urPK from '../../locale/ur_PK';
+import uzUZ from '../../locale/uz_UZ';
 import viVN from '../../locale/vi_VN';
 import zhCN from '../../locale/zh_CN';
 import zhHK from '../../locale/zh_HK';
@@ -215,6 +217,7 @@ const locales = [
   trTR,
   tkTK,
   ukUA,
+  uzUZ,
   viVN,
   idID,
   lvLV,
