@@ -28,34 +28,12 @@ exports[`renders ./components/anchor/demo/basic.tsx extend context correctly 1`]
         class=""
       >
         <div
-<<<<<<< HEAD
           class="ant-anchor-wrapper"
           style="max-height:100vh"
-=======
-          class="ant-anchor-link"
-        >
-          <a
-            class="ant-anchor-link-title"
-            href="#components-anchor-demo-basic"
-            title="Basic demo"
-          >
-            Basic demo
-          </a>
-        </div>
-        <div
-          class="ant-anchor-link"
->>>>>>> test: add test
         >
           <div
             class="ant-anchor"
           >
-            <div
-              class="ant-anchor-ink"
-            >
-              <span
-                class="ant-anchor-ink-ball"
-              />
-            </div>
             <div
               class="ant-anchor-link"
             >
@@ -89,14 +67,14 @@ exports[`renders ./components/anchor/demo/basic.tsx extend context correctly 1`]
                 Part 3
               </a>
             </div>
+            <div
+              class="ant-anchor-ink"
+            >
+              <span
+                class="ant-anchor-ink-ball"
+              />
+            </div>
           </div>
-        </div>
-        <div
-          class="ant-anchor-ink"
-        >
-          <span
-            class="ant-anchor-ink-ball"
-          />
         </div>
       </div>
     </div>
@@ -588,33 +566,7 @@ exports[`renders ./components/anchor/demo/targetOffset.tsx extend context correc
     >
       <div>
         <div
-<<<<<<< HEAD
           class=""
-=======
-          class="ant-anchor-link"
-        >
-          <a
-            class="ant-anchor-link-title"
-            href="#components-anchor-demo-basic"
-            title="Basic demo"
-          >
-            Basic demo
-          </a>
-        </div>
-        <div
-          class="ant-anchor-link"
-        >
-          <a
-            class="ant-anchor-link-title"
-            href="#components-anchor-demo-static"
-            title="Static demo"
-          >
-            Static demo
-          </a>
-        </div>
-        <div
-          class="ant-anchor-link"
->>>>>>> test: add test
         >
           <div
             class="ant-anchor-wrapper"
@@ -623,13 +575,6 @@ exports[`renders ./components/anchor/demo/targetOffset.tsx extend context correc
             <div
               class="ant-anchor"
             >
-              <div
-                class="ant-anchor-ink"
-              >
-                <span
-                  class="ant-anchor-ink-ball"
-                />
-              </div>
               <div
                 class="ant-anchor-link"
               >
@@ -663,15 +608,15 @@ exports[`renders ./components/anchor/demo/targetOffset.tsx extend context correc
                   Part 3
                 </a>
               </div>
+              <div
+                class="ant-anchor-ink"
+              >
+                <span
+                  class="ant-anchor-ink-ball"
+                />
+              </div>
             </div>
           </div>
-        </div>
-        <div
-          class="ant-anchor-ink"
-        >
-          <span
-            class="ant-anchor-ink-ball"
-          />
         </div>
       </div>
     </div>

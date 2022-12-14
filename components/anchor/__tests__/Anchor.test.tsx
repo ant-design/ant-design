@@ -590,18 +590,6 @@ describe('warning', () => {
     errSpy.mockRestore();
   });
 
-  it('deprecated jsx style', () => {
-    render(
-      <Anchor direction="horizontal">
-        <Link href="#components-anchor-demo-basic" title="Basic demo" />
-        <Link href="#components-anchor-demo-static" title="Static demo" />
-      </Anchor>,
-    );
-    expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Anchor] `Anchor children` is deprecated. Please use `items` instead.',
-    );
-  });
-
   it('warning nested children when direction is horizontal ', () => {
     render(
       <Anchor
@@ -634,6 +622,18 @@ describe('warning', () => {
     );
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: Anchor] `Anchor items#children` is not supported when `Anchor` direction is horizontal.',
+    );
+  });
+
+  it('deprecated jsx style', () => {
+    render(
+      <Anchor direction="horizontal">
+        <Link href="#components-anchor-demo-basic" title="Basic demo" />
+        <Link href="#components-anchor-demo-static" title="Static demo" />
+      </Anchor>,
+    );
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Anchor] `Anchor children` is deprecated. Please use `items` instead.',
     );
   });
 
