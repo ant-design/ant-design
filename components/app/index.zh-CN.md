@@ -3,7 +3,7 @@ category: Components
 subtitle: 包裹组件
 group: 其他
 title: App
-cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*POCkQrmy5TcAAAAAAAAAAAAADrJ8AQ/original
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HJz8SZos2wgAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
