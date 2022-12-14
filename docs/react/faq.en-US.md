@@ -186,6 +186,12 @@ You should only access the API by official doc with ref. Directly access interna
 
 For historical reasons, the display names of the pop components are not uniform, and both `open` and `visible` are used. This makes the memory cost that non-tsx users encounter when developing. It also leads to ambiguity about what name to choose when adding a feature. So we want to unify the attribute name, you can still use the original `visible` and it will still be backward compatible, but we will remove this attribute from the documentation as of v5.
 
+## Setting the style variable '@line-height-base' caused a layout exception.
+
+Because `@line-height-base` is involved in the layout calculation of some components, only `number` units are supported. If `20px` is passed, it will be interpreted as `20 ` for calculation, resulting in a layout exception.
+
+Related issue: [#39451](https://github.com/ant-design/ant-design/issues/39451)
+
 ## How to spell Ant Design correctly?
 
 - ✅ **Ant Design**: Capitalized with space, for the design language.
