@@ -16,7 +16,6 @@ const useStyle = () => {
       padding: 0;
     `,
     componentsOverviewGroupTitle: css`
-      font-size: 24px;
       margin-bottom: 24px !important;
     `,
     componentsOverviewTitle: css`
@@ -38,22 +37,7 @@ const useStyle = () => {
       }
     `,
     componentsOverviewSearch: css`
-      &${token.antCls}-input-affix-wrapper {
-        width: 100%;
-        padding: 0;
-        font-size: 20px;
-        border: 0;
-        box-shadow: none;
-
-        input {
-          color: rgba(0, 0, 0, 0.85);
-          font-size: 20px;
-        }
-
-        .anticon {
-          color: #bbb;
-        }
-      }
+      font-size: ${token.fontSizeXL}px;
     `,
   };
 };
@@ -131,7 +115,8 @@ const Overview: React.FC = () => {
           reportSearch(e.target.value);
         }}
         onKeyDown={onKeyDown}
-        autoFocus // eslint-disable-line jsx-a11y/no-autofocus
+        bordered={false}
+        autoFocus
         suffix={<SearchOutlined />}
       />
       <Divider />
