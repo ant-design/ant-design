@@ -108,8 +108,6 @@ import { message, modal, notification } from './store';
 
 export default () => {
   const showMessage = () => {
-    console.log('message', message);
-    console.log('modal', modal);
     message.success('Success!');
   };
 
