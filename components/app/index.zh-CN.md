@@ -53,7 +53,7 @@ export default MyApp;
 
 ### 与 ConfigProvider 先后顺序
 
-App 组件在能在`ConfigProvider`才能使用 token, 如果需要使用 Token,则 ConfigProvider 与 App 组件必须成对出现,不使用 token,则 App 可单独使用。
+App 组件在能在`ConfigProvider`才能使用 token， 如果需要使用 Token，则 ConfigProvider 与 App 组件必须成对出现。
 
 ```tsx
 <ConfigProvider theme={{ ... }}>
