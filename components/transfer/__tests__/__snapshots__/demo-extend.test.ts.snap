@@ -6545,6 +6545,7 @@ Array [
                           <tr>
                             <th
                               class="ant-table-cell ant-table-selection-column"
+                              scope="col"
                             >
                               <div
                                 class="ant-table-selection"
@@ -6569,16 +6570,19 @@ Array [
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               Name
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               Tag
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               Description
                             </th>
@@ -7394,6 +7398,7 @@ Array [
                           <tr>
                             <th
                               class="ant-table-cell ant-table-selection-column"
+                              scope="col"
                             >
                               <div
                                 class="ant-table-selection"
@@ -7418,6 +7423,7 @@ Array [
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               Name
                             </th>
@@ -7791,7 +7797,7 @@ exports[`renders ./components/transfer/demo/tree-transfer.tsx extend context cor
             <div
               aria-hidden="true"
               class="ant-tree-treenode"
-              style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden;border:0;padding:0"
+              style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
             >
               <div
                 class="ant-tree-indent"
