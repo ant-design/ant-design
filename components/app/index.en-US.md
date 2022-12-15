@@ -49,7 +49,7 @@ export default MyApp;
 
 Note: App.useApp must be available under App.
 
-### 与 ConfigProvider 先后顺序
+### Sequence with ConfigProvider
 
 The App component can only use the token in the `ConfigProvider`, if you need to use the Token, the ConfigProvider and the App component must appear in pairs.
 
