@@ -21,10 +21,7 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = ({ value, onChange }) => {
     <FloatButton.Group trigger="click" icon={<ThemeIcon />}>
       <Link
         to={getLocalizedPathname('/theme-editor', isZhCN(pathname), search)}
-        style={{
-          marginBottom: token.margin,
-          display: 'block',
-        }}
+        style={{ display: 'block', marginBottom: token.margin }}
       >
         <FloatButton
           icon={<BgColorsOutlined />}
