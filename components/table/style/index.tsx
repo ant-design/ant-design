@@ -134,7 +134,10 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
 
       // ============================ Header ============================
       [`${componentCls}-thead`]: {
-        '> tr > th': {
+        [`
+          > tr > th,
+          > tr > td
+        `]: {
           position: 'relative',
           color: tableHeaderTextColor,
           fontWeight: fontWeightStrong,
