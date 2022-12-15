@@ -23,6 +23,7 @@ export default function useResponsiveObserver() {
   const [, token] = useToken();
   const responsiveMap: BreakpointMap = getResponsiveMap(token);
 
+  // To avoid repeat create instance, we add `useMemo` here.
   return React.useMemo(() => {
     const subscribers = new Map<Number, SubscribeFunc>();
     let subUid = -1;
@@ -80,5 +81,5 @@ export default function useResponsiveObserver() {
       },
       responsiveMap,
     };
-  }, []);
+  }, [token]);
 }
