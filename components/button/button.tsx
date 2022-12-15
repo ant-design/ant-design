@@ -119,13 +119,13 @@ export interface BaseButtonProps {
 export type AnchorButtonProps = {
   href: string;
   target?: string;
-  onClick?: React.MouseEventHandler<HTMLElement>;
+  onClick?: React.MouseEventHandler<HTMLAnchorElement>;
 } & BaseButtonProps &
   Omit<React.AnchorHTMLAttributes<any>, 'type' | 'onClick'>;
 
 export type NativeButtonProps = {
   htmlType?: ButtonHTMLType;
-  onClick?: React.MouseEventHandler<HTMLElement>;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 } & BaseButtonProps &
   Omit<React.ButtonHTMLAttributes<any>, 'type' | 'onClick'>;
 
@@ -141,7 +141,10 @@ type CompoundedComponent = React.ForwardRefExoticComponent<
 
 type Loading = number | boolean;
 
-const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref) => {
+const InternalButton: React.ForwardRefRenderFunction<
+  HTMLButtonElement | HTMLAnchorElement,
+  ButtonProps
+> = (props, ref) => {
   const {
     loading = false,
     prefixCls: customizePrefixCls,
@@ -175,7 +178,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
   const groupSize = React.useContext(GroupSizeContext);
   const [innerLoading, setLoading] = React.useState<Loading>(!!loading);
   const [hasTwoCNChar, setHasTwoCNChar] = React.useState(false);
-  const buttonRef = (ref as any) || React.createRef<HTMLElement>();
+  const buttonRef = (ref as any) || React.createRef<HTMLAnchorElement | HTMLButtonElement>();
   const isNeedInserted = () =>
     React.Children.count(children) === 1 && !icon && !isUnBorderedButtonType(type);
 
@@ -316,7 +319,10 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
   return wrapSSR(buttonNode);
 };
 
-const Button = React.forwardRef<unknown, ButtonProps>(InternalButton) as CompoundedComponent;
+const Button = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
+  InternalButton,
+) as CompoundedComponent;
+
 if (process.env.NODE_ENV !== 'production') {
   Button.displayName = 'Button';
 }

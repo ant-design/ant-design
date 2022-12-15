@@ -32,8 +32,8 @@ export interface OverlayProps
   > {
   prefixCls: string;
   close?: Function;
-  onConfirm?: React.MouseEventHandler<HTMLButtonElement>;
-  onCancel?: React.MouseEventHandler<HTMLButtonElement>;
+  onConfirm?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
+  onCancel?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
 }
 
 export const Overlay: React.FC<OverlayProps> = (props) => {
