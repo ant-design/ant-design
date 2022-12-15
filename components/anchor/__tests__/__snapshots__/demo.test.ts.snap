@@ -356,57 +356,75 @@ Array [
 `;
 
 exports[`renders ./components/anchor/demo/horizontal-affix.tsx correctly 1`] = `
-<div
-  style="padding:20px"
->
-  <div>
+<div>
+  <div
+    class=""
+  >
     <div
-      class=""
+      class="ant-anchor-wrapper ant-anchor-horizontal"
+      style="max-height:100vh"
     >
       <div
-        class="ant-anchor-wrapper ant-anchor-horizontal"
-        style="max-height:100vh"
+        class="ant-anchor"
       >
         <div
-          class="ant-anchor"
+          class="ant-anchor-link"
         >
-          <div
-            class="ant-anchor-link"
+          <a
+            class="ant-anchor-link-title"
+            href="#components-anchor-demo-basic"
+            title="Basic demo"
           >
-            <a
-              class="ant-anchor-link-title"
-              href="#components-anchor-demo-basic"
-              title="Basic demo"
-            >
-              Basic demo
-            </a>
-          </div>
-          <div
-            class="ant-anchor-link"
-          >
-            <a
-              class="ant-anchor-link-title"
-              href="#components-anchor-demo-static"
-              title="Static demo"
-            >
-              Static demo
-            </a>
-          </div>
-          <div
-            class="ant-anchor-link"
-          >
-            <a
-              class="ant-anchor-link-title"
-              href="#api"
-              title="API"
-            >
-              API
-            </a>
-          </div>
-          <span
-            class="ant-anchor-ink-ball-horizontal"
-          />
+            Basic demo
+          </a>
         </div>
+        <div
+          class="ant-anchor-link"
+        >
+          <a
+            class="ant-anchor-link-title"
+            href="#components-anchor-demo-basic-affix"
+            title="Basic fixed Anchor"
+          >
+            Basic fixed Anchor
+          </a>
+        </div>
+        <div
+          class="ant-anchor-link"
+        >
+          <a
+            class="ant-anchor-link-title"
+            href="#components-anchor-demo-static"
+            title="静态位置"
+          >
+            静态位置
+          </a>
+        </div>
+        <div
+          class="ant-anchor-link"
+        >
+          <a
+            class="ant-anchor-link-title"
+            href="#components-anchor-demo-customizehighlight"
+            title="自定义锚点高亮"
+          >
+            自定义锚点高亮
+          </a>
+        </div>
+        <div
+          class="ant-anchor-link"
+        >
+          <a
+            class="ant-anchor-link-title"
+            href="#api"
+            title="API"
+          >
+            API
+          </a>
+        </div>
+        <span
+          class="ant-anchor-ink-ball-horizontal"
+        />
       </div>
     </div>
   </div>
