@@ -2,9 +2,36 @@ import React from 'react';
 import { Col, Row } from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import ResponsiveObserve from '../../_util/responsiveObserve';
 import useBreakpoint from '../hooks/useBreakpoint';
-import { render, act } from '../../../tests/utils';
+import { render } from '../../../tests/utils';
+
+// Mock for `responsiveObserve` to test `unsubscribe` call
+jest.mock('../../_util/responsiveObserve', () => {
+  const modules = jest.requireActual('../../_util/responsiveObserve');
+  const originHook = modules.default;
+
+  const useMockResponsiveObserver = (...args: any[]) => {
+    const entity = originHook(...args);
+    if (!entity.unsubscribe.mocked) {
+      const originUnsubscribe = entity.unsubscribe;
+      entity.unsubscribe = (...uArgs: any[]) => {
+        const inst = global as any;
+        inst.unsubscribeCnt = (inst.unsubscribeCnt || 0) + 1;
+
+        originUnsubscribe.call(entity, ...uArgs);
+      };
+      entity.unsubscribe.mocked = true;
+    }
+
+    return entity;
+  };
+
+  return {
+    ...modules,
+    __esModule: true,
+    default: useMockResponsiveObserver,
+  };
+});
 
 describe('Grid', () => {
   mountTest(Row);
@@ -13,8 +40,8 @@ describe('Grid', () => {
   rtlTest(Row);
   rtlTest(Col);
 
-  afterEach(() => {
-    ResponsiveObserve.unregister();
+  beforeEach(() => {
+    (global as any).unsubscribeCnt = 0;
   });
 
   it('should render Col', () => {
@@ -88,13 +115,12 @@ describe('Grid', () => {
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
-  it('ResponsiveObserve.unsubscribe should be called when unmounted', () => {
-    const Unmount = jest.spyOn(ResponsiveObserve, 'unsubscribe');
+  it('useResponsiveObserve.unsubscribe should be called when unmounted', () => {
     const { unmount } = render(<Row gutter={{ xs: 20 }} />);
-    act(() => {
-      unmount();
-    });
-    expect(Unmount).toHaveBeenCalled();
+    const called: number = (global as any).unsubscribeCnt;
+
+    unmount();
+    expect((global as any).unsubscribeCnt).toEqual(called + 1);
   });
 
   it('should work correct when gutter is object', () => {
