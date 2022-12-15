@@ -691,68 +691,134 @@ Array [
 `;
 
 exports[`renders ./components/float-button/demo/group-menu.tsx extend context correctly 1`] = `
-<div
-  class="ant-float-btn-group ant-float-btn-group-circle"
->
-  <button
-    class="ant-float-btn ant-float-btn-primary ant-float-btn-circle"
-    type="button"
+Array [
+  <div
+    class="ant-float-btn-group ant-float-btn-group-circle"
+    style="right:24px"
   >
-    <div
-      class="ant-float-btn-body"
+    <button
+      class="ant-float-btn ant-float-btn-primary ant-float-btn-circle"
+      type="button"
     >
       <div
-        class="ant-float-btn-content"
+        class="ant-float-btn-body"
       >
         <div
-          class="ant-float-btn-icon"
-        >
-          <span
-            aria-label="customer-service"
-            class="anticon anticon-customer-service"
-            role="img"
-          >
-            <svg
-              aria-hidden="true"
-              data-icon="customer-service"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M512 128c-212.1 0-384 171.9-384 384v360c0 13.3 10.7 24 24 24h184c35.3 0 64-28.7 64-64V624c0-35.3-28.7-64-64-64H200v-48c0-172.3 139.7-312 312-312s312 139.7 312 312v48H688c-35.3 0-64 28.7-64 64v208c0 35.3 28.7 64 64 64h184c13.3 0 24-10.7 24-24V512c0-212.1-171.9-384-384-384zM328 632v192H200V632h128zm496 192H696V632h128v192z"
-              />
-            </svg>
-          </span>
-        </div>
-      </div>
-    </div>
-    <div>
-      <div
-        class="ant-tooltip"
-        style="opacity:0"
-      >
-        <div
-          class="ant-tooltip-content"
+          class="ant-float-btn-content"
         >
           <div
-            class="ant-tooltip-arrow"
+            class="ant-float-btn-icon"
           >
             <span
-              class="ant-tooltip-arrow-content"
-            />
+              aria-label="customer-service"
+              class="anticon anticon-customer-service"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="customer-service"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M512 128c-212.1 0-384 171.9-384 384v360c0 13.3 10.7 24 24 24h184c35.3 0 64-28.7 64-64V624c0-35.3-28.7-64-64-64H200v-48c0-172.3 139.7-312 312-312s312 139.7 312 312v48H688c-35.3 0-64 28.7-64 64v208c0 35.3 28.7 64 64 64h184c13.3 0 24-10.7 24-24V512c0-212.1-171.9-384-384-384zM328 632v192H200V632h128zm496 192H696V632h128v192z"
+                />
+              </svg>
+            </span>
           </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          />
         </div>
       </div>
-    </div>
-  </button>
-</div>
+      <div>
+        <div
+          class="ant-tooltip"
+          style="opacity:0"
+        >
+          <div
+            class="ant-tooltip-content"
+          >
+            <div
+              class="ant-tooltip-arrow"
+            >
+              <span
+                class="ant-tooltip-arrow-content"
+              />
+            </div>
+            <div
+              class="ant-tooltip-inner"
+              role="tooltip"
+            />
+          </div>
+        </div>
+      </div>
+    </button>
+  </div>,
+  <div
+    class="ant-float-btn-group ant-float-btn-group-circle"
+    style="right:94px"
+  >
+    <button
+      class="ant-float-btn ant-float-btn-primary ant-float-btn-circle"
+      type="button"
+    >
+      <div
+        class="ant-float-btn-body"
+      >
+        <div
+          class="ant-float-btn-content"
+        >
+          <div
+            class="ant-float-btn-icon"
+          >
+            <span
+              aria-label="customer-service"
+              class="anticon anticon-customer-service"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="customer-service"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M512 128c-212.1 0-384 171.9-384 384v360c0 13.3 10.7 24 24 24h184c35.3 0 64-28.7 64-64V624c0-35.3-28.7-64-64-64H200v-48c0-172.3 139.7-312 312-312s312 139.7 312 312v48H688c-35.3 0-64 28.7-64 64v208c0 35.3 28.7 64 64 64h184c13.3 0 24-10.7 24-24V512c0-212.1-171.9-384-384-384zM328 632v192H200V632h128zm496 192H696V632h128v192z"
+                />
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div
+          class="ant-tooltip"
+          style="opacity:0"
+        >
+          <div
+            class="ant-tooltip-content"
+          >
+            <div
+              class="ant-tooltip-arrow"
+            >
+              <span
+                class="ant-tooltip-arrow-content"
+              />
+            </div>
+            <div
+              class="ant-tooltip-inner"
+              role="tooltip"
+            />
+          </div>
+        </div>
+      </div>
+    </button>
+  </div>,
+]
 `;
 
 exports[`renders ./components/float-button/demo/render-panel.tsx extend context correctly 1`] = `
@@ -1370,52 +1436,68 @@ exports[`renders ./components/float-button/demo/render-panel.tsx extend context 
 
 exports[`renders ./components/float-button/demo/shape.tsx extend context correctly 1`] = `
 Array [
-  <div
-    class="ant-radio-group ant-radio-group-outline"
-    style="margin:20px"
-  >
-    <label
-      class="ant-radio-wrapper ant-radio-wrapper-checked"
-    >
-      <span
-        class="ant-radio ant-radio-checked"
-      >
-        <input
-          checked=""
-          class="ant-radio-input"
-          type="radio"
-          value="circle"
-        />
-        <span
-          class="ant-radio-inner"
-        />
-      </span>
-      <span>
-        圆形
-      </span>
-    </label>
-    <label
-      class="ant-radio-wrapper"
-    >
-      <span
-        class="ant-radio"
-      >
-        <input
-          class="ant-radio-input"
-          type="radio"
-          value="square"
-        />
-        <span
-          class="ant-radio-inner"
-        />
-      </span>
-      <span>
-        方形
-      </span>
-    </label>
-  </div>,
   <button
     class="ant-float-btn ant-float-btn-primary ant-float-btn-circle"
+    style="right:94px"
+    type="button"
+  >
+    <div
+      class="ant-float-btn-body"
+    >
+      <div
+        class="ant-float-btn-content"
+      >
+        <div
+          class="ant-float-btn-icon"
+        >
+          <span
+            aria-label="customer-service"
+            class="anticon anticon-customer-service"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="customer-service"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M512 128c-212.1 0-384 171.9-384 384v360c0 13.3 10.7 24 24 24h184c35.3 0 64-28.7 64-64V624c0-35.3-28.7-64-64-64H200v-48c0-172.3 139.7-312 312-312s312 139.7 312 312v48H688c-35.3 0-64 28.7-64 64v208c0 35.3 28.7 64 64 64h184c13.3 0 24-10.7 24-24V512c0-212.1-171.9-384-384-384zM328 632v192H200V632h128zm496 192H696V632h128v192z"
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip"
+        style="opacity:0"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+  </button>,
+  <button
+    class="ant-float-btn ant-float-btn-primary ant-float-btn-square"
+    style="right:24px"
     type="button"
   >
     <div
