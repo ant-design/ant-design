@@ -5,12 +5,44 @@ import rtlTest from '../../../tests/shared/rtlTest';
 import useBreakpoint from '../hooks/useBreakpoint';
 import { render } from '../../../tests/utils';
 
+// Mock for `responsiveObserve` to test `unsubscribe` call
+jest.mock('../../_util/responsiveObserve', () => {
+  const modules = jest.requireActual('../../_util/responsiveObserve');
+  const originHook = modules.default;
+
+  const useMockResponsiveObserver = (...args: any[]) => {
+    const entity = originHook(...args);
+    if (!entity.unsubscribe.mocked) {
+      const originUnsubscribe = entity.unsubscribe;
+      entity.unsubscribe = (...uArgs: any[]) => {
+        const inst = global as any;
+        inst.unsubscribeCnt = (inst.unsubscribeCnt || 0) + 1;
+
+        originUnsubscribe.call(entity, ...uArgs);
+      };
+      entity.unsubscribe.mocked = true;
+    }
+
+    return entity;
+  };
+
+  return {
+    ...modules,
+    __esModule: true,
+    default: useMockResponsiveObserver,
+  };
+});
+
 describe('Grid', () => {
   mountTest(Row);
   mountTest(Col);
 
   rtlTest(Row);
   rtlTest(Col);
+
+  beforeEach(() => {
+    (global as any).unsubscribeCnt = 0;
+  });
 
   it('should render Col', () => {
     const { asFragment } = render(<Col span={2} />);
@@ -81,6 +113,14 @@ describe('Grid', () => {
     );
 
     expect(asFragment().firstChild).toMatchSnapshot();
+  });
+
+  it('useResponsiveObserve.unsubscribe should be called when unmounted', () => {
+    const { unmount } = render(<Row gutter={{ xs: 20 }} />);
+    const called: number = (global as any).unsubscribeCnt;
+
+    unmount();
+    expect((global as any).unsubscribeCnt).toEqual(called + 1);
   });
 
   it('should work correct when gutter is object', () => {
