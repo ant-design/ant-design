@@ -117,7 +117,6 @@ exports[`Table.filter renders custom filter icon as ReactNode 1`] = `
                 <tr>
                   <th
                     class="ant-table-cell"
-                    scope="col"
                   >
                     <div
                       class="ant-table-filter-column"
@@ -222,7 +221,6 @@ exports[`Table.filter renders custom filter icon as string correctly 1`] = `
                 <tr>
                   <th
                     class="ant-table-cell"
-                    scope="col"
                   >
                     <div
                       class="ant-table-filter-column"
@@ -333,7 +331,6 @@ exports[`Table.filter renders custom filter icon with right Tooltip title 1`] = 
                 <tr>
                   <th
                     class="ant-table-cell"
-                    scope="col"
                   >
                     <div
                       class="ant-table-filter-column"
@@ -464,7 +461,6 @@ exports[`Table.filter renders filter correctly 1`] = `
                 <tr>
                   <th
                     class="ant-table-cell"
-                    scope="col"
                   >
                     <div
                       class="ant-table-filter-column"

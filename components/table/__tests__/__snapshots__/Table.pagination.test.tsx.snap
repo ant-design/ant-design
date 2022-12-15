@@ -29,7 +29,6 @@ exports[`Table.pagination Accepts pagination as true 1`] = `
                 <tr>
                   <th
                     class="ant-table-cell"
-                    scope="col"
                   >
                     Name
                   </th>
@@ -196,7 +195,6 @@ exports[`Table.pagination renders pagination correctly 1`] = `
                 <tr>
                   <th
                     class="ant-table-cell"
-                    scope="col"
                   >
                     Name
                   </th>
@@ -354,7 +352,6 @@ exports[`Table.pagination renders pagination topLeft and bottomRight 1`] = `
                 <tr>
                   <th
                     class="ant-table-cell"
-                    scope="col"
                   >
                     Name
                   </th>
@@ -519,7 +516,7 @@ exports[`Table.pagination should not crash when trigger onChange in render 1`] =
                 class="ant-table-thead"
               >
                 <tr>
-                  <td
+                  <th
                     class="ant-table-cell"
                   />
                 </tr>
