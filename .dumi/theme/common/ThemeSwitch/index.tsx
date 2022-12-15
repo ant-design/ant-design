@@ -22,7 +22,7 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = ({ value, onChange }) => {
       <Link
         to={getLocalizedPathname('/theme-editor', isZhCN(pathname), search)}
         style={{
-          marginBottom: value.includes('compact') ? token.marginXS : token.margin,
+          marginBottom: token.margin,
           display: 'block',
         }}
       >
