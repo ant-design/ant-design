@@ -14,7 +14,7 @@ This document will help you upgrade from antd `4.x` version to antd `5.x` versio
 ### Design specification
 
 - Basic rounded corner adjustment, changed from `2px` to four layers of radius, which are `2px` `4px` `6px` and `8px`. For example, radius of default Button is modified from `2px` to `6px`.
-- Primary color adjustment, changed from <div style="display: inline-block; width: 16px; height: 16px; border-radius: 4px; background: #1890ff; vertical-align: text-bottom;"></div> `#1890ff` to <div style="display: inline-block; width: 16px; height: 16px; border-radius: 4px; background: #1677ff; vertical-align: text-bottom;"></div> `#1677ff`.
+- Primary color adjustment, changed from <ColorChunk color="#1890ff" /></ColorChunk> to <ColorChunk color="#1677ff" /></ColorChunk>.
 - Global shadow optimization, adjusted from three layers of shadows to two layers, which are used in common components (Card .e.g) and popup components (Dropdown .e.g).
 - Overall reduction in wireframe usage.
 
@@ -24,7 +24,7 @@ This document will help you upgrade from antd `4.x` version to antd `5.x` versio
   - All less files are removed, and less variables are no longer exported.
   - Css files are no longer included in package. Since CSS-in-JS supports importing on demand, the original `antd/dist/antd.css` has also been abandoned. If you need to reset some basic styles, please import `antd/dist/reset.css`.
 - Remove css variables and dynamic theme built on top of them.
-- Remove `antd/es/locale`, you can find the packages in `antd/locale`.
+- LocaleProvider has been deprecated in 4.x (use `<ConfigProvider locale />` instead), we removed the related folder `antd/es/locale-provider` and `antd/lib/locale-provider` in 5.x.
 - Replace built-in Moment.js with Dayjs. For more: [Use custom date library](/docs/react/use-custom-date-library/).
 - `babel-plugin-import` is no longer supported. CSS-in-JS itself has the ability to import on demand, and plugin support is no longer required. Umi users can remove related configurations.
 
@@ -164,6 +164,13 @@ Use git to save your code and install latest version:
 npm install --save antd@5.x
 ```
 
+If you want to use v4 deprecated component like `Comment` or `PageHeader`. You can install `@ant-design/compatible` and `@ant-design/pro-layout` for compatible:
+
+```bash
+npm install --save @ant-design/compatible@v5-compatible-v4
+npm install --save @ant-design/pro-layout
+```
+
 You can manually check the code one by one against the above list for modification. In addition, we also provide a codemod cli tool [@ant-design/codemod-v5](https://github.com/ant-design/codemod-v5) To help you quickly upgrade to v5.
 
 Before running codemod cli, please submit your local code changes.
@@ -205,6 +212,15 @@ const v4Token = convertLegacyToken(mapToken);
     },
   },
 }
+```
+
+Ant then remove antd less reference in your less file:
+
+```diff
+// Your less file
+--  @import (reference) '~antd/es/style/themes/index';
+or
+--  @import '~antd/es/style/some-other-less-file-ref';
 ```
 
 ### Remove babel-plugin-import

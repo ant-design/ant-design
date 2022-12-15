@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Modal } from '../..';
 import { waitFakeTimer, render, fireEvent } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
-import zhCN from '../zh_CN';
+import zhCN from '../../locale/zh_CN';
 
 const Demo: React.FC<{ type: string }> = ({ type }) => {
   useEffect(() => {

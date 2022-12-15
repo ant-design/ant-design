@@ -1,7 +1,7 @@
 import Pagination from 'rc-pagination/lib/locale/kmr_IQ';
 import Calendar from '../calendar/locale/kmr_IQ';
 import DatePicker from '../date-picker/locale/kmr_IQ';
-import type { Locale } from '../locale-provider';
+import type { Locale } from '../locale';
 import TimePicker from '../time-picker/locale/kmr_IQ';
 
 // please use antd/locale/kmr_IQ instead

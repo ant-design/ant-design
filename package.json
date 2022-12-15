@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "5.0.4",
+  "version": "5.0.7",
   "description": "An enterprise-class UI design language and React components implementation",
   "title": "Ant Design",
   "keywords": [
@@ -121,7 +121,7 @@
     "dayjs": "^1.11.1",
     "lodash": "^4.17.21",
     "qrcode.react": "^3.1.0",
-    "rc-cascader": "~3.7.0",
+    "rc-cascader": "~3.8.0",
     "rc-checkbox": "~2.3.0",
     "rc-collapse": "~3.4.2",
     "rc-dialog": "~9.0.2",
@@ -141,7 +141,7 @@
     "rc-rate": "~2.9.0",
     "rc-resize-observer": "^1.2.0",
     "rc-segmented": "~2.1.0",
-    "rc-select": "~14.1.13",
+    "rc-select": "~14.2.0",
     "rc-slider": "~10.0.0",
     "rc-steps": "~6.0.0-alpha.2",
     "rc-switch": "~4.0.0",
@@ -150,7 +150,7 @@
     "rc-textarea": "~0.4.5",
     "rc-tooltip": "~5.2.0",
     "rc-tree": "~5.7.0",
-    "rc-tree-select": "~5.5.4",
+    "rc-tree-select": "~5.6.0",
     "rc-trigger": "^5.2.10",
     "rc-upload": "~4.3.0",
     "rc-util": "^5.25.2",
@@ -158,11 +158,8 @@
     "shallowequal": "^1.1.0"
   },
   "devDependencies": {
-    "@ant-design/bisheng-plugin": "^3.3.0-alpha.4",
-    "@ant-design/hitu": "^0.0.0-alpha.13",
     "@ant-design/tools": "^16.1.0-alpha.2",
     "@babel/eslint-plugin": "^7.19.1",
-    "@docsearch/css": "^3.0.0",
     "@emotion/babel-preset-css-prop": "^11.10.0",
     "@emotion/css": "^11.10.5",
     "@emotion/react": "^11.10.4",
@@ -178,7 +175,7 @@
     "@types/jest": "^29.0.0",
     "@types/jest-axe": "^3.5.3",
     "@types/jest-environment-puppeteer": "^5.0.0",
-    "@types/jest-image-snapshot": "^5.1.0",
+    "@types/jest-image-snapshot": "^6.1.0",
     "@types/jquery": "^3.5.14",
     "@types/lodash": "^4.14.139",
     "@types/prismjs": "^1.26.0",
@@ -197,21 +194,16 @@
     "@typescript-eslint/eslint-plugin": "^5.40.0",
     "@typescript-eslint/parser": "^5.40.0",
     "antd-img-crop": "^4.2.8",
-    "antd-token-previewer": "^1.1.0-6",
+    "antd-token-previewer": "^1.1.0-21",
     "array-move": "^4.0.0",
-    "babel-plugin-add-react-displayname": "^0.0.5",
     "bundlesize2": "^0.0.31",
     "chalk": "^4.0.0",
     "cheerio": "1.0.0-rc.12",
-    "concurrently": "^7.0.0",
     "cross-env": "^7.0.0",
     "css-minimizer-webpack-plugin": "^1.3.0",
     "dekko": "^0.2.1",
-    "docsearch-react-fork": "^0.0.0-alpha.0",
-    "docsearch.js": "^2.6.3",
     "dumi": "^2.0.2",
     "duplicate-package-checker-webpack-plugin": "^3.0.0",
-    "enquire-js": "^0.2.1",
     "esbuild-loader": "^2.13.1",
     "eslint": "^8.0.0",
     "eslint-config-airbnb": "^19.0.0",
@@ -228,7 +220,6 @@
     "fast-glob": "^3.2.11",
     "fetch-jsonp": "^1.1.3",
     "fs-extra": "^11.0.0",
-    "full-icu": "^1.3.0",
     "gh-pages": "^4.0.0",
     "glob": "^8.0.1",
     "highlight.js": "^11.5.0",
@@ -237,12 +228,11 @@
     "identity-obj-proxy": "^3.0.0",
     "immer": "^9.0.1",
     "immutability-helper": "^3.0.0",
-    "increase-memory-limit": "^1.0.7",
     "inquirer": "^9.1.2",
-    "intersection-observer": "^0.12.0",
     "isomorphic-fetch": "^3.0.0",
     "jest": "^29.0.0",
     "jest-axe": "^7.0.0",
+    "jest-canvas-mock": "^2.4.0",
     "jest-environment-jsdom": "^29.0.1",
     "jest-environment-node": "^29.0.0",
     "jest-image-snapshot": "^6.0.0",
@@ -274,7 +264,6 @@
     "react-dom": "^18.0.0",
     "react-draggable": "^4.4.3",
     "react-fast-marquee": "^1.2.1",
-    "react-github-button": "^0.1.11",
     "react-highlight-words": "^0.18.0",
     "react-infinite-scroll-component": "^6.1.0",
     "react-resizable": "^3.0.1",
@@ -285,7 +274,7 @@
     "remark-cli": "^11.0.0",
     "remark-lint": "^9.0.0",
     "remark-preset-lint-recommended": "^6.0.0",
-    "rome": "^10.0.1",
+    "rome": "^11.0.0",
     "semver": "^7.3.5",
     "simple-git": "^3.0.0",
     "size-limit": "^8.1.0",
@@ -312,17 +301,17 @@
   "size-limit": [
     {
       "path": "./dist/antd.min.js",
-      "limit": "381 KiB"
+      "limit": "385 KiB"
     },
     {
       "path": "./dist/antd-with-locales.min.js",
-      "limit": "435 KiB"
+      "limit": "500 KiB"
     }
   ],
   "bundlesize": [
     {
       "path": "./dist/antd.min.js",
-      "maxSize": "381 kB"
+      "maxSize": "385 kB"
     }
   ],
   "tnpm": {

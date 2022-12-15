@@ -4278,28 +4278,6 @@ Array [
       >
         <div>
           <div
-            id="undefined_list"
-            role="listbox"
-            style="height:0;width:0;overflow:hidden"
-          >
-            <div
-              aria-label="HangZhou #310000"
-              aria-selected="true"
-              id="undefined_list_0"
-              role="option"
-            >
-              HangZhou
-            </div>
-            <div
-              aria-label="NingBo #315000"
-              aria-selected="false"
-              id="undefined_list_1"
-              role="option"
-            >
-              NingBo
-            </div>
-          </div>
-          <div
             class="rc-virtual-list"
             style="position:relative"
           >
@@ -4310,11 +4288,15 @@ Array [
               <div>
                 <div
                   class="rc-virtual-list-holder-inner"
+                  id="undefined_list"
+                  role="listbox"
                   style="display:flex;flex-direction:column"
                 >
                   <div
                     aria-selected="true"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
+                    id="undefined_list_0"
+                    role="option"
                     title="HangZhou #310000"
                   >
                     <div
@@ -4332,6 +4314,8 @@ Array [
                   <div
                     aria-selected="false"
                     class="ant-select-item ant-select-item-option"
+                    id="undefined_list_1"
+                    role="option"
                     title="NingBo #315000"
                   >
                     <div
@@ -4349,6 +4333,8 @@ Array [
                   <div
                     aria-selected="false"
                     class="ant-select-item ant-select-item-option"
+                    id="undefined_list_2"
+                    role="option"
                     title="WenZhou #325000"
                   >
                     <div

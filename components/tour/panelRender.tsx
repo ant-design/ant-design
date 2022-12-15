@@ -3,7 +3,7 @@ import type { ReactNode } from 'react';
 import classNames from 'classnames';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import type { TourStepProps } from './interface';
-import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import LocaleReceiver from '../locale/LocaleReceiver';
 import Button from '../button';
 import type { ButtonProps } from '../button';
 import defaultLocale from '../locale/en_US';

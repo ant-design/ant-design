@@ -53,15 +53,3 @@ export interface HeightMapToken {
   /** @internal */
   controlHeightLG: number;
 }
-
-// Font
-export interface FontSizeMapToken {
-  /**
-   * @internal
-   */
-  fontSizes: number[];
-  /**
-   * @internal
-   */
-  lineHeights: number[];
-}

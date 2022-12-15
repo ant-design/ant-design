@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-pascal-case */
-import React from 'react';
+import React, { useContext } from 'react';
 import {
   Space,
   Typography,
@@ -10,12 +10,15 @@ import {
   Modal,
   FloatButton,
   Progress,
+  Carousel,
 } from 'antd';
 import dayjs from 'dayjs';
 import { CustomerServiceOutlined, QuestionCircleOutlined, SyncOutlined } from '@ant-design/icons';
 import { css } from '@emotion/react';
 import useSiteToken from '../../../hooks/useSiteToken';
 import useLocale from '../../../hooks/useLocale';
+import SiteContext from './SiteContext';
+import { useCarouselStyle } from './util';
 
 const SAMPLE_CONTENT_EN =
   'Ant Design 5.0 use CSS-in-JS technology to provide dynamic & mix theme ability. And which use component level CSS-in-JS solution get your application a better performance.';
@@ -54,6 +57,7 @@ const locales = {
 
 const useStyle = () => {
   const { token } = useSiteToken();
+  const { carousel } = useCarouselStyle();
 
   return {
     card: css`
@@ -80,13 +84,25 @@ const useStyle = () => {
       filter: blur(40px);
       opacity: 0.1;
     `,
+    mobileCard: css`
+      height: 395px;
+    `,
+    carousel,
   };
 };
+
+interface ComponentItemProps {
+  title: React.ReactNode;
+  node: React.ReactNode;
+  type: 'new' | 'update';
+  index: number;
+}
 
 export default function ComponentsList() {
   const { token } = useSiteToken();
   const styles = useStyle();
   const [locale] = useLocale(locales);
+  const { isMobile } = useContext(SiteContext);
 
   const COMPONENTS: {
     title: React.ReactNode;
@@ -110,12 +126,16 @@ export default function ComponentsList() {
         node: (
           <DatePicker._InternalPanelDoNotUseOrYouWillBeFired
             showToday={false}
-            presets={[
-              { label: locale.yesterday, value: dayjs().add(-1, 'd') },
-              { label: locale.lastWeek, value: dayjs().add(-7, 'd') },
-              { label: locale.lastMonth, value: dayjs().add(-1, 'month') },
-              { label: locale.lastYear, value: dayjs().add(-1, 'year') },
-            ]}
+            presets={
+              isMobile
+                ? []
+                : [
+                    { label: locale.yesterday, value: dayjs().add(-1, 'd') },
+                    { label: locale.lastWeek, value: dayjs().add(-7, 'd') },
+                    { label: locale.lastMonth, value: dayjs().add(-1, 'month') },
+                    { label: locale.lastYear, value: dayjs().add(-1, 'year') },
+                  ]
+            }
             value={dayjs('2022-11-18 14:00:00')}
           />
         ),
@@ -149,7 +169,7 @@ export default function ComponentsList() {
           <Tour._InternalPanelDoNotUseOrYouWillBeFired
             title="Ant Design 5.0"
             description={locale.tour}
-            style={{ width: 350 }}
+            style={{ width: isMobile ? 'auto' : 350 }}
             current={3}
             total={9}
           />
@@ -211,49 +231,61 @@ export default function ComponentsList() {
         ),
       },
     ],
-    [],
+    [isMobile],
   );
 
-  return (
+  const ComponentItem = ({ title, node, type, index }: ComponentItemProps) => {
+    const tagColor = type === 'new' ? 'processing' : 'warning';
+    const tagText = type === 'new' ? locale.new : locale.update;
+
+    return (
+      <div key={index} css={[styles.card, isMobile && styles.mobileCard]}>
+        {/* Decorator */}
+        <div
+          css={styles.cardCircle}
+          style={{
+            right: (index % 2) * -20 - 20,
+            bottom: (index % 3) * -40 - 20,
+          }}
+        />
+
+        {/* Title */}
+        <Space>
+          <Typography.Title level={4} style={{ fontWeight: 'normal', margin: 0 }}>
+            {title}
+          </Typography.Title>
+          <Tag color={tagColor}>{tagText}</Tag>
+        </Space>
+
+        <div
+          style={{
+            marginTop: token.paddingLG,
+            flex: 'auto',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          {node}
+        </div>
+      </div>
+    );
+  };
+
+  return isMobile ? (
+    <div style={{ margin: '0 16px' }}>
+      <Carousel css={styles.carousel}>
+        {COMPONENTS.map(({ title, node, type }, index) => (
+          <ComponentItem title={title} node={node} type={type} index={index} key={index} />
+        ))}
+      </Carousel>
+    </div>
+  ) : (
     <div style={{ width: '100%', overflow: 'hidden', display: 'flex', justifyContent: 'center' }}>
       <div style={{ display: 'flex', alignItems: 'stretch', columnGap: token.paddingLG }}>
-        {COMPONENTS.map(({ title, node, type }, index) => {
-          const tagColor = type === 'new' ? 'processing' : 'warning';
-          const tagText = type === 'new' ? locale.new : locale.update;
-
-          return (
-            <div key={index} css={styles.card}>
-              {/* Decorator */}
-              <div
-                css={styles.cardCircle}
-                style={{
-                  right: (index % 2) * -20 - 20,
-                  bottom: (index % 3) * -40 - 20,
-                }}
-              />
-
-              {/* Title */}
-              <Space>
-                <Typography.Title level={4} style={{ fontWeight: 'normal', margin: 0 }}>
-                  {title}
-                </Typography.Title>
-                <Tag color={tagColor}>{tagText}</Tag>
-              </Space>
-
-              <div
-                style={{
-                  marginTop: token.paddingLG,
-                  flex: 'auto',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}
-              >
-                {node}
-              </div>
-            </div>
-          );
-        })}
+        {COMPONENTS.map(({ title, node, type }, index) => (
+          <ComponentItem title={title} node={node} type={type} index={index} key={index} />
+        ))}
       </div>
     </div>
   );

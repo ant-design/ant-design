@@ -2,7 +2,7 @@
 category: Components
 group: Other
 title: App
-cover: https://gw.alipayobjects.com/zos/bmw-prod/cc3fcbfa-bf5b-4c8c-8a3d-c3f8388c75e8.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HJz8SZos2wgAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -16,11 +16,13 @@ Static function in React 18 concurrent mode will not well support. In v5, we rec
 ## Examples
 
 <!-- prettier-ignore -->
-<code src="./demo/message.tsx">message</code>
-<code src="./demo/notification.tsx">notification</code>
-<code src="./demo/modal.tsx">modal</code>
+<code src="./demo/basic.tsx">basic</code>
 
 ## How to use
+
+### Basic usage
+
+App provides upstream and downstream method calls through `Context`, because useApp needs to be used as a subcomponent, we recommend encapsulating App at the top level in the application.
 
 ```tsx
 import React from 'react';
@@ -43,4 +45,75 @@ const MyApp: React.FC = () => (
 );
 
 export default MyApp;
+```
+
+Note: App.useApp must be available under App.
+
+### 与 ConfigProvider 先后顺序
+
+The App component can only use the token in the `ConfigProvider`, if you need to use the Token, the ConfigProvider and the App component must appear in pairs.
+
+```tsx
+<ConfigProvider theme={{ ... }}>
+  <App>
+    ...
+  </App>
+</ConfigProvider>
+```
+
+### Embedded usage scenarios (if not necessary, try not to do nesting)
+
+```tsx
+<App>
+  <Space>
+    ...
+    <App>...</App>
+  </Space>
+</App>
+```
+
+### Global scene (redux scene)
+
+```tsx
+// Entry component
+import React, { useEffect } from 'react';
+import { App } from 'antd';
+import type { MessageInstance } from 'antd/es/message/interface';
+import type { NotificationInstance } from 'antd/es/notification/interface';
+import type { ModalStaticFunctions } from 'antd/es/modal/confirm';
+
+let message: MessageInstance;
+let notification: NotificationInstance;
+let modal: Omit<ModalStaticFunctions, 'warn'>;
+
+export default () => {
+  const staticFunction = App.useApp();
+  message = staticFunction.message;
+  modal = staticFunction.modal;
+  notification = staticFunction.notification;
+  return null;
+};
+
+export { message, notification, modal };
+```
+
+```tsx
+// sub page
+import React from 'react';
+import { Button, Space } from 'antd';
+import { message, modal, notification } from './store';
+
+export default () => {
+  const showMessage = () => {
+    message.success('Success!');
+  };
+
+  return (
+    <Space>
+      <Button type="primary" onClick={showMessage}>
+        Open message
+      </Button>
+    </Space>
+  );
+};
 ```

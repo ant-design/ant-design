@@ -67,6 +67,7 @@ exports[`antd exports modules correctly 1`] = `
   "TreeSelect",
   "Typography",
   "Upload",
+  "Watermark",
   "message",
   "notification",
   "theme",

@@ -46,7 +46,7 @@ exports[`renders ./components/input/demo/addon.tsx extend context correctly 1`] 
           class="ant-input-group-addon"
         >
           <div
-            class="ant-select select-before ant-select-single ant-select-show-arrow"
+            class="ant-select ant-select-single ant-select-show-arrow"
           >
             <div
               class="ant-select-selector"
@@ -196,7 +196,7 @@ exports[`renders ./components/input/demo/addon.tsx extend context correctly 1`] 
           class="ant-input-group-addon"
         >
           <div
-            class="ant-select select-after ant-select-single ant-select-show-arrow"
+            class="ant-select ant-select-single ant-select-show-arrow"
           >
             <div
               class="ant-select-selector"

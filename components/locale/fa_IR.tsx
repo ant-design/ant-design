@@ -2,7 +2,7 @@
 import Pagination from 'rc-pagination/lib/locale/fa_IR';
 import Calendar from '../calendar/locale/fa_IR';
 import DatePicker from '../date-picker/locale/fa_IR';
-import type { Locale } from '../locale-provider';
+import type { Locale } from '../locale';
 import TimePicker from '../time-picker/locale/fa_IR';
 
 const typeTemplate = '${label} از نوع ${type} معتبر نیست';

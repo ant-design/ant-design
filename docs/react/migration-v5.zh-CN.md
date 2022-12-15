@@ -14,7 +14,7 @@ title: 从 v4 到 v5
 ### 设计规范调整
 
 - 基础圆角调整，由统一的 `2px` 改为四级圆角，分别为 `2px` `4px` `6px` `8px`，分别应用于不同场景，比如默认尺寸的 Button 的圆角调整为了 `6px`。
-- 主色调整，由 <div style="display: inline-block; width: 16px; height: 16px; border-radius: 4px; background: #1890ff; vertical-align: text-bottom;"></div> `#1890ff` 改为 <div style="display: inline-block; width: 16px; height: 16px; border-radius: 4px; background: #1677ff; vertical-align: text-bottom;"></div> `#1677ff`。
+- 主色调整，由 <ColorChunk color="#1890ff" /></ColorChunk> 改为 <ColorChunk color="#1677ff" /></ColorChunk>。
 - 整体阴影调整，由原本的三级阴影调整为两级，分别用于常驻页面的组件（如 Card）和交互反馈（如 Dropdown）。
 - 部分组件内间距调整。
 - 整体去线框化。
@@ -25,7 +25,7 @@ title: 从 v4 到 v5
   - 所有 less 文件全部移除，less 变量不再支持透出。
   - 产物中不再包含 css 文件。由于 CSS-in-JS 支持按需引入，原本的 `antd/dist/antd.css` 也已经移除，如果需要重置一些基本样式请引入 `antd/dist/reset.css`。
 - 移除 css variables 以及在此之上构筑的动态主题方案。
-- 移除 `antd/es/locale` 目录，语言包可到 `antd/locale` 目录下寻找。
+- LocaleProvider 在 4.x 中已经废弃（使用 `<ConfigProvider locale />` 替代），我们在 5.x 里彻底移除了相关目录 `antd/es/locale-provider`、`antd/lib/locale-provider`。
 - 内置的时间库使用 Dayjs 替代 Moment.js，具体请查看 [使用自定义日期库](/docs/react/use-custom-date-library-cn/)。
 - 不再支持 `babel-plugin-import`，CSS-in-JS 本身具有按需加载的能力，不再需要插件支持。
 
@@ -156,6 +156,13 @@ title: 从 v4 到 v5
 npm install --save antd@5.x
 ```
 
+如果你需要使用 v4 废弃组件如 `Comment`、`PageHeader`，请安装 `@ant-design/compatible` 与 `@ant-design/pro-layout` 做兼容：
+
+```bash
+npm install --save @ant-design/compatible@v5-compatible-v4
+npm install --save @ant-design/pro-layout
+```
+
 你可以手动对照上面的列表逐条检查代码进行修改，另外，我们也提供了一个 codemod cli 工具 [@ant-design/codemod-v5](https://github.com/ant-design/codemod-v5) 以帮助你快速升级到 v5 版本。
 
 在运行 codemod cli 前，请先提交你的本地代码修改。
@@ -197,6 +204,15 @@ const v4Token = convertLegacyToken(mapToken);
     },
   },
 }
+```
+
+同时移除对 antd less 文件的直接引用：
+
+```diff
+// Your less file
+--  @import (reference) '~antd/es/style/themes/index';
+or
+--  @import '~antd/es/style/some-other-less-file-ref';
 ```
 
 ### 移除 babel-plugin-import

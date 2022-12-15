@@ -1,6 +1,7 @@
 /* eslint-disable import/prefer-default-export */
-import type { CSSObject } from '@ant-design/cssinjs';
-import type { DerivativeToken } from '../theme/internal';
+import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
+import type { DerivativeToken, FullToken } from '../theme/internal';
+import type { OverrideComponent } from '../theme/util/genComponentStyleHook';
 
 function compactItemVerticalBorder(token: DerivativeToken): CSSObject {
   return {
@@ -43,11 +44,13 @@ function compactItemBorderVerticalRadius(prefixCls: string): CSSObject {
   };
 }
 
-export function genCompactItemVerticalStyle(token: DerivativeToken, prefixCls: string): CSSObject {
+export function genCompactItemVerticalStyle<T extends OverrideComponent>(
+  token: FullToken<T>,
+): CSSInterpolation {
   return {
-    '&-compact-vertical': {
+    [`${token.componentCls}-compact-vertical`]: {
       ...compactItemVerticalBorder(token),
-      ...compactItemBorderVerticalRadius(prefixCls),
+      ...compactItemBorderVerticalRadius(token.componentCls),
     },
   };
 }
