@@ -32,7 +32,7 @@ export { default as Col } from './col';
 export type { ColProps } from './col';
 export { default as Collapse } from './collapse';
 export type { CollapsePanelProps, CollapseProps } from './collapse';
-export { default as ConfigProvider } from './config-provider';
+export { default as ConfigProvider, DisabledContext } from './config-provider';
 export { default as DatePicker } from './date-picker';
 export type { DatePickerProps } from './date-picker';
 export { default as Descriptions } from './descriptions';
