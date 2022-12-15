@@ -3,7 +3,7 @@ import { FloatButton } from 'antd';
 import { FormattedMessage, Link, useLocation } from 'dumi';
 import { DarkTheme, CompactTheme } from 'antd-token-previewer/es/icons';
 import { BgColorsOutlined } from '@ant-design/icons';
-import useSiteToken from '.dumi/hooks/useSiteToken';
+import useSiteToken from '../../../hooks/useSiteToken';
 import { getLocalizedPathname, isZhCN } from '../../utils';
 import ThemeIcon from './ThemeIcon';
 
