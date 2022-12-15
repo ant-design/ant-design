@@ -299,4 +299,22 @@ describe('Modal.hook', () => {
 
     jest.useRealTimers();
   });
+
+  it('not block origin ConfigProvider config', () => {
+    const Demo = () => {
+      const [modal, contextHolder] = Modal.useModal();
+
+      React.useEffect(() => {
+        modal.confirm({
+          content: <Button className="bamboo">好的</Button>,
+        });
+      }, []);
+
+      return <ConfigProvider autoInsertSpaceInButton={false}>{contextHolder}</ConfigProvider>;
+    };
+
+    render(<Demo />);
+
+    expect(document.body.querySelector('.bamboo')?.textContent).toEqual('好的');
+  });
 });

@@ -7,7 +7,6 @@ import useSiteToken from '../../../hooks/useSiteToken';
 import { GroupMask } from './Group';
 import * as utils from '../../../theme/utils';
 import SiteContext from './SiteContext';
-import topicImage from './images/topic.png';
 
 const locales = {
   cn: {
@@ -69,7 +68,11 @@ export default function Banner({ children }: BannerProps) {
     <>
       {/* Banner Placeholder Motion */}
       {isMobile ? (
-        <img src={topicImage} alt="" style={{ width: '100%' }} />
+        <img
+          src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*JmlaR5oQn3MAAAAAAAAAAAAADrJ8AQ/original"
+          style={{ width: '100%' }}
+          alt=""
+        />
       ) : (
         <div
           style={{

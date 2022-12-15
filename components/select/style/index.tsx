@@ -262,11 +262,6 @@ const genSelectStyle: GenerateStyle<SelectToken> = (token) => {
         '&&-in-form-item': {
           width: '100%',
         },
-        // Space.Compact
-        ...genCompactItemStyle(token, componentCls, {
-          borderElCls: `${componentCls}-selector`,
-          focusElCls: `${componentCls}-focused`,
-        }),
       },
     },
 
@@ -320,6 +315,13 @@ const genSelectStyle: GenerateStyle<SelectToken> = (token) => {
       }),
       true,
     ),
+    // =====================================================
+    // ==             Space Compact                       ==
+    // =====================================================
+    genCompactItemStyle(token, {
+      borderElCls: `${componentCls}-selector`,
+      focusElCls: `${componentCls}-focused`,
+    }),
   ];
 };
 

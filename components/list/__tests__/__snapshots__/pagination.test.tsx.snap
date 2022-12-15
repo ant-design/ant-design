@@ -397,28 +397,6 @@ exports[`List.pagination should change page size work 2`] = `
         >
           <div>
             <div
-              id="rc_select_TEST_OR_SSR_list"
-              role="listbox"
-              style="height: 0px; width: 0px; overflow: hidden;"
-            >
-              <div
-                aria-label="10 / page"
-                aria-selected="false"
-                id="rc_select_TEST_OR_SSR_list_0"
-                role="option"
-              >
-                10
-              </div>
-              <div
-                aria-label="20 / page"
-                aria-selected="false"
-                id="rc_select_TEST_OR_SSR_list_1"
-                role="option"
-              >
-                20
-              </div>
-            </div>
-            <div
               class="rc-virtual-list"
               style="position: relative;"
             >
@@ -429,11 +407,15 @@ exports[`List.pagination should change page size work 2`] = `
                 <div>
                   <div
                     class="rc-virtual-list-holder-inner"
+                    id="rc_select_TEST_OR_SSR_list"
+                    role="listbox"
                     style="display: flex; flex-direction: column;"
                   >
                     <div
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option ant-select-item-option-active"
+                      id="rc_select_TEST_OR_SSR_list_0"
+                      role="option"
                       title="10 / page"
                     >
                       <div
@@ -451,6 +433,8 @@ exports[`List.pagination should change page size work 2`] = `
                     <div
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
+                      id="rc_select_TEST_OR_SSR_list_1"
+                      role="option"
                       title="20 / page"
                     >
                       <div
@@ -468,6 +452,8 @@ exports[`List.pagination should change page size work 2`] = `
                     <div
                       aria-selected="true"
                       class="ant-select-item ant-select-item-option ant-select-item-option-selected"
+                      id="rc_select_TEST_OR_SSR_list_2"
+                      role="option"
                       title="50 / page"
                     >
                       <div
@@ -485,6 +471,8 @@ exports[`List.pagination should change page size work 2`] = `
                     <div
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
+                      id="rc_select_TEST_OR_SSR_list_3"
+                      role="option"
                       title="100 / page"
                     >
                       <div

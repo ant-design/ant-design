@@ -5,11 +5,9 @@ import * as React from 'react';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigConsumer, ConfigContext } from '../config-provider';
 import { cloneElement, isValidElement } from '../_util/reactNode';
-import { tuple } from '../_util/type';
-
 import useStyle from './style/index';
 
-const SpinSizes = tuple('small', 'default', 'large');
+const SpinSizes = ['small', 'default', 'large'] as const;
 export type SpinSize = typeof SpinSizes[number];
 export type SpinIndicator = React.ReactElement<HTMLElement>;
 

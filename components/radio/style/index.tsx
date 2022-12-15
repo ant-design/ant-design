@@ -68,7 +68,6 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
     componentCls,
     radioWrapperMarginRight,
     radioCheckedColor,
-    radioTop,
     radioSize,
     motionDurationSlow,
     motionDurationMid,
@@ -135,10 +134,10 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
       [componentCls]: {
         ...resetComponent(token),
         position: 'relative',
-        insetBlockStart: radioTop,
         display: 'inline-block',
         outline: 'none',
         cursor: 'pointer',
+        alignSelf: 'center',
       },
 
       [`${componentCls}-wrapper:hover &,
@@ -487,8 +486,6 @@ export default genComponentStyleHook('Radio', (token) => {
     controlItemBgActiveDisabled,
     colorTextDisabled,
     colorBgContainer,
-    fontSize,
-    lineHeight,
     fontSizeLG,
     controlOutline,
     colorPrimaryHover,
@@ -506,7 +503,6 @@ export default genComponentStyleHook('Radio', (token) => {
   const radioButtonFocusShadow = radioFocusShadow;
 
   const radioSize = fontSizeLG;
-  const radioTop = (Math.round(fontSize * lineHeight) - radioSize) / 2;
   const dotPadding = 4; // Fixed value
   const radioDotDisabledSize = radioSize - dotPadding * 2;
   const radioDotSize = wireframe ? radioDotDisabledSize : radioSize - (dotPadding + lineWidth) * 2;
@@ -524,7 +520,6 @@ export default genComponentStyleHook('Radio', (token) => {
     radioFocusShadow,
     radioButtonFocusShadow,
     radioSize,
-    radioTop,
     radioDotSize,
     radioDotDisabledSize,
     radioCheckedColor,

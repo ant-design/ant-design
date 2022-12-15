@@ -43,7 +43,7 @@ demo:
 | --- | --- | --- | --- | --- |
 | afterClose | Modal 完全关闭后的回调 | function | - |  |
 | bodyStyle | Modal body 样式 | CSSProperties |  |  |
-| cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button/#API) | - |  |
+| cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button-cn#API) | - |  |
 | cancelText | 取消按钮文字 | ReactNode | `取消` |  |
 | centered | 垂直居中展示 Modal | boolean | false |  |
 | closable | 是否显示右上角的关闭按钮 | boolean | true |  |
@@ -59,7 +59,7 @@ demo:
 | maskClosable | 点击蒙层是否允许关闭 | boolean | true |  |
 | maskStyle | 遮罩样式 | CSSProperties |  |  |
 | modalRender | 自定义渲染对话框 | (node: ReactNode) => ReactNode | - | 4.7.0 |
-| okButtonProps | ok 按钮 props | [ButtonProps](/components/button/#API) | - |  |
+| okButtonProps | ok 按钮 props | [ButtonProps](/components/button-cn#API) | - |  |
 | okText | 确认按钮文字 | ReactNode | `确定` |  |
 | okType | 确认按钮类型 | string | `primary` |  |
 | style | 可用于设置浮层的样式，调整浮层位置等 | CSSProperties | - |  |
@@ -94,7 +94,7 @@ demo:
 | afterClose | Modal 完全关闭后的回调 | function | - | 4.9.0 |
 | autoFocusButton | 指定自动获得焦点的按钮 | null \| `ok` \| `cancel` | `ok` |  |
 | bodyStyle | Modal body 样式 | CSSProperties |  | 4.8.0 |
-| cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button/#API) | - |  |
+| cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button-cn#API) | - |  |
 | cancelText | 设置 Modal.confirm 取消按钮文字 | string | `取消` |  |
 | centered | 垂直居中展示 Modal | boolean | false |  |
 | className | 容器类名 | string | - |  |
@@ -107,7 +107,7 @@ demo:
 | mask | 是否展示遮罩 | boolean | true |  |
 | maskClosable | 点击蒙层是否允许关闭 | boolean | false |  |
 | maskStyle | 遮罩样式 | object | {} |  |
-| okButtonProps | ok 按钮 props | [ButtonProps](/components/button/#API) | - |  |
+| okButtonProps | ok 按钮 props | [ButtonProps](/components/button-cn#API) | - |  |
 | okText | 确认按钮文字 | string | `确定` |  |
 | okType | 确认按钮类型 | string | `primary` |  |
 | style | 可用于设置浮层的样式，调整浮层位置等 | CSSProperties | - |  |
@@ -200,4 +200,4 @@ return (
 
 ### 静态方法如何设置 prefixCls ？
 
-你可以通过 [`ConfigProvider.config`](</components/config-provider/#ConfigProvider.config()-4.13.0+>) 进行设置。
+你可以通过 [`ConfigProvider.config`](</components/config-provider-cn#ConfigProvider.config()-4.13.0+>) 进行设置。
