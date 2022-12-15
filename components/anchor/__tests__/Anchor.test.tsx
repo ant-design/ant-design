@@ -1,5 +1,6 @@
 import React from 'react';
 import { resetWarned } from 'rc-util/lib/warning';
+import scrollIntoView from 'scroll-into-view-if-needed';
 
 import Anchor from '..';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
@@ -15,13 +16,15 @@ function createDiv() {
 let idCounter = 0;
 const getHashUrl = () => `Anchor-API-${idCounter++}`;
 
+jest.mock('scroll-into-view-if-needed', () => jest.fn());
+
 describe('Anchor Render', () => {
   const getBoundingClientRectMock = jest.spyOn(
     HTMLHeadingElement.prototype,
     'getBoundingClientRect',
   );
   const getClientRectsMock = jest.spyOn(HTMLHeadingElement.prototype, 'getClientRects');
-  const scrollIntoViewMock = jest.fn();
+  const scrollIntoViewMock = jest.createMockFromModule<any>('scroll-into-view-if-needed');
 
   beforeAll(() => {
     jest.useFakeTimers();
@@ -35,13 +38,12 @@ describe('Anchor Render', () => {
 
   beforeEach(() => {
     jest.useFakeTimers();
-    HTMLElement.prototype.scrollIntoView = scrollIntoViewMock;
+    scrollIntoViewMock.mockReset();
   });
 
   afterEach(() => {
     jest.clearAllTimers();
     jest.useRealTimers();
-    scrollIntoViewMock.mockReset();
   });
 
   afterAll(() => {
@@ -586,7 +588,7 @@ describe('Anchor Render', () => {
         fireEvent.click(container.querySelector(`a[href="#${hash}"]`)!);
         await waitFakeTimer();
 
-        expect(scrollIntoViewMock).toHaveBeenCalled();
+        expect(scrollIntoView).toHaveBeenCalled();
         expect(scrollToSpy).toHaveBeenLastCalledWith(0, 1000);
 
         setProps({ offsetTop: 100 });

@@ -1,6 +1,8 @@
 import classNames from 'classnames';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import * as React from 'react';
+import scrollIntoView from 'scroll-into-view-if-needed';
+
 import Affix from '../affix';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
@@ -189,7 +191,10 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
     if (linkNode && spanLinkNode.current) {
       spanLinkNode.current.style.left = `${linkNode.offsetLeft}px`;
       spanLinkNode.current.style.width = `${linkNode.clientWidth}px`;
-      linkNode.scrollIntoView({ behavior: 'auto' });
+      scrollIntoView(linkNode, {
+        scrollMode: 'if-needed',
+        block: 'nearest',
+      });
     }
   };
 
