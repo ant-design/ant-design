@@ -195,11 +195,12 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
                     <CalendarOutlined /> {DayJS(meta.frontmatter.date).format('YYYY-MM-DD')}
                   </span>
                 )}
-                {meta.frontmatter.author && (
-                  <Typography.Link href={`https://github.com/${meta.frontmatter.author}`}>
-                    @{meta.frontmatter.author}
-                  </Typography.Link>
-                )}
+                {meta.frontmatter.author &&
+                  (meta.frontmatter.author as string)?.split(',')?.map((author) => (
+                    <Typography.Link href={`https://github.com/${author}`} key={author}>
+                      @{author}
+                    </Typography.Link>
+                  ))}
               </Space>
             </Typography.Paragraph>
           ) : null}

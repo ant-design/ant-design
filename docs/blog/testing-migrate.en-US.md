@@ -1,0 +1,293 @@
+---
+title: about antd test library migration
+date: 2022-12-16
+author: zombieJ,li-jia-nan
+---
+
+## introduction
+
+In `antd@4.x`, Use **[enzyme](https://enzymejs.github.io/enzyme)** as the test framework, but due to the lack of maintenance of enzyme, it is difficult to support it in the React 18 era. Therefore, I had to start a long **[@testing-lib](https://testing-library.com/docs/react-testing-library/intro)** conversion road for antd.
+
+During the migration process, I undertook about a quarter of the component workload of antd. Here I mainly record the problems encountered during the migration process.
+
+> First of all, I would like to thank the three big guys **[@zombieJ](https://github.com/zombieJ)** **[@MadCcc](https://github.com/MadCcc)** **[@miracles1919](https://github.com/miracles1919)**, they gave me a lot of help during the migration process, without them, my migration work would not be so smooth.
+
+<img width="1512" alt="QQ20221214-151443@2x" src="https://user-images.githubusercontent.com/49217418/207530591-1faaf171-638b-40af-8d61-3f07cb60abe2.png">
+
+<img width="1512" alt="QQ20221214-151457@2x" src="https://user-images.githubusercontent.com/49217418/207530491-4988ecc4-2da0-4a0c-ba5d-b9797edecd1a.png">
+
+<img width="1512" alt="QQ20221214-151524@2x" src="https://user-images.githubusercontent.com/49217418/207530507-412f0244-3d88-4500-9eb4-054f3e112731.png">
+
+## start
+
+Before migrating, we need to figure out what the purpose of the migration is. In `enzyme`, most scenarios are to test whether the state in the component is correct, or whether the static properties on the class are assigned normally, which is actually unreasonable Yes, because we need to care more about whether the "function" is normal, rather than whether the "property" is correct, because the source code is a black box for the user, and the user only cares about whether the component is correct.
+
+Basically, test cases should be written based on "behavior", not "implementation" (this is also the goal of `testing-library`). In principle, there are several use cases that are found to be redundant (because some functions are not triggered individually in real code), and removing them does not affect cov.
+
+Of course, this is just one of the reasons to drop `enzyme`. More importantly, it is unmaintained and does not support react18 anymore.
+
+## migrate
+
+### 1. render
+
+`enzyme` supports rendering in three ways:
+
+- shallow: Shallow rendering, which is an encapsulation of the official Shallow Renderer. Rendering a component into a virtual DOM object will only render the first layer, and subcomponents will not be rendered. You can use jQuery to access component information.
+
+- render: Static rendering, which renders the React component into a static HTML string, then parses the string, and returns an instance object, which can be used to analyze the html structure of the component.
+
+- mount: Fully rendered, it loads component rendering into a real DOM node to test the interaction of DOM API and the life cycle of components, and uses jsdom to simulate the browser environment.
+
+In the test case of antd 4, the `mount` method is used as the main rendering method.
+
+So in the way of rendering, you need to replace it with the `render` method provided by `testing-library`:
+
+```diff
+--  import { mount } from 'enzyme';
+++  import { render } from '@testing-library/react';
+
+--  const wrapper = mount(
+++  const { container } = render(
+      <ConfigProvider getPopupContainer={getPopupContainer}>
+        <Slider />
+      </ConfigProvider>,
+    );
+```
+
+### 2. interact & event
+
+`enzyme` provides `simulate(event)` method to simulate event triggering and user interaction, event is the event name, but this method has been deprecated in react 18, so it needs to be replaced by `fireEvent` provided by `testing-library` Method:
+
+```diff
+++  import { fireEvent } from '@testing-library/react';
+
+--  wrapper.find('.ant-handle').simulate('click');
+++  fireEvent.click(wrapper.container.querySelector('.ant-handle'));
+```
+
+### 3. DOM element
+
+In `enzyme`, some built-in APIs are provided to manipulate dom, or find components:
+
+- instance(): Returns an instance of the test component
+- at(index): returns a rendered object
+- text(): Returns the text content of the current component
+- html(): Returns the HTML code form of the current component
+- props(): Returns all properties of the component
+- prop(key): Returns the specified property of the component
+- state(): Returns the state of the component
+- setState(nextState): Set the state of the component
+- setProps(nextProps): Set the properties of the component
+- find(selector): Find the node according to the selector, the selector can be the selector in CSS, or the constructor of the component, and the displayName of the component, etc.
+
+在 `testing-library` 中，没有提供这些 api（正如上面提到过的 - `testing-library` 更加注重行为上的测试），所以需要换成原生的 dom 操作：
+
+```diff
+    expect(ref.current.getPopupDomNode()).toBe(null);
+--  popover.find('span').simulate('click');
+--  expect(popover.find('Trigger PopupInner').props().visible).toBeTruthy();
+
+++  expect(container.querySelector('.ant-popover-inner-content')).toBeFalsy();
+++  fireEvent.click(popover.container.querySelector('span'));
+++  expect(container.querySelector('.ant-popover-inner-content')).toBeTruthy();
+```
+
+### 4. compatibility test
+
+While the major version is being upgraded, some components are discarded, but they are not removed in antd. For example, the BackTop component needs to add warning to the component to ensure compatibility, so it is also necessary to write a special unit test for warning:
+
+```diff
+    describe('BackTop', () => {
+++    it('should console Error', () => {
+++        const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+++        render(<BackTop />);
+++        expect(errSpy).toHaveBeenCalledWith(
+++          'Warning: [antd: BackTop] `BackTop` is deprecated, please use `FloatButton.BackTop` instead.',
+++        );
+++      errSpy.mockRestore();
+++    });
+    });
+```
+
+在转换过程中，发现了⼀个神奇的现象，有些情况下，同样的 case 生成的 DOM 快照会不一样，也因此开始探索 React 18 到底变化了什么：
+
+## Diff 之谜
+
+过去 `enzyme` 的 `snapshot` 对⽐是通过 `enzyme-to-json` 插件将 `enzyme object` 转换成序列化对象：
+
+```js
+// jest.config.js
+module.exports = {
+  // ...
+  snapshotSerializers: ['enzyme-to-json/serializer'],
+};
+```
+
+When it comes to `@testing-library/react`, directly call `render` to generate dom elements, and then compare the dom:
+
+```diff
+--  import { mount } from 'enzyme';
+++  import { render } from '@testing-library/react';
+
+    describe('xxx', () => {
+      it('yyy', () => {
+--      const wrapper = mount(<Demo />);
+++      const { container } = render(<Demo />);
+--      expect(wrapper.render()).toMatchSnapshot();
+++      expect(container.firstChild).toMatchSnapshot();
+      });
+    });
+
+```
+
+Interestingly, in some test cases. It will hang, the difference is that React 18 sometimes has fewer blank lines:
+
+```diff
+    <div>
+--
+      Hello World
+    </div>
+```
+
+After testing `innerHTML` of dom, it is found that 17 and 18 are the same. So at the beginning of the problem, we simply changed the test case to compare `innerHTML`:
+
+```ts
+expect(container.querySelector('.className').innerHTML).toMatchSnapshot();
+```
+
+However, as you migrate more, you will gradually see this happening over and over again. Comparing `innerHTML` is also not a long-term solution. So began to explore why this happens.
+
+## pretty-format
+
+`pretty-format` is an interesting library that converts any object into a string. One of its uses is for snapshot comparison of jest. One of its features is that conversion rules can be customized.
+
+Compared with `snapshot` in `jest`, `format` will be done first, for common objects such as native `dom`, `object`. It has built-in a set of `plugins` for format conversion:
+
+```html
+<div>
+  <span>Hello</span>
+  <p>World</p>
+</div>
+↓
+<div>
+  <span> Hello </span>
+  <p>World</p>
+</div>
+```
+
+The first reaction to the appearance of extra spaces is whether it is because the version of `@testing-lib/react` introduced by 17 & 18 is different, which affects the version of `pretty-format` that `jest` depends on. After checking, they are all consistent:
+
+```json
+{
+  "devDependencies": {
+    "pretty-format": "^29.0.0",
+    "@testing-library/react": "^13.0.0"
+  }
+}
+```
+
+After this judgment is wrong, it is another situation. There is an `empty element` in the dom, which makes `pretty-format` perceptible, but it does not affect `innerHTML`, so I wrote a simple test case:
+
+```ts
+const holder = document.createElement('div');
+holder.append('');
+holder.append(document.createElement('a'));
+expect(holder).toMatchSnapshot();
+console.log(holder.innerHTML);
+```
+
+and get the following output:
+
+```snap
+// snapshot
+exports[`debug exports modules correctly 1`] = `
+<div>
+
+  <a />
+</div>
+`;
+
+// console.log
+<a></a>
+```
+
+Consistent with the idea, then it is very simple. Then there is a high probability that the `render` of `React 18` will ignore empty elements. Let's do a simple experiment:
+
+```tsx
+import React, { version, useRef, useEffect } from 'react';
+
+const App: React.FC = () => {
+  const holderRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    console.log(holderRef.current?.childNodes);
+  }, []);
+  return (
+    <div ref={holderRef}>
+      <p>{version}</p>
+    </div>
+  );
+};
+
+export default App;
+```
+
+as predicted:
+
+| React 17              | React 18     |
+| --------------------- | ------------ |
+| NodeList(2) [text, p] | NodeList [p] |
+
+Check the `Fiber` node information, you can find that `React 17` will treat empty elements as `Fiber` nodes, while `React 18` will ignore empty elements:
+
+> React17:
+
+<img width="867" alt="r17" src="https://user-images.githubusercontent.com/49217418/207533725-fb8f9e4d-7f09-4a13-a04a-cbb2d3eb2aea.png">
+
+> React18:
+
+<img width="868" alt="r18" src="https://user-images.githubusercontent.com/49217418/207533740-328d10ea-d9bc-4469-bc00-f08e33857e6f.png">
+
+You can find the relevant PR by following the map:
+
+- https://github.com/facebook/react/pull/22807
+
+![QQ20221206-204507](https://user-images.githubusercontent.com/49217418/205916780-1ef901df-f15d-453d-a3ce-54b87e045dad.png)
+
+## a solution
+
+Antd needs to test React16, 17, and 18. If snapshot is not feasible, it will cause too much cost. So we need to modify jest. `enzyme-to-json` gave me inspiration, we can modify the snapshot generation logic to smooth out the diff between different versions of React:
+
+```ts
+expect.addSnapshotSerializer({
+  // Determine whether it is a dom element, if yes, go to our own serialization logic
+  // The code has been simplified, more logic is needed for real judgment, you can refer to setupAfterEnv.ts of antd
+  test: (element) => element instanceof HTMLElement,
+  // ...
+});
+```
+
+Then access `pretty-format` and add your own logic:
+
+```ts
+const htmlContent = format(element, {
+  plugins: [plugins.DOMCollection, plugins.DOMElement],
+});
+
+expect.addSnapshotSerializer({
+  test: '//...',
+  print: (element) => {
+    const filtered = htmlContent
+      .split(/[\n\r]+/)
+      .filter((line) => line.trim())
+      .map((line) => line.replace(/\s+$/, ''))
+      .join('\n');
+    return filtered;
+  },
+});
+```
+
+## knock off
+
+The above are some problems encountered during the migration of the antd test framework. Of course, it is only the tip of the iceberg. In fact, more problems have been encountered during the migration process, but the important thing is not the problem itself, but to follow the antd team to learn how to think and Explore how to solve problems.
+
+Finally, I wish antd better and better, and wish the antd team stronger and stronger!
