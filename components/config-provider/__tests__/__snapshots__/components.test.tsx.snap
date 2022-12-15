@@ -24932,25 +24932,6 @@ exports[`ConfigProvider components Select configProvider virtual and dropdownMat
     >
       <div>
         <div
-          id="rc_select_TEST_OR_SSR_list"
-          role="listbox"
-          style="height: 0px; width: 0px; overflow: hidden;"
-        >
-          <div
-            aria-selected="false"
-            id="rc_select_TEST_OR_SSR_list_0"
-            role="presentation"
-          />
-          <div
-            aria-label="Light"
-            aria-selected="false"
-            id="rc_select_TEST_OR_SSR_list_1"
-            role="option"
-          >
-            Bamboo
-          </div>
-        </div>
-        <div
           class="rc-virtual-list"
           style="position: relative;"
         >
@@ -24961,6 +24942,8 @@ exports[`ConfigProvider components Select configProvider virtual and dropdownMat
             <div>
               <div
                 class="rc-virtual-list-holder-inner"
+                id="rc_select_TEST_OR_SSR_list"
+                role="listbox"
                 style="display: flex; flex-direction: column;"
               >
                 <div
@@ -24972,6 +24955,8 @@ exports[`ConfigProvider components Select configProvider virtual and dropdownMat
                 <div
                   aria-selected="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-grouped ant-select-item-option-active"
+                  id="rc_select_TEST_OR_SSR_list_1"
+                  role="option"
                   title="Light"
                 >
                   <div
@@ -26627,6 +26612,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                   <th
                     aria-label="this column's title is Name,this column is sortable"
                     class="config-table-cell config-table-column-has-sorters"
+                    scope="col"
                     tabindex="0"
                   >
                     <div
@@ -26932,6 +26918,7 @@ exports[`ConfigProvider components Table configProvider componentDisabled 1`] = 
                   <th
                     aria-label="this column's title is Name,this column is sortable"
                     class="config-table-cell config-table-column-has-sorters"
+                    scope="col"
                     tabindex="0"
                   >
                     <div
@@ -27239,6 +27226,7 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                   <th
                     aria-label="this column's title is Name,this column is sortable"
                     class="config-table-cell config-table-column-has-sorters"
+                    scope="col"
                     tabindex="0"
                   >
                     <div
@@ -27544,6 +27532,7 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                   <th
                     aria-label="this column's title is Name,this column is sortable"
                     class="config-table-cell config-table-column-has-sorters"
+                    scope="col"
                     tabindex="0"
                   >
                     <div
@@ -27849,6 +27838,7 @@ exports[`ConfigProvider components Table configProvider virtual and dropdownMatc
                   <th
                     aria-label="this column's title is Name,this column is sortable"
                     class="ant-table-cell ant-table-column-has-sorters"
+                    scope="col"
                     tabindex="0"
                   >
                     <div
@@ -28154,6 +28144,7 @@ exports[`ConfigProvider components Table normal 1`] = `
                   <th
                     aria-label="this column's title is Name,this column is sortable"
                     class="ant-table-cell ant-table-column-has-sorters"
+                    scope="col"
                     tabindex="0"
                   >
                     <div
@@ -28459,6 +28450,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                   <th
                     aria-label="this column's title is Name,this column is sortable"
                     class="prefix-Table-cell prefix-Table-column-has-sorters"
+                    scope="col"
                     tabindex="0"
                   >
                     <div

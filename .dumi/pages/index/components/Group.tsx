@@ -1,6 +1,8 @@
 import * as React from 'react';
+import { useContext } from 'react';
 import { Typography } from 'antd';
 import useSiteToken from '../../../hooks/useSiteToken';
+import SiteContext from './SiteContext';
 
 export interface GroupMaskProps {
   style?: React.CSSProperties;
@@ -49,6 +51,7 @@ export interface GroupProps {
 export default function Group(props: GroupProps) {
   const { id, title, titleColor, description, children, decoration, background, collapse } = props;
   const { token } = useSiteToken();
+  const { isMobile } = useContext(SiteContext);
 
   const marginStyle: React.CSSProperties = collapse
     ? {}
@@ -56,7 +59,7 @@ export default function Group(props: GroupProps) {
         maxWidth: 1208,
         marginInline: 'auto',
         boxSizing: 'border-box',
-        paddingInline: token.marginXXL,
+        paddingInline: isMobile ? token.margin : token.marginXXL,
       };
   const childNode = (
     <>
@@ -69,11 +72,17 @@ export default function Group(props: GroupProps) {
             color: titleColor,
             // Special for the title
             fontFamily: `AliPuHui, ${token.fontFamily}`,
+            fontSize: isMobile ? token.fontSizeHeading2 : token.fontSizeHeading1,
           }}
         >
           {title}
         </Typography.Title>
-        <Typography.Paragraph style={{ marginBottom: token.marginFarXS, color: titleColor }}>
+        <Typography.Paragraph
+          style={{
+            marginBottom: isMobile ? token.marginXXL : token.marginFarXS,
+            color: titleColor,
+          }}
+        >
           {description}
         </Typography.Paragraph>
       </div>

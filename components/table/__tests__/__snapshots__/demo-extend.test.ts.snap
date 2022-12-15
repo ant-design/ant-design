@@ -448,26 +448,31 @@ exports[`renders ./components/table/demo/basic.tsx extend context correctly 1`] 
                 <tr>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Name
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Age
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Address
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Tags
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Action
                   </th>
@@ -777,17 +782,20 @@ exports[`renders ./components/table/demo/bordered.tsx extend context correctly 1
                 <tr>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Name
                   </th>
                   <th
                     class="ant-table-cell column-money"
+                    scope="col"
                     style="text-align:right"
                   >
                     Cash Assets
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Address
                   </th>
@@ -988,22 +996,26 @@ exports[`renders ./components/table/demo/colspan-rowspan.tsx extend context corr
                 <tr>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Name
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Age
                   </th>
                   <th
                     class="ant-table-cell"
                     colspan="2"
+                    scope="colgroup"
                   >
                     Home phone
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Address
                   </th>
@@ -1274,6 +1286,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.tsx extend context 
                 <tr>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     <div
                       class="ant-table-filter-column"
@@ -1410,6 +1423,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.tsx extend context 
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     <div
                       class="ant-table-filter-column"
@@ -1547,6 +1561,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.tsx extend context 
                   <th
                     aria-label="this column's title is Address,this column is sortable"
                     class="ant-table-cell ant-table-column-has-sorters"
+                    scope="col"
                     tabindex="0"
                   >
                     <div
@@ -1963,16 +1978,19 @@ exports[`renders ./components/table/demo/drag-sorting.tsx extend context correct
                 <tr>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Name
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Age
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Address
                   </th>
@@ -3150,11 +3168,12 @@ Array [
                   class="ant-table-thead"
                 >
                   <tr>
-                    <th
+                    <td
                       class="ant-table-cell ant-table-row-expand-icon-cell"
                     />
                     <th
                       class="ant-table-cell ant-table-selection-column"
+                      scope="col"
                     >
                       <div
                         class="ant-table-selection"
@@ -3179,12 +3198,14 @@ Array [
                     </th>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       Name
                     </th>
                     <th
                       aria-label="this column's title is Age,this column is sortable"
                       class="ant-table-cell ant-table-column-has-sorters"
+                      scope="col"
                       tabindex="0"
                     >
                       <div
@@ -3269,6 +3290,7 @@ Array [
                     </th>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       <div
                         class="ant-table-filter-column"
@@ -3496,6 +3518,7 @@ Array [
                     <th
                       aria-label="this column's title is Action,this column is sortable"
                       class="ant-table-cell ant-table-column-has-sorters"
+                      scope="col"
                       tabindex="0"
                     >
                       <div
@@ -4761,21 +4784,25 @@ exports[`renders ./components/table/demo/edit-cell.tsx extend context correctly 
                   <tr>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       name
                     </th>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       age
                     </th>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       address
                     </th>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       operation
                     </th>
@@ -5143,21 +5170,25 @@ exports[`renders ./components/table/demo/edit-row.tsx extend context correctly 1
                 <tr>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     name
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     age
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     address
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     operation
                   </th>
@@ -5677,28 +5708,6 @@ exports[`renders ./components/table/demo/edit-row.tsx extend context correctly 1
               >
                 <div>
                   <div
-                    id="undefined_list"
-                    role="listbox"
-                    style="height:0;width:0;overflow:hidden"
-                  >
-                    <div
-                      aria-label="10 / page"
-                      aria-selected="true"
-                      id="undefined_list_0"
-                      role="option"
-                    >
-                      10
-                    </div>
-                    <div
-                      aria-label="20 / page"
-                      aria-selected="false"
-                      id="undefined_list_1"
-                      role="option"
-                    >
-                      20
-                    </div>
-                  </div>
-                  <div
                     class="rc-virtual-list"
                     style="position:relative"
                   >
@@ -5709,11 +5718,15 @@ exports[`renders ./components/table/demo/edit-row.tsx extend context correctly 1
                       <div>
                         <div
                           class="rc-virtual-list-holder-inner"
+                          id="undefined_list"
+                          role="listbox"
                           style="display:flex;flex-direction:column"
                         >
                           <div
                             aria-selected="true"
                             class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
+                            id="undefined_list_0"
+                            role="option"
                             title="10 / page"
                           >
                             <div
@@ -5731,6 +5744,8 @@ exports[`renders ./components/table/demo/edit-row.tsx extend context correctly 1
                           <div
                             aria-selected="false"
                             class="ant-select-item ant-select-item-option"
+                            id="undefined_list_1"
+                            role="option"
                             title="20 / page"
                           >
                             <div
@@ -5748,6 +5763,8 @@ exports[`renders ./components/table/demo/edit-row.tsx extend context correctly 1
                           <div
                             aria-selected="false"
                             class="ant-select-item ant-select-item-option"
+                            id="undefined_list_2"
+                            role="option"
                             title="50 / page"
                           >
                             <div
@@ -5765,6 +5782,8 @@ exports[`renders ./components/table/demo/edit-row.tsx extend context correctly 1
                           <div
                             aria-selected="false"
                             class="ant-select-item ant-select-item-option"
+                            id="undefined_list_3"
+                            role="option"
                             title="100 / page"
                           >
                             <div
@@ -5856,34 +5875,40 @@ exports[`renders ./components/table/demo/ellipsis.tsx extend context correctly 1
                 <tr>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Name
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Age
                   </th>
                   <th
                     class="ant-table-cell ant-table-cell-ellipsis"
+                    scope="col"
                     title="Address"
                   >
                     Address
                   </th>
                   <th
                     class="ant-table-cell ant-table-cell-ellipsis"
+                    scope="col"
                     title="Long Column Long Column Long Column"
                   >
                     Long Column Long Column Long Column
                   </th>
                   <th
                     class="ant-table-cell ant-table-cell-ellipsis"
+                    scope="col"
                     title="Long Column Long Column"
                   >
                     Long Column Long Column
                   </th>
                   <th
                     class="ant-table-cell ant-table-cell-ellipsis"
+                    scope="col"
                     title="Long Column"
                   >
                     Long Column
@@ -6141,34 +6166,40 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.tsx extend cont
                 <tr>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Name
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Age
                   </th>
                   <th
                     class="ant-table-cell ant-table-cell-ellipsis"
+                    scope="col"
                     title="Address"
                   >
                     Address
                   </th>
                   <th
                     class="ant-table-cell ant-table-cell-ellipsis"
+                    scope="col"
                     title="Long Column Long Column Long Column"
                   >
                     Long Column Long Column Long Column
                   </th>
                   <th
                     class="ant-table-cell ant-table-cell-ellipsis"
+                    scope="col"
                     title="Long Column Long Column"
                   >
                     Long Column Long Column
                   </th>
                   <th
                     class="ant-table-cell ant-table-cell-ellipsis"
+                    scope="col"
                     title="Long Column"
                   >
                     Long Column
@@ -6721,26 +6752,30 @@ exports[`renders ./components/table/demo/expand.tsx extend context correctly 1`]
                 class="ant-table-thead"
               >
                 <tr>
-                  <th
+                  <td
                     class="ant-table-cell ant-table-row-expand-icon-cell"
                   />
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Name
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Age
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Address
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Action
                   </th>
@@ -7023,6 +7058,7 @@ exports[`renders ./components/table/demo/filter-in-tree.tsx extend context corre
                 <tr>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     <div
                       class="ant-table-filter-column"
@@ -7462,6 +7498,7 @@ exports[`renders ./components/table/demo/filter-in-tree.tsx extend context corre
                   <th
                     aria-label="this column's title is Age,this column is sortable"
                     class="ant-table-cell ant-table-column-has-sorters"
+                    scope="col"
                     tabindex="0"
                   >
                     <div
@@ -7546,6 +7583,7 @@ exports[`renders ./components/table/demo/filter-in-tree.tsx extend context corre
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     <div
                       class="ant-table-filter-column"
@@ -8019,6 +8057,7 @@ exports[`renders ./components/table/demo/filter-search.tsx extend context correc
                 <tr>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     <div
                       class="ant-table-filter-column"
@@ -8282,6 +8321,7 @@ exports[`renders ./components/table/demo/filter-search.tsx extend context correc
                   <th
                     aria-label="this column's title is Age,this column is sortable"
                     class="ant-table-cell ant-table-column-has-sorters"
+                    scope="col"
                     tabindex="0"
                   >
                     <div
@@ -8366,6 +8406,7 @@ exports[`renders ./components/table/demo/filter-search.tsx extend context correc
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     <div
                       class="ant-table-filter-column"
@@ -8850,58 +8891,69 @@ exports[`renders ./components/table/demo/fixed-columns.tsx extend context correc
                 <tr>
                   <th
                     class="ant-table-cell ant-table-cell-fix-left"
+                    scope="col"
                     style="position:sticky;left:0"
                   >
                     Full Name
                   </th>
                   <th
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                    scope="col"
                     style="position:sticky;left:0"
                   >
                     Age
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Column 1
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Column 2
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Column 3
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Column 4
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Column 5
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Column 6
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Column 7
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Column 8
                   </th>
                   <th
                     class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
+                    scope="col"
                     style="position:sticky;right:0"
                   >
                     Action
@@ -9254,58 +9306,69 @@ exports[`renders ./components/table/demo/fixed-columns-header.tsx extend context
                 <tr>
                   <th
                     class="ant-table-cell ant-table-cell-fix-left"
+                    scope="col"
                     style="position:sticky;left:0"
                   >
                     Full Name
                   </th>
                   <th
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                    scope="col"
                     style="position:sticky;left:0"
                   >
                     Age
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Column 1
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Column 2
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Column 3
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Column 4
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Column 5
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Column 6
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Column 7
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Column 8
                   </th>
                   <th
                     class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
+                    scope="col"
                     style="position:sticky;right:0"
                   >
                     Action
@@ -10322,28 +10385,6 @@ exports[`renders ./components/table/demo/fixed-columns-header.tsx extend context
               >
                 <div>
                   <div
-                    id="undefined_list"
-                    role="listbox"
-                    style="height:0;width:0;overflow:hidden"
-                  >
-                    <div
-                      aria-label="10 / page"
-                      aria-selected="true"
-                      id="undefined_list_0"
-                      role="option"
-                    >
-                      10
-                    </div>
-                    <div
-                      aria-label="20 / page"
-                      aria-selected="false"
-                      id="undefined_list_1"
-                      role="option"
-                    >
-                      20
-                    </div>
-                  </div>
-                  <div
                     class="rc-virtual-list"
                     style="position:relative"
                   >
@@ -10354,11 +10395,15 @@ exports[`renders ./components/table/demo/fixed-columns-header.tsx extend context
                       <div>
                         <div
                           class="rc-virtual-list-holder-inner"
+                          id="undefined_list"
+                          role="listbox"
                           style="display:flex;flex-direction:column"
                         >
                           <div
                             aria-selected="true"
                             class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
+                            id="undefined_list_0"
+                            role="option"
                             title="10 / page"
                           >
                             <div
@@ -10376,6 +10421,8 @@ exports[`renders ./components/table/demo/fixed-columns-header.tsx extend context
                           <div
                             aria-selected="false"
                             class="ant-select-item ant-select-item-option"
+                            id="undefined_list_1"
+                            role="option"
                             title="20 / page"
                           >
                             <div
@@ -10393,6 +10440,8 @@ exports[`renders ./components/table/demo/fixed-columns-header.tsx extend context
                           <div
                             aria-selected="false"
                             class="ant-select-item ant-select-item-option"
+                            id="undefined_list_2"
+                            role="option"
                             title="50 / page"
                           >
                             <div
@@ -10410,6 +10459,8 @@ exports[`renders ./components/table/demo/fixed-columns-header.tsx extend context
                           <div
                             aria-selected="false"
                             class="ant-select-item ant-select-item-option"
+                            id="undefined_list_3"
+                            role="option"
                             title="100 / page"
                           >
                             <div
@@ -10495,16 +10546,19 @@ exports[`renders ./components/table/demo/fixed-header.tsx extend context correct
                 <tr>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Name
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Age
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Address
                   </th>
@@ -11699,28 +11753,6 @@ exports[`renders ./components/table/demo/fixed-header.tsx extend context correct
               >
                 <div>
                   <div
-                    id="undefined_list"
-                    role="listbox"
-                    style="height:0;width:0;overflow:hidden"
-                  >
-                    <div
-                      aria-label="10 / page"
-                      aria-selected="false"
-                      id="undefined_list_0"
-                      role="option"
-                    >
-                      10
-                    </div>
-                    <div
-                      aria-label="20 / page"
-                      aria-selected="false"
-                      id="undefined_list_1"
-                      role="option"
-                    >
-                      20
-                    </div>
-                  </div>
-                  <div
                     class="rc-virtual-list"
                     style="position:relative"
                   >
@@ -11731,11 +11763,15 @@ exports[`renders ./components/table/demo/fixed-header.tsx extend context correct
                       <div>
                         <div
                           class="rc-virtual-list-holder-inner"
+                          id="undefined_list"
+                          role="listbox"
                           style="display:flex;flex-direction:column"
                         >
                           <div
                             aria-selected="false"
                             class="ant-select-item ant-select-item-option ant-select-item-option-active"
+                            id="undefined_list_0"
+                            role="option"
                             title="10 / page"
                           >
                             <div
@@ -11753,6 +11789,8 @@ exports[`renders ./components/table/demo/fixed-header.tsx extend context correct
                           <div
                             aria-selected="false"
                             class="ant-select-item ant-select-item-option"
+                            id="undefined_list_1"
+                            role="option"
                             title="20 / page"
                           >
                             <div
@@ -11770,6 +11808,8 @@ exports[`renders ./components/table/demo/fixed-header.tsx extend context correct
                           <div
                             aria-selected="true"
                             class="ant-select-item ant-select-item-option ant-select-item-option-selected"
+                            id="undefined_list_2"
+                            role="option"
                             title="50 / page"
                           >
                             <div
@@ -11787,6 +11827,8 @@ exports[`renders ./components/table/demo/fixed-header.tsx extend context correct
                           <div
                             aria-selected="false"
                             class="ant-select-item ant-select-item-option"
+                            id="undefined_list_3"
+                            role="option"
                             title="100 / page"
                           >
                             <div
@@ -11873,6 +11915,7 @@ exports[`renders ./components/table/demo/grouping-columns.tsx extend context cor
                   <th
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
                     rowspan="4"
+                    scope="col"
                     style="position:sticky;left:0"
                   >
                     <div
@@ -12101,18 +12144,21 @@ exports[`renders ./components/table/demo/grouping-columns.tsx extend context cor
                   <th
                     class="ant-table-cell"
                     colspan="4"
+                    scope="colgroup"
                   >
                     Other
                   </th>
                   <th
                     class="ant-table-cell"
                     colspan="2"
+                    scope="colgroup"
                   >
                     Company
                   </th>
                   <th
                     class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
                     rowspan="4"
+                    scope="col"
                     style="position:sticky;right:0"
                   >
                     Gender
@@ -12123,6 +12169,7 @@ exports[`renders ./components/table/demo/grouping-columns.tsx extend context cor
                     aria-label="this column's title is Age,this column is sortable"
                     class="ant-table-cell ant-table-column-has-sorters"
                     rowspan="3"
+                    scope="col"
                     tabindex="0"
                   >
                     <div
@@ -12208,18 +12255,21 @@ exports[`renders ./components/table/demo/grouping-columns.tsx extend context cor
                   <th
                     class="ant-table-cell"
                     colspan="3"
+                    scope="colgroup"
                   >
                     Address
                   </th>
                   <th
                     class="ant-table-cell"
                     rowspan="3"
+                    scope="col"
                   >
                     Company Address
                   </th>
                   <th
                     class="ant-table-cell"
                     rowspan="3"
+                    scope="col"
                   >
                     Company Name
                   </th>
@@ -12228,12 +12278,14 @@ exports[`renders ./components/table/demo/grouping-columns.tsx extend context cor
                   <th
                     class="ant-table-cell"
                     rowspan="2"
+                    scope="col"
                   >
                     Street
                   </th>
                   <th
                     class="ant-table-cell"
                     colspan="2"
+                    scope="colgroup"
                   >
                     Block
                   </th>
@@ -12241,11 +12293,13 @@ exports[`renders ./components/table/demo/grouping-columns.tsx extend context cor
                 <tr>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Building
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Door No.
                   </th>
@@ -13048,28 +13102,6 @@ exports[`renders ./components/table/demo/grouping-columns.tsx extend context cor
               >
                 <div>
                   <div
-                    id="undefined_list"
-                    role="listbox"
-                    style="height:0;width:0;overflow:hidden"
-                  >
-                    <div
-                      aria-label="10 / page"
-                      aria-selected="true"
-                      id="undefined_list_0"
-                      role="option"
-                    >
-                      10
-                    </div>
-                    <div
-                      aria-label="20 / page"
-                      aria-selected="false"
-                      id="undefined_list_1"
-                      role="option"
-                    >
-                      20
-                    </div>
-                  </div>
-                  <div
                     class="rc-virtual-list"
                     style="position:relative"
                   >
@@ -13080,11 +13112,15 @@ exports[`renders ./components/table/demo/grouping-columns.tsx extend context cor
                       <div>
                         <div
                           class="rc-virtual-list-holder-inner"
+                          id="undefined_list"
+                          role="listbox"
                           style="display:flex;flex-direction:column"
                         >
                           <div
                             aria-selected="true"
                             class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
+                            id="undefined_list_0"
+                            role="option"
                             title="10 / page"
                           >
                             <div
@@ -13102,6 +13138,8 @@ exports[`renders ./components/table/demo/grouping-columns.tsx extend context cor
                           <div
                             aria-selected="false"
                             class="ant-select-item ant-select-item-option"
+                            id="undefined_list_1"
+                            role="option"
                             title="20 / page"
                           >
                             <div
@@ -13119,6 +13157,8 @@ exports[`renders ./components/table/demo/grouping-columns.tsx extend context cor
                           <div
                             aria-selected="false"
                             class="ant-select-item ant-select-item-option"
+                            id="undefined_list_2"
+                            role="option"
                             title="50 / page"
                           >
                             <div
@@ -13136,6 +13176,8 @@ exports[`renders ./components/table/demo/grouping-columns.tsx extend context cor
                           <div
                             aria-selected="false"
                             class="ant-select-item ant-select-item-option"
+                            id="undefined_list_3"
+                            role="option"
                             title="100 / page"
                           >
                             <div
@@ -13221,6 +13263,7 @@ exports[`renders ./components/table/demo/head.tsx extend context correctly 1`] =
                   <th
                     aria-label="this column's title is Name,this column is sortable"
                     class="ant-table-cell ant-table-column-has-sorters"
+                    scope="col"
                     tabindex="0"
                   >
                     <div
@@ -13705,6 +13748,7 @@ exports[`renders ./components/table/demo/head.tsx extend context correctly 1`] =
                   <th
                     aria-sort="descending"
                     class="ant-table-cell ant-table-column-sort ant-table-column-has-sorters"
+                    scope="col"
                     tabindex="0"
                   >
                     <div
@@ -13789,6 +13833,7 @@ exports[`renders ./components/table/demo/head.tsx extend context correctly 1`] =
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     <div
                       class="ant-table-filter-column"
@@ -14217,30 +14262,35 @@ exports[`renders ./components/table/demo/jsx.tsx extend context correctly 1`] = 
                   <th
                     class="ant-table-cell"
                     colspan="2"
+                    scope="colgroup"
                   >
                     Name
                   </th>
                   <th
                     class="ant-table-cell"
                     rowspan="2"
+                    scope="col"
                   >
                     Age
                   </th>
                   <th
                     class="ant-table-cell"
                     rowspan="2"
+                    scope="col"
                   >
                     Address
                   </th>
                   <th
                     class="ant-table-cell"
                     rowspan="2"
+                    scope="col"
                   >
                     Tags
                   </th>
                   <th
                     class="ant-table-cell"
                     rowspan="2"
+                    scope="col"
                   >
                     Action
                   </th>
@@ -14248,11 +14298,13 @@ exports[`renders ./components/table/demo/jsx.tsx extend context correctly 1`] = 
                 <tr>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     First Name
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Last Name
                   </th>
@@ -14566,12 +14618,14 @@ exports[`renders ./components/table/demo/multiple-sorter.tsx extend context corr
                 <tr>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Name
                   </th>
                   <th
                     aria-label="this column's title is Chinese Score,this column is sortable"
                     class="ant-table-cell ant-table-column-has-sorters"
+                    scope="col"
                     tabindex="0"
                   >
                     <div
@@ -14657,6 +14711,7 @@ exports[`renders ./components/table/demo/multiple-sorter.tsx extend context corr
                   <th
                     aria-label="this column's title is Math Score,this column is sortable"
                     class="ant-table-cell ant-table-column-has-sorters"
+                    scope="col"
                     tabindex="0"
                   >
                     <div
@@ -14742,6 +14797,7 @@ exports[`renders ./components/table/demo/multiple-sorter.tsx extend context corr
                   <th
                     aria-label="this column's title is English Score,this column is sortable"
                     class="ant-table-cell ant-table-column-has-sorters"
+                    scope="col"
                     tabindex="0"
                   >
                     <div
@@ -15050,16 +15106,19 @@ exports[`renders ./components/table/demo/narrow.tsx extend context correctly 1`]
                   <tr>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       Name
                     </th>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       Age
                     </th>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       Address
                     </th>
@@ -15538,28 +15597,6 @@ exports[`renders ./components/table/demo/narrow.tsx extend context correctly 1`]
                 >
                   <div>
                     <div
-                      id="undefined_list"
-                      role="listbox"
-                      style="height:0;width:0;overflow:hidden"
-                    >
-                      <div
-                        aria-label="10 / page"
-                        aria-selected="true"
-                        id="undefined_list_0"
-                        role="option"
-                      >
-                        10
-                      </div>
-                      <div
-                        aria-label="20 / page"
-                        aria-selected="false"
-                        id="undefined_list_1"
-                        role="option"
-                      >
-                        20
-                      </div>
-                    </div>
-                    <div
                       class="rc-virtual-list"
                       style="position:relative"
                     >
@@ -15570,11 +15607,15 @@ exports[`renders ./components/table/demo/narrow.tsx extend context correctly 1`]
                         <div>
                           <div
                             class="rc-virtual-list-holder-inner"
+                            id="undefined_list"
+                            role="listbox"
                             style="display:flex;flex-direction:column"
                           >
                             <div
                               aria-selected="true"
                               class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
+                              id="undefined_list_0"
+                              role="option"
                               title="10 / page"
                             >
                               <div
@@ -15592,6 +15633,8 @@ exports[`renders ./components/table/demo/narrow.tsx extend context correctly 1`]
                             <div
                               aria-selected="false"
                               class="ant-select-item ant-select-item-option"
+                              id="undefined_list_1"
+                              role="option"
                               title="20 / page"
                             >
                               <div
@@ -15609,6 +15652,8 @@ exports[`renders ./components/table/demo/narrow.tsx extend context correctly 1`]
                             <div
                               aria-selected="false"
                               class="ant-select-item ant-select-item-option"
+                              id="undefined_list_2"
+                              role="option"
                               title="50 / page"
                             >
                               <div
@@ -15626,6 +15671,8 @@ exports[`renders ./components/table/demo/narrow.tsx extend context correctly 1`]
                             <div
                               aria-selected="false"
                               class="ant-select-item ant-select-item-option"
+                              id="undefined_list_3"
+                              role="option"
                               title="100 / page"
                             >
                               <div
@@ -15824,41 +15871,48 @@ Array [
                   class="ant-table-thead"
                 >
                   <tr>
-                    <th
+                    <td
                       class="ant-table-cell ant-table-row-expand-icon-cell"
                     />
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       Name
                     </th>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       Platform
                     </th>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       Version
                     </th>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       Upgraded
                     </th>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       Creator
                     </th>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       Date
                     </th>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       Action
                     </th>
@@ -16150,41 +16204,48 @@ Array [
                   class="ant-table-thead"
                 >
                   <tr>
-                    <th
+                    <td
                       class="ant-table-cell ant-table-row-expand-icon-cell"
                     />
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       Name
                     </th>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       Platform
                     </th>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       Version
                     </th>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       Upgraded
                     </th>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       Creator
                     </th>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       Date
                     </th>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       Action
                     </th>
@@ -16280,26 +16341,31 @@ Array [
                                       <tr>
                                         <th
                                           class="ant-table-cell"
+                                          scope="col"
                                         >
                                           Date
                                         </th>
                                         <th
                                           class="ant-table-cell"
+                                          scope="col"
                                         >
                                           Name
                                         </th>
                                         <th
                                           class="ant-table-cell"
+                                          scope="col"
                                         >
                                           Status
                                         </th>
                                         <th
                                           class="ant-table-cell"
+                                          scope="col"
                                         >
                                           Upgrade Status
                                         </th>
                                         <th
                                           class="ant-table-cell"
+                                          scope="col"
                                         >
                                           Action
                                         </th>
@@ -17184,41 +17250,48 @@ Array [
                   class="ant-table-thead"
                 >
                   <tr>
-                    <th
+                    <td
                       class="ant-table-cell ant-table-row-expand-icon-cell"
                     />
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       Name
                     </th>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       Platform
                     </th>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       Version
                     </th>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       Upgraded
                     </th>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       Creator
                     </th>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       Date
                     </th>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       Action
                     </th>
@@ -17314,26 +17387,31 @@ Array [
                                       <tr>
                                         <th
                                           class="ant-table-cell"
+                                          scope="col"
                                         >
                                           Date
                                         </th>
                                         <th
                                           class="ant-table-cell"
+                                          scope="col"
                                         >
                                           Name
                                         </th>
                                         <th
                                           class="ant-table-cell"
+                                          scope="col"
                                         >
                                           Status
                                         </th>
                                         <th
                                           class="ant-table-cell"
+                                          scope="col"
                                         >
                                           Upgrade Status
                                         </th>
                                         <th
                                           class="ant-table-cell"
+                                          scope="col"
                                         >
                                           Action
                                         </th>
@@ -18218,41 +18296,48 @@ Array [
                   class="ant-table-thead"
                 >
                   <tr>
-                    <th
+                    <td
                       class="ant-table-cell ant-table-row-expand-icon-cell"
                     />
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       Name
                     </th>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       Platform
                     </th>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       Version
                     </th>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       Upgraded
                     </th>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       Creator
                     </th>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       Date
                     </th>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       Action
                     </th>
@@ -18348,26 +18433,31 @@ Array [
                                       <tr>
                                         <th
                                           class="ant-table-cell"
+                                          scope="col"
                                         >
                                           Date
                                         </th>
                                         <th
                                           class="ant-table-cell"
+                                          scope="col"
                                         >
                                           Name
                                         </th>
                                         <th
                                           class="ant-table-cell"
+                                          scope="col"
                                         >
                                           Status
                                         </th>
                                         <th
                                           class="ant-table-cell"
+                                          scope="col"
                                         >
                                           Upgrade Status
                                         </th>
                                         <th
                                           class="ant-table-cell"
+                                          scope="col"
                                         >
                                           Action
                                         </th>
@@ -19263,19 +19353,22 @@ exports[`renders ./components/table/demo/order-column.tsx extend context correct
                 <tr>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Name
                   </th>
-                  <th
+                  <td
                     class="ant-table-cell ant-table-row-expand-icon-cell"
                   />
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Age
                   </th>
                   <th
                     class="ant-table-cell ant-table-selection-column"
+                    scope="col"
                   >
                     <div
                       class="ant-table-selection"
@@ -19300,6 +19393,7 @@ exports[`renders ./components/table/demo/order-column.tsx extend context correct
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Address
                   </th>
@@ -19868,26 +19962,31 @@ exports[`renders ./components/table/demo/pagination.tsx extend context correctly
                   <tr>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       Name
                     </th>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       Age
                     </th>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       Address
                     </th>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       Tags
                     </th>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       Action
                     </th>
@@ -20244,6 +20343,7 @@ Array [
                     <th
                       aria-label="this column's title is Name,this column is sortable"
                       class="ant-table-cell ant-table-cell-ellipsis ant-table-column-has-sorters"
+                      scope="col"
                       tabindex="0"
                       title="Name"
                     >
@@ -20551,6 +20651,7 @@ Array [
                     <th
                       aria-label="this column's title is Age,this column is sortable"
                       class="ant-table-cell ant-table-cell-ellipsis ant-table-column-has-sorters"
+                      scope="col"
                       tabindex="0"
                       title="Age"
                     >
@@ -20637,6 +20738,7 @@ Array [
                     <th
                       aria-label="this column's title is Address,this column is sortable"
                       class="ant-table-cell ant-table-cell-ellipsis ant-table-column-has-sorters"
+                      scope="col"
                       tabindex="0"
                       title="Address"
                     >
@@ -21170,6 +21272,7 @@ exports[`renders ./components/table/demo/resizable-column.tsx extend context cor
                 <tr>
                   <th
                     class="ant-table-cell react-resizable"
+                    scope="col"
                   >
                     Date
                     <span
@@ -21179,6 +21282,7 @@ exports[`renders ./components/table/demo/resizable-column.tsx extend context cor
                   <th
                     aria-label="this column's title is Amount,this column is sortable"
                     class="ant-table-cell ant-table-column-has-sorters react-resizable"
+                    scope="col"
                     tabindex="0"
                   >
                     <div
@@ -21266,6 +21370,7 @@ exports[`renders ./components/table/demo/resizable-column.tsx extend context cor
                   </th>
                   <th
                     class="ant-table-cell react-resizable"
+                    scope="col"
                   >
                     Type
                     <span
@@ -21274,6 +21379,7 @@ exports[`renders ./components/table/demo/resizable-column.tsx extend context cor
                   </th>
                   <th
                     class="ant-table-cell react-resizable"
+                    scope="col"
                   >
                     Note
                     <span
@@ -21282,6 +21388,7 @@ exports[`renders ./components/table/demo/resizable-column.tsx extend context cor
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Action
                   </th>
@@ -21504,6 +21611,7 @@ exports[`renders ./components/table/demo/responsive.tsx extend context correctly
                 <tr>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Name (all screens)
                   </th>
@@ -21694,6 +21802,7 @@ exports[`renders ./components/table/demo/row-selection.tsx extend context correc
                   <tr>
                     <th
                       class="ant-table-cell ant-table-selection-column"
+                      scope="col"
                     >
                       <div
                         class="ant-table-selection"
@@ -21718,16 +21827,19 @@ exports[`renders ./components/table/demo/row-selection.tsx extend context correc
                     </th>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       Name
                     </th>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       Age
                     </th>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       Address
                     </th>
@@ -22045,6 +22157,7 @@ exports[`renders ./components/table/demo/row-selection-and-operation.tsx extend 
                   <tr>
                     <th
                       class="ant-table-cell ant-table-selection-column"
+                      scope="col"
                     >
                       <div
                         class="ant-table-selection"
@@ -22069,16 +22182,19 @@ exports[`renders ./components/table/demo/row-selection-and-operation.tsx extend 
                     </th>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       Name
                     </th>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       Age
                     </th>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       Address
                     </th>
@@ -22644,6 +22760,7 @@ exports[`renders ./components/table/demo/row-selection-custom.tsx extend context
                 <tr>
                   <th
                     class="ant-table-cell ant-table-selection-column"
+                    scope="col"
                   >
                     <div
                       class="ant-table-selection"
@@ -22989,16 +23106,19 @@ exports[`renders ./components/table/demo/row-selection-custom.tsx extend context
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Name
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Age
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Address
                   </th>
@@ -23563,6 +23683,7 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.tsx extend c
                 <tr>
                   <th
                     class="ant-table-cell ant-table-selection-column"
+                    scope="col"
                   >
                     <div
                       class="ant-table-selection"
@@ -23587,6 +23708,7 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.tsx extend c
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Name
                   </th>
@@ -23983,16 +24105,19 @@ Array [
                   <tr>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       Name
                     </th>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       Age
                     </th>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       Address
                     </th>
@@ -24186,16 +24311,19 @@ Array [
                   <tr>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       Name
                     </th>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       Age
                     </th>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       Address
                     </th>
@@ -24384,58 +24512,69 @@ exports[`renders ./components/table/demo/sticky.tsx extend context correctly 1`]
                 <tr>
                   <th
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-sticky"
+                    scope="col"
                     style="position:sticky;left:0"
                   >
                     Full Name
                   </th>
                   <th
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-fix-sticky"
+                    scope="col"
                     style="position:sticky;left:0"
                   >
                     Age
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Column 1
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Column 2
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Column 3
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Column 4
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Column 5
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Column 6
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Column 7
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Column 8
                   </th>
                   <th
                     class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first ant-table-cell-fix-sticky"
+                    scope="col"
                     style="position:sticky;right:0"
                   >
                     Action
@@ -25510,28 +25649,6 @@ exports[`renders ./components/table/demo/sticky.tsx extend context correctly 1`]
               >
                 <div>
                   <div
-                    id="undefined_list"
-                    role="listbox"
-                    style="height:0;width:0;overflow:hidden"
-                  >
-                    <div
-                      aria-label="10 / page"
-                      aria-selected="true"
-                      id="undefined_list_0"
-                      role="option"
-                    >
-                      10
-                    </div>
-                    <div
-                      aria-label="20 / page"
-                      aria-selected="false"
-                      id="undefined_list_1"
-                      role="option"
-                    >
-                      20
-                    </div>
-                  </div>
-                  <div
                     class="rc-virtual-list"
                     style="position:relative"
                   >
@@ -25542,11 +25659,15 @@ exports[`renders ./components/table/demo/sticky.tsx extend context correctly 1`]
                       <div>
                         <div
                           class="rc-virtual-list-holder-inner"
+                          id="undefined_list"
+                          role="listbox"
                           style="display:flex;flex-direction:column"
                         >
                           <div
                             aria-selected="true"
                             class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
+                            id="undefined_list_0"
+                            role="option"
                             title="10 / page"
                           >
                             <div
@@ -25564,6 +25685,8 @@ exports[`renders ./components/table/demo/sticky.tsx extend context correctly 1`]
                           <div
                             aria-selected="false"
                             class="ant-select-item ant-select-item-option"
+                            id="undefined_list_1"
+                            role="option"
                             title="20 / page"
                           >
                             <div
@@ -25581,6 +25704,8 @@ exports[`renders ./components/table/demo/sticky.tsx extend context correctly 1`]
                           <div
                             aria-selected="false"
                             class="ant-select-item ant-select-item-option"
+                            id="undefined_list_2"
+                            role="option"
                             title="50 / page"
                           >
                             <div
@@ -25598,6 +25723,8 @@ exports[`renders ./components/table/demo/sticky.tsx extend context correctly 1`]
                           <div
                             aria-selected="false"
                             class="ant-select-item ant-select-item-option"
+                            id="undefined_list_3"
+                            role="option"
                             title="100 / page"
                           >
                             <div
@@ -25683,16 +25810,19 @@ Array [
                   <tr>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       Name
                     </th>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       Borrow
                     </th>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       Repayment
                     </th>
@@ -25865,12 +25995,14 @@ Array [
                   <tr>
                     <th
                       class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                      scope="col"
                       style="position:sticky;left:0"
                     >
                       Name
                     </th>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       Description
                     </th>
@@ -26349,6 +26481,7 @@ Array [
                   <tr>
                     <th
                       class="ant-table-cell ant-table-selection-column"
+                      scope="col"
                     >
                       <div
                         class="ant-table-selection"
@@ -26373,16 +26506,19 @@ Array [
                     </th>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       Name
                     </th>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       Age
                     </th>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       Address
                     </th>
@@ -26655,6 +26791,7 @@ Array [
                   <tr>
                     <th
                       class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
+                      scope="col"
                       style="position:sticky;left:0"
                     >
                       <div
@@ -26680,6 +26817,7 @@ Array [
                     </th>
                     <th
                       class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-ellipsis"
+                      scope="col"
                       style="position:sticky;left:0"
                       title="Name"
                     >
@@ -26691,11 +26829,13 @@ Array [
                     </th>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       Age
                     </th>
                     <th
                       class="ant-table-cell"
+                      scope="col"
                     >
                       Address
                     </th>
@@ -27347,31 +27487,37 @@ exports[`renders ./components/table/demo/virtual-list.tsx extend context correct
                 <tr>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     A
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     B
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     C
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     D
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     E
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     F
                   </th>

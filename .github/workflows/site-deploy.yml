@@ -1,9 +1,11 @@
-# When publish a release. This workflow will trigger and deploy to site.
+# When pushing a tag. this workflow will trigger site deployment and fixed version address comments
 
 name: Deploy website
 on:
-  release:
-    types: [published]
+  push:
+    tags:
+      - '5.*'
+  workflow_dispatch:
 
 permissions:
   contents: write

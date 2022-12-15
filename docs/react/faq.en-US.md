@@ -21,6 +21,10 @@ Note: For `options` in `Select-like` components, it is **strongly recommended no
 
 NOT RECOMMEND. Internal API is not guaranteed to be compatible with future versions. It may be removed or changed in some versions. If you really need to use it, you should to make sure these API is still valid when upgrading to a new version or just lock version for usage.
 
+## Why API request should be strict discussion?
+
+We are cautious when adding APIs because some APIs may not be abstract enough to become historical debt. For example, when there is a need to change the way of interaction, these poor abstractions may cause breaking changes. To avoid such problems, we recommend that new features be implemented through HOCs first.
+
 ## `Select Dropdown DatePicker TimePicker Popover Popconfirm` disappears when I click another popup component inside it. How do I resolve this?
 
 This is an old bug that has been fixed since `v3.11.x`. If you're using an older version, you can use `<Select getPopupContainer={trigger => trigger.parentElement}>` to render a component inside Popover. (Or other `getXxxxContainer` props)

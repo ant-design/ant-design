@@ -33,11 +33,11 @@ demo:
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button/#API) | - |  |
+| cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button-cn#API) | - |  |
 | cancelText | 取消按钮文字 | string | `取消` |  |
 | disabled | 阻止点击 Popconfirm 子元素时弹出确认框 | boolean | false |  |
 | icon | 自定义弹出气泡 Icon 图标 | ReactNode | &lt;ExclamationCircle /> |  |
-| okButtonProps | ok 按钮 props | [ButtonProps](/components/button/#API) | - |  |
+| okButtonProps | ok 按钮 props | [ButtonProps](/components/button-cn#API) | - |  |
 | okText | 确认按钮文字 | string | `确定` |  |
 | okType | 确认按钮类型 | string | `primary` |  |
 | showCancel | 是否显示取消按钮 | boolean | true | 4.18.0 |
@@ -45,7 +45,7 @@ demo:
 | onCancel | 点击取消的回调 | function(e) | - |  |
 | onConfirm | 点击确认的回调 | function(e) | - |  |
 
-更多属性请参考 [Tooltip](/components/tooltip/#API)。
+更多属性请参考 [Tooltip](/components/tooltip-cn/#API)。
 
 ## 注意
 

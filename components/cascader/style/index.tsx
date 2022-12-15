@@ -32,7 +32,6 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token) => {
     {
       [componentCls]: {
         width: token.controlWidth,
-        ...genCompactItemStyle(token, componentCls),
       },
     },
     // =====================================================
@@ -81,6 +80,7 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token) => {
               flexGrow: 1,
               minWidth: token.controlItemWidth,
               height: token.dropdownHeight,
+              margin: 0,
               padding: token.paddingXXS,
               overflow: 'auto',
               verticalAlign: 'top',
@@ -152,6 +152,10 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token) => {
         direction: 'rtl',
       },
     },
+    // =====================================================
+    // ==             Space Compact                       ==
+    // =====================================================
+    genCompactItemStyle(token),
   ];
 };
 
