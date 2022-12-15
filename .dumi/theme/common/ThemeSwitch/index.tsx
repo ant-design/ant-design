@@ -3,6 +3,7 @@ import { FloatButton } from 'antd';
 import { FormattedMessage, Link, useLocation } from 'dumi';
 import { DarkTheme, CompactTheme } from 'antd-token-previewer/es/icons';
 import { BgColorsOutlined } from '@ant-design/icons';
+import useSiteToken from '.dumi/hooks/useSiteToken';
 import { getLocalizedPathname, isZhCN } from '../../utils';
 import ThemeIcon from './ThemeIcon';
 
@@ -14,12 +15,16 @@ export type ThemeSwitchProps = {
 };
 
 const ThemeSwitch: React.FC<ThemeSwitchProps> = ({ value, onChange }) => {
+  const { token } = useSiteToken();
   const { pathname, search } = useLocation();
   return (
     <FloatButton.Group trigger="click" icon={<ThemeIcon />}>
       <Link
         to={getLocalizedPathname('/theme-editor', isZhCN(pathname), search)}
-        style={{ marginBottom: value.includes('compact') ? 8 : 16, display: 'block' }}
+        style={{
+          marginBottom: value.includes('compact') ? token.marginXS : token.margin,
+          display: 'block',
+        }}
       >
         <FloatButton
           icon={<BgColorsOutlined />}
