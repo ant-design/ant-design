@@ -38,7 +38,7 @@ author: zombieJ,li-jia-nan
 
 - mount: 完全渲染，它将组件渲染加载成一个真实的 DOM 节点，用来测试 DOM API 的交互和组件的生命周期，用到了 jsdom 来模拟浏览器环境。
 
-为了贴近浏览器现实场景，antd@4.x 选用 `mount` 来进行渲染，而在 `@testing-library` 中对应的则是 `render` 方法：
+为了贴近浏览器现实场景，`antd@4.x` 选用 `mount` 来进行渲染，而在 `@testing-library` 中对应的则是 `render` 方法：
 
 ```diff
 --  import { mount } from 'enzyme';

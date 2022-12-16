@@ -38,7 +38,7 @@ Of course, this is only one of the reasons to drop `enzyme`. More importantly it
 
 - mount: Fully rendered, it loads component rendering into a real DOM node to test the interaction of DOM API and the life cycle of components, and uses jsdom to simulate the browser environment.
 
-In order to be close to the real scene of the browser, antd@4.x uses `mount` for rendering, and the corresponding `render` method in `@testing-library`:
+In order to be close to the real scene of the browser, `antd@4.x` uses `mount` for rendering, and the corresponding `render` method in `@testing-library`:
 
 ```diff
 --  import { mount } from 'enzyme';
