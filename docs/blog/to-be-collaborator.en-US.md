@@ -81,7 +81,7 @@ To help you start your first attempt, we use [good first issues](https://github.
 
 ## Merge changes
 
-- A common problem is that the remote upstream (ant-design/master) has a new update, which will lead to conflicts when we submit the Pull Request, so we can put the commits of other remote developers and Our commit is merged.
+- A common problem is that the remote upstream (ant-design/master) has a new update, which will lead to conflicts when we submit the Pull Request, so we can put the commits of other remote developers and our commit is merged.
 
 - Switch to the `master` branch with the following code:
 
@@ -115,7 +115,7 @@ git push origin fix-branch
 
 ## Submit a Pull Request
 
-You can switch to the branches page on your github code warehouse page, click the fix-branch branch, click the `New pull request` button, add relevant comments and submit. Or switch to the code warehouse of the fix-branch branch, click the `Compare & pull request` button, add relevant comments and submit.
+You can switch to the branches page on your github code repository page, click the fix-branch branch, click the `New pull request` button, add relevant comments and submit. Or switch to the code repository of the fix-branch branch, click the `Compare & pull request` button, add relevant comments and submit.
 
 - On the [PR page](https://github.com/ant-design/ant-design/pulls), carefully fill in the submission description according to the default format, and you can refer to the merged PR.
 
@@ -145,7 +145,7 @@ Repair method:
 
 ```
 npm run install-react-16
-npm run test componet/XXX
+npm run test component/XXX
 ```
 
 ## Don't be afraid to make mistakes, do it bravely, everyone is welcome in the open source world.
