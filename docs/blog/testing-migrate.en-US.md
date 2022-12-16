@@ -12,11 +12,11 @@ During the migration process, I undertook about a quarter of the component workl
 
 > First of all, I would like to thank the three big guys **[@zombieJ](https://github.com/zombieJ)** **[@MadCcc](https://github.com/MadCcc)** **[@miracles1919](https://github.com/miracles1919)**, they gave me a lot of help during the migration process, without them, my migration work would not be so smooth.
 
-<img width="1512" alt="QQ20221214-151443@2x" src="https://user-images.githubusercontent.com/49217418/207530591-1faaf171-638b-40af-8d61-3f07cb60abe2.png">
+![image](https://user-images.githubusercontent.com/49217418/207530591-1faaf171-638b-40af-8d61-3f07cb60abe2.png)
 
-<img width="1512" alt="QQ20221214-151457@2x" src="https://user-images.githubusercontent.com/49217418/207530491-4988ecc4-2da0-4a0c-ba5d-b9797edecd1a.png">
+![image](https://user-images.githubusercontent.com/49217418/207530491-4988ecc4-2da0-4a0c-ba5d-b9797edecd1a.png)
 
-<img width="1512" alt="QQ20221214-151524@2x" src="https://user-images.githubusercontent.com/49217418/207530507-412f0244-3d88-4500-9eb4-054f3e112731.png">
+![image](https://user-images.githubusercontent.com/49217418/207530507-412f0244-3d88-4500-9eb4-054f3e112731.png)
 
 ## start
 
@@ -241,11 +241,11 @@ Check the `Fiber` node information, you can find that `React 17` will treat empt
 
 > React17:
 
-<img width="867" alt="r17" src="https://user-images.githubusercontent.com/49217418/207533725-fb8f9e4d-7f09-4a13-a04a-cbb2d3eb2aea.png">
+![image](https://user-images.githubusercontent.com/49217418/207533725-fb8f9e4d-7f09-4a13-a04a-cbb2d3eb2aea.png")
 
 > React18:
 
-<img width="868" alt="r18" src="https://user-images.githubusercontent.com/49217418/207533740-328d10ea-d9bc-4469-bc00-f08e33857e6f.png">
+![image](https://user-images.githubusercontent.com/49217418/207533740-328d10ea-d9bc-4469-bc00-f08e33857e6f.png)
 
 You can find the relevant PR by following the map:
 
