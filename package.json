@@ -119,7 +119,6 @@
     "classnames": "^2.2.6",
     "copy-to-clipboard": "^3.2.0",
     "dayjs": "^1.11.1",
-    "lodash": "^4.17.21",
     "rc-cascader": "~3.8.0",
     "rc-checkbox": "~2.3.0",
     "rc-collapse": "~3.4.2",
@@ -154,7 +153,8 @@
     "rc-upload": "~4.3.0",
     "rc-util": "^5.25.2",
     "scroll-into-view-if-needed": "^3.0.3",
-    "shallowequal": "^1.1.0"
+    "shallowequal": "^1.1.0",
+    "throttle-debounce": "^5.0.0"
   },
   "devDependencies": {
     "@ant-design/tools": "^16.1.0-alpha.2",
@@ -189,6 +189,7 @@
     "@types/react-sticky": "^6.0.4",
     "@types/react-window": "^1.8.2",
     "@types/shallowequal": "^1.1.1",
+    "@types/throttle-debounce": "^5.0.0",
     "@types/warning": "^3.0.0",
     "@typescript-eslint/eslint-plugin": "^5.40.0",
     "@typescript-eslint/parser": "^5.40.0",
@@ -238,6 +239,7 @@
     "jsonml-to-react-element": "^1.1.11",
     "jsonml.js": "^0.1.0",
     "lint-staged": "^13.0.3",
+    "lodash": "^4.17.21",
     "lz-string": "^1.4.4",
     "mockdate": "^3.0.0",
     "open": "^8.0.1",
