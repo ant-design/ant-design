@@ -25,6 +25,7 @@ High performance Form component with data scope management. Including data colle
 <code src="./demo/layout-can-wrap.tsx">label can wrap</code>
 <code src="./demo/warning-only.tsx">No block rule</code>
 <code src="./demo/useWatch.tsx">Watch Hooks</code>
+<code src="./demo/form-item-path.tsx">Path Prefix</code>
 <code src="./demo/dynamic-form-item.tsx">Dynamic Form Item</code>
 <code src="./demo/dynamic-form-items.tsx">Dynamic Form nest Items</code>
 <code src="./demo/dynamic-form-items-no-style.tsx" debug>Dynamic Form nest pure Items</code>
