@@ -56,6 +56,7 @@ export interface ComponentToken {
 
   itemMarginInline: number;
 
+  /** @experimental */
   disableCollapseMotion: boolean;
 }
 
