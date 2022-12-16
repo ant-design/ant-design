@@ -4,6 +4,8 @@ date: 2022-12-16
 author: zombieJ,li-jia-nan
 ---
 
+大家好，我是 **[@li-jia-nan](https://github.com/li-jia-nan)**。也是前几个月新加入的 antd Collaborator, 有幸作为 Collaborators 之一，我开发了**FloatButton 组件**和**QRCode 组件**，以及一些其它维护工作，下面分享一下 antd 测试库迁移的那些事儿～
+
 ## 引言
 
 在 `antd@4.x` 中，使用 **[enzyme](https://enzymejs.github.io/enzyme)** 作为测试框架，然而由于 enzyme 缺乏维护，到了 React 18 时代已经很难⽀持。也因此不得不开始为 antd 开启漫⻓的 **[@testing-lib](https://testing-library.com/docs/react-testing-library/intro)** 迁移之路。

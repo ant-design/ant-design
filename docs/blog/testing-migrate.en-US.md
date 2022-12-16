@@ -4,13 +4,15 @@ date: 2022-12-16
 author: zombieJ,li-jia-nan
 ---
 
+Hello, I am **[@li-jia-nan](https://github.com/li-jia-nan)**. I also joined the antd Collaborator a few months ago. Fortunately, as one of the Collaborators, I developed the **FloatButton component** and **QRCode component**, as well as some other maintenance work. Let me share the migration of the antd test library son~
+
 ## introduction
 
 In `antd@4.x`, **[enzyme](https://enzymejs.github.io/enzyme)** is used as the test framework. However, due to the lack of maintenance of enzyme, it is difficult to support it in the React 18 era . Therefore, I had to start a long **[@testing-lib](https://testing-library.com/docs/react-testing-library/intro)** migration road for antd.
 
-> Thanks for the time **[@zombieJ](https://github.com/zombieJ)** **[@MadCcc](https://github.com/MadCcc)** **[@miracles1919](https://github.com/miracles1919)** for help.
+During the migration process, I undertook about a quarter of the workload of antd. Here I mainly record the problems encountered during the migration process.
 
-> First of all, I would like to thank the three masters **[@zombieJ](https://github.com/zombieJ)** **[@MadCcc](https://github.com/MadCcc)** **[@miracles1919](https://github.com/miracles1919)**, they gave me a lot of help during the migration process, without them, my migration work would not be so smooth.
+> Thanks for the time **[@zombieJ](https://github.com/zombieJ)** **[@MadCcc](https://github.com/MadCcc)** **[@miracles1919](https://github.com/miracles1919)** for help.
 
 ![image](https://user-images.githubusercontent.com/49217418/207530591-1faaf171-638b-40af-8d61-3f07cb60abe2.png)
 
