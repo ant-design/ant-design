@@ -233,9 +233,9 @@ export default App;
 
 as predicted:
 
-| React 17              | React 18     |
-| --------------------- | ------------ |
-| NodeList(2) [text, p] | NodeList [p] |
+| React 17                | React 18       |
+| ----------------------- | -------------- |
+| NodeList(2) \[text, p\] | NodeList \[p\] |
 
 Check the `Fiber` node information, you can find that `React 17` will treat empty elements as `Fiber` nodes, while `React 18` will ignore empty elements:
 

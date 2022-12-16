@@ -233,9 +233,9 @@ export default App;
 
 果不其然：
 
-| React 17              | React 18     |
-| --------------------- | ------------ |
-| NodeList(2) [text, p] | NodeList [p] |
+| React 17                | React 18       |
+| ----------------------- | -------------- |
+| NodeList(2) \[text, p\] | NodeList \[p\] |
 
 检查⼀下 `Fiber` 节点信息，可以发现 `React 17` 会把空元素也作为 `Fiber` 节点，而 `React 18` 则会忽略空元素：
 
