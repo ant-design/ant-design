@@ -25,7 +25,6 @@ group:
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx" iframe="200">基本</code>
 <code src="./demo/horizontal.tsx" iframe="200">横向 Anchor</code>
-<code src="./demo/basic-affix.tsx" >Basic fixed Anchor</code>
 <code src="./demo/horizontal-affix.tsx" >横向固定 Anchor</code>
 <code src="./demo/static.tsx">静态位置</code>
 <code src="./demo/onClick.tsx">自定义 onClick 事件</code>
