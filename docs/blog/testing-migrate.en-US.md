@@ -10,7 +10,7 @@ In `antd@4.x`, Use **[enzyme](https://enzymejs.github.io/enzyme)** as the test f
 
 During the migration process, I undertook about a quarter of the component workload of antd. Here I mainly record the problems encountered during the migration process.
 
-> First of all, I would like to thank the three big guys **[@zombieJ](https://github.com/zombieJ)** **[@MadCcc](https://github.com/MadCcc)** **[@miracles1919](https://github.com/miracles1919)**, they gave me a lot of help during the migration process, without them, my migration work would not be so smooth.
+> First of all, I would like to thank the three masters **[@zombieJ](https://github.com/zombieJ)** **[@MadCcc](https://github.com/MadCcc)** **[@miracles1919](https://github.com/miracles1919)**, they gave me a lot of help during the migration process, without them, my migration work would not be so smooth.
 
 ![image](https://user-images.githubusercontent.com/49217418/207530591-1faaf171-638b-40af-8d61-3f07cb60abe2.png)
 
