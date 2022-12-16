@@ -1,4 +1,5 @@
-import type * as React from 'react';
+import type React from 'react';
+import type { AriaRole } from 'react';
 
 interface DivProps extends React.HTMLProps<HTMLDivElement> {
   'data-testid'?: string;
@@ -28,6 +29,7 @@ export interface ArgsProps {
   readonly type?: IconType;
   onClick?: () => void;
   closeIcon?: React.ReactNode;
+  role?: AriaRole;
   props?: DivProps;
 }
 

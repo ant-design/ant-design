@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { type AriaRole } from 'react';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
@@ -37,6 +37,7 @@ export interface PureContentProps {
   description?: React.ReactNode;
   btn?: React.ReactNode;
   type?: IconType;
+  role?: AriaRole;
 }
 
 const typeToIcon = {
@@ -53,6 +54,7 @@ export function PureContent({
   message,
   description,
   btn,
+  role,
 }: PureContentProps) {
   let iconNode: React.ReactNode = null;
   if (icon) {
@@ -68,7 +70,7 @@ export function PureContent({
       className={classNames({
         [`${prefixCls}-with-icon`]: iconNode,
       })}
-      role="alert"
+      role={role || 'alert'}
     >
       {iconNode}
       <div className={`${prefixCls}-message`}>{message}</div>
