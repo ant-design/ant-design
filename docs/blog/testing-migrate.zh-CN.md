@@ -12,7 +12,7 @@ author: zombieJ,li-jia-nan
 
 在迁移过程中，我承担了大概 antd 四分之一的工作量，这里主要记录一下迁移过程中遇到的问题。
 
-> 感谢在此期间 **[@zombieJ](https://github.com/zombieJ)** **[@MadCcc](https://github.com/MadCcc)** **[@miracles1919](https://github.com/miracles1919)** 提供的帮助。
+> 感谢在此期间 [@zombieJ](https://github.com/zombieJ) [@MadCcc](https://github.com/MadCcc) [@miracles1919](https://github.com/miracles1919) 提供的帮助。
 
 ![image](https://user-images.githubusercontent.com/49217418/207530591-1faaf171-638b-40af-8d61-3f07cb60abe2.png)
 

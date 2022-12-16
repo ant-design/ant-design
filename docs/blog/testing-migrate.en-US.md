@@ -12,7 +12,7 @@ In `antd@4.x`, **[enzyme](https://enzymejs.github.io/enzyme)** is used as the te
 
 During the migration process, I undertook about a quarter of the workload of antd. Here I mainly record the problems encountered during the migration process.
 
-> Thanks for the time **[@zombieJ](https://github.com/zombieJ)** **[@MadCcc](https://github.com/MadCcc)** **[@miracles1919](https://github.com/miracles1919)** for help.
+> Thanks for the time [@zombieJ](https://github.com/zombieJ) [@MadCcc](https://github.com/MadCcc) [@miracles1919](https://github.com/miracles1919) for help.
 
 ![image](https://user-images.githubusercontent.com/49217418/207530591-1faaf171-638b-40af-8d61-3f07cb60abe2.png)
 
