@@ -4,7 +4,7 @@ date: 2022-12-16
 author: zombieJ,li-jia-nan
 ---
 
-Hello, I am **[@li-jia-nan](https://github.com/li-jia-nan)**. I also joined the antd Collaborator a few months ago. Fortunately, as one of the Collaborators, I developed the **FloatButton component** and **QRCode component**, as well as some other maintenance work. Let me share the migration of the antd test library son~
+Hello, I am [@li-jia-nan](https://github.com/li-jia-nan). I also joined the antd Collaborator a few months ago. Fortunately, as one of the Collaborators, I developed the **FloatButton component** and **QRCode component**, as well as some other maintenance work. Let me share the migration of the antd test library son~
 
 ## introduction
 
