@@ -6,9 +6,9 @@ author: zombieJ,li-jia-nan
 
 ## introduction
 
-In `antd@4.x`, Use **[enzyme](https://enzymejs.github.io/enzyme)** as the test framework, but due to the lack of maintenance of enzyme, it is difficult to support it in the React 18 era. Therefore, I had to start a long **[@testing-lib](https://testing-library.com/docs/react-testing-library/intro)** conversion road for antd.
+In `antd@4.x`, **[enzyme](https://enzymejs.github.io/enzyme)** is used as the test framework. However, due to the lack of maintenance of enzyme, it is difficult to support it in the React 18 era . Therefore, I had to start a long **[@testing-lib](https://testing-library.com/docs/react-testing-library/intro)** migration road for antd.
 
-During the migration process, I undertook about a quarter of the component workload of antd. Here I mainly record the problems encountered during the migration process.
+> Thanks for the time **[@zombieJ](https://github.com/zombieJ)** **[@MadCcc](https://github.com/MadCcc)** **[@miracles1919](https://github.com/miracles1919)** for help.
 
 > First of all, I would like to thank the three masters **[@zombieJ](https://github.com/zombieJ)** **[@MadCcc](https://github.com/MadCcc)** **[@miracles1919](https://github.com/miracles1919)**, they gave me a lot of help during the migration process, without them, my migration work would not be so smooth.
 
@@ -20,11 +20,11 @@ During the migration process, I undertook about a quarter of the component workl
 
 ## start
 
-Before migrating, we need to figure out what the purpose of the migration is. In `enzyme`, most scenarios are to test whether the state in the component is correct, or whether the static properties on the class are assigned normally, which is actually unreasonable Yes, because we need to care more about whether the "function" is normal, rather than whether the "property" is correct, because the source code is a black box for the user, and the user only cares about whether the component is correct.
+Before migrating, we need to figure out what the purpose of the migration is. In `enzyme`, most scenarios are to test whether the state in the component is correct, or whether the static properties on the class are assigned normally, which is actually unreasonable, because we need to care more about whether the "function" is normal , rather than whether the "attribute" is correct, because the source code is a black box for the user, and the user only cares about whether the component is correct.
 
-Basically, test cases should be written based on "behavior", not "implementation" (this is also the goal of `testing-library`). In principle, there are several use cases that are found to be redundant (because some functions are not triggered individually in real code), and removing them does not affect cov.
+Basically, test cases should be written based on "behavior", not "implementation" (this is also the goal of `testing-library`). In principle, several use cases were found to be redundant (because some functions would not be triggered individually in real code), and their removal did not affect the test coverage.
 
-Of course, this is just one of the reasons to drop `enzyme`. More importantly, it is unmaintained and does not support react18 anymore.
+Of course, this is only one of the reasons to drop `enzyme`. More importantly it is unmaintained and does not support React 18 anymore.
 
 ## migrate
 
@@ -32,15 +32,13 @@ Of course, this is just one of the reasons to drop `enzyme`. More importantly, i
 
 `enzyme` supports rendering in three ways:
 
-- shallow: Shallow rendering, which is an encapsulation of the official Shallow Renderer. Rendering a component into a virtual DOM object will only render the first layer, and subcomponents will not be rendered. You can use jQuery to access component information.
+- shallow: Shallow rendering, which is an encapsulation of the official Shallow Renderer. Render the component into a virtual DOM object. The component obtained through Shallow Render will not have a part asserted to the sub-component, and the information of the component can be accessed using jQuery.
 
 - render: Static rendering, which renders the React component into a static HTML string, then parses the string, and returns an instance object, which can be used to analyze the html structure of the component.
 
 - mount: Fully rendered, it loads component rendering into a real DOM node to test the interaction of DOM API and the life cycle of components, and uses jsdom to simulate the browser environment.
 
-In the test case of antd 4, the `mount` method is used as the main rendering method.
-
-So in the way of rendering, you need to replace it with the `render` method provided by `testing-library`:
+In order to be close to the real scene of the browser, antd@4.x uses `mount` for rendering, and the corresponding `render` method in `@testing-library`:
 
 ```diff
 --  import { mount } from 'enzyme';
@@ -56,13 +54,13 @@ So in the way of rendering, you need to replace it with the `render` method prov
 
 ### 2. interact & event
 
-`enzyme` provides `simulate(event)` method to simulate event triggering and user interaction, event is the event name, but this method has been deprecated in react 18, so it needs to be replaced by `fireEvent` provided by `testing-library` Method:
+`enzyme` provides `simulate(event)` method to simulate event triggering and user interaction, `event` is the name of the event, and the corresponding `fireEvent` method in `@testing-library`:
 
 ```diff
 ++  import { fireEvent } from '@testing-library/react';
 
 --  wrapper.find('.ant-handle').simulate('click');
-++  fireEvent.click(wrapper.container.querySelector('.ant-handle'));
+++  fireEvent.click(container.querySelector('.ant-handle'));
 ```
 
 ### 3. DOM element
@@ -239,11 +237,11 @@ as predicted:
 
 Check the `Fiber` node information, you can find that `React 17` will treat empty elements as `Fiber` nodes, while `React 18` will ignore empty elements:
 
-> React17:
+> React 17:
 
-![image](https://user-images.githubusercontent.com/49217418/207533725-fb8f9e4d-7f09-4a13-a04a-cbb2d3eb2aea.png")
+![image](https://user-images.githubusercontent.com/49217418/207533725-fb8f9e4d-7f09-4a13-a04a-cbb2d3eb2aea.png)
 
-> React18:
+> React 18:
 
 ![image](https://user-images.githubusercontent.com/49217418/207533740-328d10ea-d9bc-4469-bc00-f08e33857e6f.png)
 
@@ -288,6 +286,4 @@ expect.addSnapshotSerializer({
 
 ## knock off
 
-The above are some problems encountered during the migration of the antd test framework. Of course, it is only the tip of the iceberg. In fact, more problems have been encountered during the migration process, but the important thing is not the problem itself, but to follow the antd team to learn how to think and Explore how to solve problems.
-
-Finally, I wish antd better and better, and wish the antd team stronger and stronger!
+The above are some problems encountered during the migration of the antd test framework. I hope to help students who need to migrate or have not yet started writing test cases. Everyone is also welcome to join the antd community and contribute to open source together.

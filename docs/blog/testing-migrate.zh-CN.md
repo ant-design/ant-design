@@ -6,11 +6,11 @@ author: zombieJ,li-jia-nan
 
 ## 引言
 
-在 `antd@4.x` 中，使用 **[enzyme](https://enzymejs.github.io/enzyme)** 作为测试框架，然而由于 enzyme 缺乏维护，到了 React 18 时代已经很难⽀持。也因此不得不开始为 antd 开启漫⻓的 **[@testing-lib](https://testing-library.com/docs/react-testing-library/intro)** 转换之路。
+在 `antd@4.x` 中，使用 **[enzyme](https://enzymejs.github.io/enzyme)** 作为测试框架，然而由于 enzyme 缺乏维护，到了 React 18 时代已经很难⽀持。也因此不得不开始为 antd 开启漫⻓的 **[@testing-lib](https://testing-library.com/docs/react-testing-library/intro)** 迁移之路。
 
-在迁移过程中，我承担了大概 antd 四分之一的 component 工作量，这里主要记录一下迁移过程中遇到的问题。
+在迁移过程中，我承担了大概 antd 四分之一的工作量，这里主要记录一下迁移过程中遇到的问题。
 
-> 首先要感谢 **[@zombieJ](https://github.com/zombieJ)** **[@MadCcc](https://github.com/MadCcc)** **[@miracles1919](https://github.com/miracles1919)** 三位大佬，他们在迁移过程中给予了我很多帮助，如果没有他们，我的迁移工作不会进行的这么顺利。
+> 感谢在此期间 **[@zombieJ](https://github.com/zombieJ)** **[@MadCcc](https://github.com/MadCcc)** **[@miracles1919](https://github.com/miracles1919)** 提供的帮助。
 
 ![image](https://user-images.githubusercontent.com/49217418/207530591-1faaf171-638b-40af-8d61-3f07cb60abe2.png)
 
@@ -20,11 +20,11 @@ author: zombieJ,li-jia-nan
 
 ## 起步
 
-在迁移之前，我们需要先搞清楚迁移的目的是什么，在 `enzyme` 中，大多数场景是测试了组件中的状态是否正确，或者 class 上的静态属性是否正常被赋值，这其实是不合理的，因为我们更重要的是需要关心“功能”是否正常，而非“属性”是否正确，因为源代码对使用者来说是黑盒，用户只关心组件是否正确。
+在迁移之前，我们需要先搞清楚迁移的目的是什么。在 `enzyme` 中，大多数场景是测试了组件中的状态是否正确，或者 class 上的静态属性是否正常被赋值，这其实是不合理的，因为我们更重要的是需要关心“功能”是否正常，而非“属性”是否正确，因为源代码对使用者来说是黑盒，用户只关心组件是否正确。
 
-基上，测试用例应该基于“行为”来编写，而非“实现”来编写（这也是 `testing-library` 的目标）。在这个原则上，会发现有几个用例是多余的（因为在实际代码中不会单独触发某些函数），将其删除也并没有影响到 cov。
+基上，测试用例应该基于“行为”来编写，而非“实现”来编写（这也是 `testing-library` 的目标）。在这个原则上，会发现有几个用例是多余的（因为在实际代码中不会单独触发某些函数），将其删除也并没有影响到 test coverage。
 
-当然了，这只是放弃`enzyme`的其中一个原因。更重要的是它缺乏维护，并且不支持 react18 了。
+当然了，这只是放弃 `enzyme` 的其中一个原因。更重要的是它缺乏维护，并且不支持 React 18 了。
 
 ## 迁移
 
@@ -32,15 +32,13 @@ author: zombieJ,li-jia-nan
 
 `enzyme` 支持三种方式的渲染：
 
-- shallow: 浅渲染，是对官方的 Shallow Renderer 的封装。将组件渲染成虚拟 DOM 对象，只会渲染第一层，子组件将不会被渲染出来，可以使用 jQuery 的方式访问组件的信息。
+- shallow: 浅渲染，是对官方的 Shallow Renderer 的封装。将组件渲染成虚拟 DOM 对象，通过 Shallow Render 得到的组件不会有断言到子组件的部分，并且可以使用 jQuery 的方式访问组件的信息。
 
 - render: 静态渲染，它将 React 组件渲染成静态的 HTML 字符串，然后解析这段字符串，并返回一个实例对象，可以用来分析组件的 html 结构。
 
 - mount: 完全渲染，它将组件渲染加载成一个真实的 DOM 节点，用来测试 DOM API 的交互和组件的生命周期，用到了 jsdom 来模拟浏览器环境。
 
-在 antd 4 的测试用例中，用 `mount` 方法作为主要渲染方式。
-
-所以在渲染的方式上，需要换成 `testing-library` 提供的 `render` 方法：
+为了贴近浏览器现实场景，antd@4.x 选用 `mount` 来进行渲染，而在 `@testing-library` 中对应的则是 `render` 方法：
 
 ```diff
 --  import { mount } from 'enzyme';
@@ -56,13 +54,13 @@ author: zombieJ,li-jia-nan
 
 ### 二、交互 & 事件
 
-`enzyme` 提供了 `simulate(event)` 方法来模拟事件触发和用户交互，event 为事件名称，但是这个方法在 react 18 中已经被废弃了，所以需要换成 `testing-library` 提供的 `fireEvent` 方法：
+`enzyme` 提供了 `simulate(event)` 方法来模拟事件触发和用户交互，`event` 为事件名称，而在 `@testing-library` 中对应的则是 `fireEvent` 方法：
 
 ```diff
 ++  import { fireEvent } from '@testing-library/react';
 
 --  wrapper.find('.ant-handle').simulate('click');
-++  fireEvent.click(wrapper.container.querySelector('.ant-handle'));
+++  fireEvent.click(container.querySelector('.ant-handle'));
 ```
 
 ### 三、DOM 元素
@@ -239,11 +237,11 @@ export default App;
 
 检查⼀下 `Fiber` 节点信息，可以发现 `React 17` 会把空元素也作为 `Fiber` 节点，而 `React 18` 则会忽略空元素：
 
-> React17:
+> React 17:
 
-![image](https://user-images.githubusercontent.com/49217418/207533725-fb8f9e4d-7f09-4a13-a04a-cbb2d3eb2aea.png")
+![image](https://user-images.githubusercontent.com/49217418/207533725-fb8f9e4d-7f09-4a13-a04a-cbb2d3eb2aea.png)
 
-> React18:
+> React 18:
 
 ![image](https://user-images.githubusercontent.com/49217418/207533740-328d10ea-d9bc-4469-bc00-f08e33857e6f.png)
 
@@ -288,6 +286,4 @@ expect.addSnapshotSerializer({
 
 ## 收工
 
-以上，是 antd 测试框架迁移时遇到的一些问题，当然了只是冰山一角，实际上在迁移过程中遇到了更多的问题，不过重要的不是问题本身，而是跟着 antd 团队去学习如何思考和探索，以及如何解决问题。
-
-最后，祝 antd 越来越好，祝 antd 团队越来越强大！
+以上，是 antd 测试框架迁移时遇到的一些问题，希望对于需要迁移或者尚未开始编写测试用例的同学提供帮助。也欢迎大家加入 antd 社区，共同为开源奉献自己的力量。
