@@ -1,8 +1,10 @@
 import type { ReactNode } from 'react';
 import React, { useMemo, useState, useLayoutEffect, useContext } from 'react';
 import { useIntl, useRouteMeta, FormattedMessage } from 'dumi';
-import { Col, Typography, Avatar, Tooltip, Affix, Anchor } from 'antd';
+import { Col, Typography, Avatar, Tooltip, Affix, Anchor, Space } from 'antd';
+import { CalendarOutlined } from '@ant-design/icons';
 import ContributorsList from '@qixian.cs/github-contributors-list';
+import DayJS from 'dayjs';
 import { css } from '@emotion/react';
 import classNames from 'classnames';
 import Footer from '../Footer';
@@ -183,6 +185,25 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
               />
             )}
           </Typography.Title>
+
+          {/* 添加作者、时间等信息 */}
+          {meta.frontmatter.date || meta.frontmatter.author ? (
+            <Typography.Paragraph style={{ opacity: 0.65 }}>
+              <Space>
+                {meta.frontmatter.date && (
+                  <span>
+                    <CalendarOutlined /> {DayJS(meta.frontmatter.date).format('YYYY-MM-DD')}
+                  </span>
+                )}
+                {meta.frontmatter.author && (
+                  <Typography.Link href={`https://github.com/${meta.frontmatter.author}`}>
+                    @{meta.frontmatter.author}
+                  </Typography.Link>
+                )}
+              </Space>
+            </Typography.Paragraph>
+          ) : null}
+
           {children}
           {meta.frontmatter.filename && (
             <ContributorsList

@@ -111,7 +111,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
           insetInlineStart: 0,
           width: token.handleSize,
           height: token.handleSize,
-          backgroundColor: token.colorBgContainer,
+          backgroundColor: token.colorBgElevated,
           boxShadow: `0 0 0 ${token.handleLineWidth}px ${token.colorPrimaryBorder}`,
           borderRadius: '50%',
           cursor: 'pointer',
@@ -177,8 +177,8 @@ const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
         position: 'absolute',
         width: dotSize,
         height: dotSize,
-        backgroundColor: token.colorBgContainer,
-        border: `${token.handleLineWidth}px solid ${token.colorSplit}`,
+        backgroundColor: token.colorBgElevated,
+        border: `${token.handleLineWidth}px solid ${token.colorBorderSecondary}`,
         borderRadius: '50%',
         cursor: 'pointer',
         transition: `border-color ${token.motionDurationSlow}`,
@@ -202,14 +202,14 @@ const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
         [`
           ${componentCls}-dot
         `]: {
-          backgroundColor: token.colorBgContainer,
+          backgroundColor: token.colorBgElevated,
           borderColor: token.colorTextDisabled,
           boxShadow: 'none',
           cursor: 'not-allowed',
         },
 
         [`${componentCls}-handle::after`]: {
-          backgroundColor: token.colorBgContainer,
+          backgroundColor: token.colorBgElevated,
           cursor: 'not-allowed',
           width: token.handleSize,
           height: token.handleSize,
@@ -335,7 +335,7 @@ export default genComponentStyleHook(
       railSize: 4,
       handleSize: controlSize,
       handleSizeHover: controlSizeHover,
-      dotSize: (controlSize / 3) * 2,
+      dotSize: 8,
       handleLineWidth,
       handleLineWidthHover,
     };

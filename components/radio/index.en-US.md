@@ -16,7 +16,7 @@ Radio.
 
 ## Examples
 
-<!-- prettier-ignore -->
+<!-- prettier-ignore-start -->
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/disabled.tsx">disabled</code>
 <code src="./demo/radiogroup.tsx">Radio Group</code>
@@ -28,6 +28,7 @@ Radio.
 <code src="./demo/radiobutton-solid.tsx">Solid radio button</code>
 <code src="./demo/badge.tsx" debug>Badge style</code>
 <code src="./demo/wireframe.tsx" debug>Wireframe</code>
+<!-- prettier-ignore-end -->
 
 ## API
 

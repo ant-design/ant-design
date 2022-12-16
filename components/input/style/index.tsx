@@ -11,6 +11,7 @@ export type InputToken<T extends GlobalToken = FullToken<'Input'>> = T & {
   inputPaddingVerticalLG: number;
   inputPaddingVerticalSM: number;
   inputPaddingHorizontal: number;
+  inputPaddingHorizontalLG: number;
   inputPaddingHorizontalSM: number;
   inputBorderHoverColor: string;
   inputBorderActiveColor: string;
@@ -58,14 +59,14 @@ export const genDisabledStyle = (token: InputToken): CSSObject => ({
 const genInputLargeStyle = (token: InputToken): CSSObject => {
   const {
     inputPaddingVerticalLG,
-    inputPaddingHorizontal,
     fontSizeLG,
     lineHeightLG,
     borderRadiusLG,
+    inputPaddingHorizontalLG,
   } = token;
 
   return {
-    padding: `${inputPaddingVerticalLG}px ${inputPaddingHorizontal}px`,
+    padding: `${inputPaddingVerticalLG}px ${inputPaddingHorizontalLG}px`,
     fontSize: fontSizeLG,
     lineHeight: lineHeightLG,
     borderRadius: borderRadiusLG,
@@ -860,8 +861,9 @@ export function initInputToken<T extends GlobalToken = GlobalToken>(token: T): I
         token.lineWidth,
       0,
     ),
-    inputPaddingHorizontal: token.controlPaddingHorizontal - token.lineWidth,
-    inputPaddingHorizontalSM: token.controlPaddingHorizontalSM - token.lineWidth,
+    inputPaddingHorizontal: token.paddingSM - token.lineWidth,
+    inputPaddingHorizontalSM: token.paddingXS - token.lineWidth,
+    inputPaddingHorizontalLG: token.controlPaddingHorizontal - token.lineWidth,
     inputBorderHoverColor: token.colorPrimaryHover,
     inputBorderActiveColor: token.colorPrimaryHover,
   });

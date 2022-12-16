@@ -112,11 +112,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
     let flag = false;
     // Whether to delete the watermark node
     if (mutation.removedNodes.length) {
-      mutation.removedNodes.forEach((node) => {
-        if (node === watermarkRef.current) {
-          flag = true;
-        }
-      });
+      flag = Array.from(mutation.removedNodes).some((node) => node === watermarkRef.current);
     }
     // Whether the watermark dom property value has been modified
     if (mutation.type === 'attributes' && mutation.target === watermarkRef.current) {
@@ -152,7 +148,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
    * Get the width and height of the watermark. The default values are as follows
    * Image: [120, 64]; Content: It's calculated by content;
    */
-  const getMarkSize = (ctx: CanvasRenderingContext2D) => {
+  const getMarkSize = (ctx: CanvasRenderingContext2D): readonly [number, number] => {
     let defaultWidth = 120;
     let defaultHeight = 64;
     if (!image && ctx.measureText) {
@@ -162,7 +158,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
       defaultWidth = Math.ceil(Math.max(...widths));
       defaultHeight = Number(fontSize) * contents.length + (contents.length - 1) * FontGap;
     }
-    return [width ?? defaultWidth, height ?? defaultHeight];
+    return [width ?? defaultWidth, height ?? defaultHeight] as const;
   };
 
   const renderWatermark = () => {

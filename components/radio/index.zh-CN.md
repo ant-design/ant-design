@@ -17,7 +17,7 @@ demo:
 
 ## 代码演示
 
-<!-- prettier-ignore -->
+<!-- prettier-ignore-start -->
 <code src="./demo/basic.tsx">基本</code>
 <code src="./demo/disabled.tsx">不可用</code>
 <code src="./demo/radiogroup.tsx">单选组合</code>
@@ -29,25 +29,28 @@ demo:
 <code src="./demo/radiobutton-solid.tsx">填底的按钮样式</code>
 <code src="./demo/badge.tsx" debug>测试 Badge 的样式</code>
 <code src="./demo/wireframe.tsx" debug>线框风格</code>
+<!-- prettier-ignore-end -->
 
 ## API
 
 ### Radio/Radio.Button
 
-| 参数           | 说明                              | 类型    | 默认值 |
-| -------------- | --------------------------------- | ------- | ------ |
-| autoFocus      | 自动获取焦点                      | boolean | false  |
-| checked        | 指定当前是否选中                  | boolean | false  |
-| defaultChecked | 初始是否选中                      | boolean | false  |
-| disabled       | 禁用 Radio                        | boolean | false  |
-| value          | 根据 value 进行比较，判断是否选中 | any     | -      |
+<!-- prettier-ignore -->
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| autoFocus | 自动获取焦点 | boolean | false |
+| checked | 指定当前是否选中 | boolean | false |
+| defaultChecked | 初始是否选中 | boolean | false |
+| disabled | 禁用 Radio | boolean | false |
+| value | 根据 value 进行比较，判断是否选中 | any | - |
 
-### RadioGroup
+### Radio.Group
 
 单选框组合，用于包裹一组 `Radio`。
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |  |
-| --- | --- | --- | --- | --- | --- |
+<!-- prettier-ignore -->
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
 | buttonStyle | RadioButton 的风格样式，目前有描边和填色两种风格 | `outline` \| `solid` | `outline` |  |  |
 | defaultValue | 默认选中的值 | any | - |  |  |
 | disabled | 禁选所有子单选器 | boolean | false |  |  |

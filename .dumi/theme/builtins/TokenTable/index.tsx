@@ -9,6 +9,7 @@ import type { TableProps } from 'antd';
 import { css } from '@emotion/react';
 import useLocale from '../../../hooks/useLocale';
 import useSiteToken from '../../../hooks/useSiteToken';
+import ColorChunk from '../ColorChunk';
 
 type TokenTableProps = {
   type: 'seed' | 'map' | 'alias';
@@ -78,25 +79,15 @@ const TokenTable: FC<TokenTableProps> = ({ type }) => {
     {
       title: locale.value,
       key: 'value',
-      render: (_, record) => (
-        <span style={{ display: 'inline-flex', alignItems: 'center' }}>
-          {typeof record.value === 'string' &&
-            (record.value.startsWith('#') || record.value.startsWith('rgb')) && (
-              <span
-                style={{
-                  background: record.value,
-                  display: 'inline-block',
-                  width: 6,
-                  height: 6,
-                  borderRadius: '50%',
-                  boxShadow: 'inset 0 0 0 1px rgba(0, 0, 0, 0.06)',
-                  marginRight: 4,
-                }}
-              />
-            )}
-          {typeof record.value !== 'string' ? JSON.stringify(record.value) : record.value}
-        </span>
-      ),
+      render: (_, record) => {
+        const isColor =
+          typeof record.value === 'string' &&
+          (record.value.startsWith('#') || record.value.startsWith('rgb'));
+        if (isColor) {
+          return <ColorChunk color={record.value}>{record.value}</ColorChunk>;
+        }
+        return typeof record.value !== 'string' ? JSON.stringify(record.value) : record.value;
+      },
     },
   ];
 

@@ -2,28 +2,39 @@ import React from 'react';
 import classNames from 'classnames';
 import { Modal, Carousel } from 'antd';
 
-function isGood(className) {
+function isGood(className: string): boolean {
   return /\bgood\b/i.test(className);
 }
 
-function isBad(className) {
+function isBad(className: string): boolean {
   return /\bbad\b/i.test(className);
 }
 
-function isInline(className) {
+function isInline(className: string): boolean {
   return /\binline\b/i.test(className);
 }
 
-function PreviewImageBox({
-  cover,
-  coverMeta,
-  imgs,
-  style,
-  previewVisible,
-  comparable,
-  onClick,
-  onCancel,
-}) {
+function isGoodBadImg(imgMeta: any): boolean {
+  return imgMeta.isGood || imgMeta.isBad;
+}
+
+function isCompareImg(imgMeta: any): boolean {
+  return isGoodBadImg(imgMeta) || imgMeta.inline;
+}
+
+interface PreviewImageBoxProps {
+  coverMeta: any;
+  cover: React.ReactNode;
+  imgs: React.ReactNode[];
+  style: React.CSSProperties;
+  previewVisible: boolean;
+  comparable: boolean;
+  onClick: () => void;
+  onCancel: () => void;
+}
+
+const PreviewImageBox: React.FC<PreviewImageBoxProps> = (props) => {
+  const { cover, coverMeta, imgs, style, previewVisible, comparable, onClick, onCancel } = props;
   const onlyOneImg = comparable || imgs.length === 1;
   const imageWrapperClassName = classNames('preview-image-wrapper', {
     good: coverMeta.isGood,
@@ -58,30 +69,27 @@ function PreviewImageBox({
       </Modal>
     </div>
   );
+};
+
+interface ImagePreviewProps {
+  imgs: any[];
 }
 
-function isGoodBadImg(imgMeta) {
-  return imgMeta.isGood || imgMeta.isBad;
+interface ImagePreviewStates {
+  previewVisible?: Record<PropertyKey, boolean>;
 }
 
-function isCompareImg(imgMeta) {
-  return isGoodBadImg(imgMeta) || imgMeta.inline;
-}
-
-export default class ImagePreview extends React.Component {
-  constructor(props) {
+class ImagePreview extends React.Component<ImagePreviewProps, ImagePreviewStates> {
+  constructor(props: ImagePreviewProps) {
     super(props);
-
     this.state = {
       previewVisible: {},
     };
   }
 
-  handleClick = (index) => {
+  handleClick = (index: number) => {
     this.setState({
-      previewVisible: {
-        [index]: true,
-      },
+      previewVisible: { [index]: true },
     });
   };
 
@@ -107,7 +115,7 @@ export default class ImagePreview extends React.Component {
       };
     });
 
-    const imagesList = imgsMeta.map((meta, index) => {
+    const imagesList = imgsMeta.map<React.ReactNode>((meta, index) => {
       const metaCopy = { ...meta };
       delete metaCopy.description;
       delete metaCopy.isGood;
@@ -125,7 +133,9 @@ export default class ImagePreview extends React.Component {
       (imgs.length === 2 && imgsMeta.every(isCompareImg)) ||
       (imgs.length >= 2 && imgsMeta.every(isGoodBadImg));
 
-    const style = comparable ? { width: `${(100 / imgs.length).toFixed(3)}%` } : null;
+    const style: React.CSSProperties = comparable
+      ? { width: `${(100 / imgs.length).toFixed(3)}%` }
+      : {};
 
     const hasCarousel = imgs.length > 1 && !comparable;
     const previewClassName = classNames({
@@ -140,20 +150,19 @@ export default class ImagePreview extends React.Component {
           if (!comparable && index !== 0) {
             return null;
           }
-
           return (
             <PreviewImageBox
               key={index}
               style={style}
               comparable={comparable}
-              previewVisible={!!this.state.previewVisible[index]}
+              previewVisible={!!this.state.previewVisible?.[index]}
               cover={imagesList[index]}
               coverMeta={imgsMeta[index]}
               imgs={imagesList}
+              onCancel={this.handleCancel}
               onClick={() => {
                 this.handleClick(index);
               }}
-              onCancel={this.handleCancel}
             />
           );
         })}
@@ -161,3 +170,5 @@ export default class ImagePreview extends React.Component {
     );
   }
 }
+
+export default ImagePreview;
