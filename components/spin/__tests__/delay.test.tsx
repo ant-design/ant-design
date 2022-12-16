@@ -1,12 +1,12 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import debounce from 'lodash/debounce';
+import { debounce } from 'throttle-debounce';
 import Spin from '..';
 import { waitFakeTimer } from '../../../tests/utils';
 
-jest.mock('lodash/debounce');
+jest.mock('throttle-debounce');
 (debounce as jest.Mock).mockImplementation((...args: any[]) =>
-  jest.requireActual('lodash/debounce')(...args),
+  jest.requireActual('throttle-debounce').debounce(...args),
 );
 
 describe('delay spinning', () => {

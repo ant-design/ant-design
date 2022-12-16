@@ -1,6 +1,6 @@
 import FilterFilled from '@ant-design/icons/FilterFilled';
 import classNames from 'classnames';
-import isEqual from 'lodash/isEqual';
+import shallowEqual from 'shallowequal';
 import type { FieldDataNode } from 'rc-tree';
 import * as React from 'react';
 import type { MenuProps } from '../../../menu';
@@ -232,7 +232,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
       return null;
     }
 
-    if (isEqual(mergedKeys, filterState?.filteredKeys)) {
+    if (shallowEqual(mergedKeys, filterState?.filteredKeys)) {
       return null;
     }
 
@@ -339,7 +339,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   } else if (column.filterDropdown) {
     dropdownContent = column.filterDropdown;
   } else {
-    const selectedKeys = (getFilteredKeysSync() || []) as any;
+    const selectedKeys = getFilteredKeysSync() || [];
     const getFilterComponent = () => {
       if ((column.filters || []).length === 0) {
         return (
@@ -425,7 +425,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
             className={dropdownMenuClass}
             onSelect={onSelectKeys}
             onDeselect={onSelectKeys}
-            selectedKeys={selectedKeys}
+            selectedKeys={selectedKeys as string[]}
             getPopupContainer={getPopupContainer}
             openKeys={openKeys}
             onOpenChange={onOpenChange}
@@ -444,7 +444,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
 
     const getResetDisabled = () => {
       if (filterResetToDefaultFilteredValue) {
-        return isEqual(
+        return shallowEqual(
           (defaultFilteredValue || []).map((key) => String(key)),
           selectedKeys,
         );
