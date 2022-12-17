@@ -308,9 +308,15 @@ describe('notification', () => {
         message: 'Notification Title',
         duration: 0,
         role: 'status',
+        props: {
+          role: 'region',
+          'aria-live': 'polite',
+        },
       });
     });
 
     expect(document.querySelectorAll('[role="status"]').length).toBe(1);
+    expect(document.querySelectorAll('[role="region"]').length).toBe(1);
+    expect(document.querySelectorAll('[aria-live="polite"]').length).toBe(1);
   });
 });

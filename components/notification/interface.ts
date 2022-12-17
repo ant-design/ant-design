@@ -1,5 +1,4 @@
 import type React from 'react';
-import type { AriaRole } from 'react';
 
 interface DivProps extends React.HTMLProps<HTMLDivElement> {
   'data-testid'?: string;
@@ -15,7 +14,9 @@ export type NotificationPlacement =
 
 export type IconType = 'success' | 'info' | 'error' | 'warning';
 
-export interface ArgsProps {
+export type ArgsProps = AlertRoleArgsProps | StatusRoleArgsProps;
+
+interface BaseArgsProps {
   message: React.ReactNode;
   description?: React.ReactNode;
   btn?: React.ReactNode;
@@ -29,8 +30,19 @@ export interface ArgsProps {
   readonly type?: IconType;
   onClick?: () => void;
   closeIcon?: React.ReactNode;
-  role?: AriaRole;
+}
+
+interface AlertRoleArgsProps extends BaseArgsProps {
+  role?: 'alert';
   props?: DivProps;
+}
+
+interface StatusRoleArgsProps extends BaseArgsProps {
+  role: 'status';
+  props: DivProps & {
+    role: 'region';
+    'aria-live': 'polite';
+  };
 }
 
 export interface NotificationInstance {

@@ -1,4 +1,4 @@
-import React, { type AriaRole } from 'react';
+import React from 'react';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
@@ -37,7 +37,7 @@ export interface PureContentProps {
   description?: React.ReactNode;
   btn?: React.ReactNode;
   type?: IconType;
-  role?: AriaRole;
+  role?: 'alert' | 'status';
 }
 
 const typeToIcon = {

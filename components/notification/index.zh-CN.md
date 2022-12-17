@@ -60,7 +60,7 @@ config 参数如下：
 | placement | 弹出位置，可选 `topLeft` `topRight` `bottomLeft` `bottomRight` | string | `topRight` |
 | style | 自定义内联样式 | [CSSProperties](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/e434515761b36830c3e58a970abf5186f005adac/types/react/index.d.ts#L794) | - |
 | top | 消息从顶部弹出时，距离顶部的位置，单位像素 | number | 24 |
-| role | 供屏幕阅读器识别的通知内容语义，默认为 alert，此情况下屏幕阅读器会立即打断当前正在阅读的其他内容，转而阅读通知内容 | AriaRole | `alert` |
+| role | 供屏幕阅读器识别的通知内容语义，默认为 alert，此情况下屏幕阅读器会立即打断当前正在阅读的其他内容，转而阅读通知内容 | `alert \| status` | `alert` |
 | onClick | 点击通知时触发的回调函数 | function | - |
 | onClose | 当通知关闭时触发 | function | - |
 
