@@ -1,11 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { enUS, zhCN, ThemeEditor } from 'antd-token-previewer';
-import { Button, ConfigProvider, message, Modal, Typography } from 'antd';
+import { Button, ConfigProvider, message, Modal, Typography, Upload, type UploadProps } from 'antd';
 import type { ThemeConfig } from 'antd/es/config-provider/context';
 import { Helmet } from 'dumi';
 import { css } from '@emotion/react';
 import CopyToClipboard from 'react-copy-to-clipboard';
-import { CopyOutlined } from '@ant-design/icons';
+import { CopyOutlined, UploadOutlined } from '@ant-design/icons';
+import isObject from 'lodash/isObject';
 import useLocale from '../../hooks/useLocale';
 
 const locales = {
@@ -14,6 +15,9 @@ const locales = {
     save: '保存',
     reset: '重置',
     export: '导出',
+    upload: '上传',
+    uploadFileTypeError: '只允许上传 JSON 文件',
+    uploadJsonContentTypeError: 'JSON 文件内容格式错误',
     exportDesc: '将下面的 JSON 对象复制到 ConfigProvider 的 theme 属性中即可。',
     saveSuccessfully: '保存成功',
   },
@@ -22,6 +26,9 @@ const locales = {
     save: 'Save',
     reset: 'Reset',
     export: 'Export',
+    upload: 'Upload',
+    uploadFileTypeError: 'Only JSON files can be uploaded',
+    uploadJsonContentTypeError: 'The content format of the JSON file is incorrect',
     exportDesc: 'Copy the following JSON object to the theme prop of ConfigProvider.',
     saveSuccessfully: 'Saved successfully',
   },
@@ -103,6 +110,36 @@ const CustomTheme = () => {
     setTheme({});
   };
 
+  const uploadJsonThemeFile = useCallback(async (file) => {
+    if (file.type !== 'application/json') {
+      message.error({
+        content: locale.uploadFileTypeError,
+      });
+      return false;
+    }
+    const reader = new FileReader();
+    reader.readAsText(file);
+    reader.onload = () => {
+      const uploadedThemeConfig = JSON.parse(reader.result as string);
+      if (!isObject(uploadedThemeConfig)) {
+        message.error({
+          content: locale.uploadJsonContentTypeError,
+        });
+        return;
+      }
+      setTheme(uploadedThemeConfig);
+    };
+  }, []);
+
+  const uploadProps: UploadProps = {
+    name: 'file',
+    action: '',
+    showUploadList: false,
+    beforeUpload: (file) => {
+      uploadJsonThemeFile(file);
+    },
+  };
+
   return (
     <div>
       <Helmet>
@@ -117,6 +154,11 @@ const CustomTheme = () => {
             {locale.title}
           </Typography.Title>
           <div>
+            <Upload {...uploadProps} style={{ display: 'block' }}>
+              <Button icon={<UploadOutlined />} style={{ marginRight: 8 }}>
+                {locale.upload}
+              </Button>
+            </Upload>
             <Button onClick={handleOutput} style={{ marginRight: 8 }}>
               {locale.export}
             </Button>
