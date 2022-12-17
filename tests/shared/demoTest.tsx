@@ -117,22 +117,6 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
           html,
         }).toMatchSnapshot();
 
-        // if (typeof document === 'undefined') {
-        //   // Server
-        //   expect(() => {
-        //     renderToString(Demo);
-        //   }).not.toThrow();
-        // } else {
-        //   // Client
-        //   const { container } = render(Demo);
-        //   ariaConvert(container);
-
-        //   const { children } = container;
-        //   const child = children.length > 1 ? Array.from(children) : children[0];
-
-        //   expect(child).toMatchSnapshot();
-        // }
-
         errSpy.mockRestore();
       },
     );
