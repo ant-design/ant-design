@@ -257,6 +257,8 @@ const InternalButton: React.ForwardRefRenderFunction<
 
   const linkButtonRestProps = omit(rest as AnchorButtonProps & { navigate: any }, ['navigate']);
 
+  const hrefAndDisabled = linkButtonRestProps.href !== undefined && mergedDisabled;
+
   const classes = classNames(
     prefixCls,
     hashId,
@@ -271,7 +273,7 @@ const InternalButton: React.ForwardRefRenderFunction<
       [`${prefixCls}-block`]: block,
       [`${prefixCls}-dangerous`]: !!danger,
       [`${prefixCls}-rtl`]: direction === 'rtl',
-      [`${prefixCls}-disabled`]: linkButtonRestProps.href !== undefined && mergedDisabled,
+      [`${prefixCls}-disabled`]: hrefAndDisabled,
     },
     compactItemClassnames,
     className,
