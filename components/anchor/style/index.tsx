@@ -139,7 +139,7 @@ const genSharedAnchorHorizontalStyle: GenerateStyle<AnchorToken> = (token): CSSO
         position: 'absolute',
         offsetInlineEnd: 0,
         bottom: 0,
-        transition: `left ${motionDurationSlow} ease-in-out`,
+        transition: `left ${motionDurationSlow} ease-in-out, width ${motionDurationSlow} ease-in-out`,
         height: lineWidthBold,
         backgroundColor: token.colorPrimary,
       },
