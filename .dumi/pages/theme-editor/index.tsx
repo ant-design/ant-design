@@ -1,13 +1,15 @@
-import React, { useCallback, useEffect } from 'react';
+import { isObject } from 'lodash';
+import React, { useCallback, useEffect, useState } from 'react';
 import { enUS, zhCN, ThemeEditor } from 'antd-token-previewer';
-import { Button, ConfigProvider, message, Modal, Typography, Upload, type UploadProps } from 'antd';
+import { Button, ConfigProvider, message, Modal, Typography } from 'antd';
 import type { ThemeConfig } from 'antd/es/config-provider/context';
 import { Helmet } from 'dumi';
 import { css } from '@emotion/react';
 import CopyToClipboard from 'react-copy-to-clipboard';
-import { CopyOutlined, UploadOutlined } from '@ant-design/icons';
-import isObject from 'lodash/isObject';
+import { CopyOutlined, EditOutlined } from '@ant-design/icons';
+import { type TextContent } from 'vanilla-jsoneditor';
 import useLocale from '../../hooks/useLocale';
+import JSONEditor from './components/JSONEditor';
 
 const locales = {
   cn: {
@@ -15,9 +17,11 @@ const locales = {
     save: '保存',
     reset: '重置',
     export: '导出',
-    upload: '上传',
-    uploadFileTypeError: '只允许上传 JSON 文件',
-    uploadJsonContentTypeError: 'JSON 文件内容格式错误',
+    edit: '编辑',
+    editModelTitle: '编辑主题配置',
+    editTitle: '在下方编辑你的主题 JSON 即可',
+    editJsonContentTypeError: '主题 JSON 格式错误',
+    editSuccessfully: '编辑成功',
     exportDesc: '将下面的 JSON 对象复制到 ConfigProvider 的 theme 属性中即可。',
     saveSuccessfully: '保存成功',
   },
@@ -26,9 +30,11 @@ const locales = {
     save: 'Save',
     reset: 'Reset',
     export: 'Export',
-    upload: 'Upload',
-    uploadFileTypeError: 'Only JSON files can be uploaded',
-    uploadJsonContentTypeError: 'The content format of the JSON file is incorrect',
+    edit: 'Edit',
+    editModelTitle: 'edit Theme Config',
+    editTitle: 'Edit your theme JSON below',
+    editJsonContentTypeError: 'The theme of the JSON format is incorrect',
+    editSuccessfully: 'Edited successfully',
     exportDesc: 'Copy the following JSON object to the theme prop of ConfigProvider.',
     saveSuccessfully: 'Saved successfully',
   },
@@ -110,35 +116,46 @@ const CustomTheme = () => {
     setTheme({});
   };
 
-  const uploadJsonThemeFile = useCallback(async (file) => {
-    if (file.type !== 'application/json') {
-      message.error({
-        content: locale.uploadFileTypeError,
-      });
-      return false;
-    }
-    const reader = new FileReader();
-    reader.readAsText(file);
-    reader.onload = () => {
-      const uploadedThemeConfig = JSON.parse(reader.result as string);
-      if (!isObject(uploadedThemeConfig)) {
-        message.error({
-          content: locale.uploadJsonContentTypeError,
-        });
-        return;
-      }
-      setTheme(uploadedThemeConfig);
-    };
-  }, []);
+  const [editModelOpen, setEditModelOpen] = useState<boolean>(false);
+  const [editThemeFormatRight, setEditThemeFormatRight] = useState<boolean>(true);
+  const [content, setContent] = useState<TextContent>({
+    text: '{}',
+  });
 
-  const uploadProps: UploadProps = {
-    name: 'file',
-    action: '',
-    showUploadList: false,
-    beforeUpload: (file) => {
-      uploadJsonThemeFile(file);
-    },
+  const handleEditConfig = () => {
+    setEditModelOpen(true);
   };
+
+  const editModelClose = useCallback(() => {
+    setEditModelOpen(false);
+  }, [content]);
+
+  const handleEditConfigChange = (newcontent, preContent, status) => {
+    setContent(newcontent);
+    if (
+      Array.isArray(status.contentErrors.validationErrors) &&
+      status.contentErrors.validationErrors.length === 0
+    ) {
+      setEditThemeFormatRight(true);
+    } else {
+      setEditThemeFormatRight(false);
+    }
+  };
+
+  const editSave = useCallback(() => {
+    if (!editThemeFormatRight) {
+      message.error(locale.editJsonContentTypeError);
+      return;
+    }
+    const themeConfig = JSON.parse(content.text);
+    if (!isObject(themeConfig)) {
+      message.error(locale.editJsonContentTypeError);
+      return;
+    }
+    setTheme(themeConfig);
+    editModelClose();
+    messageApi.success(locale.editSuccessfully);
+  }, [content]);
 
   return (
     <div>
@@ -154,11 +171,26 @@ const CustomTheme = () => {
             {locale.title}
           </Typography.Title>
           <div>
-            <Upload {...uploadProps} style={{ display: 'block' }}>
-              <Button icon={<UploadOutlined />} style={{ marginRight: 8 }}>
-                {locale.upload}
-              </Button>
-            </Upload>
+            <Modal
+              open={editModelOpen}
+              title={locale.editModelTitle}
+              width={600}
+              okText={locale.save}
+              onOk={editSave}
+              onCancel={editModelClose}
+            >
+              <div>
+                <div style={{ color: 'rgba(0,0,0,0.65)' }}>{locale.editTitle}</div>
+                <JSONEditor
+                  content={content}
+                  onChange={handleEditConfigChange}
+                  mainMenuBar={false}
+                />
+              </div>
+            </Modal>
+            <Button onClick={handleEditConfig} icon={<EditOutlined />} style={{ marginRight: 8 }}>
+              {locale.edit}
+            </Button>
             <Button onClick={handleOutput} style={{ marginRight: 8 }}>
               {locale.export}
             </Button>

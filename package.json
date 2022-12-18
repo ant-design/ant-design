@@ -154,7 +154,8 @@
     "rc-util": "^5.25.2",
     "scroll-into-view-if-needed": "^3.0.3",
     "shallowequal": "^1.1.0",
-    "throttle-debounce": "^5.0.0"
+    "throttle-debounce": "^5.0.0",
+    "vanilla-jsoneditor": "^0.11.4"
   },
   "devDependencies": {
     "@ant-design/tools": "^16.1.0-alpha.2",
