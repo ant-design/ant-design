@@ -1,4 +1,3 @@
-import { isObject } from 'lodash';
 import React, { useCallback, useEffect, useState } from 'react';
 import { enUS, zhCN, ThemeEditor } from 'antd-token-previewer';
 import { Button, ConfigProvider, message, Modal, Typography } from 'antd';
@@ -7,9 +6,10 @@ import { Helmet } from 'dumi';
 import { css } from '@emotion/react';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import { CopyOutlined, EditOutlined } from '@ant-design/icons';
-import { type TextContent } from 'vanilla-jsoneditor';
+import type { JSONContent, TextContent } from 'vanilla-jsoneditor';
 import useLocale from '../../hooks/useLocale';
 import JSONEditor from './components/JSONEditor';
+import { isObject } from './components/utils';
 
 const locales = {
   cn: {
@@ -60,12 +60,27 @@ const CustomTheme = () => {
 
   const [theme, setTheme] = React.useState<ThemeConfig>({});
 
+  const [editModelOpen, setEditModelOpen] = useState<boolean>(false);
+  const [editThemeFormatRight, setEditThemeFormatRight] = useState<boolean>(true);
+  const [themeConfigContent, setThemeConfigContent] = useState<JSONContent & TextContent>({
+    text: '{}',
+    json: undefined,
+  });
+
   useEffect(() => {
     const storedConfig = localStorage.getItem(ANT_DESIGN_V5_THEME_EDITOR_THEME);
     if (storedConfig) {
       setTheme(() => JSON.parse(storedConfig));
     }
   }, []);
+
+  useEffect(() => {
+    if (editModelOpen === true) return;
+    setThemeConfigContent({
+      json: theme as any,
+      text: undefined,
+    });
+  }, [theme, editModelOpen]);
 
   const styles = useStyle();
 
@@ -116,22 +131,16 @@ const CustomTheme = () => {
     setTheme({});
   };
 
-  const [editModelOpen, setEditModelOpen] = useState<boolean>(false);
-  const [editThemeFormatRight, setEditThemeFormatRight] = useState<boolean>(true);
-  const [content, setContent] = useState<TextContent>({
-    text: '{}',
-  });
-
   const handleEditConfig = () => {
     setEditModelOpen(true);
   };
 
   const editModelClose = useCallback(() => {
     setEditModelOpen(false);
-  }, [content]);
+  }, [themeConfigContent]);
 
   const handleEditConfigChange = (newcontent, preContent, status) => {
-    setContent(newcontent);
+    setThemeConfigContent(newcontent);
     if (
       Array.isArray(status.contentErrors.validationErrors) &&
       status.contentErrors.validationErrors.length === 0
@@ -147,7 +156,9 @@ const CustomTheme = () => {
       message.error(locale.editJsonContentTypeError);
       return;
     }
-    const themeConfig = JSON.parse(content.text);
+    const themeConfig = themeConfigContent.text
+      ? JSON.parse(themeConfigContent.text)
+      : themeConfigContent.json;
     if (!isObject(themeConfig)) {
       message.error(locale.editJsonContentTypeError);
       return;
@@ -155,7 +166,7 @@ const CustomTheme = () => {
     setTheme(themeConfig);
     editModelClose();
     messageApi.success(locale.editSuccessfully);
-  }, [content]);
+  }, [themeConfigContent]);
 
   return (
     <div>
@@ -182,7 +193,7 @@ const CustomTheme = () => {
               <div>
                 <div style={{ color: 'rgba(0,0,0,0.65)' }}>{locale.editTitle}</div>
                 <JSONEditor
-                  content={content}
+                  content={themeConfigContent}
                   onChange={handleEditConfigChange}
                   mainMenuBar={false}
                 />
