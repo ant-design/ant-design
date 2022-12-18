@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import debounce from 'lodash/debounce';
+import { debounce } from 'throttle-debounce';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
 import type { ConfigConsumerProps } from '../config-provider';
@@ -75,7 +75,7 @@ const Spin: React.FC<SpinClassProps> = (props) => {
   const {
     spinPrefixCls: prefixCls,
     spinning: customSpinning = true,
-    delay,
+    delay = 0,
     className,
     size = 'default',
     tip,
@@ -91,9 +91,9 @@ const Spin: React.FC<SpinClassProps> = (props) => {
   );
 
   React.useEffect(() => {
-    const updateSpinning = debounce<() => void>(() => {
+    const updateSpinning = debounce(delay, () => {
       setSpinning(customSpinning);
-    }, delay);
+    });
     updateSpinning();
     return () => {
       updateSpinning?.cancel?.();

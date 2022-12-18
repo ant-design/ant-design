@@ -26,6 +26,7 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-lcdS5Qm1bsAAAAAAA
 <code src="./demo/layout-can-wrap.tsx">表单标签可换行</code>
 <code src="./demo/warning-only.tsx">非阻塞校验</code>
 <code src="./demo/useWatch.tsx">字段监听 Hooks</code>
+<code src="./demo/form-item-path.tsx">字段路径前缀</code>
 <code src="./demo/dynamic-form-item.tsx">动态增减表单项</code>
 <code src="./demo/dynamic-form-items.tsx">动态增减嵌套字段</code>
 <code src="./demo/dynamic-form-items-no-style.tsx" debug>动态增减嵌套纯字段</code>

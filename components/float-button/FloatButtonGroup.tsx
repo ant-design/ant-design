@@ -42,7 +42,7 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
   const [open, setOpen] = useMergedState(false, { value: props.open });
 
   const floatButtonGroupRef = useRef<HTMLDivElement>(null);
-  const floatButtonRef = useRef<HTMLButtonElement| HTMLAnchorElement>(null);
+  const floatButtonRef = useRef<HTMLButtonElement | HTMLAnchorElement>(null);
 
   const hoverAction = useMemo(() => {
     const hoverTypeAction = {
