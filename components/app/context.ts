@@ -11,9 +11,9 @@ export interface useAppProps {
 }
 
 const AppContext = React.createContext<useAppProps>({
-  message: {} as MessageInstance,
-  notification: {} as NotificationInstance,
-  modal: {} as ModalType,
-});
+  message: {},
+  notification: {},
+  modal: {},
+} as useAppProps);
 
 export default AppContext;

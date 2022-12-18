@@ -35,10 +35,25 @@ describe('Watermark', () => {
       />,
     );
     const target = container.querySelector<HTMLDivElement>('.watermark div');
-    expect(target?.style.left).toBe('100px');
-    expect(target?.style.top).toBe('100px');
-    expect(target?.style.width).toBe('calc(100% - 100px)');
-    expect(target?.style.height).toBe('calc(100% - 100px)');
+    expect(target?.style.left).toBe('150px');
+    expect(target?.style.top).toBe('150px');
+    expect(target?.style.width).toBe('calc(100% - 150px)');
+    expect(target?.style.height).toBe('calc(100% - 150px)');
+    expect(container).toMatchSnapshot();
+  });
+
+  it('Interleaved watermark backgroundSize is correct', () => {
+    const { container } = render(
+      <Watermark
+        className="watermark"
+        width={200}
+        height={200}
+        content="Ant Design"
+        gap={[100, 100]}
+      />,
+    );
+    const target = container.querySelector<HTMLDivElement>('.watermark div');
+    expect(target?.style.backgroundSize).toBe('600px');
     expect(container).toMatchSnapshot();
   });
 

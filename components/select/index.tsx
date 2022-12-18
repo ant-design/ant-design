@@ -91,6 +91,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     direction,
     virtual,
     dropdownMatchSelectWidth,
+    select,
   } = React.useContext(ConfigContext);
   const size = React.useContext(SizeContext);
 
@@ -202,6 +203,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
       ref={ref as any}
       virtual={virtual}
       dropdownMatchSelectWidth={dropdownMatchSelectWidth}
+      showSearch={select?.showSearch}
       {...selectProps}
       transitionName={getTransitionName(
         rootPrefixCls,

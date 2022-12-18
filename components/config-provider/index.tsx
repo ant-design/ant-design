@@ -53,6 +53,7 @@ const PASSED_PROPS: Exclude<keyof ConfigConsumerProps, 'rootPrefixCls' | 'getPre
   'input',
   'pagination',
   'form',
+  'select',
 ];
 
 export interface ConfigProviderProps {
@@ -71,6 +72,9 @@ export interface ConfigProviderProps {
   };
   input?: {
     autoComplete?: string;
+  };
+  select?: {
+    showSearch?: boolean;
   };
   pagination?: {
     showSizeChanger?: boolean;
