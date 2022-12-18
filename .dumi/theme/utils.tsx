@@ -129,7 +129,7 @@ export function getLocalizedPathname(
   },
 ) {
   const pathname = path.startsWith('/') ? path : `/${path}`;
-  let fullPath;
+  let fullPath: string;
   if (!zhCN) {
     // to enUS
     fullPath = /\/?index-cn/.test(pathname) ? '/' : pathname.replace('-cn', '');

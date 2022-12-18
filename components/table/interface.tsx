@@ -9,9 +9,7 @@ import type { CheckboxProps } from '../checkbox';
 import type { PaginationProps } from '../pagination';
 import type { TooltipProps } from '../tooltip';
 import type { Breakpoint } from '../_util/responsiveObserve';
-import { tuple } from '../_util/type';
 import type { INTERNAL_SELECTION_ITEM } from './hooks/useSelection';
-// import { TableAction } from './Table';
 
 export { GetRowKey, ExpandableConfig };
 
@@ -45,7 +43,7 @@ export interface TableLocale {
 
 export type SortOrder = 'descend' | 'ascend' | null;
 
-const TableActions = tuple('paginate', 'sort', 'filter');
+const TableActions = ['paginate', 'sort', 'filter'] as const;
 export type TableAction = typeof TableActions[number];
 
 export type CompareFn<T> = (a: T, b: T, sortOrder?: SortOrder) => number;

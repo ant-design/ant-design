@@ -1468,16 +1468,19 @@ exports[`renders ./components/descriptions/demo/text.tsx extend context correctl
                                 <tr>
                                   <th
                                     class="ant-table-cell"
+                                    scope="col"
                                   >
                                     姓名
                                   </th>
                                   <th
                                     class="ant-table-cell"
+                                    scope="col"
                                   >
                                     年龄
                                   </th>
                                   <th
                                     class="ant-table-cell"
+                                    scope="col"
                                   >
                                     住址
                                   </th>

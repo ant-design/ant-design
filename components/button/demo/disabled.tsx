@@ -32,6 +32,14 @@ const App: React.FC = () => (
       </Button>
     </Space>
     <Space>
+      <Button type="primary" href='https://ant.design/index-cn'>
+        Href Primary
+      </Button>
+      <Button type="primary" href='https://ant.design/index-cn' disabled>
+        Href Primary(disabled)
+      </Button>
+    </Space>
+    <Space>
       <Button danger>Danger Default</Button>
       <Button danger disabled>
         Danger Default(disabled)
