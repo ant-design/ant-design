@@ -6545,6 +6545,7 @@ Array [
                           <tr>
                             <th
                               class="ant-table-cell ant-table-selection-column"
+                              scope="col"
                             >
                               <div
                                 class="ant-table-selection"
@@ -6569,16 +6570,19 @@ Array [
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               Name
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               Tag
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               Description
                             </th>
@@ -7394,6 +7398,7 @@ Array [
                           <tr>
                             <th
                               class="ant-table-cell ant-table-selection-column"
+                              scope="col"
                             >
                               <div
                                 class="ant-table-selection"
@@ -7418,6 +7423,7 @@ Array [
                             </th>
                             <th
                               class="ant-table-cell"
+                              scope="col"
                             >
                               Name
                             </th>

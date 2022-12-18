@@ -30,12 +30,14 @@ exports[`Table renders JSX correctly 1`] = `
                   <th
                     class="ant-table-cell"
                     colspan="2"
+                    scope="colgroup"
                   >
                     Name
                   </th>
                   <th
                     class="ant-table-cell"
                     rowspan="2"
+                    scope="col"
                   >
                     Age
                   </th>
@@ -43,11 +45,13 @@ exports[`Table renders JSX correctly 1`] = `
                 <tr>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     First Name
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Last Name
                   </th>
@@ -133,7 +137,7 @@ exports[`Table rtl render component should be rendered correctly in RTL directio
                 class="ant-table-thead"
               >
                 <tr>
-                  <th
+                  <td
                     class="ant-table-cell"
                   />
                 </tr>
@@ -235,6 +239,7 @@ exports[`Table should render title 1`] = `
                     <th
                       aria-label="this column is sortable"
                       class="ant-table-cell ant-table-column-has-sorters"
+                      scope="col"
                       tabindex="0"
                     >
                       <div
@@ -303,6 +308,7 @@ exports[`Table should render title 1`] = `
                     <th
                       aria-label="this column is sortable"
                       class="ant-table-cell ant-table-column-has-sorters"
+                      scope="col"
                       tabindex="0"
                     >
                       <div
@@ -366,6 +372,7 @@ exports[`Table should render title 1`] = `
                     <th
                       aria-label="this column is sortable"
                       class="ant-table-cell ant-table-column-has-sorters"
+                      scope="col"
                       tabindex="0"
                     >
                       <div
@@ -434,6 +441,7 @@ exports[`Table should render title 1`] = `
                     <th
                       aria-label="this column's title is color,this column is sortable"
                       class="ant-table-cell ant-table-column-has-sorters"
+                      scope="col"
                       tabindex="0"
                     >
                       <div
@@ -495,6 +503,7 @@ exports[`Table should render title 1`] = `
                     <th
                       aria-label="this column's title is sex,this column is sortable"
                       class="ant-table-cell ant-table-column-has-sorters"
+                      scope="col"
                       tabindex="0"
                     >
                       <div
@@ -626,6 +635,7 @@ exports[`Table should render title 1`] = `
 exports[`Table title should support ReactNode 1`] = `
 <th
   class="ant-table-cell"
+  scope="col"
 >
   <div>
     <strong>

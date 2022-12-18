@@ -20,7 +20,7 @@ export interface DropdownButtonProps extends ButtonGroupProps, DropdownProps {
   danger?: boolean;
   disabled?: boolean;
   loading?: ButtonProps['loading'];
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  onClick?: React.MouseEventHandler<HTMLElement>;
   icon?: React.ReactNode;
   href?: string;
   children?: React.ReactNode;
