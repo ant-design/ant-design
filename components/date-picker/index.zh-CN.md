@@ -125,7 +125,7 @@ import locale from 'antd/locale/zh_CN';
 | format | 设置日期格式，为数组时支持多格式匹配，展示以第一个为准。配置参考 [dayjs](https://day.js.org/)，支持[自定义格式](#components-date-picker-demo-format) | string \| (value: dayjs) => string \| (string \| (value: dayjs) => string)\[] | `YYYY-MM-DD` |  |
 | renderExtraFooter | 在面板中添加额外的页脚 | (mode) => React.ReactNode | - |  |
 | showNow | 当设定了 `showTime` 的时候，面板是否显示“此刻”按钮 | boolean | - | 4.4.0 |
-| showTime | 增加时间选择功能 | Object \| boolean | [TimePicker Options](/components/time-picker/#API) |  |
+| showTime | 增加时间选择功能 | Object \| boolean | [TimePicker Options](/components/time-picker-cn#API) |  |
 | showTime.defaultValue | 设置用户选择日期时默认的时分秒，[例子](#components-date-picker-demo-disabled-date) | [dayjs](https://day.js.org/) | dayjs() |  |
 | showToday | 是否展示“今天”按钮 | boolean | true |  |
 | value | 日期 | [dayjs](https://day.js.org/) | - |  |
@@ -194,7 +194,7 @@ import locale from 'antd/locale/zh_CN';
 | presets | 预设时间范围快捷选择 | { label: React.ReactNode, value: [dayjs](https://day.js.org/)\[] }[] | - |  |
 | renderExtraFooter | 在面板中添加额外的页脚 | () => React.ReactNode | - |  |
 | separator | 设置分隔符 | React.ReactNode | `<SwapRightOutlined />` |  |
-| showTime | 增加时间选择功能 | Object\|boolean | [TimePicker Options](/components/time-picker/#API) |  |
+| showTime | 增加时间选择功能 | Object\|boolean | [TimePicker Options](/components/time-picker-cn#API) |  |
 | showTime.defaultValue | 设置用户选择日期时默认的时分秒，[例子](#components-date-picker-demo-disabled-date) | [dayjs](https://day.js.org/)\[] | \[dayjs(), dayjs()] |  |
 | value | 日期 | [dayjs](https://day.js.org/)\[] | - |  |
 | onCalendarChange | 待选日期发生变化的回调。`info` 参数自 4.4.0 添加 | function(dates: \[dayjs, dayjs], dateStrings: \[string, string], info: { range:`start`\|`end` }) | - |  |

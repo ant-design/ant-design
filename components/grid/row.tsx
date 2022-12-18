@@ -3,13 +3,19 @@ import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import useFlexGapSupport from '../_util/hooks/useFlexGapSupport';
 import type { Breakpoint, ScreenMap } from '../_util/responsiveObserve';
-import ResponsiveObserve, { responsiveArray } from '../_util/responsiveObserve';
-import { tuple } from '../_util/type';
+import useResponsiveObserve, { responsiveArray } from '../_util/responsiveObserve';
 import RowContext from './RowContext';
 import { useRowStyle } from './style';
 
-const RowAligns = tuple('top', 'middle', 'bottom', 'stretch');
-const RowJustify = tuple('start', 'end', 'center', 'space-around', 'space-between', 'space-evenly');
+const RowAligns = ['top', 'middle', 'bottom', 'stretch'] as const;
+const RowJustify = [
+  'start',
+  'end',
+  'center',
+  'space-around',
+  'space-between',
+  'space-evenly',
+] as const;
 
 type Responsive = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
 type ResponsiveLike<T> = {
@@ -97,9 +103,11 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
 
   const gutterRef = React.useRef<Gutter | [Gutter, Gutter]>(gutter);
 
+  const responsiveObserve = useResponsiveObserve();
+
   // ================================== Effect ==================================
   React.useEffect(() => {
-    const token = ResponsiveObserve.subscribe((screen) => {
+    const token = responsiveObserve.subscribe((screen) => {
       setCurScreens(screen);
       const currentGutter = gutterRef.current || 0;
       if (
@@ -110,7 +118,7 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
         setScreens(screen);
       }
     });
-    return () => ResponsiveObserve.unsubscribe(token);
+    return () => responsiveObserve.unsubscribe(token);
   }, []);
 
   // ================================== Render ==================================

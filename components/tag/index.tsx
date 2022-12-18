@@ -1,16 +1,14 @@
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
 import * as React from 'react';
-
 import { ConfigContext } from '../config-provider';
 import type { PresetColorType, PresetStatusColorType } from '../_util/colors';
 import { PresetColorTypes, PresetStatusColorTypes } from '../_util/colors';
-import type { LiteralUnion } from '../_util/type';
 import Wave from '../_util/wave';
 import warning from '../_util/warning';
 import CheckableTag from './CheckableTag';
-
 import useStyle from './style';
+import type { LiteralUnion } from '../_util/type';
 
 export type { CheckableTagProps } from './CheckableTag';
 

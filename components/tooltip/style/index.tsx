@@ -161,7 +161,11 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         tooltipRadiusOuter: borderRadiusOuter > 4 ? 4 : borderRadiusOuter,
       });
 
-      return [genTooltipStyle(TooltipToken), initZoomMotion(token, 'zoom-big-fast')];
+      return [
+        genTooltipStyle(TooltipToken),
+        initZoomMotion(token, 'zoom-big-fast'),
+        initZoomMotion(token, 'zoom-down'),
+      ];
     },
     ({ zIndexPopupBase, colorBgSpotlight }) => ({
       zIndexPopup: zIndexPopupBase + 70,
