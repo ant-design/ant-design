@@ -261,7 +261,7 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
       [`${componentCls}-extra`]: {
         // https://stackoverflow.com/a/22429853/3040605
         marginInlineStart: 'auto',
-        padding: '',
+        padding: `${cardHeadPadding}px 0`,
         color: '',
         fontWeight: 'normal',
         fontSize: token.fontSize,
