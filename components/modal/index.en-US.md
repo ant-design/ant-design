@@ -21,6 +21,7 @@ When requiring users to interact with the application, but without jumping to a 
 <code src="./demo/footer.tsx">Customized Footer</code>
 <code src="./demo/confirm.tsx">Confirmation modal dialog</code>
 <code src="./demo/info.tsx">Information modal dialog</code>
+<code src="./demo/create.tsx">Dynamic creation</code>
 <code src="./demo/locale.tsx">Internationalization</code>
 <code src="./demo/manual.tsx">Manual to update destroy</code>
 <code src="./demo/position.tsx">To customize the position of modal</code>

@@ -1,5 +1,6 @@
 import React, { isValidElement, Children, useEffect, useRef, useState } from 'react';
-import { render as reactRender, unmountComponentAtNode } from 'react-dom';
+import { render as reactRender, unmount as unmountComponentAtNode } from 'rc-util/lib/React/render';
+// import { render as reactRender, unmountComponentAtNode } from 'react-dom';
 import type { ReactNode } from 'react';
 import type { ValidateFields } from 'rc-field-form/es/interface';
 import type { ModalProps } from './Modal';
@@ -15,21 +16,41 @@ export type CreateModalProps<T> = Omit<
   ModalProps,
   'onOk' | 'visible' | 'destroyOnClose' | 'confirmLoading'
 > & {
-  /** 弹窗内容，通常是一个表单，点击确认时会尝试调用其 validateFields 方法 */
+  /**
+   * @description An alias to `children` prop. The modal body content, usually a form.
+   * @description.zh-CN `children`的别名，弹窗内容，通常是一个表单。
+   * */
   content?: ReactNode /* | Component | FunctionComponent | ExoticComponent */;
-  /** 同 children ，优先级高于 children */
-  render?: (formRef: React.MutableRefObject<FormLike<T> | undefined>) => ReactNode;
-  /** “确认”按钮事件，返回 promise 可以延迟关闭。参数为弹窗内容传递的值 */
+  /**
+   * @description Same as content prop, but higher priority
+   * @description.zh-CN 同 content ，优先级高于 content
+   * */
+  render?: (formRef: React.MutableRefObject<any /* todo: FormLike<T> */ | undefined>) => ReactNode;
+  /**
+   * @description "Ok" button events that return a Promise can delay closing. Parameter is the value passed by the content
+   * @description.zh-CN “确认”按钮事件，返回 promise 可以延迟关闭。参数为弹窗内容传递的值
+   * */
   onOk?: (values?: T) => Promise<void> | void;
-  /** 验证失败和 onOk 失败的回调 */
+  /**
+   * @description Callback for validation failure and onOk failure
+   * @description.zh-CN 验证失败和 onOk 失败的回调
+   * */
   onFailed?: (error: unknown) => void;
-  /** 隐藏“取消”按钮 */
+  /**
+   * @description.zh-CN 隐藏“取消”按钮
+   * */
   // hideCancel?: boolean;
-  /** 隐藏“确认”按钮 */
+  /**
+   * @description.zh-CN 隐藏“确认”按钮
+   * */
   // hideOk?: boolean;
-  /** “拒绝”按钮文本 */
+  /**
+   * @description.zh-CN “拒绝”按钮文本
+   * */
   // denyText?: string;
-  /** “拒绝”按钮（传入此字段才显示）事件，返回 promise 可以延迟关闭 */
+  /**
+   * @description.zh-CN “拒绝”按钮（传入此字段才显示）事件，返回 promise 可以延迟关闭
+   * */
   // onDeny?: (values?: T) => Promise<void> | void;
 };
 

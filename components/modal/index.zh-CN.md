@@ -24,6 +24,7 @@ demo:
 <code src="./demo/footer.tsx">自定义页脚</code>
 <code src="./demo/confirm.tsx">确认对话框</code>
 <code src="./demo/info.tsx">信息提示</code>
+<code src="./demo/create.tsx">动态创建</code>
 <code src="./demo/locale.tsx">国际化</code>
 <code src="./demo/manual.tsx">手动更新和移除</code>
 <code src="./demo/position.tsx">自定义位置</code>

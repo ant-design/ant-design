@@ -138,7 +138,7 @@ const App: React.FC = () => (
         Modal.create<User[]>({
           title: 'Select Users',
           maskClosable: false,
-          /* Same as children: <UserSelect /> */
+          /* Same as `children: <UserSelect />` */
           render: (formLikeRef) => <UserSelect ref={formLikeRef} />,
           async onOk(values) {
             console.log(`Selected Users:`, values);
