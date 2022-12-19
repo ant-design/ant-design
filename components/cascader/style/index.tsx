@@ -105,7 +105,7 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token) => {
                 '&:hover': {
                   background: token.controlItemBgHover,
                 },
-                ' &-disabled': {
+                '&-disabled': {
                   color: token.colorTextDisabled,
                   cursor: 'not-allowed',
 
