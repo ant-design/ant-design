@@ -4,7 +4,7 @@ import type { SerializedStyles } from '@emotion/react';
 import { css } from '@emotion/react';
 import type { Extra, Icon } from './util';
 import useSiteToken from '../../../hooks/useSiteToken';
-import SiteContext from './SiteContext';
+import SiteContext from '../../../theme/slots/SiteContext';
 import { useCarouselStyle } from './util';
 
 const useStyle = () => {

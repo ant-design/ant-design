@@ -28743,6 +28743,7 @@ exports[`ConfigProvider components Tabs configProvider 1`] = `
       >
         <div
           class="config-tabs-tab config-tabs-tab-active"
+          data-node-key="Light"
         >
           <div
             aria-controls="rc-tabs-test-panel-Light"
@@ -28832,6 +28833,7 @@ exports[`ConfigProvider components Tabs configProvider componentDisabled 1`] = `
       >
         <div
           class="config-tabs-tab config-tabs-tab-active"
+          data-node-key="Light"
         >
           <div
             aria-controls="rc-tabs-test-panel-Light"
@@ -28921,6 +28923,7 @@ exports[`ConfigProvider components Tabs configProvider componentSize large 1`] =
       >
         <div
           class="config-tabs-tab config-tabs-tab-active"
+          data-node-key="Light"
         >
           <div
             aria-controls="rc-tabs-test-panel-Light"
@@ -29010,6 +29013,7 @@ exports[`ConfigProvider components Tabs configProvider componentSize middle 1`] 
       >
         <div
           class="config-tabs-tab config-tabs-tab-active"
+          data-node-key="Light"
         >
           <div
             aria-controls="rc-tabs-test-panel-Light"
@@ -29099,6 +29103,7 @@ exports[`ConfigProvider components Tabs configProvider virtual and dropdownMatch
       >
         <div
           class="ant-tabs-tab ant-tabs-tab-active"
+          data-node-key="Light"
         >
           <div
             aria-controls="rc-tabs-test-panel-Light"
@@ -29188,6 +29193,7 @@ exports[`ConfigProvider components Tabs normal 1`] = `
       >
         <div
           class="ant-tabs-tab ant-tabs-tab-active"
+          data-node-key="Light"
         >
           <div
             aria-controls="rc-tabs-test-panel-Light"
@@ -29277,6 +29283,7 @@ exports[`ConfigProvider components Tabs prefixCls 1`] = `
       >
         <div
           class="prefix-Tabs-tab prefix-Tabs-tab-active"
+          data-node-key="Light"
         >
           <div
             aria-controls="rc-tabs-test-panel-Light"

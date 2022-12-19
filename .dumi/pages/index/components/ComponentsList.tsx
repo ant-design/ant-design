@@ -17,7 +17,7 @@ import { CustomerServiceOutlined, QuestionCircleOutlined, SyncOutlined } from '@
 import { css } from '@emotion/react';
 import useSiteToken from '../../../hooks/useSiteToken';
 import useLocale from '../../../hooks/useLocale';
-import SiteContext from './SiteContext';
+import SiteContext from '../../../theme/slots/SiteContext';
 import { useCarouselStyle } from './util';
 
 const SAMPLE_CONTENT_EN =
