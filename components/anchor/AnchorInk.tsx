@@ -9,11 +9,9 @@ export interface AnchorInkProps {
 }
 
 const AnchorInk = React.forwardRef<HTMLElement, AnchorInkProps>((props, ref) => {
-  const { anchorPrefixCls: prefixCls, activeLink, direction: anchorDirection } = props;
+  const { anchorPrefixCls: prefixCls, activeLink } = props;
 
-  const inkClass = classNames({
-    [`${prefixCls}-ink-ball`]: anchorDirection !== 'horizontal',
-    [`${prefixCls}-ink-ball-horizontal`]: anchorDirection === 'horizontal',
+  const inkClass = classNames(`${prefixCls}-ink-ball`, {
     [`${prefixCls}-ink-ball-visible`]: activeLink,
   });
 

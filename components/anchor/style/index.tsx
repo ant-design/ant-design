@@ -34,23 +34,6 @@ const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
         position: 'relative',
         paddingInlineStart: lineWidthBold,
 
-        [`${componentCls}-ink-ball`]: {
-          position: 'absolute',
-          left: {
-            _skip_check_: true,
-            value: 0,
-          },
-          display: 'none',
-          transform: 'translateY(-50%)',
-          transition: `top ${motionDurationSlow} ease-in-out`,
-          width: lineWidthBold,
-          backgroundColor: colorPrimary,
-
-          [`&${componentCls}-ink-ball-visible`]: {
-            display: 'inline-block',
-          },
-        },
-
         [`${componentCls}-link`]: {
           paddingBlock: token.anchorPaddingBlock,
           paddingInline: `${token.anchorPaddingInline}px 0`,
@@ -91,6 +74,23 @@ const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
             height: '100%',
             borderInlineStart: `${token.lineWidthBold}px ${token.lineType} ${token.colorSplit}`,
             content: '" "',
+          },
+
+          [`${componentCls}-ink-ball`]: {
+            position: 'absolute',
+            left: {
+              _skip_check_: true,
+              value: 0,
+            },
+            display: 'none',
+            transform: 'translateY(-50%)',
+            transition: `top ${motionDurationSlow} ease-in-out`,
+            width: lineWidthBold,
+            backgroundColor: token.colorPrimary,
+
+            [`&${componentCls}-ink-ball-visible`]: {
+              display: 'inline-block',
+            },
           },
         },
       },
@@ -138,15 +138,14 @@ const genSharedAnchorHorizontalStyle: GenerateStyle<AnchorToken> = (token): CSSO
         [`${componentCls}-link:first-child`]: {
           paddingInline: 0,
         },
-      },
 
-      [`${componentCls}-ink-ball-horizontal`]: {
-        position: 'absolute',
-        offsetInlineEnd: 0,
-        bottom: 0,
-        transition: `left ${motionDurationSlow} ease-in-out, width ${motionDurationSlow} ease-in-out`,
-        height: lineWidthBold,
-        backgroundColor: token.colorPrimary,
+        [`${componentCls}-ink-ball`]: {
+          position: 'absolute',
+          bottom: 0,
+          transition: `left ${motionDurationSlow} ease-in-out, width ${motionDurationSlow} ease-in-out`,
+          height: lineWidthBold,
+          backgroundColor: token.colorPrimary,
+        },
       },
     },
   };
