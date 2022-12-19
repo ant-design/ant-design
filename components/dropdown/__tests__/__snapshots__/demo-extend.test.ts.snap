@@ -3126,12 +3126,15 @@ Array [
       style="opacity:0"
     >
       <div
-        class="dropdown-content"
+        style="background-color:#ffffff;border-radius:8px;box-shadow:0 6px 16px 0 rgba(0, 0, 0, 0.08),
+      0 3px 6px -4px rgba(0, 0, 0, 0.12),
+      0 9px 28px 8px rgba(0, 0, 0, 0.05)"
       >
         <ul
           class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
           data-menu-list="true"
           role="menu"
+          style="box-shadow:none"
           tabindex="0"
         >
           <li
