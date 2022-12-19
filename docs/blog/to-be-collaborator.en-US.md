@@ -26,7 +26,7 @@ Hello everyone, I am [heiyu](https://github.com/heiyu4585). About Ant Design, I 
 - Ant Design link will appear in your github account is https://github.com/heiyu4585/ant-design this project
 - Use the following command on the project address on the local computer: get a github folder
 
-```markdown
+```bash
 git clone https://github.com/heiyu4585/ant-design.git
 ```
 
@@ -37,13 +37,13 @@ Note: `heiyu4585` changed to your own github username
 - Go to the Ant Design folder and add the remote address of Ant Design
 
 ```
-cd ant-desgin
+cd ant-design
 git remote add upstream https://github.com/ant-design/ant-design
 ```
 
 - Pull the latest remote branch version
 
-```markdown
+```bash
 git pull upstream master
 ```
 
@@ -55,7 +55,7 @@ Now we are on the master branch from the fork, and this master is reserved for r
 
 ### 4. Pull the new branch locally
 
-```
+```bash
 git pull
 git checkout fix-branch
 ```
@@ -85,31 +85,31 @@ To help you start your first attempt, we use [good first issues](https://github.
 
 - Switch to the `master` branch with the following code:
 
-```markdown
+```bash
 git checkout master
 ```
 
 - Use the following code to pull the latest code from the remote:
 
-```markdown
+```bash
 git pull upstream master
 ```
 
 - switch back to fix-branch
 
-```markdown
+```bash
 git checkout fix-branch
 ```
 
 - Merge the `commit` of `master` into `fix-branch`, and resolve conflicts if there are conflicts:
 
-```markdown
+```bash
 git rebase master
 ```
 
 - Submit the updated code to your own `fix-branch`:
 
-```markdown
+```bash
 git push origin fix-branch
 ```
 
@@ -143,7 +143,7 @@ You can switch to the branches page on your github code repository page, click t
 
 Repair method:
 
-```
+```bash
 npm run install-react-16
 npm run test component/XXX
 ```

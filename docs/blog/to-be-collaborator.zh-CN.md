@@ -26,7 +26,7 @@ author: heiyu4585
 - 你的 github 帐号中会出现 Ant Design 链接是 https://github.com/heiyu4585/ant-design 这个项目
 - 在本地电脑上项目地址使用以下命令：得到一个 github 文件夹
 
-```markdown
+```bash
 git clone https://github.com/heiyu4585/ant-design.git
 ```
 
@@ -36,14 +36,14 @@ git clone https://github.com/heiyu4585/ant-design.git
 
 - 进入 Ant Design 文件夹，添加 Ant Design 的远程地址
 
-```
-cd ant-desgin
+```bash
+cd ant-design
 git remote add upstream https://github.com/ant-design/ant-design
 ```
 
 - 拉取最新的远端分支版本
 
-```markdown
+```bash
 git pull upstream master
 ```
 
@@ -55,7 +55,7 @@ git pull upstream master
 
 ### 4. 在本地拉取新分支
 
-```
+```bash
 git pull
 git checkout fix-branch
 ```
@@ -85,31 +85,31 @@ git checkout fix-branch
 
 - 使用以下代码切换到 `master` 分支：
 
-```markdown
+```bash
 git checkout master
 ```
 
 - 使用以下代码拉出远程的最新代码：
 
-```markdown
+```bash
 git pull upstream master
 ```
 
 - 切换回 fix-branch
 
-```markdown
+```bash
 git checkout fix-branch
 ```
 
 - 把 `master` 的 `commit `合并到 `fix-branch`，有冲突解决冲突：
 
-```markdown
+```bash
 git rebase master
 ```
 
 - 把更新代码提交到自己的 `fix-branch` 中:
 
-```markdown
+```bash
 git push origin fix-branch
 ```
 
