@@ -16,7 +16,7 @@ import type { ConfigConsumerProps, CSPConfig, DirectionType, Theme, ThemeConfig 
 import { ConfigConsumer, ConfigContext, defaultIconPrefixCls } from './context';
 import { registerTheme } from './cssVariables';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
-import { DisabledContextProvider } from './DisabledContext';
+import DisabledContext, { DisabledContextProvider } from './DisabledContext';
 import useTheme from './hooks/useTheme';
 import type { SizeType } from './SizeContext';
 import SizeContext, { SizeContextProvider } from './SizeContext';
@@ -29,6 +29,7 @@ export {
   type CSPConfig,
   type DirectionType,
   type ConfigConsumerProps,
+  DisabledContext,
 };
 export { defaultIconPrefixCls };
 
@@ -306,6 +307,7 @@ const ConfigProvider: React.FC<ConfigProviderProps> & {
   ConfigContext: typeof ConfigContext;
   SizeContext: typeof SizeContext;
   config: typeof setGlobalConfig;
+  DisabledContext: typeof DisabledContext;
 } = (props) => (
   <LocaleReceiver>
     {(_, __, legacyLocale) => (
@@ -321,5 +323,6 @@ const ConfigProvider: React.FC<ConfigProviderProps> & {
 ConfigProvider.ConfigContext = ConfigContext;
 ConfigProvider.SizeContext = SizeContext;
 ConfigProvider.config = setGlobalConfig;
+ConfigProvider.DisabledContext = DisabledContext;
 
 export default ConfigProvider;
