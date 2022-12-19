@@ -7,10 +7,9 @@ import { clearFix, resetComponent, textEllipsis } from '../../style';
 export interface ComponentToken {}
 
 interface CardToken extends FullToken<'Card'> {
-  cardHeaderHeight: number;
-  cardHeaderHeightSM: number;
-  cardShadow: string;
   cardHeadHeight: number;
+  cardHeadHeightSM: number;
+  cardShadow: string;
   cardHeadPadding: number;
   cardPaddingSM: number;
   cardPaddingBase: number;
@@ -349,13 +348,13 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 
 // ============================== Size ==============================
 const genCardSizeStyle: GenerateStyle<CardToken> = (token): CSSObject => {
-  const { componentCls, cardPaddingSM, fontSize, lineHeight, cardHeaderHeightSM } = token;
-  const cardHeadPaddingSM = (cardHeaderHeightSM - fontSize * lineHeight) / 2;
+  const { componentCls, cardPaddingSM, fontSize, lineHeight, cardHeadHeightSM } = token;
+  const cardHeadPaddingSM = (cardHeadHeightSM - fontSize * lineHeight) / 2;
 
   return {
     [`${componentCls}-small`]: {
       [`> ${componentCls}-head`]: {
-        minHeight: cardHeaderHeightSM,
+        minHeight: cardHeadHeightSM,
         padding: `0 ${cardPaddingSM}px`,
         fontSize: token.fontSize,
 
@@ -382,8 +381,8 @@ const genCardSizeStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 export default genComponentStyleHook('Card', (token) => {
   const cardToken = mergeToken<CardToken>(token, {
     cardShadow: token.boxShadowCard,
-    cardHeaderHeight: token.fontSizeLG * token.lineHeightLG + token.padding * 2,
-    cardHeaderHeightSM: token.fontSize * token.lineHeight + token.paddingXS * 2,
+    cardHeadHeight: token.fontSizeLG * token.lineHeightLG + token.padding * 2,
+    cardHeadHeightSM: token.fontSize * token.lineHeight + token.paddingXS * 2,
     cardHeadPadding: token.padding,
     cardPaddingBase: token.paddingLG,
     cardHeadTabsMarginBottom: -token.padding - token.lineWidth,
