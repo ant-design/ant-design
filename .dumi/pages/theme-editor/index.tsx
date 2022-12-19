@@ -4,8 +4,7 @@ import { Button, ConfigProvider, message, Modal, Typography } from 'antd';
 import type { ThemeConfig } from 'antd/es/config-provider/context';
 import { Helmet } from 'dumi';
 import { css } from '@emotion/react';
-import CopyToClipboard from 'react-copy-to-clipboard';
-import { CopyOutlined, EditOutlined } from '@ant-design/icons';
+import { EditOutlined } from '@ant-design/icons';
 import type { JSONContent, TextContent } from 'vanilla-jsoneditor';
 import useLocale from '../../hooks/useLocale';
 import JSONEditor from './components/JSONEditor';
@@ -16,26 +15,22 @@ const locales = {
     title: '主题编辑器',
     save: '保存',
     reset: '重置',
-    export: '导出',
-    edit: '编辑',
+    edit: '代码',
     editModelTitle: '编辑主题配置',
     editTitle: '在下方编辑你的主题 JSON 即可',
     editJsonContentTypeError: '主题 JSON 格式错误',
     editSuccessfully: '编辑成功',
-    exportDesc: '将下面的 JSON 对象复制到 ConfigProvider 的 theme 属性中即可。',
     saveSuccessfully: '保存成功',
   },
   en: {
     title: 'Theme Editor',
     save: 'Save',
     reset: 'Reset',
-    export: 'Export',
-    edit: 'Edit',
+    edit: 'Code',
     editModelTitle: 'edit Theme Config',
     editTitle: 'Edit your theme JSON below',
     editJsonContentTypeError: 'The theme of the JSON format is incorrect',
     editSuccessfully: 'Edited successfully',
-    exportDesc: 'Copy the following JSON object to the theme prop of ConfigProvider.',
     saveSuccessfully: 'Saved successfully',
   },
 };
@@ -55,7 +50,6 @@ const ANT_DESIGN_V5_THEME_EDITOR_THEME = 'ant-design-v5-theme-editor-theme';
 
 const CustomTheme = () => {
   const [messageApi, contextHolder] = message.useMessage();
-  const [modalApi, modalContextHolder] = Modal.useModal();
   const [locale, lang] = useLocale(locales);
 
   const [theme, setTheme] = React.useState<ThemeConfig>({});
@@ -87,44 +81,6 @@ const CustomTheme = () => {
   const handleSave = () => {
     localStorage.setItem(ANT_DESIGN_V5_THEME_EDITOR_THEME, JSON.stringify(theme));
     messageApi.success(locale.saveSuccessfully);
-  };
-
-  const onCopy = (text: string, result: boolean) => {
-    if (result) {
-      messageApi.success('Copy theme config successfully!');
-    } else {
-      messageApi.error('Copy failed, please try again.');
-    }
-  };
-
-  const handleOutput = () => {
-    modalApi.info({
-      title: locale.export,
-      width: 600,
-      content: (
-        <div>
-          <div style={{ color: 'rgba(0,0,0,0.65)' }}>{locale.exportDesc}</div>
-          <pre
-            style={{
-              padding: 12,
-              background: '#f5f5f5',
-              borderRadius: 4,
-              marginTop: 12,
-              position: 'relative',
-            }}
-          >
-            <CopyToClipboard text={JSON.stringify(theme, null, 2)} onCopy={onCopy}>
-              <Button
-                type="text"
-                icon={<CopyOutlined />}
-                style={{ position: 'absolute', right: 8, top: 8 }}
-              />
-            </CopyToClipboard>
-            {JSON.stringify(theme, null, 2)}
-          </pre>
-        </div>
-      ),
-    });
   };
 
   const handleReset = () => {
@@ -175,7 +131,6 @@ const CustomTheme = () => {
         <meta property="og:title" content={`${locale.title} - Ant Design`} />
       </Helmet>
       {contextHolder}
-      {modalContextHolder}
       <ConfigProvider theme={{ inherit: false }}>
         <div css={styles.header}>
           <Typography.Title level={5} style={{ margin: 0 }}>
@@ -201,9 +156,6 @@ const CustomTheme = () => {
             </Modal>
             <Button onClick={handleEditConfig} icon={<EditOutlined />} style={{ marginRight: 8 }}>
               {locale.edit}
-            </Button>
-            <Button onClick={handleOutput} style={{ marginRight: 8 }}>
-              {locale.export}
             </Button>
             <Button onClick={handleReset} style={{ marginRight: 8 }}>
               {locale.reset}

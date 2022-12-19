@@ -15,6 +15,7 @@ title: 社区精选组件
 | 拖拽 | [dnd-kit](https://github.com/clauderic/dnd-kit) [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd/) [react-dnd](https://github.com/gaearon/react-dnd) [react-sortable-hoc](https://github.com/clauderic/react-sortable-hoc) |
 | 代码编辑器 | [react-codemirror2](https://github.com/scniro/react-codemirror2) [react-monaco-editor](https://github.com/superRaytin/react-monaco-editor) |
 | 富文本编辑器 | [react-quill](https://github.com/zenoamaro/react-quill) [braft-editor](https://github.com/margox/braft-editor) |
+| JSON 编辑器 | [vanilla-jsoneditor](https://github.com/josdejong/svelte-jsoneditor) |
 | JSON 显示器 | [react-json-view](https://github.com/mac-s-g/react-json-view) |
 | 拾色器 | [react-colorful](https://github.com/omgovich/react-colorful) [react-color](http://casesandberg.github.io/react-color/) |
 | 响应式 | [react-responsive](https://github.com/contra/react-responsive) [react-media](https://github.com/ReactTraining/react-media) |

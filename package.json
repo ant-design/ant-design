@@ -154,8 +154,7 @@
     "rc-util": "^5.25.2",
     "scroll-into-view-if-needed": "^3.0.3",
     "shallowequal": "^1.1.0",
-    "throttle-debounce": "^5.0.0",
-    "vanilla-jsoneditor": "^0.11.4"
+    "throttle-debounce": "^5.0.0"
   },
   "devDependencies": {
     "@ant-design/tools": "^16.1.0-alpha.2",
@@ -285,6 +284,7 @@
     "ts-node": "^10.8.2",
     "typedoc": "^0.23.21",
     "typescript": "~4.9.3",
+    "vanilla-jsoneditor": "^0.11.4",
     "webpack-bundle-analyzer": "^4.1.0",
     "xhr-mock": "^2.4.1",
     "yaml-front-matter": "^4.0.0"
