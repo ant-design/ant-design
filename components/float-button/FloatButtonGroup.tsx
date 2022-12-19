@@ -67,8 +67,8 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
 
   const onClick = useCallback(
     (e: MouseEvent) => {
-      if (floatButtonGroupRef.current!.contains(e.target as Node)) {
-        if (floatButtonRef.current!.contains(e.target as Node)) {
+      if (floatButtonGroupRef.current?.contains(e.target as Node)) {
+        if (floatButtonRef.current?.contains(e.target as Node)) {
           handleOpenChange();
         }
         return;
