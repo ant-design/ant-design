@@ -112,8 +112,14 @@ const genSharedAnchorHorizontalStyle: GenerateStyle<AnchorToken> = (token): CSSO
 
       '&::before': {
         position: 'absolute',
-        offsetInlineStart: 0,
-        offsetInlineEnd: 0,
+        left: {
+          _skip_check_: true,
+          value: 0,
+        },
+        right: {
+          _skip_check_: true,
+          value: 0,
+        },
         bottom: 0,
         borderBottom: `1px ${token.lineType} ${token.colorSplit}`,
         content: '" "',

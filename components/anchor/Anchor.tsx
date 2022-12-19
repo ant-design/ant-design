@@ -179,22 +179,17 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
       `.${prefixCls}-link-title-active`,
     );
     if (linkNode && spanLinkNode.current) {
-      spanLinkNode.current.style.top = `${linkNode.offsetTop + linkNode.clientHeight / 2}px`;
-      spanLinkNode.current.style.height = `${linkNode.clientHeight}px`;
-    }
-  };
-
-  const updateHorizontalInk = () => {
-    const linkNode = wrapperRef.current?.querySelector<HTMLElement>(
-      `.${prefixCls}-link-title-active`,
-    );
-    if (linkNode && spanLinkNode.current) {
-      spanLinkNode.current.style.left = `${linkNode.offsetLeft}px`;
-      spanLinkNode.current.style.width = `${linkNode.clientWidth}px`;
-      scrollIntoView(linkNode, {
-        scrollMode: 'if-needed',
-        block: 'nearest',
-      });
+      if (anchorDirection !== 'horizontal') {
+        spanLinkNode.current.style.top = `${linkNode.offsetTop + linkNode.clientHeight / 2}px`;
+        spanLinkNode.current.style.height = `${linkNode.clientHeight}px`;
+      } else {
+        spanLinkNode.current.style.left = `${linkNode.offsetLeft}px`;
+        spanLinkNode.current.style.width = `${linkNode.clientWidth}px`;
+        scrollIntoView(linkNode, {
+          scrollMode: 'if-needed',
+          block: 'nearest',
+        });
+      }
     }
   };
 
@@ -338,8 +333,7 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
   }, [getCurrentAnchor]);
 
   React.useEffect(() => {
-    if (anchorDirection === 'horizontal') updateHorizontalInk();
-    else updateInk();
+    updateInk();
   }, [anchorDirection, getCurrentAnchor, dependencyListItem, activeLink]);
 
   const memoizedContextValue = React.useMemo<AntAnchor>(
