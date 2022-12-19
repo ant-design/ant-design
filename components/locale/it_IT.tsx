@@ -2,7 +2,7 @@
 import Pagination from 'rc-pagination/lib/locale/it_IT';
 import Calendar from '../calendar/locale/it_IT';
 import DatePicker from '../date-picker/locale/it_IT';
-import type { Locale } from '../locale-provider';
+import type { Locale } from '../locale';
 import TimePicker from '../time-picker/locale/it_IT';
 
 const typeTemplate = ' ${label} non è un ${type} valido';

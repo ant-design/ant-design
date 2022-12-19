@@ -297,4 +297,44 @@ describe('Tour', () => {
       panelRender({ total: undefined, title: <div>test</div> }, 0, 'default');
     }).not.toThrow();
   });
+
+  it('custom step pre btn & next btn className & style', () => {
+    const App: React.FC = () => (
+      <Tour
+        steps={[
+          {
+            title: 'Show in Center',
+            description: 'Here is the content of Tour.',
+            nextButtonProps: {
+              className: 'customClassName',
+              style: {
+                backgroundColor: 'rgb(69,69,255)',
+              },
+            },
+          },
+          {
+            title: 'With Cover',
+            description: 'Here is the content of Tour.',
+            cover: (
+              <img
+                alt="tour.png"
+                src="https://user-images.githubusercontent.com/5378891/197385811-55df8480-7ff4-44bd-9d43-a7dade598d70.png"
+              />
+            ),
+          },
+        ]}
+      />
+    );
+
+    const { container } = render(<App />);
+    // className
+    expect(
+      screen.getByRole('button', { name: 'Next' }).className.includes('customClassName'),
+    ).toEqual(true);
+    // style
+    expect(screen.getByRole('button', { name: 'Next' }).style.backgroundColor).toEqual(
+      'rgb(69, 69, 255)',
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
 });

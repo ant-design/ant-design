@@ -119,6 +119,7 @@
     "classnames": "^2.2.6",
     "copy-to-clipboard": "^3.2.0",
     "dayjs": "^1.11.1",
+    "qrcode.react": "^3.1.0",
     "rc-cascader": "~3.8.0",
     "rc-checkbox": "~2.3.0",
     "rc-collapse": "~3.4.2",
@@ -230,6 +231,7 @@
     "isomorphic-fetch": "^3.0.0",
     "jest": "^29.0.0",
     "jest-axe": "^7.0.0",
+    "jest-canvas-mock": "^2.4.0",
     "jest-environment-jsdom": "^29.0.1",
     "jest-environment-node": "^29.0.0",
     "jest-image-snapshot": "^6.0.0",
@@ -298,17 +300,17 @@
   "size-limit": [
     {
       "path": "./dist/antd.min.js",
-      "limit": "377 KiB"
+      "limit": "385 KiB"
     },
     {
       "path": "./dist/antd-with-locales.min.js",
-      "limit": "430 KiB"
+      "limit": "500 KiB"
     }
   ],
   "bundlesize": [
     {
       "path": "./dist/antd.min.js",
-      "maxSize": "377 kB"
+      "maxSize": "385 kB"
     }
   ],
   "tnpm": {

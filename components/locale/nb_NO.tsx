@@ -2,7 +2,7 @@
 import Pagination from 'rc-pagination/lib/locale/nb_NO';
 import Calendar from '../calendar/locale/nb_NO';
 import DatePicker from '../date-picker/locale/nb_NO';
-import type { Locale } from '../locale-provider';
+import type { Locale } from '../locale';
 import TimePicker from '../time-picker/locale/nb_NO';
 
 const typeTemplate = '${label} er ikke et gyldig ${type}';
