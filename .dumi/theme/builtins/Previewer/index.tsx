@@ -179,7 +179,7 @@ class Demo extends React.Component<DemoProps, DemoState> {
   </head>
   <body>
     <div id="container" style="padding: 24px" />
-    <script>var mountNode = document.getElementById('container');</script>
+    <script>const mountNode = document.getElementById('container');</script>
   </body>
 </html>`;
 
