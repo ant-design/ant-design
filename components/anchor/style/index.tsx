@@ -16,8 +16,15 @@ interface AnchorToken extends FullToken<'Anchor'> {
 
 // ============================== Shared ==============================
 const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
-  const { componentCls, holderOffsetBlock, motionDurationSlow, lineWidthBold, colorPrimary } =
-    token;
+  const {
+    componentCls,
+    holderOffsetBlock,
+    motionDurationSlow,
+    lineWidthBold,
+    colorPrimary,
+    lineType,
+    colorSplit,
+  } = token;
 
   return {
     [`${componentCls}-wrapper`]: {
@@ -72,7 +79,7 @@ const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
             },
             top: 0,
             height: '100%',
-            borderInlineStart: `${token.lineWidthBold}px ${token.lineType} ${token.colorSplit}`,
+            borderInlineStart: `${lineWidthBold}px ${lineType} ${colorSplit}`,
             content: '" "',
           },
 
@@ -86,7 +93,7 @@ const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
             transform: 'translateY(-50%)',
             transition: `top ${motionDurationSlow} ease-in-out`,
             width: lineWidthBold,
-            backgroundColor: token.colorPrimary,
+            backgroundColor: colorPrimary,
 
             [`&${componentCls}-ink-ball-visible`]: {
               display: 'inline-block',
@@ -103,7 +110,7 @@ const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
 };
 
 const genSharedAnchorHorizontalStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
-  const { componentCls, motionDurationSlow, lineWidthBold } = token;
+  const { componentCls, motionDurationSlow, lineWidthBold, colorPrimary } = token;
 
   return {
     [`${componentCls}-wrapper-horizontal`]: {
@@ -144,7 +151,7 @@ const genSharedAnchorHorizontalStyle: GenerateStyle<AnchorToken> = (token): CSSO
           bottom: 0,
           transition: `left ${motionDurationSlow} ease-in-out, width ${motionDurationSlow} ease-in-out`,
           height: lineWidthBold,
-          backgroundColor: token.colorPrimary,
+          backgroundColor: colorPrimary,
         },
       },
     },
