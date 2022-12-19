@@ -126,10 +126,11 @@ const useStyle = () => {
 
 const Sidebar: React.FC = () => {
   const sidebarData = useSidebarData();
-  const { isMobile } = useContext(SiteContext);
+  const { isMobile, theme } = useContext(SiteContext);
   const styles = useStyle();
 
   const [menuItems, selectedKey] = useMenu();
+  const isDark = theme.includes('dark');
 
   const menuChild = (
     <Menu
@@ -137,6 +138,7 @@ const Sidebar: React.FC = () => {
       inlineIndent={30}
       css={styles.asideContainer}
       mode="inline"
+      theme={isDark ? 'dark' : 'light'}
       selectedKeys={[selectedKey]}
       defaultOpenKeys={sidebarData?.map(({ title }) => title).filter((item) => item) as string[]}
     />
