@@ -50,11 +50,7 @@ interface PanelProps {
   collapsible?: CollapsibleType;
 }
 
-type CompoundedComponent = React.FC<CollapseProps> & {
-  Panel: typeof CollapsePanel;
-};
-
-const Collapse: CompoundedComponent = (props) => {
+const Collapse: React.ForwardRefRenderFunction<RcCollapse, CollapseProps> = (props, ref) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const {
     prefixCls: customizePrefixCls,
@@ -132,6 +128,7 @@ const Collapse: CompoundedComponent = (props) => {
 
   return wrapSSR(
     <RcCollapse
+      ref={ref}
       openMotion={openMotion}
       {...props}
       expandIcon={renderExpandIcon}
@@ -143,6 +140,12 @@ const Collapse: CompoundedComponent = (props) => {
   );
 };
 
-Collapse.Panel = CollapsePanel;
+const RefCollapse = React.forwardRef<RcCollapse, CollapseProps>(
+  Collapse,
+) as unknown as typeof Collapse & {
+  Panel: typeof CollapsePanel;
+};
 
-export default Collapse;
+RefCollapse.Panel = CollapsePanel;
+
+export default RefCollapse;
