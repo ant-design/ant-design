@@ -85,7 +85,7 @@ function App<T>({
   //     setConfirmLoading(false);
   //   }
   // };
-  const handleCancel: typeof onCancel = e => {
+  const handleCancel: typeof onCancel = (e) => {
     setVisible(false);
     onCancel?.(e);
   };
@@ -93,7 +93,7 @@ function App<T>({
   const renderPropChildren = () => {
     if (render) return render(formLikeRef);
     let attached = false;
-    return Children.map(children, child => {
+    return Children.map(children, (child) => {
       if (!isValidElement(child)) {
         return child;
       }
@@ -133,7 +133,7 @@ function App<T>({
       //   ),
       // ]}
       destroyOnClose
-      visible={visible}
+      open={visible}
     >
       {renderPropChildren()}
     </Modal>
