@@ -4,7 +4,7 @@ date: 2022-12-08
 author: heiyu4585
 ---
 
-大家好，我是[黑雨](https://github.com/heiyu4585)。关于 Ant Design ，相信大家都非常熟悉，我在为 Ant Design 做贡献之前在工作中很多后台管理系统项目使用过 Ant Design，给我最大的感觉就是好用、好看、简单、稳定。现在 `v5` 版本已经发布，强烈推荐大家试使用，我也有幸开发了 `v5` 版本的 `Tour` 组件和 `App` 组件，以及一些其他维护工作，下面给大家分享一下如何通过给 Ant Design 提 PR 成长为 Collaborator。
+大家好，我是[黑雨](https://github.com/heiyu4585)。关于 Ant Design，相信大家都非常熟悉，我在很多后台管理系统项目使用过 Ant Design，给我最大的感觉就是好用、好看、简单、稳定。现在 `v5` 版本已经发布，强烈推荐大家试使用，我也有幸开发了 `v5` 版本的 `Tour` 组件和 `App` 组件，以及一些其他维护工作，下面给大家分享一下如何通过给 Ant Design 提 PR 成长为 Collaborator。
 
 ## 一. 阅读相关文章熟悉相关概念
 
