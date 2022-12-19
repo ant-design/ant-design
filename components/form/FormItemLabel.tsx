@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import * as React from 'react';
 import type { ColProps } from '../grid/col';
 import Col from '../grid/col';
-import { useLocaleReceiver } from '../locale-provider/LocaleReceiver';
+import { useLocaleReceiver } from '../locale/LocaleReceiver';
 import defaultLocale from '../locale/en_US';
 import type { TooltipProps } from '../tooltip';
 import Tooltip from '../tooltip';

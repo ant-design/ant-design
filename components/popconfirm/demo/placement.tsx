@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, message, Popconfirm } from 'antd';
 
 const text = 'Are you sure to delete this task?';
+const description = 'Delete the task';
 
 const confirm = () => {
   message.info('Clicked on Yes.');
@@ -10,15 +11,30 @@ const confirm = () => {
 const App: React.FC = () => (
   <div className="demo">
     <div style={{ marginLeft: 70, whiteSpace: 'nowrap' }}>
-      <Popconfirm placement="topLeft" title={text} onConfirm={confirm} okText="Yes" cancelText="No">
+      <Popconfirm
+        placement="topLeft"
+        title={text}
+        description={description}
+        onConfirm={confirm}
+        okText="Yes"
+        cancelText="No"
+      >
         <Button>TL</Button>
       </Popconfirm>
-      <Popconfirm placement="top" title={text} onConfirm={confirm} okText="Yes" cancelText="No">
+      <Popconfirm
+        placement="top"
+        title={text}
+        description={description}
+        onConfirm={confirm}
+        okText="Yes"
+        cancelText="No"
+      >
         <Button>Top</Button>
       </Popconfirm>
       <Popconfirm
         placement="topRight"
         title={text}
+        description={description}
         onConfirm={confirm}
         okText="Yes"
         cancelText="No"
@@ -27,15 +43,30 @@ const App: React.FC = () => (
       </Popconfirm>
     </div>
     <div style={{ width: 70, float: 'left' }}>
-      <Popconfirm placement="leftTop" title={text} onConfirm={confirm} okText="Yes" cancelText="No">
+      <Popconfirm
+        placement="leftTop"
+        title={text}
+        description={description}
+        onConfirm={confirm}
+        okText="Yes"
+        cancelText="No"
+      >
         <Button>LT</Button>
       </Popconfirm>
-      <Popconfirm placement="left" title={text} onConfirm={confirm} okText="Yes" cancelText="No">
+      <Popconfirm
+        placement="left"
+        title={text}
+        description={description}
+        onConfirm={confirm}
+        okText="Yes"
+        cancelText="No"
+      >
         <Button>Left</Button>
       </Popconfirm>
       <Popconfirm
         placement="leftBottom"
         title={text}
+        description={description}
         onConfirm={confirm}
         okText="Yes"
         cancelText="No"
@@ -47,18 +78,27 @@ const App: React.FC = () => (
       <Popconfirm
         placement="rightTop"
         title={text}
+        description={description}
         onConfirm={confirm}
         okText="Yes"
         cancelText="No"
       >
         <Button>RT</Button>
       </Popconfirm>
-      <Popconfirm placement="right" title={text} onConfirm={confirm} okText="Yes" cancelText="No">
+      <Popconfirm
+        placement="right"
+        title={text}
+        description={description}
+        onConfirm={confirm}
+        okText="Yes"
+        cancelText="No"
+      >
         <Button>Right</Button>
       </Popconfirm>
       <Popconfirm
         placement="rightBottom"
         title={text}
+        description={description}
         onConfirm={confirm}
         okText="Yes"
         cancelText="No"
@@ -70,18 +110,27 @@ const App: React.FC = () => (
       <Popconfirm
         placement="bottomLeft"
         title={text}
+        description={description}
         onConfirm={confirm}
         okText="Yes"
         cancelText="No"
       >
         <Button>BL</Button>
       </Popconfirm>
-      <Popconfirm placement="bottom" title={text} onConfirm={confirm} okText="Yes" cancelText="No">
+      <Popconfirm
+        placement="bottom"
+        title={text}
+        description={description}
+        onConfirm={confirm}
+        okText="Yes"
+        cancelText="No"
+      >
         <Button>Bottom</Button>
       </Popconfirm>
       <Popconfirm
         placement="bottomRight"
         title={text}
+        description={description}
         onConfirm={confirm}
         okText="Yes"
         cancelText="No"

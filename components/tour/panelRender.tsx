@@ -3,7 +3,7 @@ import type { ReactNode } from 'react';
 import classNames from 'classnames';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import type { TourStepProps } from './interface';
-import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import LocaleReceiver from '../locale/LocaleReceiver';
 import Button from '../button';
 import type { ButtonProps } from '../button';
 import defaultLocale from '../locale/en_US';
@@ -115,7 +115,7 @@ const panelRender = (
                     {...prevButtonProps}
                     onClick={prevBtnClick}
                     size="small"
-                    className={`${prefixCls}-prev-btn`}
+                    className={classNames(`${prefixCls}-prev-btn`, prevButtonProps?.className)}
                   >
                     {prevButtonProps?.children ?? contextLocale.Previous}
                   </Button>
@@ -125,7 +125,7 @@ const panelRender = (
                   {...nextButtonProps}
                   onClick={nextBtnClick}
                   size="small"
-                  className={`${prefixCls}-next-btn`}
+                  className={classNames(`${prefixCls}-next-btn`, nextButtonProps?.className)}
                 >
                   {nextButtonProps?.children ??
                     (isLastStep ? contextLocale.Finish : contextLocale.Next)}

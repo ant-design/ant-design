@@ -16,7 +16,7 @@ import OverrideContext from './OverrideContext';
 import useItems from './hooks/useItems';
 import type { ItemType } from './hooks/useItems';
 import MenuContext from './MenuContext';
-import type { MenuTheme } from './MenuContext';
+import type { MenuTheme, MenuContextProps } from './MenuContext';
 
 export interface MenuProps extends Omit<RcMenuProps, 'items'> {
   theme?: MenuTheme;
@@ -131,7 +131,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
   }
 
   // ======================== Context ==========================
-  const contextValue = React.useMemo(
+  const contextValue = React.useMemo<MenuContextProps>(
     () => ({
       prefixCls,
       inlineCollapsed: mergedInlineCollapsed || false,

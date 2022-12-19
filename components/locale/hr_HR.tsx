@@ -2,7 +2,7 @@
 import Pagination from 'rc-pagination/lib/locale/hr_HR';
 import Calendar from '../calendar/locale/hr_HR';
 import DatePicker from '../date-picker/locale/hr_HR';
-import type { Locale } from '../locale-provider';
+import type { Locale } from '../locale';
 import TimePicker from '../time-picker/locale/hr_HR';
 
 const typeTemplate = '${label} nije valjan ${type}';

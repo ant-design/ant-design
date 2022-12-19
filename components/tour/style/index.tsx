@@ -214,12 +214,12 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
 
       // =========== Limit left and right placement radius ==============
       [[
-        `&-placement-left`,
-        `&-placement-leftTop`,
-        `&-placement-leftBottom`,
-        `&-placement-right`,
-        `&-placement-rightTop`,
-        `&-placement-rightBottom`,
+        '&-placement-left',
+        '&-placement-leftTop',
+        '&-placement-leftBottom',
+        '&-placement-right',
+        '&-placement-rightTop',
+        '&-placement-rightBottom',
       ].join(',')]: {
         [`${componentCls}-inner`]: {
           borderRadius:

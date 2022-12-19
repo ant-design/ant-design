@@ -1,8 +1,6 @@
 import React from 'react';
 import { Anchor } from 'antd';
 
-const { Link } = Anchor;
-
 const handleClick = (
   e: React.MouseEvent<HTMLElement>,
   link: {
@@ -15,14 +13,39 @@ const handleClick = (
 };
 
 const App: React.FC = () => (
-  <Anchor affix={false} onClick={handleClick}>
-    <Link href="#components-anchor-demo-basic" title="Basic demo" />
-    <Link href="#components-anchor-demo-static" title="Static demo" />
-    <Link href="#api" title="API">
-      <Link href="#anchor-props" title="Anchor Props" />
-      <Link href="#link-props" title="Link Props" />
-    </Link>
-  </Anchor>
+  <Anchor
+    affix={false}
+    onClick={handleClick}
+    items={[
+      {
+        key: '1',
+        href: '#components-anchor-demo-basic',
+        title: 'Basic demo',
+      },
+      {
+        key: '2',
+        href: '#components-anchor-demo-static',
+        title: 'Static demo',
+      },
+      {
+        key: '3',
+        href: '#api',
+        title: 'API',
+        children: [
+          {
+            key: '4',
+            href: '#anchor-props',
+            title: 'Anchor Props',
+          },
+          {
+            key: '5',
+            href: '#link-props',
+            title: 'Link Props',
+          },
+        ],
+      },
+    ]}
+  />
 );
 
 export default App;
