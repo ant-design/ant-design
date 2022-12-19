@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { PlusOutlined } from '@ant-design/icons';
 import {
   Form,
@@ -13,10 +13,21 @@ import {
   Switch,
   Checkbox,
   Upload,
+  ConfigProvider,
 } from 'antd';
 
+const { DisabledContext } = ConfigProvider;
 const { RangePicker } = DatePicker;
 const { TextArea } = Input;
+
+const CustomizedFormControls = () => {
+  const disabled = useContext(DisabledContext);
+  return (
+    <Form.Item label="custom field">
+      <Input disabled={disabled} />
+    </Form.Item>
+  );
+};
 
 const FormDisabledDemo = () => {
   const [componentDisabled, setComponentDisabled] = useState<boolean>(true);
@@ -105,6 +116,7 @@ const FormDisabledDemo = () => {
         <Form.Item label="Button">
           <Button>Button</Button>
         </Form.Item>
+        <CustomizedFormControls />
       </Form>
     </>
   );
