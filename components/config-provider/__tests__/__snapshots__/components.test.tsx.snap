@@ -149,13 +149,9 @@ exports[`ConfigProvider components Anchor configProvider 1`] = `
             Little Light
           </a>
         </div>
-        <div
-          class="config-anchor-ink"
-        >
-          <span
-            class="config-anchor-ink-ball"
-          />
-        </div>
+        <span
+          class="config-anchor-ink-ball"
+        />
       </div>
     </div>
   </div>
@@ -185,13 +181,9 @@ exports[`ConfigProvider components Anchor configProvider componentDisabled 1`] =
             Little Light
           </a>
         </div>
-        <div
-          class="config-anchor-ink"
-        >
-          <span
-            class="config-anchor-ink-ball"
-          />
-        </div>
+        <span
+          class="config-anchor-ink-ball"
+        />
       </div>
     </div>
   </div>
@@ -221,13 +213,9 @@ exports[`ConfigProvider components Anchor configProvider componentSize large 1`]
             Little Light
           </a>
         </div>
-        <div
-          class="config-anchor-ink"
-        >
-          <span
-            class="config-anchor-ink-ball"
-          />
-        </div>
+        <span
+          class="config-anchor-ink-ball"
+        />
       </div>
     </div>
   </div>
@@ -257,13 +245,9 @@ exports[`ConfigProvider components Anchor configProvider componentSize middle 1`
             Little Light
           </a>
         </div>
-        <div
-          class="config-anchor-ink"
-        >
-          <span
-            class="config-anchor-ink-ball"
-          />
-        </div>
+        <span
+          class="config-anchor-ink-ball"
+        />
       </div>
     </div>
   </div>
@@ -293,13 +277,9 @@ exports[`ConfigProvider components Anchor configProvider virtual and dropdownMat
             Little Light
           </a>
         </div>
-        <div
-          class="ant-anchor-ink"
-        >
-          <span
-            class="ant-anchor-ink-ball"
-          />
-        </div>
+        <span
+          class="ant-anchor-ink-ball"
+        />
       </div>
     </div>
   </div>
@@ -329,13 +309,9 @@ exports[`ConfigProvider components Anchor normal 1`] = `
             Little Light
           </a>
         </div>
-        <div
-          class="ant-anchor-ink"
-        >
-          <span
-            class="ant-anchor-ink-ball"
-          />
-        </div>
+        <span
+          class="ant-anchor-ink-ball"
+        />
       </div>
     </div>
   </div>
@@ -365,13 +341,9 @@ exports[`ConfigProvider components Anchor prefixCls 1`] = `
             Little Light
           </a>
         </div>
-        <div
-          class="prefix-Anchor-ink"
-        >
-          <span
-            class="prefix-Anchor-ink-ball"
-          />
-        </div>
+        <span
+          class="prefix-Anchor-ink-ball"
+        />
       </div>
     </div>
   </div>
