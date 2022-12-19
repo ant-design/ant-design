@@ -45,6 +45,7 @@ timeline: true
 - 💄 优化 Menu 组件选中样式。[#39439](https://github.com/ant-design/ant-design/pull/39439)
 - 🛠 LocaleProvider 在 4.x 中已经废弃（使用 `<ConfigProvider locale />` 替代），我们在 5.x 里彻底移除了相关目录 antd/es/locale-provider、antd/lib/locale-provider。[#39373](https://github.com/ant-design/ant-design/pull/39373)
 - 🛠 重构 MenuItem 为 Function Component。[#38751](https://github.com/ant-design/ant-design/pull/38751)
+- 🛠 为 FloatButtonGroup 的 hoverAction 添加类型。[#39665](https://github.com/ant-design/ant-design/pull/39665) [@jsun969](https://github.com/jsun969)
 - 🛠 移除 DatePicker `locale` 非空判断。[#39514](https://github.com/ant-design/ant-design/pull/39514) [@nnnnoel](https://github.com/nnnnoel)
 - TypeScript
   - 🤖 优化 Button DropDown Modal Popconfirm Select Transfer 鼠标事件类型定义。[#39533](https://github.com/ant-design/ant-design/pull/39533)

@@ -45,6 +45,7 @@ timeline: true
 - 💄 Optimize Menu item style when selected. [#39439](https://github.com/ant-design/ant-design/pull/39439)
 - 🛠 LocaleProvider has been deprecated in 4.x (use `<ConfigProvider locale />` instead), we removed the related folder antd/es/locale-provider and antd/lib/locale-provider in 5.x. [#39373](https://github.com/ant-design/ant-design/pull/39373)
 - 🛠 Refactor MenuItem to Function Component. [#38751](https://github.com/ant-design/ant-design/pull/38751)
+- 🛠 Add type for hoverAction of FloatButtonGroup. [#39665](https://github.com/ant-design/ant-design/pull/39665) [@jsun969](https://github.com/jsun969)
 - 🛠 Remove DatePicker `locale` non-null judgment. [#39514](https://github.com/ant-design/ant-design/pull/39514) [@nnnnoel](https://github.com/nnnnoel)
 - TypeScript
   - 🤖 Optimize Button DropDown Modal Popconfirm Select Transfer mouse event type definition. [#39533](https://github.com/ant-design/ant-design/pull/39533)
