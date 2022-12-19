@@ -1,6 +1,8 @@
 import React from 'react';
 
-export default class Portal extends React.Component {
+class Portal extends React.Component<{ children?: React.ReactNode }> {
+  container: boolean;
+
   componentDidMount() {
     this.createContainer();
   }
@@ -18,3 +20,5 @@ export default class Portal extends React.Component {
     return null;
   }
 }
+
+export default Portal;
