@@ -54,7 +54,7 @@ export type CreateModalProps<T> = Omit<
   // onDeny?: (values?: T) => Promise<void> | void;
 };
 
-function App<T>({
+export function CreatedModal<T>({
   content,
   children = content,
   render,
@@ -131,7 +131,6 @@ function App<T>({
   return (
     <Modal
       {...rest}
-      // todo context value and locale
       // todo extra footer buttons
       confirmLoading={confirmLoading}
       onCancel={handleCancel}
@@ -168,12 +167,13 @@ export default function createModal<T>(params: CreateModalProps<T>) {
    * Sync render blocks React event. Let's make this async.
    */
   setTimeout(() => {
-    const div = document.createElement('div');
-    div.setAttribute('role', 'Dynamically created modal');
-    document.body.appendChild(div);
+    // const container = document.createDocumentFragment();
+    const container = document.createElement('div');
+    container.setAttribute('role', 'Dynamically created modal');
+    document.body.appendChild(container);
     function destory() {
-      unmountComponentAtNode(div);
-      document.body.removeChild(div);
+      unmountComponentAtNode(container);
+      document.body.removeChild(container);
 
       for (let i = 0; i < destroyFns.length; i++) {
         const fn = destroyFns[i];
@@ -188,9 +188,9 @@ export default function createModal<T>(params: CreateModalProps<T>) {
     destroyFns.push(destory);
     reactRender(
       // <RootContainer>
-      <App<T> afterClose={destory} {...params} />,
+      <CreatedModal<T> afterClose={destory} {...params} />,
       // </RootContainer>,
-      div,
+      container,
     );
   });
 }

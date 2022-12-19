@@ -49,6 +49,13 @@ const App: React.FC = () => {
         >
           Error
         </Button>
+        <Button
+          onClick={() => {
+            modal.create(config);
+          }}
+        >
+          Create
+        </Button>
       </Space>
       {/* `contextHolder` should always be placed under the context you want to access */}
       {contextHolder}

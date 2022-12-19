@@ -5,6 +5,8 @@ import { withConfirm, withError, withInfo, withSuccess, withWarn } from '../conf
 import type { ModalFuncProps } from '../Modal';
 import type { HookModalRef } from './HookModal';
 import HookModal from './HookModal';
+import type { CreateModalProps } from '../create';
+import { CreatedModal } from '../create';
 
 let uuid = 0;
 
@@ -27,7 +29,19 @@ const ElementsHolder = React.memo(
   }),
 );
 
-export default function useModal(): [Omit<ModalStaticFunctions, 'warn'>, React.ReactElement] {
+type UpdateCreateHookModalProps<T> = Partial<CreateModalProps<T>>;
+
+type CreateHookModalFunc<T> = (config: CreateModalProps<T>) => {
+  destroy(): void;
+  update(newConfig: UpdateCreateHookModalProps<T>): void;
+};
+
+export default function useModal(): [
+  Omit<ModalStaticFunctions, 'warn'> & {
+    create<T>(...params: Parameters<CreateHookModalFunc<T>>): ReturnType<CreateHookModalFunc<T>>;
+  },
+  React.ReactElement,
+] {
   const holderRef = React.useRef<ElementsHolderRef>(null);
 
   // ========================== Effect ==========================
@@ -94,6 +108,44 @@ export default function useModal(): [Omit<ModalStaticFunctions, 'warn'>, React.R
     [],
   );
 
+  const getCreationFunc: <T>() => CreateHookModalFunc<T> = React.useCallback(
+    () =>
+      function createHookModal<T>(config: CreateModalProps<T>) {
+        uuid += 1;
+        // const modalRef = React.createRef<HookModalRef>();
+        let closeFunc: Function | undefined;
+        const modal = (
+          <CreatedModal<T>
+            key={`modal-${uuid}`}
+            // ref={modalRef}
+            afterClose={() => {
+              closeFunc?.();
+            }}
+            {...config}
+          />
+        );
+
+        closeFunc = holderRef.current?.patchElement(modal);
+        return {
+          destroy() {
+            // todo
+            // function destroyAction() {
+            //   modalRef.current?.destroy();
+            // }
+            // if (modalRef.current) {
+            //   destroyAction();
+            // } else {
+            //   setActionQueue((prev) => [...prev, destroyAction]);
+            // }
+          },
+          update(newConfig) {
+            console.log('todo', newConfig);
+          },
+        };
+      },
+    [],
+  );
+
   const fns = React.useMemo(
     () => ({
       info: getConfirmFunc(withInfo),
@@ -101,6 +153,7 @@ export default function useModal(): [Omit<ModalStaticFunctions, 'warn'>, React.R
       error: getConfirmFunc(withError),
       warning: getConfirmFunc(withWarn),
       confirm: getConfirmFunc(withConfirm),
+      create: getCreationFunc(),
     }),
     [],
   );
