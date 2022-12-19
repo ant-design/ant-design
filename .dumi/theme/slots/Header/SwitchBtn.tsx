@@ -83,7 +83,7 @@ export default function LangBtn({
     top: 0,
     zIndex: 1,
     background: token.colorText,
-    color: token.colorTextLightSolid,
+    color: token.colorBgContainer,
     transformOrigin: '0 0',
     transform: `scale(0.7)`,
   };

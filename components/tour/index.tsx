@@ -27,9 +27,6 @@ const Tour: React.ForwardRefRenderFunction<HTMLDivElement, TourProps> & {
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
-    {
-      [`${prefixCls}-primary`]: type === 'primary',
-    },
     hashId,
     rootClassName,
   );

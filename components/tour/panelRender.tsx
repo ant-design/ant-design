@@ -26,8 +26,12 @@ const panelRender = (
     nextButtonProps,
     prevButtonProps,
     stepRender,
+    type: stepType,
+    arrow,
+    className,
   } = props;
 
+  const mergedType = typeof stepType !== 'undefined' ? stepType : type;
   const isLastStep = current === total - 1;
 
   const prevBtnClick = () => {
@@ -80,47 +84,56 @@ const panelRender = (
     ));
   const slickNode: ReactNode = total > 1 ? mergedSlickNode : null;
 
-  const mainBtnType = type === 'primary' ? 'default' : 'primary';
+  const mainBtnType = mergedType === 'primary' ? 'default' : 'primary';
   const secondaryBtnProps: ButtonProps = {
     type: 'default',
-    ghost: type === 'primary',
+    ghost: mergedType === 'primary',
   };
 
   return (
     <LocaleReceiver componentName="Tour" defaultLocale={defaultLocale.Tour}>
       {(contextLocale) => (
-        <>
-          <CloseOutlined className={`${prefixCls}-close`} onClick={onClose} />
-          {coverNode}
-          {headerNode}
-          {descriptionNode}
-          <div className={`${prefixCls}-footer`}>
-            <div className={`${prefixCls}-sliders`}>{slickNode}</div>
-            <div className={`${prefixCls}-buttons`}>
-              {current !== 0 ? (
+        <div
+          className={classNames(
+            mergedType === 'primary' ? `${prefixCls}-primary` : '',
+            className,
+            `${prefixCls}-content`,
+          )}
+        >
+          {arrow && <div className={`${prefixCls}-arrow`} key="arrow" />}
+          <div className={`${prefixCls}-inner`}>
+            <CloseOutlined className={`${prefixCls}-close`} onClick={onClose} />
+            {coverNode}
+            {headerNode}
+            {descriptionNode}
+            <div className={`${prefixCls}-footer`}>
+              <div className={`${prefixCls}-sliders`}>{slickNode}</div>
+              <div className={`${prefixCls}-buttons`}>
+                {current !== 0 ? (
+                  <Button
+                    {...secondaryBtnProps}
+                    {...prevButtonProps}
+                    onClick={prevBtnClick}
+                    size="small"
+                    className={`${prefixCls}-prev-btn`}
+                  >
+                    {prevButtonProps?.children ?? contextLocale.Previous}
+                  </Button>
+                ) : null}
                 <Button
-                  {...secondaryBtnProps}
-                  {...prevButtonProps}
-                  onClick={prevBtnClick}
+                  type={mainBtnType}
+                  {...nextButtonProps}
+                  onClick={nextBtnClick}
                   size="small"
-                  className={`${prefixCls}-prev-btn`}
+                  className={`${prefixCls}-next-btn`}
                 >
-                  {prevButtonProps?.children ?? contextLocale.Previous}
+                  {nextButtonProps?.children ??
+                    (isLastStep ? contextLocale.Finish : contextLocale.Next)}
                 </Button>
-              ) : null}
-              <Button
-                type={mainBtnType}
-                {...nextButtonProps}
-                onClick={nextBtnClick}
-                size="small"
-                className={`${prefixCls}-next-btn`}
-              >
-                {nextButtonProps?.children ??
-                  (isLastStep ? contextLocale.Finish : contextLocale.Next)}
-              </Button>
+              </div>
             </div>
           </div>
-        </>
+        </div>
       )}
     </LocaleReceiver>
   );

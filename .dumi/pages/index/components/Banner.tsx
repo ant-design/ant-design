@@ -3,10 +3,10 @@ import { Button, Space, Typography } from 'antd';
 import { Link, useLocation } from 'dumi';
 import { css } from '@emotion/react';
 import useLocale from '../../../hooks/useLocale';
+import SiteContext from '../../../theme/slots/SiteContext';
 import useSiteToken from '../../../hooks/useSiteToken';
 import { GroupMask } from './Group';
 import * as utils from '../../../theme/utils';
-import SiteContext from './SiteContext';
 
 const locales = {
   cn: {
