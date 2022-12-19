@@ -24,7 +24,6 @@ For displaying anchor hyperlinks on page and jumping between them.
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx" iframe="200">Basic</code>
 <code src="./demo/horizontal.tsx" iframe="200">Horizontal Anchor</code>
-<code src="./demo/horizontal-affix.tsx" >Horizontal fixed Anchor</code>
 <code src="./demo/static.tsx" >Static Anchor</code>
 <code src="./demo/onClick.tsx">Customize the onClick event</code>
 <code src="./demo/customizeHighlight.tsx">Customize the anchor highlight</code>

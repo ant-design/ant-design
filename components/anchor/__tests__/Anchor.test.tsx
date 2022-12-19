@@ -629,7 +629,9 @@ describe('Anchor Render', () => {
       );
       expect(container.querySelectorAll('.ant-anchor-ink-ball-horizontal').length).toBe(1);
       expect(
-        container.querySelector('.ant-anchor-wrapper')?.classList.contains('ant-anchor-horizontal'),
+        container
+          .querySelector('.ant-anchor-wrapper')
+          ?.classList.contains('ant-anchor-wrapper-horizontal'),
       ).toBeTruthy();
     });
 

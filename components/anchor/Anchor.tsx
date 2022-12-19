@@ -279,8 +279,8 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
     rootClassName,
     `${prefixCls}-wrapper`,
     {
+      [`${prefixCls}-wrapper-horizontal`]: anchorDirection === 'horizontal',
       [`${prefixCls}-rtl`]: direction === 'rtl',
-      [`${prefixCls}-horizontal`]: anchorDirection === 'horizontal',
     },
     className,
   );

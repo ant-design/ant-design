@@ -23,13 +23,9 @@ exports[`Anchor Render render items and ignore jsx children 1`] = `
             Item Basic Demo
           </a>
         </div>
-        <div
-          class="ant-anchor-ink"
-        >
-          <span
-            class="ant-anchor-ink-ball"
-          />
-        </div>
+        <span
+          class="ant-anchor-ink-ball"
+        />
       </div>
     </div>
   </div>
@@ -103,13 +99,9 @@ exports[`Anchor Render renders items correctly 1`] = `
             </div>
           </div>
         </div>
-        <div
-          class="ant-anchor-ink"
-        >
-          <span
-            class="ant-anchor-ink-ball"
-          />
-        </div>
+        <span
+          class="ant-anchor-ink-ball"
+        />
       </div>
     </div>
   </div>
@@ -161,13 +153,9 @@ exports[`Anchor Render renders items correctly#horizontal 1`] = `
             API
           </a>
         </div>
-        <div
-          class="ant-anchor-ink"
-        >
-          <span
-            class="ant-anchor-ink-ball"
-          />
-        </div>
+        <span
+          class="ant-anchor-ink-ball"
+        />
       </div>
     </div>
   </div>

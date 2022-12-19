@@ -67,13 +67,9 @@ exports[`renders ./components/anchor/demo/basic.tsx correctly 1`] = `
                 Part 3
               </a>
             </div>
-            <div
-              class="ant-anchor-ink"
-            >
-              <span
-                class="ant-anchor-ink-ball"
-              />
-            </div>
+            <span
+              class="ant-anchor-ink-ball"
+            />
           </div>
         </div>
       </div>
@@ -145,13 +141,9 @@ exports[`renders ./components/anchor/demo/customizeHighlight.tsx correctly 1`] =
         </a>
       </div>
     </div>
-    <div
-      class="ant-anchor-ink"
-    >
-      <span
-        class="ant-anchor-ink-ball"
-      />
-    </div>
+    <span
+      class="ant-anchor-ink-ball"
+    />
   </div>
 </div>
 `;
@@ -166,7 +158,7 @@ Array [
         class=""
       >
         <div
-          class="ant-anchor-wrapper ant-anchor-horizontal"
+          class="ant-anchor-wrapper ant-anchor-wrapper-horizontal"
           style="max-height:100vh"
         >
           <div
@@ -275,82 +267,6 @@ Array [
 ]
 `;
 
-exports[`renders ./components/anchor/demo/horizontal-affix.tsx correctly 1`] = `
-<div>
-  <div
-    class=""
-  >
-    <div
-      class="ant-anchor-wrapper ant-anchor-horizontal"
-      style="max-height:100vh"
-    >
-      <div
-        class="ant-anchor"
-      >
-        <div
-          class="ant-anchor-link"
-        >
-          <a
-            class="ant-anchor-link-title"
-            href="#components-anchor-demo-basic"
-            title="Basic demo"
-          >
-            Basic demo
-          </a>
-        </div>
-        <div
-          class="ant-anchor-link"
-        >
-          <a
-            class="ant-anchor-link-title"
-            href="#components-anchor-demo-basic-affix"
-            title="Basic fixed Anchor"
-          >
-            Basic fixed Anchor
-          </a>
-        </div>
-        <div
-          class="ant-anchor-link"
-        >
-          <a
-            class="ant-anchor-link-title"
-            href="#components-anchor-demo-static"
-            title="静态位置"
-          >
-            静态位置
-          </a>
-        </div>
-        <div
-          class="ant-anchor-link"
-        >
-          <a
-            class="ant-anchor-link-title"
-            href="#components-anchor-demo-customizehighlight"
-            title="自定义锚点高亮"
-          >
-            自定义锚点高亮
-          </a>
-        </div>
-        <div
-          class="ant-anchor-link"
-        >
-          <a
-            class="ant-anchor-link-title"
-            href="#api"
-            title="API"
-          >
-            API
-          </a>
-        </div>
-        <span
-          class="ant-anchor-ink-ball-horizontal"
-        />
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
 exports[`renders ./components/anchor/demo/legacy-anchor.tsx correctly 1`] = `
 <div
   class="ant-anchor-wrapper"
@@ -414,13 +330,9 @@ exports[`renders ./components/anchor/demo/legacy-anchor.tsx correctly 1`] = `
         </a>
       </div>
     </div>
-    <div
-      class="ant-anchor-ink"
-    >
-      <span
-        class="ant-anchor-ink-ball"
-      />
-    </div>
+    <span
+      class="ant-anchor-ink-ball"
+    />
   </div>
 </div>
 `;
@@ -488,13 +400,9 @@ exports[`renders ./components/anchor/demo/onChange.tsx correctly 1`] = `
         </a>
       </div>
     </div>
-    <div
-      class="ant-anchor-ink"
-    >
-      <span
-        class="ant-anchor-ink-ball"
-      />
-    </div>
+    <span
+      class="ant-anchor-ink-ball"
+    />
   </div>
 </div>
 `;
@@ -562,13 +470,9 @@ exports[`renders ./components/anchor/demo/onClick.tsx correctly 1`] = `
         </a>
       </div>
     </div>
-    <div
-      class="ant-anchor-ink"
-    >
-      <span
-        class="ant-anchor-ink-ball"
-      />
-    </div>
+    <span
+      class="ant-anchor-ink-ball"
+    />
   </div>
 </div>
 `;
@@ -636,13 +540,9 @@ exports[`renders ./components/anchor/demo/static.tsx correctly 1`] = `
         </a>
       </div>
     </div>
-    <div
-      class="ant-anchor-ink"
-    >
-      <span
-        class="ant-anchor-ink-ball"
-      />
-    </div>
+    <span
+      class="ant-anchor-ink-ball"
+    />
   </div>
 </div>
 `;
@@ -721,13 +621,9 @@ exports[`renders ./components/anchor/demo/targetOffset.tsx correctly 1`] = `
                   Part 3
                 </a>
               </div>
-              <div
-                class="ant-anchor-ink"
-              >
-                <span
-                  class="ant-anchor-ink-ball"
-                />
-              </div>
+              <span
+                class="ant-anchor-ink-ball"
+              />
             </div>
           </div>
         </div>

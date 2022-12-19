@@ -34,23 +34,6 @@ const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
         position: 'relative',
         paddingInlineStart: lineWidthBold,
 
-        [`${componentCls}-ink`]: {
-          position: 'absolute',
-          insetBlockStart: 0,
-          insetInlineStart: 0,
-          height: '100%',
-
-          '&::before': {
-            position: 'relative',
-            display: 'block',
-            width: lineWidthBold,
-            height: '100%',
-            margin: '0 auto',
-            backgroundColor: token.colorSplit,
-            content: '" "',
-          },
-        },
-
         [`${componentCls}-ink-ball`]: {
           position: 'absolute',
           left: {
@@ -96,6 +79,22 @@ const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
         },
       },
 
+      [`&:not(&-horizontal)`]: {
+        [componentCls]: {
+          '&::before': {
+            position: 'absolute',
+            left: {
+              _skip_check_: true,
+              value: 0,
+            },
+            top: 0,
+            height: '100%',
+            borderInlineStart: `${token.lineWidthBold}px ${token.lineType} ${token.colorSplit}`,
+            content: '" "',
+          },
+        },
+      },
+
       [`${componentCls}-fixed ${componentCls}-ink ${componentCls}-ink-ball`]: {
         display: 'none',
       },
@@ -107,7 +106,7 @@ const genSharedAnchorHorizontalStyle: GenerateStyle<AnchorToken> = (token): CSSO
   const { componentCls, motionDurationSlow, lineWidthBold } = token;
 
   return {
-    [`${componentCls}-horizontal`]: {
+    [`${componentCls}-wrapper-horizontal`]: {
       position: 'relative',
 
       '&::before': {

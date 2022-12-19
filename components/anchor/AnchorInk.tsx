@@ -17,15 +17,7 @@ const AnchorInk = React.forwardRef<HTMLElement, AnchorInkProps>((props, ref) => 
     [`${prefixCls}-ink-ball-visible`]: activeLink,
   });
 
-  if (anchorDirection === 'horizontal') {
-    return <span className={inkClass} ref={ref} />;
-  }
-
-  return (
-    <div className={`${prefixCls}-ink`}>
-      <span className={inkClass} ref={ref} />
-    </div>
-  );
+  return <span className={inkClass} ref={ref} />;
 });
 
 export default AnchorInk;
