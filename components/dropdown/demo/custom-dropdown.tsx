@@ -38,10 +38,9 @@ const App: React.FC = () => {
   const { token } = useToken();
 
   const contentStyle = {
-    backgroundColor: token.colorBgElevated, // You can use #fff
-    borderRadius: 8,
-    boxShadow:
-      '0 3px 6px -4px rgb(0 0 0 / 12%), 0 6px 16px 0 rgb(0 0 0 / 8%), 0 9px 28px 8px rgb(0 0 0 / 5%)',
+    backgroundColor: token.colorBgElevated,
+    borderRadius: token.borderRadiusLG,
+    boxShadow: token.boxShadowSecondary,
   };
 
   const menuStyle = {
