@@ -44,7 +44,7 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
   const floatButtonGroupRef = useRef<HTMLDivElement>(null);
   const floatButtonRef = useRef<HTMLButtonElement | HTMLAnchorElement>(null);
 
-  const hoverAction = useMemo(() => {
+  const hoverAction = useMemo<React.DOMAttributes<HTMLDivElement>>(() => {
     const hoverTypeAction = {
       onMouseEnter() {
         setOpen(true);
