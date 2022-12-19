@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 import * as React from 'react';
 import { css } from '@emotion/react';
 
@@ -102,25 +101,25 @@ export function useSiteData(): [Partial<SiteData>, boolean] {
 
 export const useCarouselStyle = () => ({
   carousel: css`
-      .slick-dots.slick-dots-bottom {
-        bottom: -22px;
-        li {
-          width: 6px;
+    .slick-dots.slick-dots-bottom {
+      bottom: -22px;
+      li {
+        width: 6px;
+        height: 6px;
+        background: #e1eeff;
+        border-radius: 50%;
+        button {
           height: 6px;
           background: #e1eeff;
           border-radius: 50%;
+        }
+        &.slick-active {
+          background: #4b9cff;
           button {
-            height: 6px;
-            background: #e1eeff;
-            border-radius: 50%;
-          }
-          &.slick-active {
             background: #4b9cff;
-            button {
-              background: #4b9cff;
-            }
           }
         }
       }
-    `,
+    }
+  `,
 });

@@ -1,4 +1,3 @@
-/* eslint jsx-a11y/no-noninteractive-element-interactions: 0 */
 import { CheckOutlined, SnippetsOutlined, ThunderboltOutlined } from '@ant-design/icons';
 import stackblitzSdk from '@stackblitz/sdk';
 import type { Project } from '@stackblitz/sdk';
