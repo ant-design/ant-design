@@ -65,7 +65,7 @@ const UserSelect = forwardRef((_props: Record<string, any>, ref) => {
       rowSelection={{
         type: 'checkbox',
         selectedRowKeys: selected.map((user) => user.id),
-        onChange(keys, rows) {
+        onChange(_, rows) {
           setSelected(rows);
         },
       }}
