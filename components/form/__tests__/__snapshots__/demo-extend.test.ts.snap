@@ -5169,6 +5169,42 @@ Array [
         </div>
       </div>
     </div>
+    <div
+      class="ant-form-item"
+    >
+      <div
+        class="ant-row ant-form-item-row"
+      >
+        <div
+          class="ant-col ant-col-4 ant-form-item-label"
+        >
+          <label
+            class=""
+            title="custom field"
+          >
+            custom field
+          </label>
+        </div>
+        <div
+          class="ant-col ant-col-14 ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <input
+                class="ant-input ant-input-disabled"
+                disabled=""
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </form>,
 ]
 `;
