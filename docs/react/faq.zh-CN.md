@@ -29,13 +29,13 @@ title: FAQ
 
 该问题在 `3.11.0` 后已经解决。如果你仍在使用旧版本，你可以通过 `<Select getPopupContainer={trigger => trigger.parentElement}>` 来在 Popover 中渲染组件，或者使用其他的 `getXxxxContainer` 参数。
 
-可以参考 [Select 属性](/components/select-cn#Select-props)
+可以参考 [Select 属性](/components/select-cn#select-props)
 
 相关 issue：[#3487](https://github.com/ant-design/ant-design/issues/3487) [#3438](https://github.com/ant-design/ant-design/issues/3438)
 
 ## `Select Dropdown DatePicker TimePicker Popover Popconfirm` 会跟随滚动条上下移动？
 
-使用 `<Select getPopupContainer={trigger => trigger.parentElement}>`（[API 文档](/components/select-cn#Select-props)）来将组件渲染到滚动区域内，或者使用其他的 `getXxxxContainer` 参数。如果需要全局解决这个问题，可以使用 `<ConfigProvider getPopupContainer={trigger => trigger.parentElement}>`（[API 文档](/components/config-provider-cn#API)）
+使用 `<Select getPopupContainer={trigger => trigger.parentElement}>`（[API 文档](/components/select-cn#select-props)）来将组件渲染到滚动区域内，或者使用其他的 `getXxxxContainer` 参数。如果需要全局解决这个问题，可以使用 `<ConfigProvider getPopupContainer={trigger => trigger.parentElement}>`（[API 文档](/components/config-provider-cn#api)）
 
 并且保证 parentElement 是 `position: relative` 或 `position: absolute`。
 
@@ -83,7 +83,7 @@ antd 内部会对 props 进行浅比较实现性能优化。当状态变更，�
 
 ## antd 覆盖了我的全局样式！
 
-是的，antd 在设计的时候就是用来开发一个完整的应用的，为了方便，我们覆盖了一些全局样式，现在还不能移除，想要了解更多请追踪 [这个 issue](https://github.com/ant-design/ant-design/issues/4331)，或者参考这个教程 [How to avoid modifying global styles?](/docs/react/customize-theme#How-to-avoid-modifying-global-styles)
+是的，antd 在设计的时候就是用来开发一个完整的应用的，为了方便，我们覆盖了一些全局样式，现在还不能移除，想要了解更多请追踪 [这个 issue](https://github.com/ant-design/ant-design/issues/4331)，或者参考这个教程 [How to avoid modifying global styles?](/docs/react/customize-theme#how-to-avoid-modifying-global-styles)
 
 ## 我没法安装 `antd` 和 `antd` 的依赖，顺便提一句，我在中国大陆。
 
@@ -165,7 +165,7 @@ npm ls dayjs
 
 ## 开启了 Content Security Policy (CSP) 如何处理动态样式？
 
-你可以通过 [ConfigProvider](/components/config-provider-cn#Content-Security-Policy) 来配置 `nonce` 属性。
+你可以通过 [ConfigProvider](/components/config-provider-cn#content-security-policy) 来配置 `nonce` 属性。
 
 ## 当我指定了 DatePicker/RangePicker 的 `mode` 属性后，点击后无法选择年份/月份？
 
