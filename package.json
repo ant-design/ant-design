@@ -156,7 +156,7 @@
     "throttle-debounce": "^5.0.0"
   },
   "devDependencies": {
-    "@ant-design/tools": "^17.0.0-alpha.0",
+    "@ant-design/tools": "17.0.0-alpha.1",
     "@babel/eslint-plugin": "^7.19.1",
     "@emotion/babel-preset-css-prop": "^11.10.0",
     "@emotion/css": "^11.10.5",
