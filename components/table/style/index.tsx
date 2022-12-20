@@ -173,7 +173,7 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
       [`${componentCls}-tbody`]: {
         '> tr': {
           '> td': {
-            borderTop: tableBorder,
+            borderBottom: tableBorder,
             transition: `background ${motionDurationSlow}`,
 
             // ========================= Nest Table ===========================
