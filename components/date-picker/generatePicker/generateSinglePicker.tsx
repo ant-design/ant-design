@@ -14,7 +14,7 @@ import { ConfigContext } from '../../config-provider';
 import DisabledContext from '../../config-provider/DisabledContext';
 import SizeContext from '../../config-provider/SizeContext';
 import { FormItemInputContext } from '../../form/context';
-import LocaleReceiver from '../../locale-provider/LocaleReceiver';
+import LocaleReceiver from '../../locale/LocaleReceiver';
 import type { InputStatus } from '../../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
 import warning from '../../_util/warning';

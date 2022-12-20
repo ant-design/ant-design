@@ -15,6 +15,7 @@ import usePopconfirmStyle from './style';
 
 export interface PopconfirmProps extends AbstractTooltipProps {
   title: React.ReactNode | RenderFunction;
+  description?: React.ReactNode | RenderFunction;
   disabled?: boolean;
   onConfirm?: (e?: React.MouseEvent<HTMLElement>) => void;
   onCancel?: (e?: React.MouseEvent<HTMLElement>) => void;

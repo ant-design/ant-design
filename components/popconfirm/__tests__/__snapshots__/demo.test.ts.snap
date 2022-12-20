@@ -246,10 +246,15 @@ Array [
                 </span>
               </span>
               <div
-                class="ant-popconfirm-message-title"
+                class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
               >
                 Are you OK?
               </div>
+            </div>
+            <div
+              class="ant-popconfirm-description"
+            >
+              Does this look good?
             </div>
             <div
               class="ant-popconfirm-buttons"
@@ -324,10 +329,15 @@ Array [
                 </span>
               </span>
               <div
-                class="ant-popconfirm-message-title"
+                class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
               >
                 Are you OK?
               </div>
+            </div>
+            <div
+              class="ant-popconfirm-description"
+            >
+              Does this look good?
             </div>
             <div
               class="ant-popconfirm-buttons"

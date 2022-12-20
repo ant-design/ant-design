@@ -7,6 +7,7 @@ import { act, fireEvent, render } from '../../../tests/utils';
 import Button from '../../button';
 import Input from '../../input';
 import Table from '../../table';
+import Select from '../../select';
 
 describe('ConfigProvider', () => {
   mountTest(() => (
@@ -111,6 +112,15 @@ describe('ConfigProvider', () => {
       </ConfigProvider>,
     );
     expect(container.querySelector('input')?.autocomplete).toEqual('off');
+  });
+
+  it('select showSearch', () => {
+    const { container } = render(
+      <ConfigProvider select={{ showSearch: true }}>
+        <Select />
+      </ConfigProvider>,
+    );
+    expect(container.querySelectorAll('.ant-select-show-search').length).toBe(1);
   });
 
   it('render empty', () => {

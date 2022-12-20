@@ -2,7 +2,7 @@
 import Pagination from 'rc-pagination/lib/locale/ar_EG';
 import Calendar from '../calendar/locale/ar_EG';
 import DatePicker from '../date-picker/locale/ar_EG';
-import type { Locale } from '../locale-provider';
+import type { Locale } from '../locale';
 import TimePicker from '../time-picker/locale/ar_EG';
 
 const typeTemplate = 'ليس ${label} من نوع ${type} صالحًا';

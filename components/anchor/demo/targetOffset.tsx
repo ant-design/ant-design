@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Anchor, Row, Col } from 'antd';
 
-const { Link } = Anchor;
-
 const App: React.FC = () => {
   const topRef = React.useRef<HTMLDivElement>(null);
   const [targetOffset, setTargetOffset] = useState<number | undefined>(undefined);
@@ -29,11 +27,26 @@ const App: React.FC = () => {
           </div>
         </Col>
         <Col span={6}>
-          <Anchor targetOffset={targetOffset}>
-            <Link href="#part-1" title="Part 1" />
-            <Link href="#part-2" title="Part 2" />
-            <Link href="#part-3" title="Part 3" />
-          </Anchor>
+          <Anchor
+            targetOffset={targetOffset}
+            items={[
+              {
+                key: 'part-1',
+                href: '#part-1',
+                title: 'Part 1',
+              },
+              {
+                key: 'part-2',
+                href: '#part-2',
+                title: 'Part 2',
+              },
+              {
+                key: 'part-3',
+                href: '#part-3',
+                title: 'Part 3',
+              },
+            ]}
+          />
         </Col>
       </Row>
 

@@ -5,7 +5,7 @@ import type { PopconfirmProps } from '.';
 import Button from '../button';
 import { convertLegacyProps } from '../button/button';
 import ActionButton from '../_util/ActionButton';
-import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import LocaleReceiver from '../locale/LocaleReceiver';
 import defaultLocale from '../locale/en_US';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
 import { ConfigContext } from '../config-provider';
@@ -29,6 +29,7 @@ export interface OverlayProps
     | 'okType'
     | 'showCancel'
     | 'title'
+    | 'description'
   > {
   prefixCls: string;
   close?: Function;
@@ -42,6 +43,7 @@ export const Overlay: React.FC<OverlayProps> = (props) => {
     okButtonProps,
     cancelButtonProps,
     title,
+    description,
     cancelText,
     okText,
     okType = 'primary',
@@ -60,8 +62,17 @@ export const Overlay: React.FC<OverlayProps> = (props) => {
         <div className={`${prefixCls}-inner-content`}>
           <div className={`${prefixCls}-message`}>
             {icon && <span className={`${prefixCls}-message-icon`}>{icon}</span>}
-            <div className={`${prefixCls}-message-title`}>{getRenderPropValue(title)}</div>
+            <div
+              className={classNames(`${prefixCls}-message-title`, {
+                [`${prefixCls}-message-title-only`]: !!description,
+              })}
+            >
+              {getRenderPropValue(title)}
+            </div>
           </div>
+          {description && (
+            <div className={`${prefixCls}-description`}>{getRenderPropValue(description)}</div>
+          )}
           <div className={`${prefixCls}-buttons`}>
             {showCancel && (
               <Button onClick={onCancel} size="small" {...cancelButtonProps}>

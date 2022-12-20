@@ -45,6 +45,7 @@ exports[`Tabs rtl render component should be rendered correctly in RTL direction
       >
         <div
           class="ant-tabs-tab ant-tabs-tab-active"
+          data-node-key="xx"
         >
           <div
             aria-controls="rc-tabs-test-panel-xx"
@@ -134,6 +135,7 @@ exports[`Tabs tabBarGutter should work 1`] = `
       >
         <div
           class="ant-tabs-tab ant-tabs-tab-active"
+          data-node-key="null"
         >
           <div
             aria-controls="rc-tabs-test-panel-null"
@@ -146,6 +148,7 @@ exports[`Tabs tabBarGutter should work 1`] = `
         </div>
         <div
           class="ant-tabs-tab ant-tabs-tab-active"
+          data-node-key="null"
           style="margin-left: 0px;"
         >
           <div
@@ -159,6 +162,7 @@ exports[`Tabs tabBarGutter should work 1`] = `
         </div>
         <div
           class="ant-tabs-tab ant-tabs-tab-active"
+          data-node-key="null"
           style="margin-left: 0px;"
         >
           <div
@@ -263,6 +267,7 @@ exports[`Tabs tabBarGutter should work 2`] = `
       >
         <div
           class="ant-tabs-tab ant-tabs-tab-active"
+          data-node-key="null"
         >
           <div
             aria-controls="rc-tabs-test-panel-null"
@@ -275,6 +280,7 @@ exports[`Tabs tabBarGutter should work 2`] = `
         </div>
         <div
           class="ant-tabs-tab ant-tabs-tab-active"
+          data-node-key="null"
           style="margin-top: 0px;"
         >
           <div
@@ -288,6 +294,7 @@ exports[`Tabs tabBarGutter should work 2`] = `
         </div>
         <div
           class="ant-tabs-tab ant-tabs-tab-active"
+          data-node-key="null"
           style="margin-top: 0px;"
         >
           <div
@@ -392,6 +399,7 @@ exports[`Tabs tabPosition remove card 1`] = `
       >
         <div
           class="ant-tabs-tab ant-tabs-tab-active"
+          data-node-key="1"
         >
           <div
             aria-controls="rc-tabs-test-panel-1"
