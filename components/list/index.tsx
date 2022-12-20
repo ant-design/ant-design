@@ -10,8 +10,8 @@ import type { PaginationConfig } from '../pagination';
 import Pagination from '../pagination';
 import type { SpinProps } from '../spin';
 import Spin from '../spin';
-import type { Breakpoint } from '../_util/responsiveObserve';
-import { responsiveArray } from '../_util/responsiveObserve';
+import type { Breakpoint } from '../_util/responsiveObserver';
+import { responsiveArray } from '../_util/responsiveObserver';
 import Item from './Item';
 
 // CSSINJS
