@@ -19,11 +19,9 @@ timeline: true
 
 `2022-12-20`
 
-- 🔥 App Component. [#39046](https://github.com/ant-design/ant-design/pull/39046)
-- 🔥 QRCode Component. [#38948](https://github.com/ant-design/ant-design/pull/38948)
-- Watermark
-  - 🔥 Watermark Component. [#39064](https://github.com/ant-design/ant-design/pull/39064) [@JarvisArt](https://github.com/JarvisArt)
-  - 🆕 Watermark support interleaved display. [#39464](https://github.com/ant-design/ant-design/pull/39464) [@JarvisArt](https://github.com/JarvisArt)
+- 🔥 New App Component which provide global style & static function replacement. [#39046](https://github.com/ant-design/ant-design/pull/39046)
+- 🔥 New QRCode Component. [#38948](https://github.com/ant-design/ant-design/pull/38948)
+- 🔥 New Watermark Component. [#39064](https://github.com/ant-design/ant-design/pull/39064) [@JarvisArt](https://github.com/JarvisArt)
 - 🆕 Mentions support `options` prop. [#38630](https://github.com/ant-design/ant-design/pull/38630) [@heiyu4585](https://github.com/heiyu4585)
 - 🆕 FloatButton support `clickOutAutoClose`. [#39501](https://github.com/ant-design/ant-design/pull/39501) [@BoyYangzai](https://github.com/BoyYangzai)
 - 🆕 Popconfirm support `description` prop. [#39250](https://github.com/ant-design/ant-design/pull/39250) [@xhh0223](https://github.com/xhh0223)
@@ -32,9 +30,9 @@ timeline: true
 - 🆕 Breakpoints can now follow theme token config. [#39105](https://github.com/ant-design/ant-design/pull/39105) [@azro352](https://github.com/azro352)
 - 🆕 Tour prevButtonProps nextButtonProps support `style` `classname` prop. [#38939](https://github.com/ant-design/ant-design/pull/38939) [@ONLY-yours](https://github.com/ONLY-yours)
 - 🆕 ConfigProvider support config `select.showSearch`. [#39531](https://github.com/ant-design/ant-design/pull/39531) [@YinDongFang](https://github.com/YinDongFang)
-- 🐞 Fix Tabs inkBar not show in StrictMode. [#39653](https://github.com/ant-design/ant-design/pull/39653)
+- 🐞 Fix Tabs `inkBar` not show in StrictMode. [#39653](https://github.com/ant-design/ant-design/pull/39653)
 - 🐞 Fix Badge component width not being affected by parent element. [#39605](https://github.com/ant-design/ant-design/pull/39605) [@AydenGen](https://github.com/AydenGen)
-- 🐞 Fix react18 use createRoot to render Submenu will flicker. [#38855](https://github.com/ant-design/ant-design/pull/38855) [@JarvisArt](https://github.com/JarvisArt)
+- 🐞 Fix react18 use `createRoot` to render Menu.Submenu will flicker. [#38855](https://github.com/ant-design/ant-design/pull/38855) [@JarvisArt](https://github.com/JarvisArt)
 - Select
   - 🐞 Fix wrong usage of icon color token in Select. [#39644](https://github.com/ant-design/ant-design/pull/39644)
   - 💄 Optimize Select a11y to bind real option element when `virtual=false`. [#39550](https://github.com/ant-design/ant-design/pull/39550)
@@ -45,7 +43,6 @@ timeline: true
 - 💄 Optimize Menu item style when selected. [#39439](https://github.com/ant-design/ant-design/pull/39439)
 - 🛠 LocaleProvider has been deprecated in 4.x (use `<ConfigProvider locale />` instead), we removed the related folder antd/es/locale-provider and antd/lib/locale-provider in 5.x. [#39373](https://github.com/ant-design/ant-design/pull/39373)
 - 🛠 Refactor MenuItem to Function Component. [#38751](https://github.com/ant-design/ant-design/pull/38751)
-- 🛠 Add type for hoverAction of FloatButtonGroup. [#39665](https://github.com/ant-design/ant-design/pull/39665) [@jsun969](https://github.com/jsun969)
 - 🛠 Remove DatePicker `locale` non-null judgment. [#39514](https://github.com/ant-design/ant-design/pull/39514) [@nnnnoel](https://github.com/nnnnoel)
 - TypeScript
   - 🤖 Optimize Button DropDown Modal Popconfirm Select Transfer mouse event type definition. [#39533](https://github.com/ant-design/ant-design/pull/39533)
@@ -53,7 +50,7 @@ timeline: true
 - 🌐 Localization
   - 🇧🇪 Add `fr_BE` locale. [#39415](https://github.com/ant-design/ant-design/pull/39415) [@azro352](https://github.com/azro352)
   - 🇨🇦 Add `fr_CA` locale. [#39416](https://github.com/ant-design/ant-design/pull/39416) [@azro352](https://github.com/azro352)
-  - 🌐 Add `eu_ES` locale. [#39371](https://github.com/ant-design/ant-design/pull/39371) [@Ian-Inizias](https://github.com/Ian-Inizias)
+  - 🇪🇸 Add `eu_ES` locale. [#39371](https://github.com/ant-design/ant-design/pull/39371) [@Ian-Inizias](https://github.com/Ian-Inizias)
 
 ## 5.0.7
 
