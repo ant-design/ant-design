@@ -206,11 +206,13 @@ describe('List.pagination', () => {
   // https://github.com/ant-design/ant-design/issues/39496
   it('should not crash when pagination pageSize is not defined', () => {
     expect(() => {
-      createList({
-        pagination: {
-          pageSize: undefined,
-        },
-      });
+      render(
+        createList({
+          pagination: {
+            pageSize: undefined,
+          },
+        }),
+      );
     }).not.toThrow();
   });
 
