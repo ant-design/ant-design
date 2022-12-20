@@ -212,7 +212,7 @@ export function useInternalMessage(
   }, []);
 
   // ============================== Return ===============================
-  return [wrapAPI, <Holder key="holder" {...notificationConfig} ref={holderRef} />];
+  return [wrapAPI, <Holder key="message-holder" {...notificationConfig} ref={holderRef} />];
 }
 
 export default function useMessage(notificationConfig?: ConfigOptions) {
