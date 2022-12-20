@@ -80,6 +80,8 @@ Ant Design 的布局组件若不能满足你的需求，你也可以直接使用
 | xl | `屏幕 ≥ 1200px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number \| object | - |  |
 | xxl | `屏幕 ≥ 1600px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number \| object | - |  |
 
+您可以使用[主题定制](https://ant.design/docs/react/customize-theme)（自 5.1.0 起）将 `ScreenXS` 更改为 `ScreenXXL` 来修改断点值。
+
 响应式栅格的断点扩展自 [BootStrap 4 的规则](https://getbootstrap.com/docs/4.0/layout/overview/#responsive-breakpoints)（不包含链接里 `occasionally` 的部分)。
 
 <style>
