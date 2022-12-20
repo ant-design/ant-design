@@ -265,7 +265,6 @@ export default () => {
         .markdown .dumi-default-table {
           table {
             margin: 0;
-            margin: 8px 0 16px;
             overflow-x: auto;
             overflow-y: hidden;
             direction: ltr;
@@ -311,7 +310,7 @@ export default () => {
           }
 
           table.component-api-table {
-            margin: 2em 0;
+            margin: 0;
             overflow-x: auto;
             overflow-y: hidden;
             font-size: ${Math.max(token.fontSize - 1, 12)}px;
