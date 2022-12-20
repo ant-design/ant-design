@@ -12,6 +12,7 @@ import type { SpinProps } from '../spin';
 import Spin from '../spin';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { responsiveArray } from '../_util/responsiveObserver';
+import { mergeProps } from '../_util/withDefaultProps';
 import Item from './Item';
 
 // CSSINJS
@@ -73,26 +74,6 @@ export interface ListConsumerProps {
 export const ListContext = React.createContext<ListConsumerProps>({});
 
 export const ListConsumer = ListContext.Consumer;
-
-/**
- * copy https://github.com/ant-design/ant-design/blob/536b8f8cd985dedb4419817b6430ada0494ce44e/components/table/hooks/usePagination.ts#L28-L43
- */
-function extendsObject<T extends Object>(...list: T[]) {
-  const result: T = {} as T;
-
-  list.forEach((obj) => {
-    if (obj) {
-      Object.keys(obj).forEach((key) => {
-        const val = (obj as any)[key];
-        if (val !== undefined) {
-          (result as any)[key] = val;
-        }
-      });
-    }
-  });
-
-  return result;
-}
 
 function List<T>({
   pagination = false as ListProps<any>['pagination'],
@@ -210,7 +191,7 @@ function List<T>({
     hashId,
   );
 
-  const paginationProps = extendsObject<PaginationConfig>(
+  const paginationProps = mergeProps(
     defaultPaginationProps,
     {
       total: dataSource.length,
@@ -220,8 +201,8 @@ function List<T>({
     pagination || {},
   );
 
-  const largestPage = Math.ceil(paginationProps.total! / paginationProps.pageSize!);
-  if (paginationProps.current! > largestPage) {
+  const largestPage = Math.ceil(paginationProps.total / paginationProps.pageSize);
+  if (paginationProps.current > largestPage) {
     paginationProps.current = largestPage;
   }
   const paginationContent = pagination ? (
@@ -236,9 +217,9 @@ function List<T>({
 
   let splitDataSource = [...dataSource];
   if (pagination) {
-    if (dataSource.length > (paginationProps.current! - 1) * paginationProps.pageSize!) {
+    if (dataSource.length > (paginationProps.current - 1) * paginationProps.pageSize) {
       splitDataSource = [...dataSource].splice(
-        (paginationProps.current! - 1) * paginationProps.pageSize!,
+        (paginationProps.current - 1) * paginationProps.pageSize,
         paginationProps.pageSize,
       );
     }

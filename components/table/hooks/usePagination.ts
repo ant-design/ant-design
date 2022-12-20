@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import type { PaginationProps } from '../../pagination';
 import type { TablePaginationConfig } from '../interface';
+import { mergeProps } from '../../_util/withDefaultProps';
 
 export const DEFAULT_PAGE_SIZE = 10;
 
@@ -25,23 +26,6 @@ export function getPaginationParam(
   return param;
 }
 
-function extendsObject<T extends Object>(...list: T[]) {
-  const result: T = {} as T;
-
-  list.forEach((obj) => {
-    if (obj) {
-      Object.keys(obj).forEach((key) => {
-        const val = (obj as any)[key];
-        if (val !== undefined) {
-          (result as any)[key] = val;
-        }
-      });
-    }
-  });
-
-  return result;
-}
-
 export default function usePagination(
   total: number,
   pagination: TablePaginationConfig | false | undefined,
@@ -60,13 +44,9 @@ export default function usePagination(
   }));
 
   // ============ Basic Pagination Config ============
-  const mergedPagination = extendsObject<Partial<TablePaginationConfig>>(
-    innerPagination,
-    paginationObj,
-    {
-      total: paginationTotal > 0 ? paginationTotal : total,
-    },
-  );
+  const mergedPagination = mergeProps(innerPagination, paginationObj, {
+    total: paginationTotal > 0 ? paginationTotal : total,
+  });
 
   // Reset `current` if data length or pageSize changed
   const maxPage = Math.ceil((paginationTotal || total) / mergedPagination.pageSize!);
