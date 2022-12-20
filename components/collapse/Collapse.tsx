@@ -142,7 +142,7 @@ const Collapse: React.ForwardRefRenderFunction<RcCollapse, CollapseProps> = (pro
 
 const RefCollapse = React.forwardRef<RcCollapse, CollapseProps>(
   Collapse,
-) as unknown as typeof Collapse & {
+) as unknown as React.ForwardRefExoticComponent<CollapseProps & React.RefAttributes<RcCollapse>> & {
   Panel: typeof CollapsePanel;
 };
 
