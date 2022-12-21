@@ -105,7 +105,7 @@ function useModal(): readonly [Omit<ModalStaticFunctions, 'warn'>, React.ReactNo
     [],
   );
 
-  return [fns, <ElementsHolder key="modal-holder" ref={holderRef} />] as const;
+  return [fns, <ElementsHolder key="mod-holder" ref={holderRef} />] as const;
 }
 
 export default useModal;
