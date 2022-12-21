@@ -27534,85 +27534,85 @@ exports[`renders ./components/table/demo/virtual-list.tsx extend context correct
             >
               <div
                 class="virtual-table-cell"
-                style="position:absolute;left:0;top:0;height:54px;width:150px"
+                style="position:absolute;left:0;top:0;height:54px;width:150px;box-sizing:border-box;padding:16px;border-bottom:1px solid rgba(5, 5, 5, 0.06);background:#ffffff"
               >
                 0
               </div>
               <div
                 class="virtual-table-cell"
-                style="position:absolute;left:150px;top:0;height:54px;width:0"
+                style="position:absolute;left:150px;top:0;height:54px;width:0;box-sizing:border-box;padding:16px;border-bottom:1px solid rgba(5, 5, 5, 0.06);background:#ffffff"
               >
                 0
               </div>
               <div
                 class="virtual-table-cell"
-                style="position:absolute;left:0;top:54px;height:54px;width:150px"
+                style="position:absolute;left:0;top:54px;height:54px;width:150px;box-sizing:border-box;padding:16px;border-bottom:1px solid rgba(5, 5, 5, 0.06);background:#ffffff"
               >
                 1
               </div>
               <div
                 class="virtual-table-cell"
-                style="position:absolute;left:150px;top:54px;height:54px;width:0"
+                style="position:absolute;left:150px;top:54px;height:54px;width:0;box-sizing:border-box;padding:16px;border-bottom:1px solid rgba(5, 5, 5, 0.06);background:#ffffff"
               >
                 1
               </div>
               <div
                 class="virtual-table-cell"
-                style="position:absolute;left:0;top:108px;height:54px;width:150px"
+                style="position:absolute;left:0;top:108px;height:54px;width:150px;box-sizing:border-box;padding:16px;border-bottom:1px solid rgba(5, 5, 5, 0.06);background:#ffffff"
               >
                 2
               </div>
               <div
                 class="virtual-table-cell"
-                style="position:absolute;left:150px;top:108px;height:54px;width:0"
+                style="position:absolute;left:150px;top:108px;height:54px;width:0;box-sizing:border-box;padding:16px;border-bottom:1px solid rgba(5, 5, 5, 0.06);background:#ffffff"
               >
                 2
               </div>
               <div
                 class="virtual-table-cell"
-                style="position:absolute;left:0;top:162px;height:54px;width:150px"
+                style="position:absolute;left:0;top:162px;height:54px;width:150px;box-sizing:border-box;padding:16px;border-bottom:1px solid rgba(5, 5, 5, 0.06);background:#ffffff"
               >
                 3
               </div>
               <div
                 class="virtual-table-cell"
-                style="position:absolute;left:150px;top:162px;height:54px;width:0"
+                style="position:absolute;left:150px;top:162px;height:54px;width:0;box-sizing:border-box;padding:16px;border-bottom:1px solid rgba(5, 5, 5, 0.06);background:#ffffff"
               >
                 3
               </div>
               <div
                 class="virtual-table-cell"
-                style="position:absolute;left:0;top:216px;height:54px;width:150px"
+                style="position:absolute;left:0;top:216px;height:54px;width:150px;box-sizing:border-box;padding:16px;border-bottom:1px solid rgba(5, 5, 5, 0.06);background:#ffffff"
               >
                 4
               </div>
               <div
                 class="virtual-table-cell"
-                style="position:absolute;left:150px;top:216px;height:54px;width:0"
+                style="position:absolute;left:150px;top:216px;height:54px;width:0;box-sizing:border-box;padding:16px;border-bottom:1px solid rgba(5, 5, 5, 0.06);background:#ffffff"
               >
                 4
               </div>
               <div
                 class="virtual-table-cell"
-                style="position:absolute;left:0;top:270px;height:54px;width:150px"
+                style="position:absolute;left:0;top:270px;height:54px;width:150px;box-sizing:border-box;padding:16px;border-bottom:1px solid rgba(5, 5, 5, 0.06);background:#ffffff"
               >
                 5
               </div>
               <div
                 class="virtual-table-cell"
-                style="position:absolute;left:150px;top:270px;height:54px;width:0"
+                style="position:absolute;left:150px;top:270px;height:54px;width:0;box-sizing:border-box;padding:16px;border-bottom:1px solid rgba(5, 5, 5, 0.06);background:#ffffff"
               >
                 5
               </div>
               <div
                 class="virtual-table-cell"
-                style="position:absolute;left:0;top:324px;height:54px;width:150px"
+                style="position:absolute;left:0;top:324px;height:54px;width:150px;box-sizing:border-box;padding:16px;border-bottom:1px solid rgba(5, 5, 5, 0.06);background:#ffffff"
               >
                 6
               </div>
               <div
                 class="virtual-table-cell"
-                style="position:absolute;left:150px;top:324px;height:54px;width:0"
+                style="position:absolute;left:150px;top:324px;height:54px;width:0;box-sizing:border-box;padding:16px;border-bottom:1px solid rgba(5, 5, 5, 0.06);background:#ffffff"
               >
                 6
               </div>
