@@ -14,7 +14,6 @@ import type { AnchorLinkBaseProps } from './AnchorLink';
 import AnchorLink from './AnchorLink';
 
 import useStyle from './style';
-import AnchorInk from './AnchorInk';
 
 export interface AnchorLinkItemProps extends AnchorLinkBaseProps {
   key: React.Key;
@@ -289,6 +288,10 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
     [`${prefixCls}-fixed`]: !affix && !showInkInFixed,
   });
 
+  const inkClass = classNames(`${prefixCls}-ink-ball`, {
+    [`${prefixCls}-ink-ball-visible`]: activeLink,
+  });
+
   const wrapperStyle: React.CSSProperties = {
     maxHeight: offsetTop ? `calc(100vh - ${offsetTop}px)` : '100vh',
     ...style,
@@ -307,12 +310,7 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
     <div ref={wrapperRef} className={wrapperClass} style={wrapperStyle}>
       <div className={anchorClass}>
         {'items' in props ? createNestedLink(items) : children}
-        <AnchorInk
-          direction={anchorDirection}
-          anchorPrefixCls={prefixCls}
-          activeLink={activeLink}
-          ref={spanLinkNode}
-        />
+        <span className={inkClass} ref={spanLinkNode} />
       </div>
     </div>
   );

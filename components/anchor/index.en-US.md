@@ -3,7 +3,6 @@ category: Components
 title: Anchor
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*TBTSR4PyVmkAAAAAAAAAAAAADrJ8AQ/original
 demo:
-  cols: 2
 group:
   title: Navigation
   order: 3
@@ -47,7 +46,7 @@ For displaying anchor hyperlinks on page and jumping between them.
 | onChange | Listening for anchor link change | (currentActiveLink: string) => void |  |  |
 | onClick | Set the handler to handle `click` event | (e: MouseEvent, link: object) => void | - |  |
 | items | Data configuration option content, support nesting through children | { href, title, target, children }\[] | - |  |
-| direction | Set Anchor direction | `vertical` \| `horizontal` | `horizontal` | 5.1.0 |
+| direction | Set Anchor direction | `vertical` \| `horizontal` | `vertical` | 5.2.0 |
 
 ### Link Props
 
