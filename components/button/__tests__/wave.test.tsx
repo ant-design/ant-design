@@ -8,18 +8,10 @@ let waveInstanceMock: any;
 jest.mock('../../_util/wave', () => {
   const Wave: typeof import('../../_util/wave') = jest.requireActual('../../_util/wave');
   const WaveComponent = Wave.default;
-
   return {
     ...Wave,
     __esModule: true,
-    default: (props: import('../../_util/wave').WaveProps) => (
-      <WaveComponent
-        ref={(node) => {
-          waveInstanceMock = node;
-        }}
-        {...props}
-      />
-    ),
+    default: (props: import('../../_util/wave').WaveProps) => <WaveComponent {...props} />,
   };
 });
 
