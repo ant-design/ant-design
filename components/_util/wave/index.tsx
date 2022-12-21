@@ -70,7 +70,7 @@ export interface WaveProps {
   children?: React.ReactNode;
 }
 
-const InternalWave: React.FC<WaveProps> = (props) => {
+const Wave: React.FC<WaveProps> = (props) => {
   const { children, insertExtraNode, disabled } = props;
 
   const instanceRef = useRef<{ cancel?: () => void }>({});
@@ -87,8 +87,8 @@ const InternalWave: React.FC<WaveProps> = (props) => {
   const attributeName = React.useMemo<string>(
     () =>
       insertExtraNode
-        ? `${getPrefixCls('')}-click-animating`
-        : `${getPrefixCls('')}-click-animating-without-extra-node`,
+        ? `${getPrefixCls()}-click-animating`
+        : `${getPrefixCls()}-click-animating-without-extra-node`,
     [insertExtraNode],
   );
 
@@ -117,7 +117,7 @@ const InternalWave: React.FC<WaveProps> = (props) => {
 
     extraNode.current = document.createElement('div');
 
-    extraNode.current.className = `${getPrefixCls('')}-click-animating-node`;
+    extraNode.current.className = `${getPrefixCls()}-click-animating-node`;
 
     node.setAttribute(attributeName, 'true');
     // Not white or transparent or grey
@@ -219,7 +219,7 @@ const InternalWave: React.FC<WaveProps> = (props) => {
       }
     };
   }, []);
-
+  useStyle();
   return (
     <ConfigConsumer>
       {({ csp }: ConfigConsumerProps) => {
@@ -234,11 +234,6 @@ const InternalWave: React.FC<WaveProps> = (props) => {
       }}
     </ConfigConsumer>
   );
-};
-
-const Wave: React.FC<WaveProps> = (props) => {
-  useStyle();
-  return <InternalWave {...props} />;
 };
 
 export default Wave;
