@@ -27,7 +27,7 @@ describe('Wave component', () => {
     }
   });
 
-  function filterStyles(styles: any) {
+  function filterStyles(styles: HTMLCollectionOf<HTMLStyleElement>) {
     return Array.from<HTMLStyleElement>(styles).filter(
       (style: HTMLStyleElement) => !style.hasAttribute('data-css-hash'),
     );
