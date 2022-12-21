@@ -27,7 +27,7 @@ const ElementsHolder = React.memo(
   }),
 );
 
-function useModal(): readonly [Omit<ModalStaticFunctions, 'warn'>, React.ReactNode] {
+function useModal(): readonly [Omit<ModalStaticFunctions, 'warn'>, React.ReactElement] {
   const holderRef = React.useRef<ElementsHolderRef>(null);
 
   // ========================== Effect ==========================

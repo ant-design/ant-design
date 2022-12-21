@@ -84,7 +84,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
 // ==============================================================================
 export function useInternalNotification(
   notificationConfig?: HolderProps,
-): readonly [NotificationInstance, React.ReactNode] {
+): readonly [NotificationInstance, React.ReactElement] {
   const holderRef = React.useRef<HolderRef>(null);
 
   // ================================ API ================================

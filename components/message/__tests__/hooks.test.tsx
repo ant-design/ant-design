@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-no-useless-fragment */
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React from 'react';
 import { act } from 'react-dom/test-utils';
@@ -234,7 +233,7 @@ describe('message.hooks', () => {
   it('warning if user call update in render', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
-    const Demo: React.FC = () => {
+    const Demo = () => {
       const [api, holder] = message.useMessage();
       const calledRef = React.useRef(false);
 
@@ -245,7 +244,7 @@ describe('message.hooks', () => {
         calledRef.current = true;
       }
 
-      return <>{holder}</>;
+      return holder;
     };
 
     render(<Demo />);

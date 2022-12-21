@@ -98,7 +98,7 @@ let keyIndex = 0;
 
 export function useInternalMessage(
   notificationConfig?: HolderProps,
-): readonly [MessageInstance, React.ReactNode] {
+): readonly [MessageInstance, React.ReactElement] {
   const holderRef = React.useRef<HolderRef>(null);
 
   // ================================ API ================================

@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-no-useless-fragment */
 import React from 'react';
 import { render, fireEvent, pureRender } from '../../../tests/utils';
 import notification from '..';
@@ -119,7 +118,7 @@ describe('notification.hooks', () => {
           });
         }, []);
 
-        return <>{holder}</>;
+        return holder;
       };
 
       render(<Demo />);
@@ -130,7 +129,7 @@ describe('notification.hooks', () => {
     it('warning if user call update in render', () => {
       const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
-      const Demo: React.FC = () => {
+      const Demo = () => {
         const [api, holder] = notification.useNotification();
         const calledRef = React.useRef(false);
 
@@ -142,7 +141,7 @@ describe('notification.hooks', () => {
           calledRef.current = true;
         }
 
-        return <>{holder}</>;
+        return holder;
       };
 
       render(<Demo />);
