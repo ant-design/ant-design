@@ -3,7 +3,6 @@ import mountTest from '../../../tests/shared/mountTest';
 import { render, waitFakeTimer, fireEvent, act } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import Wave from '../wave';
-import type { InternalWave } from '../wave';
 
 describe('Wave component', () => {
   mountTest(Wave);
@@ -187,45 +186,11 @@ describe('Wave component', () => {
     container.querySelector('button')?.click();
     await waitFakeTimer();
     let styles: HTMLCollectionOf<HTMLStyleElement> | HTMLStyleElement[] = (
-      container.querySelector('button')?.getRootNode() as HTMLButtonElement
+      container.querySelector<HTMLButtonElement>('button')?.getRootNode() as HTMLButtonElement
     ).getElementsByTagName('style');
     styles = filterStyles(styles);
     expect(styles[0].getAttribute('nonce')).toBe('YourNonceCode');
     unmount();
-  });
-
-  it('bindAnimationEvent should return when node is null', () => {
-    const ref = React.createRef<InternalWave>();
-    render(
-      <Wave ref={ref}>
-        <button type="button" disabled>
-          button
-        </button>
-      </Wave>,
-    );
-    expect(ref.current?.bindAnimationEvent()).toBe(undefined);
-  });
-
-  it('bindAnimationEvent.onClick should return when children is hidden', () => {
-    const ref = React.createRef<InternalWave>();
-    render(
-      <Wave ref={ref}>
-        <button type="button" style={{ display: 'none' }}>
-          button
-        </button>
-      </Wave>,
-    );
-    expect(ref.current?.bindAnimationEvent()).toBe(undefined);
-  });
-
-  it('bindAnimationEvent.onClick should return when children is input', () => {
-    const ref = React.createRef<InternalWave>();
-    render(
-      <Wave ref={ref}>
-        <input />
-      </Wave>,
-    );
-    expect(ref.current?.bindAnimationEvent()).toBe(undefined);
   });
 
   it('should not throw when click it', () => {

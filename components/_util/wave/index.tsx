@@ -73,7 +73,7 @@ export interface WaveProps {
 const InternalWave: React.FC<WaveProps> = (props) => {
   const { children, insertExtraNode, disabled } = props;
 
-  const instance = useRef<{ cancel?: () => void }>({});
+  const instanceRef = useRef<{ cancel?: () => void }>({});
   const containerRef = useRef<HTMLDivElement>(null);
   const extraNode = useRef<HTMLDivElement>();
   const clickWaveTimeoutId = useRef<NodeJS.Timer | null>(null);
@@ -208,15 +208,15 @@ const InternalWave: React.FC<WaveProps> = (props) => {
     if (!node || node.nodeType !== 1) {
       return;
     }
-    instance.current = bindAnimationEvent(node)!;
+    instanceRef.current = bindAnimationEvent(node)!;
     return () => {
-      if (instance.current) {
-        instance.current.cancel?.();
+      destroyed.current = true;
+      if (instanceRef.current) {
+        instanceRef.current.cancel?.();
       }
       if (clickWaveTimeoutId.current) {
         clearTimeout(clickWaveTimeoutId.current);
       }
-      destroyed.current = true;
     };
   }, []);
 
@@ -227,12 +227,9 @@ const InternalWave: React.FC<WaveProps> = (props) => {
         if (!React.isValidElement(children)) {
           return children;
         }
-
-        let ref: React.Ref<HTMLDivElement> = containerRef.current as any;
-        if (supportRef(children)) {
-          ref = composeRef((children as any).ref, containerRef.current as any);
-        }
-
+        const ref = supportRef(children)
+          ? composeRef((children as any).ref, containerRef)
+          : containerRef;
         return cloneElement(children, { ref });
       }}
     </ConfigConsumer>
@@ -241,8 +238,6 @@ const InternalWave: React.FC<WaveProps> = (props) => {
 
 const Wave: React.FC<WaveProps> = (props) => {
   useStyle();
-  // const prefixCls = getPrefixCls('wave');
-  // const [wrapSSR, hashId] = useStyle(prefixCls);
   return <InternalWave {...props} />;
 };
 
