@@ -353,4 +353,11 @@ describe('Table', () => {
 
     expect(container.querySelector('thead th')).toMatchSnapshot();
   });
+
+  // https://github.com/react-component/table/pull/855
+  it('support aria-* and data-*', async () => {
+    const { container } = render(<Table aria-label="label" data-number="123" />);
+    expect(container.querySelector('table')?.getAttribute('aria-label')).toBe('label');
+    expect(container.querySelector('.ant-table')?.getAttribute('data-number')).toBe('123');
+  });
 });
