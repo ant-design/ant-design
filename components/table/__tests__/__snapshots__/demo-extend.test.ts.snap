@@ -5709,7 +5709,6 @@ exports[`renders ./components/table/demo/edit-row.tsx extend context correctly 1
                 <div>
                   <div
                     class="rc-virtual-list"
-                    innerprops="[object Object]"
                     style="position:relative"
                   >
                     <div
@@ -5719,6 +5718,8 @@ exports[`renders ./components/table/demo/edit-row.tsx extend context correctly 1
                       <div>
                         <div
                           class="rc-virtual-list-holder-inner"
+                          id="undefined_list"
+                          role="listbox"
                           style="display:flex;flex-direction:column"
                         >
                           <div
@@ -10385,7 +10386,6 @@ exports[`renders ./components/table/demo/fixed-columns-header.tsx extend context
                 <div>
                   <div
                     class="rc-virtual-list"
-                    innerprops="[object Object]"
                     style="position:relative"
                   >
                     <div
@@ -10395,6 +10395,8 @@ exports[`renders ./components/table/demo/fixed-columns-header.tsx extend context
                       <div>
                         <div
                           class="rc-virtual-list-holder-inner"
+                          id="undefined_list"
+                          role="listbox"
                           style="display:flex;flex-direction:column"
                         >
                           <div
@@ -11752,7 +11754,6 @@ exports[`renders ./components/table/demo/fixed-header.tsx extend context correct
                 <div>
                   <div
                     class="rc-virtual-list"
-                    innerprops="[object Object]"
                     style="position:relative"
                   >
                     <div
@@ -11762,6 +11763,8 @@ exports[`renders ./components/table/demo/fixed-header.tsx extend context correct
                       <div>
                         <div
                           class="rc-virtual-list-holder-inner"
+                          id="undefined_list"
+                          role="listbox"
                           style="display:flex;flex-direction:column"
                         >
                           <div
@@ -13100,7 +13103,6 @@ exports[`renders ./components/table/demo/grouping-columns.tsx extend context cor
                 <div>
                   <div
                     class="rc-virtual-list"
-                    innerprops="[object Object]"
                     style="position:relative"
                   >
                     <div
@@ -13110,6 +13112,8 @@ exports[`renders ./components/table/demo/grouping-columns.tsx extend context cor
                       <div>
                         <div
                           class="rc-virtual-list-holder-inner"
+                          id="undefined_list"
+                          role="listbox"
                           style="display:flex;flex-direction:column"
                         >
                           <div
@@ -15594,7 +15598,6 @@ exports[`renders ./components/table/demo/narrow.tsx extend context correctly 1`]
                   <div>
                     <div
                       class="rc-virtual-list"
-                      innerprops="[object Object]"
                       style="position:relative"
                     >
                       <div
@@ -15604,6 +15607,8 @@ exports[`renders ./components/table/demo/narrow.tsx extend context correctly 1`]
                         <div>
                           <div
                             class="rc-virtual-list-holder-inner"
+                            id="undefined_list"
+                            role="listbox"
                             style="display:flex;flex-direction:column"
                           >
                             <div
@@ -25645,7 +25650,6 @@ exports[`renders ./components/table/demo/sticky.tsx extend context correctly 1`]
                 <div>
                   <div
                     class="rc-virtual-list"
-                    innerprops="[object Object]"
                     style="position:relative"
                   >
                     <div
@@ -25655,6 +25659,8 @@ exports[`renders ./components/table/demo/sticky.tsx extend context correctly 1`]
                       <div>
                         <div
                           class="rc-virtual-list-holder-inner"
+                          id="undefined_list"
+                          role="listbox"
                           style="display:flex;flex-direction:column"
                         >
                           <div
