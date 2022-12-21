@@ -160,7 +160,7 @@ export function useInternalNotification(
   }, []);
 
   // ============================== Return ===============================
-  return [wrapAPI, <Holder key="holder" {...notificationConfig} ref={holderRef} />];
+  return [wrapAPI, <Holder key="notification-holder" {...notificationConfig} ref={holderRef} />];
 }
 
 export default function useNotification(notificationConfig?: NotificationConfig) {

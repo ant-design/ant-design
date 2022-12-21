@@ -1,10 +1,10 @@
 ---
 title: antd 测试库迁移的那些事儿
-date: 2022-12-16
+date: 2022-12-20
 author: zombieJ,li-jia-nan
 ---
 
-大家好，我是 [@li-jia-nan](https://github.com/li-jia-nan)。也是前几个月新加入的 antd Collaborator, 有幸作为 Collaborators 之一，我开发了 **FloatButton 组件** 和 **QRCode 组件**，以及一些其它维护工作，下面分享一下 antd 测试库迁移的那些事儿～
+大家好，我是 **[@li-jia-nan](https://github.com/li-jia-nan)**。也是前几个月新加入 antd 的 Collaborator, 有幸作为 Collaborators 之一，我开发了 **[FloatButton](/components/float-button-cn)** 组件和 **[QRCode](/components/qrcode-cn)** 组件，以及一些其它维护工作，下面分享一下 antd 测试库迁移的那些事儿～
 
 ## 引言
 
