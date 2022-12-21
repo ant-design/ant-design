@@ -27,7 +27,7 @@ const ElementsHolder = React.memo(
   }),
 );
 
-export default function useModal(): [Omit<ModalStaticFunctions, 'warn'>, React.ReactElement] {
+function useModal(): readonly [Omit<ModalStaticFunctions, 'warn'>, React.ReactElement] {
   const holderRef = React.useRef<ElementsHolderRef>(null);
 
   // ========================== Effect ==========================
@@ -94,7 +94,7 @@ export default function useModal(): [Omit<ModalStaticFunctions, 'warn'>, React.R
     [],
   );
 
-  const fns = React.useMemo(
+  const fns = React.useMemo<Omit<ModalStaticFunctions, 'warn'>>(
     () => ({
       info: getConfirmFunc(withInfo),
       success: getConfirmFunc(withSuccess),
@@ -105,6 +105,7 @@ export default function useModal(): [Omit<ModalStaticFunctions, 'warn'>, React.R
     [],
   );
 
-  // eslint-disable-next-line react/jsx-key
-  return [fns, <ElementsHolder ref={holderRef} />];
+  return [fns, <ElementsHolder key="modal-holder" ref={holderRef} />] as const;
 }
+
+export default useModal;

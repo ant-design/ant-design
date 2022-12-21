@@ -98,7 +98,7 @@ let keyIndex = 0;
 
 export function useInternalMessage(
   notificationConfig?: HolderProps,
-): [MessageInstance, React.ReactElement] {
+): readonly [MessageInstance, React.ReactElement] {
   const holderRef = React.useRef<HolderRef>(null);
 
   // ================================ API ================================
@@ -212,7 +212,10 @@ export function useInternalMessage(
   }, []);
 
   // ============================== Return ===============================
-  return [wrapAPI, <Holder key="message-holder" {...notificationConfig} ref={holderRef} />];
+  return [
+    wrapAPI,
+    <Holder key="message-holder" {...notificationConfig} ref={holderRef} />,
+  ] as const;
 }
 
 export default function useMessage(notificationConfig?: ConfigOptions) {
