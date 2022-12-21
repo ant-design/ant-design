@@ -1,9 +1,10 @@
+/* eslint-disable react/jsx-no-useless-fragment */
 /* eslint-disable @typescript-eslint/no-use-before-define */
 import { updateCSS } from 'rc-util/lib/Dom/dynamicCSS';
 import { composeRef, supportRef } from 'rc-util/lib/ref';
 import React, { useContext, useEffect, useRef } from 'react';
-import type { ConfigConsumerProps, CSPConfig } from '../../config-provider';
-import { ConfigConsumer, ConfigContext } from '../../config-provider';
+import type { ConfigConsumerProps } from '../../config-provider';
+import { ConfigContext } from '../../config-provider';
 import raf from '../raf';
 import { cloneElement } from '../reactNode';
 import useStyle from './style';
@@ -80,9 +81,8 @@ const Wave: React.FC<WaveProps> = (props) => {
   const animationStartId = useRef<number>();
   const animationStart = useRef<boolean>(false);
   const destroyed = useRef<boolean>(false);
-  const cspRef = useRef<CSPConfig>({});
 
-  const { getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
+  const { getPrefixCls, csp } = useContext<ConfigConsumerProps>(ConfigContext);
 
   const attributeName = React.useMemo<string>(
     () =>
@@ -133,7 +133,7 @@ const Wave: React.FC<WaveProps> = (props) => {
         --antd-wave-shadow-color: ${waveColor};
       }`,
         'antd-wave',
-        { csp: cspRef.current, attachTo: nodeBody },
+        { csp, attachTo: nodeBody },
       );
     }
     if (insertExtraNode) {
@@ -219,21 +219,16 @@ const Wave: React.FC<WaveProps> = (props) => {
       }
     };
   }, []);
+
   useStyle();
-  return (
-    <ConfigConsumer>
-      {({ csp }: ConfigConsumerProps) => {
-        cspRef.current = csp!;
-        if (!React.isValidElement(children)) {
-          return children;
-        }
-        const ref = supportRef(children)
-          ? composeRef((children as any).ref, containerRef)
-          : containerRef;
-        return cloneElement(children, { ref });
-      }}
-    </ConfigConsumer>
-  );
+
+  if (!React.isValidElement(children)) {
+    return <>{children}</>;
+  }
+
+  const ref = supportRef(children) ? composeRef((children as any).ref, containerRef) : containerRef;
+
+  return cloneElement(children, { ref });
 };
 
 export default Wave;
