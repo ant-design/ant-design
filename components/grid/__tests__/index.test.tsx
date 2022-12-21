@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { act } from 'react-dom/test-utils';
 import { Col, Row } from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import useBreakpoint from '../hooks/useBreakpoint';
-import { render } from '../../../tests/utils';
+import { render, fireEvent } from '../../../tests/utils';
 
 // Mock for `responsiveObserve` to test `unsubscribe` call
 jest.mock('../../_util/responsiveObserve', () => {
@@ -208,5 +209,27 @@ describe('Grid', () => {
     expect(container2.innerHTML).toContain('ant-row-center');
     const { container: container3 } = render(<Row justify={{ lg: 'center' }} />);
     expect(container3.innerHTML).not.toContain('ant-row-center');
+  });
+
+  // https://github.com/ant-design/ant-design/issues/39690
+  it('Justify and align properties should reactive for Row', () => {
+    const ReactiveTest = () => {
+      const [justify, setjustify] = useState<any>('start');
+      return (
+        <>
+          <Row justify={justify} align="bottom">
+            <div>button1</div>
+            <div>button</div>
+          </Row>
+          <span onClick={() => setjustify('end')} />
+        </>
+      );
+    };
+    const { container } = render(<ReactiveTest />);
+    expect(container.innerHTML).toContain('ant-row-start');
+    act(() => {
+      fireEvent.click(container.querySelector('span')!);
+    });
+    expect(container.innerHTML).toContain('ant-row-end');
   });
 });
