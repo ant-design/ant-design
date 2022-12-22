@@ -309,8 +309,8 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
   const anchorContent = (
     <div ref={wrapperRef} className={wrapperClass} style={wrapperStyle}>
       <div className={anchorClass}>
-        {'items' in props ? createNestedLink(items) : children}
         <span className={inkClass} ref={spanLinkNode} />
+        {'items' in props ? createNestedLink(items) : children}
       </div>
     </div>
   );

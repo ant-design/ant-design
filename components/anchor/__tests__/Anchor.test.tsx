@@ -93,9 +93,9 @@ describe('Anchor Render', () => {
     const linkTitles = Array.from(container.querySelector('.ant-anchor')?.childNodes!).map((n) =>
       (n as HTMLElement).querySelector('.ant-anchor-link-title'),
     );
-    expect((linkTitles[0] as HTMLAnchorElement).href).toContain('#components-anchor-demo-basic');
-    expect((linkTitles[1] as HTMLAnchorElement).href).toContain('#components-anchor-demo-static');
-    expect((linkTitles[2] as HTMLAnchorElement).href).toContain('#api');
+    expect((linkTitles[1] as HTMLAnchorElement).href).toContain('#components-anchor-demo-basic');
+    expect((linkTitles[2] as HTMLAnchorElement).href).toContain('#components-anchor-demo-static');
+    expect((linkTitles[3] as HTMLAnchorElement).href).toContain('#api');
     expect(
       (
         container.querySelector(
@@ -139,9 +139,9 @@ describe('Anchor Render', () => {
     const linkTitles = Array.from(container.querySelector('.ant-anchor')?.childNodes!).map((n) =>
       (n as HTMLElement).querySelector('.ant-anchor-link-title'),
     );
-    expect((linkTitles[0] as HTMLAnchorElement).href).toContain('#components-anchor-demo-basic');
-    expect((linkTitles[1] as HTMLAnchorElement).href).toContain('#components-anchor-demo-static');
-    expect((linkTitles[2] as HTMLAnchorElement).href).toContain('#api');
+    expect((linkTitles[1] as HTMLAnchorElement).href).toContain('#components-anchor-demo-basic');
+    expect((linkTitles[2] as HTMLAnchorElement).href).toContain('#components-anchor-demo-static');
+    expect((linkTitles[3] as HTMLAnchorElement).href).toContain('#api');
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 

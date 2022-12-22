@@ -135,14 +135,13 @@ const genSharedAnchorHorizontalStyle: GenerateStyle<AnchorToken> = (token): CSSO
         overflowX: 'scroll',
         position: 'relative',
         display: 'flex',
-        '-ms-overflow-style': 'none' /* Internet Explorer 10+ */,
         scrollbarWidth: 'none' /* Firefox */,
 
         '&::-webkit-scrollbar': {
           display: 'none' /* Safari and Chrome */,
         },
 
-        [`${componentCls}-link:first-child`]: {
+        [`${componentCls}-link:first-of-type`]: {
           paddingInline: 0,
         },
 
