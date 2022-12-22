@@ -4,7 +4,7 @@ date: 2022-12-08
 author: heiyu4585
 ---
 
-大家好，我是[黑雨](https://github.com/heiyu4585)。关于 Ant Design，相信大家都非常熟悉，我在很多后台管理系统项目使用过 Ant Design，给我最大的感觉就是好用、好看、简单、稳定。现在 `v5` 版本已经发布，强烈推荐大家试使用，我也有幸开发了 `v5` 版本的 `Tour` 组件和 `App` 组件，以及一些其他维护工作，下面给大家分享一下如何通过给 Ant Design 提 PR 成长为 Collaborator。
+大家好，我是[黑雨](https://github.com/heiyu4585)。关于 Ant Design，相信大家都非常熟悉，我在很多后台管理系统项目使用过 Ant Design，给我最大的感觉就是好用、好看、简单、稳定。现在 `v5` 版本已经发布，强烈推荐大家试使用，我也有幸开发了 `v5` 版本的 `Tour` 组件和 `App` 组件，以及一些其他维护工作。下面给大家分享一下 Ant Design 的 PR 流程，希望能给有兴趣为社区共建的同学提供一份参考。
 
 ## 一. 阅读相关文章熟悉相关概念
 
@@ -27,10 +27,10 @@ author: heiyu4585
 - 在本地电脑上项目地址使用以下命令：得到一个 github 文件夹
 
 ```bash
-git clone https://github.com/heiyu4585/ant-design.git
+git clone https://github.com/[yourGithubAccount]/ant-design.git
 ```
 
-注意： `heiyu4585` 改为自己的 github 用户名
+注意： `[yourGithubAccount]` 改为自己的 github 用户名
 
 ### 2. 添加远端分支地址
 
@@ -64,18 +64,18 @@ git checkout fix-branch
 
 ## 三. 在[Ant Design 的 issue](https://github.com/ant-design/ant-design/issues)页找到 issue 并分析选择
 
-为了能帮助你开始你的第一次尝试，我们用 [good first issues](https://github.com/ant-design/ant-design/issues?q=is%3Aissue+is%3Aopen+label%3A"good+first+issue") 标记了一些比较容易修复的 bug 和小功能，这些 issue 可以很好地作为你的首次尝试。[help wanted](https://github.com/ant-design/ant-design/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22) 是作为开发者毕竟容易接手的一些问题。
+为了能帮助你开始你的第一次尝试，我们用 [good first issues](https://github.com/ant-design/ant-design/issues?q=is%3Aissue+is%3Aopen+label%3A"good+first+issue") 标记了一些比较容易修复的 bug 和小功能，这些 issue 可以很好地作为你的首次尝试。[help wanted](https://github.com/ant-design/ant-design/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22) 是作为开发者比较容易接手的一些问题。
 
 ![image-20221216111126983](https://user-images.githubusercontent.com/10607168/208016864-fd72d378-a5db-4c20-9a34-b136d5e7c446.png)
 
 ## 四. 开发流程
 
 1. `npm start` 在本地运行 Ant Design 的网站
-2. 具体开发过程，XXXX ，不具体写了
+2. 按照 issue 描述调试、修复问题或者开发新的 feature
 
 ## 五. 运行测试用例及规范检查
 
-1. 确认所有的测试都是通过的 `npm run test`。 小贴士：开发过程中可以用 `npm test -- --watch TestName` 来运行指定的测试。
+1. 在添加 issue 相关测试用例同时，确认所有的测试都是通过的 `npm run test`。 小贴士：开发过程中可以用 `npm test -- --watch TestName` 来运行指定的测试。
 2. 运行 `npm test -- -u` 来更新 [jest snapshot](https://facebook.github.io/jest/docs/en/snapshot-testing.html#snapshot-testing-with-jest) 并且把这些更新也提交上来（如果有的话）。
 3. 确保你的代码通过了 lint 检查 `npm run lint`。
 

@@ -4,7 +4,7 @@ date: 2022-12-08
 author: heiyu4585
 ---
 
-Hello everyone, I am [heiyu](https://github.com/heiyu4585). About Ant Design, I believe everyone is very familiar with it. Before I contributed to Ant Design, I have used Ant Design in many background management system projects at work. The biggest feeling for me is that it is easy to use, beautiful, simple and stable. Now that the v5 version has been released, I strongly recommend everyone to try it. I am also fortunate to have developed the v5 version of the `Tour` component and `App` component, as well as some other maintenance work. Let me share with you how to grow into a Collaborator.
+Hello everyone, I am [heiyu](https://github.com/heiyu4585). About Ant Design, I believe everyone is very familiar with it. Before I contributed to Ant Design, I have used Ant Design in many background management system projects at work. The biggest feeling for me is that it is easy to use, beautiful, simple and stable. Now that the v5 version has been released, I strongly recommend everyone to try it. I am also fortunate to have developed the v5 version of the `Tour` component and `App` component, as well as some other maintenance work. Let me share with you the PR process of Ant Design, hoping to provide a reference for who are interested in building together for the community.
 
 ### Read related articles to familiarize yourself with related concepts
 
@@ -27,10 +27,10 @@ Hello everyone, I am [heiyu](https://github.com/heiyu4585). About Ant Design, I 
 - Use the following command on the project address on the local computer: get a github folder
 
 ```bash
-git clone https://github.com/heiyu4585/ant-design.git
+git clone https://github.com/[yourGithubAccount]/ant-design.git
 ```
 
-Note: `heiyu4585` changed to your own github username
+Note: `[yourGithubAccount]` changed to your own github username
 
 ### 2. Add remote branch address
 
@@ -71,11 +71,11 @@ To help you start your first attempt, we use [good first issues](https://github.
 ## Development Process
 
 1. `npm start` A website running Ant Design locally
-2. The specific development process, XXXX, not specifically written
+2. As issue mentioned. Debug, fixing or add new feature
 
 ## Run test cases and specification checks
 
-1. Make sure all tests pass `npm run test`. Tips: You can use `npm test -- --watch TestName` to run specified tests during development.
+1. When add new related test case, also make sure all tests pass `npm run test`. Tips: You can use `npm test -- --watch TestName` to run specified tests during development.
 2. Run `npm test -- -u` to update [jest snapshot](https://facebook.github.io/jest/docs/en/snapshot-testing.html#snapshot-testing-with-jest) and put These updates are also committed (if any).
 3. Make sure your code passes the lint check `npm run lint`.
 
