@@ -353,6 +353,10 @@ root.render(
 
 <TokenTable type="alias"></TokenTable>
 
+### StyleProvider
+
+请参考 [`@ant-design/cssinjs`](https://github.com/ant-design/cssinjs#styleprovider)。
+
 ## 调试主题
 
 我们提供了帮助用户调试主题的工具：[主题编辑器](/theme-editor-cn)
