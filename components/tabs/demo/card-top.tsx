@@ -1,39 +1,40 @@
 import React from 'react';
-import { Tabs, theme as antTheme } from 'antd';
-import { useStyleRegister } from '@ant-design/cssinjs';
-
-const { useToken } = antTheme;
+import { Tabs, theme } from 'antd';
+import { css } from '@emotion/css';
 
 const useStyle = () => {
-  const { token, theme } = useToken();
+  const { token } = theme.useToken();
+  const antdTabsCls = '.ant-tabs';
 
-  return [
-    useStyleRegister({ theme, token, path: ['components-tabs-demo-card-top'] }, () => {
-      const antdTabsCls = '.ant-tabs';
-      return {
-        [`${antdTabsCls}${antdTabsCls}-card`]: {
-          [`${antdTabsCls}-content`]: {
-            padding: `${token.padding}px`,
-            background: token.colorBgContainer,
-          },
-          [`${antdTabsCls}-nav`]: {
-            margin: 0,
-            [`${antdTabsCls}-nav-wrap > ${antdTabsCls}-nav-list > ${antdTabsCls}-tab`]: {
-              background: 'transparent',
-              borderColor: 'transparent',
-              '&-active': {
-                borderColor: token.colorBorderBg,
-                background: token.colorBgContainer,
-              },
-            },
-            '&::before': {
-              display: 'none',
-            },
-          },
-        },
-      };
-    }),
-  ] as const;
+  return css`
+    background: ${token.colorBgLayout};
+    padding: ${token.paddingLG}px;
+
+    ${antdTabsCls}${antdTabsCls}-card {
+      ${antdTabsCls}-content {
+        padding: ${token.padding}px;
+        background: ${token.colorBgContainer};
+      }
+
+      ${antdTabsCls}-nav {
+        margin: 0;
+
+        ${antdTabsCls}-nav-wrap > ${antdTabsCls}-nav-list > ${antdTabsCls}-tab {
+          background: transparent;
+          border-color: transparent;
+
+          &-active {
+            border-color: ${token.colorBorderBg};
+            background: ${token.colorBgContainer};
+          }
+        }
+
+        &::before {
+          display: none;
+        }
+      }
+    }
+  `;
 };
 
 const items = new Array(3).fill(null).map((_, i) => {
@@ -52,15 +53,13 @@ const items = new Array(3).fill(null).map((_, i) => {
 });
 
 const App = () => {
-  const [wrapSSR] = useStyle();
-  const { token } = useToken();
+  const style = useStyle();
 
-  const containerStyle = {
-    padding: `${token.paddingLG}px`,
-    background: token.colorBgLayout,
-  };
-
-  return <div style={containerStyle}>{wrapSSR(<Tabs type="card" items={items} />)}</div>;
+  return (
+    <div className={style}>
+      <Tabs type="card" items={items} />
+    </div>
+  );
 };
 
 export default App;
