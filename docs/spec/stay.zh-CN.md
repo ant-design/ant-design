@@ -93,7 +93,9 @@ title: 足不出户
 
 <br>
 
+<ImagePreview>
 <img class="preview-img" alt="配置程序示例" src="https://gw.alipayobjects.com/zos/rmsportal/nVgSYAiXfKGMHxkjypPp.png">
+</ImagePreview>
 
 配置程序：通过提供一系列的配置项，帮助用户完成任务或者产品组装。
 
