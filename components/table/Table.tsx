@@ -15,7 +15,7 @@ import Pagination from '../pagination';
 import type { SpinProps } from '../spin';
 import Spin from '../spin';
 import type { TooltipProps } from '../tooltip';
-import type { Breakpoint } from '../_util/responsiveObserve';
+import type { Breakpoint } from '../_util/responsiveObserver';
 import scrollTo from '../_util/scrollTo';
 import warning from '../_util/warning';
 import Column from './Column';

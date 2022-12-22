@@ -19,9 +19,50 @@ const getResponsiveMap = (token: GlobalToken): BreakpointMap => ({
   xxl: `(min-width: ${token.screenXXL}px)`,
 });
 
+/**
+ * Ensures that the breakpoints token are valid, in good order
+ * For each breakpoint : screenMin <= screen <= screenMax and screenMax <= nextScreenMin
+ */
+const validateBreakpoints = (token: GlobalToken) => {
+  const indexableToken: any = token;
+  const revBreakpoints = [...responsiveArray].reverse();
+
+  revBreakpoints.forEach((breakpoint: Breakpoint, i: number) => {
+    const breakpointUpper = breakpoint.toUpperCase();
+    const screenMin = `screen${breakpointUpper}Min`;
+    const screen = `screen${breakpointUpper}`;
+
+    if (!(indexableToken[screenMin] <= indexableToken[screen])) {
+      throw new Error(
+        `${screenMin}<=${screen} fails : !(${indexableToken[screenMin]}<=${indexableToken[screen]})`,
+      );
+    }
+
+    if (i < revBreakpoints.length - 1) {
+      const screenMax = `screen${breakpointUpper}Max`;
+
+      if (!(indexableToken[screen] <= indexableToken[screenMax])) {
+        throw new Error(
+          `${screen}<=${screenMax} fails : !(${indexableToken[screen]}<=${indexableToken[screenMax]})`,
+        );
+      }
+
+      const nextBreakpointUpperMin: string = revBreakpoints[i + 1].toUpperCase();
+      const nextScreenMin = `screen${nextBreakpointUpperMin}Min`;
+
+      if (!(indexableToken[screenMax] <= indexableToken[nextScreenMin])) {
+        throw new Error(
+          `${screenMax}<=${nextScreenMin} fails : !(${indexableToken[screenMax]}<=${indexableToken[nextScreenMin]})`,
+        );
+      }
+    }
+  });
+  return token;
+};
+
 export default function useResponsiveObserver() {
   const [, token] = useToken();
-  const responsiveMap: BreakpointMap = getResponsiveMap(token);
+  const responsiveMap: BreakpointMap = getResponsiveMap(validateBreakpoints(token));
 
   // To avoid repeat create instance, we add `useMemo` here.
   return React.useMemo(() => {

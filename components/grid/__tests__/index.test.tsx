@@ -7,8 +7,8 @@ import useBreakpoint from '../hooks/useBreakpoint';
 import { render, fireEvent } from '../../../tests/utils';
 
 // Mock for `responsiveObserve` to test `unsubscribe` call
-jest.mock('../../_util/responsiveObserve', () => {
-  const modules = jest.requireActual('../../_util/responsiveObserve');
+jest.mock('../../_util/responsiveObserver', () => {
+  const modules = jest.requireActual('../../_util/responsiveObserver');
   const originHook = modules.default;
 
   const useMockResponsiveObserver = (...args: any[]) => {
@@ -116,7 +116,7 @@ describe('Grid', () => {
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
-  it('useResponsiveObserve.unsubscribe should be called when unmounted', () => {
+  it('useResponsiveObserver.unsubscribe should be called when unmounted', () => {
     const { unmount } = render(<Row gutter={{ xs: 20 }} />);
     const called: number = (global as any).unsubscribeCnt;
 
