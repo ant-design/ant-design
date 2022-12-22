@@ -44,6 +44,7 @@ demo:
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | arrow | 下拉框箭头是否显示 | boolean \| { pointAtCenter: boolean } | false |  |
+| autoAdjustOverflow | 下拉框被遮挡时自动调整位置 | boolean | true | 5.2.0 |
 | autoFocus | 打开后自动聚焦下拉框 | boolean | false | 4.21.0 |
 | disabled | 菜单是否禁用 | boolean | - |  |
 | destroyPopupOnHide | 关闭后是否销毁 Dropdown | boolean | false |  |

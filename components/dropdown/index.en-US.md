@@ -40,6 +40,7 @@ When there are more than a few options to choose from, you can wrap them in a `D
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | arrow | Whether the dropdown arrow should be visible | boolean \| { pointAtCenter: boolean } | false |  |
+| autoAdjustOverflow | Whether to adjust dropdown placement automatically when dropdown is off screen | boolean | true | 5.2.0 |
 | autoFocus | Focus element in `overlay` when opened | boolean | false | 4.21.0 |
 | disabled | Whether the dropdown menu is disabled | boolean | - |  |
 | destroyPopupOnHide | Whether destroy dropdown when hidden | boolean | false |  |
