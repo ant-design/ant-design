@@ -170,6 +170,7 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
       },
 
       // ============================ Body ============================
+      // Borderless Table has unique hover style, which would be implemented with `borderTop`.
       [`${componentCls}:not(${componentCls}-bordered)`]: {
         [`${componentCls}-tbody`]: {
           '> tr': {
@@ -189,6 +190,8 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         },
       },
 
+      // Bordered Table remains simple `borderBottom`.
+      // Ref issue: https://github.com/ant-design/ant-design/issues/38724
       [`${componentCls}${componentCls}-bordered`]: {
         [`${componentCls}-tbody`]: {
           '> tr': {
