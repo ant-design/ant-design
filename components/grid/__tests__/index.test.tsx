@@ -194,7 +194,7 @@ describe('Grid', () => {
             <div>button1</div>
             <div>button</div>
           </Row>
-          <span onClick={() => setjustify('end')} />
+          <span onClick={() => setJustify('end')} />
         </>
       );
     };
