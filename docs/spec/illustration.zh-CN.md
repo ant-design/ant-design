@@ -57,23 +57,23 @@ title: 图形化
 
 ### 人物组件
 
-<img class="preview-img" align="right" alt="基于自然的人物头身比例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*rm9JRIqTmPgAAAAAAAAAAABkARQnAQ" />
+<img class="preview-img" alt="基于自然的人物头身比例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*rm9JRIqTmPgAAAAAAAAAAABkARQnAQ" />
 
 基于自然的设计原则，我们不推荐使用 Q 版卡通和过于夸张艺术化的设计风格。相比之下，接近自然真人头人比例的风格更是我们所推荐的。
 
 <br />
 
-<img class="preview-img" align="right" alt="9 种常见职业角色设计" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Zt7BSI2OL7gAAAAAAAAAAABkARQnAQ" />
+<img class="preview-img" alt="9 种常见职业角色设计" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Zt7BSI2OL7gAAAAAAAAAAABkARQnAQ" />
 
 同时，我们结合情感化设计，将 9 种常见的职业角色进行人物设计。结合职业本身的一些特质，我们也赋予了他们不同气质特质，来满足各种业务场景的使用。
 
 <br />
 
-<img class="preview-img" align="right" alt="角色设计人物分解" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*jUujRJBxU-sAAAAAAAAAAABkARQnAQ" />
+<img class="preview-img" alt="角色设计人物分解" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*jUujRJBxU-sAAAAAAAAAAABkARQnAQ" />
 
-<img class="preview-img" align="right" alt="HiTu 骨骼系统" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*C3NCT6QHU9QAAAAAAAAAAABkARQnAQ" />
+<img class="preview-img" alt="HiTu 骨骼系统" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*C3NCT6QHU9QAAAAAAAAAAABkARQnAQ" />
 
-<img class="preview-img" align="right" alt="人物姿态复用" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*NZuwQp_vcIQAAAAAAAAAAABkARQnAQ" />
+<img class="preview-img" alt="人物姿态复用" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*NZuwQp_vcIQAAAAAAAAAAABkARQnAQ" />
 
 有了基础的人物设计，我们将人物进行分解，然后搭配设计好的骨骼系统。来为人物增加各种姿态动作的复用和延展。
 
@@ -81,9 +81,9 @@ title: 图形化
 
 ### 元素组件
 
-<img class="preview-img" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*ph0YSZmq-ekAAAAAAAAAAABkARQnAQ" />
+<img class="preview-img" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*ph0YSZmq-ekAAAAAAAAAAABkARQnAQ" />
 
-<img class="preview-img" align="right" alt="根据业务场景设计的元素组件" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Z8oxS5ym3PIAAAAAAAAAAABkARQnAQ" />
+<img class="preview-img" alt="根据业务场景设计的元素组件" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Z8oxS5ym3PIAAAAAAAAAAABkARQnAQ" />
 
 记忆点源于与众不同，专业感源于整齐划一。元素组件指代的是业务场景中一些业务元素，状态元素图形化的世界缤纷多变，我们希望在保持统一性的同时不去限时设计者的创意空间，元素组件的设计上，我们为了保持一定的韵律感，推荐设计师在 1024\*1024 的网格中绘制组件，且圆角的大小保持 8 的倍数关系。
 
@@ -91,13 +91,13 @@ title: 图形化
 
 # 设计应用
 
-<img class="preview-img" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*puHVQJEe-oIAAAAAAAAAAABkARQnAQ" />
+<img class="preview-img" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*puHVQJEe-oIAAAAAAAAAAABkARQnAQ" />
 
-<img class="preview-img" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*W-PzSadIFeAAAAAAAAAAAABkARQnAQ" />
+<img class="preview-img" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*W-PzSadIFeAAAAAAAAAAAABkARQnAQ" />
 
-<img class="preview-img" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*OJoaQ77tczIAAAAAAAAAAABkARQnAQ" />
+<img class="preview-img" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*OJoaQ77tczIAAAAAAAAAAABkARQnAQ" />
 
-<img class="preview-img" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*IySSSoBaGPYAAAAAAAAAAABkARQnAQ" />
+<img class="preview-img" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*IySSSoBaGPYAAAAAAAAAAABkARQnAQ" />
 
 有了丰富的资产组件，我们应该如何使用呢？在 HiTu 的设计使用指引中，我推荐设计者在使用资产的过程中构建 Z 轴向的空间概念，将整幅画面拆分成前景，中景以及背景三个层次，在组件的排放时候，前景凸显重要的元素（如人，核心元素组件等），中间交代所处环境，背景则渲染烘托氛围，在颜色的使用和透明上也是前景的饱和度和透明度最高，逐级降低。
 

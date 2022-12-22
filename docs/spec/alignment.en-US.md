@@ -25,7 +25,7 @@ If the paragraphs or the length of the words are too short or too loose, then a 
 ## Form Alignment
 
 <ImagePreview>
-<img class="preview-img" align="right" alt="example of colon alignment" src="https://gw.alipayobjects.com/zos/rmsportal/OaTkwGfGxRSFsvAlzZMq.png">
+<img class="preview-img" alt="example of colon alignment" src="https://gw.alipayobjects.com/zos/rmsportal/OaTkwGfGxRSFsvAlzZMq.png">
 </ImagePreview>
 
 Colon alignment(right-align) can encircle the content into a certain range. Users can infer where the chart is through the regular arranged colon so that the speed of filling in the chart can be speeded up.
