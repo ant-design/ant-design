@@ -13,7 +13,9 @@ An icon is a graphical representation of meaning. Icons can be used to express a
 
 ## System Icons
 
+<ImagePreview>
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/XzOPonWCsPjvgkrklCzo.png" alt="System Icons">
+</ImagePreview>
 
 System icons are often used to represent commonly used operations, such as: save, edit, delete. Ant Design also includes icons to represent file types and state.
 
@@ -21,7 +23,9 @@ System icons are often used to represent commonly used operations, such as: save
 
 ### Key Contour Lines
 
+<ImagePreview>
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/beTZeZjJBVuhMyTOhebs.png" alt="Ant Design's grid and key contour lines" alt="Key Contour Lines">
+</ImagePreview>
 
 Contour lines play an important role in making various icons with the same visual effect.
 
@@ -29,23 +33,36 @@ Please make all icons in the 1024×1024 resolution (16×16 64 times).
 
 - [Illustrator tips](https://zos.alipayobjects.com/rmsportal/hmNuLjCkBssupcZgYAde.png)
 
+<ImagePreview>
 <img class="preview-img no-padding inline" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/rxuHAKGEGLuqBJAAhnSm.png" alt="Square contour">
+</ImagePreview>
+
+<ImagePreview>
 <img class="preview-img no-padding inline" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/fhkmysGZiTkPVszWHgUy.png" alt="Horizontal rectangle contour">
+</ImagePreview>
 
+<ImagePreview>
 <img class="preview-img no-padding inline" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/BiraoJgbXokyzmUFqVuf.png" alt="Circular contour">
-<img class="preview-img no-padding inline" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/wgQLwFnPaeEalmmSuBMO.png" alt="Vertical rectangle contour">
+</ImagePreview>
 
+<ImagePreview>
+<img class="preview-img no-padding inline" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/wgQLwFnPaeEalmmSuBMO.png" alt="Vertical rectangle contour">
+</ImagePreview>
 ### Stroke Weight
 
+<ImagePreview>
 <img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/uoNmxXiqKpfoFDdEVjUB.png" alt="Correct example" description="Line thickness is consistently 72px">
 <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/cnFYbWzcKaPFSiHcptCF.png" alt="Incorrect example" description="Line thickness is not uniform">
+</ImagePreview>
 
 Consistent stroke weight is the key to maintaining the visual unity of the entire icon system. Ant Design's icons have a consistent line width of 72px.
 
 ### Corners
 
+<ImagePreview>
 <img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/tGbuhPmvEJXmOFoYAkPK.png" alt="Correct example" description="The icon's corners are properly rounded">
 <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/JekevTlqdDJQLIQwrppm.png" alt="Incorrect example" description="The icon's corners are not rounded">
+</ImagePreview>
 
 Consistent rounding of corners and sizing of angles is also an important element in maintaining visual unity.
 
@@ -53,15 +70,19 @@ Icons that follow Ant Design should have rounded corners and edges using a 72px 
 
 ### Visual Correction
 
+<ImagePreview>
 <img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/VghPLyDUdFmjhGJlNxjV.png" alt="Correct example" description="For the intricate “JPG” lettering, an outline is added for readability">
 <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/qnzloxRQmvHzHAhWWwCS.png" alt="Incorrect example" description="The text in the icon is crowded and hard to read">
+</ImagePreview>
 
 In certain special cases (for example, when the icon is too compact), adjustments to line width, outlines, or other subtle changes may be made to increase readability.
 
 ### Perspective
 
+<ImagePreview>
 <img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/tIePnIOTXtgzVKbqwucm.png" alt="Correct example" description="Maintains a flat, simple style">
 <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/ALNOEelXeFhxUobLqyCq.png" alt="Incorrect example" description="Icons should not have depth nor varying perspectives">
+</ImagePreview>
 
 Always keep a simple, flat style. Icons should not have a sense of depth nor a large amount of detail.
 

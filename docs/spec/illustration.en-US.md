@@ -35,7 +35,9 @@ We concretized the 4 abstract cornerstones that make up our design strategy; Tec
 
 ### Sea Hare Swatch
 
+<ImagePreview>
 <img class="preview-img no-padding" align="right" description="Sea Hare's color palette" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*5ZE6RrjW-jQAAAAAAAAAAABkARQnAQ" />
+</ImagePreview>
 
 Sea Hare's color matching system is inspired by Ant Design's application of color palette in scenes. Differing from the UI's color scheme. The color matching system used in illustrations will be relatively more vibrant and flexible. Taking inspiration from Ant Design's basic color palette, we tweaked brightness and tolerance. The result is more efficient and easy to use. Since it originates from Any Design's color palette, it integrates seamlessly with other UI assets.
 
@@ -47,7 +49,9 @@ Through research, we discovered blue and white accounts for a large proportion a
 
 <br />
 
+<ImagePreview>
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*U5L-RKWlmJcAAAAAAAAAAABkARQnAQ" />
+</ImagePreview>
 
 Sea Hare's palette combined with Adobe's ternary color picker and mosaic ball, you can easily obtain the default version of the basic color palette.
 
