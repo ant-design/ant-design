@@ -798,6 +798,7 @@ const genTabsStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
           },
           padding: `0 ${token.paddingXS}px`,
           background: 'transparent',
+          color: token.colorTextHeading,
           border: `${token.lineWidth}px ${token.lineType} ${colorSplit}`,
           borderRadius: `${token.borderRadiusLG}px ${token.borderRadiusLG}px 0 0`,
           outline: 'none',
