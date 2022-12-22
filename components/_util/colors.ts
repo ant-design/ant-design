@@ -22,12 +22,16 @@ export const PresetColorTypes = [
   'lime',
 ] as const;
 
-export type PresetColorType = typeof PresetColorTypes[number];
+type _PresetColorType = typeof PresetColorTypes[number];
+type InversePresetColorType = `${_PresetColorType}-inverse`;
+
+export type PresetColorType = _PresetColorType | InversePresetColorType;
 
 export type PresetStatusColorType = typeof PresetStatusColorTypes[number];
 
 export function isPresetColor(color?: any): color is PresetColorType {
-  return PresetColorTypes.includes(color);
+  const inverseColors = PresetColorTypes.map((c) => `${c}-inverse`) as InversePresetColorType[];
+  return [...inverseColors, ...PresetColorTypes].includes(color);
 }
 
 export function isPresetStatusColor(color?: any): color is PresetStatusColorType {
