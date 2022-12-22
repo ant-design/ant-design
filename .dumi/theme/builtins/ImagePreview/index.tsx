@@ -1,7 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import classNames from 'classnames';
-import { Modal, Carousel } from 'antd';
+import { Image } from 'antd';
 import toArray from 'rc-util/lib/Children/toArray';
+
+interface ImagePreviewProps {
+  children: React.ReactNode[];
+}
 
 function isGood(className: string): boolean {
   return /\bgood\b/i.test(className);
@@ -23,66 +27,7 @@ function isCompareImg(imgMeta: any): boolean {
   return isGoodBadImg(imgMeta) || imgMeta.inline;
 }
 
-interface PreviewImageBoxProps {
-  coverMeta: any;
-  cover: React.ReactNode;
-  imgs: React.ReactNode[];
-  style: React.CSSProperties;
-  previewVisible: boolean;
-  comparable: boolean;
-  onClick: () => void;
-  onCancel: () => void;
-}
-
-const PreviewImageBox: React.FC<PreviewImageBoxProps> = (props) => {
-  const { cover, coverMeta, imgs, style, previewVisible, comparable, onClick, onCancel } = props;
-  const onlyOneImg = comparable || imgs.length === 1;
-  const imageWrapperClassName = classNames('preview-image-wrapper', {
-    good: coverMeta.isGood,
-    bad: coverMeta.isBad,
-  });
-  return (
-    <div className="preview-image-box" style={style}>
-      <div onClick={onClick} className={imageWrapperClassName}>
-        <img className={coverMeta.className} src={coverMeta.src} alt={coverMeta.alt} />
-      </div>
-      <div className="preview-image-title">{coverMeta.alt}</div>
-      <div
-        className="preview-image-description"
-        dangerouslySetInnerHTML={{ __html: coverMeta.description }}
-      />
-      <Modal
-        className="image-modal"
-        width={960}
-        visible={previewVisible}
-        title={null}
-        footer={null}
-        onCancel={onCancel}
-      >
-        <Carousel
-          className={`${onlyOneImg ? 'image-modal-single' : ''}`}
-          draggable={!onlyOneImg}
-          adaptiveHeight
-        >
-          {comparable ? cover : imgs}
-        </Carousel>
-        <div className="preview-image-title">{coverMeta.alt}</div>
-      </Modal>
-    </div>
-  );
-};
-
-interface ImagePreviewProps {
-  children: React.ReactNode[];
-}
-
-interface ImagePreviewStates {
-  previewVisible?: Record<PropertyKey, boolean>;
-}
-
 const ImagePreview: React.FC<ImagePreviewProps> = (props) => {
-  const [previewVisible, setPreviewVisible] = useState<ImagePreviewStates>({});
-
   const { children } = props;
   const imgs = toArray(children).filter((ele) => ele.type === 'img');
 
@@ -135,18 +80,23 @@ const ImagePreview: React.FC<ImagePreviewProps> = (props) => {
         if (!comparable && index !== 0) {
           return null;
         }
+        const coverMeta = imgsMeta[index];
+        const imageWrapperClassName = classNames('preview-image-wrapper', {
+          good: coverMeta.isGood,
+          bad: coverMeta.isBad,
+        });
+
         return (
-          <PreviewImageBox
-            key={index}
-            style={style}
-            comparable={comparable}
-            previewVisible={!!previewVisible?.[index]}
-            cover={imagesList[index]}
-            coverMeta={imgsMeta[index]}
-            imgs={imagesList}
-            onCancel={() => setPreviewVisible({})}
-            onClick={() => setPreviewVisible({ [index]: true })}
-          />
+          <div className="preview-image-box" style={style} key={index}>
+            <div className={imageWrapperClassName}>
+              <Image className={coverMeta.className} src={coverMeta.src} alt={coverMeta.alt} />
+            </div>
+            <div className="preview-image-title">{coverMeta.alt}</div>
+            <div
+              className="preview-image-description"
+              dangerouslySetInnerHTML={{ __html: coverMeta.description }}
+            />
+          </div>
         );
       })}
     </div>
