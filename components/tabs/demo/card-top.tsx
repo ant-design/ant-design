@@ -1,5 +1,40 @@
 import React from 'react';
-import { Tabs } from 'antd';
+import { Tabs, theme as antTheme } from 'antd';
+import { useStyleRegister } from '@ant-design/cssinjs';
+
+const { useToken } = antTheme;
+
+const useStyle = () => {
+  const { token, theme } = useToken();
+
+  return [
+    useStyleRegister({ theme, token, path: ['components-tabs-demo-card-top'] }, () => {
+      const antdTabsCls = '.ant-tabs';
+      return {
+        [`${antdTabsCls}${antdTabsCls}-card`]: {
+          [`${antdTabsCls}-content`]: {
+            padding: `${token.padding}px`,
+            background: token.colorBgContainer,
+          },
+          [`${antdTabsCls}-nav`]: {
+            margin: 0,
+            [`${antdTabsCls}-nav-wrap > ${antdTabsCls}-nav-list > ${antdTabsCls}-tab`]: {
+              background: 'transparent',
+              borderColor: 'transparent',
+              '&-active': {
+                borderColor: token.colorBorderBg,
+                background: token.colorBgContainer,
+              },
+            },
+            '&::before': {
+              display: 'none',
+            },
+          },
+        },
+      };
+    }),
+  ] as const;
+};
 
 const items = new Array(3).fill(null).map((_, i) => {
   const id = String(i + 1);
@@ -16,10 +51,16 @@ const items = new Array(3).fill(null).map((_, i) => {
   };
 });
 
-const App: React.FC = () => (
-  <div className="card-container">
-    <Tabs type="card" items={items} />
-  </div>
-);
+const App = () => {
+  const [wrapSSR] = useStyle();
+  const { token } = useToken();
+
+  const containerStyle = {
+    padding: `${token.paddingLG}px`,
+    background: token.colorBgLayout,
+  };
+
+  return <div style={containerStyle}>{wrapSSR(<Tabs type="card" items={items} />)}</div>;
+};
 
 export default App;
