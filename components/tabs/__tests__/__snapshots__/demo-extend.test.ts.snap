@@ -465,7 +465,7 @@ exports[`renders ./components/tabs/demo/card.tsx extend context correctly 1`] = 
 
 exports[`renders ./components/tabs/demo/card-top.tsx extend context correctly 1`] = `
 <div
-  style="padding:24px;background:#f5f5f5"
+  class="css-evmtdo"
 >
   <div
     class="ant-tabs ant-tabs-top ant-tabs-card"
