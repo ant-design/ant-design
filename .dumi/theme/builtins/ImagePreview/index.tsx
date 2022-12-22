@@ -80,7 +80,7 @@ interface ImagePreviewStates {
   previewVisible?: Record<PropertyKey, boolean>;
 }
 
-const ImagePreview: React.FC = (props: ImagePreviewProps) => {
+const ImagePreview: React.FC<ImagePreviewProps> = (props) => {
   const [previewVisible, setPreviewVisible] = useState<ImagePreviewStates>({});
 
   const { children } = props;
