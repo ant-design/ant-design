@@ -1,13 +1,13 @@
 import React from 'react';
 import { render } from '../../../tests/utils';
-import useResponsiveObserve from '../responsiveObserve';
+import useResponsiveObserver from '../responsiveObserver';
 
 describe('Test ResponsiveObserve', () => {
   it('test ResponsiveObserve subscribe and unsubscribe', () => {
     let responsiveObserveRef: any;
     const Demo = () => {
-      const responsiveObserve = useResponsiveObserve();
-      responsiveObserveRef = responsiveObserve;
+      const responsiveObserver = useResponsiveObserver();
+      responsiveObserveRef = responsiveObserver;
       return null;
     };
     render(<Demo />);

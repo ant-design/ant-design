@@ -8,7 +8,7 @@ import type * as React from 'react';
 import type { CheckboxProps } from '../checkbox';
 import type { PaginationProps } from '../pagination';
 import type { TooltipProps } from '../tooltip';
-import type { Breakpoint } from '../_util/responsiveObserve';
+import type { Breakpoint } from '../_util/responsiveObserver';
 import type { INTERNAL_SELECTION_ITEM } from './hooks/useSelection';
 
 export { GetRowKey, ExpandableConfig };

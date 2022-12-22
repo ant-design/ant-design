@@ -44,7 +44,7 @@ demo:
 | className | 自定义类名 | string | - |  |
 | dropdownProps | 弹出下拉菜单的自定义配置 | [Dropdown](/components/dropdown-cn) | - |  |
 | href | 链接的目的地 | string | - |  |
-| menu | 菜单配置项 | [MenuProps](/components/menu-cn/#API) | - | 4.24.0 |
+| menu | 菜单配置项 | [MenuProps](/components/menu-cn/#api) | - | 4.24.0 |
 | onClick | 单击事件 | (e:MouseEvent) => void | - |  |
 
 ### Breadcrumb.Separator

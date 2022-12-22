@@ -1,22 +1,22 @@
 import { useEffect, useRef } from 'react';
 import useForceUpdate from '../../_util/hooks/useForceUpdate';
-import type { ScreenMap } from '../../_util/responsiveObserve';
-import useResponsiveObserve from '../../_util/responsiveObserve';
+import type { ScreenMap } from '../../_util/responsiveObserver';
+import useResponsiveObserver from '../../_util/responsiveObserver';
 
 function useBreakpoint(refreshOnChange: boolean = true): ScreenMap {
   const screensRef = useRef<ScreenMap>({});
   const forceUpdate = useForceUpdate();
-  const responsiveObserve = useResponsiveObserve();
+  const responsiveObserver = useResponsiveObserver();
 
   useEffect(() => {
-    const token = responsiveObserve.subscribe((supportScreens) => {
+    const token = responsiveObserver.subscribe((supportScreens) => {
       screensRef.current = supportScreens;
       if (refreshOnChange) {
         forceUpdate();
       }
     });
 
-    return () => responsiveObserve.unsubscribe(token);
+    return () => responsiveObserver.unsubscribe(token);
   }, []);
 
   return screensRef.current;

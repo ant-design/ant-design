@@ -82,7 +82,7 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
     tableBg,
     tableRadius,
     tableHeaderTextColor,
-    motionDurationSlow,
+    motionDurationMid,
     tableHeaderBg,
     tableHeaderCellSplitColor,
     tableRowHoverBg,
@@ -144,7 +144,7 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
           textAlign: 'start',
           background: tableHeaderBg,
           borderBottom: tableBorder,
-          transition: `background ${motionDurationSlow} ease`,
+          transition: `background ${motionDurationMid} ease`,
 
           "&[colspan]:not([colspan='1'])": {
             textAlign: 'center',
@@ -159,7 +159,7 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
               height: '1.6em',
               backgroundColor: tableHeaderCellSplitColor,
               transform: 'translateY(-50%)',
-              transition: `background-color ${motionDurationSlow}`,
+              transition: `background-color ${motionDurationMid}`,
               content: '""',
             },
         },
@@ -202,7 +202,7 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
       [`${componentCls}-tbody`]: {
         '> tr': {
           '> td': {
-            transition: `background ${motionDurationSlow}`,
+            transition: `background ${motionDurationMid}, border-color ${motionDurationMid}`,
 
             // ========================= Nest Table ===========================
             [`

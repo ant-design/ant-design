@@ -45,7 +45,7 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*KeyQQL5iKkkAAAAAAA
 | forceSubMenuRender | 在子菜单展示之前就渲染进 DOM | boolean | false |  |
 | inlineCollapsed | inline 时菜单是否收起状态 | boolean | - |  |
 | inlineIndent | inline 模式的菜单缩进宽度 | number | 24 |  |
-| items | 菜单内容 | [ItemType\[\]](#ItemType) | - | 4.20.0 |
+| items | 菜单内容 | [ItemType\[\]](#itemtype) | - | 4.20.0 |
 | mode | 菜单类型，现在支持垂直、水平、和内嵌模式三种 | `vertical` \| `horizontal` \| `inline` | `vertical` |  |
 | multiple | 是否允许多选 | boolean | false |  |
 | openKeys | 当前展开的 SubMenu 菜单项 key 数组 | string\[] | - |  |
@@ -83,7 +83,7 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*KeyQQL5iKkkAAAAAAA
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| children | 子菜单的菜单项 | [ItemType\[\]](#ItemType) | - |  |
+| children | 子菜单的菜单项 | [ItemType\[\]](#itemtype) | - |  |
 | disabled | 是否禁用 | boolean | false |  |
 | icon | 菜单图标 | ReactNode | - |  |
 | key | 唯一标志 | string | - |  |
@@ -107,7 +107,7 @@ const groupItem = {
 
 | 参数     | 说明         | 类型                              | 默认值 | 版本 |
 | -------- | ------------ | --------------------------------- | ------ | ---- |
-| children | 分组的菜单项 | [MenuItemType\[\]](#MenuItemType) | -      |      |
+| children | 分组的菜单项 | [MenuItemType\[\]](#menuitemtype) | -      |      |
 | label    | 分组标题     | ReactNode                         | -      |      |
 
 #### MenuDividerType
