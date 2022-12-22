@@ -8,6 +8,7 @@ import Menu from '../menu';
 import type { MenuProps } from '../menu';
 import { ConfigContext } from '../config-provider';
 import { OverrideProvider } from '../menu/OverrideContext';
+import type { AdjustOverflow } from '../_util/placements';
 import getPlacements from '../_util/placements';
 import { cloneElement } from '../_util/reactNode';
 import { tuple } from '../_util/type';
@@ -70,6 +71,7 @@ export interface DropdownProps {
   mouseLeaveDelay?: number;
   openClassName?: string;
   children?: React.ReactNode;
+  autoAdjustOverflow?: boolean | AdjustOverflow;
 
   // Deprecated
   /** @deprecated Please use `menu` instead */
@@ -158,6 +160,7 @@ const Dropdown: DropdownInterface = (props) => {
     onOpenChange,
     mouseEnterDelay = 0.15,
     mouseLeaveDelay = 0.1,
+    autoAdjustOverflow = true,
   } = props;
 
   const prefixCls = getPrefixCls('dropdown', customizePrefixCls);
@@ -198,7 +201,7 @@ const Dropdown: DropdownInterface = (props) => {
 
   const builtinPlacements = getPlacements({
     arrowPointAtCenter: typeof arrow === 'object' && arrow.pointAtCenter,
-    autoAdjustOverflow: true,
+    autoAdjustOverflow,
   });
 
   const onMenuClick = React.useCallback(() => {
