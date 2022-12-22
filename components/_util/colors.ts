@@ -1,3 +1,6 @@
+import type { PresetColorKey } from '../theme/interface';
+import { PresetColors } from '../theme/interface';
+
 export const PresetStatusColorTypes = [
   'success',
   'processing',
@@ -6,32 +9,13 @@ export const PresetStatusColorTypes = [
   'warning',
 ] as const;
 
-export const PresetColorTypes = [
-  'pink',
-  'red',
-  'yellow',
-  'orange',
-  'cyan',
-  'green',
-  'blue',
-  'purple',
-  'geekblue',
-  'magenta',
-  'volcano',
-  'gold',
-  'lime',
-] as const;
-
-type _PresetColorType = typeof PresetColorTypes[number];
-type InversePresetColorType = `${_PresetColorType}-inverse`;
-
-export type PresetColorType = _PresetColorType | InversePresetColorType;
+export type PresetColorType = PresetColorKey | `${PresetColorKey}-inverse`;
 
 export type PresetStatusColorType = typeof PresetStatusColorTypes[number];
 
 export function isPresetColor(color?: any): color is PresetColorType {
-  const inverseColors = PresetColorTypes.map((c) => `${c}-inverse`) as InversePresetColorType[];
-  return [...inverseColors, ...PresetColorTypes].includes(color);
+  const inverseColors = PresetColors.map((c) => `${c}-inverse`);
+  return [...inverseColors, ...PresetColors].includes(color);
 }
 
 export function isPresetStatusColor(color?: any): color is PresetStatusColorType {
