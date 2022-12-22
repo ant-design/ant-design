@@ -7,6 +7,13 @@ import type { TokenWithCommonCls } from '../theme/util/genComponentStyleHook';
 
 type CSSProp = 'color' | 'backgroundColor' | 'borderColor';
 
+interface CalcColor {
+  lightColor: string;
+  lightBorderColor: string;
+  darkColor: string;
+  textColor: string;
+}
+
 interface Options {
   /**
    * Role and CSS properties
@@ -30,6 +37,11 @@ interface Options {
    * @default ${defaultSelector(colorKey)}-inverse`
    */
   inverseSelector?: (colorKey: PresetColorKey) => string;
+
+  /**
+   * generate other css
+   */
+  genOtherCss?: (colorKey: PresetColorKey, calcColor: CalcColor) => CSSObject;
 }
 
 export function genPresetColor<Token extends TokenWithCommonCls<AliasToken>>(
@@ -44,6 +56,7 @@ export function genPresetColor<Token extends TokenWithCommonCls<AliasToken>>(
       const allSelector = defaultSelector(colorKey).split(',');
       return allSelector.map((selector) => `${selector}-inverse`).join(',');
     },
+    genOtherCss = () => ({}),
   } = options || {};
 
   return PresetColors.reduce((prev: Record<string, CSSObject>, colorKey: PresetColorKey) => {
@@ -82,6 +95,9 @@ export function genPresetColor<Token extends TokenWithCommonCls<AliasToken>>(
       }
     });
 
-    return prev;
+    return {
+      ...prev,
+      ...genOtherCss(colorKey, { lightColor, lightBorderColor, darkColor, textColor }),
+    };
   }, {});
 }

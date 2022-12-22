@@ -1,13 +1,8 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { initZoomMotion } from '../../style/motion';
-import type {
-  FullToken,
-  GenerateStyle,
-  PresetColorType,
-  UseComponentStyleResult,
-} from '../../theme/internal';
-import { genComponentStyleHook, mergeToken, PresetColors } from '../../theme/internal';
-import { resetComponent } from '../../style';
+import type { FullToken, GenerateStyle, UseComponentStyleResult } from '../../theme/internal';
+import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { genPresetColor, resetComponent } from '../../style';
 import getArrowStyle, { MAX_VERTICAL_CONTENT_RADIUS } from '../../style/placementArrow';
 
 export interface ComponentToken {
@@ -27,18 +22,25 @@ interface TooltipToken extends FullToken<'Tooltip'> {
 const generatorTooltipPresetColor: GenerateStyle<TooltipToken, CSSObject> = (token) => {
   const { componentCls } = token;
 
-  return PresetColors.reduce((previousValue: any, currentValue: keyof PresetColorType) => {
-    const lightColor = token[`${currentValue}-6`];
-    previousValue[`&${componentCls}-${currentValue}`] = {
-      [`${componentCls}-inner`]: {
-        backgroundColor: lightColor,
-      },
-      [`${componentCls}-arrow`]: {
-        '--antd-arrow-background-color': lightColor,
-      },
-    };
-    return previousValue;
-  }, {});
+  return {
+    ...genPresetColor(token, {
+      cssProps: ['backgroundColor', 'color'],
+      type: ['default', 'inverse'],
+      defaultSelector: (colorKey) => `&${componentCls}-${colorKey}-inverse ${componentCls}-inner`,
+      inverseSelector: (colorKey) => `&${componentCls}-${colorKey} ${componentCls}-inner`,
+    }),
+    ...genPresetColor(token, {
+      cssProps: [],
+      genOtherCss: (colorKey, calcColor) => ({
+        [`&${componentCls}-${colorKey} ${componentCls}-arrow`]: {
+          '--antd-arrow-background-color': calcColor.darkColor,
+        },
+        [`&${componentCls}-${colorKey}-inverse ${componentCls}-arrow`]: {
+          '--antd-arrow-background-color': calcColor.lightColor,
+        },
+      }),
+    }),
+  };
 };
 
 const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {

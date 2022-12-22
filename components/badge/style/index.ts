@@ -2,7 +2,7 @@ import type { CSSObject } from '@ant-design/cssinjs';
 import { Keyframes } from '@ant-design/cssinjs';
 import type { FullToken, GenerateStyle, PresetColorType } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken, PresetColors } from '../../theme/internal';
-import { resetComponent } from '../../style';
+import { genPresetColor, resetComponent } from '../../style';
 
 interface BadgeToken extends FullToken<'Badge'> {
   badgeFontHeight: number;
@@ -73,28 +73,19 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
   const ribbonPrefixCls = `${antCls}-ribbon`;
   const ribbonWrapperPrefixCls = `${antCls}-ribbon-wrapper`;
 
-  const statusPreset = PresetColors.reduce((prev: CSSObject, colorKey: keyof PresetColorType) => {
-    const darkColor = token[`${colorKey}-6`];
-    return {
-      ...prev,
-      [`${componentCls}-status-${colorKey}`]: {
-        background: darkColor,
-      },
-    };
-  }, {} as CSSObject);
-  const statusRibbonPreset = PresetColors.reduce(
-    (prev: CSSObject, colorKey: keyof PresetColorType) => {
-      const darkColor = token[`${colorKey}-6`];
-      return {
-        ...prev,
-        [`&${ribbonPrefixCls}-color-${colorKey}`]: {
-          background: darkColor,
-          color: darkColor,
-        },
-      };
-    },
-    {} as CSSObject,
-  );
+  const statusPreset = genPresetColor(token, {
+    cssProps: ['backgroundColor'],
+    type: ['default', 'inverse'],
+    defaultSelector: (colorKey) => `${componentCls}-status-${colorKey}-inverse`,
+    inverseSelector: (colorKey) => `${componentCls}-status-${colorKey}`,
+  });
+
+  const statusRibbonPreset = genPresetColor(token, {
+    cssProps: ['backgroundColor', 'color'],
+    type: ['default', 'inverse'],
+    defaultSelector: (colorKey) => `&${ribbonPrefixCls}-color-${colorKey}-inverse`,
+    inverseSelector: (colorKey) => `&${ribbonPrefixCls}-color-${colorKey}`,
+  });
 
   return {
     [componentCls]: {
