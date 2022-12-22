@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import classNames from 'classnames';
 import { Modal, Carousel } from 'antd';
+import toArray from 'rc-util/lib/Children/toArray';
 
 function isGood(className: string): boolean {
   return /\bgood\b/i.test(className);
@@ -72,103 +73,84 @@ const PreviewImageBox: React.FC<PreviewImageBoxProps> = (props) => {
 };
 
 interface ImagePreviewProps {
-  imgs: any[];
+  children: React.ReactNode[];
 }
 
 interface ImagePreviewStates {
   previewVisible?: Record<PropertyKey, boolean>;
 }
 
-class ImagePreview extends React.Component<ImagePreviewProps, ImagePreviewStates> {
-  constructor(props: ImagePreviewProps) {
-    super(props);
-    this.state = {
-      previewVisible: {},
+const ImagePreview: React.FC = (props: ImagePreviewProps) => {
+  const [previewVisible, setPreviewVisible] = useState<ImagePreviewStates>({});
+
+  const { children } = props;
+  const imgs = toArray(children).filter((ele) => ele.type === 'img');
+
+  const imgsMeta = imgs.map((img) => {
+    const { alt, description, src, className } = img.props;
+    return {
+      className,
+      alt,
+      description,
+      src,
+      isGood: isGood(className),
+      isBad: isBad(className),
+      inline: isInline(className),
     };
-  }
+  });
 
-  handleClick = (index: number) => {
-    this.setState({
-      previewVisible: { [index]: true },
-    });
-  };
-
-  handleCancel = () => {
-    this.setState({
-      previewVisible: {},
-    });
-  };
-
-  render() {
-    const { imgs } = this.props;
-    const imgsMeta = imgs.map((img) => {
-      const { alt, description, src } = img;
-      const imgClassName = img.class;
-      return {
-        className: imgClassName,
-        alt,
-        description,
-        src,
-        isGood: isGood(imgClassName),
-        isBad: isBad(imgClassName),
-        inline: isInline(imgClassName),
-      };
-    });
-
-    const imagesList = imgsMeta.map<React.ReactNode>((meta, index) => {
-      const metaCopy = { ...meta };
-      delete metaCopy.description;
-      delete metaCopy.isGood;
-      delete metaCopy.isBad;
-      return (
-        <div key={index}>
-          <div className="image-modal-container">
-            <img {...metaCopy} alt={meta.alt} />
-          </div>
-        </div>
-      );
-    });
-
-    const comparable =
-      (imgs.length === 2 && imgsMeta.every(isCompareImg)) ||
-      (imgs.length >= 2 && imgsMeta.every(isGoodBadImg));
-
-    const style: React.CSSProperties = comparable
-      ? { width: `${(100 / imgs.length).toFixed(3)}%` }
-      : {};
-
-    const hasCarousel = imgs.length > 1 && !comparable;
-    const previewClassName = classNames({
-      'preview-image-boxes': true,
-      clearfix: true,
-      'preview-image-boxes-compare': comparable,
-      'preview-image-boxes-with-carousel': hasCarousel,
-    });
+  const imagesList = imgsMeta.map<React.ReactNode>((meta, index) => {
+    const metaCopy = { ...meta };
+    delete metaCopy.description;
+    delete metaCopy.isGood;
+    delete metaCopy.isBad;
     return (
-      <div className={previewClassName}>
-        {imagesList.map((_, index) => {
-          if (!comparable && index !== 0) {
-            return null;
-          }
-          return (
-            <PreviewImageBox
-              key={index}
-              style={style}
-              comparable={comparable}
-              previewVisible={!!this.state.previewVisible?.[index]}
-              cover={imagesList[index]}
-              coverMeta={imgsMeta[index]}
-              imgs={imagesList}
-              onCancel={this.handleCancel}
-              onClick={() => {
-                this.handleClick(index);
-              }}
-            />
-          );
-        })}
+      <div key={index}>
+        <div className="image-modal-container">
+          <img {...metaCopy} src={meta.src} alt={meta.alt} />
+        </div>
       </div>
     );
-  }
-}
+  });
+
+  const comparable =
+    (imgs.length === 2 && imgsMeta.every(isCompareImg)) ||
+    (imgs.length >= 2 && imgsMeta.every(isGoodBadImg));
+
+  const style: React.CSSProperties = comparable
+    ? { width: `${(100 / imgs.length).toFixed(3)}%` }
+    : {};
+
+  const hasCarousel = imgs.length > 1 && !comparable;
+  const previewClassName = classNames({
+    'preview-image-boxes': true,
+    clearfix: true,
+    'preview-image-boxes-compare': comparable,
+    'preview-image-boxes-with-carousel': hasCarousel,
+  });
+
+  return (
+    <div className={previewClassName}>
+      {imagesList.map((_, index) => {
+        if (!comparable && index !== 0) {
+          return null;
+        }
+        return (
+          <PreviewImageBox
+            key={index}
+            style={style}
+            comparable={comparable}
+            previewVisible={!!previewVisible?.[index]}
+            cover={imagesList[index]}
+            coverMeta={imgsMeta[index]}
+            imgs={imagesList}
+            onCancel={() => setPreviewVisible({})}
+            onClick={() => setPreviewVisible({ [index]: true })}
+          />
+        );
+      })}
+    </div>
+  );
+};
 
 export default ImagePreview;
