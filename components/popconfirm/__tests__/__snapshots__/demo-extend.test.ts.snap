@@ -62,10 +62,15 @@ Array [
                   </span>
                 </span>
                 <div
-                  class="ant-popconfirm-message-title"
+                  class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
                 >
                   Title
                 </div>
+              </div>
+              <div
+                class="ant-popconfirm-description"
+              >
+                Open Popconfirm with async logic
               </div>
               <div
                 class="ant-popconfirm-buttons"
@@ -155,10 +160,15 @@ Array [
                   </span>
                 </span>
                 <div
-                  class="ant-popconfirm-message-title"
+                  class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
                 >
-                  Are you sure to delete this task?
+                  Delete the task
                 </div>
+              </div>
+              <div
+                class="ant-popconfirm-description"
+              >
+                Are you sure to delete this task?
               </div>
               <div
                 class="ant-popconfirm-buttons"
@@ -248,10 +258,15 @@ exports[`renders ./components/popconfirm/demo/dynamic-trigger.tsx extend context
                   </span>
                 </span>
                 <div
-                  class="ant-popconfirm-message-title"
+                  class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
                 >
-                  Are you sure delete this task?
+                  Delete the task
                 </div>
+              </div>
+              <div
+                class="ant-popconfirm-description"
+              >
+                Are you sure to delete this task?
               </div>
               <div
                 class="ant-popconfirm-buttons"
@@ -368,10 +383,15 @@ Array [
                   </span>
                 </span>
                 <div
-                  class="ant-popconfirm-message-title"
+                  class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
                 >
-                  Are you sure？
+                  Delete the task
                 </div>
+              </div>
+              <div
+                class="ant-popconfirm-description"
+              >
+                Are you sure to delete this task?
               </div>
               <div
                 class="ant-popconfirm-buttons"
@@ -461,10 +481,15 @@ Array [
                   </span>
                 </span>
                 <div
-                  class="ant-popconfirm-message-title"
+                  class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
                 >
-                  Are you sure？
+                  Delete the task
                 </div>
+              </div>
+              <div
+                class="ant-popconfirm-description"
+              >
+                Are you sure to delete this task?
               </div>
               <div
                 class="ant-popconfirm-buttons"
@@ -562,10 +587,15 @@ exports[`renders ./components/popconfirm/demo/placement.tsx extend context corre
                     </span>
                   </span>
                   <div
-                    class="ant-popconfirm-message-title"
+                    class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
                   >
                     Are you sure to delete this task?
                   </div>
+                </div>
+                <div
+                  class="ant-popconfirm-description"
+                >
+                  Delete the task
                 </div>
                 <div
                   class="ant-popconfirm-buttons"
@@ -653,10 +683,15 @@ exports[`renders ./components/popconfirm/demo/placement.tsx extend context corre
                     </span>
                   </span>
                   <div
-                    class="ant-popconfirm-message-title"
+                    class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
                   >
                     Are you sure to delete this task?
                   </div>
+                </div>
+                <div
+                  class="ant-popconfirm-description"
+                >
+                  Delete the task
                 </div>
                 <div
                   class="ant-popconfirm-buttons"
@@ -744,10 +779,15 @@ exports[`renders ./components/popconfirm/demo/placement.tsx extend context corre
                     </span>
                   </span>
                   <div
-                    class="ant-popconfirm-message-title"
+                    class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
                   >
                     Are you sure to delete this task?
                   </div>
+                </div>
+                <div
+                  class="ant-popconfirm-description"
+                >
+                  Delete the task
                 </div>
                 <div
                   class="ant-popconfirm-buttons"
@@ -839,10 +879,15 @@ exports[`renders ./components/popconfirm/demo/placement.tsx extend context corre
                     </span>
                   </span>
                   <div
-                    class="ant-popconfirm-message-title"
+                    class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
                   >
                     Are you sure to delete this task?
                   </div>
+                </div>
+                <div
+                  class="ant-popconfirm-description"
+                >
+                  Delete the task
                 </div>
                 <div
                   class="ant-popconfirm-buttons"
@@ -930,10 +975,15 @@ exports[`renders ./components/popconfirm/demo/placement.tsx extend context corre
                     </span>
                   </span>
                   <div
-                    class="ant-popconfirm-message-title"
+                    class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
                   >
                     Are you sure to delete this task?
                   </div>
+                </div>
+                <div
+                  class="ant-popconfirm-description"
+                >
+                  Delete the task
                 </div>
                 <div
                   class="ant-popconfirm-buttons"
@@ -1021,10 +1071,15 @@ exports[`renders ./components/popconfirm/demo/placement.tsx extend context corre
                     </span>
                   </span>
                   <div
-                    class="ant-popconfirm-message-title"
+                    class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
                   >
                     Are you sure to delete this task?
                   </div>
+                </div>
+                <div
+                  class="ant-popconfirm-description"
+                >
+                  Delete the task
                 </div>
                 <div
                   class="ant-popconfirm-buttons"
@@ -1116,10 +1171,15 @@ exports[`renders ./components/popconfirm/demo/placement.tsx extend context corre
                     </span>
                   </span>
                   <div
-                    class="ant-popconfirm-message-title"
+                    class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
                   >
                     Are you sure to delete this task?
                   </div>
+                </div>
+                <div
+                  class="ant-popconfirm-description"
+                >
+                  Delete the task
                 </div>
                 <div
                   class="ant-popconfirm-buttons"
@@ -1207,10 +1267,15 @@ exports[`renders ./components/popconfirm/demo/placement.tsx extend context corre
                     </span>
                   </span>
                   <div
-                    class="ant-popconfirm-message-title"
+                    class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
                   >
                     Are you sure to delete this task?
                   </div>
+                </div>
+                <div
+                  class="ant-popconfirm-description"
+                >
+                  Delete the task
                 </div>
                 <div
                   class="ant-popconfirm-buttons"
@@ -1298,10 +1363,15 @@ exports[`renders ./components/popconfirm/demo/placement.tsx extend context corre
                     </span>
                   </span>
                   <div
-                    class="ant-popconfirm-message-title"
+                    class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
                   >
                     Are you sure to delete this task?
                   </div>
+                </div>
+                <div
+                  class="ant-popconfirm-description"
+                >
+                  Delete the task
                 </div>
                 <div
                   class="ant-popconfirm-buttons"
@@ -1393,10 +1463,15 @@ exports[`renders ./components/popconfirm/demo/placement.tsx extend context corre
                     </span>
                   </span>
                   <div
-                    class="ant-popconfirm-message-title"
+                    class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
                   >
                     Are you sure to delete this task?
                   </div>
+                </div>
+                <div
+                  class="ant-popconfirm-description"
+                >
+                  Delete the task
                 </div>
                 <div
                   class="ant-popconfirm-buttons"
@@ -1484,10 +1559,15 @@ exports[`renders ./components/popconfirm/demo/placement.tsx extend context corre
                     </span>
                   </span>
                   <div
-                    class="ant-popconfirm-message-title"
+                    class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
                   >
                     Are you sure to delete this task?
                   </div>
+                </div>
+                <div
+                  class="ant-popconfirm-description"
+                >
+                  Delete the task
                 </div>
                 <div
                   class="ant-popconfirm-buttons"
@@ -1575,10 +1655,15 @@ exports[`renders ./components/popconfirm/demo/placement.tsx extend context corre
                     </span>
                   </span>
                   <div
-                    class="ant-popconfirm-message-title"
+                    class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
                   >
                     Are you sure to delete this task?
                   </div>
+                </div>
+                <div
+                  class="ant-popconfirm-description"
+                >
+                  Delete the task
                 </div>
                 <div
                   class="ant-popconfirm-buttons"
@@ -1672,10 +1757,15 @@ Array [
                   </span>
                 </span>
                 <div
-                  class="ant-popconfirm-message-title"
+                  class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
                 >
                   Title
                 </div>
+              </div>
+              <div
+                class="ant-popconfirm-description"
+              >
+                Open Popconfirm with Promise
               </div>
               <div
                 class="ant-popconfirm-buttons"
@@ -1754,10 +1844,15 @@ Array [
                 </span>
               </span>
               <div
-                class="ant-popconfirm-message-title"
+                class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
               >
                 Are you OK?
               </div>
+            </div>
+            <div
+              class="ant-popconfirm-description"
+            >
+              Does this look good?
             </div>
             <div
               class="ant-popconfirm-buttons"
@@ -1832,10 +1927,15 @@ Array [
                 </span>
               </span>
               <div
-                class="ant-popconfirm-message-title"
+                class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
               >
                 Are you OK?
               </div>
+            </div>
+            <div
+              class="ant-popconfirm-description"
+            >
+              Does this look good?
             </div>
             <div
               class="ant-popconfirm-buttons"

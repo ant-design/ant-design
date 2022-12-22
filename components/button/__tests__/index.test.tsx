@@ -1,12 +1,13 @@
 import { SearchOutlined } from '@ant-design/icons';
 import { resetWarned } from 'rc-util/lib/warning';
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { act } from 'react-dom/test-utils';
 import Button from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
+import type { BaseButtonProps } from '../button';
 
 describe('Button', () => {
   mountTest(Button);
@@ -133,48 +134,28 @@ describe('Button', () => {
   });
 
   it('should change loading state instantly by default', () => {
-    class DefaultButton extends Component {
-      state = {
-        loading: false,
-      };
-
-      enterLoading = () => {
-        this.setState({ loading: true });
-      };
-
-      render() {
-        const { loading } = this.state;
-        return (
-          <Button loading={loading} onClick={this.enterLoading}>
-            Button
-          </Button>
-        );
-      }
-    }
+    const DefaultButton: React.FC = () => {
+      const [loading, setLoading] = useState<BaseButtonProps['loading']>(false);
+      return (
+        <Button loading={loading} onClick={() => setLoading(true)}>
+          Button
+        </Button>
+      );
+    };
     const wrapper = render(<DefaultButton />);
     fireEvent.click(wrapper.container.firstChild!);
     expect(wrapper.container.querySelectorAll('.ant-btn-loading').length).toBe(1);
   });
 
   it('should change loading state with delay', () => {
-    class DefaultButton extends Component {
-      state = {
-        loading: false,
-      };
-
-      enterLoading = () => {
-        this.setState({ loading: { delay: 1000 } });
-      };
-
-      render() {
-        const { loading } = this.state;
-        return (
-          <Button loading={loading} onClick={this.enterLoading}>
-            Button
-          </Button>
-        );
-      }
-    }
+    const DefaultButton: React.FC = () => {
+      const [loading, setLoading] = useState<BaseButtonProps['loading']>(false);
+      return (
+        <Button loading={loading} onClick={() => setLoading({ delay: 1000 })}>
+          Button
+        </Button>
+      );
+    };
     const wrapper = render(<DefaultButton />);
     fireEvent.click(wrapper.container.firstChild!);
     expect(wrapper.container.firstChild).not.toHaveClass('ant-btn-loading');

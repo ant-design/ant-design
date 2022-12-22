@@ -5,7 +5,7 @@ import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import classNames from 'classnames';
 import * as React from 'react';
 import ConfigProvider from '../config-provider';
-import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import LocaleReceiver from '../locale/LocaleReceiver';
 import ActionButton from '../_util/ActionButton';
 import { getTransitionName } from '../_util/motion';
 import warning from '../_util/warning';
@@ -41,7 +41,7 @@ export function ConfirmContent(
     rootPrefixCls,
     type,
     okCancel,
-
+    footer,
     // Legacy for static function usage
     locale: staticLocale,
   } = props;
@@ -107,19 +107,23 @@ export function ConfirmContent(
               )}
               <div className={`${confirmPrefixCls}-content`}>{props.content}</div>
             </div>
-            <div className={`${confirmPrefixCls}-btns`}>
-              {cancelButton}
-              <ActionButton
-                type={okType}
-                actionFn={onOk}
-                close={close}
-                autoFocus={autoFocusButton === 'ok'}
-                buttonProps={okButtonProps}
-                prefixCls={`${rootPrefixCls}-btn`}
-              >
-                {okText || (mergedOkCancel ? mergedLocale?.okText : mergedLocale?.justOkText)}
-              </ActionButton>
-            </div>
+            {footer !== undefined ? (
+              footer
+            ) : (
+              <div className={`${confirmPrefixCls}-btns`}>
+                {cancelButton}
+                <ActionButton
+                  type={okType}
+                  actionFn={onOk}
+                  close={close}
+                  autoFocus={autoFocusButton === 'ok'}
+                  buttonProps={okButtonProps}
+                  prefixCls={`${rootPrefixCls}-btn`}
+                >
+                  {okText || (mergedOkCancel ? mergedLocale?.okText : mergedLocale?.justOkText)}
+                </ActionButton>
+              </div>
+            )}
           </div>
         );
       }}

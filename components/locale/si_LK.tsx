@@ -3,7 +3,7 @@ import Pagination from 'rc-pagination/lib/locale/si_LK';
 import DatePicker from '../date-picker/locale/si_LK';
 import TimePicker from '../time-picker/locale/si_LK';
 import Calendar from '../calendar/locale/si_LK';
-import type { Locale } from '../locale-provider';
+import type { Locale } from '../locale';
 
 const typeTemplate = '${label} වලංගු ${type} ක් නොවේ';
 

@@ -1,7 +1,9 @@
 import React from 'react';
 import { DownOutlined } from '@ant-design/icons';
+import { Dropdown, Space, Divider, Button, theme } from 'antd';
 import type { MenuProps } from 'antd';
-import { Dropdown, Space, Divider, Button } from 'antd';
+
+const { useToken } = theme;
 
 const items: MenuProps['items'] = [
   {
@@ -32,26 +34,40 @@ const items: MenuProps['items'] = [
   },
 ];
 
-const App: React.FC = () => (
-  <Dropdown
-    menu={{ items }}
-    dropdownRender={(menu) => (
-      <div className="dropdown-content">
-        {menu}
-        <Divider style={{ margin: 0 }} />
-        <Space style={{ padding: 8 }}>
-          <Button type="primary">Click me!</Button>
+const App: React.FC = () => {
+  const { token } = useToken();
+
+  const contentStyle = {
+    backgroundColor: token.colorBgElevated,
+    borderRadius: token.borderRadiusLG,
+    boxShadow: token.boxShadowSecondary,
+  };
+
+  const menuStyle = {
+    boxShadow: 'none',
+  };
+
+  return (
+    <Dropdown
+      menu={{ items }}
+      dropdownRender={(menu) => (
+        <div style={contentStyle}>
+          {React.cloneElement(menu as React.ReactElement, { style: menuStyle })}
+          <Divider style={{ margin: 0 }} />
+          <Space style={{ padding: 8 }}>
+            <Button type="primary">Click me!</Button>
+          </Space>
+        </div>
+      )}
+    >
+      <a onClick={(e) => e.preventDefault()}>
+        <Space>
+          Hover me
+          <DownOutlined />
         </Space>
-      </div>
-    )}
-  >
-    <a onClick={(e) => e.preventDefault()}>
-      <Space>
-        Hover me
-        <DownOutlined />
-      </Space>
-    </a>
-  </Dropdown>
-);
+      </a>
+    </Dropdown>
+  );
+};
 
 export default App;

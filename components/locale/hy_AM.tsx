@@ -1,5 +1,5 @@
 import type { PickerLocale } from '../date-picker/generatePicker';
-import type { Locale } from '../locale-provider';
+import type { Locale } from '../locale';
 
 const datePickerLocale: PickerLocale = {
   lang: {

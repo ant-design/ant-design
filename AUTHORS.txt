@@ -17,6 +17,7 @@ Ahmed AlSammany <ahmed.alsammany@incorta.com>
 Ahmet Simsek <iamaroott@gmail.com>
 Aidin <aidin.dadashzadeh@gmail.com>
 Aiello <770540123@qq.com>
+Akara <messiahhhc@gmail.com>
 AkiJoey <akijoey1010635951@gmail.com>
 Akshat Mittal <itsreallyakshat@gmail.com>
 Alan Braithwaite <asbraithwaite@gmail.com>
@@ -99,6 +100,7 @@ Bill Searle <billsearle@gmail.com>
 Bill Sheikh <bilawals22@gmail.com>
 Blaz Pocrnja <bpocrnja@gmail.com>
 Bo Chen <bochen2014@yahoo.com>
+Bojack <xlk970115@gmail.com>
 Bolun Zhang <rzhangbolun@gmail.com>
 Bora Ikizoglu <boraikizoglu@gmail.com>
 Bosseskompis <bosseskompis@gmail.com>
@@ -124,6 +126,7 @@ Carter Feldman <carter@carter.at>
 Caspian Chen <624081567@qq.com>
 Cat-XHS <1349021570@qq.com>
 Catalin Miron <mironcatalin@gmail.com>
+Cedong.Lee <yizhilcd@gmail.com>
 Cee Cirno <i@cee.moe>
 Cemre Mengu <cemremengu@gmail.com>
 Chalk <chalkpe@gmail.com>
@@ -148,6 +151,7 @@ Christophe Hurpeau <christophe@hurpeau.com>
 Christopher Deutsch <cd@cdeutsch.com>
 Chuang Yu <cyu9960@gmail.com>
 Chuck <wfhtzcf@gmail.com>
+Chuns Chen <i@chunschen.com>
 Claudio Restifo <claudio.restifo@gmail.com>
 Cody Chan <int64ago@gmail.com>
 Cole <cqiufan@outlook.com>
@@ -232,6 +236,7 @@ Eldar Mirzabekov <prog.eldar@gmail.com>
 Eldar Mustafaiev <eldar.mustafaiev@gmail.com>
 Eli White <github@eli-white.com>
 Eliot Sanford <eliot587@gmail.com>
+Ell Bradshaw <cincodenada@gmail.com>
 Emerson Laurentino <emersonlaurentino@hotmail.com>
 Emily Xiong <xiongemi@gmail.com>
 Ender Lee <chnliquan@163.com>
@@ -462,6 +467,7 @@ Kaien Liao <liaokaien@gmail.com>
 Kamal Mahmudi <kamalmahmudi@yahoo.co.id>
 Karott <karott7@gmail.com>
 Kasra Bigdeli <kasra85@gmail.com>
+Katsiaryna Pustakhod <Katsiaryna_Pustakhod@epam.com>
 Kayson Wu <772663139@qq.com>
 Kelvin Chu <chubillkelvin@gmail.com>
 Kenaniah Cerny <kenaniah@gmail.com>
@@ -533,6 +539,7 @@ Lyndon001 <lld207@126.com>
 M Mitchell <mail@megmitchell.ca>
 M. Burak Kalkan <mburakkalkan@gmail.com>
 MD. Ariful Alam <swazan.arif@gmail.com>
+MESSAOUDI Oussama <messaoudi.oussama.in@gmail.com>
 MG12 <wuzhao.mail@gmail.com>
 Ma Tianxiao <matx2215@outlook.com>
 Maciej Czekaj <natanielcz@gmail.com>
@@ -635,7 +642,9 @@ Nekron <nekron.hyt@gmail.com>
 Neo Tan <neotan12@hotmail.com>
 Neto Braghetto <netow93@gmail.com>
 Neverland <chenjiahan@buaa.edu.cn>
+Nghiệp <me@nghiep.dev>
 Nico <nicolas@freddelacompta.com>
+Nicola Bosco <nicola.bosco87@gmail.com>
 Nidhi Agarwal <nidhi.agarwal@zomato.com>
 Nihal Saxena <saxenanihal95@gmail.com>
 Nikesh <nikesh.ramnani@gmail.com>
@@ -650,6 +659,7 @@ Nimo <nimo.jser@gmail.com>
 NinJa <386805508@qq.com>
 Nishant Arora <na.nishantarora@gmail.com>
 Niyaz Akhmetov <axmet180@gmail.com>
+Noel Kim (김민혁) <noel@quotabook.com>
 Nokecy <Nokecy@163.com>
 OAwan <georgio.wan@gmail.com>
 Olaniyi Philip Ojeyinka <olaniyiojeyinka@gmail.com>
@@ -664,6 +674,7 @@ Oren Kosto <orenkosto86@gmail.com>
 Oren Kosto <oren@panda-os.com>
 Orkhan Huseynli <orkhan.huseyn@outlook.com>
 OuYancey <ou.yancey@gmail.com>
+PCCCCCCC <zpc.excel@foxmail.com>
 Pablo Recalde <me@pablorecalde.com>
 Panjie Setiawan Wicaksono <panjie@panjiesw.com>
 Patrick Gidich <patrick.gidich@simnova.com>
@@ -684,6 +695,7 @@ Pierre <pierre@bazoge.com>
 Pierre Neter <pierreneter@gmail.com>
 Piotr Monwid-Olechnowicz <hasparus@gmail.com>
 Piper Chester <piperchester@gmail.com>
+PisecesPeng <Piseces.Peng@outlook.com>
 Pixy Yuan <pixy.bupt@gmail.com>
 PlayerWho <who.zhuang@gmail.com>
 Pob Ch <590650@gmail.com>
@@ -736,6 +748,7 @@ Régis Foucault <regisfoucault@gmail.com>
 SHEN Lin <shenlin192@gmail.com>
 Saeed Rahimi <saeedr.com@gmail.com>
 Sagar Jain <sagar7993@gmail.com>
+Sagie501 <Sagie012@gmail.com>
 Sakari Pesonen <pesonen.sakari@gmail.com>
 Sakol Assawasagool <koobitor@gmail.com>
 Salavat Gizatov <100ishundred@gmail.com>
@@ -761,6 +774,7 @@ Sebastian Blade <blade254353074@hotmail.com>
 Sebastian Busch <s.busch@obg-gruppe.de>
 Sebastian Busch <mail@sebastian-bus.ch>
 Sebastian Busch <s.busch@qbus-enet.de>
+Semro <semenrozhkov@mail.ru>
 Sepush <sepush@outlook.com>
 Sergey Kachanovskiy <sergey.kachanovskiy@gmx.de>
 Sergey Levkovich <gosu.87@mail.ru>
@@ -770,6 +784,7 @@ Sevak <shaderzak@gmail.com>
 Shanjie Chen <cnzxcsj@outlook.com>
 Shawn Sit <xueqingxiao@gmail.com>
 Shengnan <baxtergu@gmail.com>
+Sheralijon <sherali.uz@gmail.com>
 ShiTengFei <shitengfei@goyoo.com>
 ShuYu Wang <andelf@gmail.com>
 Shubham Kanodia <shubhamsizzles@gmail.com>
@@ -787,7 +802,9 @@ Skylar艺璇 <mengxue.yx@gmail.com>
 Snyk bot <github+bot@snyk.io>
 Songhn <songhn233@gmail.com>
 Sonjeet Paul <sonjeetcp.98@gmail.com>
+Sonu Sharma <echosonusharma@gmail.com>
 SoraYama <sorayamahou@gmail.com>
+South <1275093225@qq.com>
 Spencer <spjy@hawaii.edu>
 Stanley Thijssen <stanley.thijssen@energybox.com>
 Stanley Thijssen <stanley.thijssen@gmail.com>
@@ -886,6 +903,7 @@ William Bergeron-Drouin <william@inter-net.ca>
 William Cai <williamcai@easyops.cn>
 William Stein <wstein@gmail.com>
 WingGao <wing.gao@live.com>
+Winme <winme0308@gmail.com>
 Wu Haotian <whtsky@gmail.com>
 WuJiali <18767152447@163.com>
 Wuxh <wxh1220@gmail.com>
@@ -927,6 +945,7 @@ Yuhang Liu <644186735@qq.com>
 Yuki Zhang <foryuki@outlook.com>
 Yulia Maximova <juliam2007@mail.ru>
 Yunfly <120562638@qq.com>
+Yunhwan Logan Na <nayunhwan.dev@gmail.com>
 Yunus EŞ <yunus@yunuses.com>
 Yunwoo Ji <unu12073@gmail.com>
 Yuri Pirola <yuri.pirola@unimi.it>
@@ -936,7 +955,10 @@ Yuwei Ba <i@xiaoba.me>
 Yuxuan Huo <yuxuan.huo2011@gmail.com>
 Yuyao Nie <nieyuyao0826@hotmail.com>
 YuyingWu <wuyuying1128@gmail.com>
+Yvan Zhu <i@zhuyunfeng.com>
+ZH-seven <289621059@qq.com>
 ZHANGYU <723156735@qq.com>
+ZN1996 <664062309@qq.com>
 ZYSzys <zyszys98@gmail.com>
 Zach Bird <546439325@qq.com>
 Zack Amiton <zamiton@outlook.com>
@@ -945,10 +967,12 @@ Zap <a124116186@qq.com>
 ZeroToOne <igeeke@163.com>
 Zester Quinn Albano <zesterquinn.albano@gmail.com>
 Zhang Zhi <fytriht@gmail.com>
+Zhanghao <yukiniro@hotmail.com>
 Zheeeng <air.island.e@foxmail.com>
 Zheeeng <hi@zheeeng.me>
 ZhiHao Li <940166841@qq.com>
 Zhiqiang Gong <elory0513@hotmail.com>
+Zhongjan <zjgdmz@yeah.net>
 ZhouZhen <503633021@qq.com>
 Zhuo Chen <chenzhuo@caicloud.io>
 Ziluo <gyfzzu@gmail.com>
@@ -989,6 +1013,7 @@ benben <jinwentao0914@dingtalk.com>
 bigbigbo <zxb141242@163.com>
 binyellow <571704908@qq.com>
 blankzust <450811238@qq.com>
+bluelovers <codelovers@users.sourceforge.net>
 bobo <625391250@qq.com>
 btea <2356281422@qq.com>
 bukas <yhz1219@gmail.com>
@@ -1017,6 +1042,7 @@ cieldon32 <cieldon32@gmail.com>
 cjahv <cjahv@qq.com>
 cjmafei <1135328499@qq.com>
 cjmafei <cjmafei@guandata.com>
+cl1107 <cl_1107@126.com>
 clean99 <xff9924@gmail.com>
 clinyong <clinyong@gmail.com>
 cnjs <1269075501@qq.com>
@@ -1024,6 +1050,7 @@ codesign <zuishiguang@126.com>
 corneyl <cornieljoosse@gmail.com>
 csr632 <632882184@qq.com>
 daczczcz1 <daczosnek@gmail.com>
+dainli <dainli@outlook.com>
 damon.chen <chj_0507_dz@sina.com>
 david.lv <lvdawei1970@gmail.com>
 david.lv <code4funlnyx@gmail.com>
@@ -1041,6 +1068,7 @@ digz6666 <digz6666@gmail.com>
 dingkang <dingkang0458@gmail.com>
 djorkaeff <djorkae55@gmail.com>
 dolfje <nikosverschore@gmail.com>
+dongfang <1136005348@qq.com>
 douxc <douxc512@gmail.com>
 dpyzo0o <yang.xu940121@outlook.com>
 dujun <emolingzhu@126.com>
@@ -1055,6 +1083,7 @@ ezpub <ez.foro@gmail.com>
 fairyland <cwjTerrace@163.com>
 feeng <feengqi@gmail.com>
 feng zhi hao <fzhihao@outlook.com>
+fengmk2 <fengmk2@gmail.com>
 fengmk2 <m@fengmk2.com>
 fish yu <501254061@qq.com>
 fkysly <fkysly@gmail.com>
@@ -1106,6 +1135,7 @@ int2d <int2d@qq.com>
 iojichervo <ioji@chervonagura.com.ar>
 ioldfish <fish.wangl@gmail.com>
 iorikingdom <iorikingdom@hotmail.com>
+isaced <isaced@163.com>
 isakol <isakol@kth.se>
 itibbers <jxn2014@gmail.com>
 iugo <iugogogo@gmail.com>
@@ -1131,6 +1161,7 @@ kailunyao <kailunyao@163.com>
 kalykun <984757534@qq.com>
 kanweiwei <475801900@qq.com>
 kaoding <41830859@qq.com>
+karasu <karasu@karasu.moe>
 kasinooya <kasinooya@gmail.com>
 kavin <kavin.huang@alphaliongroup.com>
 kayw <kayw@outlook.com>
@@ -1180,6 +1211,7 @@ lizhen <lizhen@youzan.com>
 llwslc <llwslc@gmail.com>
 loganpowell <loganp@tepper.cmu.edu>
 losgif <losgif@gmail.com>
+lushevol <lushevol@outlook.com>
 luyiming <luyimingchn@gmail.com>
 lvren <luren6049@qq.com>
 lxnxbnq <yuanddmail@163.com>
@@ -1192,6 +1224,7 @@ melchior voidwolf <kmno4k2mno4@gmail.com>
 memoryza <jincai.wang@foxmail.com>
 mgrdevport <mgrdevport@gmail.com>
 mingyan.yu <mingyan.yu@wormpex.com>
+miracles1919 <lujie@yuantutech.com>
 miracles1919 <516571350@qq.com>
 mjfwebb <bugeyedboy@gmail.com>
 mkermani144 <mkermani144@gmail.com>
@@ -1202,6 +1235,7 @@ mraiguo <810158465@qq.com>
 mraiguo <mraiguo@gmail.com>
 mumiao <mumiao@dtstack.com>
 mushan0x0 <mushan0x0@gmail.com>
+muxin <434980373@qq.com>
 muxin <a2944938071@163.com>
 muzuiget <muzuiget@gmail.com>
 natergj <nater_nater@me.com>
@@ -1264,11 +1298,13 @@ slientcloud <rjmuqiang@gmail.com>
 sliwey <qlw1009@gmail.com>
 snadn <snadn@snadn.cn>
 snail <120216220@qq.com>
+snowingfox <1503401882@qq.com>
 soeyi <sixinlei0927@gmail.com>
 sojournerc <cmeyer@zvelo.com>
 soso <ethdud1@gmail.com>
 sosohime <theziming@126.com>
 spideeee <spideeee@github.com>
+sribich <stephen@ribich.dev>
 stefango <nankongyinan@gmail.com>
 stevenyuysy <stevenyuysy@gmail.com>
 stickmy <stickmyc@gmail.com>
@@ -1316,6 +1352,7 @@ wangshuai <wangshuai@momenta.ai>
 wangtao0101 <yuecjn@gmail.com>
 wangxiaolei <fatelei@gmail.com>
 wangxing <wangxing@nroad.com.cn>
+wangxingkang <wang_xingkang@qq.com>
 wangxingkang <156148958@qq.com>
 wangxingkang <wangxingkang@sensoro.com>
 wangxueliang <wangxueliang@yidian-inc.com>
@@ -1395,7 +1432,6 @@ zlljqn <zlljqn@gmail.com>
 zollero <corona7@163.com>
 zongzi531 <zongzi.xy@gmail.com>
 zoomdong <1344492820@qq.com>
-zpc7 <zpc.excel@foxmail.com>
 zqran <uuxnet@gmail.com>
 ztplz <mysticzt@gmail.com>
 zty <tianyuan233.zhang@gmail.com>
@@ -1437,6 +1473,7 @@ zz <2418184580@qq.com>
 吴泽康 <wu.zekang@outlook.com>
 啸生 <ikobe621@gmail.com>
 大猫 <rdmclin2@gmail.com>
+子瞻 Luci <haru.lucinyan@gmail.com>
 宝码 <noyobo@gmail.com>
 小哈husky <951565664@qq.com>
 小菜 <645801890@qq.com>
@@ -1475,7 +1512,7 @@ zz <2418184580@qq.com>
 砖家 <brickspert.fjl@antfin.com>
 砖家 <576679268@qq.com>
 社长长 <ischenkan@outlook.com>
-章鱼 <ryker.zy@gmail.com>
+章鱼怪 <ryker.zy@gmail.com>
 竹尔 <Juelchiang@gmail.com>
 米老朱 <laozhu.me@gmail.com>
 精武陈真 <546369005@qq.com>

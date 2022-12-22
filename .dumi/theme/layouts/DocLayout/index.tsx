@@ -1,16 +1,15 @@
-import React, { useEffect, useLayoutEffect, useMemo, useRef } from 'react';
+import React, { useContext, useEffect, useLayoutEffect, useMemo, useRef } from 'react';
 import 'dayjs/locale/zh-cn';
 import dayjs from 'dayjs';
-import { Helmet, useOutlet, useSearchParams } from 'dumi';
+import { Helmet, useOutlet } from 'dumi';
 import '../../static/style';
-import type { DirectionType } from 'antd/es/config-provider';
 import ConfigProvider from 'antd/es/config-provider';
 import classNames from 'classnames';
 import zhCN from 'antd/es/locale/zh_CN';
+import SiteContext from '../../slots/SiteContext';
 import Header from '../../slots/Header';
 import Footer from '../../slots/Footer';
 import useLocale from '../../../hooks/useLocale';
-import SiteContext from '../../slots/SiteContext';
 import useLocation from '../../../hooks/useLocation';
 import ResourceLayout from '../ResourceLayout';
 import GlobalStyles from '../../common/GlobalStyles';
@@ -28,26 +27,13 @@ const locales = {
   },
 };
 
-const RESPONSIVE_MOBILE = 768;
-
 const DocLayout: React.FC = () => {
   const outlet = useOutlet();
   const location = useLocation();
   const { pathname, search } = location;
-  const [searchParams, setSearchParams] = useSearchParams();
   const [locale, lang] = useLocale(locales);
-
-  // TODO: place doc layout here, apply for all docs route paths
-  // migrate from: https://github.com/ant-design/ant-design/blob/eb9179464b9c4a93c856e1e70ddbdbaaf3f3371f/site/theme/template/Layout/index.tsx
-
-  const [isMobile, setIsMobile] = React.useState<boolean>(false);
-  const [direction, setDirection] = React.useState<DirectionType>('ltr');
-
   const timerRef = useRef<NodeJS.Timeout | null>(null);
-
-  const updateMobileMode = () => {
-    setIsMobile(window.innerWidth < RESPONSIVE_MOBILE);
-  };
+  const { direction } = useContext(SiteContext);
 
   useLayoutEffect(() => {
     if (lang === 'cn') {
@@ -64,20 +50,6 @@ const DocLayout: React.FC = () => {
         nprogressHiddenStyle.parentNode?.removeChild(nprogressHiddenStyle);
       }, 0);
     }
-
-    // Handle direction
-    const queryDirection = searchParams.get('direction');
-    setDirection(queryDirection === 'rtl' ? 'rtl' : 'ltr');
-
-    // Handle mobile mode
-    updateMobileMode();
-    window.addEventListener('resize', updateMobileMode);
-    return () => {
-      window.removeEventListener('resize', updateMobileMode);
-      if (timerRef.current) {
-        clearTimeout(timerRef.current);
-      }
-    };
   }, []);
 
   React.useEffect(() => {
@@ -88,16 +60,6 @@ const DocLayout: React.FC = () => {
       (window as any)._hmt.push(['_trackPageview', pathname + search]);
     }
   }, [location]);
-
-  const changeDirection = (dir: DirectionType): void => {
-    setDirection(dir);
-    if (dir === 'ltr') {
-      searchParams.delete('direction');
-    } else {
-      searchParams.set('direction', 'rtl');
-    }
-    setSearchParams(searchParams);
-  };
 
   const content = useMemo(() => {
     if (
@@ -120,16 +82,8 @@ const DocLayout: React.FC = () => {
     return <SidebarLayout>{outlet}</SidebarLayout>;
   }, [pathname, outlet]);
 
-  const siteContextValue = useMemo(
-    () => ({
-      isMobile,
-      direction,
-    }),
-    [isMobile, direction],
-  );
-
   return (
-    <SiteContext.Provider value={siteContextValue}>
+    <>
       <Helmet encodeSpecialCharacters={false}>
         <html
           lang={lang}
@@ -149,12 +103,12 @@ const DocLayout: React.FC = () => {
           content="https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png"
         />
       </Helmet>
-      <ConfigProvider locale={lang === 'cn' ? zhCN : undefined} direction={direction}>
+      <ConfigProvider locale={lang === 'cn' ? zhCN : undefined}>
         <GlobalStyles />
-        <Header changeDirection={changeDirection} />
+        <Header />
         {content}
       </ConfigProvider>
-    </SiteContext.Provider>
+    </>
   );
 };
 

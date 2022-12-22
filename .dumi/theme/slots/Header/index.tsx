@@ -4,7 +4,6 @@ import DumiSearchBar from 'dumi/theme-default/slots/SearchBar';
 import classNames from 'classnames';
 import { Col, Modal, Popover, Row, Select, Typography } from 'antd';
 import { GithubOutlined, MenuOutlined } from '@ant-design/icons';
-import type { DirectionType } from 'antd/es/config-provider';
 import { ClassNames, css } from '@emotion/react';
 import * as utils from '../../utils';
 import { getThemeConfig, ping } from '../../utils';
@@ -129,10 +128,6 @@ const useStyle = () => {
   };
 };
 
-export interface HeaderProps {
-  changeDirection: (direction: DirectionType) => void;
-}
-
 const V5_NOTIFICATION = 'antd@4.0.0-notification-sent';
 const SHOULD_OPEN_ANT_DESIGN_MIRROR_MODAL = 'ANT_DESIGN_DO_NOT_OPEN_MIRROR_MODAL';
 
@@ -151,8 +146,7 @@ interface HeaderState {
 }
 
 // ================================= Header =================================
-const Header: React.FC<HeaderProps> = (props) => {
-  const { changeDirection } = props;
+const Header: React.FC = () => {
   const [isClient, setIsClient] = React.useState(false);
   const [locale, lang] = useLocale(locales);
   const { token } = useSiteToken();
@@ -188,7 +182,7 @@ const Header: React.FC<HeaderProps> = (props) => {
     windowWidth: 1400,
     searching: false,
   });
-  const { direction, isMobile } = useContext<SiteContextProps>(SiteContext);
+  const { direction, isMobile, updateSiteConfig } = useContext<SiteContextProps>(SiteContext);
   const pingTimer = useRef<NodeJS.Timeout | null>(null);
   const location = useLocation();
   const { pathname, search } = location;
@@ -208,7 +202,7 @@ const Header: React.FC<HeaderProps> = (props) => {
     setHeaderState((prev) => ({ ...prev, menuVisible: visible }));
   }, []);
   const onDirectionChange = () => {
-    changeDirection?.(direction !== 'rtl' ? 'rtl' : 'ltr');
+    updateSiteConfig({ direction: direction !== 'rtl' ? 'rtl' : 'ltr' });
   };
 
   useEffect(() => {

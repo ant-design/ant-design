@@ -28,6 +28,7 @@ For displaying anchor hyperlinks on page and jumping between them.
 <code src="./demo/customizeHighlight.tsx">Customize the anchor highlight</code>
 <code src="./demo/targetOffset.tsx" iframe="200">Set Anchor scroll offset</code>
 <code src="./demo/onChange.tsx">Listening for anchor link change</code>
+<code src="./demo/legacy-anchor.tsx" debug>Deprecated JSX demo</code>
 
 ## API
 
@@ -44,6 +45,7 @@ For displaying anchor hyperlinks on page and jumping between them.
 | targetOffset | Anchor scroll offset, default as `offsetTop`, [example](#components-anchor-demo-targetOffset) | number | - |  |
 | onChange | Listening for anchor link change | (currentActiveLink: string) => void |  |  |
 | onClick | Set the handler to handle `click` event | (e: MouseEvent, link: object) => void | - |  |
+| items | Data configuration option content, support nesting through children | { href, title, target, children }\[] | - |  |
 
 ### Link Props
 

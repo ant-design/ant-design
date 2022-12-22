@@ -4,7 +4,7 @@ import type { SerializedStyles } from '@emotion/react';
 import { css } from '@emotion/react';
 import type { Extra, Icon } from './util';
 import useSiteToken from '../../../hooks/useSiteToken';
-import SiteContext from './SiteContext';
+import SiteContext from '../../../theme/slots/SiteContext';
 import { useCarouselStyle } from './util';
 
 const useStyle = () => {
@@ -65,14 +65,20 @@ const RecommendItem = ({ extra, index, icons, itemCss }: RecommendItemProps) => 
   const icon = icons.find((i) => i.name === extra.source);
 
   return (
-    <a key={extra?.title}  href={extra.href} target="_blank" css={[style.itemBase, itemCss]} rel="noreferrer">
+    <a
+      key={extra?.title}
+      href={extra.href}
+      target="_blank"
+      css={[style.itemBase, itemCss]}
+      rel="noreferrer"
+    >
       <Typography.Title level={5}>{extra?.title}</Typography.Title>
       <Typography.Paragraph type="secondary" style={{ flex: 'auto' }}>
         {extra.description}
       </Typography.Paragraph>
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
         <Typography.Text>{extra.date}</Typography.Text>
-        {icon && <img src={icon.href} style={{ height: token.fontSize }} alt="banner"/>}
+        {icon && <img src={icon.href} style={{ height: token.fontSize }} alt="banner" />}
       </div>
     </a>
   );
@@ -119,4 +125,3 @@ export default function BannerRecommends({ extras = [], icons = [] }: BannerReco
     </div>
   );
 }
-

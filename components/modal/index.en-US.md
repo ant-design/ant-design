@@ -98,6 +98,7 @@ The items listed above are all functions, expecting a settings object as paramet
 | closable | Whether a close (x) button is visible on top right of the confirm dialog or not | boolean | false | 4.9.0 |
 | closeIcon | Custom close icon | ReactNode | undefined | 4.9.0 |
 | content | Content | ReactNode | - |  |
+| footer | Footer content, set as `footer: null` when you don't need default buttons | ReactNode | - | 5.1.0 |
 | getContainer | Return the mount node for Modal | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
 | icon | Custom icon | ReactNode | &lt;QuestionCircle /> |  |
 | keyboard | Whether support press esc to close | boolean | true |  |

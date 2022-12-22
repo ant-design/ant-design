@@ -2,7 +2,7 @@
 import Pagination from 'rc-pagination/lib/locale/uk_UA';
 import Calendar from '../calendar/locale/uk_UA';
 import DatePicker from '../date-picker/locale/uk_UA';
-import type { Locale } from '../locale-provider';
+import type { Locale } from '../locale';
 import TimePicker from '../time-picker/locale/uk_UA';
 
 const typeTemplate = '${label} не є типом ${type}';
