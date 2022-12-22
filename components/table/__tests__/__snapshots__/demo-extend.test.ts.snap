@@ -1559,7 +1559,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.tsx extend context 
                     </div>
                   </th>
                   <th
-                    aria-label="this column's title is Address,this column is sortable"
+                    aria-label="Address"
                     class="ant-table-cell ant-table-column-has-sorters"
                     scope="col"
                     tabindex="0"
@@ -3203,7 +3203,7 @@ Array [
                       Name
                     </th>
                     <th
-                      aria-label="this column's title is Age,this column is sortable"
+                      aria-label="Age"
                       class="ant-table-cell ant-table-column-has-sorters"
                       scope="col"
                       tabindex="0"
@@ -3516,7 +3516,7 @@ Array [
                       </div>
                     </th>
                     <th
-                      aria-label="this column's title is Action,this column is sortable"
+                      aria-label="Action"
                       class="ant-table-cell ant-table-column-has-sorters"
                       scope="col"
                       tabindex="0"
@@ -7496,7 +7496,7 @@ exports[`renders ./components/table/demo/filter-in-tree.tsx extend context corre
                     </div>
                   </th>
                   <th
-                    aria-label="this column's title is Age,this column is sortable"
+                    aria-label="Age"
                     class="ant-table-cell ant-table-column-has-sorters"
                     scope="col"
                     tabindex="0"
@@ -8319,7 +8319,7 @@ exports[`renders ./components/table/demo/filter-search.tsx extend context correc
                     </div>
                   </th>
                   <th
-                    aria-label="this column's title is Age,this column is sortable"
+                    aria-label="Age"
                     class="ant-table-cell ant-table-column-has-sorters"
                     scope="col"
                     tabindex="0"
@@ -12166,7 +12166,7 @@ exports[`renders ./components/table/demo/grouping-columns.tsx extend context cor
                 </tr>
                 <tr>
                   <th
-                    aria-label="this column's title is Age,this column is sortable"
+                    aria-label="Age"
                     class="ant-table-cell ant-table-column-has-sorters"
                     rowspan="3"
                     scope="col"
@@ -13261,7 +13261,7 @@ exports[`renders ./components/table/demo/head.tsx extend context correctly 1`] =
               >
                 <tr>
                   <th
-                    aria-label="this column's title is Name,this column is sortable"
+                    aria-label="Name"
                     class="ant-table-cell ant-table-column-has-sorters"
                     scope="col"
                     tabindex="0"
@@ -14623,7 +14623,7 @@ exports[`renders ./components/table/demo/multiple-sorter.tsx extend context corr
                     Name
                   </th>
                   <th
-                    aria-label="this column's title is Chinese Score,this column is sortable"
+                    aria-label="Chinese Score"
                     class="ant-table-cell ant-table-column-has-sorters"
                     scope="col"
                     tabindex="0"
@@ -14709,7 +14709,7 @@ exports[`renders ./components/table/demo/multiple-sorter.tsx extend context corr
                     </div>
                   </th>
                   <th
-                    aria-label="this column's title is Math Score,this column is sortable"
+                    aria-label="Math Score"
                     class="ant-table-cell ant-table-column-has-sorters"
                     scope="col"
                     tabindex="0"
@@ -14795,7 +14795,7 @@ exports[`renders ./components/table/demo/multiple-sorter.tsx extend context corr
                     </div>
                   </th>
                   <th
-                    aria-label="this column's title is English Score,this column is sortable"
+                    aria-label="English Score"
                     class="ant-table-cell ant-table-column-has-sorters"
                     scope="col"
                     tabindex="0"
@@ -20341,7 +20341,7 @@ Array [
                 >
                   <tr>
                     <th
-                      aria-label="this column's title is Name,this column is sortable"
+                      aria-label="Name"
                       class="ant-table-cell ant-table-cell-ellipsis ant-table-column-has-sorters"
                       scope="col"
                       tabindex="0"
@@ -20649,7 +20649,7 @@ Array [
                       </div>
                     </th>
                     <th
-                      aria-label="this column's title is Age,this column is sortable"
+                      aria-label="Age"
                       class="ant-table-cell ant-table-cell-ellipsis ant-table-column-has-sorters"
                       scope="col"
                       tabindex="0"
@@ -20736,7 +20736,7 @@ Array [
                       </div>
                     </th>
                     <th
-                      aria-label="this column's title is Address,this column is sortable"
+                      aria-label="Address"
                       class="ant-table-cell ant-table-cell-ellipsis ant-table-column-has-sorters"
                       scope="col"
                       tabindex="0"
@@ -21280,7 +21280,7 @@ exports[`renders ./components/table/demo/resizable-column.tsx extend context cor
                     />
                   </th>
                   <th
-                    aria-label="this column's title is Amount,this column is sortable"
+                    aria-label="Amount"
                     class="ant-table-cell ant-table-column-has-sorters react-resizable"
                     scope="col"
                     tabindex="0"
