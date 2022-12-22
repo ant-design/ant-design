@@ -148,6 +148,12 @@ npm run install-react-16
 npm run test componet/XXX
 ```
 
-## 十. 不要怕犯错误，勇敢地去做，开源世界欢迎大家。
+## 十. 成为 Collaborator
+
+当持续维护一段时候后，Collaborator 会启动邀请机制，在 [#3222](https://github.com/ant-design/ant-design/issues/3222) 中发起投票。当满足足够票数后，会正式邀请你成为 Collaborator。
+
+![Collaborators](https://user-images.githubusercontent.com/5378891/209089697-4fe3f3b3-ef44-4d63-94c2-d93d082c9951.png)
+
+## 不要怕犯错误，勇敢地去做，开源世界欢迎大家。
 
 ![giphy](https://user-images.githubusercontent.com/10607168/208015974-04c3f09b-b5e8-4ef7-af00-0bb5652ec619.gif)

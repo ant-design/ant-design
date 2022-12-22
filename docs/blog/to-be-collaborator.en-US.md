@@ -148,6 +148,12 @@ npm run install-react-16
 npm run test component/XXX
 ```
 
+## To be collaborator
+
+After a period of continuous maintenance, Collaborators will start the invitation mechanism and initiate a vote in [#3222](https://github.com/ant-design/ant-design/issues/3222). When enough votes are met, you will be officially invited to become a Collaborator.
+
+![Collaborators](https://user-images.githubusercontent.com/5378891/209089697-4fe3f3b3-ef44-4d63-94c2-d93d082c9951.png)
+
 ## Don't be afraid to make mistakes, do it bravely, everyone is welcome in the open source world.
 
 ![giphy](https://user-images.githubusercontent.com/10607168/208015974-04c3f09b-b5e8-4ef7-af00-0bb5652ec619.gif)
