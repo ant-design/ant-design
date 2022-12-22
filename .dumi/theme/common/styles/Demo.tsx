@@ -40,10 +40,6 @@ export default () => {
           &,
           .code-box-demo {
             background-color: ${token.colorBgContainer};
-
-            &[data-compact] {
-              padding: 0;
-            }
           }
 
           .markdown {
