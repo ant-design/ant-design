@@ -850,30 +850,11 @@ exports[`renders ./components/table/demo/colspan-rowspan.tsx correctly 1`] = `
                 >
                   <td
                     class="ant-table-cell"
+                    colspan="5"
                   >
                     <a>
                       Jim Green
                     </a>
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    42
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    0571-22098333
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    18889898888
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    London No. 1 Lake Park
                   </td>
                 </tr>
                 <tr
@@ -894,7 +875,6 @@ exports[`renders ./components/table/demo/colspan-rowspan.tsx correctly 1`] = `
                   </td>
                   <td
                     class="ant-table-cell"
-                    rowspan="2"
                   >
                     0575-22098909
                   </td>
@@ -927,6 +907,12 @@ exports[`renders ./components/table/demo/colspan-rowspan.tsx correctly 1`] = `
                   </td>
                   <td
                     class="ant-table-cell"
+                    rowspan="2"
+                  >
+                    0575-22098909
+                  </td>
+                  <td
+                    class="ant-table-cell"
                   >
                     18900010002
                   </td>
@@ -942,11 +928,25 @@ exports[`renders ./components/table/demo/colspan-rowspan.tsx correctly 1`] = `
                 >
                   <td
                     class="ant-table-cell"
-                    colspan="5"
                   >
                     <a>
                       Jake White
                     </a>
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    18
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    18900010002
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Dublin No. 2 Lake Park
                   </td>
                 </tr>
               </tbody>

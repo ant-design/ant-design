@@ -2,8 +2,8 @@ import classNames from 'classnames';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import useFlexGapSupport from '../_util/hooks/useFlexGapSupport';
-import type { Breakpoint, ScreenMap } from '../_util/responsiveObserve';
-import useResponsiveObserve, { responsiveArray } from '../_util/responsiveObserve';
+import type { Breakpoint, ScreenMap } from '../_util/responsiveObserver';
+import useResponsiveObserver, { responsiveArray } from '../_util/responsiveObserver';
 import RowContext from './RowContext';
 import { useRowStyle } from './style';
 
@@ -106,11 +106,11 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
 
   const gutterRef = React.useRef<Gutter | [Gutter, Gutter]>(gutter);
 
-  const responsiveObserve = useResponsiveObserve();
+  const responsiveObserver = useResponsiveObserver();
 
   // ================================== Effect ==================================
   React.useEffect(() => {
-    const token = responsiveObserve.subscribe((screen) => {
+    const token = responsiveObserver.subscribe((screen) => {
       setCurScreens(screen);
       const currentGutter = gutterRef.current || 0;
       if (
@@ -121,7 +121,7 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
         setScreens(screen);
       }
     });
-    return () => responsiveObserve.unsubscribe(token);
+    return () => responsiveObserver.unsubscribe(token);
   }, []);
 
   // ================================== Render ==================================

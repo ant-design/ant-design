@@ -335,7 +335,7 @@ root.render(
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| `Component` (可以是任意 antd 组件名，如 `Button`) | 用于修改 Component Token 以及覆盖该组件消费的 Alias Token | `ComponentToken & AliasToken` | - |
+| `Component` (Can be any antd Component name like `Button`) | Modify Component Token or override Component used Alias Token | `ComponentToken & AliasToken` | - |
 
 ### SeedToken
 
@@ -343,15 +343,19 @@ root.render(
 
 ### MapToken
 
-> 继承所有 SeedToken 的 Property
+> Inherit all SeedToken properties
 
 <TokenTable type="map"></TokenTable>
 
 ### AliasToken
 
-> 继承所有 SeedToken 和 MapToken 的 Property
+> Inherit all SeedToken and MapToken properties
 
 <TokenTable type="alias"></TokenTable>
+
+### StyleProvider
+
+Please ref [`@ant-design/cssinjs`](https://github.com/ant-design/cssinjs#styleprovider).
 
 ## How to Debug your Theme
 

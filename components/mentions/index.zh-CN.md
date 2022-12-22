@@ -69,7 +69,7 @@ return <Mentions options={options} />;
 | onResize | resize 回调 | function({ width, height }) | - |  |
 | onSearch | 搜索时触发 | (text: string, prefix: string) => void | - |  |
 | onSelect | 选择选项时触发 | (option: OptionProps, prefix: string) => void | - |  |
-| options | 选项配置 | [Options](#Option) | [] | 5.1.0 |
+| options | 选项配置 | [Options](#option) | [] | 5.1.0 |
 
 ### Mentions 方法
 

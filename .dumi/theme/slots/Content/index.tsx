@@ -106,6 +106,7 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
   const { pathname, hash } = useLocation();
   const { formatMessage } = useIntl();
   const styles = useStyle();
+  const { token } = useSiteToken();
   const { direction } = useContext(SiteContext);
 
   const [showDebug, setShowDebug] = useState(false);
@@ -149,7 +150,7 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
       <Col xxl={20} xl={19} lg={18} md={18} sm={24} xs={24}>
         <Affix>
           <section css={styles.tocWrapper} className={classNames({ rtl: isRTL })}>
-            <Anchor css={styles.toc} affix={false} showInkInFixed>
+            <Anchor css={styles.toc} affix={false} targetOffset={token.marginXXL} showInkInFixed>
               {anchorItems.map((item) => (
                 <Anchor.Link href={`#${item.id}`} title={item?.title} key={item.id}>
                   {item.children
