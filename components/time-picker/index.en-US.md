@@ -54,7 +54,7 @@ dayjs.extend(customParseFormat)
 | clearText | The clear tooltip of icon | string | clear |  |
 | defaultValue | To set default time | [dayjs](http://day.js.org/) | - |  |
 | disabled | Determine whether the TimePicker is disabled | boolean | false |  |
-| disabledTime | To specify the time that cannot be selected | [DisabledTime](#DisabledTime) | - | 4.19.0 |
+| disabledTime | To specify the time that cannot be selected | [DisabledTime](#disabledtime) | - | 4.19.0 |
 | format | To set the time format | string | `HH:mm:ss` |  |
 | getPopupContainer | To set the container of the floating layer, while the default is to create a div element in body | function(trigger) | - |  |
 | hideDisabledOptions | Whether hide the options that can not be selected | boolean | false |  |
@@ -96,11 +96,11 @@ type DisabledTime = (now: Dayjs) => {
 
 ### RangePicker
 
-Same props from [RangePicker](/components/date-picker/#RangePicker) of DatePicker. And includes additional props:
+Same props from [RangePicker](/components/date-picker/#rangepicker) of DatePicker. And includes additional props:
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| disabledTime | To specify the time that cannot be selected | [RangeDisabledTime](#RangeDisabledTime) | - | 4.19.0 |
+| disabledTime | To specify the time that cannot be selected | [RangeDisabledTime](#rangedisabledtime) | - | 4.19.0 |
 | order | Order start and end time | boolean | true | 4.1.0 |
 
 ### RangeDisabledTime
@@ -123,4 +123,4 @@ type RangeDisabledTime = (
 
 ## FAQ
 
-- [How to use TimePicker with customize date library like dayjs](/docs/react/use-custom-date-library#TimePicker)
+- [How to use TimePicker with customize date library like dayjs](/docs/react/use-custom-date-library#timepicker)

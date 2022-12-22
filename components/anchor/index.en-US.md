@@ -42,7 +42,7 @@ For displaying anchor hyperlinks on page and jumping between them.
 | getCurrentAnchor | Customize the anchor highlight | (activeLink: string) => string | - |  |
 | offsetTop | Pixels to offset from top when calculating position of scroll | number | 0 |  |
 | showInkInFixed | Whether show ink-square when `affix={false}` | boolean | false |  |
-| targetOffset | Anchor scroll offset, default as `offsetTop`, [example](#components-anchor-demo-targetOffset) | number | - |  |
+| targetOffset | Anchor scroll offset, default as `offsetTop`, [example](#components-anchor-demo-targetoffset) | number | - |  |
 | onChange | Listening for anchor link change | (currentActiveLink: string) => void |  |  |
 | onClick | Set the handler to handle `click` event | (e: MouseEvent, link: object) => void | - |  |
 | items | Data configuration option content, support nesting through children | { href, title, target, children }\[] | - |  |
