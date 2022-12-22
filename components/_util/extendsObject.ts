@@ -1,8 +1,7 @@
-/* eslint-disable no-redeclare */
-export function mergeProps<A, B>(a: A, b: B): B & A;
-export function mergeProps<A, B, C>(a: A, b: B, c: C): C & B & A;
-export function mergeProps(...list: any[]) {
-  const result = { ...list[0] };
+type RecordType = Record<string, any>;
+
+function extendsObject<T extends RecordType>(...list: T[]) {
+  const result: RecordType = { ...list[0] };
 
   for (let i = 1; i < list.length; i++) {
     const obj = list[i];
@@ -18,3 +17,5 @@ export function mergeProps(...list: any[]) {
 
   return result;
 }
+
+export default extendsObject;

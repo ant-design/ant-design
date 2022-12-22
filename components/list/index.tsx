@@ -12,7 +12,7 @@ import type { SpinProps } from '../spin';
 import Spin from '../spin';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { responsiveArray } from '../_util/responsiveObserver';
-import { mergeProps } from '../_util/withDefaultProps';
+import extendsObject from '../_util/extendsObject';
 import Item from './Item';
 
 // CSSINJS
@@ -191,7 +191,7 @@ function List<T>({
     hashId,
   );
 
-  const paginationProps = mergeProps(
+  const paginationProps = extendsObject<PaginationConfig>(
     defaultPaginationProps,
     {
       total: dataSource.length,
