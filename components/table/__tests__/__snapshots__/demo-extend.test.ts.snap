@@ -1148,19 +1148,6 @@ exports[`renders ./components/table/demo/colspan-rowspan.tsx extend context corr
                     London No. 2 Lake Park
                   </td>
                 </tr>
-                <tr
-                  class="ant-table-row ant-table-row-level-0"
-                  data-row-key="5"
-                >
-                  <td
-                    class="ant-table-cell"
-                    colspan="5"
-                  >
-                    <a>
-                      Jake White
-                    </a>
-                  </td>
-                </tr>
               </tbody>
             </table>
           </div>

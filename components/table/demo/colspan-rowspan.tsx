@@ -100,14 +100,14 @@ const data: DataType[] = [
     phone: 18900010002,
     address: 'London No. 2 Lake Park',
   },
-  {
-    key: '5',
-    name: 'Jake White',
-    age: 18,
-    tel: '0575-22098909',
-    phone: 18900010002,
-    address: 'Dublin No. 2 Lake Park',
-  },
+  // {
+  //   key: '5',
+  //   name: 'Jake White',
+  //   age: 18,
+  //   tel: '0575-22098909',
+  //   phone: 18900010002,
+  //   address: 'Dublin No. 2 Lake Park',
+  // },
 ];
 
 const App: React.FC = () => <Table columns={columns} dataSource={data} bordered />;

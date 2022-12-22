@@ -170,10 +170,38 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
       },
 
       // ============================ Body ============================
+      [`${componentCls}:not(${componentCls}-bordered)`]: {
+        [`${componentCls}-tbody`]: {
+          '> tr': {
+            '> td': {
+              borderTop: tableBorder,
+            },
+
+            '&:last-child > td': {
+              borderBottom: tableBorder,
+            },
+
+            [`&:first-child > td,
+              &${componentCls}-measure-row + tr > td`]: {
+              borderTop: 'none',
+            },
+          },
+        },
+      },
+
+      [`${componentCls}${componentCls}-bordered`]: {
+        [`${componentCls}-tbody`]: {
+          '> tr': {
+            '> td': {
+              borderBottom: tableBorder,
+            },
+          },
+        },
+      },
+
       [`${componentCls}-tbody`]: {
         '> tr': {
           '> td': {
-            borderTop: tableBorder,
             transition: `background ${motionDurationSlow}`,
 
             // ========================= Nest Table ===========================
@@ -194,15 +222,6 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
                 },
               },
             },
-          },
-
-          '&:last-child > td': {
-            borderBottom: tableBorder,
-          },
-
-          [`&:first-child > td,
-            &${componentCls}-measure-row + tr > td`]: {
-            borderTop: 'none',
           },
 
           [`
@@ -275,6 +294,7 @@ export default genComponentStyleHook('Table', (token) => {
     colorTextPlaceholder,
     colorTextHeading,
     colorSplit,
+    colorBorderSecondary,
     fontSize,
     padding,
     paddingXS,
@@ -312,12 +332,12 @@ export default genComponentStyleHook('Table', (token) => {
     tablePaddingHorizontalMiddle: paddingXS,
     tablePaddingVerticalSmall: paddingXS,
     tablePaddingHorizontalSmall: paddingXS,
-    tableBorderColor: colorSplit,
+    tableBorderColor: colorBorderSecondary,
     tableHeaderTextColor: colorTextHeading,
     tableHeaderBg: colorFillAlterSolid,
     tableFooterTextColor: colorTextHeading,
     tableFooterBg: colorFillAlterSolid,
-    tableHeaderCellSplitColor: colorSplit,
+    tableHeaderCellSplitColor: colorBorderSecondary,
     tableHeaderSortBg: colorFillSecondary,
     tableHeaderSortHoverBg: colorFillContent,
     tableHeaderIconColor: baseColorAction
