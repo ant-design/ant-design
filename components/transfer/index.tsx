@@ -207,13 +207,13 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
     const dataSourceDisabledKeysMap = groupDisabledKeysMap(dataSource);
 
     // filter the disabled options
-    const newMoveKeys = moveKeys.filter((key) => !dataSourceDisabledKeysMap[key]);
+    const newMoveKeys = moveKeys.filter((key) => !dataSourceDisabledKeysMap.has(key));
     const newMoveKeysMap = groupKeysMap(newMoveKeys);
     // move items to target box
     const newTargetKeys =
       direction === 'right'
         ? newMoveKeys.concat(targetKeys)
-        : targetKeys.filter((targetKey) => !newMoveKeysMap[targetKey]);
+        : targetKeys.filter((targetKey) => !newMoveKeysMap.has(targetKey));
 
     // empty checked keys
     const oppositeDirection = direction === 'right' ? 'left' : 'right';
@@ -236,7 +236,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
       } else {
         const selectedKeysMap = groupKeysMap(selectedKeys);
         // Remove current keys from origin keys
-        mergedCheckedKeys = prevKeys.filter((key) => !selectedKeysMap[key]);
+        mergedCheckedKeys = prevKeys.filter((key) => !selectedKeysMap.has(key));
       }
 
       this.handleSelectChange(direction, mergedCheckedKeys);
@@ -354,8 +354,8 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
       }
       // rightDataSource should be ordered by targetKeys
       // leftDataSource should be ordered by dataSource
-      if (targetKeysMap[record.key]) {
-        rightDataSource[targetKeysMap[record.key].i] = record;
+      if (targetKeysMap.has(record.key)) {
+        rightDataSource[targetKeysMap.get(record.key)!] = record;
       } else {
         leftDataSource.push(record);
       }

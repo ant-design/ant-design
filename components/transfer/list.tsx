@@ -104,8 +104,8 @@ export default class TransferList<
     if (checkedKeys.length === 0) {
       return 'none';
     }
-    const keysMap = groupKeysMap(checkedKeys);
-    if (filteredItems.every((item) => keysMap[item.key] || !!item.disabled)) {
+    const checkedKeysMap = groupKeysMap(checkedKeys);
+    if (filteredItems.every((item) => checkedKeysMap.has(item.key) || !!item.disabled)) {
       return 'all';
     }
     return 'part';
