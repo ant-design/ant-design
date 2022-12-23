@@ -851,11 +851,29 @@ const genTabsStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
       },
     },
 
-    [`${componentCls}-centered`]: {
+    [`${componentCls}-align-start`]: {
+      [`> ${componentCls}-nav, > div > ${componentCls}-nav`]: {
+        [`${componentCls}-nav-wrap`]: {
+          [`&:not([class*='${componentCls}-nav-wrap-ping'])`]: {
+            justifyContent: 'start',
+          },
+        },
+      },
+    },
+    [`${componentCls}-align-center`]: {
       [`> ${componentCls}-nav, > div > ${componentCls}-nav`]: {
         [`${componentCls}-nav-wrap`]: {
           [`&:not([class*='${componentCls}-nav-wrap-ping'])`]: {
             justifyContent: 'center',
+          },
+        },
+      },
+    },
+    [`${componentCls}-align-end`]: {
+      [`> ${componentCls}-nav, > div > ${componentCls}-nav`]: {
+        [`${componentCls}-nav-wrap`]: {
+          [`&:not([class*='${componentCls}-nav-wrap-ping'])`]: {
+            justifyContent: 'end',
           },
         },
       },

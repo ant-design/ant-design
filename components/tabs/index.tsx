@@ -19,6 +19,7 @@ import useStyle from './style';
 
 export type TabsType = 'line' | 'card' | 'editable-card';
 export type TabsPosition = 'top' | 'right' | 'bottom' | 'left';
+export type TabsAlignment = 'start' | 'center' | 'end';
 
 export type { TabPaneProps };
 
@@ -27,6 +28,7 @@ export interface TabsProps extends Omit<RcTabsProps, 'editable'> {
   size?: SizeType;
   hideAdd?: boolean;
   centered?: boolean;
+  align?: TabsAlignment;
   addIcon?: React.ReactNode;
   onEdit?: (e: React.MouseEvent | React.KeyboardEvent | string, action: 'add' | 'remove') => void;
   children?: React.ReactNode;
@@ -39,6 +41,7 @@ function Tabs({
   onEdit,
   hideAdd,
   centered,
+  align = 'start',
   addIcon,
   popupClassName,
   children,
@@ -90,7 +93,7 @@ function Tabs({
           [`${prefixCls}-${size}`]: size,
           [`${prefixCls}-card`]: ['card', 'editable-card'].includes(type as string),
           [`${prefixCls}-editable-card`]: type === 'editable-card',
-          [`${prefixCls}-centered`]: centered,
+          [`${prefixCls}-align-${align}`]: align,
         },
         className,
         hashId,
