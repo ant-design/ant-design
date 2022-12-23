@@ -278,7 +278,21 @@ describe('Wave component', () => {
     jest.useRealTimers();
   });
 
-  it('wave transitionStart and transitionEnd', async () => {
+  it('wave transitionStart', async () => {
+    jest.useFakeTimers();
+    const { container } = render(
+      <Wave>
+        <Button>button</Button>
+      </Wave>,
+    );
+    const event = new Event('animationstart');
+    Object.assign(event, { animationName: 'fadeEffect' });
+    fireEvent.transitionStart(container.querySelector('button')!, event);
+    await waitFakeTimer();
+    jest.useRealTimers();
+  });
+
+  it('wave transitionEnd', async () => {
     jest.useFakeTimers();
     const { container } = render(
       <Wave>
@@ -287,8 +301,6 @@ describe('Wave component', () => {
     );
     const event = new Event('animationend');
     Object.assign(event, { animationName: 'fadeEffect' });
-    fireEvent.transitionStart(container.querySelector('button')!, event);
-    await waitFakeTimer();
     fireEvent.transitionEnd(container.querySelector('button')!, event);
     await waitFakeTimer();
     jest.useRealTimers();
