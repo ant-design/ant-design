@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import type { ReactNode } from 'react';
+import type { CSSProperties, ReactNode } from 'react';
 import classNames from 'classnames';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
@@ -14,19 +14,22 @@ export type AppProps = {
   className?: string;
   prefixCls?: string;
   children?: ReactNode;
+  style?: CSSProperties;
+  message?: Parameters<typeof useMessage>[0];
+  notification?: Parameters<typeof useNotification>[0];
 };
 
 const useApp = () => React.useContext<useAppProps>(AppContext);
 
 const App: React.FC<AppProps> & { useApp: () => useAppProps } = (props) => {
-  const { prefixCls: customizePrefixCls, children, className } = props;
+  const { prefixCls: customizePrefixCls, children, className, style, message, notification } = props;
   const { getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('app', customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
   const customClassName = classNames(hashId, prefixCls, className);
 
-  const [messageApi, messageContextHolder] = useMessage();
-  const [notificationApi, notificationContextHolder] = useNotification();
+  const [messageApi, messageContextHolder] = useMessage(message);
+  const [notificationApi, notificationContextHolder] = useNotification(notification);
   const [ModalApi, ModalContextHolder] = useModal();
 
   const memoizedContextValue = React.useMemo<useAppProps>(
@@ -40,7 +43,7 @@ const App: React.FC<AppProps> & { useApp: () => useAppProps } = (props) => {
 
   return wrapSSR(
     <AppContext.Provider value={memoizedContextValue}>
-      <div className={customClassName}>
+      <div className={customClassName} style={style}>
         {ModalContextHolder}
         {messageContextHolder}
         {notificationContextHolder}
