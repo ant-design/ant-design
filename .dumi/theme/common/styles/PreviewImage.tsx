@@ -140,42 +140,6 @@ export default () => {
           box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.3);
         }
 
-        .image-modal {
-          text-align: center;
-
-          &-container {
-            position: relative;
-            text-align: center;
-          }
-
-          .ant-carousel {
-            .slick-slider {
-              padding-bottom: 24px;
-
-              img {
-                display: inline;
-                max-width: 100%;
-              }
-            }
-
-            .slick-dots {
-              bottom: 4px;
-
-              li button {
-                background: #888;
-              }
-            }
-          }
-
-          .image-modal-single.slick-slider {
-            padding-bottom: 0;
-          }
-
-          .image-modal-single .slick-dots {
-            display: none !important;
-          }
-        }
-
         .transition-video-player,
         .motion-video-min {
           float: right;
