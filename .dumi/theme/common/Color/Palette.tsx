@@ -1,4 +1,5 @@
-import React, { FC, useEffect } from 'react';
+import type { FC } from 'react';
+import React, { useEffect } from 'react';
 import { message } from 'antd';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import { presetDarkPalettes } from '@ant-design/colors';
