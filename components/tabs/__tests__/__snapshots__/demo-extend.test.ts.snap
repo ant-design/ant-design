@@ -465,7 +465,7 @@ exports[`renders ./components/tabs/demo/card.tsx extend context correctly 1`] = 
 
 exports[`renders ./components/tabs/demo/card-top.tsx extend context correctly 1`] = `
 <div
-  class="card-container"
+  class="css-evmtdo"
 >
   <div
     class="ant-tabs ant-tabs-top ant-tabs-card"
@@ -941,8 +941,9 @@ exports[`renders ./components/tabs/demo/custom-tab-bar.tsx extend context correc
     <div>
       <div />
       <div
-        class="ant-tabs-nav site-custom-tab-bar"
+        class="ant-tabs-nav"
         role="tablist"
+        style="z-index:1"
       >
         <div
           class="ant-tabs-nav-wrap"
@@ -997,6 +998,7 @@ exports[`renders ./components/tabs/demo/custom-tab-bar.tsx extend context correc
         </div>
         <div
           class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+          style="z-index:1"
         >
           <button
             aria-controls="null-more-popup"
@@ -1088,7 +1090,6 @@ exports[`renders ./components/tabs/demo/custom-tab-bar-node.tsx extend context c
         style="transform:translate(0px, 0px)"
       >
         <div
-          class=""
           style="margin-right:24px"
         >
           <div
@@ -1106,7 +1107,6 @@ exports[`renders ./components/tabs/demo/custom-tab-bar-node.tsx extend context c
           </div>
         </div>
         <div
-          class=""
           style="margin-right:24px"
         >
           <div
@@ -1124,7 +1124,6 @@ exports[`renders ./components/tabs/demo/custom-tab-bar-node.tsx extend context c
           </div>
         </div>
         <div
-          class=""
           style="margin-right:24px"
         >
           <div

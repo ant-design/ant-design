@@ -355,7 +355,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
 
     let codeBox = (
       <section className={codeBoxClass} id={meta.id}>
-        <section className="code-box-demo">
+        <section className="code-box-demo" data-compact={meta.compact}>
           <ErrorBoundary>
             <React.StrictMode>{this.liveDemo}</React.StrictMode>
           </ErrorBoundary>
