@@ -150,27 +150,28 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
       <Col xxl={20} xl={19} lg={18} md={18} sm={24} xs={24}>
         <Affix>
           <section css={styles.tocWrapper} className={classNames({ rtl: isRTL })}>
-            <Anchor css={styles.toc} affix={false} targetOffset={token.marginXXL} showInkInFixed>
-              {anchorItems.map((item) => (
-                <Anchor.Link href={`#${item.id}`} title={item?.title} key={item.id}>
-                  {item.children
-                    ?.filter((child) => showDebug || !debugDemos.includes(child.id))
-                    .map((child) => (
-                      <Anchor.Link
-                        href={`#${child.id}`}
-                        title={
-                          <span
-                            className={classNames(debugDemos.includes(child.id) && 'toc-debug')}
-                          >
-                            {child?.title}
-                          </span>
-                        }
-                        key={child.id}
-                      />
-                    ))}
-                </Anchor.Link>
-              ))}
-            </Anchor>
+            <Anchor
+              css={styles.toc}
+              affix={false}
+              targetOffset={token.marginXXL}
+              showInkInFixed
+              items={anchorItems.map((item) => ({
+                href: `#${item.id}`,
+                title: item.title,
+                key: item.id,
+                children: item.children
+                  ?.filter((child) => showDebug || !debugDemos.includes(child.id))
+                  .map((child) => ({
+                    href: `#${child.id}`,
+                    title: (
+                      <span className={classNames(debugDemos.includes(child.id) && 'toc-debug')}>
+                        {child?.title}
+                      </span>
+                    ),
+                    key: child.id,
+                  })),
+              }))}
+            />
           </section>
         </Affix>
         <article css={styles.articleWrapper} className={classNames({ rtl: isRTL })}>
