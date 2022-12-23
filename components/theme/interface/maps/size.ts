@@ -46,10 +46,8 @@ export interface SizeMapToken {
 
 export interface HeightMapToken {
   // Control
-  /** @internal Only Used for control inside component like Multiple Select inner selection item */
+  /** Only Used for control inside component like Multiple Select inner selection item */
   controlHeightXS: number;
-  /** @internal */
   controlHeightSM: number;
-  /** @internal */
   controlHeightLG: number;
 }
