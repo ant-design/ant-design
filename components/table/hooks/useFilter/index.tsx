@@ -209,6 +209,11 @@ function useFilter<RecordType>({
     collectFilterStates(mergedColumns, true),
   );
 
+  // https://github.com/ant-design/ant-design/issues/39740
+  React.useEffect(() => {
+    setFilterStates(collectFilterStates(mergedColumns, true));
+  }, [mergedColumns]);
+
   const mergedFilterStates = React.useMemo(() => {
     const collectedStates = collectFilterStates(mergedColumns, false);
     if (collectedStates.length === 0) {
