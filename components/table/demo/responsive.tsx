@@ -26,7 +26,7 @@ const columns: ColumnsType<DataType> = [
     title: 'Address (large screen or bigger)',
     dataIndex: 'address',
     key: 'address',
-    responsive: ['lg'],
+
   },
 ];
 
