@@ -34,7 +34,7 @@ Add specific text or patterns to the page.
 | zIndex | The z-index of the appended watermark element | number | 9 |  |
 | image | Image source, it is recommended to export 2x or 3x image, high priority | string | - |  |
 | content | Watermark text content | string \| string[] | - |  |
-| font | Text style | [Font](#Font) | [Font](#Font) |  |
+| font | Text style | [Font](#font) | [Font](#font) |  |
 | gap | The spacing between watermarks | \[number, number\] | \[100, 100\] |  |
 | offset | The offset of the watermark from the upper left corner of the container. The default is `gap/2` | \[number, number\] | \[gap\[0\]/2, gap\[1\]/2\] |  |
 

@@ -82,7 +82,7 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
     tableBg,
     tableRadius,
     tableHeaderTextColor,
-    motionDurationSlow,
+    motionDurationMid,
     tableHeaderBg,
     tableHeaderCellSplitColor,
     tableRowHoverBg,
@@ -104,7 +104,7 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         ...resetComponent(token),
         fontSize: tableFontSize,
         background: tableBg,
-        borderRadius: tableRadius,
+        borderRadius: `${tableRadius}px ${tableRadius}px 0 0`,
       },
       // https://github.com/ant-design/ant-design/issues/17611
       table: {
@@ -144,7 +144,7 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
           textAlign: 'start',
           background: tableHeaderBg,
           borderBottom: tableBorder,
-          transition: `background ${motionDurationSlow} ease`,
+          transition: `background ${motionDurationMid} ease`,
 
           "&[colspan]:not([colspan='1'])": {
             textAlign: 'center',
@@ -159,7 +159,7 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
               height: '1.6em',
               backgroundColor: tableHeaderCellSplitColor,
               transform: 'translateY(-50%)',
-              transition: `background-color ${motionDurationSlow}`,
+              transition: `background-color ${motionDurationMid}`,
               content: '""',
             },
         },
@@ -170,11 +170,42 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
       },
 
       // ============================ Body ============================
+      // Borderless Table has unique hover style, which would be implemented with `borderTop`.
+      [`${componentCls}:not(${componentCls}-bordered)`]: {
+        [`${componentCls}-tbody`]: {
+          '> tr': {
+            '> td': {
+              borderTop: tableBorder,
+            },
+
+            '&:last-child > td': {
+              borderBottom: tableBorder,
+            },
+
+            [`&:first-child > td,
+              &${componentCls}-measure-row + tr > td`]: {
+              borderTop: 'none',
+            },
+          },
+        },
+      },
+
+      // Bordered Table remains simple `borderBottom`.
+      // Ref issue: https://github.com/ant-design/ant-design/issues/38724
+      [`${componentCls}${componentCls}-bordered`]: {
+        [`${componentCls}-tbody`]: {
+          '> tr': {
+            '> td': {
+              borderBottom: tableBorder,
+            },
+          },
+        },
+      },
+
       [`${componentCls}-tbody`]: {
         '> tr': {
           '> td': {
-            borderTop: tableBorder,
-            transition: `background ${motionDurationSlow}`,
+            transition: `background ${motionDurationMid}, border-color ${motionDurationMid}`,
 
             // ========================= Nest Table ===========================
             [`
@@ -194,15 +225,6 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
                 },
               },
             },
-          },
-
-          '&:last-child > td': {
-            borderBottom: tableBorder,
-          },
-
-          [`&:first-child > td,
-            &${componentCls}-measure-row + tr > td`]: {
-            borderTop: 'none',
           },
 
           [`
@@ -275,6 +297,7 @@ export default genComponentStyleHook('Table', (token) => {
     colorTextPlaceholder,
     colorTextHeading,
     colorSplit,
+    colorBorderSecondary,
     fontSize,
     padding,
     paddingXS,
@@ -312,12 +335,12 @@ export default genComponentStyleHook('Table', (token) => {
     tablePaddingHorizontalMiddle: paddingXS,
     tablePaddingVerticalSmall: paddingXS,
     tablePaddingHorizontalSmall: paddingXS,
-    tableBorderColor: colorSplit,
+    tableBorderColor: colorBorderSecondary,
     tableHeaderTextColor: colorTextHeading,
     tableHeaderBg: colorFillAlterSolid,
     tableFooterTextColor: colorTextHeading,
     tableFooterBg: colorFillAlterSolid,
-    tableHeaderCellSplitColor: colorSplit,
+    tableHeaderCellSplitColor: colorBorderSecondary,
     tableHeaderSortBg: colorFillSecondary,
     tableHeaderSortHoverBg: colorFillContent,
     tableHeaderIconColor: baseColorAction

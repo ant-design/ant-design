@@ -35,7 +35,7 @@ Related issue: [#3487](https://github.com/ant-design/ant-design/issues/3487) [#3
 
 ## How do I prevent `Select Dropdown DatePicker TimePicker Popover Popconfirm` scrolling with the page?
 
-Use `<Select getPopupContainer={trigger => trigger.parentElement}>` ([API reference](/components/select/#Select-props)) to render a component inside the scroll area. If you need to config this globally in your application, try `<ConfigProvider getPopupContainer={trigger => trigger.parentElement}>` ([API reference](/components/config-provider/#API))
+Use `<Select getPopupContainer={trigger => trigger.parentElement}>` ([API reference](/components/select/#select-props)) to render a component inside the scroll area. If you need to config this globally in your application, try `<ConfigProvider getPopupContainer={trigger => trigger.parentElement}>` ([API reference](/components/config-provider/#api))
 
 And make sure that parentElement is `position: relative` or `position: absolute`.
 
@@ -85,7 +85,7 @@ Try [Space](https://ant.design/components/space/) component to make them aligned
 
 Yes, antd is designed to help you develop a complete background application. To do so, we override some global styles for styling convenience, and currently these cannot be removed or changed. More info at https://github.com/ant-design/ant-design/issues/4331 .
 
-Alternatively, follow the instructions in [How to avoid modifying global styles?](/docs/react/customize-theme#How-to-avoid-modifying-global-styles)
+Alternatively, follow the instructions in [How to avoid modifying global styles?](/docs/react/customize-theme#how-to-avoid-modifying-global-styles)
 
 ## I cannot install `antd` and `antd`'s dependencies in mainland China.
 
@@ -105,7 +105,7 @@ Please check [Ant Design Mobile](http://mobile.ant.design) as a possible solutio
 
 ## Does `antd` supply standalone files like 'React'?
 
-Yes, you can [import `antd` with script tag](https://ant.design/docs/react/introduce#Import-in-Browser), but we recommend using `npm` to import `antd`, as it is simple and easy to maintain.
+Yes, you can [import `antd` with script tag](https://ant.design/docs/react/introduce#import-in-browser), but we recommend using `npm` to import `antd`, as it is simple and easy to maintain.
 
 ## How do I extend antd's components?
 
@@ -144,7 +144,7 @@ If you are using a mismatched version of dayjs with [antd's dayjs](https://githu
 
 ## How do I fix dynamic styles while using a Content Security Policy (CSP)?
 
-You can configure `nonce` by [ConfigProvider](/components/config-provider/#Content-Security-Policy).
+You can configure `nonce` by [ConfigProvider](/components/config-provider/#content-security-policy).
 
 ## When I set `mode` to `DatePicker`/`RangePicker`, why can I not select a year or month anymore?
 
@@ -167,7 +167,7 @@ Or you can simply upgrade to [antd@4.0](https://github.com/ant-design/ant-design
 
 Static methods like message/notification/Modal.confirm are not using the same render tree as `<Button />`, but rendered to independent DOM node created by `ReactDOM.render`, which cannot access React context from ConfigProvider. Consider two solutions here:
 
-1. Replace original usages with [message.useMessage](/components/message/#components-message-demo-hooks), [notification.useNotification](/components/notification/#Why-I-can-not-access-context,-redux,-ConfigProvider-locale/prefixCls-in-notification) and [Modal.useModal](/components/modal/#Why-I-can-not-access-context,-redux,-ConfigProvider-locale/prefixCls-in-Modal.xxx).
+1. Replace original usages with [message.useMessage](/components/message/#components-message-demo-hooks), [notification.useNotification](/components/notification/#why-i-can-not-access-context-redux-configprovider-localeprefixcls-in-notification) and [Modal.useModal](/components/modal/#why-i-can-not-access-context-redux-configprovider-localeprefixcls-in-modalxxx).
 
 2. Use `ConfigProvider.config` to config `prefixCls` globally.
 

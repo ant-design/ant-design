@@ -52,7 +52,7 @@ Some components use dynamic style to support wave effect. You can config `csp` p
 | csp | Set [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) config | { nonce: string } | - |  |
 | direction | Set direction of layout. See [demo](#components-config-provider-demo-direction) | `ltr` \| `rtl` | `ltr` |  |
 | dropdownMatchSelectWidth | Determine whether the dropdown menu and the select input are the same width. Default set `min-width` same as input. Will ignore when value less than select width. `false` will disable virtual scroll | boolean \| number | - | 4.3.0 |
-| form | Set Form common props | { validateMessages?: [ValidateMessages](/components/form/#validateMessages), requiredMark?: boolean \| `optional` } | - | requiredMark: 4.8.0 |
+| form | Set Form common props | { validateMessages?: [ValidateMessages](/components/form/#validatemessages), requiredMark?: boolean \| `optional` } | - | requiredMark: 4.8.0 |
 | getPopupContainer | To set the container of the popup element. The default is to create a `div` element in `body` | function(triggerNode) | () => document.body |  |
 | getTargetContainer | Config Affix, Anchor scroll target container | () => HTMLElement | () => window | 4.2.0 |
 | iconPrefixCls | Set icon prefix className | string | `anticon` | 4.11.0 |
@@ -80,11 +80,11 @@ ConfigProvider.config({
 
 #### How to contribute a new language?
 
-See [&lt;Adding new language&gt;](/docs/react/i18n#Adding-newplanguage).
+See [&lt;Adding new language&gt;](/docs/react/i18n#adding-newplanguage).
 
 #### Date-related components locale is not working?
 
-See FAQ [Date-related-components-locale-is-not-working?](/docs/react/faq#Date-related-components-locale-is-not-working?)
+See FAQ [Date-related-components-locale-is-not-working?](/docs/react/faq#date-related-components-locale-is-not-working)
 
 #### Modal throw error when setting `getPopupContainer`?
 

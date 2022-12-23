@@ -43,7 +43,7 @@ Live Preview: A Live Preview gives the users a glimpse beforehand of how the app
 
 <br>
 
-Progressive Disclosure: When users are faced with a series of steps, it is often best to provide hints only when they are needed, instead of cluttering the interface by displaying all the hints at once. Learn more cases on [Stay on the Page/Progressive Disclosure](/docs/spec/stay#Process-Flows)。
+Progressive Disclosure: When users are faced with a series of steps, it is often best to provide hints only when they are needed, instead of cluttering the interface by displaying all the hints at once. Learn more cases on [Stay on the Page/Progressive Disclosure](/docs/spec/stay#process-flows)。
 
 <br>
 
