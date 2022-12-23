@@ -2,7 +2,6 @@ import React from 'react';
 import mountTest from '../../../tests/shared/mountTest';
 import { render, waitFakeTimer, fireEvent, act } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
-import Button from '../../button';
 import Wave from '../wave';
 
 describe('Wave component', () => {
@@ -280,29 +279,29 @@ describe('Wave component', () => {
 
   it('wave transitionStart', async () => {
     jest.useFakeTimers();
-    const { container } = render(
+    const { container, unmount } = render(
       <Wave>
-        <Button>button</Button>
+        <button type="button">button</button>
       </Wave>,
     );
-    const event = new Event('animationstart');
-    Object.assign(event, { animationName: 'fadeEffect' });
-    fireEvent.transitionStart(container.querySelector('button')!, event);
+    fireEvent.transitionStart(container.querySelector('button')!, new Event('transitionstart'));
     await waitFakeTimer();
     jest.useRealTimers();
+    unmount();
   });
 
   it('wave transitionEnd', async () => {
     jest.useFakeTimers();
-    const { container } = render(
+    const { container, unmount } = render(
       <Wave>
-        <Button>button</Button>
+        <button type="button">button</button>
       </Wave>,
     );
     const event = new Event('animationend');
-    Object.assign(event, { animationName: 'fadeEffect' });
-    fireEvent.transitionEnd(container.querySelector('button')!, event);
+    const options = Object.assign(event, { animationName: 'fadeEffect' });
+    fireEvent.transitionEnd(container.querySelector('button')!, options);
     await waitFakeTimer();
     jest.useRealTimers();
+    unmount();
   });
 });
