@@ -273,6 +273,10 @@ export default () => {
 };
 ```
 
+### 兼容旧版浏览器
+
+请参考文档 [样式兼容](/docs/react/compatible-style-cn)。
+
 ### Shadow DOM 场景
 
 在 Shadow DOM 场景中，由于其添加 `<style />` 标签的方式与普通 DOM 不同，所以需要使用 `@ant-design/cssinjs` 的 `StyleProvider` 配置 `container` 属性用于设置插入位置：

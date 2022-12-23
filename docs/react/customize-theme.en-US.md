@@ -236,6 +236,10 @@ const theme = {
 };
 ```
 
+### Legacy Browser Compatible
+
+Please ref to [CSS Compatible](/docs/react/compatible-style).
+
 ### Server Side Render (SSR)
 
 Use `@ant-design/cssinjs` to extract style:
