@@ -236,32 +236,6 @@ const theme = {
 };
 ```
 
-### Compatible adjustment
-
-Ant Design default using CSS-in-JS with `:where` Selector to reduce priority to avoid user additional adjust style cost when updating to v5. If you want to support old browser, you can use `@ant-design/cssinjs` to adjust this behavior (Please note keep version align with antd):
-
-```tsx
-import React from 'react';
-import { StyleProvider } from '@ant-design/cssinjs';
-
-export default () => (
-  <StyleProvider hashPriority="high">
-    <MyApp />
-  </StyleProvider>
-);
-```
-
-It will turn `:where` to class selector:
-
-```diff
---  :where(.css-bAMboO).ant-btn {
-++  .css-bAMboO.ant-btn {
-      color: #fff;
-    }
-```
-
-Note: After turning off the `:where` downgrade, you may need to manually adjust the priority of some styles.
-
 ### Server Side Render (SSR)
 
 Use `@ant-design/cssinjs` to extract style:
