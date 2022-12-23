@@ -1,7 +1,7 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { Keyframes } from '@ant-design/cssinjs';
-import type { FullToken, GenerateStyle, PresetColorType } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken, PresetColors } from '../../theme/internal';
+import type { FullToken, GenerateStyle } from '../../theme/internal';
+import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import { genPresetColor, resetComponent } from '../../style';
 
 interface BadgeToken extends FullToken<'Badge'> {
@@ -73,19 +73,33 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
   const ribbonPrefixCls = `${antCls}-ribbon`;
   const ribbonWrapperPrefixCls = `${antCls}-ribbon-wrapper`;
 
-  const statusPreset = genPresetColor(token, {
-    cssProps: ['backgroundColor'],
-    type: ['default', 'inverse'],
-    defaultSelector: (colorKey) => `${componentCls}-status-${colorKey}-inverse`,
-    inverseSelector: (colorKey) => `${componentCls}-status-${colorKey}`,
-  });
+  const statusPreset = genPresetColor(token, (colorKey, { darkColor, lightColor }) => ({
+    [`${componentCls}-status-${colorKey}`]: {
+      background: darkColor,
 
-  const statusRibbonPreset = genPresetColor(token, {
-    cssProps: ['backgroundColor', 'color'],
-    type: ['default', 'inverse'],
-    defaultSelector: (colorKey) => `&${ribbonPrefixCls}-color-${colorKey}-inverse`,
-    inverseSelector: (colorKey) => `&${ribbonPrefixCls}-color-${colorKey}`,
-  });
+      // Inverse color
+      '&-inverse': {
+        background: lightColor,
+      },
+    },
+  }));
+
+  const statusRibbonPreset = genPresetColor(token, (colorKey, { darkColor, lightColor }) => ({
+    [`&${ribbonPrefixCls}-color-${colorKey}`]: {
+      background: darkColor,
+      color: darkColor,
+
+      // Inverse color
+      '&-inverse': {
+        background: lightColor,
+        color: lightColor,
+
+        [`> ${ribbonPrefixCls}-text`]: {
+          color: darkColor,
+        },
+      },
+    },
+  }));
 
   return {
     [componentCls]: {

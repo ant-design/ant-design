@@ -35,6 +35,22 @@ const genTagStatusStyle = (
   };
 };
 
+const genPresetStyle = (token: TagToken) =>
+  genPresetColor(token, (colorKey, { textColor, lightBorderColor, lightColor, darkColor }) => ({
+    [`${token.componentCls}-${colorKey}`]: {
+      color: textColor,
+      background: lightColor,
+      borderColor: lightBorderColor,
+
+      // Inverse color
+      '&-inverse': {
+        color: token.colorTextLightSolid,
+        background: darkColor,
+        borderColor: darkColor,
+      },
+    },
+  }));
+
 const genBaseStyle = (token: TagToken): CSSInterpolation => {
   const { paddingXXS, lineWidth, tagPaddingHorizontal } = token;
   const paddingInline = tagPaddingHorizontal - lineWidth;
@@ -146,11 +162,7 @@ export default genComponentStyleHook('Tag', (token) => {
 
   return [
     genBaseStyle(tagToken),
-    genPresetColor(tagToken, {
-      cssProps: ['color', 'backgroundColor', 'borderColor'],
-      type: ['default', 'inverse'],
-      defaultSelector: (colorKey) => `${tagToken.componentCls}-${colorKey}`,
-    }),
+    genPresetStyle(tagToken),
     genTagStatusStyle(tagToken, 'success', 'Success'),
     genTagStatusStyle(tagToken, 'processing', 'Info'),
     genTagStatusStyle(tagToken, 'error', 'Error'),

@@ -1,4 +1,3 @@
-import type { CSSObject } from '@ant-design/cssinjs';
 import { initZoomMotion } from '../../style/motion';
 import type { FullToken, GenerateStyle, UseComponentStyleResult } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
@@ -18,30 +17,6 @@ interface TooltipToken extends FullToken<'Tooltip'> {
   tooltipBorderRadius: number;
   tooltipRadiusOuter: number;
 }
-
-const generatorTooltipPresetColor: GenerateStyle<TooltipToken, CSSObject> = (token) => {
-  const { componentCls } = token;
-
-  return {
-    ...genPresetColor(token, {
-      cssProps: ['backgroundColor', 'color'],
-      type: ['default', 'inverse'],
-      defaultSelector: (colorKey) => `&${componentCls}-${colorKey}-inverse ${componentCls}-inner`,
-      inverseSelector: (colorKey) => `&${componentCls}-${colorKey} ${componentCls}-inner`,
-    }),
-    ...genPresetColor(token, {
-      cssProps: [],
-      genOtherCss: (colorKey, calcColor) => ({
-        [`&${componentCls}-${colorKey} ${componentCls}-arrow`]: {
-          '--antd-arrow-background-color': calcColor.darkColor,
-        },
-        [`&${componentCls}-${colorKey}-inverse ${componentCls}-arrow`]: {
-          '--antd-arrow-background-color': calcColor.lightColor,
-        },
-      }),
-    }),
-  };
-};
 
 const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
   const {
@@ -107,7 +82,27 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
         },
 
         // generator for preset color
-        ...generatorTooltipPresetColor(token),
+        ...genPresetColor(token, (colorKey, { darkColor, lightColor }) => ({
+          [`&${componentCls}-${colorKey}`]: {
+            [`${componentCls}-inner`]: {
+              backgroundColor: darkColor,
+            },
+            [`${componentCls}-arrow`]: {
+              '--antd-arrow-background-color': darkColor,
+            },
+
+            // Inverse Color
+            '&-inverse': {
+              [`${componentCls}-inner`]: {
+                backgroundColor: lightColor,
+                color: darkColor,
+              },
+              [`${componentCls}-arrow`]: {
+                '--antd-arrow-background-color': lightColor,
+              },
+            },
+          },
+        })),
 
         // RTL
         '&-rtl': {
