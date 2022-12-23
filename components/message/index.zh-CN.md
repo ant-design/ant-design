@@ -132,23 +132,7 @@ return (
 
 **异同**：通过 hooks 创建的 `contextHolder` 必须插入到子元素节点中才会生效，当你不需要上下文信息时请直接调用。
 
-### 也可以通过 [App 包裹组件](https://ant.design/components/app-cn)包裹达到简化代码的目的
-
-```tsx
-// sub page
-const MyPage: React.FC = () => {
-  const { message, notification, modal } = App.useApp();
-  message.success('Good!');
-  // ....
-};
-
-// Entry component
-const MyApp: React.FC = () => (
-  <App>
-    <MyPage />
-  </App>
-);
-```
+### 可通过 [App 包裹组件](https://ant.design/components/app-cn) 简化 useMessage 等方法需要手动植入 contextHolder 的问题
 
 ### 静态方法如何设置 prefixCls ？
 
