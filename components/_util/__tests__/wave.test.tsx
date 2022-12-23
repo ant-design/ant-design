@@ -2,6 +2,7 @@ import React from 'react';
 import mountTest from '../../../tests/shared/mountTest';
 import { render, waitFakeTimer, fireEvent, act } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
+import Button from '../../button';
 import Wave from '../wave';
 
 describe('Wave component', () => {
@@ -274,6 +275,22 @@ describe('Wave component', () => {
       expect(fakeDoc.querySelector('style')).toBeTruthy();
     }
 
+    jest.useRealTimers();
+  });
+
+  it('wave transitionStart and transitionEnd', async () => {
+    jest.useFakeTimers();
+    const { container } = render(
+      <Wave>
+        <Button>button</Button>
+      </Wave>,
+    );
+    const event = new Event('animationend');
+    Object.assign(event, { animationName: 'fadeEffect' });
+    fireEvent.transitionStart(container.querySelector('button')!, event);
+    await waitFakeTimer();
+    fireEvent.transitionEnd(container.querySelector('button')!, event);
+    await waitFakeTimer();
     jest.useRealTimers();
   });
 });
