@@ -73,27 +73,25 @@ export interface WaveProps {
 
 const Wave: React.FC<WaveProps> = (props) => {
   const { children, insertExtraNode, disabled } = props;
-
+  const { getPrefixCls, csp } = useContext<ConfigConsumerProps>(ConfigContext);
   const instanceRef = useRef<{ cancel?: () => void }>({});
-  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>();
   const extraNode = useRef<HTMLDivElement>();
   const clickWaveTimeoutId = useRef<NodeJS.Timer | null>(null);
   const animationStartId = useRef<number>();
   const animationStart = useRef<boolean>(false);
-  const destroyed = useRef<boolean>(false);
-
-  const { getPrefixCls, csp } = useContext<ConfigConsumerProps>(ConfigContext);
+  const destroyedRef = useRef<boolean>(false);
 
   const attributeName = React.useMemo<string>(
     () =>
       insertExtraNode
         ? `${getPrefixCls()}-click-animating`
         : `${getPrefixCls()}-click-animating-without-extra-node`,
-    [insertExtraNode],
+    [getPrefixCls, insertExtraNode],
   );
 
   const onTransitionStart = (e: AnimationEvent) => {
-    if (destroyed.current) {
+    if (destroyedRef.current) {
       return;
     }
     const node = containerRef.current;
@@ -109,6 +107,26 @@ const Wave: React.FC<WaveProps> = (props) => {
     }
     resetEffect(e.target as HTMLDivElement);
   };
+
+  function resetEffect(node: HTMLDivElement) {
+    if (!node || node === extraNode.current || !(node instanceof Element)) {
+      return;
+    }
+
+    node.setAttribute(attributeName, 'false'); // edge has bug on `removeAttribute` #14466
+
+    if (styleForPseudo) {
+      styleForPseudo.innerHTML = '';
+    }
+
+    if (insertExtraNode && extraNode.current && node.contains(extraNode.current)) {
+      node.removeChild(extraNode.current);
+    }
+    ['transition', 'animation'].forEach((name) => {
+      node.removeEventListener(`${name}start`, onTransitionStart);
+      node.removeEventListener(`${name}end`, onTransitionEnd);
+    });
+  }
 
   const onClick = (node: HTMLDivElement, waveColor: string) => {
     if (disabled || !node || isHidden(node) || node.className.includes('-leave')) {
@@ -182,35 +200,14 @@ const Wave: React.FC<WaveProps> = (props) => {
     };
   };
 
-  function resetEffect(node: HTMLDivElement) {
-    if (!node || node === extraNode.current || !(node instanceof Element)) {
-      return;
-    }
-
-    node.setAttribute(attributeName, 'false'); // edge has bug on `removeAttribute` #14466
-
-    if (styleForPseudo) {
-      styleForPseudo.innerHTML = '';
-    }
-
-    if (insertExtraNode && extraNode.current && node.contains(extraNode.current)) {
-      node.removeChild(extraNode.current);
-    }
-    ['transition', 'animation'].forEach((name) => {
-      node.removeEventListener(`${name}start`, onTransitionStart);
-      node.removeEventListener(`${name}end`, onTransitionEnd);
-    });
-  }
-
   useEffect(() => {
-    destroyed.current = false;
     const node = containerRef.current;
     if (!node || node.nodeType !== 1) {
       return;
     }
     instanceRef.current = bindAnimationEvent(node)!;
     return () => {
-      destroyed.current = true;
+      destroyedRef.current = true;
       if (instanceRef.current) {
         instanceRef.current.cancel?.();
       }
