@@ -234,7 +234,7 @@ exports[`Table should render title 1`] = `
                 >
                   <tr>
                     <th
-                      aria-label="this column is sortable"
+                      aria-label=""
                       class="ant-table-cell ant-table-column-has-sorters"
                       tabindex="0"
                     >
@@ -302,7 +302,7 @@ exports[`Table should render title 1`] = `
                       </div>
                     </th>
                     <th
-                      aria-label="this column is sortable"
+                      aria-label=""
                       class="ant-table-cell ant-table-column-has-sorters"
                       tabindex="0"
                     >
@@ -365,7 +365,7 @@ exports[`Table should render title 1`] = `
                       </div>
                     </th>
                     <th
-                      aria-label="this column is sortable"
+                      aria-label=""
                       class="ant-table-cell ant-table-column-has-sorters"
                       tabindex="0"
                     >
@@ -433,7 +433,7 @@ exports[`Table should render title 1`] = `
                       </div>
                     </th>
                     <th
-                      aria-label="this column's title is color,this column is sortable"
+                      aria-label="color"
                       class="ant-table-cell ant-table-column-has-sorters"
                       tabindex="0"
                     >
@@ -494,7 +494,7 @@ exports[`Table should render title 1`] = `
                       </div>
                     </th>
                     <th
-                      aria-label="this column's title is sex,this column is sortable"
+                      aria-label="sex"
                       class="ant-table-cell ant-table-column-has-sorters"
                       tabindex="0"
                     >
