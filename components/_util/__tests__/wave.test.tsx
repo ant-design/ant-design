@@ -193,6 +193,40 @@ describe('Wave component', () => {
     unmount();
   });
 
+  it('bindAnimationEvent should not throw error when children is disabled', () => {
+    expect(() => {
+      render(
+        <Wave>
+          <button type="button" disabled>
+            button
+          </button>
+        </Wave>,
+      );
+    }).not.toThrow();
+  });
+
+  it('bindAnimationEvent.onClick should not throw error when children is hidden', () => {
+    expect(() => {
+      render(
+        <Wave>
+          <button type="button" style={{ display: 'none' }}>
+            button
+          </button>
+        </Wave>,
+      );
+    }).not.toThrow();
+  });
+
+  it('bindAnimationEvent.onClick should not throw error when children is input', () => {
+    expect(() => {
+      render(
+        <Wave>
+          <input />
+        </Wave>,
+      );
+    }).not.toThrow();
+  });
+
   it('should not throw when click it', () => {
     expect(() => {
       const { container } = render(
@@ -277,31 +311,31 @@ describe('Wave component', () => {
     jest.useRealTimers();
   });
 
-  it('wave transitionStart', async () => {
-    jest.useFakeTimers();
-    const { container, unmount } = render(
-      <Wave>
-        <button type="button">button</button>
-      </Wave>,
-    );
-    fireEvent.transitionStart(container.querySelector('button')!, new Event('transitionstart'));
-    await waitFakeTimer();
-    jest.useRealTimers();
-    unmount();
-  });
+  // it('wave transitionStart', async () => {
+  //   jest.useFakeTimers();
+  //   const { container, unmount } = render(
+  //     <Wave>
+  //       <button type="button">button</button>
+  //     </Wave>,
+  //   );
+  //   fireEvent.transitionStart(container.querySelector('button')!, new Event('transitionstart'));
+  //   await waitFakeTimer();
+  //   jest.useRealTimers();
+  //   unmount();
+  // });
 
-  it('wave transitionEnd', async () => {
-    jest.useFakeTimers();
-    const { container, unmount } = render(
-      <Wave>
-        <button type="button">button</button>
-      </Wave>,
-    );
-    const event = new Event('animationend');
-    const options = Object.assign(event, { animationName: 'fadeEffect' });
-    fireEvent.transitionEnd(container.querySelector('button')!, options);
-    await waitFakeTimer();
-    jest.useRealTimers();
-    unmount();
-  });
+  // it('wave transitionEnd', async () => {
+  //   jest.useFakeTimers();
+  //   const { container, unmount } = render(
+  //     <Wave>
+  //       <button type="button">button</button>
+  //     </Wave>,
+  //   );
+  //   const event = new Event('animationend');
+  //   const options = Object.assign(event, { animationName: 'fadeEffect' });
+  //   fireEvent.transitionEnd(container.querySelector('button')!, options);
+  //   await waitFakeTimer();
+  //   jest.useRealTimers();
+  //   unmount();
+  // });
 });
