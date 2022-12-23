@@ -1,3 +1,4 @@
+import userEvent from '@testing-library/user-event';
 import React from 'react';
 import mountTest from '../../../tests/shared/mountTest';
 import { render, waitFakeTimer, fireEvent, act } from '../../../tests/utils';
@@ -31,6 +32,14 @@ describe('Wave component', () => {
     return Array.from<HTMLStyleElement>(styles).filter(
       (style: HTMLStyleElement) => !style.hasAttribute('data-css-hash'),
     );
+  }
+
+  async function clickButton(container: HTMLElement) {
+    const element = container.firstChild;
+    // https://github.com/testing-library/user-event/issues/833
+    await userEvent.setup({ advanceTimers: jest.advanceTimersByTime }).click(element as Element);
+    fireEvent(element!, new Event('transitionstart'));
+    fireEvent(element!, new Event('animationend'));
   }
 
   it('isHidden works', () => {
@@ -318,6 +327,7 @@ describe('Wave component', () => {
         <button type="button">button</button>
       </Wave>,
     );
+    await clickButton(container);
     fireEvent.transitionStart(container.querySelector('button')!, new Event('transitionstart'));
     await waitFakeTimer();
     jest.useRealTimers();
@@ -331,6 +341,7 @@ describe('Wave component', () => {
         <button type="button">button</button>
       </Wave>,
     );
+    await clickButton(container);
     const event = new Event('animationend');
     const options = Object.assign(event, { animationName: 'fadeEffect' });
     fireEvent.transitionEnd(container.querySelector('button')!, options);
