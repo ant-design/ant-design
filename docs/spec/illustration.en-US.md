@@ -36,7 +36,7 @@ We concretized the 4 abstract cornerstones that make up our design strategy; Tec
 ### Sea Hare Swatch
 
 <ImagePreview>
-<img class="preview-img no-padding" align="right" description="Sea Hare's color palette" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*5ZE6RrjW-jQAAAAAAAAAAABkARQnAQ" />
+<img class="preview-img no-padding" description="Sea Hare's color palette" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*5ZE6RrjW-jQAAAAAAAAAAABkARQnAQ" />
 </ImagePreview>
 
 Sea Hare's color matching system is inspired by Ant Design's application of color palette in scenes. Differing from the UI's color scheme. The color matching system used in illustrations will be relatively more vibrant and flexible. Taking inspiration from Ant Design's basic color palette, we tweaked brightness and tolerance. The result is more efficient and easy to use. Since it originates from Any Design's color palette, it integrates seamlessly with other UI assets.
@@ -44,7 +44,7 @@ Sea Hare's color matching system is inspired by Ant Design's application of colo
 ### Default Asset Colors of Sea Hare
 
 <ImagePreview>
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*0Dv9Rrp7GtMAAAAAAAAAAAAAARQnAQ" />
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*0Dv9Rrp7GtMAAAAAAAAAAAAAARQnAQ" />
 </ImagePreview>
 
 Through research, we discovered blue and white accounts for a large proportion among enterprise products. We chose Geek Blue as our primary color for its technological, exploration and focused vibes.
@@ -52,7 +52,7 @@ Through research, we discovered blue and white accounts for a large proportion a
 <br />
 
 <ImagePreview>
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*U5L-RKWlmJcAAAAAAAAAAABkARQnAQ" />
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*U5L-RKWlmJcAAAAAAAAAAABkARQnAQ" />
 </ImagePreview>
 
 Sea Hare's palette combined with Adobe's ternary color picker and mosaic ball, you can easily obtain the default version of the basic color palette.

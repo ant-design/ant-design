@@ -14,8 +14,8 @@ Contrast is one of the effective ways to add visual interest to your page, and t
 ## The Contrast of major and minor relationship
 
 <ImagePreview>
-<img class="preview-img good" align="right" alt="good example" src="https://gw.alipayobjects.com/zos/rmsportal/DXDSNzVmrVwVRJCTyaTH.png">
-<img class="preview-img bad" align="right" alt="bad example" src="https://gw.alipayobjects.com/zos/rmsportal/tMlELOuJrJrrYtTAbnlu.png">
+<img class="preview-img good" alt="good example" src="https://gw.alipayobjects.com/zos/rmsportal/DXDSNzVmrVwVRJCTyaTH.png">
+<img class="preview-img bad" alt="bad example" src="https://gw.alipayobjects.com/zos/rmsportal/tMlELOuJrJrrYtTAbnlu.png">
 </ImagePreview>
 
 In order to help user make a quick operation (something like the form, modal), a more important operation or a operation with higher frequency would be emphasized.

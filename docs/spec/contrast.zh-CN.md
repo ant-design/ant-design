@@ -14,8 +14,8 @@ title: 对比
 ## 主次关系对比
 
 <ImagePreview>
-<img class="preview-img good" align="right" alt="正确示例" src="https://gw.alipayobjects.com/zos/rmsportal/DXDSNzVmrVwVRJCTyaTH.png">
-<img class="preview-img bad" align="right" alt="错误示例" src="https://gw.alipayobjects.com/zos/rmsportal/tMlELOuJrJrrYtTAbnlu.png">
+<img class="preview-img good" alt="正确示例" src="https://gw.alipayobjects.com/zos/rmsportal/DXDSNzVmrVwVRJCTyaTH.png">
+<img class="preview-img bad" alt="错误示例" src="https://gw.alipayobjects.com/zos/rmsportal/tMlELOuJrJrrYtTAbnlu.png">
 </ImagePreview>
 
 为了让用户能在操作上（类似表单、弹出框等场景）快速做出判断， 来突出其中一项相对更重要或者更高频的操作。
