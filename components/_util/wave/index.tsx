@@ -74,10 +74,9 @@ export interface WaveProps {
 const Wave: React.FC<WaveProps> = (props) => {
   const { children, insertExtraNode, disabled } = props;
   const { getPrefixCls, csp } = useContext<ConfigConsumerProps>(ConfigContext);
-  const instanceRef = useRef<{ cancel?: () => void }>({});
   const containerRef = useRef<HTMLDivElement>();
   const extraNode = useRef<HTMLDivElement>();
-  const clickWaveTimeoutId = useRef<NodeJS.Timer | null>(null);
+  const clickTimeout = useRef<NodeJS.Timer | null>(null);
   const animationStartId = useRef<number>();
   const animationStart = useRef<boolean>(false);
 
@@ -176,7 +175,7 @@ const Wave: React.FC<WaveProps> = (props) => {
       resetEffect(node);
       // Get wave color from target
       const waveColor = getTargetWaveColor(node);
-      clickWaveTimeoutId.current = setTimeout(() => {
+      clickTimeout.current = setTimeout(() => {
         onClick(node, waveColor);
       }, 0);
 
@@ -201,13 +200,11 @@ const Wave: React.FC<WaveProps> = (props) => {
     if (!node || node.nodeType !== 1) {
       return;
     }
-    instanceRef.current = bindAnimationEvent(node)!;
+    bindAnimationEvent(node);
     return () => {
-      if (instanceRef.current) {
-        instanceRef.current.cancel?.();
-      }
-      if (clickWaveTimeoutId.current) {
-        clearTimeout(clickWaveTimeoutId.current);
+      bindAnimationEvent(node)?.cancel?.();
+      if (clickTimeout.current) {
+        clearTimeout(clickTimeout.current);
       }
     };
   }, []);
