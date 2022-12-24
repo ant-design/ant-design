@@ -36,11 +36,11 @@ const genRadiusStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
           borderStartEndRadius: tableRadius,
 
           'table > thead > tr:first-child': {
-            'th:first-child': {
+            '> *:first-child': {
               borderStartStartRadius: tableRadius,
             },
 
-            'th:last-child': {
+            '> *:last-child': {
               borderStartEndRadius: tableRadius,
             },
           },
