@@ -12,6 +12,7 @@ import type { SpinProps } from '../spin';
 import Spin from '../spin';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { responsiveArray } from '../_util/responsiveObserver';
+import extendsObject from '../_util/extendsObject';
 import Item from './Item';
 
 // CSSINJS
@@ -190,13 +191,15 @@ function List<T>({
     hashId,
   );
 
-  const paginationProps = {
-    ...defaultPaginationProps,
-    total: dataSource.length,
-    current: paginationCurrent,
-    pageSize: paginationSize,
-    ...(pagination || {}),
-  };
+  const paginationProps = extendsObject<PaginationConfig>(
+    defaultPaginationProps,
+    {
+      total: dataSource.length,
+      current: paginationCurrent,
+      pageSize: paginationSize,
+    },
+    pagination || {},
+  );
 
   const largestPage = Math.ceil(paginationProps.total / paginationProps.pageSize);
   if (paginationProps.current > largestPage) {
