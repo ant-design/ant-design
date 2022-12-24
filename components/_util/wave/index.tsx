@@ -74,6 +74,7 @@ export interface WaveProps {
 const Wave: React.FC<WaveProps> = (props) => {
   const { children, insertExtraNode, disabled } = props;
   const { getPrefixCls, csp } = useContext<ConfigConsumerProps>(ConfigContext);
+  const instanceRef = useRef<{ cancel?: () => void }>({});
   const containerRef = useRef<HTMLDivElement>();
   const extraNode = useRef<HTMLDivElement>();
   const clickWaveTimeoutId = useRef<NodeJS.Timer | null>(null);
@@ -200,8 +201,11 @@ const Wave: React.FC<WaveProps> = (props) => {
     if (!node || node.nodeType !== 1) {
       return;
     }
+    instanceRef.current = bindAnimationEvent(node)!;
     return () => {
-      bindAnimationEvent(node)?.cancel?.();
+      if (instanceRef.current) {
+        instanceRef.current.cancel?.();
+      }
       if (clickWaveTimeoutId.current) {
         clearTimeout(clickWaveTimeoutId.current);
       }
