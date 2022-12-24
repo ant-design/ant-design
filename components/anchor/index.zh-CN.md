@@ -46,13 +46,25 @@ group:
 | targetOffset | 锚点滚动偏移量，默认与 offsetTop 相同，[例子](#components-anchor-demo-targetOffset) | number | - |  |
 | onChange | 监听锚点链接改变 | (currentActiveLink: string) => void | - |  |
 | onClick | `click` 事件的 handler | (e: MouseEvent, link: object) => void | - |  |
-| items | 数据化配置选项内容，支持通过 children 嵌套 | { href, title, target, children }\[] | - |  |
+| items | 数据化配置选项内容，支持通过 children 嵌套 | { key, href, title, target, children }\[] [具体见](#anchoritem) | - | 5.1.0 |
 | direction | 设置导航方向 | `vertical` \| `horizontal` | `vertical` | 5.2.0 |
+
+### AnchorItem
+
+| 成员 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| key | 唯一标志 | string \| number | - |  |
+| href | 锚点链接 | string | - |  |
+| target | 该属性指定在何处显示链接的资源 | string | - |  |
+| title | 文字内容 | ReactNode | - |  |
+| children | 嵌套的 Anchor Link，`注意：水平方向该属性不支持` | [AnchorItem](#anchoritem)\[] | - |  |
 
 ### Link Props
 
-| 成员   | 说明                             | 类型      | 默认值 | 版本 |
-| ------ | -------------------------------- | --------- | ------ | ---- |
-| href   | 锚点链接                         | string    | -      |      |
-| target | 该属性指定在何处显示链接的资源。 | string    | -      |      |
-| title  | 文字内容                         | ReactNode | -      |      |
+建议使用 items 形式。
+
+| 成员   | 说明                           | 类型      | 默认值 | 版本 |
+| ------ | ------------------------------ | --------- | ------ | ---- |
+| href   | 锚点链接                       | string    | -      |      |
+| target | 该属性指定在何处显示链接的资源 | string    | -      |      |
+| title  | 文字内容                       | ReactNode | -      |      |
