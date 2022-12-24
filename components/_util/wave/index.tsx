@@ -78,7 +78,7 @@ const Wave: React.FC<WaveProps> = (props) => {
   const extraNode = useRef<HTMLDivElement>();
   const clickTimeout = useRef<NodeJS.Timer | null>(null);
   const animationStartId = useRef<number>();
-  const animationStart = useRef<boolean>(false);
+  const isAnimationStart = useRef<boolean>(false);
 
   const attributeName = React.useMemo<string>(
     () =>
@@ -90,7 +90,7 @@ const Wave: React.FC<WaveProps> = (props) => {
 
   const onTransitionStart = (e: AnimationEvent) => {
     const node = containerRef.current;
-    if (!e || e.target !== node || animationStart.current) {
+    if (!e || e.target !== node || isAnimationStart.current) {
       return;
     }
     resetEffect(node as HTMLDivElement);
@@ -180,11 +180,11 @@ const Wave: React.FC<WaveProps> = (props) => {
       }, 0);
 
       raf.cancel(animationStartId.current);
-      animationStart.current = true;
+      isAnimationStart.current = true;
 
       // Render to trigger transition event cost 3 frames. Let's delay 10 frames to reset this.
       animationStartId.current = raf(() => {
-        animationStart.current = false;
+        isAnimationStart.current = false;
       }, 10);
     };
     node.addEventListener('click', internalClick, true);
