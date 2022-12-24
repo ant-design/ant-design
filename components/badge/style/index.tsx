@@ -101,6 +101,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
       ...resetComponent(token),
       position: 'relative',
       display: 'inline-block',
+      width: 'fit-content',
       lineHeight: 1,
 
       [`${componentCls}-count`]: {

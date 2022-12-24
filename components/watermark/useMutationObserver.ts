@@ -25,5 +25,18 @@ export default function useMutationObserver() {
 
   useEffect(() => destroyObserver, []);
 
-  return { createObserver, destroyObserver };
+  const reRendering = (mutation: MutationRecord, watermarkElement?: HTMLElement) => {
+    let flag = false;
+    // Whether to delete the watermark node
+    if (mutation.removedNodes.length) {
+      flag = Array.from(mutation.removedNodes).some((node) => node === watermarkElement);
+    }
+    // Whether the watermark dom property value has been modified
+    if (mutation.type === 'attributes' && mutation.target === watermarkElement) {
+      flag = true;
+    }
+    return flag;
+  };
+
+  return { createObserver, destroyObserver, reRendering };
 }

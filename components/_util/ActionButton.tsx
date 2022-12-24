@@ -65,7 +65,7 @@ const ActionButton: React.FC<ActionButtonProps> = (props) => {
     );
   };
 
-  const onClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const onClick = (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
     const { actionFn } = props;
     if (clickedRef.current) {
       return;
@@ -75,7 +75,7 @@ const ActionButton: React.FC<ActionButtonProps> = (props) => {
       onInternalClose();
       return;
     }
-    let returnValueOfOnOk;
+    let returnValueOfOnOk: PromiseLike<any>;
     if (props.emitEvent) {
       returnValueOfOnOk = actionFn(e);
       if (props.quitOnNullishReturnValue && !isThenable(returnValueOfOnOk)) {

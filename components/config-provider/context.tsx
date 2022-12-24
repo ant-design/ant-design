@@ -65,6 +65,9 @@ export interface ConfigConsumerProps {
     scrollToFirstError?: Options | boolean;
   };
   theme?: ThemeConfig;
+  select?: {
+    showSearch?: boolean;
+  };
 }
 
 const defaultGetPrefixCls = (suffixCls?: string, customizePrefixCls?: string) => {

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { useSidebarData } from 'dumi';
-import { Affix, Col, Menu } from 'antd';
+import { Affix, Col, ConfigProvider, Menu } from 'antd';
 import MobileMenu from 'rc-drawer';
 import { css } from '@emotion/react';
 import SiteContext from '../SiteContext';
@@ -126,20 +126,27 @@ const useStyle = () => {
 
 const Sidebar: React.FC = () => {
   const sidebarData = useSidebarData();
-  const { isMobile } = useContext(SiteContext);
+  const { isMobile, theme } = useContext(SiteContext);
   const styles = useStyle();
 
   const [menuItems, selectedKey] = useMenu();
+  const isDark = theme.includes('dark');
+  const {
+    token: { colorBgContainer },
+  } = useSiteToken();
 
   const menuChild = (
-    <Menu
-      items={menuItems}
-      inlineIndent={30}
-      css={styles.asideContainer}
-      mode="inline"
-      selectedKeys={[selectedKey]}
-      defaultOpenKeys={sidebarData?.map(({ title }) => title).filter((item) => item) as string[]}
-    />
+    <ConfigProvider theme={{ components: { Menu: { colorItemBg: colorBgContainer } } }}>
+      <Menu
+        items={menuItems}
+        inlineIndent={30}
+        css={styles.asideContainer}
+        mode="inline"
+        theme={isDark ? 'dark' : 'light'}
+        selectedKeys={[selectedKey]}
+        defaultOpenKeys={sidebarData?.map(({ title }) => title).filter((item) => item) as string[]}
+      />
+    </ConfigProvider>
   );
 
   return isMobile ? (

@@ -118,7 +118,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
 
         // syntactic sugar to add `icon` for Segmented Item
         '&-icon + *': {
-          marginInlineEnd: token.marginSM / 2,
+          marginInlineStart: token.marginSM / 2,
         },
 
         '&-input': {

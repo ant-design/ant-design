@@ -50,9 +50,6 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
         ...genFocusStyle(token),
       },
 
-      ...genCompactItemStyle(token, componentCls, { focus: false }),
-      ...genCompactItemVerticalStyle(token, componentCls),
-
       // make `btn-icon-only` not too narrow
       '&-icon-only&-compact-item': {
         flex: 'none',
@@ -120,6 +117,14 @@ const genRoundButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
 });
 
 // =============================== Type ===============================
+const genDisabledStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
+  cursor: 'not-allowed',
+  borderColor: token.colorBorder,
+  color: token.colorTextDisabled,
+  backgroundColor: token.colorBgContainerDisabled,
+  boxShadow: 'none',
+});
+
 const genGhostButtonStyle = (
   btnCls: string,
   textColor: string | false,
@@ -156,11 +161,7 @@ const genGhostButtonStyle = (
 
 const genSolidDisabledButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
   '&:disabled': {
-    cursor: 'not-allowed',
-    borderColor: token.colorBorder,
-    color: token.colorTextDisabled,
-    backgroundColor: token.colorBgContainerDisabled,
-    boxShadow: 'none',
+    ...genDisabledStyle(token),
   },
 });
 
@@ -300,7 +301,6 @@ const genPrimaryButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => 
 // Type: Dashed
 const genDashedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
   ...genDefaultButtonStyle(token),
-
   borderStyle: 'dashed',
 });
 
@@ -367,6 +367,14 @@ const genTextButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
   },
 });
 
+// Href and Disabled
+const genDisabledButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
+  ...genDisabledStyle(token),
+  [`&${token.componentCls}:hover`]: {
+    ...genDisabledStyle(token),
+  },
+});
+
 const genTypeButtonStyle: GenerateStyle<ButtonToken> = (token) => {
   const { componentCls } = token;
 
@@ -376,6 +384,7 @@ const genTypeButtonStyle: GenerateStyle<ButtonToken> = (token) => {
     [`${componentCls}-dashed`]: genDashedButtonStyle(token),
     [`${componentCls}-link`]: genLinkButtonStyle(token),
     [`${componentCls}-text`]: genTextButtonStyle(token),
+    [`${componentCls}-disabled`]: genDisabledButtonStyle(token),
   };
 };
 
@@ -496,5 +505,9 @@ export default genComponentStyleHook('Button', (token) => {
 
     // Button Group
     genGroupStyle(buttonToken),
+
+    // Space Compact
+    genCompactItemStyle(token, { focus: false }),
+    genCompactItemVerticalStyle(token),
   ];
 });

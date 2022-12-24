@@ -58,4 +58,30 @@ describe('FloatButtonGroup', () => {
     fireEvent.mouseLeave(container.querySelector('.ant-float-btn-group')!);
     expect(onOpenChange).toHaveBeenCalled();
   });
+  it('support click floatButtonGroup not close', () => {
+    const onOpenChange = jest.fn();
+    const { container } = render(
+      <FloatButton.Group trigger="click" onOpenChange={onOpenChange}>
+        <FloatButton />
+        <FloatButton />
+        <FloatButton />
+      </FloatButton.Group>,
+    );
+    fireEvent.click(container.querySelector('.ant-float-btn')!);
+    fireEvent.click(container.querySelector('.ant-float-btn-group')!);
+    expect(onOpenChange).toHaveBeenCalledTimes(1);
+  });
+  it('support click out auto close', () => {
+    const onOpenChange = jest.fn();
+    const { container } = render(
+      <FloatButton.Group trigger="click" onOpenChange={onOpenChange}>
+        <FloatButton />
+        <FloatButton />
+        <FloatButton />
+      </FloatButton.Group>,
+    );
+    fireEvent.click(container.querySelector('.ant-float-btn')!);
+    fireEvent.click(container);
+    expect(onOpenChange).toHaveBeenCalledTimes(2);
+  });
 });

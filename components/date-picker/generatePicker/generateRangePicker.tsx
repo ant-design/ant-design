@@ -142,7 +142,7 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
                 compactItemClassnames,
                 className,
               )}
-              locale={locale!.lang}
+              locale={locale.lang}
               prefixCls={prefixCls}
               getPopupContainer={customGetPopupContainer || getPopupContainer}
               generateConfig={generateConfig}

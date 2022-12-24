@@ -166,7 +166,7 @@ const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
         insetInlineEnd: inputPaddingHorizontalBase,
         height: token.fontSizeIcon,
         marginTop: -token.fontSizeIcon / 2,
-        color: token.colorTextDisabled,
+        color: token.colorTextQuaternary,
         fontSize: token.fontSizeIcon,
         lineHeight: 1,
         textAlign: 'center',
@@ -207,7 +207,7 @@ const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
         width: token.fontSizeIcon,
         height: token.fontSizeIcon,
         marginTop: -token.fontSizeIcon / 2,
-        color: token.colorTextDisabled,
+        color: token.colorTextQuaternary,
         fontSize: token.fontSizeIcon,
         fontStyle: 'normal',
         lineHeight: 1,
@@ -224,7 +224,7 @@ const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
         },
 
         '&:hover': {
-          color: token.colorTextDescription,
+          color: token.colorTextTertiary,
         },
       },
 
@@ -262,11 +262,6 @@ const genSelectStyle: GenerateStyle<SelectToken> = (token) => {
         '&&-in-form-item': {
           width: '100%',
         },
-        // Space.Compact
-        ...genCompactItemStyle(token, componentCls, {
-          borderElCls: `${componentCls}-selector`,
-          focusElCls: `${componentCls}-focused`,
-        }),
       },
     },
 
@@ -320,6 +315,13 @@ const genSelectStyle: GenerateStyle<SelectToken> = (token) => {
       }),
       true,
     ),
+    // =====================================================
+    // ==             Space Compact                       ==
+    // =====================================================
+    genCompactItemStyle(token, {
+      borderElCls: `${componentCls}-selector`,
+      focusElCls: `${componentCls}-focused`,
+    }),
   ];
 };
 

@@ -9,15 +9,15 @@ import type { MenuProps } from '../menu';
 import { ConfigContext } from '../config-provider';
 import { OverrideProvider } from '../menu/OverrideContext';
 import genPurePanel from '../_util/PurePanel';
+import type { AdjustOverflow } from '../_util/placements';
 import getPlacements from '../_util/placements';
 import { cloneElement } from '../_util/reactNode';
-import { tuple } from '../_util/type';
 import warning from '../_util/warning';
 import { NoCompactStyle } from '../space/Compact';
 import DropdownButton from './dropdown-button';
 import useStyle from './style';
 
-const Placements = tuple(
+const Placements = [
   'topLeft',
   'topCenter',
   'topRight',
@@ -26,7 +26,7 @@ const Placements = tuple(
   'bottomRight',
   'top',
   'bottom',
-);
+] as const;
 
 type Placement = typeof Placements[number];
 
@@ -72,6 +72,7 @@ export interface DropdownProps {
   mouseLeaveDelay?: number;
   openClassName?: string;
   children?: React.ReactNode;
+  autoAdjustOverflow?: boolean | AdjustOverflow;
 
   // Deprecated
   /** @deprecated Please use `menu` instead */
@@ -163,6 +164,7 @@ const Dropdown: CompoundedComponent = (props) => {
     onVisibleChange,
     mouseEnterDelay = 0.15,
     mouseLeaveDelay = 0.1,
+    autoAdjustOverflow = true,
   } = props;
 
   if (process.env.NODE_ENV !== 'production') {
@@ -218,7 +220,7 @@ const Dropdown: CompoundedComponent = (props) => {
 
   const builtinPlacements = getPlacements({
     arrowPointAtCenter: typeof arrow === 'object' && arrow.pointAtCenter,
-    autoAdjustOverflow: true,
+    autoAdjustOverflow,
   });
 
   const onMenuClick = React.useCallback(() => {
