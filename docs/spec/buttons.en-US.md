@@ -156,9 +156,6 @@ Recommend to start from the reading flow, collapsed content should always be on 
 
 <ImagePreview>
 <img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*tK-AQaE5h1YAAAAAAAAAAABkARQnAQ" alt="Do">
-</ImagePreview>
-
-<ImagePreview>
 <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*_gU7ToHiZz4AAAAAAAAAAABkARQnAQ" alt="Don't" description="When button group has no space in between, it is easy to confuse it with Toggle Button.">
 </ImagePreview>
 
@@ -168,7 +165,9 @@ When multiple buttons form a group, align buttons in one line with spaces in bet
 
 When there are too many buttons on the screen, we could group relevant buttons together and use similar design for that group. If one of the buttons is primary action, we could still use emphasis.
 
+<ImagePreview>
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*x7YsTafH5osAAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 **Collapse buttons in the order of importance**
 

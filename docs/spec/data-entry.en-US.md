@@ -91,20 +91,26 @@ Checkbox is used to select multiple values from several options.
 
 ### Switch
 
+<ImagePreview>
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/MsOFIDWorXeobBLkEwjS.png">
+</ImagePreview>
 
 It's used to switch the state of a single option. The inline label of "Switch" should be displayed clearly, e.g. Disable/Enable, Disallow/Allow etc.
 
 <br />
 
+<ImagePreview>
 <img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/GJNIykRlFgmVRSKNGOCg.png" alt="Correct Sample">
 <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/gLJCJDtOquBTRdBSoGYe.png" alt="Incorrect Sample" description="'Switch' doesn't need to work with buttons because the toggle will take effect immediately.">
+</ImagePreview>
 
 > Note: It will trigger the state change directly when a user toggle the "Switch".
 
 ### Dropdown
 
+<ImagePreview>
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/wbOaUEKPkjzVFNLabvtF.png">
+</ImagePreview>
 
 Dropdown provides more flexibility for the number of options, allowing a user to select one or multiple values from a list of options.
 
@@ -115,25 +121,33 @@ Dropdown provides more flexibility for the number of options, allowing a user to
 
 ### Slider
 
+<ImagePreview>
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/kfDmEBuFbbDsrsqTyxIH.png">
+</ImagePreview>
 
 Slider allows to select a suitable value by moving the anchor in a continuous or discontinuous range. It's a better choice for reflecting options of intensities or grades, e.g. volume, brightness, color saturation etc.
 
 <br />
 
+<ImagePreview>
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/jRUNDmdChSEsFAXVBzAx.png">
+</ImagePreview>
 
 > Note: Operations can be more flexible and convenient using "Slider" when precise value is not required. "NumberInput" can be worked together with Slider for precise values.
 
 ### Transfer
 
+<ImagePreview>
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/fxYgAmCVVkduXRfBYUCo.png">
+</ImagePreview>
 
 Transfer the elements between two columns in an intuitive and efficient way.
 
 ### DatePicker
 
+<ImagePreview>
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/IyntUBesFLpPNQTHtgVk.png">
+</ImagePreview>
 
 DatePicker provides a visual way to browse and select a date or date range for users.
 
@@ -145,19 +159,25 @@ Upload is the process of publishing information (from local or cloud storage) to
 
 ### Upload by simple clicks
 
+<ImagePreview>
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/nslSHZVgVxmBNgKhFcqT.png">
+</ImagePreview>
 
 Normally used to upload a single file which doesn't require preview. Click the button will prompt the file selection window.
 
 ### Upload by displaying thumbnails
 
+<ImagePreview>
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/HQvQFtYdIQKoUOjgSFQP.png">
+</ImagePreview>
 
 Normally used to upload images. Users can upload images and display thumbnails in the list. The upload button will disappear when the number of images is up to a threshold.
 
 ### Upload by drag-and-drop
 
+<ImagePreview>
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/evyhWzbCtinnGURCPJSn.png">
+</ImagePreview>
 
 Drag files into a specific area to upload, while it supports upload by clicking as well.
 

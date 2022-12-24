@@ -48,6 +48,7 @@ Please make all icons in the 1024×1024 resolution (16×16 64 times).
 <ImagePreview>
 <img class="preview-img no-padding inline" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/wgQLwFnPaeEalmmSuBMO.png" alt="Vertical rectangle contour">
 </ImagePreview>
+
 ### Stroke Weight
 
 <ImagePreview>
@@ -88,13 +89,17 @@ Always keep a simple, flat style. Icons should not have a sense of depth nor a l
 
 ### Naming Conventions
 
+<ImagePreview>
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/NFOvbdbVWeeEqOkdUfVB.png" alt="Naming Conventions">
+</ImagePreview>
 
 Uniform naming conventions make finding icons faster and easier. For example, icons with a surrounding outline have a uniform "-o" suffix.
 
 ### Icon Sizing
 
+<ImagePreview>
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/jAuedlyhNIDyOIZTqbqN.png" alt="Icon Sizing">
+</ImagePreview>
 
 Icons should be scaled according to the text size, according to the Ant Design specification.
 
@@ -102,7 +107,9 @@ For example, icons inline with 12pt font should be 12px in size with 8px of spac
 
 ### Color
 
+<ImagePreview>
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/LxGLhtnwvCqZWYqGDAAr.png" description="Colors demonstrated - @Black = #000000, @White = #FFFFFF, @Blue-6 = #1890FF" alt="Color">
+</ImagePreview>
 
 The color of the icon should be consistent the color of the surrounding copy, unless the icon is being used to express state (in which case it should be colored accordingly).
 
@@ -110,7 +117,9 @@ The color of the icon should be consistent the color of the surrounding copy, un
 
 ## Business Icons
 
+<ImagePreview>
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/EADAnRecKSTxvpxPzKoq.png" alt="Business Icons">
+</ImagePreview>
 
 Business icons, unlike system icons, do not themselves have functional operations, but rather an abstraction that assists with copywriting. Compared to the system icon, the business icon is more rich in the details of the design, the size of the use of relatively large.
 
@@ -118,12 +127,16 @@ Business icons, unlike system icons, do not themselves have functional operation
 
 ### Icon Sizing
 
+<ImagePreview>
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/uwAgfciGszhdiVlMSBXK.png" alt="Icon Sizing">
+</ImagePreview>
 
 In normal use, there are 32px (minimum size), 48px and 64px (maximum size) three options.
 
 ### Color
 
+<ImagePreview>
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/wUxhTxZlHoTxDvneWBWO.png" alt="Color">
+</ImagePreview>
 
 There are two kinds of business icon, single-color (neutral color) and double-color (neutral color + primary color), the area of primary color does not exceed 40% of the entire icon.
