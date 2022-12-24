@@ -201,6 +201,7 @@ const Wave: React.FC<WaveProps> = (props) => {
   };
 
   useEffect(() => {
+    destroyedRef.current = false;
     const node = containerRef.current;
     if (!node || node.nodeType !== 1) {
       return;
