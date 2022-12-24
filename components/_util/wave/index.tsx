@@ -74,13 +74,11 @@ export interface WaveProps {
 const Wave: React.FC<WaveProps> = (props) => {
   const { children, insertExtraNode, disabled } = props;
   const { getPrefixCls, csp } = useContext<ConfigConsumerProps>(ConfigContext);
-  const instanceRef = useRef<{ cancel?: () => void }>({});
   const containerRef = useRef<HTMLDivElement>();
   const extraNode = useRef<HTMLDivElement>();
   const clickWaveTimeoutId = useRef<NodeJS.Timer | null>(null);
   const animationStartId = useRef<number>();
   const animationStart = useRef<boolean>(false);
-  const destroyedRef = useRef<boolean>(false);
 
   const attributeName = React.useMemo<string>(
     () =>
@@ -91,9 +89,6 @@ const Wave: React.FC<WaveProps> = (props) => {
   );
 
   const onTransitionStart = (e: AnimationEvent) => {
-    if (destroyedRef.current) {
-      return;
-    }
     const node = containerRef.current;
     if (!e || e.target !== node || animationStart.current) {
       return;
@@ -201,17 +196,12 @@ const Wave: React.FC<WaveProps> = (props) => {
   };
 
   useEffect(() => {
-    destroyedRef.current = false;
     const node = containerRef.current;
     if (!node || node.nodeType !== 1) {
       return;
     }
-    instanceRef.current = bindAnimationEvent(node)!;
     return () => {
-      destroyedRef.current = true;
-      if (instanceRef.current) {
-        instanceRef.current.cancel?.();
-      }
+      bindAnimationEvent(node)?.cancel?.();
       if (clickWaveTimeoutId.current) {
         clearTimeout(clickWaveTimeoutId.current);
       }
