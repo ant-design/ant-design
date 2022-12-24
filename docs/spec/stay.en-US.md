@@ -16,15 +16,11 @@ Solve most of problems on the same page and avoid a new one, because the page re
 ## Overlays
 
 <ImagePreview>
-<img class="preview-img" alt="good example" description="As the user clicks delete, a success message and an undo button are displayed. When the user does nothing within one minute or click the undo button, the message and the button disappear." src="https://gw.alipayobjects.com/zos/rmsportal/YfhMlEIayfwnxiILcebI.png" good>
+<img class="preview-img good" alt="good example" description="As the user clicks delete, a success message and an undo button are displayed. When the user does nothing within one minute or click the undo button, the message and the button disappear." src="https://gw.alipayobjects.com/zos/rmsportal/YfhMlEIayfwnxiILcebI.png">
+<img class="preview-img good" alt="good example (special case)" description="If the undo operation is invalid, the Popconfirm is displayed after clicking the delete button. The user can stay on the page to double confirm." src="https://gw.alipayobjects.com/zos/rmsportal/AKtiXJTTQEjKFOCQGZMa.png">
+<img class="preview-img bad" alt="bad example" description="
+Abusing the Modal can neither bring the context into the popup, which is prone to interrupt the user's flow, nor allow the user to undo the change." src="https://gw.alipayobjects.com/zos/rmsportal/cGqkngXLMBlmMyoHtgFs.png">
 </ImagePreview>
-
-<ImagePreview>
-<img class="preview-img" alt="good example (special case)" description="If the undo operation is invalid, the Popconfirm is displayed after clicking the delete button. The user can stay on the page to double confirm." src="https://gw.alipayobjects.com/zos/rmsportal/AKtiXJTTQEjKFOCQGZMa.png" good>
-</ImagePreview>
-
-<img class="preview-img" alt="bad example" description="
-Abusing the Modal can neither bring the context into the popup, which is prone to interrupt the user's flow, nor allow the user to undo the change." src="https://gw.alipayobjects.com/zos/rmsportal/cGqkngXLMBlmMyoHtgFs.png" bad> </ImagePreview>
 
 Double-confirm overlay: Using the Modal to double confirm should be avoided, while affording an opportunity to undo is preferred.
 
