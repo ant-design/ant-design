@@ -298,7 +298,7 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
           transition: [
             `background ${motionDurationSlow} ${motionEaseInOut}`,
             `padding ${motionDurationSlow} ${motionEaseInOut}`,
-          ],
+          ].join(','),
         },
 
         [`${componentCls}-title-content`]: {
