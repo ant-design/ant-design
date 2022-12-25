@@ -6,7 +6,7 @@ import * as React from 'react';
 import Button from '../button';
 import { convertLegacyProps } from '../button/button';
 import { ConfigContext } from '../config-provider';
-import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import LocaleReceiver from '../locale/LocaleReceiver';
 import { ConfirmContent } from './ConfirmDialog';
 import { getConfirmLocale } from './locale';
 import type { ModalProps, ModalFuncProps } from './Modal';
@@ -38,8 +38,8 @@ export function renderFooter(
     | 'okButtonProps'
     | 'cancelButtonProps'
   > & {
-    onOk?: React.MouseEventHandler;
-    onCancel?: React.MouseEventHandler;
+    onOk?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
+    onCancel?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
   },
 ) {
   const {

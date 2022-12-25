@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 import type { CSSObject } from '@ant-design/cssinjs';
-import type { DerivativeToken } from '../theme';
+import type { DerivativeToken } from '../theme/internal';
 
 export { operationUnit } from './operationUnit';
 export { roundedArrow } from './roundedArrow';
@@ -103,15 +103,11 @@ export const genLinkStyle = (token: DerivativeToken): CSSObject => ({
   },
 });
 
-export const genCommonStyle = (token: DerivativeToken, componentPrefixCls: string): CSSObject => {
-  const { fontFamily, fontSize } = token;
-
+export const genCommonStyle = (componentPrefixCls: string): CSSObject => {
   const rootPrefixSelector = `[class^="${componentPrefixCls}"], [class*=" ${componentPrefixCls}"]`;
 
   return {
     [rootPrefixSelector]: {
-      fontFamily,
-      fontSize,
       boxSizing: 'border-box',
 
       '&::before, &::after': {

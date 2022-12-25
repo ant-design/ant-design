@@ -52,7 +52,7 @@ title: Ant Design of React
 
 - 稳定版：[![npm package](https://img.shields.io/npm/v/antd.svg?style=flat-square)](https://www.npmjs.org/package/antd)
 
-你可以订阅：https://github.com/ant-design/ant-design/releases.atom 或 https://app.releasly.co/sites/ant-design/ant-design 来获得版本发布的通知。
+你可以订阅：https://github.com/ant-design/ant-design/releases.atom 来获得版本发布的通知。
 
 ## 安装
 
@@ -102,8 +102,8 @@ export default App;
 
 ## 链接
 
-- [首页](/index)
-- [组件库](/components/overview)
+- [首页](/index-cn)
+- [组件库](/components/overview-cn)
 - [国内镜像](https://github.com/ant-design/ant-design/issues/25661)
 - [Ant Design Pro](https://pro.ant.design/)
 - [Ant Design Charts](https://charts.ant.design)

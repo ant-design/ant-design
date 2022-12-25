@@ -40,6 +40,7 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
     colorDangerItemBgSelected,
 
     colorItemBgHover,
+    menuSubMenuBg,
   } = token;
 
   return {
@@ -145,7 +146,7 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
       },
 
       [`&${componentCls}-submenu > ${componentCls}`]: {
-        backgroundColor: colorItemBg,
+        backgroundColor: menuSubMenuBg,
       },
 
       [`&${componentCls}-popup > ${componentCls}`]: {
@@ -176,7 +177,6 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
           },
 
           [`&:hover, &-active, &-open`]: {
-            color: colorItemTextSelectedHorizontal,
             '&::after': {
               borderWidth: `${colorActiveBarHeight}px`,
               borderBottomColor: colorItemTextSelectedHorizontal,

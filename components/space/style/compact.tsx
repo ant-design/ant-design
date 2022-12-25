@@ -1,4 +1,4 @@
-import type { FullToken, GenerateStyle } from '../../theme';
+import type { FullToken, GenerateStyle } from '../../theme/internal';
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
   // Component token here

@@ -2,7 +2,7 @@
 import Pagination from 'rc-pagination/lib/locale/ml_IN';
 import Calendar from '../calendar/locale/ml_IN';
 import DatePicker from '../date-picker/locale/ml_IN';
-import type { Locale } from '../locale-provider';
+import type { Locale } from '../locale';
 import TimePicker from '../time-picker/locale/ml_IN';
 
 const typeTemplate = '${label} അസാധുവായ ${type} ആണ്';

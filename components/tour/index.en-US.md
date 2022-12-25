@@ -2,7 +2,7 @@
 category: Components
 group: Data Display
 title: Tour
-cover: https://gw.alipayobjects.com/zos/bmw-prod/cc3fcbfa-bf5b-4c8c-8a3d-c3f8388c75e8.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*8CC_Tbe3_e4AAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -32,6 +32,9 @@ Use when you want to guide users through a product.
 | onClose | Callback function on shutdown | `Function` | - |  |
 | mask | Whether to enable masking | `boolean` | `true` |  |
 | type | Type, affects the background color and text color | `default` `primary` | `default` |  |
+| open | Open tour | `boolean` | - |  |
+| onChange | Callback when the step changes. Current is the previous step | `(current: number) => void` | - |  |
+| current | What is the current step | `number` | - |  |
 
 ### TourStep
 

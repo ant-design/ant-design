@@ -12,6 +12,9 @@ import DatePicker from '../../date-picker';
 import Select from '../../select';
 import TimePicker from '../../time-picker';
 import TreeSelect from '../../tree-select';
+import Modal from '../../modal';
+import Dropdown from '../../dropdown';
+import Drawer from '../../drawer';
 
 describe('Space.Compact', () => {
   mountTest(Space.Compact);
@@ -181,5 +184,67 @@ describe('Space.Compact', () => {
         .querySelectorAll('.ant-btn')[3]
         ?.classList.contains('ant-btn-compact-vertical-last-item'),
     ).toBe(true);
+  });
+  it('context for Modal', () => {
+    render(
+      <Space.Compact size="small">
+        <Modal title="Basic Modal" open>
+          <Button>normal button A</Button>
+          <Input />
+        </Modal>
+      </Space.Compact>,
+    );
+    expect(
+      document.body
+        .querySelectorAll('.ant-modal')[0]
+        .querySelector('.ant-btn')
+        ?.classList.contains('ant-btn-compact-item'),
+    ).toBe(false);
+    expect(
+      document.body
+        .querySelectorAll('.ant-modal')[0]
+        .querySelector('.ant-input')
+        ?.classList.contains('ant-input-compact-item'),
+    ).toBe(false);
+  });
+  it('context for Dropdown', () => {
+    render(
+      <Space.Compact size="small">
+        <Dropdown.Button
+          open
+          menu={{
+            items: [
+              {
+                key: '1',
+                label: <Button>menu button</Button>,
+              },
+            ],
+          }}
+        >
+          debug Dropdown.Button context
+        </Dropdown.Button>
+      </Space.Compact>,
+    );
+    expect(
+      document.body
+        .querySelector('.ant-dropdown')
+        ?.querySelector('.ant-btn')
+        ?.classList.contains('ant-btn-compact-item'),
+    ).toBe(false);
+  });
+  it('context for Drawer', () => {
+    render(
+      <Space.Compact size="small">
+        <Drawer title="Basic Drawer" open>
+          <Button>normal button A</Button>
+        </Drawer>
+      </Space.Compact>,
+    );
+    expect(
+      document.body
+        .querySelector('.ant-drawer')
+        ?.querySelector('.ant-btn')
+        ?.classList.contains('ant-btn-compact-item'),
+    ).toBe(false);
   });
 });

@@ -1,6 +1,6 @@
 import { TinyColor } from '@ctrl/tinycolor';
-import type { FullToken, GenerateStyle } from '../../theme';
-import { genComponentStyleHook, mergeToken } from '../../theme';
+import type { FullToken, GenerateStyle } from '../../theme/internal';
+import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import { resetComponent } from '../../style';
 import getArrowStyle, { MAX_VERTICAL_CONTENT_RADIUS } from '../../style/placementArrow';
 
@@ -66,7 +66,7 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
           display: 'none',
         },
 
-        // ============================= panel content ===========================
+        // ============================= panel content ============================
         [`${componentCls}-content`]: {
           position: 'relative',
         },
@@ -152,9 +152,13 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
           },
         },
 
-        // ============================= primary type ===========================
-        [`&${componentCls}-primary`]: {
+        // =============================  primary type  ===========================
+        // `$` for panel, `&$` for pure panel
+        [`${componentCls}-primary, &${componentCls}-primary`]: {
           '--antd-arrow-background-color': colorPrimary,
+        },
+
+        [`${componentCls}-primary`]: {
           [`${componentCls}-inner`]: {
             color: colorTextLightSolid,
             textAlign: 'start',
@@ -180,6 +184,7 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
             [`${componentCls}-prev-btn`]: {
               color: colorTextLightSolid,
               borderColor: new TinyColor(colorTextLightSolid).setAlpha(0.15).toRgbString(),
+              backgroundColor: colorPrimary,
 
               '&:hover': {
                 backgroundColor: new TinyColor(colorTextLightSolid).setAlpha(0.15).toRgbString(),
@@ -209,12 +214,12 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
 
       // =========== Limit left and right placement radius ==============
       [[
-        `&-placement-left`,
-        `&-placement-leftTop`,
-        `&-placement-leftBottom`,
-        `&-placement-right`,
-        `&-placement-rightTop`,
-        `&-placement-rightBottom`,
+        '&-placement-left',
+        '&-placement-leftTop',
+        '&-placement-leftBottom',
+        '&-placement-right',
+        '&-placement-rightTop',
+        '&-placement-rightBottom',
       ].join(',')]: {
         [`${componentCls}-inner`]: {
           borderRadius:

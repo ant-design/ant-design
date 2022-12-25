@@ -1,12 +1,12 @@
 import React from 'react';
-import { Progress } from 'antd';
+import { Progress, Space } from 'antd';
 
 const App: React.FC = () => (
-  <>
-    <Progress type="circle" percent={75} style={{ marginRight: 8 }} />
+  <Space wrap>
+    <Progress type="circle" percent={75} />
     <Progress type="circle" percent={70} status="exception" />
-    <Progress type="circle" percent={100} style={{ marginLeft: 8 }} />
-  </>
+    <Progress type="circle" percent={100} />
+  </Space>
 );
 
 export default App;

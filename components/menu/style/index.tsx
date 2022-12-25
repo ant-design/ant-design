@@ -1,7 +1,8 @@
 import { TinyColor } from '@ctrl/tinycolor';
+import type { CSSObject } from '@ant-design/cssinjs';
 import { genCollapseMotion, initSlideMotion, initZoomMotion } from '../../style/motion';
-import type { FullToken, GenerateStyle, UseComponentStyleResult } from '../../theme';
-import { genComponentStyleHook, mergeToken } from '../../theme';
+import type { FullToken, GenerateStyle, UseComponentStyleResult } from '../../theme/internal';
+import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import getHorizontalStyle from './horizontal';
 import getRTLStyle from './rtl';
 import getThemeStyle from './theme';
@@ -60,11 +61,140 @@ export interface MenuToken extends FullToken<'Menu'> {
   menuItemHeight: number;
   menuHorizontalHeight: number;
   menuItemPaddingInline: number;
-  menuItemMarginInline: number;
   menuArrowSize: number;
   menuArrowOffset: string;
   menuPanelMaskInset: number;
+  menuSubMenuBg: string;
 }
+
+const genMenuItemStyle = (token: MenuToken): CSSObject => {
+  const {
+    componentCls,
+    fontSize,
+    motionDurationSlow,
+    motionDurationMid,
+    motionEaseInOut,
+    motionEaseOut,
+    iconCls,
+    controlHeightSM,
+  } = token;
+
+  return {
+    // >>>>> Item
+    [`${componentCls}-item, ${componentCls}-submenu-title`]: {
+      position: 'relative',
+      display: 'block',
+      margin: 0,
+      whiteSpace: 'nowrap',
+      cursor: 'pointer',
+      transition: [
+        `border-color ${motionDurationSlow}`,
+        `background ${motionDurationSlow}`,
+        `padding ${motionDurationSlow} ${motionEaseInOut}`,
+      ].join(','),
+
+      [`${componentCls}-item-icon, ${iconCls}`]: {
+        minWidth: fontSize,
+        fontSize,
+        transition: [
+          `font-size ${motionDurationMid} ${motionEaseOut}`,
+          `margin ${motionDurationSlow} ${motionEaseInOut}`,
+          `color ${motionDurationSlow}`,
+        ].join(','),
+
+        '+ span': {
+          marginInlineStart: controlHeightSM - fontSize,
+          opacity: 1,
+          transition: [
+            `opacity ${motionDurationSlow} ${motionEaseInOut}`,
+            `margin ${motionDurationSlow}`,
+            `color ${motionDurationSlow}`,
+          ].join(','),
+        },
+      },
+
+      [`${componentCls}-item-icon`]: {
+        ...resetIcon(),
+      },
+
+      [`&${componentCls}-item-only-child`]: {
+        [`> ${iconCls}, > ${componentCls}-item-icon`]: {
+          marginInlineEnd: 0,
+        },
+      },
+    },
+
+    // Disabled state sets text to gray and nukes hover/tab effects
+    [`${componentCls}-item-disabled, ${componentCls}-submenu-disabled`]: {
+      background: 'none !important',
+      cursor: 'not-allowed',
+
+      '&::after': {
+        borderColor: 'transparent !important',
+      },
+
+      a: {
+        color: 'inherit !important',
+      },
+
+      [`> ${componentCls}-submenu-title`]: {
+        color: 'inherit !important',
+        cursor: 'not-allowed',
+      },
+    },
+  };
+};
+
+const genSubMenuArrowStyle = (token: MenuToken): CSSObject => {
+  const {
+    componentCls,
+    motionDurationSlow,
+    motionEaseInOut,
+    borderRadius,
+    menuArrowSize,
+    menuArrowOffset,
+  } = token;
+
+  return {
+    [`${componentCls}-submenu`]: {
+      [`&-expand-icon, &-arrow`]: {
+        position: 'absolute',
+        top: '50%',
+        insetInlineEnd: token.margin,
+        width: menuArrowSize,
+        color: 'currentcolor',
+        transform: 'translateY(-50%)',
+        transition: `transform ${motionDurationSlow} ${motionEaseInOut}`,
+      },
+
+      '&-arrow': {
+        // →
+        '&::before, &::after': {
+          position: 'absolute',
+          width: menuArrowSize * 0.6,
+          height: menuArrowSize * 0.15,
+          backgroundColor: 'currentcolor',
+          borderRadius,
+          transition: [
+            `background ${motionDurationSlow} ${motionEaseInOut}`,
+            `transform ${motionDurationSlow} ${motionEaseInOut}`,
+            `top ${motionDurationSlow} ${motionEaseInOut}`,
+            `color ${motionDurationSlow} ${motionEaseInOut}`,
+          ].join(','),
+          content: '""',
+        },
+
+        '&::before': {
+          transform: `rotate(45deg) translateY(-${menuArrowOffset})`,
+        },
+
+        '&::after': {
+          transform: `rotate(-45deg) translateY(${menuArrowOffset})`,
+        },
+      },
+    },
+  };
+};
 
 // =============================== Base ===============================
 const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
@@ -75,19 +205,15 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
     motionDurationSlow,
     motionDurationMid,
     motionEaseInOut,
-    motionEaseOut,
     lineHeight,
     paddingXS,
     padding,
     colorSplit,
     lineWidth,
-    iconCls,
     zIndexPopup,
-    borderRadius,
     borderRadiusLG,
     radiusSubMenuItem,
     menuArrowSize,
-    controlHeightSM,
     menuArrowOffset,
     lineType,
     menuPanelMaskInset,
@@ -206,69 +332,8 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
           },
         },
 
-        // >>>>> Item
-        [`${componentCls}-item, ${componentCls}-submenu-title`]: {
-          position: 'relative',
-          display: 'block',
-          margin: 0,
-          // paddingInline: menuItemPaddingInline,
-          whiteSpace: 'nowrap',
-          cursor: 'pointer',
-          transition: [
-            `border-color ${motionDurationSlow}`,
-            `background ${motionDurationSlow}`,
-            `padding ${motionDurationSlow} ${motionEaseInOut}`,
-          ].join(','),
-
-          [`${componentCls}-item-icon, ${iconCls}`]: {
-            minWidth: fontSize,
-            fontSize,
-            transition: [
-              `font-size ${motionDurationMid} ${motionEaseOut}`,
-              `margin ${motionDurationSlow} ${motionEaseInOut}`,
-              `color ${motionDurationSlow}`,
-            ].join(','),
-
-            '+ span': {
-              marginInlineStart: controlHeightSM - fontSize,
-              opacity: 1,
-              transition: [
-                `opacity ${motionDurationSlow} ${motionEaseInOut}`,
-                `margin ${motionDurationSlow}`,
-                `color ${motionDurationSlow}`,
-              ].join(','),
-            },
-          },
-
-          [`${componentCls}-item-icon`]: {
-            ...resetIcon(),
-          },
-
-          [`&${componentCls}-item-only-child`]: {
-            [`> ${iconCls}, > ${componentCls}-item-icon`]: {
-              marginInlineEnd: 0,
-            },
-          },
-        },
-
-        // Disabled state sets text to gray and nukes hover/tab effects
-        [`${componentCls}-item-disabled, ${componentCls}-submenu-disabled`]: {
-          background: 'none !important',
-          cursor: 'not-allowed',
-
-          '&::after': {
-            borderColor: 'transparent !important',
-          },
-
-          a: {
-            color: 'inherit !important',
-          },
-
-          [`> ${componentCls}-submenu-title`]: {
-            color: 'inherit !important',
-            cursor: 'not-allowed',
-          },
-        },
+        // Item
+        ...genMenuItemStyle(token),
 
         [`${componentCls}-item-group`]: {
           [`${componentCls}-item-group-list`]: {
@@ -312,7 +377,10 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
           [`> ${componentCls}`]: {
             borderRadius: borderRadiusLG,
 
-            [`> ${componentCls}-item`]: {
+            ...genMenuItemStyle(token),
+            ...genSubMenuArrowStyle(token),
+
+            [`${componentCls}-item, ${componentCls}-submenu > ${componentCls}-submenu-title`]: {
               borderRadius: radiusSubMenuItem,
             },
 
@@ -322,43 +390,7 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
           },
         },
 
-        [`${componentCls}-submenu`]: {
-          [`&-expand-icon, &-arrow`]: {
-            position: 'absolute',
-            top: '50%',
-            insetInlineEnd: token.margin,
-            width: menuArrowSize,
-            color: 'currentcolor',
-            transform: 'translateY(-50%)',
-            transition: `transform ${motionDurationSlow} ${motionEaseInOut}`,
-          },
-
-          '&-arrow': {
-            // →
-            '&::before, &::after': {
-              position: 'absolute',
-              width: menuArrowSize * 0.6,
-              height: menuArrowSize * 0.15,
-              backgroundColor: 'currentcolor',
-              borderRadius,
-              transition: [
-                `background ${motionDurationSlow} ${motionEaseInOut}`,
-                `transform ${motionDurationSlow} ${motionEaseInOut}`,
-                `top ${motionDurationSlow} ${motionEaseInOut}`,
-                `color ${motionDurationSlow} ${motionEaseInOut}`,
-              ].join(','),
-              content: '""',
-            },
-
-            '&::before': {
-              transform: `rotate(45deg) translateY(-${menuArrowOffset})`,
-            },
-
-            '&::after': {
-              transform: `rotate(-45deg) translateY(${menuArrowOffset})`,
-            },
-          },
-        },
+        ...genSubMenuArrowStyle(token),
 
         [`&-inline-collapsed ${componentCls}-submenu-arrow,
         &-inline ${componentCls}-submenu-arrow`]: {
@@ -409,8 +441,14 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         return [];
       }
 
-      const { colorPrimary, colorError, colorErrorHover, colorTextLightSolid, colorTextSecondary } =
-        token;
+      const {
+        colorBgElevated,
+        colorPrimary,
+        colorError,
+        colorErrorHover,
+        colorTextLightSolid,
+        colorTextSecondary,
+      } = token;
 
       const { controlHeightLG, fontSize } = token;
 
@@ -420,11 +458,11 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
       const menuToken = mergeToken<MenuToken>(token, {
         menuItemHeight: controlHeightLG,
         menuItemPaddingInline: token.margin,
-        menuItemMarginInline: token.marginXXS,
         menuArrowSize,
         menuHorizontalHeight: controlHeightLG * 1.15,
         menuArrowOffset: `${menuArrowSize * 0.25}px`,
         menuPanelMaskInset: -7, // Still a hardcode here since it's offset by rc-align
+        menuSubMenuBg: colorBgElevated,
       });
 
       const menuDarkToken = mergeToken<MenuToken>(
@@ -451,6 +489,8 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
           colorDangerItemTextSelected: colorTextLightSolid,
           colorDangerItemBgActive: colorError,
           colorDangerItemBgSelected: colorError,
+
+          menuSubMenuBg: '#001529',
         },
         {
           ...overrideComponentToken,
@@ -495,7 +535,7 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         colorFillContent,
         lineWidth,
         lineWidthBold,
-        controlItemBgActiveHover,
+        controlItemBgActive,
         colorBgTextHover,
       } = token;
 
@@ -508,13 +548,13 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         colorItemTextHover: colorText,
         colorItemTextHoverHorizontal: colorPrimary,
         colorGroupTitle: colorTextDescription,
-        colorItemTextSelected: colorText,
+        colorItemTextSelected: colorPrimary,
         colorItemTextSelectedHorizontal: colorPrimary,
         colorItemBg: colorBgContainer,
         colorItemBgHover: colorBgTextHover,
         colorItemBgActive: colorFillContent,
         colorSubItemBg: colorFillAlter,
-        colorItemBgSelected: controlItemBgActiveHover,
+        colorItemBgSelected: controlItemBgActive,
         colorItemBgSelectedHorizontal: 'transparent',
         colorActiveBarWidth: 0,
         colorActiveBarHeight: lineWidthBold,

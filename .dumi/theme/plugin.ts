@@ -81,7 +81,7 @@ const RoutesPlugin = (api: IApi) => {
         let styles = '';
 
         // extract all emotion style tags from body
-        file.content = file.content.replace(/<style data-emotion[\s\S\n]+?<\/style>/g, (s) => {
+        file.content = file.content.replace(/<style data-emotion[\S\s]+?<\/style>/g, (s) => {
           styles += s;
 
           return '';
@@ -104,7 +104,9 @@ const RoutesPlugin = (api: IApi) => {
 
   // generate ssr css file
   api.onBuildHtmlComplete(() => {
-    const styleText = extractStyle((global as any).styleCache);
+    // FIXME: This should not be empty @peachScript
+    const styleCache = (global as any)?.styleCache;
+    const styleText = styleCache ? extractStyle(styleCache) : '';
     const styleTextWithoutStyleTag = styleText
       .replace(/<style\s[^>]*>/g, '')
       .replace(/<\/style>/g, '');

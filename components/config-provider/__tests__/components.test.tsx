@@ -144,7 +144,7 @@ describe('ConfigProvider', () => {
     testPair('Avatar', (props) => <Avatar {...props} />);
 
     // BackTop
-    testPair('BackTop', (props) => <BackTop visible {...props} />);
+    testPair('BackTop', (props) => <BackTop visibilityHeight={0} {...props} />);
 
     // Badge
     testPair('Badge', (props) => {

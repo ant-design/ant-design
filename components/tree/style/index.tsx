@@ -2,8 +2,8 @@ import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import { Keyframes } from '@ant-design/cssinjs';
 import { genCollapseMotion } from '../../style/motion';
 import { getStyle as getCheckboxStyle } from '../../checkbox/style';
-import type { DerivativeToken } from '../../theme';
-import { genComponentStyleHook, mergeToken } from '../../theme';
+import type { DerivativeToken } from '../../theme/internal';
+import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import { genFocusOutline, resetComponent } from '../../style';
 
 // ============================ Keyframes =============================
@@ -265,12 +265,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
 
       // >>> Title
       // add `${treeCls}-checkbox + span` to cover checkbox `${checkboxCls} + span`
-      [`
-        ${treeCls}-node-content-wrapper,
-        ${treeCls}-checkbox + span
-      `]: {
-        display: 'flex',
-        flexWrap: 'nowrap',
+      [`${treeCls}-node-content-wrapper, ${treeCls}-checkbox + span`]: {
         position: 'relative',
         zIndex: 'auto',
         minHeight: treeTitleHeight,

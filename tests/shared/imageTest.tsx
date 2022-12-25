@@ -7,6 +7,7 @@ import glob from 'glob';
 import { configureToMatchImageSnapshot } from 'jest-image-snapshot';
 import MockDate from 'mockdate';
 import ReactDOMServer from 'react-dom/server';
+import { App, theme, ConfigProvider } from '../../components';
 
 const toMatchImageSnapshot = configureToMatchImageSnapshot({
   customSnapshotsDir: `${process.cwd()}/imageSnapshots`,
@@ -17,46 +18,57 @@ expect.extend({ toMatchImageSnapshot });
 
 // eslint-disable-next-line jest/no-export
 export default function imageTest(component: React.ReactElement) {
-  it('component image screenshot should correct', async () => {
-    await jestPuppeteer.resetPage();
-    await page.setRequestInterception(true);
-    const onRequestHandle = (request: any) => {
-      if (['image'].includes(request.resourceType())) {
-        request.abort();
-      } else {
-        request.continue();
-      }
-    };
+  [theme.defaultAlgorithm, theme.darkAlgorithm, theme.compactAlgorithm].forEach(
+    (algorithm, index) => {
+      it(`component image screenshot should correct${index || ''}`, async () => {
+        await jestPuppeteer.resetPage();
+        await page.setRequestInterception(true);
+        const onRequestHandle = (request: any) => {
+          if (['image'].includes(request.resourceType())) {
+            request.abort();
+          } else {
+            request.continue();
+          }
+        };
 
-    MockDate.set(dayjs('2016-11-22').valueOf());
-    page.on('request', onRequestHandle);
-    await page.goto(`file://${process.cwd()}/tests/index.html`);
-    await page.addStyleTag({ path: `${process.cwd()}/dist/reset.css` });
+        MockDate.set(dayjs('2016-11-22').valueOf());
+        page.on('request', onRequestHandle);
+        await page.goto(`file://${process.cwd()}/tests/index.html`);
+        await page.addStyleTag({ path: `${process.cwd()}/dist/reset.css` });
 
-    const cache = createCache();
-    const html = ReactDOMServer.renderToString(
-      <StyleProvider cache={cache}>{component}</StyleProvider>,
-    );
-    const styleStr = extractStyle(cache);
+        const cache = createCache();
 
-    await page.evaluate(
-      (innerHTML, ssrStyle) => {
-        document.querySelector('#root')!.innerHTML = innerHTML;
+        const element = (
+          <ConfigProvider theme={{ algorithm }}>
+            <App>
+              <StyleProvider cache={cache}>{component}</StyleProvider>
+            </App>
+          </ConfigProvider>
+        );
 
-        const head = document.querySelector('head')!;
-        head.innerHTML += ssrStyle;
-      },
-      html,
-      styleStr,
-    );
+        const html = ReactDOMServer.renderToString(element);
+        const styleStr = extractStyle(cache);
 
-    const image = await page.screenshot();
+        await page.evaluate(
+          (innerHTML, ssrStyle) => {
+            document.querySelector('#root')!.innerHTML = innerHTML;
 
-    expect(image).toMatchImageSnapshot();
+            const head = document.querySelector('head')!;
+            head.innerHTML += ssrStyle;
+          },
+          html,
+          styleStr,
+        );
 
-    MockDate.reset();
-    page.removeListener('request', onRequestHandle);
-  });
+        const image = await page.screenshot();
+
+        expect(image).toMatchImageSnapshot();
+
+        MockDate.reset();
+        page.removeListener('request', onRequestHandle);
+      });
+    },
+  );
 }
 
 type Options = {
@@ -65,14 +77,16 @@ type Options = {
 
 // eslint-disable-next-line jest/no-export
 export function imageDemoTest(component: string, options: Options = {}) {
-  let testMethod = options.skip === true ? describe.skip : describe;
+  let describeMethod = options.skip === true ? describe.skip : describe;
   const files = glob.sync(`./components/${component}/demo/*.tsx`);
 
   files.forEach((file) => {
     if (Array.isArray(options.skip) && options.skip.some((c) => file.includes(c))) {
-      testMethod = test.skip;
+      describeMethod = describe.skip;
+    } else {
+      describeMethod = describe;
     }
-    testMethod(`Test ${file} image`, () => {
+    describeMethod(`Test ${file} image`, () => {
       // eslint-disable-next-line global-require,import/no-dynamic-require
       let Demo = require(`../.${file}`).default;
       if (typeof Demo === 'function') {

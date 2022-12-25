@@ -79,6 +79,7 @@ Array [
         >
           <div
             class="ant-tabs-tab ant-tabs-tab-active"
+            data-node-key="1"
           >
             <div
               aria-selected="true"
@@ -91,6 +92,7 @@ Array [
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="2"
           >
             <div
               aria-selected="false"
@@ -103,6 +105,7 @@ Array [
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="3"
           >
             <div
               aria-selected="false"
@@ -192,6 +195,7 @@ exports[`renders ./components/tabs/demo/basic.tsx correctly 1`] = `
       >
         <div
           class="ant-tabs-tab ant-tabs-tab-active"
+          data-node-key="1"
         >
           <div
             aria-selected="true"
@@ -204,6 +208,7 @@ exports[`renders ./components/tabs/demo/basic.tsx correctly 1`] = `
         </div>
         <div
           class="ant-tabs-tab"
+          data-node-key="2"
         >
           <div
             aria-selected="false"
@@ -216,6 +221,7 @@ exports[`renders ./components/tabs/demo/basic.tsx correctly 1`] = `
         </div>
         <div
           class="ant-tabs-tab"
+          data-node-key="3"
         >
           <div
             aria-selected="false"
@@ -303,6 +309,7 @@ exports[`renders ./components/tabs/demo/card.tsx correctly 1`] = `
       >
         <div
           class="ant-tabs-tab ant-tabs-tab-active"
+          data-node-key="1"
         >
           <div
             aria-selected="true"
@@ -315,6 +322,7 @@ exports[`renders ./components/tabs/demo/card.tsx correctly 1`] = `
         </div>
         <div
           class="ant-tabs-tab"
+          data-node-key="2"
         >
           <div
             aria-selected="false"
@@ -327,6 +335,7 @@ exports[`renders ./components/tabs/demo/card.tsx correctly 1`] = `
         </div>
         <div
           class="ant-tabs-tab"
+          data-node-key="3"
         >
           <div
             aria-selected="false"
@@ -399,7 +408,7 @@ exports[`renders ./components/tabs/demo/card.tsx correctly 1`] = `
 
 exports[`renders ./components/tabs/demo/card-top.tsx correctly 1`] = `
 <div
-  class="card-container"
+  class="css-evmtdo"
 >
   <div
     class="ant-tabs ant-tabs-top ant-tabs-card"
@@ -417,6 +426,7 @@ exports[`renders ./components/tabs/demo/card-top.tsx correctly 1`] = `
         >
           <div
             class="ant-tabs-tab ant-tabs-tab-active"
+            data-node-key="1"
           >
             <div
               aria-selected="true"
@@ -429,6 +439,7 @@ exports[`renders ./components/tabs/demo/card-top.tsx correctly 1`] = `
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="2"
           >
             <div
               aria-selected="false"
@@ -441,6 +452,7 @@ exports[`renders ./components/tabs/demo/card-top.tsx correctly 1`] = `
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="3"
           >
             <div
               aria-selected="false"
@@ -543,6 +555,7 @@ exports[`renders ./components/tabs/demo/centered.tsx correctly 1`] = `
       >
         <div
           class="ant-tabs-tab ant-tabs-tab-active"
+          data-node-key="1"
         >
           <div
             aria-selected="true"
@@ -555,6 +568,7 @@ exports[`renders ./components/tabs/demo/centered.tsx correctly 1`] = `
         </div>
         <div
           class="ant-tabs-tab"
+          data-node-key="2"
         >
           <div
             aria-selected="false"
@@ -567,6 +581,7 @@ exports[`renders ./components/tabs/demo/centered.tsx correctly 1`] = `
         </div>
         <div
           class="ant-tabs-tab"
+          data-node-key="3"
         >
           <div
             aria-selected="false"
@@ -667,6 +682,7 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.tsx correctly 1`] = `
         >
           <div
             class="ant-tabs-tab ant-tabs-tab-with-remove ant-tabs-tab-active"
+            data-node-key="1"
           >
             <div
               aria-selected="true"
@@ -705,6 +721,7 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.tsx correctly 1`] = `
           </div>
           <div
             class="ant-tabs-tab ant-tabs-tab-with-remove"
+            data-node-key="2"
           >
             <div
               aria-selected="false"
@@ -810,8 +827,9 @@ exports[`renders ./components/tabs/demo/custom-tab-bar.tsx correctly 1`] = `
     <div>
       <div />
       <div
-        class="ant-tabs-nav site-custom-tab-bar"
+        class="ant-tabs-nav"
         role="tablist"
+        style="z-index:1"
       >
         <div
           class="ant-tabs-nav-wrap"
@@ -822,6 +840,7 @@ exports[`renders ./components/tabs/demo/custom-tab-bar.tsx correctly 1`] = `
           >
             <div
               class="ant-tabs-tab ant-tabs-tab-active"
+              data-node-key="1"
             >
               <div
                 aria-selected="true"
@@ -834,6 +853,7 @@ exports[`renders ./components/tabs/demo/custom-tab-bar.tsx correctly 1`] = `
             </div>
             <div
               class="ant-tabs-tab"
+              data-node-key="2"
             >
               <div
                 aria-selected="false"
@@ -846,6 +866,7 @@ exports[`renders ./components/tabs/demo/custom-tab-bar.tsx correctly 1`] = `
             </div>
             <div
               class="ant-tabs-tab"
+              data-node-key="3"
             >
               <div
                 aria-selected="false"
@@ -863,6 +884,7 @@ exports[`renders ./components/tabs/demo/custom-tab-bar.tsx correctly 1`] = `
         </div>
         <div
           class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+          style="z-index:1"
         >
           <button
             aria-controls="null-more-popup"
@@ -935,11 +957,11 @@ exports[`renders ./components/tabs/demo/custom-tab-bar-node.tsx correctly 1`] = 
         style="transform:translate(0px, 0px)"
       >
         <div
-          class=""
           style="margin-right:24px"
         >
           <div
             class="ant-tabs-tab ant-tabs-tab-active"
+            data-node-key="1"
           >
             <div
               aria-selected="true"
@@ -952,11 +974,11 @@ exports[`renders ./components/tabs/demo/custom-tab-bar-node.tsx correctly 1`] = 
           </div>
         </div>
         <div
-          class=""
           style="margin-right:24px"
         >
           <div
             class="ant-tabs-tab"
+            data-node-key="2"
           >
             <div
               aria-selected="false"
@@ -969,11 +991,11 @@ exports[`renders ./components/tabs/demo/custom-tab-bar-node.tsx correctly 1`] = 
           </div>
         </div>
         <div
-          class=""
           style="margin-right:24px"
         >
           <div
             class="ant-tabs-tab"
+            data-node-key="3"
           >
             <div
               aria-selected="false"
@@ -983,117 +1005,6 @@ exports[`renders ./components/tabs/demo/custom-tab-bar-node.tsx correctly 1`] = 
             >
               tab 3
             </div>
-          </div>
-        </div>
-        <div
-          class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
-        />
-      </div>
-    </div>
-    <div
-      class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
-    >
-      <button
-        aria-controls="null-more-popup"
-        aria-expanded="false"
-        aria-haspopup="listbox"
-        aria-hidden="true"
-        class="ant-tabs-nav-more"
-        id="null-more"
-        style="visibility:hidden;order:1"
-        tabindex="-1"
-        type="button"
-      >
-        <span
-          aria-label="ellipsis"
-          class="anticon anticon-ellipsis"
-          role="img"
-        >
-          <svg
-            aria-hidden="true"
-            data-icon="ellipsis"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-            />
-          </svg>
-        </span>
-      </button>
-    </div>
-  </div>
-  <div
-    class="ant-tabs-content-holder"
-  >
-    <div
-      class="ant-tabs-content ant-tabs-content-top"
-    >
-      <div
-        aria-hidden="false"
-        class="ant-tabs-tabpane ant-tabs-tabpane-active"
-        role="tabpanel"
-        tabindex="0"
-      >
-        Content of Tab Pane 1
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`renders ./components/tabs/demo/deprecated.tsx correctly 1`] = `
-<div
-  class="ant-tabs ant-tabs-top"
->
-  <div
-    class="ant-tabs-nav"
-    role="tablist"
-  >
-    <div
-      class="ant-tabs-nav-wrap"
-    >
-      <div
-        class="ant-tabs-nav-list"
-        style="transform:translate(0px, 0px)"
-      >
-        <div
-          class="ant-tabs-tab ant-tabs-tab-active"
-        >
-          <div
-            aria-selected="true"
-            class="ant-tabs-tab-btn"
-            role="tab"
-            tabindex="0"
-          >
-            Tab 1
-          </div>
-        </div>
-        <div
-          class="ant-tabs-tab"
-        >
-          <div
-            aria-selected="false"
-            class="ant-tabs-tab-btn"
-            role="tab"
-            tabindex="0"
-          >
-            Tab 2
-          </div>
-        </div>
-        <div
-          class="ant-tabs-tab"
-        >
-          <div
-            aria-selected="false"
-            class="ant-tabs-tab-btn"
-            role="tab"
-            tabindex="0"
-          >
-            Tab 3
           </div>
         </div>
         <div
@@ -1173,6 +1084,7 @@ exports[`renders ./components/tabs/demo/disabled.tsx correctly 1`] = `
       >
         <div
           class="ant-tabs-tab ant-tabs-tab-active"
+          data-node-key="1"
         >
           <div
             aria-selected="true"
@@ -1185,6 +1097,7 @@ exports[`renders ./components/tabs/demo/disabled.tsx correctly 1`] = `
         </div>
         <div
           class="ant-tabs-tab ant-tabs-tab-disabled"
+          data-node-key="2"
         >
           <div
             aria-disabled="true"
@@ -1197,6 +1110,7 @@ exports[`renders ./components/tabs/demo/disabled.tsx correctly 1`] = `
         </div>
         <div
           class="ant-tabs-tab"
+          data-node-key="3"
         >
           <div
             aria-selected="false"
@@ -1284,6 +1198,7 @@ exports[`renders ./components/tabs/demo/editable-card.tsx correctly 1`] = `
       >
         <div
           class="ant-tabs-tab ant-tabs-tab-with-remove ant-tabs-tab-active"
+          data-node-key="1"
         >
           <div
             aria-selected="true"
@@ -1322,6 +1237,7 @@ exports[`renders ./components/tabs/demo/editable-card.tsx correctly 1`] = `
         </div>
         <div
           class="ant-tabs-tab ant-tabs-tab-with-remove"
+          data-node-key="2"
         >
           <div
             aria-selected="false"
@@ -1360,6 +1276,7 @@ exports[`renders ./components/tabs/demo/editable-card.tsx correctly 1`] = `
         </div>
         <div
           class="ant-tabs-tab"
+          data-node-key="3"
         >
           <div
             aria-selected="false"
@@ -1510,6 +1427,7 @@ Array [
         >
           <div
             class="ant-tabs-tab ant-tabs-tab-active"
+            data-node-key="1"
           >
             <div
               aria-selected="true"
@@ -1522,6 +1440,7 @@ Array [
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="2"
           >
             <div
               aria-selected="false"
@@ -1534,6 +1453,7 @@ Array [
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="3"
           >
             <div
               aria-selected="false"
@@ -1698,6 +1618,7 @@ Array [
         >
           <div
             class="ant-tabs-tab ant-tabs-tab-active"
+            data-node-key="1"
           >
             <div
               aria-selected="true"
@@ -1710,6 +1631,7 @@ Array [
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="2"
           >
             <div
               aria-selected="false"
@@ -1722,6 +1644,7 @@ Array [
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="3"
           >
             <div
               aria-selected="false"
@@ -1822,6 +1745,7 @@ exports[`renders ./components/tabs/demo/icon.tsx correctly 1`] = `
       >
         <div
           class="ant-tabs-tab"
+          data-node-key="1"
         >
           <div
             aria-selected="false"
@@ -1857,6 +1781,7 @@ exports[`renders ./components/tabs/demo/icon.tsx correctly 1`] = `
         </div>
         <div
           class="ant-tabs-tab ant-tabs-tab-active"
+          data-node-key="2"
         >
           <div
             aria-selected="true"
@@ -2196,6 +2121,7 @@ exports[`renders ./components/tabs/demo/nest.tsx correctly 1`] = `
         >
           <div
             class="ant-tabs-tab ant-tabs-tab-active"
+            data-node-key="1"
           >
             <div
               aria-selected="true"
@@ -2208,6 +2134,7 @@ exports[`renders ./components/tabs/demo/nest.tsx correctly 1`] = `
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="2"
           >
             <div
               aria-selected="false"
@@ -2288,6 +2215,7 @@ exports[`renders ./components/tabs/demo/nest.tsx correctly 1`] = `
                 >
                   <div
                     class="ant-tabs-tab"
+                    data-node-key="0"
                   >
                     <div
                       aria-selected="false"
@@ -2300,6 +2228,7 @@ exports[`renders ./components/tabs/demo/nest.tsx correctly 1`] = `
                   </div>
                   <div
                     class="ant-tabs-tab ant-tabs-tab-active"
+                    data-node-key="1"
                   >
                     <div
                       aria-selected="true"
@@ -2312,6 +2241,7 @@ exports[`renders ./components/tabs/demo/nest.tsx correctly 1`] = `
                   </div>
                   <div
                     class="ant-tabs-tab"
+                    data-node-key="2"
                   >
                     <div
                       aria-selected="false"
@@ -2324,6 +2254,7 @@ exports[`renders ./components/tabs/demo/nest.tsx correctly 1`] = `
                   </div>
                   <div
                     class="ant-tabs-tab"
+                    data-node-key="3"
                   >
                     <div
                       aria-selected="false"
@@ -2336,6 +2267,7 @@ exports[`renders ./components/tabs/demo/nest.tsx correctly 1`] = `
                   </div>
                   <div
                     class="ant-tabs-tab"
+                    data-node-key="4"
                   >
                     <div
                       aria-selected="false"
@@ -2348,6 +2280,7 @@ exports[`renders ./components/tabs/demo/nest.tsx correctly 1`] = `
                   </div>
                   <div
                     class="ant-tabs-tab"
+                    data-node-key="5"
                   >
                     <div
                       aria-selected="false"
@@ -2360,6 +2293,7 @@ exports[`renders ./components/tabs/demo/nest.tsx correctly 1`] = `
                   </div>
                   <div
                     class="ant-tabs-tab"
+                    data-node-key="6"
                   >
                     <div
                       aria-selected="false"
@@ -2372,6 +2306,7 @@ exports[`renders ./components/tabs/demo/nest.tsx correctly 1`] = `
                   </div>
                   <div
                     class="ant-tabs-tab"
+                    data-node-key="7"
                   >
                     <div
                       aria-selected="false"
@@ -2384,6 +2319,7 @@ exports[`renders ./components/tabs/demo/nest.tsx correctly 1`] = `
                   </div>
                   <div
                     class="ant-tabs-tab"
+                    data-node-key="8"
                   >
                     <div
                       aria-selected="false"
@@ -2396,6 +2332,7 @@ exports[`renders ./components/tabs/demo/nest.tsx correctly 1`] = `
                   </div>
                   <div
                     class="ant-tabs-tab"
+                    data-node-key="9"
                   >
                     <div
                       aria-selected="false"
@@ -2408,6 +2345,7 @@ exports[`renders ./components/tabs/demo/nest.tsx correctly 1`] = `
                   </div>
                   <div
                     class="ant-tabs-tab"
+                    data-node-key="10"
                   >
                     <div
                       aria-selected="false"
@@ -2420,6 +2358,7 @@ exports[`renders ./components/tabs/demo/nest.tsx correctly 1`] = `
                   </div>
                   <div
                     class="ant-tabs-tab"
+                    data-node-key="11"
                   >
                     <div
                       aria-selected="false"
@@ -2432,6 +2371,7 @@ exports[`renders ./components/tabs/demo/nest.tsx correctly 1`] = `
                   </div>
                   <div
                     class="ant-tabs-tab"
+                    data-node-key="12"
                   >
                     <div
                       aria-selected="false"
@@ -2444,6 +2384,7 @@ exports[`renders ./components/tabs/demo/nest.tsx correctly 1`] = `
                   </div>
                   <div
                     class="ant-tabs-tab"
+                    data-node-key="13"
                   >
                     <div
                       aria-selected="false"
@@ -2456,6 +2397,7 @@ exports[`renders ./components/tabs/demo/nest.tsx correctly 1`] = `
                   </div>
                   <div
                     class="ant-tabs-tab"
+                    data-node-key="14"
                   >
                     <div
                       aria-selected="false"
@@ -2468,6 +2410,7 @@ exports[`renders ./components/tabs/demo/nest.tsx correctly 1`] = `
                   </div>
                   <div
                     class="ant-tabs-tab"
+                    data-node-key="15"
                   >
                     <div
                       aria-selected="false"
@@ -2480,6 +2423,7 @@ exports[`renders ./components/tabs/demo/nest.tsx correctly 1`] = `
                   </div>
                   <div
                     class="ant-tabs-tab"
+                    data-node-key="16"
                   >
                     <div
                       aria-selected="false"
@@ -2492,6 +2436,7 @@ exports[`renders ./components/tabs/demo/nest.tsx correctly 1`] = `
                   </div>
                   <div
                     class="ant-tabs-tab"
+                    data-node-key="17"
                   >
                     <div
                       aria-selected="false"
@@ -2504,6 +2449,7 @@ exports[`renders ./components/tabs/demo/nest.tsx correctly 1`] = `
                   </div>
                   <div
                     class="ant-tabs-tab"
+                    data-node-key="18"
                   >
                     <div
                       aria-selected="false"
@@ -2516,6 +2462,7 @@ exports[`renders ./components/tabs/demo/nest.tsx correctly 1`] = `
                   </div>
                   <div
                     class="ant-tabs-tab"
+                    data-node-key="19"
                   >
                     <div
                       aria-selected="false"
@@ -2705,6 +2652,7 @@ Array [
         >
           <div
             class="ant-tabs-tab ant-tabs-tab-active"
+            data-node-key="1"
           >
             <div
               aria-selected="true"
@@ -2717,6 +2665,7 @@ Array [
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="2"
           >
             <div
               aria-selected="false"
@@ -2729,6 +2678,7 @@ Array [
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="3"
           >
             <div
               aria-selected="false"
@@ -2882,6 +2832,7 @@ exports[`renders ./components/tabs/demo/size.tsx correctly 1`] = `
         >
           <div
             class="ant-tabs-tab ant-tabs-tab-active"
+            data-node-key="1"
           >
             <div
               aria-selected="true"
@@ -2894,6 +2845,7 @@ exports[`renders ./components/tabs/demo/size.tsx correctly 1`] = `
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="2"
           >
             <div
               aria-selected="false"
@@ -2906,6 +2858,7 @@ exports[`renders ./components/tabs/demo/size.tsx correctly 1`] = `
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="3"
           >
             <div
               aria-selected="false"
@@ -2990,6 +2943,7 @@ exports[`renders ./components/tabs/demo/size.tsx correctly 1`] = `
         >
           <div
             class="ant-tabs-tab ant-tabs-tab-active"
+            data-node-key="1"
           >
             <div
               aria-selected="true"
@@ -3002,6 +2956,7 @@ exports[`renders ./components/tabs/demo/size.tsx correctly 1`] = `
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="2"
           >
             <div
               aria-selected="false"
@@ -3014,6 +2969,7 @@ exports[`renders ./components/tabs/demo/size.tsx correctly 1`] = `
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="3"
           >
             <div
               aria-selected="false"
@@ -3148,6 +3104,7 @@ exports[`renders ./components/tabs/demo/slide.tsx correctly 1`] = `
         >
           <div
             class="ant-tabs-tab"
+            data-node-key="0"
           >
             <div
               aria-disabled="false"
@@ -3161,6 +3118,7 @@ exports[`renders ./components/tabs/demo/slide.tsx correctly 1`] = `
           </div>
           <div
             class="ant-tabs-tab ant-tabs-tab-active"
+            data-node-key="1"
           >
             <div
               aria-disabled="false"
@@ -3174,6 +3132,7 @@ exports[`renders ./components/tabs/demo/slide.tsx correctly 1`] = `
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="2"
           >
             <div
               aria-disabled="false"
@@ -3187,6 +3146,7 @@ exports[`renders ./components/tabs/demo/slide.tsx correctly 1`] = `
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="3"
           >
             <div
               aria-disabled="false"
@@ -3200,6 +3160,7 @@ exports[`renders ./components/tabs/demo/slide.tsx correctly 1`] = `
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="4"
           >
             <div
               aria-disabled="false"
@@ -3213,6 +3174,7 @@ exports[`renders ./components/tabs/demo/slide.tsx correctly 1`] = `
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="5"
           >
             <div
               aria-disabled="false"
@@ -3226,6 +3188,7 @@ exports[`renders ./components/tabs/demo/slide.tsx correctly 1`] = `
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="6"
           >
             <div
               aria-disabled="false"
@@ -3239,6 +3202,7 @@ exports[`renders ./components/tabs/demo/slide.tsx correctly 1`] = `
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="7"
           >
             <div
               aria-disabled="false"
@@ -3252,6 +3216,7 @@ exports[`renders ./components/tabs/demo/slide.tsx correctly 1`] = `
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="8"
           >
             <div
               aria-disabled="false"
@@ -3265,6 +3230,7 @@ exports[`renders ./components/tabs/demo/slide.tsx correctly 1`] = `
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="9"
           >
             <div
               aria-disabled="false"
@@ -3278,6 +3244,7 @@ exports[`renders ./components/tabs/demo/slide.tsx correctly 1`] = `
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="10"
           >
             <div
               aria-disabled="false"
@@ -3291,6 +3258,7 @@ exports[`renders ./components/tabs/demo/slide.tsx correctly 1`] = `
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="11"
           >
             <div
               aria-disabled="false"
@@ -3304,6 +3272,7 @@ exports[`renders ./components/tabs/demo/slide.tsx correctly 1`] = `
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="12"
           >
             <div
               aria-disabled="false"
@@ -3317,6 +3286,7 @@ exports[`renders ./components/tabs/demo/slide.tsx correctly 1`] = `
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="13"
           >
             <div
               aria-disabled="false"
@@ -3330,6 +3300,7 @@ exports[`renders ./components/tabs/demo/slide.tsx correctly 1`] = `
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="14"
           >
             <div
               aria-disabled="false"
@@ -3343,6 +3314,7 @@ exports[`renders ./components/tabs/demo/slide.tsx correctly 1`] = `
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="15"
           >
             <div
               aria-disabled="false"
@@ -3356,6 +3328,7 @@ exports[`renders ./components/tabs/demo/slide.tsx correctly 1`] = `
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="16"
           >
             <div
               aria-disabled="false"
@@ -3369,6 +3342,7 @@ exports[`renders ./components/tabs/demo/slide.tsx correctly 1`] = `
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="17"
           >
             <div
               aria-disabled="false"
@@ -3382,6 +3356,7 @@ exports[`renders ./components/tabs/demo/slide.tsx correctly 1`] = `
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="18"
           >
             <div
               aria-disabled="false"
@@ -3395,6 +3370,7 @@ exports[`renders ./components/tabs/demo/slide.tsx correctly 1`] = `
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="19"
           >
             <div
               aria-disabled="false"
@@ -3408,6 +3384,7 @@ exports[`renders ./components/tabs/demo/slide.tsx correctly 1`] = `
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="20"
           >
             <div
               aria-disabled="false"
@@ -3421,6 +3398,7 @@ exports[`renders ./components/tabs/demo/slide.tsx correctly 1`] = `
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="21"
           >
             <div
               aria-disabled="false"
@@ -3434,6 +3412,7 @@ exports[`renders ./components/tabs/demo/slide.tsx correctly 1`] = `
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="22"
           >
             <div
               aria-disabled="false"
@@ -3447,6 +3426,7 @@ exports[`renders ./components/tabs/demo/slide.tsx correctly 1`] = `
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="23"
           >
             <div
               aria-disabled="false"
@@ -3460,6 +3440,7 @@ exports[`renders ./components/tabs/demo/slide.tsx correctly 1`] = `
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="24"
           >
             <div
               aria-disabled="false"
@@ -3473,6 +3454,7 @@ exports[`renders ./components/tabs/demo/slide.tsx correctly 1`] = `
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="25"
           >
             <div
               aria-disabled="false"
@@ -3486,6 +3468,7 @@ exports[`renders ./components/tabs/demo/slide.tsx correctly 1`] = `
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="26"
           >
             <div
               aria-disabled="false"
@@ -3499,6 +3482,7 @@ exports[`renders ./components/tabs/demo/slide.tsx correctly 1`] = `
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="27"
           >
             <div
               aria-disabled="false"
@@ -3512,6 +3496,7 @@ exports[`renders ./components/tabs/demo/slide.tsx correctly 1`] = `
           </div>
           <div
             class="ant-tabs-tab ant-tabs-tab-disabled"
+            data-node-key="28"
           >
             <div
               aria-disabled="true"
@@ -3524,6 +3509,7 @@ exports[`renders ./components/tabs/demo/slide.tsx correctly 1`] = `
           </div>
           <div
             class="ant-tabs-tab"
+            data-node-key="29"
           >
             <div
               aria-disabled="false"

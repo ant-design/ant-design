@@ -2,7 +2,7 @@
 category: Components
 group: Data Display
 title: Card
-cover: https://gw.alipayobjects.com/zos/alicdn/keNB-R8Y9/Card.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*VXtCTp93KPAAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 Simple rectangular container.
@@ -48,7 +48,7 @@ A card can be used to display content related to a single subject. The content c
 | size | Size of card | `default` \| `small` | `default` |  |
 | tabBarExtraContent | Extra content in tab bar | ReactNode | - |  |
 | tabList | List of TabPane's head | Array&lt;{key: string, tab: ReactNode}> | - |  |
-| tabProps | [Tabs](/components/tabs/#Tabs) | - | - |  |
+| tabProps | [Tabs](/components/tabs/#tabs) | - | - |  |
 | title | Card title | ReactNode | - |  |
 | type | Card style type, can be set to `inner` or not set | string | - |  |
 | onTabChange | Callback when tab is switched | (key) => void | - |  |

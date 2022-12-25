@@ -2,7 +2,7 @@
 group: Feedback
 category: Components
 title: Modal
-cover: https://gw.alipayobjects.com/zos/alicdn/3StSdUlSH/Modal.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*wM3qQ5XrhlcAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -31,7 +31,8 @@ When requiring users to interact with the application, but without jumping to a 
 <code src="./demo/modal-render.tsx">Custom modal content render</code>
 <code src="./demo/width.tsx">To customize the width of modal</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
-<code src="./demo/custom-mouse-position.tsx" debug>控制弹框动画原点</code>
+<code src="./demo/custom-mouse-position.tsx" debug>Control modal's animation origin position</code>
+<code src="./demo/wireframe.tsx" debug>Wireframe</code>
 
 ## API
 
@@ -39,7 +40,7 @@ When requiring users to interact with the application, but without jumping to a 
 | --- | --- | --- | --- | --- |
 | afterClose | Specify a function that will be called when modal is closed completely | function | - |  |
 | bodyStyle | Body style for modal body element. Such as height, padding etc | CSSProperties |  |  |
-| cancelButtonProps | The cancel button props | [ButtonProps](/components/button/#API) | - |  |
+| cancelButtonProps | The cancel button props | [ButtonProps](/components/button/#api) | - |  |
 | cancelText | Text of the Cancel button | ReactNode | `Cancel` |  |
 | centered | Centered Modal | boolean | false |  |
 | closable | Whether a close (x) button is visible on top right of the modal dialog or not | boolean | true |  |
@@ -55,7 +56,7 @@ When requiring users to interact with the application, but without jumping to a 
 | maskClosable | Whether to close the modal dialog when the mask (area outside the modal) is clicked | boolean | true |  |
 | maskStyle | Style for modal's mask element | CSSProperties |  |  |
 | modalRender | Custom modal content render | (node: ReactNode) => ReactNode | - | 4.7.0 |
-| okButtonProps | The ok button props | [ButtonProps](/components/button/#API) | - |  |
+| okButtonProps | The ok button props | [ButtonProps](/components/button/#api) | - |  |
 | okText | Text of the OK button | ReactNode | `OK` |  |
 | okType | Button `type` of the OK button | string | `primary` |  |
 | style | Style of floating layer, typically used at least for adjusting the position | CSSProperties | - |  |
@@ -90,20 +91,21 @@ The items listed above are all functions, expecting a settings object as paramet
 | afterClose | Specify a function that will be called when modal is closed completely | function | - | 4.9.0 |
 | autoFocusButton | Specify which button to autofocus | null \| `ok` \| `cancel` | `ok` |  |
 | bodyStyle | Body style for modal body element. Such as height, padding etc | CSSProperties |  | 4.8.0 |
-| cancelButtonProps | The cancel button props | [ButtonProps](/components/button/#API) | - |  |
+| cancelButtonProps | The cancel button props | [ButtonProps](/components/button/#api) | - |  |
 | cancelText | Text of the Cancel button with Modal.confirm | string | `Cancel` |  |
 | centered | Centered Modal | boolean | false |  |
 | className | The className of container | string | - |  |
 | closable | Whether a close (x) button is visible on top right of the confirm dialog or not | boolean | false | 4.9.0 |
 | closeIcon | Custom close icon | ReactNode | undefined | 4.9.0 |
 | content | Content | ReactNode | - |  |
+| footer | Footer content, set as `footer: null` when you don't need default buttons | ReactNode | - | 5.1.0 |
 | getContainer | Return the mount node for Modal | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
 | icon | Custom icon | ReactNode | &lt;QuestionCircle /> |  |
 | keyboard | Whether support press esc to close | boolean | true |  |
 | mask | Whether show mask or not. | boolean | true |  |
 | maskClosable | Whether to close the modal dialog when the mask (area outside the modal) is clicked | boolean | false |  |
 | maskStyle | Style for modal's mask element | object | {} |  |
-| okButtonProps | The ok button props | [ButtonProps](/components/button/#API) | - |  |
+| okButtonProps | The ok button props | [ButtonProps](/components/button/#api) | - |  |
 | okText | Text of the OK button | string | `OK` |  |
 | okType | Button `type` of the OK button | string | `primary` |  |
 | style | Style of floating layer, typically used at least for adjusting the position | CSSProperties | - |  |
@@ -125,7 +127,7 @@ modal.update({
 });
 
 // on 4.8.0 or above, you can pass a function to update modal
-modal.update(prevConfig => ({
+modal.update((prevConfig) => ({
   ...prevConfig,
   title: `${prevConfig.title} (New)`,
 }));
@@ -198,4 +200,4 @@ You can config `transitionName=""` and `maskTransitionName=""` to remove motion 
 
 ### How to set static methods prefixCls ？
 
-You can config with [`ConfigProvider.config`](</components/config-provider/#ConfigProvider.config()-4.13.0+>)
+You can config with [`ConfigProvider.config`](/components/config-provider#configproviderconfig-4130)

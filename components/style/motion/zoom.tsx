@@ -1,6 +1,6 @@
 import type { CSSInterpolation } from '@ant-design/cssinjs';
 import { Keyframes } from '@ant-design/cssinjs';
-import type { AliasToken } from '../../theme';
+import type { AliasToken } from '../../theme/internal';
 import type { TokenWithCommonCls } from '../../theme/util/genComponentStyleHook';
 import { initMotion } from './motion';
 
@@ -206,7 +206,7 @@ export const initZoomMotion = (
       motionCls,
       inKeyframes,
       outKeyframes,
-      motionName === 'zoom-big-fast' ? token.motionDurationMid : token.motionDurationMid,
+      motionName === 'zoom-big-fast' ? token.motionDurationFast : token.motionDurationMid,
     ),
     {
       [`

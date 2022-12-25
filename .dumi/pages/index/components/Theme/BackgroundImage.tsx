@@ -1,6 +1,6 @@
 import * as React from 'react';
 import useSiteToken from '../../../../hooks/useSiteToken';
-import { COLOR_IMAGES, DEFAULT_COLOR, getClosetColor } from './colorUtil';
+import { COLOR_IMAGES, getClosetColor } from './colorUtil';
 
 export interface BackgroundImageProps {
   colorPrimary?: string;
@@ -38,6 +38,7 @@ export default function BackgroundImage({ colorPrimary, isLight }: BackgroundIma
               objectPosition: 'right top',
             }}
             src={url}
+            alt=""
           />
         );
       })}

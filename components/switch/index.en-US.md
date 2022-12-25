@@ -2,7 +2,7 @@
 category: Components
 group: Data Entry
 title: Switch
-cover: https://gw.alipayobjects.com/zos/alicdn/zNdJQMhfm/Switch.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*rtArRpBNDZcAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---

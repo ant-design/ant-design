@@ -64,4 +64,4 @@ We provide comprehensive design guidelines, best practices, resources, and tools
 
 ## How to Contribute
 
-Contributions to Ant Design on Github are welcomed! Whether you have questions, concerns, or suggestions for improving Ant Design - please don't hesitate to reach out to us [here](https://github.com/ant-design/ant-design/issues).
+Contributions to Ant Design on GitHub are welcomed! Whether you have questions, concerns, or suggestions for improving Ant Design - please don't hesitate to reach out to us [here](https://github.com/ant-design/ant-design/issues).

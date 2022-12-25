@@ -7,7 +7,7 @@ import BackTop from './BackTop';
 import type { FloatButtonProps, FloatButtonGroupProps } from './interface';
 import { ConfigContext } from '../config-provider';
 
-export interface PureFloatButtonProps extends FloatButtonProps {
+export interface PureFloatButtonProps extends Omit<FloatButtonProps, 'target'> {
   backTop?: boolean;
 }
 
@@ -18,11 +18,10 @@ export interface PurePanelProps
   items?: PureFloatButtonProps[];
 }
 
-function PureFloatButton({ backTop, ...props }: PureFloatButtonProps) {
-  return backTop ? <BackTop {...props} visible target={undefined} /> : <FloatButton {...props} />;
-}
+const PureFloatButton: React.FC<PureFloatButtonProps> = ({ backTop, ...props }) =>
+  backTop ? <BackTop {...props} visibilityHeight={0} /> : <FloatButton {...props} />;
 
-export default function PurePanel({ className, items, ...props }: PurePanelProps) {
+function PurePanel({ className, items, ...props }: PurePanelProps) {
   const { prefixCls: customizePrefixCls } = props;
 
   const { getPrefixCls } = React.useContext(ConfigContext);
@@ -41,3 +40,5 @@ export default function PurePanel({ className, items, ...props }: PurePanelProps
 
   return <PureFloatButton className={classNames(className, pureCls)} {...props} />;
 }
+
+export default React.memo(PurePanel);

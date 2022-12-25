@@ -1,7 +1,7 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { Keyframes } from '@ant-design/cssinjs';
-import type { FullToken, GenerateStyle, PresetColorType } from '../../theme';
-import { genComponentStyleHook, mergeToken, PresetColors } from '../../theme';
+import type { FullToken, GenerateStyle, PresetColorType } from '../../theme/internal';
+import { genComponentStyleHook, mergeToken, PresetColors } from '../../theme/internal';
 import { resetComponent } from '../../style';
 
 interface BadgeToken extends FullToken<'Badge'> {
@@ -101,6 +101,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
       ...resetComponent(token),
       position: 'relative',
       display: 'inline-block',
+      width: 'fit-content',
       lineHeight: 1,
 
       [`${componentCls}-count`]: {
@@ -185,6 +186,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
         },
         [`${componentCls}-status-processing`]: {
           position: 'relative',
+          color: token.colorPrimary,
           backgroundColor: token.colorPrimary,
 
           '&::after': {
@@ -193,7 +195,9 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
             insetInlineStart: 0,
             width: '100%',
             height: '100%',
-            border: `${badgeShadowSize}px solid ${token.colorPrimary}`,
+            borderWidth: badgeShadowSize,
+            borderStyle: 'solid',
+            borderColor: 'inherit',
             borderRadius: '50%',
             animationName: antStatusProcessing,
             animationDuration: token.badgeProcessingDuration,
@@ -276,6 +280,15 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
         },
         [`${numberPrefixCls}-symbol`]: { verticalAlign: 'top' },
       },
+
+      // ====================== RTL =======================
+      '&-rtl': {
+        direction: 'rtl',
+
+        [`${componentCls}-count, ${componentCls}-dot, ${numberPrefixCls}-custom-component`]: {
+          insetInlineEnd: 'auto',
+        },
+      },
     },
     [`${ribbonWrapperPrefixCls}`]: { position: 'relative' },
     [`${ribbonPrefixCls}`]: {
@@ -307,7 +320,8 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
         borderEndEndRadius: 0,
         [`${ribbonPrefixCls}-corner`]: {
           insetInlineEnd: 0,
-          borderColor: 'currentcolor transparent transparent currentcolor',
+          borderInlineEndColor: 'transparent',
+          borderBlockEndColor: 'transparent',
         },
       },
       [`&${ribbonPrefixCls}-placement-start`]: {
@@ -315,8 +329,14 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
         borderEndStartRadius: 0,
         [`${ribbonPrefixCls}-corner`]: {
           insetInlineStart: 0,
-          borderColor: 'currentcolor currentcolor transparent transparent',
+          borderBlockEndColor: 'transparent',
+          borderInlineStartColor: 'transparent',
         },
+      },
+
+      // ====================== RTL =======================
+      '&-rtl': {
+        direction: 'rtl',
       },
     },
   };

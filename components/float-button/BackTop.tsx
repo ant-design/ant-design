@@ -2,8 +2,7 @@ import VerticalAlignTopOutlined from '@ant-design/icons/VerticalAlignTopOutlined
 import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import React, { memo, useContext, useEffect, useRef } from 'react';
+import React, { memo, useContext, useEffect, useRef, useState } from 'react';
 import FloatButton, { floatButtonPrefixCls } from './FloatButton';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
@@ -11,7 +10,7 @@ import getScroll from '../_util/getScroll';
 import scrollTo from '../_util/scrollTo';
 import throttleByAnimationFrame from '../_util/throttleByAnimationFrame';
 import FloatButtonGroupContext from './context';
-import type { BackTopProps, FloatButtonShape } from './interface';
+import type { BackTopProps, FloatButtonProps, FloatButtonShape } from './interface';
 import useStyle from './style';
 
 const BackTop: React.FC<BackTopProps> = (props) => {
@@ -28,46 +27,39 @@ const BackTop: React.FC<BackTopProps> = (props) => {
     ...restProps
   } = props;
 
-  const [visible, setVisible] = useMergedState(false, { value: props.visible });
+  const [visible, setVisible] = useState<boolean>(visibilityHeight === 0);
 
   const ref = useRef<HTMLAnchorElement | HTMLButtonElement>(null);
-
-  const scrollEvent = useRef<any>(null);
+  const scrollEvent = useRef<ReturnType<typeof addEventListener> | null>(null);
 
   const getDefaultTarget = (): HTMLElement | Document | Window =>
     ref.current && ref.current.ownerDocument ? ref.current.ownerDocument : window;
 
   const handleScroll = throttleByAnimationFrame(
-    (e: React.UIEvent<HTMLElement> | { target: any }) => {
+    (e: React.UIEvent<HTMLElement, UIEvent> | { target: any }) => {
       const scrollTop = getScroll(e.target, true);
-      setVisible(scrollTop > visibilityHeight!);
+      setVisible(scrollTop >= visibilityHeight);
     },
   );
 
   const bindScrollEvent = () => {
     const getTarget = target || getDefaultTarget;
     const container = getTarget();
-    scrollEvent.current = addEventListener(container, 'scroll', (e: React.UIEvent<HTMLElement>) => {
-      handleScroll(e);
-    });
+    scrollEvent.current = addEventListener(container, 'scroll', handleScroll);
     handleScroll({ target: container });
   };
 
   useEffect(() => {
     bindScrollEvent();
     return () => {
-      if (scrollEvent.current) {
-        scrollEvent.current.remove();
-      }
       handleScroll.cancel();
+      scrollEvent.current?.remove();
     };
   }, [target]);
 
   const scrollToTop: React.MouseEventHandler<HTMLDivElement> = (e) => {
     scrollTo(0, { getContainer: target || getDefaultTarget, duration });
-    if (typeof onClick === 'function') {
-      onClick(e);
-    }
+    onClick?.(e);
   };
 
   const { getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
@@ -80,7 +72,7 @@ const BackTop: React.FC<BackTopProps> = (props) => {
 
   const mergeShape = groupShape || shape;
 
-  const contentProps = { prefixCls, icon, type, shape: mergeShape, ...restProps };
+  const contentProps: FloatButtonProps = { prefixCls, icon, type, shape: mergeShape, ...restProps };
 
   return wrapSSR(
     <CSSMotion visible={visible} motionName={`${rootPrefixCls}-fade`}>

@@ -29,10 +29,10 @@ describe('Tour', () => {
         </>
       );
     };
-    const { getByText, container } = render(<App />);
+    const { getByText, baseElement } = render(<App />);
     expect(getByText('cover title')).toBeTruthy();
     expect(getByText('cover description.')).toBeTruthy();
-    expect(container.firstChild).toMatchSnapshot();
+    expect(baseElement).toMatchSnapshot();
   });
 
   it('steps is empty', () => {
@@ -48,8 +48,8 @@ describe('Tour', () => {
         </>
       );
     };
-    const { container } = render(<App />);
-    expect(container.firstChild).toMatchSnapshot();
+    const { baseElement } = render(<App />);
+    expect(baseElement).toMatchSnapshot();
   });
 
   it('steps props stepRender', () => {
@@ -95,14 +95,14 @@ describe('Tour', () => {
         </>
       );
     };
-    const { container } = render(<App />);
+    const { baseElement } = render(<App />);
     fireEvent.click(screen.getByRole('button', { name: 'Next' }));
     fireEvent.click(screen.getByRole('button', { name: 'Previous' }));
     fireEvent.click(screen.getByRole('button', { name: 'Next' }));
     fireEvent.click(screen.getByRole('button', { name: 'Next' }));
     fireEvent.click(screen.getByRole('button', { name: 'Finish' }));
     expect(onClickMock).toHaveBeenCalledTimes(5);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(baseElement).toMatchSnapshot();
   });
 
   it('button props onClick', () => {
@@ -141,15 +141,16 @@ describe('Tour', () => {
         </>
       );
     };
-    const { container } = render(<App />);
-    expect(container.querySelector('#btnName')).toHaveTextContent('defaultBtn');
+    const { baseElement } = render(<App />);
+    expect(baseElement.querySelector('#btnName')).toHaveTextContent('defaultBtn');
     fireEvent.click(screen.getByRole('button', { name: 'Next' }));
-    expect(container.querySelector('#btnName')).toHaveTextContent('nextButton');
+    expect(baseElement.querySelector('#btnName')).toHaveTextContent('nextButton');
     fireEvent.click(screen.getByRole('button', { name: 'Previous' }));
-    expect(container.querySelector('#btnName')).toHaveTextContent('prevButton');
+    expect(baseElement.querySelector('#btnName')).toHaveTextContent('prevButton');
     fireEvent.click(screen.getByRole('button', { name: 'Next' }));
     fireEvent.click(screen.getByRole('button', { name: 'Finish' }));
-    expect(container.querySelector('#btnName')).toHaveTextContent('finishButton');
+    expect(baseElement.querySelector('#btnName')).toHaveTextContent('finishButton');
+    expect(baseElement).toMatchSnapshot();
   });
 
   it('Primary', () => {
@@ -174,10 +175,47 @@ describe('Tour', () => {
         </>
       );
     };
-    const { getByText, container } = render(<App />);
+    const { getByText, baseElement } = render(<App />);
     expect(getByText('primary description.')).toBeTruthy();
-    expect(container.querySelector('.ant-tour')).toHaveClass('ant-tour-primary');
-    expect(container.firstChild).toMatchSnapshot();
+    expect(baseElement.querySelector('.ant-tour-content')).toHaveClass('ant-tour-primary');
+    expect(baseElement).toMatchSnapshot();
+  });
+
+  it('step support Primary', () => {
+    const App: React.FC = () => {
+      const coverBtnRef = useRef<HTMLButtonElement>(null);
+      return (
+        <>
+          <button disabled ref={coverBtnRef} type="button">
+            Cover
+          </button>
+
+          <Tour
+            type="default"
+            steps={[
+              {
+                title: 'cover title',
+                description: 'cover description.',
+                target: () => coverBtnRef.current!,
+              },
+              {
+                title: 'primary title',
+                description: 'primary description.',
+                target: () => coverBtnRef.current!,
+                type: 'primary',
+              },
+            ]}
+          />
+        </>
+      );
+    };
+    const { getByText, container, baseElement } = render(<App />);
+    expect(getByText('cover description.')).toBeTruthy();
+    expect(container.querySelector('.ant-tour-content.ant-tour-primary')).toBeFalsy();
+    fireEvent.click(screen.getByRole('button', { name: 'Next' }));
+    expect(getByText('primary description.')).toBeTruthy();
+    expect(container.querySelector('.ant-tour-content.ant-tour-primary')).toBeTruthy();
+    expect(baseElement).toMatchSnapshot();
   });
 
   it('basic', () => {
@@ -243,7 +281,7 @@ describe('Tour', () => {
         </>
       );
     };
-    const { getByText, container } = render(<App />);
+    const { getByText, container, baseElement } = render(<App />);
     fireEvent.click(screen.getByRole('button', { name: 'Show' }));
     expect(getByText('Show in Center')).toBeTruthy();
     fireEvent.click(screen.getByRole('button', { name: 'Next' }));
@@ -252,11 +290,51 @@ describe('Tour', () => {
     expect(getByText('Adjust Placement')).toBeTruthy();
     fireEvent.click(screen.getByRole('button', { name: 'Finish' }));
     expect(container.querySelector('.ant-tour')).toBeFalsy();
-    expect(container.firstChild).toMatchSnapshot();
+    expect(baseElement).toMatchSnapshot();
   });
   it('panelRender should correct render when total is undefined', () => {
     expect(() => {
       panelRender({ total: undefined, title: <div>test</div> }, 0, 'default');
     }).not.toThrow();
+  });
+
+  it('custom step pre btn & next btn className & style', () => {
+    const App: React.FC = () => (
+      <Tour
+        steps={[
+          {
+            title: 'Show in Center',
+            description: 'Here is the content of Tour.',
+            nextButtonProps: {
+              className: 'customClassName',
+              style: {
+                backgroundColor: 'rgb(69,69,255)',
+              },
+            },
+          },
+          {
+            title: 'With Cover',
+            description: 'Here is the content of Tour.',
+            cover: (
+              <img
+                alt="tour.png"
+                src="https://user-images.githubusercontent.com/5378891/197385811-55df8480-7ff4-44bd-9d43-a7dade598d70.png"
+              />
+            ),
+          },
+        ]}
+      />
+    );
+
+    const { container } = render(<App />);
+    // className
+    expect(
+      screen.getByRole('button', { name: 'Next' }).className.includes('customClassName'),
+    ).toEqual(true);
+    // style
+    expect(screen.getByRole('button', { name: 'Next' }).style.backgroundColor).toEqual(
+      'rgb(69, 69, 255)',
+    );
+    expect(container.firstChild).toMatchSnapshot();
   });
 });

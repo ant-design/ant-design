@@ -4,8 +4,8 @@ import { useStyleRegister } from '@ant-design/cssinjs';
 import { useContext } from 'react';
 import { genCommonStyle, genLinkStyle } from '../../style';
 import { ConfigContext } from '../../config-provider/context';
-import type { UseComponentStyleResult } from '../index';
-import { mergeToken, statisticToken, useToken } from '../index';
+import type { UseComponentStyleResult } from '../internal';
+import { mergeToken, statisticToken, useToken } from '../internal';
 import type { ComponentTokenMap, GlobalToken } from '../interface';
 
 export type OverrideTokenWithoutDerivative = ComponentTokenMap;
@@ -87,7 +87,7 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
             overrideComponentToken: token[component],
           });
           flush(component, mergedComponentToken);
-          return [genCommonStyle(token, prefixCls), styleInterpolation];
+          return [genCommonStyle(prefixCls), styleInterpolation];
         },
       ),
       hashId,

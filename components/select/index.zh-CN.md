@@ -3,7 +3,7 @@ category: Components
 subtitle: 选择器
 group: 数据录入
 title: Select
-cover: https://gw.alipayobjects.com/zos/alicdn/_0XzgOis7/Select.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*zo76T7KQx2UAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -13,7 +13,7 @@ demo:
 ## 何时使用
 
 - 弹出一个下拉菜单给用户选择操作，用于代替原生的选择器，或者需要一个更优雅的多选器时。
-- 当选项少时（少于 5 项），建议直接将选项平铺，使用 [Radio](/components/radio/) 是更好的选择。
+- 当选项少时（少于 5 项），建议直接将选项平铺，使用 [Radio](/components/radio-cn/) 是更好的选择。
 
 ## 代码演示
 
@@ -154,7 +154,7 @@ Select 当失去焦点时会关闭下拉框，如果你可以通过阻止默认�
 <Select
   dropdownRender={() => (
     <div
-      onMouseDown={e => {
+      onMouseDown={(e) => {
         e.preventDefault();
         e.stopPropagation();
       }}
@@ -178,3 +178,5 @@ Select 当失去焦点时会关闭下拉框，如果你可以通过阻止默认�
 ### 为何无障碍测试会报缺失 `aria-` 属性？
 
 Select 无障碍辅助元素仅在弹窗展开时创建，因而当你在进行无障碍检测时请先打开下拉后再进行测试。对于 `aria-label` 与 `aria-labelledby` 属性缺失警告，请自行为 Select 组件添加相应无障碍属性。
+
+Select 虚拟滚动会模拟无障碍绑定元素。如果需要读屏器完整获取全部列表，你可以设置 `virtual={false}` 关闭虚拟滚动，无障碍选项将会绑定到真实元素上。

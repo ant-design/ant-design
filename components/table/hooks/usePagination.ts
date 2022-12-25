@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import type { PaginationProps } from '../../pagination';
 import type { TablePaginationConfig } from '../interface';
+import extendsObject from '../../_util/extendsObject';
 
 export const DEFAULT_PAGE_SIZE = 10;
 
@@ -23,23 +24,6 @@ export function getPaginationParam(
   });
 
   return param;
-}
-
-function extendsObject<T extends Object>(...list: T[]) {
-  const result: T = {} as T;
-
-  list.forEach((obj) => {
-    if (obj) {
-      Object.keys(obj).forEach((key) => {
-        const val = (obj as any)[key];
-        if (val !== undefined) {
-          (result as any)[key] = val;
-        }
-      });
-    }
-  });
-
-  return result;
 }
 
 export default function usePagination(

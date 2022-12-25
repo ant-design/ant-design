@@ -7,7 +7,6 @@ import type { OptionProps } from 'rc-select/lib/Option';
 import type { BaseOptionType, DefaultOptionType } from 'rc-select/lib/Select';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
-import { useContext } from 'react';
 import { ConfigContext } from '../config-provider';
 import defaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import DisabledContext from '../config-provider/DisabledContext';
@@ -92,6 +91,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     direction,
     virtual,
     dropdownMatchSelectWidth,
+    select,
   } = React.useContext(ConfigContext);
   const size = React.useContext(SizeContext);
 
@@ -125,7 +125,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     hasFeedback,
     isFormItemInput,
     feedbackIcon,
-  } = useContext(FormItemInputContext);
+  } = React.useContext(FormItemInputContext);
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
   // ===================== Empty =====================
@@ -203,6 +203,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
       ref={ref as any}
       virtual={virtual}
       dropdownMatchSelectWidth={dropdownMatchSelectWidth}
+      showSearch={select?.showSearch}
       {...selectProps}
       transitionName={getTransitionName(
         rootPrefixCls,

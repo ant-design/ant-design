@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Table } from 'antd';
+import { Table, theme } from 'antd';
 import type { TableProps } from 'antd';
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
@@ -8,6 +8,7 @@ import { VariableSizeGrid as Grid } from 'react-window';
 const VirtualTable = <RecordType extends object>(props: TableProps<RecordType>) => {
   const { columns, scroll } = props;
   const [tableWidth, setTableWidth] = useState(0);
+  const { token } = theme.useToken();
 
   const widthColumnCount = columns!.filter(({ width }) => !width).length;
   const mergedColumns = columns!.map((column) => {
@@ -86,7 +87,13 @@ const VirtualTable = <RecordType extends object>(props: TableProps<RecordType>) 
             className={classNames('virtual-table-cell', {
               'virtual-table-cell-last': columnIndex === mergedColumns.length - 1,
             })}
-            style={style}
+            style={{
+              ...style,
+              boxSizing: 'border-box',
+              padding: token.padding,
+              borderBottom: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
+              background: token.colorBgContainer,
+            }}
           >
             {(rawData[rowIndex] as any)[(mergedColumns as any)[columnIndex].dataIndex]}
           </div>

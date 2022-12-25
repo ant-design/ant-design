@@ -3,7 +3,7 @@ category: Components
 subtitle: 输入框
 group: 数据录入
 title: Input
-cover: https://gw.alipayobjects.com/zos/alicdn/xS9YEJhfe/Input.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Y3R0RowXHlAAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -113,7 +113,7 @@ Input 的其他属性和 React 自带的 [input](https://reactjs.org/docs/dom-el
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | iconRender | 自定义切换按钮 | (visible) => ReactNode | (visible) => (visible ? &lt;EyeOutlined /> : &lt;EyeInvisibleOutlined />) | 4.3.0 |
-| visibilityToggle | 是否显示切换按钮或者控制密码显隐 | boolean \| [VisibilityToggle](#VisibilityToggle) | true |  |
+| visibilityToggle | 是否显示切换按钮或者控制密码显隐 | boolean \| [VisibilityToggle](#visibilitytoggle) | true |  |
 
 #### VisibilityToggle
 

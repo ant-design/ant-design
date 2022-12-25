@@ -1,8 +1,8 @@
-import React, { type FC } from 'react';
+import React from 'react';
 
-const APITable: FC = () => {
+const APITable: React.FC = () => (
   // TODO: implement api table, depend on the new markdown data structure passed
-  return <>API Table</>;
-};
+  <>API Table</>
+);
 
 export default APITable;

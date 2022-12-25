@@ -1,7 +1,7 @@
 import Pagination from 'rc-pagination/lib/locale/vi_VN';
 import Calendar from '../calendar/locale/vi_VN';
 import DatePicker from '../date-picker/locale/vi_VN';
-import type { Locale } from '../locale-provider';
+import type { Locale } from '../locale';
 import TimePicker from '../time-picker/locale/vi_VN';
 
 const localeValues: Locale = {
@@ -11,20 +11,20 @@ const localeValues: Locale = {
   TimePicker,
   Calendar,
   Table: {
-    filterTitle: 'Bộ ',
-    filterConfirm: 'OK',
-    filterReset: 'Tạo Lại',
-    selectAll: 'Chọn Tất Cả',
-    selectInvert: 'Chọn Ngược Lại',
+    filterTitle: 'Bộ lọc',
+    filterConfirm: 'Đồng ý',
+    filterReset: 'Bỏ lọc',
+    selectAll: 'Chọn tất cả',
+    selectInvert: 'Chọn ngược lại',
   },
   Modal: {
-    okText: 'OK',
-    cancelText: 'Huỷ',
+    okText: 'Đồng ý',
+    cancelText: 'Hủy',
     justOkText: 'OK',
   },
   Popconfirm: {
-    okText: 'OK',
-    cancelText: 'Huỷ',
+    okText: 'Đồng ý',
+    cancelText: 'Hủy',
   },
   Transfer: {
     titles: ['', ''],
@@ -36,7 +36,7 @@ const localeValues: Locale = {
     uploading: 'Đang tải lên...',
     removeFile: 'Gỡ bỏ tập tin',
     uploadError: 'Lỗi tải lên',
-    previewFile: 'Xem thử tập tin',
+    previewFile: 'Xem trước tập tin',
     downloadFile: 'Tải tập tin',
   },
   Empty: {

@@ -2,7 +2,7 @@
 category: Components
 group: Data Display
 title: Collapse
-cover: https://gw.alipayobjects.com/zos/alicdn/IxH16B9RD/Collapse.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*B7HKR5OBe8gAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 A content area which can be collapsed and expanded.

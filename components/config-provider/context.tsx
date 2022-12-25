@@ -1,7 +1,7 @@
 import * as React from 'react';
 import type { DerivativeFunc } from '@ant-design/cssinjs';
 import type { RequiredMark } from '../form/Form';
-import type { Locale } from '../locale-provider';
+import type { Locale } from '../locale';
 import type { AliasToken, MapToken, OverrideToken, SeedToken } from '../theme/interface';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
 import type { SizeType } from './SizeContext';
@@ -63,6 +63,9 @@ export interface ConfigConsumerProps {
     colon?: boolean;
   };
   theme?: ThemeConfig;
+  select?: {
+    showSearch?: boolean;
+  };
 }
 
 const defaultGetPrefixCls = (suffixCls?: string, customizePrefixCls?: string) => {
@@ -71,7 +74,7 @@ const defaultGetPrefixCls = (suffixCls?: string, customizePrefixCls?: string) =>
   return suffixCls ? `ant-${suffixCls}` : 'ant';
 };
 
-// zombieJ: 🚨 Do not pass `defaultRenderEmpty` here since it will case circular dependency.
+// zombieJ: 🚨 Do not pass `defaultRenderEmpty` here since it will cause circular dependency.
 export const ConfigContext = React.createContext<ConfigConsumerProps>({
   // We provide a default function for Context without provider
   getPrefixCls: defaultGetPrefixCls,
@@ -98,7 +101,7 @@ export function withConfigConsumer<ExportProps extends BasicExportProps>(config:
   return function withConfigConsumerFunc<ComponentDef>(
     Component: React.ComponentType<ExportProps>,
   ): React.FC<ExportProps> & ComponentDef {
-    // Wrap with ConfigConsumer. Since we need compatible with react 15, be care when using ref methods
+    // Wrap with ConfigConsumer. Since we need compatible with react 15, be careful when using ref methods
     const SFC = ((props: ExportProps) => (
       <ConfigConsumer>
         {(configProps: ConfigConsumerProps) => {
