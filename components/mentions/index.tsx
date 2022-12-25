@@ -27,9 +27,7 @@ function loadingFilterOption() {
 
 export type MentionPlacement = 'top' | 'bottom';
 
-export type {
-  DataDrivenOptionProps as MentionsOptionProps,
-} from 'rc-mentions/lib/Mentions';
+export type { DataDrivenOptionProps as MentionsOptionProps } from 'rc-mentions/lib/Mentions';
 
 export interface OptionProps {
   value: string;
