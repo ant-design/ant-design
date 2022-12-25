@@ -54,6 +54,7 @@ export default () => {
           padding: 16px;
           text-align: center;
           background: #f2f4f5;
+          box-sizing: border-box;
         }
 
         .preview-image-wrapper.video {
@@ -115,6 +116,7 @@ export default () => {
         }
 
         .preview-image-box img {
+          box-sizing: border-box;
           max-width: 100%;
           padding: 12px;
           background: ${token.colorBgContainer};
@@ -136,51 +138,6 @@ export default () => {
 
         .preview-image-box img:hover {
           box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.3);
-        }
-
-        .preview-img {
-          float: right;
-          clear: both;
-          max-width: 496px !important;
-          margin: 0 0 70px 64px;
-          padding: 16px;
-          background-color: #f2f4f5;
-        }
-
-        .image-modal {
-          text-align: center;
-
-          &-container {
-            position: relative;
-            text-align: center;
-          }
-
-          .ant-carousel {
-            .slick-slider {
-              padding-bottom: 24px;
-
-              img {
-                display: inline;
-                max-width: 100%;
-              }
-            }
-
-            .slick-dots {
-              bottom: 4px;
-
-              li button {
-                background: #888;
-              }
-            }
-          }
-
-          .image-modal-single.slick-slider {
-            padding-bottom: 0;
-          }
-
-          .image-modal-single .slick-dots {
-            display: none !important;
-          }
         }
 
         .transition-video-player,

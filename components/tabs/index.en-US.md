@@ -28,7 +28,7 @@ Ant Design has 3 types of Tabs for different situations.
 <code src="./demo/position.tsx">Position</code>
 <code src="./demo/card.tsx">Card type tab</code>
 <code src="./demo/editable-card.tsx">Add & close tab</code>
-<code src="./demo/card-top.tsx">Container of card type Tab</code>
+<code src="./demo/card-top.tsx" compact debug>Container of card type Tab</code>
 <code src="./demo/custom-add-trigger.tsx">Customized trigger of new tab</code>
 <code src="./demo/custom-tab-bar.tsx">Customized bar of tab</code>
 <code src="./demo/custom-tab-bar-node.tsx">Draggable Tabs</code>

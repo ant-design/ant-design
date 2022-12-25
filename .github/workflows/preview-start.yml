@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: update status comment
-        uses: actions-cool/maintain-one-comment@v2
+        uses: actions-cool/maintain-one-comment@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |
