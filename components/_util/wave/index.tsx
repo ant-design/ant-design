@@ -169,7 +169,7 @@ const Wave: React.FC<WaveProps> = (props) => {
     }
     const internalClick = (e: MouseEvent) => {
       // Fix radio button click twice
-      if ((e.target as HTMLElement).tagName === 'INPUT' || isHidden(e.target as HTMLElement)) {
+      if ((e.target as HTMLElement)?.tagName === 'INPUT' || isHidden(e.target as HTMLElement)) {
         return;
       }
       resetEffect(node);
