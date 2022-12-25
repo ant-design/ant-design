@@ -81,42 +81,4 @@ export const ConfigContext = React.createContext<ConfigConsumerProps>({
   iconPrefixCls: defaultIconPrefixCls,
 });
 
-export const ConfigConsumer = ConfigContext.Consumer;
-
-// =========================== withConfigConsumer ===========================
-interface BasicExportProps {
-  prefixCls?: string;
-}
-
-interface ConsumerConfig {
-  prefixCls: string;
-}
-
-interface ConstructorProps {
-  displayName?: string;
-}
-
-/** @deprecated Use hooks instead. This is a legacy function */
-export function withConfigConsumer<ExportProps extends BasicExportProps>(config: ConsumerConfig) {
-  return function withConfigConsumerFunc<ComponentDef>(
-    Component: React.ComponentType<ExportProps>,
-  ): React.FC<ExportProps> & ComponentDef {
-    // Wrap with ConfigConsumer. Since we need compatible with react 15, be careful when using ref methods
-    const SFC: React.FC<ExportProps> & ComponentDef = ((props) => {
-      const configProps = React.useContext<ConfigConsumerProps>(ConfigContext);
-      const { getPrefixCls } = configProps;
-      const { prefixCls: basicPrefixCls } = config;
-      const { prefixCls: customizePrefixCls } = props;
-      const prefixCls = getPrefixCls(basicPrefixCls, customizePrefixCls);
-      return <Component {...configProps} {...props} prefixCls={prefixCls} />;
-    }) as React.FC<ExportProps> & ComponentDef;
-
-    const cons: ConstructorProps = Component.constructor as ConstructorProps;
-    const name = (cons && cons.displayName) || Component.name || 'Component';
-
-    if (process.env.NODE_ENV !== 'production') {
-      SFC.displayName = `withConfigConsumer(${name})`;
-    }
-    return SFC;
-  };
-}
+export const { Consumer: ConfigConsumer } = ConfigContext;
