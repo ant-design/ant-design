@@ -8,6 +8,7 @@ import LocaleReceiver from '../locale/LocaleReceiver';
 import defaultLocale from '../locale/en_US';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
+import { groupKeysMap, groupDisabledKeysMap } from '../_util/transKeys';
 import warning from '../_util/warning';
 import type { PaginationType } from './interface';
 import type { TransferListProps } from './list';
@@ -203,15 +204,16 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
     const { targetKeys = [], dataSource = [], onChange } = this.props;
     const { sourceSelectedKeys, targetSelectedKeys } = this.state;
     const moveKeys = direction === 'right' ? sourceSelectedKeys : targetSelectedKeys;
+    const dataSourceDisabledKeysMap = groupDisabledKeysMap(dataSource);
+
     // filter the disabled options
-    const newMoveKeys = moveKeys.filter(
-      (key) => !dataSource.some((data) => !!(key === data.key && data.disabled)),
-    );
+    const newMoveKeys = moveKeys.filter((key) => !dataSourceDisabledKeysMap.has(key));
+    const newMoveKeysMap = groupKeysMap(newMoveKeys);
     // move items to target box
     const newTargetKeys =
       direction === 'right'
         ? newMoveKeys.concat(targetKeys)
-        : targetKeys.filter((targetKey) => !newMoveKeys.includes(targetKey));
+        : targetKeys.filter((targetKey) => !newMoveKeysMap.has(targetKey));
 
     // empty checked keys
     const oppositeDirection = direction === 'right' ? 'left' : 'right';
@@ -232,8 +234,9 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
         // Merge current keys with origin key
         mergedCheckedKeys = Array.from(new Set<string>([...prevKeys, ...selectedKeys]));
       } else {
+        const selectedKeysMap = groupKeysMap(selectedKeys);
         // Remove current keys from origin keys
-        mergedCheckedKeys = prevKeys.filter((key) => !selectedKeys.includes(key));
+        mergedCheckedKeys = prevKeys.filter((key) => !selectedKeysMap.has(key));
       }
 
       this.handleSelectChange(direction, mergedCheckedKeys);
@@ -341,6 +344,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
 
     const leftDataSource: KeyWise<RecordType>[] = [];
     const rightDataSource: KeyWise<RecordType>[] = new Array(targetKeys.length);
+    const targetKeysMap = groupKeysMap(targetKeys);
     dataSource.forEach((record: KeyWise<RecordType>) => {
       if (rowKey) {
         record = {
@@ -348,12 +352,10 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
           key: rowKey(record),
         };
       }
-
       // rightDataSource should be ordered by targetKeys
       // leftDataSource should be ordered by dataSource
-      const indexOfKey = targetKeys.indexOf(record.key);
-      if (indexOfKey !== -1) {
-        rightDataSource[indexOfKey] = record;
+      if (targetKeysMap.has(record.key)) {
+        rightDataSource[targetKeysMap.get(record.key)!] = record;
       } else {
         leftDataSource.push(record);
       }
