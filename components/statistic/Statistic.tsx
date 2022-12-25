@@ -6,6 +6,7 @@ import Skeleton from '../skeleton';
 import StatisticNumber from './Number';
 import type { FormatConfig, valueType } from './utils';
 import useStyle from './style';
+import Countdown from './Countdown';
 
 export interface StatisticProps extends FormatConfig {
   prefixCls?: string;
@@ -22,7 +23,11 @@ export interface StatisticProps extends FormatConfig {
   onMouseLeave?: React.MouseEventHandler<HTMLDivElement>;
 }
 
-const Statistic: React.FC<StatisticProps & ConfigConsumerProps> = (props) => {
+type CompoundedComponent = {
+  Countdown: typeof Countdown;
+};
+
+const Statistic: React.FC<StatisticProps> & CompoundedComponent = (props) => {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -34,7 +39,6 @@ const Statistic: React.FC<StatisticProps & ConfigConsumerProps> = (props) => {
     prefix,
     suffix,
     loading = false,
-    direction,
     onMouseEnter,
     onMouseLeave,
     decimalSeparator = '.',
@@ -49,7 +53,7 @@ const Statistic: React.FC<StatisticProps & ConfigConsumerProps> = (props) => {
     />
   );
 
-  const { getPrefixCls } = React.useContext<ConfigConsumerProps>(ConfigContext);
+  const { getPrefixCls, direction } = React.useContext<ConfigConsumerProps>(ConfigContext);
 
   const prefixCls = getPrefixCls('statistic', customizePrefixCls);
 
@@ -62,6 +66,7 @@ const Statistic: React.FC<StatisticProps & ConfigConsumerProps> = (props) => {
     className,
     hashId,
   );
+
   return wrapSSR(
     <div className={cls} style={style} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
       {title && <div className={`${prefixCls}-title`}>{title}</div>}
@@ -75,5 +80,7 @@ const Statistic: React.FC<StatisticProps & ConfigConsumerProps> = (props) => {
     </div>,
   );
 };
+
+Statistic.Countdown = Countdown;
 
 export default Statistic;
