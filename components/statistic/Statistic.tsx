@@ -1,18 +1,11 @@
 import classNames from 'classnames';
 import * as React from 'react';
-
 import type { ConfigConsumerProps } from '../config-provider';
-import { withConfigConsumer } from '../config-provider/context';
+import { ConfigContext } from '../config-provider';
 import Skeleton from '../skeleton';
-import type Countdown from './Countdown';
 import StatisticNumber from './Number';
 import type { FormatConfig, valueType } from './utils';
-
 import useStyle from './style';
-
-type CompoundedComponent = {
-  Countdown: typeof Countdown;
-};
 
 export interface StatisticProps extends FormatConfig {
   prefixCls?: string;
@@ -31,7 +24,7 @@ export interface StatisticProps extends FormatConfig {
 
 const Statistic: React.FC<StatisticProps & ConfigConsumerProps> = (props) => {
   const {
-    prefixCls,
+    prefixCls: customizePrefixCls,
     className,
     style,
     valueStyle,
@@ -55,8 +48,12 @@ const Statistic: React.FC<StatisticProps & ConfigConsumerProps> = (props) => {
       value={value}
     />
   );
-  // Style
-  const [wrapSSR, hashId] = useStyle(String(prefixCls));
+
+  const { getPrefixCls } = React.useContext<ConfigConsumerProps>(ConfigContext);
+
+  const prefixCls = getPrefixCls('statistic', customizePrefixCls);
+
+  const [wrapSSR, hashId] = useStyle(prefixCls);
   const cls = classNames(
     prefixCls,
     {
@@ -79,8 +76,4 @@ const Statistic: React.FC<StatisticProps & ConfigConsumerProps> = (props) => {
   );
 };
 
-const WrapperStatistic = withConfigConsumer<StatisticProps>({
-  prefixCls: 'statistic',
-})<CompoundedComponent>(Statistic);
-
-export default WrapperStatistic;
+export default Statistic;
