@@ -3,7 +3,7 @@ import { debounce } from 'throttle-debounce';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
 import type { ConfigConsumerProps } from '../config-provider';
-import { ConfigConsumer, ConfigContext } from '../config-provider';
+import { ConfigContext } from '../config-provider';
 import { cloneElement, isValidElement } from '../_util/reactNode';
 import useStyle from './style/index';
 
@@ -36,8 +36,8 @@ export type SpinFCType = React.FC<SpinProps> & {
 // Render indicator
 let defaultIndicator: React.ReactNode = null;
 
-function renderIndicator(prefixCls: string, props: SpinClassProps): React.ReactNode {
-  const { indicator } = props;
+const Indicator: React.FC<SpinClassProps> = (props) => {
+  const { indicator, prefixCls } = props;
   const dotClassName = `${prefixCls}-dot`;
 
   // should not be render default indicator when indicator value is null
@@ -65,7 +65,7 @@ function renderIndicator(prefixCls: string, props: SpinClassProps): React.ReactN
       <i className={`${prefixCls}-dot-item`} />
     </span>
   );
-}
+};
 
 function shouldDelay(spinning?: boolean, delay?: number): boolean {
   return !!spinning && !!delay && !isNaN(Number(delay));
@@ -102,55 +102,53 @@ const Spin: React.FC<SpinClassProps> = (props) => {
 
   const isNestedPattern = () => typeof children !== 'undefined';
 
-  const renderSpin = ({ direction }: ConfigConsumerProps) => {
-    const spinClassName = classNames(
-      prefixCls,
-      {
-        [`${prefixCls}-sm`]: size === 'small',
-        [`${prefixCls}-lg`]: size === 'large',
-        [`${prefixCls}-spinning`]: spinning,
-        [`${prefixCls}-show-text`]: !!tip,
-        [`${prefixCls}-rtl`]: direction === 'rtl',
-      },
-      className,
-      hashId,
-    );
+  const { direction } = React.useContext<ConfigConsumerProps>(ConfigContext);
 
-    // fix https://fb.me/react-unknown-prop
-    const divProps = omit(restProps, ['indicator', 'prefixCls']);
+  const spinClassName = classNames(
+    prefixCls,
+    {
+      [`${prefixCls}-sm`]: size === 'small',
+      [`${prefixCls}-lg`]: size === 'large',
+      [`${prefixCls}-spinning`]: spinning,
+      [`${prefixCls}-show-text`]: !!tip,
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+    },
+    className,
+    hashId,
+  );
 
-    const spinElement = (
-      <div
-        {...divProps}
-        style={style}
-        className={spinClassName}
-        aria-live="polite"
-        aria-busy={spinning}
-      >
-        {renderIndicator(prefixCls, props)}
-        {tip ? <div className={`${prefixCls}-text`}>{tip}</div> : null}
+  const containerClassName = classNames(`${prefixCls}-container`, {
+    [`${prefixCls}-blur`]: spinning,
+  });
+
+  const divProps = omit(restProps, ['indicator', 'prefixCls']);
+
+  const spinElement: React.ReactNode = (
+    <div
+      {...divProps}
+      style={style}
+      className={spinClassName}
+      aria-live="polite"
+      aria-busy={spinning}
+    >
+      <Indicator {...props} />
+      {tip ? <div className={`${prefixCls}-text`}>{tip}</div> : null}
+    </div>
+  );
+
+  return isNestedPattern() ? (
+    <div
+      {...divProps}
+      className={classNames(`${prefixCls}-nested-loading`, wrapperClassName, hashId)}
+    >
+      {spinning && <div key="loading">{spinElement}</div>}
+      <div className={containerClassName} key="container">
+        {children}
       </div>
-    );
-
-    if (isNestedPattern()) {
-      const containerClassName = classNames(`${prefixCls}-container`, {
-        [`${prefixCls}-blur`]: spinning,
-      });
-      return (
-        <div
-          {...divProps}
-          className={classNames(`${prefixCls}-nested-loading`, wrapperClassName, hashId)}
-        >
-          {spinning && <div key="loading">{spinElement}</div>}
-          <div className={containerClassName} key="container">
-            {children}
-          </div>
-        </div>
-      );
-    }
-    return spinElement;
-  };
-  return <ConfigConsumer>{renderSpin}</ConfigConsumer>;
+    </div>
+  ) : (
+    spinElement
+  );
 };
 
 const SpinFC: SpinFCType = (props) => {
