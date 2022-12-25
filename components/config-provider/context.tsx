@@ -102,17 +102,14 @@ export function withConfigConsumer<ExportProps extends BasicExportProps>(config:
     Component: React.ComponentType<ExportProps>,
   ): React.FC<ExportProps> & ComponentDef {
     // Wrap with ConfigConsumer. Since we need compatible with react 15, be careful when using ref methods
-    const SFC = ((props: ExportProps) => (
-      <ConfigConsumer>
-        {(configProps: ConfigConsumerProps) => {
-          const { prefixCls: basicPrefixCls } = config;
-          const { getPrefixCls } = configProps;
-          const { prefixCls: customizePrefixCls } = props;
-          const prefixCls = getPrefixCls(basicPrefixCls, customizePrefixCls);
-          return <Component {...configProps} {...props} prefixCls={prefixCls} />;
-        }}
-      </ConfigConsumer>
-    )) as React.FC<ExportProps> & ComponentDef;
+    const SFC: React.FC<ExportProps> & ComponentDef = ((props) => {
+      const configProps = React.useContext<ConfigConsumerProps>(ConfigContext);
+      const { getPrefixCls } = configProps;
+      const { prefixCls: basicPrefixCls } = config;
+      const { prefixCls: customizePrefixCls } = props;
+      const prefixCls = getPrefixCls(basicPrefixCls, customizePrefixCls);
+      return <Component {...configProps} {...props} prefixCls={prefixCls} />;
+    }) as React.FC<ExportProps> & ComponentDef;
 
     const cons: ConstructorProps = Component.constructor as ConstructorProps;
     const name = (cons && cons.displayName) || Component.name || 'Component';
