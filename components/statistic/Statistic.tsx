@@ -44,20 +44,23 @@ const Statistic: React.FC<StatisticProps> & CompoundedComponent = (props) => {
     decimalSeparator = '.',
     groupSeparator = ',',
   } = props;
-  const valueNode = (
-    <StatisticNumber
-      decimalSeparator={decimalSeparator}
-      groupSeparator={groupSeparator}
-      {...props}
-      value={value}
-    />
-  );
 
   const { getPrefixCls, direction } = React.useContext<ConfigConsumerProps>(ConfigContext);
 
   const prefixCls = getPrefixCls('statistic', customizePrefixCls);
 
   const [wrapSSR, hashId] = useStyle(prefixCls);
+
+  const valueNode: React.ReactNode = (
+    <StatisticNumber
+      decimalSeparator={decimalSeparator}
+      groupSeparator={groupSeparator}
+      prefixCls={prefixCls}
+      {...props}
+      value={value}
+    />
+  );
+
   const cls = classNames(
     prefixCls,
     {
