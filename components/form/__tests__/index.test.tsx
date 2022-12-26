@@ -639,7 +639,7 @@ describe('Form', () => {
       value = '',
       id,
     }) => {
-      shouldRender();
+      shouldRender(value);
       return <input id={id} value={value} />;
     };
 
@@ -667,8 +667,10 @@ describe('Form', () => {
 
     expect(formRef.current!.getFieldsValue()).toEqual({ light: 'bamboo' });
 
-    expect(container.querySelector<HTMLInputElement>('#changed')!.value).toEqual('bamboo');
+    await waitFakeTimer();
+
     expect(shouldNotRender).toHaveBeenCalledTimes(1);
+    expect(shouldRender).toHaveBeenLastCalledWith('bamboo');
     expect(shouldRender).toHaveBeenCalledTimes(2);
   });
 
