@@ -26,7 +26,7 @@ export default function getIcons({
   menuItemSelectedIcon?: RenderNode;
   removeIcon?: RenderNode;
   loading?: boolean;
-  multiple?: boolean;
+  multiple?: boolean | { checkStrictly: boolean };
   hasFeedback?: boolean;
   feedbackIcon?: ReactNode;
   prefixCls: string;
