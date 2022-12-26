@@ -194,7 +194,7 @@ return (
 
 **Note:** You must insert `contextHolder` into your children with hooks. You can use origin method if you do not need context connection.
 
-> [App Package Component](/components/app-cn) can be used to simplify the problem of `useModal` and other methods that need to manually implant contextHolder.
+> [App Package Component](/components/app) can be used to simplify the problem of `useModal` and other methods that need to manually implant contextHolder.
 
 ### How to disable motion?
 
