@@ -1,5 +1,5 @@
-import React from 'react';
-import { Cascader } from 'antd';
+import React, { useState } from 'react';
+import { Cascader, Checkbox } from 'antd';
 
 interface Option {
   value: string | number;
@@ -45,14 +45,25 @@ const onChange = (value: string[][]) => {
   console.log(value);
 };
 
-const App: React.FC = () => (
-  <Cascader
-    style={{ width: '100%' }}
-    options={options}
-    onChange={onChange}
-    multiple
-    maxTagCount="responsive"
-  />
-);
+const App: React.FC = () => {
+  const [checked, setChecked] = useState(false);
+  return (
+    <>
+      <div style={{ marginBottom: 12 }}>
+        <Checkbox checked={checked} onChange={(e) => setChecked(e?.target?.checked)}>
+          Enable checkStrictly
+        </Checkbox>
+      </div>
+      <Cascader
+        style={{ width: '100%' }}
+        multiple
+        // multiple={{ checkStrictly: checked }}
+        options={options}
+        onChange={onChange}
+        maxTagCount="responsive"
+      />
+    </>
+  );
+};
 
 export default App;
