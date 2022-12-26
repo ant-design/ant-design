@@ -329,6 +329,7 @@ describe('Wave component', () => {
     );
     await clickButton(container);
     fireEvent.click(container.querySelector('button')!);
+    fireEvent.click(container.querySelector('button')!);
     await waitFakeTimer();
     jest.useRealTimers();
     unmount();
