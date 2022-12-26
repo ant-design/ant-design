@@ -1,7 +1,7 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { Keyframes } from '@ant-design/cssinjs';
-import type { FullToken, GenerateStyle } from '../../theme';
-import { genComponentStyleHook, mergeToken } from '../../theme';
+import type { FullToken, GenerateStyle } from '../../theme/internal';
+import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import { resetComponent } from '../../style';
 
 export interface ComponentToken {
@@ -71,7 +71,7 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
           marginTop: -(token.spinDotSize / 2) - 10,
         },
 
-        [`> div > ${token.componentCls}-sm`]: {
+        '&-sm': {
           [`${token.componentCls}-dot`]: {
             margin: -token.spinDotSizeSM / 2,
           },
@@ -83,7 +83,7 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
           },
         },
 
-        [`> div > ${token.componentCls}-lg`]: {
+        '&-lg': {
           [`${token.componentCls}-dot`]: {
             margin: -(token.spinDotSizeLG / 2),
           },

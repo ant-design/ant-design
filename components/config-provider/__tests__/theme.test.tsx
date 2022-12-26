@@ -4,13 +4,14 @@ import React from 'react';
 import ConfigProvider from '..';
 import { InputNumber } from '../..';
 import { render } from '../../../tests/utils';
-import { useToken } from '../../theme';
-import theme from '../../theme/export';
+import { useToken } from '../../theme/internal';
+import theme from '../../theme';
 import { resetWarned } from '../../_util/warning';
 
 const { defaultAlgorithm, darkAlgorithm, compactAlgorithm } = theme;
 
-let mockCanUseDom = true;
+// eslint-disable-next-line no-var
+var mockCanUseDom = true;
 
 jest.mock('rc-util/lib/Dom/canUseDom', () => () => mockCanUseDom);
 

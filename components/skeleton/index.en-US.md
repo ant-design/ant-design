@@ -2,7 +2,7 @@
 category: Components
 group: Feedback
 title: Skeleton
-cover: https://gw.alipayobjects.com/zos/alicdn/KpcciCJgv/Skeleton.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*uae3QbkNCm8AAAAAAAAAAAAADrJ8AQ/original
 ---
 
 Provide a placeholder while you wait for content to load, or to visualize content that doesn't exist yet.
@@ -31,11 +31,11 @@ Provide a placeholder while you wait for content to load, or to visualize conten
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
 | active | Show animation effect | boolean | false |
-| avatar | Show avatar placeholder | boolean \| [SkeletonAvatarProps](#SkeletonAvatarProps) | false |
+| avatar | Show avatar placeholder | boolean \| [SkeletonAvatarProps](#skeletonavatarprops) | false |
 | loading | Display the skeleton when true | boolean | - |
-| paragraph | Show paragraph placeholder | boolean \| [SkeletonParagraphProps](#SkeletonParagraphProps) | true |
+| paragraph | Show paragraph placeholder | boolean \| [SkeletonParagraphProps](#skeletonparagraphprops) | true |
 | round | Show paragraph and title radius when true | boolean | false |
-| title | Show title placeholder | boolean \| [SkeletonTitleProps](#SkeletonTitleProps) | true |
+| title | Show title placeholder | boolean \| [SkeletonTitleProps](#skeletontitleprops) | true |
 
 ### SkeletonAvatarProps
 

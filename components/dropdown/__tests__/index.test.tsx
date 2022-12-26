@@ -116,7 +116,7 @@ describe('Dropdown', () => {
   });
 
   it('should warn if use topCenter or bottomCenter', () => {
-    const error = jest.spyOn(console, 'error');
+    const error = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(
       <div>
         <Dropdown menu={{ items }} placement="bottomCenter">

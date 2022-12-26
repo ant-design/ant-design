@@ -14,7 +14,7 @@ import DisabledContext from '../../config-provider/DisabledContext';
 import SizeContext from '../../config-provider/SizeContext';
 import { FormItemInputContext } from '../../form/context';
 import { useCompactItemContext } from '../../space/Compact';
-import LocaleReceiver from '../../locale-provider/LocaleReceiver';
+import LocaleReceiver from '../../locale/LocaleReceiver';
 import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
 import enUS from '../locale/en_US';
 import { getRangePlaceholder, transPlacement2DropdownAlign } from '../util';
@@ -142,7 +142,7 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
                 compactItemClassnames,
                 className,
               )}
-              locale={locale!.lang}
+              locale={locale.lang}
               prefixCls={prefixCls}
               getPopupContainer={customGetPopupContainer || getPopupContainer}
               generateConfig={generateConfig}

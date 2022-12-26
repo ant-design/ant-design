@@ -5,6 +5,7 @@ import type { ButtonProps, LegacyButtonType } from '../button/button';
 import type { DirectionType } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import { NoFormStyle } from '../form/context';
+import { NoCompactStyle } from '../space/Compact';
 import { getTransitionName } from '../_util/motion';
 import { canUseDocElement } from '../_util/styleChecker';
 import warning from '../_util/warning';
@@ -44,9 +45,9 @@ export interface ModalProps {
   /** 是否显示右上角的关闭按钮 */
   closable?: boolean;
   /** 点击确定回调 */
-  onOk?: (e: React.MouseEvent<HTMLElement>) => void;
+  onOk?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   /** 点击模态框右上角叉、取消按钮、Props.maskClosable 值为 true 时的遮罩层或键盘按下 Esc 时的回调 */
-  onCancel?: (e: React.MouseEvent<HTMLElement>) => void;
+  onCancel?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   afterClose?: () => void;
   /** 垂直居中 */
   centered?: boolean;
@@ -130,6 +131,7 @@ export interface ModalFuncProps {
   direction?: DirectionType;
   bodyStyle?: React.CSSProperties;
   closeIcon?: React.ReactNode;
+  footer?: React.ReactNode;
   modalRender?: (node: React.ReactNode) => React.ReactNode;
   focusTriggerAfterClose?: boolean;
 }
@@ -195,31 +197,31 @@ const Modal: React.FC<ModalProps> = (props) => {
   }
 
   return wrapSSR(
-    <NoFormStyle status override>
-      <Dialog
-        width={width}
-        {...restProps}
-        getContainer={
-          getContainer === undefined ? (getContextPopupContainer as getContainerFunc) : getContainer
-        }
-        prefixCls={prefixCls}
-        rootClassName={hashId}
-        wrapClassName={wrapClassNameExtended}
-        footer={renderFooter({
-          ...props,
-          onOk: handleOk,
-          onCancel: handleCancel,
-        })}
-        visible={open ?? visible}
-        mousePosition={restProps.mousePosition ?? mousePosition}
-        onClose={handleCancel}
-        closeIcon={renderCloseIcon(prefixCls, closeIcon)}
-        focusTriggerAfterClose={focusTriggerAfterClose}
-        transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}
-        maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
-        className={classNames(hashId, className)}
-      />
-    </NoFormStyle>,
+    <NoCompactStyle>
+      <NoFormStyle status override>
+        <Dialog
+          width={width}
+          {...restProps}
+          getContainer={getContainer === undefined ? getContextPopupContainer : getContainer}
+          prefixCls={prefixCls}
+          rootClassName={hashId}
+          wrapClassName={wrapClassNameExtended}
+          footer={renderFooter({
+            ...props,
+            onOk: handleOk,
+            onCancel: handleCancel,
+          })}
+          visible={open ?? visible}
+          mousePosition={restProps.mousePosition ?? mousePosition}
+          onClose={handleCancel}
+          closeIcon={renderCloseIcon(prefixCls, closeIcon)}
+          focusTriggerAfterClose={focusTriggerAfterClose}
+          transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}
+          maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
+          className={classNames(hashId, className)}
+        />
+      </NoFormStyle>
+    </NoCompactStyle>,
   );
 };
 

@@ -1,5 +1,5 @@
 import type { CSSObject } from '@ant-design/cssinjs';
-import type { GenerateStyle } from '../../theme';
+import type { GenerateStyle } from '../../theme/internal';
 import type { TableToken } from './index';
 import { operationUnit } from '../../style';
 
@@ -48,6 +48,7 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
 
       [`${componentCls}-row-indent`]: {
         height: 1,
+        float: 'left',
       },
 
       [`${componentCls}-row-expand-icon`]: {

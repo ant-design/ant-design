@@ -12,7 +12,7 @@ import toArray from 'rc-util/lib/Children/toArray';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
 import type { ConfigConsumerProps } from '../config-provider';
-import { ConfigConsumer } from '../config-provider';
+import { ConfigContext } from '../config-provider';
 import type {
   BaseOptionType,
   DefaultOptionType,
@@ -137,29 +137,25 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
     );
   }
 
-  return (
-    <ConfigConsumer>
-      {({ getPrefixCls }: ConfigConsumerProps) => {
-        const prefixCls = getPrefixCls('select', customizePrefixCls);
+  const { getPrefixCls } = React.useContext<ConfigConsumerProps>(ConfigContext);
 
-        return (
-          <Select
-            ref={ref}
-            {...omit(props, ['dataSource', 'dropdownClassName'])}
-            prefixCls={prefixCls}
-            popupClassName={popupClassName || dropdownClassName}
-            className={classNames(`${prefixCls}-auto-complete`, className)}
-            mode={Select.SECRET_COMBOBOX_MODE_DO_NOT_USE as any}
-            {...{
-              // Internal api
-              getInputElement,
-            }}
-          >
-            {optionChildren}
-          </Select>
-        );
+  const prefixCls = getPrefixCls('select', customizePrefixCls);
+
+  return (
+    <Select
+      ref={ref}
+      {...omit(props, ['dataSource', 'dropdownClassName'])}
+      prefixCls={prefixCls}
+      popupClassName={popupClassName || dropdownClassName}
+      className={classNames(`${prefixCls}-auto-complete`, className)}
+      mode={Select.SECRET_COMBOBOX_MODE_DO_NOT_USE as any}
+      {...{
+        // Internal api
+        getInputElement,
       }}
-    </ConfigConsumer>
+    >
+      {optionChildren}
+    </Select>
   );
 };
 

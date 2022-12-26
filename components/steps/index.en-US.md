@@ -2,7 +2,7 @@
 category: Components
 group: Navigation
 title: Steps
-cover: https://gw.alipayobjects.com/zos/antfincdn/UZYqMizXHaj/Steps.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*677sTqCpE3wAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 `Steps` is a navigation bar that guides users through the steps of a task.
@@ -11,27 +11,9 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/UZYqMizXHaj/Steps.svg
 
 When a given task is complicated or has a certain sequence in the series of subtasks, we can decompose it into several steps to make things easier.
 
-### Usage upgrade after 4.24.0
-
-<Alert message="After version 4.24.0, we provide a simpler usage &lt;Steps items={[...]} /&gt; with better performance and potential of writing simpler code style in your applications. Meanwhile, we deprecated the old usage in browser console, we will remove it in antd 5.0."></Alert>
-
-```jsx
-// works when >=4.24.0, recommended ✅
-const items = [{ title: 'first step' }, { title: 'second step' }, { title: 'third step' }];
-return <Steps items={items} />;
-
-// works when <4.24.0, deprecated when >=4.24.0 🙅🏻‍♀️
-<Steps>
-  <Step title="first step" />
-  <Step title="second step" />
-  <Step title="third step" />
-</Steps>;
-```
-
 ## Examples
 
 <!-- prettier-ignore -->
-<code src="./demo/deprecated.tsx">Basic (deprecated syntactic sugar)</code>
 <code src="./demo/simple.tsx">Basic</code>
 <code src="./demo/small-size.tsx">Mini version</code>
 <code src="./demo/icon.tsx">With icon</code>
@@ -49,6 +31,7 @@ return <Steps items={items} />;
 <code src="./demo/progress-debug.tsx" debug>Progress Debug</code>
 <code src="./demo/steps-in-steps.tsx" debug>Steps inside Steps</code>
 <code src="./demo/inline.tsx">Inline Steps</code>
+<code src="./demo/wireframe.tsx" debug>Wireframe</code>
 
 ## API
 
@@ -70,7 +53,7 @@ The whole of the step bar.
 | status | To specify the status of current step, can be set to one of the following values: `wait` `process` `finish` `error` | string | `process` |  |
 | type | Type of steps, can be set to one of the following values: `default` `navigation` `inline` | string | `default` | inline: 5.0 |
 | onChange | Trigger when Step is changed | (current) => void | - |  |
-| items | StepItem content | [StepItem](#StepItem) | [] | 4.24.0 |
+| items | StepItem content | [StepItem](#stepitem) | [] | 4.24.0 |
 
 ### `type="inline"`
 
@@ -81,7 +64,7 @@ The whole of the step bar.
 | initial | Set the initial step, counting from 0 | number | 0 |  |
 | status | To specify the status of current step, can be set to one of the following values: `wait` `process` `finish` `error` | string | `process` |  |
 | onChange | Trigger when Step is changed | (current) => void | - |  |
-| items | StepItem content. not supported: `icon` `subtitle` | [StepItem](#StepItem) | [] | 4.24.0 |
+| items | StepItem content. not supported: `icon` `subtitle` | [StepItem](#stepitem) | [] | 4.24.0 |
 
 ### StepItem
 

@@ -1,6 +1,6 @@
 import { getStyle as getCheckboxStyle } from '../../checkbox/style';
-import type { FullToken, GenerateStyle } from '../../theme';
-import { genComponentStyleHook } from '../../theme';
+import type { FullToken, GenerateStyle } from '../../theme/internal';
+import { genComponentStyleHook } from '../../theme/internal';
 import { textEllipsis } from '../../style';
 import { genCompactItemStyle } from '../../style/compact-item';
 
@@ -32,7 +32,6 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token) => {
     {
       [componentCls]: {
         width: token.controlWidth,
-        ...genCompactItemStyle(token, componentCls),
       },
     },
     // =====================================================
@@ -81,6 +80,7 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token) => {
               flexGrow: 1,
               minWidth: token.controlItemWidth,
               height: token.dropdownHeight,
+              margin: 0,
               padding: token.paddingXXS,
               overflow: 'auto',
               verticalAlign: 'top',
@@ -105,7 +105,7 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token) => {
                 '&:hover': {
                   background: token.controlItemBgHover,
                 },
-                ' &-disabled': {
+                '&-disabled': {
                   color: token.colorTextDisabled,
                   cursor: 'not-allowed',
 
@@ -152,6 +152,10 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token) => {
         direction: 'rtl',
       },
     },
+    // =====================================================
+    // ==             Space Compact                       ==
+    // =====================================================
+    genCompactItemStyle(token),
   ];
 };
 

@@ -6,7 +6,7 @@ import * as React from 'react';
 import { flushSync } from 'react-dom';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
-import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import LocaleReceiver from '../locale/LocaleReceiver';
 import defaultLocale from '../locale/en_US';
 import warning from '../_util/warning';
 import type { RcFile, ShowUploadListInterface, UploadChangeParam, UploadFile } from './interface';

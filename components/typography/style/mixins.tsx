@@ -11,7 +11,7 @@ import { gold } from '@ant-design/colors';
 import type { CSSObject } from '@ant-design/cssinjs';
 import type { TypographyToken } from '.';
 import { initInputToken } from '../../input/style';
-import type { GenerateStyle } from '../../theme';
+import type { GenerateStyle } from '../../theme/internal';
 import { operationUnit } from '../../style';
 
 // eslint-disable-next-line import/prefer-default-export

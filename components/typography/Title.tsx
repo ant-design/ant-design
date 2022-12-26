@@ -1,10 +1,9 @@
 import * as React from 'react';
-import { tupleNum } from '../_util/type';
 import warning from '../_util/warning';
 import type { BlockProps } from './Base';
 import Base from './Base';
 
-const TITLE_ELE_LIST = tupleNum(1, 2, 3, 4, 5);
+const TITLE_ELE_LIST = [1, 2, 3, 4, 5] as const;
 
 export interface TitleProps
   extends Omit<BlockProps<'h1' | 'h2' | 'h3' | 'h4' | 'h5'>, 'strong'>,

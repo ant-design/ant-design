@@ -12,7 +12,7 @@ const App: React.FC = () => (
     <TextArea
       showCount
       maxLength={100}
-      style={{ height: 120 }}
+      style={{ height: 120, marginBottom: 24 }}
       onChange={onChange}
       placeholder="can resize"
     />

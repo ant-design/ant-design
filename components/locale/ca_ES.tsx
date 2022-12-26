@@ -2,7 +2,7 @@
 import Pagination from 'rc-pagination/lib/locale/ca_ES';
 import Calendar from '../calendar/locale/ca_ES';
 import DatePicker from '../date-picker/locale/ca_ES';
-import type { Locale } from '../locale-provider';
+import type { Locale } from '../locale';
 import TimePicker from '../time-picker/locale/ca_ES';
 
 const typeTemplate = '${label} no és un ${type} vàlid';

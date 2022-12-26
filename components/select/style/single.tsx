@@ -1,7 +1,7 @@
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import { resetComponent } from '../../style';
 import type { SelectToken } from '.';
-import { mergeToken } from '../../theme';
+import { mergeToken } from '../../theme/internal';
 
 function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
   const { componentCls, inputPaddingHorizontalBase, borderRadius } = token;
@@ -165,7 +165,6 @@ export default function genSingleStyle(token: SelectToken): CSSInterpolation {
 
           // With arrow should provides `padding-right` to show the arrow
           [`&${componentCls}-show-arrow ${componentCls}-selection-search`]: {
-            insetInlineStart: 'auto',
             insetInlineEnd: inputPaddingHorizontalSM + token.fontSize * 1.5,
           },
 

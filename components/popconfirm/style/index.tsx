@@ -1,5 +1,5 @@
-import type { FullToken, GenerateStyle } from '../../theme';
-import { genComponentStyleHook } from '../../theme';
+import type { FullToken, GenerateStyle } from '../../theme/internal';
+import { genComponentStyleHook } from '../../theme/internal';
 
 export interface ComponentToken {
   zIndexPopup: number;
@@ -17,6 +17,7 @@ const genBaseStyle: GenerateStyle<PopconfirmToken> = (token) => {
     colorWarning,
     marginXS,
     fontSize,
+    fontWeightStrong,
     lineHeight,
   } = token;
 
@@ -49,6 +50,18 @@ const genBaseStyle: GenerateStyle<PopconfirmToken> = (token) => {
           flex: 'auto',
           marginInlineStart: marginXS,
         },
+
+        '&-title-only': {
+          fontWeight: fontWeightStrong,
+        },
+      },
+
+      [`${componentCls}-description`]: {
+        position: 'relative',
+        marginInlineStart: fontSize + marginXS,
+        marginBottom: marginXS,
+        color: colorText,
+        fontSize,
       },
 
       [`${componentCls}-buttons`]: {

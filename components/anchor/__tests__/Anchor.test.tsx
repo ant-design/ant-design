@@ -432,4 +432,64 @@ describe('Anchor Render', () => {
       }).not.toThrow();
     });
   });
+
+  it('renders items correctly', () => {
+    const { container, asFragment } = render(
+      <Anchor
+        items={[
+          {
+            key: '1',
+            href: '#components-anchor-demo-basic',
+            title: 'Item Basic Demo',
+          },
+          {
+            key: '2',
+            href: '#components-anchor-demo-static',
+            title: 'Static demo',
+          },
+          {
+            key: '3',
+            href: '#api',
+            title: 'API',
+            children: [
+              {
+                key: '4',
+                href: '#anchor-props',
+                title: 'Anchor Props',
+                children: [
+                  {
+                    key: '5',
+                    href: '#link-props',
+                    title: 'Link Props',
+                  },
+                ],
+              },
+            ],
+          },
+        ]}
+      />,
+    );
+    expect(container.querySelectorAll('.ant-anchor .ant-anchor-link').length).toBe(5);
+    const linkTitles = Array.from(container.querySelector('.ant-anchor')?.childNodes!)
+      .slice(1)
+      .map((n) => (n as HTMLElement).querySelector('.ant-anchor-link-title'));
+    expect((linkTitles[0] as HTMLAnchorElement).href).toContain('#components-anchor-demo-basic');
+    expect((linkTitles[1] as HTMLAnchorElement).href).toContain('#components-anchor-demo-static');
+    expect((linkTitles[2] as HTMLAnchorElement).href).toContain('#api');
+    expect(asFragment().firstChild).toMatchSnapshot();
+    expect(
+      (
+        container.querySelector(
+          '.ant-anchor .ant-anchor-link .ant-anchor-link .ant-anchor-link-title',
+        ) as HTMLAnchorElement
+      )?.href,
+    ).toContain('#anchor-props');
+    expect(
+      (
+        container.querySelector(
+          '.ant-anchor .ant-anchor-link .ant-anchor-link .ant-anchor-link .ant-anchor-link-title',
+        ) as HTMLAnchorElement
+      )?.href,
+    ).toContain('#link-props');
+  });
 });

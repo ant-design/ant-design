@@ -3,7 +3,7 @@ category: Components
 subtitle: 时间轴
 group: 数据展示
 title: Timeline
-cover: https://gw.alipayobjects.com/zos/antfincdn/vJmo00mmgR/Timeline.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*FkTySqNt3sYAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -25,6 +25,7 @@ demo:
 <code src="./demo/custom.tsx">自定义时间轴点</code>
 <code src="./demo/right.tsx">右侧时间轴点</code>
 <code src="./demo/label.tsx">标签</code>
+<code src="./demo/wireframe.tsx" debug>线框风格</code>
 
 ## API
 

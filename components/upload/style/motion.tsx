@@ -1,6 +1,6 @@
 import { Keyframes } from '@ant-design/cssinjs';
 import type { UploadToken } from '.';
-import type { GenerateStyle } from '../../theme';
+import type { GenerateStyle } from '../../theme/internal';
 
 const uploadAnimateInlineIn = new Keyframes('uploadAnimateInlineIn', {
   from: {

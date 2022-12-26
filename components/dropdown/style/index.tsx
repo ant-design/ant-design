@@ -2,13 +2,14 @@ import { getArrowOffset } from '../../style/placementArrow';
 import {
   initMoveMotion,
   initSlideMotion,
+  initZoomMotion,
   slideDownIn,
   slideDownOut,
   slideUpIn,
   slideUpOut,
 } from '../../style/motion';
-import type { FullToken, GenerateStyle } from '../../theme';
-import { genComponentStyleHook, mergeToken } from '../../theme';
+import type { FullToken, GenerateStyle } from '../../theme/internal';
+import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import genButtonStyle from './button';
 import genStatusStyle from './status';
 import { genFocusStyle, resetComponent, roundedArrow } from '../../style';
@@ -418,6 +419,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
       initSlideMotion(token, 'slide-down'),
       initMoveMotion(token, 'move-up'),
       initMoveMotion(token, 'move-down'),
+      initZoomMotion(token, 'zoom-big'),
     ],
   ];
 };

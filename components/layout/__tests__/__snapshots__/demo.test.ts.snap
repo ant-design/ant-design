@@ -247,8 +247,8 @@ exports[`renders ./components/layout/demo/custom-trigger.tsx correctly 1`] = `
     class="ant-layout site-layout"
   >
     <header
-      class="ant-layout-header site-layout-background"
-      style="padding:0"
+      class="ant-layout-header"
+      style="padding:0;background:#ffffff"
     >
       <span
         aria-label="menu-fold"
@@ -272,8 +272,8 @@ exports[`renders ./components/layout/demo/custom-trigger.tsx correctly 1`] = `
       </span>
     </header>
     <main
-      class="ant-layout-content site-layout-background"
-      style="margin:24px 16px;padding:24px;min-height:280px"
+      class="ant-layout-content"
+      style="margin:24px 16px;padding:24px;min-height:280px;background:#ffffff"
     >
       Content
     </main>
@@ -290,7 +290,7 @@ exports[`renders ./components/layout/demo/fixed.tsx correctly 1`] = `
     style="position:sticky;top:0;z-index:1;width:100%"
   >
     <div
-      class="logo"
+      style="float:left;width:120px;height:31px;margin:16px 24px 16px 0;background:rgba(255, 255, 255, 0.2)"
     />
     <ul
       class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark"
@@ -379,7 +379,7 @@ exports[`renders ./components/layout/demo/fixed.tsx correctly 1`] = `
   </header>
   <main
     class="ant-layout-content site-layout"
-    style="padding:0 50px;margin-top:64px"
+    style="padding:0 50px"
   >
     <nav
       class="ant-breadcrumb"
@@ -425,8 +425,7 @@ exports[`renders ./components/layout/demo/fixed.tsx correctly 1`] = `
       </ol>
     </nav>
     <div
-      class="site-layout-background"
-      style="padding:24px;min-height:380px"
+      style="padding:24px;min-height:380px;background:#ffffff"
     >
       Content
     </div>
@@ -452,7 +451,7 @@ exports[`renders ./components/layout/demo/fixed-sider.tsx correctly 1`] = `
       class="ant-layout-sider-children"
     >
       <div
-        class="logo"
+        style="height:32px;margin:16px;background:rgba(255, 255, 255, 0.2)"
       />
       <ul
         class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark"
@@ -720,16 +719,15 @@ exports[`renders ./components/layout/demo/fixed-sider.tsx correctly 1`] = `
     style="margin-left:200px"
   >
     <header
-      class="ant-layout-header site-layout-background"
-      style="padding:0"
+      class="ant-layout-header"
+      style="padding:0;background:#ffffff"
     />
     <main
       class="ant-layout-content"
       style="margin:24px 16px 0;overflow:initial"
     >
       <div
-        class="site-layout-background"
-        style="padding:24px;text-align:center"
+        style="padding:24px;text-align:center;background:#ffffff"
       >
         <p>
           long content
@@ -1101,16 +1099,15 @@ exports[`renders ./components/layout/demo/responsive.tsx correctly 1`] = `
     class="ant-layout"
   >
     <header
-      class="ant-layout-header site-layout-sub-header-background"
-      style="padding:0"
+      class="ant-layout-header"
+      style="padding:0;background:#ffffff"
     />
     <main
       class="ant-layout-content"
       style="margin:24px 16px 0"
     >
       <div
-        class="site-layout-background"
-        style="padding:24px;min-height:360px"
+        style="padding:24px;min-height:360px;background:#ffffff"
       >
         content
       </div>
@@ -1138,7 +1135,7 @@ exports[`renders ./components/layout/demo/side.tsx correctly 1`] = `
       class="ant-layout-sider-children"
     >
       <div
-        class="logo"
+        style="height:32px;margin:16px;background:rgba(255, 255, 255, 0.2)"
       />
       <ul
         class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark"
@@ -1356,8 +1353,8 @@ exports[`renders ./components/layout/demo/side.tsx correctly 1`] = `
     class="ant-layout site-layout"
   >
     <header
-      class="ant-layout-header site-layout-background"
-      style="padding:0"
+      class="ant-layout-header"
+      style="padding:0;background:#ffffff"
     />
     <main
       class="ant-layout-content"
@@ -1395,8 +1392,7 @@ exports[`renders ./components/layout/demo/side.tsx correctly 1`] = `
         </ol>
       </nav>
       <div
-        class="site-layout-background"
-        style="padding:24px;min-height:360px"
+        style="padding:24px;min-height:360px;background:#ffffff"
       >
         Bill is a cat.
       </div>
@@ -1699,6 +1695,7 @@ exports[`renders ./components/layout/demo/top.tsx correctly 1`] = `
     </nav>
     <div
       class="site-layout-content"
+      style="background:#ffffff"
     >
       Content
     </div>
@@ -1855,12 +1852,12 @@ exports[`renders ./components/layout/demo/top-side.tsx correctly 1`] = `
       </ol>
     </nav>
     <section
-      class="ant-layout site-layout-background"
-      style="padding:24px 0"
+      class="ant-layout"
+      style="padding:24px 0;background:#ffffff"
     >
       <aside
-        class="ant-layout-sider ant-layout-sider-dark site-layout-background"
-        style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
+        class="ant-layout-sider ant-layout-sider-dark"
+        style="background:#ffffff;flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
       >
         <div
           class="ant-layout-sider-children"
@@ -2171,8 +2168,8 @@ exports[`renders ./components/layout/demo/top-side-2.tsx correctly 1`] = `
     class="ant-layout"
   >
     <aside
-      class="ant-layout-sider ant-layout-sider-dark site-layout-background"
-      style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
+      class="ant-layout-sider ant-layout-sider-dark"
+      style="background:#ffffff;flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
     >
       <div
         class="ant-layout-sider-children"
@@ -2415,8 +2412,8 @@ exports[`renders ./components/layout/demo/top-side-2.tsx correctly 1`] = `
         </ol>
       </nav>
       <main
-        class="ant-layout-content site-layout-background"
-        style="padding:24px;margin:0;min-height:280px"
+        class="ant-layout-content"
+        style="padding:24px;margin:0;min-height:280px;background:#ffffff"
       >
         Content
       </main>

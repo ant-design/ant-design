@@ -3,7 +3,7 @@ category: Components
 subtitle: 开关
 group: 数据录入
 title: Switch
-cover: https://gw.alipayobjects.com/zos/alicdn/zNdJQMhfm/Switch.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*rtArRpBNDZcAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---

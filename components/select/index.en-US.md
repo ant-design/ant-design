@@ -2,7 +2,7 @@
 category: Components
 group: Data Entry
 title: Select
-cover: https://gw.alipayobjects.com/zos/alicdn/_0XzgOis7/Select.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*zo76T7KQx2UAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -153,7 +153,7 @@ Select will close when it lose focus. You can prevent event to handle this:
 <Select
   dropdownRender={() => (
     <div
-      onMouseDown={e => {
+      onMouseDown={(e) => {
         e.preventDefault();
         e.stopPropagation();
       }}
@@ -177,3 +177,5 @@ Note: `listItemHeight` and `listHeight` are internal props. Please only modify w
 ### Why a11y test report missing `aria-` props?
 
 Select only create a11y auxiliary node when operating on. Please open Select and retry. For `aria-label` & `aria-labelledby` miss warning, please add related prop to Select with your own requirement.
+
+Default virtual scrolling will create a mock element to simulate an accessible binding. If a screen reader needs to fully access the entire list, you can set `virtual={false}` to disable virtual scrolling and the accessibility option will be bound to the actual element.

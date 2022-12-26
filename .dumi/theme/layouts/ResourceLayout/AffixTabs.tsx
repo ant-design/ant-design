@@ -1,10 +1,9 @@
 import * as React from 'react';
-import classNames from 'classnames';
 import throttle from 'lodash/throttle';
 import { Tabs } from 'antd';
+import { css } from '@emotion/react';
 import scrollTo from '../../../../components/_util/scrollTo';
 import useSiteToken from '../../../hooks/useSiteToken';
-import { css } from '@emotion/react';
 
 const useStyle = () => {
   const { token } = useSiteToken();
@@ -21,7 +20,7 @@ const useStyle = () => {
       padding: 0 40px;
       background: #fff;
       box-shadow: ${boxShadowSecondary};
-      transform: translateY(-100%);
+      transform: translate3d(0, -100%, 0);
       opacity: 0;
       transition: opacity 0.3s, transform 0.3s;
 
@@ -43,7 +42,7 @@ const useStyle = () => {
       }
     `,
     affixTabsFixed: css`
-      transform: translateY(0);
+      transform: translate3d(0, 0, 0);
       opacity: 1;
     `,
   };

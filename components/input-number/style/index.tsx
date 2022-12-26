@@ -9,8 +9,8 @@ import {
   genStatusStyle,
   initInputToken,
 } from '../../input/style';
-import type { FullToken, GenerateStyle } from '../../theme';
-import { genComponentStyleHook } from '../../theme';
+import type { FullToken, GenerateStyle } from '../../theme/internal';
+import { genComponentStyleHook } from '../../theme/internal';
 import { resetComponent, resetIcon } from '../../style';
 import { genCompactItemStyle } from '../../style/compact-item';
 
@@ -62,8 +62,6 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
         padding: 0,
         border: `${lineWidth}px ${lineType} ${colorBorder}`,
         borderRadius,
-
-        ...genCompactItemStyle(token, componentCls),
 
         '&-rtl': {
           direction: 'rtl',
@@ -396,7 +394,14 @@ export default genComponentStyleHook(
   'InputNumber',
   (token) => {
     const inputNumberToken = initInputToken<FullToken<'InputNumber'>>(token);
-    return [genInputNumberStyles(inputNumberToken), genAffixWrapperStyles(inputNumberToken)];
+    return [
+      genInputNumberStyles(inputNumberToken),
+      genAffixWrapperStyles(inputNumberToken),
+      // =====================================================
+      // ==             Space Compact                       ==
+      // =====================================================
+      genCompactItemStyle(inputNumberToken),
+    ];
   },
   (token) => ({
     controlWidth: 90,

@@ -2,7 +2,7 @@
 category: Components
 group: Data Display
 title: Popover
-cover: https://gw.alipayobjects.com/zos/alicdn/1PNL1p_cO/Popover.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*XhL3QpRw92kAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -25,6 +25,7 @@ Comparing with `Tooltip`, besides information `Popover` card can also provide ac
 <code src="./demo/arrow-point-at-center.tsx">Arrow pointing</code>
 <code src="./demo/hover-with-click.tsx">Hover with click popover</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/wireframe.tsx" debug>Wireframe</code>
 
 ## API
 
@@ -33,7 +34,7 @@ Comparing with `Tooltip`, besides information `Popover` card can also provide ac
 | content | Content of the card | ReactNode \| () => ReactNode | -             |         |
 | title   | Title of the card   | ReactNode \| () => ReactNode | -             |         |
 
-Consult [Tooltip's documentation](/components/tooltip/#API) to find more APIs.
+Consult [Tooltip's documentation](/components/tooltip/#api) to find more APIs.
 
 ## Note
 

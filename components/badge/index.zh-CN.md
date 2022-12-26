@@ -2,7 +2,7 @@
 category: Components
 subtitle: 徽标数
 title: Badge
-cover: https://gw.alipayobjects.com/zos/antfincdn/6%26GF9WHwvY/Badge.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*e0qITYqF394AAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 group: 数据展示
@@ -27,7 +27,7 @@ group: 数据展示
 <code src="./demo/size.tsx">大小</code>
 <code src="./demo/status.tsx">状态点</code>
 <code src="./demo/colorful.tsx">多彩徽标</code>
-<code src="./demo/ribbbon.tsx">缎带</code>
+<code src="./demo/ribbon.tsx">缎带</code>
 <code src="./demo/ribbon-debug.tsx" debug>Ribbon Debug</code>
 <code src="./demo/mix.tsx" debug>各种混用的情况</code>
 <code src="./demo/title.tsx" debug>自定义标题</code>

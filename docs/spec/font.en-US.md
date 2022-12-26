@@ -50,7 +50,9 @@ The font scale and line height determine the beauty of the dynamics and order of
 
 Ant Design was inspired by the pentatonic scale and natural law to define 10 different font sizes and corresponding line heights.
 
+<ImagePreview>
 <img src="https://gw.alipayobjects.com/zos/rmsportal/iFjgfIBExksqCqGMwUlw.png" />
+</ImagePreview>
 
 In Ant Design's visual system, our recommended base font size is 14, and its corresponding line height is 22. The choice of the rest of the font scale can be freely defined according to the specific circumstances. It is recommended that in a design system (except for display pages), the choice of font scale should be controlled within 3 to 5 types, and the principle of restraint should be maintained.
 

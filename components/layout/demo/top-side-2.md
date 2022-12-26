@@ -19,8 +19,4 @@ Both the top navigation and the sidebar, commonly used in application site.
   float: right;
   margin: 16px 0 16px 24px;
 }
-
-#components-layout-demo-top-side-2 .site-layout-background {
-  background: #fff;
-}
 ```

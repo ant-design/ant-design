@@ -3,7 +3,7 @@ group: 反馈
 category: Components
 subtitle: 抽屉
 title: Drawer
-cover: https://img.alicdn.com/imgextra/i4/O1CN019djdZP1OHwXSRGCOW_!!6000000001681-55-tps-161-117.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*v3TvSq2E0HAAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---

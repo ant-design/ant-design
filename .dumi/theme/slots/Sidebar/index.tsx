@@ -1,11 +1,11 @@
-import React, { type FC, useContext } from 'react';
+import React, { useContext } from 'react';
 import { useSidebarData } from 'dumi';
-import { Affix, Col, Menu } from 'antd';
+import { Affix, Col, ConfigProvider, Menu } from 'antd';
 import MobileMenu from 'rc-drawer';
+import { css } from '@emotion/react';
 import SiteContext from '../SiteContext';
 import useMenu from '../../../hooks/useMenu';
 import useSiteToken from '../../../hooks/useSiteToken';
-import { css } from '@emotion/react';
 
 const useStyle = () => {
   const { token } = useSiteToken();
@@ -66,8 +66,8 @@ const useStyle = () => {
         // Nest Category > Type > Article
         &${antCls}-menu-inline {
           ${antCls}-menu-item-group-title {
-            padding-left: 60px;
             margin-left: 4px;
+            padding-left: 60px;
 
             ${antCls}-row-rtl & {
               padding-right: 60px;
@@ -124,22 +124,29 @@ const useStyle = () => {
   };
 };
 
-const Sidebar: FC = () => {
+const Sidebar: React.FC = () => {
   const sidebarData = useSidebarData();
-  const { isMobile } = useContext(SiteContext);
+  const { isMobile, theme } = useContext(SiteContext);
   const styles = useStyle();
 
   const [menuItems, selectedKey] = useMenu();
+  const isDark = theme.includes('dark');
+  const {
+    token: { colorBgContainer },
+  } = useSiteToken();
 
   const menuChild = (
-    <Menu
-      items={menuItems}
-      inlineIndent={30}
-      css={styles.asideContainer}
-      mode="inline"
-      selectedKeys={[selectedKey]}
-      defaultOpenKeys={sidebarData?.map(({ title }) => title).filter((item) => item) as string[]}
-    />
+    <ConfigProvider theme={{ components: { Menu: { colorItemBg: colorBgContainer } } }}>
+      <Menu
+        items={menuItems}
+        inlineIndent={30}
+        css={styles.asideContainer}
+        mode="inline"
+        theme={isDark ? 'dark' : 'light'}
+        selectedKeys={[selectedKey]}
+        defaultOpenKeys={sidebarData?.map(({ title }) => title).filter((item) => item) as string[]}
+      />
+    </ConfigProvider>
   );
 
   return isMobile ? (

@@ -1,6 +1,6 @@
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
-import type { FullToken, GenerateStyle } from '../../theme';
-import { genComponentStyleHook, mergeToken } from '../../theme';
+import type { FullToken, GenerateStyle } from '../../theme/internal';
+import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import genGroupStyle from './group';
 import { genFocusStyle } from '../../style';
 import { genCompactItemStyle } from '../../style/compact-item';
@@ -46,16 +46,9 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
         marginInlineStart: token.marginXS,
       },
 
-      [`&${componentCls}-block`]: {
-        width: '100%',
-      },
-
       '&:not(:disabled)': {
         ...genFocusStyle(token),
       },
-
-      ...genCompactItemStyle(token, componentCls),
-      ...genCompactItemVerticalStyle(token, componentCls),
 
       // make `btn-icon-only` not too narrow
       '&-icon-only&-compact-item': {
@@ -66,14 +59,14 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
         '&:not([disabled]) + &:not([disabled])': {
           position: 'relative',
 
-          '&:after': {
+          '&:before': {
             position: 'absolute',
             top: -token.lineWidth,
             insetInlineStart: -token.lineWidth,
             display: 'inline-block',
             width: token.lineWidth,
             height: `calc(100% + ${token.lineWidth * 2}px)`,
-            backgroundColor: token.colorPrimaryBorder,
+            backgroundColor: token.colorPrimaryHover,
             content: '""',
           },
         },
@@ -84,14 +77,14 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
           '&:not([disabled]) + &:not([disabled])': {
             position: 'relative',
 
-            '&:after': {
+            '&:before': {
               position: 'absolute',
               top: -token.lineWidth,
               insetInlineStart: -token.lineWidth,
               display: 'inline-block',
               width: `calc(100% + ${token.lineWidth * 2}px)`,
               height: token.lineWidth,
-              backgroundColor: token.colorPrimaryBorder,
+              backgroundColor: token.colorPrimaryHover,
               content: '""',
             },
           },
@@ -124,6 +117,14 @@ const genRoundButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
 });
 
 // =============================== Type ===============================
+const genDisabledStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
+  cursor: 'not-allowed',
+  borderColor: token.colorBorder,
+  color: token.colorTextDisabled,
+  backgroundColor: token.colorBgContainerDisabled,
+  boxShadow: 'none',
+});
+
 const genGhostButtonStyle = (
   btnCls: string,
   textColor: string | false,
@@ -160,11 +161,7 @@ const genGhostButtonStyle = (
 
 const genSolidDisabledButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
   '&:disabled': {
-    cursor: 'not-allowed',
-    borderColor: token.colorBorder,
-    color: token.colorTextDisabled,
-    backgroundColor: token.colorBgContainerDisabled,
-    boxShadow: 'none',
+    ...genDisabledStyle(token),
   },
 });
 
@@ -214,7 +211,7 @@ const genDefaultButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => 
     ...genHoverActiveButtonStyle(
       {
         color: token.colorErrorHover,
-        borderColor: token.colorErrorBorder,
+        borderColor: token.colorErrorBorderHover,
       },
       {
         color: token.colorErrorActive,
@@ -304,7 +301,6 @@ const genPrimaryButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => 
 // Type: Dashed
 const genDashedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
   ...genDefaultButtonStyle(token),
-
   borderStyle: 'dashed',
 });
 
@@ -371,6 +367,14 @@ const genTextButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
   },
 });
 
+// Href and Disabled
+const genDisabledButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
+  ...genDisabledStyle(token),
+  [`&${token.componentCls}:hover`]: {
+    ...genDisabledStyle(token),
+  },
+});
+
 const genTypeButtonStyle: GenerateStyle<ButtonToken> = (token) => {
   const { componentCls } = token;
 
@@ -380,6 +384,7 @@ const genTypeButtonStyle: GenerateStyle<ButtonToken> = (token) => {
     [`${componentCls}-dashed`]: genDashedButtonStyle(token),
     [`${componentCls}-link`]: genLinkButtonStyle(token),
     [`${componentCls}-text`]: genTextButtonStyle(token),
+    [`${componentCls}-disabled`]: genDisabledButtonStyle(token),
   };
 };
 
@@ -463,6 +468,17 @@ const genSizeLargeButtonStyle: GenerateStyle<ButtonToken> = (token) => {
   return genSizeButtonStyle(largeToken, `${token.componentCls}-lg`);
 };
 
+const genBlockButtonStyle: GenerateStyle<ButtonToken> = (token) => {
+  const { componentCls } = token;
+  return {
+    [componentCls]: {
+      [`&${componentCls}-block`]: {
+        width: '100%',
+      },
+    },
+  };
+};
+
 // ============================== Export ==============================
 export default genComponentStyleHook('Button', (token) => {
   const { controlTmpOutline, paddingContentHorizontal } = token;
@@ -481,10 +497,17 @@ export default genComponentStyleHook('Button', (token) => {
     genSizeBaseButtonStyle(buttonToken),
     genSizeLargeButtonStyle(buttonToken),
 
+    // Block
+    genBlockButtonStyle(buttonToken),
+
     // Group (type, ghost, danger, disabled, loading)
     genTypeButtonStyle(buttonToken),
 
     // Button Group
     genGroupStyle(buttonToken),
+
+    // Space Compact
+    genCompactItemStyle(token, { focus: false }),
+    genCompactItemVerticalStyle(token),
   ];
 });

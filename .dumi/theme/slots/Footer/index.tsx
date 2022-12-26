@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import RcFooter from 'rc-footer';
 import { Link, FormattedMessage } from 'dumi';
 import type { FooterColumn } from 'rc-footer/lib/column';
@@ -15,15 +15,15 @@ import {
   TwitterOutlined,
   UsergroupAddOutlined,
   ZhihuOutlined,
-  YuqueFilled,
 } from '@ant-design/icons';
-import useLocation from '../../../hooks/useLocation';
 import { css } from '@emotion/react';
-import useLocale from '../../../hooks/useLocale';
-import useSiteToken from '../../../hooks/useSiteToken';
 import { TinyColor } from '@ctrl/tinycolor';
 import getAlphaColor from 'antd/es/theme/util/getAlphaColor';
+import useLocation from '../../../hooks/useLocation';
+import useLocale from '../../../hooks/useLocale';
+import useSiteToken from '../../../hooks/useSiteToken';
 import AdditionalInfo from './AdditionalInfo';
+import SiteContext from '../SiteContext';
 
 const locales = {
   cn: {
@@ -36,6 +36,7 @@ const locales = {
 
 const useStyle = () => {
   const { token } = useSiteToken();
+  const { isMobile } = useContext(SiteContext);
   const background = new TinyColor(getAlphaColor('#f0f3fa', '#fff'))
     .onBackground(token.colorBgContainer)
     .toHexString();
@@ -60,7 +61,10 @@ const useStyle = () => {
       }
 
       .rc-footer-column {
-        margin-bottom: 0;
+        margin-bottom: ${isMobile ? 60 : 0}px;
+        :last-child {
+          margin-bottom: ${isMobile ? 20 : 0}px;
+        }
       }
 
       .rc-footer-container {
@@ -70,8 +74,10 @@ const useStyle = () => {
       }
 
       .rc-footer-bottom {
-        font-size: ${token.fontSize}px;
         box-shadow: inset 0 106px 36px -116px rgba(0, 0, 0, 0.14);
+        .rc-footer-bottom-container {
+          font-size: ${token.fontSize}px;
+        }
       }
     `,
   };
@@ -154,7 +160,7 @@ const Footer = () => {
         },
         {
           title: <FormattedMessage id="app.footer.chinamirror" />,
-          url: 'https://ant-design.gitee.io/',
+          url: 'https://ant-design.antgroup.com',
         },
       ],
     };
@@ -181,19 +187,24 @@ const Footer = () => {
           openExternal: true,
         },
         {
-          icon: <YuqueFilled style={{ color: '#00b96b' }} />,
+          icon: (
+            <img
+              src="https://gw.alipayobjects.com/zos/rmsportal/XuVpGqBFxXplzvLjJBZB.svg"
+              alt="yuque"
+            />
+          ),
           title: <FormattedMessage id="app.footer.yuque.repo" />,
           url: 'https://yuque.com/ant-design/ant-design',
           openExternal: true,
         },
         {
-          icon: <ZhihuOutlined style={{ color: '#0084ff' }} />,
+          icon: <ZhihuOutlined style={{ color: '#056de8' }} />,
           title: <FormattedMessage id="app.footer.zhihu" />,
           url: 'https://www.zhihu.com/column/c_1564262000561106944',
           openExternal: true,
         },
         {
-          icon: <ZhihuOutlined style={{ color: '#0084ff' }} />,
+          icon: <ZhihuOutlined style={{ color: '#056de8' }} />,
           title: <FormattedMessage id="app.footer.zhihu.xtech" />,
           url: 'http://zhuanlan.zhihu.com/xtech',
           openExternal: true,
@@ -365,7 +376,10 @@ const Footer = () => {
         css={style.footer}
         bottom={
           <>
-            Made with <span style={{ color: '#fff' }}>❤</span> by {locale.owner}
+            <div style={{ opacity: '0.4' }}>
+              Made with <span style={{ color: '#fff' }}>❤</span> by
+            </div>
+            <div>{locale.owner}</div>
           </>
         }
       />

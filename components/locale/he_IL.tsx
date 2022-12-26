@@ -2,7 +2,7 @@
 import Pagination from 'rc-pagination/lib/locale/he_IL';
 import Calendar from '../calendar/locale/he_IL';
 import DatePicker from '../date-picker/locale/he_IL';
-import type { Locale } from '../locale-provider';
+import type { Locale } from '../locale';
 import TimePicker from '../time-picker/locale/he_IL';
 
 const typeTemplate = '${label} הוא לא ${type} תקין';
@@ -25,9 +25,9 @@ const localeValues: Locale = {
     selectionAll: 'בחר את כל הנתונים',
     sortTitle: 'מיון',
     expand: 'הרחב שורה',
-    collapse: 'צמצם שורהw',
-    triggerDesc: 'לחץ על מיון לפי סדר יורד',
-    triggerAsc: 'לחץ על מיון לפי סדר עולה',
+    collapse: 'צמצם שורה',
+    triggerDesc: 'לחץ למיון לפי סדר יורד',
+    triggerAsc: 'לחץ למיון לפי סדר עולה',
     cancelSort: 'לחץ כדי לבטל את המיון',
   },
   Modal: {

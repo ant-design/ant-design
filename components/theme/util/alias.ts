@@ -24,15 +24,12 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     ...overrideTokens,
   };
 
-  const { fontSizes, lineHeights } = mergedToken;
   const screenXS = 480;
   const screenSM = 576;
   const screenMD = 768;
   const screenLG = 992;
   const screenXL = 1200;
   const screenXXL = 1600;
-
-  const fontSizeSM = fontSizes[0];
 
   // Generate alias token
   const aliasToken: AliasToken = {
@@ -70,26 +67,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     colorWarningOutline: getAlphaColor(mergedToken.colorWarningBg, mergedToken.colorBgContainer),
 
     // Font
-    fontSizeSM,
-    fontSize: fontSizes[1],
-    fontSizeLG: fontSizes[2],
-    fontSizeXL: fontSizes[3],
-    fontSizeHeading1: fontSizes[6],
-    fontSizeHeading2: fontSizes[5],
-    fontSizeHeading3: fontSizes[4],
-    fontSizeHeading4: fontSizes[3],
-    fontSizeHeading5: fontSizes[2],
-    fontSizeIcon: fontSizeSM,
-
-    lineHeight: lineHeights[1],
-    lineHeightLG: lineHeights[2],
-    lineHeightSM: lineHeights[0],
-
-    lineHeightHeading1: lineHeights[6],
-    lineHeightHeading2: lineHeights[5],
-    lineHeightHeading3: lineHeights[4],
-    lineHeightHeading4: lineHeights[3],
-    lineHeightHeading5: lineHeights[2],
+    fontSizeIcon: mergedToken.fontSizeSM,
 
     // Control
     lineWidth: mergedToken.lineWidth,
@@ -158,25 +136,24 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
 
     screenXS,
     screenXSMin: screenXS,
-    screenXSMax: screenXS - 1,
+    screenXSMax: screenSM - 1,
     screenSM,
     screenSMMin: screenSM,
-    screenSMMax: screenSM - 1,
+    screenSMMax: screenMD - 1,
     screenMD,
     screenMDMin: screenMD,
-    screenMDMax: screenMD - 1,
+    screenMDMax: screenLG - 1,
     screenLG,
     screenLGMin: screenLG,
-    screenLGMax: screenLG - 1,
+    screenLGMax: screenXL - 1,
     screenXL,
     screenXLMin: screenXL,
-    screenXLMax: screenXL - 1,
+    screenXLMax: screenXXL - 1,
     screenXXL,
     screenXXLMin: screenXXL,
-    screenXXLMax: screenXXL - 1,
 
     // FIXME: component box-shadow, should be removed
-    boxShadowPopoverArrow: `3px 3px 7px rgba(0, 0, 0, 0.1)`,
+    boxShadowPopoverArrow: '3px 3px 7px rgba(0, 0, 0, 0.1)',
     boxShadowCard: `
       0 1px 2px -2px ${new TinyColor('rgba(0, 0, 0, 0.16)').toRgbString()},
       0 3px 6px 0 ${new TinyColor('rgba(0, 0, 0, 0.12)').toRgbString()},
@@ -202,10 +179,10 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
       0 -3px 6px -4px rgba(0, 0, 0, 0.12),
       0 -9px 28px 8px rgba(0, 0, 0, 0.05)
     `,
-    boxShadowTabsOverflowLeft: `inset 10px 0 8px -8px rgba(0, 0, 0, 0.08)`,
-    boxShadowTabsOverflowRight: `inset -10px 0 8px -8px rgba(0, 0, 0, 0.08)`,
-    boxShadowTabsOverflowTop: `inset 0 10px 8px -8px rgba(0, 0, 0, 0.08)`,
-    boxShadowTabsOverflowBottom: `inset 0 -10px 8px -8px rgba(0, 0, 0, 0.08)`,
+    boxShadowTabsOverflowLeft: 'inset 10px 0 8px -8px rgba(0, 0, 0, 0.08)',
+    boxShadowTabsOverflowRight: 'inset -10px 0 8px -8px rgba(0, 0, 0, 0.08)',
+    boxShadowTabsOverflowTop: 'inset 0 10px 8px -8px rgba(0, 0, 0, 0.08)',
+    boxShadowTabsOverflowBottom: 'inset 0 -10px 8px -8px rgba(0, 0, 0, 0.08)',
 
     // Override AliasToken
     ...overrideTokens,

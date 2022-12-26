@@ -2,7 +2,7 @@
 category: Components
 group: Data Display
 title: Timeline
-cover: https://gw.alipayobjects.com/zos/antfincdn/vJmo00mmgR/Timeline.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*FkTySqNt3sYAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -24,6 +24,7 @@ Vertical display timeline.
 <code src="./demo/custom.tsx">Custom</code>
 <code src="./demo/right.tsx">Right alternate</code>
 <code src="./demo/label.tsx">Label</code>
+<code src="./demo/wireframe.tsx" debug>Wireframe</code>
 
 ## API
 
