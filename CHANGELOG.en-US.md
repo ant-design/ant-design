@@ -20,6 +20,7 @@ timeline: true
 `2022-12-26`
 
 - 🆕 Image preview interactive optimization. [#39812](https://github.com/ant-design/ant-design/pull/39812) [@JarvisArt](https://github.com/JarvisArt)
+- ⚡️ Remove IE and other legacy browsers from browserslist for umd bundle to reduce bundle size.[#38779](https://github.com/ant-design/ant-design/pull/38779)
 - ⚡️ Improve Transfer performance when selecting and moving nodes with large data.[#39465](https://github.com/ant-design/ant-design/pull/39465) [@wqs576222103](https://github.com/wqs576222103)
 - 🐞 Fix wrong `font-family` of components. [#39806](https://github.com/ant-design/ant-design/pull/39806)
 - 🐞 Fix Drawer default props not working when `placement` `open` `width` are `undefined`. [#39782](https://github.com/ant-design/ant-design/pull/39782)
