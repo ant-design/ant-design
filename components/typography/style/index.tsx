@@ -94,7 +94,7 @@ const genTypographyStyle: GenerateStyle<TypographyToken> = (token) => {
         },
       },
 
-      ...getResetStyles(),
+      ...getResetStyles(token),
 
       ...getLinkStyles(token),
 
