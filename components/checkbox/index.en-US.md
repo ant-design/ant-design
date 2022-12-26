@@ -24,6 +24,7 @@ Checkbox component.
 <code src="./demo/check-all.tsx">Check all</code>
 <code src="./demo/layout.tsx">Use with Grid</code>
 <code src="./demo/debug-line.tsx" debug>Same line</code>
+<code src="./demo/debug-disable-popover.tsx" debug>Disabled to show Tooltip</code>
 
 ## API
 
