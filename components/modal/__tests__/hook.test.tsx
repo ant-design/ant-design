@@ -205,7 +205,7 @@ describe('Modal.hook', () => {
     jest.useFakeTimers();
 
     const clear = async function clear() {
-      await waitFakeTimer();
+      await waitFakeTimer(1000, 40);
     };
 
     const mockFn = jest.fn();
