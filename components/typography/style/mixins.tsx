@@ -13,7 +13,6 @@ import type { TypographyToken } from '.';
 import { initInputToken } from '../../input/style';
 import type { GenerateStyle } from '../../theme/internal';
 import { operationUnit } from '../../style';
-import { Token } from 'prismjs';
 
 // eslint-disable-next-line import/prefer-default-export
 const getTitleStyle = (
