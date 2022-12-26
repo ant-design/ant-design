@@ -666,7 +666,7 @@ describe('Form', () => {
     await waitFakeTimer(100, 100);
 
     expect(formRef.current!.getFieldsValue()).toEqual({ light: 'bamboo' });
-
+    await waitFakeTimer();
     expect(container.querySelector<HTMLInputElement>('#changed')!.value).toEqual('bamboo');
     expect(shouldNotRender).toHaveBeenCalledTimes(1);
     expect(shouldRender).toHaveBeenCalledTimes(2);
