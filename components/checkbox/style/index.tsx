@@ -246,6 +246,9 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
         // Wrapper > Checkbox > input
         [`&, ${checkboxCls}-input`]: {
           cursor: 'not-allowed',
+          // Disabled for native input to enable Tooltip event handler
+          // ref: https://github.com/ant-design/ant-design/issues/39822#issuecomment-1365075901
+          pointerEvents: 'none',
         },
 
         // Wrapper > Checkbox > inner
