@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
-import type { DerivativeToken, FullToken } from '../theme/internal';
+import type { FullToken } from '../theme/internal';
 import type { OverrideComponent } from '../theme/util/genComponentStyleHook';
 
 interface CompactItemOptions {
