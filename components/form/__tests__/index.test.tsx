@@ -643,18 +643,25 @@ describe('Form', () => {
       return <input id={id} value={value} />;
     };
 
-    const formRef = React.createRef<FormInstance>();
+    const Demo = () => {
+      const [form] = Form.useForm();
 
-    const { container } = pureRender(
-      <Form ref={formRef}>
-        <Form.Item>
-          <StaticInput />
-        </Form.Item>
-        <Form.Item name="light">
-          <DynamicInput id="changed" />
-        </Form.Item>
-      </Form>,
-    );
+      return (
+        <Form form={form}>
+          <Form.Item>
+            <StaticInput />
+          </Form.Item>
+          <Form.Item name="light">
+            <DynamicInput id="changed" />
+          </Form.Item>
+          <Button id="fill-btn" onClick={() => form.setFieldValue('light', 'bamboo')}>
+            fill
+          </Button>
+        </Form>
+      );
+    };
+
+    const { container } = pureRender(<Demo />);
 
     await waitFakeTimer();
 
@@ -662,11 +669,7 @@ describe('Form', () => {
     expect(shouldNotRender).toHaveBeenCalledTimes(1);
     expect(shouldRender).toHaveBeenCalledTimes(1);
 
-    formRef.current!.setFieldsValue({ light: 'bamboo' });
-    await waitFakeTimer(100, 100);
-
-    expect(formRef.current!.getFieldsValue()).toEqual({ light: 'bamboo' });
-
+    fireEvent.click(container.querySelector('#fill-btn')!);
     await waitFakeTimer();
 
     expect(shouldNotRender).toHaveBeenCalledTimes(1);
