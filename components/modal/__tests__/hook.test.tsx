@@ -47,7 +47,7 @@ describe('Modal.hook', () => {
       );
     };
 
-    const { container } = render(<Demo />);
+    const { container, unmount } = render(<Demo />);
     fireEvent.click(container.querySelectorAll('button')[0]);
 
     expect(document.body.querySelectorAll('.test-hook')[0].textContent).toBe('bamboo');
@@ -70,6 +70,7 @@ describe('Modal.hook', () => {
     expect(document.body.querySelectorAll('Modal')).toHaveLength(0);
 
     jest.useRealTimers();
+    unmount();
   });
 
   it('context support config direction', () => {
@@ -90,7 +91,7 @@ describe('Modal.hook', () => {
       );
     };
 
-    const { container } = render(
+    const { container, unmount } = render(
       <ConfigProvider direction="rtl">
         <Demo />
       </ConfigProvider>,
@@ -98,6 +99,7 @@ describe('Modal.hook', () => {
 
     fireEvent.click(container.querySelectorAll('button')[0]);
     expect(document.body.querySelectorAll('.ant-input-rtl').length).toBeTruthy();
+    unmount();
   });
 
   it('hooks modal should trigger onCancel', () => {
@@ -127,7 +129,7 @@ describe('Modal.hook', () => {
       );
     };
 
-    const { container } = render(<Demo />);
+    const { container, unmount } = render(<Demo />);
 
     fireEvent.click(container.querySelectorAll('.open-hook-modal-btn')[0]);
     fireEvent.click(document.body.querySelectorAll('.ant-modal-confirm-btns .ant-btn')[0]);
@@ -136,6 +138,7 @@ describe('Modal.hook', () => {
     fireEvent.click(container.querySelectorAll('.open-hook-modal-btn')[0]);
     fireEvent.click(document.body.querySelectorAll('.ant-modal-wrap')[0]);
     expect(cancelCount).toEqual(2); // click modal wrapper, trigger onCancel
+    unmount();
   });
 
   it('update before render', () => {
@@ -162,11 +165,12 @@ describe('Modal.hook', () => {
       );
     };
 
-    const { container } = render(<Demo />);
+    const { container, unmount } = render(<Demo />);
     fireEvent.click(container.querySelectorAll('.open-hook-modal-btn')[0]);
     expect(document.body.querySelectorAll('.ant-modal-confirm-title')[0].textContent).toEqual(
       'Bamboo',
     );
+    unmount();
   });
 
   it('destroy before render', () => {
@@ -191,9 +195,10 @@ describe('Modal.hook', () => {
       );
     };
 
-    const { container } = render(<Demo />);
+    const { container, unmount } = render(<Demo />);
     fireEvent.click(container.querySelectorAll('.open-hook-modal-btn')[0]);
     expect(document.body.classList.contains('ant-modal-confirm-title')).toBeFalsy();
+    unmount();
   });
 
   it('the callback close should be a method when onCancel has a close parameter', async () => {
@@ -227,7 +232,7 @@ describe('Modal.hook', () => {
       );
     };
 
-    const { container } = render(<Demo />);
+    const { container, unmount } = render(<Demo />);
 
     await clear();
 
@@ -298,6 +303,7 @@ describe('Modal.hook', () => {
     expect(mockFn.mock.calls).toEqual(Array.from({ length: 5 }, () => [expect.any(Function)]));
 
     jest.useRealTimers();
+    unmount();
   });
 
   it('not block origin ConfigProvider config', () => {
@@ -313,8 +319,8 @@ describe('Modal.hook', () => {
       return <ConfigProvider autoInsertSpaceInButton={false}>{contextHolder}</ConfigProvider>;
     };
 
-    render(<Demo />);
-
+    const { unmount } = render(<Demo />);
     expect(document.body.querySelector('.bamboo')?.textContent).toEqual('好的');
+    unmount();
   });
 });
