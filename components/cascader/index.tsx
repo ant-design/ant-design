@@ -99,13 +99,13 @@ type SingleCascaderProps = Omit<RcSingleCascaderProps, 'checkable' | 'options'> 
   multiple?: false;
 };
 type MultipleCascaderProps = Omit<RcMultipleCascaderProps, 'checkable' | 'options'> & {
-  multiple: true;
+  multiple: true | { checkStrictly: boolean };
 };
 
 type UnionCascaderProps = SingleCascaderProps | MultipleCascaderProps;
 
 export type CascaderProps<DataNodeType> = UnionCascaderProps & {
-  multiple?: boolean;
+  multiple?: boolean | { checkStrictly: boolean };
   size?: SizeType;
   disabled?: boolean;
   bordered?: boolean;

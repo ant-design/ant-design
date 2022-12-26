@@ -56,8 +56,7 @@ const App: React.FC = () => {
       </div>
       <Cascader
         style={{ width: '100%' }}
-        multiple
-        // multiple={{ checkStrictly: checked }}
+        multiple={{ checkStrictly: checked }}
         options={options}
         onChange={onChange}
         maxTagCount="responsive"
