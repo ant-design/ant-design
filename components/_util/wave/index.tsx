@@ -104,7 +104,7 @@ const Wave: React.FC<WaveProps> = (props) => {
   };
 
   function resetEffect(node: HTMLDivElement) {
-    if (!node || node === extraNode.current || !(node instanceof Element)) {
+    if (!node || node === extraNode.current || !(node instanceof Element) || disabled) {
       return;
     }
 

@@ -328,21 +328,7 @@ describe('Wave component', () => {
       </Wave>,
     );
     await clickButton(container);
-    fireEvent.transitionStart(container.querySelector('button')!);
-    await waitFakeTimer();
-    jest.useRealTimers();
-    unmount();
-  });
-
-  it('wave transitionEnd', async () => {
-    jest.useFakeTimers();
-    const { container, unmount } = render(
-      <Wave>
-        <button type="button">button</button>
-      </Wave>,
-    );
-    await clickButton(container);
-    fireEvent.transitionEnd(container.querySelector('button')!, { animationName: 'fadeEffect' });
+    fireEvent.click(container.querySelector('button')!);
     await waitFakeTimer();
     jest.useRealTimers();
     unmount();
