@@ -33,7 +33,6 @@ export interface StyleMapToken {
   borderRadiusLG: number;
   /**
    * @default 4
-   * @internal
    */
   borderRadiusOuter: number;
 }
