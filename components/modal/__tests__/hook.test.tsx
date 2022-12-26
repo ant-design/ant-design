@@ -199,10 +199,6 @@ describe('Modal.hook', () => {
   it('the callback close should be a method when onCancel has a close parameter', async () => {
     jest.useFakeTimers();
 
-    const clear = async function clear() {
-      await waitFakeTimer();
-    };
-
     const mockFn = jest.fn();
 
     const Demo = () => {
@@ -229,57 +225,57 @@ describe('Modal.hook', () => {
 
     const { container } = render(<Demo />);
 
-    await clear();
+    await waitFakeTimer();
 
     expect(document.body.querySelectorAll('.ant-modal-confirm-confirm')).toHaveLength(0);
     // First open
     fireEvent.click(container.querySelectorAll('.open-hook-modal-btn')[0]);
-    await clear();
+    await waitFakeTimer();
 
     expect(document.body.querySelectorAll('.ant-modal-confirm-confirm')).toHaveLength(1);
     // Click mask to close
     fireEvent.click(document.body.querySelectorAll('.ant-modal-wrap')[0]);
 
-    await clear();
+    await waitFakeTimer();
 
     expect(document.body.querySelectorAll('.ant-modal-confirm-confirm')).toHaveLength(0);
     // Second open
     fireEvent.click(container.querySelectorAll('.open-hook-modal-btn')[0]);
 
-    await clear();
+    await waitFakeTimer();
 
     expect(document.body.querySelectorAll('.ant-modal-confirm-confirm')).toHaveLength(1);
     // Press ESC to turn off
-    TestUtils.Simulate.keyDown(document.body.querySelectorAll('.ant-modal')[0], {
+    fireEvent.keyDown(document.body.querySelectorAll('.ant-modal')[0], {
       keyCode: KeyCode.ESC,
     });
 
-    await clear();
+    await waitFakeTimer();
 
     expect(document.body.querySelectorAll('.ant-modal-confirm-confirm')).toHaveLength(0);
     // Third open
     fireEvent.click(container.querySelectorAll('.open-hook-modal-btn')[0]);
 
-    await clear();
+    await waitFakeTimer();
 
     expect(document.body.querySelectorAll('.ant-modal-confirm-confirm')).toHaveLength(1);
     // Click the close icon to close
     fireEvent.click(document.body.querySelectorAll('.ant-modal-close')[0]);
 
-    await clear();
+    await waitFakeTimer();
 
     expect(document.body.querySelectorAll('.ant-modal-confirm-confirm')).toHaveLength(0);
     // Last open
     fireEvent.click(container.querySelectorAll('.open-hook-modal-btn')[0]);
 
-    await clear();
+    await waitFakeTimer();
 
     expect(document.body.querySelectorAll('.ant-modal-confirm-confirm')).toHaveLength(1);
 
     // Click the Cancel button to close (invalid)
     fireEvent.click(document.body.querySelectorAll('.ant-modal-confirm-btns > .ant-btn')[0]);
 
-    await clear();
+    await waitFakeTimer();
 
     expect(document.body.querySelectorAll('.ant-modal-confirm-confirm')).toHaveLength(1);
 
@@ -288,7 +284,7 @@ describe('Modal.hook', () => {
     // Click the Cancel button to close (valid)
     fireEvent.click(document.body.querySelectorAll('.ant-modal-confirm-btns > .ant-btn')[0]);
 
-    await clear();
+    await waitFakeTimer();
 
     expect(document.body.querySelectorAll('.ant-modal-confirm-confirm')).toHaveLength(0);
 
