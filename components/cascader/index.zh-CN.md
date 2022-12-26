@@ -26,6 +26,7 @@ demo:
 <code src="./demo/disabled-option.tsx">禁用选项</code>
 <code src="./demo/change-on-select.tsx">选择即改变</code>
 <code src="./demo/multiple.tsx">多选</code>
+<code src="./demo/multiple-checkStrictly.tsx">父子节点选中是否关联</code>
 <code src="./demo/showCheckedStrategy.tsx">自定义回填方式</code>
 <code src="./demo/size.tsx">大小</code>
 <code src="./demo/custom-render.tsx">自定义已选项</code>
