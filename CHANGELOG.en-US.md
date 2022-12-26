@@ -15,6 +15,19 @@ timeline: true
 
 ---
 
+## 4.24.6
+
+`2022-12-26`
+
+- 🆕 Dropdown support `autoAdjustOverflow`. [#39741](https://github.com/ant-design/ant-design/pull/39741)
+- 🐞 Fix `justify` and `align` properties are not reactive for Row. [#39706](https://github.com/ant-design/ant-design/pull/39706) [@candy4290](https://github.com/candy4290)
+- 🐞 Fix Drawer that could not be close with `open={false}`. [#39561](https://github.com/ant-design/ant-design/pull/39561)
+- 🐞 Fix Divider `horizontal` align issue in flex layout. [#39334](https://github.com/ant-design/ant-design/pull/39334)
+- 💄 Fix `Dropdown` component dange and disabled style priority issue. [#39434](https://github.com/ant-design/ant-design/pull/39434) [@Wxh16144](https://github.com/Wxh16144)
+- ⌨️ Reset aria-label in Table column. [#39747](https://github.com/ant-design/ant-design/pull/39747) [@kiner-tang](https://github.com/kiner-tang)
+- 🌐 Localization
+  - 🇺🇿 Add uz_UZ locale. [#39353](https://github.com/ant-design/ant-design/pull/39353) [@nodkz](https://github.com/nodkz)
+
 ## 4.24.5
 
 `2022-12-05`

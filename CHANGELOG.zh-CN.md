@@ -15,6 +15,19 @@ timeline: true
 
 ---
 
+## 4.24.6
+
+`2022-12-26`
+
+- 🆕 Dropdown 组件支持 `autoAdjustOverflow` 属性。 (#39741)[62cefca](https://github.com/ant-design/ant-design/commit/62cefca)
+- 🐞 修复 Row 组件 `justify` 和 `align` 属性，动态改变不生效的问题。[#39706](https://github.com/ant-design/ant-design/pull/39706) [@candy4290](https://github.com/candy4290)
+- 🐞 修复 Drawer 组件 `open` 为 false 时无法关闭的问题。[#39561](https://github.com/ant-design/ant-design/pull/39561)
+- 🐞 修复 Divider `horizontal` 在 flex 布局下的对齐问题。[#39334](https://github.com/ant-design/ant-design/pull/39334)
+- 💄 修复 `Dropdown` 组件 `danger` 和 `disabled` 属性同时使用样式问题。[#39434](https://github.com/ant-design/ant-design/pull/39434) [@Wxh16144](https://github.com/Wxh16144)
+- ⌨️ 重置 Table 中列的 aria-label 属性值。[#39747](https://github.com/ant-design/ant-design/pull/39747) [@kiner-tang](https://github.com/kiner-tang)
+- 🌐 国际化
+  - 🇺🇿 支持 uz_UZ 语言。[#39353](https://github.com/ant-design/ant-design/pull/39353) [@nodkz](https://github.com/nodkz)
+
 ## 4.24.5
 
 `2022-12-05`
