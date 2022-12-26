@@ -64,7 +64,8 @@ const App: React.FC = () => {
       </Space.Compact>
       <Space.Compact>
         <Input addonAfter={<SettingOutlined />} defaultValue="mysite" />
-        <Button type="primary">Submit</Button>
+        <Button type="default">Submit</Button>
+        <Input.Search />
         <Input placeholder="suffix" addonAfter={<SettingOutlined />} />
       </Space.Compact>
       <Space.Compact>

@@ -4,6 +4,9 @@ import type { DerivativeToken, FullToken } from '../theme/internal';
 import type { OverrideComponent } from '../theme/util/genComponentStyleHook';
 
 interface CompactItemOptions {
+  /**
+   * @default true
+   */
   focus?: boolean;
   /**
    * Some component borders are implemented on child elements
@@ -15,20 +18,21 @@ interface CompactItemOptions {
    * like `Select` and `DatePicker`
    */
   focusElCls?: string;
+  componentCls?: string;
+  /**
+   * @default true
+   */
+  border?: boolean;
 }
 
 // handle border collapse
-function compactItemBorder(token: DerivativeToken, options: CompactItemOptions): CSSObject {
+function compactItemBorder(options: CompactItemOptions): CSSObject {
   const childCombinator = options.borderElCls ? '> *' : '';
   const hoverEffects = ['hover', options.focus ? 'focus' : null, 'active']
     .filter(Boolean)
     .map((n) => `&:${n} ${childCombinator}`)
     .join(',');
   return {
-    '&-item:not(&-last-item)': {
-      marginInlineEnd: -token.lineWidth,
-    },
-
     '&-item': {
       [hoverEffects]: {
         zIndex: 2,
@@ -78,12 +82,21 @@ function compactItemBorderRadius(prefixCls: string, options: CompactItemOptions)
 
 export function genCompactItemStyle<T extends OverrideComponent>(
   token: FullToken<T>,
-  options: CompactItemOptions = { focus: true },
+  options: CompactItemOptions = {},
 ): CSSInterpolation {
+  options = {
+    focus: true,
+    border: true,
+    ...options,
+  };
+  const componentCls = options.componentCls || token.componentCls;
   return {
-    [`${token.componentCls}-compact`]: {
-      ...compactItemBorder(token, options),
-      ...compactItemBorderRadius(token.componentCls, options),
+    [`${componentCls}-compact`]: {
+      '&-item:not(&-last-item)': {
+        marginInlineEnd: -token.lineWidth,
+      },
+      ...(options?.border !== false && compactItemBorder(options)),
+      ...compactItemBorderRadius(componentCls, options),
     },
   };
 }

@@ -137,6 +137,8 @@ type CompoundedComponent = React.ForwardRefExoticComponent<
   Group: typeof Group;
   /** @internal */
   __ANT_BUTTON: boolean;
+  /** @internal */
+  __ANT_COMPACT_ITEM: boolean;
 };
 
 type Loading = number | boolean;

@@ -328,6 +328,8 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
   SHOW_PARENT: typeof SHOW_PARENT;
   SHOW_CHILD: typeof SHOW_CHILD;
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
+  /** @internal */
+  __ANT_COMPACT_ITEM: boolean;
 };
 if (process.env.NODE_ENV !== 'production') {
   Cascader.displayName = 'Cascader';
@@ -340,5 +342,5 @@ const PurePanel = genPurePanel(Cascader);
 Cascader.SHOW_PARENT = SHOW_PARENT;
 Cascader.SHOW_CHILD = SHOW_CHILD;
 Cascader._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
-
+Cascader.__ANT_COMPACT_ITEM = true;
 export default Cascader;

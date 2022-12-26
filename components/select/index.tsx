@@ -242,6 +242,8 @@ const Select = React.forwardRef(InternalSelect) as unknown as (<
   Option: typeof Option;
   OptGroup: typeof OptGroup;
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
+  /** @internal */
+  __ANT_COMPACT_ITEM: boolean;
 };
 
 // We don't care debug panel
@@ -252,5 +254,5 @@ Select.SECRET_COMBOBOX_MODE_DO_NOT_USE = SECRET_COMBOBOX_MODE_DO_NOT_USE;
 Select.Option = Option;
 Select.OptGroup = OptGroup;
 Select._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
-
+Select.__ANT_COMPACT_ITEM = true;
 export default Select;
