@@ -209,12 +209,11 @@ exports[`Image Default Group preview props 1`] = `
             >
               <div
                 class="ant-image-preview-img-wrapper"
-                style="transform: translate3d(0px, 0px, 0);"
               >
                 <img
                   class="ant-image-preview-img"
                   src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-                  style="transform: scale3d(1, 1, 1) rotate(0deg);"
+                  style="transform: translate3d(0px, 0px, 0) scale3d(1, 1, 1) rotate(0deg);"
                 />
               </div>
             </div>
