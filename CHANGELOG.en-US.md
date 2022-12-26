@@ -19,7 +19,7 @@ timeline: true
 
 `2022-12-26`
 
-- 🆕 Dropdown support `autoAdjustOverflow` (#39741). [62cefca](https://github.com/ant-design/ant-design/commit/62cefca)
+- 🆕 Dropdown support `autoAdjustOverflow`. [#39741](https://github.com/ant-design/ant-design/pull/39741)
 - 🐞 Fix `justify` and `align` properties are not reactive for Row. [#39706](https://github.com/ant-design/ant-design/pull/39706) [@candy4290](https://github.com/candy4290)
 - 🐞 Fix Drawer that could not be close with `open={false}`. [#39561](https://github.com/ant-design/ant-design/pull/39561)
 - 🐞 Fix Divider `horizontal` align issue in flex layout. [#39334](https://github.com/ant-design/ant-design/pull/39334)
