@@ -1,10 +1,9 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { enUS, zhCN, ThemeEditor } from 'antd-token-previewer';
+import { enUS, ThemeEditor, zhCN } from 'antd-token-previewer';
 import { Button, ConfigProvider, message, Modal, Typography } from 'antd';
 import type { ThemeConfig } from 'antd/es/config-provider/context';
 import { Helmet } from 'dumi';
 import { css } from '@emotion/react';
-import { EditOutlined } from '@ant-design/icons';
 import type { JSONContent, TextContent } from 'vanilla-jsoneditor';
 import useLocale from '../../hooks/useLocale';
 import JSONEditor from './components/JSONEditor';
@@ -14,10 +13,9 @@ const locales = {
   cn: {
     title: '主题编辑器',
     save: '保存',
-    reset: '重置',
-    edit: '代码',
+    edit: '编辑',
+    export: '导出',
     editModelTitle: '编辑主题配置',
-    editTitle: '在下方编辑你的主题 JSON 即可',
     editJsonContentTypeError: '主题 JSON 格式错误',
     editSuccessfully: '编辑成功',
     saveSuccessfully: '保存成功',
@@ -25,10 +23,9 @@ const locales = {
   en: {
     title: 'Theme Editor',
     save: 'Save',
-    reset: 'Reset',
-    edit: 'Code',
+    edit: 'Edit',
+    export: 'Export',
     editModelTitle: 'edit Theme Config',
-    editTitle: 'Edit your theme JSON below',
     editJsonContentTypeError: 'The theme of the JSON format is incorrect',
     editSuccessfully: 'Edited successfully',
     saveSuccessfully: 'Saved successfully',
@@ -83,10 +80,6 @@ const CustomTheme = () => {
     messageApi.success(locale.saveSuccessfully);
   };
 
-  const handleReset = () => {
-    setTheme({});
-  };
-
   const handleEditConfig = () => {
     setEditModelOpen(true);
   };
@@ -124,6 +117,22 @@ const CustomTheme = () => {
     messageApi.success(locale.editSuccessfully);
   }, [themeConfigContent]);
 
+  const handleExport = () => {
+    const file = new File([JSON.stringify(theme, null, 2)], `Ant Design Theme.json`, {
+      type: 'text/json; charset=utf-8;',
+    });
+    const tmpLink = document.createElement('a');
+    const objectUrl = URL.createObjectURL(file);
+
+    tmpLink.href = objectUrl;
+    tmpLink.download = file.name;
+    document.body.appendChild(tmpLink);
+    tmpLink.click();
+
+    document.body.removeChild(tmpLink);
+    URL.revokeObjectURL(objectUrl);
+  };
+
   return (
     <div>
       <Helmet>
@@ -145,20 +154,17 @@ const CustomTheme = () => {
               onOk={editSave}
               onCancel={editModelClose}
             >
-              <div>
-                <div style={{ color: 'rgba(0,0,0,0.65)' }}>{locale.editTitle}</div>
-                <JSONEditor
-                  content={themeConfigContent}
-                  onChange={handleEditConfigChange}
-                  mainMenuBar={false}
-                />
-              </div>
+              <JSONEditor
+                content={themeConfigContent}
+                onChange={handleEditConfigChange}
+                mainMenuBar={false}
+              />
             </Modal>
-            <Button onClick={handleEditConfig} icon={<EditOutlined />} style={{ marginRight: 8 }}>
-              {locale.edit}
+            <Button onClick={handleExport} style={{ marginRight: 8 }}>
+              {locale.export}
             </Button>
-            <Button onClick={handleReset} style={{ marginRight: 8 }}>
-              {locale.reset}
+            <Button onClick={handleEditConfig} style={{ marginRight: 8 }}>
+              {locale.edit}
             </Button>
             <Button type="primary" onClick={handleSave}>
               {locale.save}
