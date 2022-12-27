@@ -627,7 +627,7 @@ describe('Anchor Render', () => {
           ]}
         />,
       );
-      expect(container.querySelectorAll('.ant-anchor-ink-ball').length).toBe(1);
+      expect(container.querySelectorAll('.ant-anchor-ink').length).toBe(1);
       expect(
         container
           .querySelector('.ant-anchor-wrapper')

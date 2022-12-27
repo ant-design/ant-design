@@ -288,8 +288,8 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
     [`${prefixCls}-fixed`]: !affix && !showInkInFixed,
   });
 
-  const inkClass = classNames(`${prefixCls}-ink-ball`, {
-    [`${prefixCls}-ink-ball-visible`]: activeLink,
+  const inkClass = classNames(`${prefixCls}-ink`, {
+    [`${prefixCls}-ink-visible`]: activeLink,
   });
 
   const wrapperStyle: React.CSSProperties = {

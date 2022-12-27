@@ -35,7 +35,7 @@ exports[`renders ./components/anchor/demo/basic.tsx correctly 1`] = `
             class="ant-anchor"
           >
             <span
-              class="ant-anchor-ink-ball"
+              class="ant-anchor-ink"
             />
             <div
               class="ant-anchor-link"
@@ -87,7 +87,7 @@ exports[`renders ./components/anchor/demo/customizeHighlight.tsx correctly 1`] =
     class="ant-anchor ant-anchor-fixed"
   >
     <span
-      class="ant-anchor-ink-ball"
+      class="ant-anchor-ink"
     />
     <div
       class="ant-anchor-link"
@@ -165,7 +165,7 @@ Array [
             class="ant-anchor"
           >
             <span
-              class="ant-anchor-ink-ball"
+              class="ant-anchor-ink"
             />
             <div
               class="ant-anchor-link"
@@ -276,7 +276,7 @@ exports[`renders ./components/anchor/demo/legacy-anchor.tsx correctly 1`] = `
     class="ant-anchor ant-anchor-fixed"
   >
     <span
-      class="ant-anchor-ink-ball"
+      class="ant-anchor-ink"
     />
     <div
       class="ant-anchor-link"
@@ -346,7 +346,7 @@ exports[`renders ./components/anchor/demo/onChange.tsx correctly 1`] = `
     class="ant-anchor ant-anchor-fixed"
   >
     <span
-      class="ant-anchor-ink-ball"
+      class="ant-anchor-ink"
     />
     <div
       class="ant-anchor-link"
@@ -416,7 +416,7 @@ exports[`renders ./components/anchor/demo/onClick.tsx correctly 1`] = `
     class="ant-anchor ant-anchor-fixed"
   >
     <span
-      class="ant-anchor-ink-ball"
+      class="ant-anchor-ink"
     />
     <div
       class="ant-anchor-link"
@@ -486,7 +486,7 @@ exports[`renders ./components/anchor/demo/static.tsx correctly 1`] = `
     class="ant-anchor ant-anchor-fixed"
   >
     <span
-      class="ant-anchor-ink-ball"
+      class="ant-anchor-ink"
     />
     <div
       class="ant-anchor-link"
@@ -589,7 +589,7 @@ exports[`renders ./components/anchor/demo/targetOffset.tsx correctly 1`] = `
               class="ant-anchor"
             >
               <span
-                class="ant-anchor-ink-ball"
+                class="ant-anchor-ink"
               />
               <div
                 class="ant-anchor-link"

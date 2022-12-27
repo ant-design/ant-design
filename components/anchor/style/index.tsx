@@ -83,7 +83,7 @@ const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
             content: '" "',
           },
 
-          [`${componentCls}-ink-ball`]: {
+          [`${componentCls}-ink`]: {
             position: 'absolute',
             left: {
               _skip_check_: true,
@@ -95,14 +95,14 @@ const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
             width: lineWidthBold,
             backgroundColor: colorPrimary,
 
-            [`&${componentCls}-ink-ball-visible`]: {
+            [`&${componentCls}-ink-visible`]: {
               display: 'inline-block',
             },
           },
         },
       },
 
-      [`${componentCls}-fixed ${componentCls}-ink ${componentCls}-ink-ball`]: {
+      [`${componentCls}-fixed ${componentCls}-ink ${componentCls}-ink`]: {
         display: 'none',
       },
     },
@@ -145,7 +145,7 @@ const genSharedAnchorHorizontalStyle: GenerateStyle<AnchorToken> = (token): CSSO
           paddingInline: 0,
         },
 
-        [`${componentCls}-ink-ball`]: {
+        [`${componentCls}-ink`]: {
           position: 'absolute',
           bottom: 0,
           transition: `left ${motionDurationSlow} ease-in-out, width ${motionDurationSlow} ease-in-out`,

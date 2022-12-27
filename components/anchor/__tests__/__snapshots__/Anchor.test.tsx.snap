@@ -13,7 +13,7 @@ exports[`Anchor Render render items and ignore jsx children 1`] = `
         class="ant-anchor"
       >
         <span
-          class="ant-anchor-ink-ball"
+          class="ant-anchor-ink"
         />
         <div
           class="ant-anchor-link"
@@ -45,7 +45,7 @@ exports[`Anchor Render renders items correctly 1`] = `
         class="ant-anchor"
       >
         <span
-          class="ant-anchor-ink-ball"
+          class="ant-anchor-ink"
         />
         <div
           class="ant-anchor-link"
@@ -121,7 +121,7 @@ exports[`Anchor Render renders items correctly#horizontal 1`] = `
         class="ant-anchor"
       >
         <span
-          class="ant-anchor-ink-ball"
+          class="ant-anchor-ink"
         />
         <div
           class="ant-anchor-link"
