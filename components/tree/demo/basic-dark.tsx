@@ -57,7 +57,6 @@ const App: React.FC = () => {
         onSelect={onSelect}
         onCheck={onCheck}
         treeData={treeData}
-        rootStyle={{ background: 'gray' }}
       />
     </ConfigProvider>
   );
