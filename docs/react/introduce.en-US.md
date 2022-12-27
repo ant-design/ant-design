@@ -94,7 +94,7 @@ export default App;
 
 ### Use modularized antd
 
-`antd` supports ES modules tree shaking by default for JS part.
+`antd` supports ES modules tree shaking by default.
 
 ### TypeScript
 

@@ -94,7 +94,7 @@ export default App;
 
 ### 按需加载
 
-`antd` 的 JS 代码默认支持基于 ES modules 的 tree shaking。
+`antd` 默认支持基于 ES modules 的 tree shaking。
 
 ### TypeScript
 

@@ -112,14 +112,6 @@ Jest does not support `esm` modules, and Ant Design uses them. In order to test 
 
 `antd` supports tree shaking of ES modules, so using `import { Button } from 'antd';` would drop js code you didn't use.
 
-If you see logs like in the screenshot below, you might still be using `webpack@1.x` or have a wrong webpack config which can't support tree shaking.
-
-```
-You are using a whole package of antd, please use https://www.npmjs.com/package/babel-plugin-import to reduce app bundle size. Please upgrade webpack or check the config.
-```
-
-> ![console warning](https://zos.alipayobjects.com/rmsportal/GHIRszVcmjccgZRakJDQ.png)
-
 ## Customize your Workflow
 
 If you want to customize your workflow, we recommend using [webpack](http://webpack.github.io/) to build and debug code. You can try out plenty of [boilerplates](https://github.com/enaqx/awesome-react#react-tools) available in the React ecosystem.
