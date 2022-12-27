@@ -18,6 +18,7 @@ demo:
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
+<code src="./demo/basic-dark.tsx">基本-暗色模式</code>
 <code src="./demo/basic-controlled.tsx">受控操作示例</code>
 <code src="./demo/draggable.tsx">拖动示例</code>
 <code src="./demo/dynamic.tsx">异步数据加载</code>
