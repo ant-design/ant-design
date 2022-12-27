@@ -217,7 +217,6 @@ const Slider = React.forwardRef<unknown, SliderSingleProps | SliderRangeProps>(
           title={mergedTipFormatter ? mergedTipFormatter(info.value) : ''}
           open={open}
           placement={getTooltipPlacement(tooltipPlacement ?? legacyTooltipPlacement, vertical)}
-          transitionName={`${rootPrefixCls}-zoom-down`}
           key={index}
           overlayClassName={`${prefixCls}-tooltip`}
           getPopupContainer={
