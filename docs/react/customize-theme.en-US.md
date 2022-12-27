@@ -236,31 +236,9 @@ const theme = {
 };
 ```
 
-### Compatible adjustment
+### Legacy Browser Compatible
 
-Ant Design default using CSS-in-JS with `:where` Selector to reduce priority to avoid user additional adjust style cost when updating to v5. If you want to support old browser, you can use `@ant-design/cssinjs` to adjust this behavior (Please note keep version align with antd):
-
-```tsx
-import React from 'react';
-import { StyleProvider } from '@ant-design/cssinjs';
-
-export default () => (
-  <StyleProvider hashPriority="high">
-    <MyApp />
-  </StyleProvider>
-);
-```
-
-It will turn `:where` to class selector:
-
-```diff
---  :where(.css-bAMboO).ant-btn {
-++  .css-bAMboO.ant-btn {
-      color: #fff;
-    }
-```
-
-Note: After turning off the `:where` downgrade, you may need to manually adjust the priority of some styles.
+Please ref to [CSS Compatible](/docs/react/compatible-style).
 
 ### Server Side Render (SSR)
 
@@ -335,7 +313,7 @@ root.render(
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| `Component` (可以是任意 antd 组件名，如 `Button`) | 用于修改 Component Token 以及覆盖该组件消费的 Alias Token | `ComponentToken & AliasToken` | - |
+| `Component` (Can be any antd Component name like `Button`) | Modify Component Token or override Component used Alias Token | `ComponentToken & AliasToken` | - |
 
 ### SeedToken
 
@@ -343,15 +321,19 @@ root.render(
 
 ### MapToken
 
-> 继承所有 SeedToken 的 Property
+> Inherit all SeedToken properties
 
 <TokenTable type="map"></TokenTable>
 
 ### AliasToken
 
-> 继承所有 SeedToken 和 MapToken 的 Property
+> Inherit all SeedToken and MapToken properties
 
 <TokenTable type="alias"></TokenTable>
+
+### StyleProvider
+
+Please ref [`@ant-design/cssinjs`](https://github.com/ant-design/cssinjs#styleprovider).
 
 ## How to Debug your Theme
 

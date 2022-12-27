@@ -35,12 +35,13 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
                 class="ant-table-thead"
               >
                 <tr>
-                  <th
+                  <td
                     class="ant-table-cell ant-table-row-expand-icon-cell ant-table-cell-fix-left"
                     style="position: sticky; left: 0px;"
                   />
                   <th
                     class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                    scope="col"
                     style="position: sticky; left: 0px;"
                   >
                     <div
@@ -67,6 +68,7 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Name
                   </th>
@@ -396,6 +398,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                 <tr>
                   <th
                     class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                    scope="col"
                     style="position: sticky; left: 0px;"
                   >
                     <div
@@ -422,6 +425,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Name
                   </th>
@@ -699,6 +703,7 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                 <tr>
                   <th
                     class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
+                    scope="col"
                     style="position: sticky; left: 0px;"
                   >
                     <div
@@ -725,6 +730,7 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                   </th>
                   <th
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-fix-left-all"
+                    scope="col"
                     style="position: sticky; left: 0px;"
                   >
                     Name
@@ -1061,6 +1067,7 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                 <tr>
                   <th
                     class="ant-table-cell ant-table-selection-column"
+                    scope="col"
                   >
                     <div
                       class="ant-table-selection"
@@ -1170,6 +1177,7 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Name
                   </th>
@@ -1420,6 +1428,7 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                 <tr>
                   <th
                     class="ant-table-cell ant-table-selection-column"
+                    scope="col"
                   >
                     <div
                       class="ant-table-selection"
@@ -1529,6 +1538,7 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Name
                   </th>
@@ -1779,6 +1789,7 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
                 <tr>
                   <th
                     class="ant-table-cell ant-table-selection-column"
+                    scope="col"
                   >
                     <div
                       class="ant-table-selection"
@@ -1804,6 +1815,7 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
                   </th>
                   <th
                     class="ant-table-cell"
+                    scope="col"
                   >
                     Name
                   </th>

@@ -283,7 +283,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         },
 
         [`&${treeCls}-node-selected`]: {
-          backgroundColor: token.controlOutline,
+          backgroundColor: token.controlItemBgActive,
         },
 
         // Icon

@@ -5,9 +5,7 @@ import { Sticky, StickyContainer } from 'react-sticky';
 
 const renderTabBar: TabsProps['renderTabBar'] = (props, DefaultTabBar) => (
   <Sticky bottomOffset={80}>
-    {({ style }) => (
-      <DefaultTabBar {...props} className="site-custom-tab-bar" style={{ ...style }} />
-    )}
+    {({ style }) => <DefaultTabBar {...props} style={{ zIndex: 1, ...style }} />}
   </Sticky>
 );
 

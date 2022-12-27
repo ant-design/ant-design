@@ -38,8 +38,8 @@ export function renderFooter(
     | 'okButtonProps'
     | 'cancelButtonProps'
   > & {
-    onOk?: React.MouseEventHandler;
-    onCancel?: React.MouseEventHandler;
+    onOk?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
+    onCancel?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
   },
 ) {
   const {

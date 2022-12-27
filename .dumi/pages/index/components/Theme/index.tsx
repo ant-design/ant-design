@@ -30,7 +30,7 @@ import RadiusPicker from './RadiusPicker';
 import Group from '../Group';
 import BackgroundImage from './BackgroundImage';
 import { DEFAULT_COLOR, getAvatarURL, getClosetColor, PINK_COLOR } from './colorUtil';
-import SiteContext from '../SiteContext';
+import SiteContext from '../../../../theme/slots/SiteContext';
 import { useCarouselStyle } from '../util';
 import MobileCarousel from './MobileCarousel';
 

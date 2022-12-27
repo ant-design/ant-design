@@ -66,7 +66,7 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
           display: 'none',
         },
 
-        // ============================= panel content ===========================
+        // ============================= panel content ============================
         [`${componentCls}-content`]: {
           position: 'relative',
         },
@@ -152,9 +152,13 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
           },
         },
 
-        // ============================= primary type ===========================
-        [`&${componentCls}-primary`]: {
+        // =============================  primary type  ===========================
+        // `$` for panel, `&$` for pure panel
+        [`${componentCls}-primary, &${componentCls}-primary`]: {
           '--antd-arrow-background-color': colorPrimary,
+        },
+
+        [`${componentCls}-primary`]: {
           [`${componentCls}-inner`]: {
             color: colorTextLightSolid,
             textAlign: 'start',
@@ -180,6 +184,7 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
             [`${componentCls}-prev-btn`]: {
               color: colorTextLightSolid,
               borderColor: new TinyColor(colorTextLightSolid).setAlpha(0.15).toRgbString(),
+              backgroundColor: colorPrimary,
 
               '&:hover': {
                 backgroundColor: new TinyColor(colorTextLightSolid).setAlpha(0.15).toRgbString(),

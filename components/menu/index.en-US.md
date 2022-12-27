@@ -44,7 +44,7 @@ More layouts with navigation: [Layout](/components/layout).
 | forceSubMenuRender | Render submenu into DOM before it becomes visible | boolean | false |  |
 | inlineCollapsed | Specifies the collapsed status when menu is inline mode | boolean | - |  |
 | inlineIndent | Indent (in pixels) of inline menu items on each level | number | 24 |  |
-| items | Menu item content | [ItemType\[\]](#ItemType) | - | 4.20.0 |
+| items | Menu item content | [ItemType\[\]](#itemtype) | - | 4.20.0 |
 | mode | Type of menu | `vertical` \| `horizontal` \| `inline` | `vertical` |  |
 | multiple | Allows selection of multiple items | boolean | false |  |
 | openKeys | Array with the keys of currently opened sub-menus | string\[] | - |  |
@@ -83,7 +83,7 @@ More layouts with navigation: [Layout](/components/layout).
 <!-- prettier-ignore -->
 | Property | Description | Type | Default value | Version |
 | --- | --- | --- | --- | --- |
-| children | Sub-menus or sub-menu items | [ItemType\[\]](#ItemType) | - |  |
+| children | Sub-menus or sub-menu items | [ItemType\[\]](#itemtype) | - |  |
 | disabled | Whether sub-menu is disabled | boolean | false |  |
 | icon | Icon of sub menu | ReactNode | - |  |
 | key | Unique ID of the sub-menu | string | - |  |
@@ -105,10 +105,10 @@ const groupItem = {
 };
 ```
 
-| Param    | Description            | Type        | Default value | Version |
-| -------- | ---------------------- | ----------- | ------------- | ------- |
-| children | Sub-menu items         | MenuItem\[] | -             |         |
-| label    | The title of the group | ReactNode   | -             |         |
+| Param    | Description            | Type                              | Default value | Version |
+| -------- | ---------------------- | --------------------------------- | ------------- | ------- |
+| children | Sub-menu items         | [MenuItemType\[\]](#menuitemtype) | -             |         |
+| label    | The title of the group | ReactNode                         | -             |         |
 
 #### MenuDividerType
 

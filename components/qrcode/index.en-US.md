@@ -22,7 +22,7 @@ Used when the link needs to be converted into a QR Code.
 <!-- prettier-ignore -->
 <code src="./demo/base.tsx">base</code>
 <code src="./demo/icon.tsx">With Icon</code>
-<code src="./demo/status.tsx">other statu</code>
+<code src="./demo/status.tsx">other status</code>
 <code src="./demo/customSize.tsx">Custom Size</code>
 <code src="./demo/customColor.tsx">Custom Color</code>
 <code src="./demo/download.tsx">Download QRCode</code>
@@ -42,7 +42,7 @@ Used when the link needs to be converted into a QR Code.
 | color | QRCode Color | string | `#000` |
 | bordered | Whether has border style | boolean | `true` |
 | errorLevel | Error Code Level | `'L' \| 'M' \| 'Q' \| 'H' ` | `M` |
-| status | QRCode statu | `active \| expired \| loading ` | `active` |
+| status | QRCode status | `active \| expired \| loading ` | `active` |
 | onRefresh | callback | `() => void` | - |
 
 ## FAQ

@@ -15,6 +15,73 @@ timeline: true
 
 ---
 
+## 5.1.1
+
+`2022-12-26`
+
+- 📦 Remove IE and other legacy browsers from browserslist to reduce bundle size.[#38779](https://github.com/ant-design/ant-design/pull/38779)
+- ⚡️ Improve Transfer performance when selecting and moving nodes with large data.[#39465](https://github.com/ant-design/ant-design/pull/39465) [@wqs576222103](https://github.com/wqs576222103)
+- 🐞 Fix wrong `font-family` of components. [#39806](https://github.com/ant-design/ant-design/pull/39806)
+- 🐞 Fix Drawer default props not working when `placement` `open` `width` are `undefined`. [#39782](https://github.com/ant-design/ant-design/pull/39782)
+- 🐞 Fix Menu icon animation when collapse it. [#39800](https://github.com/ant-design/ant-design/pull/39800) [@JarvisArt](https://github.com/JarvisArt)
+- 🐞 Fix Image preview operation bar is covered during the animation. [#39788](https://github.com/ant-design/ant-design/pull/39788) [@JarvisArt](https://github.com/JarvisArt)
+- 🐞 Fix List crash when `pagination.pageSize` is undefined. [#39681](https://github.com/ant-design/ant-design/pull/39681) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 Fix Space `align="baseline"` not working. [#39748](https://github.com/ant-design/ant-design/pull/39748) [@candy4290](https://github.com/candy4290)
+- Table
+  - 🐞 Fix Table expandable row header has no top left border radius. [#39781](https://github.com/ant-design/ant-design/pull/39781) [@chunsch](https://github.com/chunsch)
+  - 🐞 Fix Table header radius missing when has fixed header and columns. [#39723](https://github.com/ant-design/ant-design/pull/39723)
+  - 🐞 Fix Table missing `border-bottom` in merged cell and unexpected border color if overlapping。. [#39729](https://github.com/ant-design/ant-design/pull/39729)
+  - ⌨️ Improve Table a11y by appling aria-props to table element. [#39700](https://github.com/ant-design/ant-design/pull/39700)
+  - ⌨️ Reset `aria-label` in Table column. [#39738](https://github.com/ant-design/ant-design/pull/39738) [@kiner-tang](https://github.com/kiner-tang)
+  - 💄 Adds transition animation for Table border. [#39713](https://github.com/ant-design/ant-design/pull/39713) [@JarvisArt](https://github.com/JarvisArt)
+- 🐞 Fix Tabs add button color invisible in dark mode. [#39724](https://github.com/ant-design/ant-design/pull/39724)
+- 🐞 Fix the problem that the height of the title bar is not enough when Card only has `extra`. [#39646](https://github.com/ant-design/ant-design/pull/39646) [@JarvisArt](https://github.com/JarvisArt)
+- 🐞 Fix `justify` and `align` properties are not reactive in Row. [#39704](https://github.com/ant-design/ant-design/pull/39704) [@candy4290](https://github.com/candy4290)
+- 🐞 Fix warning in App about two children with the same key. [#39695](https://github.com/ant-design/ant-design/pull/39695) [@Kamahl19](https://github.com/Kamahl19), [#39701](https://github.com/ant-design/ant-design/pull/39701) [@li-jia-nan](https://github.com/li-jia-nan)
+- 💄 Image preview interactive optimization. [#39812](https://github.com/ant-design/ant-design/pull/39812) [@JarvisArt](https://github.com/JarvisArt)
+- 💄 Fix Table filter dropdown wrong active background and dropdown shadow style. [#39805](https://github.com/ant-design/ant-design/pull/39805)
+- TypeScript
+  - 🤖 Fix missing type defination for Design Token. [#39754](https://github.com/ant-design/ant-design/pull/39754)
+
+## 5.1.0
+
+`2022-12-20`
+
+- 🔥 New App Component which provide global style & static function replacement. [#39046](https://github.com/ant-design/ant-design/pull/39046)
+- 🔥 New QRCode Component. [#38948](https://github.com/ant-design/ant-design/pull/38948)
+- 🔥 New Watermark Component. [#39064](https://github.com/ant-design/ant-design/pull/39064) [@JarvisArt](https://github.com/JarvisArt)
+- 🆕 Mentions support `options` prop. [#38630](https://github.com/ant-design/ant-design/pull/38630) [@heiyu4585](https://github.com/heiyu4585)
+- 🆕 FloatButton support `clickOutAutoClose`. [#39501](https://github.com/ant-design/ant-design/pull/39501) [@BoyYangzai](https://github.com/BoyYangzai)
+- 🆕 Popconfirm support `description` prop. [#39250](https://github.com/ant-design/ant-design/pull/39250) [@xhh0223](https://github.com/xhh0223)
+- 🆕 Modal.confirm support `footer` prop. [#39048](https://github.com/ant-design/ant-design/pull/39048) [@owjs3901](https://github.com/owjs3901)
+- 🆕 Table support `rowScope` to set the column range. [#39571](https://github.com/ant-design/ant-design/pull/39571)
+- 🆕 Anchor support `items` data configuration option content, which supports nesting through children. [#39034](https://github.com/ant-design/ant-design/pull/39034) [@foryuki](https://github.com/foryuki)
+- 🆕 Breakpoints can now follow theme token config. [#39105](https://github.com/ant-design/ant-design/pull/39105) [@azro352](https://github.com/azro352)
+- 🆕 Tour prevButtonProps nextButtonProps support `style` `classname` prop. [#38939](https://github.com/ant-design/ant-design/pull/38939) [@ONLY-yours](https://github.com/ONLY-yours)
+- 🆕 ConfigProvider support config `select.showSearch`. [#39531](https://github.com/ant-design/ant-design/pull/39531) [@YinDongFang](https://github.com/YinDongFang)
+- 🐞 Fix Tabs `inkBar` not show in StrictMode. [#39653](https://github.com/ant-design/ant-design/pull/39653)
+- 🐞 Fix Badge component width not being affected by parent element. [#39605](https://github.com/ant-design/ant-design/pull/39605) [@AydenGen](https://github.com/AydenGen)
+- Select
+  - 🐞 Fix wrong usage of icon color token in Select. [#39644](https://github.com/ant-design/ant-design/pull/39644)
+  - 💄 Optimize Select a11y to bind real option element when `virtual=false`. [#39550](https://github.com/ant-design/ant-design/pull/39550)
+- 🐞 Fix Tour steps set type=‘primary’ not work. [#39382](https://github.com/ant-design/ant-design/pull/39382) [@heiyu4585](https://github.com/heiyu4585)
+- 🐞 Fix disabled style miss when has href on Button. [#39456](https://github.com/ant-design/ant-design/pull/39456) [@BoyYangzai](https://github.com/BoyYangzai)
+- 🐞 Fix Segmented icon unexpected margin. [#39575](https://github.com/ant-design/ant-design/pull/39575)
+- 🐞 Fix Drawer unexpected warning about `DefaultProps`. [#39562](https://github.com/ant-design/ant-design/pull/39562)
+- Menu
+  - 🐞 Fix Menu.Submenu will flicker when use `createRoot` to render. [#38855](https://github.com/ant-design/ant-design/pull/38855) [@JarvisArt](https://github.com/JarvisArt)
+  - 🛠 Refactor MenuItem to Function Component. [#38751](https://github.com/ant-design/ant-design/pull/38751)
+  - 💄 Optimize Menu item style when selected. [#39439](https://github.com/ant-design/ant-design/pull/39439)
+- 🛠 LocaleProvider has been deprecated in 4.x (use `<ConfigProvider locale />` instead), we removed the related folder antd/es/locale-provider and antd/lib/locale-provider in 5.x. [#39373](https://github.com/ant-design/ant-design/pull/39373)
+- 🛠 Simplified lodash method introduction. [#39599](https://github.com/ant-design/ant-design/pull/39599) [#39602](https://github.com/ant-design/ant-design/pull/39602)
+- TypeScript
+  - 🤖 Optimize Button DropDown Modal Popconfirm Select Transfer mouse event type definition. [#39533](https://github.com/ant-design/ant-design/pull/39533)
+  - 🤖 New export type `FloatButtonGroupProps`. [#39553](https://github.com/ant-design/ant-design/pull/39553)
+- 🌐 Localization
+  - 🇧🇪 Add `fr_BE` locale. [#39415](https://github.com/ant-design/ant-design/pull/39415) [@azro352](https://github.com/azro352)
+  - 🇨🇦 Add `fr_CA` locale. [#39416](https://github.com/ant-design/ant-design/pull/39416) [@azro352](https://github.com/azro352)
+  - 🇪🇸 Add `eu_ES` locale. [#39371](https://github.com/ant-design/ant-design/pull/39371) [@Ian-Inizias](https://github.com/Ian-Inizias)
+
 ## 5.0.7
 
 `2022-12-13`

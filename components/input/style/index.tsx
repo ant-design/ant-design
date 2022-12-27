@@ -537,7 +537,7 @@ const genAllowClearStyle = (token: InputToken): CSSObject => {
     // ========================= Input =========================
     [`${componentCls}-clear-icon`]: {
       margin: 0,
-      color: token.colorIcon,
+      color: token.colorTextQuaternary,
       fontSize: token.fontSizeIcon,
       verticalAlign: -1,
       // https://github.com/ant-design/ant-design/pull/18151
@@ -546,7 +546,7 @@ const genAllowClearStyle = (token: InputToken): CSSObject => {
       transition: `color ${token.motionDurationSlow}`,
 
       '&:hover': {
-        color: token.colorTextDescription,
+        color: token.colorTextTertiary,
       },
 
       '&:active': {

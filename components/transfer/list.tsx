@@ -6,6 +6,7 @@ import Checkbox from '../checkbox';
 import Dropdown from '../dropdown';
 import type { MenuProps } from '../menu';
 import { isValidElement } from '../_util/reactNode';
+import { groupKeysMap } from '../_util/transKeys';
 import type {
   KeyWiseTransferItem,
   RenderResult,
@@ -103,7 +104,8 @@ export default class TransferList<
     if (checkedKeys.length === 0) {
       return 'none';
     }
-    if (filteredItems.every((item) => checkedKeys.includes(item.key) || !!item.disabled)) {
+    const checkedKeysMap = groupKeysMap(checkedKeys);
+    if (filteredItems.every((item) => checkedKeysMap.has(item.key) || !!item.disabled)) {
       return 'all';
     }
     return 'part';

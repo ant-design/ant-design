@@ -5,7 +5,7 @@ import { Link, useLocation } from 'dumi';
 import useLocale from '../../../hooks/useLocale';
 import useSiteToken from '../../../hooks/useSiteToken';
 import * as utils from '../../../theme/utils';
-import SiteContext from './SiteContext';
+import SiteContext from '../../../theme/slots/SiteContext';
 
 const SECONDARY_LIST = [
   {

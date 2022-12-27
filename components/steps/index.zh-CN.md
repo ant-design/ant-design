@@ -54,7 +54,7 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*677sTqCpE3wAAAAAAA
 | status | 指定当前步骤的状态，可选 `wait` `process` `finish` `error` | string | `process` |  |
 | type | 步骤条类型，可选 `default` `navigation` `inline` | string | `default` | inline: 5.0 |
 | onChange | 点击切换步骤时触发 | (current) => void | - |  |
-| items | 配置选项卡内容 | [StepItem](#StepItem) | [] | 4.24.0 |
+| items | 配置选项卡内容 | [StepItem](#stepitem) | [] | 4.24.0 |
 
 ### `type="inline"`
 
@@ -65,7 +65,7 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*677sTqCpE3wAAAAAAA
 | initial | 起始序号，从 0 开始记数 | number | 0 |  |
 | status | 指定当前步骤的状态，可选 `wait` `process` `finish` `error` | string | `process` |  |
 | onChange | 点击切换步骤时触发 | (current) => void | - |  |
-| items | 配置选项卡内容，不支持 `icon` `subtitle` | [StepItem](#StepItem) | [] | 4.24.0 |
+| items | 配置选项卡内容，不支持 `icon` `subtitle` | [StepItem](#stepitem) | [] | 4.24.0 |
 
 ### StepItem
 

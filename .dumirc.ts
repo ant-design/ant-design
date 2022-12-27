@@ -42,8 +42,8 @@ export default defineConfig({
     `
     (function () {
       function isLocalStorageNameSupported() {
-        var testKey = 'test';
-        var storage = window.localStorage;
+        const testKey = 'test';
+        const storage = window.localStorage;
         try {
           storage.setItem(testKey, '1');
           storage.removeItem(testKey);
@@ -53,13 +53,13 @@ export default defineConfig({
         }
       }
       // 优先级提高到所有静态资源的前面，语言不对，加载其他静态资源没意义
-      var pathname = location.pathname;
+      const pathname = location.pathname;
 
       function isZhCN(pathname) {
         return /-cn\\/?$/.test(pathname);
       }
       function getLocalizedPathname(path, zhCN) {
-        var pathname = path.indexOf('/') === 0 ? path : '/' + path;
+        const pathname = path.indexOf('/') === 0 ? path : '/' + path;
         if (!zhCN) {
           // to enUS
           return /\\/?index(-cn)?/.test(pathname) ? '/' : pathname.replace('-cn', '');
@@ -72,9 +72,9 @@ export default defineConfig({
       }
 
       // 兼容旧的 URL， \`?locale=...\`
-      var queryString = location.search;
+      const queryString = location.search;
       if (queryString) {
-        var isZhCNConfig = queryString.indexOf('zh-CN') > -1;
+        const isZhCNConfig = queryString.indexOf('zh-CN') > -1;
         if (isZhCNConfig && !isZhCN(pathname)) {
           location.pathname = getLocalizedPathname(pathname, isZhCNConfig);
         }
@@ -82,7 +82,7 @@ export default defineConfig({
 
       // 首页无视链接里面的语言设置 https://github.com/ant-design/ant-design/issues/4552
       if (isLocalStorageNameSupported() && (pathname === '/' || pathname === '/index-cn')) {
-        var lang =
+        const lang =
           (window.localStorage && localStorage.getItem('locale')) ||
           ((navigator.language || navigator.browserLanguage).toLowerCase() === 'zh-cn'
             ? 'zh-CN'

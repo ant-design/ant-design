@@ -802,6 +802,7 @@ const genTabsStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
           borderRadius: `${token.borderRadiusLG}px ${token.borderRadiusLG}px 0 0`,
           outline: 'none',
           cursor: 'pointer',
+          color: token.colorText,
           transition: `all ${token.motionDurationSlow} ${token.motionEaseInOut}`,
 
           '&:hover': {

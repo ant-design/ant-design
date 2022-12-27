@@ -26582,8 +26582,9 @@ exports[`ConfigProvider components Table configProvider 1`] = `
               >
                 <tr>
                   <th
-                    aria-label="this column's title is Name,this column is sortable"
+                    aria-label="Name"
                     class="config-table-cell config-table-column-has-sorters"
+                    scope="col"
                     tabindex="0"
                   >
                     <div
@@ -26887,8 +26888,9 @@ exports[`ConfigProvider components Table configProvider componentDisabled 1`] = 
               >
                 <tr>
                   <th
-                    aria-label="this column's title is Name,this column is sortable"
+                    aria-label="Name"
                     class="config-table-cell config-table-column-has-sorters"
+                    scope="col"
                     tabindex="0"
                   >
                     <div
@@ -27194,8 +27196,9 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
               >
                 <tr>
                   <th
-                    aria-label="this column's title is Name,this column is sortable"
+                    aria-label="Name"
                     class="config-table-cell config-table-column-has-sorters"
+                    scope="col"
                     tabindex="0"
                   >
                     <div
@@ -27499,8 +27502,9 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
               >
                 <tr>
                   <th
-                    aria-label="this column's title is Name,this column is sortable"
+                    aria-label="Name"
                     class="config-table-cell config-table-column-has-sorters"
+                    scope="col"
                     tabindex="0"
                   >
                     <div
@@ -27804,8 +27808,9 @@ exports[`ConfigProvider components Table configProvider virtual and dropdownMatc
               >
                 <tr>
                   <th
-                    aria-label="this column's title is Name,this column is sortable"
+                    aria-label="Name"
                     class="ant-table-cell ant-table-column-has-sorters"
+                    scope="col"
                     tabindex="0"
                   >
                     <div
@@ -28109,8 +28114,9 @@ exports[`ConfigProvider components Table normal 1`] = `
               >
                 <tr>
                   <th
-                    aria-label="this column's title is Name,this column is sortable"
+                    aria-label="Name"
                     class="ant-table-cell ant-table-column-has-sorters"
+                    scope="col"
                     tabindex="0"
                   >
                     <div
@@ -28414,8 +28420,9 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
               >
                 <tr>
                   <th
-                    aria-label="this column's title is Name,this column is sortable"
+                    aria-label="Name"
                     class="prefix-Table-cell prefix-Table-column-has-sorters"
+                    scope="col"
                     tabindex="0"
                   >
                     <div
@@ -28708,6 +28715,7 @@ exports[`ConfigProvider components Tabs configProvider 1`] = `
       >
         <div
           class="config-tabs-tab config-tabs-tab-active"
+          data-node-key="Light"
         >
           <div
             aria-controls="rc-tabs-test-panel-Light"
@@ -28797,6 +28805,7 @@ exports[`ConfigProvider components Tabs configProvider componentDisabled 1`] = `
       >
         <div
           class="config-tabs-tab config-tabs-tab-active"
+          data-node-key="Light"
         >
           <div
             aria-controls="rc-tabs-test-panel-Light"
@@ -28886,6 +28895,7 @@ exports[`ConfigProvider components Tabs configProvider componentSize large 1`] =
       >
         <div
           class="config-tabs-tab config-tabs-tab-active"
+          data-node-key="Light"
         >
           <div
             aria-controls="rc-tabs-test-panel-Light"
@@ -28975,6 +28985,7 @@ exports[`ConfigProvider components Tabs configProvider componentSize middle 1`] 
       >
         <div
           class="config-tabs-tab config-tabs-tab-active"
+          data-node-key="Light"
         >
           <div
             aria-controls="rc-tabs-test-panel-Light"
@@ -29064,6 +29075,7 @@ exports[`ConfigProvider components Tabs configProvider virtual and dropdownMatch
       >
         <div
           class="ant-tabs-tab ant-tabs-tab-active"
+          data-node-key="Light"
         >
           <div
             aria-controls="rc-tabs-test-panel-Light"
@@ -29153,6 +29165,7 @@ exports[`ConfigProvider components Tabs normal 1`] = `
       >
         <div
           class="ant-tabs-tab ant-tabs-tab-active"
+          data-node-key="Light"
         >
           <div
             aria-controls="rc-tabs-test-panel-Light"
@@ -29242,6 +29255,7 @@ exports[`ConfigProvider components Tabs prefixCls 1`] = `
       >
         <div
           class="prefix-Tabs-tab prefix-Tabs-tab-active"
+          data-node-key="Light"
         >
           <div
             aria-controls="rc-tabs-test-panel-Light"
