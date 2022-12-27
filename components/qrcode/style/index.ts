@@ -17,6 +17,7 @@ const genQRCodeStyle: GenerateStyle<QRCodeToken> = (token) => {
       justifyContent: 'center',
       alignItems: 'center',
       padding: token.paddingSM,
+      backgroundColor: token.colorWhite,
       borderRadius: token.borderRadiusLG,
       border: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
       position: 'relative',
@@ -38,6 +39,9 @@ const genQRCodeStyle: GenerateStyle<QRCodeToken> = (token) => {
         lineHeight: token.lineHeight,
         background: token.QRCodeMaskBackgroundColor,
         textAlign: 'center',
+        [`& > .expired`]: {
+          color: 'rgba(0, 0, 0, 0.88)',
+        },
       },
       '&-icon': {
         marginBlockEnd: token.marginXS,
