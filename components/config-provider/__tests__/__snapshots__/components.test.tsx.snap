@@ -139,7 +139,7 @@ exports[`ConfigProvider components Anchor configProvider 1`] = `
         class="config-anchor"
       >
         <span
-          class="config-anchor-ink-ball"
+          class="config-anchor-ink"
         />
         <div
           class="config-anchor-link"
@@ -171,7 +171,7 @@ exports[`ConfigProvider components Anchor configProvider componentDisabled 1`] =
         class="config-anchor"
       >
         <span
-          class="config-anchor-ink-ball"
+          class="config-anchor-ink"
         />
         <div
           class="config-anchor-link"
@@ -203,7 +203,7 @@ exports[`ConfigProvider components Anchor configProvider componentSize large 1`]
         class="config-anchor"
       >
         <span
-          class="config-anchor-ink-ball"
+          class="config-anchor-ink"
         />
         <div
           class="config-anchor-link"
@@ -235,7 +235,7 @@ exports[`ConfigProvider components Anchor configProvider componentSize middle 1`
         class="config-anchor"
       >
         <span
-          class="config-anchor-ink-ball"
+          class="config-anchor-ink"
         />
         <div
           class="config-anchor-link"
@@ -267,7 +267,7 @@ exports[`ConfigProvider components Anchor configProvider virtual and dropdownMat
         class="ant-anchor"
       >
         <span
-          class="ant-anchor-ink-ball"
+          class="ant-anchor-ink"
         />
         <div
           class="ant-anchor-link"
@@ -299,7 +299,7 @@ exports[`ConfigProvider components Anchor normal 1`] = `
         class="ant-anchor"
       >
         <span
-          class="ant-anchor-ink-ball"
+          class="ant-anchor-ink"
         />
         <div
           class="ant-anchor-link"
@@ -331,7 +331,7 @@ exports[`ConfigProvider components Anchor prefixCls 1`] = `
         class="prefix-Anchor"
       >
         <span
-          class="prefix-Anchor-ink-ball"
+          class="prefix-Anchor-ink"
         />
         <div
           class="prefix-Anchor-link"
