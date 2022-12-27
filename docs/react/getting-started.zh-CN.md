@@ -97,6 +97,7 @@ render(<App />, document.getElementById('root'));
 - [Ant Design Pro](http://pro.ant.design/)
 - [antd-admin](https://github.com/zuiidea/antd-admin)
 - [d2-admin](https://github.com/d2-projects/d2-admin)
+- [Use in Next](https://github.com/ant-design/create-next-app-antd)
 - 更多脚手架可以查看 [脚手架市场](http://scaffold.ant.design/)
 
 ## 按需加载

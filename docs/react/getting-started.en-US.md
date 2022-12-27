@@ -95,6 +95,7 @@ During actual real-world project development, you will most likely need a develo
 - [Ant Design Pro](http://pro.ant.design/)
 - [antd-admin](https://github.com/zuiidea/antd-admin)
 - [d2-admin](https://github.com/d2-projects/d2-admin)
+- [Use in Next](https://github.com/ant-design/create-next-app-antd)
 - More scaffolds at [Scaffold Market](http://scaffold.ant.design/)
 
 ## Test with Jest
