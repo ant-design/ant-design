@@ -1,4 +1,3 @@
-import userEvent from '@testing-library/user-event';
 import React from 'react';
 import mountTest from '../../../tests/shared/mountTest';
 import { render, waitFakeTimer, fireEvent, act, sleep } from '../../../tests/utils';
@@ -314,7 +313,7 @@ describe('Wave component', () => {
 
   it('wave transitionStart', async () => {
     jest.useFakeTimers();
-    const { container, unmount } = render(
+    const { container } = render(
       <Wave>
         <button type="button">button</button>
       </Wave>,
@@ -322,6 +321,5 @@ describe('Wave component', () => {
     fireEvent.click(container.querySelector('button')!);
     await sleep(1000);
     jest.useRealTimers();
-    unmount();
   });
 });
