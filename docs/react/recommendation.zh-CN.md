@@ -34,12 +34,10 @@ title: 社区精选组件
 | Emoji | [emoji-mart](https://github.com/missive/emoji-mart) |
 | 分割面板 | [react-split-pane](https://github.com/tomkp/react-split-pane) [react-resizable-panels](https://github.com/bvaughn/react-resizable-panels) |
 | 图片裁切 | [antd-img-crop](https://github.com/nanxiaobei/antd-img-crop) [react-image-crop](https://github.com/DominicTobias/react-image-crop) |
-| 趋势线 | [react-sparklines](https://github.com/borisyankov/react-sparklines) |
 | 关键字高亮 | [react-highlight-words](https://github.com/bvaughn/react-highlight-words) |
 | 文字轮播 | [react-text-loop-next](https://github.com/samarmohan/react-text-loop-next) [react-fast-marquee](https://github.com/justin-chu/react-fast-marquee) |
 | 动画 | [react-move](https://github.com/react-tools/react-move) [Ant Motion](https://motion.ant.design/components/tween-one) [react-spring](https://www.react-spring.io) |
 | 页脚 | [rc-footer](https://github.com/react-component/footer) |
-| 水印 | [WaterMark](https://procomponents.ant.design/components/water-mark) |
 | 金额格式化 | [react-number-format](https://github.com/s-yadav/react-number-format) [react-currency-input-fiel](https://github.com/cchanxzy/react-currency-input-field) |
 | 移动端探测 | [react-device-detect](https://github.com/duskload/react-device-detect) |
 | 应用程序框架 | [umi](https://github.com/umijs/umi/) [remix](https://github.com/remix-run/remix) [refine](https://github.com/pankod/refine) |
