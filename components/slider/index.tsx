@@ -173,7 +173,6 @@ const Slider = React.forwardRef<unknown, SliderSingleProps | SliderRangeProps>(
     const handleRender: RcSliderProps['handleRender'] = (node, info) => {
       const { index, dragging } = info;
 
-      const rootPrefixCls = getPrefixCls();
       const { tooltip = {}, vertical } = props;
 
       const tooltipProps: SliderTooltipProps = {
