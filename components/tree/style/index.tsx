@@ -347,7 +347,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
 
         // ============== Cover Background ==============
         [`${treeCls}-switcher`]: {
-          background: token.colorBgContainer,
+          background: 'transparent',
 
           '&-line-icon': {
             // https://github.com/ant-design/ant-design/issues/32813
