@@ -150,9 +150,8 @@
     "rc-tree-select": "~5.6.0",
     "rc-trigger": "^5.2.10",
     "rc-upload": "~4.3.0",
-    "rc-util": "^5.25.2",
+    "rc-util": "^5.27.0",
     "scroll-into-view-if-needed": "^3.0.3",
-    "shallowequal": "^1.1.0",
     "throttle-debounce": "^5.0.0"
   },
   "devDependencies": {
@@ -187,7 +186,6 @@
     "@types/react-resizable": "^3.0.0",
     "@types/react-sticky": "^6.0.4",
     "@types/react-window": "^1.8.2",
-    "@types/shallowequal": "^1.1.1",
     "@types/throttle-debounce": "^5.0.0",
     "@types/warning": "^3.0.0",
     "@typescript-eslint/eslint-plugin": "^5.40.0",
