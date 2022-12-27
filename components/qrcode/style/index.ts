@@ -39,7 +39,7 @@ const genQRCodeStyle: GenerateStyle<QRCodeToken> = (token) => {
         lineHeight: token.lineHeight,
         background: token.QRCodeMaskBackgroundColor,
         textAlign: 'center',
-        [`& > .expired`]: {
+        [`& > ${componentCls}-expired`]: {
           color: 'rgba(0, 0, 0, 0.88)',
         },
       },
