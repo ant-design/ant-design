@@ -28,7 +28,7 @@ Ant Design has 3 types of Tabs for different situations.
 <code src="./demo/position.tsx">Position</code>
 <code src="./demo/card.tsx">Card type tab</code>
 <code src="./demo/editable-card.tsx">Add & close tab</code>
-<code src="./demo/card-top.tsx">Container of card type Tab</code>
+<code src="./demo/card-top.tsx" compact debug>Container of card type Tab</code>
 <code src="./demo/custom-add-trigger.tsx">Customized trigger of new tab</code>
 <code src="./demo/custom-tab-bar.tsx">Customized bar of tab</code>
 <code src="./demo/custom-tab-bar-node.tsx">Draggable Tabs</code>
@@ -48,7 +48,7 @@ Ant Design has 3 types of Tabs for different situations.
 | centered | Centers tabs | boolean | false | 4.4.0 |
 | defaultActiveKey | Initial active TabPane's key, if `activeKey` is not set | string | - |  |
 | hideAdd | Hide plus icon or not. Only works while `type="editable-card"` | boolean | false |  |
-| items | Configure tab content | [TabItemType](#TabItemType) | [] | 4.23.0 |
+| items | Configure tab content | [TabItemType](#tabitemtype) | [] | 4.23.0 |
 | moreIcon | The custom icon of ellipsis | ReactNode | &lt;EllipsisOutlined /> | 4.14.0 |
 | popupClassName | `className` for more dropdown. | string | - | 4.21.0 |
 | renderTabBar | Replace the TabBar | (props: DefaultTabBarProps, DefaultTabBar: React.ComponentClass) => React.ReactElement | - |  |

@@ -1,7 +1,7 @@
 ---
 title: about antd test library migration
 date: 2022-12-20
-author: zombieJ,li-jia-nan
+author: li-jia-nan,zombieJ
 ---
 
 Hello, I am **[@li-jia-nan](https://github.com/li-jia-nan)**. It is also a new Collaborator who joined antd in the past few months. Fortunately, as one of the Collaborators, I developed the **[FloatButton component](/components/float-button)** and **[QRCode component](/components/qrcode)**, as well as some other maintenance work. Let me share the migration of the antd test library son~

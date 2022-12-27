@@ -212,9 +212,7 @@ function injectSorter<RecordType>(
           if (sorterOrder) {
             cell['aria-sort'] = sorterOrder === 'ascend' ? 'ascending' : 'descending';
           } else {
-            cell['aria-label'] = `${
-              displayTitle ? `this column's title is ${displayTitle},` : ''
-            }this column is sortable`;
+            cell['aria-label'] = displayTitle || '';
           }
           cell.className = classNames(cell.className, `${prefixCls}-column-has-sorters`);
           cell.tabIndex = 0;

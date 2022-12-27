@@ -83,7 +83,7 @@ jobs:
           npx surge --project ./_site --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
 
       - name: Create Commit Comment
-        uses: peter-evans/commit-comment@v1
+        uses: peter-evans/commit-comment@v2
         with:
           body: |
             Doc site for this release: https://ant-design-${{ steps.publish-version.outputs.VERSION }}.surge.sh

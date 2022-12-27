@@ -3,7 +3,10 @@ const fs = require('fs-extra');
 
 const getTokenList = (list, source) =>
   list
-    .filter((item) => !item.comment?.blockTags.some((tag) => tag.tag === '@internal'))
+    .filter(
+      (item) =>
+        !item.comment?.blockTags.some((tag) => tag.tag === '@internal' || tag.tag === '@private'),
+    )
     .map((item) => ({
       source,
       token: item.name,

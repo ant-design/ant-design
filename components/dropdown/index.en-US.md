@@ -46,7 +46,7 @@ When there are more than a few options to choose from, you can wrap them in a `D
 | destroyPopupOnHide | Whether destroy dropdown when hidden | boolean | false |  |
 | dropdownRender | Customize dropdown content | (menus: ReactNode) => ReactNode | - | 4.24.0 |
 | getPopupContainer | To set the container of the dropdown menu. The default is to create a div element in body, but you can reset it to the scrolling area and make a relative reposition. [Example on CodePen](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | (triggerNode: HTMLElement) => HTMLElement | () => document.body |  |
-| menu | The menu props | [MenuProps](/components/menu/#API) | - | 4.24.0 |
+| menu | The menu props | [MenuProps](/components/menu/#api) | - | 4.24.0 |
 | overlayClassName | The class name of the dropdown root element | string | - |  |
 | overlayStyle | The style of the dropdown root element | CSSProperties | - |  |
 | placement | Placement of popup menu: `bottom` `bottomLeft` `bottomRight` `top` `topLeft` `topRight` | string | `bottomLeft` |  |
@@ -64,6 +64,6 @@ Same props from Dropdown. And includes additional props:
 | loading | Set the loading status of button | boolean \| { delay: number } | false |  |
 | danger | Set the danger status of button | boolean | - | 4.23.0 |
 | icon | Icon (appears on the right) | ReactNode | - |  |
-| size | Size of the button, the same as [Button](/components/button/#API) | string | `default` |  |
-| type | Type of the button, the same as [Button](/components/button/#API) | string | `default` |  |
-| onClick | The same as [Button](/components/button/#API): called when you click the button on the left | (event) => void | - |  |
+| size | Size of the button, the same as [Button](/components/button/#api) | string | `default` |  |
+| type | Type of the button, the same as [Button](/components/button/#api) | string | `default` |  |
+| onClick | The same as [Button](/components/button/#api): called when you click the button on the left | (event) => void | - |  |

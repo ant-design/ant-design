@@ -4,8 +4,8 @@ import toArray from 'rc-util/lib/Children/toArray';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import { cloneElement } from '../_util/reactNode';
-import type { Breakpoint, ScreenMap } from '../_util/responsiveObserve';
-import useResponsiveObserve, { responsiveArray } from '../_util/responsiveObserve';
+import type { Breakpoint, ScreenMap } from '../_util/responsiveObserver';
+import useResponsiveObserver, { responsiveArray } from '../_util/responsiveObserver';
 import warning from '../_util/warning';
 import DescriptionsItem from './Item';
 import Row from './Row';
@@ -135,11 +135,11 @@ function Descriptions({
   const mergedColumn = getColumn(column, screens);
 
   const [wrapSSR, hashId] = useStyle(prefixCls);
-  const responsiveObserve = useResponsiveObserve();
+  const responsiveObserver = useResponsiveObserver();
 
   // Responsive
   React.useEffect(() => {
-    const token = responsiveObserve.subscribe((newScreens) => {
+    const token = responsiveObserver.subscribe((newScreens) => {
       if (typeof column !== 'object') {
         return;
       }
@@ -147,7 +147,7 @@ function Descriptions({
     });
 
     return () => {
-      responsiveObserve.unsubscribe(token);
+      responsiveObserver.unsubscribe(token);
     };
   }, []);
 

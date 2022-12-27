@@ -115,6 +115,8 @@ return (
 
 **Note:** You must insert `contextHolder` into your children with hooks. You can use origin method if you do not need context connection.
 
+> [App Package Component](/components/app) can be used to simplify the problem of `useNotification` and other methods that need to manually implant contextHolder.
+
 ### How to set static methods prefixCls ？
 
-You can config with [`ConfigProvider.config`](</components/config-provider/#ConfigProvider.config()-4.13.0+>)
+You can config with [`ConfigProvider.config`](/components/config-provider#configproviderconfig-4130)

@@ -54,7 +54,7 @@ dayjs.extend(customParseFormat)
 | clearText | 清除按钮的提示文案 | string | clear |  |
 | defaultValue | 默认时间 | [dayjs](http://day.js.org/) | - |  |
 | disabled | 禁用全部操作 | boolean | false |  |
-| disabledTime | 不可选择的时间 | [DisabledTime](#DisabledTime) | - | 4.19.0 |
+| disabledTime | 不可选择的时间 | [DisabledTime](#disabledtime) | - | 4.19.0 |
 | format | 展示的时间格式 | string | `HH:mm:ss` |  |
 | getPopupContainer | 定义浮层的容器，默认为 body 上新建 div | function(trigger) | - |  |
 | hideDisabledOptions | 隐藏禁止选择的选项 | boolean | false |  |
@@ -95,11 +95,11 @@ type DisabledTime = (now: Dayjs) => {
 
 ## RangePicker
 
-属性与 DatePicker 的 [RangePicker](/components/date-picker-cn#RangePicker) 相同。还包含以下属性：
+属性与 DatePicker 的 [RangePicker](/components/date-picker-cn#rangepicker) 相同。还包含以下属性：
 
 | 参数         | 说明                 | 类型                                    | 默认值 | 版本   |
 | ------------ | -------------------- | --------------------------------------- | ------ | ------ |
-| disabledTime | 不可选择的时间       | [RangeDisabledTime](#RangeDisabledTime) | -      | 4.19.0 |
+| disabledTime | 不可选择的时间       | [RangeDisabledTime](#rangedisabledtime) | -      | 4.19.0 |
 | order        | 始末时间是否自动排序 | boolean                                 | true   | 4.1.0  |
 
 ### RangeDisabledTime
@@ -122,4 +122,4 @@ type RangeDisabledTime = (
 
 ## FAQ
 
-- [如何在 TimePicker 中使用自定义日期库（如 Moment.js ）](/docs/react/use-custom-date-library#TimePicker)
+- [如何在 TimePicker 中使用自定义日期库（如 Moment.js ）](/docs/react/use-custom-date-library#timepicker)
