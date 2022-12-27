@@ -13,8 +13,8 @@ title: 社区精选组件
 | 路由 | [react-router](https://github.com/ReactTraining/react-router) |
 | 布局 | [react-grid-layout](https://github.com/react-grid-layout/react-grid-layout) [react-grid-system](https://github.com/sealninja/react-grid-system) [rc-dock](https://github.com/ticlo/rc-dock) |
 | 拖拽 | [dnd-kit](https://github.com/clauderic/dnd-kit) [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd/) [react-dnd](https://github.com/gaearon/react-dnd) |
-| 代码编辑器 | [@uiw/react-codemirror](https://github.com/uiwjs/react-codemirror) [react-monaco-editor](https://github.com/superRaytin/react-monaco-editor) |
-| 富文本编辑器 | [react-quill](https://github.com/zenoamaro/react-quill) [braft-editor](https://github.com/margox/braft-editor) |
+| 代码编辑器 | [@uiw/react-codemirror](https://github.com/uiwjs/react-codemirror) [react-monaco-editor]([https://github.com/superRaytin/react-monaco-editor](https://github.com/react-monaco-editor/react-monaco-editor)) |
+| 富文本编辑器 | [react-quill](https://github.com/zenoamaro/react-quill) |
 | JSON 编辑器 | [vanilla-jsoneditor](https://github.com/josdejong/svelte-jsoneditor) |
 | JSON 显示器 | [react-json-view](https://github.com/mac-s-g/react-json-view) |
 | 拾色器 | [react-colorful](https://github.com/omgovich/react-colorful) [react-color](http://casesandberg.github.io/react-color/) |
@@ -28,7 +28,7 @@ title: 社区精选组件
 | 代码高亮 | [react-syntax-highlighter](https://github.com/conorhastings/react-syntax-highlighter) |
 | Markdown 渲染 | [react-markdown](https://remarkjs.github.io/react-markdown/) |
 | 无限滚动 | [rc-virtual-list](https://github.com/react-component/virtual-list/) [react-infinite-scroll-component](https://github.com/ankeetmaini/react-infinite-scroll-component) |
-| 地图 | [react-google-maps](https://github.com/tomchentw/react-google-maps) [google-map-react](https://github.com/istarkov/google-map-react) [react-amap 高德](https://github.com/ElemeFE/react-amap) |
+| 地图 | [google-map-react](https://github.com/istarkov/google-map-react) [@uiw/react-amap 高德地图](https://github.com/uiwjs/react-amap) |
 | 视频播放 | [react-player](https://github.com/CookPete/react-player) [video-react](https://github.com/video-react/video-react) [video.js](http://docs.videojs.com/tutorial-react.html) |
 | 右键菜单 | [react-contexify](https://github.com/fkhadra/react-contexify) |
 | Emoji | [emoji-mart](https://github.com/missive/emoji-mart) |
