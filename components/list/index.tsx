@@ -206,7 +206,12 @@ function List<T>({
     paginationProps.current = largestPage;
   }
   const paginationContent = pagination ? (
-    <div className={`${prefixCls}-pagination`}>
+    <div
+      className={classNames(
+        `${prefixCls}-pagination`,
+        `${prefixCls}-pagination-align-${paginationProps?.align ?? 'end'}`,
+      )}
+    >
       <Pagination
         {...paginationProps}
         onChange={onPaginationChange}
