@@ -18,12 +18,12 @@ title: 社区精选组件
 | JSON 编辑器 | [vanilla-jsoneditor](https://github.com/josdejong/svelte-jsoneditor) |
 | JSON 显示器 | [react-json-view](https://github.com/mac-s-g/react-json-view) |
 | 拾色器 | [react-colorful](https://github.com/omgovich/react-colorful) [react-color](http://casesandberg.github.io/react-color/) |
-| 响应式 | [react-responsive](https://github.com/contra/react-responsive) [react-media](https://github.com/ReactTraining/react-media) |
+| 响应式 | [react-responsive](https://github.com/contra/react-responsive) |
 | 复制到剪贴板 | [react-copy-to-clipboard](https://github.com/nkbt/react-copy-to-clipboard) |
-| 页面 meta 属性 | [react-helmet](https://github.com/nfl/react-helmet) [react-helmet-async](https://github.com/staylor/react-helmet-async) |
+| 页面 meta 属性 | [react-helmet-async](https://github.com/staylor/react-helmet-async) |
 | 图标 | [react-fontawesome](https://github.com/FortAwesome/react-fontawesome) [react-icons](https://github.com/gorangajic/react-icons) |
 | 二维码 | [qrcode.react](https://github.com/zpao/qrcode.react) |
-| 顶部进度条 | [nprogress](https://github.com/rstacruz/nprogress) |
+| 顶部进度条 | [react-nprogress](https://github.com/tanem/react-nprogress) |
 | 应用国际化 | [FormatJS](https://github.com/formatjs/formatjs) [react-i18next](https://react.i18next.com) |
 | 代码高亮 | [react-syntax-highlighter](https://github.com/conorhastings/react-syntax-highlighter) |
 | Markdown 渲染 | [react-markdown](https://remarkjs.github.io/react-markdown/) |
