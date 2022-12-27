@@ -38,7 +38,6 @@ To display a notification message at any of the four corners of the viewport. Ty
 - `notification.error(config)`
 - `notification.info(config)`
 - `notification.warning(config)`
-- `notification.warn(config)`
 - `notification.open(config)`
 - `notification.destroy(key?: String)`
 
