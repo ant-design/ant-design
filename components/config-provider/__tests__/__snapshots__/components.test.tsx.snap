@@ -138,13 +138,9 @@ exports[`ConfigProvider components Anchor configProvider 1`] = `
       <div
         class="config-anchor"
       >
-        <div
+        <span
           class="config-anchor-ink"
-        >
-          <span
-            class="config-anchor-ink-ball"
-          />
-        </div>
+        />
         <div
           class="config-anchor-link"
         >
@@ -174,13 +170,9 @@ exports[`ConfigProvider components Anchor configProvider componentDisabled 1`] =
       <div
         class="config-anchor"
       >
-        <div
+        <span
           class="config-anchor-ink"
-        >
-          <span
-            class="config-anchor-ink-ball"
-          />
-        </div>
+        />
         <div
           class="config-anchor-link"
         >
@@ -210,13 +202,9 @@ exports[`ConfigProvider components Anchor configProvider componentSize large 1`]
       <div
         class="config-anchor"
       >
-        <div
+        <span
           class="config-anchor-ink"
-        >
-          <span
-            class="config-anchor-ink-ball"
-          />
-        </div>
+        />
         <div
           class="config-anchor-link"
         >
@@ -246,13 +234,9 @@ exports[`ConfigProvider components Anchor configProvider componentSize middle 1`
       <div
         class="config-anchor"
       >
-        <div
+        <span
           class="config-anchor-ink"
-        >
-          <span
-            class="config-anchor-ink-ball"
-          />
-        </div>
+        />
         <div
           class="config-anchor-link"
         >
@@ -282,13 +266,9 @@ exports[`ConfigProvider components Anchor configProvider virtual and dropdownMat
       <div
         class="ant-anchor"
       >
-        <div
+        <span
           class="ant-anchor-ink"
-        >
-          <span
-            class="ant-anchor-ink-ball"
-          />
-        </div>
+        />
         <div
           class="ant-anchor-link"
         >
@@ -318,13 +298,9 @@ exports[`ConfigProvider components Anchor normal 1`] = `
       <div
         class="ant-anchor"
       >
-        <div
+        <span
           class="ant-anchor-ink"
-        >
-          <span
-            class="ant-anchor-ink-ball"
-          />
-        </div>
+        />
         <div
           class="ant-anchor-link"
         >
@@ -354,13 +330,9 @@ exports[`ConfigProvider components Anchor prefixCls 1`] = `
       <div
         class="prefix-Anchor"
       >
-        <div
+        <span
           class="prefix-Anchor-ink"
-        >
-          <span
-            class="prefix-Anchor-ink-ball"
-          />
-        </div>
+        />
         <div
           class="prefix-Anchor-link"
         >
