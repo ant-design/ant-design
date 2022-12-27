@@ -170,10 +170,10 @@ async function printLog() {
       const english = getDescription(lines.find((line) => line.text.includes('🇺🇸 English')));
       const chinese = getDescription(lines.find((line) => line.text.includes('🇨🇳 Chinese')));
       if (english) {
-        console.log(`  🇨🇳  ${english}`);
+        console.log(`  🇺🇸  ${english}`);
       }
       if (chinese) {
-        console.log(`  🇺🇸  ${chinese}`);
+        console.log(`  🇨🇳  ${chinese}`);
       }
 
       validatePRs.push({
