@@ -25459,7 +25459,7 @@ exports[`ConfigProvider components Slider configProvider 1`] = `
   />
   <div>
     <div
-      class="config-tooltip config-slider-tooltip config-zoom-down-appear config-zoom-down-appear-prepare config-zoom-down"
+      class="config-tooltip config-slider-tooltip config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast"
       style="opacity: 0;"
     >
       <div
@@ -25510,7 +25510,7 @@ exports[`ConfigProvider components Slider configProvider componentDisabled 1`] =
   />
   <div>
     <div
-      class="config-tooltip config-slider-tooltip config-zoom-down-appear config-zoom-down-appear-prepare config-zoom-down"
+      class="config-tooltip config-slider-tooltip config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast"
       style="opacity: 0;"
     >
       <div
@@ -25561,7 +25561,7 @@ exports[`ConfigProvider components Slider configProvider componentSize large 1`]
   />
   <div>
     <div
-      class="config-tooltip config-slider-tooltip config-zoom-down-appear config-zoom-down-appear-prepare config-zoom-down"
+      class="config-tooltip config-slider-tooltip config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast"
       style="opacity: 0;"
     >
       <div
@@ -25612,7 +25612,7 @@ exports[`ConfigProvider components Slider configProvider componentSize middle 1`
   />
   <div>
     <div
-      class="config-tooltip config-slider-tooltip config-zoom-down-appear config-zoom-down-appear-prepare config-zoom-down"
+      class="config-tooltip config-slider-tooltip config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast"
       style="opacity: 0;"
     >
       <div
@@ -25663,7 +25663,7 @@ exports[`ConfigProvider components Slider configProvider virtual and dropdownMat
   />
   <div>
     <div
-      class="ant-tooltip ant-slider-tooltip ant-zoom-down-appear ant-zoom-down-appear-prepare ant-zoom-down"
+      class="ant-tooltip ant-slider-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
       style="opacity: 0;"
     >
       <div
@@ -25714,7 +25714,7 @@ exports[`ConfigProvider components Slider normal 1`] = `
   />
   <div>
     <div
-      class="ant-tooltip ant-slider-tooltip ant-zoom-down-appear ant-zoom-down-appear-prepare ant-zoom-down"
+      class="ant-tooltip ant-slider-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
       style="opacity: 0;"
     >
       <div
@@ -25765,7 +25765,7 @@ exports[`ConfigProvider components Slider prefixCls 1`] = `
   />
   <div>
     <div
-      class="prefix-Slider-tooltip prefix-Slider-tooltip ant-zoom-down-appear ant-zoom-down-appear-prepare ant-zoom-down"
+      class="prefix-Slider-tooltip prefix-Slider-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
       style="opacity: 0;"
     >
       <div
