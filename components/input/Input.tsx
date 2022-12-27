@@ -10,7 +10,8 @@ import DisabledContext from '../config-provider/DisabledContext';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
 import { FormItemInputContext, NoFormStyle } from '../form/context';
-import { NoCompactStyle, useCompactItemContext } from '../space/Compact';
+import Space from '../space';
+import { useCompactItemContext } from '../space/Compact';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import warning from '../_util/warning';
@@ -128,7 +129,7 @@ export interface InputProps
   [key: `data-${string}`]: string | undefined;
 }
 
-const Input = forwardRef<InputRef, InputProps>((props, ref) => {
+const InternalInput = forwardRef<InputRef, InputProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     bordered = true,
@@ -139,8 +140,6 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     onFocus,
     suffix,
     allowClear,
-    addonAfter,
-    addonBefore,
     className,
     onChange,
     ...rest
@@ -228,24 +227,6 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
       allowClear={mergedAllowClear}
       className={classNames(className, compactItemClassnames)}
       onChange={handleChange}
-      addonAfter={
-        addonAfter && (
-          <NoCompactStyle>
-            <NoFormStyle override status>
-              {addonAfter}
-            </NoFormStyle>
-          </NoCompactStyle>
-        )
-      }
-      addonBefore={
-        addonBefore && (
-          <NoCompactStyle>
-            <NoFormStyle override status>
-              {addonBefore}
-            </NoFormStyle>
-          </NoCompactStyle>
-        )
-      }
       inputClassName={classNames(
         {
           [`${prefixCls}-sm`]: mergedSize === 'small',
@@ -285,4 +266,58 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
   );
 });
 
-export default Input;
+function isAntCompactItem(x: React.ReactNode) {
+  return React.isValidElement(x) && x.type && (x.type as any).__ANT_COMPACT_ITEM === true;
+}
+
+const InputAddon: React.FC<
+  React.PropsWithChildren<{
+    prefixCls: string;
+  }>
+> = ({ prefixCls, children }) => {
+  const { direction } = useContext(ConfigContext);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const { compactItemClassnames } = useCompactItemContext(`${prefixCls}-addon`, direction);
+  const addonClassNames = classNames(`${prefixCls}-addon`, compactItemClassnames, hashId);
+  return wrapSSR(
+    <NoFormStyle override status>
+      {isAntCompactItem(children) ? children : <span className={addonClassNames}>{children}</span>}
+    </NoFormStyle>,
+  );
+};
+
+const Input = forwardRef<InputRef, InputProps>((props, ref) => {
+  const { prefixCls: customizePrefixCls, addonAfter, addonBefore, style, ...restProps } = props;
+
+  const { getPrefixCls } = React.useContext(ConfigContext);
+  const prefixCls = getPrefixCls('input', customizePrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
+  const hasAddon = addonBefore || addonAfter;
+  const Wrapper = hasAddon ? Space.Compact : React.Fragment;
+
+  return wrapSSR(
+    <Wrapper style={style} className={hashId}>
+      {addonBefore && <InputAddon prefixCls={prefixCls}>{addonBefore}</InputAddon>}
+      <InternalInput
+        ref={ref}
+        prefixCls={prefixCls}
+        style={hasAddon ? undefined : style}
+        {...restProps}
+      />
+      {addonAfter && <InputAddon prefixCls={prefixCls}>{addonAfter}</InputAddon>}
+    </Wrapper>,
+  );
+});
+
+type CompoundedInputComponent = React.ForwardRefExoticComponent<
+  InputProps & React.RefAttributes<InputRef>
+> & {
+  /** @internal */
+  __ANT_COMPACT_ITEM: boolean;
+};
+
+const CompoundedInput = Input as CompoundedInputComponent;
+CompoundedInput.__ANT_COMPACT_ITEM = true;
+
+export default CompoundedInput;

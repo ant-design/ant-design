@@ -922,6 +922,28 @@ const genTextAreaStyle: GenerateStyle<InputToken> = (token) => {
   };
 };
 
+const genInputAddonStyle: GenerateStyle<InputToken> = (token) => {
+  const { componentCls } = token;
+
+  return {
+    [`${componentCls}-addon`]: {
+      ...resetComponent(token),
+      position: 'relative',
+      display: 'flex',
+      alignItems: 'center',
+      padding: `0 ${token.inputPaddingHorizontal}px`,
+      color: token.colorText,
+      fontWeight: 'normal',
+      fontSize: token.fontSize,
+      textAlign: 'center',
+      backgroundColor: token.colorFillAlter,
+      border: `${token.lineWidth}px ${token.lineType} ${token.colorBorder}`,
+      borderRadius: token.borderRadius,
+      transition: `all ${token.motionDurationSlow}`,
+    },
+  };
+};
+
 // ============================== Export ==============================
 export default genComponentStyleHook('Input', (token) => {
   const inputToken = initInputToken<FullToken<'Input'>>(token);
@@ -932,9 +954,14 @@ export default genComponentStyleHook('Input', (token) => {
     genAffixStyle(inputToken),
     genGroupStyle(inputToken),
     genSearchInputStyle(inputToken),
+    genInputAddonStyle(inputToken),
     // =====================================================
     // ==             Space Compact                       ==
     // =====================================================
     genCompactItemStyle(inputToken),
+    genCompactItemStyle(inputToken, {
+      componentCls: `${inputToken.componentCls}-addon`,
+      border: false,
+    }),
   ];
 });

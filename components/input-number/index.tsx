@@ -216,6 +216,8 @@ const TypedInputNumber = InputNumber as unknown as (<T extends ValueType = Value
 ) => React.ReactElement) & {
   displayName?: string;
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PureInputNumber;
+  /** @internal */
+  __ANT_COMPACT_ITEM: boolean;
 };
 
 const PureInputNumber = (props: InputNumberProps<any>) => (
@@ -233,5 +235,6 @@ const PureInputNumber = (props: InputNumberProps<any>) => (
 );
 
 TypedInputNumber._InternalPanelDoNotUseOrYouWillBeFired = PureInputNumber;
+TypedInputNumber.__ANT_COMPACT_ITEM = true;
 
 export default TypedInputNumber;

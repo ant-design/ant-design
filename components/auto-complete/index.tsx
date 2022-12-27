@@ -171,6 +171,8 @@ const RefAutoComplete = React.forwardRef<RefSelectProps, AutoCompleteProps>(
 ) => React.ReactElement) & {
   Option: typeof Option;
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
+  /** @internal */
+  __ANT_COMPACT_ITEM: boolean;
 };
 
 // We don't care debug panel
@@ -179,5 +181,6 @@ const PurePanel = genPurePanel(RefAutoComplete);
 
 RefAutoComplete.Option = Option;
 RefAutoComplete._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
+RefAutoComplete.__ANT_COMPACT_ITEM = true;
 
 export default RefAutoComplete;

@@ -19,6 +19,8 @@ type CompoundedComponent = React.ForwardRefExoticComponent<
   Search: typeof Search;
   TextArea: typeof TextArea;
   Password: typeof Password;
+  /** @internal */
+  __ANT_COMPACT_ITEM: boolean;
 };
 
 const Input = InternalInput as CompoundedComponent;
