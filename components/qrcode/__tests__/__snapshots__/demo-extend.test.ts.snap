@@ -362,7 +362,7 @@ exports[`renders ./components/qrcode/demo/status.tsx extend context correctly 1`
         class="ant-qrcode-mask"
       >
         <p
-          class="expired"
+          class="ant-qrcode-expired"
         >
           QR code expired
         </p>
