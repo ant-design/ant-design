@@ -274,6 +274,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
         border: `${token.lineWidth}px ${token.lineType} ${token.colorBorder}`,
         borderRadius: token.borderRadius,
         transition: `all ${token.motionDurationSlow}`,
+        lineHeight: 1,
 
         // Reset Select's style in addon
         [`${antCls}-select`]: {

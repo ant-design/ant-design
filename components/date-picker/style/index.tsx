@@ -969,6 +969,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
         display: 'inline-flex',
         alignItems: 'center',
         background: colorBgContainer,
+        lineHeight: 1,
         border: `${lineWidth}px ${lineType} ${colorBorder}`,
         borderRadius,
         transition: `border ${motionDurationMid}, box-shadow ${motionDurationMid}`,
