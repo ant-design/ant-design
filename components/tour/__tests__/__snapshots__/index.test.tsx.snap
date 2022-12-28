@@ -589,7 +589,6 @@ exports[`Tour step support Primary 1`] = `
                   </span>
                 </button>
                 <button
-                  ant-click-animating-without-extra-node="false"
                   class="ant-btn ant-btn-default ant-btn-sm ant-tour-next-btn"
                   type="button"
                 >
