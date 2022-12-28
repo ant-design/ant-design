@@ -1,19 +1,32 @@
 import React from 'react';
-import { ClockCircleOutlined } from '@ant-design/icons';
-import { Avatar, Badge, Space } from 'antd';
 
-const App: React.FC = () => (
-  <Space size="middle">
-    <Badge count={5}>
-      <Avatar shape="square" size="large" />
-    </Badge>
-    <Badge count={0} showZero>
-      <Avatar shape="square" size="large" />
-    </Badge>
-    <Badge count={<ClockCircleOutlined style={{ color: '#f5222d' }} />}>
-      <Avatar shape="square" size="large" />
-    </Badge>
-  </Space>
+export const presetColors = ['red', 'green', 'blue', 'yellow'] as const;
+
+type _PresetColors = typeof presetColors[number];
+type InvertedPresetColors = `${_PresetColors}-inverted`;
+type LiteralUnion<T extends U, U> = T | (U & {});
+
+type PresetColors = _PresetColors | InvertedPresetColors;
+
+interface ColorChunkProps {
+  // color: PresetColors | React.CSSProperties['color'] // this works
+  // color: PresetColors | string & {} // this works
+  color: LiteralUnion<PresetColors, string>; // not working
+  children?: React.ReactNode;
+}
+
+export const ColorChunk = ({ color, children }: ColorChunkProps) => (
+  <span style={{ color }}>{children}</span>
+);
+
+const App = () => (
+  <>
+    <ColorChunk color="r">Red</ColorChunk>
+    <ColorChunk color="">Red-Inverted</ColorChunk>
+    {/* not preset */}
+    <ColorChunk color="white">white</ColorChunk>
+    <ColorChunk color="rgba(0, 0, 0, .2)">Rgba</ColorChunk>
+  </>
 );
 
 export default App;

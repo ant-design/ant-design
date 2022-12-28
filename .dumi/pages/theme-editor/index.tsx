@@ -160,7 +160,13 @@ const CustomTheme = () => {
               onOk={editSave}
               onCancel={editModelClose}
             >
-              <Suspense fallback={<Spin tip={locale.initialEditor} />}>
+              <Suspense
+                fallback={
+                  <div style={{ textAlign: 'center', width: '100%', padding: '24px 0' }}>
+                    <Spin tip={locale.initialEditor} />
+                  </div>
+                }
+              >
                 <JSONEditor
                   content={themeConfigContent}
                   onChange={handleEditConfigChange}
