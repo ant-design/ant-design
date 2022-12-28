@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo } from 'react';
+import React, { startTransition, useCallback, useEffect, useMemo } from 'react';
 import { createSearchParams, useOutlet, useSearchParams } from 'dumi';
 import { ConfigProvider, theme as antdTheme } from 'antd';
 import { createCache, StyleProvider } from '@ant-design/cssinjs';
@@ -78,10 +78,13 @@ const GlobalLayout: React.FC = () => {
   useEffect(() => {
     const _theme = searchParams.getAll('theme') as ThemeName[];
     const _direction = searchParams.get('direction') as DirectionType;
-    setSiteState({ theme: _theme, direction: _direction === 'rtl' ? 'rtl' : 'ltr' });
 
-    // Handle isMobile
-    updateMobileMode();
+    startTransition(() => {
+      setSiteState({ theme: _theme, direction: _direction === 'rtl' ? 'rtl' : 'ltr' });
+      // Handle isMobile
+      updateMobileMode();
+    });
+
     window.addEventListener('resize', updateMobileMode);
     return () => {
       window.removeEventListener('resize', updateMobileMode);

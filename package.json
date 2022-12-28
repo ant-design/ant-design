@@ -150,9 +150,8 @@
     "rc-tree-select": "~5.6.0",
     "rc-trigger": "^5.2.10",
     "rc-upload": "~4.3.0",
-    "rc-util": "^5.25.2",
+    "rc-util": "^5.27.0",
     "scroll-into-view-if-needed": "^3.0.3",
-    "shallowequal": "^1.1.0",
     "throttle-debounce": "^5.0.0"
   },
   "devDependencies": {
@@ -187,7 +186,6 @@
     "@types/react-resizable": "^3.0.0",
     "@types/react-sticky": "^6.0.4",
     "@types/react-window": "^1.8.2",
-    "@types/shallowequal": "^1.1.1",
     "@types/throttle-debounce": "^5.0.0",
     "@types/warning": "^3.0.0",
     "@typescript-eslint/eslint-plugin": "^5.40.0",
@@ -200,7 +198,7 @@
     "cheerio": "1.0.0-rc.12",
     "cross-env": "^7.0.0",
     "dekko": "^0.2.1",
-    "dumi": "^2.0.2",
+    "dumi": "^2.0.17",
     "duplicate-package-checker-webpack-plugin": "^3.0.0",
     "esbuild-loader": "^2.13.1",
     "eslint": "^8.0.0",
@@ -284,6 +282,7 @@
     "ts-node": "^10.8.2",
     "typedoc": "^0.23.21",
     "typescript": "~4.9.3",
+    "vanilla-jsoneditor": "^0.11.4",
     "webpack-bundle-analyzer": "^4.1.0",
     "xhr-mock": "^2.4.1",
     "yaml-front-matter": "^4.0.0"
