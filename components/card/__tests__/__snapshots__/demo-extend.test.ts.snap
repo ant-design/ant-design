@@ -757,6 +757,7 @@ Array [
             >
               <div
                 class="ant-tabs-tab ant-tabs-tab-active"
+                data-node-key="tab1"
               >
                 <div
                   aria-disabled="false"
@@ -770,6 +771,7 @@ Array [
               </div>
               <div
                 class="ant-tabs-tab"
+                data-node-key="tab2"
               >
                 <div
                   aria-disabled="false"
@@ -893,6 +895,7 @@ Array [
             >
               <div
                 class="ant-tabs-tab"
+                data-node-key="article"
               >
                 <div
                   aria-disabled="false"
@@ -906,6 +909,7 @@ Array [
               </div>
               <div
                 class="ant-tabs-tab ant-tabs-tab-active"
+                data-node-key="app"
               >
                 <div
                   aria-disabled="false"
@@ -919,6 +923,7 @@ Array [
               </div>
               <div
                 class="ant-tabs-tab"
+                data-node-key="project"
               >
                 <div
                   aria-disabled="false"

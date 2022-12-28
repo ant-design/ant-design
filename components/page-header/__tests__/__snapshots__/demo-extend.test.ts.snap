@@ -1543,6 +1543,7 @@ exports[`renders ./components/page-header/demo/responsive.md extend context corr
           >
             <div
               class="ant-tabs-tab ant-tabs-tab-active"
+              data-node-key="1"
             >
               <div
                 aria-selected="true"
@@ -1555,6 +1556,7 @@ exports[`renders ./components/page-header/demo/responsive.md extend context corr
             </div>
             <div
               class="ant-tabs-tab"
+              data-node-key="2"
             >
               <div
                 aria-selected="false"
