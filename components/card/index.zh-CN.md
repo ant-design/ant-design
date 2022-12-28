@@ -3,7 +3,7 @@ category: Components
 group: 数据展示
 title: Card
 subtitle: 卡片
-cover: https://gw.alipayobjects.com/zos/antfincdn/NqXt8DJhky/Card.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*VXtCTp93KPAAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 通用卡片容器。
@@ -49,7 +49,7 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/NqXt8DJhky/Card.svg
 | size | card 的尺寸 | `default` \| `small` | `default` |  |
 | tabBarExtraContent | tab bar 上额外的元素 | ReactNode | - |  |
 | tabList | 页签标题列表 | Array&lt;{key: string, tab: ReactNode}> | - |  |
-| tabProps | [Tabs](/components/tabs/#Tabs) | - | - |  |
+| tabProps | [Tabs](/components/tabs-cn#tabs) | - | - |  |
 | title | 卡片标题 | ReactNode | - |  |
 | type | 卡片类型，可设置为 `inner` 或 不设置 | string | - |  |
 | onTabChange | 页签切换的回调 | (key) => void | - |  |

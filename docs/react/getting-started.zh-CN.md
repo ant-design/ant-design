@@ -44,7 +44,7 @@ dayjs.locale('zh-cn');
 
 const App = () => {
   const [date, setDate] = useState(null);
-  const handleChange = value => {
+  const handleChange = (value) => {
     message.info(`您选择的日期是: ${value ? value.format('YYYY年MM月DD日') : '未选择'}`);
     setDate(value);
   };
@@ -65,7 +65,7 @@ render(<App />, document.getElementById('root'));
 
 ### 3. 探索更多组件用法
 
-你可以在组件页面的左侧菜单查看组件列表，比如 [Alert](/components/alert) 组件，组件文档中提供了各类演示，最下方有组件 API 文档可以查阅。在代码演示部分找到第一个例子，点击右下角的图标展开代码。
+你可以在组件页面的左侧菜单查看组件列表，比如 [Alert](/components/alert-cn) 组件，组件文档中提供了各类演示，最下方有组件 API 文档可以查阅。在代码演示部分找到第一个例子，点击右下角的图标展开代码。
 
 然后依照演示代码的写法，在之前的 codesandbox 里修改 `index.js`，首先在 `import` 内引入 Alert 组件：
 
@@ -97,19 +97,12 @@ render(<App />, document.getElementById('root'));
 - [Ant Design Pro](http://pro.ant.design/)
 - [antd-admin](https://github.com/zuiidea/antd-admin)
 - [d2-admin](https://github.com/d2-projects/d2-admin)
+- [Use in Next](https://github.com/ant-design/create-next-app-antd)
 - 更多脚手架可以查看 [脚手架市场](http://scaffold.ant.design/)
 
 ## 按需加载
 
-`antd` 默认支持基于 ES modules 的 tree shaking，对于 js 部分，直接引入 `import { Button } from 'antd'` 就会有按需加载的效果。
-
-如果你在开发环境的控制台看到下面的提示，那么你可能还在使用 `webpack@1.x` 或者 tree shaking 失效，请升级或检查相关配置。
-
-```
-You are using a whole package of antd, please use https://www.npmjs.com/package/babel-plugin-import to reduce app bundle size.
-```
-
-![控制台警告](https://zos.alipayobjects.com/rmsportal/GHIRszVcmjccgZRakJDQ.png)
+`antd` 默认支持基于 ES modules 的 tree shaking，直接引入 `import { Button } from 'antd';` 就会有按需加载的效果。
 
 ## 自行构建
 

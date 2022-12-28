@@ -1,5 +1,41 @@
 import React from 'react';
-import { Tabs } from 'antd';
+import { Tabs, theme } from 'antd';
+import { css } from '@emotion/css';
+
+const useStyle = () => {
+  const { token } = theme.useToken();
+  const antdTabsCls = '.ant-tabs';
+
+  return css`
+    background: ${token.colorBgLayout};
+    padding: ${token.paddingLG}px;
+
+    ${antdTabsCls}${antdTabsCls}-card {
+      ${antdTabsCls}-content {
+        padding: ${token.padding}px;
+        background: ${token.colorBgContainer};
+      }
+
+      ${antdTabsCls}-nav {
+        margin: 0;
+
+        ${antdTabsCls}-nav-wrap > ${antdTabsCls}-nav-list > ${antdTabsCls}-tab {
+          background: transparent;
+          border-color: transparent;
+
+          &-active {
+            border-color: ${token.colorBorderBg};
+            background: ${token.colorBgContainer};
+          }
+        }
+
+        &::before {
+          display: none;
+        }
+      }
+    }
+  `;
+};
 
 const items = new Array(3).fill(null).map((_, i) => {
   const id = String(i + 1);
@@ -16,10 +52,14 @@ const items = new Array(3).fill(null).map((_, i) => {
   };
 });
 
-const App: React.FC = () => (
-  <div className="card-container">
-    <Tabs type="card" items={items} />
-  </div>
-);
+const App = () => {
+  const style = useStyle();
+
+  return (
+    <div className={style}>
+      <Tabs type="card" items={items} />
+    </div>
+  );
+};
 
 export default App;

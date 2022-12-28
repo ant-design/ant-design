@@ -11,6 +11,7 @@ export type InputToken<T extends GlobalToken = FullToken<'Input'>> = T & {
   inputPaddingVerticalLG: number;
   inputPaddingVerticalSM: number;
   inputPaddingHorizontal: number;
+  inputPaddingHorizontalLG: number;
   inputPaddingHorizontalSM: number;
   inputBorderHoverColor: string;
   inputBorderActiveColor: string;
@@ -58,14 +59,14 @@ export const genDisabledStyle = (token: InputToken): CSSObject => ({
 const genInputLargeStyle = (token: InputToken): CSSObject => {
   const {
     inputPaddingVerticalLG,
-    inputPaddingHorizontal,
     fontSizeLG,
     lineHeightLG,
     borderRadiusLG,
+    inputPaddingHorizontalLG,
   } = token;
 
   return {
-    padding: `${inputPaddingVerticalLG}px ${inputPaddingHorizontal}px`,
+    padding: `${inputPaddingVerticalLG}px ${inputPaddingHorizontalLG}px`,
     fontSize: fontSizeLG,
     lineHeight: lineHeightLG,
     borderRadius: borderRadiusLG,
@@ -180,12 +181,7 @@ export const genBasicInputStyle = (token: InputToken): CSSObject => ({
     lineHeight: token.lineHeight,
     verticalAlign: 'bottom',
     transition: `all ${token.motionDurationSlow}, height 0s`,
-  },
-
-  '&-textarea': {
-    '&-rtl': {
-      direction: 'rtl',
-    },
+    resize: 'vertical',
   },
 
   // Size
@@ -196,7 +192,12 @@ export const genBasicInputStyle = (token: InputToken): CSSObject => ({
     ...genInputSmallStyle(token),
   },
 
+  // RTL
   '&-rtl': {
+    direction: 'rtl',
+  },
+
+  '&-textarea-rtl': {
     direction: 'rtl',
   },
 });
@@ -503,7 +504,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
 };
 
 const genInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
-  const { prefixCls, componentCls, controlHeightSM, lineWidth } = token;
+  const { componentCls, controlHeightSM, lineWidth } = token;
 
   const FIXED_CHROME_COLOR_HEIGHT = 16;
   const colorSmallPadding = (controlHeightSM - lineWidth * 2 - FIXED_CHROME_COLOR_HEIGHT) / 2;
@@ -513,7 +514,6 @@ const genInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
       ...resetComponent(token),
       ...genBasicInputStyle(token),
       ...genStatusStyle(token),
-      ...genCompactItemStyle(token, prefixCls),
 
       '&[type="color"]': {
         height: token.controlHeight,
@@ -537,7 +537,7 @@ const genAllowClearStyle = (token: InputToken): CSSObject => {
     // ========================= Input =========================
     [`${componentCls}-clear-icon`]: {
       margin: 0,
-      color: token.colorIcon,
+      color: token.colorTextQuaternary,
       fontSize: token.fontSizeIcon,
       verticalAlign: -1,
       // https://github.com/ant-design/ant-design/pull/18151
@@ -546,7 +546,7 @@ const genAllowClearStyle = (token: InputToken): CSSObject => {
       transition: `color ${token.motionDurationSlow}`,
 
       '&:hover': {
-        color: token.colorTextDescription,
+        color: token.colorTextTertiary,
       },
 
       '&:active': {
@@ -860,8 +860,9 @@ export function initInputToken<T extends GlobalToken = GlobalToken>(token: T): I
         token.lineWidth,
       0,
     ),
-    inputPaddingHorizontal: token.controlPaddingHorizontal - token.lineWidth,
-    inputPaddingHorizontalSM: token.controlPaddingHorizontalSM - token.lineWidth,
+    inputPaddingHorizontal: token.paddingSM - token.lineWidth,
+    inputPaddingHorizontalSM: token.paddingXS - token.lineWidth,
+    inputPaddingHorizontalLG: token.controlPaddingHorizontal - token.lineWidth,
     inputBorderHoverColor: token.colorPrimaryHover,
     inputBorderActiveColor: token.colorPrimaryHover,
   });
@@ -904,15 +905,17 @@ const genTextAreaStyle: GenerateStyle<InputToken> = (token) => {
         },
 
         '&::after': {
-          position: 'absolute',
-          bottom: 0,
-          insetInlineEnd: 0,
           color: token.colorTextDescription,
           whiteSpace: 'nowrap',
           content: 'attr(data-count)',
           pointerEvents: 'none',
-          display: 'block',
-          transform: 'translateY(100%)',
+          float: 'right',
+        },
+      },
+
+      '&-rtl': {
+        '&::after': {
+          float: 'left',
         },
       },
     },
@@ -929,5 +932,9 @@ export default genComponentStyleHook('Input', (token) => {
     genAffixStyle(inputToken),
     genGroupStyle(inputToken),
     genSearchInputStyle(inputToken),
+    // =====================================================
+    // ==             Space Compact                       ==
+    // =====================================================
+    genCompactItemStyle(inputToken),
   ];
 });

@@ -50,11 +50,11 @@ interface PanelProps {
   collapsible?: CollapsibleType;
 }
 
-interface CollapseInterface extends React.FC<CollapseProps> {
+type CompoundedComponent = React.FC<CollapseProps> & {
   Panel: typeof CollapsePanel;
-}
+};
 
-const Collapse: CollapseInterface = (props) => {
+const Collapse: CompoundedComponent = (props) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const {
     prefixCls: customizePrefixCls,

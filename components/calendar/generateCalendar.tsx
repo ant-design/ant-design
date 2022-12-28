@@ -1,5 +1,4 @@
 import classNames from 'classnames';
-import padStart from 'lodash/padStart';
 import { PickerPanel as RCPickerPanel } from 'rc-picker';
 import type { GenerateConfig } from 'rc-picker/lib/generate';
 import type { Locale } from 'rc-picker/lib/interface';
@@ -11,7 +10,7 @@ import type {
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
-import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import LocaleReceiver from '../locale/LocaleReceiver';
 import CalendarHeader from './Header';
 import enUS from './locale/en_US';
 
@@ -198,7 +197,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
             })}
           >
             <div className={`${calendarPrefixCls}-date-value`}>
-              {padStart(String(generateConfig.getDate(date)), 2, '0')}
+              {String(generateConfig.getDate(date)).padStart(2, '0')}
             </div>
             <div className={`${calendarPrefixCls}-date-content`}>
               {dateCellRender && dateCellRender(date)}

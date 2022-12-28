@@ -32,8 +32,6 @@ export const sleep = async (timeout = 0) => {
 const customRender = (ui: ReactElement, options?: Omit<RenderOptions, 'wrapper'>) =>
   render(ui, { wrapper: StrictMode, ...options });
 
-export * from '@testing-library/react';
-
 export function renderHook<T>(func: () => T): { result: React.RefObject<T> } {
   const result = React.createRef<T>();
 

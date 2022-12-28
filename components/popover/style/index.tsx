@@ -28,6 +28,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
     borderRadiusLG: borderRadius,
     zIndexPopup,
     marginXS,
+    colorBgElevated,
   } = token;
 
   return [
@@ -36,13 +37,18 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
         ...resetComponent(token),
         position: 'absolute',
         top: 0,
-        insetInlineStart: 0,
+        // use `left` to fix https://github.com/ant-design/ant-design/issues/39195
+        left: {
+          _skip_check_: true,
+          value: 0,
+        },
         zIndex: zIndexPopup,
         fontWeight: 'normal',
         whiteSpace: 'normal',
         textAlign: 'start',
         cursor: 'auto',
         userSelect: 'text',
+        '--antd-arrow-background-color': colorBgElevated,
 
         '&-rtl': {
           direction: 'rtl',
@@ -78,7 +84,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
     },
 
     // Arrow Style
-    getArrowStyle(token, { colorBg: token.colorBgElevated }),
+    getArrowStyle(token, { colorBg: 'var(--antd-arrow-background-color)' }),
 
     // Pure Render
     {
@@ -102,15 +108,12 @@ const genColorStyle: GenerateStyle<PopoverToken> = (token) => {
       const lightColor = token[`${colorKey}-6`];
       return {
         [`&${componentCls}-${colorKey}`]: {
+          '--antd-arrow-background-color': lightColor,
           [`${componentCls}-inner`]: {
             backgroundColor: lightColor,
           },
           [`${componentCls}-arrow`]: {
             background: 'transparent',
-
-            '&:before': {
-              backgroundColor: lightColor,
-            },
           },
         },
       };

@@ -259,59 +259,63 @@ exports[`renders ./components/space/demo/base.tsx extend context correctly 1`] =
             role="tooltip"
           >
             <div
-              class="ant-popconfirm-inner-content"
+              class="ant-popover-inner-content"
             >
               <div
-                class="ant-popconfirm-message"
+                class="ant-popconfirm-inner-content"
               >
-                <span
-                  class="ant-popconfirm-message-icon"
+                <div
+                  class="ant-popconfirm-message"
                 >
                   <span
-                    aria-label="exclamation-circle"
-                    class="anticon anticon-exclamation-circle"
-                    role="img"
+                    class="ant-popconfirm-message-icon"
                   >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="exclamation-circle"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
+                    <span
+                      aria-label="exclamation-circle"
+                      class="anticon anticon-exclamation-circle"
+                      role="img"
                     >
-                      <path
-                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                      />
-                    </svg>
+                      <svg
+                        aria-hidden="true"
+                        data-icon="exclamation-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                        />
+                      </svg>
+                    </span>
                   </span>
-                </span>
-                <div
-                  class="ant-popconfirm-message-title"
-                >
-                  Are you sure delete this task?
+                  <div
+                    class="ant-popconfirm-message-title"
+                  >
+                    Are you sure delete this task?
+                  </div>
                 </div>
-              </div>
-              <div
-                class="ant-popconfirm-buttons"
-              >
-                <button
-                  class="ant-btn ant-btn-default ant-btn-sm"
-                  type="button"
+                <div
+                  class="ant-popconfirm-buttons"
                 >
-                  <span>
-                    No
-                  </span>
-                </button>
-                <button
-                  class="ant-btn ant-btn-primary ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    Yes
-                  </span>
-                </button>
+                  <button
+                    class="ant-btn ant-btn-default ant-btn-sm"
+                    type="button"
+                  >
+                    <span>
+                      No
+                    </span>
+                  </button>
+                  <button
+                    class="ant-btn ant-btn-primary ant-btn-sm"
+                    type="button"
+                  >
+                    <span>
+                      Yes
+                    </span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -444,7 +448,7 @@ exports[`renders ./components/space/demo/compact.tsx extend context correctly 1`
     class="ant-space-compact ant-space-compact-block"
   >
     <div
-      class="ant-select ant-select-compact-item ant-select-compact-first-item ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-compact-item ant-select-compact-first-item ant-select-single ant-select-allow-clear ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -583,6 +587,32 @@ exports[`renders ./components/space/demo/compact.tsx extend context correctly 1`
           </svg>
         </span>
       </span>
+      <span
+        aria-hidden="true"
+        class="ant-select-clear"
+        style="user-select:none;-webkit-user-select:none"
+        unselectable="on"
+      >
+        <span
+          aria-label="close-circle"
+          class="anticon anticon-close-circle"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="close-circle"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+            />
+          </svg>
+        </span>
+      </span>
     </div>
     <input
       class="ant-input ant-input-compact-item ant-input-compact-last-item"
@@ -596,7 +626,7 @@ exports[`renders ./components/space/demo/compact.tsx extend context correctly 1`
     class="ant-space-compact ant-space-compact-block"
   >
     <div
-      class="ant-select ant-select-compact-item ant-select-compact-first-item ant-select-multiple ant-select-show-search"
+      class="ant-select ant-select-compact-item ant-select-compact-first-item ant-select-multiple ant-select-allow-clear ant-select-show-search"
       style="width:50%"
     >
       <div
@@ -774,6 +804,32 @@ exports[`renders ./components/space/demo/compact.tsx extend context correctly 1`
           </div>
         </div>
       </div>
+      <span
+        aria-hidden="true"
+        class="ant-select-clear"
+        style="user-select:none;-webkit-user-select:none"
+        unselectable="on"
+      >
+        <span
+          aria-label="close-circle"
+          class="anticon anticon-close-circle"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="close-circle"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+            />
+          </svg>
+        </span>
+      </span>
     </div>
     <input
       class="ant-input ant-input-compact-item ant-input-compact-last-item"
@@ -7973,7 +8029,7 @@ exports[`renders ./components/space/demo/compact.tsx extend context correctly 1`
                 <div
                   aria-hidden="true"
                   class="ant-select-tree-treenode"
-                  style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+                  style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden;border:0;padding:0"
                 >
                   <div
                     class="ant-select-tree-indent"
@@ -14477,59 +14533,63 @@ exports[`renders ./components/space/demo/debug.tsx extend context correctly 1`] 
             role="tooltip"
           >
             <div
-              class="ant-popconfirm-inner-content"
+              class="ant-popover-inner-content"
             >
               <div
-                class="ant-popconfirm-message"
+                class="ant-popconfirm-inner-content"
               >
-                <span
-                  class="ant-popconfirm-message-icon"
+                <div
+                  class="ant-popconfirm-message"
                 >
                   <span
-                    aria-label="exclamation-circle"
-                    class="anticon anticon-exclamation-circle"
-                    role="img"
+                    class="ant-popconfirm-message-icon"
                   >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="exclamation-circle"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
+                    <span
+                      aria-label="exclamation-circle"
+                      class="anticon anticon-exclamation-circle"
+                      role="img"
                     >
-                      <path
-                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                      />
-                    </svg>
+                      <svg
+                        aria-hidden="true"
+                        data-icon="exclamation-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                        />
+                      </svg>
+                    </span>
                   </span>
-                </span>
-                <div
-                  class="ant-popconfirm-message-title"
-                >
-                  Are you sure delete this task?
+                  <div
+                    class="ant-popconfirm-message-title"
+                  >
+                    Are you sure delete this task?
+                  </div>
                 </div>
-              </div>
-              <div
-                class="ant-popconfirm-buttons"
-              >
-                <button
-                  class="ant-btn ant-btn-default ant-btn-sm"
-                  type="button"
+                <div
+                  class="ant-popconfirm-buttons"
                 >
-                  <span>
-                    No
-                  </span>
-                </button>
-                <button
-                  class="ant-btn ant-btn-primary ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    Yes
-                  </span>
-                </button>
+                  <button
+                    class="ant-btn ant-btn-default ant-btn-sm"
+                    type="button"
+                  >
+                    <span>
+                      No
+                    </span>
+                  </button>
+                  <button
+                    class="ant-btn ant-btn-primary ant-btn-sm"
+                    type="button"
+                  >
+                    <span>
+                      Yes
+                    </span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -14576,59 +14636,63 @@ exports[`renders ./components/space/demo/debug.tsx extend context correctly 1`] 
             role="tooltip"
           >
             <div
-              class="ant-popconfirm-inner-content"
+              class="ant-popover-inner-content"
             >
               <div
-                class="ant-popconfirm-message"
+                class="ant-popconfirm-inner-content"
               >
-                <span
-                  class="ant-popconfirm-message-icon"
+                <div
+                  class="ant-popconfirm-message"
                 >
                   <span
-                    aria-label="exclamation-circle"
-                    class="anticon anticon-exclamation-circle"
-                    role="img"
+                    class="ant-popconfirm-message-icon"
                   >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="exclamation-circle"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
+                    <span
+                      aria-label="exclamation-circle"
+                      class="anticon anticon-exclamation-circle"
+                      role="img"
                     >
-                      <path
-                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                      />
-                    </svg>
+                      <svg
+                        aria-hidden="true"
+                        data-icon="exclamation-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                        />
+                      </svg>
+                    </span>
                   </span>
-                </span>
-                <div
-                  class="ant-popconfirm-message-title"
-                >
-                  Are you sure delete this task?
+                  <div
+                    class="ant-popconfirm-message-title"
+                  >
+                    Are you sure delete this task?
+                  </div>
                 </div>
-              </div>
-              <div
-                class="ant-popconfirm-buttons"
-              >
-                <button
-                  class="ant-btn ant-btn-default ant-btn-sm"
-                  type="button"
+                <div
+                  class="ant-popconfirm-buttons"
                 >
-                  <span>
-                    No
-                  </span>
-                </button>
-                <button
-                  class="ant-btn ant-btn-primary ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    Yes
-                  </span>
-                </button>
+                  <button
+                    class="ant-btn ant-btn-default ant-btn-sm"
+                    type="button"
+                  >
+                    <span>
+                      No
+                    </span>
+                  </button>
+                  <button
+                    class="ant-btn ant-btn-primary ant-btn-sm"
+                    type="button"
+                  >
+                    <span>
+                      Yes
+                    </span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>

@@ -39,7 +39,7 @@ const App: React.FC = () => (
 export default App;
 ```
 
-这将会得到一个以 <div style="display: inline-block; width: 16px; height: 16px; border-radius: 4px; background: #00b96b; vertical-align: text-bottom;"></div> `#00b96b` 为主色的主题，以 Button 组件为例可以看到相应的变化：
+这将会得到一个以 <ColorChunk color="#00b96b" /></ColorChunk> 为主色的主题，以 Button 组件为例可以看到相应的变化：
 
 ![themed button](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*CbF_RJfKEiwAAAAAAAAAAAAAARQnAQ)
 
@@ -90,7 +90,7 @@ const App: React.FC = () => (
 export default App;
 ```
 
-通过这种方式，我们可以仅将 Radio 组件的主色改为 <div style="display: inline-block; width: 16px; height: 16px; border-radius: 4px; background: #00b96b; vertical-align: text-bottom;"></div> `#00b96b`，而不会影响其他组件。
+通过这种方式，我们可以仅将 Radio 组件的主色改为 <ColorChunk color="#00b96b" /></ColorChunk> 而不会影响其他组件。
 
 ![component token](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*EMY0QrHFDjsAAAAAAAAAAAAAARQnAQ)
 
@@ -236,32 +236,6 @@ const theme = {
 };
 ```
 
-### 兼容性调整
-
-Ant Design 的 CSS-in-JS 默认通过 `:where` 选择器降低 CSS Selector 优先级，以减少用户升级 v5 时额外调整自定义样式成本。在某些场景下你如果需要支持的旧版浏览器，你可以使用 `@ant-design/cssinjs` 取消默认的降权操作（请注意版本保持与 antd 一致）：
-
-```tsx
-import React from 'react';
-import { StyleProvider } from '@ant-design/cssinjs';
-
-export default () => (
-  <StyleProvider hashPriority="high">
-    <MyApp />
-  </StyleProvider>
-);
-```
-
-切换后，样式将从 `:where` 切换为类选择器：
-
-```diff
---  :where(.css-bAMboO).ant-btn {
-++  .css-bAMboO.ant-btn {
-      color: #fff;
-    }
-```
-
-注意：关闭 `:where` 降权后，你可能需要手动调整一些样式的优先级。
-
 ### 服务端渲染
 
 使用 `@ant-design/cssinjs` 将所需样式抽离：
@@ -299,6 +273,31 @@ export default () => {
 };
 ```
 
+### 兼容旧版浏览器
+
+请参考文档 [样式兼容](/docs/react/compatible-style-cn)。
+
+### Shadow DOM 场景
+
+在 Shadow DOM 场景中，由于其添加 `<style />` 标签的方式与普通 DOM 不同，所以需要使用 `@ant-design/cssinjs` 的 `StyleProvider` 配置 `container` 属性用于设置插入位置：
+
+```tsx
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import { StyleProvider } from '@ant-design/cssinjs';
+
+const shadowRoot = someEle.attachShadow({ mode: 'open' });
+const container = document.createElement('div');
+shadowRoot.appendChild(container);
+const root = createRoot(container);
+
+root.render(
+  <StyleProvider container={shadowRoot}>
+    <MyApp />
+  </StyleProvider>,
+);
+```
+
 ## API
 
 ### Theme
@@ -332,9 +331,13 @@ export default () => {
 
 <TokenTable type="alias"></TokenTable>
 
+### StyleProvider
+
+请参考 [`@ant-design/cssinjs`](https://github.com/ant-design/cssinjs#styleprovider)。
+
 ## 调试主题
 
-我们提供了帮助用户调试主题的工具：[主题编辑器](https://ant-design.github.io/antd-token-previewer/~demos/docs-theme-editor-simple)
+我们提供了帮助用户调试主题的工具：[主题编辑器](/theme-editor-cn)
 
 你可以使用此工具自由地修改 Design Token，以达到您对主题的期望。
 

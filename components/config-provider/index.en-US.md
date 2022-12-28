@@ -2,7 +2,7 @@
 category: Components
 group: Other
 title: ConfigProvider
-cover: https://gw.alipayobjects.com/zos/alicdn/kegYxl1wj/ConfigProvider.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*NVKORa7BCVwAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 `ConfigProvider` provides a uniform configuration support for components.
@@ -52,11 +52,12 @@ Some components use dynamic style to support wave effect. You can config `csp` p
 | csp | Set [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) config | { nonce: string } | - |  |
 | direction | Set direction of layout. See [demo](#components-config-provider-demo-direction) | `ltr` \| `rtl` | `ltr` |  |
 | dropdownMatchSelectWidth | Determine whether the dropdown menu and the select input are the same width. Default set `min-width` same as input. Will ignore when value less than select width. `false` will disable virtual scroll | boolean \| number | - | 4.3.0 |
-| form | Set Form common props | { validateMessages?: [ValidateMessages](/components/form/#validateMessages), requiredMark?: boolean \| `optional` } | - | requiredMark: 4.8.0 |
+| form | Set Form common props | { validateMessages?: [ValidateMessages](/components/form/#validatemessages), requiredMark?: boolean \| `optional` } | - | requiredMark: 4.8.0 |
 | getPopupContainer | To set the container of the popup element. The default is to create a `div` element in `body` | function(triggerNode) | () => document.body |  |
 | getTargetContainer | Config Affix, Anchor scroll target container | () => HTMLElement | () => window | 4.2.0 |
 | iconPrefixCls | Set icon prefix className | string | `anticon` | 4.11.0 |
 | input | Set Input common props | { autoComplete?: string } | - | 4.2.0 |
+| select | Set Select common props | { showSearch?: boolean } | - |  |
 | locale | Language package setting, you can find the packages in [antd/locale](http://unpkg.com/antd/locale/) | object | - |  |
 | prefixCls | Set prefix className | string | `ant` |  |
 | renderEmpty | Set empty content of components. Ref [Empty](/components/empty/) | function(componentName: string): ReactNode | - |  |
@@ -79,11 +80,11 @@ ConfigProvider.config({
 
 #### How to contribute a new language?
 
-See [&lt;Adding new language&gt;](/docs/react/i18n#Adding-newplanguage).
+See [&lt;Adding new language&gt;](/docs/react/i18n#adding-newplanguage).
 
 #### Date-related components locale is not working?
 
-See FAQ [Date-related-components-locale-is-not-working?](/docs/react/faq#Date-related-components-locale-is-not-working?)
+See FAQ [Date-related-components-locale-is-not-working?](/docs/react/faq#date-related-components-locale-is-not-working)
 
 #### Modal throw error when setting `getPopupContainer`?
 
@@ -104,3 +105,13 @@ When you config `getPopupContainer` to parentNode globally, Modal will throw err
    <App />
  </ConfigProvider>
 ```
+
+#### Why can't ConfigProvider props (like `prefixCls` and `theme`) affect ReactNode inside `message.info`, `notification.open`, `Modal.confirm`?
+
+antd will dynamic create React instance by `ReactDOM.render` when call message methods. Whose context is different with origin code located context. We recommend `useMessage`, `useNotification` and `useModal` which , the methods came from `message/notification/Modal` has been deprecated in 5.x.
+
+#### Locale is not working with Vite in production mode?
+
+Related issue: [#39045](https://github.com/ant-design/ant-design/issues/39045)
+
+In production mode of Vite, default exports from cjs file should be used like this: `enUS.default`. So you can directly import locale from `es/` directory like `import enUS from 'antd/es/locale/en_US'` to make dev and production have the same behavior.

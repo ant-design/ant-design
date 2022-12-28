@@ -11,13 +11,12 @@ import { OverrideProvider } from '../menu/OverrideContext';
 import genPurePanel from '../_util/PurePanel';
 import getPlacements from '../_util/placements';
 import { cloneElement } from '../_util/reactNode';
-import { tuple } from '../_util/type';
 import warning from '../_util/warning';
 import { NoCompactStyle } from '../space/Compact';
 import DropdownButton from './dropdown-button';
 import useStyle from './style';
 
-const Placements = tuple(
+const Placements = [
   'topLeft',
   'topCenter',
   'topRight',
@@ -26,7 +25,7 @@ const Placements = tuple(
   'bottomRight',
   'top',
   'bottom',
-);
+] as const;
 
 type Placement = typeof Placements[number];
 
@@ -82,12 +81,12 @@ export interface DropdownProps {
   onVisibleChange?: (open: boolean) => void;
 }
 
-interface DropdownInterface extends React.FC<DropdownProps> {
+type CompoundedComponent = React.FC<DropdownProps> & {
   Button: typeof DropdownButton;
   _InternalPanelDoNotUseOrYouWillBeFired: typeof WrapPurePanel;
-}
+};
 
-const Dropdown: DropdownInterface = (props) => {
+const Dropdown: CompoundedComponent = (props) => {
   const {
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,

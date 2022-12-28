@@ -10,11 +10,11 @@ const getVerticalInlineStyle: GenerateStyle<MenuToken, CSSObject> = (token) => {
     itemMarginInline,
     padding,
     menuArrowSize,
-    fontSize,
+    marginXS,
     marginXXS,
   } = token;
 
-  const paddingWithArrow = menuArrowSize + fontSize;
+  const paddingWithArrow = padding + menuArrowSize + marginXS;
 
   return {
     [`${componentCls}-item`]: {
@@ -128,7 +128,7 @@ const getVerticalStyle: GenerateStyle<MenuToken> = (token) => {
               `border-color ${motionDurationSlow}`,
               `background ${motionDurationSlow}`,
               `padding ${motionDurationMid} ${motionEaseOut}`,
-            ],
+            ].join(','),
 
             [`> ${componentCls}-title-content`]: {
               flex: 'auto',

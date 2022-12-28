@@ -6,11 +6,9 @@ import type { Meta, NamePath } from 'rc-field-form/lib/interface';
 import useState from 'rc-util/lib/hooks/useState';
 import { supportRef } from 'rc-util/lib/ref';
 import * as React from 'react';
-import { useContext } from 'react';
 import useFormItemStatus from '../hooks/useFormItemStatus';
 import { ConfigContext } from '../../config-provider';
 import { cloneElement, isValidElement } from '../../_util/reactNode';
-import { tuple } from '../../_util/type';
 import warning from '../../_util/warning';
 import { FormContext, NoStyleItemContext } from '../context';
 import type { FormItemInputProps } from '../FormItemInput';
@@ -29,7 +27,7 @@ interface FieldError {
   warnings: string[];
 }
 
-const ValidateStatuses = tuple('success', 'warning', 'error', 'validating', '');
+const ValidateStatuses = ['success', 'warning', 'error', 'validating', ''] as const;
 export type ValidateStatus = typeof ValidateStatuses[number];
 
 type RenderChildren<Values = any> = (form: FormInstance<Values>) => React.ReactNode;
@@ -107,12 +105,12 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
     validateTrigger,
     hidden,
   } = props;
-  const { getPrefixCls } = useContext(ConfigContext);
-  const { name: formName } = useContext(FormContext);
+  const { getPrefixCls } = React.useContext(ConfigContext);
+  const { name: formName } = React.useContext(FormContext);
   const isRenderProps = typeof children === 'function';
-  const notifyParentMetaChange = useContext(NoStyleItemContext);
+  const notifyParentMetaChange = React.useContext(NoStyleItemContext);
 
-  const { validateTrigger: contextValidateTrigger } = useContext(FieldContext);
+  const { validateTrigger: contextValidateTrigger } = React.useContext(FieldContext);
   const mergedValidateTrigger =
     validateTrigger !== undefined ? validateTrigger : contextValidateTrigger;
 
@@ -393,11 +391,11 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
 
 type InternalFormItemType = typeof InternalFormItem;
 
-interface FormItemInterface extends InternalFormItemType {
+type CompoundedComponent = InternalFormItemType & {
   useStatus: typeof useFormItemStatus;
-}
+};
 
-const FormItem = InternalFormItem as FormItemInterface;
+const FormItem = InternalFormItem as CompoundedComponent;
 FormItem.useStatus = useFormItemStatus;
 
 export default FormItem;

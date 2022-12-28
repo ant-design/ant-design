@@ -3,7 +3,7 @@ category: Components
 subtitle: 数字输入框
 group: 数据录入
 title: InputNumber
-cover: https://gw.alipayobjects.com/zos/alicdn/XOS8qZ0kU/InputNumber.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*JvWbSYhuNlIAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---

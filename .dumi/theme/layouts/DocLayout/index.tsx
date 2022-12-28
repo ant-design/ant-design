@@ -1,25 +1,19 @@
-import React, { useEffect, useMemo, useRef, useLayoutEffect } from 'react';
+import React, { useContext, useEffect, useLayoutEffect, useMemo, useRef } from 'react';
 import 'dayjs/locale/zh-cn';
 import dayjs from 'dayjs';
-import { useOutlet, useSearchParams, Helmet } from 'dumi';
-import Header from 'dumi/theme/slots/Header';
-import Footer from 'dumi/theme/slots/Footer';
+import { Helmet, useOutlet, useSiteData } from 'dumi';
 import '../../static/style';
-import useLocation from '../../../hooks/useLocation';
-import SiteContext from '../../slots/SiteContext';
-import ConfigProvider, { DirectionType } from 'antd/es/config-provider';
+import ConfigProvider from 'antd/es/config-provider';
 import classNames from 'classnames';
-import useLocale from '../../../hooks/useLocale';
 import zhCN from 'antd/es/locale/zh_CN';
-import { createCache, StyleProvider } from '@ant-design/cssinjs';
+import SiteContext from '../../slots/SiteContext';
+import Header from '../../slots/Header';
+import Footer from '../../slots/Footer';
+import useLocale from '../../../hooks/useLocale';
+import useLocation from '../../../hooks/useLocation';
 import ResourceLayout from '../ResourceLayout';
 import GlobalStyles from '../../common/GlobalStyles';
 import SidebarLayout from '../SidebarLayout';
-
-const styleCache = createCache();
-if (typeof global !== 'undefined') {
-  (global as any).styleCache = styleCache;
-}
 
 const locales = {
   cn: {
@@ -33,26 +27,14 @@ const locales = {
   },
 };
 
-const RESPONSIVE_MOBILE = 768;
-
 const DocLayout: React.FC = () => {
   const outlet = useOutlet();
   const location = useLocation();
-  const { pathname, search } = location;
-  const [searchParams, setSearchParams] = useSearchParams();
+  const { pathname, search, hash } = location;
   const [locale, lang] = useLocale(locales);
-
-  // TODO: place doc layout here, apply for all docs route paths
-  // migrate from: https://github.com/ant-design/ant-design/blob/eb9179464b9c4a93c856e1e70ddbdbaaf3f3371f/site/theme/template/Layout/index.tsx
-
-  const [isMobile, setIsMobile] = React.useState<boolean>(false);
-  const [direction, setDirection] = React.useState<DirectionType>('ltr');
-
   const timerRef = useRef<NodeJS.Timeout | null>(null);
-
-  const updateMobileMode = () => {
-    setIsMobile(window.innerWidth < RESPONSIVE_MOBILE);
-  };
+  const { direction } = useContext(SiteContext);
+  const { loading } = useSiteData();
 
   useLayoutEffect(() => {
     if (lang === 'cn') {
@@ -69,21 +51,14 @@ const DocLayout: React.FC = () => {
         nprogressHiddenStyle.parentNode?.removeChild(nprogressHiddenStyle);
       }, 0);
     }
-
-    // Handle direction
-    const queryDirection = searchParams.get('direction');
-    setDirection(queryDirection === 'rtl' ? 'rtl' : 'ltr');
-
-    // Handle mobile mode
-    updateMobileMode();
-    window.addEventListener('resize', updateMobileMode);
-    return () => {
-      window.removeEventListener('resize', updateMobileMode);
-      if (timerRef.current) {
-        clearTimeout(timerRef.current);
-      }
-    };
   }, []);
+
+  // handle hash change or visit page hash from Link component, and jump after async chunk loaded
+  useEffect(() => {
+    const id = hash.replace('#', '');
+
+    if (id) document.getElementById(decodeURIComponent(id))?.scrollIntoView();
+  }, [loading, hash]);
 
   React.useEffect(() => {
     if (typeof (window as any).ga !== 'undefined') {
@@ -93,16 +68,6 @@ const DocLayout: React.FC = () => {
       (window as any)._hmt.push(['_trackPageview', pathname + search]);
     }
   }, [location]);
-
-  const changeDirection = (direction: DirectionType): void => {
-    setDirection(direction);
-    if (direction === 'ltr') {
-      searchParams.delete('direction');
-    } else {
-      searchParams.set('direction', 'rtl');
-    }
-    setSearchParams(searchParams);
-  };
 
   const content = useMemo(() => {
     if (
@@ -115,43 +80,43 @@ const DocLayout: React.FC = () => {
           <Footer />
         </>
       );
-    } else if (pathname.startsWith('/docs/resource')) {
+    }
+    if (pathname.startsWith('/docs/resource')) {
       return <ResourceLayout>{outlet}</ResourceLayout>;
-    } else if (pathname.startsWith('/theme-editor')) {
-      return <>{outlet}</>;
+    }
+    if (pathname.startsWith('/theme-editor')) {
+      return outlet;
     }
     return <SidebarLayout>{outlet}</SidebarLayout>;
   }, [pathname, outlet]);
 
   return (
-    <StyleProvider cache={styleCache}>
-      <SiteContext.Provider value={{ isMobile, direction }}>
-        <Helmet encodeSpecialCharacters={false}>
-          <html
-            lang={lang}
-            data-direction={direction}
-            className={classNames({ [`rtl`]: direction === 'rtl' })}
-          />
-          <title>{locale.title}</title>
-          <link
-            sizes="144x144"
-            href="https://gw.alipayobjects.com/zos/antfincdn/UmVnt3t4T0/antd.png"
-          />
-          <meta name="description" content={locale.description} />
-          <meta property="og:title" content={locale.title} />
-          <meta property="og:type" content="website" />
-          <meta
-            property="og:image"
-            content="https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png"
-          />
-        </Helmet>
-        <ConfigProvider locale={lang === 'cn' ? zhCN : undefined} direction={direction}>
-          <GlobalStyles />
-          <Header changeDirection={changeDirection} />
-          {content}
-        </ConfigProvider>
-      </SiteContext.Provider>
-    </StyleProvider>
+    <>
+      <Helmet encodeSpecialCharacters={false}>
+        <html
+          lang={lang}
+          data-direction={direction}
+          className={classNames({ [`rtl`]: direction === 'rtl' })}
+        />
+        <title>{locale?.title}</title>
+        <link
+          sizes="144x144"
+          href="https://gw.alipayobjects.com/zos/antfincdn/UmVnt3t4T0/antd.png"
+        />
+        <meta name="description" content={locale.description} />
+        <meta property="og:title" content={locale?.title} />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:image"
+          content="https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png"
+        />
+      </Helmet>
+      <ConfigProvider locale={lang === 'cn' ? zhCN : undefined}>
+        <GlobalStyles />
+        <Header />
+        {content}
+      </ConfigProvider>
+    </>
   );
 };
 

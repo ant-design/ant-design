@@ -2,7 +2,7 @@
 category: Components
 title: Affix
 subtitle: 固钉
-cover: https://gw.alipayobjects.com/zos/alicdn/tX6-md4H6/Affix.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*YSm4RI3iOJ8AAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 group:

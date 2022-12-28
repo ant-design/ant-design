@@ -56,10 +56,11 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
   let cssinjsTest = false;
 
   files.forEach((file) => {
-    let testMethod = options.skip === true ? test.skip : test;
-    if (Array.isArray(options.skip) && options.skip.some((c) => file.includes(c))) {
-      testMethod = test.skip;
-    }
+    const testMethod =
+      options.skip === true ||
+      (Array.isArray(options.skip) && options.skip.some((c) => file.includes(c)))
+        ? test.skip
+        : test;
 
     if (!doInject && !cssinjsTest && testMethod !== test.skip) {
       cssinjsTest = true;
@@ -115,22 +116,6 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
           type: 'demo',
           html,
         }).toMatchSnapshot();
-
-        // if (typeof document === 'undefined') {
-        //   // Server
-        //   expect(() => {
-        //     renderToString(Demo);
-        //   }).not.toThrow();
-        // } else {
-        //   // Client
-        //   const { container } = render(Demo);
-        //   ariaConvert(container);
-
-        //   const { children } = container;
-        //   const child = children.length > 1 ? Array.from(children) : children[0];
-
-        //   expect(child).toMatchSnapshot();
-        // }
 
         errSpy.mockRestore();
       },

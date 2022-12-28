@@ -3,7 +3,7 @@ category: Components
 subtitle: 栅格
 group: 布局
 title: Grid
-cover: https://gw.alipayobjects.com/zos/alicdn/5rWLU27so/Grid.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*mfJeS6cqZrEAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 24 栅格系统。
@@ -79,6 +79,8 @@ Ant Design 的布局组件若不能满足你的需求，你也可以直接使用
 | lg | `屏幕 ≥ 992px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number \| object | - |  |
 | xl | `屏幕 ≥ 1200px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number \| object | - |  |
 | xxl | `屏幕 ≥ 1600px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number \| object | - |  |
+
+您可以使用 [主题定制](/docs/react/customize-theme-cn) 修改 `screen[XS|SM|MD|LG|XL|XXL]` 来修改断点值（自 5.1.0 起，[codesandbox demo](https://codesandbox.io/s/antd-reproduction-template-forked-bjojbx?file=/index.js)）。
 
 响应式栅格的断点扩展自 [BootStrap 4 的规则](https://getbootstrap.com/docs/4.0/layout/overview/#responsive-breakpoints)（不包含链接里 `occasionally` 的部分)。
 

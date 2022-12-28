@@ -1039,11 +1039,13 @@ exports[`renders ./components/empty/demo/config-provider.tsx extend context corr
                     <tr>
                       <th
                         class="ant-table-cell"
+                        scope="col"
                       >
                         Name
                       </th>
                       <th
                         class="ant-table-cell"
+                        scope="col"
                       >
                         Age
                       </th>

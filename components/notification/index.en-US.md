@@ -3,7 +3,7 @@ category: Components
 group: Feedback
 noinstant: true
 title: Notification
-cover: https://gw.alipayobjects.com/zos/alicdn/Jxm5nw61w/Notification.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*6RWNQ78WtvEAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -38,7 +38,6 @@ To display a notification message at any of the four corners of the viewport. Ty
 - `notification.error(config)`
 - `notification.info(config)`
 - `notification.warning(config)`
-- `notification.warn(config)`
 - `notification.open(config)`
 - `notification.destroy(key?: String)`
 
@@ -93,7 +92,7 @@ notification.config({
 
 ## FAQ
 
-### Why I can not access context, redux, ConfigProvider `locale/prefixCls` in notification?
+### Why I can not access context, redux, ConfigProvider `locale/prefixCls/theme` in notification?
 
 antd will dynamic create React instance by `ReactDOM.render` when call notification methods. Whose context is different with origin code located context.
 
@@ -115,6 +114,8 @@ return (
 
 **Note:** You must insert `contextHolder` into your children with hooks. You can use origin method if you do not need context connection.
 
+> [App Package Component](/components/app) can be used to simplify the problem of `useNotification` and other methods that need to manually implant contextHolder.
+
 ### How to set static methods prefixCls ？
 
-You can config with [`ConfigProvider.config`](</components/config-provider/#ConfigProvider.config()-4.13.0+>)
+You can config with [`ConfigProvider.config`](/components/config-provider#configproviderconfig-4130)

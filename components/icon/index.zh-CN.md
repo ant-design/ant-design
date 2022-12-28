@@ -4,7 +4,7 @@ subtitle: 图标
 group: 通用
 title: Icon
 toc: false
-cover: https://gw.alipayobjects.com/zos/alicdn/rrwbSt3FQ/Icon.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*PdAYS7anRpoAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---

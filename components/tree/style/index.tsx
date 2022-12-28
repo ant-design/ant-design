@@ -265,12 +265,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
 
       // >>> Title
       // add `${treeCls}-checkbox + span` to cover checkbox `${checkboxCls} + span`
-      [`
-        ${treeCls}-node-content-wrapper,
-        ${treeCls}-checkbox + span
-      `]: {
-        display: 'flex',
-        flexWrap: 'nowrap',
+      [`${treeCls}-node-content-wrapper, ${treeCls}-checkbox + span`]: {
         position: 'relative',
         zIndex: 'auto',
         minHeight: treeTitleHeight,
@@ -288,7 +283,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         },
 
         [`&${treeCls}-node-selected`]: {
-          backgroundColor: token.controlOutline,
+          backgroundColor: token.controlItemBgActive,
         },
 
         // Icon
@@ -352,7 +347,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
 
         // ============== Cover Background ==============
         [`${treeCls}-switcher`]: {
-          background: token.colorBgContainer,
+          background: 'transparent',
 
           '&-line-icon': {
             // https://github.com/ant-design/ant-design/issues/32813

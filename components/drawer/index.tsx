@@ -6,7 +6,6 @@ import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import { NoFormStyle } from '../form/context';
 import { getTransitionName } from '../_util/motion';
-import { tuple } from '../_util/type';
 import warning from '../_util/warning';
 import DrawerPanel from './DrawerPanel';
 import type { DrawerPanelProps } from './DrawerPanel';
@@ -15,7 +14,7 @@ import type { DrawerPanelProps } from './DrawerPanel';
 import useStyle from './style';
 import { NoCompactStyle } from '../space/Compact';
 
-const SizeTypes = tuple('default', 'large');
+const SizeTypes = ['default', 'large'] as const;
 type sizeType = typeof SizeTypes[number];
 
 export interface PushState {
@@ -93,6 +92,14 @@ function Drawer(props: DrawerProps) {
         `\`${deprecatedName}\` is deprecated, please use \`${newName}\` instead.`,
       );
     });
+
+    if (getContainer !== undefined && props.style?.position === 'absolute') {
+      warning(
+        false,
+        'Drawer',
+        '`style` is replaced by `rootStyle` in v5. Please check that `position: absolute` is necessary.',
+      );
+    }
   }
 
   // ============================ Size ============================

@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from 'react';
-// @ts-ignore
 import JsonML from 'jsonml.js/lib/utils';
-// @ts-ignore
 import toReactComponent from 'jsonml-to-react-element';
-// @ts-ignore
 import Prism from 'prismjs';
-import { useLocation } from 'dumi';
-import { useIntl, type IPreviewerProps } from 'dumi';
+import 'prismjs/components/prism-typescript';
+import { useLocation, useIntl, type IPreviewerProps } from 'dumi';
 import { ping } from '../../utils';
-import sylvanas from 'sylvanas';
 
 let pingDeferrer: PromiseLike<boolean>;
 
@@ -56,13 +52,11 @@ export default function fromDumiProps<P extends object>(
         toReactComponent(jsonML: any) {
           return toReactComponent(jsonML, [
             [
-              function (node: any) {
-                return JsonML.isElement(node) && JsonML.getTagName(node) === 'pre';
-              },
-              function (node: any, index: any) {
+              (node: any) => JsonML.isElement(node) && JsonML.getTagName(node) === 'pre',
+              (node: any, index: any) => {
                 // @ts-ignore
                 // ref: https://github.com/benjycui/bisheng/blob/master/packages/bisheng/src/bisheng-plugin-highlight/lib/browser.js#L7
-                var attr = JsonML.getAttributes(node);
+                const attr = JsonML.getAttributes(node);
                 return React.createElement(
                   'pre',
                   {
@@ -80,9 +74,13 @@ export default function fromDumiProps<P extends object>(
       },
       intl: { locale: intl.locale },
       showRiddleButton,
+      sourceCodes: {
+        jsx: meta.jsx,
+        tsx: entryCode,
+      },
       highlightedCodes: {
         jsx: Prism.highlight(meta.jsx, Prism.languages.javascript, 'jsx'),
-        tsx: Prism.highlight(entryCode, Prism.languages.javascript, 'tsx'),
+        tsx: Prism.highlight(entryCode, Prism.languages.typescript, 'tsx'),
       },
       style: meta.style,
       location,
@@ -90,8 +88,6 @@ export default function fromDumiProps<P extends object>(
       expand,
       // FIXME: confirm is there has any case?
       highlightedStyle: '',
-      // FIXME: dumi support usePrefersColor
-      theme: 'light',
     } as P;
 
     return <WrappedComponent {...transformedProps} />;

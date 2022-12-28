@@ -3,7 +3,7 @@ category: Components
 group: 数据展示
 subtitle: 日历
 title: Calendar
-cover: https://gw.alipayobjects.com/zos/antfincdn/dPQmLq08DI/Calendar.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*nF6_To7pDSAAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 按照日历形式展示数据的容器。
@@ -61,12 +61,12 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/dPQmLq08DI/Calendar.svg
 
 ### 如何在 Calendar 中使用自定义日期库
 
-参考 [使用自定义日期库](/docs/react/use-custom-date-library#Calendar)。
+参考 [使用自定义日期库](/docs/react/use-custom-date-library#calendar)。
 
 ### 如何给日期类组件配置国际化？
 
-参考 [如何给日期类组件配置国际化](/components/date-picker/#%E5%9B%BD%E9%99%85%E5%8C%96%E9%85%8D%E7%BD%AE)。
+参考 [如何给日期类组件配置国际化](/components/date-picker-cn#%E5%9B%BD%E9%99%85%E5%8C%96%E9%85%8D%E7%BD%AE)。
 
 ### 为什么时间类组件的国际化 locale 设置不生效？
 
-参考 FAQ [为什么时间类组件的国际化 locale 设置不生效？](/docs/react/faq#为什么时间类组件的国际化-locale-设置不生效？)。
+参考 FAQ [为什么时间类组件的国际化 locale 设置不生效？](/docs/react/faq#为什么时间类组件的国际化-locale-设置不生效)。

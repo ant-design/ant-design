@@ -2,7 +2,7 @@
 category: Components
 group: Data Display
 title: Segmented
-cover: https://gw.alipayobjects.com/zos/bmw-prod/a3ff040f-24ba-43e0-92e9-c845df1612ad.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*papwTpNscPIAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---

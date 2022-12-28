@@ -24,8 +24,4 @@ If you want to use a customized trigger, you can hide the default one by setting
   margin: 16px;
   background: rgba(255, 255, 255, 0.3);
 }
-
-#components-layout-demo-custom-trigger .site-layout .site-layout-background {
-  background: #fff;
-}
 ```

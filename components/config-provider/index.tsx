@@ -6,9 +6,9 @@ import useMemo from 'rc-util/lib/hooks/useMemo';
 import * as React from 'react';
 import type { ReactElement } from 'react';
 import type { RequiredMark } from '../form/Form';
-import type { Locale } from '../locale-provider';
-import LocaleProvider, { ANT_MARK } from '../locale-provider';
-import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import type { Locale } from '../locale';
+import LocaleProvider, { ANT_MARK } from '../locale';
+import LocaleReceiver from '../locale/LocaleReceiver';
 import defaultLocale from '../locale/en_US';
 import { DesignTokenContext } from '../theme/internal';
 import defaultSeedToken from '../theme/themes/seed';
@@ -53,6 +53,7 @@ const PASSED_PROPS: Exclude<keyof ConfigConsumerProps, 'rootPrefixCls' | 'getPre
   'input',
   'pagination',
   'form',
+  'select',
 ];
 
 export interface ConfigProviderProps {
@@ -71,6 +72,9 @@ export interface ConfigProviderProps {
   };
   input?: {
     autoComplete?: string;
+  };
+  select?: {
+    showSearch?: boolean;
   };
   pagination?: {
     showSizeChanger?: boolean;
@@ -181,8 +185,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
 
   const mergedTheme = useTheme(theme, parentContext.theme);
 
-  const config = {
-    ...parentContext,
+  const baseConfig = {
     csp,
     autoInsertSpaceInButton,
     locale: locale || legacyLocale,
@@ -194,6 +197,16 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     iconPrefixCls,
     theme: mergedTheme,
   };
+
+  const config = {
+    ...parentContext,
+  };
+
+  Object.keys(baseConfig).forEach((key: keyof typeof baseConfig) => {
+    if (baseConfig[key] !== undefined) {
+      (config as any)[key] = baseConfig[key];
+    }
+  });
 
   // Pass the props used by `useContext` directly with child component.
   // These props should merged into `config`.
