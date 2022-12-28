@@ -15,7 +15,7 @@ export interface WaveEffectProps {
   borderRadius: number[];
 }
 
-function WaveEffect(props: WaveEffectProps) {
+const WaveEffect: React.FC<WaveEffectProps> = (props) => {
   const { className, left, top, width, height, color, borderRadius, scale } = props;
   const divRef = React.useRef<HTMLDivElement>(null);
 
@@ -47,7 +47,6 @@ function WaveEffect(props: WaveEffectProps) {
             holder.parentElement?.removeChild(holder);
           });
         }
-
         return false;
       }}
     >
@@ -56,7 +55,7 @@ function WaveEffect(props: WaveEffectProps) {
       )}
     </CSSMotion>
   );
-}
+};
 
 function validateNum(value: number) {
   return Number.isNaN(value) ? 0 : value;
@@ -97,8 +96,8 @@ export default function showWaveEffect(container: Node, node: HTMLElement, class
       borderRadius={[
         borderTopLeftRadius,
         borderTopRightRadius,
-        borderBottomLeftRadius,
         borderBottomRightRadius,
+        borderBottomLeftRadius,
       ].map((radius) => validateNum(parseFloat(radius) * scale))}
     />,
     holder,
