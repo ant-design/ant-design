@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import type { ConfigConsumerProps } from '..';
 import ConfigProvider, { ConfigContext } from '..';
 import mountTest from '../../../tests/shared/mountTest';
-import { act, fireEvent, render } from '../../../tests/utils';
+import { fireEvent, render } from '../../../tests/utils';
 import Button from '../../button';
 import Input from '../../input';
 import Table from '../../table';
