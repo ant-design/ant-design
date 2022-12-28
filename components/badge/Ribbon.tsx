@@ -13,7 +13,7 @@ export interface RibbonProps {
   prefixCls?: string;
   style?: React.CSSProperties; // style of ribbon element, not the wrapper
   text?: React.ReactNode;
-  color?: LiteralUnion<PresetColorType, string>;
+  color?: LiteralUnion<PresetColorType>;
   children?: React.ReactNode;
   placement?: RibbonPlacement;
 }
