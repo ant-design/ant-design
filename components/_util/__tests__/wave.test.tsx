@@ -1,6 +1,6 @@
 import React from 'react';
 import mountTest from '../../../tests/shared/mountTest';
-import { render, waitFakeTimer, fireEvent, act, sleep } from '../../../tests/utils';
+import { render, waitFakeTimer, fireEvent, act } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import Wave from '../wave';
 
@@ -312,14 +312,11 @@ describe('Wave component', () => {
   });
 
   it('wave transitionStart', async () => {
-    jest.useFakeTimers();
     const { container } = render(
       <Wave>
         <button type="button">button</button>
       </Wave>,
     );
     fireEvent.click(container.querySelector('button')!);
-    await sleep(1000);
-    jest.useRealTimers();
   });
 });
