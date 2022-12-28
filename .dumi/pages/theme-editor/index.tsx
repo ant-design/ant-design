@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState, Suspense, useLayoutEffect } from 'react';
 import { enUS, ThemeEditor, zhCN } from 'antd-token-previewer';
 import { Button, ConfigProvider, message, Modal, Typography } from 'antd';
 import type { ThemeConfig } from 'antd/es/config-provider/context';
@@ -6,8 +6,12 @@ import { Helmet } from 'dumi';
 import { css } from '@emotion/react';
 import type { JSONContent, TextContent } from 'vanilla-jsoneditor';
 import useLocale from '../../hooks/useLocale';
-import JSONEditor from './components/JSONEditor';
-import { isObject } from './components/utils';
+
+const JSONEditor = React.lazy(() => import('../../theme/common/JSONEditor'));
+
+function isObject(target: any) {
+  return Object.prototype.toString.call(target) === '[object Object]';
+}
 
 const locales = {
   cn: {
@@ -58,7 +62,7 @@ const CustomTheme = () => {
     json: undefined,
   });
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const storedConfig = localStorage.getItem(ANT_DESIGN_V5_THEME_EDITOR_THEME);
     if (storedConfig) {
       setTheme(() => JSON.parse(storedConfig));
@@ -154,11 +158,13 @@ const CustomTheme = () => {
               onOk={editSave}
               onCancel={editModelClose}
             >
-              <JSONEditor
-                content={themeConfigContent}
-                onChange={handleEditConfigChange}
-                mainMenuBar={false}
-              />
+              <Suspense fallback={null}>
+                <JSONEditor
+                  content={themeConfigContent}
+                  onChange={handleEditConfigChange}
+                  mainMenuBar={false}
+                />
+              </Suspense>
             </Modal>
             <Button onClick={handleExport} style={{ marginRight: 8 }}>
               {locale.export}
