@@ -30,7 +30,7 @@ export interface BadgeProps {
   scrollNumberPrefixCls?: string;
   className?: string;
   status?: PresetStatusColorType;
-  color?: LiteralUnion<PresetColorType, string>;
+  color?: LiteralUnion<PresetColorType>;
   text?: React.ReactNode;
   size?: 'default' | 'small';
   offset?: [number | string, number | string];
