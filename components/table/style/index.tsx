@@ -308,9 +308,9 @@ export default genComponentStyleHook('Table', (token) => {
     colorIconHover,
     opacityLoading,
     colorBgContainer,
-    colorFillSecondary,
     borderRadiusLG,
     colorFillContent,
+    colorFillSecondary,
     controlInteractiveSize: checkboxSize,
   } = token;
 
@@ -319,6 +319,13 @@ export default genComponentStyleHook('Table', (token) => {
 
   const tableSelectedRowBg = controlItemBgActive;
   const zIndexTableFixed: number = 2;
+
+  const colorFillSecondarySolid = new TinyColor(colorFillSecondary)
+    .onBackground(colorBgContainer)
+    .toHexString();
+  const colorFillContentSolid = new TinyColor(colorFillContent)
+    .onBackground(colorBgContainer)
+    .toHexString();
 
   const colorFillAlterSolid = new TinyColor(colorFillAlter)
     .onBackground(colorBgContainer)
@@ -341,8 +348,8 @@ export default genComponentStyleHook('Table', (token) => {
     tableFooterTextColor: colorTextHeading,
     tableFooterBg: colorFillAlterSolid,
     tableHeaderCellSplitColor: colorBorderSecondary,
-    tableHeaderSortBg: colorFillSecondary,
-    tableHeaderSortHoverBg: colorFillContent,
+    tableHeaderSortBg: colorFillSecondarySolid,
+    tableHeaderSortHoverBg: colorFillContentSolid,
     tableHeaderIconColor: baseColorAction
       .clone()
       .setAlpha(baseColorAction.getAlpha() * opacityLoading)
@@ -351,8 +358,8 @@ export default genComponentStyleHook('Table', (token) => {
       .clone()
       .setAlpha(baseColorActionHover.getAlpha() * opacityLoading)
       .toRgbString(),
-    tableBodySortBg: colorFillAlter,
-    tableFixedHeaderSortActiveBg: colorFillSecondary,
+    tableBodySortBg: colorFillAlterSolid,
+    tableFixedHeaderSortActiveBg: colorFillSecondarySolid,
     tableHeaderFilterActiveBg: colorFillContent,
     tableFilterDropdownBg: colorBgContainer,
     tableRowHoverBg: colorFillAlterSolid,
