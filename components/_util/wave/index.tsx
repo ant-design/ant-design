@@ -60,7 +60,7 @@ const Wave: React.FC<WaveProps> = (props) => {
 
   // ============================== Render ==============================
   if (!React.isValidElement(children)) {
-    return children as unknown as React.ReactElement;
+    return (children ?? null) as unknown as React.ReactElement;
   }
 
   const ref = supportRef(children) ? composeRef((children as any).ref, containerRef) : containerRef;
