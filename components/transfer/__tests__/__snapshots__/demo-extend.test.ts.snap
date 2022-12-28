@@ -7797,7 +7797,7 @@ exports[`renders ./components/transfer/demo/tree-transfer.tsx extend context cor
             <div
               aria-hidden="true"
               class="ant-tree-treenode"
-              style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden;border:0;padding:0"
+              style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
             >
               <div
                 class="ant-tree-indent"

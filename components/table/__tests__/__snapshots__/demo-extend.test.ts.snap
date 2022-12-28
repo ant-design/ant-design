@@ -5709,6 +5709,7 @@ exports[`renders ./components/table/demo/edit-row.tsx extend context correctly 1
                 <div>
                   <div
                     class="rc-virtual-list"
+                    innerprops="[object Object]"
                     style="position:relative"
                   >
                     <div
@@ -5718,8 +5719,6 @@ exports[`renders ./components/table/demo/edit-row.tsx extend context correctly 1
                       <div>
                         <div
                           class="rc-virtual-list-holder-inner"
-                          id="undefined_list"
-                          role="listbox"
                           style="display:flex;flex-direction:column"
                         >
                           <div
@@ -7175,7 +7174,7 @@ exports[`renders ./components/table/demo/filter-in-tree.tsx extend context corre
                                 <div
                                   aria-hidden="true"
                                   class="ant-tree-treenode"
-                                  style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden;border:0;padding:0"
+                                  style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
                                 >
                                   <div
                                     class="ant-tree-indent"
@@ -8174,7 +8173,7 @@ exports[`renders ./components/table/demo/filter-search.tsx extend context correc
                                 <div
                                   aria-hidden="true"
                                   class="ant-tree-treenode"
-                                  style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden;border:0;padding:0"
+                                  style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
                                 >
                                   <div
                                     class="ant-tree-indent"
@@ -10386,6 +10385,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.tsx extend context
                 <div>
                   <div
                     class="rc-virtual-list"
+                    innerprops="[object Object]"
                     style="position:relative"
                   >
                     <div
@@ -10395,8 +10395,6 @@ exports[`renders ./components/table/demo/fixed-columns-header.tsx extend context
                       <div>
                         <div
                           class="rc-virtual-list-holder-inner"
-                          id="undefined_list"
-                          role="listbox"
                           style="display:flex;flex-direction:column"
                         >
                           <div
@@ -11754,6 +11752,7 @@ exports[`renders ./components/table/demo/fixed-header.tsx extend context correct
                 <div>
                   <div
                     class="rc-virtual-list"
+                    innerprops="[object Object]"
                     style="position:relative"
                   >
                     <div
@@ -11763,8 +11762,6 @@ exports[`renders ./components/table/demo/fixed-header.tsx extend context correct
                       <div>
                         <div
                           class="rc-virtual-list-holder-inner"
-                          id="undefined_list"
-                          role="listbox"
                           style="display:flex;flex-direction:column"
                         >
                           <div
@@ -13103,6 +13100,7 @@ exports[`renders ./components/table/demo/grouping-columns.tsx extend context cor
                 <div>
                   <div
                     class="rc-virtual-list"
+                    innerprops="[object Object]"
                     style="position:relative"
                   >
                     <div
@@ -13112,8 +13110,6 @@ exports[`renders ./components/table/demo/grouping-columns.tsx extend context cor
                       <div>
                         <div
                           class="rc-virtual-list-holder-inner"
-                          id="undefined_list"
-                          role="listbox"
                           style="display:flex;flex-direction:column"
                         >
                           <div
@@ -15598,6 +15594,7 @@ exports[`renders ./components/table/demo/narrow.tsx extend context correctly 1`]
                   <div>
                     <div
                       class="rc-virtual-list"
+                      innerprops="[object Object]"
                       style="position:relative"
                     >
                       <div
@@ -15607,8 +15604,6 @@ exports[`renders ./components/table/demo/narrow.tsx extend context correctly 1`]
                         <div>
                           <div
                             class="rc-virtual-list-holder-inner"
-                            id="undefined_list"
-                            role="listbox"
                             style="display:flex;flex-direction:column"
                           >
                             <div
@@ -25668,6 +25663,7 @@ exports[`renders ./components/table/demo/sticky.tsx extend context correctly 1`]
                 <div>
                   <div
                     class="rc-virtual-list"
+                    innerprops="[object Object]"
                     style="position:relative"
                   >
                     <div
@@ -25677,8 +25673,6 @@ exports[`renders ./components/table/demo/sticky.tsx extend context correctly 1`]
                       <div>
                         <div
                           class="rc-virtual-list-holder-inner"
-                          id="undefined_list"
-                          role="listbox"
                           style="display:flex;flex-direction:column"
                         >
                           <div

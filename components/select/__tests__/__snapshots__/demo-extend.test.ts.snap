@@ -4279,6 +4279,7 @@ Array [
         <div>
           <div
             class="rc-virtual-list"
+            innerprops="[object Object]"
             style="position:relative"
           >
             <div
@@ -4288,8 +4289,6 @@ Array [
               <div>
                 <div
                   class="rc-virtual-list-holder-inner"
-                  id="undefined_list"
-                  role="listbox"
                   style="display:flex;flex-direction:column"
                 >
                   <div

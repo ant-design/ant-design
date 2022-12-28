@@ -223,6 +223,7 @@ exports[`renders ./components/pagination/demo/all.tsx extend context correctly 1
           <div>
             <div
               class="rc-virtual-list"
+              innerprops="[object Object]"
               style="position:relative"
             >
               <div
@@ -232,8 +233,6 @@ exports[`renders ./components/pagination/demo/all.tsx extend context correctly 1
                 <div>
                   <div
                     class="rc-virtual-list-holder-inner"
-                    id="undefined_list"
-                    role="listbox"
                     style="display:flex;flex-direction:column"
                   >
                     <div
@@ -706,6 +705,7 @@ Array [
             <div>
               <div
                 class="rc-virtual-list"
+                innerprops="[object Object]"
                 style="position:relative"
               >
                 <div
@@ -715,8 +715,6 @@ Array [
                   <div>
                     <div
                       class="rc-virtual-list-holder-inner"
-                      id="undefined_list"
-                      role="listbox"
                       style="display:flex;flex-direction:column"
                     >
                       <div
@@ -1050,6 +1048,7 @@ Array [
             <div>
               <div
                 class="rc-virtual-list"
+                innerprops="[object Object]"
                 style="position:relative"
               >
                 <div
@@ -1059,8 +1058,6 @@ Array [
                   <div>
                     <div
                       class="rc-virtual-list-holder-inner"
-                      id="undefined_list"
-                      role="listbox"
                       style="display:flex;flex-direction:column"
                     >
                       <div
@@ -1479,6 +1476,7 @@ exports[`renders ./components/pagination/demo/itemRender.tsx extend context corr
           <div>
             <div
               class="rc-virtual-list"
+              innerprops="[object Object]"
               style="position:relative"
             >
               <div
@@ -1488,8 +1486,6 @@ exports[`renders ./components/pagination/demo/itemRender.tsx extend context corr
                 <div>
                   <div
                     class="rc-virtual-list-holder-inner"
-                    id="undefined_list"
-                    role="listbox"
                     style="display:flex;flex-direction:column"
                   >
                     <div
@@ -1825,6 +1821,7 @@ Array [
             <div>
               <div
                 class="rc-virtual-list"
+                innerprops="[object Object]"
                 style="position:relative"
               >
                 <div
@@ -1834,8 +1831,6 @@ Array [
                   <div>
                     <div
                       class="rc-virtual-list-holder-inner"
-                      id="undefined_list"
-                      role="listbox"
                       style="display:flex;flex-direction:column"
                     >
                       <div
@@ -2180,6 +2175,7 @@ Array [
             <div>
               <div
                 class="rc-virtual-list"
+                innerprops="[object Object]"
                 style="position:relative"
               >
                 <div
@@ -2189,8 +2185,6 @@ Array [
                   <div>
                     <div
                       class="rc-virtual-list-holder-inner"
-                      id="undefined_list"
-                      role="listbox"
                       style="display:flex;flex-direction:column"
                     >
                       <div
@@ -2613,6 +2607,7 @@ Array [
             <div>
               <div
                 class="rc-virtual-list"
+                innerprops="[object Object]"
                 style="position:relative"
               >
                 <div
@@ -2622,8 +2617,6 @@ Array [
                   <div>
                     <div
                       class="rc-virtual-list-holder-inner"
-                      id="undefined_list"
-                      role="listbox"
                       style="display:flex;flex-direction:column"
                     >
                       <div
@@ -3051,6 +3044,7 @@ Array [
             <div>
               <div
                 class="rc-virtual-list"
+                innerprops="[object Object]"
                 style="position:relative"
               >
                 <div
@@ -3060,8 +3054,6 @@ Array [
                   <div>
                     <div
                       class="rc-virtual-list-holder-inner"
-                      id="undefined_list"
-                      role="listbox"
                       style="display:flex;flex-direction:column"
                     >
                       <div
@@ -3458,6 +3450,7 @@ exports[`renders ./components/pagination/demo/more.tsx extend context correctly 
           <div>
             <div
               class="rc-virtual-list"
+              innerprops="[object Object]"
               style="position:relative"
             >
               <div
@@ -3467,8 +3460,6 @@ exports[`renders ./components/pagination/demo/more.tsx extend context correctly 
                 <div>
                   <div
                     class="rc-virtual-list-holder-inner"
-                    id="undefined_list"
-                    role="listbox"
                     style="display:flex;flex-direction:column"
                   >
                     <div
@@ -3935,6 +3926,7 @@ Array [
             <div>
               <div
                 class="rc-virtual-list"
+                innerprops="[object Object]"
                 style="position:relative"
               >
                 <div
@@ -3944,8 +3936,6 @@ Array [
                   <div>
                     <div
                       class="rc-virtual-list-holder-inner"
-                      id="undefined_list"
-                      role="listbox"
                       style="display:flex;flex-direction:column"
                     >
                       <div
@@ -4234,6 +4224,7 @@ Array [
             <div>
               <div
                 class="rc-virtual-list"
+                innerprops="[object Object]"
                 style="position:relative"
               >
                 <div
@@ -4243,8 +4234,6 @@ Array [
                   <div>
                     <div
                       class="rc-virtual-list-holder-inner"
-                      id="undefined_list"
-                      role="listbox"
                       style="display:flex;flex-direction:column"
                     >
                       <div
@@ -4581,6 +4570,7 @@ Array [
             <div>
               <div
                 class="rc-virtual-list"
+                innerprops="[object Object]"
                 style="position:relative"
               >
                 <div
@@ -4590,8 +4580,6 @@ Array [
                   <div>
                     <div
                       class="rc-virtual-list-holder-inner"
-                      id="undefined_list"
-                      role="listbox"
                       style="display:flex;flex-direction:column"
                     >
                       <div
@@ -4925,6 +4913,7 @@ Array [
             <div>
               <div
                 class="rc-virtual-list"
+                innerprops="[object Object]"
                 style="position:relative"
               >
                 <div
@@ -4934,8 +4923,6 @@ Array [
                   <div>
                     <div
                       class="rc-virtual-list-holder-inner"
-                      id="undefined_list"
-                      role="listbox"
                       style="display:flex;flex-direction:column"
                     >
                       <div

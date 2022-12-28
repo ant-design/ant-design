@@ -24933,6 +24933,7 @@ exports[`ConfigProvider components Select configProvider virtual and dropdownMat
       <div>
         <div
           class="rc-virtual-list"
+          innerprops="[object Object]"
           style="position: relative;"
         >
           <div
@@ -24942,8 +24943,6 @@ exports[`ConfigProvider components Select configProvider virtual and dropdownMat
             <div>
               <div
                 class="rc-virtual-list-holder-inner"
-                id="rc_select_TEST_OR_SSR_list"
-                role="listbox"
                 style="display: flex; flex-direction: column;"
               >
                 <div
@@ -40307,7 +40306,7 @@ exports[`ConfigProvider components Tree configProvider 1`] = `
     <div
       aria-hidden="true"
       class="config-tree-treenode"
-      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
     >
       <div
         class="config-tree-indent"
@@ -40372,7 +40371,7 @@ exports[`ConfigProvider components Tree configProvider 1`] = `
     <div
       aria-hidden="true"
       class="config-tree-treenode"
-      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
     >
       <div
         class="config-tree-indent"
@@ -40465,7 +40464,7 @@ exports[`ConfigProvider components Tree configProvider componentDisabled 1`] = `
     <div
       aria-hidden="true"
       class="config-tree-treenode"
-      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
     >
       <div
         class="config-tree-indent"
@@ -40530,7 +40529,7 @@ exports[`ConfigProvider components Tree configProvider componentDisabled 1`] = `
     <div
       aria-hidden="true"
       class="config-tree-treenode"
-      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
     >
       <div
         class="config-tree-indent"
@@ -40623,7 +40622,7 @@ exports[`ConfigProvider components Tree configProvider componentSize large 1`] =
     <div
       aria-hidden="true"
       class="config-tree-treenode"
-      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
     >
       <div
         class="config-tree-indent"
@@ -40688,7 +40687,7 @@ exports[`ConfigProvider components Tree configProvider componentSize large 1`] =
     <div
       aria-hidden="true"
       class="config-tree-treenode"
-      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
     >
       <div
         class="config-tree-indent"
@@ -40781,7 +40780,7 @@ exports[`ConfigProvider components Tree configProvider componentSize middle 1`] 
     <div
       aria-hidden="true"
       class="config-tree-treenode"
-      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
     >
       <div
         class="config-tree-indent"
@@ -40846,7 +40845,7 @@ exports[`ConfigProvider components Tree configProvider componentSize middle 1`] 
     <div
       aria-hidden="true"
       class="config-tree-treenode"
-      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
     >
       <div
         class="config-tree-indent"
@@ -40939,7 +40938,7 @@ exports[`ConfigProvider components Tree configProvider virtual and dropdownMatch
     <div
       aria-hidden="true"
       class="ant-tree-treenode"
-      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
     >
       <div
         class="ant-tree-indent"
@@ -41004,7 +41003,7 @@ exports[`ConfigProvider components Tree configProvider virtual and dropdownMatch
     <div
       aria-hidden="true"
       class="ant-tree-treenode"
-      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
     >
       <div
         class="ant-tree-indent"
@@ -41097,7 +41096,7 @@ exports[`ConfigProvider components Tree normal 1`] = `
     <div
       aria-hidden="true"
       class="ant-tree-treenode"
-      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
     >
       <div
         class="ant-tree-indent"
@@ -41162,7 +41161,7 @@ exports[`ConfigProvider components Tree normal 1`] = `
     <div
       aria-hidden="true"
       class="ant-tree-treenode"
-      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
     >
       <div
         class="ant-tree-indent"
@@ -41255,7 +41254,7 @@ exports[`ConfigProvider components Tree prefixCls 1`] = `
     <div
       aria-hidden="true"
       class="prefix-Tree-treenode"
-      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
     >
       <div
         class="prefix-Tree-indent"
@@ -41320,7 +41319,7 @@ exports[`ConfigProvider components Tree prefixCls 1`] = `
     <div
       aria-hidden="true"
       class="prefix-Tree-treenode"
-      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
     >
       <div
         class="prefix-Tree-indent"
@@ -41449,7 +41448,7 @@ exports[`ConfigProvider components TreeSelect configProvider 1`] = `
             <div
               aria-hidden="true"
               class="config-select-tree-treenode"
-              style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+              style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
             >
               <div
                 class="config-select-tree-indent"
@@ -41647,7 +41646,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize large
             <div
               aria-hidden="true"
               class="config-select-tree-treenode"
-              style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+              style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
             >
               <div
                 class="config-select-tree-indent"
@@ -41784,7 +41783,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize middl
             <div
               aria-hidden="true"
               class="config-select-tree-treenode"
-              style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+              style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
             >
               <div
                 class="config-select-tree-indent"
@@ -41921,7 +41920,7 @@ exports[`ConfigProvider components TreeSelect configProvider virtual and dropdow
             <div
               aria-hidden="true"
               class="ant-select-tree-treenode"
-              style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+              style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
             >
               <div
                 class="ant-select-tree-indent"
@@ -42058,7 +42057,7 @@ exports[`ConfigProvider components TreeSelect normal 1`] = `
             <div
               aria-hidden="true"
               class="ant-select-tree-treenode"
-              style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+              style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
             >
               <div
                 class="ant-select-tree-indent"
@@ -42195,7 +42194,7 @@ exports[`ConfigProvider components TreeSelect prefixCls 1`] = `
             <div
               aria-hidden="true"
               class="prefix-TreeSelect-tree-treenode"
-              style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+              style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
             >
               <div
                 class="prefix-TreeSelect-tree-indent"

@@ -37,7 +37,7 @@ const App: React.FC = () => {
     {
       title: 'Name',
       dataIndex: 'name',
-      render(value, { field }) {
+      render(_, { field }) {
         return (
           <Form.Item
             name={[field.name, 'name']}
@@ -52,7 +52,7 @@ const App: React.FC = () => {
     {
       title: 'Age',
       dataIndex: 'age',
-      render(value, { field }) {
+      render(_, { field }) {
         return (
           <Form.Item name={[field.name, 'age']} style={formItemStyle}>
             <InputNumber style={{ width: '100%' }} />
@@ -63,7 +63,7 @@ const App: React.FC = () => {
     {
       title: 'Address',
       dataIndex: 'address',
-      render(value, { field }) {
+      render(_, { field }) {
         return (
           <Form.Item name={[field.name, 'address']} style={formItemStyle}>
             <Input />
@@ -74,7 +74,7 @@ const App: React.FC = () => {
     {
       title: 'Action',
       dataIndex: 'action',
-      render(value, { operation, field }) {
+      render(_, { operation, field }) {
         return (
           <Space>
             <Button type="primary" shape="circle" onClick={() => operation.add()}>
