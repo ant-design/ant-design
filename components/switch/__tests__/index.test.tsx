@@ -16,7 +16,7 @@ describe('Switch', () => {
     const { container } = render(<Switch />);
     fireEvent.click(container.querySelector('.ant-switch')!);
     await waitFakeTimer();
-    expect(container.querySelector('button')!.getAttribute('ant-click-animating')).toBe('true');
+    expect(container.querySelector('button')?.getAttribute('ant-click-animating')).toBe('true');
     jest.clearAllTimers();
     jest.useRealTimers();
   });
