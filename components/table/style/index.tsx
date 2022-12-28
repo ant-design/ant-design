@@ -348,8 +348,8 @@ export default genComponentStyleHook('Table', (token) => {
     tableFooterTextColor: colorTextHeading,
     tableFooterBg: colorFillAlterSolid,
     tableHeaderCellSplitColor: colorBorderSecondary,
-    tableHeaderSortBg: colorFillSecondarySolid.toRgbString(),
-    tableHeaderSortHoverBg: colorFillContentSolid.toRgbString(),
+    tableHeaderSortBg: colorFillSecondarySolid,
+    tableHeaderSortHoverBg: colorFillContentSolid,
     tableHeaderIconColor: baseColorAction
       .clone()
       .setAlpha(baseColorAction.getAlpha() * opacityLoading)
@@ -359,7 +359,7 @@ export default genComponentStyleHook('Table', (token) => {
       .setAlpha(baseColorActionHover.getAlpha() * opacityLoading)
       .toRgbString(),
     tableBodySortBg: colorFillAlterSolid,
-    tableFixedHeaderSortActiveBg: colorFillSecondarySolid.toRgbString(),
+    tableFixedHeaderSortActiveBg: colorFillSecondarySolid,
     tableHeaderFilterActiveBg: colorFillContent,
     tableFilterDropdownBg: colorBgContainer,
     tableRowHoverBg: colorFillAlterSolid,
