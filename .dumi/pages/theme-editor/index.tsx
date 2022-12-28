@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState, Suspense, useLayoutEffect } from 'react';
 import { enUS, ThemeEditor, zhCN } from 'antd-token-previewer';
-import { Button, ConfigProvider, message, Modal, Typography } from 'antd';
+import { Button, ConfigProvider, message, Modal, Spin, Typography } from 'antd';
 import type { ThemeConfig } from 'antd/es/config-provider/context';
 import { Helmet } from 'dumi';
 import { css } from '@emotion/react';
@@ -23,6 +23,7 @@ const locales = {
     editJsonContentTypeError: '主题 JSON 格式错误',
     editSuccessfully: '编辑成功',
     saveSuccessfully: '保存成功',
+    initialEditor: '正在初始化编辑器...',
   },
   en: {
     title: 'Theme Editor',
@@ -33,6 +34,7 @@ const locales = {
     editJsonContentTypeError: 'The theme of the JSON format is incorrect',
     editSuccessfully: 'Edited successfully',
     saveSuccessfully: 'Saved successfully',
+    initialEditor: 'Initializing Editor...',
   },
 };
 
@@ -158,7 +160,7 @@ const CustomTheme = () => {
               onOk={editSave}
               onCancel={editModelClose}
             >
-              <Suspense fallback={null}>
+              <Suspense fallback={<Spin tip={locale.initialEditor} />}>
                 <JSONEditor
                   content={themeConfigContent}
                   onChange={handleEditConfigChange}
