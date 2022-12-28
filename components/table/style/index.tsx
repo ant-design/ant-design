@@ -322,10 +322,10 @@ export default genComponentStyleHook('Table', (token) => {
 
   const colorFillSecondarySolid = new TinyColor(colorFillSecondary)
     .onBackground(colorBgContainer)
-    .setAlpha(1);
+    .toHexString();
   const colorFillContentSolid = new TinyColor(colorFillContent)
     .onBackground(colorBgContainer)
-    .setAlpha(1);
+    .toHexString();
 
   const colorFillAlterSolid = new TinyColor(colorFillAlter)
     .onBackground(colorBgContainer)
