@@ -6,13 +6,14 @@ export interface ComponentToken {}
 export interface WaveToken extends FullToken<'Wave'> {}
 
 const genWaveStyle: GenerateStyle<WaveToken> = (token) => {
-  const { componentCls } = token;
+  const { componentCls, colorPrimary } = token;
   return {
     [componentCls]: {
       position: 'fixed',
       background: 'transparent',
       pointerEvents: 'none',
       boxSizing: 'border-box',
+      color: `var(--wave-color, ${colorPrimary})`,
 
       boxShadow: `0 0 0 0 currentcolor`,
       opacity: 0.2,

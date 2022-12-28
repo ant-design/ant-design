@@ -31,15 +31,15 @@ export function isValidWaveColor(color: string) {
 }
 
 export function getTargetWaveColor(node: HTMLElement) {
-  const computedStyle = getComputedStyle(node);
-  const borderTopColor = computedStyle.getPropertyValue('border-top-color');
-  const borderColor = computedStyle.getPropertyValue('border-color');
-  const backgroundColor = computedStyle.getPropertyValue('background-color');
+  const { borderTopColor, borderColor, backgroundColor } = getComputedStyle(node);
   if (isValidWaveColor(borderTopColor)) {
     return borderTopColor;
   }
   if (isValidWaveColor(borderColor)) {
     return borderColor;
   }
-  return backgroundColor;
+  if (isValidWaveColor(backgroundColor)) {
+    return backgroundColor;
+  }
+  return null;
 }

@@ -28,21 +28,23 @@ const Wave: React.FC<WaveProps> = (props) => {
   // ============================== Effect ==============================
   React.useEffect(() => {
     const node = containerRef.current;
-    if (
-      !node ||
-      node.nodeType !== 1 ||
-      !node.getAttribute ||
-      node.getAttribute('disabled') ||
-      node.className.includes('disabled') ||
-      disabled
-    ) {
+    if (!node || node.nodeType !== 1 || disabled) {
       return;
     }
 
     // Click handler
     const onClick = (e: MouseEvent) => {
       // Fix radio button click twice
-      if ((e.target as HTMLElement).tagName === 'INPUT' || !isVisible(e.target as HTMLElement)) {
+      if (
+        (e.target as HTMLElement).tagName === 'INPUT' ||
+        !isVisible(e.target as HTMLElement) ||
+        // No need wave
+        !node.getAttribute ||
+        node.getAttribute('disabled') ||
+        (node as HTMLInputElement).disabled ||
+        node.className.includes('disabled') ||
+        node.className.includes('-leave')
+      ) {
         return;
       }
 

@@ -8,12 +8,10 @@ export default function useWave(
     const node = nodeRef.current!;
 
     // Skip if not exist doc
-    const container = node?.ownerDocument?.body;
-    if (!container) {
-      return;
+    const container = node.getRootNode?.() || node?.ownerDocument;
+    if (container) {
+      showWaveEffect(container, node, className);
     }
-
-    showWaveEffect(container, node, className);
   }
 
   return showWave;
