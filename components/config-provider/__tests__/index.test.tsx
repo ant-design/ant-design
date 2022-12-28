@@ -16,26 +16,6 @@ describe('ConfigProvider', () => {
     </ConfigProvider>
   ));
 
-  it('Content Security Policy', () => {
-    jest.useFakeTimers();
-
-    const csp = { nonce: 'test-antd' };
-    const { container } = render(
-      <ConfigProvider csp={csp}>
-        <Button />
-      </ConfigProvider>,
-    );
-
-    fireEvent.click(container.querySelector('button')!);
-    act(() => {
-      jest.runAllTimers();
-    });
-    const styles = Array.from(document.body.querySelectorAll<HTMLStyleElement>('style'));
-    expect(styles[styles.length - 1].nonce).toEqual(csp.nonce);
-
-    jest.useRealTimers();
-  });
-
   it('autoInsertSpaceInButton', () => {
     const text = '确定';
     const { container } = render(
