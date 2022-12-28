@@ -43,6 +43,7 @@ module.exports = {
     'Template Document': 3,
   },
   docVersions: {
+    '5.x': 'https://ant.design',
     '3.x': 'http://3x.ant.design',
     '2.x': 'http://2x.ant.design',
     '1.x': 'http://1x.ant.design',
