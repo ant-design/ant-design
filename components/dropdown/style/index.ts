@@ -334,7 +334,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
               },
             },
 
-            [`&${menuCls}-item-disabled`]: {
+            '&-disabled': {
               color: colorTextDisabled,
               cursor: 'not-allowed',
 
@@ -443,9 +443,9 @@ export default genComponentStyleHook(
       dropdownEdgeChildPadding: paddingXXS,
     });
     return [
-      genStatusStyle(dropdownToken),
       genBaseStyle(dropdownToken),
       genButtonStyle(dropdownToken),
+      genStatusStyle(dropdownToken),
     ];
   },
   (token) => ({

@@ -9,7 +9,7 @@ const genStatusStyle: GenerateStyle<DropdownToken> = (token) => {
   return {
     [`${componentCls}, ${componentCls}-menu-submenu`]: {
       [`${menuCls} ${itemCls}`]: {
-        [`&${itemCls}-danger`]: {
+        [`&${itemCls}-danger:not(${itemCls}-disabled)`]: {
           color: colorError,
 
           '&:hover': {
