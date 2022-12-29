@@ -83,6 +83,6 @@ describe('Transfer.Search', () => {
 
     fireEvent.change(container.querySelector('.ant-input')!, { target: { value: ' ' } });
 
-    expect(filterOption).toHaveBeenCalledTimes(dataSource.length);
+    expect(filterOption).toHaveBeenCalledTimes(2*dataSource.length);
   });
 });

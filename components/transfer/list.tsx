@@ -115,6 +115,7 @@ export default class TransferList<
   getFilteredItems(
     dataSource: RecordType[],
     filterValue: string,
+    filterOption?: (filterText: string, item: RecordType) => boolean,
   ): { filteredItems: RecordType[]; filteredRenderItems: RenderedItem<RecordType>[] } {
     const filteredItems: RecordType[] = [];
     const filteredRenderItems: RenderedItem<RecordType>[] = [];
@@ -124,7 +125,7 @@ export default class TransferList<
       const { renderedText } = renderedItem;
 
       // Filter skip
-      if (filterValue && !this.matchFilter(renderedText, item)) {
+      if ((filterValue || filterOption) && !this.matchFilter(renderedText, item)) {
         return null;
       }
 
@@ -322,6 +323,7 @@ export default class TransferList<
       showRemove,
       pagination,
       direction,
+      filterOption,
     } = this.props;
 
     // Custom Layout
@@ -335,7 +337,7 @@ export default class TransferList<
 
     // ====================== Get filtered, checked item list ======================
 
-    const { filteredItems, filteredRenderItems } = this.getFilteredItems(dataSource, filterValue);
+    const { filteredItems, filteredRenderItems } = this.getFilteredItems(dataSource, filterValue, filterOption);
 
     // ================================= List Body =================================
 
