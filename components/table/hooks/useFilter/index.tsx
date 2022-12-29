@@ -234,7 +234,7 @@ function useFilter<RecordType>({
         .filter(({ key }) => keyList.includes(key))
         .map((item) => {
           const col = mergedColumns[keyList.findIndex((key) => key === item.key)];
-          const nweItem = {
+          return {
             ...item,
             column: {
               ...item.column,
@@ -242,7 +242,6 @@ function useFilter<RecordType>({
             },
             forceFiltered: col.filtered,
           };
-          return nweItem;
         });
     }
 
