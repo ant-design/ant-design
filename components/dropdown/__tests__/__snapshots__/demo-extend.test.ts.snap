@@ -2889,8 +2889,8 @@ Array [
 exports[`renders ./components/dropdown/demo/context-menu.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-dropdown-trigger site-dropdown-context-menu"
-    style="text-align:center;height:200px;line-height:200px"
+    class="ant-dropdown-trigger"
+    style="color:rgba(0, 0, 0, 0.45);background:#f5f5f5;height:200px;text-align:center;line-height:200px"
   >
     Right Click on here
   </div>,
