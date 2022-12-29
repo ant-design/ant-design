@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://ant.design">
+  <a href="https://4x.ant.design">
     <img width="200" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg">
   </a>
 </p>
@@ -8,7 +8,7 @@
 
 <div align="center">
 
-エンタープライズクラスのUI設計言語とReact UIライブラリです。
+エンタープライズクラスの UI 設計言語と React UI ライブラリです。
 
 [![CI status][github-action-image]][github-action-url] [![codecov][codecov-image]][codecov-url] [![NPM version][npm-image]][npm-url] [![NPM downloads][download-image]][download-url]
 
@@ -45,7 +45,7 @@
 
 </div>
 
-[![](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Yl83RJhUE7kAAAAAAAAAAABkARQnAQ)](https://ant.design)
+[![](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Yl83RJhUE7kAAAAAAAAAAABkARQnAQ)](https://4x.ant.design)
 
 [English](./README.md) | [Português](./README-pt_BR.md) | [简体中文](./README-zh_CN.md) | [Українською](./README-uk_UA.md) | [Spanish](./README-sp_MX.md) | 日本語
 
@@ -99,16 +99,16 @@ import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 
 ### TypeScript
 
-`antd` は TypeScript で書かれており、完全な定義がなされています。まずは [TypeScript で使う](https://ant.design/docs/react/use-in-typescript)をチェックしてください。
+`antd` は TypeScript で書かれており、完全な定義がなされています。まずは [TypeScript で使う](https://4x.ant.design/docs/react/use-in-typescript)をチェックしてください。
 
 ## 🌍 国際化対応
 
-数十の言語が `antd` でサポートされています。[i18n](https://ant.design/docs/react/i18n) を参照してください。
+数十の言語が `antd` でサポートされています。[i18n](https://4x.ant.design/docs/react/i18n) を参照してください。
 
 ## 🔗 リンク
 
-- [ホームページ](https://ant.design/)
-- [コンポーネントの概要](https://ant.design/components/overview)
+- [ホームページ](https://4x.ant.design/)
+- [コンポーネントの概要](https://4x.ant.design/components/overview)
 - [Ant Design Pro](http://pro.ant.design/)
 - [変更ログ](CHANGELOG.en-US.md)
 - [rc-components](http://react-component.github.io/)
@@ -122,9 +122,9 @@ import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 - [足場マーケット](http://scaffold.ant.design)
 - [開発者向けインストラクション](https://github.com/ant-design/ant-design/wiki/Development)
 - [バージョン管理リリースノート](https://github.com/ant-design/ant-design/wiki/%E8%BD%AE%E5%80%BC%E8%A7%84%E5%88%99%E5%92%8C%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B)
-- [FAQ](https://ant.design/docs/react/faq)
-- バグレポート用の [CodeSandbox テンプレート](https://u.ant.design/codesandbox-repro)
-- [テーマのカスタマイズ](https://ant.design/docs/react/customize-theme)
+- [FAQ](https://4x.ant.design/docs/react/faq)
+- バグレポート用の [CodeSandbox テンプレート](https://u.ant.design/codesandbox-repro-4x)
+- [テーマのカスタマイズ](https://4x.ant.design/docs/react/customize-theme)
 - [コラボレーターへの応募方法](https://github.com/ant-design/ant-design/wiki/Collaborators#how-to-apply-for-being-a-collaborator)
 
 ## ⌨️ 開発
