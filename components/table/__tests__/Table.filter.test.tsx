@@ -68,6 +68,16 @@ describe('Table.filter', () => {
     return namesList;
   }
 
+  // Seems raf not trigger when in useEffect for async update
+  // Need trigger multiple times
+  function refreshTimer() {
+    for (let i = 0; i < 3; i += 1) {
+      act(() => {
+        jest.runAllTimers();
+      });
+    }
+  }
+
   beforeEach(() => {
     jest.useFakeTimers();
   });
@@ -655,16 +665,6 @@ describe('Table.filter', () => {
 
     function getFilterMenu() {
       return container.querySelector('.ant-table-filter-dropdown');
-    }
-
-    // Seems raf not trigger when in useEffect for async update
-    // Need trigger multiple times
-    function refreshTimer() {
-      for (let i = 0; i < 3; i += 1) {
-        act(() => {
-          jest.runAllTimers();
-        });
-      }
     }
 
     // Open Level2
@@ -1493,6 +1493,47 @@ describe('Table.filter', () => {
     ).toBeTruthy();
   });
 
+  it('filtered should work after change', () => {
+    const App = () => {
+      const [filtered, setFiltered] = React.useState(true);
+      const columns = [
+        {
+          title: 'Name',
+          dataIndex: 'name',
+          filtered,
+          filters: [],
+        },
+      ];
+
+      return (
+        <div className="App">
+          <Button
+            id="change-filtered-btn"
+            onClick={() => {
+              setFiltered(!filtered);
+            }}
+          >
+            Set
+          </Button>
+          <Table columns={columns} dataSource={data} />
+        </div>
+      );
+    };
+    const { container } = render(<App />);
+
+    expect(
+      container.querySelector('.ant-table-filter-trigger')?.className.includes('active'),
+    ).toBeTruthy();
+
+    fireEvent.click(container.querySelector('#change-filtered-btn')!);
+
+    refreshTimer();
+
+    expect(
+      container.querySelector('.ant-table-filter-trigger')?.className.includes('active'),
+    ).toBeFalsy();
+  });
+
   it('filteredValue with empty array should not active the filtered icon', () => {
     const { container } = render(
       createTable({
@@ -1984,15 +2025,6 @@ describe('Table.filter', () => {
     fireEvent.click(container.querySelector('.ant-table-filter-trigger')!);
     function getFilterMenu() {
       return container.querySelector('.ant-table-filter-dropdown');
-    }
-    // Seems raf not trigger when in useEffect for async update
-    // Need trigger multiple times
-    function refreshTimer() {
-      for (let i = 0; i < 3; i += 1) {
-        act(() => {
-          jest.runAllTimers();
-        });
-      }
     }
 
     const items = getFilterMenu()?.querySelectorAll('li.ant-dropdown-menu-item');
