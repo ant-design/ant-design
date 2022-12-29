@@ -18,6 +18,7 @@ demo:
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
+<code src="./demo/customMask.tsx">自定义遮罩样式</code>
 <code src="./demo/non-modal.tsx">非模态</code>
 <code src="./demo/placement.tsx">位置</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
@@ -32,7 +33,7 @@ demo:
 | placement | 引导卡片相对于目标元素的位置 | `left` `leftTop` `leftBottom` `right` `rightTop` `rightBottom` `top` `topLeft` `topRight` `bottom` `bottomLeft` `bottomRight` | `bottom` |  |
 | onClose | 关闭引导时的回调函数 | `Function` | - |  |
 | onFinish | 引导完成时的回调 | `Function` | - |  |
-| mask | 是否启用蒙层 | `boolean` | `true` |  |
+| mask | 是否启用蒙层，也可传入配置改变蒙层样式和填充色 | `boolean \| { style?: React.CSSProperties; fill?: string; }` | `true` |  |
 | type | 类型，影响底色与文字颜色 | `default` \| `primary` | `default` |  |
 | open | 打开引导 | `boolean` | - |  |
 | onChange | 步骤改变时的回调，current 为当前前的步骤 | `(current: number) => void` | - |  |

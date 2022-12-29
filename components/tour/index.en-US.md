@@ -17,6 +17,7 @@ Use when you want to guide users through a product.
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/customMask.tsx">custom mask style</code>
 <code src="./demo/non-modal.tsx">Non-modal</code>
 <code src="./demo/placement.tsx">Placement</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
@@ -31,6 +32,7 @@ Use when you want to guide users through a product.
 | placement | Position of the guide card relative to the target element | `left` `leftTop` `leftBottom` `right` `rightTop` `rightBottom` `top` `topLeft` `topRight` `bottom` `bottomLeft` `bottomRight` | `bottom` |  |
 | onClose | Callback function on shutdown | `Function` | - |  |
 | mask | Whether to enable masking | `boolean` | `true` |  |
+| mask | Whether to enable masking，change mask style and fill color by pass custom props | `boolean \| { style?: React.CSSProperties; fill?: string; }` | `true` |  |
 | type | Type, affects the background color and text color | `default` `primary` | `default` |  |
 | open | Open tour | `boolean` | - |  |
 | onChange | Callback when the step changes. Current is the previous step | `(current: number) => void` | - |  |
