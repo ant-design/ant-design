@@ -322,16 +322,12 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
             transition: `all ${motionDurationMid}`,
 
             '&:first-child': !dropdownEdgeChildPadding
-              ? {
-                  borderRadius: `${borderRadius}px ${borderRadius}px 0 0`,
-                }
-              : [],
+              ? { borderRadius: `${borderRadius}px ${borderRadius}px 0 0` }
+              : {},
 
             '&:last-child': !dropdownEdgeChildPadding
-              ? {
-                  borderRadius: `0 0 ${borderRadius}px ${borderRadius}px`,
-                }
-              : [],
+              ? { borderRadius: `0 0 ${borderRadius}px ${borderRadius}px` }
+              : {},
 
             [`&:hover, &-active`]: {
               backgroundColor: token.controlItemBgHover,
