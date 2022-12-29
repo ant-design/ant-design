@@ -42,7 +42,6 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
     dropdownPaddingVertical,
     fontSize,
     dropdownEdgeChildPadding,
-    borderRadius,
     colorTextDisabled,
     fontSizeIcon,
     controlPaddingHorizontal,
@@ -320,14 +319,6 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
             lineHeight: token.lineHeight,
             cursor: 'pointer',
             transition: `all ${motionDurationMid}`,
-
-            '&:first-child': !dropdownEdgeChildPadding
-              ? { borderRadius: `${borderRadius}px ${borderRadius}px 0 0` }
-              : {},
-
-            '&:last-child': !dropdownEdgeChildPadding
-              ? { borderRadius: `0 0 ${borderRadius}px ${borderRadius}px` }
-              : {},
 
             [`&:hover, &-active`]: {
               backgroundColor: token.controlItemBgHover,
