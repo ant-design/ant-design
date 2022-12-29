@@ -1,4 +1,3 @@
-import type { Context } from 'react';
 import { createContext } from 'react';
 
 export interface RowContextState {
@@ -7,6 +6,6 @@ export interface RowContextState {
   supportFlexGap?: boolean;
 }
 
-const RowContext: Context<RowContextState> = createContext({});
+const RowContext = createContext<RowContextState>({});
 
 export default RowContext;
