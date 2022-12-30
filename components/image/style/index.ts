@@ -197,6 +197,9 @@ export const genImagePreviewStyle: GenerateStyle<ImageToken> = (token: ImageToke
           '&-wrapper': {
             ...genBoxStyle(),
             transition: `transform ${motionDurationSlow} ${motionEaseOut} 0s`,
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
 
             '&::before': {
               display: 'inline-block',
