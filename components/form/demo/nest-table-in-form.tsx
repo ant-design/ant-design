@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   Button,
-  ConfigProvider,
   Empty,
   Form,
   Input,
@@ -37,55 +36,47 @@ const App: React.FC = () => {
     {
       title: 'Name',
       dataIndex: 'name',
-      render(_, { field }) {
-        return (
-          <Form.Item
-            name={[field.name, 'name']}
-            style={formItemStyle}
-            rules={[{ required: true, message: 'Name is required' }]}
-          >
-            <Input />
-          </Form.Item>
-        );
-      },
+      render: (_, { field }) => (
+        <Form.Item
+          name={[field.name, 'name']}
+          style={formItemStyle}
+          rules={[{ required: true, message: 'Name is required' }]}
+        >
+          <Input />
+        </Form.Item>
+      ),
     },
     {
       title: 'Age',
       dataIndex: 'age',
-      render(_, { field }) {
-        return (
-          <Form.Item name={[field.name, 'age']} style={formItemStyle}>
-            <InputNumber style={{ width: '100%' }} />
-          </Form.Item>
-        );
-      },
+      render: (_, { field }) => (
+        <Form.Item name={[field.name, 'age']} style={formItemStyle}>
+          <InputNumber style={{ width: '100%' }} />
+        </Form.Item>
+      ),
     },
     {
       title: 'Address',
       dataIndex: 'address',
-      render(_, { field }) {
-        return (
-          <Form.Item name={[field.name, 'address']} style={formItemStyle}>
-            <Input />
-          </Form.Item>
-        );
-      },
+      render: (_, { field }) => (
+        <Form.Item name={[field.name, 'address']} style={formItemStyle}>
+          <Input />
+        </Form.Item>
+      ),
     },
     {
       title: 'Action',
       dataIndex: 'action',
-      render(_, { operation, field }) {
-        return (
-          <Space>
-            <Button type="primary" shape="circle" onClick={() => operation.add()}>
-              +
-            </Button>
-            <Button danger shape="circle" onClick={() => operation.remove(field.name)}>
-              -
-            </Button>
-          </Space>
-        );
-      },
+      render: (_, { operation, field }) => (
+        <Space>
+          <Button type="primary" shape="circle" onClick={() => operation.add()}>
+            +
+          </Button>
+          <Button danger shape="circle" onClick={() => operation.remove(field.name)}>
+            -
+          </Button>
+        </Space>
+      ),
     },
   ];
 
@@ -106,23 +97,22 @@ const App: React.FC = () => {
               operation,
             }));
             return (
-              <ConfigProvider
-                renderEmpty={() => (
-                  <Empty description={false}>
-                    <Button type="primary" ghost onClick={() => operation.add()}>
-                      Add User
-                    </Button>
-                  </Empty>
-                )}
-              >
-                <Table
-                  size="small"
-                  rowKey={(row) => row.field.key}
-                  dataSource={dataSources}
-                  columns={columns}
-                  pagination={false}
-                />
-              </ConfigProvider>
+              <Table
+                size="small"
+                rowKey={(row) => row.field.key}
+                dataSource={dataSources}
+                columns={columns}
+                pagination={false}
+                locale={{
+                  emptyText: (
+                    <Empty description={false}>
+                      <Button type="primary" ghost onClick={() => operation.add()}>
+                        Add User
+                      </Button>
+                    </Empty>
+                  ),
+                }}
+              />
             );
           }}
         </Form.List>
