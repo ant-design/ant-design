@@ -178,7 +178,7 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
 
           [`&:hover, &-active, &-open`]: {
             '&::after': {
-              borderWidth: `${colorActiveBarHeight}px`,
+              borderBottomWidth: colorActiveBarHeight,
               borderBottomColor: colorItemTextSelectedHorizontal,
             },
           },
@@ -186,7 +186,7 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
             color: colorItemTextSelectedHorizontal,
             backgroundColor: colorItemBgSelectedHorizontal,
             '&::after': {
-              borderWidth: `${colorActiveBarHeight}px`,
+              borderBottomWidth: colorActiveBarHeight,
               borderBottomColor: colorItemTextSelectedHorizontal,
             },
           },

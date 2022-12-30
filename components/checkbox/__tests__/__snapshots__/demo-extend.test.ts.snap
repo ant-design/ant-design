@@ -159,6 +159,58 @@ Array [
 ]
 `;
 
+exports[`renders ./components/checkbox/demo/debug-disable-popover.tsx extend context correctly 1`] = `
+<div
+  style="padding:56px"
+>
+  <label
+    class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-disabled"
+  >
+    <span
+      class="ant-checkbox ant-checkbox-checked ant-checkbox-disabled"
+    >
+      <input
+        checked=""
+        class="ant-checkbox-input"
+        disabled=""
+        type="checkbox"
+      />
+      <span
+        class="ant-checkbox-inner"
+      />
+    </span>
+  </label>
+  <div>
+    <div
+      class="ant-popover"
+      style="opacity:0"
+    >
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-arrow"
+        >
+          <span
+            class="ant-popover-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-popover-inner"
+          role="tooltip"
+        >
+          <div
+            class="ant-popover-inner-content"
+          >
+            xxxx
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders ./components/checkbox/demo/debug-line.tsx extend context correctly 1`] = `
 <div>
   <div
