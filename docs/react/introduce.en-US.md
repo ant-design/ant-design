@@ -106,15 +106,14 @@ export default App;
 - [China Mirrors](https://github.com/ant-design/ant-design/issues/25661)
 - [Components](/components/overview)
 - [Ant Design Pro](https://pro.ant.design/)
+- [Ant Design Pro Components](https://procomponents.ant.design/)
 - [Ant Design Charts](https://charts.ant.design)
 - [Change Log](/changelog)
 - [rc-components](http://react-component.github.io/)
-- [Mobile UI](http://mobile.ant.design)
+- [Mobile Components](http://mobile.ant.design)
+- [Mini Program Components](http://mini.ant.design)
 - [Ant Design Icons](https://github.com/ant-design/ant-design-icons)
 - [Ant Design Colors](https://github.com/ant-design/ant-design-colors)
-- [Ant Design Pro Layout](https://github.com/ant-design/ant-design-pro-layout)
-- [Ant Design Pro Blocks](https://github.com/ant-design/pro-blocks)
-- [Dark Theme](https://github.com/ant-design/ant-design-dark-theme)
 - [Landing Pages](https://landing.ant.design)
 - [Motion](https://motion.ant.design)
 - [Scaffold Market](http://scaffold.ant.design)
@@ -128,7 +127,7 @@ export default App;
 
 ## Companies using antd
 
-- [Ant Financial](http://www.antfin.com/index.htm?locale=en_US)
+- [Ant Group](https://www.antgroup.com/index.htm?locale=en_US)
 - [Alibaba](http://www.alibaba.com/)
 - [Tencent](http://www.tencent.com)
 - [Baidu](http://www.baidu.com)
