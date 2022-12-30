@@ -198,6 +198,13 @@ export const genImagePreviewStyle: GenerateStyle<ImageToken> = (token: ImageToke
             ...genBoxStyle(),
             transition: `transform ${motionDurationSlow} ${motionEaseOut} 0s`,
 
+            // https://github.com/ant-design/ant-design/issues/39913
+            // TailwindCSS will reset img default style.
+            // Let's set back.
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+
             '&::before': {
               display: 'inline-block',
               width: 1,
