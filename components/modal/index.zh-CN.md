@@ -43,7 +43,7 @@ demo:
 | --- | --- | --- | --- | --- |
 | afterClose | Modal 完全关闭后的回调 | function | - |  |
 | bodyStyle | Modal body 样式 | CSSProperties |  |  |
-| cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button-cn#API) | - |  |
+| cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button-cn#api) | - |  |
 | cancelText | 取消按钮文字 | ReactNode | `取消` |  |
 | centered | 垂直居中展示 Modal | boolean | false |  |
 | closable | 是否显示右上角的关闭按钮 | boolean | true |  |
@@ -59,7 +59,7 @@ demo:
 | maskClosable | 点击蒙层是否允许关闭 | boolean | true |  |
 | maskStyle | 遮罩样式 | CSSProperties |  |  |
 | modalRender | 自定义渲染对话框 | (node: ReactNode) => ReactNode | - | 4.7.0 |
-| okButtonProps | ok 按钮 props | [ButtonProps](/components/button-cn#API) | - |  |
+| okButtonProps | ok 按钮 props | [ButtonProps](/components/button-cn#api) | - |  |
 | okText | 确认按钮文字 | ReactNode | `确定` |  |
 | okType | 确认按钮类型 | string | `primary` |  |
 | style | 可用于设置浮层的样式，调整浮层位置等 | CSSProperties | - |  |
@@ -94,7 +94,7 @@ demo:
 | afterClose | Modal 完全关闭后的回调 | function | - | 4.9.0 |
 | autoFocusButton | 指定自动获得焦点的按钮 | null \| `ok` \| `cancel` | `ok` |  |
 | bodyStyle | Modal body 样式 | CSSProperties |  | 4.8.0 |
-| cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button-cn#API) | - |  |
+| cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button-cn#api) | - |  |
 | cancelText | 设置 Modal.confirm 取消按钮文字 | string | `取消` |  |
 | centered | 垂直居中展示 Modal | boolean | false |  |
 | className | 容器类名 | string | - |  |
@@ -108,7 +108,7 @@ demo:
 | mask | 是否展示遮罩 | boolean | true |  |
 | maskClosable | 点击蒙层是否允许关闭 | boolean | false |  |
 | maskStyle | 遮罩样式 | object | {} |  |
-| okButtonProps | ok 按钮 props | [ButtonProps](/components/button-cn#API) | - |  |
+| okButtonProps | ok 按钮 props | [ButtonProps](/components/button-cn#api) | - |  |
 | okText | 确认按钮文字 | string | `确定` |  |
 | okType | 确认按钮类型 | string | `primary` |  |
 | style | 可用于设置浮层的样式，调整浮层位置等 | CSSProperties | - |  |
@@ -153,7 +153,7 @@ browserHistory.listen(() => {
 
 ### Modal.useModal()
 
-当你需要使用 Context 时，可以通过 `Modal.useModal` 创建一个 `contextHolder` 插入子节点中。通过 hooks 创建的临时 Modal 将会得到 `contextHolder` 所在位置的所有上下文。创建的 `modal` 对象拥有与 [`Modal.method`](<#Modal.method()>) 相同的创建通知方法。
+当你需要使用 Context 时，可以通过 `Modal.useModal` 创建一个 `contextHolder` 插入子节点中。通过 hooks 创建的临时 Modal 将会得到 `contextHolder` 所在位置的所有上下文。创建的 `modal` 对象拥有与 [`Modal.method`](#modalmethod) 相同的创建通知方法。
 
 ```jsx
 const [modal, contextHolder] = Modal.useModal();
@@ -195,10 +195,12 @@ return (
 
 **异同**：通过 hooks 创建的 `contextHolder` 必须插入到子元素节点中才会生效，当你不需要上下文信息时请直接调用。
 
+> 可通过 [App 包裹组件](/components/app-cn) 简化 `useModal` 等方法需要手动植入 contextHolder 的问题。
+
 ### 如何关闭 Modal 动画？
 
 你可以通过 `transitionName=""` 和 `maskTransitionName=""` 去除动画 CSS，但是需要注意的是。该方法为内部方法，我们不保证下个大版本重构时该属性会被保留。
 
 ### 静态方法如何设置 prefixCls ？
 
-你可以通过 [`ConfigProvider.config`](</components/config-provider-cn#ConfigProvider.config()-4.13.0+>) 进行设置。
+你可以通过 [`ConfigProvider.config`](/components/config-provider-cn#configproviderconfig-4130) 进行设置。

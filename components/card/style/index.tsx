@@ -7,15 +7,13 @@ import { clearFix, resetComponent, textEllipsis } from '../../style';
 export interface ComponentToken {}
 
 interface CardToken extends FullToken<'Card'> {
-  cardHeaderHeight: number;
-  cardHeaderHeightSM: number;
-  cardShadow: string;
   cardHeadHeight: number;
+  cardHeadHeightSM: number;
+  cardShadow: string;
   cardHeadPadding: number;
   cardPaddingSM: number;
   cardPaddingBase: number;
   cardHeadTabsMarginBottom: number;
-  cardInnerHeadPadding: number;
   cardActionsLiMargin: string;
   cardActionsIconSize: number;
 }
@@ -24,16 +22,12 @@ interface CardToken extends FullToken<'Card'> {
 
 // ============================== Head ==============================
 const genCardHeadStyle: GenerateStyle<CardToken> = (token): CSSObject => {
-  const {
-    antCls,
-    componentCls,
-    cardHeadHeight,
-    cardHeadPadding,
-    cardPaddingBase,
-    cardHeadTabsMarginBottom,
-  } = token;
+  const { antCls, componentCls, cardHeadHeight, cardPaddingBase, cardHeadTabsMarginBottom } = token;
 
   return {
+    display: 'flex',
+    justifyContent: 'center',
+    flexDirection: 'column',
     minHeight: cardHeadHeight,
     marginBottom: -1, // Fix card grid overflow bug: https://gw.alipayobjects.com/zos/rmsportal/XonYxBikwpgbqIQBeuhk.png
     padding: `0 ${cardPaddingBase}px`,
@@ -47,6 +41,7 @@ const genCardHeadStyle: GenerateStyle<CardToken> = (token): CSSObject => {
     ...clearFix(),
 
     '&-wrapper': {
+      width: '100%',
       display: 'flex',
       alignItems: 'center',
     },
@@ -54,7 +49,6 @@ const genCardHeadStyle: GenerateStyle<CardToken> = (token): CSSObject => {
     '&-title': {
       display: 'inline-block',
       flex: 1,
-      padding: `${cardHeadPadding}px 0`,
       ...textEllipsis,
 
       [`
@@ -196,7 +190,7 @@ const genCardMetaStyle: GenerateStyle<CardToken> = (token): CSSObject => ({
 
 // ============================== Inner ==============================
 const genCardTypeInnerStyle: GenerateStyle<CardToken> = (token): CSSObject => {
-  const { componentCls, cardPaddingBase, colorFillAlter, cardInnerHeadPadding } = token;
+  const { componentCls, cardPaddingBase, colorFillAlter } = token;
 
   return {
     [`${componentCls}-head`]: {
@@ -204,17 +198,12 @@ const genCardTypeInnerStyle: GenerateStyle<CardToken> = (token): CSSObject => {
       background: colorFillAlter,
 
       '&-title': {
-        padding: `${cardInnerHeadPadding}px 0`,
         fontSize: token.fontSize,
       },
     },
 
     [`${componentCls}-body`]: {
       padding: `${token.padding}px ${cardPaddingBase}px`,
-    },
-
-    [`${componentCls}-extra`]: {
-      padding: `${cardInnerHeadPadding + 1.5}px 0`,
     },
   };
 };
@@ -237,7 +226,6 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
   const {
     componentCls,
     cardShadow,
-    cardHeadHeight,
     cardHeadPadding,
     colorBorderSecondary,
     boxShadow,
@@ -261,7 +249,6 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
       [`${componentCls}-extra`]: {
         // https://stackoverflow.com/a/22429853/3040605
         marginInlineStart: 'auto',
-        padding: '',
         color: '',
         fontWeight: 'normal',
         fontSize: token.fontSize,
@@ -326,13 +313,8 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 
     [`${componentCls}-contain-tabs`]: {
       [`> ${componentCls}-head`]: {
-        [`${componentCls}-head-title`]: {
-          minHeight: cardHeadHeight - cardHeadPadding,
-          paddingBottom: 0,
-        },
-
-        [`${componentCls}-extra`]: {
-          paddingBottom: 0,
+        [`${componentCls}-head-title, ${componentCls}-extra`]: {
+          paddingTop: cardHeadPadding,
         },
       },
     },
@@ -349,23 +331,17 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 
 // ============================== Size ==============================
 const genCardSizeStyle: GenerateStyle<CardToken> = (token): CSSObject => {
-  const { componentCls, cardPaddingSM, fontSize, lineHeight, cardHeaderHeightSM } = token;
-  const cardHeadPaddingSM = (cardHeaderHeightSM - fontSize * lineHeight) / 2;
+  const { componentCls, cardPaddingSM, cardHeadHeightSM } = token;
 
   return {
     [`${componentCls}-small`]: {
       [`> ${componentCls}-head`]: {
-        minHeight: cardHeaderHeightSM,
+        minHeight: cardHeadHeightSM,
         padding: `0 ${cardPaddingSM}px`,
         fontSize: token.fontSize,
 
         [`> ${componentCls}-head-wrapper`]: {
-          [`> ${componentCls}-head-title`]: {
-            padding: `${cardHeadPaddingSM}px 0`,
-          },
-
           [`> ${componentCls}-extra`]: {
-            padding: `${cardHeadPaddingSM}px 0`,
             fontSize: token.fontSize,
           },
         },
@@ -375,6 +351,16 @@ const genCardSizeStyle: GenerateStyle<CardToken> = (token): CSSObject => {
         padding: cardPaddingSM,
       },
     },
+    [`${componentCls}-small${componentCls}-contain-tabs`]: {
+      [`> ${componentCls}-head`]: {
+        [`${componentCls}-head-title, ${componentCls}-extra`]: {
+          minHeight: cardHeadHeightSM,
+          paddingTop: 0,
+          display: 'flex',
+          alignItems: 'center',
+        },
+      },
+    },
   };
 };
 
@@ -382,12 +368,11 @@ const genCardSizeStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 export default genComponentStyleHook('Card', (token) => {
   const cardToken = mergeToken<CardToken>(token, {
     cardShadow: token.boxShadowCard,
-    cardHeaderHeight: token.fontSizeLG * token.lineHeightLG + token.padding * 2,
-    cardHeaderHeightSM: token.fontSize * token.lineHeight + token.paddingXS * 2,
+    cardHeadHeight: token.fontSizeLG * token.lineHeightLG + token.padding * 2,
+    cardHeadHeightSM: token.fontSize * token.lineHeight + token.paddingXS * 2,
     cardHeadPadding: token.padding,
     cardPaddingBase: token.paddingLG,
     cardHeadTabsMarginBottom: -token.padding - token.lineWidth,
-    cardInnerHeadPadding: token.paddingSM,
     cardActionsLiMargin: `${token.paddingSM}px 0`,
     cardActionsIconSize: token.fontSize,
     cardPaddingSM: 12, // Fixed padding.

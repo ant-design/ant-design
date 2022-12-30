@@ -323,7 +323,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
         test: 'react-scripts test --env=jsdom',
         eject: 'react-scripts eject',
       },
-      browserslist: ['>0.2%', 'not dead', 'not ie <= 11', 'not op_mini all'],
+      browserslist: ['>0.2%', 'not dead'],
     };
     const codesanboxPrefillConfig = {
       files: {
@@ -355,7 +355,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
 
     let codeBox = (
       <section className={codeBoxClass} id={meta.id}>
-        <section className="code-box-demo">
+        <section className="code-box-demo" data-compact={meta.compact}>
           <ErrorBoundary>
             <React.StrictMode>{this.liveDemo}</React.StrictMode>
           </ErrorBoundary>

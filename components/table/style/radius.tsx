@@ -7,7 +7,8 @@ const genRadiusStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
   return {
     [`${componentCls}-wrapper`]: {
       [componentCls]: {
-        [`${componentCls}-title`]: {
+        // https://github.com/ant-design/ant-design/issues/39115#issuecomment-1362314574
+        [`${componentCls}-title, ${componentCls}-header`]: {
           borderRadius: `${tableRadius}px ${tableRadius}px 0 0`,
         },
 
@@ -35,11 +36,11 @@ const genRadiusStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
           borderStartEndRadius: tableRadius,
 
           'table > thead > tr:first-child': {
-            'th:first-child': {
+            '> *:first-child': {
               borderStartStartRadius: tableRadius,
             },
 
-            'th:last-child': {
+            '> *:last-child': {
               borderStartEndRadius: tableRadius,
             },
           },

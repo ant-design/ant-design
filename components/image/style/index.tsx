@@ -56,7 +56,6 @@ export const genPreviewOperationsStyle = (token: ImageToken): CSSObject => {
     modalMaskBg,
     paddingSM,
     imagePreviewOperationDisabledColor,
-    zIndexPopup,
     motionDurationSlow,
   } = token;
 
@@ -66,14 +65,9 @@ export const genPreviewOperationsStyle = (token: ImageToken): CSSObject => {
   return {
     [`${previewCls}-operations`]: {
       ...resetComponent(token),
-      position: 'fixed',
-      insetBlockStart: 0,
-      insetInlineEnd: 0,
-      zIndex: zIndexPopup + 1,
       display: 'flex',
       flexDirection: 'row-reverse',
       alignItems: 'center',
-      width: '100%',
       color: token.imagePreviewOperationColor,
       listStyle: 'none',
       background: operationBg.toRgbString(),
@@ -236,6 +230,13 @@ export const genImagePreviewStyle: GenerateStyle<ImageToken> = (token: ImageToke
 
     // Preview operations & switch
     {
+      [`${componentCls}-preview-operations-wrapper`]: {
+        position: 'fixed',
+        insetBlockStart: 0,
+        insetInlineEnd: 0,
+        zIndex: token.zIndexPopup + 1,
+        width: '100%',
+      },
       '&': [genPreviewOperationsStyle(token), genPreviewSwitchStyle(token)],
     },
   ];

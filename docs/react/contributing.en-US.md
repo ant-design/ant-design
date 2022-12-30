@@ -16,7 +16,7 @@ All work on Ant Design happens directly on [GitHub](https://github.com/ant-desig
 
 ## Branch Organization
 
-According to our [release schedule](changelog#Release-Schedule), we maintain two branches, `master` and `feature`. If you send a bugfix pull request, please do it against the `master` branch, if it's a feature pull request, please do it against the `feature` branch.
+According to our [release schedule](changelog#release-schedule), we maintain two branches, `master` and `feature`. If you send a bugfix pull request, please do it against the `master` branch, if it's a feature pull request, please do it against the `feature` branch.
 
 ## Bugs
 
@@ -48,7 +48,7 @@ The core team is monitoring for pull requests. We will review your pull request 
 
 **Before submitting a pull request**, please make sure the following is done:
 
-1. Fork the repository and create your branch from the [correct branch](#Branch-Organization).
+1. Fork the repository and create your branch from the [correct branch](#branch-organization).
 1. Run `npm install` in the repository root.
    > For Windows 10 development environment, if you run into error `gyp err! find vs msvs_version not set from command line or npm config`, please install [the latest Python v3](https://www.python.org/downloads/) and **Desktop development with C++** through [Visual Studio Installer](https://docs.microsoft.com/en-us/visualstudio/install/install-visual-studio?view=vs-2019#step-3---install-the-visual-studio-installer) before running `npm install`
 1. If you've fixed a bug or added code that should be tested, add tests!

@@ -31,7 +31,7 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 <code src="./demo/position.tsx">位置</code>
 <code src="./demo/card.tsx">卡片式页签</code>
 <code src="./demo/editable-card.tsx">新增和关闭页签</code>
-<code src="./demo/card-top.tsx">卡片式页签容器</code>
+<code src="./demo/card-top.tsx" compact debug>卡片式页签容器</code>
 <code src="./demo/custom-add-trigger.tsx">自定义新增页签触发器</code>
 <code src="./demo/custom-tab-bar.tsx">自定义页签头</code>
 <code src="./demo/custom-tab-bar-node.tsx">可拖拽标签</code>
@@ -50,7 +50,7 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 | centered | 标签居中展示 | boolean | false | 4.4.0 |
 | defaultActiveKey | 初始化选中面板的 key，如果没有设置 activeKey | string | `第一个面板` |  |
 | hideAdd | 是否隐藏加号图标，在 `type="editable-card"` 时有效 | boolean | false |  |
-| items | 配置选项卡内容 | [TabItemType](#TabItemType) | [] | 4.23.0 |
+| items | 配置选项卡内容 | [TabItemType](#tabitemtype) | [] | 4.23.0 |
 | moreIcon | 自定义折叠 icon | ReactNode | &lt;EllipsisOutlined /> | 4.14.0 |
 | popupClassName | 更多菜单的 `className` | string | - | 4.21.0 |
 | renderTabBar | 替换 TabBar，用于二次封装标签头 | (props: DefaultTabBarProps, DefaultTabBar: React.ComponentClass) => React.ReactElement | - |  |

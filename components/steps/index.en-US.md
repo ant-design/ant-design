@@ -53,7 +53,7 @@ The whole of the step bar.
 | status | To specify the status of current step, can be set to one of the following values: `wait` `process` `finish` `error` | string | `process` |  |
 | type | Type of steps, can be set to one of the following values: `default` `navigation` `inline` | string | `default` | inline: 5.0 |
 | onChange | Trigger when Step is changed | (current) => void | - |  |
-| items | StepItem content | [StepItem](#StepItem) | [] | 4.24.0 |
+| items | StepItem content | [StepItem](#stepitem) | [] | 4.24.0 |
 
 ### `type="inline"`
 
@@ -64,7 +64,7 @@ The whole of the step bar.
 | initial | Set the initial step, counting from 0 | number | 0 |  |
 | status | To specify the status of current step, can be set to one of the following values: `wait` `process` `finish` `error` | string | `process` |  |
 | onChange | Trigger when Step is changed | (current) => void | - |  |
-| items | StepItem content. not supported: `icon` `subtitle` | [StepItem](#StepItem) | [] | 4.24.0 |
+| items | StepItem content. not supported: `icon` `subtitle` | [StepItem](#stepitem) | [] | 4.24.0 |
 
 ### StepItem
 

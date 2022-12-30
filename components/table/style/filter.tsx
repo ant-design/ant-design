@@ -22,13 +22,13 @@ const genFilterStyle: GenerateStyle<TableToken> = (token) => {
     motionDurationSlow,
     colorTextDescription,
     colorPrimary,
-    colorPrimaryActive,
     tableHeaderFilterActiveBg,
     colorTextDisabled,
     tableFilterDropdownBg,
     tableFilterDropdownHeight,
     controlItemBgHover,
-    boxShadow,
+    controlItemBgActive,
+    boxShadowSecondary,
   } = token;
   const dropdownPrefixCls = `${antCls}-dropdown`;
   const tableFilterDropdownPrefixCls = `${componentCls}-filter-dropdown`;
@@ -76,7 +76,7 @@ const genFilterStyle: GenerateStyle<TableToken> = (token) => {
           minWidth: tableFilterDropdownWidth,
           backgroundColor: tableFilterDropdownBg,
           borderRadius,
-          boxShadow,
+          boxShadow: boxShadowSecondary,
 
           // Reset menu
           [`${dropdownPrefixCls}-menu`]: {
@@ -111,7 +111,7 @@ const genFilterStyle: GenerateStyle<TableToken> = (token) => {
 
             [`${treePrefixCls}-treenode-checkbox-checked ${treePrefixCls}-node-content-wrapper`]: {
               '&, &:hover': {
-                backgroundColor: colorPrimaryActive,
+                backgroundColor: controlItemBgActive,
               },
             },
           },
