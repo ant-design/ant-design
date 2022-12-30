@@ -491,7 +491,6 @@ exports[`List.pagination should change page size work 2`] = `
           <div>
             <div
               class="rc-virtual-list"
-              innerprops="[object Object]"
               style="position: relative;"
             >
               <div
@@ -501,6 +500,8 @@ exports[`List.pagination should change page size work 2`] = `
                 <div>
                   <div
                     class="rc-virtual-list-holder-inner"
+                    id="rc_select_TEST_OR_SSR_list"
+                    role="listbox"
                     style="display: flex; flex-direction: column;"
                   >
                     <div
