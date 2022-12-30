@@ -15,6 +15,13 @@ timeline: true
 
 ---
 
+## 4.24.7
+
+`2022-12-30`
+
+- 🐞 修复 Tabs 组件滑块不能自动适应宽度的问题。[#39867](https://github.com/ant-design/ant-design/pull/39867)
+- 🐞 修复 Input 在 Safari 下使用 `suffix` 时文字内容丢失的问题。[#39830](https://github.com/ant-design/ant-design/pull/39830) [@ifujustayup](https://github.com/ifujustayup)
+
 ## 4.24.6
 
 `2022-12-26`
