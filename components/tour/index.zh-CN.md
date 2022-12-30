@@ -18,9 +18,9 @@ demo:
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
-<code src="./demo/customMask.tsx">自定义遮罩样式</code>
 <code src="./demo/non-modal.tsx">非模态</code>
 <code src="./demo/placement.tsx">位置</code>
+<code src="./demo/mask.tsx">自定义遮罩样式</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API

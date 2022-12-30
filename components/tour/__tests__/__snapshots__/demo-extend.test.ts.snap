@@ -75,7 +75,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/tour/demo/customMask.tsx extend context correctly 1`] = `
+exports[`renders ./components/tour/demo/mask.tsx extend context correctly 1`] = `
 Array [
   <button
     class="ant-btn ant-btn-primary"

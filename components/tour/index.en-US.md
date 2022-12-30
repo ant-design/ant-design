@@ -17,9 +17,9 @@ Use when you want to guide users through a product.
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
-<code src="./demo/customMask.tsx">custom mask style</code>
 <code src="./demo/non-modal.tsx">Non-modal</code>
 <code src="./demo/placement.tsx">Placement</code>
+<code src="./demo/mask.tsx">custom mask style</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
