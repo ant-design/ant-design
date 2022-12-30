@@ -247,7 +247,7 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
       },
 
       [`${componentCls}:not(${componentCls}-bordered) ${componentCls}-tbody > tr`]: wireframe
-        ? undefined
+        ? {}
         : {
             [`&${componentCls}-row:hover, &${componentCls}-row${componentCls}-row-selected`]: {
               [`+ tr${componentCls}-row > td`]: {
