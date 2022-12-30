@@ -21,7 +21,7 @@ const App: React.FC = () => {
     setActiveKey(newActiveKey);
   };
 
-  const remove = (targetKey: string) => {
+  const remove = (targetKey: React.MouseEvent | React.KeyboardEvent | string) => {
     const targetIndex = items.findIndex((pane) => pane.key === targetKey);
     const newPanes = items.filter((pane) => pane.key !== targetKey);
     if (newPanes.length && targetKey === activeKey) {
@@ -31,7 +31,10 @@ const App: React.FC = () => {
     setItems(newPanes);
   };
 
-  const onEdit = (targetKey: string, action: 'add' | 'remove') => {
+  const onEdit = (
+    targetKey: React.MouseEvent | React.KeyboardEvent | string,
+    action: 'add' | 'remove',
+  ) => {
     if (action === 'add') {
       add();
     } else {

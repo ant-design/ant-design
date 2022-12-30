@@ -29,7 +29,7 @@ const App: React.FC = () => {
     setActiveKey(newActiveKey);
   };
 
-  const remove = (targetKey: string) => {
+  const remove = (targetKey: React.MouseEvent | React.KeyboardEvent | string) => {
     let newActiveKey = activeKey;
     let lastIndex = -1;
     items.forEach((item, i) => {
@@ -49,7 +49,10 @@ const App: React.FC = () => {
     setActiveKey(newActiveKey);
   };
 
-  const onEdit = (targetKey: string, action: 'add' | 'remove') => {
+  const onEdit = (
+    targetKey: React.MouseEvent | React.KeyboardEvent | string,
+    action: 'add' | 'remove',
+  ) => {
     if (action === 'add') {
       add();
     } else {
