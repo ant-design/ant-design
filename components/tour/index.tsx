@@ -8,11 +8,9 @@ import useStyle from './style';
 import type { TourProps, TourStepProps } from './interface';
 import PurePanel from './PurePanel';
 
-interface CompoundedComponent {
-  _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
-}
-
-const Tour: React.FC<TourProps> & CompoundedComponent = (props) => {
+const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel } = (
+  props,
+) => {
   const {
     prefixCls: customizePrefixCls,
     steps,
