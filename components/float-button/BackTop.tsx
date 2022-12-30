@@ -40,12 +40,9 @@ const BackTop: React.FC<BackTopProps> = (props) => {
     },
   );
 
-  const container = React.useMemo<HTMLElement | Document | Window>(() => {
-    const getTarget = target || getDefaultTarget;
-    return getTarget();
-  }, [target]);
-
   useEffect(() => {
+    const getTarget = target || getDefaultTarget;
+    const container = getTarget();
     handleScroll({ target: container });
     container?.addEventListener('scroll', handleScroll);
     return () => {

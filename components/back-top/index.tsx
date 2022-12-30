@@ -46,16 +46,13 @@ const BackTop: React.FC<BackTopProps> = (props) => {
     },
   );
 
-  const container = React.useMemo<HTMLElement | Document | Window>(() => {
-    const getTarget = target || getDefaultTarget;
-    return getTarget();
-  }, [target]);
-
   if (process.env.NODE_ENV !== 'production') {
     warning(false, 'BackTop', '`BackTop` is deprecated, please use `FloatButton.BackTop` instead.');
   }
 
   React.useEffect(() => {
+    const getTarget = target || getDefaultTarget;
+    const container = getTarget();
     handleScroll({ target: container });
     container?.addEventListener('scroll', handleScroll);
     return () => {
