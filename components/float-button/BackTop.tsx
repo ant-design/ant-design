@@ -1,7 +1,6 @@
 import VerticalAlignTopOutlined from '@ant-design/icons/VerticalAlignTopOutlined';
 import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
-import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import React, { memo, useContext, useEffect, useRef, useState } from 'react';
 import FloatButton, { floatButtonPrefixCls } from './FloatButton';
 import type { ConfigConsumerProps } from '../config-provider';
@@ -30,7 +29,6 @@ const BackTop: React.FC<BackTopProps> = (props) => {
   const [visible, setVisible] = useState<boolean>(visibilityHeight === 0);
 
   const ref = useRef<HTMLAnchorElement | HTMLButtonElement>(null);
-  const scrollEvent = useRef<ReturnType<typeof addEventListener> | null>(null);
 
   const getDefaultTarget = (): HTMLElement | Document | Window =>
     ref.current && ref.current.ownerDocument ? ref.current.ownerDocument : window;
@@ -45,15 +43,20 @@ const BackTop: React.FC<BackTopProps> = (props) => {
   const bindScrollEvent = () => {
     const getTarget = target || getDefaultTarget;
     const container = getTarget();
-    scrollEvent.current = addEventListener(container, 'scroll', handleScroll);
+    container?.addEventListener('scroll', handleScroll);
     handleScroll({ target: container });
+    return {
+      remove() {
+        container?.removeEventListener('scroll', handleScroll);
+      },
+    };
   };
 
   useEffect(() => {
     bindScrollEvent();
     return () => {
       handleScroll.cancel();
-      scrollEvent.current?.remove();
+      bindScrollEvent().remove();
     };
   }, [target]);
 

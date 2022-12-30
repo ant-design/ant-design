@@ -1,7 +1,6 @@
 import VerticalAlignTopOutlined from '@ant-design/icons/VerticalAlignTopOutlined';
 import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
-import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
 import type { ConfigConsumerProps } from '../config-provider';
@@ -36,7 +35,6 @@ const BackTop: React.FC<BackTopProps> = (props) => {
   const [visible, setVisible] = React.useState<boolean>(visibilityHeight === 0);
 
   const ref = React.useRef<HTMLDivElement>(null);
-  const scrollEvent = React.useRef<ReturnType<typeof addEventListener> | null>(null);
 
   const getDefaultTarget = (): HTMLElement | Document | Window =>
     ref.current && ref.current.ownerDocument ? ref.current.ownerDocument : window;
@@ -51,8 +49,13 @@ const BackTop: React.FC<BackTopProps> = (props) => {
   const bindScrollEvent = () => {
     const getTarget = target || getDefaultTarget;
     const container = getTarget();
-    scrollEvent.current = addEventListener(container, 'scroll', handleScroll);
+    container?.addEventListener('scroll', handleScroll);
     handleScroll({ target: container });
+    return {
+      remove() {
+        container?.removeEventListener('scroll', handleScroll);
+      },
+    };
   };
 
   if (process.env.NODE_ENV !== 'production') {
@@ -63,7 +66,7 @@ const BackTop: React.FC<BackTopProps> = (props) => {
     bindScrollEvent();
     return () => {
       handleScroll.cancel();
-      scrollEvent.current?.remove();
+      bindScrollEvent().remove();
     };
   }, [target]);
 
