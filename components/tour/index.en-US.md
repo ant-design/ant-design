@@ -48,7 +48,7 @@ Use when you want to guide users through a product.
 | description | description | `ReactNode` | - |  |
 | placement | Position of the guide card relative to the target element | `left` `leftTop` `leftBottom` `right` `rightTop` `rightBottom` `top` `topLeft` `topRight` `bottom` `bottomLeft` `bottomRight` | `bottom` |  |
 | onClose | Callback function on shutdown | `Function` | - |  |
-| mask | Whether to enable masking，change mask style and fill color by pass custom props, the default follows the `mask` property of Tour | `boolean \| { style?: React.CSSProperties; fill?: string; }` | `true` |  |
+| mask | Whether to enable masking, change mask style and fill color by pass custom props, the default follows the `mask` property of Tour | `boolean \| { style?: React.CSSProperties; fill?: string; }` | `true` |  |
 | type | Type, affects the background color and text color | `default` `primary` | `default` |  |
 | nextButtonProps | Properties of the Next button | `{ children: ReactNode; onClick: Function }` | - |  |
 | prevButtonProps | Properties of the previous button | `{ children: ReactNode; onClick: Function }` | - |  |
