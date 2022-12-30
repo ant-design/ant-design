@@ -40,23 +40,17 @@ const BackTop: React.FC<BackTopProps> = (props) => {
     },
   );
 
-  const bindScrollEvent = () => {
+  const container = React.useMemo<HTMLElement | Document | Window>(() => {
     const getTarget = target || getDefaultTarget;
-    const container = getTarget();
-    container?.addEventListener('scroll', handleScroll);
-    handleScroll({ target: container });
-    return {
-      remove() {
-        container?.removeEventListener('scroll', handleScroll);
-      },
-    };
-  };
+    return getTarget();
+  }, [target]);
 
   useEffect(() => {
-    bindScrollEvent();
+    handleScroll({ target: container });
+    container?.addEventListener('scroll', handleScroll);
     return () => {
       handleScroll.cancel();
-      bindScrollEvent().remove();
+      container?.removeEventListener('scroll', handleScroll);
     };
   }, [target]);
 
