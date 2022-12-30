@@ -106,7 +106,7 @@ const App = () => (
 - [首页](https://ant.design/)
 - [所有组件](https://ant.design/components/overview-cn)
 - [Ant Design Pro](http://pro.ant.design/)
-- [更新日志](CHANGELOG.en-US.md)
+- [更新日志](CHANGELOG.zh-CN.md)
 - [React 底层基础组件](http://react-component.github.io/)
 - [移动端组件](http://mobile.ant.design)
 - [页面级组件](https://procomponents.ant.design)
