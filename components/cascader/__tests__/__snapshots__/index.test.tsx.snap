@@ -902,7 +902,6 @@ exports[`Cascader legacy props should support showCheckedStrategy child 1`] = `
             aria-hidden="true"
             class="ant-select-selection-search-mirror"
           >
-             
           </span>
         </div>
       </div>
@@ -1056,7 +1055,6 @@ exports[`Cascader legacy props should support showCheckedStrategy parent 1`] = `
             aria-hidden="true"
             class="ant-select-selection-search-mirror"
           >
-             
           </span>
         </div>
       </div>

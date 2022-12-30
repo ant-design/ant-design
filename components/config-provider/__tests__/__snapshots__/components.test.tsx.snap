@@ -38440,7 +38440,6 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
         class="config-transfer-list-header-selected"
       >
         0
-         
         item
       </span>
       <span
@@ -38600,7 +38599,6 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
         class="config-transfer-list-header-selected"
       >
         0
-         
         item
       </span>
       <span
@@ -38714,7 +38712,6 @@ exports[`ConfigProvider components Transfer configProvider componentDisabled 1`]
         class="config-transfer-list-header-selected"
       >
         0
-         
         item
       </span>
       <span
@@ -38875,7 +38872,6 @@ exports[`ConfigProvider components Transfer configProvider componentDisabled 1`]
         class="config-transfer-list-header-selected"
       >
         0
-         
         item
       </span>
       <span
@@ -38988,7 +38984,6 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
         class="config-transfer-list-header-selected"
       >
         0
-         
         item
       </span>
       <span
@@ -39148,7 +39143,6 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
         class="config-transfer-list-header-selected"
       >
         0
-         
         item
       </span>
       <span
@@ -39261,7 +39255,6 @@ exports[`ConfigProvider components Transfer configProvider componentSize middle 
         class="config-transfer-list-header-selected"
       >
         0
-         
         item
       </span>
       <span
@@ -39421,7 +39414,6 @@ exports[`ConfigProvider components Transfer configProvider componentSize middle 
         class="config-transfer-list-header-selected"
       >
         0
-         
         item
       </span>
       <span
@@ -39534,7 +39526,6 @@ exports[`ConfigProvider components Transfer configProvider virtual and dropdownM
         class="ant-transfer-list-header-selected"
       >
         0
-         
         item
       </span>
       <span
@@ -39694,7 +39685,6 @@ exports[`ConfigProvider components Transfer configProvider virtual and dropdownM
         class="ant-transfer-list-header-selected"
       >
         0
-         
         item
       </span>
       <span
@@ -39807,7 +39797,6 @@ exports[`ConfigProvider components Transfer normal 1`] = `
         class="ant-transfer-list-header-selected"
       >
         0
-         
         item
       </span>
       <span
@@ -39967,7 +39956,6 @@ exports[`ConfigProvider components Transfer normal 1`] = `
         class="ant-transfer-list-header-selected"
       >
         0
-         
         item
       </span>
       <span
@@ -40080,7 +40068,6 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
         class="prefix-Transfer-list-header-selected"
       >
         0
-         
         item
       </span>
       <span
@@ -40240,7 +40227,6 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
         class="prefix-Transfer-list-header-selected"
       >
         0
-         
         item
       </span>
       <span

@@ -231,7 +231,6 @@ exports[`TreeSelect TreeSelect Custom Icons should support customized icons 1`] 
             aria-hidden="true"
             class="ant-select-selection-search-mirror"
           >
-             
           </span>
         </div>
       </div>

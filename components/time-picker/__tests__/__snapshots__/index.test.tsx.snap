@@ -46,7 +46,7 @@ exports[`TimePicker not render clean icon when allowClear is false 1`] = `
 `;
 
 exports[`TimePicker prop locale should works 1`] = `
-[
+Array [
   <div
     class="ant-picker"
   >

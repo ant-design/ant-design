@@ -641,7 +641,6 @@ exports[`Table title should support ReactNode 1`] = `
     <strong>
       Current
     </strong>
-     
     <span>
       User
     </span>

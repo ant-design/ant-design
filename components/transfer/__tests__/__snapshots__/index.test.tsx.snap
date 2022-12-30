@@ -49,7 +49,6 @@ exports[`Transfer rtl render component should be rendered correctly in RTL direc
         class="ant-transfer-list-header-selected"
       >
         0
-         
         item
       </span>
       <span
@@ -209,7 +208,6 @@ exports[`Transfer rtl render component should be rendered correctly in RTL direc
         class="ant-transfer-list-header-selected"
       >
         0
-         
         item
       </span>
       <span
@@ -323,7 +321,6 @@ exports[`Transfer should render correctly 1`] = `
         class="ant-transfer-list-header-selected"
       >
         1/2
-         
         items
       </span>
       <span
@@ -485,7 +482,6 @@ exports[`Transfer should render correctly 1`] = `
         class="ant-transfer-list-header-selected"
       >
         1
-         
         item
       </span>
       <span
@@ -576,7 +572,6 @@ exports[`Transfer should show sorted targetKey 1`] = `
         class="ant-transfer-list-header-selected"
       >
         1
-         
         item
       </span>
       <span
@@ -717,7 +712,6 @@ exports[`Transfer should show sorted targetKey 1`] = `
         class="ant-transfer-list-header-selected"
       >
         2
-         
         items
       </span>
       <span
@@ -837,7 +831,6 @@ exports[`Transfer should support render value and label in item 1`] = `
         class="ant-transfer-list-header-selected"
       >
         1
-         
         item
       </span>
       <span
@@ -978,7 +971,6 @@ exports[`Transfer should support render value and label in item 1`] = `
         class="ant-transfer-list-header-selected"
       >
         0
-         
         item
       </span>
       <span
@@ -1091,7 +1083,6 @@ exports[`immutable data dataSource is frozen 1`] = `
         class="ant-transfer-list-header-selected"
       >
         1
-         
         item
       </span>
       <span
@@ -1229,7 +1220,6 @@ exports[`immutable data dataSource is frozen 1`] = `
         class="ant-transfer-list-header-selected"
       >
         0
-         
         item
       </span>
       <span

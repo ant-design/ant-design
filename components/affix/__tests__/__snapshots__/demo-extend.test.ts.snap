@@ -1,29 +1,108 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/affix/demo/basic.tsx extend context correctly 1`] = `
-{
-  "html": "<div><div class=""><button type="button" class="ant-btn ant-btn-primary"><span>Affix top</span></button></div></div><br/><div><div class=""><button type="button" class="ant-btn ant-btn-primary"><span>Affix bottom</span></button></div></div>",
-  "type": "demo",
-}
+Array [
+  <div>
+    <div
+      class=""
+    >
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
+      >
+        <span>
+          Affix top
+        </span>
+      </button>
+    </div>
+  </div>,
+  <br />,
+  <div>
+    <div
+      class=""
+    >
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
+      >
+        <span>
+          Affix bottom
+        </span>
+      </button>
+    </div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/affix/demo/debug.tsx extend context correctly 1`] = `
-{
-  "html": "<div style="height:10000px"><div>Top</div><div><div class=""><div style="background:red"><button type="button" class="ant-btn ant-btn-primary"><span>Affix top</span></button></div></div></div><div>Bottom</div></div>",
-  "type": "demo",
-}
+<div
+  style="height:10000px"
+>
+  <div>
+    Top
+  </div>
+  <div>
+    <div
+      class=""
+    >
+      <div
+        style="background:red"
+      >
+        <button
+          class="ant-btn ant-btn-primary"
+          type="button"
+        >
+          <span>
+            Affix top
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div>
+    Bottom
+  </div>
+</div>
 `;
 
 exports[`renders ./components/affix/demo/on-change.tsx extend context correctly 1`] = `
-{
-  "html": "<div><div class=""><button type="button" class="ant-btn ant-btn-default"><span>120px to affix top</span></button></div></div>",
-  "type": "demo",
-}
+<div>
+  <div
+    class=""
+  >
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        120px to affix top
+      </span>
+    </button>
+  </div>
+</div>
 `;
 
 exports[`renders ./components/affix/demo/target.tsx extend context correctly 1`] = `
-{
-  "html": "<div class="scrollable-container"><div class="background"><div><div class=""><button type="button" class="ant-btn ant-btn-primary"><span>Fixed at the top of container</span></button></div></div></div></div>",
-  "type": "demo",
-}
+<div
+  class="scrollable-container"
+>
+  <div
+    class="background"
+  >
+    <div>
+      <div
+        class=""
+      >
+        <button
+          class="ant-btn ant-btn-primary"
+          type="button"
+        >
+          <span>
+            Fixed at the top of container
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
 `;
