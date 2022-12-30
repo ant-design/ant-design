@@ -128,12 +128,12 @@ export default App;
 ## Companies using antd
 
 - [Ant Group](https://www.antgroup.com/index.htm?locale=en_US)
-- [Alibaba](http://www.alibaba.com/)
-- [Tencent](http://www.tencent.com)
-- [Baidu](http://www.baidu.com)
-- [Koubei](http://www.koubei.com/)
-- [Meituan](http://www.meituan.com)
-- [Didi](http://www.xiaojukeji.com/)
+- [Alibaba](https://www.alibaba.com/)
+- [Tencent](https://www.tencent.com)
+- [Baidu](https://www.baidu.com)
+- [Koubei](https://www.koubei.com/)
+- [Meituan](https://www.meituan.com)
+- [Didi](https://www.xiaojukeji.com/)
 - [Eleme](https://www.ele.me/)
 
 > If your company or product uses Ant Design, let us know [here](https://github.com/ant-design/ant-design/issues/477)!
