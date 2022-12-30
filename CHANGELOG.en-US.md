@@ -15,6 +15,13 @@ timeline: true
 
 ---
 
+## 4.24.7
+
+`2022-12-30`
+
+- 🐞 Fix Tabs slider that cannot resize. [#39867](https://github.com/ant-design/ant-design/pull/39867)
+- 🐞 Fix Input text is missing when `suffix` is applied in Safari. [#39830](https://github.com/ant-design/ant-design/pull/39830) [@ifujustayup](https://github.com/ifujustayup)
+
 ## 4.24.6
 
 `2022-12-26`
