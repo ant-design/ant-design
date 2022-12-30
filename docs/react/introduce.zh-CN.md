@@ -128,13 +128,13 @@ export default App;
 
 ## 谁在使用
 
-- [蚂蚁金服](http://www.antfin.com/)
-- [阿里巴巴](http://www.alibaba.com/)
-- [腾讯](http://www.tencent.com)
-- [百度](http://www.baidu.com)
-- [口碑](http://www.koubei.com/)
-- [美团](http://www.meituan.com)
-- [滴滴](http://www.xiaojukeji.com/)
+- [蚂蚁集团](https://www.antgroup.com/)
+- [阿里巴巴](https://www.alibaba.com/)
+- [腾讯](https://www.tencent.com)
+- [百度](https://www.baidu.com)
+- [口碑](https://www.koubei.com/)
+- [美团](https://www.meituan.com)
+- [滴滴](https://www.xiaojukeji.com/)
 - [饿了么](https://www.ele.me/)
 
 > 如果你的公司和产品使用了 Ant Design，欢迎到 [这里](https://github.com/ant-design/ant-design/issues/477) 留言。
