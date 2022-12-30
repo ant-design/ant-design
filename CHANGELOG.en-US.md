@@ -5,7 +5,7 @@ toc: false
 timeline: true
 ---
 
-`antd` strictly follows [Semantic Versioning 2.0.0](http://semver.org/).
+`antd` follows [Semantic Versioning 2.0.0](http://semver.org/).
 
 #### Release Schedule
 
@@ -14,6 +14,25 @@ timeline: true
 - Major version release is not included in this schedule for breaking change and new features.
 
 ---
+
+## 5.1.2
+
+`2022-12-30`
+
+- 🆕 Theme Editor supports uploading themes. [#39621](https://github.com/ant-design/ant-design/pull/39621) [@BoyYangzai](https://github.com/BoyYangzai)
+- 💄 Refactor wave effect that can now trigger multiple times. [#39705](https://github.com/ant-design/ant-design/pull/39705) [@li-jia-nan](https://github.com/li-jia-nan)
+- Table
+  - 🐞 Fix Table `column.filtered` cannot be updated. [#39883](https://github.com/ant-design/ant-design/pull/39883)
+  - 🐞 Fix Table fixed column which is sorted or filtered transparent background bug. [#39012](https://github.com/ant-design/ant-design/pull/39012) [@kiner-tang](https://github.com/kiner-tang)
+- 🐞 Fix Image preview style conflict with TailwindCSS. [#39914](https://github.com/ant-design/ant-design/pull/39914)
+- 🐞 Fix Dropdown `danger` and `disabled` style priority bug. [#39904](https://github.com/ant-design/ant-design/pull/39904) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 Fix App.useApp `modal` default `okText`. [#39884](https://github.com/ant-design/ant-design/pull/39884) [@BoyYangzai](https://github.com/BoyYangzai)
+- 💄 Fix Input.Group misplace style when zoom up in windows. [#39842](https://github.com/ant-design/ant-design/pull/39842) [@heiyu4585](https://github.com/heiyu4585)
+- 🐞 Fix Slider missing Tooltip appear motion. [#39857](https://github.com/ant-design/ant-design/pull/39857)
+- 🐞 Fix QRCode missing expired style. [#39849](https://github.com/ant-design/ant-design/pull/39849) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🐞 Fix Tree switcher's background display unexpected in dark theme. [#39838](https://github.com/ant-design/ant-design/pull/39838) [@kiner-tang](https://github.com/kiner-tang)
+- 🐞 Fix Menu slide bar style issue when `border` is reset by preset. [#39819](https://github.com/ant-design/ant-design/pull/39819) [@MadCcc](https://github.com/MadCcc)
+- 🐞 Fix Checkbox not support Tooltip or Popover when it is `disabled`. [#39829](https://github.com/ant-design/ant-design/pull/39829)
 
 ## 5.1.1
 
