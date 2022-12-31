@@ -47,7 +47,7 @@ server/
 
 # Docs templates
 scripts/previewEditor/index.html
-components/version/version.tsx
+components/version/version.ts
 components/version/token.json
 components/version/token-meta.json
 .dumi/tmp
