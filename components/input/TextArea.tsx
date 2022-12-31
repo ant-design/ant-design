@@ -218,7 +218,6 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
         disabled={mergedDisabled}
         {...props}
         prefixCls={prefixCls}
-        direction={direction}
         inputType="text"
         value={val}
         element={textArea}

@@ -1,20 +1,18 @@
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import classNames from 'classnames';
 import * as React from 'react';
-import type { DirectionType } from '../config-provider';
+import type { ConfigConsumerProps } from '../config-provider';
+import { ConfigContext } from '../config-provider';
 import type { SizeType } from '../config-provider/SizeContext';
 import type { FormItemStatusContextProps } from '../form/context';
 import { FormItemInputContext } from '../form/context';
 import { cloneElement } from '../_util/reactNode';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
-import type { InputProps } from './Input';
 
 const ClearableInputType = ['text', 'input'] as const;
 
-function hasAddon(props: InputProps | ClearableInputProps) {
-  return !!(props.addonBefore || props.addonAfter);
-}
+const hasAddon = (props: ClearableInputProps): boolean => !!(props.addonBefore || props.addonAfter);
 
 /** This basic props required for input and textarea. */
 interface BasicProps {
@@ -23,11 +21,10 @@ interface BasicProps {
   value?: any;
   allowClear?: boolean;
   element: React.ReactElement;
-  handleReset: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void;
+  handleReset: (event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
   className?: string;
   style?: React.CSSProperties;
   disabled?: boolean;
-  direction?: DirectionType;
   focused?: boolean;
   readOnly?: boolean;
   bordered: boolean;
@@ -54,7 +51,6 @@ const ClearableLabeledInput: React.FC<ClearableInputProps> = (props) => {
     allowClear,
     className,
     style,
-    direction,
     bordered,
     hidden,
     status: customStatus,
@@ -62,13 +58,15 @@ const ClearableLabeledInput: React.FC<ClearableInputProps> = (props) => {
     value,
     disabled,
     readOnly,
-    handleReset,
     suffix,
+    handleReset,
   } = props;
 
   const statusContext = React.useContext<FormItemStatusContextProps>(FormItemInputContext);
 
-  const renderClearIcon = () => {
+  const { direction } = React.useContext<ConfigConsumerProps>(ConfigContext);
+
+  const clearIcon = React.useMemo<React.ReactNode>(() => {
     const needClear = !disabled && !readOnly && value;
     const iconClassName = `${prefixCls}-clear-icon`;
     return (
@@ -87,8 +85,9 @@ const ClearableLabeledInput: React.FC<ClearableInputProps> = (props) => {
         )}
       />
     );
-  };
-  const renderTextAreaWithClearIcon = () => {
+  }, [disabled, readOnly, value, prefixCls, suffix, handleReset]);
+
+  const textAreaWithClearIcon = React.useMemo<React.ReactElement>(() => {
     const { status, hasFeedback } = statusContext;
     if (!allowClear) {
       return cloneElement(element, { value });
@@ -109,16 +108,31 @@ const ClearableLabeledInput: React.FC<ClearableInputProps> = (props) => {
       },
       hashId,
     );
-
     return (
       <span className={affixWrapperCls} style={style} hidden={hidden}>
         {cloneElement(element, { style: null, value })}
-        {renderClearIcon()}
+        {clearIcon}
       </span>
     );
-  };
+  }, [
+    statusContext,
+    allowClear,
+    element,
+    value,
+    prefixCls,
+    customStatus,
+    direction,
+    bordered,
+    className,
+    style,
+    hidden,
+    hashId,
+    clearIcon,
+    props.addonBefore,
+    props.addonAfter,
+  ]);
 
-  return inputType === ClearableInputType[0] ? renderTextAreaWithClearIcon() : null;
+  return inputType === ClearableInputType[0] ? textAreaWithClearIcon : null;
 };
 
 export default ClearableLabeledInput;
