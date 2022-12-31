@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-shadow */
 import classNames from 'classnames';
 import * as React from 'react';
 import type { KeyWiseTransferItem } from '.';
@@ -16,7 +17,7 @@ export interface TransferListBodyProps<RecordType> extends PartialTransferListPr
   selectedKeys: string[];
 }
 
-function parsePagination(pagination?: PaginationType) {
+const parsePagination = (pagination?: PaginationType) => {
   if (!pagination) {
     return null;
   }
@@ -36,135 +37,107 @@ function parsePagination(pagination?: PaginationType) {
   }
 
   return defaultPagination;
-}
+};
 
-interface TransferListBodyState {
-  current: number;
-}
+const ListBody: React.ForwardRefRenderFunction<
+  { getItems?: RenderedItem<any>[] },
+  TransferListBodyProps<KeyWiseTransferItem>
+> = <RecordType extends KeyWiseTransferItem>(
+  props: TransferListBodyProps<RecordType>,
+  ref: React.Ref<{ getItems?: RenderedItem<RecordType>[] }>,
+) => {
+  const {
+    prefixCls,
+    filteredRenderItems,
+    selectedKeys,
+    disabled: globalDisabled,
+    showRemove,
+    pagination,
+    onScroll,
+    onItemSelect,
+    onItemRemove,
+  } = props;
 
-class ListBody<RecordType extends KeyWiseTransferItem> extends React.Component<
-  TransferListBodyProps<RecordType>,
-  TransferListBodyState
-> {
-  state = {
-    current: 1,
-  };
-
-  static getDerivedStateFromProps<T>(
-    { filteredRenderItems, pagination }: TransferListBodyProps<T>,
-    { current }: TransferListBodyState,
-  ) {
+  const [current, setCurrent] = React.useState<number>(() => {
     const mergedPagination = parsePagination(pagination);
     if (mergedPagination) {
-      // Calculate the page number
-      const maxPageCount = Math.ceil(filteredRenderItems.length / mergedPagination.pageSize);
-
-      if (current > maxPageCount) {
-        return { current: maxPageCount };
-      }
+      return Math.min(1, Math.ceil(filteredRenderItems.length / mergedPagination.pageSize));
     }
+    return 1;
+  });
 
-    return null;
-  }
-
-  onItemSelect = (item: RecordType) => {
-    const { onItemSelect, selectedKeys } = this.props;
-    const checked = selectedKeys.includes(item.key);
-    onItemSelect(item.key, !checked);
+  const handleItemSelect = (item: RecordType) => {
+    onItemSelect?.(item.key, !selectedKeys.includes(item.key));
   };
 
-  onItemRemove = (item: RecordType) => {
-    const { onItemRemove } = this.props;
+  const handleItemRemove = (item: RecordType) => {
     onItemRemove?.([item.key]);
   };
 
-  onPageChange = (current: number) => {
-    this.setState({ current });
+  const onPageChange = (current: number) => {
+    setCurrent(current);
   };
 
-  getItems = () => {
-    const { current } = this.state;
-    const { pagination, filteredRenderItems } = this.props;
-
+  const getItems = React.useMemo<RenderedItem<RecordType>[]>(() => {
     const mergedPagination = parsePagination(pagination);
-
-    let displayItems = filteredRenderItems;
-
-    if (mergedPagination) {
-      displayItems = filteredRenderItems.slice(
-        (current - 1) * mergedPagination.pageSize,
-        current * mergedPagination.pageSize,
-      );
-    }
-
+    const displayItems = mergedPagination
+      ? filteredRenderItems.slice(
+          (current - 1) * mergedPagination.pageSize,
+          current * mergedPagination.pageSize,
+        )
+      : filteredRenderItems;
     return displayItems;
-  };
+  }, [current]);
 
-  render() {
-    const { current } = this.state;
-    const {
-      prefixCls,
-      onScroll,
-      filteredRenderItems,
-      selectedKeys,
-      disabled: globalDisabled,
-      showRemove,
-      pagination,
-    } = this.props;
+  React.useImperativeHandle(ref, () => ({ getItems }));
 
-    const mergedPagination = parsePagination(pagination);
-    let paginationNode: React.ReactNode = null;
+  const mergedPagination = parsePagination(pagination);
 
-    if (mergedPagination) {
-      paginationNode = (
-        <Pagination
-          simple={mergedPagination.simple}
-          showSizeChanger={mergedPagination.showSizeChanger}
-          showLessItems={mergedPagination.showLessItems}
-          size="small"
-          disabled={globalDisabled}
-          className={`${prefixCls}-pagination`}
-          total={filteredRenderItems.length}
-          pageSize={mergedPagination.pageSize}
-          current={current}
-          onChange={this.onPageChange}
-        />
-      );
-    }
+  const paginationNode: React.ReactNode = mergedPagination ? (
+    <Pagination
+      simple={mergedPagination.simple}
+      showSizeChanger={mergedPagination.showSizeChanger}
+      showLessItems={mergedPagination.showLessItems}
+      size="small"
+      disabled={globalDisabled}
+      className={`${prefixCls}-pagination`}
+      total={filteredRenderItems.length}
+      pageSize={mergedPagination.pageSize}
+      current={current}
+      onChange={onPageChange}
+    />
+  ) : null;
 
-    return (
-      <>
-        <ul
-          className={classNames(`${prefixCls}-content`, {
-            [`${prefixCls}-content-show-remove`]: showRemove,
-          })}
-          onScroll={onScroll}
-        >
-          {this.getItems().map(({ renderedEl, renderedText, item }: RenderedItem<RecordType>) => {
-            const { disabled } = item;
-            const checked = selectedKeys.includes(item.key);
+  return (
+    <>
+      <ul
+        onScroll={onScroll}
+        className={classNames(`${prefixCls}-content`, {
+          [`${prefixCls}-content-show-remove`]: showRemove,
+        })}
+      >
+        {(getItems || []).map(({ renderedEl, renderedText, item }: RenderedItem<RecordType>) => {
+          const { disabled } = item;
+          const checked = selectedKeys.includes(item.key);
+          return (
+            <ListItem
+              disabled={globalDisabled || disabled}
+              key={item.key}
+              item={item}
+              renderedText={renderedText}
+              renderedEl={renderedEl}
+              checked={checked}
+              prefixCls={prefixCls}
+              showRemove={showRemove}
+              onClick={handleItemSelect}
+              onRemove={handleItemRemove}
+            />
+          );
+        })}
+      </ul>
+      {paginationNode}
+    </>
+  );
+};
 
-            return (
-              <ListItem
-                disabled={globalDisabled || disabled}
-                key={item.key}
-                item={item}
-                renderedText={renderedText}
-                renderedEl={renderedEl}
-                checked={checked}
-                prefixCls={prefixCls}
-                onClick={this.onItemSelect}
-                onRemove={this.onItemRemove}
-                showRemove={showRemove}
-              />
-            );
-          })}
-        </ul>
-
-        {paginationNode}
-      </>
-    );
-  }
-}
-
-export default ListBody;
+export default React.forwardRef(ListBody);
