@@ -8,9 +8,9 @@ import useStyle from './style';
 import type { TourProps, TourStepProps } from './interface';
 import PurePanel from './PurePanel';
 
-const Tour: React.ForwardRefRenderFunction<HTMLDivElement, TourProps> & {
-  _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
-} = (props) => {
+const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel } = (
+  props,
+) => {
   const {
     prefixCls: customizePrefixCls,
     steps,

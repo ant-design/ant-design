@@ -1,9 +1,9 @@
 ---
-group: 设计模式
-type: 全局规则
+group: Design Patterns
+type: Global Rules
 order: 7
 skip: true
-title: 数据列表
+title: Data List
 ---
 
 ## 设计目标

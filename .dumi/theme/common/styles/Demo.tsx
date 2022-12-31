@@ -24,7 +24,6 @@ export default () => {
           display: inline-block;
           width: 100%;
           margin: 0 0 16px;
-          overflow: hidden;
           border: 1px solid ${token.colorSplit};
           border-radius: ${token.borderRadius}px;
           transition: all 0.2s;
@@ -40,6 +39,7 @@ export default () => {
           &,
           .code-box-demo {
             background-color: ${token.colorBgContainer};
+            border-radius: ${token.borderRadius}px;
 
             &[data-compact] {
               padding: 0;

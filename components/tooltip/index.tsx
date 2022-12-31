@@ -71,7 +71,7 @@ interface LegacyTooltipProps
 export interface AbstractTooltipProps extends LegacyTooltipProps {
   style?: React.CSSProperties;
   className?: string;
-  color?: LiteralUnion<PresetColorType, string>;
+  color?: LiteralUnion<PresetColorType>;
   placement?: TooltipPlacement;
   builtinPlacements?: typeof Placements;
   openClassName?: string;

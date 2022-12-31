@@ -94,7 +94,7 @@ export default App;
 
 ### Use modularized antd
 
-`antd` supports ES modules tree shaking by default for JS part.
+`antd` supports ES modules tree shaking by default.
 
 ### TypeScript
 
@@ -106,18 +106,17 @@ export default App;
 - [China Mirrors](https://github.com/ant-design/ant-design/issues/25661)
 - [Components](/components/overview)
 - [Ant Design Pro](https://pro.ant.design/)
+- [Ant Design Pro Components](https://procomponents.ant.design/)
 - [Ant Design Charts](https://charts.ant.design)
 - [Change Log](/changelog)
-- [rc-components](http://react-component.github.io/)
-- [Mobile UI](http://mobile.ant.design)
+- [rc-components](https://react-component.github.io/)
+- [Mobile Components](https://mobile.ant.design)
+- [Mini Program Components](https://mini.ant.design)
 - [Ant Design Icons](https://github.com/ant-design/ant-design-icons)
 - [Ant Design Colors](https://github.com/ant-design/ant-design-colors)
-- [Ant Design Pro Layout](https://github.com/ant-design/ant-design-pro-layout)
-- [Ant Design Pro Blocks](https://github.com/ant-design/pro-blocks)
-- [Dark Theme](https://github.com/ant-design/ant-design-dark-theme)
 - [Landing Pages](https://landing.ant.design)
 - [Motion](https://motion.ant.design)
-- [Scaffold Market](http://scaffold.ant.design)
+- [Scaffold Market](https://scaffold.ant.design)
 - [Developer Instruction](https://github.com/ant-design/ant-design/wiki/Development)
 - [Versioning Release Note](https://github.com/ant-design/ant-design/wiki/%E8%BD%AE%E5%80%BC%E8%A7%84%E5%88%99%E5%92%8C%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B)
 - [FAQ](/docs/react/faq)
@@ -128,13 +127,13 @@ export default App;
 
 ## Companies using antd
 
-- [Ant Financial](http://www.antfin.com/index.htm?locale=en_US)
-- [Alibaba](http://www.alibaba.com/)
-- [Tencent](http://www.tencent.com)
-- [Baidu](http://www.baidu.com)
-- [Koubei](http://www.koubei.com/)
-- [Meituan](http://www.meituan.com)
-- [Didi](http://www.xiaojukeji.com/)
+- [Ant Group](https://www.antgroup.com/index.htm?locale=en_US)
+- [Alibaba](https://www.alibaba.com/)
+- [Tencent](https://www.tencent.com)
+- [Baidu](https://www.baidu.com)
+- [Koubei](https://www.koubei.com/)
+- [Meituan](https://www.meituan.com)
+- [Didi](https://www.xiaojukeji.com/)
 - [Eleme](https://www.ele.me/)
 
 > If your company or product uses Ant Design, let us know [here](https://github.com/ant-design/ant-design/issues/477)!

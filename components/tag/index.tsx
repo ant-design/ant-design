@@ -15,7 +15,7 @@ export type { CheckableTagProps } from './CheckableTag';
 export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   prefixCls?: string;
   className?: string;
-  color?: LiteralUnion<PresetColorType | PresetStatusColorType, string>;
+  color?: LiteralUnion<PresetColorType | PresetStatusColorType>;
   closable?: boolean;
   closeIcon?: React.ReactNode;
   /** @deprecated `visible` will be removed in next major version. */
