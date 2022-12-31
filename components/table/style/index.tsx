@@ -176,6 +176,7 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
           '> tr': {
             '> td': {
               borderTop: tableBorder,
+              borderBottom: 'transparent',
             },
 
             '&:last-child > td': {
@@ -185,6 +186,7 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
             [`&:first-child > td,
               &${componentCls}-measure-row + tr > td`]: {
               borderTop: 'none',
+              borderTopColor: 'transparent',
             },
           },
         },
