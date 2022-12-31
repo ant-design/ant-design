@@ -63,15 +63,12 @@ export interface FormItemStatusContextProps {
 
 export const FormItemInputContext = React.createContext<FormItemStatusContextProps>({});
 
-export type NoFormStyleProps = PropsWithChildren<{
-  status?: boolean;
-  override?: boolean;
-}>;
+export type NoFormStyleProps = PropsWithChildren<{ status?: boolean; override?: boolean }>;
 
 export const NoFormStyle: FC<NoFormStyleProps> = ({ children, status, override }) => {
-  const formItemInputContext = useContext(FormItemInputContext);
+  const formItemInputContext = useContext<FormItemStatusContextProps>(FormItemInputContext);
 
-  const newFormItemInputContext = useMemo(() => {
+  const newFormItemInputContext = useMemo<FormItemStatusContextProps>(() => {
     const newContext = { ...formItemInputContext };
     if (override) {
       delete newContext.isFormItemInput;

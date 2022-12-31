@@ -46,92 +46,79 @@ export interface ClearableInputProps extends BasicProps {
   hashId?: string;
 }
 
-class ClearableLabeledInput extends React.Component<ClearableInputProps> {
-  renderClearIcon(prefixCls: string) {
-    const { value, disabled, readOnly, handleReset, suffix } = this.props;
+const ClearableLabeledInput: React.FC<ClearableInputProps> = (props) => {
+  const {
+    prefixCls,
+    inputType,
+    element,
+    allowClear,
+    className,
+    style,
+    direction,
+    bordered,
+    hidden,
+    status: customStatus,
+    hashId,
+    value,
+    disabled,
+    readOnly,
+    handleReset,
+    suffix,
+  } = props;
+
+  const statusContext = React.useContext<FormItemStatusContextProps>(FormItemInputContext);
+
+  const renderClearIcon = () => {
     const needClear = !disabled && !readOnly && value;
-    const className = `${prefixCls}-clear-icon`;
+    const iconClassName = `${prefixCls}-clear-icon`;
     return (
       <CloseCircleFilled
         onClick={handleReset}
         // Do not trigger onBlur when clear input
         // https://github.com/ant-design/ant-design/issues/31200
         onMouseDown={(e) => e.preventDefault()}
+        role="button"
         className={classNames(
           {
-            [`${className}-hidden`]: !needClear,
-            [`${className}-has-suffix`]: !!suffix,
+            [`${iconClassName}-hidden`]: !needClear,
+            [`${iconClassName}-has-suffix`]: !!suffix,
           },
-          className,
+          iconClassName,
         )}
-        role="button"
       />
     );
-  }
-
-  renderTextAreaWithClearIcon(
-    prefixCls: string,
-    element: React.ReactElement,
-    statusContext: FormItemStatusContextProps,
-  ) {
-    const {
-      value,
-      allowClear,
-      className,
-      style,
-      direction,
-      bordered,
-      hidden,
-      status: customStatus,
-      hashId,
-    } = this.props;
-
-    const { status: contextStatus, hasFeedback } = statusContext;
-
+  };
+  const renderTextAreaWithClearIcon = () => {
+    const { status, hasFeedback } = statusContext;
     if (!allowClear) {
-      return cloneElement(element, {
-        value,
-      });
+      return cloneElement(element, { value });
     }
     const affixWrapperCls = classNames(
       `${prefixCls}-affix-wrapper`,
       `${prefixCls}-affix-wrapper-textarea-with-clear-btn`,
       getStatusClassNames(
         `${prefixCls}-affix-wrapper`,
-        getMergedStatus(contextStatus, customStatus),
+        getMergedStatus(status, customStatus),
         hasFeedback,
       ),
       {
         [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
         [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
         // className will go to addon wrapper
-        [`${className}`]: !hasAddon(this.props) && className,
+        [`${className}`]: !hasAddon(props) && className,
       },
       hashId,
     );
+
     return (
       <span className={affixWrapperCls} style={style} hidden={hidden}>
-        {cloneElement(element, {
-          style: null,
-          value,
-        })}
-        {this.renderClearIcon(prefixCls)}
+        {cloneElement(element, { style: null, value })}
+        {renderClearIcon()}
       </span>
     );
-  }
+  };
 
-  render() {
-    return (
-      <FormItemInputContext.Consumer>
-        {(statusContext) => {
-          const { prefixCls, inputType, element } = this.props;
-          if (inputType === ClearableInputType[0]) {
-            return this.renderTextAreaWithClearIcon(prefixCls, element, statusContext);
-          }
-        }}
-      </FormItemInputContext.Consumer>
-    );
-  }
-}
+  return inputType === ClearableInputType[0] ? renderTextAreaWithClearIcon() : null;
+};
 
 export default ClearableLabeledInput;
