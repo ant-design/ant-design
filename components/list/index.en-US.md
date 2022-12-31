@@ -20,6 +20,7 @@ A list can be used to display content related to a single subject. The content c
 <code src="./demo/basic.tsx">Basic list</code>
 <code src="./demo/loadmore.tsx">Load more</code>
 <code src="./demo/vertical.tsx">Vertical</code>
+<code src="./demo/pagination.tsx">Pagination Settings</code>
 <code src="./demo/grid.tsx">Grid</code>
 <code src="./demo/grid-test.tsx" debug>Test Grid</code>
 <code src="./demo/responsive.tsx">Responsive grid list</code>
@@ -51,9 +52,10 @@ A list can be used to display content related to a single subject. The content c
 
 Properties for pagination.
 
-| Property | Description                              | Type                        | Default  |
-| -------- | ---------------------------------------- | --------------------------- | -------- |
-| position | The specify the position of `Pagination` | `top` \| `bottom` \| `both` | `bottom` |
+| Property | Description                               | Type                         | Default  |
+| -------- | ----------------------------------------- | ---------------------------- | -------- |
+| position | The specify the position of `Pagination`  | `top` \| `bottom` \| `both`  | `bottom` |
+| align    | The specify the alignment of `Pagination` | `start` \| `center` \| `end` | `end`    |
 
 More about pagination, please check [`Pagination`](/components/pagination/).
 
