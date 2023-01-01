@@ -1,25 +1,22 @@
-import React, { createContext, useContext } from 'react';
+import React, { createContext } from 'react';
 import { Button, Modal, Space } from 'antd';
 
 const ReachableContext = createContext<string | null>(null);
 const UnreachableContext = createContext<string | null>(null);
 
+const config = {
+  title: 'Use Hook!',
+  content: (
+    <>
+      <ReachableContext.Consumer>{(name) => `Reachable: ${name}!`}</ReachableContext.Consumer>
+      <br />
+      <UnreachableContext.Consumer>{(name) => `Unreachable: ${name}!`}</UnreachableContext.Consumer>
+    </>
+  ),
+};
+
 const App: React.FC = () => {
   const [modal, contextHolder] = Modal.useModal();
-
-  const reachableName = useContext<string | null>(ReachableContext);
-  const unReachableName = useContext<string | null>(ReachableContext);
-
-  const config = {
-    title: 'Use Hook!',
-    content: (
-      <>
-        Reachable: {reachableName}!
-        <br />
-        Unreachable: {unReachableName}!
-      </>
-    ),
-  };
 
   return (
     <ReachableContext.Provider value="Light">

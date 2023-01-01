@@ -47,7 +47,7 @@ function Tabs({
   ...props
 }: TabsProps) {
   const { prefixCls: customizePrefixCls, moreIcon = <EllipsisOutlined /> } = props;
-  const { getPrefixCls, direction, getPopupContainer } = React.useContext(ConfigContext);
+  const { direction, getPrefixCls, getPopupContainer } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('tabs', customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
