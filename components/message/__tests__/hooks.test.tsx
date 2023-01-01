@@ -21,7 +21,7 @@ describe('message.hooks', () => {
 
     const Demo: React.FC = () => {
       const [api, holder] = message.useMessage();
-      const name = React.useContext<string>(Context);
+
       return (
         <ConfigProvider prefixCls="my-test">
           <Context.Provider value="bamboo">
@@ -30,7 +30,11 @@ describe('message.hooks', () => {
               onClick={() => {
                 api.open({
                   duration: 0,
-                  content: <span className="hook-test-result">{name}</span>,
+                  content: (
+                    <Context.Consumer>
+                      {(name) => <span className="hook-test-result">{name}</span>}
+                    </Context.Consumer>
+                  ),
                 });
               }}
             >
@@ -53,7 +57,7 @@ describe('message.hooks', () => {
 
     const Demo: React.FC = () => {
       const [api, holder] = message.useMessage();
-      const name = React.useContext<string>(Context);
+
       return (
         <ConfigProvider prefixCls="my-test">
           <Context.Provider value="bamboo">
@@ -62,7 +66,11 @@ describe('message.hooks', () => {
               onClick={() => {
                 api.success({
                   duration: 0,
-                  content: <span className="hook-test-result">{name}</span>,
+                  content: (
+                    <Context.Consumer>
+                      {(name) => <span className="hook-test-result">{name}</span>}
+                    </Context.Consumer>
+                  ),
                 });
               }}
             >
