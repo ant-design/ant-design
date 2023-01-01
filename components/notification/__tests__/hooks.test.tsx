@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { render, fireEvent, pureRender } from '../../../tests/utils';
 import notification from '..';
 import ConfigProvider from '../../config-provider';
@@ -17,7 +17,7 @@ describe('notification.hooks', () => {
 
     const Demo: React.FC = () => {
       const [api, holder] = notification.useNotification();
-      const name = useContext<string>(Context);
+
       return (
         <ConfigProvider prefixCls="my-test">
           <Context.Provider value="bamboo">
@@ -26,7 +26,11 @@ describe('notification.hooks', () => {
               onClick={() => {
                 api.open({
                   message: null,
-                  description: <span className="hook-test-result">{name}</span>,
+                  description: (
+                    <Context.Consumer>
+                      {(name) => <span className="hook-test-result">{name}</span>}
+                    </Context.Consumer>
+                  ),
                   duration: 0,
                 });
               }}
@@ -51,7 +55,7 @@ describe('notification.hooks', () => {
 
     const Demo: React.FC = () => {
       const [api, holder] = notification.useNotification();
-      const name = useContext<string>(Context);
+
       return (
         <ConfigProvider prefixCls="my-test">
           <Context.Provider value="bamboo">
@@ -60,7 +64,11 @@ describe('notification.hooks', () => {
               onClick={() => {
                 api.success({
                   message: null,
-                  description: <span className="hook-test-result">{name}</span>,
+                  description: (
+                    <Context.Consumer>
+                      {(name) => <span className="hook-test-result">{name}</span>}
+                    </Context.Consumer>
+                  ),
                   duration: 0,
                 });
               }}
