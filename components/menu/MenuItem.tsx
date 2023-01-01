@@ -38,59 +38,62 @@ const MenuItem: React.FC<MenuItemProps> = (props) => {
     }
     return wrapNode;
   };
-  const renderItem = ({ siderCollapsed }: SiderContextProps) => {
-    let tooltipTitle = title;
-    if (typeof title === 'undefined') {
-      tooltipTitle = firstLevel ? children : '';
-    } else if (title === false) {
-      tooltipTitle = '';
-    }
-    const tooltipProps: TooltipProps = { title: tooltipTitle };
-    if (!siderCollapsed && !isInlineCollapsed) {
-      tooltipProps.title = null;
-      // Reset `open` to fix control mode tooltip display not correct
-      // ref: https://github.com/ant-design/ant-design/issues/16742
-      tooltipProps.open = false;
-    }
-    const childrenLength = toArray(children).length;
 
-    let returnNode = (
-      <Item
-        {...omit(props, ['title', 'icon', 'danger'])}
-        className={classNames(
-          {
-            [`${prefixCls}-item-danger`]: danger,
-            [`${prefixCls}-item-only-child`]: (icon ? childrenLength + 1 : childrenLength) === 1,
-          },
-          className,
-        )}
-        title={typeof title === 'string' ? title : undefined}
+  const { siderCollapsed } = React.useContext<SiderContextProps>(SiderContext);
+
+  let tooltipTitle = title;
+
+  if (typeof title === 'undefined') {
+    tooltipTitle = firstLevel ? children : '';
+  } else if (title === false) {
+    tooltipTitle = '';
+  }
+
+  const tooltipProps: TooltipProps = { title: tooltipTitle };
+
+  if (!siderCollapsed && !isInlineCollapsed) {
+    tooltipProps.title = null;
+    // Reset `open` to fix control mode tooltip display not correct
+    // ref: https://github.com/ant-design/ant-design/issues/16742
+    tooltipProps.open = false;
+  }
+
+  const childrenLength = toArray(children).length;
+
+  let returnNode = (
+    <Item
+      {...omit(props, ['title', 'icon', 'danger'])}
+      className={classNames(
+        {
+          [`${prefixCls}-item-danger`]: danger,
+          [`${prefixCls}-item-only-child`]: (icon ? childrenLength + 1 : childrenLength) === 1,
+        },
+        className,
+      )}
+      title={typeof title === 'string' ? title : undefined}
+    >
+      {cloneElement(icon, {
+        className: classNames(
+          isValidElement(icon) ? icon.props?.className : '',
+          `${prefixCls}-item-icon`,
+        ),
+      })}
+      {renderItemChildren(isInlineCollapsed)}
+    </Item>
+  );
+
+  if (!disableMenuItemTitleTooltip) {
+    returnNode = (
+      <Tooltip
+        {...tooltipProps}
+        placement={direction === 'rtl' ? 'left' : 'right'}
+        overlayClassName={`${prefixCls}-inline-collapsed-tooltip`}
       >
-        {cloneElement(icon, {
-          className: classNames(
-            isValidElement(icon) ? icon.props?.className : '',
-            `${prefixCls}-item-icon`,
-          ),
-        })}
-        {renderItemChildren(isInlineCollapsed)}
-      </Item>
+        {returnNode}
+      </Tooltip>
     );
-
-    if (!disableMenuItemTitleTooltip) {
-      returnNode = (
-        <Tooltip
-          {...tooltipProps}
-          placement={direction === 'rtl' ? 'left' : 'right'}
-          overlayClassName={`${prefixCls}-inline-collapsed-tooltip`}
-        >
-          {returnNode}
-        </Tooltip>
-      );
-    }
-
-    return returnNode;
-  };
-  return <SiderContext.Consumer>{renderItem}</SiderContext.Consumer>;
+  }
+  return returnNode;
 };
 
 export default MenuItem;

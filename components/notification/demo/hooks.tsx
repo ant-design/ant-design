@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useContext, useMemo } from 'react';
 import {
   RadiusBottomleftOutlined,
   RadiusBottomrightOutlined,
@@ -13,10 +13,12 @@ const Context = React.createContext({ name: 'Default' });
 const App: React.FC = () => {
   const [api, contextHolder] = notification.useNotification();
 
+  const { name } = useContext(Context);
+
   const openNotification = (placement: NotificationPlacement) => {
     api.info({
       message: `Notification ${placement}`,
-      description: <Context.Consumer>{({ name }) => `Hello, ${name}!`}</Context.Consumer>,
+      description: `Hello, ${name}!`,
       placement,
     });
   };

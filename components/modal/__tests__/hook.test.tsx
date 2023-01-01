@@ -29,17 +29,12 @@ describe('Modal.hook', () => {
 
     const Demo = () => {
       const [modal, contextHolder] = Modal.useModal();
+      const name = React.useContext<string>(Context);
       return (
         <Context.Provider value="bamboo">
           <Button
             onClick={() => {
-              instance = modal.confirm({
-                content: (
-                  <Context.Consumer>
-                    {(name) => <div className="test-hook">{name}</div>}
-                  </Context.Consumer>
-                ),
-              });
+              instance = modal.confirm({ content: <div className="test-hook">{name}</div> });
             }}
           />
           {contextHolder}
