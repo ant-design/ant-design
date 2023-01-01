@@ -118,7 +118,7 @@ const { prop1 } = React.useContext(MyContext1);
 
 #### useContextSelector
 
-如果你使用过 Redux，那么你可能会对 `useSelector` 比较熟悉，它只会在需要消费的数据变更时才会触发更细。在 React 中，也同样有相关的 RFC([#118](https://github.com/reactjs/rfcs/pull/118))([#119](https://github.com/reactjs/rfcs/pull/119))，未来在 React 18 也将实装：
+如果你使用过 Redux，那么你可能会对 `useSelector` 比较熟悉，它只会在需要消费的数据变更时才会触发更新。在 React 中，也同样有相关的 RFC([#118](https://github.com/reactjs/rfcs/pull/118))([#119](https://github.com/reactjs/rfcs/pull/119))，未来在 React 18 也将实装：
 
 ![React 18](https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-UFKR7TTSv0AAAAAAAAAAAAADrJ8AQ/original)
 
