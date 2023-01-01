@@ -7,7 +7,7 @@ version: 2.1
 jobs:
   test-argos-ci:
     docker:
-      - image: cimg/node:16.18.1-browsers
+      - image: cimg/node:16.19.0-browsers
     steps:
       - checkout
       - run:
