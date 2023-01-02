@@ -61,7 +61,6 @@ function validateNum(value: number) {
 
 export default function showWaveEffect(node: HTMLElement, className: string) {
   const nodeStyle = getComputedStyle(node);
-  const nodeRect = node.getBoundingClientRect();
 
   // Get wave color from target
   const waveColor = getTargetWaveColor(node);
