@@ -188,6 +188,17 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     [sourceSelectedKeys, targetSelectedKeys],
   );
 
+  const handleSelectChange = React.useCallback(
+    (direction: TransferDirection, holder: string[]) => {
+      if (direction === 'left') {
+        onSelectChange?.(holder, targetSelectedKeys);
+      } else {
+        onSelectChange?.(sourceSelectedKeys, holder);
+      }
+    },
+    [sourceSelectedKeys, targetSelectedKeys],
+  );
+
   const getTitles = (transferLocale: TransferLocale): React.ReactNode[] =>
     titles ?? transferLocale.titles ?? [];
 
@@ -203,14 +214,6 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
 
   const handleRightScroll = (e: React.SyntheticEvent<HTMLUListElement>) => {
     onScroll?.('right', e);
-  };
-
-  const handleSelectChange = (direction: TransferDirection, holder: string[]) => {
-    if (direction === 'left') {
-      onSelectChange?.(holder, targetSelectedKeys);
-    } else {
-      onSelectChange?.(sourceSelectedKeys, holder);
-    }
   };
 
   const moveTo = (direction: TransferDirection) => {
@@ -294,9 +297,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
       holder.push(selectedKey);
     }
     handleSelectChange(direction, holder);
-    if (!('selectedKeys' in props)) {
-      setStateKeys(direction, holder);
-    }
+    setStateKeys(direction, holder);
   };
 
   const onLeftItemSelect = (selectedKey: string, checked: boolean) => {
