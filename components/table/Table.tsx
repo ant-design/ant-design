@@ -169,19 +169,19 @@ function InternalTable<RecordType extends object = any>(
     );
   }, [baseColumns, screens]);
 
-  const tableProps = omit(props, ['className', 'style', 'columns']) as TableProps<RecordType>;
+  const tableProps = omit(props, ['className', 'style', 'columns']);
 
   const size = React.useContext(SizeContext);
   const {
     locale: contextLocale = defaultLocale,
-    renderEmpty,
     direction,
+    renderEmpty,
+    getPrefixCls,
   } = React.useContext(ConfigContext);
   const mergedSize = customizeSize || size;
-  const tableLocale = { ...contextLocale.Table, ...locale } as TableLocale;
+  const tableLocale: TableLocale = { ...contextLocale.Table, ...locale };
   const rawData: readonly RecordType[] = dataSource || EMPTY_LIST;
 
-  const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('table', customizePrefixCls);
   const dropdownPrefixCls = getPrefixCls('dropdown', customizeDropdownPrefixCls);
 
