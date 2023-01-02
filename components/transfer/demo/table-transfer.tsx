@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Switch, Table, Tag, Transfer } from 'antd';
+import { Space, Switch, Table, Tag, Transfer } from 'antd';
 import type { ColumnsType, TableRowSelection } from 'antd/es/table/interface';
 import type { TransferItem, TransferProps } from 'antd/es/transfer';
 import difference from 'lodash/difference';
@@ -143,20 +143,20 @@ const App: React.FC = () => {
         leftColumns={leftTableColumns}
         rightColumns={rightTableColumns}
       />
-      <Switch
-        unCheckedChildren="disabled"
-        checkedChildren="disabled"
-        checked={disabled}
-        onChange={triggerDisable}
-        style={{ marginTop: 16 }}
-      />
-      <Switch
-        unCheckedChildren="showSearch"
-        checkedChildren="showSearch"
-        checked={showSearch}
-        onChange={triggerShowSearch}
-        style={{ marginTop: 16 }}
-      />
+      <Space style={{ marginTop: 16 }}>
+        <Switch
+          unCheckedChildren="disabled"
+          checkedChildren="disabled"
+          checked={disabled}
+          onChange={triggerDisable}
+        />
+        <Switch
+          unCheckedChildren="showSearch"
+          checkedChildren="showSearch"
+          checked={showSearch}
+          onChange={triggerShowSearch}
+        />
+      </Space>
     </>
   );
 };
