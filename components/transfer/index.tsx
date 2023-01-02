@@ -80,7 +80,7 @@ export interface TransferProps<RecordType> {
   selectedKeys?: string[];
   render?: TransferRender<RecordType>;
   onChange?: (targetKeys: string[], direction: TransferDirection, moveKeys: string[]) => void;
-  onSelectChange?: (sourceSelectedKeys: string[], targetSelectedKeys: string[]) => void;
+  onSelectChange?: (mergedSourceSelectedKeys: string[], mergedTargetSelectedKeys: string[]) => void;
   style?: React.CSSProperties;
   listStyle?: ((style: ListStyle) => CSSProperties) | CSSProperties;
   operationStyle?: CSSProperties;
@@ -154,19 +154,15 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     onSelectChange,
   } = props;
 
-  const [sourceSelectedKeys, setSourceSelectedKeys] = useMergedState<string[]>(
-    selectedKeys.length ? selectedKeys.filter((key) => !targetKeys.includes(key)) : [],
-    {
-      value: selectedKeys.filter((key) => !targetKeys.includes(key)),
-    },
-  );
+  const [mergedSourceSelectedKeys, setMergedSourceSelectedKeys] = useMergedState<string[]>([], {
+    value: selectedKeys,
+    postState: (keys) => keys.filter((key) => !targetKeys.includes(key)),
+  });
 
-  const [targetSelectedKeys, setTargetSelectedKeys] = useMergedState<string[]>(
-    selectedKeys.length ? selectedKeys.filter((key) => targetKeys.includes(key)) : [],
-    {
-      value: selectedKeys.filter((key) => targetKeys.includes(key)),
-    },
-  );
+  const [mergedTargetSelectedKeys, setMergedTargetSelectedKeys] = useMergedState<string[]>([], {
+    value: selectedKeys,
+    postState: (keys) => keys.filter((key) => targetKeys.includes(key)),
+  });
 
   if (process.env.NODE_ENV !== 'production') {
     warning(
@@ -179,23 +175,27 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   const setStateKeys = useCallback(
     (direction: TransferDirection, keys: string[] | ((prevKeys: string[]) => string[])) => {
       if (direction === 'left') {
-        setSourceSelectedKeys((prev) => (typeof keys === 'function' ? keys(prev || []) : keys));
+        setMergedSourceSelectedKeys((prev) =>
+          typeof keys === 'function' ? keys(prev || []) : keys,
+        );
       } else {
-        setTargetSelectedKeys((prev) => (typeof keys === 'function' ? keys(prev || []) : keys));
+        setMergedTargetSelectedKeys((prev) =>
+          typeof keys === 'function' ? keys(prev || []) : keys,
+        );
       }
     },
-    [sourceSelectedKeys, targetSelectedKeys],
+    [mergedSourceSelectedKeys, mergedTargetSelectedKeys],
   );
 
   const handleSelectChange = useCallback(
     (direction: TransferDirection, holder: string[]) => {
       if (direction === 'left') {
-        onSelectChange?.(holder, targetSelectedKeys);
+        onSelectChange?.(holder, mergedTargetSelectedKeys);
       } else {
-        onSelectChange?.(sourceSelectedKeys, holder);
+        onSelectChange?.(mergedSourceSelectedKeys, holder);
       }
     },
-    [sourceSelectedKeys, targetSelectedKeys],
+    [mergedSourceSelectedKeys, mergedTargetSelectedKeys],
   );
 
   const getTitles = (transferLocale: TransferLocale): React.ReactNode[] =>
@@ -216,7 +216,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   };
 
   const moveTo = (direction: TransferDirection) => {
-    const moveKeys = direction === 'right' ? sourceSelectedKeys : targetSelectedKeys;
+    const moveKeys = direction === 'right' ? mergedSourceSelectedKeys : mergedTargetSelectedKeys;
     const dataSourceDisabledKeysMap = groupDisabledKeysMap(dataSource);
     // filter the disabled options
     const newMoveKeys = moveKeys.filter((key) => !dataSourceDisabledKeysMap.has(key));
@@ -275,7 +275,9 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   const handleRightClear = () => onSearch?.('right', '');
 
   const onItemSelect = (direction: TransferDirection, selectedKey: string, checked: boolean) => {
-    const holder = [...(direction === 'left' ? sourceSelectedKeys : targetSelectedKeys)];
+    const holder = [
+      ...(direction === 'left' ? mergedSourceSelectedKeys : mergedTargetSelectedKeys),
+    ];
     const index = holder.indexOf(selectedKey);
     if (index > -1) {
       holder.splice(index, 1);
@@ -346,8 +348,8 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   const mergedPagination = !children && pagination;
 
   const { leftDataSource, rightDataSource } = separateDataSource();
-  const leftActive = targetSelectedKeys.length > 0;
-  const rightActive = sourceSelectedKeys.length > 0;
+  const leftActive = mergedTargetSelectedKeys.length > 0;
+  const rightActive = mergedSourceSelectedKeys.length > 0;
 
   const cls = classNames(
     prefixCls,
@@ -373,7 +375,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
               dataSource={leftDataSource}
               filterOption={filterOption}
               style={handleListStyle(listStyle, 'left')}
-              checkedKeys={sourceSelectedKeys}
+              checkedKeys={mergedSourceSelectedKeys}
               handleFilter={leftFilter}
               handleClear={handleLeftClear}
               onItemSelect={onLeftItemSelect}
@@ -409,7 +411,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
               dataSource={rightDataSource}
               filterOption={filterOption}
               style={handleListStyle(listStyle, 'right')}
-              checkedKeys={targetSelectedKeys}
+              checkedKeys={mergedTargetSelectedKeys}
               handleFilter={rightFilter}
               handleClear={handleRightClear}
               onItemSelect={onRightItemSelect}
