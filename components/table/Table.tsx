@@ -5,6 +5,7 @@ import type { TableProps as RcTableProps } from 'rc-table/lib/Table';
 import { INTERNAL_HOOKS } from 'rc-table/lib/Table';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
+import type { ConfigConsumerProps } from '../config-provider/context';
 import { ConfigContext } from '../config-provider/context';
 import defaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import type { SizeType } from '../config-provider/SizeContext';
@@ -169,15 +170,17 @@ function InternalTable<RecordType extends object = any>(
     );
   }, [baseColumns, screens]);
 
-  const tableProps = omit(props, ['className', 'style', 'columns']);
+  const tableProps: TableProps<RecordType> = omit(props, ['className', 'style', 'columns']);
 
-  const size = React.useContext(SizeContext);
+  const size = React.useContext<SizeType>(SizeContext);
+
   const {
     locale: contextLocale = defaultLocale,
     direction,
     renderEmpty,
     getPrefixCls,
-  } = React.useContext(ConfigContext);
+  } = React.useContext<ConfigConsumerProps>(ConfigContext);
+
   const mergedSize = customizeSize || size;
   const tableLocale: TableLocale = { ...contextLocale.Table, ...locale };
   const rawData: readonly RecordType[] = dataSource || EMPTY_LIST;
