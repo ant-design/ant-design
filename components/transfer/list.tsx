@@ -196,7 +196,7 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
     searchPlaceholder: string,
     filterValue: string,
     filteredItems: RecordType[],
-    notFoundContent: React.ReactNode | React.ReactNode,
+    notFoundContent: React.ReactNode | React.ReactNode[],
     filteredRenderItems: RenderedItem<RecordType>[],
     checkedKeys: string[],
     renderList?: RenderListFunction<RecordType>,
@@ -223,10 +223,10 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
       selectedKeys: checkedKeys,
     });
 
-    const getNotFoundContent = () => {
-      const contentIndex = direction === 'left' ? 0 : 1;
-      return Array.isArray(notFoundContent) ? notFoundContent[contentIndex] : notFoundContent;
-    };
+    const getNotFoundContent = () =>
+      Array.isArray(notFoundContent)
+        ? notFoundContent[direction === 'left' ? 0 : 1]
+        : notFoundContent;
 
     let bodyNode: React.ReactNode;
     // We should wrap customize list body in a classNamed div to use flex layout.
