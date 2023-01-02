@@ -164,7 +164,7 @@ const genSubMenuArrowStyle = (token: MenuToken): CSSObject => {
         width: menuArrowSize,
         color: 'currentcolor',
         transform: 'translateY(-50%)',
-        transition: `transform ${motionDurationSlow} ${motionEaseInOut}`,
+        transition: `transform ${motionDurationSlow} ${motionEaseInOut}, opacity ${motionDurationSlow}`,
       },
 
       '&-arrow': {
