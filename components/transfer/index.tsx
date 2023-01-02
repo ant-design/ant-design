@@ -288,7 +288,9 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
       holder.push(selectedKey);
     }
     handleSelectChange(direction, holder);
-    setStateKeys(direction, holder);
+    if (!props.selectedKeys) {
+      setStateKeys(direction, holder);
+    }
   };
 
   const onLeftItemSelect = (selectedKey: string, checked: boolean) => {
