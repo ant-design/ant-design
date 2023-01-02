@@ -1,6 +1,6 @@
-/* eslint-disable @typescript-eslint/no-shadow */
 import classNames from 'classnames';
-import * as React from 'react';
+import React, { useCallback, useState } from 'react';
+import type { ChangeEvent, CSSProperties } from 'react';
 import type { ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import defaultRenderEmpty from '../config-provider/defaultRenderEmpty';
@@ -81,8 +81,8 @@ export interface TransferProps<RecordType> {
   onChange?: (targetKeys: string[], direction: TransferDirection, moveKeys: string[]) => void;
   onSelectChange?: (sourceSelectedKeys: string[], targetSelectedKeys: string[]) => void;
   style?: React.CSSProperties;
-  listStyle?: ((style: ListStyle) => React.CSSProperties) | React.CSSProperties;
-  operationStyle?: React.CSSProperties;
+  listStyle?: ((style: ListStyle) => CSSProperties) | CSSProperties;
+  operationStyle?: CSSProperties;
   titles?: React.ReactNode[];
   operations?: string[];
   showSearch?: boolean;
@@ -90,9 +90,7 @@ export interface TransferProps<RecordType> {
   locale?: Partial<TransferLocale>;
   footer?: (
     props: TransferListProps<RecordType>,
-    info?: {
-      direction: TransferDirection;
-    },
+    info?: { direction: TransferDirection },
   ) => React.ReactNode;
   rowKey?: (record: RecordType) => string;
   onSearch?: (direction: TransferDirection, value: string) => void;
@@ -163,21 +161,21 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     );
   }
 
-  const [sourceSelectedKeys, setSourceSelectedKeys] = React.useState<string[]>(() => {
+  const [sourceSelectedKeys, setSourceSelectedKeys] = useState<string[]>(() => {
     if (selectedKeys.length) {
       return selectedKeys.filter((key) => !targetKeys.includes(key));
     }
     return [];
   });
 
-  const [targetSelectedKeys, setTargetSelectedKeys] = React.useState<string[]>(() => {
+  const [targetSelectedKeys, setTargetSelectedKeys] = useState<string[]>(() => {
     if (selectedKeys.length) {
       return selectedKeys.filter((key) => targetKeys.includes(key));
     }
     return [];
   });
 
-  const setStateKeys = React.useCallback(
+  const setStateKeys = useCallback(
     (direction: TransferDirection, keys: string[] | ((prevKeys: string[]) => string[])) => {
       if (direction === 'left') {
         setSourceSelectedKeys((prev) => (typeof keys === 'function' ? keys(prev || []) : keys));
@@ -188,7 +186,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     [sourceSelectedKeys, targetSelectedKeys],
   );
 
-  const handleSelectChange = React.useCallback(
+  const handleSelectChange = useCallback(
     (direction: TransferDirection, holder: string[]) => {
       if (direction === 'left') {
         onSelectChange?.(holder, targetSelectedKeys);
@@ -243,18 +241,14 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     moveTo('right');
   };
 
-  const onItemSelectAll = (
-    direction: TransferDirection,
-    selectedKeys: string[],
-    checkAll: boolean,
-  ) => {
+  const onItemSelectAll = (direction: TransferDirection, keys: string[], checkAll: boolean) => {
     setStateKeys(direction, (prevKeys) => {
       let mergedCheckedKeys: string[] = [];
       if (checkAll) {
         // Merge current keys with origin key
-        mergedCheckedKeys = Array.from(new Set<string>([...prevKeys, ...selectedKeys]));
+        mergedCheckedKeys = Array.from(new Set<string>([...prevKeys, ...keys]));
       } else {
-        const selectedKeysMap = groupKeysMap(selectedKeys);
+        const selectedKeysMap = groupKeysMap(keys);
         // Remove current keys from origin keys
         mergedCheckedKeys = prevKeys.filter((key) => !selectedKeysMap.has(key));
       }
@@ -263,32 +257,24 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     });
   };
 
-  const onLeftItemSelectAll = (selectedKeys: string[], checkAll: boolean) => {
-    onItemSelectAll('left', selectedKeys, checkAll);
+  const onLeftItemSelectAll = (keys: string[], checkAll: boolean) => {
+    onItemSelectAll('left', keys, checkAll);
   };
 
-  const onRightItemSelectAll = (selectedKeys: string[], checkAll: boolean) => {
-    onItemSelectAll('right', selectedKeys, checkAll);
+  const onRightItemSelectAll = (keys: string[], checkAll: boolean) => {
+    onItemSelectAll('right', keys, checkAll);
   };
 
-  const handleLeftFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
-    onSearch?.('left', e.target.value);
-  };
+  const leftFilter = (e: ChangeEvent<HTMLInputElement>) => onSearch?.('left', e.target.value);
 
-  const handleRightFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
-    onSearch?.('right', e.target.value);
-  };
+  const rightFilter = (e: ChangeEvent<HTMLInputElement>) => onSearch?.('right', e.target.value);
 
-  const handleLeftClear = () => {
-    onSearch?.('left', '');
-  };
+  const handleLeftClear = () => onSearch?.('left', '');
 
-  const handleRightClear = () => {
-    onSearch?.('right', '');
-  };
+  const handleRightClear = () => onSearch?.('right', '');
 
   const onItemSelect = (direction: TransferDirection, selectedKey: string, checked: boolean) => {
-    const holder = direction === 'left' ? [...sourceSelectedKeys] : [...targetSelectedKeys];
+    const holder = [...(direction === 'left' ? sourceSelectedKeys : targetSelectedKeys)];
     const index = holder.indexOf(selectedKey);
     if (index > -1) {
       holder.splice(index, 1);
@@ -308,23 +294,23 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     onItemSelect('right', selectedKey, checked);
   };
 
-  const onRightItemRemove = (selectedKeys: string[]) => {
+  const onRightItemRemove = (keys: string[]) => {
     setStateKeys('right', []);
     onChange?.(
-      targetKeys.filter((key) => !selectedKeys.includes(key)),
+      targetKeys.filter((key) => !keys.includes(key)),
       'left',
-      [...selectedKeys],
+      [...keys],
     );
   };
 
   const handleListStyle = (
-    listStyle: TransferProps<RecordType>['listStyle'],
+    listStyles: TransferProps<RecordType>['listStyle'],
     direction: TransferDirection,
   ): React.CSSProperties => {
-    if (typeof listStyle === 'function') {
-      return listStyle({ direction });
+    if (typeof listStyles === 'function') {
+      return listStyles({ direction });
     }
-    return listStyle!;
+    return listStyles!;
   };
 
   const separateDataSource = () => {
@@ -374,8 +360,8 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   return (
     <LocaleReceiver componentName="Transfer" defaultLocale={defaultLocale.Transfer}>
       {(contextLocale) => {
-        const locale = getLocale(contextLocale, renderEmpty || defaultRenderEmpty);
-        const [leftTitle, rightTitle] = getTitles(locale);
+        const listLocale = getLocale(contextLocale, renderEmpty || defaultRenderEmpty);
+        const [leftTitle, rightTitle] = getTitles(listLocale);
         return (
           <TransferFC prefixCls={prefixCls} className={cls} style={style}>
             <List<KeyWise<RecordType>>
@@ -385,7 +371,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
               filterOption={filterOption}
               style={handleListStyle(listStyle, 'left')}
               checkedKeys={sourceSelectedKeys}
-              handleFilter={handleLeftFilter}
+              handleFilter={leftFilter}
               handleClear={handleLeftClear}
               onItemSelect={onLeftItemSelect}
               onItemSelectAll={onLeftItemSelectAll}
@@ -399,7 +385,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
               showSelectAll={showSelectAll}
               selectAllLabel={selectAllLabels[0]}
               pagination={mergedPagination}
-              {...locale}
+              {...listLocale}
             />
             <Operation
               className={`${prefixCls}-operation`}
@@ -421,7 +407,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
               filterOption={filterOption}
               style={handleListStyle(listStyle, 'right')}
               checkedKeys={targetSelectedKeys}
-              handleFilter={handleRightFilter}
+              handleFilter={rightFilter}
               handleClear={handleRightClear}
               onItemSelect={onRightItemSelect}
               onItemSelectAll={onRightItemSelectAll}
@@ -437,7 +423,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
               selectAllLabel={selectAllLabels[1]}
               showRemove={oneWay}
               pagination={mergedPagination}
-              {...locale}
+              {...listLocale}
             />
           </TransferFC>
         );
