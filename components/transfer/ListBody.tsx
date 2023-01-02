@@ -142,7 +142,6 @@ class ListBody<RecordType extends KeyWiseTransferItem> extends React.Component<
           {this.getItems().map(({ renderedEl, renderedText, item }: RenderedItem<RecordType>) => {
             const { disabled } = item;
             const checked = selectedKeys.includes(item.key);
-
             return (
               <ListItem
                 disabled={globalDisabled || disabled}
@@ -159,7 +158,6 @@ class ListBody<RecordType extends KeyWiseTransferItem> extends React.Component<
             );
           })}
         </ul>
-
         {paginationNode}
       </>
     );

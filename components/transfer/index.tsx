@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
 import type { ChangeEvent, CSSProperties } from 'react';
 import type { ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
 import { ConfigContext } from '../config-provider';
@@ -125,9 +125,9 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
 ) => {
   const {
     dataSource = [],
+    targetKeys = [],
     selectedKeys = [],
     selectAllLabels = [],
-    targetKeys = [],
     operations = [],
     style = {},
     listStyle = {},
@@ -153,14 +153,6 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     onSelectChange,
   } = props;
 
-  if (process.env.NODE_ENV !== 'production') {
-    warning(
-      !pagination || !children,
-      'Transfer',
-      '`pagination` not support customize render list.',
-    );
-  }
-
   const [sourceSelectedKeys, setSourceSelectedKeys] = useState<string[]>(() => {
     if (selectedKeys.length) {
       return selectedKeys.filter((key) => !targetKeys.includes(key));
@@ -174,6 +166,19 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     }
     return [];
   });
+
+  useEffect(() => {
+    setSourceSelectedKeys(selectedKeys.filter((key) => !targetKeys.includes(key)));
+    setTargetSelectedKeys(selectedKeys.filter((key) => targetKeys.includes(key)));
+  }, [targetKeys, selectedKeys]);
+
+  if (process.env.NODE_ENV !== 'production') {
+    warning(
+      !pagination || !children,
+      'Transfer',
+      '`pagination` not support customize render list.',
+    );
+  }
 
   const setStateKeys = useCallback(
     (direction: TransferDirection, keys: string[] | ((prevKeys: string[]) => string[])) => {
@@ -306,11 +311,11 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   const handleListStyle = (
     listStyles: TransferProps<RecordType>['listStyle'],
     direction: TransferDirection,
-  ): React.CSSProperties => {
+  ): CSSProperties => {
     if (typeof listStyles === 'function') {
       return listStyles({ direction });
     }
-    return listStyles!;
+    return listStyles || {};
   };
 
   const separateDataSource = () => {
@@ -332,8 +337,8 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     return { leftDataSource, rightDataSource };
   };
 
-  const configContext = React.useContext<ConfigConsumerProps>(ConfigContext);
-  const formItemContext = React.useContext<FormItemStatusContextProps>(FormItemInputContext);
+  const configContext = useContext<ConfigConsumerProps>(ConfigContext);
+  const formItemContext = useContext<FormItemStatusContextProps>(FormItemInputContext);
 
   const { getPrefixCls, renderEmpty, direction } = configContext;
   const { hasFeedback, status } = formItemContext;
