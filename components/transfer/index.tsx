@@ -113,13 +113,11 @@ interface TransferFCProps {
 }
 
 const TransferFC: React.FC<TransferFCProps> = (props) => {
-  const { prefixCls } = props;
-
+  const { prefixCls, className, style, children } = props;
   const [wrapSSR, hashId] = useStyle(prefixCls);
-
   return wrapSSR(
-    <div className={classNames(props.className, hashId)} style={props.style}>
-      {props.children}
+    <div className={classNames(className, hashId)} style={style}>
+      {children}
     </div>,
   );
 };
@@ -130,31 +128,31 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   const {
     dataSource = [],
     selectedKeys = [],
+    selectAllLabels = [],
     targetKeys = [],
-    titles,
+    operations = [],
+    style = {},
+    listStyle = {},
     locale = {},
+    titles,
+    className,
+    disabled,
+    showSearch = false,
+    operationStyle,
+    showSelectAll,
+    oneWay,
+    pagination,
+    status: customStatus,
+    prefixCls: customizePrefixCls,
+    filterOption,
+    render,
+    footer,
+    children,
     rowKey,
     onScroll,
     onChange,
     onSearch,
     onSelectChange,
-    prefixCls: customizePrefixCls,
-    className,
-    disabled,
-    operations = [],
-    showSearch = false,
-    footer,
-    style,
-    listStyle = {},
-    operationStyle,
-    filterOption,
-    render,
-    children,
-    showSelectAll,
-    oneWay,
-    pagination,
-    selectAllLabels = [],
-    status: customStatus,
   } = props;
 
   const [sourceSelectedKeys, setSourceSelectedKeys] = React.useState<string[]>(() => {
@@ -189,16 +187,16 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     return [];
   });
 
-  const setStateKeys = (
-    direction: TransferDirection,
-    keys: string[] | ((prevKeys: string[]) => string[]),
-  ) => {
-    if (direction === 'left') {
-      setSourceSelectedKeys((prev) => (typeof keys === 'function' ? keys(prev || []) : keys));
-    } else {
-      setTargetSelectedKeys((prev) => (typeof keys === 'function' ? keys(prev || []) : keys));
-    }
-  };
+  const setStateKeys = React.useCallback(
+    (direction: TransferDirection, keys: string[] | ((prevKeys: string[]) => string[])) => {
+      if (direction === 'left') {
+        setSourceSelectedKeys((prev) => (typeof keys === 'function' ? keys(prev || []) : keys));
+      } else {
+        setTargetSelectedKeys((prev) => (typeof keys === 'function' ? keys(prev || []) : keys));
+      }
+    },
+    [sourceSelectedKeys, targetSelectedKeys],
+  );
 
   const getTitles = (transferLocale: TransferLocale): React.ReactNode[] =>
     titles ?? transferLocale.titles ?? [];
