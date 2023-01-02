@@ -148,7 +148,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
     ...rest
   } = props;
 
-  const restProps = omit(rest, ['suffixIcon' as any]);
+  const restProps = omit(rest, ['suffixIcon']);
 
   const {
     getPopupContainer: getContextPopupContainer,
