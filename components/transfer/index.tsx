@@ -1,6 +1,7 @@
 import classNames from 'classnames';
-import React, { useCallback, useContext, useEffect, useState } from 'react';
+import React, { useCallback, useContext } from 'react';
 import type { ChangeEvent, CSSProperties } from 'react';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import defaultRenderEmpty from '../config-provider/defaultRenderEmpty';
@@ -153,24 +154,13 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     onSelectChange,
   } = props;
 
-  const [sourceSelectedKeys, setSourceSelectedKeys] = useState<string[]>(() => {
-    if (selectedKeys.length) {
-      return selectedKeys.filter((key) => !targetKeys.includes(key));
-    }
-    return [];
+  const [sourceSelectedKeys, setSourceSelectedKeys] = useMergedState<string[]>([], {
+    value: selectedKeys.filter((key) => !targetKeys.includes(key)),
   });
 
-  const [targetSelectedKeys, setTargetSelectedKeys] = useState<string[]>(() => {
-    if (selectedKeys.length) {
-      return selectedKeys.filter((key) => targetKeys.includes(key));
-    }
-    return [];
+  const [targetSelectedKeys, setTargetSelectedKeys] = useMergedState<string[]>([], {
+    value: selectedKeys.filter((key) => targetKeys.includes(key)),
   });
-
-  useEffect(() => {
-    setSourceSelectedKeys(selectedKeys.filter((key) => !targetKeys.includes(key)));
-    setTargetSelectedKeys(selectedKeys.filter((key) => targetKeys.includes(key)));
-  }, [targetKeys, selectedKeys]);
 
   if (process.env.NODE_ENV !== 'production') {
     warning(
