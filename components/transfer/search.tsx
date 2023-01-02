@@ -38,4 +38,8 @@ const Search: React.FC<TransferSearchProps> = (props) => {
   );
 };
 
+if (process.env.NODE_ENV !== 'production') {
+  Search.displayName = 'Search';
+}
+
 export default Search;

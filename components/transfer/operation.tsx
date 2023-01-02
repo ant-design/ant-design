@@ -58,4 +58,8 @@ const Operation: React.FC<TransferOperationProps> = (props) => {
   );
 };
 
+if (process.env.NODE_ENV !== 'production') {
+  Operation.displayName = 'Operation';
+}
+
 export default Operation;

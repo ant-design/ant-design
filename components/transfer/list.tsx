@@ -428,4 +428,8 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
   );
 };
 
+if (process.env.NODE_ENV !== 'production') {
+  TransferList.displayName = 'TransferList';
+}
+
 export default TransferList;

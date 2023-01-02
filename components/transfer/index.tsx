@@ -432,6 +432,10 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   );
 };
 
+if (process.env.NODE_ENV !== 'production') {
+  Transfer.displayName = 'Transfer';
+}
+
 Transfer.List = List;
 Transfer.Search = Search;
 Transfer.Operation = Operation;
