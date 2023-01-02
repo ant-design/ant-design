@@ -384,12 +384,12 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     <LocaleReceiver componentName="Transfer" defaultLocale={defaultLocale.Transfer}>
       {(contextLocale) => {
         const locale = getLocale(contextLocale, renderEmpty || defaultRenderEmpty);
-        const titles = getTitles(locale);
+        const [leftTitle, rightTitle] = getTitles(locale);
         return (
           <TransferFC prefixCls={prefixCls} className={cls} style={style}>
             <List<KeyWise<RecordType>>
               prefixCls={`${prefixCls}-list`}
-              titleText={titles?.[0]}
+              titleText={leftTitle}
               dataSource={leftDataSource}
               filterOption={filterOption}
               style={handleListStyle(listStyle, 'left')}
@@ -425,7 +425,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
             />
             <List<KeyWise<RecordType>>
               prefixCls={`${prefixCls}-list`}
-              titleText={titles?.[1]}
+              titleText={rightTitle}
               dataSource={rightDataSource}
               filterOption={filterOption}
               style={handleListStyle(listStyle, 'right')}
