@@ -154,13 +154,19 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     onSelectChange,
   } = props;
 
-  const [sourceSelectedKeys, setSourceSelectedKeys] = useMergedState<string[]>([], {
-    value: selectedKeys.filter((key) => !targetKeys.includes(key)),
-  });
+  const [sourceSelectedKeys, setSourceSelectedKeys] = useMergedState<string[]>(
+    selectedKeys.length ? selectedKeys.filter((key) => !targetKeys.includes(key)) : [],
+    {
+      value: selectedKeys.filter((key) => !targetKeys.includes(key)),
+    },
+  );
 
-  const [targetSelectedKeys, setTargetSelectedKeys] = useMergedState<string[]>([], {
-    value: selectedKeys.filter((key) => targetKeys.includes(key)),
-  });
+  const [targetSelectedKeys, setTargetSelectedKeys] = useMergedState<string[]>(
+    selectedKeys.length ? selectedKeys.filter((key) => targetKeys.includes(key)) : [],
+    {
+      value: selectedKeys.filter((key) => targetKeys.includes(key)),
+    },
+  );
 
   if (process.env.NODE_ENV !== 'production') {
     warning(
