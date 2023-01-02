@@ -1,13 +1,3 @@
-export function getValidateContainer(nodeRoot: Node): Element {
-  if (nodeRoot instanceof Document) {
-    return nodeRoot.body;
-  }
-
-  return Array.from(nodeRoot.childNodes).find(
-    (ele) => ele?.nodeType === Node.ELEMENT_NODE,
-  ) as Element;
-}
-
 export function isNotGrey(color: string) {
   // eslint-disable-next-line no-useless-escape
   const match = (color || '').match(/rgba?\((\d*), (\d*), (\d*)(, [\d.]*)?\)/);
