@@ -222,10 +222,7 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
         '&-placement-rightBottom',
       ].join(',')]: {
         [`${componentCls}-inner`]: {
-          borderRadius:
-            tourBorderRadius > MAX_VERTICAL_CONTENT_RADIUS
-              ? MAX_VERTICAL_CONTENT_RADIUS
-              : tourBorderRadius,
+          borderRadius: Math.min(tourBorderRadius, MAX_VERTICAL_CONTENT_RADIUS),
         },
       },
     },

@@ -58,7 +58,6 @@ class ListBody<RecordType extends KeyWiseTransferItem> extends React.Component<
     if (mergedPagination) {
       // Calculate the page number
       const maxPageCount = Math.ceil(filteredRenderItems.length / mergedPagination.pageSize);
-
       if (current > maxPageCount) {
         return { current: maxPageCount };
       }

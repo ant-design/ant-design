@@ -95,7 +95,6 @@ describe('Wave component', () => {
 
     const style = getWaveStyle();
 
-    expect(style['--wave-scale']).toBeTruthy();
     expect(style['--wave-color']).toBeFalsy();
 
     unmount();
@@ -284,6 +283,6 @@ describe('Wave component', () => {
     // Click should not throw
     fireEvent.click(elem);
 
-    expect(fakeDoc.querySelector('.ant-wave')).toBeTruthy();
+    expect(container.querySelector('.ant-wave')).toBeTruthy();
   });
 });

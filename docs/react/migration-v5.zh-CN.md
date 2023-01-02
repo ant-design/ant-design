@@ -117,10 +117,9 @@ title: 从 v4 到 v5
 - 移除 PageHeader 组件，移至 `@ant-design/pro-components` 中维护。
 
   ```diff
-  - import { PageHeader, Comment, Input, Button } from 'antd';
+  - import { PageHeader, Comment } from 'antd';
   + import { Comment } from '@ant-design/compatible';
   + import { PageHeader } from '@ant-design/pro-layout';
-  + import { Input, Button } from 'antd';
 
     const App: React.FC = () => (
       <>

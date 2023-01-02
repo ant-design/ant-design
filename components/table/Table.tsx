@@ -5,6 +5,7 @@ import type { TableProps as RcTableProps } from 'rc-table/lib/Table';
 import { INTERNAL_HOOKS } from 'rc-table/lib/Table';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
+import type { ConfigConsumerProps } from '../config-provider/context';
 import { ConfigContext } from '../config-provider/context';
 import defaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import type { SizeType } from '../config-provider/SizeContext';
@@ -169,19 +170,21 @@ function InternalTable<RecordType extends object = any>(
     );
   }, [baseColumns, screens]);
 
-  const tableProps = omit(props, ['className', 'style', 'columns']) as TableProps<RecordType>;
+  const tableProps: TableProps<RecordType> = omit(props, ['className', 'style', 'columns']);
 
-  const size = React.useContext(SizeContext);
+  const size = React.useContext<SizeType>(SizeContext);
+
   const {
     locale: contextLocale = defaultLocale,
-    renderEmpty,
     direction,
-  } = React.useContext(ConfigContext);
+    renderEmpty,
+    getPrefixCls,
+  } = React.useContext<ConfigConsumerProps>(ConfigContext);
+
   const mergedSize = customizeSize || size;
-  const tableLocale = { ...contextLocale.Table, ...locale } as TableLocale;
+  const tableLocale: TableLocale = { ...contextLocale.Table, ...locale };
   const rawData: readonly RecordType[] = dataSource || EMPTY_LIST;
 
-  const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('table', customizePrefixCls);
   const dropdownPrefixCls = getPrefixCls('dropdown', customizeDropdownPrefixCls);
 
