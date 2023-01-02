@@ -155,16 +155,15 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     onSelectChange,
   } = props;
 
+  if (process.env.NODE_ENV !== 'production') {
+    warning(
+      !pagination || !children,
+      'Transfer',
+      '`pagination` not support customize render list.',
+    );
+  }
+
   const [sourceSelectedKeys, setSourceSelectedKeys] = React.useState<string[]>(() => {
-    if (process.env.NODE_ENV !== 'production') {
-      if (!('selectedKeys' in props)) {
-        warning(
-          !pagination || !children,
-          'Transfer',
-          '`pagination` not support customize render list.',
-        );
-      }
-    }
     if (selectedKeys.length) {
       return selectedKeys.filter((key) => !targetKeys.includes(key));
     }
@@ -172,15 +171,6 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   });
 
   const [targetSelectedKeys, setTargetSelectedKeys] = React.useState<string[]>(() => {
-    if (process.env.NODE_ENV !== 'production') {
-      if (!('selectedKeys' in props)) {
-        warning(
-          !pagination || !children,
-          'Transfer',
-          '`pagination` not support customize render list.',
-        );
-      }
-    }
     if (selectedKeys.length) {
       return selectedKeys.filter((key) => targetKeys.includes(key));
     }
