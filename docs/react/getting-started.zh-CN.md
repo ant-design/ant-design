@@ -102,15 +102,7 @@ render(<App />, document.getElementById('root'));
 
 ## 按需加载
 
-`antd` 默认支持基于 ES modules 的 tree shaking，对于 js 部分，直接引入 `import { Button } from 'antd'` 就会有按需加载的效果。
-
-如果你在开发环境的控制台看到下面的提示，那么你可能还在使用 `webpack@1.x` 或者 tree shaking 失效，请升级或检查相关配置。
-
-```
-You are using a whole package of antd, please use https://www.npmjs.com/package/babel-plugin-import to reduce app bundle size.
-```
-
-![控制台警告](https://zos.alipayobjects.com/rmsportal/GHIRszVcmjccgZRakJDQ.png)
+`antd` 默认支持基于 ES modules 的 tree shaking，直接引入 `import { Button } from 'antd';` 就会有按需加载的效果。
 
 ## 自行构建
 

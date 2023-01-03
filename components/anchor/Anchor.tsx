@@ -1,5 +1,4 @@
 import classNames from 'classnames';
-import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import * as React from 'react';
 import scrollIntoView from 'scroll-into-view-if-needed';
 
@@ -317,10 +316,10 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
 
   React.useEffect(() => {
     const scrollContainer = getCurrentContainer();
-    const scrollEvent = addEventListener(scrollContainer, 'scroll', handleScroll);
     handleScroll();
+    scrollContainer?.addEventListener('scroll', handleScroll);
     return () => {
-      scrollEvent?.remove();
+      scrollContainer?.removeEventListener('scroll', handleScroll);
     };
   }, [dependencyListItem]);
 
