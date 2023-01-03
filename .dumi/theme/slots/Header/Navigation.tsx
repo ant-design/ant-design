@@ -1,5 +1,4 @@
 import * as React from 'react';
-import classNames from 'classnames';
 import { FormattedMessage, Link, useFullSidebarData, useLocation } from 'dumi';
 import type { MenuProps } from 'antd';
 import { Menu } from 'antd';
@@ -267,12 +266,12 @@ export default ({
 
   return (
     <Menu
-      className={classNames('menu-site')}
       mode={menuMode}
       selectedKeys={[activeMenuItem]}
       css={style.nav}
       disabledOverflow
       items={items}
+      style={{ borderRight: 0 }}
     />
   );
 };
