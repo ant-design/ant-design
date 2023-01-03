@@ -123,7 +123,7 @@ export type {
   TableProps,
 } from './table';
 export { default as Tabs } from './tabs';
-export type { TabPaneProps, TabsProps } from './tabs';
+export type { TabPaneProps, TabsProps, Tab } from './tabs';
 export { default as Tag } from './tag';
 export type { TagProps, TagType } from './tag';
 export { default as theme } from './theme';
