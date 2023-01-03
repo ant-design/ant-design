@@ -83,9 +83,7 @@ const WaveEffect: React.FC<WaveEffectProps> = (props) => {
       // Add resize observer to follow size
       let resizeObserver: ResizeObserver;
       if (typeof ResizeObserver !== 'undefined') {
-        resizeObserver = new ResizeObserver(() => {
-          syncPos();
-        });
+        resizeObserver = new ResizeObserver(syncPos);
 
         resizeObserver.observe(target);
       }
