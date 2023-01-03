@@ -80,7 +80,20 @@ const WaveEffect: React.FC<WaveEffectProps> = (props) => {
         setEnabled(true);
       });
 
-      return () => raf.cancel(id);
+      // Add resize observer to follow size
+      let resizeObserver: ResizeObserver;
+      if (typeof ResizeObserver !== 'undefined') {
+        resizeObserver = new ResizeObserver(() => {
+          syncPos();
+        });
+
+        resizeObserver.observe(target);
+      }
+
+      return () => {
+        raf.cancel(id);
+        resizeObserver?.disconnect();
+      };
     }
   }, []);
 
