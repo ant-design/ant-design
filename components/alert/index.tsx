@@ -99,11 +99,11 @@ const CloseIcon: React.FC<CloseIconProps> = props => {
   ) : null;
 };
 
-interface AlertInterface extends React.FC<AlertProps> {
+type CompoundedComponent = React.FC<AlertProps> & {
   ErrorBoundary: typeof ErrorBoundary;
-}
+};
 
-const Alert: AlertInterface = ({
+const Alert: CompoundedComponent = ({
   description,
   prefixCls: customizePrefixCls,
   message,

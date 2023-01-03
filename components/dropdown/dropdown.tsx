@@ -82,11 +82,11 @@ export interface DropdownProps {
   onVisibleChange?: (open: boolean) => void;
 }
 
-interface DropdownInterface extends React.FC<DropdownProps> {
+type CompoundedComponent = React.FC<DropdownProps> & {
   Button: typeof DropdownButton;
-}
+};
 
-const Dropdown: DropdownInterface = (props) => {
+const Dropdown: CompoundedComponent = (props) => {
   const {
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
