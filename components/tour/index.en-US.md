@@ -36,6 +36,7 @@ Use when you want to guide users through a product.
 | open | Open tour | `boolean` | - |  |
 | onChange | Callback when the step changes. Current is the previous step | `(current: number) => void` | - |  |
 | current | What is the current step | `number` | - |  |
+| scrollIntoViewOptions | support pass custom scrollIntoView options | `boolean \| ScrollIntoViewOptions` | `true` | 5.2.0 |
 
 ### TourStep
 
@@ -52,3 +53,4 @@ Use when you want to guide users through a product.
 | type | Type, affects the background color and text color | `default` `primary` | `default` |  |
 | nextButtonProps | Properties of the Next button | `{ children: ReactNode; onClick: Function }` | - |  |
 | prevButtonProps | Properties of the previous button | `{ children: ReactNode; onClick: Function }` | - |  |
+| scrollIntoViewOptions | support pass custom scrollIntoView options, the default follows the `scrollIntoViewOptions` property of Tour | `boolean \| ScrollIntoViewOptions` | `true` | 5.2.0 |

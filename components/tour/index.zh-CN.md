@@ -38,6 +38,7 @@ demo:
 | open | 打开引导 | `boolean` | - |  |
 | onChange | 步骤改变时的回调，current 为当前前的步骤 | `(current: number) => void` | - |  |
 | current | 当前处于哪一步 | `number` | - |  |
+| scrollIntoViewOptions | 是否支持当前元素滚动到视窗内，也可传入配置指定滚动视窗的相关参数 | `boolean \| ScrollIntoViewOptions` | `true` | 5.2.0 |
 
 ### TourStep 引导步骤卡片
 
@@ -54,3 +55,4 @@ demo:
 | type | 类型，影响底色与文字颜色 | `default` \| `primary` | `default` |  |
 | nextButtonProps | 下一步按钮的属性 | `{ children: ReactNode; onClick: Function }` | - |  |
 | prevButtonProps | 上一步按钮的属性 | `{ children: ReactNode; onClick: Function }` | - |  |
+| scrollIntoViewOptions | 是否支持当前元素滚动到视窗内，也可传入配置指定滚动视窗的相关参数，默认跟随 Tour 的 `scrollIntoViewOptions` 属性 | `boolean \| ScrollIntoViewOptions` | `true` | 5.2.0 |
