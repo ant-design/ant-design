@@ -5063,56 +5063,68 @@ Array [
       </div>
     </div>
   </div>,
-  <button
-    aria-checked="false"
-    class="ant-switch"
-    role="switch"
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center"
     style="margin-top:16px"
-    type="button"
   >
     <div
-      class="ant-switch-handle"
-    />
-    <span
-      class="ant-switch-inner"
+      class="ant-space-item"
+      style="margin-right:8px"
     >
-      <span
-        class="ant-switch-inner-checked"
+      <button
+        aria-checked="false"
+        class="ant-switch"
+        role="switch"
+        type="button"
       >
-        disabled
-      </span>
-      <span
-        class="ant-switch-inner-unchecked"
-      >
-        disabled
-      </span>
-    </span>
-  </button>,
-  <button
-    aria-checked="false"
-    class="ant-switch"
-    role="switch"
-    style="margin-top:16px"
-    type="button"
-  >
+        <div
+          class="ant-switch-handle"
+        />
+        <span
+          class="ant-switch-inner"
+        >
+          <span
+            class="ant-switch-inner-checked"
+          >
+            disabled
+          </span>
+          <span
+            class="ant-switch-inner-unchecked"
+          >
+            disabled
+          </span>
+        </span>
+      </button>
+    </div>
     <div
-      class="ant-switch-handle"
-    />
-    <span
-      class="ant-switch-inner"
+      class="ant-space-item"
     >
-      <span
-        class="ant-switch-inner-checked"
+      <button
+        aria-checked="false"
+        class="ant-switch"
+        role="switch"
+        type="button"
       >
-        showSearch
-      </span>
-      <span
-        class="ant-switch-inner-unchecked"
-      >
-        showSearch
-      </span>
-    </span>
-  </button>,
+        <div
+          class="ant-switch-handle"
+        />
+        <span
+          class="ant-switch-inner"
+        >
+          <span
+            class="ant-switch-inner-checked"
+          >
+            showSearch
+          </span>
+          <span
+            class="ant-switch-inner-unchecked"
+          >
+            showSearch
+          </span>
+        </span>
+      </button>
+    </div>
+  </div>,
 ]
 `;
 

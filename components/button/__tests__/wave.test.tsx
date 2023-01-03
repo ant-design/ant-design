@@ -1,7 +1,7 @@
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 import Button from '..';
-import { fireEvent, render } from '../../../tests/utils';
+import { act, fireEvent, render } from '../../../tests/utils';
 
 jest.mock('rc-util/lib/Dom/isVisible', () => {
   const mockFn = () => true;
@@ -23,6 +23,10 @@ describe('click wave effect', () => {
     const element = container.firstChild;
     // https://github.com/testing-library/user-event/issues/833
     await userEvent.setup({ advanceTimers: jest.advanceTimersByTime }).click(element as Element);
+    act(() => {
+      jest.advanceTimersByTime(100);
+    });
+
     fireEvent(element!, new Event('transitionstart'));
     fireEvent(element!, new Event('animationend'));
   }
