@@ -13,12 +13,29 @@ jest.mock('rc-util/lib/Dom/isVisible', () => {
 describe('Wave component', () => {
   mountTest(Wave);
 
+  let obCnt = 0;
+  let disCnt = 0;
+
   beforeAll(() => {
+    /* eslint-disable class-methods-use-this */
+    class FakeResizeObserver {
+      observe = () => {
+        obCnt += 1;
+      };
+
+      disconnect = () => {
+        disCnt += 1;
+      };
+    }
+
+    (window as any).ResizeObserver = FakeResizeObserver;
     jest.useFakeTimers();
   });
 
   afterAll(() => {
     jest.useRealTimers();
+    expect(obCnt).not.toBe(0);
+    expect(disCnt).not.toBe(0);
   });
 
   beforeEach(() => {
