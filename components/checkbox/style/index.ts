@@ -257,6 +257,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
           borderColor: token.colorBorder,
 
           '&:after': {
+            background: token.colorTextDisabled,
             borderColor: token.colorTextDisabled,
           },
         },
