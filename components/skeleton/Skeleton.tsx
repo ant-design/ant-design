@@ -14,7 +14,7 @@ import type { SkeletonTitleProps } from './Title';
 import Title from './Title';
 
 /* This only for skeleton internal. */
-interface SkeletonAvatarProps extends Omit<AvatarProps, 'active'> {}
+type SkeletonAvatarProps = Omit<AvatarProps, 'active'>;
 
 export interface SkeletonProps {
   active?: boolean;
@@ -75,15 +75,15 @@ function getParagraphBasicProps(hasAvatar: boolean, hasTitle: boolean): Skeleton
   return basicProps;
 }
 
-interface CompoundedComponent {
+type CompoundedComponent = {
   Button: typeof SkeletonButton;
   Avatar: typeof SkeletonAvatar;
   Input: typeof SkeletonInput;
   Image: typeof SkeletonImage;
   Node: typeof SkeletonNode;
-}
+};
 
-const Skeleton: React.FC<SkeletonProps> & CompoundedComponent = props => {
+const Skeleton: React.FC<SkeletonProps> & CompoundedComponent = (props) => {
   const {
     prefixCls: customizePrefixCls,
     loading,

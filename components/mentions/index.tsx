@@ -23,9 +23,7 @@ function loadingFilterOption() {
 
 export type MentionPlacement = 'top' | 'bottom';
 
-export type {
-  DataDrivenOptionProps as MentionsOptionProps,
-} from 'rc-mentions/lib/Mentions';
+export type { DataDrivenOptionProps as MentionsOptionProps } from 'rc-mentions/lib/Mentions';
 
 export interface OptionProps {
   value: string;
@@ -55,11 +53,12 @@ interface MentionsEntity {
   value: string;
 }
 
-interface CompoundedComponent
-  extends React.ForwardRefExoticComponent<MentionProps & React.RefAttributes<MentionsRef>> {
+type CompoundedComponent = React.ForwardRefExoticComponent<
+  MentionProps & React.RefAttributes<MentionsRef>
+> & {
   Option: typeof Option;
   getMentions: (value: string, config?: MentionsConfig) => MentionsEntity[];
-}
+};
 
 const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps> = (
   {
