@@ -7,7 +7,7 @@ import * as React from 'react';
 import TestUtils from 'react-dom/test-utils';
 import type { ModalFuncProps } from '..';
 import Modal from '..';
-import { waitFakeTimer, act } from '../../../tests/utils';
+import { waitFakeTimer, act, withRawProcessLifecycle } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import type { ModalFunc } from '../confirm';
 import destroyFns from '../destroyFns';
@@ -168,20 +168,6 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     expect($$('.ant-modal-confirm')).toHaveLength(1);
   });
 
-  it('should emit error when onOk return Promise.reject', async () => {
-    const error = new Error('something wrong');
-    await open({
-      onOk: () => Promise.reject(error),
-    });
-
-    $$('.ant-btn-primary')[0].click();
-
-    // wait promise
-    await waitFakeTimer();
-
-    expect(errorSpy).toHaveBeenCalledWith(error);
-  });
-
   it('shows animation when close', async () => {
     await open();
 
@@ -211,6 +197,21 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     expect($$('.ant-btn')).toHaveLength(2);
     expect(($$('.ant-btn')[0].attributes as any)['data-test'].value).toBe('baz');
     expect(($$('.ant-btn')[1] as HTMLButtonElement).disabled).toBe(true);
+  });
+
+  describe.only('should let users handle promise rejections in onOk handler', function () {
+    const rawProcess = withRawProcessLifecycle();
+    const error = new Error('something wrong');
+
+    it('unhandled promise', async () => {
+      const unhandledRejectionPromise = new Promise((resolve) =>
+        rawProcess.once('unhandledRejection', resolve),
+      );
+      await open({ onOk: () => Promise.reject(error) });
+      $$('.ant-btn-primary')[0].click();
+
+      await expect(unhandledRejectionPromise).resolves.toBe(error);
+    });
   });
 
   describe('should close modals when click confirm button', () => {

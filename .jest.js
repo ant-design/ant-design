@@ -1,3 +1,17 @@
+// This is a workaround to allow tests to handle uncaught errors and
+// unhandled promise rejections.
+//
+// It is needed in order to be able to access the raw `process` object
+// that has not been tampered with by Jest.
+//
+// Until https://github.com/facebook/jest/issues/5620 is resolved, this
+// code has to be kept around, unfortunately.
+//
+// For more background, also see:
+// https://johann.pardanaud.com/blog/how-to-assert-unhandled-rejection-and-uncaught-exception-with-jest/
+const _rawProcess = process
+process._rawProcess = () => _rawProcess
+
 const compileModules = [
   'array-move',
   'react-dnd',
