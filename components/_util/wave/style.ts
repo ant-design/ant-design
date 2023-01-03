@@ -18,7 +18,7 @@ const genWaveStyle: GenerateStyle<WaveToken> = (token) => {
       boxShadow: `0 0 0 0 currentcolor`,
       opacity: 0.2,
 
-      // =================== Motion ===================
+      // =================== Motion  ===================
       '&.wave-motion-appear': {
         transition: [
           `box-shadow 0.4s ${token.motionEaseOutCirc}`,
