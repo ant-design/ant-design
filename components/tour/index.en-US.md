@@ -27,7 +27,7 @@ Use when you want to guide users through a product.
 ### Tour
 
 | Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | arrow | Whether to show the arrow, including the configuration whether to point to the center of the element | `boolean`\|`{ pointAtCenter: boolean}` | `true` |  |
 | placement | Position of the guide card relative to the target element | `left` `leftTop` `leftBottom` `right` `rightTop` `rightBottom` `top` `topLeft` `topRight` `bottom` `bottomLeft` `bottomRight` | `bottom` |  |
 | onClose | Callback function on shutdown | `Function` | - |  |
@@ -36,12 +36,12 @@ Use when you want to guide users through a product.
 | open | Open tour | `boolean` | - |  |
 | onChange | Callback when the step changes. Current is the previous step | `(current: number) => void` | - |  |
 | current | What is the current step | `number` | - |  |
-| scrollIntoViewOptions | support pass custom scrollIntoView options | `boolean | ScrollIntoViewOptions` | `true` |  |
+| scrollIntoViewOptions | support pass custom scrollIntoView options | `boolean \| ScrollIntoViewOptions` | `true` |  |
 
 ### TourStep
 
 | Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | target | Get the element the guide card points to. Empty makes it show in center of screen | `() => HTMLElement` `HTMLElement` | - |  |
 | arrow | Whether to show the arrow, including the configuration whether to point to the center of the element | `boolean` `{ pointAtCenter: boolean}` | `true` |  |
 | cover | Displayed pictures or videos | `ReactNode` | - |  |
@@ -53,4 +53,4 @@ Use when you want to guide users through a product.
 | type | Type, affects the background color and text color | `default` `primary` | `default` |  |
 | nextButtonProps | Properties of the Next button | `{ children: ReactNode; onClick: Function }` | - |  |
 | prevButtonProps | Properties of the previous button | `{ children: ReactNode; onClick: Function }` | - |  |
-| scrollIntoViewOptions | support pass custom scrollIntoView options, the default follows the `scrollIntoViewOptions` property of Tour | `boolean | ScrollIntoViewOptions` | `true` |  |
+| scrollIntoViewOptions | support pass custom scrollIntoView options, the default follows the `scrollIntoViewOptions` property of Tour | `boolean \| ScrollIntoViewOptions` | `true` |  |
