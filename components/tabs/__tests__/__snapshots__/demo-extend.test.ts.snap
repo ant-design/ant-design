@@ -3355,7 +3355,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-tabs ant-tabs-left"
+    class="ant-tabs ant-tabs-left ant-tabs-align-start"
   >
     <div
       class="ant-tabs-nav"

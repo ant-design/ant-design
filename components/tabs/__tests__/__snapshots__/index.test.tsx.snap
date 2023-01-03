@@ -2,7 +2,7 @@
 
 exports[`Tabs renderTabBar custom-tab-bar 1`] = `
 <div
-  class="ant-tabs ant-tabs-top"
+  class="ant-tabs ant-tabs-top ant-tabs-align-start"
 >
   <div>
     custom-tab-bar
@@ -30,7 +30,7 @@ exports[`Tabs renderTabBar custom-tab-bar 1`] = `
 
 exports[`Tabs rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
-  class="ant-tabs ant-tabs-top ant-tabs-rtl"
+  class="ant-tabs ant-tabs-top ant-tabs-rtl ant-tabs-align-start"
 >
   <div
     class="ant-tabs-nav"
@@ -120,7 +120,7 @@ exports[`Tabs rtl render component should be rendered correctly in RTL direction
 
 exports[`Tabs tabBarGutter should work 1`] = `
 <div
-  class="ant-tabs ant-tabs-top"
+  class="ant-tabs ant-tabs-top ant-tabs-align-start"
 >
   <div
     class="ant-tabs-nav"
@@ -252,7 +252,7 @@ exports[`Tabs tabBarGutter should work 1`] = `
 
 exports[`Tabs tabBarGutter should work 2`] = `
 <div
-  class="ant-tabs ant-tabs-left"
+  class="ant-tabs ant-tabs-left ant-tabs-align-start"
 >
   <div
     class="ant-tabs-nav"
@@ -384,7 +384,7 @@ exports[`Tabs tabBarGutter should work 2`] = `
 
 exports[`Tabs tabPosition remove card 1`] = `
 <div
-  class="ant-tabs ant-tabs-left"
+  class="ant-tabs ant-tabs-left ant-tabs-align-start"
 >
   <div
     class="ant-tabs-nav"
