@@ -153,9 +153,13 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     onSelectChange,
   } = props;
 
-  const [mergedSourceSelectedKeys, setMergedSourceSelectedKeys] = useState<string[]>([]);
+  const [mergedSourceSelectedKeys, setMergedSourceSelectedKeys] = useState<string[]>(
+    selectedKeys.filter((key) => !targetKeys.includes(key)),
+  );
 
-  const [mergedTargetSelectedKeys, setMergedTargetSelectedKeys] = useState<string[]>([]);
+  const [mergedTargetSelectedKeys, setMergedTargetSelectedKeys] = useState<string[]>(
+    selectedKeys.filter((key) => targetKeys.includes(key)),
+  );
 
   useEffect(() => {
     if (props.selectedKeys) {

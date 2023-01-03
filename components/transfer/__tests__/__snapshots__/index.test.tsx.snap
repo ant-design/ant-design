@@ -288,6 +288,7 @@ exports[`Transfer should render correctly 1`] = `
           class="ant-checkbox ant-checkbox-checked"
         >
           <input
+            checked=""
             class="ant-checkbox-input"
             type="checkbox"
             value=""
@@ -342,6 +343,7 @@ exports[`Transfer should render correctly 1`] = `
               class="ant-checkbox ant-checkbox-checked"
             >
               <input
+                checked=""
                 class="ant-checkbox-input"
                 type="checkbox"
                 value=""
