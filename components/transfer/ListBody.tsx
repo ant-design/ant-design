@@ -64,9 +64,7 @@ const ListBody: React.ForwardRefRenderFunction<
     const mergedPagination = parsePagination(pagination);
     if (mergedPagination) {
       const maxPageCount = Math.ceil(filteredRenderItems.length / mergedPagination.pageSize!);
-      if (current > maxPageCount) {
-        setCurrent(maxPageCount);
-      }
+      setCurrent(Math.min(current, maxPageCount));
     }
   }, [current, filteredRenderItems, pagination]);
 
@@ -93,9 +91,7 @@ const ListBody: React.ForwardRefRenderFunction<
     return displayItems;
   }, [current, filteredRenderItems, pagination]);
 
-  React.useImperativeHandle(ref, () => ({
-    getItems,
-  }));
+  React.useImperativeHandle(ref, () => ({ getItems }));
 
   const mergedPagination = parsePagination(pagination);
 
