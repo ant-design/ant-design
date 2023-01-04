@@ -113,6 +113,7 @@ const genRoundButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
   borderRadius: token.controlHeight,
   paddingInlineStart: token.controlHeight / 2,
   paddingInlineEnd: token.controlHeight / 2,
+  width: 'auto',
 });
 
 // =============================== Type ===============================
@@ -471,7 +472,9 @@ const genBlockButtonStyle: GenerateStyle<ButtonToken> = (token) => {
   const { componentCls } = token;
   return {
     [componentCls]: {
-      [`&${componentCls}-block`]: {
+      [['default', 'primary', 'dashed', 'link', 'text', 'disabled']
+        .map((type) => `&${componentCls}-${type}${componentCls}-block`)
+        .join(',')]: {
         width: '100%',
       },
     },
