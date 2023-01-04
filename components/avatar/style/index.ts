@@ -110,7 +110,7 @@ const genBaseStyle: GenerateStyle<AvatarToken> = (token) => {
 };
 
 const genGroupStyle: GenerateStyle<AvatarToken> = (token) => {
-  const { componentCls, avatarGroupBorderColor, avatarGroupOverlapping, avatarGroupSpace } = token;
+  const { componentCls, avatarGroupBorderColor, avatarGroupSpace } = token;
 
   return {
     [`${componentCls}-group`]: {
@@ -118,16 +118,10 @@ const genGroupStyle: GenerateStyle<AvatarToken> = (token) => {
 
       [`${componentCls}`]: {
         borderColor: avatarGroupBorderColor,
-
-        [`&:not(:first-child)`]: {
-          marginInlineStart: -avatarGroupOverlapping,
-        },
       },
 
-      [`&-popover`]: {
-        [`${componentCls} + ${componentCls}`]: {
-          marginInlineStart: avatarGroupSpace,
-        },
+      [`> *:not(:first-child)`]: {
+        marginInlineStart: avatarGroupSpace,
       },
     },
   };
@@ -162,8 +156,7 @@ export default genComponentStyleHook('Avatar', (token) => {
     avatarFontSizeBase: Math.round((fontSizeLG + fontSizeXL) / 2),
     avatarFontSizeLG: fontSizeHeading3,
     avatarFontSizeSM: fontSize,
-    avatarGroupOverlapping: marginXS,
-    avatarGroupSpace: marginXS,
+    avatarGroupSpace: -marginXS,
     avatarGroupBorderColor: colorBorderBg,
   });
 

@@ -345,17 +345,21 @@ Array [
         src="https://joeschmoe.io/api/v1/random"
       />
     </span>
-    <span
-      class="ant-avatar ant-avatar-circle"
-      style="background-color:#f56a00"
+    <a
+      href="https://ant.design"
     >
       <span
-        class="ant-avatar-string"
-        style="opacity:0"
+        class="ant-avatar ant-avatar-circle"
+        style="background-color:#f56a00"
       >
-        K
+        <span
+          class="ant-avatar-string"
+          style="opacity:0"
+        >
+          K
+        </span>
       </span>
-    </span>
+    </a>
     <span
       class="ant-avatar ant-avatar-circle ant-avatar-icon"
       style="background-color:#87d068"
