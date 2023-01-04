@@ -17,7 +17,7 @@ import type {
   TransferLocale,
 } from './index';
 import type { PaginationType } from './interface';
-import type { TransferListBodyProps } from './ListBody';
+import type { ListBodyRef, TransferListBodyProps } from './ListBody';
 import DefaultListBody, { OmitProps } from './ListBody';
 import Search from './search';
 
@@ -112,7 +112,7 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
 
   const [filterValue, setFilterValue] = React.useState<string>('');
 
-  const defaultListBodyRef = React.useRef<DefaultListBody<RecordType>>(null);
+  const defaultListBodyRef = React.useRef<ListBodyRef>({});
 
   const getCheckStatus = (filteredItems: RecordType[]) => {
     if (checkedKeys.length === 0) {
@@ -340,7 +340,7 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
             label: removeCurrent,
             onClick() {
               const pageKeys = getEnabledItemKeys(
-                (defaultListBodyRef.current?.getItems() || []).map((entity) => entity.item),
+                (defaultListBodyRef.current?.getItems || []).map((entity) => entity.item),
               );
               onItemRemove?.(pageKeys);
             },
@@ -370,7 +370,7 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
             key: 'selectCurrent',
             label: selectCurrent,
             onClick() {
-              const pageItems = defaultListBodyRef.current?.getItems() || [];
+              const pageItems = defaultListBodyRef.current?.getItems || [];
               onItemSelectAll(getEnabledItemKeys(pageItems.map((entity) => entity.item)), true);
             },
           }
@@ -381,7 +381,7 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
         onClick() {
           const availableKeys = getEnabledItemKeys(
             pagination
-              ? (defaultListBodyRef.current?.getItems() || []).map((entity) => entity.item)
+              ? (defaultListBodyRef.current?.getItems || []).map((entity) => entity.item)
               : filteredItems,
           );
           const checkedKeySet = new Set<string>(checkedKeys);
