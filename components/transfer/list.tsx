@@ -113,17 +113,6 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
 
   const defaultListBodyRef = React.useRef<ListBodyRef<RecordType>>({});
 
-  const getCheckStatus = (filteredItems: RecordType[]) => {
-    if (checkedKeys.length === 0) {
-      return 'none';
-    }
-    const checkedKeysMap = groupKeysMap(checkedKeys);
-    if (filteredItems.every((item) => checkedKeysMap.has(item.key) || !!item.disabled)) {
-      return 'all';
-    }
-    return 'part';
-  };
-
   const internalHandleFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFilterValue(e.target.value);
     handleFilter(e);
@@ -186,6 +175,17 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
 
   const [filteredItems, filteredRenderItems] = memoizedFilteredItems;
 
+  const checkStatus = React.useMemo<string>(() => {
+    if (checkedKeys.length === 0) {
+      return 'none';
+    }
+    const checkedKeysMap = groupKeysMap(checkedKeys);
+    if (filteredItems.every((item) => checkedKeysMap.has(item.key) || !!item.disabled)) {
+      return 'all';
+    }
+    return 'part';
+  }, [checkedKeys, filteredItems]);
+
   const listBody = React.useMemo<React.ReactNode>(() => {
     const search = showSearch ? (
       <div className={`${prefixCls}-body-search-wrapper`}>
@@ -230,25 +230,24 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
     );
   }, [showSearch, prefixCls, searchPlaceholder, filterValue, disabled, checkedKeys]);
 
-  const checkBox = React.useMemo<React.ReactNode>(() => {
-    const checkStatus = getCheckStatus(filteredItems);
-    const checkedAll = checkStatus === 'all';
-    return (
+  const checkBox = React.useMemo<React.ReactNode>(
+    () => (
       <Checkbox
         disabled={disabled}
-        checked={checkedAll}
+        checked={checkStatus === 'all'}
         indeterminate={checkStatus === 'part'}
         className={`${prefixCls}-checkbox`}
         onChange={() => {
           // Only select enabled items
           onItemSelectAll(
             filteredItems.filter((item) => !item.disabled).map(({ key }) => key),
-            !checkedAll,
+            checkStatus !== 'all',
           );
         }}
       />
-    );
-  }, [filteredItems, disabled, prefixCls, onItemSelectAll]);
+    ),
+    [filteredItems, disabled, prefixCls, onItemSelectAll],
+  );
 
   const getSelectAllLabel = (selectedCount: number, totalCount: number): React.ReactNode => {
     if (selectAllLabel) {
