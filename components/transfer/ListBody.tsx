@@ -39,7 +39,7 @@ export interface ListBodyRef<RecordType extends KeyWiseTransferItem> {
   items?: RenderedItem<RecordType>[];
 }
 
-const ListBody: React.ForwardRefRenderFunction<
+const TransferListBody: React.ForwardRefRenderFunction<
   ListBodyRef<KeyWiseTransferItem>,
   TransferListBodyProps<KeyWiseTransferItem>
 > = <RecordType extends KeyWiseTransferItem>(
@@ -138,10 +138,10 @@ const ListBody: React.ForwardRefRenderFunction<
 };
 
 if (process.env.NODE_ENV !== 'production') {
-  ListBody.displayName = 'ListBody';
+  TransferListBody.displayName = 'TransferListBody';
 }
 
 export default React.forwardRef<
   ListBodyRef<KeyWiseTransferItem>,
   TransferListBodyProps<KeyWiseTransferItem>
->(ListBody);
+>(TransferListBody);

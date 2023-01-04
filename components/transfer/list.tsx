@@ -1,7 +1,7 @@
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
-import React, { useCallback, useMemo, useRef, useState } from 'react';
+import React, { useMemo, useRef, useState } from 'react';
 import Checkbox from '../checkbox';
 import Dropdown from '../dropdown';
 import type { MenuProps } from '../menu';
@@ -113,15 +113,15 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
 
   const listBodyRef = useRef<ListBodyRef<RecordType>>({});
 
-  const internalHandleFilter = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+  const internalHandleFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFilterValue(e.target.value);
     handleFilter(e);
-  }, []);
+  };
 
-  const internalHandleClear = useCallback(() => {
+  const internalHandleClear = () => {
     setFilterValue('');
     handleClear();
-  }, []);
+  };
 
   const matchFilter = (text: string, item: RecordType) => {
     if (filterOption) {
