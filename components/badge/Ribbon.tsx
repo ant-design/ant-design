@@ -4,7 +4,7 @@ import { ConfigContext } from '../config-provider';
 import type { PresetColorType } from '../_util/colors';
 import type { LiteralUnion } from '../_util/type';
 import useStyle from './style';
-import { isPresetColor } from './utils';
+import { isPresetColor } from '../_util/colors';
 
 type RibbonPlacement = 'start' | 'end';
 

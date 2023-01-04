@@ -9,7 +9,7 @@ import type { LiteralUnion } from '../_util/type';
 import Ribbon from './Ribbon';
 import ScrollNumber from './ScrollNumber';
 import useStyle from './style';
-import { isPresetColor } from './utils';
+import { isPresetColor } from '../_util/colors';
 
 export type { ScrollNumberProps } from './ScrollNumber';
 
