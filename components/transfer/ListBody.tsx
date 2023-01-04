@@ -36,12 +36,13 @@ function parsePagination(pagination?: PaginationType) {
 }
 
 export interface ListBodyRef {
-  getItems?: RenderedItem<any>[];
+  getItems?: RenderedItem<KeyWiseTransferItem>[];
 }
 
-const ListBody: React.ForwardRefRenderFunction<ListBodyRef, TransferListBodyProps<any>> = <
-  RecordType extends KeyWiseTransferItem,
->(
+const ListBody: React.ForwardRefRenderFunction<
+  ListBodyRef,
+  TransferListBodyProps<KeyWiseTransferItem>
+> = <RecordType extends KeyWiseTransferItem>(
   props: TransferListBodyProps<RecordType>,
   ref: React.ForwardedRef<ListBodyRef>,
 ) => {
@@ -145,4 +146,4 @@ if (process.env.NODE_ENV !== 'production') {
   ListBody.displayName = 'ListBody';
 }
 
-export default React.forwardRef<ListBodyRef, TransferListBodyProps<any>>(ListBody);
+export default React.forwardRef<ListBodyRef, TransferListBodyProps<KeyWiseTransferItem>>(ListBody);
