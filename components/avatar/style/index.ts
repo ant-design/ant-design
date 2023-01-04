@@ -110,11 +110,15 @@ const genBaseStyle: GenerateStyle<AvatarToken> = (token) => {
 };
 
 const genGroupStyle: GenerateStyle<AvatarToken> = (token) => {
-  const { componentCls, avatarGroupSpace } = token;
+  const { componentCls, avatarGroupBorderColor, avatarGroupSpace } = token;
 
   return {
     [`${componentCls}-group`]: {
       display: 'inline-flex',
+
+      [`${componentCls}`]: {
+        borderColor: avatarGroupBorderColor,
+      },
 
       [`> *:not(:first-child)`]: {
         marginInlineStart: avatarGroupSpace,
