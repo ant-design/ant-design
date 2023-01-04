@@ -231,25 +231,25 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
         placements[key].points![0] === align.points?.[0] &&
         placements[key].points![1] === align.points?.[1],
     );
-    if (!placement) {
-      return;
-    }
-    // 根据当前坐标设置动画点
-    const rect = domNode.getBoundingClientRect();
 
-    const transformOrigin = { top: '50%', left: '50%' };
+    if (placement) {
+      // 根据当前坐标设置动画点
+      const rect = domNode.getBoundingClientRect();
 
-    if (/top|Bottom/.test(placement)) {
-      transformOrigin.top = `${rect.height - align.offset![1]}px`;
-    } else if (/Top|bottom/.test(placement)) {
-      transformOrigin.top = `${-align.offset![1]}px`;
+      const transformOrigin = { top: '50%', left: '50%' };
+
+      if (/top|Bottom/.test(placement)) {
+        transformOrigin.top = `${rect.height - align.offset![1]}px`;
+      } else if (/Top|bottom/.test(placement)) {
+        transformOrigin.top = `${-align.offset![1]}px`;
+      }
+      if (/left|Right/.test(placement)) {
+        transformOrigin.left = `${rect.width - align.offset![0]}px`;
+      } else if (/right|Left/.test(placement)) {
+        transformOrigin.left = `${-align.offset![0]}px`;
+      }
+      domNode.style.transformOrigin = `${transformOrigin.left} ${transformOrigin.top}`;
     }
-    if (/left|Right/.test(placement)) {
-      transformOrigin.left = `${rect.width - align.offset![0]}px`;
-    } else if (/right|Left/.test(placement)) {
-      transformOrigin.left = `${-align.offset![0]}px`;
-    }
-    domNode.style.transformOrigin = `${transformOrigin.left} ${transformOrigin.top}`;
   };
 
   const getOverlay = () => {
