@@ -18,7 +18,7 @@ const EmptyElement = React.createElement('div');
 const styleFiles = glob.sync(
   path.join(
     process.cwd(),
-    'components/!(version|config-provider|icon|locale-provider|auto-complete|col|row|time-picker|)/style/index.tsx',
+    'components/!(version|config-provider|icon|locale-provider|auto-complete|col|row|time-picker|)/style/index.?(ts|tsx)',
   ),
 );
 
