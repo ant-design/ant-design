@@ -119,7 +119,7 @@ const genGroupStyle: GenerateStyle<AvatarToken> = (token) => {
       [`${componentCls}`]: {
         borderColor: avatarGroupBorderColor,
 
-        [`&:not(:first-child)`]: {
+        [`&:not(&-group-item-0)`]: {
           marginInlineStart: -avatarGroupOverlapping,
         },
       },

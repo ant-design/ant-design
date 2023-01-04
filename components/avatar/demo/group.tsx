@@ -6,7 +6,9 @@ const App: React.FC = () => (
   <>
     <Avatar.Group>
       <Avatar src="https://joeschmoe.io/api/v1/random" />
-      <Avatar style={{ backgroundColor: '#f56a00' }}>K</Avatar>
+      <a href="https://ant.design">
+        <Avatar style={{ backgroundColor: '#f56a00' }}>K</Avatar>
+      </a>
       <Tooltip title="Ant User" placement="top">
         <Avatar style={{ backgroundColor: '#87d068' }} icon={<UserOutlined />} />
       </Tooltip>
