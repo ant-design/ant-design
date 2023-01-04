@@ -1,7 +1,7 @@
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
-import * as React from 'react';
+import React, { useMemo } from 'react';
 import Checkbox from '../checkbox';
 import Dropdown from '../dropdown';
 import type { MenuProps } from '../menu';
@@ -143,29 +143,13 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
     const renderResult = render(item);
     const isRenderResultPlain = isRenderResultPlainObject(renderResult);
     return {
-      renderedText: isRenderResultPlain
-        ? (renderResult as RenderResultObject).value
-        : (renderResult as string),
-      renderedEl: isRenderResultPlain ? (renderResult as RenderResultObject).label : renderResult,
       item,
+      renderedEl: isRenderResultPlain ? renderResult.label : renderResult,
+      renderedText: isRenderResultPlain ? renderResult.value : (renderResult as string),
     };
   };
 
-  const memoizedFilteredItems = React.useMemo<[RecordType[], RenderedItem<RecordType>[]]>(() => {
-    const filteredItems: RecordType[] = [];
-    const filteredRenderItems: RenderedItem<RecordType>[] = [];
-    dataSource.forEach((item) => {
-      const renderedItem = renderItem(item);
-      if (filterValue && !matchFilter(renderedItem.renderedText, item)) {
-        return;
-      }
-      filteredItems.push(item);
-      filteredRenderItems.push(renderedItem);
-    });
-    return [filteredItems, filteredRenderItems];
-  }, [dataSource, filterValue]);
-
-  const notFoundContentEle = React.useMemo<React.ReactNode>(
+  const notFoundContentEle = useMemo<React.ReactNode>(
     () =>
       Array.isArray(notFoundContent)
         ? notFoundContent[direction === 'left' ? 0 : 1]
@@ -173,9 +157,21 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
     [notFoundContent, direction],
   );
 
-  const [filteredItems, filteredRenderItems] = memoizedFilteredItems;
+  const [filteredItems, filteredRenderItems] = useMemo(() => {
+    const filterItems: RecordType[] = [];
+    const filterRenderItems: RenderedItem<RecordType>[] = [];
+    dataSource.forEach((item) => {
+      const renderedItem = renderItem(item);
+      if (filterValue && !matchFilter(renderedItem.renderedText, item)) {
+        return;
+      }
+      filterItems.push(item);
+      filterRenderItems.push(renderedItem);
+    });
+    return [filterItems, filterRenderItems] as const;
+  }, [dataSource, filterValue]);
 
-  const checkStatus = React.useMemo<string>(() => {
+  const checkStatus = useMemo<string>(() => {
     if (checkedKeys.length === 0) {
       return 'none';
     }
@@ -186,7 +182,7 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
     return 'part';
   }, [checkedKeys, filteredItems]);
 
-  const listBody = React.useMemo<React.ReactNode>(() => {
+  const listBody = useMemo<React.ReactNode>(() => {
     const search = showSearch ? (
       <div className={`${prefixCls}-body-search-wrapper`}>
         <Search
@@ -238,10 +234,9 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
     filteredItems,
     filteredRenderItems,
     notFoundContentEle,
-    renderListBody,
   ]);
 
-  const checkBox = React.useMemo<React.ReactNode>(
+  const checkBox = useMemo<React.ReactNode>(
     () => (
       <Checkbox
         disabled={disabled}
