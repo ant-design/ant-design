@@ -121,6 +121,7 @@ module.exports = {
     },
   ],
   rules: {
+    'react-hooks/exhaustive-deps': 1,
     'react/jsx-one-expression-per-line': 0,
     'react/prop-types': 0,
     'react/forbid-prop-types': 0,
