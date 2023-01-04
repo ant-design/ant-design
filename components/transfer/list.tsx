@@ -236,23 +236,20 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
     notFoundContentEle,
   ]);
 
-  const checkBox = useMemo<React.ReactNode>(
-    () => (
-      <Checkbox
-        disabled={disabled}
-        checked={checkStatus === 'all'}
-        indeterminate={checkStatus === 'part'}
-        className={`${prefixCls}-checkbox`}
-        onChange={() => {
-          // Only select enabled items
-          onItemSelectAll?.(
-            filteredItems.filter((item) => !item.disabled).map(({ key }) => key),
-            checkStatus !== 'all',
-          );
-        }}
-      />
-    ),
-    [filteredItems, disabled, prefixCls, onItemSelectAll],
+  const checkBox = (
+    <Checkbox
+      disabled={disabled}
+      checked={checkStatus === 'all'}
+      indeterminate={checkStatus === 'part'}
+      className={`${prefixCls}-checkbox`}
+      onChange={() => {
+        // Only select enabled items
+        onItemSelectAll?.(
+          filteredItems.filter((item) => !item.disabled).map(({ key }) => key),
+          checkStatus !== 'all',
+        );
+      }}
+    />
   );
 
   const getSelectAllLabel = (selectedCount: number, totalCount: number): React.ReactNode => {
