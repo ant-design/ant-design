@@ -58,7 +58,7 @@ export { customRender as render, pureRender };
 export const triggerResize = (target: Element) => {
   const originGetBoundingClientRect = target.getBoundingClientRect;
 
-  target.getBoundingClientRect = () => ({ width: 510, height: 903 } as DOMRect);
+  target.getBoundingClientRect = () => ({ width: 510, height: 903 }) as DOMRect;
 
   act(() => {
     onLibResize([{ target } as ResizeObserverEntry]);
@@ -140,6 +140,7 @@ export const withRawProcessLifecycle = (): NodeJS.Process => {
   afterEach(() => {
     let listener;
     Object.keys(originalJestListeners).forEach((event: NodeJS.UncaughtExceptionOrigin) => {
+      // eslint-disable-next-line no-cond-assign
       while ((listener = originalJestListeners[event].pop()) !== undefined) {
         rawProcess.on(event, listener);
       }

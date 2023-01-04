@@ -199,14 +199,14 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     expect(($$('.ant-btn')[1] as HTMLButtonElement).disabled).toBe(true);
   });
 
-  describe.only('should let users handle promise rejections in onOk handler', function () {
+  describe('should let users handle promise rejections in onOk handler', () => {
     const rawProcess = withRawProcessLifecycle();
     const error = new Error('something wrong');
 
     it('unhandled promise', async () => {
-      const unhandledRejectionPromise = new Promise((resolve) =>
-        rawProcess.once('unhandledRejection', resolve),
-      );
+      const unhandledRejectionPromise = new Promise((resolve) => {
+        rawProcess.once('unhandledRejection', resolve);
+      });
       await open({ onOk: () => Promise.reject(error) });
       $$('.ant-btn-primary')[0].click();
 
