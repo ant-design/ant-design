@@ -66,7 +66,7 @@ const ListBody: React.ForwardRefRenderFunction<
       const maxPageCount = Math.ceil(filteredRenderItems.length / mergedPagination.pageSize!);
       setCurrent(Math.min(current, maxPageCount));
     }
-  }, [current, filteredRenderItems, pagination]);
+  }, [filteredRenderItems, pagination]);
 
   const onClick = (item: RecordType) => {
     onItemSelect?.(item.key, !selectedKeys.includes(item.key));
