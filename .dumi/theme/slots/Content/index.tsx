@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import React, { useMemo, useState, useLayoutEffect, useContext } from 'react';
 import { useIntl, useRouteMeta, FormattedMessage } from 'dumi';
-import { Col, Typography, Avatar, Tooltip, Affix, Anchor, Space } from 'antd';
+import { Col, Typography, Avatar, Tooltip, Affix, Anchor, Space, Skeleton } from 'antd';
 import { CalendarOutlined } from '@ant-design/icons';
 import ContributorsList from '@qixian.cs/github-contributors-list';
 import DayJS from 'dayjs';
@@ -29,8 +29,7 @@ const useStyle = () => {
 
       a,
       ${antCls}-avatar + ${antCls}-avatar {
-        margin-bottom: 8px;
-        margin-inline-end: 8px;
+        margin-inline-end: -8px;
       }
     `,
     toc: css`
@@ -145,6 +144,14 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
 
   const isRTL = direction === 'rtl';
 
+  const avatarPlaceholder = (
+    <>
+      <Skeleton.Avatar size="small" active />
+      <Skeleton.Avatar size="small" active style={{ marginLeft: -8 }} />
+      <Skeleton.Avatar size="small" active style={{ marginLeft: -8 }} />
+    </>
+  );
+
   return (
     <DemoContext.Provider value={contextValue}>
       <Col xxl={20} xl={19} lg={18} md={18} sm={24} xs={24}>
@@ -213,25 +220,23 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
               css={styles.contributorsList}
               fileName={meta.frontmatter.filename}
               renderItem={(item, loading) =>
-                loading ? (
-                  <Avatar style={{ opacity: 0.3 }} />
+                loading || !item ? (
+                  avatarPlaceholder
                 ) : (
-                  item && (
-                    <Tooltip
-                      title={`${formatMessage({ id: 'app.content.contributors' })}: ${
-                        item.username
-                      }`}
-                      key={item.username}
+                  <Tooltip
+                    title={`${formatMessage({ id: 'app.content.contributors' })}: ${item.username}`}
+                    key={item.username}
+                  >
+                    <a
+                      href={`https://github.com/${item.username}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
-                      <a
-                        href={`https://github.com/${item.username}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <Avatar src={item.url}>{item.username}</Avatar>
-                      </a>
-                    </Tooltip>
-                  )
+                      <Avatar size="small" src={item.url}>
+                        {item.username}
+                      </Avatar>
+                    </a>
+                  </Tooltip>
                 )
               }
               repo="ant-design"
