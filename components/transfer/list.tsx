@@ -228,7 +228,18 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
         {bodyNode}
       </div>
     );
-  }, [showSearch, prefixCls, searchPlaceholder, filterValue, disabled, checkedKeys]);
+  }, [
+    showSearch,
+    prefixCls,
+    searchPlaceholder,
+    filterValue,
+    disabled,
+    checkedKeys,
+    filteredItems,
+    filteredRenderItems,
+    notFoundContentEle,
+    renderListBody,
+  ]);
 
   const checkBox = React.useMemo<React.ReactNode>(
     () => (
