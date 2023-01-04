@@ -1,7 +1,7 @@
 import React, { startTransition, useCallback, useEffect, useMemo } from 'react';
 import { createSearchParams, useOutlet, useSearchParams } from 'dumi';
 import { ConfigProvider, theme as antdTheme } from 'antd';
-import { createCache, StyleProvider } from '@ant-design/cssinjs';
+import { createCache, StyleProvider, logicalPropertiesLinter } from '@ant-design/cssinjs';
 import type { DirectionType } from 'antd/es/config-provider';
 import ThemeSwitch from '../common/ThemeSwitch';
 import type { ThemeName } from '../common/ThemeSwitch';
@@ -102,7 +102,7 @@ const GlobalLayout: React.FC = () => {
   );
 
   return (
-    <StyleProvider cache={styleCache}>
+    <StyleProvider cache={styleCache} linters={[logicalPropertiesLinter]}>
       <SiteContext.Provider value={siteContextValue}>
         <ConfigProvider
           theme={{
