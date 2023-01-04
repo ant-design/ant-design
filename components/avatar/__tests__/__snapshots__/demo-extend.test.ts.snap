@@ -339,25 +339,30 @@ Array [
     class="ant-avatar-group"
   >
     <span
-      class="ant-avatar ant-avatar-circle ant-avatar-image"
+      class="ant-avatar ant-avatar-circle ant-avatar-image ant-avatar-group-item-0"
     >
       <img
         src="https://joeschmoe.io/api/v1/random"
       />
     </span>
-    <span
-      class="ant-avatar ant-avatar-circle"
-      style="background-color:#f56a00"
+    <a
+      class="ant-avatar-group-item-1"
+      href="https://ant.design"
     >
       <span
-        class="ant-avatar-string"
-        style="opacity:0"
+        class="ant-avatar ant-avatar-circle"
+        style="background-color:#f56a00"
       >
-        K
+        <span
+          class="ant-avatar-string"
+          style="opacity:0"
+        >
+          K
+        </span>
       </span>
-    </span>
+    </a>
     <span
-      class="ant-avatar ant-avatar-circle ant-avatar-icon"
+      class="ant-avatar ant-avatar-circle ant-avatar-icon ant-avatar-group-item-2"
       style="background-color:#87d068"
     >
       <span
@@ -405,7 +410,7 @@ Array [
       </div>
     </div>
     <span
-      class="ant-avatar ant-avatar-circle ant-avatar-icon"
+      class="ant-avatar ant-avatar-circle ant-avatar-icon ant-avatar-group-item-3"
       style="background-color:#1890ff"
     >
       <span
@@ -437,14 +442,14 @@ Array [
     class="ant-avatar-group"
   >
     <span
-      class="ant-avatar ant-avatar-circle ant-avatar-image"
+      class="ant-avatar ant-avatar-circle ant-avatar-image ant-avatar-group-item-0"
     >
       <img
         src="https://joeschmoe.io/api/v1/random"
       />
     </span>
     <span
-      class="ant-avatar ant-avatar-circle"
+      class="ant-avatar ant-avatar-circle ant-avatar-group-item-1"
       style="background-color:#f56a00"
     >
       <span
@@ -488,7 +493,7 @@ Array [
               class="ant-popover-inner-content"
             >
               <span
-                class="ant-avatar ant-avatar-circle ant-avatar-icon"
+                class="ant-avatar ant-avatar-circle ant-avatar-icon ant-avatar-group-item-2"
                 style="background-color:#87d068"
               >
                 <span
@@ -536,7 +541,7 @@ Array [
                 </div>
               </div>
               <span
-                class="ant-avatar ant-avatar-circle ant-avatar-icon"
+                class="ant-avatar ant-avatar-circle ant-avatar-icon ant-avatar-group-item-3"
                 style="background-color:#1890ff"
               >
                 <span
@@ -573,14 +578,14 @@ Array [
     class="ant-avatar-group"
   >
     <span
-      class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-image"
+      class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-image ant-avatar-group-item-0"
     >
       <img
         src="https://joeschmoe.io/api/v1/random"
       />
     </span>
     <span
-      class="ant-avatar ant-avatar-lg ant-avatar-circle"
+      class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-group-item-1"
       style="background-color:#f56a00"
     >
       <span
@@ -624,7 +629,7 @@ Array [
               class="ant-popover-inner-content"
             >
               <span
-                class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-icon"
+                class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-icon ant-avatar-group-item-2"
                 style="background-color:#87d068"
               >
                 <span
@@ -672,7 +677,7 @@ Array [
                 </div>
               </div>
               <span
-                class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-icon"
+                class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-icon ant-avatar-group-item-3"
                 style="background-color:#1890ff"
               >
                 <span
@@ -709,14 +714,14 @@ Array [
     class="ant-avatar-group"
   >
     <span
-      class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-image"
+      class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-image ant-avatar-group-item-0"
     >
       <img
         src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
       />
     </span>
     <span
-      class="ant-avatar ant-avatar-lg ant-avatar-circle"
+      class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-group-item-1"
       style="background-color:#f56a00"
     >
       <span
@@ -760,7 +765,7 @@ Array [
               class="ant-popover-inner-content"
             >
               <span
-                class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-icon"
+                class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-icon ant-avatar-group-item-2"
                 style="background-color:#87d068"
               >
                 <span
@@ -808,7 +813,7 @@ Array [
                 </div>
               </div>
               <span
-                class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-icon"
+                class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-icon ant-avatar-group-item-3"
                 style="background-color:#1890ff"
               >
                 <span
