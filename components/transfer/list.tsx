@@ -184,10 +184,9 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
     [notFoundContent, direction],
   );
 
-  const getListBody = (
-    filteredItems: RecordType[],
-    filteredRenderItems: RenderedItem<RecordType>[],
-  ): React.ReactNode => {
+  const [filteredItems, filteredRenderItems] = memoizedFilteredItems;
+
+  const listBody = React.useMemo<React.ReactNode>(() => {
     const search = showSearch ? (
       <div className={`${prefixCls}-body-search-wrapper`}>
         <Search
@@ -219,7 +218,6 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
         <div className={`${prefixCls}-body-not-found`}>{notFoundContentEle}</div>
       );
     }
-
     return (
       <div
         className={classNames(
@@ -230,12 +228,12 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
         {bodyNode}
       </div>
     );
-  };
+  }, [showSearch, prefixCls, searchPlaceholder, filterValue, disabled, checkedKeys]);
 
-  const getCheckBox = (items: RecordType[]): React.ReactNode => {
-    const checkStatus = getCheckStatus(items);
+  const checkBox = React.useMemo<React.ReactNode>(() => {
+    const checkStatus = getCheckStatus(filteredItems);
     const checkedAll = checkStatus === 'all';
-    const checkAllCheckbox: React.ReactNode = (
+    return (
       <Checkbox
         disabled={disabled}
         checked={checkedAll}
@@ -244,14 +242,13 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
         onChange={() => {
           // Only select enabled items
           onItemSelectAll(
-            items.filter((item) => !item.disabled).map(({ key }) => key),
+            filteredItems.filter((item) => !item.disabled).map(({ key }) => key),
             !checkedAll,
           );
         }}
       />
     );
-    return checkAllCheckbox;
-  };
+  }, [filteredItems, disabled, prefixCls, onItemSelectAll]);
 
   const getSelectAllLabel = (selectedCount: number, totalCount: number): React.ReactNode => {
     if (selectAllLabel) {
@@ -277,13 +274,9 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
 
   // ====================== Get filtered, checked item list ======================
 
-  const [filteredItems, filteredRenderItems] = memoizedFilteredItems;
-
-  const listBody = getListBody(filteredItems, filteredRenderItems);
-
   const listFooter = footerDom ? <div className={`${prefixCls}-footer`}>{footerDom}</div> : null;
 
-  const checkAllCheckbox = !showRemove && !pagination && getCheckBox(filteredItems);
+  const checkAllCheckbox = !showRemove && !pagination && checkBox;
 
   let items: MenuProps['items'];
 
