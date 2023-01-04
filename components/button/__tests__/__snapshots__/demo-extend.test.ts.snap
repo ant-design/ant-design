@@ -119,6 +119,33 @@ exports[`renders ./components/button/demo/block.tsx extend context correctly 1`]
   </div>
   <div
     class="ant-space-item"
+    style="margin-bottom:8px"
+  >
+    <button
+      class="ant-btn ant-btn-default ant-btn-block"
+      disabled=""
+      type="button"
+    >
+      <span>
+        disabled
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
+  >
+    <button
+      class="ant-btn ant-btn-text ant-btn-block"
+      type="button"
+    >
+      <span>
+        text
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
   >
     <button
       class="ant-btn ant-btn-link ant-btn-block"
