@@ -114,7 +114,7 @@ const useStyle = () => {
     `,
 
     menu: css`
-      margin-left: auto;
+      margin-inline-start: auto;
     `,
 
     darkSideMenu: css``,

@@ -7,17 +7,17 @@ import useSiteToken from '../../../hooks/useSiteToken';
 const useStyle = () => {
   const { token } = useSiteToken();
 
-  const { antCls, headerHeight, colorTextHeading, fontFamily, mobileMaxWidth } = token;
+  const { headerHeight, colorTextHeading, fontFamily, mobileMaxWidth } = token;
 
   return {
     logo: css`
       height: ${headerHeight}px;
-      padding-left: 40px;
+      padding-inline-start: 40px;
       overflow: hidden;
       color: ${colorTextHeading};
       font-weight: bold;
       font-size: 18px;
-      font-family: PuHuiTi, ${fontFamily}, sans-serif;
+      font-family: AlibabaPuHuiTi, ${fontFamily}, sans-serif;
       line-height: ${headerHeight}px;
       letter-spacing: -0.18px;
       white-space: nowrap;
@@ -29,26 +29,15 @@ const useStyle = () => {
         color: ${colorTextHeading};
       }
 
-      ${antCls}-row-rtl & {
-        float: right;
-        padding-right: 40px;
-        padding-left: 0;
-      }
-
       img {
         height: 32px;
-        margin-right: 12px;
+        margin-inline-end: 12px;
         vertical-align: middle;
-
-        ${antCls}-row-rtl & {
-          margin-right: 0;
-          margin-left: 16px;
-        }
       }
 
       @media only screen and (max-width: ${mobileMaxWidth}px) {
-        padding-right: 0;
-        padding-left: 0;
+        padding-inline-start: 0;
+        padding-inline-end: 0;
       }
     `,
   };

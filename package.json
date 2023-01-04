@@ -246,7 +246,7 @@
     "prismjs": "^1.29.0",
     "progress": "^2.0.3",
     "qs": "^6.10.1",
-    "rc-footer": "^0.6.6",
+    "rc-footer": "^0.6.8",
     "rc-tween-one": "^3.0.3",
     "rc-virtual-list": "^3.4.11",
     "react": "^18.0.0",
