@@ -46,7 +46,6 @@ const Group: React.FC<GroupProps> = (props) => {
   const childrenWithProps = toArray(children).map((child, index) =>
     cloneElement(child, {
       key: `avatar-key-${index}`,
-      className: classNames(child.props.className, `${groupPrefixCls}-item-${index}`),
     }),
   );
 
