@@ -117,10 +117,10 @@ const ListBody: React.ForwardRefRenderFunction<
   return (
     <>
       <ul
+        onScroll={onScroll}
         className={classNames(`${prefixCls}-content`, {
           [`${prefixCls}-content-show-remove`]: showRemove,
         })}
-        onScroll={onScroll}
       >
         {(getItems || []).map(({ renderedEl, renderedText, item }) => (
           <ListItem
