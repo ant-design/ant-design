@@ -472,8 +472,10 @@ const genBlockButtonStyle: GenerateStyle<ButtonToken> = (token) => {
   const { componentCls } = token;
   return {
     [componentCls]: {
-      [`&${componentCls}-block`]: {
-        width: '100% !important',
+      [['default', 'primary', 'dashed', 'link', 'text', 'disabled']
+        .map((type) => `&${componentCls}-${type}${componentCls}-block`)
+        .join(',')]: {
+        width: '100%',
       },
     },
   };
