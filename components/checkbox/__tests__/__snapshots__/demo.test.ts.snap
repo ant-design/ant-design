@@ -409,6 +409,24 @@ Array [
     class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
   >
     <span
+      class="ant-checkbox ant-checkbox-indeterminate ant-checkbox-disabled"
+    >
+      <input
+        aria-checked="mixed"
+        class="ant-checkbox-input"
+        disabled=""
+        type="checkbox"
+      />
+      <span
+        class="ant-checkbox-inner"
+      />
+    </span>
+  </label>,
+  <br />,
+  <label
+    class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
+  >
+    <span
       class="ant-checkbox ant-checkbox-checked ant-checkbox-disabled"
     >
       <input
