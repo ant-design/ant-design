@@ -29,7 +29,7 @@ const Ribbon: React.FC<RibbonProps> = function Ribbon({
 }) {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('ribbon', customizePrefixCls);
-  const colorInPreset = isPresetColor(color);
+  const colorInPreset = isPresetColor(color, false);
   const ribbonCls = classNames(
     prefixCls,
     `${prefixCls}-placement-${placement}`,

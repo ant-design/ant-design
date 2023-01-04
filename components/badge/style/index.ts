@@ -73,31 +73,16 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
   const ribbonPrefixCls = `${antCls}-ribbon`;
   const ribbonWrapperPrefixCls = `${antCls}-ribbon-wrapper`;
 
-  const statusPreset = genPresetColor(token, (colorKey, { darkColor, lightColor }) => ({
+  const statusPreset = genPresetColor(token, (colorKey, { darkColor }) => ({
     [`${componentCls}-status-${colorKey}`]: {
       background: darkColor,
-
-      // Inverse color
-      '&-inverse': {
-        background: lightColor,
-      },
     },
   }));
 
-  const statusRibbonPreset = genPresetColor(token, (colorKey, { darkColor, lightColor }) => ({
+  const statusRibbonPreset = genPresetColor(token, (colorKey, { darkColor }) => ({
     [`&${ribbonPrefixCls}-color-${colorKey}`]: {
       background: darkColor,
       color: darkColor,
-
-      // Inverse color
-      '&-inverse': {
-        background: lightColor,
-        color: lightColor,
-
-        [`> ${ribbonPrefixCls}-text`]: {
-          color: darkColor,
-        },
-      },
     },
   }));
 
