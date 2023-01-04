@@ -7,7 +7,7 @@ import useSiteToken from '../../../hooks/useSiteToken';
 const useStyle = () => {
   const { token } = useSiteToken();
 
-  const { antCls, headerHeight, colorTextHeading, fontFamily, mobileMaxWidth } = token;
+  const { headerHeight, colorTextHeading, fontFamily, mobileMaxWidth } = token;
 
   return {
     logo: css`
@@ -36,8 +36,8 @@ const useStyle = () => {
       }
 
       @media only screen and (max-width: ${mobileMaxWidth}px) {
-        padding-right: 0;
-        padding-left: 0;
+        padding-inline-start: 0;
+        padding-inline-end: 0;
       }
     `,
   };
