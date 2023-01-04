@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-shadow */
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
@@ -66,7 +65,7 @@ export interface TransferListProps<RecordType> extends TransferLocale {
     props: TransferListProps<RecordType>,
     info?: { direction: TransferDirection },
   ) => React.ReactNode;
-  onScroll: (e: React.UIEvent<HTMLUListElement>) => void;
+  onScroll: (e: React.UIEvent<HTMLUListElement, UIEvent>) => void;
   disabled?: boolean;
   direction: TransferDirection;
   showSelectAll?: boolean;
@@ -142,14 +141,11 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
     return text.includes(filterValue);
   };
 
-  const renderListBody = (
-    renderList: RenderListFunction<RecordType> | undefined,
-    props: TransferListBodyProps<RecordType>,
-  ) => {
-    let bodyContent: React.ReactNode = renderList ? renderList(props) : null;
+  const renderListBody = (listProps: TransferListBodyProps<RecordType>) => {
+    let bodyContent: React.ReactNode = renderList ? renderList(listProps) : null;
     const customize: boolean = !!bodyContent;
     if (!customize) {
-      bodyContent = <DefaultListBody ref={defaultListBodyRef} {...props} />;
+      bodyContent = <DefaultListBody ref={defaultListBodyRef} {...listProps} />;
     }
     return { customize, bodyContent };
   };
@@ -166,42 +162,24 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
     };
   };
 
-  const getFilteredItems = (
-    dataSource: RecordType[],
-    filterValue: string,
-  ): {
-    filteredItems: RecordType[];
-    filteredRenderItems: RenderedItem<RecordType>[];
-  } => {
+  const memoizedFilteredItems = React.useMemo(() => {
     const filteredItems: RecordType[] = [];
     const filteredRenderItems: RenderedItem<RecordType>[] = [];
-
     dataSource.forEach((item) => {
       const renderedItem = renderItem(item);
       const { renderedText } = renderedItem;
-
-      // Filter skip
       if (filterValue && !matchFilter(renderedText, item)) {
-        return null;
+        return;
       }
-
       filteredItems.push(item);
       filteredRenderItems.push(renderedItem);
     });
-    return { filteredItems, filteredRenderItems };
-  };
+    return [filteredItems, filteredRenderItems] as const;
+  }, [dataSource]);
 
   const getListBody = (
-    prefixCls: string,
-    searchPlaceholder: string,
-    filterValue: string,
     filteredItems: RecordType[],
-    notFoundContent: React.ReactNode | React.ReactNode[],
     filteredRenderItems: RenderedItem<RecordType>[],
-    checkedKeys: string[],
-    renderList?: RenderListFunction<RecordType>,
-    showSearch?: boolean,
-    disabled?: boolean,
   ): React.ReactNode => {
     const search = showSearch ? (
       <div className={`${prefixCls}-body-search-wrapper`}>
@@ -216,7 +194,7 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
       </div>
     ) : null;
 
-    const { bodyContent, customize } = renderListBody(renderList, {
+    const { bodyContent, customize } = renderListBody({
       ...omit(props, OmitProps),
       filteredItems,
       filteredRenderItems,
@@ -252,18 +230,8 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
     );
   };
 
-  const getCheckBox = ({
-    filteredItems,
-    onItemSelectAll,
-    disabled,
-    prefixCls,
-  }: {
-    filteredItems: RecordType[];
-    onItemSelectAll: (dataSource: string[], checkAll: boolean) => void;
-    disabled?: boolean;
-    prefixCls?: string;
-  }): false | React.ReactNode => {
-    const checkStatus = getCheckStatus(filteredItems);
+  const getCheckBox = (items: RecordType[]): React.ReactNode => {
+    const checkStatus = getCheckStatus(items);
     const checkedAll = checkStatus === 'all';
     const checkAllCheckbox: React.ReactNode = (
       <Checkbox
@@ -274,7 +242,7 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
         onChange={() => {
           // Only select enabled items
           onItemSelectAll(
-            filteredItems.filter((item) => !item.disabled).map(({ key }) => key),
+            items.filter((item) => !item.disabled).map(({ key }) => key),
             !checkedAll,
           );
         }}
@@ -307,27 +275,13 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
 
   // ====================== Get filtered, checked item list ======================
 
-  const { filteredItems, filteredRenderItems } = getFilteredItems(dataSource, filterValue);
+  const [filteredItems, filteredRenderItems] = memoizedFilteredItems;
 
-  const listBody = getListBody(
-    prefixCls,
-    searchPlaceholder,
-    filterValue,
-    filteredItems,
-    notFoundContent,
-    filteredRenderItems,
-    checkedKeys,
-    renderList,
-    showSearch,
-    disabled,
-  );
+  const listBody = getListBody(filteredItems, filteredRenderItems);
 
   const listFooter = footerDom ? <div className={`${prefixCls}-footer`}>{footerDom}</div> : null;
 
-  const checkAllCheckbox =
-    !showRemove &&
-    !pagination &&
-    getCheckBox({ filteredItems, onItemSelectAll, disabled, prefixCls });
+  const checkAllCheckbox = !showRemove && !pagination && getCheckBox(filteredItems);
 
   let items: MenuProps['items'];
 
@@ -340,7 +294,7 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
             label: removeCurrent,
             onClick() {
               const pageKeys = getEnabledItemKeys(
-                (defaultListBodyRef.current?.getItems || []).map((entity) => entity.item),
+                (defaultListBodyRef.current?.items || []).map((entity) => entity.item),
               );
               onItemRemove?.(pageKeys);
             },
@@ -370,7 +324,7 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
             key: 'selectCurrent',
             label: selectCurrent,
             onClick() {
-              const pageItems = defaultListBodyRef.current?.getItems || [];
+              const pageItems = defaultListBodyRef.current?.items || [];
               onItemSelectAll(getEnabledItemKeys(pageItems.map((entity) => entity.item)), true);
             },
           }
@@ -381,7 +335,7 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
         onClick() {
           const availableKeys = getEnabledItemKeys(
             pagination
-              ? (defaultListBodyRef.current?.getItems || []).map((entity) => entity.item)
+              ? (defaultListBodyRef.current?.items || []).map((entity) => entity.item)
               : filteredItems,
           );
           const checkedKeySet = new Set<string>(checkedKeys);

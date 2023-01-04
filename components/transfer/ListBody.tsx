@@ -36,7 +36,7 @@ const parsePagination = (pagination?: PaginationType) => {
 };
 
 export interface ListBodyRef<RecordType extends KeyWiseTransferItem> {
-  getItems?: RenderedItem<RecordType>[];
+  items?: RenderedItem<RecordType>[];
 }
 
 const ListBody: React.ForwardRefRenderFunction<
@@ -80,7 +80,7 @@ const ListBody: React.ForwardRefRenderFunction<
     setCurrent(cur);
   };
 
-  const getItems = React.useMemo<RenderedItem<RecordType>[]>(() => {
+  const memoizedItems = React.useMemo<RenderedItem<RecordType>[]>(() => {
     const mergedPagination = parsePagination(pagination);
     const displayItems = mergedPagination
       ? filteredRenderItems.slice(
@@ -91,7 +91,7 @@ const ListBody: React.ForwardRefRenderFunction<
     return displayItems;
   }, [current, filteredRenderItems, pagination]);
 
-  React.useImperativeHandle(ref, () => ({ getItems }));
+  React.useImperativeHandle(ref, () => ({ items: memoizedItems }));
 
   const mergedPagination = parsePagination(pagination);
 
@@ -110,15 +110,14 @@ const ListBody: React.ForwardRefRenderFunction<
     />
   ) : null;
 
+  const cls = classNames(`${prefixCls}-content`, {
+    [`${prefixCls}-content-show-remove`]: showRemove,
+  });
+
   return (
     <>
-      <ul
-        onScroll={onScroll}
-        className={classNames(`${prefixCls}-content`, {
-          [`${prefixCls}-content-show-remove`]: showRemove,
-        })}
-      >
-        {(getItems || []).map(({ renderedEl, renderedText, item }) => (
+      <ul className={cls} onScroll={onScroll}>
+        {(memoizedItems || []).map(({ renderedEl, renderedText, item }) => (
           <ListItem
             key={item.key}
             item={item}
