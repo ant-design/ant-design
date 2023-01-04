@@ -1,9 +1,9 @@
 import classNames from 'classnames';
 import * as React from 'react';
 import type { KeyWiseTransferItem } from '.';
-import Pagination from '../pagination';
 import type { PaginationType } from './interface';
 import type { RenderedItem, TransferListProps } from './list';
+import Pagination from '../pagination';
 import ListItem from './ListItem';
 
 export const OmitProps = ['handleFilter', 'handleClear', 'checkedKeys'] as const;
@@ -16,12 +16,12 @@ export interface TransferListBodyProps<RecordType> extends PartialTransferListPr
   selectedKeys: string[];
 }
 
-function parsePagination(pagination?: PaginationType) {
+const parsePagination = (pagination?: PaginationType) => {
   if (!pagination) {
     return null;
   }
 
-  const defaultPagination = {
+  const defaultPagination: PaginationType = {
     pageSize: 10,
     simple: true,
     showSizeChanger: false,
@@ -33,18 +33,18 @@ function parsePagination(pagination?: PaginationType) {
   }
 
   return defaultPagination;
-}
+};
 
-export interface ListBodyRef {
-  getItems?: RenderedItem<KeyWiseTransferItem>[];
+export interface ListBodyRef<RecordType extends KeyWiseTransferItem> {
+  getItems?: RenderedItem<RecordType>[];
 }
 
 const ListBody: React.ForwardRefRenderFunction<
-  ListBodyRef,
+  ListBodyRef<KeyWiseTransferItem>,
   TransferListBodyProps<KeyWiseTransferItem>
 > = <RecordType extends KeyWiseTransferItem>(
   props: TransferListBodyProps<RecordType>,
-  ref: React.ForwardedRef<ListBodyRef>,
+  ref: React.ForwardedRef<ListBodyRef<RecordType>>,
 ) => {
   const {
     prefixCls,
@@ -63,7 +63,7 @@ const ListBody: React.ForwardRefRenderFunction<
   React.useEffect(() => {
     const mergedPagination = parsePagination(pagination);
     if (mergedPagination) {
-      const maxPageCount = Math.ceil(filteredRenderItems.length / mergedPagination.pageSize);
+      const maxPageCount = Math.ceil(filteredRenderItems.length / mergedPagination.pageSize!);
       if (current > maxPageCount) {
         setCurrent(maxPageCount);
       }
@@ -86,8 +86,8 @@ const ListBody: React.ForwardRefRenderFunction<
     const mergedPagination = parsePagination(pagination);
     const displayItems = mergedPagination
       ? filteredRenderItems.slice(
-          (current - 1) * mergedPagination.pageSize,
-          current * mergedPagination.pageSize,
+          (current - 1) * mergedPagination.pageSize!,
+          current * mergedPagination.pageSize!,
         )
       : filteredRenderItems;
     return displayItems;
@@ -146,4 +146,7 @@ if (process.env.NODE_ENV !== 'production') {
   ListBody.displayName = 'ListBody';
 }
 
-export default React.forwardRef<ListBodyRef, TransferListBodyProps<KeyWiseTransferItem>>(ListBody);
+export default React.forwardRef<
+  ListBodyRef<KeyWiseTransferItem>,
+  TransferListBodyProps<KeyWiseTransferItem>
+>(ListBody);

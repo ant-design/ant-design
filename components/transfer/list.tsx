@@ -112,7 +112,7 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
 
   const [filterValue, setFilterValue] = React.useState<string>('');
 
-  const defaultListBodyRef = React.useRef<ListBodyRef>({});
+  const defaultListBodyRef = React.useRef<ListBodyRef<RecordType>>({});
 
   const getCheckStatus = (filteredItems: RecordType[]) => {
     if (checkedKeys.length === 0) {
