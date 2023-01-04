@@ -34,7 +34,7 @@ const App: React.FC = () => {
     lineHeight: '260px',
     textAlign: 'center',
     color: token.colorTextTertiary,
-    backgroundColor: token.colorBgLayout,
+    backgroundColor: token.colorFillAlter,
     borderRadius: token.borderRadiusLG,
     border: `1px dashed ${token.colorBorder}`,
     marginTop: 16,
