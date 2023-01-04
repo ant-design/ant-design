@@ -6,7 +6,6 @@ import type { TabsProps as RcTabsProps } from 'rc-tabs';
 import RcTabs from 'rc-tabs';
 import type { EditableConfig } from 'rc-tabs/lib/interface';
 import * as React from 'react';
-
 import { ConfigContext } from '../config-provider';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
@@ -47,7 +46,7 @@ function Tabs({
   ...props
 }: TabsProps) {
   const { prefixCls: customizePrefixCls, moreIcon = <EllipsisOutlined /> } = props;
-  const { getPrefixCls, direction, getPopupContainer } = React.useContext(ConfigContext);
+  const { direction, getPrefixCls, getPopupContainer } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('tabs', customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
@@ -74,36 +73,33 @@ function Tabs({
 
   const mergedAnimated = useAnimateConfig(prefixCls, animated);
 
+  const contextSize = React.useContext<SizeType>(SizeContext);
+
+  const size = propSize !== undefined ? propSize : contextSize;
+
   return wrapSSR(
-    <SizeContext.Consumer>
-      {(contextSize) => {
-        const size = propSize !== undefined ? propSize : contextSize;
-        return (
-          <RcTabs
-            direction={direction}
-            getPopupContainer={getPopupContainer}
-            moreTransitionName={`${rootPrefixCls}-slide-up`}
-            {...props}
-            items={mergedItems}
-            className={classNames(
-              {
-                [`${prefixCls}-${size}`]: size,
-                [`${prefixCls}-card`]: ['card', 'editable-card'].includes(type as string),
-                [`${prefixCls}-editable-card`]: type === 'editable-card',
-                [`${prefixCls}-centered`]: centered,
-              },
-              className,
-              hashId,
-            )}
-            popupClassName={classNames(popupClassName, hashId)}
-            editable={editable}
-            moreIcon={moreIcon}
-            prefixCls={prefixCls}
-            animated={mergedAnimated}
-          />
-        );
-      }}
-    </SizeContext.Consumer>,
+    <RcTabs
+      direction={direction}
+      getPopupContainer={getPopupContainer}
+      moreTransitionName={`${rootPrefixCls}-slide-up`}
+      {...props}
+      items={mergedItems}
+      className={classNames(
+        {
+          [`${prefixCls}-${size}`]: size,
+          [`${prefixCls}-card`]: ['card', 'editable-card'].includes(type as string),
+          [`${prefixCls}-editable-card`]: type === 'editable-card',
+          [`${prefixCls}-centered`]: centered,
+        },
+        className,
+        hashId,
+      )}
+      popupClassName={classNames(popupClassName, hashId)}
+      editable={editable}
+      moreIcon={moreIcon}
+      prefixCls={prefixCls}
+      animated={mergedAnimated}
+    />,
   );
 }
 

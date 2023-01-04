@@ -1,23 +1,30 @@
 import * as React from 'react';
 import CSSMotion from 'rc-motion';
+import raf from 'rc-util/lib/raf';
 import { render, unmount } from 'rc-util/lib/React/render';
 import classNames from 'classnames';
-import { getTargetWaveColor, getValidateContainer } from './util';
+import { getTargetWaveColor } from './util';
+
+function validateNum(value: number) {
+  return Number.isNaN(value) ? 0 : value;
+}
 
 export interface WaveEffectProps {
-  left: number;
-  top: number;
-  width: number;
-  height: number;
-  color: string | null;
   className: string;
-  scale: number;
-  borderRadius: number[];
+  target: HTMLElement;
 }
 
 const WaveEffect: React.FC<WaveEffectProps> = (props) => {
-  const { className, left, top, width, height, color, borderRadius, scale } = props;
+  const { className, target } = props;
   const divRef = React.useRef<HTMLDivElement>(null);
+
+  const [color, setWaveColor] = React.useState<string | null>(null);
+  const [borderRadius, setBorderRadius] = React.useState<number[]>([]);
+  const [left, setLeft] = React.useState(0);
+  const [top, setTop] = React.useState(0);
+  const [width, setWidth] = React.useState(0);
+  const [height, setHeight] = React.useState(0);
+  const [enabled, setEnabled] = React.useState(false);
 
   const waveStyle = {
     left,
@@ -25,13 +32,71 @@ const WaveEffect: React.FC<WaveEffectProps> = (props) => {
     width,
     height,
     borderRadius: borderRadius.map((radius) => `${radius}px`).join(' '),
-    '--wave-scale': scale,
   } as React.CSSProperties & {
     [name: string]: number | string;
   };
 
   if (color) {
     waveStyle['--wave-color'] = color;
+  }
+
+  function syncPos() {
+    const nodeStyle = getComputedStyle(target);
+
+    // Get wave color from target
+    setWaveColor(getTargetWaveColor(target));
+
+    // Rect
+    setLeft(target.offsetLeft);
+    setTop(target.offsetTop);
+    setWidth(target.offsetWidth);
+    setHeight(target.offsetHeight);
+
+    // Get border radius
+    const {
+      borderTopLeftRadius,
+      borderTopRightRadius,
+      borderBottomLeftRadius,
+      borderBottomRightRadius,
+    } = nodeStyle;
+
+    setBorderRadius(
+      [
+        borderTopLeftRadius,
+        borderTopRightRadius,
+        borderBottomRightRadius,
+        borderBottomLeftRadius,
+      ].map((radius) => validateNum(parseFloat(radius))),
+    );
+  }
+
+  React.useEffect(() => {
+    if (target) {
+      // We need delay to check position here
+      // since UI may change after click
+      const id = raf(() => {
+        syncPos();
+
+        setEnabled(true);
+      });
+
+      // Add resize observer to follow size
+      let resizeObserver: ResizeObserver;
+      if (typeof ResizeObserver !== 'undefined') {
+        resizeObserver = new ResizeObserver(syncPos);
+
+        resizeObserver.observe(target);
+      }
+
+      return () => {
+        raf.cancel(id);
+        resizeObserver?.disconnect();
+      };
+    }
+  }, []);
+
+  if (!enabled) {
+    return null;
   }
 
   return (
@@ -57,49 +122,13 @@ const WaveEffect: React.FC<WaveEffectProps> = (props) => {
   );
 };
 
-function validateNum(value: number) {
-  return Number.isNaN(value) ? 0 : value;
-}
-
-export default function showWaveEffect(container: Node, node: HTMLElement, className: string) {
-  const nodeStyle = getComputedStyle(node);
-  const nodeRect = node.getBoundingClientRect();
-
-  // Get wave color from target
-  const waveColor = getTargetWaveColor(node);
-
-  // Get border radius
-  const {
-    borderTopLeftRadius,
-    borderTopRightRadius,
-    borderBottomLeftRadius,
-    borderBottomRightRadius,
-  } = nodeStyle;
-
-  // Do scale calc
-  const { offsetWidth } = node;
-  const scale = validateNum(nodeRect.width / offsetWidth);
-
+export default function showWaveEffect(node: HTMLElement, className: string) {
   // Create holder
   const holder = document.createElement('div');
-  getValidateContainer(container).appendChild(holder);
+  holder.style.position = 'absolute';
+  holder.style.left = `0px`;
+  holder.style.top = `0px`;
+  node.parentElement?.appendChild(holder);
 
-  render(
-    <WaveEffect
-      left={nodeRect.left}
-      top={nodeRect.top}
-      width={nodeRect.width}
-      height={nodeRect.height}
-      color={waveColor}
-      className={className}
-      scale={scale}
-      borderRadius={[
-        borderTopLeftRadius,
-        borderTopRightRadius,
-        borderBottomRightRadius,
-        borderBottomLeftRadius,
-      ].map((radius) => validateNum(parseFloat(radius) * scale))}
-    />,
-    holder,
-  );
+  render(<WaveEffect target={node} className={className} />, holder);
 }

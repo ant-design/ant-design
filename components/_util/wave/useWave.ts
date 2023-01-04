@@ -7,11 +7,7 @@ export default function useWave(
   function showWave() {
     const node = nodeRef.current!;
 
-    // Skip if not exist doc
-    const container = node.getRootNode?.() || node?.ownerDocument;
-    if (container) {
-      showWaveEffect(container, node, className);
-    }
+    showWaveEffect(node, className);
   }
 
   return showWave;

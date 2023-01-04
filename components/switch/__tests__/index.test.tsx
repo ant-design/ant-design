@@ -3,7 +3,7 @@ import Switch from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render } from '../../../tests/utils';
+import { act, fireEvent, render } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
 
 jest.mock('rc-util/lib/Dom/isVisible', () => {
@@ -20,6 +20,9 @@ describe('Switch', () => {
     jest.useFakeTimers();
     const { container } = render(<Switch />);
     fireEvent.click(container.querySelector('.ant-switch')!);
+    act(() => {
+      jest.advanceTimersByTime(100);
+    });
     expect(document.querySelector('.ant-wave')).toBeTruthy();
     jest.clearAllTimers();
     jest.useRealTimers();

@@ -9,7 +9,7 @@ const genWaveStyle: GenerateStyle<WaveToken> = (token) => {
   const { componentCls, colorPrimary } = token;
   return {
     [componentCls]: {
-      position: 'fixed',
+      position: 'absolute',
       background: 'transparent',
       pointerEvents: 'none',
       boxSizing: 'border-box',
@@ -26,7 +26,7 @@ const genWaveStyle: GenerateStyle<WaveToken> = (token) => {
         ].join(','),
 
         '&-active': {
-          boxShadow: `0 0 0 calc(6px * var(--wave-scale)) currentcolor`,
+          boxShadow: `0 0 0 6px currentcolor`,
           opacity: 0,
         },
       },

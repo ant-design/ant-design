@@ -58,7 +58,6 @@ class ListBody<RecordType extends KeyWiseTransferItem> extends React.Component<
     if (mergedPagination) {
       // Calculate the page number
       const maxPageCount = Math.ceil(filteredRenderItems.length / mergedPagination.pageSize);
-
       if (current > maxPageCount) {
         return { current: maxPageCount };
       }
@@ -143,7 +142,6 @@ class ListBody<RecordType extends KeyWiseTransferItem> extends React.Component<
           {this.getItems().map(({ renderedEl, renderedText, item }: RenderedItem<RecordType>) => {
             const { disabled } = item;
             const checked = selectedKeys.includes(item.key);
-
             return (
               <ListItem
                 disabled={globalDisabled || disabled}
@@ -160,7 +158,6 @@ class ListBody<RecordType extends KeyWiseTransferItem> extends React.Component<
             );
           })}
         </ul>
-
         {paginationNode}
       </>
     );
