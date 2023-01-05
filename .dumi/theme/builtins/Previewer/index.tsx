@@ -29,6 +29,16 @@ function compress(string: string): string {
     .replace(/=+$/, ''); // Remove ending '='
 }
 
+const track = ({ type, demo }: { type: string; demo: string }) => {
+  if (!window.gtag) {
+    return;
+  }
+  window.gtag('event', 'demo', {
+    event_category: type,
+    event_label: demo,
+  });
+};
+
 interface DemoProps {
   meta: any;
   src: string;
@@ -101,12 +111,12 @@ class Demo extends React.Component<DemoProps, DemoState> {
   handleCodeExpand = (demo: string) => {
     const { codeExpand } = this.state;
     this.setState({ codeExpand: !codeExpand });
-    this.track({ type: 'expand', demo });
+    track({ type: 'expand', demo });
   };
 
   handleCodeCopied = (demo: string) => {
     this.setState({ copied: true });
-    this.track({ type: 'copy', demo });
+    track({ type: 'copy', demo });
   };
 
   onCopyTooltipOpenChange = (open: boolean) => {
@@ -117,20 +127,10 @@ class Demo extends React.Component<DemoProps, DemoState> {
     this.setState({ copyTooltipOpen: open });
   };
 
-  track = ({ type, demo }: { type: string; demo: string }) => {
-    if (!window.gtag) {
-      return;
-    }
-    window.gtag('event', 'demo', {
-      event_category: type,
-      event_label: demo,
-    });
-  };
+  context: SiteContextProps;
 
   render() {
-    const { state } = this;
-    const { props } = this;
-    const site: SiteContextProps = this.context;
+    const { state, props, context } = this;
     const {
       meta,
       src,
@@ -383,7 +383,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
                 target="_blank"
                 ref={this.riddleIconRef}
                 onClick={() => {
-                  this.track({ type: 'riddle', demo: meta.id });
+                  track({ type: 'riddle', demo: meta.id });
                   this.riddleIconRef.current.submit();
                 }}
               >
@@ -400,7 +400,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
               target="_blank"
               ref={this.codeSandboxIconRef}
               onClick={() => {
-                this.track({ type: 'codesandbox', demo: meta.id });
+                track({ type: 'codesandbox', demo: meta.id });
                 this.codeSandboxIconRef.current.submit();
               }}
             >
@@ -420,7 +420,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
               target="_blank"
               ref={this.codepenIconRef}
               onClick={() => {
-                this.track({ type: 'codepen', demo: meta.id });
+                track({ type: 'codepen', demo: meta.id });
                 this.codepenIconRef.current?.submit();
               }}
             >
@@ -433,7 +433,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
               <span
                 className="code-box-code-action"
                 onClick={() => {
-                  this.track({ type: 'stackblitz', demo: meta.id });
+                  track({ type: 'stackblitz', demo: meta.id });
                   stackblitzSdk.openProject(stackblitzPrefillConfig, {
                     openFile: [`demo.${suffix}`],
                   });
@@ -466,7 +466,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
                 <img
                   alt="expand code"
                   src={
-                    site.theme.includes('dark')
+                    context?.theme.includes('dark')
                       ? 'https://gw.alipayobjects.com/zos/antfincdn/btT3qDZn1U/wSAkBuJFbdxsosKKpqyq.svg'
                       : 'https://gw.alipayobjects.com/zos/antfincdn/Z5c7kzvi30/expand.svg'
                   }
@@ -476,7 +476,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
                 <img
                   alt="expand code"
                   src={
-                    site.theme.includes('dark')
+                    context?.theme.includes('dark')
                       ? 'https://gw.alipayobjects.com/zos/antfincdn/CjZPwcKUG3/OpROPHYqWmrMDBFMZtKF.svg'
                       : 'https://gw.alipayobjects.com/zos/antfincdn/4zAaozCvUH/unexpand.svg'
                   }
