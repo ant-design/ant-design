@@ -4,7 +4,7 @@ import type { Project } from '@stackblitz/sdk';
 import { Alert, Badge, Tooltip, Space } from 'antd';
 import classNames from 'classnames';
 import LZString from 'lz-string';
-import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import ReactDOM from 'react-dom';
 import { FormattedMessage } from 'dumi';
@@ -33,26 +33,23 @@ const track = ({ type, demo }: { type: string; demo: string }) => {
   if (!window.gtag) {
     return;
   }
-  window.gtag('event', 'demo', {
-    event_category: type,
-    event_label: demo,
-  });
+  window.gtag('event', 'demo', { event_category: type, event_label: demo });
 };
 
 interface DemoProps {
   meta: any;
+  intl: any;
+  utils?: any;
   src: string;
   content: string;
-  preview: (react: typeof React, reactDOM: typeof ReactDOM) => React.ReactNode;
   highlightedCodes: Record<PropertyKey, string>;
   style: string;
   highlightedStyle: string;
   expand: boolean;
-  intl: any;
   sourceCodes: Record<'jsx' | 'tsx', string>;
   location: Location;
   showRiddleButton: boolean;
-  utils?: any;
+  preview: (react: typeof React, reactDOM: typeof ReactDOM) => React.ReactNode;
 }
 
 const Demo: React.FC<DemoProps> = (props) => {
@@ -61,6 +58,7 @@ const Demo: React.FC<DemoProps> = (props) => {
     sourceCodes,
     meta,
     src,
+    utils,
     content,
     highlightedCodes,
     style,
@@ -77,16 +75,11 @@ const Demo: React.FC<DemoProps> = (props) => {
   const riddleIconRef = useRef<HTMLFormElement>(null);
   const codepenIconRef = useRef<HTMLFormElement>(null);
   const [codeExpand, setCodeExpand] = useState<boolean>(false);
-  const [copied, setCopied] = useState<boolean>(false);
   const [copyTooltipOpen, setCopyTooltipOpen] = useState<boolean>(false);
+  const [copied, setCopied] = useState<boolean>(false);
   const [codeType, setCodeType] = useState<string>('tsx');
 
   const { theme } = useContext<SiteContextProps>(SiteContext);
-
-  const getSourceCode = useMemo<readonly [string, string]>(
-    () => [sourceCodes?.jsx, sourceCodes?.tsx] as const,
-    [sourceCodes],
-  );
 
   const handleCodeExpand = (demo: string) => {
     setCodeExpand(!codeExpand);
@@ -99,10 +92,10 @@ const Demo: React.FC<DemoProps> = (props) => {
   };
 
   const onCopyTooltipOpenChange = (open: boolean) => {
+    setCopyTooltipOpen(open);
     if (open) {
       setCopied(false);
     }
-    setCopyTooltipOpen(open);
   };
 
   useEffect(() => {
@@ -125,37 +118,44 @@ const Demo: React.FC<DemoProps> = (props) => {
     expand: codeExpand || expand,
     'code-box-debug': meta.debug,
   });
+
   const localizedTitle = meta?.title[locale] || meta?.title;
   const localizeIntro = content[locale] || content;
   const introChildren = <div dangerouslySetInnerHTML={{ __html: localizeIntro }} />;
   const highlightClass = classNames('highlight-wrapper', {
     'highlight-wrapper-expand': codeExpand,
   });
-  const html = `<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="theme-color" content="#000000">
-  </head>
-  <body>
-    <div id="container" style="padding: 24px" />
-    <script>const mountNode = document.getElementById('container');</script>
-  </body>
-</html>`;
-  const tsconfig = `{
-  "compilerOptions": {
-    "jsx": "react-jsx",
-    "target": "esnext",
-    "module": "esnext",
-    "esModuleInterop": true,
-    "moduleResolution": "node",
-  }
-}`;
 
-  const [sourceCode, sourceCodeTyped] = getSourceCode;
+  const html = `
+    <!DOCTYPE html>
+      <html lang="en">
+        <head>
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+          <meta name="theme-color" content="#000000">
+        </head>
+        <body>
+          <div id="container" style="padding: 24px" />
+          <script>const mountNode = document.getElementById('container');</script>
+        </body>
+      </html>
+    `;
+
+  const tsconfig = `
+    {
+      "compilerOptions": {
+        "jsx": "react-jsx",
+        "target": "esnext",
+        "module": "esnext",
+        "esModuleInterop": true,
+        "moduleResolution": "node",
+      }
+    }
+  `;
+
   const suffix = codeType === 'tsx' ? 'tsx' : 'js';
-  const dependencies: Record<PropertyKey, string> = sourceCode.split('\n').reduce(
+
+  const dependencies: Record<PropertyKey, string> = sourceCodes?.jsx.split('\n').reduce(
     (acc, line) => {
       const matches = line.match(/import .+? from '(.+)';$/);
       if (matches && matches[1] && !line.includes('antd')) {
@@ -172,16 +172,19 @@ const Demo: React.FC<DemoProps> = (props) => {
   );
 
   dependencies['@ant-design/icons'] = 'latest';
+
   if (suffix === 'tsx') {
     dependencies['@types/react'] = '^18.0.0';
     dependencies['@types/react-dom'] = '^18.0.0';
   }
+
   dependencies.react = '^18.0.0';
   dependencies['react-dom'] = '^18.0.0';
+
   const codepenPrefillConfig = {
     title: `${localizedTitle} - antd@${dependencies.antd}`,
     html,
-    js: `${'const { createRoot } = ReactDOM;\n'}${sourceCode
+    js: `${'const { createRoot } = ReactDOM;\n'}${sourceCodes?.jsx
       .replace(/import\s+(?:React,\s+)?{(\s+[^}]*\s+)}\s+from\s+'react'/, `const { $1 } = React;`)
       .replace(/import\s+{(\s+[^}]*\s+)}\s+from\s+'antd';/, 'const { $1 } = antd;')
       .replace(/import\s+{(\s+[^}]*\s+)}\s+from\s+'@ant-design\/icons';/, 'const { $1 } = icons;')
@@ -212,27 +215,21 @@ const Demo: React.FC<DemoProps> = (props) => {
       .join(';'),
     js_pre_processor: 'typescript',
   };
+
   const riddlePrefillConfig = {
     title: `${localizedTitle} - antd@${dependencies.antd}`,
     js: `${
-      /import React(\D*)from 'react';/.test(sourceCode) ? '' : `import React from 'react';\n`
-    }import { createRoot } from 'react-dom/client';\n${sourceCode.replace(
+      /import React(\D*)from 'react';/.test(sourceCodes?.jsx) ? '' : `import React from 'react';\n`
+    }import { createRoot } from 'react-dom/client';\n${sourceCodes?.jsx.replace(
       /export default/,
       'const ComponentDemo =',
     )}\n\ncreateRoot(mountNode).render(<ComponentDemo />);\n`,
     css: '',
-    json: JSON.stringify(
-      {
-        name: 'antd-demo',
-        dependencies,
-      },
-      null,
-      2,
-    ),
+    json: JSON.stringify({ name: 'antd-demo', dependencies }, null, 2),
   };
 
   // Reorder source code
-  let parsedSourceCode = suffix === 'tsx' ? sourceCodeTyped : sourceCode;
+  let parsedSourceCode = suffix === 'tsx' ? sourceCodes?.tsx : sourceCodes?.jsx;
   let importReactContent = "import React from 'react';";
   const importReactReg = /import React(\D*)from 'react';/;
   const matchImportReact = parsedSourceCode.match(importReactReg);
@@ -252,12 +249,12 @@ ${parsedSourceCode}
     .replace('<style>', '');
 
   const indexJsContent = `
-import React from 'react';
-import { createRoot } from 'react-dom/client';
-import Demo from './demo';
+    import React from 'react';
+    import { createRoot } from 'react-dom/client';
+    import Demo from './demo';
 
-createRoot(document.getElementById('container')).render(<Demo />);
-`;
+    createRoot(document.getElementById('container')).render(<Demo />);
+  `;
   const codesandboxPackage = {
     title: `${localizedTitle} - antd@${dependencies.antd}`,
     main: 'index.js',
@@ -393,7 +390,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
               <ThunderboltOutlined className="code-box-stackblitz" />
             </span>
           </Tooltip>
-          <CopyToClipboard text={sourceCodeTyped} onCopy={() => handleCodeCopied(meta.id)}>
+          <CopyToClipboard text={sourceCodes?.tsx} onCopy={() => handleCodeCopied(meta.id)}>
             <Tooltip
               open={copyTooltipOpen as boolean}
               onOpenChange={onCopyTooltipOpenChange}
@@ -441,7 +438,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
       <section className={highlightClass} key="code">
         <CodePreview
           codes={highlightedCodes}
-          toReactComponent={props.utils?.toReactComponent}
+          toReactComponent={utils?.toReactComponent}
           onCodeTypeChange={(type) => setCodeType(type)}
         />
         {highlightedStyle ? (
