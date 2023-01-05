@@ -1,9 +1,10 @@
 import React from 'react';
-import { render } from '../../../tests/utils';
+import type { KeyWiseTransferItem } from '..';
 import type { TransferListProps } from '../list';
+import { render } from '../../../tests/utils';
 import List from '../list';
 
-const listCommonProps: TransferListProps<any> = {
+const listCommonProps: TransferListProps<KeyWiseTransferItem> = {
   prefixCls: 'ant-transfer-list',
   dataSource: [
     { key: 'a', title: 'a' },
@@ -12,11 +13,11 @@ const listCommonProps: TransferListProps<any> = {
   ],
   checkedKeys: ['a'],
   notFoundContent: 'Not Found',
-} as TransferListProps<any>;
+} as TransferListProps<KeyWiseTransferItem>;
 
-const listProps: TransferListProps<any> = {
+const listProps: TransferListProps<KeyWiseTransferItem> = {
   ...listCommonProps,
-  dataSource: undefined as unknown as any[],
+  dataSource: undefined as unknown as KeyWiseTransferItem[],
 };
 
 describe('Transfer.List', () => {
