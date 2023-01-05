@@ -55,6 +55,8 @@ interface DemoState {
 class Demo extends React.Component<DemoProps, DemoState> {
   static contextType = SiteContext;
 
+  declare context: SiteContextProps;
+
   liveDemo: any;
 
   iframeRef = React.createRef<HTMLIFrameElement>();
@@ -93,7 +95,7 @@ class Demo extends React.Component<DemoProps, DemoState> {
     );
   }
 
-  getSourceCode = (): [string, string] => {
+  getSourceCode = () => {
     const { sourceCodes } = this.props;
     return [sourceCodes.jsx, sourceCodes.tsx];
   };
@@ -130,7 +132,7 @@ class Demo extends React.Component<DemoProps, DemoState> {
   render() {
     const { state } = this;
     const { props } = this;
-    const site: SiteContextProps = this.context;
+    const site = this.context;
     const {
       meta,
       src,
@@ -198,7 +200,7 @@ class Demo extends React.Component<DemoProps, DemoState> {
     const suffix = codeType === 'tsx' ? 'tsx' : 'js';
 
     const dependencies: Record<PropertyKey, string> = sourceCode.split('\n').reduce(
-      (acc, line) => {
+      (acc: Record<string, string>, line) => {
         const matches = line.match(/import .+? from '(.+)';$/);
         if (matches && matches[1] && !line.includes('antd')) {
           const paths = matches[1].split('/');
@@ -353,9 +355,16 @@ createRoot(document.getElementById('container')).render(<Demo />);
       stackblitzPrefillConfig.files['tsconfig.json'] = tsconfig;
     }
 
-    let codeBox = (
+    const backgroundGrey = site.theme.includes('dark') ? '#303030' : '#f0f2f5';
+    const codeBoxDemoStyle: React.CSSProperties = {
+      padding: meta.iframe || meta.compact ? 0 : undefined,
+      overflow: meta.iframe || meta.compact ? 'hidden' : undefined,
+      background: meta.background === 'grey' ? backgroundGrey : undefined,
+    };
+
+    const codeBox = (
       <section className={codeBoxClass} id={meta.id}>
-        <section className="code-box-demo" data-compact={meta.compact}>
+        <section className="code-box-demo" style={codeBoxDemoStyle}>
           <ErrorBoundary>
             <React.StrictMode>{this.liveDemo}</React.StrictMode>
           </ErrorBoundary>
@@ -384,7 +393,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
                 ref={this.riddleIconRef}
                 onClick={() => {
                   this.track({ type: 'riddle', demo: meta.id });
-                  this.riddleIconRef.current.submit();
+                  this.riddleIconRef.current?.submit();
                 }}
               >
                 <input type="hidden" name="data" value={JSON.stringify(riddlePrefillConfig)} />
@@ -401,7 +410,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
               ref={this.codeSandboxIconRef}
               onClick={() => {
                 this.track({ type: 'codesandbox', demo: meta.id });
-                this.codeSandboxIconRef.current.submit();
+                this.codeSandboxIconRef.current?.submit();
               }}
             >
               <input
@@ -505,8 +514,8 @@ createRoot(document.getElementById('container')).render(<Demo />);
     );
 
     if (meta.version) {
-      codeBox = (
-        <Badge.Ribbon text={meta.version} color={meta.version.includes('<') ? 'red' : null}>
+      return (
+        <Badge.Ribbon text={meta.version} color={meta.version.includes('<') ? 'red' : undefined}>
           {codeBox}
         </Badge.Ribbon>
       );
