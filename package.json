@@ -252,6 +252,7 @@
     "react": "^18.0.0",
     "react-color": "^2.17.3",
     "react-copy-to-clipboard": "^5.0.1",
+    "react-countup": "^6.4.0",
     "react-dnd": "^16.0.0",
     "react-dnd-html5-backend": "^16.0.0",
     "react-dom": "^18.0.0",

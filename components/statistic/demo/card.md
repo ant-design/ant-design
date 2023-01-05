@@ -8,7 +8,7 @@ Display statistic data in Card.
 
 ```css
 .site-statistic-demo-card {
-  padding: 30px;
+  padding: 24px;
   background: #ececec;
 }
 ```
