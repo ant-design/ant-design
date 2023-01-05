@@ -238,7 +238,7 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
 
   const checkBox = (
     <Checkbox
-      disabled={typeof props.disabled === 'boolean' ? props.disabled : filteredItems.length === 0}
+      disabled={filteredItems.length === 0 || props.disabled}
       checked={checkStatus === 'all'}
       indeterminate={checkStatus === 'part'}
       className={`${prefixCls}-checkbox`}
