@@ -4902,7 +4902,7 @@ Array [
   <br />,
   <br />,
   <span
-    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-affix-wrapper-textarea-with-clear-btn"
+    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper"
   >
     <textarea
       class="ant-input"
@@ -5003,7 +5003,7 @@ exports[`renders ./components/input/demo/borderless-debug.tsx extend context cor
     placeholder="Unbordered"
   />
   <span
-    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-affix-wrapper-borderless ant-input-affix-wrapper-textarea-with-clear-btn"
+    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-affix-wrapper-borderless"
   >
     <textarea
       class="ant-input ant-input-borderless"
@@ -5118,7 +5118,7 @@ exports[`renders ./components/input/demo/borderless-debug.tsx extend context cor
     </span>
   </span>
   <span
-    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-affix-wrapper-textarea-with-clear-btn"
+    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper"
     style="border:2px solid #000"
   >
     <textarea
@@ -10002,7 +10002,7 @@ Array [
     The autoSize property applies to textarea nodes, and only the height changes automatically. In addition, autoSize can be set to an object, specifying the minimum number of rows and the maximum number of rows. The autoSize property applies to textarea nodes, and only the height changes automatically. In addition, autoSize can be set to an object, specifying the minimum number of rows and the maximum number of rows.
   </textarea>,
   <span
-    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-affix-wrapper-textarea-with-clear-btn"
+    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper"
     style="width:93px"
   >
     <textarea

@@ -94,7 +94,6 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
             {
               [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
               [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
-              [`${prefixCls}-affix-wrapper-textarea-with-clear-btn`]: mergedAllowClear, // TODO: Legacy and not used, could be removed in future
             },
             getStatusClassNames(`${prefixCls}-affix-wrapper`, mergedStatus),
             hashId,
