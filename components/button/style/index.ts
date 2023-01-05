@@ -418,7 +418,7 @@ const genSizeButtonStyle = (token: ButtonToken, sizePrefixCls: string = ''): CSS
           width: controlHeight,
           paddingInlineStart: 0,
           paddingInlineEnd: 0,
-          [`&${componentCls}-round${sizePrefixCls}`]: {
+          [`&${componentCls}-round`]: {
             width: 'auto',
           },
           '> span': {
