@@ -1,5 +1,59 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`renders ./components/statistic/demo/animated.tsx extend context correctly 1`] = `
+<div
+  class="ant-row"
+  style="margin-left:-8px;margin-right:-8px"
+>
+  <div
+    class="ant-col ant-col-12"
+    style="padding-left:8px;padding-right:8px"
+  >
+    <div
+      class="ant-statistic"
+    >
+      <div
+        class="ant-statistic-title"
+      >
+        Active Users
+      </div>
+      <div
+        class="ant-statistic-content"
+      >
+        <span
+          class="ant-statistic-content-value"
+        >
+          <span />
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-col ant-col-12"
+    style="padding-left:8px;padding-right:8px"
+  >
+    <div
+      class="ant-statistic"
+    >
+      <div
+        class="ant-statistic-title"
+      >
+        Account Balance (CNY)
+      </div>
+      <div
+        class="ant-statistic-content"
+      >
+        <span
+          class="ant-statistic-content-value"
+        >
+          <span />
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders ./components/statistic/demo/basic.tsx extend context correctly 1`] = `
 <div
   class="ant-row"
