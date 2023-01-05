@@ -355,7 +355,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
       stackblitzPrefillConfig.files['tsconfig.json'] = tsconfig;
     }
 
-    const backgroundGrey = site.theme.includes('dark') ? '#303030' : 'f0f2f5';
+    const backgroundGrey = site.theme.includes('dark') ? '#303030' : '#f0f2f5';
     const codeBoxDemoStyle: React.CSSProperties = {
       padding: meta.iframe || meta.compact ? 0 : undefined,
       overflow: meta.iframe || meta.compact ? 'hidden' : undefined,
