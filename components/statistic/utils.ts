@@ -1,7 +1,8 @@
 import type * as React from 'react';
 
 export type valueType = number | string;
-export type countdownValueType = valueType | string;
+// countdownValueType is deprecated but still support
+export type countdownValueType = number | string;
 
 export type Formatter =
   | false
@@ -59,7 +60,7 @@ export function formatTimeStr(duration: number, format: string) {
   });
 }
 
-export function formatCountdown(value: countdownValueType, config: CountdownFormatConfig) {
+export function formatCountdown(value: valueType, config: CountdownFormatConfig) {
   const { format = '' } = config;
   const target = new Date(value).getTime();
   const current = Date.now();
