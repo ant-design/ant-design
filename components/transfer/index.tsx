@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
 import type { ChangeEvent, CSSProperties } from 'react';
 import type { ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
 import { ConfigContext } from '../config-provider';
@@ -153,11 +153,11 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     onSelectChange,
   } = props;
 
-  const [sourceSelectedKeys, setSourceSelectedKeys] = useState<string[]>(() =>
+  const [sourceSelectedKeys, setSourceSelectedKeys] = useState<string[]>(
     selectedKeys.filter((key) => !targetKeys.includes(key)),
   );
 
-  const [targetSelectedKeys, setTargetSelectedKeys] = useState<string[]>(() =>
+  const [targetSelectedKeys, setTargetSelectedKeys] = useState<string[]>(
     selectedKeys.filter((key) => targetKeys.includes(key)),
   );
 
@@ -306,31 +306,34 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     );
   };
 
-  const getListStyle = (direction: TransferDirection): CSSProperties => {
-    if (typeof listStyle === 'function') {
-      return listStyle({ direction });
+  const handleListStyle = (
+    listStyles: TransferProps<RecordType>['listStyle'],
+    direction: TransferDirection,
+  ): CSSProperties => {
+    if (typeof listStyles === 'function') {
+      return listStyles({ direction });
     }
-    return listStyle || {};
+    return listStyles || {};
   };
 
-  const [leftDataSource, rightDataSource] = useMemo(() => {
-    const leftData: KeyWise<RecordType>[] = [];
-    const rightData: KeyWise<RecordType>[] = new Array(targetKeys.length);
+  const separateDataSource = () => {
+    const leftDataSource: KeyWise<RecordType>[] = [];
+    const rightDataSource: KeyWise<RecordType>[] = new Array(targetKeys.length);
     const targetKeysMap = groupKeysMap(targetKeys);
     dataSource.forEach((record: KeyWise<RecordType>) => {
       if (rowKey) {
         record = { ...record, key: rowKey(record) };
       }
-      // rightData should be ordered by targetKeys
-      // leftData should be ordered by dataSource
+      // rightDataSource should be ordered by targetKeys
+      // leftDataSource should be ordered by dataSource
       if (targetKeysMap.has(record.key)) {
-        rightData[targetKeysMap.get(record.key)!] = record;
+        rightDataSource[targetKeysMap.get(record.key)!] = record;
       } else {
-        leftData.push(record);
+        leftDataSource.push(record);
       }
     });
-    return [leftData, rightData] as const;
-  }, [targetKeys, dataSource, rowKey]);
+    return { leftDataSource, rightDataSource };
+  };
 
   const configContext = useContext<ConfigConsumerProps>(ConfigContext);
   const formItemContext = useContext<FormItemStatusContextProps>(FormItemInputContext);
@@ -341,6 +344,8 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   const prefixCls = getPrefixCls('transfer', customizePrefixCls);
   const mergedStatus = getMergedStatus(status, customStatus);
   const mergedPagination = !children && pagination;
+
+  const { leftDataSource, rightDataSource } = separateDataSource();
 
   const leftActive = targetSelectedKeys.length > 0;
   const rightActive = sourceSelectedKeys.length > 0;
@@ -361,7 +366,6 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
       {(contextLocale) => {
         const listLocale = getLocale(contextLocale, renderEmpty || defaultRenderEmpty);
         const [leftTitle, rightTitle] = getTitles(listLocale);
-        const [leftAllLabels, rightAllLabels] = selectAllLabels;
         return (
           <TransferFC prefixCls={prefixCls} className={cls} style={style}>
             <List<KeyWise<RecordType>>
@@ -369,7 +373,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
               titleText={leftTitle}
               dataSource={leftDataSource}
               filterOption={filterOption}
-              style={getListStyle('left')}
+              style={handleListStyle(listStyle, 'left')}
               checkedKeys={sourceSelectedKeys}
               handleFilter={leftFilter}
               handleClear={handleLeftClear}
@@ -383,7 +387,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
               disabled={disabled}
               direction={direction === 'rtl' ? 'right' : 'left'}
               showSelectAll={showSelectAll}
-              selectAllLabel={leftAllLabels}
+              selectAllLabel={selectAllLabels[0]}
               pagination={mergedPagination}
               {...listLocale}
             />
@@ -405,7 +409,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
               titleText={rightTitle}
               dataSource={rightDataSource}
               filterOption={filterOption}
-              style={getListStyle('right')}
+              style={handleListStyle(listStyle, 'right')}
               checkedKeys={targetSelectedKeys}
               handleFilter={rightFilter}
               handleClear={handleRightClear}
@@ -420,7 +424,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
               disabled={disabled}
               direction={direction === 'rtl' ? 'left' : 'right'}
               showSelectAll={showSelectAll}
-              selectAllLabel={rightAllLabels}
+              selectAllLabel={selectAllLabels[1]}
               showRemove={oneWay}
               pagination={mergedPagination}
               {...listLocale}
