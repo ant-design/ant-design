@@ -119,7 +119,8 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
   };
 
   const isNeedWave =
-    props.onClick || (children && (children as React.ReactElement<any>).type === 'a');
+    typeof props.onClick === 'function' ||
+    (children && (children as React.ReactElement<any>).type === 'a');
   const iconNode = icon || null;
   const kids = iconNode ? (
     <>
