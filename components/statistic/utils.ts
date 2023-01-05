@@ -1,6 +1,8 @@
 import type * as React from 'react';
 
 export type valueType = number | string;
+// countdownValueType is deprecated but still support
+export type countdownValueType = number | string;
 
 export type Formatter =
   | false
