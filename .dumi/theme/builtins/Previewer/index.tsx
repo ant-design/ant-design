@@ -160,7 +160,6 @@ const Demo: React.FC<DemoProps> = (props) => {
       const matches = line.match(/import .+? from '(.+)';$/);
       if (matches && matches[1] && !line.includes('antd')) {
         const paths = matches[1].split('/');
-
         if (paths.length) {
           const dep = paths[0].startsWith('@') ? `${paths[0]}/${paths[1]}` : paths[0];
           acc[dep] = 'latest';
@@ -238,10 +237,10 @@ const Demo: React.FC<DemoProps> = (props) => {
     parsedSourceCode = parsedSourceCode.replace(importReactReg, '').trim();
   }
   const demoJsContent = `
-${importReactContent}
-import './index.css';
-${parsedSourceCode}
-`.trim();
+    ${importReactContent}
+    import './index.css';
+    ${parsedSourceCode}
+    `.trim();
   const indexCssContent = (style || '')
     .trim()
     .replace(new RegExp(`#${meta.id}\\s*`, 'g'), '')
@@ -255,6 +254,7 @@ ${parsedSourceCode}
 
     createRoot(document.getElementById('container')).render(<Demo />);
   `;
+
   const codesandboxPackage = {
     title: `${localizedTitle} - antd@${dependencies.antd}`,
     main: 'index.js',
@@ -275,6 +275,7 @@ ${parsedSourceCode}
     },
     browserslist: ['>0.2%', 'not dead'],
   };
+
   const codesanboxPrefillConfig = {
     files: {
       'package.json': { content: codesandboxPackage },
@@ -286,6 +287,7 @@ ${parsedSourceCode}
       },
     },
   };
+
   const stackblitzPrefillConfig: Project = {
     title: `${localizedTitle} - antd@${dependencies.antd}`,
     template: 'create-react-app',
@@ -301,7 +303,7 @@ ${parsedSourceCode}
   if (suffix === 'tsx') {
     stackblitzPrefillConfig.files['tsconfig.json'] = tsconfig;
   }
-  let codeBox = (
+  let codeBox: React.ReactNode = (
     <section className={codeBoxClass} id={meta.id}>
       <section className="code-box-demo" data-compact={meta.compact}>
         <ErrorBoundary>

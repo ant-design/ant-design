@@ -26,6 +26,7 @@ export default () => {
           margin: 0 0 16px;
           border: 1px solid ${token.colorSplit};
           border-radius: ${token.borderRadius}px;
+          background-color: ${token.colorBgContainer};
           transition: all 0.2s;
 
           .code-box-title {
@@ -36,14 +37,9 @@ export default () => {
             }
           }
 
-          &,
           .code-box-demo {
             background-color: ${token.colorBgContainer};
-            border-radius: ${token.borderRadius}px;
-
-            &[data-compact] {
-              padding: 0;
-            }
+            border-radius: ${token.borderRadius}px ${token.borderRadius}px 0 0;
           }
 
           .markdown {
