@@ -353,9 +353,15 @@ createRoot(document.getElementById('container')).render(<Demo />);
       stackblitzPrefillConfig.files['tsconfig.json'] = tsconfig;
     }
 
-    let codeBox = (
+    const codeBoxDemoStyle: React.CSSProperties = {
+      padding: meta.iframe || meta.compact ? 0 : undefined,
+      overflow: meta.iframe || meta.compact ? 'hidden' : undefined,
+      background: meta.background === 'grey' ? '#f0f2f5' : undefined,
+    };
+
+    const codeBox = (
       <section className={codeBoxClass} id={meta.id}>
-        <section className="code-box-demo" data-compact={meta.compact}>
+        <section className="code-box-demo" style={codeBoxDemoStyle}>
           <ErrorBoundary>
             <React.StrictMode>{this.liveDemo}</React.StrictMode>
           </ErrorBoundary>
@@ -505,7 +511,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
     );
 
     if (meta.version) {
-      codeBox = (
+      return (
         <Badge.Ribbon text={meta.version} color={meta.version.includes('<') ? 'red' : null}>
           {codeBox}
         </Badge.Ribbon>

@@ -5,16 +5,3 @@
 ## en-US
 
 Display statistic data in Card.
-
-```css
-.site-statistic-demo-card {
-  padding: 24px;
-  background: #ececec;
-}
-```
-
-<style>
-  [data-theme="dark"] .site-statistic-demo-card {
-    background: #303030;
-  }
-</style>
