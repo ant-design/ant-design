@@ -12,13 +12,14 @@ exports[`renders ./components/transfer/demo/advanced.tsx correctly 1`] = `
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+        class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
       >
         <span
-          class="ant-checkbox"
+          class="ant-checkbox ant-checkbox-disabled"
         >
           <input
             class="ant-checkbox-input"
+            disabled=""
             type="checkbox"
           />
           <span
@@ -258,13 +259,14 @@ exports[`renders ./components/transfer/demo/advanced.tsx correctly 1`] = `
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+        class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
       >
         <span
-          class="ant-checkbox"
+          class="ant-checkbox ant-checkbox-disabled"
         >
           <input
             class="ant-checkbox-input"
+            disabled=""
             type="checkbox"
           />
           <span
@@ -1138,13 +1140,14 @@ exports[`renders ./components/transfer/demo/custom-item.tsx correctly 1`] = `
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+        class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
       >
         <span
-          class="ant-checkbox"
+          class="ant-checkbox ant-checkbox-disabled"
         >
           <input
             class="ant-checkbox-input"
+            disabled=""
             type="checkbox"
           />
           <span
@@ -1299,13 +1302,14 @@ exports[`renders ./components/transfer/demo/custom-item.tsx correctly 1`] = `
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+        class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
       >
         <span
-          class="ant-checkbox"
+          class="ant-checkbox ant-checkbox-disabled"
         >
           <input
             class="ant-checkbox-input"
+            disabled=""
             type="checkbox"
           />
           <span
@@ -2862,13 +2866,14 @@ exports[`renders ./components/transfer/demo/search.tsx correctly 1`] = `
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+        class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
       >
         <span
-          class="ant-checkbox"
+          class="ant-checkbox ant-checkbox-disabled"
         >
           <input
             class="ant-checkbox-input"
+            disabled=""
             type="checkbox"
           />
           <span
@@ -3088,13 +3093,14 @@ exports[`renders ./components/transfer/demo/search.tsx correctly 1`] = `
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+        class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
       >
         <span
-          class="ant-checkbox"
+          class="ant-checkbox ant-checkbox-disabled"
         >
           <input
             class="ant-checkbox-input"
+            disabled=""
             type="checkbox"
           />
           <span
@@ -3274,13 +3280,14 @@ exports[`renders ./components/transfer/demo/status.tsx correctly 1`] = `
           class="ant-transfer-list-header"
         >
           <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
           >
             <span
-              class="ant-checkbox"
+              class="ant-checkbox ant-checkbox-disabled"
             >
               <input
                 class="ant-checkbox-input"
+                disabled=""
                 type="checkbox"
               />
               <span
@@ -3434,13 +3441,14 @@ exports[`renders ./components/transfer/demo/status.tsx correctly 1`] = `
           class="ant-transfer-list-header"
         >
           <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
           >
             <span
-              class="ant-checkbox"
+              class="ant-checkbox ant-checkbox-disabled"
             >
               <input
                 class="ant-checkbox-input"
+                disabled=""
                 type="checkbox"
               />
               <span
@@ -3548,13 +3556,14 @@ exports[`renders ./components/transfer/demo/status.tsx correctly 1`] = `
           class="ant-transfer-list-header"
         >
           <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
           >
             <span
-              class="ant-checkbox"
+              class="ant-checkbox ant-checkbox-disabled"
             >
               <input
                 class="ant-checkbox-input"
+                disabled=""
                 type="checkbox"
               />
               <span
@@ -3774,13 +3783,14 @@ exports[`renders ./components/transfer/demo/status.tsx correctly 1`] = `
           class="ant-transfer-list-header"
         >
           <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
           >
             <span
-              class="ant-checkbox"
+              class="ant-checkbox ant-checkbox-disabled"
             >
               <input
                 class="ant-checkbox-input"
+                disabled=""
                 type="checkbox"
               />
               <span
