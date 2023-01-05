@@ -15,11 +15,11 @@ interface CalcColor {
   textColor: string;
 }
 
-type GenCss = (colorKey: PresetColorKey, calcColor: CalcColor) => CSSObject;
+type GenCSS = (colorKey: PresetColorKey, calcColor: CalcColor) => CSSObject;
 
 export function genPresetColor<Token extends TokenWithCommonCls<AliasToken>>(
   token: Token,
-  genCss: GenCss,
+  genCss: GenCSS,
 ): CSSObject {
   return PresetColors.reduce((prev: CSSObject, colorKey: PresetColorKey) => {
     const lightColor = token[`${colorKey}-1`];
