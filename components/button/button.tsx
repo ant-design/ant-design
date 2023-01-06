@@ -141,7 +141,7 @@ const InternalButton: React.ForwardRefRenderFunction<
       }
     }
 
-    return cleanupTimer();
+    return cleanupTimer;
   }, [loadingOrDelay]);
 
   React.useEffect(fixTwoCNChar, [buttonRef]);
