@@ -5,6 +5,7 @@ import type { TooltipProps as RcTooltipProps } from 'rc-tooltip/lib/Tooltip';
 import type { AlignType } from 'rc-trigger/lib/interface';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import * as React from 'react';
+import flow from 'lodash/flow';
 import { ConfigContext } from '../config-provider';
 import type { PresetColorType } from '../_util/colors';
 import { getTransitionName } from '../_util/motion';
@@ -286,11 +287,15 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
   );
   const childProps = child.props;
   const childCls =
-    !childProps.className || typeof childProps.className === 'string'
-      ? classNames(childProps.className, {
+    typeof childProps.className === 'function'
+      ? flow(childProps.className, (childClassName: string) =>
+          classNames(childClassName, {
+            [openClassName || `${prefixCls}-open`]: true,
+          }),
+        )
+      : classNames(childProps.className, {
           [openClassName || `${prefixCls}-open`]: true,
-        })
-      : childProps.className;
+        });
 
   // Style
   const [wrapSSR, hashId] = useStyle(prefixCls, !injectFromPopover);
