@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import RcTable, { Summary } from 'rc-table';
+import { Summary, EXPAND_COLUMN } from 'rc-table';
 import { convertChildrenToColumns } from 'rc-table/lib/hooks/useColumns';
 import type { TableProps as RcTableProps } from 'rc-table/lib/Table';
 import { INTERNAL_HOOKS } from 'rc-table/lib/Table';
@@ -52,8 +52,10 @@ import type {
   ColumnsType,
   TablePaginationConfig,
 } from './interface';
+import RcTable from './RcTable';
 
 import useStyle from './style';
+import wrapRender from './wrapRender';
 
 export type { ColumnsType, TablePaginationConfig };
 
@@ -551,7 +553,9 @@ function InternalTable<RecordType extends object = any>(
   );
 }
 
-const ForwardTable = React.forwardRef(InternalTable) as <RecordType extends object = any>(
+const ForwardTable = React.forwardRef(wrapRender(InternalTable)) as <
+  RecordType extends object = any,
+>(
   props: React.PropsWithChildren<TableProps<RecordType>> & { ref?: React.Ref<HTMLDivElement> },
 ) => React.ReactElement;
 
@@ -559,7 +563,7 @@ type InternalTableType = typeof ForwardTable;
 
 type CompoundedComponent = InternalTableType & {
   SELECTION_COLUMN: typeof SELECTION_COLUMN;
-  EXPAND_COLUMN: typeof RcTable.EXPAND_COLUMN;
+  EXPAND_COLUMN: typeof EXPAND_COLUMN;
   SELECTION_ALL: 'SELECT_ALL';
   SELECTION_INVERT: 'SELECT_INVERT';
   SELECTION_NONE: 'SELECT_NONE';
@@ -571,7 +575,7 @@ type CompoundedComponent = InternalTableType & {
 const Table = ForwardTable as CompoundedComponent;
 
 Table.SELECTION_COLUMN = SELECTION_COLUMN;
-Table.EXPAND_COLUMN = RcTable.EXPAND_COLUMN;
+Table.EXPAND_COLUMN = EXPAND_COLUMN;
 Table.SELECTION_ALL = SELECTION_ALL;
 Table.SELECTION_INVERT = SELECTION_INVERT;
 Table.SELECTION_NONE = SELECTION_NONE;
