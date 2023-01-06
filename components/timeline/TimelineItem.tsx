@@ -1,11 +1,14 @@
 import classNames from 'classnames';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
+import type { LiteralUnion } from '../_util/type';
+
+type Color = 'blue' | 'red' | 'green' | 'gray';
 
 export interface TimelineItemProps {
   prefixCls?: string;
   className?: string;
-  color?: string;
+  color?: LiteralUnion<Color>;
   dot?: React.ReactNode;
   pending?: boolean;
   position?: string;
