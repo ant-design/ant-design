@@ -82,13 +82,24 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
         },
 
         // generator for preset color
-        ...genPresetColor(token, (colorKey, { darkColor }) => ({
+        ...genPresetColor(token, (colorKey, { darkColor, lightColor }) => ({
           [`&${componentCls}-${colorKey}`]: {
             [`${componentCls}-inner`]: {
               backgroundColor: darkColor,
             },
             [`${componentCls}-arrow`]: {
               '--antd-arrow-background-color': darkColor,
+            },
+
+            // Inverse Color
+            '&-inverse': {
+              [`${componentCls}-inner`]: {
+                backgroundColor: lightColor,
+                color: darkColor,
+              },
+              [`${componentCls}-arrow`]: {
+                '--antd-arrow-background-color': lightColor,
+              },
             },
           },
         })),
