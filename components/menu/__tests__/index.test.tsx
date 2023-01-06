@@ -1077,4 +1077,33 @@ describe('Menu', () => {
     rerender(<Demo expandIcon={() => <span className="function-custom-expand-icon" />} />);
     expect(container.querySelector('.function-custom-expand-icon')).toBeTruthy();
   });
+
+  // https://github.com/ant-design/ant-design/issues/40041
+  it('should not show icon when inlineCollapsed', () => {
+    const { container } = render(
+      <Menu
+        expandIcon={<span className="bamboo">I</span>}
+        inlineCollapsed
+        items={[
+          {
+            label: 'Option 1',
+            key: '1',
+            icon: '112',
+            children: [
+              {
+                label: 'Option 1-1',
+                key: '1-1',
+              },
+            ],
+          },
+        ]}
+      />,
+    );
+
+    expect(container.querySelector('.bamboo')).toBeTruthy();
+    expect(getComputedStyle(container.querySelector('.bamboo') as HTMLElement)).toHaveProperty(
+      'opacity',
+      '0',
+    );
+  });
 });
