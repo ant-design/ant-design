@@ -5,6 +5,7 @@ import type { TooltipProps as RcTooltipProps } from 'rc-tooltip/lib/Tooltip';
 import type { AlignType } from 'rc-trigger/lib/interface';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import * as React from 'react';
+import type { CSSProperties } from 'react';
 import { ConfigContext } from '../config-provider';
 import type { PresetColorType } from '../_util/colors';
 import { getTransitionName } from '../_util/motion';
@@ -95,7 +96,7 @@ export interface TooltipPropsWithTitle extends AbstractTooltipProps {
 
 export declare type TooltipProps = TooltipPropsWithTitle | TooltipPropsWithOverlay;
 
-const splitObject = <T extends React.CSSProperties>(
+const splitObject = <T extends CSSProperties>(
   obj: T,
   keys: (keyof T)[],
 ): Record<'picked' | 'omitted', T> => {
