@@ -121,14 +121,23 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
   const menuClassName = classNames(`${prefixCls}-${theme}`, className);
 
   // ====================== Expand Icon ========================
-  let mergedExpandIcon: MenuProps[`expandIcon`];
-  if (typeof expandIcon === 'function') {
-    mergedExpandIcon = expandIcon;
-  } else {
-    mergedExpandIcon = cloneElement(expandIcon || overrideObj.expandIcon, {
-      className: `${prefixCls}-submenu-expand-icon`,
-    });
-  }
+  const mergedExpandIcon: MenuProps[`expandIcon`] = (expandIconProps) => {
+    const nonUnderwriteExpandIcon: any =
+      typeof expandIcon === 'function'
+        ? expandIcon(expandIconProps)
+        : expandIcon || overrideObj.expandIcon;
+
+    if (nonUnderwriteExpandIcon || nonUnderwriteExpandIcon === 0) {
+      return cloneElement(nonUnderwriteExpandIcon, {
+        className: classNames(
+          `${prefixCls}-submenu-expand-icon`,
+          nonUnderwriteExpandIcon?.props?.className,
+        ),
+      });
+    }
+
+    return <i className={`${prefixCls}-submenu-arrow`} />;
+  };
 
   // ======================== Context ==========================
   const contextValue = React.useMemo<MenuContextProps>(
