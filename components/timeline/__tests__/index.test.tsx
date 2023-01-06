@@ -141,4 +141,40 @@ describe('TimeLine', () => {
     expect(container.querySelectorAll('.ant-timeline-label')).toHaveLength(1);
     expect(container.querySelector('.ant-timeline-item-label')).toHaveTextContent(label);
   });
+
+  describe('prop: color', () => {
+    const presetColors = ['blue', 'red', 'green', 'gray'];
+
+    presetColors.forEach((color) => {
+      it(`className should have a preset color ${color}`, () => {
+        const { container } = render(
+          <TimeLine>
+            <Item color={color}>foo</Item>
+          </TimeLine>,
+        );
+        expect(container.querySelector('.ant-timeline-item-head')).toHaveClass(
+          `ant-timeline-item-head-${color}`,
+        );
+      });
+    });
+
+    // other non-preset colors
+    const nonPresetColors = ['rgb(255, 0, 0)', 'rgba(255, 0, 0, 0.5)', '#ff0000', '#f00'].filter(
+      (color) => !presetColors.includes(color),
+    );
+
+    // https://github.com/ant-design/ant-design/issues/39386
+    nonPresetColors.forEach((color) => {
+      it(`className should not have a non-preset color ${color}`, () => {
+        const { container } = render(
+          <TimeLine>
+            <Item color={color}>foo</Item>
+          </TimeLine>,
+        );
+        expect(container.querySelector('.ant-timeline-item-head')).not.toHaveClass(
+          `ant-timeline-item-head-${color}`,
+        );
+      });
+    });
+  });
 });
