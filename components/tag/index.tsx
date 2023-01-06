@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import type { PresetColorType, PresetStatusColorType } from '../_util/colors';
-import { PresetColorTypes, PresetStatusColorTypes } from '../_util/colors';
+import { isPresetColor, isPresetStatusColor } from '../_util/colors';
 import Wave from '../_util/wave';
 import warning from '../_util/warning';
 import CheckableTag from './CheckableTag';
@@ -24,9 +24,6 @@ export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   style?: React.CSSProperties;
   icon?: React.ReactNode;
 }
-
-const PresetColorRegex = new RegExp(`^(${PresetColorTypes.join('|')})(-inverse)?$`);
-const PresetStatusColorRegex = new RegExp(`^(${PresetStatusColorTypes.join('|')})$`);
 
 export interface TagType
   extends React.ForwardRefExoticComponent<TagProps & React.RefAttributes<HTMLElement>> {
@@ -66,19 +63,13 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
     }
   }, [props.visible]);
 
-  const isPresetColor = (): boolean => {
-    if (!color) {
-      return false;
-    }
-    return PresetColorRegex.test(color) || PresetStatusColorRegex.test(color);
-  };
+  const isInternalColor = isPresetColor(color) || isPresetStatusColor(color);
 
   const tagStyle = {
-    backgroundColor: color && !isPresetColor() ? color : undefined,
+    backgroundColor: color && !isInternalColor ? color : undefined,
     ...style,
   };
 
-  const presetColor = isPresetColor();
   const prefixCls = getPrefixCls('tag', customizePrefixCls);
   // Style
   const [wrapSSR, hashId] = useStyle(prefixCls);
@@ -86,8 +77,8 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
   const tagClassName = classNames(
     prefixCls,
     {
-      [`${prefixCls}-${color}`]: presetColor,
-      [`${prefixCls}-has-color`]: color && !presetColor,
+      [`${prefixCls}-${color}`]: isInternalColor,
+      [`${prefixCls}-has-color`]: color && !isInternalColor,
       [`${prefixCls}-hidden`]: !visible,
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },

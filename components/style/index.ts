@@ -4,6 +4,7 @@ import type { DerivativeToken } from '../theme/internal';
 
 export { operationUnit } from './operationUnit';
 export { roundedArrow } from './roundedArrow';
+export { genPresetColor } from './presetColor';
 
 export const textEllipsis: CSSObject = {
   overflow: 'hidden',
