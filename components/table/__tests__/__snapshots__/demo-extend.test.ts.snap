@@ -13569,7 +13569,7 @@ exports[`renders ./components/table/demo/head.tsx extend context correctly 1`] =
                                     Submenu
                                   </span>
                                   <span
-                                    class="ant-dropdown-menu-submenu-expand-icon"
+                                    class="ant-dropdown-menu-submenu-expand-icon ant-dropdown-menu-submenu-arrow"
                                   >
                                     <span
                                       aria-label="right"
