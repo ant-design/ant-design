@@ -303,9 +303,18 @@ const Demo: React.FC<DemoProps> = (props) => {
   if (suffix === 'tsx') {
     stackblitzPrefillConfig.files['tsconfig.json'] = tsconfig;
   }
-  let codeBox: React.ReactNode = (
+
+  const backgroundGrey = theme.includes('dark') ? '#303030' : '#f0f2f5';
+
+  const codeBoxDemoStyle: React.CSSProperties = {
+    padding: meta.iframe || meta.compact ? 0 : undefined,
+    overflow: meta.iframe || meta.compact ? 'hidden' : undefined,
+    backgroundColor: meta.background === 'grey' ? backgroundGrey : undefined,
+  };
+
+  const codeBox: React.ReactNode = (
     <section className={codeBoxClass} id={meta.id}>
-      <section className="code-box-demo" data-compact={meta.compact}>
+      <section className="code-box-demo" style={codeBoxDemoStyle}>
         <ErrorBoundary>
           <React.StrictMode>{liveDemo.current}</React.StrictMode>
         </ErrorBoundary>
@@ -455,7 +464,7 @@ const Demo: React.FC<DemoProps> = (props) => {
   );
 
   if (meta.version) {
-    codeBox = (
+    return (
       <Badge.Ribbon text={meta.version} color={meta.version.includes('<') ? 'red' : null}>
         {codeBox}
       </Badge.Ribbon>

@@ -113,7 +113,6 @@ const genRoundButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
   borderRadius: token.controlHeight,
   paddingInlineStart: token.controlHeight / 2,
   paddingInlineEnd: token.controlHeight / 2,
-  width: 'auto',
 });
 
 // =============================== Type ===============================
@@ -390,13 +389,19 @@ const genTypeButtonStyle: GenerateStyle<ButtonToken> = (token) => {
 
 // =============================== Size ===============================
 const genSizeButtonStyle = (token: ButtonToken, sizePrefixCls: string = ''): CSSInterpolation => {
-  const { componentCls, iconCls } = token;
+  const {
+    componentCls,
+    iconCls,
+    controlHeight,
+    fontSize,
+    lineHeight,
+    lineWidth,
+    borderRadius,
+    buttonPaddingHorizontal,
+  } = token;
 
-  const paddingVertical = Math.max(
-    0,
-    (token.controlHeight - token.fontSize * token.lineHeight) / 2 - token.lineWidth,
-  );
-  const paddingHorizontal = token.buttonPaddingHorizontal - token.lineWidth;
+  const paddingVertical = Math.max(0, (controlHeight - fontSize * lineHeight) / 2 - lineWidth);
+  const paddingHorizontal = buttonPaddingHorizontal - lineWidth;
 
   const iconOnlyCls = `${componentCls}-icon-only`;
 
@@ -404,16 +409,18 @@ const genSizeButtonStyle = (token: ButtonToken, sizePrefixCls: string = ''): CSS
     // Size
     {
       [`${componentCls}${sizePrefixCls}`]: {
-        fontSize: token.fontSize,
-        height: token.controlHeight,
+        fontSize,
+        height: controlHeight,
         padding: `${paddingVertical}px ${paddingHorizontal}px`,
-        borderRadius: token.borderRadius,
+        borderRadius,
 
         [`&${iconOnlyCls}`]: {
-          width: token.controlHeight,
+          width: controlHeight,
           paddingInlineStart: 0,
           paddingInlineEnd: 0,
-
+          [`&${componentCls}-round`]: {
+            width: 'auto',
+          },
           '> span': {
             transform: 'scale(1.143)', // 14px -> 16px
           },
