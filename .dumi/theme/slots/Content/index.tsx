@@ -61,7 +61,7 @@ const useStyle = () => {
       > div {
         box-sizing: border-box;
         width: 100%;
-        max-height: calc(100vh - 40px);
+        max-height: calc(100vh - 40px) !important;
         margin: 0 auto;
         overflow: auto;
         padding-inline: 4px;
