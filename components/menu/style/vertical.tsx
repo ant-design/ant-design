@@ -184,7 +184,10 @@ const getVerticalStyle: GenerateStyle<MenuToken> = (token) => {
           paddingInline: `calc(50% - ${fontSizeSM}px)`,
           textOverflow: 'clip',
 
-          [`${componentCls}-submenu-arrow`]: {
+          [`
+            ${componentCls}-submenu-arrow,
+            ${componentCls}-submenu-expand-icon
+          `]: {
             opacity: 0,
           },
 
