@@ -67,6 +67,7 @@ const columns = [
 <code src="./demo/row-selection.tsx">selection</code>
 <code src="./demo/row-selection-and-operation.tsx">Selection and operation</code>
 <code src="./demo/row-selection-custom.tsx">Custom selection</code>
+<code src="./demo/row-selection-debug.tsx" debug>Selection Perf</code>
 <code src="./demo/head.tsx">Filter and sorter</code>
 <code src="./demo/filter-in-tree.tsx">Filter in Tree</code>
 <code src="./demo/filter-search.tsx">Filter search</code>
