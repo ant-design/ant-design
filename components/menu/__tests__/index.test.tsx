@@ -1047,4 +1047,34 @@ describe('Menu', () => {
     );
     errorSpy.mockRestore();
   });
+
+  it('expandIconClassName', () => {
+    const Demo = ({ expandIcon }: Pick<MenuProps, 'expandIcon'>) => (
+      <Menu
+        expandIcon={expandIcon}
+        inlineCollapsed
+        items={[
+          {
+            label: 'Option 1',
+            key: '1',
+            icon: '112',
+            children: [
+              {
+                label: 'Option 1-1',
+                key: '1-1',
+              },
+            ],
+          },
+        ]}
+      />
+    );
+
+    const { container, rerender } = render(
+      <Demo expandIcon={<span className="custom-expand-icon" />} />,
+    );
+    expect(container.querySelector('.custom-expand-icon')).toBeTruthy();
+
+    rerender(<Demo expandIcon={() => <span className="function-custom-expand-icon" />} />);
+    expect(container.querySelector('.function-custom-expand-icon')).toBeTruthy();
+  });
 });
