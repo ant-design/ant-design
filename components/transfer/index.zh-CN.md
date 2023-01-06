@@ -17,6 +17,8 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*EAApQ5ephigAAAAAAA
 
 选择一个或以上的选项后，点击对应的方向键，可以把选中的选项移动到另一栏。其中，左边一栏为 `source`，右边一栏为 `target`，API 的设计也反映了这两个概念。
 
+> 注意：穿梭框组件只支持受控使用，不支持非受控模式。
+
 ## 代码演示
 
 <!-- prettier-ignore -->
