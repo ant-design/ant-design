@@ -42,13 +42,13 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
     className,
   );
 
+  const customColor = /blue|red|green|gray/.test(color || '') ? undefined : color;
+
   const dotClassName = classNames({
     [`${prefixCls}-item-head`]: true,
     [`${prefixCls}-item-head-custom`]: !!dot,
-    [`${prefixCls}-item-head-${color}`]: true,
+    [`${prefixCls}-item-head-${color}`]: !customColor,
   });
-
-  const customColor = /blue|red|green|gray/.test(color || '') ? undefined : color;
 
   return (
     <li {...restProps} className={itemClassName}>
