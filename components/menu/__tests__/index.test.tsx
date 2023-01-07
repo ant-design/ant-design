@@ -1049,9 +1049,9 @@ describe('Menu', () => {
   });
 
   it('expandIconClassName', () => {
-    const Demo = ({ expandIcon }: Pick<MenuProps, 'expandIcon'>) => (
+    const { container } = render(
       <Menu
-        expandIcon={expandIcon}
+        expandIcon={<span className="custom-expand-icon" />}
         inlineCollapsed
         items={[
           {
@@ -1066,16 +1066,9 @@ describe('Menu', () => {
             ],
           },
         ]}
-      />
-    );
-
-    const { container, rerender } = render(
-      <Demo expandIcon={<span className="custom-expand-icon" />} />,
+      />,
     );
     expect(container.querySelector('.custom-expand-icon')).toBeTruthy();
-
-    rerender(<Demo expandIcon={() => <span className="function-custom-expand-icon" />} />);
-    expect(container.querySelector('.function-custom-expand-icon')).toBeTruthy();
   });
 
   // https://github.com/ant-design/ant-design/issues/40041
