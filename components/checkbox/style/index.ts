@@ -268,6 +268,10 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
         '& + span': {
           color: token.colorTextDisabled,
         },
+
+        [`&${checkboxCls}-indeterminate ${checkboxCls}-inner::after`]: {
+          background: token.colorTextDisabled,
+        },
       },
     },
   ];

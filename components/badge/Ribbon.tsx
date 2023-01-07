@@ -4,7 +4,7 @@ import { ConfigContext } from '../config-provider';
 import type { PresetColorType } from '../_util/colors';
 import type { LiteralUnion } from '../_util/type';
 import useStyle from './style';
-import { isPresetColor } from './utils';
+import { isPresetColor } from '../_util/colors';
 
 type RibbonPlacement = 'start' | 'end';
 
@@ -29,7 +29,7 @@ const Ribbon: React.FC<RibbonProps> = function Ribbon({
 }) {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('ribbon', customizePrefixCls);
-  const colorInPreset = isPresetColor(color);
+  const colorInPreset = isPresetColor(color, false);
   const ribbonCls = classNames(
     prefixCls,
     `${prefixCls}-placement-${placement}`,

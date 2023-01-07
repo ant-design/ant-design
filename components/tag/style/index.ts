@@ -1,9 +1,9 @@
-import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
+import type { CSSInterpolation } from '@ant-design/cssinjs';
 import type React from 'react';
-import type { FullToken, PresetColorType } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken, PresetColors } from '../../theme/internal';
+import type { FullToken } from '../../theme/internal';
+import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import capitalize from '../../_util/capitalize';
-import { resetComponent } from '../../style';
+import { genPresetColor, resetComponent } from '../../style';
 
 export interface ComponentToken {}
 
@@ -35,27 +35,21 @@ const genTagStatusStyle = (
   };
 };
 
-// FIXME: special preset colors
-const genTagColorStyle = (token: TagToken): CSSInterpolation =>
-  PresetColors.reduce((prev: CSSObject, colorKey: keyof PresetColorType) => {
-    const lightColor = token[`${colorKey}-1`];
-    const lightBorderColor = token[`${colorKey}-3`];
-    const darkColor = token[`${colorKey}-6`];
-    const textColor = token[`${colorKey}-7`];
-    return {
-      ...prev,
-      [`${token.componentCls}-${colorKey}`]: {
-        color: textColor,
-        background: lightColor,
-        borderColor: lightBorderColor,
-      },
-      [`${token.componentCls}-${colorKey}-inverse`]: {
+const genPresetStyle = (token: TagToken) =>
+  genPresetColor(token, (colorKey, { textColor, lightBorderColor, lightColor, darkColor }) => ({
+    [`${token.componentCls}-${colorKey}`]: {
+      color: textColor,
+      background: lightColor,
+      borderColor: lightBorderColor,
+
+      // Inverse color
+      '&-inverse': {
         color: token.colorTextLightSolid,
         background: darkColor,
         borderColor: darkColor,
       },
-    };
-  }, {} as CSSObject);
+    },
+  }));
 
 const genBaseStyle = (token: TagToken): CSSInterpolation => {
   const { paddingXXS, lineWidth, tagPaddingHorizontal } = token;
@@ -168,7 +162,7 @@ export default genComponentStyleHook('Tag', (token) => {
 
   return [
     genBaseStyle(tagToken),
-    genTagColorStyle(tagToken),
+    genPresetStyle(tagToken),
     genTagStatusStyle(tagToken, 'success', 'Success'),
     genTagStatusStyle(tagToken, 'processing', 'Info'),
     genTagStatusStyle(tagToken, 'error', 'Error'),

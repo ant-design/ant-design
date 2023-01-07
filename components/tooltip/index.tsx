@@ -5,6 +5,7 @@ import type { TooltipProps as RcTooltipProps } from 'rc-tooltip/lib/Tooltip';
 import type { AlignType } from 'rc-trigger/lib/interface';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import * as React from 'react';
+import type { CSSProperties } from 'react';
 import { ConfigContext } from '../config-provider';
 import type { PresetColorType } from '../_util/colors';
 import { getTransitionName } from '../_util/motion';
@@ -95,7 +96,7 @@ export interface TooltipPropsWithTitle extends AbstractTooltipProps {
 
 export declare type TooltipProps = TooltipPropsWithTitle | TooltipPropsWithOverlay;
 
-const splitObject = <T extends React.CSSProperties>(
+const splitObject = <T extends CSSProperties>(
   obj: T,
   keys: (keyof T)[],
 ): Record<'picked' | 'omitted', T> => {
@@ -231,25 +232,25 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
         placements[key].points![0] === align.points?.[0] &&
         placements[key].points![1] === align.points?.[1],
     );
-    if (!placement) {
-      return;
-    }
-    // 根据当前坐标设置动画点
-    const rect = domNode.getBoundingClientRect();
 
-    const transformOrigin = { top: '50%', left: '50%' };
+    if (placement) {
+      // 根据当前坐标设置动画点
+      const rect = domNode.getBoundingClientRect();
 
-    if (/top|Bottom/.test(placement)) {
-      transformOrigin.top = `${rect.height - align.offset![1]}px`;
-    } else if (/Top|bottom/.test(placement)) {
-      transformOrigin.top = `${-align.offset![1]}px`;
+      const transformOrigin: React.CSSProperties = { top: '50%', left: '50%' };
+
+      if (/top|Bottom/.test(placement)) {
+        transformOrigin.top = `${rect.height - align.offset![1]}px`;
+      } else if (/Top|bottom/.test(placement)) {
+        transformOrigin.top = `${-align.offset![1]}px`;
+      }
+      if (/left|Right/.test(placement)) {
+        transformOrigin.left = `${rect.width - align.offset![0]}px`;
+      } else if (/right|Left/.test(placement)) {
+        transformOrigin.left = `${-align.offset![0]}px`;
+      }
+      domNode.style.transformOrigin = `${transformOrigin.left} ${transformOrigin.top}`;
     }
-    if (/left|Right/.test(placement)) {
-      transformOrigin.left = `${rect.width - align.offset![0]}px`;
-    } else if (/right|Left/.test(placement)) {
-      transformOrigin.left = `${-align.offset![0]}px`;
-    }
-    domNode.style.transformOrigin = `${transformOrigin.left} ${transformOrigin.top}`;
   };
 
   const getOverlay = () => {

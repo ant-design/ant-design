@@ -7,9 +7,6 @@ const useStyle = () => {
   const antdTabsCls = '.ant-tabs';
 
   return css`
-    background: ${token.colorBgLayout};
-    padding: ${token.paddingLG}px;
-
     ${antdTabsCls}${antdTabsCls}-card {
       ${antdTabsCls}-content {
         padding: ${token.padding}px;

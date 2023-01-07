@@ -68,8 +68,6 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token) => {
 
                   [cascaderMenuItemCls]: {
                     color: token.colorTextDisabled,
-                    cursor: 'default',
-                    pointerEvents: 'none',
                   },
                 },
               },

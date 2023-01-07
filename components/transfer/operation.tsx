@@ -18,41 +18,48 @@ export interface TransferOperationProps {
   oneWay?: boolean;
 }
 
-const Operation = ({
-  disabled,
-  moveToLeft,
-  moveToRight,
-  leftArrowText = '',
-  rightArrowText = '',
-  leftActive,
-  rightActive,
-  className,
-  style,
-  direction,
-  oneWay,
-}: TransferOperationProps) => (
-  <div className={className} style={style}>
-    <Button
-      type="primary"
-      size="small"
-      disabled={disabled || !rightActive}
-      onClick={moveToRight}
-      icon={direction !== 'rtl' ? <RightOutlined /> : <LeftOutlined />}
-    >
-      {rightArrowText}
-    </Button>
-    {!oneWay && (
+const Operation: React.FC<TransferOperationProps> = (props) => {
+  const {
+    disabled,
+    moveToLeft,
+    moveToRight,
+    leftArrowText = '',
+    rightArrowText = '',
+    leftActive,
+    rightActive,
+    className,
+    style,
+    direction,
+    oneWay,
+  } = props;
+  return (
+    <div className={className} style={style}>
       <Button
         type="primary"
         size="small"
-        disabled={disabled || !leftActive}
-        onClick={moveToLeft}
-        icon={direction !== 'rtl' ? <LeftOutlined /> : <RightOutlined />}
+        disabled={disabled || !rightActive}
+        onClick={moveToRight}
+        icon={direction !== 'rtl' ? <RightOutlined /> : <LeftOutlined />}
       >
-        {leftArrowText}
+        {rightArrowText}
       </Button>
-    )}
-  </div>
-);
+      {!oneWay && (
+        <Button
+          type="primary"
+          size="small"
+          disabled={disabled || !leftActive}
+          onClick={moveToLeft}
+          icon={direction !== 'rtl' ? <LeftOutlined /> : <RightOutlined />}
+        >
+          {leftArrowText}
+        </Button>
+      )}
+    </div>
+  );
+};
+
+if (process.env.NODE_ENV !== 'production') {
+  Operation.displayName = 'Operation';
+}
 
 export default Operation;
