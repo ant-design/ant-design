@@ -237,7 +237,7 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
       // 根据当前坐标设置动画点
       const rect = domNode.getBoundingClientRect();
 
-      const transformOrigin = { top: '50%', left: '50%' };
+      const transformOrigin: React.CSSProperties = { top: '50%', left: '50%' };
 
       if (/top|Bottom/.test(placement)) {
         transformOrigin.top = `${rect.height - align.offset![1]}px`;

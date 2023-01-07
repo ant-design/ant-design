@@ -26765,7 +26765,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                                     Submenu
                                   </span>
                                   <span
-                                    class="config-dropdown-menu-submenu-expand-icon"
+                                    class="config-dropdown-menu-submenu-expand-icon config-dropdown-menu-submenu-arrow"
                                   >
                                     <span
                                       aria-label="right"
@@ -27072,7 +27072,7 @@ exports[`ConfigProvider components Table configProvider componentDisabled 1`] = 
                                     Submenu
                                   </span>
                                   <span
-                                    class="config-dropdown-menu-submenu-expand-icon"
+                                    class="config-dropdown-menu-submenu-expand-icon config-dropdown-menu-submenu-arrow"
                                   >
                                     <span
                                       aria-label="right"
@@ -27379,7 +27379,7 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                                     Submenu
                                   </span>
                                   <span
-                                    class="config-dropdown-menu-submenu-expand-icon"
+                                    class="config-dropdown-menu-submenu-expand-icon config-dropdown-menu-submenu-arrow"
                                   >
                                     <span
                                       aria-label="right"
@@ -27685,7 +27685,7 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                                     Submenu
                                   </span>
                                   <span
-                                    class="config-dropdown-menu-submenu-expand-icon"
+                                    class="config-dropdown-menu-submenu-expand-icon config-dropdown-menu-submenu-arrow"
                                   >
                                     <span
                                       aria-label="right"
@@ -27991,7 +27991,7 @@ exports[`ConfigProvider components Table configProvider virtual and dropdownMatc
                                     Submenu
                                   </span>
                                   <span
-                                    class="ant-dropdown-menu-submenu-expand-icon"
+                                    class="ant-dropdown-menu-submenu-expand-icon ant-dropdown-menu-submenu-arrow"
                                   >
                                     <span
                                       aria-label="right"
@@ -28297,7 +28297,7 @@ exports[`ConfigProvider components Table normal 1`] = `
                                     Submenu
                                   </span>
                                   <span
-                                    class="ant-dropdown-menu-submenu-expand-icon"
+                                    class="ant-dropdown-menu-submenu-expand-icon ant-dropdown-menu-submenu-arrow"
                                   >
                                     <span
                                       aria-label="right"
@@ -28603,7 +28603,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                                     Submenu
                                   </span>
                                   <span
-                                    class="ant-dropdown-menu-submenu-expand-icon"
+                                    class="ant-dropdown-menu-submenu-expand-icon ant-dropdown-menu-submenu-arrow"
                                   >
                                     <span
                                       aria-label="right"
