@@ -1,6 +1,7 @@
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
-import React from 'react';
+import React, { useState } from 'react';
+import type { RangeValue } from 'rc-picker/lib/interface';
 import { resetWarned } from '../../_util/warning';
 import DatePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
@@ -57,23 +58,21 @@ describe('RangePicker', () => {
   // https://github.com/ant-design/ant-design/issues/13302
   describe('in "month" mode, when the left and right panels select the same month', () => {
     it('the cell status is correct', () => {
-      let rangePickerValue: dayjs.Dayjs[] = [] as any;
-      class Test extends React.Component {
-        state = { value: null };
+      let rangePickerValue: dayjs.Dayjs[] = [];
+      const Test: React.FC = () => {
+        const [value, setValue] = useState<RangeValue<dayjs.Dayjs>>(null);
+        return (
+          <RangePicker
+            value={value}
+            mode={['month', 'month']}
+            onPanelChange={(v) => {
+              setValue(v);
+              rangePickerValue = v as dayjs.Dayjs[];
+            }}
+          />
+        );
+      };
 
-        render() {
-          return (
-            <RangePicker
-              value={this.state.value}
-              mode={['month', 'month']}
-              onPanelChange={(value) => {
-                this.setState({ value });
-                rangePickerValue = value as any;
-              }}
-            />
-          );
-        }
-      }
       const wrapper = render(<Test />);
 
       openPicker(wrapper);

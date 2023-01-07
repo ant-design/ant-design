@@ -10,6 +10,17 @@ import type { PaginationProps } from '../pagination';
 import type { TooltipProps } from '../tooltip';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import type { INTERNAL_SELECTION_ITEM } from './hooks/useSelection';
+import type { InternalTableProps, TableProps } from './InternalTable';
+
+export type RefTable = <RecordType extends object = any>(
+  props: React.PropsWithChildren<TableProps<RecordType>> & { ref?: React.Ref<HTMLDivElement> },
+) => React.ReactElement;
+
+export type RefInternalTable = <RecordType extends object = any>(
+  props: React.PropsWithChildren<InternalTableProps<RecordType>> & {
+    ref?: React.Ref<HTMLDivElement>;
+  },
+) => React.ReactElement;
 
 export { GetRowKey, ExpandableConfig };
 

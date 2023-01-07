@@ -68,6 +68,7 @@ const columns = [
 <code src="./demo/row-selection.tsx">可选择</code>
 <code src="./demo/row-selection-and-operation.tsx">选择和操作</code>
 <code src="./demo/row-selection-custom.tsx">自定义选择项</code>
+<code src="./demo/row-selection-debug.tsx" debug>选择性能</code>
 <code src="./demo/head.tsx">筛选和排序</code>
 <code src="./demo/filter-in-tree.tsx">树型筛选菜单</code>
 <code src="./demo/filter-search.tsx">自定义筛选的搜索</code>
