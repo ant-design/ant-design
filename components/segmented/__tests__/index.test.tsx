@@ -1,5 +1,5 @@
 import { AppstoreOutlined, BarsOutlined } from '@ant-design/icons';
-import React from 'react';
+import React, { useState } from 'react';
 
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -214,35 +214,21 @@ describe('Segmented', () => {
   });
 
   it('render segmented with controlled mode', async () => {
-    class Demo extends React.Component<{}, { value: SegmentedValue }> {
-      state = {
-        value: 'Map',
-      };
-
-      render() {
-        return (
-          <>
-            <Segmented
-              options={['Map', 'Transit', 'Satellite']}
-              value={this.state.value}
-              onChange={(value) =>
-                this.setState({
-                  value,
-                })
-              }
-            />
-            <div className="value">{this.state.value}</div>
-            <input
-              className="control"
-              onChange={(e) => {
-                this.setState({ value: e.target.value });
-              }}
-            />
-          </>
-        );
-      }
-    }
-
+    const Demo: React.FC = () => {
+      const [value, setValue] = useState<SegmentedValue>('Map');
+      return (
+        <>
+          <Segmented options={['Map', 'Transit', 'Satellite']} value={value} onChange={setValue} />
+          <div className="value">{value}</div>
+          <input
+            className="control"
+            onChange={(e) => {
+              setValue(e.target.value);
+            }}
+          />
+        </>
+      );
+    };
     const { container } = render(<Demo />);
     fireEvent.click(container.querySelectorAll(`.${prefixCls}-item-input`)[0]);
     expect(container.querySelector('.value')?.textContent).toBe('Map');
