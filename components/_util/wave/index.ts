@@ -68,4 +68,8 @@ const Wave: React.FC<WaveProps> = (props) => {
   return cloneElement(children, { ref });
 };
 
+if (process.env.NODE_ENV !== 'production') {
+  Wave.displayName = 'Wave';
+}
+
 export default Wave;

@@ -87,4 +87,8 @@ const LocaleProvider: React.FC<LocaleProviderProps> = (props) => {
   );
 };
 
+if (process.env.NODE_ENV !== 'production') {
+  LocaleProvider.displayName = 'LocaleProvider';
+}
+
 export default LocaleProvider;
