@@ -33,9 +33,9 @@ const ActionButton: React.FC<ActionButtonProps> = (props) => {
     actionFn,
   } = props;
 
-  const clickedRef = React.useRef<boolean>(false);
-  const ref = React.useRef<HTMLInputElement>(null);
+  const clickeRef = React.useRef<boolean>(false);
   const timeoutId = React.useRef<NodeJS.Timer | null>(null);
+  const buttonRef = React.useRef<HTMLButtonElement | HTMLAnchorElement>(null);
   const [loading, setLoading] = useState<ButtonProps['loading']>(false);
 
   const onInternalClose = (...args: any[]) => {
@@ -45,7 +45,7 @@ const ActionButton: React.FC<ActionButtonProps> = (props) => {
   React.useEffect(() => {
     if (autoFocus) {
       timeoutId.current = setTimeout(() => {
-        ref.current?.focus();
+        buttonRef.current?.focus();
       });
     }
     return () => {
@@ -64,22 +64,22 @@ const ActionButton: React.FC<ActionButtonProps> = (props) => {
       (...args: any[]) => {
         setLoading(false, true);
         onInternalClose(...args);
-        clickedRef.current = false;
+        clickeRef.current = false;
       },
       (e: Error) => {
         // See: https://github.com/ant-design/ant-design/issues/6183
         setLoading(false, true);
-        clickedRef.current = false;
+        clickeRef.current = false;
         return Promise.reject(e);
       },
     );
   };
 
   const onClick = (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
-    if (clickedRef.current) {
+    if (clickeRef.current) {
       return;
     }
-    clickedRef.current = true;
+    clickeRef.current = true;
     if (!actionFn) {
       onInternalClose();
       return;
@@ -88,14 +88,14 @@ const ActionButton: React.FC<ActionButtonProps> = (props) => {
     if (emitEvent) {
       returnValueOfOnOk = actionFn(e);
       if (quitOnNullishReturnValue && !isThenable(returnValueOfOnOk)) {
-        clickedRef.current = false;
+        clickeRef.current = false;
         onInternalClose(e);
         return;
       }
     } else if (actionFn.length) {
       returnValueOfOnOk = actionFn(close);
       // https://github.com/ant-design/ant-design/issues/23358
-      clickedRef.current = false;
+      clickeRef.current = false;
     } else {
       returnValueOfOnOk = actionFn();
       if (!returnValueOfOnOk) {
@@ -113,7 +113,7 @@ const ActionButton: React.FC<ActionButtonProps> = (props) => {
       loading={loading}
       prefixCls={prefixCls}
       {...buttonProps}
-      ref={ref}
+      ref={buttonRef}
     >
       {children}
     </Button>
