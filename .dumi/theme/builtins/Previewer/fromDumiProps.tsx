@@ -86,8 +86,7 @@ export default function fromDumiProps<P extends object>(
       location,
       src: demoUrl,
       expand,
-      // FIXME: confirm is there has any case?
-      highlightedStyle: '',
+      highlightedStyle: meta.style ? Prism.highlight(meta.style, Prism.languages.css, 'css') : '',
     } as P;
 
     return <WrappedComponent {...transformedProps} />;

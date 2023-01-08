@@ -119,6 +119,33 @@ exports[`renders ./components/button/demo/block.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
+    style="margin-bottom:8px"
+  >
+    <button
+      class="ant-btn ant-btn-default ant-btn-block"
+      disabled=""
+      type="button"
+    >
+      <span>
+        disabled
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
+  >
+    <button
+      class="ant-btn ant-btn-text ant-btn-block"
+      type="button"
+    >
+      <span>
+        text
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
   >
     <button
       class="ant-btn ant-btn-link ant-btn-block"
@@ -419,6 +446,62 @@ exports[`renders ./components/button/demo/danger.tsx correctly 1`] = `
         Link
       </span>
     </button>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/button/demo/debug-block.tsx correctly 1`] = `
+<div
+  class="ant-form-item"
+>
+  <div
+    class="ant-row ant-form-item-row"
+  >
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <button
+            class="ant-btn ant-btn-round ant-btn-default ant-btn-lg ant-btn-block"
+            style="margin-bottom:12px"
+            type="button"
+          >
+            <span>
+              Submit
+            </span>
+          </button>
+          <button
+            class="ant-btn ant-btn-round ant-btn-default ant-btn-lg ant-btn-icon-only"
+            type="button"
+          >
+            <span
+              aria-label="download"
+              class="anticon anticon-download"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="download"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M505.7 661a8 8 0 0012.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
+                />
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 `;

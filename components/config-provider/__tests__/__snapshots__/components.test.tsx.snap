@@ -26737,7 +26737,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                                     Submenu
                                   </span>
                                   <span
-                                    class="config-dropdown-menu-submenu-expand-icon"
+                                    class="config-dropdown-menu-submenu-expand-icon config-dropdown-menu-submenu-arrow"
                                   >
                                     <span
                                       aria-label="right"
@@ -27044,7 +27044,7 @@ exports[`ConfigProvider components Table configProvider componentDisabled 1`] = 
                                     Submenu
                                   </span>
                                   <span
-                                    class="config-dropdown-menu-submenu-expand-icon"
+                                    class="config-dropdown-menu-submenu-expand-icon config-dropdown-menu-submenu-arrow"
                                   >
                                     <span
                                       aria-label="right"
@@ -27351,7 +27351,7 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                                     Submenu
                                   </span>
                                   <span
-                                    class="config-dropdown-menu-submenu-expand-icon"
+                                    class="config-dropdown-menu-submenu-expand-icon config-dropdown-menu-submenu-arrow"
                                   >
                                     <span
                                       aria-label="right"
@@ -27657,7 +27657,7 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                                     Submenu
                                   </span>
                                   <span
-                                    class="config-dropdown-menu-submenu-expand-icon"
+                                    class="config-dropdown-menu-submenu-expand-icon config-dropdown-menu-submenu-arrow"
                                   >
                                     <span
                                       aria-label="right"
@@ -27963,7 +27963,7 @@ exports[`ConfigProvider components Table configProvider virtual and dropdownMatc
                                     Submenu
                                   </span>
                                   <span
-                                    class="ant-dropdown-menu-submenu-expand-icon"
+                                    class="ant-dropdown-menu-submenu-expand-icon ant-dropdown-menu-submenu-arrow"
                                   >
                                     <span
                                       aria-label="right"
@@ -28269,7 +28269,7 @@ exports[`ConfigProvider components Table normal 1`] = `
                                     Submenu
                                   </span>
                                   <span
-                                    class="ant-dropdown-menu-submenu-expand-icon"
+                                    class="ant-dropdown-menu-submenu-expand-icon ant-dropdown-menu-submenu-arrow"
                                   >
                                     <span
                                       aria-label="right"
@@ -28575,7 +28575,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                                     Submenu
                                   </span>
                                   <span
-                                    class="ant-dropdown-menu-submenu-expand-icon"
+                                    class="ant-dropdown-menu-submenu-expand-icon ant-dropdown-menu-submenu-arrow"
                                   >
                                     <span
                                       aria-label="right"
@@ -38374,13 +38374,14 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
       class="config-transfer-list-header"
     >
       <label
-        class="config-checkbox-wrapper config-transfer-list-checkbox"
+        class="config-checkbox-wrapper config-checkbox-wrapper-disabled config-transfer-list-checkbox"
       >
         <span
-          class="config-checkbox"
+          class="config-checkbox config-checkbox-disabled"
         >
           <input
             class="config-checkbox-input"
+            disabled=""
             type="checkbox"
             value=""
           />
@@ -38533,13 +38534,14 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
       class="config-transfer-list-header"
     >
       <label
-        class="config-checkbox-wrapper config-transfer-list-checkbox"
+        class="config-checkbox-wrapper config-checkbox-wrapper-disabled config-transfer-list-checkbox"
       >
         <span
-          class="config-checkbox"
+          class="config-checkbox config-checkbox-disabled"
         >
           <input
             class="config-checkbox-input"
+            disabled=""
             type="checkbox"
             value=""
           />
@@ -38918,13 +38920,14 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
       class="config-transfer-list-header"
     >
       <label
-        class="config-checkbox-wrapper config-transfer-list-checkbox"
+        class="config-checkbox-wrapper config-checkbox-wrapper-disabled config-transfer-list-checkbox"
       >
         <span
-          class="config-checkbox"
+          class="config-checkbox config-checkbox-disabled"
         >
           <input
             class="config-checkbox-input"
+            disabled=""
             type="checkbox"
             value=""
           />
@@ -39077,13 +39080,14 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
       class="config-transfer-list-header"
     >
       <label
-        class="config-checkbox-wrapper config-transfer-list-checkbox"
+        class="config-checkbox-wrapper config-checkbox-wrapper-disabled config-transfer-list-checkbox"
       >
         <span
-          class="config-checkbox"
+          class="config-checkbox config-checkbox-disabled"
         >
           <input
             class="config-checkbox-input"
+            disabled=""
             type="checkbox"
             value=""
           />
@@ -39189,13 +39193,14 @@ exports[`ConfigProvider components Transfer configProvider componentSize middle 
       class="config-transfer-list-header"
     >
       <label
-        class="config-checkbox-wrapper config-transfer-list-checkbox"
+        class="config-checkbox-wrapper config-checkbox-wrapper-disabled config-transfer-list-checkbox"
       >
         <span
-          class="config-checkbox"
+          class="config-checkbox config-checkbox-disabled"
         >
           <input
             class="config-checkbox-input"
+            disabled=""
             type="checkbox"
             value=""
           />
@@ -39348,13 +39353,14 @@ exports[`ConfigProvider components Transfer configProvider componentSize middle 
       class="config-transfer-list-header"
     >
       <label
-        class="config-checkbox-wrapper config-transfer-list-checkbox"
+        class="config-checkbox-wrapper config-checkbox-wrapper-disabled config-transfer-list-checkbox"
       >
         <span
-          class="config-checkbox"
+          class="config-checkbox config-checkbox-disabled"
         >
           <input
             class="config-checkbox-input"
+            disabled=""
             type="checkbox"
             value=""
           />
@@ -39460,13 +39466,14 @@ exports[`ConfigProvider components Transfer configProvider virtual and dropdownM
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+        class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
       >
         <span
-          class="ant-checkbox"
+          class="ant-checkbox ant-checkbox-disabled"
         >
           <input
             class="ant-checkbox-input"
+            disabled=""
             type="checkbox"
             value=""
           />
@@ -39619,13 +39626,14 @@ exports[`ConfigProvider components Transfer configProvider virtual and dropdownM
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+        class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
       >
         <span
-          class="ant-checkbox"
+          class="ant-checkbox ant-checkbox-disabled"
         >
           <input
             class="ant-checkbox-input"
+            disabled=""
             type="checkbox"
             value=""
           />
@@ -39731,13 +39739,14 @@ exports[`ConfigProvider components Transfer normal 1`] = `
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+        class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
       >
         <span
-          class="ant-checkbox"
+          class="ant-checkbox ant-checkbox-disabled"
         >
           <input
             class="ant-checkbox-input"
+            disabled=""
             type="checkbox"
             value=""
           />
@@ -39890,13 +39899,14 @@ exports[`ConfigProvider components Transfer normal 1`] = `
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+        class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
       >
         <span
-          class="ant-checkbox"
+          class="ant-checkbox ant-checkbox-disabled"
         >
           <input
             class="ant-checkbox-input"
+            disabled=""
             type="checkbox"
             value=""
           />
@@ -40002,13 +40012,14 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
       class="prefix-Transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper prefix-Transfer-list-checkbox"
+        class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled prefix-Transfer-list-checkbox"
       >
         <span
-          class="ant-checkbox"
+          class="ant-checkbox ant-checkbox-disabled"
         >
           <input
             class="ant-checkbox-input"
+            disabled=""
             type="checkbox"
             value=""
           />
@@ -40161,13 +40172,14 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
       class="prefix-Transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper prefix-Transfer-list-checkbox"
+        class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled prefix-Transfer-list-checkbox"
       >
         <span
-          class="ant-checkbox"
+          class="ant-checkbox ant-checkbox-disabled"
         >
           <input
             class="ant-checkbox-input"
+            disabled=""
             type="checkbox"
             value=""
           />

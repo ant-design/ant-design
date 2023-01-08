@@ -3,13 +3,14 @@ import CSSMotion from 'rc-motion';
 import * as React from 'react';
 import { useMemo, useRef } from 'react';
 import { ConfigContext } from '../config-provider';
-import type { PresetColorType, PresetStatusColorType } from '../_util/colors';
+import type { PresetStatusColorType } from '../_util/colors';
 import { cloneElement } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
 import Ribbon from './Ribbon';
 import ScrollNumber from './ScrollNumber';
 import useStyle from './style';
-import { isPresetColor } from './utils';
+import { isPresetColor } from '../_util/colors';
+import type { PresetColorKey } from '../theme/internal';
 
 export type { ScrollNumberProps } from './ScrollNumber';
 
@@ -30,7 +31,7 @@ export interface BadgeProps {
   scrollNumberPrefixCls?: string;
   className?: string;
   status?: PresetStatusColorType;
-  color?: LiteralUnion<PresetColorType>;
+  color?: LiteralUnion<PresetColorKey>;
   text?: React.ReactNode;
   size?: 'default' | 'small';
   offset?: [number | string, number | string];
@@ -144,15 +145,18 @@ const Badge: CompoundedComponent = ({
           },
         }));
 
+  // InternalColor
+  const isInternalColor = isPresetColor(color, false);
+
   // Shared styles
   const statusCls = classNames({
     [`${prefixCls}-status-dot`]: hasStatus,
     [`${prefixCls}-status-${status}`]: !!status,
-    [`${prefixCls}-status-${color}`]: isPresetColor(color),
+    [`${prefixCls}-status-${color}`]: isInternalColor,
   });
 
   const statusStyle: React.CSSProperties = {};
-  if (color && !isPresetColor(color)) {
+  if (color && !isInternalColor) {
     statusStyle.color = color;
     statusStyle.background = color;
   }
@@ -207,11 +211,11 @@ const Badge: CompoundedComponent = ({
             [`${prefixCls}-multiple-words`]:
               !isDot && displayCount && displayCount.toString().length > 1,
             [`${prefixCls}-status-${status}`]: !!status,
-            [`${prefixCls}-status-${color}`]: isPresetColor(color),
+            [`${prefixCls}-status-${color}`]: isInternalColor,
           });
 
           let scrollNumberStyle: React.CSSProperties = { ...mergedStyle };
-          if (color && !isPresetColor(color)) {
+          if (color && !isInternalColor) {
             scrollNumberStyle = scrollNumberStyle || {};
             scrollNumberStyle.background = color;
           }

@@ -18,6 +18,45 @@ const { confirm } = Modal;
 
 jest.mock('rc-motion');
 
+(global as any).injectPromise = false;
+(global as any).rejectPromise = null;
+
+jest.mock('../../_util/ActionButton', () => {
+  const ActionButton = jest.requireActual('../../_util/ActionButton').default;
+  return (props: any) => {
+    const { actionFn } = props;
+    let mockActionFn: any = actionFn;
+    if (actionFn && (global as any).injectPromise) {
+      mockActionFn = (...args: any) => {
+        let ret = actionFn(...args);
+
+        if (ret.then) {
+          let resolveFn: any;
+          let rejectFn: any;
+
+          ret = ret.then(
+            (v: any) => {
+              resolveFn?.(v);
+            },
+            (e: any) => {
+              rejectFn?.(e)?.catch((err: Error) => {
+                (global as any).rejectPromise = err;
+              });
+            },
+          );
+          ret.then = (resolve: any, reject: any) => {
+            resolveFn = resolve;
+            rejectFn = reject;
+          };
+        }
+
+        return ret;
+      };
+    }
+    return <ActionButton {...props} actionFn={mockActionFn} />;
+  };
+});
+
 describe('Modal.confirm triggers callbacks correctly', () => {
   // Inject CSSMotion to replace with No transition support
   const MockCSSMotion = genCSSMotion(false);
@@ -58,6 +97,11 @@ describe('Modal.confirm triggers callbacks correctly', () => {
 
   beforeAll(() => {
     jest.useFakeTimers();
+  });
+
+  beforeEach(() => {
+    (global as any).injectPromise = false;
+    (global as any).rejectPromise = null;
   });
 
   afterEach(async () => {
@@ -169,6 +213,8 @@ describe('Modal.confirm triggers callbacks correctly', () => {
   });
 
   it('should emit error when onOk return Promise.reject', async () => {
+    (global as any).injectPromise = true;
+
     const error = new Error('something wrong');
     await open({
       onOk: () => Promise.reject(error),
@@ -179,7 +225,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     // wait promise
     await waitFakeTimer();
 
-    expect(errorSpy).toHaveBeenCalledWith(error);
+    expect((global as any).rejectPromise instanceof Error).toBeTruthy();
   });
 
   it('shows animation when close', async () => {

@@ -102,19 +102,11 @@ const useStyle = () => {
 
       > * {
         flex: none;
-        margin: 0 12px 0 0;
+        margin: 0;
+        margin-inline-end: 12px;
 
         &:last-child {
-          margin-right: 40px;
-        }
-      }
-
-      ${token.antCls}-row-rtl & {
-        > * {
-          &:last-child {
-            margin-right: 12px;
-            margin-left: 40px;
-          }
+          margin-inline-end: 40px;
         }
       }
     `,

@@ -8,6 +8,7 @@ import type {
   MapToken,
   OverrideToken,
   PresetColorType,
+  PresetColorKey,
   SeedToken,
 } from './interface';
 import { PresetColors } from './interface';
@@ -35,6 +36,7 @@ export type {
   SeedToken,
   AliasToken,
   PresetColorType,
+  PresetColorKey,
   // FIXME: Remove this type
   AliasToken as DerivativeToken,
   FullToken,
