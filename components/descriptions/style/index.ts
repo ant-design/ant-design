@@ -40,6 +40,7 @@ const genBorderedStyle = (token: DescriptionsToken): CSSObject => {
         },
       },
       [`${componentCls}-item-label`]: {
+        color: token.colorTextSecondary,
         backgroundColor: descriptionsBg,
         '&::after': {
           display: 'none',
@@ -116,7 +117,7 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token: Descripti
         },
       },
       [`${componentCls}-item-label`]: {
-        color: token.colorText,
+        color: token.colorTextTertiary,
         fontWeight: 'normal',
         fontSize: token.fontSize,
         lineHeight: token.lineHeight,
