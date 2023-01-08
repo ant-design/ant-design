@@ -144,14 +144,6 @@ function List<T>({
 
   const prefixCls = getPrefixCls('list', customizePrefixCls);
 
-  const renderEmptyFunc = (): React.ReactNode => (
-    <div className={`${prefixCls}-empty-text`}>
-      {(locale && locale.emptyText) || renderEmpty?.('List') || (
-        <DefaultRenderEmpty componentName="List" />
-      )}
-    </div>
-  );
-
   // Style
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
@@ -270,7 +262,13 @@ function List<T>({
       <ul className={`${prefixCls}-items`}>{items}</ul>
     );
   } else if (!children && !isLoading) {
-    childrenContent = renderEmptyFunc();
+    childrenContent = (
+      <div className={`${prefixCls}-empty-text`}>
+        {(locale && locale.emptyText) || renderEmpty?.('List') || (
+          <DefaultRenderEmpty componentName="List" />
+        )}
+      </div>
+    );
   }
 
   const paginationPosition = paginationProps.position || 'bottom';
