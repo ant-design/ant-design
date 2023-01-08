@@ -1,9 +1,9 @@
 import classNames from 'classnames';
 import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import type { ChangeEvent, CSSProperties } from 'react';
-import type { ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
+import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
-import defaultRenderEmpty from '../config-provider/defaultRenderEmpty';
+import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import type { FormItemStatusContextProps } from '../form/context';
 import { FormItemInputContext } from '../form/context';
 import LocaleReceiver from '../locale/LocaleReceiver';
@@ -201,12 +201,6 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   const getTitles = (transferLocale: TransferLocale): React.ReactNode[] =>
     titles ?? transferLocale.titles ?? [];
 
-  const getLocale = (transferLocale: TransferLocale, renderEmpty: RenderEmptyHandler) => ({
-    ...transferLocale,
-    notFoundContent: renderEmpty('Transfer'),
-    ...locale,
-  });
-
   const handleLeftScroll = (e: React.SyntheticEvent<HTMLUListElement>) => {
     onScroll?.('left', e);
   };
@@ -338,6 +332,12 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   const { getPrefixCls, renderEmpty, direction } = configContext;
   const { hasFeedback, status } = formItemContext;
 
+  const getLocale = (transferLocale: TransferLocale) => ({
+    ...transferLocale,
+    notFoundContent: renderEmpty?.('Transfer') || <DefaultRenderEmpty componentName="Transfer" />,
+    ...locale,
+  });
+
   const prefixCls = getPrefixCls('transfer', customizePrefixCls);
   const mergedStatus = getMergedStatus(status, customStatus);
   const mergedPagination = !children && pagination;
@@ -359,7 +359,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   return (
     <LocaleReceiver componentName="Transfer" defaultLocale={defaultLocale.Transfer}>
       {(contextLocale) => {
-        const listLocale = getLocale(contextLocale, renderEmpty || defaultRenderEmpty);
+        const listLocale = getLocale(contextLocale);
         const [leftTitle, rightTitle] = getTitles(listLocale);
         return (
           <TransferFC prefixCls={prefixCls} className={cls} style={style}>

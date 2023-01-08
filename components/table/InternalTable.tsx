@@ -6,7 +6,7 @@ import omit from 'rc-util/lib/omit';
 import * as React from 'react';
 import type { ConfigConsumerProps } from '../config-provider/context';
 import { ConfigContext } from '../config-provider/context';
-import defaultRenderEmpty from '../config-provider/defaultRenderEmpty';
+import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
@@ -519,6 +519,11 @@ function InternalTable<RecordType extends object = any>(
     className,
     hashId,
   );
+
+  const emptyText = (locale && locale.emptyText) || renderEmpty?.('Table') || (
+    <DefaultRenderEmpty componentName="Table" />
+  );
+
   return wrapSSR(
     <div ref={ref} className={wrapperClassNames} style={style}>
       <Spin spinning={false} {...spinProps}>
@@ -538,7 +543,7 @@ function InternalTable<RecordType extends object = any>(
           data={pageData}
           rowKey={getRowKey}
           rowClassName={internalRowClassName}
-          emptyText={(locale && locale.emptyText) || (renderEmpty || defaultRenderEmpty)('Table')}
+          emptyText={emptyText}
           // Internal
           internalHooks={INTERNAL_HOOKS}
           internalRefs={internalRefs as any}
