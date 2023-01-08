@@ -12,16 +12,12 @@ const Editor: React.FC<JSONEditorPropsOptional> = (props) => {
       props: { mode: Mode.text },
     });
     return () => {
-      if (editorRef.current) {
-        editorRef.current.destroy();
-      }
+      editorRef.current?.destroy();
     };
   }, []);
 
   useEffect(() => {
-    if (editorRef.current) {
-      editorRef.current.updateProps(props);
-    }
+    editorRef.current?.updateProps(props);
   }, [props]);
 
   return <div ref={container} className="vanilla-jsoneditor-react" />;
