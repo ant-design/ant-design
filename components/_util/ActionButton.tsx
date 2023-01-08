@@ -21,24 +21,36 @@ function isThenable<T extends any>(thing?: PromiseLike<T>): boolean {
 }
 
 const ActionButton: React.FC<ActionButtonProps> = (props) => {
+  const {
+    type,
+    children,
+    prefixCls,
+    buttonProps,
+    close,
+    autoFocus,
+    emitEvent,
+    quitOnNullishReturnValue,
+    actionFn,
+  } = props;
+
   const clickedRef = React.useRef<boolean>(false);
   const ref = React.useRef<HTMLInputElement>(null);
+  const timeoutId = React.useRef<NodeJS.Timer | null>(null);
   const [loading, setLoading] = useState<ButtonProps['loading']>(false);
-  const { close } = props;
+
   const onInternalClose = (...args: any[]) => {
     close?.(...args);
   };
 
   React.useEffect(() => {
-    let timeoutId: NodeJS.Timer | null = null;
-    if (props.autoFocus) {
-      timeoutId = setTimeout(() => {
+    if (autoFocus) {
+      timeoutId.current = setTimeout(() => {
         ref.current?.focus();
       });
     }
     return () => {
-      if (timeoutId) {
-        clearTimeout(timeoutId);
+      if (timeoutId.current) {
+        clearTimeout(timeoutId.current);
       }
     };
   }, []);
@@ -64,7 +76,6 @@ const ActionButton: React.FC<ActionButtonProps> = (props) => {
   };
 
   const onClick = (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
-    const { actionFn } = props;
     if (clickedRef.current) {
       return;
     }
@@ -74,9 +85,9 @@ const ActionButton: React.FC<ActionButtonProps> = (props) => {
       return;
     }
     let returnValueOfOnOk: PromiseLike<any>;
-    if (props.emitEvent) {
+    if (emitEvent) {
       returnValueOfOnOk = actionFn(e);
-      if (props.quitOnNullishReturnValue && !isThenable(returnValueOfOnOk)) {
+      if (quitOnNullishReturnValue && !isThenable(returnValueOfOnOk)) {
         clickedRef.current = false;
         onInternalClose(e);
         return;
@@ -95,7 +106,6 @@ const ActionButton: React.FC<ActionButtonProps> = (props) => {
     handlePromiseOnOk(returnValueOfOnOk);
   };
 
-  const { type, children, prefixCls, buttonProps } = props;
   return (
     <Button
       {...convertLegacyProps(type)}
