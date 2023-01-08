@@ -16,8 +16,8 @@ export interface ActionButtonProps {
   children?: React.ReactNode;
 }
 
-function isThenable(thing?: PromiseLike<any>): boolean {
-  return !!(thing && !!thing.then);
+function isThenable<T extends any>(thing?: PromiseLike<T>): boolean {
+  return !!(thing && thing.then);
 }
 
 const ActionButton: React.FC<ActionButtonProps> = (props) => {
