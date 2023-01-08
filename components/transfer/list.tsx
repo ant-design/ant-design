@@ -1,8 +1,7 @@
-/* eslint-disable @typescript-eslint/no-shadow */
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
-import * as React from 'react';
+import React, { useMemo, useRef, useState } from 'react';
 import Checkbox from '../checkbox';
 import Dropdown from '../dropdown';
 import type { MenuProps } from '../menu';
@@ -17,7 +16,7 @@ import type {
   TransferLocale,
 } from './index';
 import type { PaginationType } from './interface';
-import type { TransferListBodyProps } from './ListBody';
+import type { ListBodyRef, TransferListBodyProps } from './ListBody';
 import DefaultListBody, { OmitProps } from './ListBody';
 import Search from './search';
 
@@ -66,7 +65,7 @@ export interface TransferListProps<RecordType> extends TransferLocale {
     props: TransferListProps<RecordType>,
     info?: { direction: TransferDirection },
   ) => React.ReactNode;
-  onScroll: (e: React.UIEvent<HTMLUListElement>) => void;
+  onScroll: (e: React.UIEvent<HTMLUListElement, UIEvent>) => void;
   disabled?: boolean;
   direction: TransferDirection;
   showSelectAll?: boolean;
@@ -110,20 +109,9 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
     render = defaultRender,
   } = props;
 
-  const [filterValue, setFilterValue] = React.useState<string>('');
+  const [filterValue, setFilterValue] = useState<string>('');
 
-  const defaultListBodyRef = React.useRef<DefaultListBody<RecordType>>(null);
-
-  const getCheckStatus = (filteredItems: RecordType[]) => {
-    if (checkedKeys.length === 0) {
-      return 'none';
-    }
-    const checkedKeysMap = groupKeysMap(checkedKeys);
-    if (filteredItems.every((item) => checkedKeysMap.has(item.key) || !!item.disabled)) {
-      return 'all';
-    }
-    return 'part';
-  };
+  const listBodyRef = useRef<ListBodyRef<RecordType>>({});
 
   const internalHandleFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFilterValue(e.target.value);
@@ -142,14 +130,11 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
     return text.includes(filterValue);
   };
 
-  const renderListBody = (
-    renderList: RenderListFunction<RecordType> | undefined,
-    props: TransferListBodyProps<RecordType>,
-  ) => {
-    let bodyContent: React.ReactNode = renderList ? renderList(props) : null;
+  const renderListBody = (listProps: TransferListBodyProps<RecordType>) => {
+    let bodyContent: React.ReactNode = renderList ? renderList(listProps) : null;
     const customize: boolean = !!bodyContent;
     if (!customize) {
-      bodyContent = <DefaultListBody ref={defaultListBodyRef} {...props} />;
+      bodyContent = <DefaultListBody ref={listBodyRef} {...listProps} />;
     }
     return { customize, bodyContent };
   };
@@ -158,51 +143,46 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
     const renderResult = render(item);
     const isRenderResultPlain = isRenderResultPlainObject(renderResult);
     return {
-      renderedText: isRenderResultPlain
-        ? (renderResult as RenderResultObject).value
-        : (renderResult as string),
-      renderedEl: isRenderResultPlain ? (renderResult as RenderResultObject).label : renderResult,
       item,
+      renderedEl: isRenderResultPlain ? renderResult.label : renderResult,
+      renderedText: isRenderResultPlain ? renderResult.value : (renderResult as string),
     };
   };
 
-  const getFilteredItems = (
-    dataSource: RecordType[],
-    filterValue: string,
-  ): {
-    filteredItems: RecordType[];
-    filteredRenderItems: RenderedItem<RecordType>[];
-  } => {
-    const filteredItems: RecordType[] = [];
-    const filteredRenderItems: RenderedItem<RecordType>[] = [];
+  const notFoundContentEle = useMemo<React.ReactNode>(
+    () =>
+      Array.isArray(notFoundContent)
+        ? notFoundContent[direction === 'left' ? 0 : 1]
+        : notFoundContent,
+    [notFoundContent, direction],
+  );
 
+  const [filteredItems, filteredRenderItems] = useMemo(() => {
+    const filterItems: RecordType[] = [];
+    const filterRenderItems: RenderedItem<RecordType>[] = [];
     dataSource.forEach((item) => {
       const renderedItem = renderItem(item);
-      const { renderedText } = renderedItem;
-
-      // Filter skip
-      if (filterValue && !matchFilter(renderedText, item)) {
-        return null;
+      if (filterValue && !matchFilter(renderedItem.renderedText, item)) {
+        return;
       }
-
-      filteredItems.push(item);
-      filteredRenderItems.push(renderedItem);
+      filterItems.push(item);
+      filterRenderItems.push(renderedItem);
     });
-    return { filteredItems, filteredRenderItems };
-  };
+    return [filterItems, filterRenderItems] as const;
+  }, [dataSource, filterValue]);
 
-  const getListBody = (
-    prefixCls: string,
-    searchPlaceholder: string,
-    filterValue: string,
-    filteredItems: RecordType[],
-    notFoundContent: React.ReactNode | React.ReactNode[],
-    filteredRenderItems: RenderedItem<RecordType>[],
-    checkedKeys: string[],
-    renderList?: RenderListFunction<RecordType>,
-    showSearch?: boolean,
-    disabled?: boolean,
-  ): React.ReactNode => {
+  const checkStatus = useMemo<string>(() => {
+    if (checkedKeys.length === 0) {
+      return 'none';
+    }
+    const checkedKeysMap = groupKeysMap(checkedKeys);
+    if (filteredItems.every((item) => checkedKeysMap.has(item.key) || !!item.disabled)) {
+      return 'all';
+    }
+    return 'part';
+  }, [checkedKeys, filteredItems]);
+
+  const listBody = useMemo<React.ReactNode>(() => {
     const search = showSearch ? (
       <div className={`${prefixCls}-body-search-wrapper`}>
         <Search
@@ -216,17 +196,12 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
       </div>
     ) : null;
 
-    const { bodyContent, customize } = renderListBody(renderList, {
+    const { customize, bodyContent } = renderListBody({
       ...omit(props, OmitProps),
       filteredItems,
       filteredRenderItems,
       selectedKeys: checkedKeys,
     });
-
-    const getNotFoundContent = () =>
-      Array.isArray(notFoundContent)
-        ? notFoundContent[direction === 'left' ? 0 : 1]
-        : notFoundContent;
 
     let bodyNode: React.ReactNode;
     // We should wrap customize list body in a classNamed div to use flex layout.
@@ -236,10 +211,9 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
       bodyNode = filteredItems.length ? (
         bodyContent
       ) : (
-        <div className={`${prefixCls}-body-not-found`}>{getNotFoundContent()}</div>
+        <div className={`${prefixCls}-body-not-found`}>{notFoundContentEle}</div>
       );
     }
-
     return (
       <div
         className={classNames(
@@ -250,38 +224,33 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
         {bodyNode}
       </div>
     );
-  };
-
-  const getCheckBox = ({
-    filteredItems,
-    onItemSelectAll,
-    disabled,
+  }, [
+    showSearch,
     prefixCls,
-  }: {
-    filteredItems: RecordType[];
-    onItemSelectAll: (dataSource: string[], checkAll: boolean) => void;
-    disabled?: boolean;
-    prefixCls?: string;
-  }): false | React.ReactNode => {
-    const checkStatus = getCheckStatus(filteredItems);
-    const checkedAll = checkStatus === 'all';
-    const checkAllCheckbox: React.ReactNode = (
-      <Checkbox
-        disabled={disabled}
-        checked={checkedAll}
-        indeterminate={checkStatus === 'part'}
-        className={`${prefixCls}-checkbox`}
-        onChange={() => {
-          // Only select enabled items
-          onItemSelectAll(
-            filteredItems.filter((item) => !item.disabled).map(({ key }) => key),
-            !checkedAll,
-          );
-        }}
-      />
-    );
-    return checkAllCheckbox;
-  };
+    searchPlaceholder,
+    filterValue,
+    disabled,
+    checkedKeys,
+    filteredItems,
+    filteredRenderItems,
+    notFoundContentEle,
+  ]);
+
+  const checkBox = (
+    <Checkbox
+      disabled={filteredItems.length === 0 || props.disabled}
+      checked={checkStatus === 'all'}
+      indeterminate={checkStatus === 'part'}
+      className={`${prefixCls}-checkbox`}
+      onChange={() => {
+        // Only select enabled items
+        onItemSelectAll?.(
+          filteredItems.filter((item) => !item.disabled).map(({ key }) => key),
+          checkStatus !== 'all',
+        );
+      }}
+    />
+  );
 
   const getSelectAllLabel = (selectedCount: number, totalCount: number): React.ReactNode => {
     if (selectAllLabel) {
@@ -307,27 +276,9 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
 
   // ====================== Get filtered, checked item list ======================
 
-  const { filteredItems, filteredRenderItems } = getFilteredItems(dataSource, filterValue);
-
-  const listBody = getListBody(
-    prefixCls,
-    searchPlaceholder,
-    filterValue,
-    filteredItems,
-    notFoundContent,
-    filteredRenderItems,
-    checkedKeys,
-    renderList,
-    showSearch,
-    disabled,
-  );
-
   const listFooter = footerDom ? <div className={`${prefixCls}-footer`}>{footerDom}</div> : null;
 
-  const checkAllCheckbox =
-    !showRemove &&
-    !pagination &&
-    getCheckBox({ filteredItems, onItemSelectAll, disabled, prefixCls });
+  const checkAllCheckbox = !showRemove && !pagination && checkBox;
 
   let items: MenuProps['items'];
 
@@ -340,7 +291,7 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
             label: removeCurrent,
             onClick() {
               const pageKeys = getEnabledItemKeys(
-                (defaultListBodyRef.current?.getItems() || []).map((entity) => entity.item),
+                (listBodyRef.current?.items || []).map((entity) => entity.item),
               );
               onItemRemove?.(pageKeys);
             },
@@ -362,7 +313,7 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
         label: selectAll,
         onClick() {
           const keys = getEnabledItemKeys(filteredItems);
-          onItemSelectAll(keys, keys.length !== checkedKeys.length);
+          onItemSelectAll?.(keys, keys.length !== checkedKeys.length);
         },
       },
       pagination
@@ -370,8 +321,8 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
             key: 'selectCurrent',
             label: selectCurrent,
             onClick() {
-              const pageItems = defaultListBodyRef.current?.getItems() || [];
-              onItemSelectAll(getEnabledItemKeys(pageItems.map((entity) => entity.item)), true);
+              const pageItems = listBodyRef.current?.items || [];
+              onItemSelectAll?.(getEnabledItemKeys(pageItems.map((entity) => entity.item)), true);
             },
           }
         : null,
@@ -381,7 +332,7 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
         onClick() {
           const availableKeys = getEnabledItemKeys(
             pagination
-              ? (defaultListBodyRef.current?.getItems() || []).map((entity) => entity.item)
+              ? (listBodyRef.current?.items || []).map((entity) => entity.item)
               : filteredItems,
           );
           const checkedKeySet = new Set<string>(checkedKeys);
@@ -394,14 +345,14 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
               newCheckedKeys.push(key);
             }
           });
-          onItemSelectAll(newCheckedKeys, true);
-          onItemSelectAll(newUnCheckedKeys, false);
+          onItemSelectAll?.(newCheckedKeys, true);
+          onItemSelectAll?.(newUnCheckedKeys, false);
         },
       },
     ];
   }
 
-  const dropdown = (
+  const dropdown: React.ReactNode = (
     <Dropdown className={`${prefixCls}-header-dropdown`} menu={{ items }} disabled={disabled}>
       <DownOutlined />
     </Dropdown>

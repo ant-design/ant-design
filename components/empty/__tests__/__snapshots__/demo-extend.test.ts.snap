@@ -489,13 +489,14 @@ exports[`renders ./components/empty/demo/config-provider.tsx extend context corr
           class="ant-transfer-list-header"
         >
           <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
           >
             <span
-              class="ant-checkbox"
+              class="ant-checkbox ant-checkbox-disabled"
             >
               <input
                 class="ant-checkbox-input"
+                disabled=""
                 type="checkbox"
               />
               <span
@@ -778,13 +779,14 @@ exports[`renders ./components/empty/demo/config-provider.tsx extend context corr
           class="ant-transfer-list-header"
         >
           <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
           >
             <span
-              class="ant-checkbox"
+              class="ant-checkbox ant-checkbox-disabled"
             >
               <input
                 class="ant-checkbox-input"
+                disabled=""
                 type="checkbox"
               />
               <span

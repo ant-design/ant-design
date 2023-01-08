@@ -1,6 +1,6 @@
 /* eslint-disable no-unsafe-optional-chaining */
 /* eslint-disable react/no-multi-comp */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Table from '..';
 import { fireEvent, render, waitFor, act } from '../../../tests/utils';
 import Button from '../../button';
@@ -11,7 +11,13 @@ import Select from '../../select';
 import Tooltip from '../../tooltip';
 import type { SelectProps } from '../../select';
 import type { ColumnGroupType, ColumnType, TableProps } from '..';
-import type { ColumnFilterItem, FilterDropdownProps, FilterValue, ColumnsType } from '../interface';
+import type {
+  ColumnFilterItem,
+  FilterDropdownProps,
+  FilterValue,
+  ColumnsType,
+  SorterResult,
+} from '../interface';
 import { resetWarned } from '../../_util/warning';
 import type { TreeColumnFilterItem } from '../hooks/useFilter/FilterDropdown';
 
@@ -767,36 +773,27 @@ describe('Table.filter', () => {
 
   it('works with JSX in controlled mode', () => {
     const { Column } = Table;
-    class App extends React.Component {
-      state: {
-        filters: { name?: ColumnType<any>['filteredValue'] };
-      } = {
-        filters: {},
+    const App: React.FC = () => {
+      const [filters, setFilters] = React.useState<{ name?: ColumnType<any>['filteredValue'] }>({});
+      const handleChange: TableProps<any>['onChange'] = (_, filter) => {
+        setFilters(filter);
       };
-
-      handleChange: TableProps<any>['onChange'] = (_, filters) => {
-        this.setState({ filters });
-      };
-
-      render() {
-        const { filters } = this.state;
-        return (
-          <Table dataSource={data} onChange={this.handleChange}>
-            <Column
-              title="name"
-              dataIndex="name"
-              key="name"
-              filters={[
-                { text: 'Jack', value: 'Jack' },
-                { text: 'Lucy', value: 'Lucy' },
-              ]}
-              filteredValue={filters.name}
-              onFilter={filterFn}
-            />
-          </Table>
-        );
-      }
-    }
+      return (
+        <Table dataSource={data} onChange={handleChange}>
+          <Column
+            title="name"
+            dataIndex="name"
+            key="name"
+            onFilter={filterFn}
+            filteredValue={filters.name}
+            filters={[
+              { text: 'Jack', value: 'Jack' },
+              { text: 'Lucy', value: 'Lucy' },
+            ]}
+          />
+        </Table>
+      );
+    };
 
     const { container } = render(<App />);
 
@@ -952,43 +949,35 @@ describe('Table.filter', () => {
 
   // https://github.com/ant-design/ant-design/issues/13028
   it('reset dropdown filter correctly', () => {
-    class Demo extends React.Component {
-      state: {
-        name?: ColumnType<any>['filteredValue'];
-      } = {};
-
-      onChange = () => {
-        this.setState({ name: '' });
+    const Demo: React.FC = () => {
+      const [name, setName] = React.useState<ColumnType<any>['filteredValue']>();
+      const onChange = () => {
+        setName('' as unknown as ColumnType<any>['filteredValue']);
       };
-
-      render() {
-        const { name } = this.state;
-
-        return createTable({
-          onChange: this.onChange,
-          columns: [
-            {
-              title: 'Name',
-              dataIndex: 'name',
-              key: 'name',
-              filteredValue: name,
-              // eslint-disable-next-line react/no-unstable-nested-components
-              filterDropdown: ({ setSelectedKeys, selectedKeys, confirm }) => (
-                <div>
-                  <Input
-                    value={selectedKeys[0]}
-                    onChange={(e) => {
-                      setSelectedKeys(e.target.value ? [e.target.value] : []);
-                    }}
-                  />
-                  <Button onClick={() => confirm()}>Confirm</Button>
-                </div>
-              ),
-            },
-          ],
-        });
-      }
-    }
+      return createTable({
+        onChange,
+        columns: [
+          {
+            title: 'Name',
+            dataIndex: 'name',
+            key: 'name',
+            filteredValue: name,
+            // eslint-disable-next-line react/no-unstable-nested-components
+            filterDropdown: ({ setSelectedKeys, selectedKeys, confirm }) => (
+              <div>
+                <Input
+                  value={selectedKeys[0]}
+                  onChange={(e) => {
+                    setSelectedKeys(e.target.value ? [e.target.value] : []);
+                  }}
+                />
+                <Button onClick={() => confirm()}>Confirm</Button>
+              </div>
+            ),
+          },
+        ],
+      });
+    };
 
     const { container } = render(<Demo />);
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
@@ -1351,29 +1340,13 @@ describe('Table.filter', () => {
 
   // https://github.com/ant-design/ant-design/issues/19274
   it('should not crash', () => {
-    class TestTable extends React.Component {
-      state = {
-        cols: [],
-      };
-
-      componentDidMount() {
-        this.setState({
-          cols: [
-            {
-              title: 'test',
-              itemKey: 'test',
-              filterDropdown: 123,
-            },
-          ],
-        });
-      }
-
-      render() {
-        const { cols } = this.state;
-        return <Table columns={cols} dataSource={[]} scroll={{ x: 1000 }} />;
-      }
-    }
-
+    const TestTable: React.FC = () => {
+      const [cols, setCols] = React.useState<ColumnsType<any>>([]);
+      useEffect(() => {
+        setCols([{ title: 'test', key: 'test', filterDropdown: 123 }]);
+      }, []);
+      return <Table columns={cols} dataSource={[]} scroll={{ x: 1000 }} />;
+    };
     render(<TestTable />);
   });
 
@@ -1776,83 +1749,68 @@ describe('Table.filter', () => {
 
   // Warning: An update to Item ran an effect, but was not wrapped in act(...).
   it('Column with filter and children filters properly.', () => {
-    class App extends React.Component {
-      state = {
-        filteredInfo: null,
-        sortedInfo: null,
+    const App: React.FC = () => {
+      const [filteredInfo, setFilteredInfo] = useState<Record<string, FilterValue | null>>({});
+      const [sortedInfo, setSortedInfo] = useState<SorterResult<any> | SorterResult<any>[]>({});
+      const handleChange: TableProps<any>['onChange'] = (_, filters, sorter) => {
+        setFilteredInfo(filters);
+        setSortedInfo(sorter);
       };
-
-      handleChange: TableProps<any>['onChange'] = (_, filters, sorter) => {
-        this.setState({
-          filteredInfo: filters,
-          sortedInfo: sorter,
-        });
-      };
-
-      render() {
-        const { sortedInfo = {}, filteredInfo = {} } = this.state;
-        const columns = [
-          {
-            title: 'Name',
-            dataIndex: 'name',
-            key: 'name',
-            filters: [
-              { text: 'Joe', value: 'Joe' },
-              { text: 'Jim', value: 'Jim' },
-            ],
-            filteredValue: (filteredInfo as any)?.name || null,
-            onFilter: (value: any, record: any) => record.name.includes(value),
-            children: [
-              {
-                title: 'Age',
-                dataIndex: 'age',
-                key: 'age',
-              },
-            ],
-          },
-          {
-            title: 'Age',
-            dataIndex: 'age',
-            key: 'age',
-            sorter: (a: any, b: any) => a.age - b.age,
-            sortOrder: (sortedInfo as any)?.columnKey === 'age' && (sortedInfo as any)?.order,
-            ellipsis: true,
-          },
-        ];
-        return (
-          <Table
-            columns={columns}
-            dataSource={[
-              {
-                key: '1',
-                name: 'John Brown',
-                age: 32,
-                address: 'New York No. 1 Lake Park',
-              },
-              {
-                key: '2',
-                name: 'Jim Green',
-                age: 42,
-                address: 'London No. 1 Lake Park',
-              },
-              {
-                key: '3',
-                name: 'Joe Black',
-                age: 66,
-                address: 'Sidney No. 1 Lake Park',
-              },
-              {
-                key: '4',
-                name: 'Jim Red',
-                age: 32,
-                address: 'London No. 2 Lake Park',
-              },
-            ]}
-            onChange={this.handleChange}
-          />
-        );
-      }
-    }
+      const columns = [
+        {
+          title: 'Name',
+          dataIndex: 'name',
+          key: 'name',
+          filters: [
+            { text: 'Joe', value: 'Joe' },
+            { text: 'Jim', value: 'Jim' },
+          ],
+          filteredValue: filteredInfo?.name || null,
+          onFilter: (value: any, record: any) => record.name.includes(value),
+          children: [{ title: 'Age', dataIndex: 'age', key: 'age' }],
+        },
+        {
+          title: 'Age',
+          dataIndex: 'age',
+          key: 'age',
+          sorter: (a: any, b: any) => a.age - b.age,
+          sortOrder: (sortedInfo as any)?.columnKey === 'age' && (sortedInfo as any)?.order,
+          ellipsis: true,
+        },
+      ];
+      return (
+        <Table
+          columns={columns}
+          onChange={handleChange}
+          dataSource={[
+            {
+              key: '1',
+              name: 'John Brown',
+              age: 32,
+              address: 'New York No. 1 Lake Park',
+            },
+            {
+              key: '2',
+              name: 'Jim Green',
+              age: 42,
+              address: 'London No. 1 Lake Park',
+            },
+            {
+              key: '3',
+              name: 'Joe Black',
+              age: 66,
+              address: 'Sidney No. 1 Lake Park',
+            },
+            {
+              key: '4',
+              name: 'Jim Red',
+              age: 32,
+              address: 'London No. 2 Lake Park',
+            },
+          ]}
+        />
+      );
+    };
 
     const { container } = render(<App />);
 

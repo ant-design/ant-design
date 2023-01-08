@@ -16,10 +16,10 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*VXtCTp93KPAAAAAAAA
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">典型卡片</code>
-<code src="./demo/border-less.tsx">无边框</code>
+<code src="./demo/border-less.tsx" background="grey">无边框</code>
 <code src="./demo/simple.tsx">简洁卡片</code>
 <code src="./demo/flexible-content.tsx">更灵活的内容展示</code>
-<code src="./demo/in-column.tsx">栅格卡片</code>
+<code src="./demo/in-column.tsx" background="grey">栅格卡片</code>
 <code src="./demo/loading.tsx">预加载的卡片</code>
 <code src="./demo/grid-card.tsx">网格型内嵌卡片</code>
 <code src="./demo/inner.tsx">内部卡片</code>

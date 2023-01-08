@@ -12,9 +12,6 @@ const useStyle = () => {
   const { token } = useSiteToken();
 
   return {
-    componentsOverview: css`
-      padding: 0;
-    `,
     componentsOverviewGroupTitle: css`
       margin-bottom: 24px !important;
     `,
@@ -38,6 +35,21 @@ const useStyle = () => {
     `,
     componentsOverviewSearch: css`
       font-size: ${token.fontSizeXL}px;
+      padding: 0;
+
+      .anticon-search {
+        color: ${token.colorTextDisabled};
+      }
+    `,
+    componentsOverviewContent: css`
+      &:empty:after {
+        content: 'Not Found';
+        text-align: center;
+        padding: 16px 0 40px;
+        display: block;
+        color: ${token.colorTextDisabled};
+        border-bottom: 1px solid ${token.colorSplit};
+      }
     `,
   };
 };
@@ -120,65 +132,67 @@ const Overview: React.FC = () => {
         suffix={<SearchOutlined />}
       />
       <Divider />
-      {groups
-        .filter((i) => i?.title)
-        .map((group) => {
-          const components = group?.children?.filter(
-            (component) =>
-              !search.trim() ||
-              component?.title?.toLowerCase()?.includes(search.trim().toLowerCase()) ||
-              (component?.subtitle || '').toLowerCase().includes(search.trim().toLowerCase()),
-          );
-          return components?.length ? (
-            <div key={group?.title} css={style.componentsOverview}>
-              <Title level={2} css={style.componentsOverviewGroupTitle}>
-                <Space align="center">
-                  <span style={{ fontSize: 24 }}>{group?.title}</span>
-                  <Tag style={{ display: 'block' }}>{components.length}</Tag>
-                </Space>
-              </Title>
-              <Row gutter={[24, 24]}>
-                {components.map((component) => {
-                  /** 是否是外链 */
-                  const isExternalLink = component.link.startsWith('http');
-                  let url = `${component.link}`;
+      <div css={style.componentsOverviewContent}>
+        {groups
+          .filter((i) => i?.title)
+          .map((group) => {
+            const components = group?.children?.filter(
+              (component) =>
+                !search.trim() ||
+                component?.title?.toLowerCase()?.includes(search.trim().toLowerCase()) ||
+                (component?.subtitle || '').toLowerCase().includes(search.trim().toLowerCase()),
+            );
+            return components?.length ? (
+              <div key={group?.title}>
+                <Title level={2} css={style.componentsOverviewGroupTitle}>
+                  <Space align="center">
+                    <span style={{ fontSize: 24 }}>{group?.title}</span>
+                    <Tag style={{ display: 'block' }}>{components.length}</Tag>
+                  </Space>
+                </Title>
+                <Row gutter={[24, 24]}>
+                  {components.map((component) => {
+                    /** 是否是外链 */
+                    const isExternalLink = component.link.startsWith('http');
+                    let url = `${component.link}`;
 
-                  if (!isExternalLink) {
-                    url += urlSearch;
-                  }
+                    if (!isExternalLink) {
+                      url += urlSearch;
+                    }
 
-                  /** Link 不能跳转到外链 */
-                  const ComponentLink = isExternalLink ? 'a' : Link;
+                    /** Link 不能跳转到外链 */
+                    const ComponentLink = isExternalLink ? 'a' : Link;
 
-                  return (
-                    <Col xs={24} sm={12} lg={8} xl={6} key={component?.title}>
-                      <ComponentLink to={url} href={url} onClick={() => onClickCard(url)}>
-                        <Card
-                          bodyStyle={{
-                            backgroundRepeat: 'no-repeat',
-                            backgroundPosition: 'bottom right',
-                            backgroundImage: `url(${component?.tag || ''})`,
-                          }}
-                          size="small"
-                          css={style.componentsOverviewCard}
-                          title={
-                            <div css={style.componentsOverviewTitle}>
-                              {component?.title} {component.subtitle}
+                    return (
+                      <Col xs={24} sm={12} lg={8} xl={6} key={component?.title}>
+                        <ComponentLink to={url} href={url} onClick={() => onClickCard(url)}>
+                          <Card
+                            bodyStyle={{
+                              backgroundRepeat: 'no-repeat',
+                              backgroundPosition: 'bottom right',
+                              backgroundImage: `url(${component?.tag || ''})`,
+                            }}
+                            size="small"
+                            css={style.componentsOverviewCard}
+                            title={
+                              <div css={style.componentsOverviewTitle}>
+                                {component?.title} {component.subtitle}
+                              </div>
+                            }
+                          >
+                            <div css={style.componentsOverviewImg}>
+                              <img src={component.cover} alt={component?.title} />
                             </div>
-                          }
-                        >
-                          <div css={style.componentsOverviewImg}>
-                            <img src={component.cover} alt={component?.title} />
-                          </div>
-                        </Card>
-                      </ComponentLink>
-                    </Col>
-                  );
-                })}
-              </Row>
-            </div>
-          ) : null;
-        })}
+                          </Card>
+                        </ComponentLink>
+                      </Col>
+                    );
+                  })}
+                </Row>
+              </div>
+            ) : null;
+          })}
+      </div>
     </section>
   );
 };

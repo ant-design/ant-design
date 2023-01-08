@@ -6675,7 +6675,7 @@ Array [
               Navigation One
             </span>
             <span
-              class="ant-dropdown-menu-submenu-expand-icon"
+              class="ant-dropdown-menu-submenu-expand-icon ant-dropdown-menu-submenu-arrow"
             >
               <span
                 aria-label="right"
@@ -6907,7 +6907,7 @@ Array [
               Navigation Two
             </span>
             <span
-              class="ant-dropdown-menu-submenu-expand-icon"
+              class="ant-dropdown-menu-submenu-expand-icon ant-dropdown-menu-submenu-arrow"
             >
               <span
                 aria-label="right"
@@ -7022,7 +7022,7 @@ Array [
                       Submenu
                     </span>
                     <span
-                      class="ant-dropdown-menu-submenu-expand-icon"
+                      class="ant-dropdown-menu-submenu-expand-icon ant-dropdown-menu-submenu-arrow"
                     >
                       <span
                         aria-label="right"
@@ -7164,7 +7164,7 @@ Array [
               Navigation Three
             </span>
             <span
-              class="ant-dropdown-menu-submenu-expand-icon"
+              class="ant-dropdown-menu-submenu-expand-icon ant-dropdown-menu-submenu-arrow"
             >
               <span
                 aria-label="right"
@@ -9852,7 +9852,7 @@ Array [
               sub menu
             </span>
             <span
-              class="ant-dropdown-menu-submenu-expand-icon"
+              class="ant-dropdown-menu-submenu-expand-icon ant-dropdown-menu-submenu-arrow"
             >
               <span
                 aria-label="right"
@@ -9971,7 +9971,7 @@ Array [
               disabled sub menu
             </span>
             <span
-              class="ant-dropdown-menu-submenu-expand-icon"
+              class="ant-dropdown-menu-submenu-expand-icon ant-dropdown-menu-submenu-arrow"
             >
               <span
                 aria-label="right"
