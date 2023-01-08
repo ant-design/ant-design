@@ -1,5 +1,5 @@
 /** converting camel-cased strings to be lowercase and link it with Separato */
-export function toLowercaseSeparator(key: string) {
+export function toLowercaseSeparator(key: string): string {
   return key.replace(/([A-Z])/g, '-$1').toLowerCase();
 }
 
