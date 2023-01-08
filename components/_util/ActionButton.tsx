@@ -42,11 +42,12 @@ const ActionButton: React.FC<ActionButtonProps> = (props) => {
   };
 
   React.useEffect(() => {
-    const timeoutId = autoFocus
-      ? setTimeout(() => {
-          buttonRef.current?.focus();
-        })
-      : null;
+    let timeoutId: NodeJS.Timer | null = null;
+    if (props.autoFocus) {
+      timeoutId = setTimeout(() => {
+        buttonRef.current?.focus();
+      });
+    }
     return () => {
       if (timeoutId) {
         clearTimeout(timeoutId);
