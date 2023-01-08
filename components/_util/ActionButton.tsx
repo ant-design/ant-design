@@ -33,7 +33,7 @@ const ActionButton: React.FC<ActionButtonProps> = (props) => {
     actionFn,
   } = props;
 
-  const clickeRef = React.useRef<boolean>(false);
+  const clickedRef = React.useRef<boolean>(false);
   const timeoutId = React.useRef<NodeJS.Timer | null>(null);
   const buttonRef = React.useRef<HTMLButtonElement | HTMLAnchorElement>(null);
   const [loading, setLoading] = useState<ButtonProps['loading']>(false);
@@ -64,22 +64,22 @@ const ActionButton: React.FC<ActionButtonProps> = (props) => {
       (...args: any[]) => {
         setLoading(false, true);
         onInternalClose(...args);
-        clickeRef.current = false;
+        clickedRef.current = false;
       },
       (e: Error) => {
         // See: https://github.com/ant-design/ant-design/issues/6183
         setLoading(false, true);
-        clickeRef.current = false;
+        clickedRef.current = false;
         return Promise.reject(e);
       },
     );
   };
 
   const onClick = (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
-    if (clickeRef.current) {
+    if (clickedRef.current) {
       return;
     }
-    clickeRef.current = true;
+    clickedRef.current = true;
     if (!actionFn) {
       onInternalClose();
       return;
@@ -88,14 +88,14 @@ const ActionButton: React.FC<ActionButtonProps> = (props) => {
     if (emitEvent) {
       returnValueOfOnOk = actionFn(e);
       if (quitOnNullishReturnValue && !isThenable(returnValueOfOnOk)) {
-        clickeRef.current = false;
+        clickedRef.current = false;
         onInternalClose(e);
         return;
       }
     } else if (actionFn.length) {
       returnValueOfOnOk = actionFn(close);
       // https://github.com/ant-design/ant-design/issues/23358
-      clickeRef.current = false;
+      clickedRef.current = false;
     } else {
       returnValueOfOnOk = actionFn();
       if (!returnValueOfOnOk) {
