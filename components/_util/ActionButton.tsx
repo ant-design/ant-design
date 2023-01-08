@@ -34,7 +34,6 @@ const ActionButton: React.FC<ActionButtonProps> = (props) => {
   } = props;
 
   const clickedRef = React.useRef<boolean>(false);
-  const timeoutId = React.useRef<NodeJS.Timer | null>(null);
   const buttonRef = React.useRef<HTMLButtonElement | HTMLAnchorElement>(null);
   const [loading, setLoading] = useState<ButtonProps['loading']>(false);
 
@@ -43,14 +42,14 @@ const ActionButton: React.FC<ActionButtonProps> = (props) => {
   };
 
   React.useEffect(() => {
-    if (autoFocus) {
-      timeoutId.current = setTimeout(() => {
-        buttonRef.current?.focus();
-      });
-    }
+    const timeoutId = autoFocus
+      ? setTimeout(() => {
+          buttonRef.current?.focus();
+        })
+      : null;
     return () => {
-      if (timeoutId.current) {
-        clearTimeout(timeoutId.current);
+      if (timeoutId) {
+        clearTimeout(timeoutId);
       }
     };
   }, []);
