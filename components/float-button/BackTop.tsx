@@ -82,4 +82,8 @@ const BackTop: React.FC<BackTopProps> = (props) => {
   );
 };
 
+if (process.env.NODE_ENV !== 'production') {
+  BackTop.displayName = 'BackTop';
+}
+
 export default memo(BackTop);

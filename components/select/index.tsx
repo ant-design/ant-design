@@ -230,6 +230,10 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
   );
 };
 
+if (process.env.NODE_ENV !== 'production') {
+  InternalSelect.displayName = 'Select';
+}
+
 const Select = React.forwardRef(InternalSelect) as unknown as (<
   ValueType = any,
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,

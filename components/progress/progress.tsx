@@ -183,4 +183,8 @@ const Progress: React.FC<ProgressProps> = (props) => {
   );
 };
 
+if (process.env.NODE_ENV !== 'production') {
+  Progress.displayName = 'Progress';
+}
+
 export default Progress;
