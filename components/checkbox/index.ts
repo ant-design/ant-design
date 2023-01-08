@@ -19,4 +19,8 @@ const Checkbox = InternalCheckbox as CompoundedComponent;
 Checkbox.Group = Group;
 Checkbox.__ANT_CHECKBOX = true;
 
+if (process.env.NODE_ENV !== 'production') {
+  Checkbox.displayName = 'Checkbox';
+}
+
 export default Checkbox;

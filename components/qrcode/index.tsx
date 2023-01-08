@@ -97,4 +97,8 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
   );
 };
 
+if (process.env.NODE_ENV !== 'production') {
+  QRCode.displayName = 'QRCode';
+}
+
 export default QRCode;

@@ -294,6 +294,10 @@ function List<T>({
   );
 }
 
+if (process.env.NODE_ENV !== 'production') {
+  List.displayName = 'List';
+}
+
 List.Item = Item;
 
 export default List;

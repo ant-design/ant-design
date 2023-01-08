@@ -84,6 +84,10 @@ const Statistic: React.FC<StatisticProps> & CompoundedComponent = (props) => {
   );
 };
 
+if (process.env.NODE_ENV !== 'production') {
+  Statistic.displayName = 'Statistic';
+}
+
 Statistic.Countdown = Countdown;
 
 export default Statistic;

@@ -232,6 +232,10 @@ const PureInputNumber = (props: InputNumberProps<any>) => (
   </ConfigProvider>
 );
 
+if (process.env.NODE_ENV !== 'production') {
+  TypedInputNumber.displayName = 'InputNumber';
+}
+
 TypedInputNumber._InternalPanelDoNotUseOrYouWillBeFired = PureInputNumber;
 
 export default TypedInputNumber;

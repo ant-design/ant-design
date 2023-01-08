@@ -107,4 +107,8 @@ const Timeline: CompoundedComponent = (props) => {
 
 Timeline.Item = TimelineItem;
 
+if (process.env.NODE_ENV !== 'production') {
+  Timeline.displayName = 'Timeline';
+}
+
 export default Timeline;
