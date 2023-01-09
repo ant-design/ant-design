@@ -185,26 +185,11 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
       dropdownClassName={classNames(popupClassName, hashId)}
       ref={mergedRef as any}
       options={mergedOptions}
+      suffix={hasFeedback && feedbackIcon}
     >
       {getOptions()}
     </RcMentions>
   );
-
-  if (hasFeedback) {
-    return (
-      <div
-        className={classNames(
-          `${prefixCls}-affix-wrapper`,
-          getStatusClassNames(`${prefixCls}-affix-wrapper`, mergedStatus, hasFeedback),
-          className,
-          hashId,
-        )}
-      >
-        {mentions}
-        <span className={`${prefixCls}-suffix`}>{feedbackIcon}</span>
-      </div>
-    );
-  }
 
   return wrapSSR(mentions);
 };
