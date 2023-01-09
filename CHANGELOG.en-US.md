@@ -17,7 +17,7 @@ timeline: true
 
 ## 5.1.3
 
-`2021-1-9`
+`2023-1-9`
 
 - Table
   - 🛠 Optimize the Table `shouldCellUpdate` logic to increase the secondary rendering speed. [#40063](https://github.com/ant-design/ant-design/pull/40063)
