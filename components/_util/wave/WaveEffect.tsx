@@ -4,15 +4,13 @@ import raf from 'rc-util/lib/raf';
 import { render, unmount } from 'rc-util/lib/React/render';
 import classNames from 'classnames';
 import { getTargetWaveColor } from './util';
+import type { GlobalToken } from '../../theme/interface';
 
 function validateNum(value: number) {
   return Number.isNaN(value) ? 0 : value;
 }
 
-export interface WaveEffectProps {
-  className: string;
-  target: HTMLElement;
-}
+export interface WaveEffectProps extends Omit<WaveWrapperProps, 'token'> {}
 
 const WaveEffect: React.FC<WaveEffectProps> = (props) => {
   const { className, target } = props;
@@ -122,7 +120,23 @@ const WaveEffect: React.FC<WaveEffectProps> = (props) => {
   );
 };
 
-export default function showWaveEffect(node: HTMLElement, className: string) {
+export interface WaveWrapperProps {
+  className: string;
+  target: HTMLElement;
+  token: GlobalToken;
+}
+
+function WaveWrapper(props: WaveWrapperProps) {
+  const { token, target } = props;
+
+  if (token?.Wave?.render) {
+    return token?.Wave?.render(target, token);
+  }
+
+  return <WaveEffect {...props} />;
+}
+
+export default function showWaveEffect(node: HTMLElement, className: string, token: GlobalToken) {
   // Create holder
   const holder = document.createElement('div');
   holder.style.position = 'absolute';
@@ -130,5 +144,5 @@ export default function showWaveEffect(node: HTMLElement, className: string) {
   holder.style.top = `0px`;
   node.parentElement?.appendChild(holder);
 
-  render(<WaveEffect target={node} className={className} />, holder);
+  render(<WaveWrapper target={node} className={className} token={token} />, holder);
 }

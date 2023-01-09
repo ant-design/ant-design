@@ -3,6 +3,7 @@ import { createSearchParams, useOutlet, useSearchParams } from 'dumi';
 import { ConfigProvider, theme as antdTheme } from 'antd';
 import { createCache, StyleProvider, logicalPropertiesLinter } from '@ant-design/cssinjs';
 import type { DirectionType } from 'antd/es/config-provider';
+import type { OverrideToken } from 'antd/es/theme/interface';
 import ThemeSwitch from '../common/ThemeSwitch';
 import type { ThemeName } from '../common/ThemeSwitch';
 import useLocation from '../../hooks/useLocation';
@@ -20,15 +21,28 @@ if (typeof global !== 'undefined') {
 }
 
 const getAlgorithm = (themes: ThemeName[] = []) =>
-  themes.map((theme) => {
-    if (theme === 'dark') {
-      return antdTheme.darkAlgorithm;
-    }
-    if (theme === 'compact') {
-      return antdTheme.compactAlgorithm;
-    }
-    return antdTheme.defaultAlgorithm;
-  });
+  themes
+    .map((theme) => {
+      if (theme === 'dark') {
+        return antdTheme.darkAlgorithm;
+      }
+      if (theme === 'compact') {
+        return antdTheme.compactAlgorithm;
+      }
+      if (theme === 'happy') {
+        return null;
+      }
+      return antdTheme.defaultAlgorithm;
+    })
+    .filter((algorithm) => algorithm);
+
+const getComponents = (themes: ThemeName[] = []): OverrideToken => {
+  if (themes.includes('happy')) {
+    return antdTheme.happyThemeToken;
+  }
+
+  return null;
+};
 
 const GlobalLayout: React.FC = () => {
   const outlet = useOutlet();
@@ -107,6 +121,7 @@ const GlobalLayout: React.FC = () => {
         <ConfigProvider
           theme={{
             algorithm: getAlgorithm(theme),
+            components: getComponents(theme),
           }}
         >
           {outlet}

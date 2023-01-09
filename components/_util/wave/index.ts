@@ -7,6 +7,7 @@ import { ConfigContext } from '../../config-provider';
 import { cloneElement } from '../reactNode';
 import useStyle from './style';
 import useWave from './useWave';
+import { useToken } from '../../theme/internal';
 
 export interface WaveProps {
   disabled?: boolean;
@@ -21,9 +22,10 @@ const Wave: React.FC<WaveProps> = (props) => {
   // ============================== Style ===============================
   const prefixCls = getPrefixCls('wave');
   const [, hashId] = useStyle(prefixCls);
+  const [, token] = useToken();
 
   // =============================== Wave ===============================
-  const showWave = useWave(containerRef, classNames(prefixCls, hashId));
+  const showWave = useWave(containerRef, classNames(prefixCls, hashId), token);
 
   // ============================== Effect ==============================
   React.useEffect(() => {

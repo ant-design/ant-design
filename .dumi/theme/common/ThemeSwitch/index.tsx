@@ -2,12 +2,12 @@ import React from 'react';
 import { FloatButton } from 'antd';
 import { FormattedMessage, Link, useLocation } from 'dumi';
 import { DarkTheme, CompactTheme } from 'antd-token-previewer/es/icons';
-import { BgColorsOutlined } from '@ant-design/icons';
+import { BgColorsOutlined, SmileOutlined } from '@ant-design/icons';
 import useSiteToken from '../../../hooks/useSiteToken';
 import { getLocalizedPathname, isZhCN } from '../../utils';
 import ThemeIcon from './ThemeIcon';
 
-export type ThemeName = 'light' | 'dark' | 'compact';
+export type ThemeName = 'light' | 'dark' | 'compact' | 'happy';
 
 export type ThemeSwitchProps = {
   value?: ThemeName[];
@@ -52,6 +52,18 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = (props: ThemeSwitchProps) => {
           }
         }}
         tooltip={<FormattedMessage id="app.theme.switch.compact" />}
+      />
+      <FloatButton
+        icon={<SmileOutlined />}
+        type={value.includes('happy') ? 'primary' : 'default'}
+        onClick={() => {
+          if (value.includes('happy')) {
+            onChange(value.filter((theme) => theme !== 'happy'));
+          } else {
+            onChange([...value, 'happy']);
+          }
+        }}
+        tooltip={<FormattedMessage id="app.theme.switch.happy" />}
       />
     </FloatButton.Group>
   );
