@@ -176,7 +176,7 @@ const genCircleStyle: GenerateStyle<ProgressToken> = (token) => {
       [`&${progressCls}-circle ${progressCls}-text`]: {
         position: 'absolute',
         insetBlockStart: '50%',
-        insetInlineStart: '0',
+        insetInlineStart: 0,
         width: '100%',
         margin: 0,
         padding: 0,
