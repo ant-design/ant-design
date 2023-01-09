@@ -17,7 +17,7 @@ timeline: true
 
 ## 5.1.3
 
-`2021-1-9`
+`2023-1-9`
 
 - Table
   - 🛠 优化 Table `shouldCellUpdate` 逻辑，提升二次渲染速度。[#40063](https://github.com/ant-design/ant-design/pull/40063)
