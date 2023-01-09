@@ -28,7 +28,7 @@ export default function useStyle(tokenConfig: UseTokenType) {
   useStyleRegister({ theme, token, hashId, path: ['Customize', 'Wave', 'Effect'] }, () => {
     const prefixCls = '.happy-wave';
     const { colorPrimary, colorPrimaryBgHover, motionDurationFast, motionDurationSlow } = token;
-    const activeCls = '&.happy-in-out-leave-active';
+    const activeCls = '&.happy-in-out-appear-active';
 
     return [
       {
@@ -48,187 +48,210 @@ export default function useStyle(tokenConfig: UseTokenType) {
           [`${prefixCls}-dot`]: {
             boxSizing: 'border-box',
             position: 'absolute',
-            width: 8,
-            height: 8,
+            // width: 8,
+            // height: 8,
             borderRadius: '100%',
             opacity: 0,
             transform: 'translate(-50%, -50%)',
-            display: 'none',
+            // display: 'none',
+
+            // Start Position
+            // left: '50%',
+            // top: '50%',
+            left: `var(--start-x)`,
+            top: `var(--start-y)`,
+            width: `var(--size)`,
+            height: `var(--size)`,
+            background: `var(--background)`,
+            border: `var(--border)`,
+            zIndex: 999,
 
             // =================== Basic Motion ===================
             '&.happy-in-out': {
-              transition: `all ${motionDurationSlow}`,
+              transition: [
+                `opacity ${motionDurationSlow} linear`,
+                `width ${motionDurationSlow} linear`,
+                `height ${motionDurationSlow} linear`,
+                `left ${motionDurationSlow} ease-out`,
+                `top ${motionDurationSlow} ease-out`,
+              ].join(','),
               display: 'block',
 
-              '&-leave': {
-                opacity: 1,
+              '&-appear': {
+                // opacity: 1,
+                opacity: 0,
 
                 '&-active': {
-                  opacity: 0,
+                  left: `var(--end-x)`,
+                  top: `var(--end-y)`,
+                  // opacity: 0,
+                  opacity: 1,
+                  width: 0,
+                  height: 0,
                 },
               },
             },
 
             // Dot 1
-            '&-1': {
-              left: 0,
-              top: 0,
-              border: `1px solid ${colorPrimary}`,
+            // '&-1': {
+            //   left: 0,
+            //   top: 0,
+            //   border: `1px solid ${colorPrimary}`,
 
-              [activeCls]: {
-                left: -30,
-                top: -10,
-              },
-            },
+            //   [activeCls]: {
+            //     left: -30,
+            //     top: -10,
+            //   },
+            // },
 
-            // Dot 2
-            '&-2': {
-              left: '10%',
-              top: 0,
-              width: 4,
-              height: 4,
-              background: colorPrimaryBgHover,
+            // // Dot 2
+            // '&-2': {
+            //   left: '10%',
+            //   top: 0,
+            //   width: 4,
+            //   height: 4,
+            //   background: colorPrimaryBgHover,
 
-              [activeCls]: {
-                left: 'calc(10% - 10px)',
-                top: -20,
-                width: 1,
-                height: 1,
-              },
-            },
+            //   [activeCls]: {
+            //     left: 'calc(10% - 10px)',
+            //     top: -20,
+            //     width: 1,
+            //     height: 1,
+            //   },
+            // },
 
-            // Dot 3
-            '&-3': {
-              left: '35%',
-              top: -5,
-              width: 4,
-              height: 4,
-              background: colorPrimary,
-              opacity: 0.8,
+            // // Dot 3
+            // '&-3': {
+            //   left: '35%',
+            //   top: -5,
+            //   width: 4,
+            //   height: 4,
+            //   background: colorPrimary,
+            //   opacity: 0.8,
 
-              [activeCls]: {
-                left: 'calc(35% - 3px)',
-                top: -15,
-                width: 1,
-                height: 1,
-              },
-            },
+            //   [activeCls]: {
+            //     left: 'calc(35% - 3px)',
+            //     top: -15,
+            //     width: 1,
+            //     height: 1,
+            //   },
+            // },
 
-            // -----------------------
-            // Dot 4
-            '&-4': {
-              left: '80%',
-              top: 0,
-              width: 6,
-              height: 6,
-              background: colorPrimaryBgHover,
+            // // -----------------------
+            // // Dot 4
+            // '&-4': {
+            //   left: '80%',
+            //   top: 0,
+            //   width: 6,
+            //   height: 6,
+            //   background: colorPrimaryBgHover,
 
-              [activeCls]: {
-                left: 'calc(80% + 10px)',
-                top: -20,
-                width: 1,
-                height: 1,
-              },
-            },
+            //   [activeCls]: {
+            //     left: 'calc(80% + 10px)',
+            //     top: -20,
+            //     width: 1,
+            //     height: 1,
+            //   },
+            // },
 
-            // -----------------------
-            // Dot 5
-            '&-5': {
-              left: '100%',
-              top: '45%',
-              width: 10,
-              height: 10,
-              background: colorPrimary,
+            // // -----------------------
+            // // Dot 5
+            // '&-5': {
+            //   left: '100%',
+            //   top: '45%',
+            //   width: 10,
+            //   height: 10,
+            //   background: colorPrimary,
 
-              [activeCls]: {
-                left: 'calc(100% + 20px)',
-                top: 'calc(45% - 3px)',
-                width: 1,
-                height: 1,
-              },
-            },
+            //   [activeCls]: {
+            //     left: 'calc(100% + 20px)',
+            //     top: 'calc(45% - 3px)',
+            //     width: 1,
+            //     height: 1,
+            //   },
+            // },
 
-            // Dot 6
-            '&-6': {
-              left: '100%',
-              top: '90%',
-              width: 4,
-              height: 4,
-              background: colorPrimary,
+            // // Dot 6
+            // '&-6': {
+            //   left: '100%',
+            //   top: '90%',
+            //   width: 4,
+            //   height: 4,
+            //   background: colorPrimary,
 
-              [activeCls]: {
-                left: 'calc(100% + 30px)',
-                top: 'calc(90% + 15px)',
-                width: 1,
-                height: 1,
-              },
-            },
+            //   [activeCls]: {
+            //     left: 'calc(100% + 30px)',
+            //     top: 'calc(90% + 15px)',
+            //     width: 1,
+            //     height: 1,
+            //   },
+            // },
 
-            // -----------------------
-            // Dot 7
-            '&-7': {
-              left: '80%',
-              top: '100%',
-              width: 10,
-              height: 10,
-              background: colorPrimary,
+            // // -----------------------
+            // // Dot 7
+            // '&-7': {
+            //   left: '80%',
+            //   top: '100%',
+            //   width: 10,
+            //   height: 10,
+            //   background: colorPrimary,
 
-              [activeCls]: {
-                left: 'calc(80% + 10px)',
-                top: 'calc(100% + 10px)',
-                width: 1,
-                height: 1,
-              },
-            },
+            //   [activeCls]: {
+            //     left: 'calc(80% + 10px)',
+            //     top: 'calc(100% + 10px)',
+            //     width: 1,
+            //     height: 1,
+            //   },
+            // },
 
-            // Dot 8
-            '&-8': {
-              left: '55%',
-              top: '100%',
-              width: 4,
-              height: 4,
-              background: colorPrimaryBgHover,
+            // // Dot 8
+            // '&-8': {
+            //   left: '55%',
+            //   top: '100%',
+            //   width: 4,
+            //   height: 4,
+            //   background: colorPrimaryBgHover,
 
-              [activeCls]: {
-                left: 'calc(55% + 2px)',
-                top: 'calc(100% + 20px)',
-                width: 1,
-                height: 1,
-              },
-            },
+            //   [activeCls]: {
+            //     left: 'calc(55% + 2px)',
+            //     top: 'calc(100% + 20px)',
+            //     width: 1,
+            //     height: 1,
+            //   },
+            // },
 
-            // Dot 9
-            '&-9': {
-              left: 0,
-              top: '100%',
-              width: 10,
-              height: 10,
-              background: colorPrimaryBgHover,
+            // // Dot 9
+            // '&-9': {
+            //   left: 0,
+            //   top: '100%',
+            //   width: 10,
+            //   height: 10,
+            //   background: colorPrimaryBgHover,
 
-              [activeCls]: {
-                left: -15,
-                top: 'calc(100% + 15px)',
-                width: 1,
-                height: 1,
-              },
-            },
+            //   [activeCls]: {
+            //     left: -15,
+            //     top: 'calc(100% + 15px)',
+            //     width: 1,
+            //     height: 1,
+            //   },
+            // },
 
-            // -----------------------
-            // Dot 10
-            '&-10': {
-              left: 0,
-              top: '50%',
-              width: 10,
-              height: 10,
-              background: colorPrimary,
+            // // -----------------------
+            // // Dot 10
+            // '&-10': {
+            //   left: 0,
+            //   top: '50%',
+            //   width: 10,
+            //   height: 10,
+            //   background: colorPrimary,
 
-              [activeCls]: {
-                left: -50,
-                top: '50%',
-                width: 1,
-                height: 1,
-              },
-            },
+            //   [activeCls]: {
+            //     left: -50,
+            //     top: '50%',
+            //     width: 1,
+            //     height: 1,
+            //   },
+            // },
           },
         },
       },
