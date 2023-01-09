@@ -168,7 +168,7 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
           top: colorActiveBarBorderSize,
           marginTop: -colorActiveBarBorderSize,
           marginBottom: 0,
-          borderRadius: themeSuffix === 'dark' ? 0 : token.radiusItem,
+          borderRadius: 0,
 
           '&::after': {
             position: 'absolute',
