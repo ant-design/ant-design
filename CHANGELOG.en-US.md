@@ -15,6 +15,13 @@ timeline: true
 
 ---
 
+## 5.1.4
+
+`2023-1-9`
+
+- 🐞 Fix missing locale file. [#40116](https://github.com/ant-design/ant-design/pull/40116)
+- 🐞 Fix Cascader dropdown `placement` in RTL mode. [#40109](https://github.com/ant-design/ant-design/pull/40109) [@3hson](https://github.com/3hson)
+
 ## 5.1.3
 
 `2023-1-9`
