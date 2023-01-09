@@ -62,7 +62,7 @@
     "predist": "npm run version",
     "presite": "npm run version & npm run collect-token-statistic & npm run token-meta",
     "compile": "npm run clean && antd-tools run compile",
-    "changelog": "node ./scripts/print-changelog",
+    "changelog": "git fetch origin && node ./scripts/print-changelog",
     "predeploy": "antd-tools run clean && npm run site && cp CNAME _site && npm run site:test",
     "deploy": "gh-pages -d _site -b gh-pages -f",
     "deploy:china-mirror": "git checkout gh-pages && git pull origin gh-pages && git push git@gitee.com:ant-design/ant-design.git gh-pages -f",
