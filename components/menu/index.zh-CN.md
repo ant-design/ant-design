@@ -23,6 +23,7 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*KeyQQL5iKkkAAAAAAA
 
 <!-- prettier-ignore -->
 <code src="./demo/horizontal.tsx">顶部导航</code>
+<code src="./demo/horizontal-dark.tsx" debug>顶部导航（dark）</code>
 <code src="./demo/inline.tsx">内嵌菜单</code>
 <code src="./demo/inline-collapsed.tsx">缩起内嵌菜单</code>
 <code src="./demo/sider-current.tsx">只展开当前父级菜单</code>
