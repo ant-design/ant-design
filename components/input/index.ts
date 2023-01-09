@@ -23,6 +23,10 @@ type CompoundedComponent = React.ForwardRefExoticComponent<
 
 const Input = InternalInput as CompoundedComponent;
 
+if (process.env.NODE_ENV !== 'production') {
+  Input.displayName = 'Input';
+}
+
 Input.Group = Group;
 Input.Search = Search;
 Input.TextArea = TextArea;

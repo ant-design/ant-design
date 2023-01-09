@@ -105,4 +105,8 @@ function Tabs({
 
 Tabs.TabPane = TabPane;
 
+if (process.env.NODE_ENV !== 'production') {
+  Tabs.displayName = 'Tabs';
+}
+
 export default Tabs;

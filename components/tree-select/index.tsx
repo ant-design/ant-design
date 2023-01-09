@@ -5,8 +5,9 @@ import RcTreeSelect, { SHOW_ALL, SHOW_CHILD, SHOW_PARENT, TreeNode } from 'rc-tr
 import type { BaseOptionType, DefaultOptionType } from 'rc-tree-select/lib/TreeSelect';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
+import type { Placement } from 'rc-select/lib/BaseSelect';
 import { ConfigContext } from '../config-provider';
-import defaultRenderEmpty from '../config-provider/defaultRenderEmpty';
+import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import DisabledContext from '../config-provider/DisabledContext';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
@@ -160,7 +161,7 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
   if (notFoundContent !== undefined) {
     mergedNotFound = notFoundContent;
   } else {
-    mergedNotFound = (renderEmpty || defaultRenderEmpty)('Select');
+    mergedNotFound = renderEmpty?.('Select') || <DefaultRenderEmpty componentName="Select" />;
   }
 
   // ==================== Render =====================
@@ -173,13 +174,11 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
   ]);
 
   // ===================== Placement =====================
-  const getPlacement = () => {
+  const getPlacement = (): Placement => {
     if (placement !== undefined) {
       return placement;
     }
-    return direction === 'rtl'
-      ? ('bottomRight' as SelectCommonPlacement)
-      : ('bottomLeft' as SelectCommonPlacement);
+    return direction === 'rtl' ? 'bottomRight' : 'bottomLeft';
   };
 
   const mergedSize = compactSize || customizeSize || size;

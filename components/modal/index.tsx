@@ -65,4 +65,8 @@ Modal.config = modalGlobalConfig;
 
 Modal._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 
+if (process.env.NODE_ENV !== 'production') {
+  Modal.displayName = 'Modal';
+}
+
 export default Modal;

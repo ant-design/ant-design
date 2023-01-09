@@ -255,4 +255,8 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
   );
 };
 
+if (process.env.NODE_ENV !== 'production') {
+  Watermark.displayName = 'Watermark';
+}
+
 export default Watermark;

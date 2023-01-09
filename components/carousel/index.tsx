@@ -112,4 +112,8 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>(
   },
 );
 
+if (process.env.NODE_ENV !== 'production') {
+  Carousel.displayName = 'Carousel';
+}
+
 export default Carousel;
