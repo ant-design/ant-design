@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import type { CSSProperties } from 'react';
 import type { InternalAffixClass } from '..';
 import Affix from '..';
 import accessibilityTest from '../../../tests/shared/accessibilityTest';
@@ -9,49 +10,35 @@ import { addObserveTarget, getObserverEntities } from '../utils';
 
 const events: Partial<Record<keyof HTMLElementEventMap, (ev: Partial<Event>) => void>> = {};
 
-class AffixMounter extends React.Component<{
-  offsetBottom?: number;
+interface AffixProps {
   offsetTop?: number;
-  onTestUpdatePosition?(): void;
+  offsetBottom?: number;
+  style?: CSSProperties;
   onChange?: () => void;
+  onTestUpdatePosition?: () => void;
   getInstance?: (inst: InternalAffixClass) => void;
-  style?: React.CSSProperties;
-}> {
-  private container: HTMLDivElement;
-
-  componentDidMount() {
-    this.container.addEventListener = jest
-      .fn()
-      .mockImplementation((event: keyof HTMLElementEventMap, cb: (ev: Partial<Event>) => void) => {
-        events[event] = cb;
-      });
-  }
-
-  getTarget = () => this.container;
-
-  render() {
-    const { getInstance, ...restProps } = this.props;
-    return (
-      <div
-        ref={(node) => {
-          this.container = node!;
-        }}
-        className="container"
-      >
-        <Affix
-          className="fixed"
-          target={this.getTarget}
-          ref={(ele) => {
-            getInstance?.(ele!);
-          }}
-          {...restProps}
-        >
-          <Button type="primary">Fixed at the top of container</Button>
-        </Affix>
-      </div>
-    );
-  }
 }
+
+const AffixMounter: React.FC<AffixProps> = ({ getInstance, ...restProps }) => {
+  const container = useRef<HTMLDivElement>(null);
+  const target = () => container.current;
+  useEffect(() => {
+    if (container.current) {
+      container.current.addEventListener = jest
+        .fn()
+        .mockImplementation((event: keyof HTMLElementEventMap, cb: (ev: Event) => void) => {
+          events[event] = cb;
+        });
+    }
+  }, []);
+  return (
+    <div ref={container} className="container">
+      <Affix className="fixed" target={target} ref={getInstance} {...restProps}>
+        <Button type="primary">Fixed at the top of container</Button>
+      </Affix>
+    </div>
+  );
+};
 
 describe('Affix Render', () => {
   rtlTest(Affix);
