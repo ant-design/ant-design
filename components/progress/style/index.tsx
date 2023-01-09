@@ -176,7 +176,7 @@ const genCircleStyle: GenerateStyle<ProgressToken> = (token) => {
       [`&${progressCls}-circle ${progressCls}-text`]: {
         position: 'absolute',
         insetBlockStart: '50%',
-        insetInlineStart: '50%',
+        insetInlineStart: '0',
         width: '100%',
         margin: 0,
         padding: 0,
@@ -184,7 +184,7 @@ const genCircleStyle: GenerateStyle<ProgressToken> = (token) => {
         lineHeight: 1,
         whiteSpace: 'normal',
         textAlign: 'center',
-        transform: `translate(-50%, -50%)`,
+        transform: `translate(0, -50%)`,
 
         [iconPrefixCls]: {
           fontSize: `${token.fontSize / token.fontSizeSM}em`,
