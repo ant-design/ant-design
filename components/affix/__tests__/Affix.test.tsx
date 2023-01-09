@@ -46,12 +46,7 @@ describe('Affix Render', () => {
 
   const domMock = jest.spyOn(HTMLElement.prototype, 'getBoundingClientRect');
 
-  const classRect: Record<string, DOMRect> = {
-    container: {
-      top: 0,
-      bottom: 100,
-    } as DOMRect,
-  };
+  const classRect: Record<string, DOMRect> = { container: { top: 0, bottom: 100 } as DOMRect };
 
   beforeEach(() => {
     jest.useFakeTimers();
@@ -61,12 +56,7 @@ describe('Affix Render', () => {
 
   beforeAll(() => {
     domMock.mockImplementation(function fn(this: HTMLElement) {
-      return (
-        classRect[this.className] || {
-          top: 0,
-          bottom: 0,
-        }
-      );
+      return classRect[this.className] || { top: 0, bottom: 0 };
     });
   });
 
@@ -80,16 +70,11 @@ describe('Affix Render', () => {
   });
 
   const movePlaceholder = async (top: number) => {
-    classRect.fixed = {
-      top,
-      bottom: top,
-    } as DOMRect;
+    classRect.fixed = { top, bottom: top } as DOMRect;
     if (events.scroll == null) {
       throw new Error('scroll should be set');
     }
-    events.scroll({
-      type: 'scroll',
-    });
+    events.scroll({ type: 'scroll' });
     await waitFakeTimer();
   };
 
