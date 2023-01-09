@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-const NoFound = () => (
+const NoFound: React.FC = () => (
   <svg width="252" height="294">
     <defs>
       <path d="M0 .387h251.772v251.772H0z" />

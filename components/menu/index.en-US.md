@@ -22,6 +22,7 @@ More layouts with navigation: [Layout](/components/layout).
 
 <!-- prettier-ignore -->
 <code src="./demo/horizontal.tsx">Top Navigation</code>
+<code src="./demo/horizontal-dark.tsx" debug>Top Navigation (dark)</code>
 <code src="./demo/inline.tsx">Inline menu</code>
 <code src="./demo/inline-collapsed.tsx">Collapsed inline menu</code>
 <code src="./demo/sider-current.tsx">Open current submenu only</code>

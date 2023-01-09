@@ -145,4 +145,8 @@ const Collapse: CompoundedComponent = (props) => {
 
 Collapse.Panel = CollapsePanel;
 
+if (process.env.NODE_ENV !== 'production') {
+  Collapse.displayName = 'Collapse';
+}
+
 export default Collapse;

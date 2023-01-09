@@ -18,4 +18,8 @@ const Card = InternalCard as CardInterface;
 Card.Grid = Grid;
 Card.Meta = Meta;
 
+if (process.env.NODE_ENV !== 'production') {
+  Card.displayName = 'Card';
+}
+
 export default Card;

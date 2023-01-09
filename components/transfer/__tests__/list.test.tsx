@@ -20,6 +20,11 @@ const listProps: TransferListProps<KeyWiseTransferItem> = {
   dataSource: undefined as unknown as KeyWiseTransferItem[],
 };
 
+const emptyListProps: TransferListProps<KeyWiseTransferItem> = {
+  ...listCommonProps,
+  dataSource: [],
+};
+
 describe('Transfer.List', () => {
   it('should render correctly', () => {
     const { container } = render(<List {...listCommonProps} />);
@@ -38,5 +43,25 @@ describe('Transfer.List', () => {
     expect(() => {
       render(<List {...listProps} />);
     }).not.toThrow();
+  });
+
+  it('Checkbox should disabled when dataSource is empty', () => {
+    const { container } = render(<List {...emptyListProps} />);
+    expect(container.querySelector<HTMLLabelElement>('label.ant-checkbox-wrapper')).toHaveClass(
+      'ant-checkbox-wrapper-disabled',
+    );
+    expect(container.querySelector<HTMLSpanElement>('span.ant-checkbox')).toHaveClass(
+      'ant-checkbox-disabled',
+    );
+  });
+
+  it('Checkbox should not disabled when dataSource not is empty', () => {
+    const { container } = render(<List {...listCommonProps} />);
+    expect(container.querySelector<HTMLLabelElement>('label.ant-checkbox-wrapper')).not.toHaveClass(
+      'ant-checkbox-wrapper-disabled',
+    );
+    expect(container.querySelector<HTMLSpanElement>('span.ant-checkbox')).not.toHaveClass(
+      'ant-checkbox-disabled',
+    );
   });
 });

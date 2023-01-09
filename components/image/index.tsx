@@ -68,4 +68,8 @@ export { ImageProps };
 
 Image.PreviewGroup = PreviewGroup;
 
+if (process.env.NODE_ENV !== 'production') {
+  Image.displayName = 'Image';
+}
+
 export default Image;

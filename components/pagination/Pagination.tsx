@@ -128,4 +128,8 @@ const Pagination: React.FC<PaginationProps> = ({
   );
 };
 
+if (process.env.NODE_ENV !== 'production') {
+  Pagination.displayName = 'Pagination';
+}
+
 export default Pagination;

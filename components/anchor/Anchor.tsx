@@ -370,4 +370,8 @@ const Anchor: React.FC<AnchorProps> = (props) => {
   );
 };
 
+if (process.env.NODE_ENV !== 'production') {
+  Anchor.displayName = 'Anchor';
+}
+
 export default Anchor;
