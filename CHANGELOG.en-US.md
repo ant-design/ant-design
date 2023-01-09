@@ -19,9 +19,8 @@ timeline: true
 
 `2021-1-9`
 
-- 🐞 Fix RTL not being passed over to components by ConfigProvider. [#40089](https://github.com/ant-design/ant-design/pull/40089) [@ds1371dani](https://github.com/ds1371dani)
-- 🐞 Fix Menu custom expand icon cannot be hidden. [#40071](https://github.com/ant-design/ant-design/pull/40071) [@Wxh16144](https://github.com/Wxh16144)
 - 🛠 Optimize Table logic to reduce `shouldCellUpdate` unnecessary rendering times(Enhance 100% render perf on control and 400% perf on un-control). [#40063](https://github.com/ant-design/ant-design/pull/40063)
+- 🐞 Fix Menu custom expand icon cannot be hidden. [#40071](https://github.com/ant-design/ant-design/pull/40071) [@Wxh16144](https://github.com/Wxh16144)
 - 🐞 Fix Cascader `notFoundContent` cannot be clicked. [#40067](https://github.com/ant-design/ant-design/pull/40067)
 - 🐞 Fix Button `block` props not work. [#39992](https://github.com/ant-design/ant-design/pull/39992) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🐞 Fix Checkbox not disabled when itemsLits is empty. [#40038](https://github.com/ant-design/ant-design/pull/40038) [@li-jia-nan](https://github.com/li-jia-nan)
@@ -35,8 +34,6 @@ timeline: true
 - 🐞 Fix selection column cover by other cell when fixed. [#39940](https://github.com/ant-design/ant-design/pull/39940) [@kiner-tang](https://github.com/kiner-tang)
 - 🐞 Fix when table filter, the border will be black. [#39938](https://github.com/ant-design/ant-design/pull/39938) [@JarvisArt](https://github.com/JarvisArt)
 - 🌐 Add missing ta_IN translations. [#39936](https://github.com/ant-design/ant-design/pull/39936) [@KIRUBASHANKAR26](https://github.com/KIRUBASHANKAR26)
-- TypeScript
-  - 🤖 Export more Tab type. [#39982](https://github.com/ant-design/ant-design/pull/39982) [@li-jia-nan](https://github.com/li-jia-nan)
 
 ## 5.1.2
 

@@ -19,9 +19,8 @@ timeline: true
 
 `2021-1-9`
 
-- 🐞 修复 ConfigProvider 未将 RTL 传递给组件的问题。[#40089](https://github.com/ant-design/ant-design/pull/40089) [@ds1371dani](https://github.com/ds1371dani)
-- 🐞 修复 Menu 自定义展开图标无法隐藏的错误。[#40071](https://github.com/ant-design/ant-design/pull/40071) [@Wxh16144](https://github.com/Wxh16144)
 - 🛠 优化 Table 逻辑，减少 `shouldCellUpdate` 不必要的渲染次数（提升受控下 100% 性能，非受控 400% 性能）。[#40063](https://github.com/ant-design/ant-design/pull/40063)
+- 🐞 修复 Menu 自定义展开图标无法隐藏的错误。[#40071](https://github.com/ant-design/ant-design/pull/40071) [@Wxh16144](https://github.com/Wxh16144)
 - 🐞 修复 Cascader `notFoundContent` 内容无法交互的问题。[#40067](https://github.com/ant-design/ant-design/pull/40067)
 - 🐞 修复 Button `block` 属性不生效的问题。[#39992](https://github.com/ant-design/ant-design/pull/39992) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🐞 修复 CheckBox 在列表为空的时候没有变成 disabled 状态的问题。[#40038](https://github.com/ant-design/ant-design/pull/40038) [@li-jia-nan](https://github.com/li-jia-nan)
@@ -35,8 +34,6 @@ timeline: true
 - 🐞 修复选择列固定时滚动会被其他单元格遮盖的问题。[#39940](https://github.com/ant-design/ant-design/pull/39940) [@kiner-tang](https://github.com/kiner-tang)
 - 🐞 修复 Table filter 时,边框会有黑色的问题。[#39938](https://github.com/ant-design/ant-design/pull/39938) [@JarvisArt](https://github.com/JarvisArt)
 - 🌐 增加缺失的泰米尔语翻译。[#39936](https://github.com/ant-design/ant-design/pull/39936) [@KIRUBASHANKAR26](https://github.com/KIRUBASHANKAR26)
-- TypeScript
-  - 🤖 导出更多的 Tab 类型。[#39982](https://github.com/ant-design/ant-design/pull/39982) [@li-jia-nan](https://github.com/li-jia-nan)
 
 ## 5.1.3
 
