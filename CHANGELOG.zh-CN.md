@@ -38,7 +38,7 @@ timeline: true
 - 🐞 修复选择列固定时滚动会被其他单元格遮盖的问题。[#39940](https://github.com/ant-design/ant-design/pull/39940) [@kiner-tang](https://github.com/kiner-tang)
 - 🌐 增加缺失的泰米尔语翻译。[#39936](https://github.com/ant-design/ant-design/pull/39936) [@KIRUBASHANKAR26](https://github.com/KIRUBASHANKAR26)
 
-## 5.1.3
+## 5.1.2
 
 `2022-12-30`
 
