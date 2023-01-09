@@ -21,7 +21,6 @@ interface AffixProps {
 
 const AffixMounter: React.FC<AffixProps> = ({ getInstance, ...restProps }) => {
   const container = useRef<HTMLDivElement>(null);
-  const target = () => container.current;
   useEffect(() => {
     if (container.current) {
       container.current.addEventListener = jest
@@ -33,7 +32,7 @@ const AffixMounter: React.FC<AffixProps> = ({ getInstance, ...restProps }) => {
   }, []);
   return (
     <div ref={container} className="container">
-      <Affix className="fixed" target={target} ref={getInstance} {...restProps}>
+      <Affix className="fixed" ref={getInstance} target={() => container.current} {...restProps}>
         <Button type="primary">Fixed at the top of container</Button>
       </Affix>
     </div>
