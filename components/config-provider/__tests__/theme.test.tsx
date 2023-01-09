@@ -117,6 +117,60 @@ describe('ConfigProvider.Theme', () => {
     expect(tokenRef?.colorPrimaryText).toBe('#177ddc');
   });
 
+  it('should support custom tokens with internal useToken hook', () => {
+    type CustomTokens = { customToken: string; customToken2: number };
+    let customTokenRef: any;
+    const Demo = () => {
+      const [, , , customTokens] = useToken<CustomTokens>();
+      customTokenRef = customTokens;
+
+      return null;
+    };
+    render(
+      <ConfigProvider
+        theme={{
+          token: { colorPrimary: '#1890ff' },
+          algorithm: [defaultAlgorithm],
+          customTokens: {
+            customToken: '#D3D3D3',
+            customToken2: 12,
+          } as CustomTokens,
+        }}
+      >
+        <Demo />
+      </ConfigProvider>,
+    );
+    expect(customTokenRef?.customToken).toBe('#D3D3D3');
+    expect(customTokenRef?.customToken2).toBe(12);
+  });
+
+  it('should support custom tokens', () => {
+    type CustomTokens = { customToken: string; customToken2: number };
+    let customTokenRef: any;
+    const Demo = () => {
+      const tokens = theme.useToken<CustomTokens>().customTokens;
+      customTokenRef = tokens;
+
+      return null;
+    };
+    render(
+      <ConfigProvider
+        theme={{
+          token: { colorPrimary: '#1890ff' },
+          algorithm: [defaultAlgorithm],
+          customTokens: {
+            customToken: '#D3D3D3',
+            customToken2: 12,
+          } as CustomTokens,
+        }}
+      >
+        <Demo />
+      </ConfigProvider>,
+    );
+    expect(customTokenRef?.customToken).toBe('#D3D3D3');
+    expect(customTokenRef?.customToken2).toBe(12);
+  });
+
   it('overriding component token should work', () => {
     render(
       <ConfigProvider theme={{ components: { InputNumber: { handleWidth: 50.1234 } } }}>

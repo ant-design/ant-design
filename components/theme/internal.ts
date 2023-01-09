@@ -49,17 +49,26 @@ export const defaultConfig = {
   hashed: true,
 };
 
-export const DesignTokenContext = React.createContext<{
+type DesignTokenCtx<CustomTokens = unknown> = {
   token: Partial<AliasToken>;
+  customTokens?: CustomTokens;
   theme?: Theme<SeedToken, MapToken>;
   components?: OverrideToken;
   hashed?: string | boolean;
-}>(defaultConfig);
+};
+
+export const DesignTokenContext = React.createContext<DesignTokenCtx>(defaultConfig);
 
 // ================================== Hook ==================================
-export function useToken(): [Theme<SeedToken, MapToken>, GlobalToken, string] {
+export function useToken<CustomTokens = undefined>(): [
+  Theme<SeedToken, MapToken>,
+  GlobalToken,
+  string,
+  CustomTokens,
+] {
   const {
     token: rootDesignToken,
+    customTokens,
     hashed,
     theme,
     components,
@@ -79,7 +88,7 @@ export function useToken(): [Theme<SeedToken, MapToken>, GlobalToken, string] {
     },
   );
 
-  return [mergedTheme, token, hashed ? hashId : ''];
+  return [mergedTheme, token, hashed ? hashId : '', customTokens as CustomTokens];
 }
 
 export type UseComponentStyleResult = [(node: React.ReactNode) => React.ReactElement, string];

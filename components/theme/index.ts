@@ -8,10 +8,10 @@ import compactAlgorithm from './themes/compact';
 // This is used to minimize the bundle size for antd package but safe to refactor as object also.
 // Please do not export internal `useToken` directly to avoid something export unexpected.
 /** Get current context Design Token. Will be different if you are using nest theme config. */
-function useToken() {
-  const [theme, token, hashId] = useInternalToken();
+function useToken<CustomTokens = unknown>() {
+  const [theme, token, hashId, customTokens] = useInternalToken<CustomTokens>();
 
-  return { theme, token, hashId };
+  return { theme, token, hashId, customTokens };
 }
 
 export default {

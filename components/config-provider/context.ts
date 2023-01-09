@@ -25,8 +25,9 @@ export type DirectionType = 'ltr' | 'rtl' | undefined;
 
 export type MappingAlgorithm = DerivativeFunc<SeedToken, MapToken>;
 
-export interface ThemeConfig {
+export interface ThemeConfig<CustomTokens = unknown> {
   token?: Partial<AliasToken>;
+  customTokens?: CustomTokens;
   components?: OverrideToken;
   algorithm?: MappingAlgorithm | MappingAlgorithm[];
   hashed?: boolean;
