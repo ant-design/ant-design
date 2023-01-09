@@ -26,6 +26,10 @@ interface DotInfo {
   endY: string;
 }
 
+function inRange(x: number, y: number, left: number, top: number, right: number, bottom: number) {
+  return x >= left && x <= right && y >= top && y <= bottom;
+}
+
 function HappyWave({ target, token }: HappyWaveProps) {
   const prefixCls = 'happy-wave';
   const dotPrefixCls = `${prefixCls}-dot`;
@@ -43,10 +47,25 @@ function HappyWave({ target, token }: HappyWaveProps) {
   React.useEffect(() => {
     const id = raf(() => {
       const rect = target.getBoundingClientRect();
+      const { width, height } = rect;
 
-      setLeft(rect.left + rect.width / 2);
-      setTop(rect.top + rect.height / 2);
+      setLeft(rect.left + width / 2);
+      setTop(rect.top + height / 2);
       setDots([]);
+
+      const minSize = Math.min(width, height);
+      const maxSize = Math.max(width, height);
+      const halfMinSize = minSize / 2;
+      const halfMaxSize = maxSize / 2;
+      const halfWidth = width / 2;
+      const halfHeight = height / 2;
+
+      const OFFSET_MIN = 10;
+      const OFFSET_MAX = 30;
+      const halfOffsetMinWidth = halfWidth + OFFSET_MIN;
+      const halfOffsetMinHeight = halfHeight + OFFSET_MIN;
+      const halfOffsetMaxWidth = halfWidth + OFFSET_MAX;
+      const halfOffsetMaxHeight = halfHeight + OFFSET_MAX;
 
       // Delay to start dot motion
       setTimeout(() => {
@@ -57,17 +76,39 @@ function HappyWave({ target, token }: HappyWaveProps) {
             const endAngle: number = rotate * (index + 1);
             const randomAngle = Math.random() * (endAngle - startAngle) + startAngle;
 
-            const minSize = Math.min(rect.width, rect.height);
-            const maxSize = Math.max(rect.width, rect.height);
-
             // Get start XY (Which should align the rect edge)
-            const startX = Math.cos((startAngle * Math.PI) / 180) * minSize;
-            const startY = Math.sin((startAngle * Math.PI) / 180) * minSize;
+            let startX = 0;
+            let startY = 0;
+
+            for (let startDist = halfMinSize - 1; startDist <= halfMaxSize; startDist += 1) {
+              const x = Math.cos((randomAngle * Math.PI) / 180) * startDist;
+              const y = Math.sin((randomAngle * Math.PI) / 180) * startDist;
+
+              if (!inRange(x, y, -halfWidth, -halfHeight, halfWidth, halfHeight)) {
+                break;
+              }
+
+              startX = x;
+              startY = y;
+            }
 
             // Get end XY
-            const dist = Math.random() * 30 + maxSize / 2;
-            const endX = Math.cos((randomAngle * Math.PI) / 180) * dist;
-            const endY = Math.sin((randomAngle * Math.PI) / 180) * dist;
+            let endX = startX;
+            let endY = startY;
+            let endDist = halfMinSize;
+
+            const endHalfWidth =
+              Math.random() * (halfOffsetMaxWidth - halfOffsetMinWidth) + halfOffsetMinWidth;
+            const endHalfHeight =
+              Math.random() * (halfOffsetMaxHeight - halfOffsetMinHeight) + halfOffsetMinHeight;
+
+            do {
+              endX = Math.cos((randomAngle * Math.PI) / 180) * endDist;
+              endY = Math.sin((randomAngle * Math.PI) / 180) * endDist;
+              endDist += 1;
+            } while (
+              inRange(endX, endY, -endHalfWidth, -endHalfHeight, endHalfWidth, endHalfHeight)
+            );
 
             return {
               key: index + 1,
