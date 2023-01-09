@@ -11,10 +11,12 @@ function validateNum(value: number) {
   return Number.isNaN(value) ? 0 : value;
 }
 
-export interface WaveEffectProps extends Omit<WaveWrapperProps, 'token'> {}
+export interface WaveEffectProps extends Omit<WaveWrapperProps, 'token'> {
+  onFinish: VoidFunction;
+}
 
 const WaveEffect: React.FC<WaveEffectProps> = (props) => {
-  const { className, target } = props;
+  const { className, target, onFinish } = props;
   const divRef = React.useRef<HTMLDivElement>(null);
 
   const [color, setWaveColor] = React.useState<string | null>(null);
@@ -106,10 +108,7 @@ const WaveEffect: React.FC<WaveEffectProps> = (props) => {
       motionDeadline={5000}
       onAppearEnd={(_, event) => {
         if (event.deadline || (event as TransitionEvent).propertyName === 'opacity') {
-          const holder = divRef.current?.parentElement!;
-          unmount(holder).then(() => {
-            holder.parentElement?.removeChild(holder);
-          });
+          onFinish();
         }
         return false;
       }}
@@ -126,16 +125,23 @@ export interface WaveWrapperProps {
   target: HTMLElement;
   token: ReturnType<typeof useToken>;
   wave: ConfigProviderProps['wave'];
+  holder: HTMLElement;
 }
 
 function WaveWrapper(props: WaveWrapperProps) {
-  const { token, target, wave } = props;
+  const { token, target, wave, holder } = props;
 
-  if (wave?.render) {
-    return wave?.render(target, token) as React.ReactElement;
+  function onFinish() {
+    unmount(holder).then(() => {
+      holder.parentElement?.removeChild(holder);
+    });
   }
 
-  return <WaveEffect {...props} />;
+  if (wave?.render) {
+    return wave?.render({ target, token, onFinish }) as React.ReactElement;
+  }
+
+  return <WaveEffect {...props} onFinish={onFinish} />;
 }
 
 export default function showWaveEffect(
@@ -151,5 +157,8 @@ export default function showWaveEffect(
   holder.style.top = `0px`;
   node.parentElement?.appendChild(holder);
 
-  render(<WaveWrapper target={node} className={className} token={token} wave={wave} />, holder);
+  render(
+    <WaveWrapper target={node} className={className} token={token} wave={wave} holder={holder} />,
+    holder,
+  );
 }

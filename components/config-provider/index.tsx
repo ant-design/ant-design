@@ -84,7 +84,11 @@ export interface ConfigProviderProps {
     showSizeChanger?: boolean;
   };
   wave?: {
-    render?: (target: HTMLElement, token: ReturnType<typeof useToken>) => React.ReactNode;
+    render?: (props: {
+      target: HTMLElement;
+      token: ReturnType<typeof useToken>;
+      onFinish: VoidFunction;
+    }) => React.ReactNode;
   };
   locale?: Locale;
   pageHeader?: {

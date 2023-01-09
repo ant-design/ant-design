@@ -6,18 +6,20 @@ import type { ConfigProviderProps } from '../../../config-provider';
 import useWaveStyle from './style/wave';
 
 export type WaveRender = Required<Required<ConfigProviderProps>['wave']>['render'];
-export type UseTokenType = Parameters<WaveRender>[1];
+export type UseTokenType = Parameters<WaveRender>[0]['token'];
 
 interface HappyWaveProps {
   target: HTMLElement;
   token: UseTokenType;
+  onFinish: VoidFunction;
 }
 
 const DOT_COUNT = 10;
 
 interface DotInfo {
   key: number;
-  size: string;
+  startSize: string;
+  endSize: string;
   type: 'fill' | 'outlined';
   color: string;
   startX: string;
@@ -30,7 +32,7 @@ function inRange(x: number, y: number, left: number, top: number, right: number,
   return x >= left && x <= right && y >= top && y <= bottom;
 }
 
-function HappyWave({ target, token }: HappyWaveProps) {
+function HappyWave({ target, token, onFinish }: HappyWaveProps) {
   const prefixCls = 'happy-wave';
   const dotPrefixCls = `${prefixCls}-dot`;
   const targetPrefixCls = `${prefixCls}-target`;
@@ -60,7 +62,7 @@ function HappyWave({ target, token }: HappyWaveProps) {
       const halfWidth = width / 2;
       const halfHeight = height / 2;
 
-      const OFFSET_MIN = 10;
+      const OFFSET_MIN = 15;
       const OFFSET_MAX = 30;
       const halfOffsetMinWidth = halfWidth + OFFSET_MIN;
       const halfOffsetMinHeight = halfHeight + OFFSET_MIN;
@@ -69,12 +71,12 @@ function HappyWave({ target, token }: HappyWaveProps) {
 
       // Delay to start dot motion
       setTimeout(() => {
+        const offsetAngle = Math.random() * 360;
+
         setDots(
           new Array(DOT_COUNT).fill(null).map((_, index) => {
             const rotate: number = 360 / DOT_COUNT;
-            const startAngle: number = rotate * index;
-            const endAngle: number = rotate * (index + 1);
-            const randomAngle = Math.random() * (endAngle - startAngle) + startAngle;
+            const randomAngle = offsetAngle + rotate * index;
 
             // Get start XY (Which should align the rect edge)
             let startX = 0;
@@ -110,13 +112,16 @@ function HappyWave({ target, token }: HappyWaveProps) {
               inRange(endX, endY, -endHalfWidth, -endHalfHeight, endHalfWidth, endHalfHeight)
             );
 
+            const size = Math.random() * 4 + 6;
+
             return {
               key: index + 1,
               startX: `${startX}px`,
               startY: `${startY}px`,
               endX: `${endX}px`,
               endY: `${endY}px`,
-              size: `${Math.random() * 4 + 8}px`,
+              startSize: `${size}px`,
+              endSize: `${Math.random() > 0.75 ? size : 0}px`,
               type: Math.random() > 0.6 ? 'outlined' : 'fill',
               color:
                 Math.random() > 0.5 ? globalToken.colorPrimary : globalToken.colorPrimaryBgHover,
@@ -137,6 +142,7 @@ function HappyWave({ target, token }: HappyWaveProps) {
   React.useEffect(() => {
     const id = setTimeout(() => {
       target.className = target.className.replace(` ${targetPrefixCls}`, '');
+      onFinish();
     }, 600);
 
     return () => {
@@ -166,7 +172,8 @@ function HappyWave({ target, token }: HappyWaveProps) {
           startY,
           endX,
           endY,
-          size,
+          startSize,
+          endSize,
           type,
           color,
         }) => {
@@ -179,7 +186,8 @@ function HappyWave({ target, token }: HappyWaveProps) {
             [`--start-y`]: startY,
             [`--end-x`]: endX,
             [`--end-y`]: endY,
-            [`--size`]: size,
+            [`--start-size`]: startSize,
+            [`--end-size`]: endSize,
           };
           if (type === 'fill') {
             dotStyle['--background'] = color;
@@ -202,7 +210,7 @@ function HappyWave({ target, token }: HappyWaveProps) {
   );
 }
 
-const renderWave: WaveRender = (target, token) => <HappyWave target={target} token={token} />;
+const renderWave: WaveRender = (props: HappyWaveProps) => <HappyWave {...props} />;
 
 const Wave: ConfigProviderProps['wave'] = {
   render: renderWave,
