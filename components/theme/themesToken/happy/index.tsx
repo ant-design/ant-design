@@ -1,8 +1,9 @@
 import type { OverrideToken } from '../../interface';
-import Wave from './wave';
+import wave from './wave';
 
-const token: OverrideToken = {
-  Wave,
+const token: OverrideToken = {};
+
+export default {
+  token,
+  wave,
 };
-
-export default token;

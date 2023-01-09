@@ -1,16 +1,19 @@
-import type { ComponentToken } from './style';
+import useEvent from 'rc-util/lib/hooks/useEvent';
+import type { ConfigProviderProps } from '../../config-provider';
 import showWaveEffect from './WaveEffect';
+import type { useToken } from '../../theme/internal';
 
 export default function useWave(
   nodeRef: React.RefObject<HTMLElement>,
   className: string,
-  waveToken?: ComponentToken,
+  token: ReturnType<typeof useToken>,
+  wave: ConfigProviderProps['wave'],
 ): VoidFunction {
   function showWave() {
     const node = nodeRef.current!;
 
-    showWaveEffect(node, className, waveToken);
+    showWaveEffect(node, className, token, wave);
   }
 
-  return showWave;
+  return useEvent(showWave);
 }

@@ -4,7 +4,8 @@ import raf from 'rc-util/lib/raf';
 import { render, unmount } from 'rc-util/lib/React/render';
 import classNames from 'classnames';
 import { getTargetWaveColor } from './util';
-import type { GlobalToken } from '../../theme/interface';
+import type { ConfigProviderProps } from '../../config-provider';
+import type { useToken } from '../../theme/internal';
 
 function validateNum(value: number) {
   return Number.isNaN(value) ? 0 : value;
@@ -123,20 +124,26 @@ const WaveEffect: React.FC<WaveEffectProps> = (props) => {
 export interface WaveWrapperProps {
   className: string;
   target: HTMLElement;
-  token: GlobalToken;
+  token: ReturnType<typeof useToken>;
+  wave: ConfigProviderProps['wave'];
 }
 
 function WaveWrapper(props: WaveWrapperProps) {
-  const { token, target } = props;
+  const { token, target, wave } = props;
 
-  if (token?.Wave?.render) {
-    return token?.Wave?.render(target, token);
+  if (wave?.render) {
+    return wave?.render(target, token) as React.ReactElement;
   }
 
   return <WaveEffect {...props} />;
 }
 
-export default function showWaveEffect(node: HTMLElement, className: string, token: GlobalToken) {
+export default function showWaveEffect(
+  node: HTMLElement,
+  className: string,
+  token: ReturnType<typeof useToken>,
+  wave: ConfigProviderProps['wave'],
+) {
   // Create holder
   const holder = document.createElement('div');
   holder.style.position = 'absolute';
@@ -144,5 +151,5 @@ export default function showWaveEffect(node: HTMLElement, className: string, tok
   holder.style.top = `0px`;
   node.parentElement?.appendChild(holder);
 
-  render(<WaveWrapper target={node} className={className} token={token} />, holder);
+  render(<WaveWrapper target={node} className={className} token={token} wave={wave} />, holder);
 }

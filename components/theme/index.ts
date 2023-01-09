@@ -26,5 +26,7 @@ export default {
   defaultAlgorithm,
   darkAlgorithm,
   compactAlgorithm,
+
+  // TODO: Remove this after to be third part package
   happyThemeToken,
 };

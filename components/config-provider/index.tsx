@@ -12,6 +12,7 @@ import LocaleProvider, { ANT_MARK } from '../locale';
 import LocaleReceiver from '../locale/LocaleReceiver';
 import defaultLocale from '../locale/en_US';
 import { DesignTokenContext } from '../theme/internal';
+import type { useToken } from '../theme/internal';
 import defaultSeedToken from '../theme/themes/seed';
 import type { ConfigConsumerProps, CSPConfig, DirectionType, Theme, ThemeConfig } from './context';
 import { ConfigConsumer, ConfigContext, defaultIconPrefixCls } from './context';
@@ -55,6 +56,7 @@ const PASSED_PROPS: Exclude<keyof ConfigConsumerProps, 'rootPrefixCls' | 'getPre
   'pagination',
   'form',
   'select',
+  'wave',
 ];
 
 export interface ConfigProviderProps {
@@ -80,6 +82,9 @@ export interface ConfigProviderProps {
   };
   pagination?: {
     showSizeChanger?: boolean;
+  };
+  wave?: {
+    render?: (target: HTMLElement, token: ReturnType<typeof useToken>) => React.ReactNode;
   };
   locale?: Locale;
   pageHeader?: {

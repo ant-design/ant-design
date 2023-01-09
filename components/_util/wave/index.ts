@@ -16,16 +16,16 @@ export interface WaveProps {
 
 const Wave: React.FC<WaveProps> = (props) => {
   const { children, disabled } = props;
-  const { getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
+  const { getPrefixCls, wave } = useContext<ConfigConsumerProps>(ConfigContext);
   const containerRef = useRef<HTMLElement>(null);
 
   // ============================== Style ===============================
   const prefixCls = getPrefixCls('wave');
   const [, hashId] = useStyle(prefixCls);
-  const [, token] = useToken();
+  const token = useToken();
 
   // =============================== Wave ===============================
-  const showWave = useWave(containerRef, classNames(prefixCls, hashId), token);
+  const showWave = useWave(containerRef, classNames(prefixCls, hashId), token, wave);
 
   // ============================== Effect ==============================
   React.useEffect(() => {

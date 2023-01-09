@@ -36,14 +36,6 @@ const getAlgorithm = (themes: ThemeName[] = []) =>
     })
     .filter((algorithm) => algorithm);
 
-const getComponents = (themes: ThemeName[] = []): OverrideToken => {
-  if (themes.includes('happy')) {
-    return antdTheme.happyThemeToken;
-  }
-
-  return null;
-};
-
 const GlobalLayout: React.FC = () => {
   const outlet = useOutlet();
   const { pathname } = useLocation();
@@ -115,14 +107,19 @@ const GlobalLayout: React.FC = () => {
     [isMobile, direction, updateSiteConfig, theme],
   );
 
+  // Happy Work Theme
+  const components = theme.includes('happy') ? antdTheme.happyThemeToken.token : null;
+  const wave = theme.includes('happy') ? antdTheme.happyThemeToken.wave : null;
+
   return (
     <StyleProvider cache={styleCache} linters={[logicalPropertiesLinter]}>
       <SiteContext.Provider value={siteContextValue}>
         <ConfigProvider
           theme={{
             algorithm: getAlgorithm(theme),
-            components: getComponents(theme),
+            components,
           }}
+          wave={wave}
         >
           {outlet}
           {!pathname.startsWith('/~demos') && (

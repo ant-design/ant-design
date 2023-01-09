@@ -57,7 +57,11 @@ export const DesignTokenContext = React.createContext<{
 }>(defaultConfig);
 
 // ================================== Hook ==================================
-export function useToken(): [Theme<SeedToken, MapToken>, GlobalToken, string] {
+export function useToken(): [
+  theme: Theme<SeedToken, MapToken>,
+  globalToken: GlobalToken,
+  hashId: string,
+] {
   const {
     token: rootDesignToken,
     hashed,

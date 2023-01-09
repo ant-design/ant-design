@@ -1,10 +1,7 @@
 import { genComponentStyleHook } from '../../theme/internal';
-import type { AliasToken, FullToken, GenerateStyle } from '../../theme/internal';
+import type { FullToken, GenerateStyle } from '../../theme/internal';
 
-export interface ComponentToken {
-  /** @deprecated Dev only. Do not use. */
-  render?: (target: HTMLElement, token: AliasToken) => React.ReactElement;
-}
+export interface ComponentToken {}
 
 export interface WaveToken extends FullToken<'Wave'> {}
 

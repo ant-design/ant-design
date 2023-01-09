@@ -6,6 +6,7 @@ import type { Locale } from '../locale';
 import type { AliasToken, MapToken, OverrideToken, SeedToken } from '../theme/interface';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
 import type { SizeType } from './SizeContext';
+import type { ConfigProviderProps } from '.';
 
 export const defaultIconPrefixCls = 'anticon';
 
@@ -34,7 +35,11 @@ export interface ThemeConfig {
   inherit?: boolean;
 }
 
-export interface ConfigConsumerProps {
+export interface ConfigConsumerProps
+  extends Pick<
+    ConfigProviderProps,
+    'input' | 'pagination' | 'space' | 'form' | 'select' | 'pageHeader' | 'wave'
+  > {
   getTargetContainer?: () => HTMLElement;
   getPopupContainer?: (triggerNode?: HTMLElement) => HTMLElement;
   rootPrefixCls?: string;
@@ -43,31 +48,11 @@ export interface ConfigConsumerProps {
   renderEmpty?: RenderEmptyHandler;
   csp?: CSPConfig;
   autoInsertSpaceInButton?: boolean;
-  input?: {
-    autoComplete?: string;
-  };
-  pagination?: {
-    showSizeChanger?: boolean;
-  };
   locale?: Locale;
-  pageHeader?: {
-    ghost: boolean;
-  };
   direction?: DirectionType;
-  space?: {
-    size?: SizeType | number;
-  };
   virtual?: boolean;
   dropdownMatchSelectWidth?: boolean;
-  form?: {
-    requiredMark?: RequiredMark;
-    colon?: boolean;
-    scrollToFirstError?: Options | boolean;
-  };
   theme?: ThemeConfig;
-  select?: {
-    showSearch?: boolean;
-  };
 }
 
 const defaultGetPrefixCls = (suffixCls?: string, customizePrefixCls?: string) => {
