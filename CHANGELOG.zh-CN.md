@@ -20,7 +20,7 @@ timeline: true
 `2021-1-9`
 
 - Table
-  - 🛠 优化 Table 逻辑，减少 `shouldCellUpdate` 不必要的渲染次数（提升受控下 100% 性能，非受控 400% 性能）。[#40063](https://github.com/ant-design/ant-design/pull/40063)
+  - 🛠 优化 Table `shouldCellUpdate` 逻辑，提升二次渲染速度。[#40063](https://github.com/ant-design/ant-design/pull/40063)
   - 🐞 修复 Table `columns.render` 中如果使用闭包数据，更新闭包数据不会触发重新渲染的问题。[#40004](https://github.com/ant-design/ant-design/pull/40004)
   - 🐞 修复 Table filter 时,边框会有黑色的问题。[#39938](https://github.com/ant-design/ant-design/pull/39938) [@JarvisArt](https://github.com/JarvisArt)
 - Button

@@ -20,7 +20,7 @@ timeline: true
 `2021-1-9`
 
 - Table
-  - 🛠 Optimize Table logic to reduce `shouldCellUpdate` unnecessary rendering times(Enhance 100% render perf on control and 400% perf on un-control). [#40063](https://github.com/ant-design/ant-design/pull/40063)
+  - 🛠 Optimize the Table `shouldCellUpdate` logic to increase the secondary rendering speed. [#40063](https://github.com/ant-design/ant-design/pull/40063)
   - 🐞 Fix Table `columns.render` not trigger re-render when render function use closure data. [#40004](https://github.com/ant-design/ant-design/pull/40004)
   - 🐞 Fix when Table filter, the border will be black. [#39938](https://github.com/ant-design/ant-design/pull/39938) [@JarvisArt](https://github.com/JarvisArt)
 - Button
