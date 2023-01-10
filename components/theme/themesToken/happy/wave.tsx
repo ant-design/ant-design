@@ -76,7 +76,7 @@ function HappyWave({ target, token, onFinish }: HappyWaveProps) {
         const offsetAngle = Math.random() * 360;
 
         setDots(
-          new Array(DOT_COUNT).fill(null).map((_, index) => {
+          new Array(dotCount).fill(null).map((_, index) => {
             const rotate: number = 360 / dotCount;
             const randomAngle = offsetAngle + rotate * index;
 
