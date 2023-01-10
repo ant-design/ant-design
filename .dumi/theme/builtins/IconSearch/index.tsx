@@ -1,4 +1,5 @@
-import * as React from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
+import type { CSSProperties } from 'react';
 import Icon, * as AntdIcons from '@ant-design/icons';
 import { Segmented, Input, Empty, Affix } from 'antd';
 import { css } from '@emotion/react';
@@ -34,25 +35,25 @@ interface IconSearchState {
 const IconSearch: React.FC = () => {
   const intl = useIntl();
   const { iconSearchAffix } = useStyle();
-  const [displayState, setDisplayState] = React.useState<IconSearchState>({
-    theme: ThemeType.Outlined,
+  const [displayState, setDisplayState] = useState<IconSearchState>({
     searchKey: '',
+    theme: ThemeType.Outlined,
   });
 
   const newIconNames: string[] = [];
 
-  const handleSearchIcon = React.useCallback(
+  const handleSearchIcon = useCallback(
     debounce((searchKey: string) => {
       setDisplayState((prevState) => ({ ...prevState, searchKey }));
     }),
     [],
   );
 
-  const handleChangeTheme = React.useCallback((value) => {
+  const handleChangeTheme = useCallback((value) => {
     setDisplayState((prevState) => ({ ...prevState, theme: value as ThemeType }));
   }, []);
 
-  const renderCategories = React.useMemo<React.ReactNode | React.ReactNode[]>(() => {
+  const renderCategories = useMemo<React.ReactNode | React.ReactNode[]>(() => {
     const { searchKey = '', theme } = displayState;
 
     const categoriesResult = Object.keys(categories)
@@ -90,11 +91,11 @@ const IconSearch: React.FC = () => {
     return categoriesResult.length === 0 ? <Empty style={{ margin: '2em 0' }} /> : categoriesResult;
   }, [displayState.searchKey, displayState.theme]);
 
-  const [searchBarAffixed, setSearchBarAffixed] = React.useState(false);
+  const [searchBarAffixed, setSearchBarAffixed] = useState<boolean>(false);
   const { token } = useSiteToken();
   const { borderRadius, colorBgContainer } = token;
 
-  const affixedStyle: React.CSSProperties = {
+  const affixedStyle: CSSProperties = {
     boxShadow: 'rgba(50, 50, 93, 0.25) 0 6px 12px -2px, rgba(0, 0, 0, 0.3) 0 3px 7px -3px',
     padding: 8,
     margin: -8,

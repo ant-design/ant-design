@@ -1,4 +1,5 @@
-import React, { memo, useMemo, useState } from 'react';
+import React, { memo, useMemo, useRef, useState } from 'react';
+import type { CSSProperties } from 'react';
 import { Link, useIntl, useSidebarData, useLocation } from 'dumi';
 import { css } from '@emotion/react';
 import debounce from 'lodash/debounce';
@@ -38,7 +39,6 @@ const useStyle = () => {
       justifycontent: space-between;
     `,
     componentsOverviewSearch: css`
-      font-size: ${token.fontSizeXL}px;
       padding: 0;
       .anticon-search {
         color: ${token.colorTextDisabled};
@@ -84,9 +84,9 @@ const Overview: React.FC = () => {
   const [searchBarAffixed, setSearchBarAffixed] = useState<boolean>(false);
 
   const { token } = useSiteToken();
-  const { borderRadius, colorBgContainer } = token;
+  const { borderRadius, colorBgContainer, fontSizeLG, fontSizeXL } = token;
 
-  const affixedStyle: React.CSSProperties = {
+  const affixedStyle: CSSProperties = {
     boxShadow: 'rgba(50, 50, 93, 0.25) 0 6px 12px -2px, rgba(0, 0, 0, 0.3) 0 3px 7px -3px',
     padding: 8,
     margin: -8,
@@ -99,7 +99,7 @@ const Overview: React.FC = () => {
 
   const [search, setSearch] = useState<string>('');
 
-  const sectionRef = React.useRef<HTMLElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
 
   const onKeyDown: React.KeyboardEventHandler<HTMLInputElement> = (event) => {
     if (event.keyCode === 13 && search.trim().length) {
@@ -138,6 +138,7 @@ const Overview: React.FC = () => {
       <Affix offsetTop={24} onChange={setSearchBarAffixed}>
         <div css={style.componentsOverviewAffix} style={searchBarAffixed ? affixedStyle : {}}>
           <Input
+            autoFocus
             value={search}
             placeholder={formatMessage({ id: 'app.components.overview.search' })}
             css={style.componentsOverviewSearch}
@@ -147,8 +148,8 @@ const Overview: React.FC = () => {
             }}
             onKeyDown={onKeyDown}
             bordered={false}
-            autoFocus
             suffix={<SearchOutlined />}
+            style={{ fontSize: searchBarAffixed ? fontSizeLG : fontSizeXL }}
           />
         </div>
       </Affix>
