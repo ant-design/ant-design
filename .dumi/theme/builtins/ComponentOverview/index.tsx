@@ -143,7 +143,6 @@ const Overview: React.FC = () => {
             placeholder={formatMessage({ id: 'app.components.overview.search' })}
             css={style.componentsOverviewSearch}
             onChange={(e) => {
-              scrollTo({ top: 0 });
               setSearch(e.target.value);
               reportSearch(e.target.value);
             }}

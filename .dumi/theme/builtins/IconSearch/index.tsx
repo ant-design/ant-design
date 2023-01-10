@@ -105,7 +105,7 @@ const IconSearch: React.FC = () => {
           newIcons={newIconNames}
         />
       ));
-    return categoriesResult.length === 0 ? <Empty style={{ margin: '2em 0' }} /> : categoriesResult;
+    return categoriesResult.length ? categoriesResult : <Empty style={{ margin: '2em 0' }} />;
   }, [displayState.searchKey, displayState.theme]);
 
   const [searchBarAffixed, setSearchBarAffixed] = useState<boolean>(false);
@@ -134,10 +134,7 @@ const IconSearch: React.FC = () => {
             placeholder={intl.formatMessage({ id: 'app.docs.components.icon.search.placeholder' })}
             style={{ flex: 1, marginInlineStart: 16 }}
             allowClear
-            onChange={(e) => {
-              handleSearchIcon(e);
-              scrollTo({ top: 0 });
-            }}
+            onChange={handleSearchIcon}
             size="large"
             autoFocus
           />
