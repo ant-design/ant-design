@@ -68,6 +68,17 @@ const InternalRadio: React.ForwardRefRenderFunction<HTMLElement, RadioProps> = (
     hashId,
   );
 
+  const renderChildren = () => {
+    if (children !== undefined) {
+      return (groupContext?.optionType || radioOptionTypeContext) === 'button' ? (
+        children
+      ) : (
+        <span>{children}</span>
+      );
+    }
+    return null;
+  };
+
   return wrapSSR(
     // eslint-disable-next-line jsx-a11y/label-has-associated-control
     <label
@@ -77,7 +88,7 @@ const InternalRadio: React.ForwardRefRenderFunction<HTMLElement, RadioProps> = (
       onMouseLeave={props.onMouseLeave}
     >
       <RcCheckbox {...radioProps} type="radio" prefixCls={prefixCls} ref={mergedRef} />
-      {children !== undefined ? <span>{children}</span> : null}
+      {renderChildren()}
     </label>,
   );
 };
