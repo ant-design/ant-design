@@ -2,11 +2,11 @@ import type { TextAreaProps as RcTextAreaProps } from 'rc-textarea/lib/interface
 import type { TextAreaRef as RcTextAreaRef } from 'rc-textarea';
 import { forwardRef } from 'react';
 import * as React from 'react';
-import { FormItemInputContext } from 'antd/es/form/context';
 import RcTextArea from 'rc-textarea';
 import classNames from 'classnames';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import type { BaseInputProps } from 'rc-input/lib/interface';
+import { FormItemInputContext } from '../form/context';
 import useStyle from './style';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
