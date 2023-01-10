@@ -1,4 +1,4 @@
-import React, { useState, DragEvent } from 'react';
+import React, { useState, type DragEvent } from 'react';
 import { Table } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 
@@ -31,6 +31,8 @@ const columns: ColumnsType<DataType> = [
     key: 'address',
   },
 ];
+
+let dragRow:dargRowType;
 
 const App: React.FC = () => {
   const [data, setData] = useState([
@@ -69,7 +71,6 @@ const App: React.FC = () => {
     }    
   }
 
-  let dragRow:dargRowType;
   const onRow:any = (state:DataType[], setState:(sta:DataType[]) => void) => ({
     draggable: true,
     style: { cursor: 'move' },
@@ -89,10 +90,10 @@ const App: React.FC = () => {
       }
       const dragIndex = state.findIndex((item:DataType) => item.key === dragRow.key);
       const dropIndex = state.findIndex((item:DataType) => item.key === dropKey);
-      const data = [...state];
-      const item = data.splice(dragIndex, 1);
-      data.splice(dropIndex, 0, item[0]);
-      setState(data);
+      const tableData = [...state];
+      const item = tableData.splice(dragIndex, 1);
+      tableData.splice(dropIndex, 0, item[0]);
+      setState(tableData);
       setBorderStyle(e, false);
     },
     onDragEnter: (e:DragEvent) => {
