@@ -1,5 +1,4 @@
 import classNames from 'classnames';
-import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import * as React from 'react';
 import Affix from '../affix';
 import type { ConfigConsumerProps } from '../config-provider';
@@ -297,10 +296,10 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
 
   React.useEffect(() => {
     const scrollContainer = getCurrentContainer();
-    const scrollEvent = addEventListener(scrollContainer, 'scroll', handleScroll);
     handleScroll();
+    scrollContainer?.addEventListener('scroll', handleScroll);
     return () => {
-      scrollEvent?.remove();
+      scrollContainer?.removeEventListener('scroll', handleScroll);
     };
   }, [dependencyListItem]);
 
@@ -349,5 +348,9 @@ const Anchor: React.FC<AnchorProps> = (props) => {
     <AnchorContent {...props} rootClassName={hashId} anchorPrefixCls={anchorPrefixCls} />,
   );
 };
+
+if (process.env.NODE_ENV !== 'production') {
+  Anchor.displayName = 'Anchor';
+}
 
 export default Anchor;

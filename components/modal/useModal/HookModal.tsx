@@ -44,6 +44,8 @@ const HookModal: React.ForwardRefRenderFunction<HookModalRef, HookModalProps> = 
     },
   }));
 
+  const mergedOkCancel = innerConfig.okCancel ?? innerConfig.type === 'confirm';
+
   return (
     <LocaleReceiver componentName="Modal" defaultLocale={defaultLocale.Modal}>
       {(contextLocale) => (
@@ -55,8 +57,7 @@ const HookModal: React.ForwardRefRenderFunction<HookModalRef, HookModalProps> = 
           open={open}
           afterClose={afterClose}
           okText={
-            innerConfig.okText ||
-            (innerConfig.okCancel ? contextLocale.okText : contextLocale.justOkText)
+            innerConfig.okText || (mergedOkCancel ? contextLocale.okText : contextLocale.justOkText)
           }
           direction={direction}
           cancelText={innerConfig.cancelText || contextLocale.cancelText}

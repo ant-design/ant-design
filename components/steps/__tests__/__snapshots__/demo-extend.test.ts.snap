@@ -4597,12 +4597,12 @@ Array [
     </div>
   </div>,
   <div
-    class="steps-content"
+    style="line-height:260px;text-align:center;color:rgba(0, 0, 0, 0.45);background-color:rgba(0, 0, 0, 0.02);border-radius:8px;border:1px dashed #d9d9d9;margin-top:16px"
   >
     First-content
   </div>,
   <div
-    class="steps-action"
+    style="margin-top:24px"
   >
     <button
       class="ant-btn ant-btn-primary"

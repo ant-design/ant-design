@@ -207,4 +207,8 @@ const Alert: CompoundedComponent = ({
 
 Alert.ErrorBoundary = ErrorBoundary;
 
+if (process.env.NODE_ENV !== 'production') {
+  Alert.displayName = 'Alert';
+}
+
 export default Alert;

@@ -180,4 +180,8 @@ const PurePanel = genPurePanel(RefAutoComplete);
 RefAutoComplete.Option = Option;
 RefAutoComplete._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 
+if (process.env.NODE_ENV !== 'production') {
+  AutoComplete.displayName = 'AutoComplete';
+}
+
 export default RefAutoComplete;

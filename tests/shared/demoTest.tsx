@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { renderToString } from 'react-dom/server';
 import glob from 'glob';
-import { StyleProvider, createCache } from '@ant-design/cssinjs';
+import { StyleProvider, createCache, logicalPropertiesLinter } from '@ant-design/cssinjs';
 import { excludeWarning } from './excludeWarning';
 import { render } from '../utils';
 import { TriggerMockContext } from './demoTestContext';
@@ -72,7 +72,11 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
         Demo = typeof Demo === 'function' ? <Demo /> : Demo;
 
         // Inject cssinjs cache to avoid create <style /> element
-        Demo = <StyleProvider cache={createCache()}>{Demo}</StyleProvider>;
+        Demo = (
+          <StyleProvider cache={createCache()} linters={[logicalPropertiesLinter]}>
+            {Demo}
+          </StyleProvider>
+        );
 
         render(Demo);
 

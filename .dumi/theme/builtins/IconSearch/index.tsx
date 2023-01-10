@@ -1,13 +1,13 @@
 import * as React from 'react';
 import Icon, * as AntdIcons from '@ant-design/icons';
-import { Radio, Input, Empty } from 'antd';
-import type { RadioChangeEvent } from 'antd/es/radio/interface';
+import { Segmented, Input, Empty, Affix } from 'antd';
 import { useIntl } from 'dumi';
 import debounce from 'lodash/debounce';
 import Category from './Category';
 import { FilledIcon, OutlinedIcon, TwoToneIcon } from './themeIcons';
 import type { CategoriesKeys } from './fields';
 import { categories } from './fields';
+import useSiteToken from '../../../hooks/useSiteToken';
 
 export enum ThemeType {
   Filled = 'Filled',
@@ -38,8 +38,8 @@ const IconSearch: React.FC = () => {
     [],
   );
 
-  const handleChangeTheme = React.useCallback((e: RadioChangeEvent) => {
-    setDisplayState((prevState) => ({ ...prevState, theme: e.target.value as ThemeType }));
+  const handleChangeTheme = React.useCallback((value) => {
+    setDisplayState((prevState) => ({ ...prevState, theme: value as ThemeType }));
   }, []);
 
   const renderCategories = React.useMemo<React.ReactNode | React.ReactNode[]>(() => {
@@ -79,37 +79,63 @@ const IconSearch: React.FC = () => {
       ));
     return categoriesResult.length === 0 ? <Empty style={{ margin: '2em 0' }} /> : categoriesResult;
   }, [displayState.searchKey, displayState.theme]);
+
+  const [searchBarAffixed, setSearchBarAffixed] = React.useState(false);
+  const { token } = useSiteToken();
+  const { borderRadius, colorBgContainer } = token;
+  const affixedStyle = searchBarAffixed
+    ? {
+        boxShadow: 'rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px',
+        padding: 8,
+        margin: -8,
+        borderRadius,
+        background: colorBgContainer,
+      }
+    : {};
+
   return (
     <div className="markdown">
-      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-        <Radio.Group
-          value={displayState.theme}
-          onChange={handleChangeTheme}
-          size="large"
-          buttonStyle="solid"
+      <Affix offsetTop={24} onChange={(affixed) => setSearchBarAffixed(affixed)}>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            transition: 'all .3s',
+            ...affixedStyle,
+          }}
         >
-          <Radio.Button value={ThemeType.Outlined}>
-            <Icon component={OutlinedIcon} />{' '}
-            {intl.formatMessage({ id: 'app.docs.components.icon.outlined' })}
-          </Radio.Button>
-          <Radio.Button value={ThemeType.Filled}>
-            <Icon component={FilledIcon} />{' '}
-            {intl.formatMessage({ id: 'app.docs.components.icon.filled' })}
-          </Radio.Button>
-          <Radio.Button value={ThemeType.TwoTone}>
-            <Icon component={TwoToneIcon} />{' '}
-            {intl.formatMessage({ id: 'app.docs.components.icon.two-tone' })}
-          </Radio.Button>
-        </Radio.Group>
-        <Input.Search
-          placeholder={intl.formatMessage({ id: 'app.docs.components.icon.search.placeholder' })}
-          style={{ margin: '0 10px', flex: 1 }}
-          allowClear
-          onChange={(e) => handleSearchIcon(e.currentTarget.value)}
-          size="large"
-          autoFocus
-        />
-      </div>
+          <Segmented
+            value={displayState.theme}
+            onChange={handleChangeTheme}
+            size="large"
+            options={[
+              {
+                icon: <Icon component={OutlinedIcon} />,
+                label: intl.formatMessage({ id: 'app.docs.components.icon.outlined' }),
+                value: ThemeType.Outlined,
+              },
+              {
+                icon: <Icon component={FilledIcon} />,
+                label: intl.formatMessage({ id: 'app.docs.components.icon.filled' }),
+                value: ThemeType.Filled,
+              },
+              {
+                icon: <Icon component={TwoToneIcon} />,
+                label: intl.formatMessage({ id: 'app.docs.components.icon.two-tone' }),
+                value: ThemeType.TwoTone,
+              },
+            ]}
+          />
+          <Input.Search
+            placeholder={intl.formatMessage({ id: 'app.docs.components.icon.search.placeholder' })}
+            style={{ flex: 1, marginInlineStart: 16 }}
+            allowClear
+            onChange={(e) => handleSearchIcon(e.currentTarget.value)}
+            size="large"
+            autoFocus
+          />
+        </div>
+      </Affix>
       {renderCategories}
     </div>
   );

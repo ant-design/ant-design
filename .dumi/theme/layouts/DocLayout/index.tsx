@@ -111,7 +111,7 @@ const DocLayout: React.FC = () => {
           content="https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png"
         />
       </Helmet>
-      <ConfigProvider locale={lang === 'cn' ? zhCN : undefined}>
+      <ConfigProvider direction={direction} locale={lang === 'cn' ? zhCN : undefined}>
         <GlobalStyles />
         <Header />
         {content}

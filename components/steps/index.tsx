@@ -136,4 +136,8 @@ const Steps: CompoundedComponent = (props) => {
 
 Steps.Step = RcSteps.Step;
 
+if (process.env.NODE_ENV !== 'production') {
+  Steps.displayName = 'Steps';
+}
+
 export default Steps;

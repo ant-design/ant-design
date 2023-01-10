@@ -19,7 +19,8 @@ Display statistic number.
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/unit.tsx">Unit</code>
-<code src="./demo/card.tsx">In Card</code>
+<code src="./demo/animated.tsx">Animated number</code>
+<code src="./demo/card.tsx" background="grey">In Card</code>
 <code src="./demo/countdown.tsx">Countdown</code>
 
 ## API

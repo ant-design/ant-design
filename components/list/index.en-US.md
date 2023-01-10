@@ -3,8 +3,6 @@ category: Components
 group: Data Display
 title: List
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*EYuhSpw1iSwAAAAAAAAAAAAADrJ8AQ/original
-demo:
-  cols: 2
 ---
 
 Simple List.

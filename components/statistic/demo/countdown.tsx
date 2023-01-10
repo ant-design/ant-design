@@ -1,6 +1,6 @@
 import React from 'react';
 import { Col, Row, Statistic } from 'antd';
-import type { countdownValueType } from 'antd/es/statistic/utils';
+import type { StatisticProps } from 'antd';
 
 const { Countdown } = Statistic;
 const deadline = Date.now() + 1000 * 60 * 60 * 24 * 2 + 1000 * 30; // Dayjs is also OK
@@ -10,8 +10,8 @@ const App: React.FC = () => {
     console.log('finished!');
   };
 
-  const onChange = (val: countdownValueType) => {
-    if (4.95 * 1000 < val && val < 5 * 1000) {
+  const onChange = (val: StatisticProps['value']) => {
+    if (val && 4.95 * 1000 < val && val < 5 * 1000) {
       console.log('changed!');
     }
   };
