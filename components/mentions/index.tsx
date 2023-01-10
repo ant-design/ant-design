@@ -186,6 +186,9 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
       ref={mergedRef as any}
       options={mergedOptions}
       suffix={hasFeedback && feedbackIcon}
+      classes={{
+        affixWrapper: hashId,
+      }}
     >
       {getOptions()}
     </RcMentions>
