@@ -104,7 +104,8 @@ We added a `createFromIconfontCN` function to help developer use their own icons
 
 > This method is specified for [iconfont.cn](http://iconfont.cn/).
 
-```js
+```jsx
+import React from 'react';
 import { createFromIconfontCN } from '@ant-design/icons';
 
 const MyIcon = createFromIconfontCN({
@@ -133,7 +134,8 @@ You can import SVG icon as a react component by using `webpack` and [`@svgr/webp
 
 ```js
 // webpack.config.js
-{
+module.exports = {
+  // ... other config
   test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
   use: [
     {
@@ -147,7 +149,7 @@ You can import SVG icon as a react component by using `webpack` and [`@svgr/webp
       },
     },
   ],
-}
+};
 ```
 
 ```jsx

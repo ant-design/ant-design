@@ -99,7 +99,8 @@ getTwoToneColor(); // #eb2f96
 
 在 `3.9.0` 之后，我们提供了一个 `createFromIconfontCN` 方法，方便开发者调用在 [iconfont.cn](http://iconfont.cn/) 上自行管理的图标。
 
-```js
+```jsx
+import React from 'react';
 import { createFromIconfontCN } from '@ant-design/icons';
 
 const MyIcon = createFromIconfontCN({
@@ -128,7 +129,8 @@ options 的配置项如下：
 
 ```js
 // webpack.config.js
-{
+module.exports = {
+  // ... other config
   test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
   use: [
     {
@@ -142,7 +144,7 @@ options 的配置项如下：
       },
     },
   ],
-}
+};
 ```
 
 ```jsx
