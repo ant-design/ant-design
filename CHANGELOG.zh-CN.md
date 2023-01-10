@@ -22,6 +22,7 @@ timeline: true
 - 🐞 修复 locale 文件丢失的问题。[#40116](https://github.com/ant-design/ant-design/pull/40116)
 - 🐞 修复 Cascader 组件 RTL 模式中下拉菜单位置问题。[#40109](https://github.com/ant-design/ant-design/pull/40109) [@3hson](https://github.com/3hson)
 - 🐞 修复部分组件动画闪烁的问题。[react-component/motion#39](https://github.com/react-component/motion/pull/39)
+- 🐞 修复 Breadcrumb 最后一项颜色。[#40119](https://github.com/ant-design/ant-design/pull/40119)
 
 ## 5.1.3
 

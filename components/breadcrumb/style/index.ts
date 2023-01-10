@@ -55,7 +55,7 @@ const genBreadcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = (token) =>
       [`li:last-child`]: {
         color: token.breadcrumbLastItemColor,
 
-        [`${componentCls}-separator`]: {
+        [`& > ${componentCls}-separator`]: {
           display: 'none',
         },
       },
