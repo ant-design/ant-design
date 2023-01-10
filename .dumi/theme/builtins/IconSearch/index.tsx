@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Icon, * as AntdIcons from '@ant-design/icons';
 import { Segmented, Input, Empty, Affix } from 'antd';
+import { css } from '@emotion/react';
 import { useIntl } from 'dumi';
 import debounce from 'lodash/debounce';
 import Category from './Category';
@@ -17,6 +18,14 @@ export enum ThemeType {
 
 const allIcons: { [key: string]: any } = AntdIcons;
 
+const useStyle = () => ({
+  iconSearchAffix: css`
+    display: flex;
+    transition: all 0.3s;
+    justifycontent: space-between;
+  `,
+});
+
 interface IconSearchState {
   theme: ThemeType;
   searchKey: string;
@@ -24,6 +33,7 @@ interface IconSearchState {
 
 const IconSearch: React.FC = () => {
   const intl = useIntl();
+  const { iconSearchAffix } = useStyle();
   const [displayState, setDisplayState] = React.useState<IconSearchState>({
     theme: ThemeType.Outlined,
     searchKey: '',
@@ -83,27 +93,19 @@ const IconSearch: React.FC = () => {
   const [searchBarAffixed, setSearchBarAffixed] = React.useState(false);
   const { token } = useSiteToken();
   const { borderRadius, colorBgContainer } = token;
-  const affixedStyle = searchBarAffixed
-    ? {
-        boxShadow: 'rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px',
-        padding: 8,
-        margin: -8,
-        borderRadius,
-        background: colorBgContainer,
-      }
-    : {};
+
+  const affixedStyle: React.CSSProperties = {
+    boxShadow: 'rgba(50, 50, 93, 0.25) 0 6px 12px -2px, rgba(0, 0, 0, 0.3) 0 3px 7px -3px',
+    padding: 8,
+    margin: -8,
+    borderRadius,
+    backgroundColor: colorBgContainer,
+  };
 
   return (
     <div className="markdown">
-      <Affix offsetTop={24} onChange={(affixed) => setSearchBarAffixed(affixed)}>
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            transition: 'all .3s',
-            ...affixedStyle,
-          }}
-        >
+      <Affix offsetTop={24} onChange={setSearchBarAffixed}>
+        <div css={iconSearchAffix} style={searchBarAffixed ? affixedStyle : {}}>
           <Segmented
             value={displayState.theme}
             onChange={handleChangeTheme}
