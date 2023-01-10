@@ -35,7 +35,7 @@ export interface OptionProps {
   [key: string]: any;
 }
 
-export interface MentionProps extends RcMentionsProps {
+export interface MentionProps extends Omit<RcMentionsProps, 'suffix'> {
   loading?: boolean;
   status?: InputStatus;
   options?: MentionsOptionProps[];
@@ -43,10 +43,6 @@ export interface MentionProps extends RcMentionsProps {
 }
 
 export interface MentionsRef extends RcMentionsRef {}
-
-export interface MentionState {
-  focused: boolean;
-}
 
 interface MentionsConfig {
   prefix?: string | string[];
@@ -187,7 +183,7 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
       options={mergedOptions}
       suffix={hasFeedback && feedbackIcon}
       classes={{
-        affixWrapper: hashId,
+        affixWrapper: classNames(hashId, className),
       }}
     >
       {getOptions()}

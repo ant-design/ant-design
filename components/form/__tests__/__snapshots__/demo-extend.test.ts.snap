@@ -26432,8 +26432,8 @@ exports[`renders ./components/form/demo/validate-static.tsx extend context corre
           <div
             class="ant-form-item-control-input-content"
           >
-            <div
-              class="ant-mentions-affix-wrapper ant-mentions-affix-wrapper-status-error ant-mentions-affix-wrapper-has-feedback"
+            <span
+              class="ant-mentions-affix-wrapper"
             >
               <div
                 class="ant-mentions ant-mentions-status-error"
@@ -26470,7 +26470,7 @@ exports[`renders ./components/form/demo/validate-static.tsx extend context corre
                   </span>
                 </span>
               </span>
-            </div>
+            </span>
           </div>
         </div>
       </div>
