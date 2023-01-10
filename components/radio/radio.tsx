@@ -6,6 +6,7 @@ import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
 import { FormItemInputContext } from '../form/context';
 import warning from '../_util/warning';
+import Wave from '../_util/wave';
 import RadioGroupContext, { RadioOptionTypeContext } from './context';
 import type { RadioChangeEvent, RadioProps } from './interface';
 
@@ -68,18 +69,27 @@ const InternalRadio: React.ForwardRefRenderFunction<HTMLElement, RadioProps> = (
     hashId,
   );
 
+  /* eslint-disable jsx-a11y/label-has-associated-control */
   return wrapSSR(
-    // eslint-disable-next-line jsx-a11y/label-has-associated-control
-    <label
-      className={wrapperClassString}
-      style={style}
-      onMouseEnter={props.onMouseEnter}
-      onMouseLeave={props.onMouseLeave}
-    >
-      <RcCheckbox {...radioProps} type="radio" prefixCls={prefixCls} ref={mergedRef} />
-      {children !== undefined ? <span>{children}</span> : null}
-    </label>,
+    <Wave>
+      <label
+        className={wrapperClassString}
+        style={style}
+        onMouseEnter={props.onMouseEnter}
+        onMouseLeave={props.onMouseLeave}
+      >
+        <RcCheckbox
+          {...radioProps}
+          type="radio"
+          prefixCls={prefixCls}
+          ref={mergedRef}
+          className={classNames(radioProps.className, 'antd-wave-target')}
+        />
+        {children !== undefined ? <span>{children}</span> : null}
+      </label>
+    </Wave>,
   );
+  /* eslint-enable */
 };
 
 const Radio = React.forwardRef<unknown, RadioProps>(InternalRadio);

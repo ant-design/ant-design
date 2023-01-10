@@ -56,11 +56,12 @@ export default function useStyle(tokenConfig: UseTokenType) {
     const { motionDurationSlow } = token;
 
     const prefixCls = '.happy-wave';
+    const targetPrefixCls = `${prefixCls}-target`;
 
     return [
       {
         // ======================== Target ========================
-        [`${prefixCls}-target`]: {
+        [`${targetPrefixCls}, & ${targetPrefixCls}`]: {
           animationName: antWaveTargetEffect,
           animationDuration: `0.45s`,
           animationTimingFunction: 'ease-in-out',

@@ -14,7 +14,8 @@ interface HappyWaveProps {
   onFinish: VoidFunction;
 }
 
-const DOT_COUNT = 10;
+const DOT_COUNT = 7;
+const DOT_COUNT_LG = 10;
 
 interface DotInfo {
   key: number;
@@ -68,13 +69,15 @@ function HappyWave({ target, token, onFinish }: HappyWaveProps) {
       const halfOffsetMaxWidth = halfWidth + OFFSET_MAX;
       const halfOffsetMaxHeight = halfHeight + OFFSET_MAX;
 
+      const dotCount = minSize >= 20 ? DOT_COUNT_LG : DOT_COUNT;
+
       // Delay to start dot motion
       setTimeout(() => {
         const offsetAngle = Math.random() * 360;
 
         setDots(
           new Array(DOT_COUNT).fill(null).map((_, index) => {
-            const rotate: number = 360 / DOT_COUNT;
+            const rotate: number = 360 / dotCount;
             const randomAngle = offsetAngle + rotate * index;
 
             // Get start XY (Which should align the rect edge)
@@ -111,7 +114,10 @@ function HappyWave({ target, token, onFinish }: HappyWaveProps) {
               inRange(endX, endY, -endHalfWidth, -endHalfHeight, endHalfWidth, endHalfHeight)
             );
 
-            const size = Math.random() * 4 + 6;
+            let size = Math.random() * 3 + 3;
+            if (height >= 20) {
+              size = Math.random() * 4 + 6;
+            }
 
             return {
               key: index + 1,

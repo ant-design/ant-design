@@ -12,7 +12,6 @@ import LocaleProvider, { ANT_MARK } from '../locale';
 import LocaleReceiver from '../locale/LocaleReceiver';
 import defaultLocale from '../locale/en_US';
 import { DesignTokenContext } from '../theme/internal';
-import type { useToken } from '../theme/internal';
 import defaultSeedToken from '../theme/themes/seed';
 import type { ConfigConsumerProps, CSPConfig, DirectionType, Theme, ThemeConfig } from './context';
 import { ConfigConsumer, ConfigContext, defaultIconPrefixCls } from './context';
@@ -23,6 +22,7 @@ import useTheme from './hooks/useTheme';
 import type { SizeType } from './SizeContext';
 import SizeContext, { SizeContextProvider } from './SizeContext';
 import useStyle from './style';
+import type { WaveWrapperProps } from '../_util/wave/WaveEffect';
 
 export {
   type RenderEmptyHandler,
@@ -84,11 +84,11 @@ export interface ConfigProviderProps {
     showSizeChanger?: boolean;
   };
   wave?: {
-    render?: (props: {
-      target: HTMLElement;
-      token: ReturnType<typeof useToken>;
-      onFinish: VoidFunction;
-    }) => React.ReactNode;
+    render?: (
+      props: Omit<WaveWrapperProps, 'className' | 'wave' | 'holder'> & {
+        onFinish: VoidFunction;
+      },
+    ) => React.ReactNode;
   };
   locale?: Locale;
   pageHeader?: {

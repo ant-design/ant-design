@@ -122,6 +122,12 @@ const WaveEffect: React.FC<WaveEffectProps> = (props) => {
 
 export interface WaveWrapperProps {
   className: string;
+  currentTarget: HTMLElement;
+  /**
+   * In most case same as `currentTarget`.
+   * Only when `currentTarget` has children element with `.antd-wave-target` className.
+   * `target` will be the classNamed one.
+   */
   target: HTMLElement;
   token: ReturnType<typeof useToken>;
   wave: ConfigProviderProps['wave'];
@@ -129,7 +135,7 @@ export interface WaveWrapperProps {
 }
 
 function WaveWrapper(props: WaveWrapperProps) {
-  const { token, target, wave, holder } = props;
+  const { token, target, currentTarget, wave, holder } = props;
 
   function onFinish() {
     unmount(holder).then(() => {
@@ -138,7 +144,7 @@ function WaveWrapper(props: WaveWrapperProps) {
   }
 
   if (wave?.render) {
-    return wave?.render({ target, token, onFinish }) as React.ReactElement;
+    return wave?.render({ target, currentTarget, token, onFinish }) as React.ReactElement;
   }
 
   return <WaveEffect {...props} onFinish={onFinish} />;
@@ -161,7 +167,14 @@ export default function showWaveEffect(
   const target = node.querySelector<HTMLElement>('.antd-wave-target') || node;
 
   render(
-    <WaveWrapper target={target} className={className} token={token} wave={wave} holder={holder} />,
+    <WaveWrapper
+      currentTarget={node}
+      target={target}
+      className={className}
+      token={token}
+      wave={wave}
+      holder={holder}
+    />,
     holder,
   );
 }
