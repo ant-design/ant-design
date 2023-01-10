@@ -25,7 +25,7 @@ const DemoWrapper: typeof DumiDemoGrid = ({ items }) => {
   const visibleDemos = showDebug ? items : items.filter((item) => !item.previewerProps.debug);
   const filteredItems = visibleDemos.map((item) => ({
     ...item,
-    previewerProps: { ...item.previewerProps, expand: expandAll },
+    previewerProps: { ...item.previewerProps, expand: expandAll, debug: false },
   }));
 
   return (
