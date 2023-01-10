@@ -39,7 +39,6 @@ demo:
 - `notification.error(config)`
 - `notification.info(config)`
 - `notification.warning(config)`
-- `notification.warn(config)`
 - `notification.open(config)`
 - `notification.destroy(key?: String)`
 

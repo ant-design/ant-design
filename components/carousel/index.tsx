@@ -16,11 +16,7 @@ export interface CarouselProps extends Omit<Settings, 'dots' | 'dotsClass'> {
   slickGoTo?: number;
   dotPosition?: DotPosition;
   children?: React.ReactNode;
-  dots?:
-    | boolean
-    | {
-        className?: string;
-      };
+  dots?: boolean | { className?: string };
 }
 
 export interface CarouselRef {
@@ -115,5 +111,9 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>(
     );
   },
 );
+
+if (process.env.NODE_ENV !== 'production') {
+  Carousel.displayName = 'Carousel';
+}
 
 export default Carousel;

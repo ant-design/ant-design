@@ -5,6 +5,7 @@ export const groupKeysMap = (keys: string[]) => {
   });
   return map;
 };
+
 export const groupDisabledKeysMap = <RecordType extends any[]>(dataSource: RecordType) => {
   const map = new Map<string, number>();
   dataSource.forEach(({ disabled, key }, index) => {

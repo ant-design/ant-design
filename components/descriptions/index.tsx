@@ -202,6 +202,10 @@ function Descriptions({
   );
 }
 
+if (process.env.NODE_ENV !== 'production') {
+  Descriptions.displayName = 'Descriptions';
+}
+
 Descriptions.Item = DescriptionsItem;
 
 export default Descriptions;

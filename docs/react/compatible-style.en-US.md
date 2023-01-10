@@ -7,7 +7,7 @@ Ant Design supports the last 2 versions of modern browsers. If you need to be co
 
 ### Compatible adjustment
 
-Ant Design default using CSS-in-JS with `:where` Selector to reduce priority to avoid user additional adjust style cost when updating. If you want to support old browser, you can use `@ant-design/cssinjs` to adjust this behavior (Please note keep version align with antd):
+Ant Design default using CSS-in-JS with `:where` Selector to reduce priority to avoid user additional adjust style cost when updating. If you want to support old browser (or some other CSS framework selector priority conflict like TailwindCSS), you can use `@ant-design/cssinjs` to adjust this behavior (Please note keep version align with antd):
 
 ```tsx
 import React from 'react';

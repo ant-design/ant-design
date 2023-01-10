@@ -79,4 +79,8 @@ const Divider: React.FC<DividerProps> = (props) => {
   );
 };
 
+if (process.env.NODE_ENV !== 'production') {
+  Divider.displayName = 'Divider';
+}
+
 export default Divider;
