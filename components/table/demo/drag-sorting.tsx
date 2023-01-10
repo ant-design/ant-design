@@ -1,9 +1,6 @@
-import React, { useCallback, useRef, useState } from 'react';
+import React, { useState, DragEvent } from 'react';
 import { Table } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
-import update from 'immutability-helper';
-import { DndProvider, useDrag, useDrop } from 'react-dnd';
-import { HTML5Backend } from 'react-dnd-html5-backend';
 
 interface DataType {
   key: string;
@@ -12,55 +9,10 @@ interface DataType {
   address: string;
 }
 
-interface DraggableBodyRowProps extends React.HTMLAttributes<HTMLTableRowElement> {
-  index: number;
-  moveRow: (dragIndex: number, hoverIndex: number) => void;
+interface dargRowType {
+  key: string;
+  clientY: number;
 }
-
-const type = 'DraggableBodyRow';
-
-const DraggableBodyRow = ({
-  index,
-  moveRow,
-  className,
-  style,
-  ...restProps
-}: DraggableBodyRowProps) => {
-  const ref = useRef<HTMLTableRowElement>(null);
-  const [{ isOver, dropClassName }, drop] = useDrop({
-    accept: type,
-    collect: (monitor) => {
-      const { index: dragIndex } = monitor.getItem() || {};
-      if (dragIndex === index) {
-        return {};
-      }
-      return {
-        isOver: monitor.isOver(),
-        dropClassName: dragIndex < index ? ' drop-over-downward' : ' drop-over-upward',
-      };
-    },
-    drop: (item: { index: number }) => {
-      moveRow(item.index, index);
-    },
-  });
-  const [, drag] = useDrag({
-    type,
-    item: { index },
-    collect: (monitor) => ({
-      isDragging: monitor.isDragging(),
-    }),
-  });
-  drop(drag(ref));
-
-  return (
-    <tr
-      ref={ref}
-      className={`${className}${isOver ? dropClassName : ''}`}
-      style={{ cursor: 'move', ...style }}
-      {...restProps}
-    />
-  );
-};
 
 const columns: ColumnsType<DataType> = [
   {
@@ -100,44 +52,64 @@ const App: React.FC = () => {
       age: 32,
       address: 'Sidney No. 1 Lake Park',
     },
+    {
+      key: '4',
+      name: 'Eric Xu',
+      age: 33,
+      address: 'Beijing No. 1 Lake Park',
+    },
   ]);
 
-  const components = {
-    body: {
-      row: DraggableBodyRow,
-    },
-  };
+  const setBorderStyle = (e:DragEvent, active:boolean) => {
+    const borderStyle = e.clientY < dragRow.clientY ? 'border-top' : 'border-bottom';
+    if (active) {
+      e.currentTarget.classList.add(borderStyle);
+    } else {
+      e.currentTarget.classList.remove(borderStyle)
+    }    
+  }
 
-  const moveRow = useCallback(
-    (dragIndex: number, hoverIndex: number) => {
-      const dragRow = data[dragIndex];
-      setData(
-        update(data, {
-          $splice: [
-            [dragIndex, 1],
-            [hoverIndex, 0, dragRow],
-          ],
-        }),
-      );
+  let dragRow:dargRowType;
+  const onRow:any = (state:DataType[], setState:(sta:DataType[]) => void) => ({
+    draggable: true,
+    style: { cursor: 'move' },
+    onDragStart: (e:DragEvent) => {
+      e.dataTransfer.effectAllowed = 'move';
+      dragRow = {
+        key: e.currentTarget.getAttribute('data-row-key') as string,
+        clientY: e.clientY,
+      };
     },
-    [data],
-  );
+    onDrop: (e:DragEvent) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const dropKey = e.currentTarget.getAttribute('data-row-key');
+      if (dragRow.key === dropKey) {
+        return;
+      }
+      const dragIndex = state.findIndex((item:DataType) => item.key === dragRow.key);
+      const dropIndex = state.findIndex((item:DataType) => item.key === dropKey);
+      const data = [...state];
+      const item = data.splice(dragIndex, 1);
+      data.splice(dropIndex, 0, item[0]);
+      setState(data);
+      setBorderStyle(e, false);
+    },
+    onDragEnter: (e:DragEvent) => {
+      if (dragRow.key !== e.currentTarget.getAttribute('data-row-key')) {
+        setBorderStyle(e, true);
+      }
+    },
+    onDragLeave: (e:DragEvent) => setBorderStyle(e, false),
+    onDragOver: (e:DragEvent) => e.preventDefault(),
+  });
 
   return (
-    <DndProvider backend={HTML5Backend}>
-      <Table
-        columns={columns}
-        dataSource={data}
-        components={components}
-        onRow={(_, index) => {
-          const attr = {
-            index,
-            moveRow,
-          };
-          return attr as React.HTMLAttributes<any>;
-        }}
-      />
-    </DndProvider>
+    <Table
+      columns={columns}
+      dataSource={data}
+      onRow={() => onRow(data, setData)}
+    />
   );
 };
 

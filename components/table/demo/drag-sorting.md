@@ -1,17 +1,21 @@
 ## zh-CN
 
-使用自定义元素，我们可以集成 [react-dnd](https://github.com/react-dnd/react-dnd) 来实现拖拽排序。
+使用原生拖拽来实现拖拽排序。
+
+> 需要注意在 `onDrop` 方法中使用正确的数据key来获取行索引。
 
 ## en-US
 
-By using `components`, we can integrate table with [react-dnd](https://github.com/react-dnd/react-dnd) to implement drag sorting function.
+Use native drag and drop to implement drag and drop sorting.
+
+> Need to pay attention to use the correct data key in the `onDrop` method to get the row index.
 
 ```css
-#components-table-demo-drag-sorting .ant-table tr.drop-over-downward td {
-  border-bottom: 2px dashed #1890ff;
+.border-top td {
+  border-top: 2px dashed #1890ff!important;
 }
 
-#components-table-demo-drag-sorting .ant-table tr.drop-over-upward td {
-  border-top: 2px dashed #1890ff;
+.border-bottom td {
+  border-bottom: 2px dashed #1890ff!important;
 }
 ```
