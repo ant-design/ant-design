@@ -1,6 +1,8 @@
 import React, { useCallback, useMemo, useState } from 'react';
 import type { CSSProperties } from 'react';
 import Icon, * as AntdIcons from '@ant-design/icons';
+import type { SegmentedProps } from 'antd';
+import type { IntlShape } from 'react-intl';
 import { Segmented, Input, Empty, Affix } from 'antd';
 import { css } from '@emotion/react';
 import { useIntl } from 'dumi';
@@ -27,6 +29,24 @@ const useStyle = () => ({
   `,
 });
 
+const options = (intl: IntlShape): SegmentedProps['options'] => [
+  {
+    value: ThemeType.Outlined,
+    icon: <Icon component={OutlinedIcon} />,
+    label: intl.formatMessage({ id: 'app.docs.components.icon.outlined' }),
+  },
+  {
+    value: ThemeType.Filled,
+    icon: <Icon component={FilledIcon} />,
+    label: intl.formatMessage({ id: 'app.docs.components.icon.filled' }),
+  },
+  {
+    value: ThemeType.TwoTone,
+    icon: <Icon component={TwoToneIcon} />,
+    label: intl.formatMessage({ id: 'app.docs.components.icon.two-tone' }),
+  },
+];
+
 interface IconSearchState {
   theme: ThemeType;
   searchKey: string;
@@ -42,12 +62,9 @@ const IconSearch: React.FC = () => {
 
   const newIconNames: string[] = [];
 
-  const handleSearchIcon = useCallback(
-    debounce((searchKey: string) => {
-      setDisplayState((prevState) => ({ ...prevState, searchKey }));
-    }),
-    [],
-  );
+  const handleSearchIcon = debounce((e: React.ChangeEvent<HTMLInputElement>) => {
+    setDisplayState((prevState) => ({ ...prevState, searchKey: e.target.value }));
+  }, 300);
 
   const handleChangeTheme = useCallback((value) => {
     setDisplayState((prevState) => ({ ...prevState, theme: value as ThemeType }));
@@ -108,32 +125,19 @@ const IconSearch: React.FC = () => {
       <Affix offsetTop={24} onChange={setSearchBarAffixed}>
         <div css={iconSearchAffix} style={searchBarAffixed ? affixedStyle : {}}>
           <Segmented
-            value={displayState.theme}
-            onChange={handleChangeTheme}
             size="large"
-            options={[
-              {
-                icon: <Icon component={OutlinedIcon} />,
-                label: intl.formatMessage({ id: 'app.docs.components.icon.outlined' }),
-                value: ThemeType.Outlined,
-              },
-              {
-                icon: <Icon component={FilledIcon} />,
-                label: intl.formatMessage({ id: 'app.docs.components.icon.filled' }),
-                value: ThemeType.Filled,
-              },
-              {
-                icon: <Icon component={TwoToneIcon} />,
-                label: intl.formatMessage({ id: 'app.docs.components.icon.two-tone' }),
-                value: ThemeType.TwoTone,
-              },
-            ]}
+            value={displayState.theme}
+            options={options(intl)}
+            onChange={handleChangeTheme}
           />
           <Input.Search
             placeholder={intl.formatMessage({ id: 'app.docs.components.icon.search.placeholder' })}
             style={{ flex: 1, marginInlineStart: 16 }}
             allowClear
-            onChange={(e) => handleSearchIcon(e.currentTarget.value)}
+            onChange={(e) => {
+              handleSearchIcon(e);
+              scrollTo({ top: 0 });
+            }}
             size="large"
             autoFocus
           />
