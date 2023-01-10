@@ -22,7 +22,6 @@ timeline: true
 - 🐞 Fix missing locale file. [#40116](https://github.com/ant-design/ant-design/pull/40116)
 - 🐞 Fix Cascader dropdown `placement` in RTL mode. [#40109](https://github.com/ant-design/ant-design/pull/40109) [@3hson](https://github.com/3hson)
 - 🐞 Fix animation flicking in some components. [react-component/motion#39](https://github.com/react-component/motion/pull/39)
-- 🐞 Fix Breadcrumb last item color. [#40119](https://github.com/ant-design/ant-design/pull/40119)
 
 ## 5.1.3
 
