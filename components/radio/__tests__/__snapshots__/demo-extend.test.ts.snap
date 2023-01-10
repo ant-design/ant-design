@@ -22,9 +22,7 @@ exports[`renders ./components/radio/demo/badge.tsx extend context correctly 1`] 
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
-        Click Me
-      </span>
+      Click Me
     </label>
     <sup
       class="ant-scroll-number ant-badge-count"
@@ -61,9 +59,7 @@ exports[`renders ./components/radio/demo/badge.tsx extend context correctly 1`] 
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
-        Not Me
-      </span>
+      Not Me
     </label>
     <sup
       class="ant-scroll-number ant-badge-count"
@@ -181,9 +177,7 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
-        Hangzhou
-      </span>
+      Hangzhou
     </label>
     <label
       class="ant-radio-button-wrapper"
@@ -200,9 +194,7 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
-        Shanghai
-      </span>
+      Shanghai
     </label>
     <label
       class="ant-radio-button-wrapper"
@@ -219,9 +211,7 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
-        Beijing
-      </span>
+      Beijing
     </label>
     <label
       class="ant-radio-button-wrapper"
@@ -238,9 +228,7 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
-        Chengdu
-      </span>
+      Chengdu
     </label>
   </div>,
   <div
@@ -263,9 +251,7 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
-        Hangzhou
-      </span>
+      Hangzhou
     </label>
     <label
       class="ant-radio-button-wrapper ant-radio-button-wrapper-disabled"
@@ -283,9 +269,7 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
-        Shanghai
-      </span>
+      Shanghai
     </label>
     <label
       class="ant-radio-button-wrapper"
@@ -302,9 +286,7 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
-        Beijing
-      </span>
+      Beijing
     </label>
     <label
       class="ant-radio-button-wrapper"
@@ -321,9 +303,7 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
-        Chengdu
-      </span>
+      Chengdu
     </label>
   </div>,
   <div
@@ -347,9 +327,7 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
-        Hangzhou
-      </span>
+      Hangzhou
     </label>
     <label
       class="ant-radio-button-wrapper ant-radio-button-wrapper-disabled"
@@ -367,9 +345,7 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
-        Shanghai
-      </span>
+      Shanghai
     </label>
     <label
       class="ant-radio-button-wrapper ant-radio-button-wrapper-disabled"
@@ -387,9 +363,7 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
-        Beijing
-      </span>
+      Beijing
     </label>
     <label
       class="ant-radio-button-wrapper ant-radio-button-wrapper-disabled"
@@ -407,9 +381,7 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
-        Chengdu
-      </span>
+      Chengdu
     </label>
   </div>,
 ]
@@ -436,9 +408,7 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
-        Hangzhou
-      </span>
+      Hangzhou
     </label>
     <label
       class="ant-radio-button-wrapper"
@@ -455,9 +425,7 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
-        Shanghai
-      </span>
+      Shanghai
     </label>
     <label
       class="ant-radio-button-wrapper"
@@ -474,9 +442,7 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
-        Beijing
-      </span>
+      Beijing
     </label>
     <label
       class="ant-radio-button-wrapper"
@@ -493,9 +459,7 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
-        Chengdu
-      </span>
+      Chengdu
     </label>
   </div>,
   <div
@@ -517,9 +481,7 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
-        Hangzhou
-      </span>
+      Hangzhou
     </label>
     <label
       class="ant-radio-button-wrapper ant-radio-button-wrapper-disabled"
@@ -537,9 +499,7 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
-        Shanghai
-      </span>
+      Shanghai
     </label>
     <label
       class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
@@ -557,9 +517,7 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
-        Beijing
-      </span>
+      Beijing
     </label>
     <label
       class="ant-radio-button-wrapper"
@@ -576,9 +534,7 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
-        Chengdu
-      </span>
+      Chengdu
     </label>
   </div>,
 ]
@@ -924,9 +880,7 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
-        Apple
-      </span>
+      Apple
     </label>
     <label
       class="ant-radio-button-wrapper"
@@ -943,9 +897,7 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
-        Pear
-      </span>
+      Pear
     </label>
     <label
       class="ant-radio-button-wrapper"
@@ -962,9 +914,7 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
-        Orange
-      </span>
+      Orange
     </label>
   </div>,
   <br />,
@@ -988,9 +938,7 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
-        Apple
-      </span>
+      Apple
     </label>
     <label
       class="ant-radio-button-wrapper"
@@ -1007,9 +955,7 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
-        Pear
-      </span>
+      Pear
     </label>
     <label
       class="ant-radio-button-wrapper ant-radio-button-wrapper-disabled"
@@ -1027,9 +973,7 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
-        Orange
-      </span>
+      Orange
     </label>
   </div>,
 ]
@@ -1144,9 +1088,7 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
-        Hangzhou
-      </span>
+      Hangzhou
     </label>
     <label
       class="ant-radio-button-wrapper"
@@ -1163,9 +1105,7 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
-        Shanghai
-      </span>
+      Shanghai
     </label>
     <label
       class="ant-radio-button-wrapper"
@@ -1182,9 +1122,7 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
-        Beijing
-      </span>
+      Beijing
     </label>
     <label
       class="ant-radio-button-wrapper"
@@ -1201,9 +1139,7 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
-        Chengdu
-      </span>
+      Chengdu
     </label>
   </div>,
   <div
@@ -1226,9 +1162,7 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
-        Hangzhou
-      </span>
+      Hangzhou
     </label>
     <label
       class="ant-radio-button-wrapper"
@@ -1245,9 +1179,7 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
-        Shanghai
-      </span>
+      Shanghai
     </label>
     <label
       class="ant-radio-button-wrapper"
@@ -1264,9 +1196,7 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
-        Beijing
-      </span>
+      Beijing
     </label>
     <label
       class="ant-radio-button-wrapper"
@@ -1283,9 +1213,7 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
-        Chengdu
-      </span>
+      Chengdu
     </label>
   </div>,
   <div
@@ -1308,9 +1236,7 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
-        Hangzhou
-      </span>
+      Hangzhou
     </label>
     <label
       class="ant-radio-button-wrapper"
@@ -1327,9 +1253,7 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
-        Shanghai
-      </span>
+      Shanghai
     </label>
     <label
       class="ant-radio-button-wrapper"
@@ -1346,9 +1270,7 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
-        Beijing
-      </span>
+      Beijing
     </label>
     <label
       class="ant-radio-button-wrapper"
@@ -1365,9 +1287,7 @@ Array [
           class="ant-radio-button-inner"
         />
       </span>
-      <span>
-        Chengdu
-      </span>
+      Chengdu
     </label>
   </div>,
 ]

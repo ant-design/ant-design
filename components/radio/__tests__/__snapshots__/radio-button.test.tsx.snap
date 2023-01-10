@@ -35,9 +35,7 @@ exports[`Radio Button should render correctly 1`] = `
       class="ant-radio-button-inner"
     />
   </span>
-  <span>
-    Test
-  </span>
+  Test
 </label>
 `;
 
