@@ -8,6 +8,7 @@ import { GroupContext } from './Group';
 import DisabledContext from '../config-provider/DisabledContext';
 
 import useStyle from './style';
+import Wave from '../_util/wave';
 
 export interface AbstractCheckboxProps<T> {
   prefixCls?: string;
@@ -122,28 +123,33 @@ const InternalCheckbox: React.ForwardRefRenderFunction<HTMLInputElement, Checkbo
     {
       [`${prefixCls}-indeterminate`]: indeterminate,
     },
+    'antd-wave-target',
     hashId,
   );
   const ariaChecked = indeterminate ? 'mixed' : undefined;
+
+  /* eslint-disable jsx-a11y/label-has-associated-control */
   return wrapSSR(
-    // eslint-disable-next-line jsx-a11y/label-has-associated-control
-    <label
-      className={classString}
-      style={style}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
-    >
-      <RcCheckbox
-        aria-checked={ariaChecked}
-        {...checkboxProps}
-        prefixCls={prefixCls}
-        className={checkboxClass}
-        disabled={mergedDisabled}
-        ref={ref}
-      />
-      {children !== undefined && <span>{children}</span>}
-    </label>,
+    <Wave>
+      <label
+        className={classString}
+        style={style}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+      >
+        <RcCheckbox
+          aria-checked={ariaChecked}
+          {...checkboxProps}
+          prefixCls={prefixCls}
+          className={checkboxClass}
+          disabled={mergedDisabled}
+          ref={ref}
+        />
+        {children !== undefined && <span>{children}</span>}
+      </label>
+    </Wave>,
   );
+  /* eslint-enable */
 };
 
 const Checkbox = React.forwardRef<unknown, CheckboxProps>(InternalCheckbox);

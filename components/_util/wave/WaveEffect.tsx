@@ -157,8 +157,11 @@ export default function showWaveEffect(
   holder.style.top = `0px`;
   node.parentElement?.appendChild(holder);
 
+  // Target
+  const target = node.querySelector<HTMLElement>('.antd-wave-target') || node;
+
   render(
-    <WaveWrapper target={node} className={className} token={token} wave={wave} holder={holder} />,
+    <WaveWrapper target={target} className={className} token={token} wave={wave} holder={holder} />,
     holder,
   );
 }

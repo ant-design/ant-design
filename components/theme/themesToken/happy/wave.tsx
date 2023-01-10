@@ -45,7 +45,6 @@ function HappyWave({ target, token, onFinish }: HappyWaveProps) {
   useWaveStyle(token);
 
   // ========================= Dots =========================
-
   React.useEffect(() => {
     const id = raf(() => {
       const rect = target.getBoundingClientRect();

@@ -1,4 +1,3 @@
-import { Keyframes } from '@ant-design/cssinjs';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import { genFocusOutline, resetComponent } from '../../style';
@@ -9,19 +8,6 @@ interface CheckboxToken extends FullToken<'Checkbox'> {
   checkboxCls: string;
   checkboxSize: number;
 }
-
-// ============================== Motion ==============================
-const antCheckboxEffect = new Keyframes('antCheckboxEffect', {
-  '0%': {
-    transform: 'scale(1)',
-    opacity: 0.5,
-  },
-
-  '100%': {
-    transform: 'scale(1.6)',
-    opacity: 0,
-  },
-});
 
 // ============================== Styles ==============================
 export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
@@ -77,14 +63,17 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
         whiteSpace: 'nowrap',
         lineHeight: 1,
         cursor: 'pointer',
+        borderRadius: token.borderRadiusSM,
 
         // Wrapper > Checkbox > input
         [`${checkboxCls}-input`]: {
           position: 'absolute',
-          inset: 0,
           zIndex: 1,
-          width: '100%',
-          height: '100%',
+          inset: `0 auto 0 auto`,
+          width: 0,
+          height: 0,
+          padding: 0,
+          margin: 0,
           cursor: 'pointer',
           opacity: 0,
 
@@ -159,13 +148,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
 
     // ===================== Hover =====================
     {
-      // Wrapper
-      [`${wrapperCls}:hover ${checkboxCls}:after`]: {
-        visibility: 'visible',
-      },
-
       // Wrapper & Wrapper > Checkbox
-
       [`
         ${wrapperCls}:not(${wrapperCls}-disabled),
         ${checkboxCls}:not(${checkboxCls}-disabled)
@@ -200,24 +183,6 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
             transition: `all ${token.motionDurationMid} ${token.motionEaseOutBack} ${token.motionDurationFast}`,
           },
         },
-
-        // Checked Effect
-        '&:after': {
-          position: 'absolute',
-          top: 0,
-          insetInlineStart: 0,
-          width: '100%',
-          height: '100%',
-          borderRadius: token.borderRadiusSM,
-          visibility: 'hidden',
-          border: `${token.lineWidthBold}px solid ${token.colorPrimary}`,
-          animationName: antCheckboxEffect,
-          animationDuration: token.motionDurationSlow,
-          animationTimingFunction: 'ease-in-out',
-          animationFillMode: 'backwards',
-          content: '""',
-          transition: `all ${token.motionDurationSlow}`,
-        },
       },
 
       [`
@@ -227,9 +192,6 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
         [`&:hover ${checkboxCls}-inner`]: {
           backgroundColor: token.colorPrimaryHover,
           borderColor: 'transparent',
-        },
-        [`&:hover ${checkboxCls}:after`]: {
-          borderColor: token.colorPrimaryHover,
         },
       },
     },
