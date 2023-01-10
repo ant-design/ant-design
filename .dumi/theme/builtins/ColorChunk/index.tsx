@@ -24,7 +24,7 @@ const useStyle = () => {
       width: 6px;
       height: 6px;
       border-radius: ${token.borderRadiusSM}px;
-      margin-right: 4px;
+      margin-inline-end: 4px;
       border: 1px solid ${token.colorSplit};
     `,
   };

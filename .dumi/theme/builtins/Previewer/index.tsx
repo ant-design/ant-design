@@ -1,4 +1,9 @@
-import { CheckOutlined, SnippetsOutlined, ThunderboltOutlined } from '@ant-design/icons';
+import {
+  CheckOutlined,
+  SnippetsOutlined,
+  ThunderboltOutlined,
+  LinkOutlined,
+} from '@ant-design/icons';
 import stackblitzSdk from '@stackblitz/sdk';
 import type { Project } from '@stackblitz/sdk';
 import { Alert, Badge, Tooltip, Space } from 'antd';
@@ -78,8 +83,11 @@ const Demo: React.FC<DemoProps> = (props) => {
   const [copyTooltipOpen, setCopyTooltipOpen] = useState<boolean>(false);
   const [copied, setCopied] = useState<boolean>(false);
   const [codeType, setCodeType] = useState<string>('tsx');
-
   const { theme } = useContext<SiteContextProps>(SiteContext);
+
+  const { hash, pathname, search } = location;
+  const isDev = process.env.NODE_ENV === 'development';
+  const docsOnlineUrl = `https://ant.design${pathname}${search}#${meta.id}`;
 
   const handleCodeExpand = (demo: string) => {
     setCodeExpand(!codeExpand);
@@ -99,7 +107,7 @@ const Demo: React.FC<DemoProps> = (props) => {
   };
 
   useEffect(() => {
-    if (meta.id === location.hash.slice(1)) {
+    if (meta.id === hash.slice(1)) {
       anchorRef.current?.click();
     }
   }, []);
@@ -334,6 +342,18 @@ const Demo: React.FC<DemoProps> = (props) => {
         </div>
         <div className="code-box-description">{introChildren}</div>
         <Space wrap size="middle" className="code-box-actions">
+          {isDev && (
+            <Tooltip title={<FormattedMessage id="app.demo.online" />}>
+              <a
+                className="code-box-code-action"
+                target="_blank"
+                rel="noreferrer"
+                href={docsOnlineUrl}
+              >
+                <LinkOutlined className="code-box-online" />
+              </a>
+            </Tooltip>
+          )}
           {showRiddleButton ? (
             <form
               className="code-box-code-action"
