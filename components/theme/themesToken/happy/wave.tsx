@@ -3,7 +3,7 @@ import { CSSMotionList } from 'rc-motion';
 import raf from 'rc-util/lib/raf';
 import * as React from 'react';
 import type { ConfigProviderProps } from '../../../config-provider';
-import useWaveStyle from './style/wave';
+import useWaveStyle, { TARGET_ATTR } from './style/wave';
 
 export type WaveRender = Required<Required<ConfigProviderProps>['wave']>['render'];
 export type UseTokenType = Parameters<WaveRender>[0]['token'];
@@ -36,7 +36,6 @@ function inRange(x: number, y: number, left: number, top: number, right: number,
 function HappyWave({ target, token, onFinish }: HappyWaveProps) {
   const prefixCls = 'happy-wave';
   const dotPrefixCls = `${prefixCls}-dot`;
-  const targetPrefixCls = `${prefixCls}-target`;
 
   const [dots, setDots] = React.useState<DotInfo[] | null>(null);
   const [left, setLeft] = React.useState(0);
@@ -135,7 +134,7 @@ function HappyWave({ target, token, onFinish }: HappyWaveProps) {
         );
       }, 50);
 
-      target.className += ` ${targetPrefixCls}`;
+      target.setAttribute(TARGET_ATTR, 'true');
     });
 
     return () => {
@@ -146,7 +145,7 @@ function HappyWave({ target, token, onFinish }: HappyWaveProps) {
   // ======================== Clean =========================
   React.useEffect(() => {
     const id = setTimeout(() => {
-      target.className = target.className.replace(` ${targetPrefixCls}`, '');
+      target.removeAttribute(TARGET_ATTR);
       onFinish();
     }, 600);
 

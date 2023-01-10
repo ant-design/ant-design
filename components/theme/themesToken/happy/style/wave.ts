@@ -1,6 +1,8 @@
 import { Keyframes, useStyleRegister } from '@ant-design/cssinjs';
 import type { UseTokenType } from '../wave';
 
+export const TARGET_ATTR = 'data-happy-wave-target';
+
 const antWaveTargetEffect = new Keyframes('antWaveTargetEffect', {
   '0%': {
     transform: 'scale(1)',
@@ -56,12 +58,11 @@ export default function useStyle(tokenConfig: UseTokenType) {
     const { motionDurationSlow } = token;
 
     const prefixCls = '.happy-wave';
-    const targetPrefixCls = `${prefixCls}-target`;
 
     return [
       {
         // ======================== Target ========================
-        [`${targetPrefixCls}, & ${targetPrefixCls}`]: {
+        [`[${TARGET_ATTR}], & [${TARGET_ATTR}]`]: {
           animationName: antWaveTargetEffect,
           animationDuration: `0.45s`,
           animationTimingFunction: 'ease-in-out',
