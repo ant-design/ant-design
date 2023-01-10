@@ -24,17 +24,6 @@ const { Option } = Select;
 
 const antdVersion: string = packageJson.version;
 
-const locales = {
-  cn: {
-    title: '🎉🎉🎉 Ant Design 5.0 发布！ 🎉🎉🎉',
-    ok: '知道了',
-  },
-  en: {
-    title: '🎉🎉🎉 Ant Design 5.0 is released! 🎉🎉🎉',
-    ok: 'Got it',
-  },
-};
-
 const useStyle = () => {
   const { token } = useSiteToken();
   const searchIconColor = '#ced4d9';
@@ -139,7 +128,7 @@ interface HeaderState {
 // ================================= Header =================================
 const Header: React.FC = () => {
   const [isClient, setIsClient] = React.useState(false);
-  const [, lang] = useLocale(locales);
+  const [, lang] = useLocale();
 
   const themeConfig = getThemeConfig();
   const [headerState, setHeaderState] = useState<HeaderState>({
