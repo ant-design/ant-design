@@ -32,7 +32,7 @@ const columns: ColumnsType<DataType> = [
   },
 ];
 
-let dragRow:dargRowType;
+let dragRow: dargRowType;
 
 const App: React.FC = () => {
   const [data, setData] = useState([
@@ -62,56 +62,50 @@ const App: React.FC = () => {
     },
   ]);
 
-  const setBorderStyle = (e:DragEvent, active:boolean) => {
+  const setBorderStyle = (e: DragEvent, active: boolean) => {
     const borderStyle = e.clientY < dragRow.clientY ? 'border-top' : 'border-bottom';
     if (active) {
       e.currentTarget.classList.add(borderStyle);
     } else {
-      e.currentTarget.classList.remove(borderStyle)
-    }    
-  }
+      e.currentTarget.classList.remove(borderStyle);
+    }
+  };
 
-  const onRow:any = (state:DataType[], setState:(sta:DataType[]) => void) => ({
+  const onRow = (state: DataType[], setState: (sta: DataType[]) => void) => ({
     draggable: true,
     style: { cursor: 'move' },
-    onDragStart: (e:DragEvent) => {
+    onDragStart: (e: DragEvent) => {
       e.dataTransfer.effectAllowed = 'move';
       dragRow = {
         key: e.currentTarget.getAttribute('data-row-key') as string,
         clientY: e.clientY,
       };
     },
-    onDrop: (e:DragEvent) => {
+    onDrop: (e: DragEvent) => {
       e.preventDefault();
       e.stopPropagation();
       const dropKey = e.currentTarget.getAttribute('data-row-key');
       if (dragRow.key === dropKey) {
         return;
       }
-      const dragIndex = state.findIndex((item:DataType) => item.key === dragRow.key);
-      const dropIndex = state.findIndex((item:DataType) => item.key === dropKey);
+      const dragIndex = state.findIndex((item: DataType) => item.key === dragRow.key);
+      const dropIndex = state.findIndex((item: DataType) => item.key === dropKey);
       const tableData = [...state];
       const item = tableData.splice(dragIndex, 1);
       tableData.splice(dropIndex, 0, item[0]);
       setState(tableData);
       setBorderStyle(e, false);
     },
-    onDragEnter: (e:DragEvent) => {
+    onDragEnter: (e: DragEvent) => {
       if (dragRow.key !== e.currentTarget.getAttribute('data-row-key')) {
         setBorderStyle(e, true);
       }
     },
-    onDragLeave: (e:DragEvent) => setBorderStyle(e, false),
-    onDragOver: (e:DragEvent) => e.preventDefault(),
+    onDragLeave: (e: DragEvent) => setBorderStyle(e, false),
+    onDragOver: (e: DragEvent) => e.preventDefault(),
   });
 
-  return (
-    <Table
-      columns={columns}
-      dataSource={data}
-      onRow={() => onRow(data, setData)}
-    />
-  );
+  return <Table columns={columns} dataSource={data} onRow={() => onRow(data, setData)} />;
 };
 
 export default App;
