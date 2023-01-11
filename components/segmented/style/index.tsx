@@ -17,7 +17,7 @@ interface SegmentedToken extends FullToken<'Segmented'> {
 }
 
 // ============================== Mixins ==============================
-function segmentedDisabledItem(cls: string, token: SegmentedToken): CSSObject {
+function getItemDisabledStyle(cls: string, token: SegmentedToken): CSSObject {
   return {
     [`${cls}, ${cls}:hover, ${cls}:focus`]: {
       color: token.colorTextDisabled,
@@ -26,7 +26,7 @@ function segmentedDisabledItem(cls: string, token: SegmentedToken): CSSObject {
   };
 }
 
-function getSegmentedItemSelectedStyle(token: SegmentedToken): CSSObject {
+function getItemSelectedStyle(token: SegmentedToken): CSSObject {
   return {
     backgroundColor: token.bgColorSelected,
     boxShadow: token.boxShadow,
@@ -86,7 +86,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
         borderRadius: token.borderRadiusSM,
 
         '&-selected': {
-          ...getSegmentedItemSelectedStyle(token),
+          ...getItemSelectedStyle(token),
           color: token.labelColorHover,
         },
 
@@ -159,12 +159,12 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
       },
 
       // disabled styles
-      ...segmentedDisabledItem(`&-disabled ${componentCls}-item`, token),
-      ...segmentedDisabledItem(`${componentCls}-item-disabled`, token),
+      ...getItemDisabledStyle(`&-disabled ${componentCls}-item`, token),
+      ...getItemDisabledStyle(`${componentCls}-item-disabled`, token),
 
       // thumb styles
       [`${componentCls}-thumb`]: {
-        ...getSegmentedItemSelectedStyle(token),
+        ...getItemSelectedStyle(token),
 
         position: 'absolute',
         insetBlockStart: 0,
