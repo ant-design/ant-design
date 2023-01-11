@@ -1,6 +1,7 @@
 import React from 'react';
 import type { RadioChangeEvent } from 'antd';
 import { Radio } from 'antd';
+import { BellOutlined, AudioOutlined } from '@ant-design/icons';
 
 const onChange = (e: RadioChangeEvent) => {
   console.log(`radio checked:${e.target.value}`);
@@ -27,6 +28,25 @@ const App: React.FC = () => (
       <Radio.Button value="b">Shanghai</Radio.Button>
       <Radio.Button value="c">Beijing</Radio.Button>
       <Radio.Button value="d">Chengdu</Radio.Button>
+    </Radio.Group>
+    <Radio.Group onChange={onChange} defaultValue="a" style={{ marginTop: 16 }}>
+      <Radio.Button value="a">
+        Bell
+        <BellOutlined />
+      </Radio.Button>
+      <Radio.Button value="b">
+        Audio
+        <AudioOutlined />
+      </Radio.Button>
+    </Radio.Group>
+    <br />
+    <Radio.Group onChange={onChange} defaultValue="a" style={{ marginTop: 16 }}>
+      <Radio.Button value="a">
+        <BellOutlined />
+      </Radio.Button>
+      <Radio.Button value="b">
+        <AudioOutlined />
+      </Radio.Button>
     </Radio.Group>
   </>
 );
