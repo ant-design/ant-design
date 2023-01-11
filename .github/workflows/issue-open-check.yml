@@ -96,3 +96,14 @@ jobs:
           notify_body: '### 🔥 @${{ github.event.issue.user.login }} 创建了 issue：[${{ github.event.issue.title }}](${{ github.event.issue.html_url }}) <hr /> ![](https://gw.alipayobjects.com/zos/antfincdn/5Cl2G7JjF/jieping2022-03-20%252520xiawu11.06.04.png)'
           notify_footer: '> 💬 欢迎前往 GitHub 进行讨论，社区可能需要你的帮助。'
           at_all: false # whether to ding everybody
+
+      - name: add unconfirmed label
+      - uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.issues.addLabels({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: ['unconfirmed']
+            })
