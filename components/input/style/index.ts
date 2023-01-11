@@ -562,19 +562,6 @@ const genAllowClearStyle = (token: InputToken): CSSObject => {
         margin: `0 ${token.inputAffixPadding}px`,
       },
     },
-
-    // ======================= TextArea ========================
-    '&-textarea-with-clear-btn': {
-      padding: '0 !important',
-      border: '0 !important',
-
-      [`${componentCls}-clear-icon`]: {
-        position: 'absolute',
-        insetBlockStart: token.paddingXS,
-        insetInlineEnd: token.paddingXS,
-        zIndex: 1,
-      },
-    },
   };
 };
 
@@ -870,34 +857,12 @@ export function initInputToken<T extends GlobalToken = GlobalToken>(token: T): I
 }
 
 const genTextAreaStyle: GenerateStyle<InputToken> = (token) => {
-  const { componentCls, inputPaddingHorizontal, paddingLG } = token;
+  const { componentCls, paddingLG } = token;
   const textareaPrefixCls = `${componentCls}-textarea`;
 
   return {
     [textareaPrefixCls]: {
       position: 'relative',
-
-      [`${textareaPrefixCls}-suffix`]: {
-        position: 'absolute',
-        top: 0,
-        insetInlineEnd: inputPaddingHorizontal,
-        bottom: 0,
-        zIndex: 1,
-        display: 'inline-flex',
-        alignItems: 'center',
-        margin: 'auto',
-      },
-
-      [`&-status-error,
-        &-status-warning,
-        &-status-success,
-        &-status-validating`]: {
-        [`&${textareaPrefixCls}-has-feedback`]: {
-          [`${componentCls}`]: {
-            paddingInlineEnd: paddingLG,
-          },
-        },
-      },
 
       '&-show-count': {
         // https://github.com/ant-design/ant-design/issues/33049
@@ -905,18 +870,66 @@ const genTextAreaStyle: GenerateStyle<InputToken> = (token) => {
           height: '100%',
         },
 
-        '&::after': {
+        [`${componentCls}-data-count`]: {
           color: token.colorTextDescription,
           whiteSpace: 'nowrap',
-          content: 'attr(data-count)',
           pointerEvents: 'none',
           float: 'right',
+          marginBottom: -token.fontSize * token.lineHeight,
+        },
+
+        '&-rtl': {
+          [`${componentCls}-data-count`]: {
+            float: 'left',
+          },
         },
       },
 
-      '&-rtl': {
-        '&::after': {
-          float: 'left',
+      [`&-affix-wrapper${textareaPrefixCls}-has-feedback`]: {
+        [`${componentCls}`]: {
+          paddingInlineEnd: paddingLG,
+        },
+      },
+
+      [`&-affix-wrapper${componentCls}-affix-wrapper`]: {
+        padding: 0,
+
+        [`> textarea${componentCls}`]: {
+          fontSize: 'inherit',
+          border: 'none',
+          outline: 'none',
+
+          '&:focus': {
+            boxShadow: 'none !important',
+          },
+        },
+
+        [`${componentCls}-suffix`]: {
+          margin: 0,
+
+          '> *:not(:last-child)': {
+            marginInline: 0,
+          },
+
+          // Clear Icon
+          [`${componentCls}-clear-icon`]: {
+            position: 'absolute',
+            insetInlineEnd: token.paddingXS,
+            insetBlockStart: token.paddingXS,
+          },
+
+          // Feedback Icon
+          [`${textareaPrefixCls}-suffix`]: {
+            position: 'absolute',
+            top: 0,
+            insetInlineEnd: token.inputPaddingHorizontal,
+            bottom: 0,
+            zIndex: 1,
+            display: 'inline-flex',
+            alignItems: 'center',
+            margin: 'auto',
+            pointerEvents: 'none',
+          },
         },
       },
     },
