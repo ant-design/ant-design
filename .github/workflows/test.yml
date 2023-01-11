@@ -171,7 +171,6 @@ jobs:
         if: ${{ matrix.module == 'dist' }}
         run: node ./tests/dekko/dist.test.js
 
-      # 17 only
       - name: bundlesize
         if: ${{ matrix.module == 'dist' && matrix.react == '18' }}
         run: npm run bundlesize
