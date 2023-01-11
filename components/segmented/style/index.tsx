@@ -132,36 +132,6 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
         },
       },
 
-      // size styles
-      '&&-lg': {
-        borderRadius: token.borderRadiusLG,
-        [`${componentCls}-item-label`]: {
-          minHeight: token.controlHeightLG - token.segmentedContainerPadding * 2,
-          lineHeight: `${token.controlHeightLG - token.segmentedContainerPadding * 2}px`,
-          padding: `0 ${token.segmentedPaddingHorizontal}px`,
-          fontSize: token.fontSizeLG,
-        },
-        [`${componentCls}-item`]: {
-          borderRadius: token.borderRadius,
-        },
-      },
-
-      '&&-sm': {
-        borderRadius: token.borderRadiusSM,
-        [`${componentCls}-item-label`]: {
-          minHeight: token.controlHeightSM - token.segmentedContainerPadding * 2,
-          lineHeight: `${token.controlHeightSM - token.segmentedContainerPadding * 2}px`,
-          padding: `0 ${token.segmentedPaddingHorizontalSM}px`,
-        },
-        [`${componentCls}-item`]: {
-          borderRadius: token.borderRadiusXS,
-        },
-      },
-
-      // disabled styles
-      ...getItemDisabledStyle(`&-disabled ${componentCls}-item`, token),
-      ...getItemDisabledStyle(`${componentCls}-item-disabled`, token),
-
       // thumb styles
       [`${componentCls}-thumb`]: {
         ...getItemSelectedStyle(token),
@@ -179,6 +149,36 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
             backgroundColor: 'transparent',
           },
       },
+
+      // size styles
+      '&&-lg': {
+        borderRadius: token.borderRadiusLG,
+        [`${componentCls}-item-label`]: {
+          minHeight: token.controlHeightLG - token.segmentedContainerPadding * 2,
+          lineHeight: `${token.controlHeightLG - token.segmentedContainerPadding * 2}px`,
+          padding: `0 ${token.segmentedPaddingHorizontal}px`,
+          fontSize: token.fontSizeLG,
+        },
+        [`${componentCls}-item, ${componentCls}-thumb`]: {
+          borderRadius: token.borderRadius,
+        },
+      },
+
+      '&&-sm': {
+        borderRadius: token.borderRadiusSM,
+        [`${componentCls}-item-label`]: {
+          minHeight: token.controlHeightSM - token.segmentedContainerPadding * 2,
+          lineHeight: `${token.controlHeightSM - token.segmentedContainerPadding * 2}px`,
+          padding: `0 ${token.segmentedPaddingHorizontalSM}px`,
+        },
+        [`${componentCls}-item, ${componentCls}-thumb`]: {
+          borderRadius: token.borderRadiusXS,
+        },
+      },
+
+      // disabled styles
+      ...getItemDisabledStyle(`&-disabled ${componentCls}-item`, token),
+      ...getItemDisabledStyle(`${componentCls}-item-disabled`, token),
 
       // transition effect when `appear-active`
       [`${componentCls}-thumb-motion-appear-active`]: {
