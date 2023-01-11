@@ -149,7 +149,7 @@
     "rc-tooltip": "~5.2.0",
     "rc-tree": "~5.7.0",
     "rc-tree-select": "~5.6.0",
-    "rc-trigger": "^5.2.10",
+    "rc-trigger": "^5.3.4",
     "rc-upload": "~4.3.0",
     "rc-util": "^5.27.0",
     "scroll-into-view-if-needed": "^3.0.3",
