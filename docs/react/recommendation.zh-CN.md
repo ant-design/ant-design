@@ -13,7 +13,7 @@ title: 社区精选组件
 | 路由 | [react-router](https://github.com/ReactTraining/react-router) |
 | 布局 | [react-grid-layout](https://github.com/react-grid-layout/react-grid-layout) [react-grid-system](https://github.com/sealninja/react-grid-system) [rc-dock](https://github.com/ticlo/rc-dock) |
 | 拖拽 | [dnd-kit](https://github.com/clauderic/dnd-kit) [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd/) [react-dnd](https://github.com/gaearon/react-dnd) |
-| 代码编辑器 | [@uiw/react-codemirror](https://github.com/uiwjs/react-codemirror) [react-monaco-editor]([https://github.com/superRaytin/react-monaco-editor](https://github.com/react-monaco-editor/react-monaco-editor)) |
+| 代码编辑器 | [@uiw/react-codemirror](https://github.com/uiwjs/react-codemirror) [react-monaco-editor](<[https://github.com/superRaytin/react-monaco-editor](https://github.com/react-monaco-editor/react-monaco-editor)>) |
 | 富文本编辑器 | [react-quill](https://github.com/zenoamaro/react-quill) |
 | JSON 编辑器 | [vanilla-jsoneditor](https://github.com/josdejong/svelte-jsoneditor) |
 | JSON 显示器 | [react-json-view](https://github.com/mac-s-g/react-json-view) |
@@ -54,21 +54,3 @@ title: 社区精选组件
 | 在线代码编辑 | [codesandbox](https://codesandbox.io/) [codepen](https://codepen.io/) |
 | 图片压缩     | [tinypng](https://tinypng.com/)                                       |
 | 图表分类查询 | [图之典](http://tuzhidian.com/)                                       |
-
-<style>
-.markdown table td:first-child {
-  width: 20%;
-  font-weight: 500;
-  background: #fcfcfc;
-}
-.markdown table td > a:not(:last-child) {
-  margin-right: 18px;
-}
-.markdown table td > a:not(:last-child)::after {
-  position: absolute;
-  margin: 0 6px 0 8px;
-  color: #bbb;
-  content: '|';
-  pointer-events: none;
-}
-</style>

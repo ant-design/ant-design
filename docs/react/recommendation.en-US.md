@@ -53,21 +53,3 @@ There are some products to recommend for developer/designer/product manager.
 | Online Playground | [codesandbox](https://codesandbox.io/) [codepen](https://codepen.io/) |
 | Image Compressor  | [tinypng](https://tinypng.com/)                                       |
 | Charts Dictionary | [图之典](http://tuzhidian.com/)                                       |
-
-<style>
-.markdown table td:first-child {
-  width: 20%;
-  font-weight: 500;
-  background: #fcfcfc;
-}
-.markdown table td > a:not(:last-child) {
-  margin-right: 18px;
-}
-.markdown table td > a:not(:last-child)::after {
-  position: absolute;
-  margin: 0 6px 0 8px;
-  color: #bbb;
-  content: '|';
-  pointer-events: none;
-}
-</style>
