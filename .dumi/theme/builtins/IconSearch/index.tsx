@@ -136,13 +136,7 @@ const IconSearch: React.FC = () => {
             allowClear
             autoFocus
             size="large"
-            onChange={(e) => {
-              handleSearchIcon(e);
-              setTimeout(() => {
-                const event = new Event('resize');
-                window.dispatchEvent(event);
-              });
-            }}
+            onChange={handleSearchIcon}
           />
         </div>
       </Affix>

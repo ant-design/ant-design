@@ -115,11 +115,6 @@ const useStyle = () => {
       &:hover .main-menu-inner {
         overflow-y: auto;
       }
-
-      > div,
-      > div > div {
-        height: 100%;
-      }
     `,
   };
 };

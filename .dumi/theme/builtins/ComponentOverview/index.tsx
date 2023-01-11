@@ -144,10 +144,6 @@ const Overview: React.FC = () => {
             onChange={(e) => {
               setSearch(e.target.value);
               reportSearch(e.target.value);
-              setTimeout(() => {
-                const event = new Event('resize');
-                window.dispatchEvent(event);
-              });
             }}
             onKeyDown={onKeyDown}
             bordered={false}
