@@ -53,6 +53,7 @@ const PASSED_PROPS: Exclude<keyof ConfigConsumerProps, 'rootPrefixCls' | 'getPre
   'pagination',
   'form',
   'select',
+  'button',
 ];
 
 export interface ConfigProviderProps {

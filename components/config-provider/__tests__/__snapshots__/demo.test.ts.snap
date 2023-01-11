@@ -2,7 +2,7 @@
 
 exports[`renders ./components/config-provider/demo/className.tsx correctly 1`] = `
 <button
-  class="ant-btn ant-btn-default"
+  class="ant-btn ant-btn-default custom-btn"
   type="button"
 >
   <span>
