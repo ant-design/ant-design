@@ -2,90 +2,22 @@
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
-import { ConfigContext } from '../config-provider';
-import DisabledContext from '../config-provider/DisabledContext';
-import type { SizeType } from '../config-provider/SizeContext';
-import SizeContext from '../config-provider/SizeContext';
-import { useCompactItemContext } from '../space/Compact';
-import { cloneElement, isFragment } from '../_util/reactNode';
 import warning from '../_util/warning';
 import Wave from '../_util/wave';
+import { ConfigContext } from '../config-provider';
+import DisabledContext from '../config-provider/DisabledContext';
+import SizeContext from '../config-provider/SizeContext';
+import { useCompactItemContext } from '../space/Compact';
 import Group, { GroupSizeContext } from './button-group';
+import { isTwoCNChar, isUnBorderedButtonType, spaceChildren } from './buttonHelpers';
 import LoadingIcon from './LoadingIcon';
-
-// CSSINJS
 import useStyle from './style';
 
-const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
-const isTwoCNChar = rxTwoCNChar.test.bind(rxTwoCNChar);
-function isString(str: any) {
-  return typeof str === 'string';
-}
-
-function isUnBorderedButtonType(type: ButtonType | undefined) {
-  return type === 'text' || type === 'link';
-}
-
-// Insert one space between two chinese characters automatically.
-function insertSpace(child: React.ReactElement | string | number, needInserted: boolean) {
-  // Check the child if is undefined or null.
-  if (child === null || child === undefined) {
-    return;
-  }
-  const SPACE = needInserted ? ' ' : '';
-  // strictNullChecks oops.
-  if (
-    typeof child !== 'string' &&
-    typeof child !== 'number' &&
-    isString(child.type) &&
-    isTwoCNChar(child.props.children)
-  ) {
-    return cloneElement(child, {
-      children: child.props.children.split('').join(SPACE),
-    });
-  }
-  if (typeof child === 'string') {
-    return isTwoCNChar(child) ? <span>{child.split('').join(SPACE)}</span> : <span>{child}</span>;
-  }
-  if (isFragment(child)) {
-    return <span>{child}</span>;
-  }
-  return child;
-}
-
-function spaceChildren(children: React.ReactNode, needInserted: boolean) {
-  let isPrevChildPure: boolean = false;
-  const childList: React.ReactNode[] = [];
-  React.Children.forEach(children, (child) => {
-    const type = typeof child;
-    const isCurrentChildPure = type === 'string' || type === 'number';
-    if (isPrevChildPure && isCurrentChildPure) {
-      const lastIndex = childList.length - 1;
-      const lastChild = childList[lastIndex];
-      childList[lastIndex] = `${lastChild}${child}`;
-    } else {
-      childList.push(child);
-    }
-
-    isPrevChildPure = isCurrentChildPure;
-  });
-
-  // Pass to React.Children.map to auto fill key
-  return React.Children.map(childList, (child) =>
-    insertSpace(child as React.ReactElement | string | number, needInserted),
-  );
-}
-
-const ButtonTypes = ['default', 'primary', 'ghost', 'dashed', 'link', 'text'] as const;
-export type ButtonType = typeof ButtonTypes[number];
-
-const ButtonShapes = ['default', 'circle', 'round'] as const;
-export type ButtonShape = typeof ButtonShapes[number];
-
-const ButtonHTMLTypes = ['submit', 'button', 'reset'] as const;
-export type ButtonHTMLType = typeof ButtonHTMLTypes[number];
+import type { ButtonType, ButtonHTMLType, ButtonShape } from './buttonHelpers';
+import type { SizeType } from '../config-provider/SizeContext';
 
 export type LegacyButtonType = ButtonType | 'danger';
+
 export function convertLegacyProps(type?: LegacyButtonType): ButtonProps {
   if (type === 'danger') {
     return { danger: true };
@@ -96,11 +28,6 @@ export function convertLegacyProps(type?: LegacyButtonType): ButtonProps {
 export interface BaseButtonProps {
   type?: ButtonType;
   icon?: React.ReactNode;
-  /**
-   * Shape of Button
-   *
-   * @default default
-   */
   shape?: ButtonShape;
   size?: SizeType;
   disabled?: boolean;
@@ -113,21 +40,18 @@ export interface BaseButtonProps {
   children?: React.ReactNode;
 }
 
-// Typescript will make optional not optional if use Pick with union.
-// Should change to `AnchorButtonProps | NativeButtonProps` and `any` to `HTMLAnchorElement | HTMLButtonElement` if it fixed.
-// ref: https://github.com/ant-design/ant-design/issues/15930
 export type AnchorButtonProps = {
   href: string;
   target?: string;
   onClick?: React.MouseEventHandler<HTMLAnchorElement>;
 } & BaseButtonProps &
-  Omit<React.AnchorHTMLAttributes<any>, 'type' | 'onClick'>;
+  Omit<React.AnchorHTMLAttributes<HTMLAnchorElement | HTMLButtonElement>, 'type' | 'onClick'>;
 
 export type NativeButtonProps = {
   htmlType?: ButtonHTMLType;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 } & BaseButtonProps &
-  Omit<React.ButtonHTMLAttributes<any>, 'type' | 'onClick'>;
+  Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'type' | 'onClick'>;
 
 export type ButtonProps = Partial<AnchorButtonProps & NativeButtonProps>;
 
@@ -158,7 +82,6 @@ const InternalButton: React.ForwardRefRenderFunction<
     icon,
     ghost = false,
     block = false,
-    /** If we extract items here, we don't need use omit.js */
     // React does not recognize the `htmlType` prop on a DOM element. Here we pick it out of `rest`.
     htmlType = 'button',
     ...rest
@@ -167,11 +90,9 @@ const InternalButton: React.ForwardRefRenderFunction<
   const { getPrefixCls, autoInsertSpaceInButton, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('btn', customizePrefixCls);
 
-  // Style
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const size = React.useContext(SizeContext);
-  // ===================== Disabled =====================
   const disabled = React.useContext(DisabledContext);
   const mergedDisabled = customDisabled ?? disabled;
 
@@ -179,11 +100,12 @@ const InternalButton: React.ForwardRefRenderFunction<
   const [innerLoading, setLoading] = React.useState<Loading>(!!loading);
   const [hasTwoCNChar, setHasTwoCNChar] = React.useState(false);
   const buttonRef = (ref as any) || React.createRef<HTMLAnchorElement | HTMLButtonElement>();
+
   const isNeedInserted = () =>
     React.Children.count(children) === 1 && !icon && !isUnBorderedButtonType(type);
 
   const fixTwoCNChar = () => {
-    // Fix for HOC usage like <FormatMessage />
+    // FIXME: for HOC usage like <FormatMessage />
     if (!buttonRef || !buttonRef.current || autoInsertSpaceInButton === false) {
       return;
     }
@@ -197,7 +119,6 @@ const InternalButton: React.ForwardRefRenderFunction<
     }
   };
 
-  // =============== Update Loading ===============
   const loadingOrDelay: Loading = typeof loading === 'boolean' ? loading : loading?.delay || true;
 
   React.useEffect(() => {
@@ -212,21 +133,21 @@ const InternalButton: React.ForwardRefRenderFunction<
       setLoading(loadingOrDelay);
     }
 
-    return () => {
+    function cleanupTimer() {
       if (delayTimer) {
-        // in order to not perform a React state update on an unmounted component
-        // and clear timer after 'loadingOrDelay' updated.
         window.clearTimeout(delayTimer);
         delayTimer = null;
       }
-    };
+    }
+
+    return cleanupTimer;
   }, [loadingOrDelay]);
 
   React.useEffect(fixTwoCNChar, [buttonRef]);
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement, MouseEvent>) => {
     const { onClick } = props;
-    // https://github.com/ant-design/ant-design/issues/30207
+    // FIXME: https://github.com/ant-design/ant-design/issues/30207
     if (innerLoading || mergedDisabled) {
       e.preventDefault();
       return;
@@ -263,7 +184,7 @@ const InternalButton: React.ForwardRefRenderFunction<
     prefixCls,
     hashId,
     {
-      [`${prefixCls}-${shape}`]: shape !== 'default' && shape, // Note: Shape also has `default`
+      [`${prefixCls}-${shape}`]: shape !== 'default' && shape,
       [`${prefixCls}-${type}`]: type,
       [`${prefixCls}-${sizeCls}`]: sizeCls,
       [`${prefixCls}-icon-only`]: !children && children !== 0 && !!iconType,
