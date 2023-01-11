@@ -97,7 +97,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
           height: '100%',
           top: 0,
           insetInlineStart: 0,
-          borderRadius: token.borderRadiusSM,
+          borderRadius: 'inherit',
           transition: `background-color ${token.motionDurationMid}`,
         },
 
@@ -141,7 +141,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
           padding: `0 ${token.segmentedPaddingHorizontal}px`,
           fontSize: token.fontSizeLG,
         },
-        [`${componentCls}-item-selected`]: {
+        [`${componentCls}-item`]: {
           borderRadius: token.borderRadius,
         },
       },
@@ -153,7 +153,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
           lineHeight: `${token.controlHeightSM - token.segmentedContainerPadding * 2}px`,
           padding: `0 ${token.segmentedPaddingHorizontalSM}px`,
         },
-        [`${componentCls}-item-selected`]: {
+        [`${componentCls}-item`]: {
           borderRadius: token.borderRadiusXS,
         },
       },
