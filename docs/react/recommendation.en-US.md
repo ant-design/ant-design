@@ -58,7 +58,6 @@ There are some products to recommend for developer/designer/product manager.
 .markdown table td:first-child {
   width: 20%;
   font-weight: 500;
-  background: #fcfcfc;
 }
 .markdown table td > a:not(:last-child) {
   margin-right: 18px;
