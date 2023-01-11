@@ -164,8 +164,11 @@ const InternalButton: React.ForwardRefRenderFunction<
     ...rest
   } = props;
 
-  const { getPrefixCls, autoInsertSpaceInButton, direction } = React.useContext(ConfigContext);
+  const { getPrefixCls, autoInsertSpaceInButton, direction, button } =
+    React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('btn', customizePrefixCls);
+
+  const mergedClassName = classNames(className, button?.className);
 
   // Style
   const [wrapSSR, hashId] = useStyle(prefixCls);
@@ -276,7 +279,7 @@ const InternalButton: React.ForwardRefRenderFunction<
       [`${prefixCls}-disabled`]: hrefAndDisabled,
     },
     compactItemClassnames,
-    className,
+    mergedClassName,
   );
 
   const iconNode =

@@ -34,7 +34,30 @@ export interface ThemeConfig {
   inherit?: boolean;
 }
 
-export interface ConfigConsumerProps {
+export interface ComponentsConfig {
+  button?: {
+    className?: string;
+  };
+  form?: {
+    requiredMark?: RequiredMark;
+    colon?: boolean;
+    scrollToFirstError?: Options | boolean;
+  };
+  input?: {
+    autoComplete?: string;
+  };
+  pagination?: {
+    showSizeChanger?: boolean;
+  };
+  select?: {
+    showSearch?: boolean;
+  };
+  space?: {
+    size?: SizeType | number;
+  };
+}
+
+export interface ConfigConsumerProps extends ComponentsConfig {
   getTargetContainer?: () => HTMLElement;
   getPopupContainer?: (triggerNode?: HTMLElement) => HTMLElement;
   rootPrefixCls?: string;
@@ -43,31 +66,11 @@ export interface ConfigConsumerProps {
   renderEmpty?: RenderEmptyHandler;
   csp?: CSPConfig;
   autoInsertSpaceInButton?: boolean;
-  input?: {
-    autoComplete?: string;
-  };
-  pagination?: {
-    showSizeChanger?: boolean;
-  };
   locale?: Locale;
-  pageHeader?: {
-    ghost: boolean;
-  };
   direction?: DirectionType;
-  space?: {
-    size?: SizeType | number;
-  };
   virtual?: boolean;
   dropdownMatchSelectWidth?: boolean;
-  form?: {
-    requiredMark?: RequiredMark;
-    colon?: boolean;
-    scrollToFirstError?: Options | boolean;
-  };
   theme?: ThemeConfig;
-  select?: {
-    showSearch?: boolean;
-  };
 }
 
 const defaultGetPrefixCls = (suffixCls?: string, customizePrefixCls?: string) => {

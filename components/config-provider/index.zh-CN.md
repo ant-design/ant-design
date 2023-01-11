@@ -42,6 +42,7 @@ export default () => (
 <code src="./demo/size.tsx">组件尺寸</code>
 <code src="./demo/theme.tsx">主题</code>
 <code src="./demo/prefixCls.tsx" debug>前缀</code>
+<code src="./demo/className.tsx" debug>ClassName</code>
 
 ## API
 

@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/config-provider/demo/className.tsx correctly 1`] = `
+<button
+  class="ant-btn ant-btn-default"
+  type="button"
+>
+  <span>
+    Button
+  </span>
+</button>
+`;

@@ -47,6 +47,7 @@ require('isomorphic-fetch');
 
 export type Options = {
   skip?: boolean | string[];
+  only?: string[];
   testingLib?: boolean;
 };
 
@@ -58,7 +59,8 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
   files.forEach((file) => {
     const testMethod =
       options.skip === true ||
-      (Array.isArray(options.skip) && options.skip.some((c) => file.includes(c)))
+      (Array.isArray(options.skip) && options.skip.some((c) => file.includes(c))) ||
+      (options.only && !options.only.some((c) => file.includes(c)))
         ? test.skip
         : test;
 

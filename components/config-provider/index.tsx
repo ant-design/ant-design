@@ -42,7 +42,6 @@ export const configConsumerProps = [
   'csp',
   'autoInsertSpaceInButton',
   'locale',
-  'pageHeader',
 ];
 
 // These props is used by `useContext` directly in sub component
@@ -50,7 +49,6 @@ const PASSED_PROPS: Exclude<keyof ConfigConsumerProps, 'rootPrefixCls' | 'getPre
   'getTargetContainer',
   'getPopupContainer',
   'renderEmpty',
-  'pageHeader',
   'input',
   'pagination',
   'form',
@@ -94,6 +92,9 @@ export interface ConfigProviderProps {
   virtual?: boolean;
   dropdownMatchSelectWidth?: boolean;
   theme?: ThemeConfig;
+  button?: {
+    className?: string;
+  };
 }
 
 interface ProviderChildrenProps extends ConfigProviderProps {
