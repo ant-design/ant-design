@@ -35,7 +35,7 @@ const App: React.FC = () => {
   ];
 
   return (
-    <>
+    <React.StrictMode>
       <Button type="primary" onClick={() => setOpen(true)}>
         Begin Tour
       </Button>
@@ -51,7 +51,7 @@ const App: React.FC = () => {
       </Space>
 
       <Tour open={open} onClose={() => setOpen(false)} steps={steps} />
-    </>
+    </React.StrictMode>
   );
 };
 
