@@ -589,7 +589,7 @@ exports[`renders ./components/collapse/demo/collapsible.tsx correctly 1`] = `
 
 exports[`renders ./components/collapse/demo/custom.tsx correctly 1`] = `
 <div
-  class="ant-collapse ant-collapse-icon-position-start ant-collapse-borderless site-collapse-custom-collapse"
+  class="ant-collapse ant-collapse-icon-position-start ant-collapse-borderless"
 >
   <div
     class="ant-collapse-item ant-collapse-item-active"

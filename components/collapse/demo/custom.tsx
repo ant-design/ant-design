@@ -25,7 +25,6 @@ const App: React.FC = () => {
       bordered={false}
       defaultActiveKey={['1']}
       expandIcon={({ isActive }) => <CaretRightOutlined rotate={isActive ? 90 : 0} />}
-      className="site-collapse-custom-collapse"
     >
       <Panel header="This is panel header 1" key="1" style={panelStyle}>
         <p>{text}</p>
