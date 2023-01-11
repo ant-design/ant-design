@@ -6752,10 +6752,14 @@ Array [
       </div>
     </div>
   </form>,
-  <pre
-    class="language-bash"
+  <div
+    class="ant-typography"
+    style="max-width:440px;margin-top:24px"
   >
-    [
+    <pre
+      style="border:none"
+    >
+      [
   {
     "name": [
       "username"
@@ -6763,7 +6767,8 @@ Array [
     "value": "Ant Design"
   }
 ]
-  </pre>,
+    </pre>
+  </div>,
 ]
 `;
 
