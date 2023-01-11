@@ -77,6 +77,7 @@ yarn add antd
 ## 🔨 Usage
 
 ```jsx
+import React from 'react';
 import { Button, DatePicker } from 'antd';
 
 const App = () => (
