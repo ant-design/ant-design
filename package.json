@@ -107,9 +107,9 @@
     "not dead"
   ],
   "dependencies": {
-    "@ant-design/colors": "^6.0.0",
+    "@ant-design/colors": "^7.0.0",
     "@ant-design/cssinjs": "^1.4.0",
-    "@ant-design/icons": "^4.7.0",
+    "@ant-design/icons": "^5.0.0",
     "@ant-design/react-slick": "~1.0.0",
     "@babel/runtime": "^7.18.3",
     "@ctrl/tinycolor": "^3.4.0",
