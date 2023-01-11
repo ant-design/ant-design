@@ -22,7 +22,7 @@ jobs:
           check-bot: true
 
       - name: add unconfirmed label
-      - uses: actions-cool/issues-helper@v3
+        uses: actions-cool/issues-helper@v3
         with:
           actions: 'add-labels'
           issue-number: ${{ github.event.issue.number }}
