@@ -26,67 +26,6 @@ export interface InputFocusOptions extends FocusOptions {
 
 export type { InputRef };
 
-export function fixControlledValue<T>(value: T) {
-  if (typeof value === 'undefined' || value === null) {
-    return '';
-  }
-  return String(value);
-}
-
-export function resolveOnChange<E extends HTMLInputElement | HTMLTextAreaElement>(
-  target: E,
-  e:
-    | React.ChangeEvent<E>
-    | React.MouseEvent<HTMLElement, MouseEvent>
-    | React.CompositionEvent<HTMLElement>,
-  onChange: undefined | ((event: React.ChangeEvent<E>) => void),
-  targetValue?: string,
-) {
-  if (!onChange) {
-    return;
-  }
-  let event = e as React.ChangeEvent<E>;
-
-  if (e.type === 'click') {
-    // Clone a new target for event.
-    // Avoid the following usage, the setQuery method gets the original value.
-    //
-    // const [query, setQuery] = React.useState('');
-    // <Input
-    //   allowClear
-    //   value={query}
-    //   onChange={(e)=> {
-    //     setQuery((prevStatus) => e.target.value);
-    //   }}
-    // />
-
-    const currentTarget = target.cloneNode(true) as E;
-
-    // click clear icon
-    event = Object.create(e, {
-      target: { value: currentTarget },
-      currentTarget: { value: currentTarget },
-    });
-
-    currentTarget.value = '';
-    onChange(event);
-    return;
-  }
-
-  // Trigger by composition event, this means we need force change the input value
-  if (targetValue !== undefined) {
-    event = Object.create(e, {
-      target: { value: target },
-      currentTarget: { value: target },
-    });
-
-    target.value = targetValue;
-    onChange(event);
-    return;
-  }
-  onChange(event);
-}
-
 export function triggerFocus(
   element?: HTMLInputElement | HTMLTextAreaElement,
   option?: InputFocusOptions,
