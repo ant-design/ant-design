@@ -3,8 +3,9 @@
 exports[`renders ./components/form/demo/advanced-search.tsx extend context correctly 1`] = `
 <div>
   <form
-    class="ant-form ant-form-horizontal ant-advanced-search-form"
+    class="ant-form ant-form-horizontal"
     id="advanced_search"
+    style="max-width:none;background:rgba(0, 0, 0, 0.02);border-radius:8px;padding:24px"
   >
     <div
       class="ant-row"
@@ -599,7 +600,7 @@ exports[`renders ./components/form/demo/advanced-search.tsx extend context corre
     </div>
   </form>
   <div
-    class="search-result-list"
+    style="line-height:200px;text-align:center;background:rgba(0, 0, 0, 0.02);border-radius:8px;margin-top:16px"
   >
     Search Result List
   </div>
