@@ -84,7 +84,7 @@ const Overview: React.FC = () => {
   const [searchBarAffixed, setSearchBarAffixed] = useState<boolean>(false);
 
   const { token } = useSiteToken();
-  const { borderRadius, colorBgContainer, fontSizeLG, fontSizeXL } = token;
+  const { borderRadius, colorBgContainer, fontSizeXL } = token;
 
   const affixedStyle: CSSProperties = {
     boxShadow: 'rgba(50, 50, 93, 0.25) 0 6px 12px -2px, rgba(0, 0, 0, 0.3) 0 3px 7px -3px',
@@ -131,7 +131,6 @@ const Overview: React.FC = () => {
         ]),
     [data, locale],
   );
-
   return (
     <section className="markdown" ref={sectionRef}>
       <Divider />
@@ -149,7 +148,7 @@ const Overview: React.FC = () => {
             onKeyDown={onKeyDown}
             bordered={false}
             suffix={<SearchOutlined />}
-            style={{ fontSize: searchBarAffixed ? fontSizeLG : fontSizeXL }}
+            style={{ fontSize: searchBarAffixed ? fontSizeXL - 2 : fontSizeXL }}
           />
         </div>
       </Affix>
