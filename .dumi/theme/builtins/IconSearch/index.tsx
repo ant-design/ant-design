@@ -134,9 +134,15 @@ const IconSearch: React.FC = () => {
             placeholder={intl.formatMessage({ id: 'app.docs.components.icon.search.placeholder' })}
             style={{ flex: 1, marginInlineStart: 16 }}
             allowClear
-            onChange={handleSearchIcon}
-            size="large"
             autoFocus
+            size="large"
+            onChange={(e) => {
+              handleSearchIcon(e);
+              setTimeout(() => {
+                const event = new Event('resize');
+                window.dispatchEvent(event);
+              });
+            }}
           />
         </div>
       </Affix>
