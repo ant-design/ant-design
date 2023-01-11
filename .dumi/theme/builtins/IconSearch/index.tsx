@@ -25,7 +25,7 @@ const useStyle = () => ({
   iconSearchAffix: css`
     display: flex;
     transition: all 0.3s;
-    justifycontent: space-between;
+    justify-content: space-between;
   `,
 });
 
