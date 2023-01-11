@@ -46,6 +46,7 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
 
     // ===================== Size =====================
     const size = React.useContext(SizeContext);
+    const mergedSize = customizeSize || size;
 
     // ===================== Disabled =====================
     const disabled = React.useContext(DisabledContext);
@@ -94,6 +95,8 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
             {
               [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
               [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
+              [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
+              [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
             },
             getStatusClassNames(`${prefixCls}-affix-wrapper`, mergedStatus),
             hashId,
@@ -106,8 +109,8 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
           textarea: classNames(
             {
               [`${prefixCls}-borderless`]: !bordered,
-              [`${prefixCls}-sm`]: size === 'small' || customizeSize === 'small',
-              [`${prefixCls}-lg`]: size === 'large' || customizeSize === 'large',
+              [`${prefixCls}-sm`]: mergedSize === 'small',
+              [`${prefixCls}-lg`]: mergedSize === 'large',
             },
             getStatusClassNames(prefixCls, mergedStatus),
             hashId,
