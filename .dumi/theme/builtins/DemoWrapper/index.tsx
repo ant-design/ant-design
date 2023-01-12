@@ -36,9 +36,8 @@ const DemoWrapper: typeof DumiDemoGrid = ({ items }) => {
             ...previewerProps,
             expand: expandAll,
             // always override debug property, because dumi will hide debug demo in production
-            debug: true,
+            debug: false,
           },
-          forceShowCode: true,
         });
       }, []),
     [expandAll, showDebug],
