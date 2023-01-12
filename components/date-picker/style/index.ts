@@ -1280,7 +1280,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
             borderRadius: borderRadiusLG,
             boxShadow: boxShadowSecondary,
             transition: `margin ${motionDurationSlow}`,
-
+            marginLeft: '0 !important',
             // ======================== Layout ========================
             [`${componentCls}-panel-layout`]: {
               display: 'flex',
