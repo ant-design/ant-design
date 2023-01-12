@@ -131,7 +131,7 @@ export default function showWaveEffect(node: HTMLElement, className: string) {
   holder.style.position = 'absolute';
   holder.style.left = `0px`;
   holder.style.top = `0px`;
-  node.insertBefore(holder, node.firstChild);
+  node?.insertBefore(holder, node?.firstChild);
 
   render(<WaveEffect target={node} className={className} />, holder);
 }
