@@ -80,7 +80,7 @@ In `enzyme`, some built-in APIs are provided to manipulate dom, or find componen
 - setProps(nextProps): Set the properties of the component
 - find(selector): Find the node according to the selector, the selector can be the selector in CSS, or the constructor of the component, and the displayName of the component, etc.
 
-在 `testing-library` 中，没有提供这些 api（正如上面提到过的 - `testing-library` 更加注重行为上的测试），所以需要换成原生的 dom 操作：
+In `testing-library`, these APIs are not provided (as mentioned above - `testing-library` focuses more on behavioral testing), so it needs to be replaced by native dom operations:
 
 ```diff
     expect(ref.current.getPopupDomNode()).toBe(null);
