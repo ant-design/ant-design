@@ -20,8 +20,6 @@ import SwitchBtn from './SwitchBtn';
 const RESPONSIVE_XS = 1120;
 const RESPONSIVE_SM = 1200;
 
-const { Option } = Select;
-
 const antdVersion: string = packageJson.version;
 
 const useStyle = () => {
