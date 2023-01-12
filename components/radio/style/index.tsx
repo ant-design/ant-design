@@ -310,6 +310,17 @@ const getRadioButtonStyle: GenerateStyle<RadioToken> = (token) => {
         `box-shadow ${motionDurationMid}`,
       ].join(','),
 
+      [`&-icon-only`]: {
+        width: controlHeight,
+        paddingInlineStart: (controlHeight - 16) / 2,
+        paddingInlineEnd: (controlHeight - 16) / 2,
+        '&:last-child': {
+          span: {
+            transform: 'scale(1.143)', // 14px -> 16px
+          },
+        },
+      },
+
       a: {
         color: radioButtonColor,
       },

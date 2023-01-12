@@ -59,6 +59,7 @@ const InternalRadio: React.ForwardRefRenderFunction<HTMLElement, RadioProps> = (
   const wrapperClassString = classNames(
     `${prefixCls}-wrapper`,
     {
+      [`${prefixCls}-wrapper-icon-only`]: typeof children === 'object' && !Array.isArray(children),
       [`${prefixCls}-wrapper-checked`]: radioProps.checked,
       [`${prefixCls}-wrapper-disabled`]: radioProps.disabled,
       [`${prefixCls}-wrapper-rtl`]: direction === 'rtl',
@@ -67,17 +68,6 @@ const InternalRadio: React.ForwardRefRenderFunction<HTMLElement, RadioProps> = (
     className,
     hashId,
   );
-
-  const renderChildren = () => {
-    if (children !== undefined) {
-      return (groupContext?.optionType || radioOptionTypeContext) === 'button' ? (
-        children
-      ) : (
-        <span>{children}</span>
-      );
-    }
-    return null;
-  };
 
   return wrapSSR(
     // eslint-disable-next-line jsx-a11y/label-has-associated-control
@@ -88,7 +78,7 @@ const InternalRadio: React.ForwardRefRenderFunction<HTMLElement, RadioProps> = (
       onMouseLeave={props.onMouseLeave}
     >
       <RcCheckbox {...radioProps} type="radio" prefixCls={prefixCls} ref={mergedRef} />
-      {renderChildren()}
+      {children !== undefined ? <span>{children}</span> : null}
     </label>,
   );
 };
