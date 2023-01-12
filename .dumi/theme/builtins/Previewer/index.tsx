@@ -128,7 +128,7 @@ const Demo: React.FC<DemoProps> = (props) => {
 
   const codeBoxClass = classNames('code-box', {
     expand: codeExpand,
-    'code-box-debug': meta.debug,
+    'code-box-debug': meta.originDebug,
   });
 
   const localizedTitle = meta?.title[locale] || meta?.title;
@@ -334,7 +334,7 @@ const Demo: React.FC<DemoProps> = (props) => {
       </section>
       <section className="code-box-meta markdown">
         <div className="code-box-title">
-          <Tooltip title={meta.debug ? <FormattedMessage id="app.demo.debug" /> : ''}>
+          <Tooltip title={meta.originDebug ? <FormattedMessage id="app.demo.debug" /> : ''}>
             <a href={`#${meta.id}`} ref={anchorRef}>
               {localizedTitle}
             </a>
