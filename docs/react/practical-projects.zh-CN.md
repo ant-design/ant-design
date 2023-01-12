@@ -63,6 +63,7 @@ export default defineConfig({
 然后新建 `src/components/ProductList.tsx` 文件：
 
 ```tsx
+import React from 'react';
 import { Table, Popconfirm, Button } from 'antd';
 
 const ProductList: React.FC<{ products: { name: string }[]; onDelete: (id: string) => void }> = ({
@@ -76,7 +77,7 @@ const ProductList: React.FC<{ products: { name: string }[]; onDelete: (id: strin
     },
     {
       title: 'Actions',
-      render: (text, record) => {
+      render(text, record) {
         return (
           <Popconfirm title="Delete?" onConfirm={() => onDelete(record.id)}>
             <Button>Delete</Button>
@@ -106,8 +107,8 @@ export function queryProductList() {
 }
 */
 // 先用 setTimeout 模拟一个请求，正常的写法如上所示
-export function queryProductList() {
-  return new Promise(resolve => {
+export default function queryProductList() {
+  return new Promise((resolve) => {
     setTimeout(() => {
       resolve({
         data: [
@@ -123,6 +124,7 @@ export function queryProductList() {
 然后新建文件 `src/models/useProductList.ts`。
 
 ```tsx
+import { message } from 'antd';
 import { useRequest } from 'umi';
 import { queryProductList } from '@/services/product';
 
@@ -151,6 +153,7 @@ export default function useProductList(params: { pageSize: number; current: numb
 编辑 `src/pages/products.tsx`，替换为以下内容：
 
 ```tsx
+import React from 'react';
 import { useModel } from 'umi';
 import ProductList from '@/components/ProductList';
 
@@ -158,7 +161,7 @@ const Products = () => {
   const { dataSource, reload, deleteProducts } = useModel('useProductList');
   return (
     <div>
-      <a onClick={() => reload()}>reload</a>
+      <a onClick={reload}>reload</a>
       <ProductList onDelete={deleteProducts} products={dataSource} />
     </div>
   );
@@ -188,6 +191,7 @@ $ yarn start
 使用方式也是极为简单，只需要进行几个简单的设置。
 
 ```tsx
+import React from 'react';
 import { Button } from 'antd';
 import ProLayout, { PageContainer } from '@ant-design/pro-layout';
 
@@ -201,7 +205,12 @@ export default (
           Main Operating
         </Button>,
       ]}
-      footer={[<Button>reset</Button>, <Button type="primary">submit</Button>]}
+      footer={[
+        <Button key={1}>reset</Button>,
+        <Button key={2} type="primary">
+          submit
+        </Button>,
+      ]}
     >
       {children}
     </PageContainer>
@@ -216,8 +225,9 @@ export default (
 一个中后台页面中很多数据都不需要跨页面共享，models 在一些时候也是不需要的。
 
 ```tsx
+import React, { useRef } from 'react';
 import ProTable from '@ant-design/pro-table';
-import { Popconfirm, Button } from 'antd';
+import { Popconfirm, Button, message } from 'antd';
 import { queryProductList } from '@/services/product';
 
 const Products = () => {
@@ -240,7 +250,7 @@ const Products = () => {
     },
     {
       title: 'Actions',
-      render: (text, record) => {
+      render(text, record) {
         return (
           <Popconfirm title="Delete?" onConfirm={() => onDelete(record.id)}>
             <Button>Delete</Button>

@@ -9,11 +9,3 @@
 We can store form data into upper component or [Redux](https://github.com/reactjs/redux) or [dva](https://github.com/dvajs/dva) by using `onFieldsChange` and `fields`, see more at this [rc-field-form demo](https://rc-field-form.react-component.now.sh/?selectedKind=rc-field-form&selectedStory=StateForm-redux&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel).
 
 **Note:** Save Form data globally [is not a good practice](https://github.com/reduxjs/redux/issues/1287#issuecomment-175351978). You should avoid this if not necessary.
-
-<style>
-#components-form-demo-global-state .language-bash {
-  max-width: 400px;
-  border-radius: 6px;
-  margin-top: 24px;
-}
-</style>

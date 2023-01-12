@@ -296,7 +296,7 @@ exports[`renders ./components/drawer/demo/placement.tsx correctly 1`] = `
 
 exports[`renders ./components/drawer/demo/render-in-current.tsx correctly 1`] = `
 <div
-  class="site-drawer-render-in-current-wrapper"
+  style="position:relative;height:200px;padding:48px;overflow:hidden;text-align:center;background:rgba(0, 0, 0, 0.02);border:1px solid #f0f0f0;border-radius:8px"
 >
   Render in this
   <div

@@ -1,12 +1,20 @@
 import React, { useState } from 'react';
 import { DownOutlined, UpOutlined } from '@ant-design/icons';
-import { Button, Col, Form, Input, Row, Select } from 'antd';
+import { Button, Col, Form, Input, Row, Select, theme } from 'antd';
 
 const { Option } = Select;
 
 const AdvancedSearchForm = () => {
-  const [expand, setExpand] = useState(false);
+  const { token } = theme.useToken();
   const [form] = Form.useForm();
+  const [expand, setExpand] = useState(false);
+
+  const formStyle = {
+    maxWidth: 'none',
+    background: token.colorFillAlter,
+    borderRadius: token.borderRadiusLG,
+    padding: 24,
+  };
 
   const getFields = () => {
     const count = expand ? 10 : 6;
@@ -46,12 +54,7 @@ const AdvancedSearchForm = () => {
   };
 
   return (
-    <Form
-      form={form}
-      name="advanced_search"
-      className="ant-advanced-search-form"
-      onFinish={onFinish}
-    >
+    <Form form={form} name="advanced_search" style={formStyle} onFinish={onFinish}>
       <Row gutter={24}>{getFields()}</Row>
       <Row>
         <Col span={24} style={{ textAlign: 'right' }}>
@@ -80,11 +83,23 @@ const AdvancedSearchForm = () => {
   );
 };
 
-const App: React.FC = () => (
-  <div>
-    <AdvancedSearchForm />
-    <div className="search-result-list">Search Result List</div>
-  </div>
-);
+const App: React.FC = () => {
+  const { token } = theme.useToken();
+
+  const listStyle: React.CSSProperties = {
+    lineHeight: '200px',
+    textAlign: 'center',
+    background: token.colorFillAlter,
+    borderRadius: token.borderRadiusLG,
+    marginTop: 16,
+  };
+
+  return (
+    <div>
+      <AdvancedSearchForm />
+      <div style={listStyle}>Search Result List</div>
+    </div>
+  );
+};
 
 export default App;

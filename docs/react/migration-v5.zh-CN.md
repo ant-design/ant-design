@@ -195,14 +195,15 @@ const mapToken = defaultAlgorithm(defaultSeed);
 const v4Token = convertLegacyToken(mapToken);
 
 // Webpack Config
-{
-  loader: "less-loader",
+module.exports = {
+  // ... other config
+  loader: 'less-loader',
   options: {
     lessOptions: {
       modifyVars: v4Token,
     },
   },
-}
+};
 ```
 
 同时移除对 antd less 文件的直接引用：

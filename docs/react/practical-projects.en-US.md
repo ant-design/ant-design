@@ -69,6 +69,7 @@ Let's create a `ProductList` component that we can use in multiple places to sho
 Create `src/components/ProductList.tsx` by typing:
 
 ```tsx
+import React from 'react';
 import { Table, Popconfirm, Button } from 'antd';
 
 const ProductList: React.FC<{ products: { name: string }[]; onDelete: (id: string) => void }> = ({
@@ -82,7 +83,7 @@ const ProductList: React.FC<{ products: { name: string }[]; onDelete: (id: strin
     },
     {
       title: 'Actions',
-      render: (text, record) => {
+      render(text, record) {
         return (
           <Popconfirm title="Delete?" onConfirm={() => onDelete(record.id)}>
             <Button>Delete</Button>
@@ -112,8 +113,8 @@ export function queryProductList() {
 }
 */
 // mock request service by setTimeout
-export function queryProductList() {
-  return new Promise(resolve => {
+export default function queryProductList() {
+  return new Promise((resolve) => {
     setTimeout(() => {
       resolve({
         data: [
@@ -129,6 +130,7 @@ export function queryProductList() {
 Then you need to create a new file `src/models/useProductList.ts`.
 
 ```tsx
+import { message } from 'antd';
 import { useRequest } from 'umi';
 import { queryProductList } from '@/services/product';
 
@@ -157,6 +159,7 @@ export default function useProductList(params: { pageSize: number; current: numb
 Edit `src/pages/products.tsx` and replace with the following:
 
 ```tsx
+import React from 'react';
 import { useModel } from 'umi';
 import ProductList from '@/components/ProductList';
 
@@ -164,7 +167,7 @@ const Products = () => {
   const { dataSource, reload, deleteProducts } = useModel('useProductList');
   return (
     <div>
-      <a onClick={() => reload()}>reload</a>
+      <a onClick={reload}>reload</a>
       <ProductList onDelete={deleteProducts} products={dataSource} />
     </div>
   );
@@ -188,6 +191,7 @@ And supports three modes of `side`, `mix`, and `top`, and it also has built-in m
 The method of use is also extremely simple, requiring only a few simple settings.
 
 ```tsx
+import React from 'react';
 import { Button } from 'antd';
 import ProLayout, { PageContainer } from '@ant-design/pro-layout';
 
@@ -201,7 +205,12 @@ export default (
           Main Operating
         </Button>,
       ]}
-      footer={[<Button>reset</Button>, <Button type="primary">submit</Button>]}
+      footer={[
+        <Button key={1}>reset</Button>,
+        <Button key={2} type="primary">
+          submit
+        </Button>,
+      ]}
     >
       {children}
     </PageContainer>
@@ -216,8 +225,9 @@ Click here [Quick Start](https://procomponents.ant.design/en-US/components/layou
 Many data in an admin page does not need to be shared across pages, and models are sometimes not needed.
 
 ```tsx
+import React, { useRef } from 'react';
 import ProTable from '@ant-design/pro-table';
-import { Popconfirm, Button } from 'antd';
+import { Popconfirm, Button, message } from 'antd';
 import { queryProductList } from '@/services/product';
 
 const Products = () => {
@@ -240,7 +250,7 @@ const Products = () => {
     },
     {
       title: 'Actions',
-      render: (text, record) => {
+      render(text, record) {
         return (
           <Popconfirm title="Delete?" onConfirm={() => onDelete(record.id)}>
             <Button>Delete</Button>

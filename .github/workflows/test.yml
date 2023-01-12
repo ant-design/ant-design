@@ -171,12 +171,12 @@ jobs:
         if: ${{ matrix.module == 'dist' }}
         run: node ./tests/dekko/dist.test.js
 
-      # 17 only
       - name: bundlesize
-        if: ${{ matrix.module == 'dist' && matrix.react == '17' }}
+        if: ${{ matrix.module == 'dist' && matrix.react == '18' }}
         run: npm run bundlesize
         env:
           BUNDLESIZE_GITHUB_TOKEN: ${{ secrets.BUNDLESIZE_GITHUB_TOKEN }}
+          INTERNAL_SKIP_CACHE: true
 
       # dom test
       - name: dom test
