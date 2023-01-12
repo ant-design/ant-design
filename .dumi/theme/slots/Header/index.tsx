@@ -20,8 +20,6 @@ import SwitchBtn from './SwitchBtn';
 const RESPONSIVE_XS = 1120;
 const RESPONSIVE_SM = 1200;
 
-const { Option } = Select;
-
 const antdVersion: string = packageJson.version;
 
 const useStyle = () => {
@@ -244,14 +242,12 @@ const Header: React.FC = () => {
     [antdVersion]: antdVersion,
     ...themeConfig?.docVersions,
   };
-  const versionOptions = Object.keys(docVersions).map((version) => (
-    <Option value={docVersions[version]} key={version}>
-      {version}
-    </Option>
-  ));
+  const versionOptions = Object.keys(docVersions).map((version) => ({
+    value: docVersions[version],
+    label: version,
+  }));
 
   const isHome = ['', 'index', 'index-cn'].includes(pathname);
-
   const isZhCN = lang === 'cn';
   const isRTL = direction === 'rtl';
   let responsive: null | 'narrow' | 'crowded' = null;
@@ -284,7 +280,7 @@ const Header: React.FC = () => {
     />
   );
 
-  let menu: React.ReactNode[] = [
+  let menu = [
     navigationNode,
     <Select
       key="version"
@@ -295,9 +291,8 @@ const Header: React.FC = () => {
       dropdownStyle={getDropdownStyle}
       dropdownMatchSelectWidth={false}
       getPopupContainer={(trigger) => trigger.parentNode}
-    >
-      {versionOptions}
-    </Select>,
+      options={versionOptions}
+    />,
     <More key="more" {...sharedProps} />,
     <SwitchBtn
       key="lang"
