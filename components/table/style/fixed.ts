@@ -3,8 +3,15 @@ import type { GenerateStyle } from '../../theme/internal';
 import type { TableToken } from './index';
 
 const genFixedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
-  const { componentCls, lineWidth, colorSplit, motionDurationSlow, zIndexTableFixed, tableBg } =
-    token;
+  const {
+    componentCls,
+    lineWidth,
+    colorSplit,
+    motionDurationSlow,
+    zIndexTableFixed,
+    tableBg,
+    zIndexTableSticky,
+  } = token;
 
   const shadowColor = colorSplit;
 
@@ -65,7 +72,7 @@ const genFixedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
           position: 'absolute',
           top: 0,
           bottom: 0,
-          zIndex: zIndexTableFixed,
+          zIndex: zIndexTableSticky + 1,
           width: 30,
           transition: `box-shadow ${motionDurationSlow}`,
           content: '""',

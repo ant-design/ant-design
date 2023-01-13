@@ -28,6 +28,7 @@ const DEPRECIATED_VERSION = {
   '5.1.0': ['https://github.com/react-component/drawer/pull/370'],
   '5.1.2': ['https://github.com/ant-design/ant-design/issues/39949'],
   '5.1.3': ['https://github.com/ant-design/ant-design/issues/40113'],
+  '5.1.4': ['https://github.com/ant-design/ant-design/issues/40186'],
 };
 
 function matchDeprecated(version) {

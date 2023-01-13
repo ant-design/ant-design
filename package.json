@@ -48,7 +48,6 @@
     "api-collection": "antd-tools run api-collection",
     "authors": "node ./scripts/generate-authors",
     "build": "npm run compile && NODE_OPTIONS='--max-old-space-size=4096' npm run dist",
-    "bundlesize": "bundlesize --enable-github-checks",
     "size-limit": "size-limit",
     "check-commit": "node ./scripts/check-commit",
     "check-ts-demo": "node ./scripts/check-ts-demo",
@@ -194,7 +193,6 @@
     "antd-img-crop": "^4.2.8",
     "antd-token-previewer": "^1.1.0-21",
     "array-move": "^4.0.0",
-    "bundlesize2": "^0.0.31",
     "chalk": "^4.0.0",
     "cheerio": "1.0.0-rc.12",
     "cross-env": "^7.0.0",
@@ -304,12 +302,6 @@
     {
       "path": "./dist/antd-with-locales.min.js",
       "limit": "500 KiB"
-    }
-  ],
-  "bundlesize": [
-    {
-      "path": "./dist/antd.min.js",
-      "maxSize": "385 kB"
     }
   ],
   "tnpm": {

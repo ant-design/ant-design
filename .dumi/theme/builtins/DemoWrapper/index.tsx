@@ -22,16 +22,31 @@ const DemoWrapper: typeof DumiDemoGrid = ({ items }) => {
     setExpandAll(!expandAll);
   };
 
-  const visibleDemos = showDebug ? items : items.filter((item) => !item.previewerProps.debug);
-  const filteredItems = visibleDemos.map((item) => ({
-    ...item,
-    previewerProps: {
-      ...item.previewerProps,
-      expand: expandAll,
-      // always override debug property, because dumi will hide debug demo in production
-      debug: false,
-    },
-  }));
+  const demos = React.useMemo(
+    () =>
+      items.reduce((acc, item) => {
+        const { previewerProps } = item;
+        const { debug } = previewerProps;
+
+        if (debug && !showDebug) return acc;
+
+        return acc.concat({
+          ...item,
+          previewerProps: {
+            ...previewerProps,
+            expand: expandAll,
+            // always override debug property, because dumi will hide debug demo in production
+            debug: false,
+            /**
+             * antd extra marker for the original debug
+             * @see https://github.com/ant-design/ant-design/pull/40130#issuecomment-1380208762
+             */
+            originDebug: debug,
+          },
+        });
+      }, [] as typeof items),
+    [expandAll, showDebug],
+  );
 
   return (
     <div className="demo-wrapper">
@@ -60,7 +75,7 @@ const DemoWrapper: typeof DumiDemoGrid = ({ items }) => {
         </Tooltip>
       </span>
       {/* FIXME: find a new way instead of `key` to trigger re-render */}
-      <DumiDemoGrid items={filteredItems} key={`${expandAll}${showDebug}`} />
+      <DumiDemoGrid items={demos} key={`${expandAll}${showDebug}`} />
     </div>
   );
 };
