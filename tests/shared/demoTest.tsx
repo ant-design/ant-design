@@ -8,11 +8,14 @@ import { render } from '../utils';
 import { TriggerMockContext } from './demoTestContext';
 import rootPropsTest from './rootPropsTest';
 
+export { rootPropsTest };
+
 require('isomorphic-fetch');
 
 export type Options = {
   skip?: boolean | string[];
   testingLib?: boolean;
+  testRootProps?: boolean;
 };
 
 function baseText(doInject: boolean, component: string, options: Options = {}) {
@@ -100,5 +103,7 @@ export function extendTest(component: string, options: Options = {}) {
 export default function demoTest(component: string, options: Options = {}) {
   baseText(false, component, options);
 
-  rootPropsTest(component);
+  if (options?.testRootProps !== false) {
+    rootPropsTest(component);
+  }
 }
