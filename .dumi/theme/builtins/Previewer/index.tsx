@@ -90,7 +90,7 @@ const Demo: React.FC<DemoProps> = (props) => {
   const docsOnlineUrl = `https://ant.design${pathname}${search}#${meta.id}`;
 
   const handleCodeExpand = (demo: string) => {
-    setCodeExpand(!codeExpand);
+    setCodeExpand((prev) => !prev);
     track({ type: 'expand', demo });
   };
 
@@ -112,6 +112,10 @@ const Demo: React.FC<DemoProps> = (props) => {
     }
   }, []);
 
+  useEffect(() => {
+    setCodeExpand(expand);
+  }, [expand]);
+
   if (!liveDemo.current) {
     liveDemo.current = meta.iframe ? (
       <BrowserFrame>
@@ -123,8 +127,8 @@ const Demo: React.FC<DemoProps> = (props) => {
   }
 
   const codeBoxClass = classNames('code-box', {
-    expand: codeExpand || expand,
-    'code-box-debug': meta.debug,
+    expand: codeExpand,
+    'code-box-debug': meta.originDebug,
   });
 
   const localizedTitle = meta?.title[locale] || meta?.title;
@@ -330,7 +334,7 @@ const Demo: React.FC<DemoProps> = (props) => {
       </section>
       <section className="code-box-meta markdown">
         <div className="code-box-title">
-          <Tooltip title={meta.debug ? <FormattedMessage id="app.demo.debug" /> : ''}>
+          <Tooltip title={meta.originDebug ? <FormattedMessage id="app.demo.debug" /> : ''}>
             <a href={`#${meta.id}`} ref={anchorRef}>
               {localizedTitle}
             </a>
