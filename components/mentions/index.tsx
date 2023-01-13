@@ -35,7 +35,7 @@ export interface OptionProps {
   [key: string]: any;
 }
 
-export interface MentionProps extends RcMentionsProps {
+export interface MentionProps extends Omit<RcMentionsProps, 'suffix'> {
   loading?: boolean;
   status?: InputStatus;
   options?: MentionsOptionProps[];
@@ -43,10 +43,6 @@ export interface MentionProps extends RcMentionsProps {
 }
 
 export interface MentionsRef extends RcMentionsRef {}
-
-export interface MentionState {
-  focused: boolean;
-}
 
 interface MentionsConfig {
   prefix?: string | string[];
@@ -179,26 +175,14 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
       dropdownClassName={classNames(popupClassName, hashId)}
       ref={mergedRef as any}
       options={mergedOptions}
+      suffix={hasFeedback && feedbackIcon}
+      classes={{
+        affixWrapper: classNames(hashId, className),
+      }}
     >
       {getOptions()}
     </RcMentions>
   );
-
-  if (hasFeedback) {
-    return (
-      <div
-        className={classNames(
-          `${prefixCls}-affix-wrapper`,
-          getStatusClassNames(`${prefixCls}-affix-wrapper`, mergedStatus, hasFeedback),
-          className,
-          hashId,
-        )}
-      >
-        {mentions}
-        <span className={`${prefixCls}-suffix`}>{feedbackIcon}</span>
-      </div>
-    );
-  }
 
   return wrapSSR(mentions);
 };

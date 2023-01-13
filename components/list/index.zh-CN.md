@@ -19,6 +19,7 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*EYuhSpw1iSwAAAAAAA
 <code src="./demo/basic.tsx">基础列表</code>
 <code src="./demo/loadmore.tsx">加载更多</code>
 <code src="./demo/vertical.tsx">竖排列表样式</code>
+<code src="./demo/pagination.tsx">分页设置</code>
 <code src="./demo/grid.tsx">栅格列表</code>
 <code src="./demo/grid-test.tsx" debug>测试栅格列表</code>
 <code src="./demo/responsive.tsx">响应式的栅格列表</code>
@@ -52,9 +53,10 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*EYuhSpw1iSwAAAAAAA
 
 分页的配置项。
 
-| 参数     | 说明               | 类型                        | 默认值   |
-| -------- | ------------------ | --------------------------- | -------- |
-| position | 指定分页显示的位置 | `top` \| `bottom` \| `both` | `bottom` |
+| 参数     | 说明               | 类型                         | 默认值   |
+| -------- | ------------------ | ---------------------------- | -------- |
+| position | 指定分页显示的位置 | `top` \| `bottom` \| `both`  | `bottom` |
+| align    | 指定分页对齐的位置 | `start` \| `center` \| `end` | `end`    |
 
 更多配置项，请查看 [`Pagination`](/components/pagination-cn)。
 

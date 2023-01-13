@@ -23,8 +23,11 @@ export interface PaginationProps extends RcPaginationProps {
 
 export type PaginationPosition = 'top' | 'bottom' | 'both';
 
+export type PaginationAlign = 'start' | 'center' | 'end';
+
 export interface PaginationConfig extends PaginationProps {
   position?: PaginationPosition;
+  align?: PaginationAlign;
 }
 
 export type { PaginationLocale };

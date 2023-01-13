@@ -1,5 +1,7 @@
 import classNames from 'classnames';
 import * as React from 'react';
+import scrollIntoView from 'scroll-into-view-if-needed';
+
 import Affix from '../affix';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
@@ -72,6 +74,7 @@ export interface AnchorProps {
   /** Listening event when scrolling change active link */
   onChange?: (currentActiveLink: string) => void;
   items?: AnchorLinkItemProps[];
+  direction?: AnchorDirection;
 }
 
 interface InternalAnchorProps extends AnchorProps {
@@ -90,6 +93,8 @@ export interface AnchorDefaultProps extends AnchorProps {
   getContainer: () => AnchorContainer;
 }
 
+export type AnchorDirection = 'vertical' | 'horizontal';
+
 export interface AntAnchor {
   registerLink: (link: string) => void;
   unregisterLink: (link: string) => void;
@@ -99,6 +104,7 @@ export interface AntAnchor {
     e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
     link: { title: React.ReactNode; href: string },
   ) => void;
+  direction: AnchorDirection;
 }
 
 const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
@@ -112,6 +118,7 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
     showInkInFixed = false,
     children,
     items,
+    direction: anchorDirection = 'vertical',
     bounds,
     targetOffset,
     onClick,
@@ -123,6 +130,14 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
   // =================== Warning =====================
   if (process.env.NODE_ENV !== 'production') {
     warning(!children, 'Anchor', '`Anchor children` is deprecated. Please use `items` instead.');
+  }
+
+  if (process.env.NODE_ENV !== 'production') {
+    warning(
+      !(anchorDirection === 'horizontal' && items?.some((n) => 'children' in n)),
+      'Anchor',
+      '`Anchor items#children` is not supported when `Anchor` direction is horizontal.',
+    );
   }
 
   const [links, setLinks] = React.useState<string[]>([]);
@@ -162,8 +177,17 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
       `.${prefixCls}-link-title-active`,
     );
     if (linkNode && spanLinkNode.current) {
-      spanLinkNode.current.style.top = `${linkNode.offsetTop + linkNode.clientHeight / 2}px`;
-      spanLinkNode.current.style.height = `${linkNode.clientHeight}px`;
+      if (anchorDirection !== 'horizontal') {
+        spanLinkNode.current.style.top = `${linkNode.offsetTop + linkNode.clientHeight / 2}px`;
+        spanLinkNode.current.style.height = `${linkNode.clientHeight}px`;
+      } else {
+        spanLinkNode.current.style.left = `${linkNode.offsetLeft}px`;
+        spanLinkNode.current.style.width = `${linkNode.clientWidth}px`;
+        scrollIntoView(linkNode, {
+          scrollMode: 'if-needed',
+          block: 'nearest',
+        });
+      }
     }
   };
 
@@ -249,17 +273,11 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
     [targetOffset, offsetTop],
   );
 
-  const inkClass = classNames(
-    {
-      [`${prefixCls}-ink-ball-visible`]: activeLink,
-    },
-    `${prefixCls}-ink-ball`,
-  );
-
   const wrapperClass = classNames(
     rootClassName,
     `${prefixCls}-wrapper`,
     {
+      [`${prefixCls}-wrapper-horizontal`]: anchorDirection === 'horizontal',
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
@@ -267,6 +285,10 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
 
   const anchorClass = classNames(prefixCls, {
     [`${prefixCls}-fixed`]: !affix && !showInkInFixed,
+  });
+
+  const inkClass = classNames(`${prefixCls}-ink`, {
+    [`${prefixCls}-ink-visible`]: activeLink,
   });
 
   const wrapperStyle: React.CSSProperties = {
@@ -278,7 +300,7 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
     Array.isArray(options)
       ? options.map((item) => (
           <AnchorLink {...item} key={item.key}>
-            {createNestedLink(item.children)}
+            {anchorDirection === 'vertical' && createNestedLink(item.children)}
           </AnchorLink>
         ))
       : null;
@@ -286,9 +308,7 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
   const anchorContent = (
     <div ref={wrapperRef} className={wrapperClass} style={wrapperStyle}>
       <div className={anchorClass}>
-        <div className={`${prefixCls}-ink`}>
-          <span className={inkClass} ref={spanLinkNode} />
-        </div>
+        <span className={inkClass} ref={spanLinkNode} />
         {'items' in props ? createNestedLink(items) : children}
       </div>
     </div>
@@ -311,7 +331,7 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
 
   React.useEffect(() => {
     updateInk();
-  }, [getCurrentAnchor, dependencyListItem, activeLink]);
+  }, [anchorDirection, getCurrentAnchor, dependencyListItem, activeLink]);
 
   const memoizedContextValue = React.useMemo<AntAnchor>(
     () => ({
@@ -320,8 +340,9 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
       scrollTo: handleScrollTo,
       activeLink,
       onClick,
+      direction: anchorDirection,
     }),
-    [activeLink, onClick, handleScrollTo],
+    [activeLink, onClick, handleScrollTo, anchorDirection],
   );
 
   return (

@@ -122,6 +122,13 @@ const genBaseStyle: GenerateStyle<ListToken> = (token) => {
     lineWidth,
   } = token;
 
+  const alignCls: any = {};
+  ['start', 'center', 'end'].forEach((item) => {
+    alignCls[`&-align-${item}`] = {
+      textAlign: item,
+    };
+  });
+
   return {
     [`${componentCls}`]: {
       ...resetComponent(token),
@@ -133,9 +140,11 @@ const genBaseStyle: GenerateStyle<ListToken> = (token) => {
         background: 'transparent',
         paddingBlock: paddingSM,
       },
+
       [`${componentCls}-pagination`]: {
         marginBlockStart: marginLG,
-        textAlign: 'end',
+
+        ...alignCls,
 
         // https://github.com/ant-design/ant-design/issues/20037
         [`${antCls}-pagination-options`]: {
