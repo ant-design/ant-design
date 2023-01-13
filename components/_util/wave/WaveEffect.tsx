@@ -42,15 +42,15 @@ const WaveEffect: React.FC<WaveEffectProps> = (props) => {
   }
 
   function syncPos() {
-    const nodeStyle = getComputedStyle(target);
+    const targetStyle = getComputedStyle(target);
 
     // Get wave color from target
     setWaveColor(getTargetWaveColor(target));
 
-    const isStatic = nodeStyle.position === 'static';
+    const isStatic = targetStyle.position === 'static';
 
     // Rect
-    const { borderLeftWidth, borderTopWidth } = nodeStyle;
+    const { borderLeftWidth, borderTopWidth } = targetStyle;
     setLeft(isStatic ? target.offsetLeft : -parseFloat(borderLeftWidth));
     setTop(isStatic ? target.offsetTop : -parseFloat(borderTopWidth));
     setWidth(target.offsetWidth);
@@ -62,7 +62,7 @@ const WaveEffect: React.FC<WaveEffectProps> = (props) => {
       borderTopRightRadius,
       borderBottomLeftRadius,
       borderBottomRightRadius,
-    } = nodeStyle;
+    } = targetStyle;
 
     setBorderRadius(
       [
@@ -167,7 +167,7 @@ export default function showWaveEffect(
   holder.style.position = 'absolute';
   holder.style.left = `0px`;
   holder.style.top = `0px`;
-  node?.insertBefore(holder, node?.firstChild);
+  target?.insertBefore(holder, target?.firstChild);
 
   render(
     <WaveWrapper
