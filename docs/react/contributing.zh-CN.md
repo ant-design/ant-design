@@ -84,3 +84,4 @@ Ant Design 团队会关注所有的 pull request，我们会 review 以及合并
 
 - [记录向：如何快速的成为 Ant Design 的 contributor](https://zhuanlan.zhihu.com/p/123367842) [@Rustin-Liu](https://github.com/Rustin-Liu)
 - [从 0 开始，成为 Ant-Design Contributor](https://zhuanlan.zhihu.com/p/143895612) [@fireairforce](https://github.com/fireairforce)
+- [如何成长为 Collaborator](docs/blog/to-be-collaborator-cn)
