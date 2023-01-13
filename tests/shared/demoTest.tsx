@@ -6,44 +6,9 @@ import { StyleProvider, createCache, logicalPropertiesLinter } from '@ant-design
 import { excludeWarning } from './excludeWarning';
 import { render } from '../utils';
 import { TriggerMockContext } from './demoTestContext';
+import rootPropsTest from './rootPropsTest';
 
 require('isomorphic-fetch');
-
-// function normalizeAriaValue(value: string | null): string {
-//   const defaultValue = value || '';
-
-//   return defaultValue
-//     .replace(/\d+/g, 'test')
-//     .replace(/TEST_OR_SSR/g, 'test')
-//     .replace(/-test-test/g, '-test');
-// }
-
-// function normalizeAria(element: Element, ariaName: string) {
-//   if (element.hasAttribute(ariaName)) {
-//     element.setAttribute(ariaName, normalizeAriaValue(element.getAttribute(ariaName)));
-//   }
-// }
-
-// /**
-//  * Rc component will generate id for aria usage. It's created as `test-uuid` when env === 'test'. Or
-//  * `f7fa7a3c-a675-47bc-912e-0c45fb6a74d9`(randomly) when not test env. So we need hack of this to
-//  * modify the `aria-controls`.
-//  */
-// function ariaConvert(element: Element) {
-//   normalizeAria(element, 'aria-owns');
-//   normalizeAria(element, 'aria-controls');
-//   normalizeAria(element, 'aria-labelledby');
-//   normalizeAria(element, 'aria-activedescendant');
-//   normalizeAria(element, 'data-menu-id');
-//   normalizeAria(element, 'stroke');
-//   if (element.id) {
-//     element.id = normalizeAriaValue(element.id);
-//   }
-
-//   Array.from(element.children).forEach(child => {
-//     ariaConvert(child);
-//   });
-// }
 
 export type Options = {
   skip?: boolean | string[];
@@ -130,6 +95,8 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
 
 export function extendTest(component: string, options: Options = {}) {
   baseText(true, component, options);
+
+  rootPropsTest(component);
 }
 
 export default function demoTest(component: string, options: Options = {}) {
