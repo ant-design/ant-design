@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import { CSSMotionList } from 'rc-motion';
 import raf from 'rc-util/lib/raf';
+import { render, unmount } from 'rc-util/lib/React/render';
 import * as React from 'react';
 import type { ConfigProviderProps } from '../../../config-provider';
 import useWaveStyle, { TARGET_ATTR } from './style/wave';
@@ -214,7 +215,26 @@ function HappyWave({ target, token, onFinish }: HappyWaveProps) {
   );
 }
 
-const renderWave: WaveRender = (props: HappyWaveProps) => <HappyWave {...props} />;
+const renderWave: WaveRender = (props) => {
+  // Create holder
+  const holder = document.createElement('div');
+  holder.style.position = 'absolute';
+  holder.style.left = `0px`;
+  holder.style.top = `0px`;
+  document.body.appendChild(holder);
+
+  render(
+    <HappyWave
+      {...props}
+      onFinish={() => {
+        unmount(holder).then(() => {
+          holder.parentElement?.removeChild(holder);
+        });
+      }}
+    />,
+    holder,
+  );
+};
 
 const Wave: ConfigProviderProps['wave'] = {
   render: renderWave,

@@ -84,11 +84,7 @@ export interface ConfigProviderProps {
     showSizeChanger?: boolean;
   };
   wave?: {
-    render?: (
-      props: Omit<WaveWrapperProps, 'className' | 'wave' | 'holder'> & {
-        onFinish: VoidFunction;
-      },
-    ) => React.ReactNode;
+    render?: (props: Omit<WaveWrapperProps, 'className' | 'wave' | 'holder'>) => void;
   };
   locale?: Locale;
   pageHeader?: {

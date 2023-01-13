@@ -133,21 +133,16 @@ export interface WaveWrapperProps {
    */
   target: HTMLElement;
   token: ReturnType<typeof useToken>;
-  wave: ConfigProviderProps['wave'];
   holder: HTMLElement;
 }
 
 function WaveWrapper(props: WaveWrapperProps) {
-  const { token, target, currentTarget, wave, holder } = props;
+  const { holder } = props;
 
   function onFinish() {
     unmount(holder).then(() => {
       holder.parentElement?.removeChild(holder);
     });
-  }
-
-  if (wave?.render) {
-    return wave?.render({ target, currentTarget, token, onFinish }) as React.ReactElement;
   }
 
   return <WaveEffect {...props} onFinish={onFinish} />;
@@ -159,6 +154,14 @@ export default function showWaveEffect(
   token: ReturnType<typeof useToken>,
   wave: ConfigProviderProps['wave'],
 ) {
+  // Target
+  const target = node.querySelector<HTMLElement>('.antd-wave-target') || node;
+
+  if (wave?.render) {
+    wave?.render({ target, currentTarget: node, token });
+    return;
+  }
+
   // Create holder
   const holder = document.createElement('div');
   holder.style.position = 'absolute';
@@ -166,16 +169,12 @@ export default function showWaveEffect(
   holder.style.top = `0px`;
   node?.insertBefore(holder, node?.firstChild);
 
-  // Target
-  const target = node.querySelector<HTMLElement>('.antd-wave-target') || node;
-
   render(
     <WaveWrapper
       currentTarget={node}
       target={target}
       className={className}
       token={token}
-      wave={wave}
       holder={holder}
     />,
     holder,
