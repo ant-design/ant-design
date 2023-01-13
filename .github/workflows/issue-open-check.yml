@@ -21,6 +21,13 @@ jobs:
           require: 'write'
           check-bot: true
 
+      - name: add unconfirmed label
+        uses: actions-cool/issues-helper@v3
+        with:
+          actions: 'add-labels'
+          issue-number: ${{ github.event.issue.number }}
+          labels: 'unconfirmed'
+
       - name: check invalid
         if: (contains(github.event.issue.body, 'ant-design-issue-helper') == false) && (steps.checkUser.outputs.require-result == 'false')
         uses: actions-cool/issues-helper@v3

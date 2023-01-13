@@ -1,7 +1,9 @@
 import React from 'react';
-import { Col, Row } from 'antd';
+import { Col, Row, Tooltip } from 'antd';
 import { css } from '@emotion/react';
+import { ExclamationCircleOutlined } from '@ant-design/icons';
 import useSiteToken from '../../../hooks/useSiteToken';
+import useLocale from '../../../hooks/useLocale';
 
 const useStyle = () => {
   const { token } = useSiteToken();
@@ -42,6 +44,8 @@ const useStyle = () => {
       background: rgba(0, 0, 0, 0.65);
       border-radius: 1px;
       box-shadow: 0 0 2px rgba(255, 255, 255, 0.2);
+      display: inline-flex;
+      column-gap: 4px;
     `,
     title: css`
       margin: 16px 20px 8px;
@@ -66,12 +70,26 @@ export type Resource = {
   official?: boolean;
 };
 
+const locales = {
+  cn: {
+    official: '官方',
+    thirdPart: '非官方',
+    thirdPartDesc: '非官方产品，请自行确认可用性',
+  },
+  en: {
+    official: 'Official',
+    thirdPart: 'Third Part',
+    thirdPartDesc: 'Unofficial product, please take care confirm availability',
+  },
+};
+
 export type ResourceCardProps = {
   resource: Resource;
 };
 
 const ResourceCard: React.FC<ResourceCardProps> = ({ resource }) => {
   const styles = useStyle();
+  const [locale] = useLocale(locales);
 
   const { title: titleStr, description, cover, src, official } = resource;
 
@@ -93,7 +111,16 @@ const ResourceCard: React.FC<ResourceCardProps> = ({ resource }) => {
           alt={title}
           style={coverColor ? { backgroundColor: coverColor } : {}}
         />
-        {official && <div css={styles.badge}>Official</div>}
+        {official ? (
+          <div css={styles.badge}>{locale.official}</div>
+        ) : (
+          <Tooltip title={locale.thirdPartDesc}>
+            <div css={styles.badge}>
+              <ExclamationCircleOutlined />
+              {locale.thirdPart}
+            </div>
+          </Tooltip>
+        )}
         <p css={styles?.title}>{title}</p>
         <p css={styles.description}>{description}</p>
       </a>

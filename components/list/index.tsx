@@ -1,9 +1,8 @@
 import classNames from 'classnames';
 // eslint-disable-next-line import/no-named-as-default
 import * as React from 'react';
-import type { RenderEmptyHandler } from '../config-provider';
 import { ConfigContext } from '../config-provider';
-import defaultRenderEmpty from '../config-provider/defaultRenderEmpty';
+import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import { Row } from '../grid';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import type { PaginationConfig } from '../pagination';
@@ -143,13 +142,8 @@ function List<T>({
 
   const isSomethingAfterLastItem = () => !!(loadMore || pagination || footer);
 
-  const renderEmptyFunc = (prefixCls: string, renderEmptyHandler: RenderEmptyHandler) => (
-    <div className={`${prefixCls}-empty-text`}>
-      {(locale && locale.emptyText) || renderEmptyHandler('List')}
-    </div>
-  );
-
   const prefixCls = getPrefixCls('list', customizePrefixCls);
+
   // Style
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
@@ -258,7 +252,7 @@ function List<T>({
     }
   }, [grid?.column, currentBreakpoint]);
 
-  let childrenContent = isLoading && <div style={{ minHeight: 53 }} />;
+  let childrenContent: React.ReactNode = isLoading && <div style={{ minHeight: 53 }} />;
   if (splitDataSource.length > 0) {
     const items = splitDataSource.map((item: T, index: number) => renderInnerItem(item, index));
     childrenContent = grid ? (
@@ -273,7 +267,13 @@ function List<T>({
       <ul className={`${prefixCls}-items`}>{items}</ul>
     );
   } else if (!children && !isLoading) {
-    childrenContent = renderEmptyFunc(prefixCls, renderEmpty || defaultRenderEmpty);
+    childrenContent = (
+      <div className={`${prefixCls}-empty-text`}>
+        {(locale && locale.emptyText) || renderEmpty?.('List') || (
+          <DefaultRenderEmpty componentName="List" />
+        )}
+      </div>
+    );
   }
 
   const paginationPosition = paginationProps.position || 'bottom';
@@ -297,6 +297,10 @@ function List<T>({
       </div>
     </ListContext.Provider>,
   );
+}
+
+if (process.env.NODE_ENV !== 'production') {
+  List.displayName = 'List';
 }
 
 List.Item = Item;

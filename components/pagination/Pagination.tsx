@@ -3,8 +3,8 @@ import DoubleRightOutlined from '@ant-design/icons/DoubleRightOutlined';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
 import classNames from 'classnames';
-import type { PaginationProps as RcPaginationProps } from 'rc-pagination';
-import RcPagination, { type PaginationLocale } from 'rc-pagination';
+import type { PaginationProps as RcPaginationProps, PaginationLocale } from 'rc-pagination';
+import RcPagination from 'rc-pagination';
 import enUS from 'rc-pagination/lib/locale/en_US';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
@@ -127,5 +127,9 @@ const Pagination: React.FC<PaginationProps> = ({
     </LocaleReceiver>
   );
 };
+
+if (process.env.NODE_ENV !== 'production') {
+  Pagination.displayName = 'Pagination';
+}
 
 export default Pagination;

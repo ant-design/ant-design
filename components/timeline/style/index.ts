@@ -154,7 +154,9 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
           [`${componentCls}-item-tail,
             ${componentCls}-item-head,
             ${componentCls}-item-head-custom`]: {
-            insetInlineStart: `calc(100% - ${token.timeLinePaddingInlineEnd}px)`,
+            insetInlineStart: `calc(100% - ${
+              (token.timeLineItemHeadSize + token.timeLineItemTailWidth) / 2
+            }px)`,
           },
 
           [`${componentCls}-item-content`]: {
@@ -205,6 +207,15 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
             width: `calc(50% - ${token.marginSM}px)`,
             textAlign: 'start',
           },
+        },
+      },
+
+      // ====================== RTL =======================
+      '&-rtl': {
+        direction: 'rtl',
+
+        [`${componentCls}-item-head-custom`]: {
+          transform: `translate(50%, -50%)`,
         },
       },
     },

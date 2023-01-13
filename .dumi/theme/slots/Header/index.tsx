@@ -2,7 +2,7 @@ import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } 
 import { useLocation } from 'dumi';
 import DumiSearchBar from 'dumi/theme-default/slots/SearchBar';
 import classNames from 'classnames';
-import { Col, Modal, Popover, Row, Select, Typography } from 'antd';
+import { Col, Modal, Popover, Row, Select } from 'antd';
 import { GithubOutlined, MenuOutlined } from '@ant-design/icons';
 import { ClassNames, css } from '@emotion/react';
 import * as utils from '../../utils';
@@ -20,20 +20,7 @@ import SwitchBtn from './SwitchBtn';
 const RESPONSIVE_XS = 1120;
 const RESPONSIVE_SM = 1200;
 
-const { Option } = Select;
-
 const antdVersion: string = packageJson.version;
-
-const locales = {
-  cn: {
-    title: '🎉🎉🎉 Ant Design 5.0 发布！ 🎉🎉🎉',
-    ok: '知道了',
-  },
-  en: {
-    title: '🎉🎉🎉 Ant Design 5.0 is released! 🎉🎉🎉',
-    ok: 'Got it',
-  },
-};
 
 const useStyle = () => {
   const { token } = useSiteToken();
@@ -120,7 +107,6 @@ const useStyle = () => {
   };
 };
 
-const V5_NOTIFICATION = 'antd@4.0.0-notification-sent';
 const SHOULD_OPEN_ANT_DESIGN_MIRROR_MODAL = 'ANT_DESIGN_DO_NOT_OPEN_MIRROR_MODAL';
 
 function disableAntdMirrorModal() {
@@ -140,33 +126,7 @@ interface HeaderState {
 // ================================= Header =================================
 const Header: React.FC = () => {
   const [isClient, setIsClient] = React.useState(false);
-  const [locale, lang] = useLocale(locales);
-  const { token } = useSiteToken();
-  const [notify, setNotify] = React.useState<null | boolean>(null);
-
-  // ========================= 发布通知 开始 =========================
-  React.useEffect(() => {
-    if (utils.isLocalStorageNameSupported()) {
-      // 大版本发布后全局弹窗提示
-      //   1. 点击『知道了』之后不再提示
-      //   2. 超过截止日期后不再提示
-      if (
-        localStorage.getItem(V5_NOTIFICATION) !== 'true' &&
-        Date.now() < new Date('2022/12/31').getTime()
-      ) {
-        setNotify(true);
-        return;
-      }
-    }
-
-    setNotify(false);
-  }, []);
-
-  function onClose() {
-    setNotify(false);
-    localStorage.setItem(V5_NOTIFICATION, 'true');
-  }
-  // ========================= 发布通知 结束 =========================
+  const [, lang] = useLocale();
 
   const themeConfig = getThemeConfig();
   const [headerState, setHeaderState] = useState<HeaderState>({
@@ -282,14 +242,12 @@ const Header: React.FC = () => {
     [antdVersion]: antdVersion,
     ...themeConfig?.docVersions,
   };
-  const versionOptions = Object.keys(docVersions).map((version) => (
-    <Option value={docVersions[version]} key={version}>
-      {version}
-    </Option>
-  ));
+  const versionOptions = Object.keys(docVersions).map((version) => ({
+    value: docVersions[version],
+    label: version,
+  }));
 
   const isHome = ['', 'index', 'index-cn'].includes(pathname);
-
   const isZhCN = lang === 'cn';
   const isRTL = direction === 'rtl';
   let responsive: null | 'narrow' | 'crowded' = null;
@@ -322,60 +280,19 @@ const Header: React.FC = () => {
     />
   );
 
-  let menu: (React.ReactElement | null)[] = [
+  let menu = [
     navigationNode,
-    <Popover
+    <Select
       key="version"
-      open={!!notify}
-      title={locale?.title}
-      content={
-        <Typography style={{ marginTop: token.marginXS }}>
-          {lang === 'cn' ? (
-            <>
-              <div>
-                如果你发现任何新官网的问题，欢迎到{' '}
-                <Typography.Link
-                  target="_blank"
-                  href="https://github.com/ant-design/ant-design/issues/38463"
-                >
-                  GitHub Issue
-                </Typography.Link>{' '}
-                反馈。
-              </div>
-              <div>如果你需要查看 v4 文档，请点击上侧切换。</div>
-            </>
-          ) : (
-            <>
-              <div>
-                If you find any official site problem. Please feel free to report on{' '}
-                <Typography.Link
-                  target="_blank"
-                  href="https://github.com/ant-design/ant-design/issues/38463"
-                >
-                  GitHub Issue
-                </Typography.Link>
-                .
-              </div>
-              <p>Click above Select to switch to v4 docs.</p>
-            </>
-          )}
-        </Typography>
-      }
-    >
-      <Select
-        key="version"
-        className="version"
-        size="small"
-        defaultValue={antdVersion}
-        onChange={handleVersionChange}
-        dropdownStyle={getDropdownStyle}
-        dropdownMatchSelectWidth={false}
-        getPopupContainer={(trigger) => trigger.parentNode}
-        onClick={onClose}
-      >
-        {versionOptions}
-      </Select>
-    </Popover>,
+      className="version"
+      size="small"
+      defaultValue={antdVersion}
+      onChange={handleVersionChange}
+      dropdownStyle={getDropdownStyle}
+      dropdownMatchSelectWidth={false}
+      getPopupContainer={(trigger) => trigger.parentNode}
+      options={versionOptions}
+    />,
     <More key="more" {...sharedProps} />,
     <SwitchBtn
       key="lang"

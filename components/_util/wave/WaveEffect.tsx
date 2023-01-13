@@ -47,9 +47,12 @@ const WaveEffect: React.FC<WaveEffectProps> = (props) => {
     // Get wave color from target
     setWaveColor(getTargetWaveColor(target));
 
+    const isStatic = nodeStyle.position === 'static';
+
     // Rect
-    setLeft(target.offsetLeft);
-    setTop(target.offsetTop);
+    const { borderLeftWidth, borderTopWidth } = nodeStyle;
+    setLeft(isStatic ? target.offsetLeft : -parseFloat(borderLeftWidth));
+    setTop(isStatic ? target.offsetTop : -parseFloat(borderTopWidth));
     setWidth(target.offsetWidth);
     setHeight(target.offsetHeight);
 
@@ -161,7 +164,7 @@ export default function showWaveEffect(
   holder.style.position = 'absolute';
   holder.style.left = `0px`;
   holder.style.top = `0px`;
-  node.parentElement?.appendChild(holder);
+  node?.insertBefore(holder, node?.firstChild);
 
   // Target
   const target = node.querySelector<HTMLElement>('.antd-wave-target') || node;

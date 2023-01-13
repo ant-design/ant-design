@@ -203,14 +203,15 @@ const mapToken = defaultAlgorithm(defaultSeed);
 const v4Token = convertLegacyToken(mapToken);
 
 // Webpack Config
-{
-  loader: "less-loader",
+module.exports = {
+  // ... other config
+  loader: 'less-loader',
   options: {
     lessOptions: {
       modifyVars: v4Token,
     },
   },
-}
+};
 ```
 
 Ant then remove antd less reference in your less file:

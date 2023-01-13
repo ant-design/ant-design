@@ -253,7 +253,6 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
       },
       [`${numberPrefixCls}`]: {
         overflow: 'hidden',
-        direction: 'ltr',
         [`${numberPrefixCls}-only`]: {
           position: 'relative',
           display: 'inline-block',
@@ -276,7 +275,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
         direction: 'rtl',
 
         [`${componentCls}-count, ${componentCls}-dot, ${numberPrefixCls}-custom-component`]: {
-          insetInlineEnd: 'auto',
+          transform: 'translate(-50%, -50%)',
         },
       },
     },

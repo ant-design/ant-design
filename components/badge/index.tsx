@@ -243,4 +243,8 @@ const Badge: CompoundedComponent = ({
 
 Badge.Ribbon = Ribbon;
 
+if (process.env.NODE_ENV !== 'production') {
+  Badge.displayName = 'Badge';
+}
+
 export default Badge;
