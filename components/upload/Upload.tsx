@@ -428,12 +428,12 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
 
   const uploadButton = renderUploadButton(children ? undefined : { display: 'none' });
 
-  if (listType === 'picture-card') {
+  if (listType === 'picture-card' || listType === 'picture-circle') {
     return wrapSSR(
       <span
         className={classNames(
           `${prefixCls}-wrapper`,
-          `${prefixCls}-picture-card-wrapper`,
+          `${prefixCls}-${listType}-wrapper`,
           rtlCls,
           className,
           hashId,
