@@ -82,4 +82,4 @@ If you are an active contributor and are willing to work with Ant Design Team in
 
 You can also refer to the following contribution guide to become an antd contributor:
 
-- [How to Grow as a Collaborator](docs/blog/to-be-collaborator)
+- [How to Grow as a Collaborator](/docs/blog/to-be-collaborator)
