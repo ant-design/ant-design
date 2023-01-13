@@ -44,6 +44,7 @@ export default Demo;
 <code src="./demo/size.tsx">组件尺寸</code>
 <code src="./demo/theme.tsx">主题</code>
 <code src="./demo/prefixCls.tsx" debug>前缀</code>
+<code src="./demo/useConfig.tsx">useConfig</code>
 
 ## API
 
@@ -78,6 +79,19 @@ ConfigProvider.config({
   iconPrefixCls: 'anticon', // 4.17.0+
 });
 ```
+
+### ConfigProvider.useConfig()
+
+获取父级 `Provider` 的值。如 `DisabledContextProvider`、`SizeContextProvider`
+
+```jsx
+const { componentDisabled, componentSize } = ConfigProvider.useConfig();
+```
+
+| 返回值            | 说明              | 类型                           | 默认值 | 版本 |
+| ----------------- | ----------------- | ------------------------------ | ------ | ---- |
+| componentDisabled | antd 组件禁用状态 | boolean                        | -      |      |
+| componentSize     | antd 组件大小状态 | `small` \| `middle` \| `large` | -      |      |
 
 ## FAQ
 
