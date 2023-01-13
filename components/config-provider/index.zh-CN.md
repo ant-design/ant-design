@@ -88,10 +88,11 @@ ConfigProvider.config({
 const { componentDisabled, componentSize } = ConfigProvider.useConfig();
 ```
 
-| 返回值            | 说明              | 类型                           | 默认值 | 版本 |
-| ----------------- | ----------------- | ------------------------------ | ------ | ---- |
-| componentDisabled | antd 组件禁用状态 | boolean                        | -      |      |
-| componentSize     | antd 组件大小状态 | `small` \| `middle` \| `large` | -      |      |
+<!-- prettier-ignore -->
+| 返回值 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| componentDisabled | antd 组件禁用状态 | boolean | - |  |
+| componentSize | antd 组件大小状态 | `small` \| `middle` \| `large` | - |  |
 
 ## FAQ
 
