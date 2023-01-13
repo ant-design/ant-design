@@ -45,7 +45,7 @@ export interface GlobalConfigProps {
   bottom?: number;
   duration?: number;
   prefixCls?: string;
-  getContainer?: () => HTMLElement;
+  getContainer?: () => HTMLElement | ShadowRoot;
   placement?: NotificationPlacement;
   closeIcon?: React.ReactNode;
   rtl?: boolean;
