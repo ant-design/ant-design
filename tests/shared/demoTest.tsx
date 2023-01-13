@@ -95,10 +95,10 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
 
 export function extendTest(component: string, options: Options = {}) {
   baseText(true, component, options);
-
-  rootPropsTest(component);
 }
 
 export default function demoTest(component: string, options: Options = {}) {
   baseText(false, component, options);
+
+  rootPropsTest(component);
 }
