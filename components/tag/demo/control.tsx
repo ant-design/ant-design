@@ -1,10 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { PlusOutlined } from '@ant-design/icons';
 import type { InputRef } from 'antd';
-import { Input, Tag, Tooltip } from 'antd';
+import { Input, Tag, Tooltip, theme } from 'antd';
 
 const App: React.FC = () => {
-  const [tags, setTags] = useState<string[]>(['Unremovable', 'Tag 2', 'Tag 3']);
+  const { token } = theme.useToken();
+  const [tags, setTags] = useState(['Unremovable', 'Tag 2', 'Tag 3']);
   const [inputVisible, setInputVisible] = useState(false);
   const [inputValue, setInputValue] = useState('');
   const [editInputIndex, setEditInputIndex] = useState(-1);
@@ -56,6 +57,17 @@ const App: React.FC = () => {
     setInputValue('');
   };
 
+  const tagInputStyle = {
+    width: 78,
+    marginRight: 8,
+    verticalAlign: 'top',
+  };
+
+  const tagPlusStyle = {
+    background: token.colorBgContainer,
+    borderStyle: 'dashed',
+  };
+
   return (
     <>
       {tags.map((tag, index) => {
@@ -65,7 +77,7 @@ const App: React.FC = () => {
               ref={editInputRef}
               key={tag}
               size="small"
-              className="tag-input"
+              style={tagInputStyle}
               value={editInputValue}
               onChange={handleEditInputChange}
               onBlur={handleEditInputConfirm}
@@ -78,9 +90,9 @@ const App: React.FC = () => {
 
         const tagElem = (
           <Tag
-            className="edit-tag"
             key={tag}
             closable={index !== 0}
+            style={{ userSelect: 'none' }}
             onClose={() => handleClose(tag)}
           >
             <span
@@ -104,20 +116,19 @@ const App: React.FC = () => {
           tagElem
         );
       })}
-      {inputVisible && (
+      {inputVisible ? (
         <Input
           ref={inputRef}
           type="text"
           size="small"
-          className="tag-input"
+          style={tagInputStyle}
           value={inputValue}
           onChange={handleInputChange}
           onBlur={handleInputConfirm}
           onPressEnter={handleInputConfirm}
         />
-      )}
-      {!inputVisible && (
-        <Tag className="site-tag-plus" onClick={showInput}>
+      ) : (
+        <Tag style={tagPlusStyle} onClick={showInput}>
           <PlusOutlined /> New Tag
         </Tag>
       )}
