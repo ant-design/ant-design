@@ -1,6 +1,5 @@
 import classNames from 'classnames';
 import RcCollapse from 'rc-collapse';
-import type RcCollapsePanel from 'rc-collapse/lib/Panel';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import warning from '../_util/warning';
@@ -22,7 +21,7 @@ export interface CollapsePanelProps {
   collapsible?: CollapsibleType;
   children?: React.ReactNode;
 }
-const CollapsePanel = React.forwardRef<RcCollapsePanel, CollapsePanelProps>((props, ref) => {
+const CollapsePanel = React.forwardRef<HTMLDivElement, CollapsePanelProps>((props, ref) => {
   warning(
     !('disabled' in props),
     'Collapse.Panel',
