@@ -12,7 +12,7 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*FbOCS6aFMeUAAAAAAA
 ## 何时使用
 
 - 需要展示图片时使用。
-- 加载大图时显示 loading 或加载失败时容错处理。
+- 加载显示大图或加载失败时容错处理。
 
 ## 代码演示
 
