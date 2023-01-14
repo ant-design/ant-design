@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/tooltip/demo/arrow-point-at-center.tsx extend context correctly 1`] = `
+exports[`renders ./components/tooltip/demo/arrow.tsx extend context correctly 1`] = `
 Array [
   <button
     class="ant-btn ant-btn-default"
@@ -25,6 +25,31 @@ Array [
             class="ant-tooltip-arrow-content"
           />
         </div>
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          Prompt Text
+        </div>
+      </div>
+    </div>
+  </div>,
+  <button
+    class="ant-btn ant-btn-default"
+    type="button"
+  >
+    <span>
+      hide arrow / 隐藏箭头
+    </span>
+  </button>,
+  <div>
+    <div
+      class="ant-tooltip"
+      style="opacity:0"
+    >
+      <div
+        class="ant-tooltip-content"
+      >
         <div
           class="ant-tooltip-inner"
           role="tooltip"

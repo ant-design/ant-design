@@ -212,7 +212,10 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
         [`&-placement-topLeft`, `&-placement-top`, `&-placement-topRight`],
         showArrowCls,
       )]: {
-        paddingBottom: dropdownArrowDistance,
+        paddingBottom: 0,
+        [`&${componentCls}-show-arrow`]: {
+          paddingBottom: dropdownArrowDistance,
+        },
       },
 
       // >>>>> Bottom
@@ -220,7 +223,10 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
         [`&-placement-bottomLeft`, `&-placement-bottom`, `&-placement-bottomRight`],
         showArrowCls,
       )]: {
-        paddingTop: dropdownArrowDistance,
+        paddingTop: 0,
+        [`&${componentCls}-show-arrow`]: {
+          paddingTop: dropdownArrowDistance,
+        },
       },
 
       // >>>>> Left
@@ -230,7 +236,13 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
       )]: {
         paddingRight: {
           _skip_check_: true,
-          value: dropdownArrowDistance,
+          value: 0,
+        },
+        [`&${componentCls}-show-arrow`]: {
+          paddingRight: {
+            _skip_check_: true,
+            value: dropdownArrowDistance,
+          },
         },
       },
 
@@ -241,7 +253,13 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
       )]: {
         paddingLeft: {
           _skip_check_: true,
-          value: dropdownArrowDistance,
+          value: 0,
+        },
+        [`&${componentCls}-show-arrow`]: {
+          paddingLeft: {
+            _skip_check_: true,
+            value: dropdownArrowDistance,
+          },
         },
       },
     },
