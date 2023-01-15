@@ -4,9 +4,9 @@ import type { SelectCommonPlacement } from '../_util/motion';
 import type { PickerLocale } from './generatePicker';
 
 export function getPlaceholder(
+  picker: PickerMode | undefined,
   locale: PickerLocale,
   customizePlaceholder?: string,
-  picker?: PickerMode,
 ): string {
   if (customizePlaceholder !== undefined) {
     return customizePlaceholder;
