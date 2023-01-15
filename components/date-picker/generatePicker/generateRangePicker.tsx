@@ -117,7 +117,7 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
               disabled={mergedDisabled}
               ref={innerRef}
               dropdownAlign={transPlacement2DropdownAlign(direction, placement)}
-              placeholder={getRangePlaceholder(locale, picker, placeholder)}
+              placeholder={getRangePlaceholder(picker, locale, placeholder)}
               suffixIcon={suffixNode}
               clearIcon={<CloseCircleFilled />}
               prevIcon={<span className={`${prefixCls}-prev-icon`} />}

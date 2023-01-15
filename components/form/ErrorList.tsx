@@ -19,8 +19,8 @@ interface ErrorEntity {
 
 function toErrorEntity(
   error: React.ReactNode,
+  errorStatus: ValidateStatus | undefined,
   prefix: string,
-  errorStatus?: ValidateStatus,
   index: number = 0,
 ): ErrorEntity {
   return {
@@ -64,7 +64,7 @@ export default function ErrorList({
 
   const fullKeyList = React.useMemo(() => {
     if (help !== undefined && help !== null) {
-      return [toErrorEntity(help, 'help', helpStatus)];
+      return [toErrorEntity(help, helpStatus, 'help')];
     }
 
     return [
