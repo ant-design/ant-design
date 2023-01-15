@@ -74,8 +74,8 @@ function flattenData<RecordType>(
 }
 
 export default function useSelection<RecordType>(
-  rowSelection: TableRowSelection<RecordType> | undefined,
   config: UseSelectionConfig<RecordType>,
+  rowSelection: TableRowSelection<RecordType> = {},
 ): [TransformColumns<RecordType>, Set<Key>] {
   const {
     preserveSelectedRowKeys,
@@ -95,7 +95,7 @@ export default function useSelection<RecordType>(
     renderCell: customizeRenderCell,
     hideSelectAll,
     checkStrictly = true,
-  } = rowSelection || {};
+  } = rowSelection;
 
   const {
     prefixCls,

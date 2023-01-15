@@ -31,7 +31,7 @@ export interface SkeletonProps {
   round?: boolean;
 }
 
-function getComponentProps<T>(prop: T | boolean | undefined): T | {} {
+function getComponentProps<T>(prop?: T | boolean): T | {} {
   if (prop && typeof prop === 'object') {
     return prop;
   }

@@ -84,19 +84,21 @@ function wrapperDecorations(
 ) {
   let currentContent = content;
 
-  function wrap(needed: boolean | undefined, tag: string) {
-    if (!needed) return;
+  function wrap(tag: string, needed?: boolean) {
+    if (!needed) {
+      return;
+    }
 
     currentContent = React.createElement(tag, {}, currentContent);
   }
 
-  wrap(strong, 'strong');
-  wrap(underline, 'u');
-  wrap(del, 'del');
-  wrap(code, 'code');
-  wrap(mark, 'mark');
-  wrap(keyboard, 'kbd');
-  wrap(italic, 'i');
+  wrap('strong', strong);
+  wrap('u', underline);
+  wrap('del', del);
+  wrap('code', code);
+  wrap('mark', mark);
+  wrap('kbd', keyboard);
+  wrap('i', italic);
 
   return currentContent;
 }

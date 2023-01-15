@@ -5,7 +5,7 @@ export const canUseDocElement = () => canUseDom() && window.document.documentEle
 
 export { isStyleSupport };
 
-let flexGapSupported: boolean | undefined;
+let flexGapSupported: boolean;
 export const detectFlexGapSupported = () => {
   if (!canUseDocElement()) {
     return false;

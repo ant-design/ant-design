@@ -74,7 +74,7 @@ function getRows(children: React.ReactNode, column: number) {
   let rowRestCol = column;
 
   childNodes.forEach((node, index) => {
-    const span: number | undefined = node.props?.span;
+    const span: number = node.props?.span;
     const mergedSpan = span || 1;
 
     // Additional handle last one

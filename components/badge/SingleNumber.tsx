@@ -9,7 +9,7 @@ export interface UnitNumberProps {
 }
 
 function UnitNumber({ prefixCls, value, current, offset = 0 }: UnitNumberProps) {
-  let style: React.CSSProperties | undefined;
+  let style: React.CSSProperties = {};
 
   if (offset) {
     style = {
@@ -76,7 +76,7 @@ export default function SingleNumber(props: SingleNumberProps) {
   // ============================= Render =============================
   // Render unit list
   let unitNodes: React.ReactElement[];
-  let offsetStyle: React.CSSProperties | undefined;
+  let offsetStyle: React.CSSProperties = {};
 
   if (prevValue === value || Number.isNaN(value) || Number.isNaN(prevValue)) {
     // Nothing to change

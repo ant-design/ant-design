@@ -397,17 +397,20 @@ function InternalTable<RecordType extends object = any>(
   ]);
 
   // ========================== Selections ==========================
-  const [transformSelectionColumns, selectedKeySet] = useSelection<RecordType>(rowSelection, {
-    prefixCls,
-    data: mergedData,
-    pageData,
-    getRowKey,
-    getRecordByKey,
-    expandType,
-    childrenColumnName,
-    locale: tableLocale,
-    getPopupContainer,
-  });
+  const [transformSelectionColumns, selectedKeySet] = useSelection<RecordType>(
+    {
+      prefixCls,
+      data: mergedData,
+      pageData,
+      getRowKey,
+      getRecordByKey,
+      expandType,
+      childrenColumnName,
+      locale: tableLocale,
+      getPopupContainer,
+    },
+    rowSelection,
+  );
 
   const internalRowClassName = (record: RecordType, index: number, indent: number) => {
     let mergedRowClassName: string;
