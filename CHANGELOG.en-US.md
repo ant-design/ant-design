@@ -19,6 +19,7 @@ timeline: true
 
 `2023-1-15`
 
+- 🐞 Fix Checkbox that label not aligned with checkbox. [#40208](https://github.com/ant-design/ant-design/pull/40208)
 - 🐞 Fix Button wave effect sometime makes layout shaking. [#40192](https://github.com/ant-design/ant-design/pull/40192)
 - 🐞 Fix Select crash problem. [#40158](https://github.com/ant-design/ant-design/pull/40158) [@helloqian12138](https://github.com/helloqian12138)
 - 🐞 Fix Timeline custom color displaying wrong classname &amp; alignment overflow. [#39394](https://github.com/ant-design/ant-design/pull/39394) [@Wxh16144](https://github.com/Wxh16144)

@@ -19,6 +19,7 @@ timeline: true
 
 `2023-1-15`
 
+- 🐞 修复 Checkbox 组件 label 不对齐的问题。 [#40208](https://github.com/ant-design/ant-design/pull/40208)
 - 🐞 修复 Button 水波纹效果有时会使得布局抖动的问题。[#40192](https://github.com/ant-design/ant-design/pull/40192)
 - 🐞 修复 Select 组件会卡住的问题。[#40158](https://github.com/ant-design/ant-design/pull/40158) [@helloqian12138](https://github.com/helloqian12138)
 - 🐞 修复 Timeline 组件自定义颜色显示错误类名和对齐溢出的问题。[#39394](https://github.com/ant-design/ant-design/pull/39394) [@Wxh16144](https://github.com/Wxh16144)
