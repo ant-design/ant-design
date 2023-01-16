@@ -31,8 +31,8 @@ export function getPlaceholder(
 }
 
 export function getRangePlaceholder(
-  picker: PickerMode | undefined,
   locale: PickerLocale,
+  picker?: PickerMode,
   customizePlaceholder?: [string, string],
 ) {
   if (customizePlaceholder !== undefined) {
