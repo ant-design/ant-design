@@ -32,6 +32,7 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
     showArrowCls?: string;
     contentRadius?: number;
     limitVerticalRadius?: boolean;
+    isDropdown?: boolean;
   },
 ): CSSInterpolation {
   const {
@@ -48,6 +49,7 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
     showArrowCls,
     contentRadius = token.borderRadiusLG,
     limitVerticalRadius,
+    isDropdown = false,
   } = options;
 
   const { dropdownArrowOffsetVertical, dropdownArrowOffset } = getArrowOffset({
@@ -89,7 +91,7 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
         `&-placement-topLeft ${componentCls}-arrow`,
         `&-placement-topRight ${componentCls}-arrow`,
       ].join(',')]: {
-        bottom: 0,
+        bottom: isDropdown ? dropdownArrowDistance : 0,
         transform: 'translateY(100%) rotate(180deg)',
       },
 
@@ -121,7 +123,7 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
         `&-placement-bottomLeft ${componentCls}-arrow`,
         `&-placement-bottomRight ${componentCls}-arrow`,
       ].join(',')]: {
-        top: 0,
+        top: isDropdown ? dropdownArrowDistance : 0,
         transform: `translateY(-100%)`,
       },
 
