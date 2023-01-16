@@ -41,7 +41,7 @@ demo:
 | --- | --- | --- | --- | --- |
 | align | 该值将合并到 placement 的配置中，设置参考 [rc-tooltip](https://github.com/react-component/tooltip) | object | - |  |
 | arrowPointAtCenter | 箭头是否指向目标元素中心，大于等于 5.2.0 使用 `arrow` 进行配置 | boolean | false |  |
-| arrow | 修改箭头的显示状态以及修改箭头是否指向目标元素中心 | boolean \| {arrowPointAtCenter: true} | true | 5.2.0 |
+| arrow | 修改箭头的显示状态以及修改箭头是否指向目标元素中心 | boolean \| { arrowPointAtCenter: boolean } | true | 5.2.0 |
 | autoAdjustOverflow | 气泡被遮挡时自动调整位置 | boolean | true |  |
 | color | 背景颜色 | string | - | 4.3.0 |
 | defaultOpen | 默认是否显隐 | boolean | false | 4.23.0 |
