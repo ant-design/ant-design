@@ -45,7 +45,7 @@ export type FilledFieldNamesType = Required<FieldNamesType>;
 
 const { SHOW_CHILD, SHOW_PARENT } = RcCascader;
 
-function highlightKeyword(str: string, lowerKeyword: string, prefixCls: string | undefined) {
+function highlightKeyword(str: string, lowerKeyword: string, prefixCls?: string) {
   const cells = str
     .toLowerCase()
     .split(lowerKeyword)

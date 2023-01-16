@@ -221,7 +221,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
       prefixCls={prefixCls}
       autoComplete={input?.autoComplete}
       {...rest}
-      disabled={mergedDisabled || undefined}
+      disabled={mergedDisabled}
       onBlur={handleBlur}
       onFocus={handleFocus}
       suffix={suffixNode}
