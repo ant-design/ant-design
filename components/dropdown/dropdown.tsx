@@ -105,8 +105,9 @@ const Dropdown: CompoundedComponent = (props) => {
         `\`${deprecatedName}\` is deprecated which will be removed in next major version, please use \`${newName}\` instead.`,
       );
     });
+
     warning(
-      props.overlay === undefined,
+      !('overlay' in props),
       'Dropdown',
       '`overlay` is deprecated. Please use `menu` instead.',
     );
