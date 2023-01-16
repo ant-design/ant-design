@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { Button, Divider, Space, Switch, Tooltip } from 'antd';
+import { Button, Divider, Segmented, Tooltip } from 'antd';
 
 const text = <span>prompt text</span>;
 
@@ -16,30 +16,13 @@ const App: React.FC = () => {
 
   return (
     <div className="demo">
-      <Space>
-        <Switch
-          checkedChildren="展示箭头"
-          unCheckedChildren="隐藏箭头"
-          checked={showArrow}
-          onChange={(val) => {
-            if (!val) {
-              setArrowAtCenter(false);
-            }
-            setShowArrow(val);
-          }}
-        />
-        <Switch
-          checkedChildren="箭头在目标元素中心"
-          unCheckedChildren="箭头不在目标元素中心"
-          checked={arrowAtCenter}
-          onChange={(val) => {
-            setArrowAtCenter(val);
-            if (val) {
-              setShowArrow(true);
-            }
-          }}
-        />
-      </Space>
+      <Segmented
+        options={['展示箭头', '箭头指向目标元素中心', '隐藏箭头']}
+        onChange={(val) => {
+          setShowArrow(val !== '隐藏箭头');
+          setArrowAtCenter(val === '箭头指向目标元素中心');
+        }}
+      />
       <Divider orientation="center">Content</Divider>
       <div style={{ marginLeft: buttonWidth, whiteSpace: 'nowrap' }}>
         <Tooltip placement="topLeft" title={text} arrow={mergedArrow}>

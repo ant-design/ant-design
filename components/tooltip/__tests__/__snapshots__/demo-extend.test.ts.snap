@@ -5,64 +5,54 @@ exports[`renders ./components/tooltip/demo/arrow.tsx extend context correctly 1`
   class="demo"
 >
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
+    class="ant-segmented"
   >
     <div
-      class="ant-space-item"
-      style="margin-right:8px"
+      class="ant-segmented-group"
     >
-      <button
-        aria-checked="true"
-        class="ant-switch ant-switch-checked"
-        role="switch"
-        type="button"
+      <label
+        class="ant-segmented-item ant-segmented-item-selected"
       >
-        <div
-          class="ant-switch-handle"
+        <input
+          checked=""
+          class="ant-segmented-item-input"
+          type="radio"
         />
-        <span
-          class="ant-switch-inner"
+        <div
+          class="ant-segmented-item-label"
+          title="展示箭头"
         >
-          <span
-            class="ant-switch-inner-checked"
-          >
-            展示箭头
-          </span>
-          <span
-            class="ant-switch-inner-unchecked"
-          >
-            隐藏箭头
-          </span>
-        </span>
-      </button>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <button
-        aria-checked="false"
-        class="ant-switch"
-        role="switch"
-        type="button"
+          展示箭头
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
       >
-        <div
-          class="ant-switch-handle"
+        <input
+          class="ant-segmented-item-input"
+          type="radio"
         />
-        <span
-          class="ant-switch-inner"
+        <div
+          class="ant-segmented-item-label"
+          title="箭头指向目标元素中心"
         >
-          <span
-            class="ant-switch-inner-checked"
-          >
-            箭头在目标元素中心
-          </span>
-          <span
-            class="ant-switch-inner-unchecked"
-          >
-            箭头不在目标元素中心
-          </span>
-        </span>
-      </button>
+          箭头指向目标元素中心
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          type="radio"
+        />
+        <div
+          class="ant-segmented-item-label"
+          title="隐藏箭头"
+        >
+          隐藏箭头
+        </div>
+      </label>
     </div>
   </div>
   <div
