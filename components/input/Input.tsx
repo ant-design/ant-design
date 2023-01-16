@@ -1,19 +1,19 @@
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import classNames from 'classnames';
-import type { InputProps as RcInputProps, InputRef } from 'rc-input';
+import type { InputRef, InputProps as RcInputProps } from 'rc-input';
 import RcInput from 'rc-input';
 import type { BaseInputProps } from 'rc-input/lib/interface';
 import { composeRef } from 'rc-util/lib/ref';
 import React, { forwardRef, useContext, useEffect, useRef } from 'react';
+import type { InputStatus } from '../_util/statusUtils';
+import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
+import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
 import { FormItemInputContext, NoFormStyle } from '../form/context';
 import { NoCompactStyle, useCompactItemContext } from '../space/Compact';
-import type { InputStatus } from '../_util/statusUtils';
-import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
-import warning from '../_util/warning';
 import useRemovePasswordTimeout from './hooks/useRemovePasswordTimeout';
 import { hasPrefixSuffix } from './utils';
 
@@ -25,6 +25,67 @@ export interface InputFocusOptions extends FocusOptions {
 }
 
 export type { InputRef };
+
+export function fixControlledValue<T>(value: T) {
+  if (typeof value === 'undefined' || value === null) {
+    return '';
+  }
+  return String(value);
+}
+
+export function resolveOnChange<E extends HTMLInputElement | HTMLTextAreaElement>(
+  target: E,
+  e:
+    | React.ChangeEvent<E>
+    | React.MouseEvent<HTMLElement, MouseEvent>
+    | React.CompositionEvent<HTMLElement>,
+  onChange?: (event: React.ChangeEvent<E>) => void,
+  targetValue?: string,
+) {
+  if (!onChange) {
+    return;
+  }
+  let event = e as React.ChangeEvent<E>;
+
+  if (e.type === 'click') {
+    // Clone a new target for event.
+    // Avoid the following usage, the setQuery method gets the original value.
+    //
+    // const [query, setQuery] = React.useState('');
+    // <Input
+    //   allowClear
+    //   value={query}
+    //   onChange={(e)=> {
+    //     setQuery((prevStatus) => e.target.value);
+    //   }}
+    // />
+
+    const currentTarget = target.cloneNode(true) as E;
+
+    // click clear icon
+    event = Object.create(e, {
+      target: { value: currentTarget },
+      currentTarget: { value: currentTarget },
+    });
+
+    currentTarget.value = '';
+    onChange(event);
+    return;
+  }
+
+  // Trigger by composition event, this means we need force change the input value
+  if (targetValue !== undefined) {
+    event = Object.create(e, {
+      target: { value: target },
+      currentTarget: { value: target },
+    });
+
+    target.value = targetValue;
+    onChange(event);
+    return;
+  }
+  onChange(event);
+}
 
 export function triggerFocus(
   element?: HTMLInputElement | HTMLTextAreaElement,

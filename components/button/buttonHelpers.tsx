@@ -8,7 +8,7 @@ export function isString(str: any) {
   return typeof str === 'string';
 }
 
-export function isUnBorderedButtonType(type: ButtonType | undefined) {
+export function isUnBorderedButtonType(type?: ButtonType) {
   return type === 'text' || type === 'link';
 }
 
