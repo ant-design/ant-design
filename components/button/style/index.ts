@@ -46,6 +46,10 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
         marginInlineStart: token.marginXS,
       },
 
+      '> a': {
+        color: 'currentColor',
+      },
+
       '&:not(:disabled)': {
         ...genFocusStyle(token),
       },
