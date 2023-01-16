@@ -105,6 +105,7 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
 
       '&-disabled': {
         cursor: 'not-allowed',
+        color: token.colorTextDisabled,
       },
 
       '&::after': {
@@ -227,7 +228,7 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
           },
         },
 
-        '&-input': {
+        [`${componentCls}-input`]: {
           cursor: 'not-allowed',
         },
 
