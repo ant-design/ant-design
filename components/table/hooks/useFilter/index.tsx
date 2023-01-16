@@ -71,9 +71,9 @@ function injectFilter<RecordType>(
   dropdownPrefixCls: string,
   columns: ColumnsType<RecordType>,
   filterStates: FilterState<RecordType>[],
-  triggerFilter: (filterState: FilterState<RecordType>) => void,
-  getPopupContainer: GetPopupContainer | undefined,
   locale: TableLocale,
+  triggerFilter: (filterState: FilterState<RecordType>) => void,
+  getPopupContainer?: GetPopupContainer,
   pos?: string,
 ): ColumnsType<RecordType> {
   return columns.map((column, index) => {
@@ -117,9 +117,9 @@ function injectFilter<RecordType>(
           dropdownPrefixCls,
           newColumn.children,
           filterStates,
+          locale,
           triggerFilter,
           getPopupContainer,
-          locale,
           columnPos,
         ),
       };
@@ -269,9 +269,9 @@ function useFilter<RecordType>({
       dropdownPrefixCls,
       innerColumns,
       mergedFilterStates,
+      tableLocale,
       triggerFilter,
       getPopupContainer,
-      tableLocale,
     );
 
   return [transformColumns, mergedFilterStates, filters];

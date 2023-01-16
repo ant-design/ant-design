@@ -128,7 +128,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
               return (
                 <RCPicker<DateType>
                   ref={innerRef}
-                  placeholder={getPlaceholder(mergedPicker, locale, placeholder)}
+                  placeholder={getPlaceholder(locale, mergedPicker, placeholder)}
                   suffixIcon={suffixNode}
                   dropdownAlign={transPlacement2DropdownAlign(direction, placement)}
                   clearIcon={<CloseCircleFilled />}

@@ -6,8 +6,8 @@ import extendsObject from '../../_util/extendsObject';
 export const DEFAULT_PAGE_SIZE = 10;
 
 export function getPaginationParam(
-  pagination: TablePaginationConfig | boolean | undefined,
   mergedPagination: TablePaginationConfig,
+  pagination?: TablePaginationConfig | boolean,
 ) {
   const param: any = {
     current: mergedPagination.current,
@@ -28,8 +28,8 @@ export function getPaginationParam(
 
 export default function usePagination(
   total: number,
-  pagination: TablePaginationConfig | false | undefined,
   onChange: (current: number, pageSize: number) => void,
+  pagination?: TablePaginationConfig | false,
 ): [TablePaginationConfig, () => void] {
   const { total: paginationTotal = 0, ...paginationObj } =
     pagination && typeof pagination === 'object' ? pagination : {};
