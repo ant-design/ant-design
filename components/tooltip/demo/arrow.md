@@ -4,4 +4,4 @@
 
 ## en-US
 
-By specifying `arrow` prop, you can change arrow's visible state and the arrow will point to the center of the target element when pass `{arrowPointAtCenter: true}`.
+Hide arrow by `arrow`.
