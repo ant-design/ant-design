@@ -222,7 +222,7 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
       removeIcon={removeIcon}
       clearIcon={clearIcon}
       switcherIcon={(nodeProps: AntTreeNodeProps) =>
-        renderSwitcherIcon(treePrefixCls, switcherIcon, treeLine, nodeProps)
+        renderSwitcherIcon(treePrefixCls, switcherIcon, nodeProps, treeLine)
       }
       showTreeIcon={treeIcon as any}
       notFoundContent={mergedNotFound}

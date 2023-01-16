@@ -51,7 +51,7 @@ describe('Tree util', () => {
 
     it('returns a loading icon when loading', () => {
       const { container } = render(
-        <>{renderSwitcherIcon(prefixCls, undefined, true, { loading: true })}</>,
+        <>{renderSwitcherIcon(prefixCls, undefined, { loading: true }, true)}</>,
       );
       expect(container.getElementsByClassName(`${prefixCls}-switcher-loading-icon`)).toHaveLength(
         1,
@@ -60,7 +60,7 @@ describe('Tree util', () => {
 
     it('returns nothing when node is a leaf without showLine', () => {
       const { container } = render(
-        <>{renderSwitcherIcon(prefixCls, undefined, false, { loading: false, isLeaf: true })}</>,
+        <>{renderSwitcherIcon(prefixCls, undefined, { loading: false, isLeaf: true }, false)}</>,
       );
       expect(container).toBeEmptyDOMElement();
     });
@@ -73,8 +73,8 @@ describe('Tree util', () => {
           {renderSwitcherIcon(
             prefixCls,
             undefined,
-            { showLeafIcon: customLeafIcon },
             { loading: false, isLeaf: true },
+            { showLeafIcon: customLeafIcon },
           )}
         </>,
       );
@@ -94,8 +94,8 @@ describe('Tree util', () => {
           {renderSwitcherIcon(
             prefixCls,
             undefined,
-            { showLeafIcon },
             { loading: false, isLeaf: true },
+            { showLeafIcon },
           )}
         </>,
       );
