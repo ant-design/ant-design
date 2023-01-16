@@ -601,6 +601,7 @@ describe('Tooltip', () => {
     expect(container.querySelector('.bamboo')).toBeTruthy();
     expect(container.querySelector('.ant-tooltip')).toBeTruthy();
   });
+
   it('support arrow props pass false to hide arrow', () => {
     const { container } = render(
       <Tooltip open arrow={false}>
@@ -612,6 +613,7 @@ describe('Tooltip', () => {
     );
     expect(container).toMatchSnapshot();
   });
+
   it('support arrow props by default', () => {
     const { container } = render(
       <Tooltip open>
