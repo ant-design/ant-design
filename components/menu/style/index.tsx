@@ -323,6 +323,7 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
           lineHeight: 0,
           borderColor: colorSplit,
           borderStyle: lineType,
+          borderWidth: 0,
           borderTopWidth: lineWidth,
           marginBlock: lineWidth,
           padding: 0,
