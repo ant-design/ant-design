@@ -222,9 +222,7 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
     const { builtinPlacements, arrowPointAtCenter = false, autoAdjustOverflow = true } = props;
 
     const mergedArrowPointAtCenter =
-      typeof arrow !== 'boolean' && arrow?.arrowPointAtCenter !== undefined
-        ? arrow.arrowPointAtCenter
-        : arrowPointAtCenter;
+      (typeof arrow !== 'boolean' && arrow?.arrowPointAtCenter) ?? arrowPointAtCenter;
 
     return (
       builtinPlacements ||
