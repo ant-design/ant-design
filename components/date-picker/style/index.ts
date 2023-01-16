@@ -352,12 +352,12 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
 
           [`${componentCls}-prev-icon,
               ${componentCls}-super-prev-icon`]: {
-            transform: 'rotate(135deg)',
+            transform: 'rotate(45deg)',
           },
 
           [`${componentCls}-next-icon,
               ${componentCls}-super-next-icon`]: {
-            transform: 'rotate(-45deg)',
+            transform: 'rotate(-135deg)',
           },
         },
       },

@@ -85,7 +85,9 @@ function wrapperDecorations(
   let currentContent = content;
 
   function wrap(needed: boolean | undefined, tag: string) {
-    if (!needed) return;
+    if (!needed) {
+      return;
+    }
 
     currentContent = React.createElement(tag, {}, currentContent);
   }

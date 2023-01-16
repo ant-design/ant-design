@@ -50,7 +50,6 @@ The core team is monitoring for pull requests. We will review your pull request 
 
 1. Fork the repository and create your branch from the [correct branch](#branch-organization).
 1. Run `npm install` in the repository root.
-   > For Windows 10 development environment, if you run into error `gyp err! find vs msvs_version not set from command line or npm config`, please install [the latest Python v3](https://www.python.org/downloads/) and **Desktop development with C++** through [Visual Studio Installer](https://docs.microsoft.com/en-us/visualstudio/install/install-visual-studio?view=vs-2019#step-3---install-the-visual-studio-installer) before running `npm install`
 1. If you've fixed a bug or added code that should be tested, add tests!
 1. Ensure the test suite passes (npm run test). Tip: `npm test -- --watch TestName` is helpful in development.
 1. Run `npm test -- -u` to update the [jest snapshots](http://facebook.github.io/jest/docs/en/snapshot-testing.html#snapshot-testing-with-jest) and commit these changes as well (if there are any updates).
@@ -79,3 +78,7 @@ After cloning antd, run `npm install` to fetch its dependencies. Then, you can r
 ## Being a collaborator
 
 If you are an active contributor and are willing to work with Ant Design Team in our opensource workflow, you can [apply to be a outside collaborator](https://github.com/ant-design/ant-design/wiki/Collaborators#how-to-apply-for-being-a-collaborator).
+
+You can also refer to the following contribution guide to become an antd contributor:
+
+- [How to Grow as a Collaborator](/docs/blog/to-be-collaborator)
