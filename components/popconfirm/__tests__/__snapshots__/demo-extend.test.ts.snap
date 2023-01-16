@@ -12,7 +12,7 @@ Array [
   </button>,
   <div>
     <div
-      class="ant-popover ant-popconfirm"
+      class="ant-popover ant-popconfirm ant-popover-show-arrow"
       style="opacity:0"
     >
       <div
@@ -110,7 +110,7 @@ Array [
   </a>,
   <div>
     <div
-      class="ant-popover ant-popconfirm"
+      class="ant-popover ant-popconfirm ant-popover-show-arrow"
       style="opacity:0"
     >
       <div
@@ -208,7 +208,7 @@ exports[`renders ./components/popconfirm/demo/dynamic-trigger.tsx extend context
   </a>
   <div>
     <div
-      class="ant-popover ant-popconfirm"
+      class="ant-popover ant-popconfirm ant-popover-show-arrow"
       style="opacity:0"
     >
       <div
@@ -329,7 +329,7 @@ Array [
   </a>,
   <div>
     <div
-      class="ant-popover ant-popconfirm"
+      class="ant-popover ant-popconfirm ant-popover-show-arrow"
       style="opacity:0"
     >
       <div
@@ -431,7 +431,7 @@ Array [
   </a>,
   <div>
     <div
-      class="ant-popover ant-popconfirm"
+      class="ant-popover ant-popconfirm ant-popover-show-arrow"
       style="opacity:0"
     >
       <div
@@ -537,7 +537,7 @@ exports[`renders ./components/popconfirm/demo/placement.tsx extend context corre
     </button>
     <div>
       <div
-        class="ant-popover ant-popconfirm"
+        class="ant-popover ant-popconfirm ant-popover-show-arrow"
         style="opacity:0"
       >
         <div
@@ -633,7 +633,7 @@ exports[`renders ./components/popconfirm/demo/placement.tsx extend context corre
     </button>
     <div>
       <div
-        class="ant-popover ant-popconfirm"
+        class="ant-popover ant-popconfirm ant-popover-show-arrow"
         style="opacity:0"
       >
         <div
@@ -729,7 +729,7 @@ exports[`renders ./components/popconfirm/demo/placement.tsx extend context corre
     </button>
     <div>
       <div
-        class="ant-popover ant-popconfirm"
+        class="ant-popover ant-popconfirm ant-popover-show-arrow"
         style="opacity:0"
       >
         <div
@@ -829,7 +829,7 @@ exports[`renders ./components/popconfirm/demo/placement.tsx extend context corre
     </button>
     <div>
       <div
-        class="ant-popover ant-popconfirm"
+        class="ant-popover ant-popconfirm ant-popover-show-arrow"
         style="opacity:0"
       >
         <div
@@ -925,7 +925,7 @@ exports[`renders ./components/popconfirm/demo/placement.tsx extend context corre
     </button>
     <div>
       <div
-        class="ant-popover ant-popconfirm"
+        class="ant-popover ant-popconfirm ant-popover-show-arrow"
         style="opacity:0"
       >
         <div
@@ -1021,7 +1021,7 @@ exports[`renders ./components/popconfirm/demo/placement.tsx extend context corre
     </button>
     <div>
       <div
-        class="ant-popover ant-popconfirm"
+        class="ant-popover ant-popconfirm ant-popover-show-arrow"
         style="opacity:0"
       >
         <div
@@ -1121,7 +1121,7 @@ exports[`renders ./components/popconfirm/demo/placement.tsx extend context corre
     </button>
     <div>
       <div
-        class="ant-popover ant-popconfirm"
+        class="ant-popover ant-popconfirm ant-popover-show-arrow"
         style="opacity:0"
       >
         <div
@@ -1217,7 +1217,7 @@ exports[`renders ./components/popconfirm/demo/placement.tsx extend context corre
     </button>
     <div>
       <div
-        class="ant-popover ant-popconfirm"
+        class="ant-popover ant-popconfirm ant-popover-show-arrow"
         style="opacity:0"
       >
         <div
@@ -1313,7 +1313,7 @@ exports[`renders ./components/popconfirm/demo/placement.tsx extend context corre
     </button>
     <div>
       <div
-        class="ant-popover ant-popconfirm"
+        class="ant-popover ant-popconfirm ant-popover-show-arrow"
         style="opacity:0"
       >
         <div
@@ -1413,7 +1413,7 @@ exports[`renders ./components/popconfirm/demo/placement.tsx extend context corre
     </button>
     <div>
       <div
-        class="ant-popover ant-popconfirm"
+        class="ant-popover ant-popconfirm ant-popover-show-arrow"
         style="opacity:0"
       >
         <div
@@ -1509,7 +1509,7 @@ exports[`renders ./components/popconfirm/demo/placement.tsx extend context corre
     </button>
     <div>
       <div
-        class="ant-popover ant-popconfirm"
+        class="ant-popover ant-popconfirm ant-popover-show-arrow"
         style="opacity:0"
       >
         <div
@@ -1605,7 +1605,7 @@ exports[`renders ./components/popconfirm/demo/placement.tsx extend context corre
     </button>
     <div>
       <div
-        class="ant-popover ant-popconfirm"
+        class="ant-popover ant-popconfirm ant-popover-show-arrow"
         style="opacity:0"
       >
         <div
@@ -1707,7 +1707,7 @@ Array [
   </button>,
   <div>
     <div
-      class="ant-popover ant-popconfirm"
+      class="ant-popover ant-popconfirm ant-popover-show-arrow"
       style="opacity:0"
     >
       <div

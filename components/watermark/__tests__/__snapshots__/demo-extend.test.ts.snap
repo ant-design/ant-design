@@ -119,7 +119,7 @@ exports[`renders ./components/watermark/demo/custom.tsx extend context correctly
               </div>
               <div>
                 <div
-                  class="ant-popover"
+                  class="ant-popover ant-popover-show-arrow"
                   style="opacity:0"
                 >
                   <div
@@ -603,7 +603,7 @@ exports[`renders ./components/watermark/demo/custom.tsx extend context correctly
                 />
                 <div>
                   <div
-                    class="ant-tooltip ant-slider-tooltip"
+                    class="ant-tooltip ant-slider-tooltip ant-tooltip-show-arrow"
                     style="opacity:0"
                   >
                     <div
@@ -682,7 +682,7 @@ exports[`renders ./components/watermark/demo/custom.tsx extend context correctly
                 />
                 <div>
                   <div
-                    class="ant-tooltip ant-slider-tooltip"
+                    class="ant-tooltip ant-slider-tooltip ant-tooltip-show-arrow"
                     style="opacity:0"
                   >
                     <div
@@ -761,7 +761,7 @@ exports[`renders ./components/watermark/demo/custom.tsx extend context correctly
                 />
                 <div>
                   <div
-                    class="ant-tooltip ant-slider-tooltip"
+                    class="ant-tooltip ant-slider-tooltip ant-tooltip-show-arrow"
                     style="opacity:0"
                   >
                     <div

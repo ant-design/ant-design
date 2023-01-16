@@ -547,7 +547,7 @@ exports[`renders ./components/empty/demo/config-provider.tsx extend context corr
                 </li>
                 <div>
                   <div
-                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                     style="opacity:0"
                   >
                     <div
@@ -580,7 +580,7 @@ exports[`renders ./components/empty/demo/config-provider.tsx extend context corr
                 </li>
                 <div>
                   <div
-                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                     style="opacity:0"
                   >
                     <div
@@ -607,7 +607,7 @@ exports[`renders ./components/empty/demo/config-provider.tsx extend context corr
               >
                 <div>
                   <div
-                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                     style="opacity:0"
                   >
                     <div
@@ -629,7 +629,7 @@ exports[`renders ./components/empty/demo/config-provider.tsx extend context corr
                 </div>
                 <div>
                   <div
-                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                     style="opacity:0"
                   >
                     <div
@@ -837,7 +837,7 @@ exports[`renders ./components/empty/demo/config-provider.tsx extend context corr
                 </li>
                 <div>
                   <div
-                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                     style="opacity:0"
                   >
                     <div
@@ -870,7 +870,7 @@ exports[`renders ./components/empty/demo/config-provider.tsx extend context corr
                 </li>
                 <div>
                   <div
-                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                     style="opacity:0"
                   >
                     <div
@@ -897,7 +897,7 @@ exports[`renders ./components/empty/demo/config-provider.tsx extend context corr
               >
                 <div>
                   <div
-                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                     style="opacity:0"
                   >
                     <div
@@ -919,7 +919,7 @@ exports[`renders ./components/empty/demo/config-provider.tsx extend context corr
                 </div>
                 <div>
                   <div
-                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                     style="opacity:0"
                   >
                     <div

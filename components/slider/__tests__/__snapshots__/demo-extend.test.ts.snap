@@ -27,7 +27,7 @@ Array [
     />
     <div>
       <div
-        class="ant-tooltip ant-slider-tooltip"
+        class="ant-tooltip ant-slider-tooltip ant-tooltip-show-arrow"
         style="opacity:0"
       >
         <div
@@ -75,7 +75,7 @@ Array [
     />
     <div>
       <div
-        class="ant-tooltip ant-slider-tooltip"
+        class="ant-tooltip ant-slider-tooltip ant-tooltip-show-arrow"
         style="opacity:0"
       >
         <div
@@ -109,7 +109,7 @@ Array [
     />
     <div>
       <div
-        class="ant-tooltip ant-slider-tooltip"
+        class="ant-tooltip ant-slider-tooltip ant-tooltip-show-arrow"
         style="opacity:0"
       >
         <div
@@ -182,7 +182,7 @@ exports[`renders ./components/slider/demo/dragableTrack.tsx extend context corre
   />
   <div>
     <div
-      class="ant-tooltip ant-slider-tooltip"
+      class="ant-tooltip ant-slider-tooltip ant-tooltip-show-arrow"
       style="opacity:0"
     >
       <div
@@ -216,7 +216,7 @@ exports[`renders ./components/slider/demo/dragableTrack.tsx extend context corre
   />
   <div>
     <div
-      class="ant-tooltip ant-slider-tooltip"
+      class="ant-tooltip ant-slider-tooltip ant-tooltip-show-arrow"
       style="opacity:0"
     >
       <div
@@ -268,7 +268,7 @@ Array [
     />
     <div>
       <div
-        class="ant-tooltip ant-slider-tooltip"
+        class="ant-tooltip ant-slider-tooltip ant-tooltip-show-arrow"
         style="opacity:0"
       >
         <div
@@ -316,7 +316,7 @@ Array [
     />
     <div>
       <div
-        class="ant-tooltip ant-slider-tooltip"
+        class="ant-tooltip ant-slider-tooltip ant-tooltip-show-arrow"
         style="opacity:0"
       >
         <div
@@ -350,7 +350,7 @@ Array [
     />
     <div>
       <div
-        class="ant-tooltip ant-slider-tooltip"
+        class="ant-tooltip ant-slider-tooltip ant-tooltip-show-arrow"
         style="opacity:0"
       >
         <div
@@ -424,7 +424,7 @@ exports[`renders ./components/slider/demo/icon-slider.tsx extend context correct
     />
     <div>
       <div
-        class="ant-tooltip ant-slider-tooltip"
+        class="ant-tooltip ant-slider-tooltip ant-tooltip-show-arrow"
         style="opacity:0"
       >
         <div
@@ -502,7 +502,7 @@ exports[`renders ./components/slider/demo/input-number.tsx extend context correc
         />
         <div>
           <div
-            class="ant-tooltip ant-slider-tooltip"
+            class="ant-tooltip ant-slider-tooltip ant-tooltip-show-arrow"
             style="opacity:0"
           >
             <div
@@ -639,7 +639,7 @@ exports[`renders ./components/slider/demo/input-number.tsx extend context correc
         />
         <div>
           <div
-            class="ant-tooltip ant-slider-tooltip"
+            class="ant-tooltip ant-slider-tooltip ant-tooltip-show-arrow"
             style="opacity:0"
           >
             <div
@@ -795,7 +795,7 @@ Array [
     />
     <div>
       <div
-        class="ant-tooltip ant-slider-tooltip"
+        class="ant-tooltip ant-slider-tooltip ant-tooltip-show-arrow"
         style="opacity:0"
       >
         <div
@@ -890,7 +890,7 @@ Array [
     />
     <div>
       <div
-        class="ant-tooltip ant-slider-tooltip"
+        class="ant-tooltip ant-slider-tooltip ant-tooltip-show-arrow"
         style="opacity:0"
       >
         <div
@@ -924,7 +924,7 @@ Array [
     />
     <div>
       <div
-        class="ant-tooltip ant-slider-tooltip"
+        class="ant-tooltip ant-slider-tooltip ant-tooltip-show-arrow"
         style="opacity:0"
       >
         <div
@@ -1018,7 +1018,7 @@ Array [
     />
     <div>
       <div
-        class="ant-tooltip ant-slider-tooltip"
+        class="ant-tooltip ant-slider-tooltip ant-tooltip-show-arrow"
         style="opacity:0"
       >
         <div
@@ -1116,7 +1116,7 @@ Array [
     />
     <div>
       <div
-        class="ant-tooltip ant-slider-tooltip"
+        class="ant-tooltip ant-slider-tooltip ant-tooltip-show-arrow"
         style="opacity:0"
       >
         <div
@@ -1214,7 +1214,7 @@ Array [
     />
     <div>
       <div
-        class="ant-tooltip ant-slider-tooltip"
+        class="ant-tooltip ant-slider-tooltip ant-tooltip-show-arrow"
         style="opacity:0"
       >
         <div
@@ -1297,7 +1297,7 @@ Array [
     />
     <div>
       <div
-        class="ant-tooltip ant-slider-tooltip"
+        class="ant-tooltip ant-slider-tooltip ant-tooltip-show-arrow"
         style="opacity:0"
       >
         <div
@@ -1345,7 +1345,7 @@ Array [
     />
     <div>
       <div
-        class="ant-tooltip ant-slider-tooltip"
+        class="ant-tooltip ant-slider-tooltip ant-tooltip-show-arrow"
         style="opacity:0"
       >
         <div
@@ -1379,7 +1379,7 @@ Array [
     />
     <div>
       <div
-        class="ant-tooltip ant-slider-tooltip"
+        class="ant-tooltip ant-slider-tooltip ant-tooltip-show-arrow"
         style="opacity:0"
       >
         <div
@@ -1452,7 +1452,7 @@ exports[`renders ./components/slider/demo/show-tooltip.tsx extend context correc
   />
   <div>
     <div
-      class="ant-tooltip ant-slider-tooltip"
+      class="ant-tooltip ant-slider-tooltip ant-tooltip-show-arrow"
       style="opacity:0"
     >
       <div
@@ -1504,7 +1504,7 @@ Array [
     />
     <div>
       <div
-        class="ant-tooltip ant-slider-tooltip"
+        class="ant-tooltip ant-slider-tooltip ant-tooltip-show-arrow"
         style="opacity:0"
       >
         <div
@@ -1552,7 +1552,7 @@ Array [
     />
     <div>
       <div
-        class="ant-tooltip ant-slider-tooltip"
+        class="ant-tooltip ant-slider-tooltip ant-tooltip-show-arrow"
         style="opacity:0"
       >
         <div
@@ -1606,7 +1606,7 @@ Array [
       />
       <div>
         <div
-          class="ant-tooltip ant-slider-tooltip"
+          class="ant-tooltip ant-slider-tooltip ant-tooltip-show-arrow"
           style="opacity:0"
         >
           <div
@@ -1658,7 +1658,7 @@ Array [
       />
       <div>
         <div
-          class="ant-tooltip ant-slider-tooltip"
+          class="ant-tooltip ant-slider-tooltip ant-tooltip-show-arrow"
           style="opacity:0"
         >
           <div
@@ -1692,7 +1692,7 @@ Array [
       />
       <div>
         <div
-          class="ant-tooltip ant-slider-tooltip"
+          class="ant-tooltip ant-slider-tooltip ant-tooltip-show-arrow"
           style="opacity:0"
         >
           <div
@@ -1761,7 +1761,7 @@ Array [
       />
       <div>
         <div
-          class="ant-tooltip ant-slider-tooltip"
+          class="ant-tooltip ant-slider-tooltip ant-tooltip-show-arrow"
           style="opacity:0"
         >
           <div
@@ -1795,7 +1795,7 @@ Array [
       />
       <div>
         <div
-          class="ant-tooltip ant-slider-tooltip"
+          class="ant-tooltip ant-slider-tooltip ant-tooltip-show-arrow"
           style="opacity:0"
         >
           <div

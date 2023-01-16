@@ -241,7 +241,7 @@ exports[`renders ./components/space/demo/base.tsx extend context correctly 1`] =
     </button>
     <div>
       <div
-        class="ant-popover ant-popconfirm"
+        class="ant-popover ant-popconfirm ant-popover-show-arrow"
         style="opacity:0"
       >
         <div
@@ -420,7 +420,7 @@ exports[`renders ./components/space/demo/compact.tsx extend context correctly 1`
     </button>
     <div>
       <div
-        class="ant-tooltip"
+        class="ant-tooltip ant-tooltip-show-arrow"
         style="opacity:0"
       >
         <div
@@ -8494,7 +8494,7 @@ exports[`renders ./components/space/demo/compact-buttons.tsx extend context corr
     </button>
     <div>
       <div
-        class="ant-tooltip"
+        class="ant-tooltip ant-tooltip-show-arrow"
         style="opacity:0"
       >
         <div
@@ -8551,7 +8551,7 @@ exports[`renders ./components/space/demo/compact-buttons.tsx extend context corr
     </button>
     <div>
       <div
-        class="ant-tooltip"
+        class="ant-tooltip ant-tooltip-show-arrow"
         style="opacity:0"
       >
         <div
@@ -8599,7 +8599,7 @@ exports[`renders ./components/space/demo/compact-buttons.tsx extend context corr
     </button>
     <div>
       <div
-        class="ant-tooltip"
+        class="ant-tooltip ant-tooltip-show-arrow"
         style="opacity:0"
       >
         <div
@@ -8647,7 +8647,7 @@ exports[`renders ./components/space/demo/compact-buttons.tsx extend context corr
     </button>
     <div>
       <div
-        class="ant-tooltip"
+        class="ant-tooltip ant-tooltip-show-arrow"
         style="opacity:0"
       >
         <div
@@ -8695,7 +8695,7 @@ exports[`renders ./components/space/demo/compact-buttons.tsx extend context corr
     </button>
     <div>
       <div
-        class="ant-tooltip"
+        class="ant-tooltip ant-tooltip-show-arrow"
         style="opacity:0"
       >
         <div
@@ -8743,7 +8743,7 @@ exports[`renders ./components/space/demo/compact-buttons.tsx extend context corr
     </button>
     <div>
       <div
-        class="ant-tooltip"
+        class="ant-tooltip ant-tooltip-show-arrow"
         style="opacity:0"
       >
         <div
@@ -8832,7 +8832,7 @@ exports[`renders ./components/space/demo/compact-buttons.tsx extend context corr
           </li>
           <div>
             <div
-              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
               style="opacity:0"
             >
               <div
@@ -8884,7 +8884,7 @@ exports[`renders ./components/space/demo/compact-buttons.tsx extend context corr
           </li>
           <div>
             <div
-              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
               style="opacity:0"
             >
               <div
@@ -8936,7 +8936,7 @@ exports[`renders ./components/space/demo/compact-buttons.tsx extend context corr
           </li>
           <div>
             <div
-              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
               style="opacity:0"
             >
               <div
@@ -8963,7 +8963,7 @@ exports[`renders ./components/space/demo/compact-buttons.tsx extend context corr
         >
           <div>
             <div
-              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
               style="opacity:0"
             >
               <div
@@ -8985,7 +8985,7 @@ exports[`renders ./components/space/demo/compact-buttons.tsx extend context corr
           </div>
           <div>
             <div
-              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
               style="opacity:0"
             >
               <div
@@ -9007,7 +9007,7 @@ exports[`renders ./components/space/demo/compact-buttons.tsx extend context corr
           </div>
           <div>
             <div
-              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
               style="opacity:0"
             >
               <div
@@ -9100,7 +9100,7 @@ exports[`renders ./components/space/demo/compact-buttons.tsx extend context corr
     </span>
     <div>
       <div
-        class="ant-tooltip"
+        class="ant-tooltip ant-tooltip-show-arrow"
         style="opacity:0"
       >
         <div
@@ -9148,7 +9148,7 @@ exports[`renders ./components/space/demo/compact-buttons.tsx extend context corr
     </button>
     <div>
       <div
-        class="ant-tooltip"
+        class="ant-tooltip ant-tooltip-show-arrow"
         style="opacity:0"
       >
         <div
@@ -9232,7 +9232,7 @@ exports[`renders ./components/space/demo/compact-buttons.tsx extend context corr
     </span>
     <div>
       <div
-        class="ant-tooltip"
+        class="ant-tooltip ant-tooltip-show-arrow"
         style="opacity:0"
       >
         <div
@@ -9280,7 +9280,7 @@ exports[`renders ./components/space/demo/compact-buttons.tsx extend context corr
     </button>
     <div>
       <div
-        class="ant-tooltip"
+        class="ant-tooltip ant-tooltip-show-arrow"
         style="opacity:0"
       >
         <div
@@ -9358,7 +9358,7 @@ exports[`renders ./components/space/demo/compact-buttons.tsx extend context corr
           </li>
           <div>
             <div
-              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
               style="opacity:0"
             >
               <div
@@ -9391,7 +9391,7 @@ exports[`renders ./components/space/demo/compact-buttons.tsx extend context corr
           </li>
           <div>
             <div
-              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
               style="opacity:0"
             >
               <div
@@ -9424,7 +9424,7 @@ exports[`renders ./components/space/demo/compact-buttons.tsx extend context corr
           </li>
           <div>
             <div
-              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
               style="opacity:0"
             >
               <div
@@ -9451,7 +9451,7 @@ exports[`renders ./components/space/demo/compact-buttons.tsx extend context corr
         >
           <div>
             <div
-              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
               style="opacity:0"
             >
               <div
@@ -9473,7 +9473,7 @@ exports[`renders ./components/space/demo/compact-buttons.tsx extend context corr
           </div>
           <div>
             <div
-              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
               style="opacity:0"
             >
               <div
@@ -9495,7 +9495,7 @@ exports[`renders ./components/space/demo/compact-buttons.tsx extend context corr
           </div>
           <div>
             <div
-              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
               style="opacity:0"
             >
               <div
@@ -9606,7 +9606,7 @@ exports[`renders ./components/space/demo/compact-debug.tsx extend context correc
       </span>
       <div>
         <div
-          class="ant-tooltip"
+          class="ant-tooltip ant-tooltip-show-arrow"
           style="opacity:0"
         >
           <div
@@ -10579,7 +10579,7 @@ exports[`renders ./components/space/demo/compact-debug.tsx extend context correc
               </li>
               <div>
                 <div
-                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                   style="opacity:0"
                 >
                   <div
@@ -10612,7 +10612,7 @@ exports[`renders ./components/space/demo/compact-debug.tsx extend context correc
               </li>
               <div>
                 <div
-                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                   style="opacity:0"
                 >
                   <div
@@ -10639,7 +10639,7 @@ exports[`renders ./components/space/demo/compact-debug.tsx extend context correc
             >
               <div>
                 <div
-                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                   style="opacity:0"
                 >
                   <div
@@ -10661,7 +10661,7 @@ exports[`renders ./components/space/demo/compact-debug.tsx extend context correc
               </div>
               <div>
                 <div
-                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                   style="opacity:0"
                 >
                   <div
@@ -14389,7 +14389,7 @@ Array [
     />
     <div>
       <div
-        class="ant-tooltip ant-slider-tooltip"
+        class="ant-tooltip ant-slider-tooltip ant-tooltip-show-arrow"
         style="opacity:0"
       >
         <div
@@ -14515,7 +14515,7 @@ exports[`renders ./components/space/demo/debug.tsx extend context correctly 1`] 
     </button>
     <div>
       <div
-        class="ant-popover ant-popconfirm"
+        class="ant-popover ant-popconfirm ant-popover-show-arrow"
         style="opacity:0"
       >
         <div
@@ -14618,7 +14618,7 @@ exports[`renders ./components/space/demo/debug.tsx extend context correctly 1`] 
     </span>
     <div>
       <div
-        class="ant-popover ant-popconfirm"
+        class="ant-popover ant-popconfirm ant-popover-show-arrow"
         style="opacity:0"
       >
         <div

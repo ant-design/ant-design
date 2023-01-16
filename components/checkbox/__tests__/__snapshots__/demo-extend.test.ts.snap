@@ -182,7 +182,7 @@ exports[`renders ./components/checkbox/demo/debug-disable-popover.tsx extend con
   </label>
   <div>
     <div
-      class="ant-popover"
+      class="ant-popover ant-popover-show-arrow"
       style="opacity:0"
     >
       <div

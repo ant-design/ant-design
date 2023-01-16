@@ -66,7 +66,7 @@ exports[`renders ./components/float-button/demo/basic.tsx extend context correct
   </div>
   <div>
     <div
-      class="ant-tooltip"
+      class="ant-tooltip ant-tooltip-show-arrow"
       style="opacity:0"
     >
       <div
@@ -134,7 +134,7 @@ Array [
     </div>
     <div>
       <div
-        class="ant-tooltip"
+        class="ant-tooltip ant-tooltip-show-arrow"
         style="opacity:0"
       >
         <div
@@ -175,7 +175,7 @@ Array [
     </div>
     <div>
       <div
-        class="ant-tooltip"
+        class="ant-tooltip ant-tooltip-show-arrow"
         style="opacity:0"
       >
         <div
@@ -239,7 +239,7 @@ Array [
     </div>
     <div>
       <div
-        class="ant-tooltip"
+        class="ant-tooltip ant-tooltip-show-arrow"
         style="opacity:0"
       >
         <div
@@ -309,7 +309,7 @@ Array [
       </div>
       <div>
         <div
-          class="ant-tooltip"
+          class="ant-tooltip ant-tooltip-show-arrow"
           style="opacity:0"
         >
           <div
@@ -367,7 +367,7 @@ Array [
       </div>
       <div>
         <div
-          class="ant-tooltip"
+          class="ant-tooltip ant-tooltip-show-arrow"
           style="opacity:0"
         >
           <div
@@ -425,7 +425,7 @@ Array [
       </div>
       <div>
         <div
-          class="ant-tooltip"
+          class="ant-tooltip ant-tooltip-show-arrow"
           style="opacity:0"
         >
           <div
@@ -491,7 +491,7 @@ Array [
       </div>
       <div>
         <div
-          class="ant-tooltip"
+          class="ant-tooltip ant-tooltip-show-arrow"
           style="opacity:0"
         >
           <div
@@ -549,7 +549,7 @@ Array [
       </div>
       <div>
         <div
-          class="ant-tooltip"
+          class="ant-tooltip ant-tooltip-show-arrow"
           style="opacity:0"
         >
           <div
@@ -607,7 +607,7 @@ Array [
       </div>
       <div>
         <div
-          class="ant-tooltip"
+          class="ant-tooltip ant-tooltip-show-arrow"
           style="opacity:0"
         >
           <div
@@ -665,7 +665,7 @@ Array [
       </div>
       <div>
         <div
-          class="ant-tooltip"
+          class="ant-tooltip ant-tooltip-show-arrow"
           style="opacity:0"
         >
           <div
@@ -733,7 +733,7 @@ Array [
       </div>
       <div>
         <div
-          class="ant-tooltip"
+          class="ant-tooltip ant-tooltip-show-arrow"
           style="opacity:0"
         >
           <div
@@ -796,7 +796,7 @@ Array [
       </div>
       <div>
         <div
-          class="ant-tooltip"
+          class="ant-tooltip ant-tooltip-show-arrow"
           style="opacity:0"
         >
           <div
@@ -862,7 +862,7 @@ exports[`renders ./components/float-button/demo/render-panel.tsx extend context 
     </div>
     <div>
       <div
-        class="ant-tooltip"
+        class="ant-tooltip ant-tooltip-show-arrow"
         style="opacity:0"
       >
         <div
@@ -920,7 +920,7 @@ exports[`renders ./components/float-button/demo/render-panel.tsx extend context 
     </div>
     <div>
       <div
-        class="ant-tooltip"
+        class="ant-tooltip ant-tooltip-show-arrow"
         style="opacity:0"
       >
         <div
@@ -986,7 +986,7 @@ exports[`renders ./components/float-button/demo/render-panel.tsx extend context 
     </div>
     <div>
       <div
-        class="ant-tooltip"
+        class="ant-tooltip ant-tooltip-show-arrow"
         style="opacity:0"
       >
         <div
@@ -1050,7 +1050,7 @@ exports[`renders ./components/float-button/demo/render-panel.tsx extend context 
       </div>
       <div>
         <div
-          class="ant-tooltip"
+          class="ant-tooltip ant-tooltip-show-arrow"
           style="opacity:0"
         >
           <div
@@ -1108,7 +1108,7 @@ exports[`renders ./components/float-button/demo/render-panel.tsx extend context 
       </div>
       <div>
         <div
-          class="ant-tooltip"
+          class="ant-tooltip ant-tooltip-show-arrow"
           style="opacity:0"
         >
           <div
@@ -1166,7 +1166,7 @@ exports[`renders ./components/float-button/demo/render-panel.tsx extend context 
       </div>
       <div>
         <div
-          class="ant-tooltip"
+          class="ant-tooltip ant-tooltip-show-arrow"
           style="opacity:0"
         >
           <div
@@ -1234,7 +1234,7 @@ exports[`renders ./components/float-button/demo/render-panel.tsx extend context 
         </div>
         <div>
           <div
-            class="ant-tooltip"
+            class="ant-tooltip ant-tooltip-show-arrow"
             style="opacity:0"
           >
             <div
@@ -1292,7 +1292,7 @@ exports[`renders ./components/float-button/demo/render-panel.tsx extend context 
         </div>
         <div>
           <div
-            class="ant-tooltip"
+            class="ant-tooltip ant-tooltip-show-arrow"
             style="opacity:0"
           >
             <div
@@ -1350,7 +1350,7 @@ exports[`renders ./components/float-button/demo/render-panel.tsx extend context 
         </div>
         <div>
           <div
-            class="ant-tooltip"
+            class="ant-tooltip ant-tooltip-show-arrow"
             style="opacity:0"
           >
             <div
@@ -1409,7 +1409,7 @@ exports[`renders ./components/float-button/demo/render-panel.tsx extend context 
       </div>
       <div>
         <div
-          class="ant-tooltip"
+          class="ant-tooltip ant-tooltip-show-arrow"
           style="opacity:0"
         >
           <div
@@ -1474,7 +1474,7 @@ Array [
     </div>
     <div>
       <div
-        class="ant-tooltip"
+        class="ant-tooltip ant-tooltip-show-arrow"
         style="opacity:0"
       >
         <div
@@ -1533,7 +1533,7 @@ Array [
     </div>
     <div>
       <div
-        class="ant-tooltip"
+        class="ant-tooltip ant-tooltip-show-arrow"
         style="opacity:0"
       >
         <div
@@ -1595,7 +1595,7 @@ exports[`renders ./components/float-button/demo/tooltip.tsx extend context corre
   </div>
   <div>
     <div
-      class="ant-tooltip"
+      class="ant-tooltip ant-tooltip-show-arrow"
       style="opacity:0"
     >
       <div
@@ -1665,7 +1665,7 @@ Array [
     </div>
     <div>
       <div
-        class="ant-tooltip"
+        class="ant-tooltip ant-tooltip-show-arrow"
         style="opacity:0"
       >
         <div
@@ -1727,7 +1727,7 @@ Array [
     </div>
     <div>
       <div
-        class="ant-tooltip"
+        class="ant-tooltip ant-tooltip-show-arrow"
         style="opacity:0"
       >
         <div

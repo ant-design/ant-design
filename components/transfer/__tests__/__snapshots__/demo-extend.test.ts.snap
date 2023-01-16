@@ -70,7 +70,7 @@ exports[`renders ./components/transfer/demo/advanced.tsx extend context correctl
             </li>
             <div>
               <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                 style="opacity:0"
               >
                 <div
@@ -103,7 +103,7 @@ exports[`renders ./components/transfer/demo/advanced.tsx extend context correctl
             </li>
             <div>
               <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                 style="opacity:0"
               >
                 <div
@@ -130,7 +130,7 @@ exports[`renders ./components/transfer/demo/advanced.tsx extend context correctl
           >
             <div>
               <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                 style="opacity:0"
               >
                 <div
@@ -152,7 +152,7 @@ exports[`renders ./components/transfer/demo/advanced.tsx extend context correctl
             </div>
             <div>
               <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                 style="opacity:0"
               >
                 <div
@@ -446,7 +446,7 @@ exports[`renders ./components/transfer/demo/advanced.tsx extend context correctl
             </li>
             <div>
               <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                 style="opacity:0"
               >
                 <div
@@ -479,7 +479,7 @@ exports[`renders ./components/transfer/demo/advanced.tsx extend context correctl
             </li>
             <div>
               <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                 style="opacity:0"
               >
                 <div
@@ -506,7 +506,7 @@ exports[`renders ./components/transfer/demo/advanced.tsx extend context correctl
           >
             <div>
               <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                 style="opacity:0"
               >
                 <div
@@ -528,7 +528,7 @@ exports[`renders ./components/transfer/demo/advanced.tsx extend context correctl
             </div>
             <div>
               <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                 style="opacity:0"
               >
                 <div
@@ -767,7 +767,7 @@ exports[`renders ./components/transfer/demo/basic.tsx extend context correctly 1
             </li>
             <div>
               <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                 style="opacity:0"
               >
                 <div
@@ -800,7 +800,7 @@ exports[`renders ./components/transfer/demo/basic.tsx extend context correctly 1
             </li>
             <div>
               <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                 style="opacity:0"
               >
                 <div
@@ -827,7 +827,7 @@ exports[`renders ./components/transfer/demo/basic.tsx extend context correctly 1
           >
             <div>
               <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                 style="opacity:0"
               >
                 <div
@@ -849,7 +849,7 @@ exports[`renders ./components/transfer/demo/basic.tsx extend context correctly 1
             </div>
             <div>
               <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                 style="opacity:0"
               >
                 <div
@@ -1288,7 +1288,7 @@ exports[`renders ./components/transfer/demo/basic.tsx extend context correctly 1
             </li>
             <div>
               <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                 style="opacity:0"
               >
                 <div
@@ -1321,7 +1321,7 @@ exports[`renders ./components/transfer/demo/basic.tsx extend context correctly 1
             </li>
             <div>
               <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                 style="opacity:0"
               >
                 <div
@@ -1348,7 +1348,7 @@ exports[`renders ./components/transfer/demo/basic.tsx extend context correctly 1
           >
             <div>
               <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                 style="opacity:0"
               >
                 <div
@@ -1370,7 +1370,7 @@ exports[`renders ./components/transfer/demo/basic.tsx extend context correctly 1
             </div>
             <div>
               <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                 style="opacity:0"
               >
                 <div
@@ -1714,7 +1714,7 @@ exports[`renders ./components/transfer/demo/custom-item.tsx extend context corre
             </li>
             <div>
               <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                 style="opacity:0"
               >
                 <div
@@ -1747,7 +1747,7 @@ exports[`renders ./components/transfer/demo/custom-item.tsx extend context corre
             </li>
             <div>
               <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                 style="opacity:0"
               >
                 <div
@@ -1774,7 +1774,7 @@ exports[`renders ./components/transfer/demo/custom-item.tsx extend context corre
           >
             <div>
               <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                 style="opacity:0"
               >
                 <div
@@ -1796,7 +1796,7 @@ exports[`renders ./components/transfer/demo/custom-item.tsx extend context corre
             </div>
             <div>
               <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                 style="opacity:0"
               >
                 <div
@@ -2005,7 +2005,7 @@ exports[`renders ./components/transfer/demo/custom-item.tsx extend context corre
             </li>
             <div>
               <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                 style="opacity:0"
               >
                 <div
@@ -2038,7 +2038,7 @@ exports[`renders ./components/transfer/demo/custom-item.tsx extend context corre
             </li>
             <div>
               <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                 style="opacity:0"
               >
                 <div
@@ -2065,7 +2065,7 @@ exports[`renders ./components/transfer/demo/custom-item.tsx extend context corre
           >
             <div>
               <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                 style="opacity:0"
               >
                 <div
@@ -2087,7 +2087,7 @@ exports[`renders ./components/transfer/demo/custom-item.tsx extend context corre
             </div>
             <div>
               <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                 style="opacity:0"
               >
                 <div
@@ -2247,7 +2247,7 @@ exports[`renders ./components/transfer/demo/custom-select-all-labels.tsx extend 
             </li>
             <div>
               <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                 style="opacity:0"
               >
                 <div
@@ -2280,7 +2280,7 @@ exports[`renders ./components/transfer/demo/custom-select-all-labels.tsx extend 
             </li>
             <div>
               <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                 style="opacity:0"
               >
                 <div
@@ -2307,7 +2307,7 @@ exports[`renders ./components/transfer/demo/custom-select-all-labels.tsx extend 
           >
             <div>
               <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                 style="opacity:0"
               >
                 <div
@@ -2329,7 +2329,7 @@ exports[`renders ./components/transfer/demo/custom-select-all-labels.tsx extend 
             </div>
             <div>
               <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                 style="opacity:0"
               >
                 <div
@@ -2663,7 +2663,7 @@ exports[`renders ./components/transfer/demo/custom-select-all-labels.tsx extend 
             </li>
             <div>
               <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                 style="opacity:0"
               >
                 <div
@@ -2696,7 +2696,7 @@ exports[`renders ./components/transfer/demo/custom-select-all-labels.tsx extend 
             </li>
             <div>
               <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                 style="opacity:0"
               >
                 <div
@@ -2723,7 +2723,7 @@ exports[`renders ./components/transfer/demo/custom-select-all-labels.tsx extend 
           >
             <div>
               <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                 style="opacity:0"
               >
                 <div
@@ -2745,7 +2745,7 @@ exports[`renders ./components/transfer/demo/custom-select-all-labels.tsx extend 
             </div>
             <div>
               <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                 style="opacity:0"
               >
                 <div
@@ -2918,7 +2918,7 @@ Array [
               </li>
               <div>
                 <div
-                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                   style="opacity:0"
                 >
                   <div
@@ -2951,7 +2951,7 @@ Array [
               </li>
               <div>
                 <div
-                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                   style="opacity:0"
                 >
                   <div
@@ -2984,7 +2984,7 @@ Array [
               </li>
               <div>
                 <div
-                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                   style="opacity:0"
                 >
                   <div
@@ -3011,7 +3011,7 @@ Array [
             >
               <div>
                 <div
-                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                   style="opacity:0"
                 >
                   <div
@@ -3033,7 +3033,7 @@ Array [
               </div>
               <div>
                 <div
-                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                   style="opacity:0"
                 >
                   <div
@@ -3055,7 +3055,7 @@ Array [
               </div>
               <div>
                 <div
-                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                   style="opacity:0"
                 >
                   <div
@@ -3247,7 +3247,7 @@ Array [
               </li>
               <div>
                 <div
-                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                   style="opacity:0"
                 >
                   <div
@@ -3280,7 +3280,7 @@ Array [
               </li>
               <div>
                 <div
-                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                   style="opacity:0"
                 >
                   <div
@@ -3313,7 +3313,7 @@ Array [
               </li>
               <div>
                 <div
-                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                   style="opacity:0"
                 >
                   <div
@@ -3340,7 +3340,7 @@ Array [
             >
               <div>
                 <div
-                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                   style="opacity:0"
                 >
                   <div
@@ -3362,7 +3362,7 @@ Array [
               </div>
               <div>
                 <div
-                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                   style="opacity:0"
                 >
                   <div
@@ -3384,7 +3384,7 @@ Array [
               </div>
               <div>
                 <div
-                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                   style="opacity:0"
                 >
                   <div
@@ -3572,7 +3572,7 @@ Array [
               </li>
               <div>
                 <div
-                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                   style="opacity:0"
                 >
                   <div
@@ -3605,7 +3605,7 @@ Array [
               </li>
               <div>
                 <div
-                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                   style="opacity:0"
                 >
                   <div
@@ -3632,7 +3632,7 @@ Array [
             >
               <div>
                 <div
-                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                   style="opacity:0"
                 >
                   <div
@@ -3654,7 +3654,7 @@ Array [
               </div>
               <div>
                 <div
-                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                   style="opacity:0"
                 >
                   <div
@@ -4135,7 +4135,7 @@ Array [
               </li>
               <div>
                 <div
-                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                   style="opacity:0"
                 >
                   <div
@@ -4162,7 +4162,7 @@ Array [
             >
               <div>
                 <div
-                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                   style="opacity:0"
                 >
                   <div
@@ -4527,7 +4527,7 @@ exports[`renders ./components/transfer/demo/search.tsx extend context correctly 
             </li>
             <div>
               <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                 style="opacity:0"
               >
                 <div
@@ -4560,7 +4560,7 @@ exports[`renders ./components/transfer/demo/search.tsx extend context correctly 
             </li>
             <div>
               <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                 style="opacity:0"
               >
                 <div
@@ -4587,7 +4587,7 @@ exports[`renders ./components/transfer/demo/search.tsx extend context correctly 
           >
             <div>
               <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                 style="opacity:0"
               >
                 <div
@@ -4609,7 +4609,7 @@ exports[`renders ./components/transfer/demo/search.tsx extend context correctly 
             </div>
             <div>
               <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                 style="opacity:0"
               >
                 <div
@@ -4883,7 +4883,7 @@ exports[`renders ./components/transfer/demo/search.tsx extend context correctly 
             </li>
             <div>
               <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                 style="opacity:0"
               >
                 <div
@@ -4916,7 +4916,7 @@ exports[`renders ./components/transfer/demo/search.tsx extend context correctly 
             </li>
             <div>
               <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                 style="opacity:0"
               >
                 <div
@@ -4943,7 +4943,7 @@ exports[`renders ./components/transfer/demo/search.tsx extend context correctly 
           >
             <div>
               <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                 style="opacity:0"
               >
                 <div
@@ -4965,7 +4965,7 @@ exports[`renders ./components/transfer/demo/search.tsx extend context correctly 
             </div>
             <div>
               <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                 style="opacity:0"
               >
                 <div
@@ -5199,7 +5199,7 @@ exports[`renders ./components/transfer/demo/status.tsx extend context correctly 
                 </li>
                 <div>
                   <div
-                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                     style="opacity:0"
                   >
                     <div
@@ -5232,7 +5232,7 @@ exports[`renders ./components/transfer/demo/status.tsx extend context correctly 
                 </li>
                 <div>
                   <div
-                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                     style="opacity:0"
                   >
                     <div
@@ -5259,7 +5259,7 @@ exports[`renders ./components/transfer/demo/status.tsx extend context correctly 
               >
                 <div>
                   <div
-                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                     style="opacity:0"
                   >
                     <div
@@ -5281,7 +5281,7 @@ exports[`renders ./components/transfer/demo/status.tsx extend context correctly 
                 </div>
                 <div>
                   <div
-                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                     style="opacity:0"
                   >
                     <div
@@ -5489,7 +5489,7 @@ exports[`renders ./components/transfer/demo/status.tsx extend context correctly 
                 </li>
                 <div>
                   <div
-                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                     style="opacity:0"
                   >
                     <div
@@ -5522,7 +5522,7 @@ exports[`renders ./components/transfer/demo/status.tsx extend context correctly 
                 </li>
                 <div>
                   <div
-                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                     style="opacity:0"
                   >
                     <div
@@ -5549,7 +5549,7 @@ exports[`renders ./components/transfer/demo/status.tsx extend context correctly 
               >
                 <div>
                   <div
-                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                     style="opacity:0"
                   >
                     <div
@@ -5571,7 +5571,7 @@ exports[`renders ./components/transfer/demo/status.tsx extend context correctly 
                 </div>
                 <div>
                   <div
-                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                     style="opacity:0"
                   >
                     <div
@@ -5733,7 +5733,7 @@ exports[`renders ./components/transfer/demo/status.tsx extend context correctly 
                 </li>
                 <div>
                   <div
-                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                     style="opacity:0"
                   >
                     <div
@@ -5766,7 +5766,7 @@ exports[`renders ./components/transfer/demo/status.tsx extend context correctly 
                 </li>
                 <div>
                   <div
-                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                     style="opacity:0"
                   >
                     <div
@@ -5793,7 +5793,7 @@ exports[`renders ./components/transfer/demo/status.tsx extend context correctly 
               >
                 <div>
                   <div
-                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                     style="opacity:0"
                   >
                     <div
@@ -5815,7 +5815,7 @@ exports[`renders ./components/transfer/demo/status.tsx extend context correctly 
                 </div>
                 <div>
                   <div
-                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                     style="opacity:0"
                   >
                     <div
@@ -6089,7 +6089,7 @@ exports[`renders ./components/transfer/demo/status.tsx extend context correctly 
                 </li>
                 <div>
                   <div
-                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                     style="opacity:0"
                   >
                     <div
@@ -6122,7 +6122,7 @@ exports[`renders ./components/transfer/demo/status.tsx extend context correctly 
                 </li>
                 <div>
                   <div
-                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                     style="opacity:0"
                   >
                     <div
@@ -6149,7 +6149,7 @@ exports[`renders ./components/transfer/demo/status.tsx extend context correctly 
               >
                 <div>
                   <div
-                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                     style="opacity:0"
                   >
                     <div
@@ -6171,7 +6171,7 @@ exports[`renders ./components/transfer/demo/status.tsx extend context correctly 
                 </div>
                 <div>
                   <div
-                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                     style="opacity:0"
                   >
                     <div
@@ -6400,7 +6400,7 @@ Array [
               </li>
               <div>
                 <div
-                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                   style="opacity:0"
                 >
                   <div
@@ -6433,7 +6433,7 @@ Array [
               </li>
               <div>
                 <div
-                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                   style="opacity:0"
                 >
                   <div
@@ -6460,7 +6460,7 @@ Array [
             >
               <div>
                 <div
-                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                   style="opacity:0"
                 >
                   <div
@@ -6482,7 +6482,7 @@ Array [
               </div>
               <div>
                 <div
-                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                   style="opacity:0"
                 >
                   <div
@@ -7253,7 +7253,7 @@ Array [
               </li>
               <div>
                 <div
-                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                   style="opacity:0"
                 >
                   <div
@@ -7286,7 +7286,7 @@ Array [
               </li>
               <div>
                 <div
-                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                   style="opacity:0"
                 >
                   <div
@@ -7313,7 +7313,7 @@ Array [
             >
               <div>
                 <div
-                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                   style="opacity:0"
                 >
                   <div
@@ -7335,7 +7335,7 @@ Array [
               </div>
               <div>
                 <div
-                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
                   style="opacity:0"
                 >
                   <div

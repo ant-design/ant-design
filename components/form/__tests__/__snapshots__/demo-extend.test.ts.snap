@@ -8195,7 +8195,7 @@ exports[`renders ./components/form/demo/register.tsx extend context correctly 1`
           </span>
           <div>
             <div
-              class="ant-tooltip"
+              class="ant-tooltip ant-tooltip-show-arrow"
               style="opacity:0"
             >
               <div
@@ -9498,7 +9498,7 @@ exports[`renders ./components/form/demo/required-mark.tsx extend context correct
           </span>
           <div>
             <div
-              class="ant-tooltip"
+              class="ant-tooltip ant-tooltip-show-arrow"
               style="opacity:0"
             >
               <div
@@ -9581,7 +9581,7 @@ exports[`renders ./components/form/demo/required-mark.tsx extend context correct
           </span>
           <div>
             <div
-              class="ant-tooltip"
+              class="ant-tooltip ant-tooltip-show-arrow"
               style="opacity:0"
             >
               <div
@@ -19462,7 +19462,7 @@ exports[`renders ./components/form/demo/validate-other.tsx extend context correc
               />
               <div>
                 <div
-                  class="ant-tooltip ant-slider-tooltip"
+                  class="ant-tooltip ant-slider-tooltip ant-tooltip-show-arrow"
                   style="opacity:0"
                 >
                   <div

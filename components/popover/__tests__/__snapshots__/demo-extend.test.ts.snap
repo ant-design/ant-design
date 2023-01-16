@@ -12,7 +12,7 @@ Array [
   </button>,
   <div>
     <div
-      class="ant-popover"
+      class="ant-popover ant-popover-show-arrow"
       style="opacity:0"
     >
       <div
@@ -58,7 +58,7 @@ Array [
   </button>,
   <div>
     <div
-      class="ant-popover"
+      class="ant-popover ant-popover-show-arrow"
       style="opacity:0"
     >
       <div
@@ -109,7 +109,7 @@ Array [
   </button>,
   <div>
     <div
-      class="ant-popover"
+      class="ant-popover ant-popover-show-arrow"
       style="opacity:0"
     >
       <div
@@ -162,7 +162,7 @@ Array [
   </button>,
   <div>
     <div
-      class="ant-popover"
+      class="ant-popover ant-popover-show-arrow"
       style="opacity:0"
     >
       <div
@@ -210,7 +210,7 @@ Array [
   </button>,
   <div>
     <div
-      class="ant-popover"
+      class="ant-popover ant-popover-show-arrow"
       style="opacity:0"
     >
       <div
@@ -250,7 +250,7 @@ Array [
   </div>,
   <div>
     <div
-      class="ant-popover"
+      class="ant-popover ant-popover-show-arrow"
       style="opacity:0"
     >
       <div
@@ -303,7 +303,7 @@ exports[`renders ./components/popover/demo/placement.tsx extend context correctl
     </button>
     <div>
       <div
-        class="ant-popover"
+        class="ant-popover ant-popover-show-arrow"
         style="opacity:0"
       >
         <div
@@ -353,7 +353,7 @@ exports[`renders ./components/popover/demo/placement.tsx extend context correctl
     </button>
     <div>
       <div
-        class="ant-popover"
+        class="ant-popover ant-popover-show-arrow"
         style="opacity:0"
       >
         <div
@@ -403,7 +403,7 @@ exports[`renders ./components/popover/demo/placement.tsx extend context correctl
     </button>
     <div>
       <div
-        class="ant-popover"
+        class="ant-popover ant-popover-show-arrow"
         style="opacity:0"
       >
         <div
@@ -457,7 +457,7 @@ exports[`renders ./components/popover/demo/placement.tsx extend context correctl
     </button>
     <div>
       <div
-        class="ant-popover"
+        class="ant-popover ant-popover-show-arrow"
         style="opacity:0"
       >
         <div
@@ -507,7 +507,7 @@ exports[`renders ./components/popover/demo/placement.tsx extend context correctl
     </button>
     <div>
       <div
-        class="ant-popover"
+        class="ant-popover ant-popover-show-arrow"
         style="opacity:0"
       >
         <div
@@ -557,7 +557,7 @@ exports[`renders ./components/popover/demo/placement.tsx extend context correctl
     </button>
     <div>
       <div
-        class="ant-popover"
+        class="ant-popover ant-popover-show-arrow"
         style="opacity:0"
       >
         <div
@@ -611,7 +611,7 @@ exports[`renders ./components/popover/demo/placement.tsx extend context correctl
     </button>
     <div>
       <div
-        class="ant-popover"
+        class="ant-popover ant-popover-show-arrow"
         style="opacity:0"
       >
         <div
@@ -661,7 +661,7 @@ exports[`renders ./components/popover/demo/placement.tsx extend context correctl
     </button>
     <div>
       <div
-        class="ant-popover"
+        class="ant-popover ant-popover-show-arrow"
         style="opacity:0"
       >
         <div
@@ -711,7 +711,7 @@ exports[`renders ./components/popover/demo/placement.tsx extend context correctl
     </button>
     <div>
       <div
-        class="ant-popover"
+        class="ant-popover ant-popover-show-arrow"
         style="opacity:0"
       >
         <div
@@ -765,7 +765,7 @@ exports[`renders ./components/popover/demo/placement.tsx extend context correctl
     </button>
     <div>
       <div
-        class="ant-popover"
+        class="ant-popover ant-popover-show-arrow"
         style="opacity:0"
       >
         <div
@@ -815,7 +815,7 @@ exports[`renders ./components/popover/demo/placement.tsx extend context correctl
     </button>
     <div>
       <div
-        class="ant-popover"
+        class="ant-popover ant-popover-show-arrow"
         style="opacity:0"
       >
         <div
@@ -865,7 +865,7 @@ exports[`renders ./components/popover/demo/placement.tsx extend context correctl
     </button>
     <div>
       <div
-        class="ant-popover"
+        class="ant-popover ant-popover-show-arrow"
         style="opacity:0"
       >
         <div
@@ -994,7 +994,7 @@ exports[`renders ./components/popover/demo/triggerType.tsx extend context correc
   </button>
   <div>
     <div
-      class="ant-popover"
+      class="ant-popover ant-popover-show-arrow"
       style="opacity:0"
     >
       <div
@@ -1042,7 +1042,7 @@ exports[`renders ./components/popover/demo/triggerType.tsx extend context correc
   </button>
   <div>
     <div
-      class="ant-popover"
+      class="ant-popover ant-popover-show-arrow"
       style="opacity:0"
     >
       <div
@@ -1090,7 +1090,7 @@ exports[`renders ./components/popover/demo/triggerType.tsx extend context correc
   </button>
   <div>
     <div
-      class="ant-popover"
+      class="ant-popover ant-popover-show-arrow"
       style="opacity:0"
     >
       <div

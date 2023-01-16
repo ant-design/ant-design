@@ -20914,7 +20914,7 @@ exports[`ConfigProvider components Popconfirm configProvider 1`] = `
   </span>
   <div>
     <div
-      class="config-popover config-popconfirm config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big"
+      class="config-popover config-popconfirm config-popover-show-arrow config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big"
       style="opacity: 0;"
     >
       <div
@@ -21005,7 +21005,7 @@ exports[`ConfigProvider components Popconfirm configProvider componentDisabled 1
   </span>
   <div>
     <div
-      class="config-popover config-popconfirm config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big"
+      class="config-popover config-popconfirm config-popover-show-arrow config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big"
       style="opacity: 0;"
     >
       <div
@@ -21098,7 +21098,7 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize large
   </span>
   <div>
     <div
-      class="config-popover config-popconfirm config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big"
+      class="config-popover config-popconfirm config-popover-show-arrow config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big"
       style="opacity: 0;"
     >
       <div
@@ -21189,7 +21189,7 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize middl
   </span>
   <div>
     <div
-      class="config-popover config-popconfirm config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big"
+      class="config-popover config-popconfirm config-popover-show-arrow config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big"
       style="opacity: 0;"
     >
       <div
@@ -21280,7 +21280,7 @@ exports[`ConfigProvider components Popconfirm configProvider virtual and dropdow
   </span>
   <div>
     <div
-      class="ant-popover ant-popconfirm ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
+      class="ant-popover ant-popconfirm ant-popover-show-arrow ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
       style="opacity: 0;"
     >
       <div
@@ -21371,7 +21371,7 @@ exports[`ConfigProvider components Popconfirm normal 1`] = `
   </span>
   <div>
     <div
-      class="ant-popover ant-popconfirm ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
+      class="ant-popover ant-popconfirm ant-popover-show-arrow ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
       style="opacity: 0;"
     >
       <div
@@ -21462,7 +21462,7 @@ exports[`ConfigProvider components Popconfirm prefixCls 1`] = `
   </span>
   <div>
     <div
-      class="ant-popover prefix-Popconfirm ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
+      class="ant-popover prefix-Popconfirm ant-popover-show-arrow ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
       style="opacity: 0;"
     >
       <div
@@ -21553,7 +21553,7 @@ exports[`ConfigProvider components Popover configProvider 1`] = `
   </span>
   <div>
     <div
-      class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big"
+      class="config-popover config-popover-show-arrow config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big"
       style="opacity: 0;"
     >
       <div
@@ -21585,7 +21585,7 @@ exports[`ConfigProvider components Popover configProvider componentDisabled 1`] 
   </span>
   <div>
     <div
-      class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big"
+      class="config-popover config-popover-show-arrow config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big"
       style="opacity: 0;"
     >
       <div
@@ -21617,7 +21617,7 @@ exports[`ConfigProvider components Popover configProvider componentSize large 1`
   </span>
   <div>
     <div
-      class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big"
+      class="config-popover config-popover-show-arrow config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big"
       style="opacity: 0;"
     >
       <div
@@ -21649,7 +21649,7 @@ exports[`ConfigProvider components Popover configProvider componentSize middle 1
   </span>
   <div>
     <div
-      class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big"
+      class="config-popover config-popover-show-arrow config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big"
       style="opacity: 0;"
     >
       <div
@@ -21681,7 +21681,7 @@ exports[`ConfigProvider components Popover configProvider virtual and dropdownMa
   </span>
   <div>
     <div
-      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
+      class="ant-popover ant-popover-show-arrow ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
       style="opacity: 0;"
     >
       <div
@@ -21713,7 +21713,7 @@ exports[`ConfigProvider components Popover normal 1`] = `
   </span>
   <div>
     <div
-      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
+      class="ant-popover ant-popover-show-arrow ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
       style="opacity: 0;"
     >
       <div
@@ -21745,7 +21745,7 @@ exports[`ConfigProvider components Popover prefixCls 1`] = `
   </span>
   <div>
     <div
-      class="prefix-Popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
+      class="prefix-Popover prefix-Popover-show-arrow ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
       style="opacity: 0;"
     >
       <div
@@ -25459,7 +25459,7 @@ exports[`ConfigProvider components Slider configProvider 1`] = `
   />
   <div>
     <div
-      class="config-tooltip config-slider-tooltip config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast"
+      class="config-tooltip config-slider-tooltip config-tooltip-show-arrow config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast"
       style="opacity: 0;"
     >
       <div
@@ -25510,7 +25510,7 @@ exports[`ConfigProvider components Slider configProvider componentDisabled 1`] =
   />
   <div>
     <div
-      class="config-tooltip config-slider-tooltip config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast"
+      class="config-tooltip config-slider-tooltip config-tooltip-show-arrow config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast"
       style="opacity: 0;"
     >
       <div
@@ -25561,7 +25561,7 @@ exports[`ConfigProvider components Slider configProvider componentSize large 1`]
   />
   <div>
     <div
-      class="config-tooltip config-slider-tooltip config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast"
+      class="config-tooltip config-slider-tooltip config-tooltip-show-arrow config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast"
       style="opacity: 0;"
     >
       <div
@@ -25612,7 +25612,7 @@ exports[`ConfigProvider components Slider configProvider componentSize middle 1`
   />
   <div>
     <div
-      class="config-tooltip config-slider-tooltip config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast"
+      class="config-tooltip config-slider-tooltip config-tooltip-show-arrow config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast"
       style="opacity: 0;"
     >
       <div
@@ -25663,7 +25663,7 @@ exports[`ConfigProvider components Slider configProvider virtual and dropdownMat
   />
   <div>
     <div
-      class="ant-tooltip ant-slider-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
+      class="ant-tooltip ant-slider-tooltip ant-tooltip-show-arrow ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
       style="opacity: 0;"
     >
       <div
@@ -25714,7 +25714,7 @@ exports[`ConfigProvider components Slider normal 1`] = `
   />
   <div>
     <div
-      class="ant-tooltip ant-slider-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
+      class="ant-tooltip ant-slider-tooltip ant-tooltip-show-arrow ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
       style="opacity: 0;"
     >
       <div
@@ -25765,7 +25765,7 @@ exports[`ConfigProvider components Slider prefixCls 1`] = `
   />
   <div>
     <div
-      class="prefix-Slider-tooltip prefix-Slider-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
+      class="prefix-Slider-tooltip prefix-Slider-tooltip prefix-Slider-tooltip-show-arrow ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
       style="opacity: 0;"
     >
       <div
@@ -38134,7 +38134,7 @@ HTMLCollection [
   </span>,
   <div>
     <div
-      class="config-tooltip config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast"
+      class="config-tooltip config-tooltip-show-arrow config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast"
       style="opacity: 0;"
     >
       <div
@@ -38168,7 +38168,7 @@ HTMLCollection [
   </span>,
   <div>
     <div
-      class="config-tooltip config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast"
+      class="config-tooltip config-tooltip-show-arrow config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast"
       style="opacity: 0;"
     >
       <div
@@ -38202,7 +38202,7 @@ HTMLCollection [
   </span>,
   <div>
     <div
-      class="config-tooltip config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast"
+      class="config-tooltip config-tooltip-show-arrow config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast"
       style="opacity: 0;"
     >
       <div
@@ -38236,7 +38236,7 @@ HTMLCollection [
   </span>,
   <div>
     <div
-      class="config-tooltip config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast"
+      class="config-tooltip config-tooltip-show-arrow config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast"
       style="opacity: 0;"
     >
       <div
@@ -38270,7 +38270,7 @@ HTMLCollection [
   </span>,
   <div>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
+      class="ant-tooltip ant-tooltip-show-arrow ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
       style="opacity: 0;"
     >
       <div
@@ -38304,7 +38304,7 @@ HTMLCollection [
   </span>,
   <div>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
+      class="ant-tooltip ant-tooltip-show-arrow ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
       style="opacity: 0;"
     >
       <div
@@ -38338,7 +38338,7 @@ HTMLCollection [
   </span>,
   <div>
     <div
-      class="prefix-Tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
+      class="prefix-Tooltip prefix-Tooltip-show-arrow ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
       style="opacity: 0;"
     >
       <div
