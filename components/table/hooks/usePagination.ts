@@ -6,8 +6,8 @@ import extendsObject from '../../_util/extendsObject';
 export const DEFAULT_PAGE_SIZE = 10;
 
 export function getPaginationParam(
-  pagination: TablePaginationConfig | boolean | undefined,
   mergedPagination: TablePaginationConfig,
+  pagination?: TablePaginationConfig | boolean,
 ) {
   const param: any = {
     current: mergedPagination.current,
