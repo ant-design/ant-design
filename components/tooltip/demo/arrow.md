@@ -1,6 +1,6 @@
 ## zh-CN
 
-通过设置`arrow`属性修改箭头的显示状态以及传入`{arrowPointAtCenter: true}`时箭头指向元素中心
+通过 `arrow` 属性隐藏箭头。
 
 ## en-US
 
