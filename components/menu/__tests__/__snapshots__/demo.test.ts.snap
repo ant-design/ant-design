@@ -521,6 +521,9 @@ Array [
       </div>
     </li>
     <li
+      class="ant-menu-item-divider"
+    />
+    <li
       class="ant-menu-submenu ant-menu-submenu-inline"
       role="none"
     >
