@@ -1,5 +1,6 @@
 import { placements } from 'rc-tooltip/lib/placements';
 import type { BuildInPlacements } from 'rc-trigger';
+import theme from '../theme';
 
 const autoAdjustOverflowEnabled = {
   adjustX: 1,
@@ -44,6 +45,8 @@ export default function getPlacements(config: PlacementsConfig) {
     autoAdjustOverflow,
     arrowPointAtCenter,
   } = config;
+  const halfArrowWidth = arrowWidth / 2;
+
   const placementMap: BuildInPlacements = {
     left: {
       points: ['cr', 'cl'],
@@ -63,35 +66,35 @@ export default function getPlacements(config: PlacementsConfig) {
     },
     topLeft: {
       points: ['bl', 'tc'],
-      offset: [-(horizontalArrowShift + arrowWidth), -4],
+      offset: [-(horizontalArrowShift + halfArrowWidth), -4],
     },
     leftTop: {
       points: ['tr', 'cl'],
-      offset: [-4, -(verticalArrowShift + arrowWidth)],
+      offset: [-4, -(verticalArrowShift + halfArrowWidth)],
     },
     topRight: {
       points: ['br', 'tc'],
-      offset: [horizontalArrowShift + arrowWidth, -4],
+      offset: [horizontalArrowShift + halfArrowWidth, -4],
     },
     rightTop: {
       points: ['tl', 'cr'],
-      offset: [4, -(verticalArrowShift + arrowWidth)],
+      offset: [4, -(verticalArrowShift + halfArrowWidth)],
     },
     bottomRight: {
       points: ['tr', 'bc'],
-      offset: [horizontalArrowShift + arrowWidth, 4],
+      offset: [horizontalArrowShift + halfArrowWidth, 4],
     },
     rightBottom: {
       points: ['bl', 'cr'],
-      offset: [4, verticalArrowShift + arrowWidth],
+      offset: [4, verticalArrowShift + halfArrowWidth],
     },
     bottomLeft: {
       points: ['tl', 'bc'],
-      offset: [-(horizontalArrowShift + arrowWidth), 4],
+      offset: [-(horizontalArrowShift + halfArrowWidth), 4],
     },
     leftBottom: {
       points: ['br', 'cl'],
-      offset: [-4, verticalArrowShift + arrowWidth],
+      offset: [-4, verticalArrowShift + halfArrowWidth],
     },
   };
   Object.keys(placementMap).forEach((key) => {

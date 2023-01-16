@@ -212,7 +212,7 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
         [`&-placement-topLeft`, `&-placement-top`, `&-placement-topRight`],
         showArrowCls,
       )]: {
-        paddingBottom: 0,
+        paddingBottom: marginXXS,
         [`&${componentCls}-show-arrow`]: {
           paddingBottom: dropdownArrowDistance,
         },
@@ -223,7 +223,7 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
         [`&-placement-bottomLeft`, `&-placement-bottom`, `&-placement-bottomRight`],
         showArrowCls,
       )]: {
-        paddingTop: 0,
+        paddingTop: marginXXS,
         [`&${componentCls}-show-arrow`]: {
           paddingTop: dropdownArrowDistance,
         },
@@ -236,7 +236,7 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
       )]: {
         paddingRight: {
           _skip_check_: true,
-          value: 0,
+          value: marginXXS,
         },
         [`&${componentCls}-show-arrow`]: {
           paddingRight: {
@@ -253,7 +253,7 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
       )]: {
         paddingLeft: {
           _skip_check_: true,
-          value: 0,
+          value: marginXXS,
         },
         [`&${componentCls}-show-arrow`]: {
           paddingLeft: {

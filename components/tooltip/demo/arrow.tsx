@@ -1,18 +1,92 @@
-import React from 'react';
-import { Button, Tooltip } from 'antd';
+import React, { useMemo, useState } from 'react';
+import { Button, Divider, Space, Switch, Tooltip } from 'antd';
 
-const App: React.FC = () => (
-  <>
-    <Tooltip placement="topLeft" title="Prompt Text">
-      <Button>Align edge / 边缘对齐</Button>
-    </Tooltip>
-    <Tooltip placement="topLeft" title="Prompt Text" arrow={false}>
-      <Button>hide arrow / 隐藏箭头</Button>
-    </Tooltip>
-    <Tooltip placement="topLeft" title="Prompt Text" arrow={{ arrowPointAtCenter: true }}>
-      <Button>Arrow points to center / 箭头指向中心</Button>
-    </Tooltip>
-  </>
-);
+const text = <span>prompt text</span>;
+
+const buttonWidth = 70;
+
+const App: React.FC = () => {
+  const [showArrow, setShowArrow] = useState(true);
+  const [arrowAtCenter, setArrowAtCenter] = useState(false);
+
+  const mergedArrow = useMemo(() => {
+    if (arrowAtCenter) return { arrowPointAtCenter: true };
+    return showArrow;
+  }, [showArrow, arrowAtCenter]);
+
+  return (
+    <div className="demo">
+      <Space>
+        <Switch
+          checkedChildren="展示箭头"
+          unCheckedChildren="隐藏箭头"
+          checked={showArrow}
+          onChange={(val) => {
+            if (!val) {
+              setArrowAtCenter(false);
+            }
+            setShowArrow(val);
+          }}
+        />
+        <Switch
+          checkedChildren="箭头在目标元素中心"
+          unCheckedChildren="箭头不在目标元素中心"
+          checked={arrowAtCenter}
+          onChange={(val) => {
+            setArrowAtCenter(val);
+            if (val) {
+              setShowArrow(true);
+            }
+          }}
+        />
+      </Space>
+      <Divider orientation="center">Content</Divider>
+      <div style={{ marginLeft: buttonWidth, whiteSpace: 'nowrap' }}>
+        <Tooltip placement="topLeft" title={text} arrow={mergedArrow}>
+          <Button>TL</Button>
+        </Tooltip>
+        <Tooltip placement="top" title={text} arrow={mergedArrow}>
+          <Button>Top</Button>
+        </Tooltip>
+        <Tooltip placement="topRight" title={text} arrow={mergedArrow}>
+          <Button>TR</Button>
+        </Tooltip>
+      </div>
+      <div style={{ width: buttonWidth, float: 'left' }}>
+        <Tooltip placement="leftTop" title={text} arrow={mergedArrow}>
+          <Button>LT</Button>
+        </Tooltip>
+        <Tooltip placement="left" title={text} arrow={mergedArrow}>
+          <Button>Left</Button>
+        </Tooltip>
+        <Tooltip placement="leftBottom" title={text} arrow={mergedArrow}>
+          <Button>LB</Button>
+        </Tooltip>
+      </div>
+      <div style={{ width: buttonWidth, marginLeft: buttonWidth * 4 + 24 }}>
+        <Tooltip placement="rightTop" title={text} arrow={mergedArrow}>
+          <Button>RT</Button>
+        </Tooltip>
+        <Tooltip placement="right" title={text} arrow={mergedArrow}>
+          <Button>Right</Button>
+        </Tooltip>
+        <Tooltip placement="rightBottom" title={text} arrow={mergedArrow}>
+          <Button>RB</Button>
+        </Tooltip>
+      </div>
+      <div style={{ marginLeft: buttonWidth, clear: 'both', whiteSpace: 'nowrap' }}>
+        <Tooltip placement="bottomLeft" title={text} arrow={mergedArrow}>
+          <Button>BL</Button>
+        </Tooltip>
+        <Tooltip placement="bottom" title={text} arrow={mergedArrow}>
+          <Button>Bottom</Button>
+        </Tooltip>
+        <Tooltip placement="bottomRight" title={text} arrow={mergedArrow}>
+          <Button>BR</Button>
+        </Tooltip>
+      </div>
+    </div>
+  );
+};
 
 export default App;

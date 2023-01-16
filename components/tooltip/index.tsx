@@ -17,6 +17,9 @@ import warning from '../_util/warning';
 import PurePanel from './PurePanel';
 import useStyle from './style';
 import { parseColor } from './util';
+import theme from '../theme';
+
+const { useToken } = theme;
 
 export type { AdjustOverflow, PlacementsConfig };
 
@@ -177,6 +180,8 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
 
   const mergedShowArrow = !!arrow;
 
+  const { token } = useToken();
+
   const {
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
@@ -229,6 +234,7 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
       getPlacements({
         arrowPointAtCenter: mergedArrowPointAtCenter,
         autoAdjustOverflow,
+        arrowWidth: token.sizePopupArrow,
       })
     );
   };

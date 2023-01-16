@@ -39,7 +39,7 @@ The following APIs are shared by Tooltip, Popconfirm, Popover.
 | --- | --- | --- | --- | --- |
 | align | This value will be merged into placement's config, please refer to the settings [rc-tooltip](https://github.com/react-component/tooltip) | object | - |  |
 | arrowPointAtCenter | Whether the arrow is pointed at the center of target, greater than or equal to 5.2.0, use `arrow` instead | boolean | false |  |
-| arrow | Change arrow's visible state and change whether the arrow is pointed at the center of target | boolean \| {arrowPointAtCenter: true} | true | 5.2.0 |
+| arrow | Change arrow's visible state and change whether the arrow is pointed at the center of target | boolean \| { arrowPointAtCenter: boolean } | true | 5.2.0 |
 | autoAdjustOverflow | Whether to adjust popup placement automatically when popup is off screen | boolean | true |  |
 | color | The background color | string | - | 4.3.0 |
 | defaultOpen | Whether the floating tooltip card is open by default | boolean | false | 4.23.0 |
