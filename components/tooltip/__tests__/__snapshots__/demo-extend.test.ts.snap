@@ -20,9 +20,9 @@ exports[`renders ./components/tooltip/demo/arrow.tsx extend context correctly 1`
         />
         <div
           class="ant-segmented-item-label"
-          title="展示箭头"
+          title="show arrow"
         >
-          展示箭头
+          show arrow
         </div>
       </label>
       <label
@@ -34,9 +34,9 @@ exports[`renders ./components/tooltip/demo/arrow.tsx extend context correctly 1`
         />
         <div
           class="ant-segmented-item-label"
-          title="箭头指向目标元素中心"
+          title="arrow point at center"
         >
-          箭头指向目标元素中心
+          arrow point at center
         </div>
       </label>
       <label
@@ -48,9 +48,9 @@ exports[`renders ./components/tooltip/demo/arrow.tsx extend context correctly 1`
         />
         <div
           class="ant-segmented-item-label"
-          title="隐藏箭头"
+          title="hide arrow"
         >
-          隐藏箭头
+          hide arrow
         </div>
       </label>
     </div>

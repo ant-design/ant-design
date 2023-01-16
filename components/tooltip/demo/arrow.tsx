@@ -17,10 +17,10 @@ const App: React.FC = () => {
   return (
     <div className="demo">
       <Segmented
-        options={['展示箭头', '箭头指向目标元素中心', '隐藏箭头']}
+        options={['show arrow', 'arrow point at center', 'hide arrow']}
         onChange={(val) => {
-          setShowArrow(val !== '隐藏箭头');
-          setArrowAtCenter(val === '箭头指向目标元素中心');
+          setShowArrow(val !== 'hide arrow');
+          setArrowAtCenter(val === 'arrow point at center');
         }}
       />
       <Divider orientation="center">Content</Divider>
