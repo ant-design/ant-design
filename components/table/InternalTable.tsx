@@ -361,7 +361,7 @@ function InternalTable<RecordType extends object = any>(
   );
 
   changeEventInfo.pagination =
-    pagination === false ? {} : getPaginationParam(pagination, mergedPagination);
+    pagination === false ? {} : getPaginationParam(mergedPagination, pagination);
 
   changeEventInfo.resetPagination = resetPagination;
 
