@@ -1,6 +1,5 @@
 import { placements } from 'rc-tooltip/lib/placements';
 import type { BuildInPlacements } from 'rc-trigger';
-import theme from '../theme';
 
 const autoAdjustOverflowEnabled = {
   adjustX: 1,
