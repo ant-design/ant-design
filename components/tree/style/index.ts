@@ -156,7 +156,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
           ...genFocusOutline(token),
         },
 
-        [`&:not(&-disabled).filter-node ${treeCls}-title`]: {
+        [`&:not(${treeNodeCls}-disabled).filter-node ${treeCls}-title`]: {
           color: 'inherit',
           fontWeight: 500,
         },
