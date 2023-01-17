@@ -5,6 +5,7 @@ import { withConfirm, withError, withInfo, withSuccess, withWarn } from '../conf
 import type { ModalFuncProps } from '../Modal';
 import type { HookModalRef } from './HookModal';
 import HookModal from './HookModal';
+import destroyFns from '../destroyFns';
 
 let uuid = 0;
 
@@ -68,6 +69,10 @@ function useModal(): readonly [
         );
 
         closeFunc = holderRef.current?.patchElement(modal);
+
+        if (closeFunc) {
+          destroyFns.push(closeFunc);
+        }
 
         return {
           destroy: () => {
