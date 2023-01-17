@@ -47,7 +47,7 @@ function compactItemBorderVerticalRadius(prefixCls: string, parentCls: string): 
 export function genCompactItemVerticalStyle<T extends OverrideComponent>(
   token: FullToken<T>,
 ): CSSInterpolation {
-  const compactCls = `${token.prefixCls}-compact-vertical`;
+  const compactCls = `${token.componentCls}-compact-vertical`;
 
   return {
     [compactCls]: {
