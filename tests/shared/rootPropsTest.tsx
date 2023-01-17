@@ -5,6 +5,7 @@ import { render, waitFakeTimer } from '../utils';
 
 export interface Options {
   findRootElements?: (container: HTMLElement) => HTMLCollection | Element[] | NodeListOf<Element>;
+  expectCount?: number;
 }
 
 export default function rootPropsTest(
@@ -39,12 +40,16 @@ export default function rootPropsTest(
           open: true,
         };
 
+        const node = customizeRender ? (
+          customizeRender(sharedProps)
+        ) : (
+          <Component {...sharedProps} />
+        );
+
         return (
           <div id="holder" ref={holderRef}>
             {show && (
-              <ConfigProvider getPopupContainer={() => holderRef.current!}>
-                {customizeRender ? customizeRender(sharedProps) : <Component {...sharedProps} />}
-              </ConfigProvider>
+              <ConfigProvider getPopupContainer={() => holderRef.current!}>{node}</ConfigProvider>
             )}
           </div>
         );
@@ -52,12 +57,16 @@ export default function rootPropsTest(
 
       const { container } = render(<Demo />);
       await waitFakeTimer();
-      // console.log(container.innerHTML);
+      // console.log(document.body.innerHTML);
 
       const holder = container.querySelector<HTMLElement>('#holder')!;
       const childList = Array.from(options?.findRootElements?.(holder) ?? holder.children);
 
       expect(childList.length).toBeGreaterThan(0);
+      if (options?.expectCount) {
+        expect(childList.length).toBe(options.expectCount);
+      }
+
       childList.forEach((ele) => {
         expect(ele).toHaveClass(rootClassName);
 
