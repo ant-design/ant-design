@@ -14,6 +14,7 @@ export type SpinIndicator = React.ReactElement<HTMLElement>;
 export interface SpinProps {
   prefixCls?: string;
   className?: string;
+  rootClassName?: string;
   spinning?: boolean;
   style?: React.CSSProperties;
   size?: SpinSize;
@@ -77,6 +78,7 @@ const Spin: React.FC<SpinClassProps> = (props) => {
     spinning: customSpinning = true,
     delay = 0,
     className,
+    rootClassName,
     size = 'default',
     tip,
     wrapperClassName,
@@ -114,6 +116,7 @@ const Spin: React.FC<SpinClassProps> = (props) => {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
+    rootClassName,
     hashId,
   );
 
