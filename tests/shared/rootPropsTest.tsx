@@ -19,11 +19,17 @@ export default function rootPropsTest(
   const name = options?.name ? `(${options.name})` : '';
 
   describe(`RootProps${name}`, () => {
+    let passed = false;
+
     beforeEach(() => {
+      passed = false;
       jest.useFakeTimers();
     });
 
     afterEach(() => {
+      if (!passed || process.env.DEBUG === 'true') {
+        console.log(document.body.innerHTML);
+      }
       jest.useRealTimers();
     });
 
@@ -64,7 +70,6 @@ export default function rootPropsTest(
 
       const { container } = render(<Demo />);
       await waitFakeTimer();
-      // console.log(document.body.innerHTML);
 
       const holder = container.querySelector<HTMLElement>('#holder')!;
       const childList = Array.from(options?.findRootElements?.(holder) ?? holder.children);
@@ -80,6 +85,8 @@ export default function rootPropsTest(
         // `rootClassName` should not show in children element
         expect(ele.querySelector(`.${rootClassName}`)).toBeFalsy();
       });
+
+      passed = true;
     });
   });
 }

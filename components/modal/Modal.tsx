@@ -97,6 +97,7 @@ type getContainerFunc = () => HTMLElement;
 export interface ModalFuncProps {
   prefixCls?: string;
   className?: string;
+  rootClassName?: string;
   open?: boolean;
   /** @deprecated Please use `open` instead. */
   visible?: boolean;
@@ -168,6 +169,7 @@ const Modal: React.FC<ModalProps> = (props) => {
   const {
     prefixCls: customizePrefixCls,
     className,
+    rootClassName,
     open,
     wrapClassName,
     centered,
@@ -204,7 +206,7 @@ const Modal: React.FC<ModalProps> = (props) => {
           {...restProps}
           getContainer={getContainer === undefined ? getContextPopupContainer : getContainer}
           prefixCls={prefixCls}
-          rootClassName={hashId}
+          rootClassName={classNames(hashId, rootClassName)}
           wrapClassName={wrapClassNameExtended}
           footer={renderFooter({
             ...props,

@@ -12,6 +12,7 @@ import useStyle from './style';
 export interface AbstractCheckboxProps<T> {
   prefixCls?: string;
   className?: string;
+  rootClassName?: string;
   defaultChecked?: boolean;
   checked?: boolean;
   style?: React.CSSProperties;

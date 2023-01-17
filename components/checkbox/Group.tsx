@@ -20,6 +20,7 @@ export interface CheckboxOptionType {
 export interface AbstractCheckboxGroupProps {
   prefixCls?: string;
   className?: string;
+  rootClassName?: string;
   options?: Array<CheckboxOptionType | string | number>;
   disabled?: boolean;
   style?: React.CSSProperties;
