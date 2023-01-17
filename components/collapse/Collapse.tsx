@@ -11,6 +11,8 @@ import initCollapseMotion from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
 import warning from '../_util/warning';
 import type { CollapsibleType } from './CollapsePanel';
+import type { SizeType } from '../config-provider/SizeContext';
+import SizeContext from '../config-provider/SizeContext';
 import CollapsePanel from './CollapsePanel';
 
 import useStyle from './style';
@@ -33,6 +35,7 @@ export interface CollapseProps {
   expandIcon?: (panelProps: PanelProps) => React.ReactNode;
   expandIconPosition?: ExpandIconPosition;
   ghost?: boolean;
+  size?: SizeType;
   collapsible?: CollapsibleType;
   children?: React.ReactNode;
 }
@@ -56,13 +59,18 @@ type CompoundedComponent = React.FC<CollapseProps> & {
 
 const Collapse: CompoundedComponent = (props) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const size = React.useContext(SizeContext);
+
   const {
     prefixCls: customizePrefixCls,
     className = '',
     bordered = true,
     ghost,
+    size: customizeSize,
     expandIconPosition = 'start',
   } = props;
+
+  const mergedSize = customizeSize || size || 'middle';
   const prefixCls = getPrefixCls('collapse', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
   const [wrapSSR, hashId] = useStyle(prefixCls);
@@ -103,6 +111,7 @@ const Collapse: CompoundedComponent = (props) => {
       [`${prefixCls}-borderless`]: !bordered,
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-ghost`]: !!ghost,
+      [`${prefixCls}-${mergedSize}`]: mergedSize !== 'middle',
     },
     className,
     hashId,

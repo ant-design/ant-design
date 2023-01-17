@@ -39,6 +39,14 @@ describe('Collapse', () => {
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
+  it('should be able to config size', () => {
+    const { container: small } = render(<Collapse size="small" />);
+    const { container: large } = render(<Collapse size="large" />);
+
+    expect(small.querySelector('.ant-collapse')).toHaveClass('ant-collapse-small');
+    expect(large.querySelector('.ant-collapse')).toHaveClass('ant-collapse-large');
+  });
+
   it('should keep the className of the expandIcon', () => {
     const { container } = render(
       <Collapse
