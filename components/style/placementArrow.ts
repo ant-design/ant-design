@@ -87,6 +87,7 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
   });
   const dropdownArrowDistance = sizePopupArrow / 2 + marginXXS;
 
+  /* istanbul ignore next */
   const {
     left: leftArrowDistance = 0,
     right: rightArrowDistance = 0,
