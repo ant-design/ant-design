@@ -6,6 +6,7 @@ import { render, waitFakeTimer } from '../utils';
 export interface Options {
   findRootElements?: (container: HTMLElement) => HTMLCollection | Element[] | NodeListOf<Element>;
   expectCount?: number;
+  beforeRender?: () => void;
 }
 
 export default function rootPropsTest(
@@ -27,6 +28,10 @@ export default function rootPropsTest(
     it('rootClassName', async () => {
       const rootClassName = 'TEST_ROOT_CLS';
 
+      if (options?.beforeRender) {
+        options?.beforeRender();
+      }
+
       const Demo = () => {
         const holderRef = React.useRef<HTMLDivElement>(null);
         const [show, setShow] = React.useState(false);
@@ -47,7 +52,7 @@ export default function rootPropsTest(
         );
 
         return (
-          <div id="holder" ref={holderRef}>
+          <div id="holder" className="holder" ref={holderRef}>
             {show && (
               <ConfigProvider getPopupContainer={() => holderRef.current!}>{node}</ConfigProvider>
             )}
