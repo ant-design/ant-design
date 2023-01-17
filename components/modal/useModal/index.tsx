@@ -70,7 +70,9 @@ function useModal(): readonly [
 
         closeFunc = holderRef.current?.patchElement(modal);
 
-        if (closeFunc) destroyFns.push(closeFunc);
+        if (closeFunc) {
+          destroyFns.push(closeFunc);
+        }
 
         return {
           destroy: () => {
