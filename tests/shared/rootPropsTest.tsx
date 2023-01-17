@@ -1,7 +1,7 @@
 /* eslint-disable global-require, import/no-dynamic-require, jest/no-export */
 import React from 'react';
-import { render, waitFakeTimer } from '../utils';
 import ConfigProvider from '../../components/config-provider';
+import { render, waitFakeTimer } from '../utils';
 
 export interface Options {
   findRootElements?: (container: HTMLElement) => HTMLCollection | Element[] | NodeListOf<Element>;
@@ -34,6 +34,7 @@ export default function rootPropsTest(
         }, []);
 
         const sharedProps = {
+          value: 1,
           rootClassName,
           open: true,
         };
@@ -51,14 +52,17 @@ export default function rootPropsTest(
 
       const { container } = render(<Demo />);
       await waitFakeTimer();
+      // console.log(container.innerHTML);
 
       const holder = container.querySelector<HTMLElement>('#holder')!;
       const childList = Array.from(options?.findRootElements?.(holder) ?? holder.children);
-      console.log(container.innerHTML);
 
       expect(childList.length).toBeGreaterThan(0);
       childList.forEach((ele) => {
         expect(ele).toHaveClass(rootClassName);
+
+        // `rootClassName` should not show in children element
+        expect(ele.querySelector(`.${rootClassName}`)).toBeFalsy();
       });
     });
   });
