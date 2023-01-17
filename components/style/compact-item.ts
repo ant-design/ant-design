@@ -18,14 +18,19 @@ interface CompactItemOptions {
 }
 
 // handle border collapse
-function compactItemBorder(token: DerivativeToken, options: CompactItemOptions): CSSObject {
-  const childCombinator = options.borderElCls ? '> *' : '';
-  const hoverEffects = ['hover', options.focus ? 'focus' : null, 'active']
+function compactItemBorder(
+  token: DerivativeToken,
+  parentCls: string,
+  options: CompactItemOptions,
+): CSSObject {
+  const { focusElCls, focus, borderElCls } = options;
+  const childCombinator = borderElCls ? '> *' : '';
+  const hoverEffects = ['hover', focus ? 'focus' : null, 'active']
     .filter(Boolean)
     .map((n) => `&:${n} ${childCombinator}`)
     .join(',');
   return {
-    '&-item:not(&-last-item)': {
+    [`&-item:not(${parentCls}-last-item)`]: {
       marginInlineEnd: -token.lineWidth,
     },
 
@@ -34,9 +39,9 @@ function compactItemBorder(token: DerivativeToken, options: CompactItemOptions):
         zIndex: 2,
       },
 
-      ...(options.focusElCls
+      ...(focusElCls
         ? {
-            [`&${options.focusElCls}`]: {
+            [`&${focusElCls}`]: {
               zIndex: 2,
             },
           }
@@ -50,15 +55,20 @@ function compactItemBorder(token: DerivativeToken, options: CompactItemOptions):
 }
 
 // handle border-radius
-function compactItemBorderRadius(prefixCls: string, options: CompactItemOptions): CSSObject {
-  const childCombinator = options.borderElCls ? `> ${options.borderElCls}` : '';
+function compactItemBorderRadius(
+  prefixCls: string,
+  parentCls: string,
+  options: CompactItemOptions,
+): CSSObject {
+  const { borderElCls } = options;
+  const childCombinator = borderElCls ? `> ${borderElCls}` : '';
 
   return {
-    [`&-item:not(&-first-item):not(&-last-item) ${childCombinator}`]: {
+    [`&-item:not(${parentCls}-first-item):not(${parentCls}-last-item) ${childCombinator}`]: {
       borderRadius: 0,
     },
 
-    '&-item:not(&-last-item)&-first-item': {
+    [`&-item:not(${parentCls}-last-item)${parentCls}-first-item`]: {
       [`& ${childCombinator}, &${prefixCls}-sm ${childCombinator}, &${prefixCls}-lg ${childCombinator}`]:
         {
           borderStartEndRadius: 0,
@@ -66,7 +76,7 @@ function compactItemBorderRadius(prefixCls: string, options: CompactItemOptions)
         },
     },
 
-    '&-item:not(&-first-item)&-last-item': {
+    [`&-item:not(${parentCls}-first-item)${parentCls}-last-item`]: {
       [`& ${childCombinator}, &${prefixCls}-sm ${childCombinator}, &${prefixCls}-lg ${childCombinator}`]:
         {
           borderStartStartRadius: 0,
@@ -80,10 +90,14 @@ export function genCompactItemStyle<T extends OverrideComponent>(
   token: FullToken<T>,
   options: CompactItemOptions = { focus: true },
 ): CSSInterpolation {
+  const { componentCls } = token;
+
+  const compactCls = `${componentCls}-compact`;
+
   return {
-    [`${token.componentCls}-compact`]: {
-      ...compactItemBorder(token, options),
-      ...compactItemBorderRadius(token.componentCls, options),
+    [compactCls]: {
+      ...compactItemBorder(token, compactCls, options),
+      ...compactItemBorderRadius(componentCls, compactCls, options),
     },
   };
 }

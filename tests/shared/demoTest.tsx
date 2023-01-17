@@ -1,11 +1,16 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
+import {
+  createCache,
+  legacyNotSelectorLinter,
+  logicalPropertiesLinter,
+  StyleProvider,
+} from '@ant-design/cssinjs';
+import glob from 'glob';
 import * as React from 'react';
 import { renderToString } from 'react-dom/server';
-import glob from 'glob';
-import { StyleProvider, createCache, logicalPropertiesLinter } from '@ant-design/cssinjs';
-import { excludeWarning } from './excludeWarning';
 import { render } from '../utils';
 import { TriggerMockContext } from './demoTestContext';
+import { excludeWarning } from './excludeWarning';
 
 require('isomorphic-fetch');
 
@@ -73,7 +78,10 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
 
         // Inject cssinjs cache to avoid create <style /> element
         Demo = (
-          <StyleProvider cache={createCache()} linters={[logicalPropertiesLinter]}>
+          <StyleProvider
+            cache={createCache()}
+            linters={[logicalPropertiesLinter, legacyNotSelectorLinter]}
+          >
             {Demo}
           </StyleProvider>
         );
