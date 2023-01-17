@@ -95,7 +95,7 @@ describe('message.config', () => {
 
   it('should be able to config duration', async () => {
     message.config({
-      duration: 0.5,
+      duration: 5,
     });
 
     message.info('last');
@@ -104,9 +104,18 @@ describe('message.config', () => {
     expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(1);
 
     act(() => {
-      jest.advanceTimersByTime(100);
+      jest.advanceTimersByTime(4000);
     });
+
     expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(1);
+
+    act(() => {
+      jest.advanceTimersByTime(2000);
+    });
+
+    await triggerMotionEnd('.ant-message-notice');
+
+    expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(0);
 
     message.config({
       duration: undefined,

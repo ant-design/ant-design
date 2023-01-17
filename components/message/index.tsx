@@ -60,6 +60,7 @@ function getGlobalContext() {
   const {
     prefixCls: globalPrefixCls,
     getContainer: globalGetContainer,
+    duration,
     rtl,
     maxCount,
     top,
@@ -70,6 +71,7 @@ function getGlobalContext() {
   return {
     prefixCls: mergedPrefixCls,
     container: mergedContainer,
+    duration,
     rtl,
     maxCount,
     top,
@@ -82,38 +84,29 @@ interface GlobalHolderRef {
 }
 
 const GlobalHolder = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
-  const [prefixCls, setPrefixCls] = React.useState<string>();
-  const [container, setContainer] = React.useState<HTMLElement>();
-  const [maxCount, setMaxCount] = React.useState<number>();
-  const [rtl, setRTL] = React.useState<boolean>();
-  const [top, setTop] = React.useState<number>();
+  const initializeMeassgConfig: () => ConfigOptions = () => {
+    const { prefixCls, container, maxCount, duration, rtl, top } = getGlobalContext();
 
-  const [api, holder] = useInternalMessage({
-    prefixCls,
-    getContainer: () => container!,
-    maxCount,
-    rtl,
-    top,
-  });
+    return {
+      prefixCls,
+      getContainer: () => container!,
+      maxCount,
+      duration,
+      rtl,
+      top,
+    };
+  };
+
+  const [meassgConfig, setMeassgConfig] = React.useState<ConfigOptions>(initializeMeassgConfig);
+
+  const [api, holder] = useInternalMessage(meassgConfig);
 
   const global = globalConfig();
   const rootPrefixCls = global.getRootPrefixCls();
   const rootIconPrefixCls = global.getIconPrefixCls();
 
   const sync = () => {
-    const {
-      prefixCls: nextGlobalPrefixCls,
-      container: nextGlobalContainer,
-      maxCount: nextGlobalMaxCount,
-      rtl: nextGlobalRTL,
-      top: nextTop,
-    } = getGlobalContext();
-
-    setPrefixCls(nextGlobalPrefixCls);
-    setContainer(nextGlobalContainer);
-    setMaxCount(nextGlobalMaxCount);
-    setRTL(nextGlobalRTL);
-    setTop(nextTop);
+    setMeassgConfig(initializeMeassgConfig);
   };
 
   React.useEffect(sync, []);
