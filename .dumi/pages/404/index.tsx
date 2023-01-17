@@ -33,7 +33,7 @@ const NotFoundPage: React.FC<NotFoundProps> = ({ router }) => {
     // Report if necessary
     const { yuyanMonitor } = window as any;
     if (yuyanMonitor) {
-      yuyanMonitor?.log({
+      yuyanMonitor.log({
         code: 11,
         msg: `Page not found: ${location.href}; Source: ${document.referrer}`,
       });
