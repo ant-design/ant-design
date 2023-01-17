@@ -40,7 +40,11 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
     colorBgTextHover,
     tourCloseSize,
     motionDurationSlow,
+    sizePopupArrow,
+    marginXXS,
   } = token;
+
+  const dropdownArrowDistance = sizePopupArrow / 2 + marginXXS;
 
   return [
     {
@@ -234,6 +238,29 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
       contentRadius: tourBorderRadius,
       limitVerticalRadius: true,
     }),
+    // ============================= Offset ===========================
+    {
+      [componentCls]: {
+        [['&-placement-topLeft', '&-placement-top', '&-placement-topRight'].join(',')]: {
+          paddingBottom: dropdownArrowDistance,
+        },
+        [['&-placement-bottomLeft', '&-placement-bottom', '&-placement-bottomRight'].join(',')]: {
+          paddingTop: dropdownArrowDistance,
+        },
+        [['&-placement-leftTop', '&-placement-left', '&-placement-leftBottom'].join(',')]: {
+          paddingRight: {
+            _skip_check_: true,
+            value: dropdownArrowDistance,
+          },
+        },
+        [['&-placement-rightTop', '&-placement-right', '&-placement-rightBottom'].join(',')]: {
+          paddingLeft: {
+            _skip_check_: true,
+            value: dropdownArrowDistance,
+          },
+        },
+      },
+    },
   ];
 };
 

@@ -16,6 +16,7 @@ import warning from '../_util/warning';
 import { NoCompactStyle } from '../space/Compact';
 import DropdownButton from './dropdown-button';
 import useStyle from './style';
+import theme from '../theme';
 
 const Placements = [
   'topLeft',
@@ -183,6 +184,8 @@ const Dropdown: CompoundedComponent = (props) => {
   const prefixCls = getPrefixCls('dropdown', customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
+  const { token } = theme.useToken();
+
   const child = React.Children.only(children) as React.ReactElement<any>;
 
   const dropdownTrigger = cloneElement(child, {
@@ -221,6 +224,9 @@ const Dropdown: CompoundedComponent = (props) => {
   const builtinPlacements = getPlacements({
     arrowPointAtCenter: typeof arrow === 'object' && arrow.pointAtCenter,
     autoAdjustOverflow,
+    showArrow: !!arrow,
+    marginXXS: token.marginXXS,
+    arrowWidth: token.sizePopupArrow,
   });
 
   const onMenuClick = React.useCallback(() => {

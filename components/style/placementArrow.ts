@@ -3,10 +3,6 @@ import type { AliasToken } from '../theme/internal';
 import type { TokenWithCommonCls } from '../theme/util/genComponentStyleHook';
 import { roundedArrow } from './roundedArrow';
 
-function connectArrowCls(classList: string[], showArrowCls: string = '') {
-  return classList.map((cls) => `${showArrowCls}${cls}`).join(',');
-}
-
 export const MAX_VERTICAL_CONTENT_RADIUS = 8;
 
 export function getArrowOffset(options: {
@@ -51,18 +47,11 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
     };
   },
 ): CSSInterpolation {
-  const {
-    componentCls,
-    sizePopupArrow,
-    marginXXS,
-    borderRadiusXS,
-    borderRadiusOuter,
-    boxShadowPopoverArrow,
-  } = token;
+  const { componentCls, sizePopupArrow, borderRadiusXS, borderRadiusOuter, boxShadowPopoverArrow } =
+    token;
 
   const {
     colorBg,
-    showArrowCls,
     contentRadius = token.borderRadiusLG,
     limitVerticalRadius,
     arrowDistance = {
@@ -85,7 +74,6 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
     borderRadiusOuter,
     limitVerticalRadius,
   });
-  const dropdownArrowDistance = sizePopupArrow / 2 + marginXXS;
 
   /* istanbul ignore next */
   const {
@@ -152,20 +140,6 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
             value: dropdownArrowOffset,
           },
         },
-        // =========================== Offset ============================
-        // Offset the popover to account for the dropdown arrow
-        // >>>>> Top
-        [[`&-placement-topLeft`, `&-placement-top`, `&-placement-topRight`].join(',')]: {
-          paddingBottom: marginXXS,
-        },
-        ...isInject(!!showArrowCls, {
-          [connectArrowCls(
-            [`&-placement-topLeft`, `&-placement-top`, `&-placement-topRight`],
-            showArrowCls,
-          )]: {
-            paddingBottom: dropdownArrowDistance,
-          },
-        }),
       }),
 
       // >>>>> Bottom
@@ -200,20 +174,6 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
             value: dropdownArrowOffset,
           },
         },
-        // =========================== Offset ============================
-        // Offset the popover to account for the dropdown arrow
-        // >>>>> Bottom
-        [[`&-placement-bottomLeft`, `&-placement-bottom`, `&-placement-bottomRight`].join(',')]: {
-          paddingTop: marginXXS,
-        },
-        ...isInject(!!showArrowCls, {
-          [connectArrowCls(
-            [`&-placement-bottomLeft`, `&-placement-bottom`, `&-placement-bottomRight`],
-            showArrowCls,
-          )]: {
-            paddingTop: dropdownArrowDistance,
-          },
-        }),
       }),
 
       // >>>>> Left
@@ -245,26 +205,6 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
         [`&-placement-leftBottom ${componentCls}-arrow`]: {
           bottom: dropdownArrowOffsetVertical,
         },
-        // =========================== Offset ============================
-        // Offset the popover to account for the dropdown arrow
-        // >>>>> Left
-        [[`&-placement-leftTop`, `&-placement-left`, `&-placement-leftBottom`].join(',')]: {
-          paddingRight: {
-            _skip_check_: true,
-            value: marginXXS,
-          },
-        },
-        ...isInject(!!showArrowCls, {
-          [connectArrowCls(
-            [`&-placement-leftTop`, `&-placement-left`, `&-placement-leftBottom`],
-            showArrowCls,
-          )]: {
-            paddingRight: {
-              _skip_check_: true,
-              value: dropdownArrowDistance,
-            },
-          },
-        }),
       }),
 
       // >>>>> Right
@@ -296,27 +236,6 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
         [`&-placement-rightBottom ${componentCls}-arrow`]: {
           bottom: dropdownArrowOffsetVertical,
         },
-
-        // =========================== Offset ============================
-        // Offset the popover to account for the dropdown arrow
-        // >>>>> Right
-        [[`&-placement-rightTop`, `&-placement-right`, `&-placement-rightBottom`].join(',')]: {
-          paddingLeft: {
-            _skip_check_: true,
-            value: marginXXS,
-          },
-        },
-        ...isInject(!!showArrowCls, {
-          [connectArrowCls(
-            [`&-placement-rightTop`, `&-placement-right`, `&-placement-rightBottom`],
-            showArrowCls,
-          )]: {
-            paddingLeft: {
-              _skip_check_: true,
-              value: dropdownArrowDistance,
-            },
-          },
-        }),
       }),
     },
   };
