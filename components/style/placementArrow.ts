@@ -7,6 +7,10 @@ function connectArrowCls(classList: string[], showArrowCls: string = '') {
   return classList.map((cls) => `${showArrowCls}${cls}`).join(',');
 }
 
+function connectCls(classList: (string | undefined)[]) {
+  return classList.filter((item) => !!item).join(',');
+}
+
 export const MAX_VERTICAL_CONTENT_RADIUS = 8;
 
 export function getArrowOffset(options: {
@@ -152,7 +156,7 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
           showArrowCls,
         )]: {
           paddingBottom: marginXXS,
-          [`&${componentCls}-show-arrow`]: {
+          [connectCls([`&${componentCls}-show-arrow`, showArrowCls])]: {
             paddingBottom: dropdownArrowDistance,
           },
         },
@@ -198,7 +202,7 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
           showArrowCls,
         )]: {
           paddingTop: marginXXS,
-          [`&${componentCls}-show-arrow`]: {
+          [connectCls([`&${componentCls}-show-arrow`, showArrowCls])]: {
             paddingTop: dropdownArrowDistance,
           },
         },
@@ -244,7 +248,7 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
             _skip_check_: true,
             value: marginXXS,
           },
-          [`&${componentCls}-show-arrow`]: {
+          [connectCls([`&${componentCls}-show-arrow`, showArrowCls])]: {
             paddingRight: {
               _skip_check_: true,
               value: dropdownArrowDistance,
@@ -294,7 +298,7 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
             _skip_check_: true,
             value: marginXXS,
           },
-          [`&${componentCls}-show-arrow`]: {
+          [connectCls([`&${componentCls}-show-arrow`, showArrowCls])]: {
             paddingLeft: {
               _skip_check_: true,
               value: dropdownArrowDistance,
