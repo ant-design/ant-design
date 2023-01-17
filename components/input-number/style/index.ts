@@ -54,7 +54,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
       [componentCls]: {
         ...resetComponent(token),
         ...genBasicInputStyle(token),
-        ...genStatusStyle(token),
+        ...genStatusStyle(token, componentCls),
 
         display: 'inline-block',
         width: controlWidth,
@@ -308,7 +308,7 @@ const genAffixWrapperStyles: GenerateStyle<InputNumberToken> = (token: InputNumb
   return {
     [`${componentCls}-affix-wrapper`]: {
       ...genBasicInputStyle(token),
-      ...genStatusStyle(token),
+      ...genStatusStyle(token, `${componentCls}-affix-wrapper`),
       // or number handler will cover form status
       position: 'relative',
       display: 'inline-flex',
@@ -324,7 +324,7 @@ const genAffixWrapperStyles: GenerateStyle<InputNumberToken> = (token: InputNumb
         borderRadius: borderRadiusSM,
       },
 
-      '&:not(&-disabled):hover': {
+      [`&:not(${componentCls}-affix-wrapper-disabled):hover`]: {
         ...genHoverStyle(token),
         zIndex: 1,
       },

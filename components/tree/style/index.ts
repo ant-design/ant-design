@@ -88,7 +88,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         },
       },
 
-      '&-focused:not(:hover):not(&-active-focused)': {
+      [`&-focused:not(:hover):not(${treeCls}-active-focused)`]: {
         ...genFocusOutline(token),
       },
 
