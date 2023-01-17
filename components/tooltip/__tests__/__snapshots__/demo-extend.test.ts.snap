@@ -20,9 +20,9 @@ exports[`renders ./components/tooltip/demo/arrow.tsx extend context correctly 1`
         />
         <div
           class="ant-segmented-item-label"
-          title="show arrow"
+          title="Show"
         >
-          show arrow
+          Show
         </div>
       </label>
       <label
@@ -34,9 +34,9 @@ exports[`renders ./components/tooltip/demo/arrow.tsx extend context correctly 1`
         />
         <div
           class="ant-segmented-item-label"
-          title="arrow point at center"
+          title="Hide"
         >
-          arrow point at center
+          Hide
         </div>
       </label>
       <label
@@ -48,9 +48,9 @@ exports[`renders ./components/tooltip/demo/arrow.tsx extend context correctly 1`
         />
         <div
           class="ant-segmented-item-label"
-          title="hide arrow"
+          title="Center"
         >
-          hide arrow
+          Center
         </div>
       </label>
     </div>

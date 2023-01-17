@@ -1,4 +1,4 @@
-import type { CSSInterpolation } from '@ant-design/cssinjs';
+import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import type { AliasToken } from '../theme/internal';
 import type { TokenWithCommonCls } from '../theme/util/genComponentStyleHook';
 import { roundedArrow } from './roundedArrow';
@@ -25,6 +25,11 @@ export function getArrowOffset(options: {
   return { dropdownArrowOffset, dropdownArrowOffsetVertical };
 }
 
+function isInject(valid: boolean, code: CSSObject): CSSObject {
+  if (!valid) return {};
+  return code;
+}
+
 export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToken>>(
   token: Token,
   options: {
@@ -32,7 +37,18 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
     showArrowCls?: string;
     contentRadius?: number;
     limitVerticalRadius?: boolean;
-    isDropdown?: boolean;
+    arrowDistance?: {
+      left?: number;
+      right?: number;
+      top?: number;
+      bottom?: number;
+    };
+    arrowPlacement?: {
+      left?: boolean;
+      right?: boolean;
+      top?: boolean;
+      bottom?: boolean;
+    };
   },
 ): CSSInterpolation {
   const {
@@ -49,7 +65,18 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
     showArrowCls,
     contentRadius = token.borderRadiusLG,
     limitVerticalRadius,
-    isDropdown = false,
+    arrowDistance = {
+      left: 0,
+      right: 0,
+      top: 0,
+      bottom: 0,
+    },
+    arrowPlacement = {
+      left: true,
+      right: true,
+      top: true,
+      bottom: true,
+    },
   } = options;
 
   const { dropdownArrowOffsetVertical, dropdownArrowOffset } = getArrowOffset({
@@ -86,184 +113,195 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
       // ========================== Placement ==========================
       // Here handle the arrow position and rotate stuff
       // >>>>> Top
-      [[
-        `&-placement-top ${componentCls}-arrow`,
-        `&-placement-topLeft ${componentCls}-arrow`,
-        `&-placement-topRight ${componentCls}-arrow`,
-      ].join(',')]: {
-        bottom: isDropdown ? dropdownArrowDistance : 0,
-        transform: 'translateY(100%) rotate(180deg)',
-      },
-
-      [`&-placement-top ${componentCls}-arrow`]: {
-        left: {
-          _skip_check_: true,
-          value: '50%',
+      ...isInject(arrowPlacement.top ?? true, {
+        [[
+          `&-placement-top ${componentCls}-arrow`,
+          `&-placement-topLeft ${componentCls}-arrow`,
+          `&-placement-topRight ${componentCls}-arrow`,
+        ].join(',')]: {
+          bottom: arrowDistance.bottom ?? 0,
+          transform: 'translateY(100%) rotate(180deg)',
         },
-        transform: 'translateX(-50%) translateY(100%) rotate(180deg)',
-      },
 
-      [`&-placement-topLeft ${componentCls}-arrow`]: {
-        left: {
-          _skip_check_: true,
-          value: dropdownArrowOffset,
+        [`&-placement-top ${componentCls}-arrow`]: {
+          left: {
+            _skip_check_: true,
+            value: '50%',
+          },
+          transform: 'translateX(-50%) translateY(100%) rotate(180deg)',
         },
-      },
 
-      [`&-placement-topRight ${componentCls}-arrow`]: {
-        right: {
-          _skip_check_: true,
-          value: dropdownArrowOffset,
+        [`&-placement-topLeft ${componentCls}-arrow`]: {
+          left: {
+            _skip_check_: true,
+            value: dropdownArrowOffset,
+          },
         },
-      },
+
+        [`&-placement-topRight ${componentCls}-arrow`]: {
+          right: {
+            _skip_check_: true,
+            value: dropdownArrowOffset,
+          },
+        },
+        // =========================== Offset ============================
+        // Offset the popover to account for the dropdown arrow
+        // >>>>> Top
+        [connectArrowCls(
+          [`&-placement-topLeft`, `&-placement-top`, `&-placement-topRight`],
+          showArrowCls,
+        )]: {
+          paddingBottom: marginXXS,
+          [`&${componentCls}-show-arrow`]: {
+            paddingBottom: dropdownArrowDistance,
+          },
+        },
+      }),
 
       // >>>>> Bottom
-      [[
-        `&-placement-bottom ${componentCls}-arrow`,
-        `&-placement-bottomLeft ${componentCls}-arrow`,
-        `&-placement-bottomRight ${componentCls}-arrow`,
-      ].join(',')]: {
-        top: isDropdown ? dropdownArrowDistance : 0,
-        transform: `translateY(-100%)`,
-      },
-
-      [`&-placement-bottom ${componentCls}-arrow`]: {
-        left: {
-          _skip_check_: true,
-          value: '50%',
+      ...isInject(arrowPlacement.bottom ?? true, {
+        [[
+          `&-placement-bottom ${componentCls}-arrow`,
+          `&-placement-bottomLeft ${componentCls}-arrow`,
+          `&-placement-bottomRight ${componentCls}-arrow`,
+        ].join(',')]: {
+          top: arrowDistance.top ?? 0,
+          transform: `translateY(-100%)`,
         },
-        transform: `translateX(-50%) translateY(-100%)`,
-      },
 
-      [`&-placement-bottomLeft ${componentCls}-arrow`]: {
-        left: {
-          _skip_check_: true,
-          value: dropdownArrowOffset,
+        [`&-placement-bottom ${componentCls}-arrow`]: {
+          left: {
+            _skip_check_: true,
+            value: '50%',
+          },
+          transform: `translateX(-50%) translateY(-100%)`,
         },
-      },
 
-      [`&-placement-bottomRight ${componentCls}-arrow`]: {
-        right: {
-          _skip_check_: true,
-          value: dropdownArrowOffset,
+        [`&-placement-bottomLeft ${componentCls}-arrow`]: {
+          left: {
+            _skip_check_: true,
+            value: dropdownArrowOffset,
+          },
         },
-      },
+
+        [`&-placement-bottomRight ${componentCls}-arrow`]: {
+          right: {
+            _skip_check_: true,
+            value: dropdownArrowOffset,
+          },
+        },
+        // =========================== Offset ============================
+        // Offset the popover to account for the dropdown arrow
+        // >>>>> Bottom
+        [connectArrowCls(
+          [`&-placement-bottomLeft`, `&-placement-bottom`, `&-placement-bottomRight`],
+          showArrowCls,
+        )]: {
+          paddingTop: marginXXS,
+          [`&${componentCls}-show-arrow`]: {
+            paddingTop: dropdownArrowDistance,
+          },
+        },
+      }),
 
       // >>>>> Left
-      [[
-        `&-placement-left ${componentCls}-arrow`,
-        `&-placement-leftTop ${componentCls}-arrow`,
-        `&-placement-leftBottom ${componentCls}-arrow`,
-      ].join(',')]: {
-        right: {
-          _skip_check_: true,
-          value: 0,
+      ...isInject(arrowPlacement.left ?? true, {
+        [[
+          `&-placement-left ${componentCls}-arrow`,
+          `&-placement-leftTop ${componentCls}-arrow`,
+          `&-placement-leftBottom ${componentCls}-arrow`,
+        ].join(',')]: {
+          right: {
+            _skip_check_: true,
+            value: arrowDistance.right ?? 0,
+          },
+          transform: 'translateX(100%) rotate(90deg)',
         },
-        transform: 'translateX(100%) rotate(90deg)',
-      },
 
-      [`&-placement-left ${componentCls}-arrow`]: {
-        top: {
-          _skip_check_: true,
-          value: '50%',
+        [`&-placement-left ${componentCls}-arrow`]: {
+          top: {
+            _skip_check_: true,
+            value: '50%',
+          },
+          transform: 'translateY(-50%) translateX(100%) rotate(90deg)',
         },
-        transform: 'translateY(-50%) translateX(100%) rotate(90deg)',
-      },
 
-      [`&-placement-leftTop ${componentCls}-arrow`]: {
-        top: dropdownArrowOffsetVertical,
-      },
-
-      [`&-placement-leftBottom ${componentCls}-arrow`]: {
-        bottom: dropdownArrowOffsetVertical,
-      },
-
-      // >>>>> Right
-      [[
-        `&-placement-right ${componentCls}-arrow`,
-        `&-placement-rightTop ${componentCls}-arrow`,
-        `&-placement-rightBottom ${componentCls}-arrow`,
-      ].join(',')]: {
-        left: {
-          _skip_check_: true,
-          value: 0,
+        [`&-placement-leftTop ${componentCls}-arrow`]: {
+          top: dropdownArrowOffsetVertical,
         },
-        transform: 'translateX(-100%) rotate(-90deg)',
-      },
 
-      [`&-placement-right ${componentCls}-arrow`]: {
-        top: {
-          _skip_check_: true,
-          value: '50%',
+        [`&-placement-leftBottom ${componentCls}-arrow`]: {
+          bottom: dropdownArrowOffsetVertical,
         },
-        transform: 'translateY(-50%) translateX(-100%) rotate(-90deg)',
-      },
-
-      [`&-placement-rightTop ${componentCls}-arrow`]: {
-        top: dropdownArrowOffsetVertical,
-      },
-
-      [`&-placement-rightBottom ${componentCls}-arrow`]: {
-        bottom: dropdownArrowOffsetVertical,
-      },
-
-      // =========================== Offset ============================
-      // Offset the popover to account for the dropdown arrow
-      // >>>>> Top
-      [connectArrowCls(
-        [`&-placement-topLeft`, `&-placement-top`, `&-placement-topRight`],
-        showArrowCls,
-      )]: {
-        paddingBottom: marginXXS,
-        [`&${componentCls}-show-arrow`]: {
-          paddingBottom: dropdownArrowDistance,
-        },
-      },
-
-      // >>>>> Bottom
-      [connectArrowCls(
-        [`&-placement-bottomLeft`, `&-placement-bottom`, `&-placement-bottomRight`],
-        showArrowCls,
-      )]: {
-        paddingTop: marginXXS,
-        [`&${componentCls}-show-arrow`]: {
-          paddingTop: dropdownArrowDistance,
-        },
-      },
-
-      // >>>>> Left
-      [connectArrowCls(
-        [`&-placement-leftTop`, `&-placement-left`, `&-placement-leftBottom`],
-        showArrowCls,
-      )]: {
-        paddingRight: {
-          _skip_check_: true,
-          value: marginXXS,
-        },
-        [`&${componentCls}-show-arrow`]: {
+        // =========================== Offset ============================
+        // Offset the popover to account for the dropdown arrow
+        // >>>>> Left
+        [connectArrowCls(
+          [`&-placement-leftTop`, `&-placement-left`, `&-placement-leftBottom`],
+          showArrowCls,
+        )]: {
           paddingRight: {
             _skip_check_: true,
-            value: dropdownArrowDistance,
+            value: marginXXS,
+          },
+          [`&${componentCls}-show-arrow`]: {
+            paddingRight: {
+              _skip_check_: true,
+              value: dropdownArrowDistance,
+            },
           },
         },
-      },
+      }),
 
       // >>>>> Right
-      [connectArrowCls(
-        [`&-placement-rightTop`, `&-placement-right`, `&-placement-rightBottom`],
-        showArrowCls,
-      )]: {
-        paddingLeft: {
-          _skip_check_: true,
-          value: marginXXS,
+      ...isInject(arrowPlacement.right ?? true, {
+        [[
+          `&-placement-right ${componentCls}-arrow`,
+          `&-placement-rightTop ${componentCls}-arrow`,
+          `&-placement-rightBottom ${componentCls}-arrow`,
+        ].join(',')]: {
+          left: {
+            _skip_check_: true,
+            value: arrowDistance.left ?? 0,
+          },
+          transform: 'translateX(-100%) rotate(-90deg)',
         },
-        [`&${componentCls}-show-arrow`]: {
+
+        [`&-placement-right ${componentCls}-arrow`]: {
+          top: {
+            _skip_check_: true,
+            value: '50%',
+          },
+          transform: 'translateY(-50%) translateX(-100%) rotate(-90deg)',
+        },
+
+        [`&-placement-rightTop ${componentCls}-arrow`]: {
+          top: dropdownArrowOffsetVertical,
+        },
+
+        [`&-placement-rightBottom ${componentCls}-arrow`]: {
+          bottom: dropdownArrowOffsetVertical,
+        },
+
+        // =========================== Offset ============================
+        // Offset the popover to account for the dropdown arrow
+        // >>>>> Right
+        [connectArrowCls(
+          [`&-placement-rightTop`, `&-placement-right`, `&-placement-rightBottom`],
+          showArrowCls,
+        )]: {
           paddingLeft: {
             _skip_check_: true,
-            value: dropdownArrowDistance,
+            value: marginXXS,
+          },
+          [`&${componentCls}-show-arrow`]: {
+            paddingLeft: {
+              _skip_check_: true,
+              value: dropdownArrowDistance,
+            },
           },
         },
-      },
+      }),
     },
   };
 }

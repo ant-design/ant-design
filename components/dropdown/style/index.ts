@@ -139,9 +139,15 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
     // =============================================================
     getArrowStyle<DropdownToken>(token, {
       colorBg: colorBgElevated,
-      showArrowCls: '',
       limitVerticalRadius: true,
-      isDropdown: true,
+      arrowDistance: {
+        bottom: sizePopupArrow / 2 + token.marginXXS,
+        top: sizePopupArrow / 2 + token.marginXXS,
+      },
+      arrowPlacement: {
+        left: false,
+        right: false,
+      },
     }),
 
     {
