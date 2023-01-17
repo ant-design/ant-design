@@ -72,6 +72,43 @@ describe('Modal.hook', () => {
     jest.useRealTimers();
   });
 
+  it('destroyAll works with contextHolder', () => {
+    const modalTypes = ['info', 'success', 'warning', 'error'] as const;
+
+    const Demo = () => {
+      const [modal, contextHolder] = Modal.useModal();
+
+      function showConfirm() {
+        modalTypes.forEach((type) => {
+          modal[type]({
+            title: 'title',
+            content: 'content',
+          });
+        });
+      }
+
+      return (
+        <div className="App">
+          {contextHolder}
+          <div className="open-hook-modal-btn" onClick={showConfirm}>
+            confirm
+          </div>
+        </div>
+      );
+    };
+
+    const { container } = render(<Demo />);
+    fireEvent.click(container.querySelectorAll('.open-hook-modal-btn')[0]);
+
+    expect(document.body.querySelectorAll('.ant-modal')).toHaveLength(modalTypes.length);
+
+    // Update instance
+    act(() => {
+      Modal.destroyAll();
+    });
+    expect(document.body.querySelectorAll('.ant-modal')).toHaveLength(0);
+  });
+
   it('context support config direction', () => {
     jest.useFakeTimers();
     const Demo = () => {
