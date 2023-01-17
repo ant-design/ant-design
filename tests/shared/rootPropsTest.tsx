@@ -4,6 +4,7 @@ import ConfigProvider from '../../components/config-provider';
 import { render, waitFakeTimer } from '../utils';
 
 export interface Options {
+  name?: string;
   findRootElements?: (container: HTMLElement) => HTMLCollection | Element[] | NodeListOf<Element>;
   expectCount?: number;
   beforeRender?: () => void;
@@ -15,8 +16,9 @@ export default function rootPropsTest(
   options?: Options,
 ) {
   const Component = require(`../../components/${component}`).default as any;
+  const name = options?.name ? `(${options.name})` : '';
 
-  describe('RootProps', () => {
+  describe(`RootProps${name}`, () => {
     beforeEach(() => {
       jest.useFakeTimers();
     });
