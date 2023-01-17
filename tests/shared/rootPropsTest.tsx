@@ -5,9 +5,15 @@ import { render, waitFakeTimer } from '../utils';
 
 export interface Options {
   name?: string;
-  findRootElements?: (container: HTMLElement) => HTMLCollection | Element[] | NodeListOf<Element>;
+  findRootElements?: (
+    container: HTMLElement,
+  ) => Element | HTMLCollection | Element[] | NodeListOf<Element>;
   expectCount?: number;
   beforeRender?: () => void;
+}
+
+function isSingleNode(node: any): node is Element {
+  return node && !Array.isArray(node);
 }
 
 export default function rootPropsTest(
@@ -72,7 +78,11 @@ export default function rootPropsTest(
       await waitFakeTimer();
 
       const holder = container.querySelector<HTMLElement>('#holder')!;
-      const childList = Array.from(options?.findRootElements?.(holder) ?? holder.children);
+      let customizeFindNodes = options?.findRootElements?.(holder);
+      if (isSingleNode(customizeFindNodes)) {
+        customizeFindNodes = [customizeFindNodes];
+      }
+      const childList = Array.from(customizeFindNodes ?? holder.children);
 
       expect(childList.length).toBeGreaterThan(0);
       if (options?.expectCount) {
