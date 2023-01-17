@@ -33,7 +33,7 @@ const App: React.FC = () => {
         Begin Tour
       </Button>
 
-      <Tour open={open} onClose={() => setOpen(false)} steps={steps} />
+      <Tour open={open} onClose={() => setOpen(false)} steps={steps} arrow={false} />
     </>
   );
 };

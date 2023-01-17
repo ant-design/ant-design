@@ -84,7 +84,10 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
     },
 
     // Arrow Style
-    getArrowStyle(token, { colorBg: 'var(--antd-arrow-background-color)' }),
+    getArrowStyle(token, {
+      colorBg: 'var(--antd-arrow-background-color)',
+      showArrowCls: `${componentCls}-show-arrow`,
+    }),
 
     // Pure Render
     {

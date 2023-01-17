@@ -7,10 +7,6 @@ function connectArrowCls(classList: string[], showArrowCls: string = '') {
   return classList.map((cls) => `${showArrowCls}${cls}`).join(',');
 }
 
-function connectCls(classList: (string | undefined)[]) {
-  return classList.filter((item) => !!item).join(',');
-}
-
 export const MAX_VERTICAL_CONTENT_RADIUS = 8;
 
 export function getArrowOffset(options: {
@@ -91,6 +87,13 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
   });
   const dropdownArrowDistance = sizePopupArrow / 2 + marginXXS;
 
+  const {
+    left: leftArrowDistance = 0,
+    right: rightArrowDistance = 0,
+    top: topArrowDistance = 0,
+    bottom: bottomArrowDistance = 0,
+  } = arrowDistance;
+
   return {
     [componentCls]: {
       // ============================ Basic ============================
@@ -117,13 +120,13 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
       // ========================== Placement ==========================
       // Here handle the arrow position and rotate stuff
       // >>>>> Top
-      ...isInject(arrowPlacement.top ?? true, {
+      ...isInject(!!arrowPlacement.top, {
         [[
           `&-placement-top ${componentCls}-arrow`,
           `&-placement-topLeft ${componentCls}-arrow`,
           `&-placement-topRight ${componentCls}-arrow`,
         ].join(',')]: {
-          bottom: arrowDistance.bottom ?? 0,
+          bottom: bottomArrowDistance,
           transform: 'translateY(100%) rotate(180deg)',
         },
 
@@ -151,25 +154,27 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
         // =========================== Offset ============================
         // Offset the popover to account for the dropdown arrow
         // >>>>> Top
-        [connectArrowCls(
-          [`&-placement-topLeft`, `&-placement-top`, `&-placement-topRight`],
-          showArrowCls,
-        )]: {
+        [[`&-placement-topLeft`, `&-placement-top`, `&-placement-topRight`].join(',')]: {
           paddingBottom: marginXXS,
-          [connectCls([`&${componentCls}-show-arrow`, showArrowCls])]: {
+        },
+        ...isInject(!!showArrowCls, {
+          [connectArrowCls(
+            [`&-placement-topLeft`, `&-placement-top`, `&-placement-topRight`],
+            showArrowCls,
+          )]: {
             paddingBottom: dropdownArrowDistance,
           },
-        },
+        }),
       }),
 
       // >>>>> Bottom
-      ...isInject(arrowPlacement.bottom ?? true, {
+      ...isInject(!!arrowPlacement.bottom, {
         [[
           `&-placement-bottom ${componentCls}-arrow`,
           `&-placement-bottomLeft ${componentCls}-arrow`,
           `&-placement-bottomRight ${componentCls}-arrow`,
         ].join(',')]: {
-          top: arrowDistance.top ?? 0,
+          top: topArrowDistance,
           transform: `translateY(-100%)`,
         },
 
@@ -197,19 +202,21 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
         // =========================== Offset ============================
         // Offset the popover to account for the dropdown arrow
         // >>>>> Bottom
-        [connectArrowCls(
-          [`&-placement-bottomLeft`, `&-placement-bottom`, `&-placement-bottomRight`],
-          showArrowCls,
-        )]: {
+        [[`&-placement-bottomLeft`, `&-placement-bottom`, `&-placement-bottomRight`].join(',')]: {
           paddingTop: marginXXS,
-          [connectCls([`&${componentCls}-show-arrow`, showArrowCls])]: {
+        },
+        ...isInject(!!showArrowCls, {
+          [connectArrowCls(
+            [`&-placement-bottomLeft`, `&-placement-bottom`, `&-placement-bottomRight`],
+            showArrowCls,
+          )]: {
             paddingTop: dropdownArrowDistance,
           },
-        },
+        }),
       }),
 
       // >>>>> Left
-      ...isInject(arrowPlacement.left ?? true, {
+      ...isInject(!!arrowPlacement.left, {
         [[
           `&-placement-left ${componentCls}-arrow`,
           `&-placement-leftTop ${componentCls}-arrow`,
@@ -217,7 +224,7 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
         ].join(',')]: {
           right: {
             _skip_check_: true,
-            value: arrowDistance.right ?? 0,
+            value: rightArrowDistance,
           },
           transform: 'translateX(100%) rotate(90deg)',
         },
@@ -240,25 +247,27 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
         // =========================== Offset ============================
         // Offset the popover to account for the dropdown arrow
         // >>>>> Left
-        [connectArrowCls(
-          [`&-placement-leftTop`, `&-placement-left`, `&-placement-leftBottom`],
-          showArrowCls,
-        )]: {
+        [[`&-placement-leftTop`, `&-placement-left`, `&-placement-leftBottom`].join(',')]: {
           paddingRight: {
             _skip_check_: true,
             value: marginXXS,
           },
-          [connectCls([`&${componentCls}-show-arrow`, showArrowCls])]: {
+        },
+        ...isInject(!!showArrowCls, {
+          [connectArrowCls(
+            [`&-placement-leftTop`, `&-placement-left`, `&-placement-leftBottom`],
+            showArrowCls,
+          )]: {
             paddingRight: {
               _skip_check_: true,
               value: dropdownArrowDistance,
             },
           },
-        },
+        }),
       }),
 
       // >>>>> Right
-      ...isInject(arrowPlacement.right ?? true, {
+      ...isInject(!!arrowPlacement.right, {
         [[
           `&-placement-right ${componentCls}-arrow`,
           `&-placement-rightTop ${componentCls}-arrow`,
@@ -266,7 +275,7 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
         ].join(',')]: {
           left: {
             _skip_check_: true,
-            value: arrowDistance.left ?? 0,
+            value: leftArrowDistance,
           },
           transform: 'translateX(-100%) rotate(-90deg)',
         },
@@ -290,21 +299,23 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
         // =========================== Offset ============================
         // Offset the popover to account for the dropdown arrow
         // >>>>> Right
-        [connectArrowCls(
-          [`&-placement-rightTop`, `&-placement-right`, `&-placement-rightBottom`],
-          showArrowCls,
-        )]: {
+        [[`&-placement-rightTop`, `&-placement-right`, `&-placement-rightBottom`].join(',')]: {
           paddingLeft: {
             _skip_check_: true,
             value: marginXXS,
           },
-          [connectCls([`&${componentCls}-show-arrow`, showArrowCls])]: {
+        },
+        ...isInject(!!showArrowCls, {
+          [connectArrowCls(
+            [`&-placement-rightTop`, `&-placement-right`, `&-placement-rightBottom`],
+            showArrowCls,
+          )]: {
             paddingLeft: {
               _skip_check_: true,
               value: dropdownArrowDistance,
             },
           },
-        },
+        }),
       }),
     },
   };
