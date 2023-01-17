@@ -4,14 +4,14 @@ import type { placements as Placements } from 'rc-tooltip/lib/placements';
 import type { TooltipProps as RcTooltipProps } from 'rc-tooltip/lib/Tooltip';
 import type { AlignType } from 'rc-trigger/lib/interface';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import * as React from 'react';
 import type { CSSProperties } from 'react';
+import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import type { PresetColorType } from '../_util/colors';
 import { getTransitionName } from '../_util/motion';
 import type { AdjustOverflow, PlacementsConfig } from '../_util/placements';
 import getPlacements from '../_util/placements';
-import { cloneElement, isValidElement, isFragment } from '../_util/reactNode';
+import { cloneElement, isFragment, isValidElement } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
 import warning from '../_util/warning';
 import PurePanel from './PurePanel';
@@ -72,6 +72,7 @@ interface LegacyTooltipProps
 export interface AbstractTooltipProps extends LegacyTooltipProps {
   style?: React.CSSProperties;
   className?: string;
+  rootClassName?: string;
   color?: LiteralUnion<PresetColorType>;
   placement?: TooltipPlacement;
   builtinPlacements?: typeof Placements;
@@ -267,6 +268,7 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
     mouseEnterDelay = 0.1,
     mouseLeaveDelay = 0.1,
     overlayStyle,
+    rootClassName,
     ...otherProps
   } = props;
 
@@ -307,6 +309,7 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     colorInfo.className,
+    rootClassName,
     hashId,
   );
 
