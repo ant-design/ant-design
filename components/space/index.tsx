@@ -4,8 +4,8 @@ import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import type { SizeType } from '../config-provider/SizeContext';
 import useFlexGapSupport from '../_util/hooks/useFlexGapSupport';
-import Item from './Item';
 import Compact from './Compact';
+import Item from './Item';
 
 import useStyle from './style';
 
@@ -21,6 +21,7 @@ export type SpaceSize = SizeType | number;
 export interface SpaceProps extends React.HTMLAttributes<HTMLDivElement> {
   prefixCls?: string;
   className?: string;
+  rootClassName?: string;
   style?: React.CSSProperties;
   size?: SpaceSize | [SpaceSize, SpaceSize];
   direction?: 'horizontal' | 'vertical';
@@ -47,6 +48,7 @@ const Space: React.FC<SpaceProps> = (props) => {
     size = space?.size || 'small',
     align,
     className,
+    rootClassName,
     children,
     direction = 'horizontal',
     prefixCls: customizePrefixCls,
@@ -81,6 +83,7 @@ const Space: React.FC<SpaceProps> = (props) => {
       [`${prefixCls}-align-${mergedAlign}`]: mergedAlign,
     },
     className,
+    rootClassName,
   );
 
   const itemClassName = `${prefixCls}-item`;
