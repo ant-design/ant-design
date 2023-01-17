@@ -88,7 +88,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         },
       },
 
-      '&-focused:not(:hover):not(&-active-focused)': {
+      [`&-focused:not(:hover):not(${treeCls}-active-focused)`]: {
         ...genFocusOutline(token),
       },
 
@@ -156,7 +156,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
           ...genFocusOutline(token),
         },
 
-        [`&:not(&-disabled).filter-node ${treeCls}-title`]: {
+        [`&:not(${treeNodeCls}-disabled).filter-node ${treeCls}-title`]: {
           color: 'inherit',
           fontWeight: 500,
         },

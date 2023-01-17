@@ -42,7 +42,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
   );
 
   return {
-    [`${componentCls}`]: {
+    [componentCls]: {
       ...resetComponent(token),
       ...genBasicInputStyle(token),
 
@@ -55,7 +55,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
       whiteSpace: 'pre-wrap',
       verticalAlign: 'bottom',
 
-      ...genStatusStyle(token),
+      ...genStatusStyle(token, componentCls),
 
       '&-disabled': {
         '> textarea': {

@@ -1,11 +1,16 @@
-import React, { startTransition, useCallback, useEffect, useMemo } from 'react';
-import { createSearchParams, useOutlet, useSearchParams } from 'dumi';
+import {
+  createCache,
+  legacyNotSelectorLinter,
+  logicalPropertiesLinter,
+  StyleProvider,
+} from '@ant-design/cssinjs';
 import { ConfigProvider, theme as antdTheme } from 'antd';
-import { createCache, StyleProvider, logicalPropertiesLinter } from '@ant-design/cssinjs';
 import type { DirectionType } from 'antd/es/config-provider';
-import ThemeSwitch from '../common/ThemeSwitch';
-import type { ThemeName } from '../common/ThemeSwitch';
+import { createSearchParams, useOutlet, useSearchParams } from 'dumi';
+import React, { startTransition, useCallback, useEffect, useMemo } from 'react';
 import useLocation from '../../hooks/useLocation';
+import type { ThemeName } from '../common/ThemeSwitch';
+import ThemeSwitch from '../common/ThemeSwitch';
 import type { SiteContextProps } from '../slots/SiteContext';
 import SiteContext from '../slots/SiteContext';
 
@@ -102,7 +107,7 @@ const GlobalLayout: React.FC = () => {
   );
 
   return (
-    <StyleProvider cache={styleCache} linters={[logicalPropertiesLinter]}>
+    <StyleProvider cache={styleCache} linters={[logicalPropertiesLinter, legacyNotSelectorLinter]}>
       <SiteContext.Provider value={siteContextValue}>
         <ConfigProvider
           theme={{
