@@ -17,7 +17,7 @@ const App: React.FC = () => {
   return (
     <div className="demo">
       <Segmented
-        options={['show arrow', 'arrow point at center', 'hide arrow']}
+        options={['Hide', 'Show', 'Center']}
         onChange={(val) => {
           setShowArrow(val !== 'hide arrow');
           setArrowAtCenter(val === 'arrow point at center');
