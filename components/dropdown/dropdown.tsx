@@ -225,8 +225,7 @@ const Dropdown: CompoundedComponent = (props) => {
     arrowPointAtCenter: typeof arrow === 'object' && arrow.pointAtCenter,
     autoAdjustOverflow,
     offset: token.marginXXS,
-    // eslint-disable-next-line no-extra-boolean-cast
-    arrowWidth: !!arrow ? token.sizePopupArrow : 0,
+    arrowWidth: arrow ? token.sizePopupArrow : 0,
   });
 
   const onMenuClick = React.useCallback(() => {
