@@ -240,62 +240,120 @@ Array [
       Presets
     </span>
   </div>,
-  <div>
-    <span
-      class="ant-tag ant-tag-magenta"
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center"
+    style="flex-wrap:wrap;margin-bottom:-8px"
+  >
+    <div
+      class="ant-space-item"
+      style="margin-right:0;padding-bottom:8px"
     >
-      magenta
-    </span>
-    <span
-      class="ant-tag ant-tag-red"
+      <span
+        class="ant-tag ant-tag-magenta"
+      >
+        magenta
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right:0;padding-bottom:8px"
     >
-      red
-    </span>
-    <span
-      class="ant-tag ant-tag-volcano"
+      <span
+        class="ant-tag ant-tag-red"
+      >
+        red
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right:0;padding-bottom:8px"
     >
-      volcano
-    </span>
-    <span
-      class="ant-tag ant-tag-orange"
+      <span
+        class="ant-tag ant-tag-volcano"
+      >
+        volcano
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right:0;padding-bottom:8px"
     >
-      orange
-    </span>
-    <span
-      class="ant-tag ant-tag-gold"
+      <span
+        class="ant-tag ant-tag-orange"
+      >
+        orange
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right:0;padding-bottom:8px"
     >
-      gold
-    </span>
-    <span
-      class="ant-tag ant-tag-lime"
+      <span
+        class="ant-tag ant-tag-gold"
+      >
+        gold
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right:0;padding-bottom:8px"
     >
-      lime
-    </span>
-    <span
-      class="ant-tag ant-tag-green"
+      <span
+        class="ant-tag ant-tag-lime"
+      >
+        lime
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right:0;padding-bottom:8px"
     >
-      green
-    </span>
-    <span
-      class="ant-tag ant-tag-cyan"
+      <span
+        class="ant-tag ant-tag-green"
+      >
+        green
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right:0;padding-bottom:8px"
     >
-      cyan
-    </span>
-    <span
-      class="ant-tag ant-tag-blue"
+      <span
+        class="ant-tag ant-tag-cyan"
+      >
+        cyan
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right:0;padding-bottom:8px"
     >
-      blue
-    </span>
-    <span
-      class="ant-tag ant-tag-geekblue"
+      <span
+        class="ant-tag ant-tag-blue"
+      >
+        blue
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right:0;padding-bottom:8px"
     >
-      geekblue
-    </span>
-    <span
-      class="ant-tag ant-tag-purple"
+      <span
+        class="ant-tag ant-tag-geekblue"
+      >
+        geekblue
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+      style="padding-bottom:8px"
     >
-      purple
-    </span>
+      <span
+        class="ant-tag ant-tag-purple"
+      >
+        purple
+      </span>
+    </div>
   </div>,
   <div
     class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
@@ -307,105 +365,174 @@ Array [
       Custom
     </span>
   </div>,
-  <div>
-    <span
-      class="ant-tag ant-tag-has-color"
-      style="background-color:#f50"
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center"
+    style="flex-wrap:wrap;margin-bottom:-8px"
+  >
+    <div
+      class="ant-space-item"
+      style="margin-right:0;padding-bottom:8px"
     >
-      #f50
-    </span>
-    <span
-      class="ant-tag ant-tag-has-color"
-      style="background-color:#2db7f5"
+      <span
+        class="ant-tag ant-tag-has-color"
+        style="background-color:#f50"
+      >
+        #f50
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right:0;padding-bottom:8px"
     >
-      #2db7f5
-    </span>
-    <span
-      class="ant-tag ant-tag-has-color"
-      style="background-color:#87d068"
+      <span
+        class="ant-tag ant-tag-has-color"
+        style="background-color:#2db7f5"
+      >
+        #2db7f5
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right:0;padding-bottom:8px"
     >
-      #87d068
-    </span>
-    <span
-      class="ant-tag ant-tag-has-color"
-      style="background-color:#108ee9"
+      <span
+        class="ant-tag ant-tag-has-color"
+        style="background-color:#87d068"
+      >
+        #87d068
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+      style="padding-bottom:8px"
     >
-      #108ee9
-    </span>
+      <span
+        class="ant-tag ant-tag-has-color"
+        style="background-color:#108ee9"
+      >
+        #108ee9
+      </span>
+    </div>
   </div>,
 ]
 `;
 
 exports[`renders ./components/tag/demo/colorful-inverse.tsx correctly 1`] = `
-Array [
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center"
+  style="flex-wrap:wrap;margin-bottom:-8px"
+>
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
-    role="separator"
+    class="ant-space-item"
+    style="margin-right:0;padding-bottom:8px"
   >
-    <span
-      class="ant-divider-inner-text"
-    >
-      Presets Inverse
-    </span>
-  </div>,
-  <div>
     <span
       class="ant-tag ant-tag-magenta-inverse"
     >
       magenta
     </span>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-right:0;padding-bottom:8px"
+  >
     <span
       class="ant-tag ant-tag-red-inverse"
     >
       red
     </span>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-right:0;padding-bottom:8px"
+  >
     <span
       class="ant-tag ant-tag-volcano-inverse"
     >
       volcano
     </span>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-right:0;padding-bottom:8px"
+  >
     <span
       class="ant-tag ant-tag-orange-inverse"
     >
       orange
     </span>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-right:0;padding-bottom:8px"
+  >
     <span
       class="ant-tag ant-tag-gold-inverse"
     >
       gold
     </span>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-right:0;padding-bottom:8px"
+  >
     <span
       class="ant-tag ant-tag-lime-inverse"
     >
       lime
     </span>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-right:0;padding-bottom:8px"
+  >
     <span
       class="ant-tag ant-tag-green-inverse"
     >
       green
     </span>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-right:0;padding-bottom:8px"
+  >
     <span
       class="ant-tag ant-tag-cyan-inverse"
     >
       cyan
     </span>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-right:0;padding-bottom:8px"
+  >
     <span
       class="ant-tag ant-tag-blue-inverse"
     >
       blue
     </span>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-right:0;padding-bottom:8px"
+  >
     <span
       class="ant-tag ant-tag-geekblue-inverse"
     >
       geekblue
     </span>
+  </div>
+  <div
+    class="ant-space-item"
+    style="padding-bottom:8px"
+  >
     <span
       class="ant-tag ant-tag-purple-inverse"
     >
       purple
     </span>
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`renders ./components/tag/demo/control.tsx correctly 1`] = `
