@@ -3,17 +3,18 @@ import classNames from 'classnames';
 import RcDropdown from 'rc-dropdown';
 import useEvent from 'rc-util/lib/hooks/useEvent';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import omit from 'rc-util/lib/omit';
 import * as React from 'react';
-import Menu from '../menu';
-import type { MenuProps } from '../menu';
 import { ConfigContext } from '../config-provider';
+import type { MenuProps } from '../menu';
+import Menu from '../menu';
 import { OverrideProvider } from '../menu/OverrideContext';
-import genPurePanel from '../_util/PurePanel';
+import { NoCompactStyle } from '../space/Compact';
 import type { AdjustOverflow } from '../_util/placements';
 import getPlacements from '../_util/placements';
+import genPurePanel from '../_util/PurePanel';
 import { cloneElement } from '../_util/reactNode';
 import warning from '../_util/warning';
-import { NoCompactStyle } from '../space/Compact';
 import DropdownButton from './dropdown-button';
 import useStyle from './style';
 
@@ -62,7 +63,7 @@ export interface DropdownProps {
   align?: Align;
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   prefixCls?: string;
-  className?: string;
+  rootClassName?: string;
   transitionName?: string;
   placement?: Placement;
   overlayClassName?: string;
@@ -156,6 +157,7 @@ const Dropdown: CompoundedComponent = (props) => {
     dropdownRender,
     getPopupContainer,
     overlayClassName,
+    rootClassName,
     open,
     onOpenChange,
 
@@ -214,7 +216,7 @@ const Dropdown: CompoundedComponent = (props) => {
   });
 
   // =========================== Overlay ============================
-  const overlayClassNameCustomized = classNames(overlayClassName, hashId, {
+  const overlayClassNameCustomized = classNames(overlayClassName, rootClassName, hashId, {
     [`${prefixCls}-rtl`]: direction === 'rtl',
   });
 
@@ -276,7 +278,7 @@ const Dropdown: CompoundedComponent = (props) => {
   return wrapSSR(
     <RcDropdown
       alignPoint={alignPoint!}
-      {...props}
+      {...omit(props, ['rootClassName'])}
       mouseEnterDelay={mouseEnterDelay}
       mouseLeaveDelay={mouseLeaveDelay}
       visible={mergedOpen}

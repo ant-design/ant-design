@@ -15,7 +15,7 @@ export interface Options {
 }
 
 function isSingleNode(node: any): node is Element {
-  return node && !Array.isArray(node);
+  return !node || node instanceof HTMLElement;
 }
 
 export default function rootPropsTest(
