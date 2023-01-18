@@ -59,7 +59,7 @@ const Popover = React.forwardRef<unknown, PopoverProps>((props, ref) => {
   const showArrow = !!arrow || arrowPointAtCenter !== undefined;
   const mergedArrowPointAtCenter =
     (typeof arrow !== 'boolean' && arrow?.arrowPointAtCenter) ?? arrowPointAtCenter ?? false;
-  const mergedArrow = showArrow ? { arrowPointAtCenter: mergedArrowPointAtCenter } : arrow;
+  const mergedArrow = arrow ?? { arrowPointAtCenter: mergedArrowPointAtCenter }
 
   return wrapSSR(
     <Tooltip
