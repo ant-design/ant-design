@@ -373,7 +373,7 @@ Array [
       </svg>
       <div>
         <div
-          class="ant-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip"
           style="opacity:0"
         >
           <div
@@ -1627,7 +1627,7 @@ Array [
   </div>,
   <div>
     <div
-      class="ant-tooltip ant-tooltip-show-arrow"
+      class="ant-tooltip"
       style="opacity:0"
     >
       <div
@@ -1710,7 +1710,7 @@ Array [
       </div>
       <div>
         <div
-          class="ant-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip"
           style="opacity:0"
         >
           <div
@@ -1790,7 +1790,7 @@ Array [
       </div>
       <div>
         <div
-          class="ant-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip"
           style="opacity:0"
         >
           <div

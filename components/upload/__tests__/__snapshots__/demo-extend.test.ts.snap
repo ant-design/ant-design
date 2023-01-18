@@ -530,7 +530,7 @@ exports[`renders ./components/upload/demo/defaultFileList.tsx extend context cor
       </div>
       <div>
         <div
-          class="ant-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip"
           style="opacity:0"
         >
           <div
@@ -1095,7 +1095,7 @@ exports[`renders ./components/upload/demo/drag-sorting.tsx extend context correc
         </div>
         <div>
           <div
-            class="ant-tooltip ant-tooltip-show-arrow"
+            class="ant-tooltip"
             style="opacity:0"
           >
             <div
@@ -1465,7 +1465,7 @@ exports[`renders ./components/upload/demo/file-type.tsx extend context correctly
       </div>
       <div>
         <div
-          class="ant-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip"
           style="opacity:0"
         >
           <div
@@ -1599,7 +1599,7 @@ exports[`renders ./components/upload/demo/file-type.tsx extend context correctly
       </div>
       <div>
         <div
-          class="ant-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip"
           style="opacity:0"
         >
           <div
@@ -1725,7 +1725,7 @@ exports[`renders ./components/upload/demo/file-type.tsx extend context correctly
       </div>
       <div>
         <div
-          class="ant-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip"
           style="opacity:0"
         >
           <div
@@ -2519,7 +2519,7 @@ exports[`renders ./components/upload/demo/picture-card.tsx extend context correc
       </div>
       <div>
         <div
-          class="ant-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip"
           style="opacity:0"
         >
           <div
@@ -2854,7 +2854,7 @@ Array [
         </div>
         <div>
           <div
-            class="ant-tooltip ant-tooltip-show-arrow"
+            class="ant-tooltip"
             style="opacity:0"
           >
             <div
@@ -3140,7 +3140,7 @@ Array [
         </div>
         <div>
           <div
-            class="ant-tooltip ant-tooltip-show-arrow"
+            class="ant-tooltip"
             style="opacity:0"
           >
             <div
@@ -3550,7 +3550,7 @@ exports[`renders ./components/upload/demo/upload-custom-action-icon.tsx extend c
       </div>
       <div>
         <div
-          class="ant-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip"
           style="opacity:0"
         >
           <div

@@ -386,7 +386,7 @@ Array [
     </span>
     <div>
       <div
-        class="ant-tooltip ant-tooltip-show-arrow"
+        class="ant-tooltip"
         style="opacity:0"
       >
         <div
@@ -471,7 +471,7 @@ Array [
     </span>
     <div>
       <div
-        class="ant-popover ant-avatar-group-popover ant-popover-show-arrow"
+        class="ant-popover ant-avatar-group-popover"
         style="opacity:0"
       >
         <div
@@ -517,7 +517,7 @@ Array [
               </span>
               <div>
                 <div
-                  class="ant-tooltip ant-tooltip-show-arrow"
+                  class="ant-tooltip"
                   style="opacity:0"
                 >
                   <div
@@ -607,7 +607,7 @@ Array [
     </span>
     <div>
       <div
-        class="ant-popover ant-avatar-group-popover ant-popover-show-arrow"
+        class="ant-popover ant-avatar-group-popover"
         style="opacity:0"
       >
         <div
@@ -653,7 +653,7 @@ Array [
               </span>
               <div>
                 <div
-                  class="ant-tooltip ant-tooltip-show-arrow"
+                  class="ant-tooltip"
                   style="opacity:0"
                 >
                   <div
@@ -743,7 +743,7 @@ Array [
     </span>
     <div>
       <div
-        class="ant-popover ant-avatar-group-popover ant-popover-show-arrow"
+        class="ant-popover ant-avatar-group-popover"
         style="opacity:0"
       >
         <div
@@ -789,7 +789,7 @@ Array [
               </span>
               <div>
                 <div
-                  class="ant-tooltip ant-tooltip-show-arrow"
+                  class="ant-tooltip"
                   style="opacity:0"
                 >
                   <div

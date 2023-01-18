@@ -55,7 +55,7 @@ exports[`Tooltip support arrow props by default 1`] = `
   </div>
   <div>
     <div
-      class="ant-tooltip ant-tooltip-show-arrow ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
       style="opacity: 0;"
     >
       <div

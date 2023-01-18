@@ -176,7 +176,7 @@ exports[`renders ./components/layout/demo/custom-trigger.tsx extend context corr
         </li>
         <div>
           <div
-            class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+            class="ant-tooltip ant-menu-inline-collapsed-tooltip"
             style="opacity:0"
           >
             <div
@@ -229,7 +229,7 @@ exports[`renders ./components/layout/demo/custom-trigger.tsx extend context corr
         </li>
         <div>
           <div
-            class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+            class="ant-tooltip ant-menu-inline-collapsed-tooltip"
             style="opacity:0"
           >
             <div
@@ -282,7 +282,7 @@ exports[`renders ./components/layout/demo/custom-trigger.tsx extend context corr
         </li>
         <div>
           <div
-            class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+            class="ant-tooltip ant-menu-inline-collapsed-tooltip"
             style="opacity:0"
           >
             <div
@@ -309,7 +309,7 @@ exports[`renders ./components/layout/demo/custom-trigger.tsx extend context corr
       >
         <div>
           <div
-            class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+            class="ant-tooltip ant-menu-inline-collapsed-tooltip"
             style="opacity:0"
           >
             <div
@@ -331,7 +331,7 @@ exports[`renders ./components/layout/demo/custom-trigger.tsx extend context corr
         </div>
         <div>
           <div
-            class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+            class="ant-tooltip ant-menu-inline-collapsed-tooltip"
             style="opacity:0"
           >
             <div
@@ -353,7 +353,7 @@ exports[`renders ./components/layout/demo/custom-trigger.tsx extend context corr
         </div>
         <div>
           <div
-            class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+            class="ant-tooltip ant-menu-inline-collapsed-tooltip"
             style="opacity:0"
           >
             <div
@@ -445,7 +445,7 @@ exports[`renders ./components/layout/demo/fixed.tsx extend context correctly 1`]
       </li>
       <div>
         <div
-          class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip ant-menu-inline-collapsed-tooltip"
           style="opacity:0"
         >
           <div
@@ -479,7 +479,7 @@ exports[`renders ./components/layout/demo/fixed.tsx extend context correctly 1`]
       </li>
       <div>
         <div
-          class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip ant-menu-inline-collapsed-tooltip"
           style="opacity:0"
         >
           <div
@@ -513,7 +513,7 @@ exports[`renders ./components/layout/demo/fixed.tsx extend context correctly 1`]
       </li>
       <div>
         <div
-          class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip ant-menu-inline-collapsed-tooltip"
           style="opacity:0"
         >
           <div
@@ -588,7 +588,7 @@ exports[`renders ./components/layout/demo/fixed.tsx extend context correctly 1`]
     >
       <div>
         <div
-          class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip ant-menu-inline-collapsed-tooltip"
           style="opacity:0"
         >
           <div
@@ -610,7 +610,7 @@ exports[`renders ./components/layout/demo/fixed.tsx extend context correctly 1`]
       </div>
       <div>
         <div
-          class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip ant-menu-inline-collapsed-tooltip"
           style="opacity:0"
         >
           <div
@@ -632,7 +632,7 @@ exports[`renders ./components/layout/demo/fixed.tsx extend context correctly 1`]
       </div>
       <div>
         <div
-          class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip ant-menu-inline-collapsed-tooltip"
           style="opacity:0"
         >
           <div
@@ -769,7 +769,7 @@ exports[`renders ./components/layout/demo/fixed-sider.tsx extend context correct
         </li>
         <div>
           <div
-            class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+            class="ant-tooltip ant-menu-inline-collapsed-tooltip"
             style="opacity:0"
           >
             <div
@@ -822,7 +822,7 @@ exports[`renders ./components/layout/demo/fixed-sider.tsx extend context correct
         </li>
         <div>
           <div
-            class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+            class="ant-tooltip ant-menu-inline-collapsed-tooltip"
             style="opacity:0"
           >
             <div
@@ -875,7 +875,7 @@ exports[`renders ./components/layout/demo/fixed-sider.tsx extend context correct
         </li>
         <div>
           <div
-            class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+            class="ant-tooltip ant-menu-inline-collapsed-tooltip"
             style="opacity:0"
           >
             <div
@@ -928,7 +928,7 @@ exports[`renders ./components/layout/demo/fixed-sider.tsx extend context correct
         </li>
         <div>
           <div
-            class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+            class="ant-tooltip ant-menu-inline-collapsed-tooltip"
             style="opacity:0"
           >
             <div
@@ -981,7 +981,7 @@ exports[`renders ./components/layout/demo/fixed-sider.tsx extend context correct
         </li>
         <div>
           <div
-            class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+            class="ant-tooltip ant-menu-inline-collapsed-tooltip"
             style="opacity:0"
           >
             <div
@@ -1034,7 +1034,7 @@ exports[`renders ./components/layout/demo/fixed-sider.tsx extend context correct
         </li>
         <div>
           <div
-            class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+            class="ant-tooltip ant-menu-inline-collapsed-tooltip"
             style="opacity:0"
           >
             <div
@@ -1087,7 +1087,7 @@ exports[`renders ./components/layout/demo/fixed-sider.tsx extend context correct
         </li>
         <div>
           <div
-            class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+            class="ant-tooltip ant-menu-inline-collapsed-tooltip"
             style="opacity:0"
           >
             <div
@@ -1140,7 +1140,7 @@ exports[`renders ./components/layout/demo/fixed-sider.tsx extend context correct
         </li>
         <div>
           <div
-            class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+            class="ant-tooltip ant-menu-inline-collapsed-tooltip"
             style="opacity:0"
           >
             <div
@@ -1167,7 +1167,7 @@ exports[`renders ./components/layout/demo/fixed-sider.tsx extend context correct
       >
         <div>
           <div
-            class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+            class="ant-tooltip ant-menu-inline-collapsed-tooltip"
             style="opacity:0"
           >
             <div
@@ -1189,7 +1189,7 @@ exports[`renders ./components/layout/demo/fixed-sider.tsx extend context correct
         </div>
         <div>
           <div
-            class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+            class="ant-tooltip ant-menu-inline-collapsed-tooltip"
             style="opacity:0"
           >
             <div
@@ -1211,7 +1211,7 @@ exports[`renders ./components/layout/demo/fixed-sider.tsx extend context correct
         </div>
         <div>
           <div
-            class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+            class="ant-tooltip ant-menu-inline-collapsed-tooltip"
             style="opacity:0"
           >
             <div
@@ -1233,7 +1233,7 @@ exports[`renders ./components/layout/demo/fixed-sider.tsx extend context correct
         </div>
         <div>
           <div
-            class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+            class="ant-tooltip ant-menu-inline-collapsed-tooltip"
             style="opacity:0"
           >
             <div
@@ -1255,7 +1255,7 @@ exports[`renders ./components/layout/demo/fixed-sider.tsx extend context correct
         </div>
         <div>
           <div
-            class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+            class="ant-tooltip ant-menu-inline-collapsed-tooltip"
             style="opacity:0"
           >
             <div
@@ -1277,7 +1277,7 @@ exports[`renders ./components/layout/demo/fixed-sider.tsx extend context correct
         </div>
         <div>
           <div
-            class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+            class="ant-tooltip ant-menu-inline-collapsed-tooltip"
             style="opacity:0"
           >
             <div
@@ -1299,7 +1299,7 @@ exports[`renders ./components/layout/demo/fixed-sider.tsx extend context correct
         </div>
         <div>
           <div
-            class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+            class="ant-tooltip ant-menu-inline-collapsed-tooltip"
             style="opacity:0"
           >
             <div
@@ -1321,7 +1321,7 @@ exports[`renders ./components/layout/demo/fixed-sider.tsx extend context correct
         </div>
         <div>
           <div
-            class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+            class="ant-tooltip ant-menu-inline-collapsed-tooltip"
             style="opacity:0"
           >
             <div
@@ -1627,7 +1627,7 @@ exports[`renders ./components/layout/demo/responsive.tsx extend context correctl
         </li>
         <div>
           <div
-            class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+            class="ant-tooltip ant-menu-inline-collapsed-tooltip"
             style="opacity:0"
           >
             <div
@@ -1680,7 +1680,7 @@ exports[`renders ./components/layout/demo/responsive.tsx extend context correctl
         </li>
         <div>
           <div
-            class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+            class="ant-tooltip ant-menu-inline-collapsed-tooltip"
             style="opacity:0"
           >
             <div
@@ -1733,7 +1733,7 @@ exports[`renders ./components/layout/demo/responsive.tsx extend context correctl
         </li>
         <div>
           <div
-            class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+            class="ant-tooltip ant-menu-inline-collapsed-tooltip"
             style="opacity:0"
           >
             <div
@@ -1786,7 +1786,7 @@ exports[`renders ./components/layout/demo/responsive.tsx extend context correctl
         </li>
         <div>
           <div
-            class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+            class="ant-tooltip ant-menu-inline-collapsed-tooltip"
             style="opacity:0"
           >
             <div
@@ -1813,7 +1813,7 @@ exports[`renders ./components/layout/demo/responsive.tsx extend context correctl
       >
         <div>
           <div
-            class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+            class="ant-tooltip ant-menu-inline-collapsed-tooltip"
             style="opacity:0"
           >
             <div
@@ -1835,7 +1835,7 @@ exports[`renders ./components/layout/demo/responsive.tsx extend context correctl
         </div>
         <div>
           <div
-            class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+            class="ant-tooltip ant-menu-inline-collapsed-tooltip"
             style="opacity:0"
           >
             <div
@@ -1857,7 +1857,7 @@ exports[`renders ./components/layout/demo/responsive.tsx extend context correctl
         </div>
         <div>
           <div
-            class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+            class="ant-tooltip ant-menu-inline-collapsed-tooltip"
             style="opacity:0"
           >
             <div
@@ -1879,7 +1879,7 @@ exports[`renders ./components/layout/demo/responsive.tsx extend context correctl
         </div>
         <div>
           <div
-            class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+            class="ant-tooltip ant-menu-inline-collapsed-tooltip"
             style="opacity:0"
           >
             <div
@@ -1983,7 +1983,7 @@ exports[`renders ./components/layout/demo/side.tsx extend context correctly 1`] 
         </li>
         <div>
           <div
-            class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+            class="ant-tooltip ant-menu-inline-collapsed-tooltip"
             style="opacity:0"
           >
             <div
@@ -2036,7 +2036,7 @@ exports[`renders ./components/layout/demo/side.tsx extend context correctly 1`] 
         </li>
         <div>
           <div
-            class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+            class="ant-tooltip ant-menu-inline-collapsed-tooltip"
             style="opacity:0"
           >
             <div
@@ -2119,7 +2119,7 @@ exports[`renders ./components/layout/demo/side.tsx extend context correctly 1`] 
                 </li>
                 <div>
                   <div
-                    class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+                    class="ant-tooltip ant-menu-inline-collapsed-tooltip"
                     style="opacity:0"
                   >
                     <div
@@ -2153,7 +2153,7 @@ exports[`renders ./components/layout/demo/side.tsx extend context correctly 1`] 
                 </li>
                 <div>
                   <div
-                    class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+                    class="ant-tooltip ant-menu-inline-collapsed-tooltip"
                     style="opacity:0"
                   >
                     <div
@@ -2187,7 +2187,7 @@ exports[`renders ./components/layout/demo/side.tsx extend context correctly 1`] 
                 </li>
                 <div>
                   <div
-                    class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+                    class="ant-tooltip ant-menu-inline-collapsed-tooltip"
                     style="opacity:0"
                   >
                     <div
@@ -2274,7 +2274,7 @@ exports[`renders ./components/layout/demo/side.tsx extend context correctly 1`] 
                 </li>
                 <div>
                   <div
-                    class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+                    class="ant-tooltip ant-menu-inline-collapsed-tooltip"
                     style="opacity:0"
                   >
                     <div
@@ -2308,7 +2308,7 @@ exports[`renders ./components/layout/demo/side.tsx extend context correctly 1`] 
                 </li>
                 <div>
                   <div
-                    class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+                    class="ant-tooltip ant-menu-inline-collapsed-tooltip"
                     style="opacity:0"
                   >
                     <div
@@ -2365,7 +2365,7 @@ exports[`renders ./components/layout/demo/side.tsx extend context correctly 1`] 
         </li>
         <div>
           <div
-            class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+            class="ant-tooltip ant-menu-inline-collapsed-tooltip"
             style="opacity:0"
           >
             <div
@@ -2392,7 +2392,7 @@ exports[`renders ./components/layout/demo/side.tsx extend context correctly 1`] 
       >
         <div>
           <div
-            class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+            class="ant-tooltip ant-menu-inline-collapsed-tooltip"
             style="opacity:0"
           >
             <div
@@ -2414,7 +2414,7 @@ exports[`renders ./components/layout/demo/side.tsx extend context correctly 1`] 
         </div>
         <div>
           <div
-            class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+            class="ant-tooltip ant-menu-inline-collapsed-tooltip"
             style="opacity:0"
           >
             <div
@@ -2436,7 +2436,7 @@ exports[`renders ./components/layout/demo/side.tsx extend context correctly 1`] 
         </div>
         <div>
           <div
-            class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+            class="ant-tooltip ant-menu-inline-collapsed-tooltip"
             style="opacity:0"
           >
             <div
@@ -2458,7 +2458,7 @@ exports[`renders ./components/layout/demo/side.tsx extend context correctly 1`] 
         </div>
         <div>
           <div
-            class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+            class="ant-tooltip ant-menu-inline-collapsed-tooltip"
             style="opacity:0"
           >
             <div
@@ -2480,7 +2480,7 @@ exports[`renders ./components/layout/demo/side.tsx extend context correctly 1`] 
         </div>
         <div>
           <div
-            class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+            class="ant-tooltip ant-menu-inline-collapsed-tooltip"
             style="opacity:0"
           >
             <div
@@ -2502,7 +2502,7 @@ exports[`renders ./components/layout/demo/side.tsx extend context correctly 1`] 
         </div>
         <div>
           <div
-            class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+            class="ant-tooltip ant-menu-inline-collapsed-tooltip"
             style="opacity:0"
           >
             <div
@@ -2524,7 +2524,7 @@ exports[`renders ./components/layout/demo/side.tsx extend context correctly 1`] 
         </div>
         <div>
           <div
-            class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+            class="ant-tooltip ant-menu-inline-collapsed-tooltip"
             style="opacity:0"
           >
             <div
@@ -2546,7 +2546,7 @@ exports[`renders ./components/layout/demo/side.tsx extend context correctly 1`] 
         </div>
         <div>
           <div
-            class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+            class="ant-tooltip ant-menu-inline-collapsed-tooltip"
             style="opacity:0"
           >
             <div
@@ -2681,7 +2681,7 @@ exports[`renders ./components/layout/demo/top.tsx extend context correctly 1`] =
       </li>
       <div>
         <div
-          class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip ant-menu-inline-collapsed-tooltip"
           style="opacity:0"
         >
           <div
@@ -2715,7 +2715,7 @@ exports[`renders ./components/layout/demo/top.tsx extend context correctly 1`] =
       </li>
       <div>
         <div
-          class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip ant-menu-inline-collapsed-tooltip"
           style="opacity:0"
         >
           <div
@@ -2749,7 +2749,7 @@ exports[`renders ./components/layout/demo/top.tsx extend context correctly 1`] =
       </li>
       <div>
         <div
-          class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip ant-menu-inline-collapsed-tooltip"
           style="opacity:0"
         >
           <div
@@ -2783,7 +2783,7 @@ exports[`renders ./components/layout/demo/top.tsx extend context correctly 1`] =
       </li>
       <div>
         <div
-          class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip ant-menu-inline-collapsed-tooltip"
           style="opacity:0"
         >
           <div
@@ -2817,7 +2817,7 @@ exports[`renders ./components/layout/demo/top.tsx extend context correctly 1`] =
       </li>
       <div>
         <div
-          class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip ant-menu-inline-collapsed-tooltip"
           style="opacity:0"
         >
           <div
@@ -2851,7 +2851,7 @@ exports[`renders ./components/layout/demo/top.tsx extend context correctly 1`] =
       </li>
       <div>
         <div
-          class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip ant-menu-inline-collapsed-tooltip"
           style="opacity:0"
         >
           <div
@@ -2885,7 +2885,7 @@ exports[`renders ./components/layout/demo/top.tsx extend context correctly 1`] =
       </li>
       <div>
         <div
-          class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip ant-menu-inline-collapsed-tooltip"
           style="opacity:0"
         >
           <div
@@ -2919,7 +2919,7 @@ exports[`renders ./components/layout/demo/top.tsx extend context correctly 1`] =
       </li>
       <div>
         <div
-          class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip ant-menu-inline-collapsed-tooltip"
           style="opacity:0"
         >
           <div
@@ -2953,7 +2953,7 @@ exports[`renders ./components/layout/demo/top.tsx extend context correctly 1`] =
       </li>
       <div>
         <div
-          class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip ant-menu-inline-collapsed-tooltip"
           style="opacity:0"
         >
           <div
@@ -2987,7 +2987,7 @@ exports[`renders ./components/layout/demo/top.tsx extend context correctly 1`] =
       </li>
       <div>
         <div
-          class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip ant-menu-inline-collapsed-tooltip"
           style="opacity:0"
         >
           <div
@@ -3021,7 +3021,7 @@ exports[`renders ./components/layout/demo/top.tsx extend context correctly 1`] =
       </li>
       <div>
         <div
-          class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip ant-menu-inline-collapsed-tooltip"
           style="opacity:0"
         >
           <div
@@ -3055,7 +3055,7 @@ exports[`renders ./components/layout/demo/top.tsx extend context correctly 1`] =
       </li>
       <div>
         <div
-          class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip ant-menu-inline-collapsed-tooltip"
           style="opacity:0"
         >
           <div
@@ -3089,7 +3089,7 @@ exports[`renders ./components/layout/demo/top.tsx extend context correctly 1`] =
       </li>
       <div>
         <div
-          class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip ant-menu-inline-collapsed-tooltip"
           style="opacity:0"
         >
           <div
@@ -3123,7 +3123,7 @@ exports[`renders ./components/layout/demo/top.tsx extend context correctly 1`] =
       </li>
       <div>
         <div
-          class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip ant-menu-inline-collapsed-tooltip"
           style="opacity:0"
         >
           <div
@@ -3157,7 +3157,7 @@ exports[`renders ./components/layout/demo/top.tsx extend context correctly 1`] =
       </li>
       <div>
         <div
-          class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip ant-menu-inline-collapsed-tooltip"
           style="opacity:0"
         >
           <div
@@ -3232,7 +3232,7 @@ exports[`renders ./components/layout/demo/top.tsx extend context correctly 1`] =
     >
       <div>
         <div
-          class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip ant-menu-inline-collapsed-tooltip"
           style="opacity:0"
         >
           <div
@@ -3254,7 +3254,7 @@ exports[`renders ./components/layout/demo/top.tsx extend context correctly 1`] =
       </div>
       <div>
         <div
-          class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip ant-menu-inline-collapsed-tooltip"
           style="opacity:0"
         >
           <div
@@ -3276,7 +3276,7 @@ exports[`renders ./components/layout/demo/top.tsx extend context correctly 1`] =
       </div>
       <div>
         <div
-          class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip ant-menu-inline-collapsed-tooltip"
           style="opacity:0"
         >
           <div
@@ -3298,7 +3298,7 @@ exports[`renders ./components/layout/demo/top.tsx extend context correctly 1`] =
       </div>
       <div>
         <div
-          class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip ant-menu-inline-collapsed-tooltip"
           style="opacity:0"
         >
           <div
@@ -3320,7 +3320,7 @@ exports[`renders ./components/layout/demo/top.tsx extend context correctly 1`] =
       </div>
       <div>
         <div
-          class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip ant-menu-inline-collapsed-tooltip"
           style="opacity:0"
         >
           <div
@@ -3342,7 +3342,7 @@ exports[`renders ./components/layout/demo/top.tsx extend context correctly 1`] =
       </div>
       <div>
         <div
-          class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip ant-menu-inline-collapsed-tooltip"
           style="opacity:0"
         >
           <div
@@ -3364,7 +3364,7 @@ exports[`renders ./components/layout/demo/top.tsx extend context correctly 1`] =
       </div>
       <div>
         <div
-          class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip ant-menu-inline-collapsed-tooltip"
           style="opacity:0"
         >
           <div
@@ -3386,7 +3386,7 @@ exports[`renders ./components/layout/demo/top.tsx extend context correctly 1`] =
       </div>
       <div>
         <div
-          class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip ant-menu-inline-collapsed-tooltip"
           style="opacity:0"
         >
           <div
@@ -3408,7 +3408,7 @@ exports[`renders ./components/layout/demo/top.tsx extend context correctly 1`] =
       </div>
       <div>
         <div
-          class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip ant-menu-inline-collapsed-tooltip"
           style="opacity:0"
         >
           <div
@@ -3430,7 +3430,7 @@ exports[`renders ./components/layout/demo/top.tsx extend context correctly 1`] =
       </div>
       <div>
         <div
-          class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip ant-menu-inline-collapsed-tooltip"
           style="opacity:0"
         >
           <div
@@ -3452,7 +3452,7 @@ exports[`renders ./components/layout/demo/top.tsx extend context correctly 1`] =
       </div>
       <div>
         <div
-          class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip ant-menu-inline-collapsed-tooltip"
           style="opacity:0"
         >
           <div
@@ -3474,7 +3474,7 @@ exports[`renders ./components/layout/demo/top.tsx extend context correctly 1`] =
       </div>
       <div>
         <div
-          class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip ant-menu-inline-collapsed-tooltip"
           style="opacity:0"
         >
           <div
@@ -3496,7 +3496,7 @@ exports[`renders ./components/layout/demo/top.tsx extend context correctly 1`] =
       </div>
       <div>
         <div
-          class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip ant-menu-inline-collapsed-tooltip"
           style="opacity:0"
         >
           <div
@@ -3518,7 +3518,7 @@ exports[`renders ./components/layout/demo/top.tsx extend context correctly 1`] =
       </div>
       <div>
         <div
-          class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip ant-menu-inline-collapsed-tooltip"
           style="opacity:0"
         >
           <div
@@ -3540,7 +3540,7 @@ exports[`renders ./components/layout/demo/top.tsx extend context correctly 1`] =
       </div>
       <div>
         <div
-          class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip ant-menu-inline-collapsed-tooltip"
           style="opacity:0"
         >
           <div
@@ -3655,7 +3655,7 @@ exports[`renders ./components/layout/demo/top-side.tsx extend context correctly 
       </li>
       <div>
         <div
-          class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip ant-menu-inline-collapsed-tooltip"
           style="opacity:0"
         >
           <div
@@ -3689,7 +3689,7 @@ exports[`renders ./components/layout/demo/top-side.tsx extend context correctly 
       </li>
       <div>
         <div
-          class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip ant-menu-inline-collapsed-tooltip"
           style="opacity:0"
         >
           <div
@@ -3723,7 +3723,7 @@ exports[`renders ./components/layout/demo/top-side.tsx extend context correctly 
       </li>
       <div>
         <div
-          class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip ant-menu-inline-collapsed-tooltip"
           style="opacity:0"
         >
           <div
@@ -3798,7 +3798,7 @@ exports[`renders ./components/layout/demo/top-side.tsx extend context correctly 
     >
       <div>
         <div
-          class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip ant-menu-inline-collapsed-tooltip"
           style="opacity:0"
         >
           <div
@@ -3820,7 +3820,7 @@ exports[`renders ./components/layout/demo/top-side.tsx extend context correctly 
       </div>
       <div>
         <div
-          class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip ant-menu-inline-collapsed-tooltip"
           style="opacity:0"
         >
           <div
@@ -3842,7 +3842,7 @@ exports[`renders ./components/layout/demo/top-side.tsx extend context correctly 
       </div>
       <div>
         <div
-          class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip ant-menu-inline-collapsed-tooltip"
           style="opacity:0"
         >
           <div
@@ -3992,7 +3992,7 @@ exports[`renders ./components/layout/demo/top-side.tsx extend context correctly 
                     </li>
                     <div>
                       <div
-                        class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+                        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
                         style="opacity:0"
                       >
                         <div
@@ -4026,7 +4026,7 @@ exports[`renders ./components/layout/demo/top-side.tsx extend context correctly 
                     </li>
                     <div>
                       <div
-                        class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+                        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
                         style="opacity:0"
                       >
                         <div
@@ -4060,7 +4060,7 @@ exports[`renders ./components/layout/demo/top-side.tsx extend context correctly 
                     </li>
                     <div>
                       <div
-                        class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+                        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
                         style="opacity:0"
                       >
                         <div
@@ -4094,7 +4094,7 @@ exports[`renders ./components/layout/demo/top-side.tsx extend context correctly 
                     </li>
                     <div>
                       <div
-                        class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+                        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
                         style="opacity:0"
                       >
                         <div
@@ -4135,7 +4135,7 @@ exports[`renders ./components/layout/demo/top-side.tsx extend context correctly 
                 </li>
                 <div>
                   <div
-                    class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+                    class="ant-tooltip ant-menu-inline-collapsed-tooltip"
                     style="opacity:0"
                   >
                     <div
@@ -4169,7 +4169,7 @@ exports[`renders ./components/layout/demo/top-side.tsx extend context correctly 
                 </li>
                 <div>
                   <div
-                    class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+                    class="ant-tooltip ant-menu-inline-collapsed-tooltip"
                     style="opacity:0"
                   >
                     <div
@@ -4203,7 +4203,7 @@ exports[`renders ./components/layout/demo/top-side.tsx extend context correctly 
                 </li>
                 <div>
                   <div
-                    class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+                    class="ant-tooltip ant-menu-inline-collapsed-tooltip"
                     style="opacity:0"
                   >
                     <div
@@ -4237,7 +4237,7 @@ exports[`renders ./components/layout/demo/top-side.tsx extend context correctly 
                 </li>
                 <div>
                   <div
-                    class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+                    class="ant-tooltip ant-menu-inline-collapsed-tooltip"
                     style="opacity:0"
                   >
                     <div
@@ -4322,7 +4322,7 @@ exports[`renders ./components/layout/demo/top-side.tsx extend context correctly 
                     </li>
                     <div>
                       <div
-                        class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+                        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
                         style="opacity:0"
                       >
                         <div
@@ -4356,7 +4356,7 @@ exports[`renders ./components/layout/demo/top-side.tsx extend context correctly 
                     </li>
                     <div>
                       <div
-                        class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+                        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
                         style="opacity:0"
                       >
                         <div
@@ -4390,7 +4390,7 @@ exports[`renders ./components/layout/demo/top-side.tsx extend context correctly 
                     </li>
                     <div>
                       <div
-                        class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+                        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
                         style="opacity:0"
                       >
                         <div
@@ -4424,7 +4424,7 @@ exports[`renders ./components/layout/demo/top-side.tsx extend context correctly 
                     </li>
                     <div>
                       <div
-                        class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+                        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
                         style="opacity:0"
                       >
                         <div
@@ -4511,7 +4511,7 @@ exports[`renders ./components/layout/demo/top-side.tsx extend context correctly 
                     </li>
                     <div>
                       <div
-                        class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+                        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
                         style="opacity:0"
                       >
                         <div
@@ -4545,7 +4545,7 @@ exports[`renders ./components/layout/demo/top-side.tsx extend context correctly 
                     </li>
                     <div>
                       <div
-                        class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+                        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
                         style="opacity:0"
                       >
                         <div
@@ -4579,7 +4579,7 @@ exports[`renders ./components/layout/demo/top-side.tsx extend context correctly 
                     </li>
                     <div>
                       <div
-                        class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+                        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
                         style="opacity:0"
                       >
                         <div
@@ -4613,7 +4613,7 @@ exports[`renders ./components/layout/demo/top-side.tsx extend context correctly 
                     </li>
                     <div>
                       <div
-                        class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+                        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
                         style="opacity:0"
                       >
                         <div
@@ -4644,7 +4644,7 @@ exports[`renders ./components/layout/demo/top-side.tsx extend context correctly 
           >
             <div>
               <div
-                class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
                 style="opacity:0"
               >
                 <div
@@ -4666,7 +4666,7 @@ exports[`renders ./components/layout/demo/top-side.tsx extend context correctly 
             </div>
             <div>
               <div
-                class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
                 style="opacity:0"
               >
                 <div
@@ -4688,7 +4688,7 @@ exports[`renders ./components/layout/demo/top-side.tsx extend context correctly 
             </div>
             <div>
               <div
-                class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
                 style="opacity:0"
               >
                 <div
@@ -4710,7 +4710,7 @@ exports[`renders ./components/layout/demo/top-side.tsx extend context correctly 
             </div>
             <div>
               <div
-                class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
                 style="opacity:0"
               >
                 <div
@@ -4732,7 +4732,7 @@ exports[`renders ./components/layout/demo/top-side.tsx extend context correctly 
             </div>
             <div>
               <div
-                class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
                 style="opacity:0"
               >
                 <div
@@ -4754,7 +4754,7 @@ exports[`renders ./components/layout/demo/top-side.tsx extend context correctly 
             </div>
             <div>
               <div
-                class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
                 style="opacity:0"
               >
                 <div
@@ -4776,7 +4776,7 @@ exports[`renders ./components/layout/demo/top-side.tsx extend context correctly 
             </div>
             <div>
               <div
-                class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
                 style="opacity:0"
               >
                 <div
@@ -4798,7 +4798,7 @@ exports[`renders ./components/layout/demo/top-side.tsx extend context correctly 
             </div>
             <div>
               <div
-                class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
                 style="opacity:0"
               >
                 <div
@@ -4820,7 +4820,7 @@ exports[`renders ./components/layout/demo/top-side.tsx extend context correctly 
             </div>
             <div>
               <div
-                class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
                 style="opacity:0"
               >
                 <div
@@ -4842,7 +4842,7 @@ exports[`renders ./components/layout/demo/top-side.tsx extend context correctly 
             </div>
             <div>
               <div
-                class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
                 style="opacity:0"
               >
                 <div
@@ -4864,7 +4864,7 @@ exports[`renders ./components/layout/demo/top-side.tsx extend context correctly 
             </div>
             <div>
               <div
-                class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
                 style="opacity:0"
               >
                 <div
@@ -4886,7 +4886,7 @@ exports[`renders ./components/layout/demo/top-side.tsx extend context correctly 
             </div>
             <div>
               <div
-                class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip"
                 style="opacity:0"
               >
                 <div
@@ -4956,7 +4956,7 @@ exports[`renders ./components/layout/demo/top-side-2.tsx extend context correctl
       </li>
       <div>
         <div
-          class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip ant-menu-inline-collapsed-tooltip"
           style="opacity:0"
         >
           <div
@@ -4990,7 +4990,7 @@ exports[`renders ./components/layout/demo/top-side-2.tsx extend context correctl
       </li>
       <div>
         <div
-          class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip ant-menu-inline-collapsed-tooltip"
           style="opacity:0"
         >
           <div
@@ -5024,7 +5024,7 @@ exports[`renders ./components/layout/demo/top-side-2.tsx extend context correctl
       </li>
       <div>
         <div
-          class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip ant-menu-inline-collapsed-tooltip"
           style="opacity:0"
         >
           <div
@@ -5099,7 +5099,7 @@ exports[`renders ./components/layout/demo/top-side-2.tsx extend context correctl
     >
       <div>
         <div
-          class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip ant-menu-inline-collapsed-tooltip"
           style="opacity:0"
         >
           <div
@@ -5121,7 +5121,7 @@ exports[`renders ./components/layout/demo/top-side-2.tsx extend context correctl
       </div>
       <div>
         <div
-          class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip ant-menu-inline-collapsed-tooltip"
           style="opacity:0"
         >
           <div
@@ -5143,7 +5143,7 @@ exports[`renders ./components/layout/demo/top-side-2.tsx extend context correctl
       </div>
       <div>
         <div
-          class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip ant-menu-inline-collapsed-tooltip"
           style="opacity:0"
         >
           <div
@@ -5245,7 +5245,7 @@ exports[`renders ./components/layout/demo/top-side-2.tsx extend context correctl
                   </li>
                   <div>
                     <div
-                      class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+                      class="ant-tooltip ant-menu-inline-collapsed-tooltip"
                       style="opacity:0"
                     >
                       <div
@@ -5279,7 +5279,7 @@ exports[`renders ./components/layout/demo/top-side-2.tsx extend context correctl
                   </li>
                   <div>
                     <div
-                      class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+                      class="ant-tooltip ant-menu-inline-collapsed-tooltip"
                       style="opacity:0"
                     >
                       <div
@@ -5313,7 +5313,7 @@ exports[`renders ./components/layout/demo/top-side-2.tsx extend context correctl
                   </li>
                   <div>
                     <div
-                      class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+                      class="ant-tooltip ant-menu-inline-collapsed-tooltip"
                       style="opacity:0"
                     >
                       <div
@@ -5347,7 +5347,7 @@ exports[`renders ./components/layout/demo/top-side-2.tsx extend context correctl
                   </li>
                   <div>
                     <div
-                      class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+                      class="ant-tooltip ant-menu-inline-collapsed-tooltip"
                       style="opacity:0"
                     >
                       <div
@@ -5388,7 +5388,7 @@ exports[`renders ./components/layout/demo/top-side-2.tsx extend context correctl
               </li>
               <div>
                 <div
-                  class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+                  class="ant-tooltip ant-menu-inline-collapsed-tooltip"
                   style="opacity:0"
                 >
                   <div
@@ -5422,7 +5422,7 @@ exports[`renders ./components/layout/demo/top-side-2.tsx extend context correctl
               </li>
               <div>
                 <div
-                  class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+                  class="ant-tooltip ant-menu-inline-collapsed-tooltip"
                   style="opacity:0"
                 >
                   <div
@@ -5456,7 +5456,7 @@ exports[`renders ./components/layout/demo/top-side-2.tsx extend context correctl
               </li>
               <div>
                 <div
-                  class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+                  class="ant-tooltip ant-menu-inline-collapsed-tooltip"
                   style="opacity:0"
                 >
                   <div
@@ -5490,7 +5490,7 @@ exports[`renders ./components/layout/demo/top-side-2.tsx extend context correctl
               </li>
               <div>
                 <div
-                  class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+                  class="ant-tooltip ant-menu-inline-collapsed-tooltip"
                   style="opacity:0"
                 >
                   <div
@@ -5575,7 +5575,7 @@ exports[`renders ./components/layout/demo/top-side-2.tsx extend context correctl
                   </li>
                   <div>
                     <div
-                      class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+                      class="ant-tooltip ant-menu-inline-collapsed-tooltip"
                       style="opacity:0"
                     >
                       <div
@@ -5609,7 +5609,7 @@ exports[`renders ./components/layout/demo/top-side-2.tsx extend context correctl
                   </li>
                   <div>
                     <div
-                      class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+                      class="ant-tooltip ant-menu-inline-collapsed-tooltip"
                       style="opacity:0"
                     >
                       <div
@@ -5643,7 +5643,7 @@ exports[`renders ./components/layout/demo/top-side-2.tsx extend context correctl
                   </li>
                   <div>
                     <div
-                      class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+                      class="ant-tooltip ant-menu-inline-collapsed-tooltip"
                       style="opacity:0"
                     >
                       <div
@@ -5677,7 +5677,7 @@ exports[`renders ./components/layout/demo/top-side-2.tsx extend context correctl
                   </li>
                   <div>
                     <div
-                      class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+                      class="ant-tooltip ant-menu-inline-collapsed-tooltip"
                       style="opacity:0"
                     >
                       <div
@@ -5764,7 +5764,7 @@ exports[`renders ./components/layout/demo/top-side-2.tsx extend context correctl
                   </li>
                   <div>
                     <div
-                      class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+                      class="ant-tooltip ant-menu-inline-collapsed-tooltip"
                       style="opacity:0"
                     >
                       <div
@@ -5798,7 +5798,7 @@ exports[`renders ./components/layout/demo/top-side-2.tsx extend context correctl
                   </li>
                   <div>
                     <div
-                      class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+                      class="ant-tooltip ant-menu-inline-collapsed-tooltip"
                       style="opacity:0"
                     >
                       <div
@@ -5832,7 +5832,7 @@ exports[`renders ./components/layout/demo/top-side-2.tsx extend context correctl
                   </li>
                   <div>
                     <div
-                      class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+                      class="ant-tooltip ant-menu-inline-collapsed-tooltip"
                       style="opacity:0"
                     >
                       <div
@@ -5866,7 +5866,7 @@ exports[`renders ./components/layout/demo/top-side-2.tsx extend context correctl
                   </li>
                   <div>
                     <div
-                      class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+                      class="ant-tooltip ant-menu-inline-collapsed-tooltip"
                       style="opacity:0"
                     >
                       <div
@@ -5897,7 +5897,7 @@ exports[`renders ./components/layout/demo/top-side-2.tsx extend context correctl
         >
           <div>
             <div
-              class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+              class="ant-tooltip ant-menu-inline-collapsed-tooltip"
               style="opacity:0"
             >
               <div
@@ -5919,7 +5919,7 @@ exports[`renders ./components/layout/demo/top-side-2.tsx extend context correctl
           </div>
           <div>
             <div
-              class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+              class="ant-tooltip ant-menu-inline-collapsed-tooltip"
               style="opacity:0"
             >
               <div
@@ -5941,7 +5941,7 @@ exports[`renders ./components/layout/demo/top-side-2.tsx extend context correctl
           </div>
           <div>
             <div
-              class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+              class="ant-tooltip ant-menu-inline-collapsed-tooltip"
               style="opacity:0"
             >
               <div
@@ -5963,7 +5963,7 @@ exports[`renders ./components/layout/demo/top-side-2.tsx extend context correctl
           </div>
           <div>
             <div
-              class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+              class="ant-tooltip ant-menu-inline-collapsed-tooltip"
               style="opacity:0"
             >
               <div
@@ -5985,7 +5985,7 @@ exports[`renders ./components/layout/demo/top-side-2.tsx extend context correctl
           </div>
           <div>
             <div
-              class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+              class="ant-tooltip ant-menu-inline-collapsed-tooltip"
               style="opacity:0"
             >
               <div
@@ -6007,7 +6007,7 @@ exports[`renders ./components/layout/demo/top-side-2.tsx extend context correctl
           </div>
           <div>
             <div
-              class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+              class="ant-tooltip ant-menu-inline-collapsed-tooltip"
               style="opacity:0"
             >
               <div
@@ -6029,7 +6029,7 @@ exports[`renders ./components/layout/demo/top-side-2.tsx extend context correctl
           </div>
           <div>
             <div
-              class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+              class="ant-tooltip ant-menu-inline-collapsed-tooltip"
               style="opacity:0"
             >
               <div
@@ -6051,7 +6051,7 @@ exports[`renders ./components/layout/demo/top-side-2.tsx extend context correctl
           </div>
           <div>
             <div
-              class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+              class="ant-tooltip ant-menu-inline-collapsed-tooltip"
               style="opacity:0"
             >
               <div
@@ -6073,7 +6073,7 @@ exports[`renders ./components/layout/demo/top-side-2.tsx extend context correctl
           </div>
           <div>
             <div
-              class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+              class="ant-tooltip ant-menu-inline-collapsed-tooltip"
               style="opacity:0"
             >
               <div
@@ -6095,7 +6095,7 @@ exports[`renders ./components/layout/demo/top-side-2.tsx extend context correctl
           </div>
           <div>
             <div
-              class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+              class="ant-tooltip ant-menu-inline-collapsed-tooltip"
               style="opacity:0"
             >
               <div
@@ -6117,7 +6117,7 @@ exports[`renders ./components/layout/demo/top-side-2.tsx extend context correctl
           </div>
           <div>
             <div
-              class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+              class="ant-tooltip ant-menu-inline-collapsed-tooltip"
               style="opacity:0"
             >
               <div
@@ -6139,7 +6139,7 @@ exports[`renders ./components/layout/demo/top-side-2.tsx extend context correctl
           </div>
           <div>
             <div
-              class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+              class="ant-tooltip ant-menu-inline-collapsed-tooltip"
               style="opacity:0"
             >
               <div

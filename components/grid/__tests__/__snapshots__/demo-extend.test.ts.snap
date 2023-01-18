@@ -921,7 +921,7 @@ Array [
       />
       <div>
         <div
-          class="ant-tooltip ant-slider-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip ant-slider-tooltip"
           style="opacity:0"
         >
           <div
@@ -1041,7 +1041,7 @@ Array [
       />
       <div>
         <div
-          class="ant-tooltip ant-slider-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip ant-slider-tooltip"
           style="opacity:0"
         >
           <div
@@ -1161,7 +1161,7 @@ Array [
       />
       <div>
         <div
-          class="ant-tooltip ant-slider-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip ant-slider-tooltip"
           style="opacity:0"
         >
           <div

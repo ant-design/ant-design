@@ -608,9 +608,6 @@ describe('Tooltip', () => {
         <div className="target">target</div>
       </Tooltip>,
     );
-    expect(container.querySelector('.ant-tooltip')?.classList).not.toContain(
-      'ant-tooltip-show-arrow',
-    );
     expect(container).toMatchSnapshot();
   });
 
@@ -620,7 +617,6 @@ describe('Tooltip', () => {
         <div className="target">target</div>
       </Tooltip>,
     );
-    expect(container.querySelector('.ant-tooltip')?.classList).toContain('ant-tooltip-show-arrow');
     expect(container).toMatchSnapshot();
   });
 });

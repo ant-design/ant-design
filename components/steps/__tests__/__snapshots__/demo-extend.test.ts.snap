@@ -257,7 +257,7 @@ exports[`renders ./components/steps/demo/customized-progress-dot.tsx extend cont
           />
           <div>
             <div
-              class="ant-popover ant-popover-show-arrow"
+              class="ant-popover"
               style="opacity:0"
             >
               <div
@@ -329,7 +329,7 @@ exports[`renders ./components/steps/demo/customized-progress-dot.tsx extend cont
           />
           <div>
             <div
-              class="ant-popover ant-popover-show-arrow"
+              class="ant-popover"
               style="opacity:0"
             >
               <div
@@ -401,7 +401,7 @@ exports[`renders ./components/steps/demo/customized-progress-dot.tsx extend cont
           />
           <div>
             <div
-              class="ant-popover ant-popover-show-arrow"
+              class="ant-popover"
               style="opacity:0"
             >
               <div
@@ -473,7 +473,7 @@ exports[`renders ./components/steps/demo/customized-progress-dot.tsx extend cont
           />
           <div>
             <div
-              class="ant-popover ant-popover-show-arrow"
+              class="ant-popover"
               style="opacity:0"
             >
               <div
@@ -960,7 +960,7 @@ exports[`renders ./components/steps/demo/inline.tsx extend context correctly 1`]
               </div>
               <div>
                 <div
-                  class="ant-tooltip ant-tooltip-show-arrow"
+                  class="ant-tooltip"
                   style="opacity:0"
                 >
                   <div
@@ -1020,7 +1020,7 @@ exports[`renders ./components/steps/demo/inline.tsx extend context correctly 1`]
               </div>
               <div>
                 <div
-                  class="ant-tooltip ant-tooltip-show-arrow"
+                  class="ant-tooltip"
                   style="opacity:0"
                 >
                   <div
@@ -1080,7 +1080,7 @@ exports[`renders ./components/steps/demo/inline.tsx extend context correctly 1`]
               </div>
               <div>
                 <div
-                  class="ant-tooltip ant-tooltip-show-arrow"
+                  class="ant-tooltip"
                   style="opacity:0"
                 >
                   <div
@@ -1182,7 +1182,7 @@ exports[`renders ./components/steps/demo/inline.tsx extend context correctly 1`]
               </div>
               <div>
                 <div
-                  class="ant-tooltip ant-tooltip-show-arrow"
+                  class="ant-tooltip"
                   style="opacity:0"
                 >
                   <div
@@ -1242,7 +1242,7 @@ exports[`renders ./components/steps/demo/inline.tsx extend context correctly 1`]
               </div>
               <div>
                 <div
-                  class="ant-tooltip ant-tooltip-show-arrow"
+                  class="ant-tooltip"
                   style="opacity:0"
                 >
                   <div
@@ -1302,7 +1302,7 @@ exports[`renders ./components/steps/demo/inline.tsx extend context correctly 1`]
               </div>
               <div>
                 <div
-                  class="ant-tooltip ant-tooltip-show-arrow"
+                  class="ant-tooltip"
                   style="opacity:0"
                 >
                   <div
@@ -1404,7 +1404,7 @@ exports[`renders ./components/steps/demo/inline.tsx extend context correctly 1`]
               </div>
               <div>
                 <div
-                  class="ant-tooltip ant-tooltip-show-arrow"
+                  class="ant-tooltip"
                   style="opacity:0"
                 >
                   <div
@@ -1464,7 +1464,7 @@ exports[`renders ./components/steps/demo/inline.tsx extend context correctly 1`]
               </div>
               <div>
                 <div
-                  class="ant-tooltip ant-tooltip-show-arrow"
+                  class="ant-tooltip"
                   style="opacity:0"
                 >
                   <div
@@ -1524,7 +1524,7 @@ exports[`renders ./components/steps/demo/inline.tsx extend context correctly 1`]
               </div>
               <div>
                 <div
-                  class="ant-tooltip ant-tooltip-show-arrow"
+                  class="ant-tooltip"
                   style="opacity:0"
                 >
                   <div
@@ -1626,7 +1626,7 @@ exports[`renders ./components/steps/demo/inline.tsx extend context correctly 1`]
               </div>
               <div>
                 <div
-                  class="ant-tooltip ant-tooltip-show-arrow"
+                  class="ant-tooltip"
                   style="opacity:0"
                 >
                   <div
@@ -1686,7 +1686,7 @@ exports[`renders ./components/steps/demo/inline.tsx extend context correctly 1`]
               </div>
               <div>
                 <div
-                  class="ant-tooltip ant-tooltip-show-arrow"
+                  class="ant-tooltip"
                   style="opacity:0"
                 >
                   <div
@@ -1746,7 +1746,7 @@ exports[`renders ./components/steps/demo/inline.tsx extend context correctly 1`]
               </div>
               <div>
                 <div
-                  class="ant-tooltip ant-tooltip-show-arrow"
+                  class="ant-tooltip"
                   style="opacity:0"
                 >
                   <div

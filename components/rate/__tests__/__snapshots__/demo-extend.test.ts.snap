@@ -2526,7 +2526,7 @@ exports[`renders ./components/rate/demo/text.tsx extend context correctly 1`] = 
     </li>
     <div>
       <div
-        class="ant-tooltip ant-tooltip-show-arrow"
+        class="ant-tooltip"
         style="opacity:0"
       >
         <div
@@ -2608,7 +2608,7 @@ exports[`renders ./components/rate/demo/text.tsx extend context correctly 1`] = 
     </li>
     <div>
       <div
-        class="ant-tooltip ant-tooltip-show-arrow"
+        class="ant-tooltip"
         style="opacity:0"
       >
         <div
@@ -2690,7 +2690,7 @@ exports[`renders ./components/rate/demo/text.tsx extend context correctly 1`] = 
     </li>
     <div>
       <div
-        class="ant-tooltip ant-tooltip-show-arrow"
+        class="ant-tooltip"
         style="opacity:0"
       >
         <div
@@ -2772,7 +2772,7 @@ exports[`renders ./components/rate/demo/text.tsx extend context correctly 1`] = 
     </li>
     <div>
       <div
-        class="ant-tooltip ant-tooltip-show-arrow"
+        class="ant-tooltip"
         style="opacity:0"
       >
         <div
@@ -2854,7 +2854,7 @@ exports[`renders ./components/rate/demo/text.tsx extend context correctly 1`] = 
     </li>
     <div>
       <div
-        class="ant-tooltip ant-tooltip-show-arrow"
+        class="ant-tooltip"
         style="opacity:0"
       >
         <div

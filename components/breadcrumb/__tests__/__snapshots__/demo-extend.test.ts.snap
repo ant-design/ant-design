@@ -161,7 +161,7 @@ exports[`renders ./components/breadcrumb/demo/overlay.tsx extend context correct
             </li>
             <div>
               <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
                 style="opacity:0"
               >
                 <div
@@ -200,7 +200,7 @@ exports[`renders ./components/breadcrumb/demo/overlay.tsx extend context correct
             </li>
             <div>
               <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
                 style="opacity:0"
               >
                 <div
@@ -239,7 +239,7 @@ exports[`renders ./components/breadcrumb/demo/overlay.tsx extend context correct
             </li>
             <div>
               <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
                 style="opacity:0"
               >
                 <div
@@ -266,7 +266,7 @@ exports[`renders ./components/breadcrumb/demo/overlay.tsx extend context correct
           >
             <div>
               <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
                 style="opacity:0"
               >
                 <div
@@ -288,7 +288,7 @@ exports[`renders ./components/breadcrumb/demo/overlay.tsx extend context correct
             </div>
             <div>
               <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
                 style="opacity:0"
               >
                 <div
@@ -310,7 +310,7 @@ exports[`renders ./components/breadcrumb/demo/overlay.tsx extend context correct
             </div>
             <div>
               <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-show-arrow"
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
                 style="opacity:0"
               >
                 <div

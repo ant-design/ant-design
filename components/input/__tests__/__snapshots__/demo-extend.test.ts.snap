@@ -666,7 +666,7 @@ Array [
     </div>
     <div>
       <div
-        class="ant-tooltip ant-tooltip-show-arrow"
+        class="ant-tooltip"
         style="opacity:0"
       >
         <div
@@ -5513,7 +5513,7 @@ exports[`renders ./components/input/demo/group.tsx extend context correctly 1`] 
     </button>
     <div>
       <div
-        class="ant-tooltip ant-tooltip-show-arrow"
+        class="ant-tooltip"
         style="opacity:0"
       >
         <div
@@ -9099,7 +9099,7 @@ Array [
       </span>
       <div>
         <div
-          class="ant-tooltip ant-tooltip-show-arrow"
+          class="ant-tooltip"
           style="opacity:0"
         >
           <div
@@ -10089,7 +10089,7 @@ Array [
   />,
   <div>
     <div
-      class="ant-tooltip numeric-input ant-tooltip-show-arrow"
+      class="ant-tooltip numeric-input"
       style="opacity:0"
     >
       <div
