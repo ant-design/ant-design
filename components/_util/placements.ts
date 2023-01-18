@@ -24,8 +24,8 @@ export interface PlacementsConfig {
   verticalArrowShift?: number;
   arrowPointAtCenter?: boolean;
   autoAdjustOverflow?: boolean | AdjustOverflow;
-  showArrow?: boolean;
-  marginXXS?: number;
+  showArrow: boolean;
+  marginXXS: number;
 }
 
 export function getOverflowOptions(autoAdjustOverflow?: boolean | AdjustOverflow) {
@@ -75,6 +75,7 @@ function getArrowOffset(
     case 'rightTop':
     case 'rightBottom':
       return [showArrow ? arrowWidth / 2 + marginXXS : marginXXS, 0];
+    /* istanbul ignore next */
     default:
       return [0, 0];
   }
@@ -91,8 +92,8 @@ export default function getPlacements(config: PlacementsConfig) {
     verticalArrowShift = 8,
     autoAdjustOverflow,
     arrowPointAtCenter,
-    showArrow = true,
-    marginXXS = 4,
+    showArrow,
+    marginXXS,
   } = config;
   const halfArrowWidth = arrowWidth / 2;
 
