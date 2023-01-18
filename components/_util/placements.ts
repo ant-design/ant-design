@@ -24,7 +24,6 @@ export interface PlacementsConfig {
   verticalArrowShift?: number;
   arrowPointAtCenter?: boolean;
   autoAdjustOverflow?: boolean | AdjustOverflow;
-  showArrow: boolean;
   marginXXS: number;
 }
 
@@ -38,43 +37,27 @@ export function getOverflowOptions(autoAdjustOverflow?: boolean | AdjustOverflow
   };
 }
 
-type PlacementType =
-  | 'left'
-  | 'right'
-  | 'top'
-  | 'bottom'
-  | 'topLeft'
-  | 'topRight'
-  | 'bottomLeft'
-  | 'bottomRight'
-  | 'leftTop'
-  | 'leftBottom'
-  | 'rightTop'
-  | 'rightBottom';
+type PlacementType = keyof BuildInPlacements;
 
-function getArrowOffset(
-  type: PlacementType,
-  showArrow: boolean,
-  arrowWidth: number,
-  marginXXS: number,
-): number[] {
+function getArrowOffset(type: PlacementType, arrowWidth: number, offset: number): number[] {
+  const showArrow = arrowWidth !== 0;
   switch (type) {
     case 'top':
     case 'topLeft':
     case 'topRight':
-      return [0, -(showArrow ? arrowWidth / 2 + marginXXS : marginXXS)];
+      return [0, -(showArrow ? arrowWidth / 2 + offset : offset)];
     case 'bottom':
     case 'bottomLeft':
     case 'bottomRight':
-      return [0, showArrow ? arrowWidth / 2 + marginXXS : marginXXS];
+      return [0, showArrow ? arrowWidth / 2 + offset : offset];
     case 'left':
     case 'leftTop':
     case 'leftBottom':
-      return [-(showArrow ? arrowWidth / 2 + marginXXS : marginXXS), 0];
+      return [-(showArrow ? arrowWidth / 2 + offset : offset), 0];
     case 'right':
     case 'rightTop':
     case 'rightBottom':
-      return [showArrow ? arrowWidth / 2 + marginXXS : marginXXS, 0];
+      return [showArrow ? arrowWidth / 2 + offset : offset, 0];
     /* istanbul ignore next */
     default:
       return [0, 0];
@@ -92,7 +75,6 @@ export default function getPlacements(config: PlacementsConfig) {
     verticalArrowShift = 8,
     autoAdjustOverflow,
     arrowPointAtCenter,
-    showArrow,
     marginXXS,
   } = config;
   const halfArrowWidth = arrowWidth / 2;
@@ -153,7 +135,7 @@ export default function getPlacements(config: PlacementsConfig) {
           ...placementMap[key],
           offset: vertexCalc(
             placementMap[key].offset!,
-            getArrowOffset(key as PlacementType, showArrow, arrowWidth, marginXXS),
+            getArrowOffset(key as PlacementType, arrowWidth, marginXXS),
           ),
           overflow: getOverflowOptions(autoAdjustOverflow),
           targetOffset,
@@ -162,7 +144,7 @@ export default function getPlacements(config: PlacementsConfig) {
           ...placements[key],
           offset: vertexCalc(
             placements[key].offset!,
-            getArrowOffset(key as PlacementType, showArrow, arrowWidth, marginXXS),
+            getArrowOffset(key as PlacementType, arrowWidth, marginXXS),
           ),
           overflow: getOverflowOptions(autoAdjustOverflow),
         };

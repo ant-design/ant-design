@@ -224,9 +224,8 @@ const Dropdown: CompoundedComponent = (props) => {
   const builtinPlacements = getPlacements({
     arrowPointAtCenter: typeof arrow === 'object' && arrow.pointAtCenter,
     autoAdjustOverflow,
-    showArrow: !!arrow,
     marginXXS: token.marginXXS,
-    arrowWidth: token.sizePopupArrow,
+    arrowWidth: arrow !== false ? token.sizePopupArrow : 0,
   });
 
   const onMenuClick = React.useCallback(() => {
