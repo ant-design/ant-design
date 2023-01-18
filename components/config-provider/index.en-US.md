@@ -79,18 +79,21 @@ ConfigProvider.config({
 });
 ```
 
-### ConfigProvider.useConfig()
+### ConfigProvider.useConfig() `5.2.0+`
 
-Get the value of the parent `Provider`. Such as `DisabledContextProvider`, `SizeContextProvider`.
+Available since `5.2.0`. Get the value of the parent `Provider`. Such as `DisabledContextProvider`, `SizeContextProvider`.
 
 ```jsx
-const { componentDisabled, componentSize } = ConfigProvider.useConfig();
+const {
+  componentDisabled, // 5.2.0+
+  componentSize, // 5.2.0+
+} = ConfigProvider.useConfig();
 ```
 
 | 返回值 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| componentDisabled | antd component disabled state | boolean | - |  |
-| componentSize | antd component size state | `small` \| `middle` \| `large` | - |  |
+| componentDisabled | antd component disabled state | boolean | - | 5.2.0 |
+| componentSize | antd component size state | `small` \| `middle` \| `large` | - | 5.2.0 |
 
 ## FAQ
 
