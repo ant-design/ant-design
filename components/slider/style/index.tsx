@@ -246,7 +246,7 @@ const genDirectionStyle = (token: SliderToken, horizontal: boolean): CSSObject =
     [part]: railSize * 3,
 
     [`${componentCls}-rail`]: {
-      [full]: '100%',
+      [full]: `calc(${dotSize / 2}px + 100%)`,
       [part]: railSize,
     },
 
