@@ -19,9 +19,4 @@ There are 12 placement options available.
   margin-left: 8px;
   margin-bottom: 8px;
 }
-#components-tooltip-demo-placement .ant-btn {
-  width: 70px;
-  text-align: center;
-  padding: 0;
-}
 </style>
