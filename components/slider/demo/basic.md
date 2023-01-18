@@ -5,9 +5,3 @@
 ## en-US
 
 Basic slider. When `range` is `true`, display as dual thumb mode. When `disable` is `true`, the slider will not be interactable.
-
-<style>
-.code-box-demo .ant-slider {
-  margin-bottom: 16px;
-}
-</style>

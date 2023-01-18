@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Radio, Select } from 'antd';
+import { Radio, Select, Space } from 'antd';
 import type { SizeType } from 'antd/es/config-provider/SizeContext';
 import type { SelectProps, RadioChangeEvent } from 'antd';
 
 const options: SelectProps['options'] = [];
+
 for (let i = 10; i < 36; i++) {
   options.push({
     value: i.toString(36) + i,
@@ -31,33 +32,33 @@ const App: React.FC = () => {
       </Radio.Group>
       <br />
       <br />
-      <Select
-        size={size}
-        defaultValue="a1"
-        onChange={handleChange}
-        style={{ width: 200 }}
-        options={options}
-      />
-      <br />
-      <Select
-        mode="multiple"
-        size={size}
-        placeholder="Please select"
-        defaultValue={['a10', 'c12']}
-        onChange={handleChange}
-        style={{ width: '100%' }}
-        options={options}
-      />
-      <br />
-      <Select
-        mode="tags"
-        size={size}
-        placeholder="Please select"
-        defaultValue={['a10', 'c12']}
-        onChange={handleChange}
-        style={{ width: '100%' }}
-        options={options}
-      />
+      <Space direction="vertical" style={{ width: '100%' }}>
+        <Select
+          size={size}
+          defaultValue="a1"
+          onChange={handleChange}
+          style={{ width: 200 }}
+          options={options}
+        />
+        <Select
+          mode="multiple"
+          size={size}
+          placeholder="Please select"
+          defaultValue={['a10', 'c12']}
+          onChange={handleChange}
+          style={{ width: '100%' }}
+          options={options}
+        />
+        <Select
+          mode="tags"
+          size={size}
+          placeholder="Please select"
+          defaultValue={['a10', 'c12']}
+          onChange={handleChange}
+          style={{ width: '100%' }}
+          options={options}
+        />
+      </Space>
     </>
   );
 };
