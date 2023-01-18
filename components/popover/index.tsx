@@ -56,7 +56,7 @@ const Popover = React.forwardRef<unknown, PopoverProps>((props, ref) => {
 
   const overlayCls = classNames(overlayClassName, hashId);
 
-  const showArrow = !!arrow || arrowPointAtCenter !== undefined;
+  const showArrow = !!arrow;
   const mergedArrowPointAtCenter =
     (typeof arrow !== 'boolean' && arrow?.arrowPointAtCenter) ?? arrowPointAtCenter ?? false;
   const mergedArrow = arrow ?? { arrowPointAtCenter: mergedArrowPointAtCenter }

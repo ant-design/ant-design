@@ -33,12 +33,7 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
     showArrowCls?: string;
     contentRadius?: number;
     limitVerticalRadius?: boolean;
-    arrowDistance?: {
-      left?: number;
-      right?: number;
-      top?: number;
-      bottom?: number;
-    };
+    arrowDistance?: number;
     arrowPlacement?: {
       left?: boolean;
       right?: boolean;
@@ -54,12 +49,7 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
     colorBg,
     contentRadius = token.borderRadiusLG,
     limitVerticalRadius,
-    arrowDistance = {
-      left: 0,
-      right: 0,
-      top: 0,
-      bottom: 0,
-    },
+    arrowDistance = 0,
     arrowPlacement = {
       left: true,
       right: true,
@@ -74,14 +64,6 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
     borderRadiusOuter,
     limitVerticalRadius,
   });
-
-  /* istanbul ignore next */
-  const {
-    left: leftArrowDistance = 0,
-    right: rightArrowDistance = 0,
-    top: topArrowDistance = 0,
-    bottom: bottomArrowDistance = 0,
-  } = arrowDistance;
 
   return {
     [componentCls]: {
@@ -115,7 +97,7 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
           `&-placement-topLeft ${componentCls}-arrow`,
           `&-placement-topRight ${componentCls}-arrow`,
         ].join(',')]: {
-          bottom: bottomArrowDistance,
+          bottom: arrowDistance,
           transform: 'translateY(100%) rotate(180deg)',
         },
 
@@ -149,7 +131,7 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
           `&-placement-bottomLeft ${componentCls}-arrow`,
           `&-placement-bottomRight ${componentCls}-arrow`,
         ].join(',')]: {
-          top: topArrowDistance,
+          top: arrowDistance,
           transform: `translateY(-100%)`,
         },
 
@@ -185,7 +167,7 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
         ].join(',')]: {
           right: {
             _skip_check_: true,
-            value: rightArrowDistance,
+            value: arrowDistance,
           },
           transform: 'translateX(100%) rotate(90deg)',
         },
@@ -216,7 +198,7 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
         ].join(',')]: {
           left: {
             _skip_check_: true,
-            value: leftArrowDistance,
+            value: arrowDistance,
           },
           transform: 'translateX(-100%) rotate(-90deg)',
         },

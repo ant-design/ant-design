@@ -29,7 +29,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
   const builtinPlacements = getPlacements({
     arrowPointAtCenter: true,
     autoAdjustOverflow: true,
-    marginXXS: token.marginXXS,
+    offset: token.marginXXS,
     arrowWidth: token.sizePopupArrow,
   });
 
