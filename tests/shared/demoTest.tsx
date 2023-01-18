@@ -15,7 +15,7 @@ require('isomorphic-fetch');
 export type Options = {
   skip?: boolean | string[];
   testingLib?: boolean;
-  testRootProps?: boolean;
+  testRootProps?: false | object;
 };
 
 function baseText(doInject: boolean, component: string, options: Options = {}) {
@@ -104,6 +104,8 @@ export default function demoTest(component: string, options: Options = {}) {
   baseText(false, component, options);
 
   if (options?.testRootProps !== false) {
-    rootPropsTest(component);
+    rootPropsTest(component, null!, {
+      props: options?.testRootProps,
+    });
   }
 }

@@ -2,6 +2,7 @@
 import React from 'react';
 import ConfigProvider from '../../components/config-provider';
 import { render, waitFakeTimer } from '../utils';
+import { TriggerMockContext } from './demoTestContext';
 
 export interface Options {
   name?: string;
@@ -10,6 +11,7 @@ export interface Options {
   ) => Element | HTMLCollection | Element[] | NodeListOf<Element>;
   expectCount?: number;
   beforeRender?: () => void;
+  props?: object;
 }
 
 function isSingleNode(node: any): node is Element {
@@ -57,6 +59,7 @@ export default function rootPropsTest(
           value: 1,
           rootClassName,
           open: true,
+          ...options?.props,
         };
 
         const node = customizeRender ? (
@@ -65,12 +68,16 @@ export default function rootPropsTest(
           <Component {...sharedProps} />
         );
 
+        const triggerContext = React.useMemo(() => ({ mock: false }), []);
+
         return (
-          <div id="holder" className="holder" ref={holderRef}>
-            {show && (
-              <ConfigProvider getPopupContainer={() => holderRef.current!}>{node}</ConfigProvider>
-            )}
-          </div>
+          <TriggerMockContext.Provider value={triggerContext}>
+            <div id="holder" className="holder" ref={holderRef}>
+              {show && (
+                <ConfigProvider getPopupContainer={() => holderRef.current!}>{node}</ConfigProvider>
+              )}
+            </div>
+          </TriggerMockContext.Provider>
         );
       };
 
