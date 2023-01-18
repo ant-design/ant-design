@@ -19,7 +19,7 @@ export interface AdjustOverflow {
 }
 
 export interface PlacementsConfig {
-  arrowWidth?: number;
+  arrowWidth: number;
   horizontalArrowShift?: number;
   verticalArrowShift?: number;
   arrowPointAtCenter?: boolean;
@@ -87,7 +87,7 @@ function vertexCalc(point1: number[], point2: number[]): number[] {
 
 export default function getPlacements(config: PlacementsConfig) {
   const {
-    arrowWidth = 4,
+    arrowWidth,
     horizontalArrowShift = 16,
     verticalArrowShift = 8,
     autoAdjustOverflow,
