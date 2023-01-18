@@ -61,7 +61,7 @@ describe('Card', () => {
   it('should not render when actions is number', () => {
     const numberStub = 11;
     render(
-      // @ts-ignore ingnore for the wrong action value
+      // @ts-ignore ignore for the wrong action value
       <Card title="Card title" actions={numberStub}>
         <p>Card content</p>
       </Card>,
