@@ -363,7 +363,6 @@ describe('Anchor Render', () => {
         ]}
       />,
       // https://github.com/testing-library/react-testing-library/releases/tag/v13.0.0
-      // @ts-ignore
       { legacyRoot: true },
     );
 
@@ -492,7 +491,6 @@ describe('Anchor Render', () => {
           ]}
         />,
         // https://github.com/testing-library/react-testing-library/releases/tag/v13.0.0
-        // @ts-ignore
         { legacyRoot: true },
       );
 
