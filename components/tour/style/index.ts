@@ -234,7 +234,6 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
     // ============================= Arrow ===========================
     getArrowStyle<TourToken>(token, {
       colorBg: 'var(--antd-arrow-background-color)',
-      showArrowCls: `&${componentCls}`,
       contentRadius: tourBorderRadius,
       limitVerticalRadius: true,
     }),
