@@ -11,11 +11,12 @@ export interface Options {
   ) => Element | HTMLCollection | Element[] | NodeListOf<Element>;
   expectCount?: number;
   beforeRender?: () => void;
+  afterRender?: (container: HTMLElement) => void;
   props?: object;
 }
 
 function isSingleNode(node: any): node is Element {
-  return !node || node instanceof HTMLElement;
+  return node && node instanceof HTMLElement;
 }
 
 export default function rootPropsTest(
@@ -82,6 +83,12 @@ export default function rootPropsTest(
       };
 
       const { container } = render(<Demo />);
+      await waitFakeTimer();
+
+      if (options?.afterRender) {
+        options?.afterRender(container);
+      }
+
       await waitFakeTimer();
 
       const holder = container.querySelector<HTMLElement>('#holder')!;

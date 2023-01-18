@@ -36,6 +36,7 @@ export type SegmentedLabeledOption =
   | SegmentedLabeledOptionWithoutIcon;
 
 export interface SegmentedProps extends Omit<RCSegmentedProps, 'size' | 'options'> {
+  rootClassName?: string;
   options: (SegmentedRawOption | SegmentedLabeledOption)[];
   /** Option to fit width to its parent's width */
   block?: boolean;
@@ -47,6 +48,7 @@ const Segmented = React.forwardRef<HTMLDivElement, SegmentedProps>((props, ref) 
   const {
     prefixCls: customizePrefixCls,
     className,
+    rootClassName,
     block,
     options = [],
     size: customSize = 'middle',
@@ -88,6 +90,7 @@ const Segmented = React.forwardRef<HTMLDivElement, SegmentedProps>((props, ref) 
       {...restProps}
       className={classNames(
         className,
+        rootClassName,
         {
           [`${prefixCls}-block`]: block,
           [`${prefixCls}-sm`]: mergedSize === 'small',
