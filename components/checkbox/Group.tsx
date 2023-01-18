@@ -52,6 +52,7 @@ const InternalCheckboxGroup: React.ForwardRefRenderFunction<HTMLDivElement, Chec
     options = [],
     prefixCls: customizePrefixCls,
     className,
+    rootClassName,
     style,
     onChange,
     ...restProps
@@ -153,6 +154,7 @@ const InternalCheckboxGroup: React.ForwardRefRenderFunction<HTMLDivElement, Chec
       [`${groupPrefixCls}-rtl`]: direction === 'rtl',
     },
     className,
+    rootClassName,
     hashId,
   );
   return wrapSSR(

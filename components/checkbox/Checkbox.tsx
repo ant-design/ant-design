@@ -52,6 +52,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<HTMLInputElement, Checkbo
   {
     prefixCls: customizePrefixCls,
     className,
+    rootClassName,
     children,
     indeterminate = false,
     style,
@@ -117,6 +118,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<HTMLInputElement, Checkbo
       [`${prefixCls}-wrapper-in-form-item`]: isFormItemInput,
     },
     className,
+    rootClassName,
     hashId,
   );
   const checkboxClass = classNames(
