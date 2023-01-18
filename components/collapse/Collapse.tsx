@@ -28,6 +28,7 @@ export interface CollapseProps {
   onChange?: (key: string | string[]) => void;
   style?: React.CSSProperties;
   className?: string;
+  rootClassName?: string;
   bordered?: boolean;
   prefixCls?: string;
   expandIcon?: (panelProps: PanelProps) => React.ReactNode;
@@ -58,7 +59,8 @@ const Collapse: CompoundedComponent = (props) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const {
     prefixCls: customizePrefixCls,
-    className = '',
+    className,
+    rootClassName,
     bordered = true,
     ghost,
     expandIconPosition = 'start',
@@ -105,6 +107,7 @@ const Collapse: CompoundedComponent = (props) => {
       [`${prefixCls}-ghost`]: !!ghost,
     },
     className,
+    rootClassName,
     hashId,
   );
   const openMotion: CSSMotionProps = {
@@ -133,7 +136,7 @@ const Collapse: CompoundedComponent = (props) => {
   return wrapSSR(
     <RcCollapse
       openMotion={openMotion}
-      {...props}
+      {...omit(props, ['rootClassName'])}
       expandIcon={renderExpandIcon}
       prefixCls={prefixCls}
       className={collapseClassName}

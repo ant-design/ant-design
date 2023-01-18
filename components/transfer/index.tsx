@@ -1,16 +1,16 @@
 import classNames from 'classnames';
-import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import type { ChangeEvent, CSSProperties } from 'react';
+import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import type { FormItemStatusContextProps } from '../form/context';
 import { FormItemInputContext } from '../form/context';
-import LocaleReceiver from '../locale/LocaleReceiver';
 import defaultLocale from '../locale/en_US';
+import LocaleReceiver from '../locale/LocaleReceiver';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
-import { groupKeysMap, groupDisabledKeysMap } from '../_util/transKeys';
+import { groupDisabledKeysMap, groupKeysMap } from '../_util/transKeys';
 import warning from '../_util/warning';
 import type { PaginationType } from './interface';
 import type { TransferListProps } from './list';
@@ -73,6 +73,7 @@ export interface TransferLocale {
 export interface TransferProps<RecordType> {
   prefixCls?: string;
   className?: string;
+  rootClassName?: string;
   disabled?: boolean;
   dataSource?: RecordType[];
   targetKeys?: string[];
@@ -103,22 +104,23 @@ export interface TransferProps<RecordType> {
   status?: InputStatus;
 }
 
-interface TransferFCProps {
-  prefixCls: string;
-  className: string;
-  style?: React.CSSProperties;
-  children: React.ReactNode;
-}
+// interface TransferFCProps {
+//   prefixCls: string;
+//   className?: string;
+//   rootClassName?: string;
+//   style?: React.CSSProperties;
+//   children: React.ReactNode;
+// }
 
-const TransferFC: React.FC<TransferFCProps> = (props) => {
-  const { prefixCls, className, style, children } = props;
-  const [wrapSSR, hashId] = useStyle(prefixCls);
-  return wrapSSR(
-    <div className={classNames(className, hashId)} style={style}>
-      {children}
-    </div>,
-  );
-};
+// const TransferFC: React.FC<TransferFCProps> = (props) => {
+//   const { prefixCls, className, rootClassName, style, children } = props;
+//   const [wrapSSR, hashId] = useStyle(prefixCls);
+//   return wrapSSR(
+//     <div className={classNames(className, rootClassName, hashId)} style={style}>
+//       {children}
+//     </div>,
+//   );
+// };
 
 const Transfer = <RecordType extends TransferItem = TransferItem>(
   props: TransferProps<RecordType>,
@@ -133,7 +135,6 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     listStyle = {},
     locale = {},
     titles,
-    className,
     disabled,
     showSearch = false,
     operationStyle,
@@ -142,6 +143,8 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     pagination,
     status: customStatus,
     prefixCls: customizePrefixCls,
+    className,
+    rootClassName,
     filterOption,
     render,
     footer,
@@ -152,6 +155,15 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     onSearch,
     onSelectChange,
   } = props;
+
+  const {
+    getPrefixCls,
+    renderEmpty,
+    direction: dir,
+  } = useContext<ConfigConsumerProps>(ConfigContext);
+  const prefixCls = getPrefixCls('transfer', customizePrefixCls);
+
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const [sourceSelectedKeys, setSourceSelectedKeys] = useState<string[]>(() =>
     selectedKeys.filter((key) => !targetKeys.includes(key)),
@@ -326,10 +338,8 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     return [leftData, rightData] as const;
   }, [dataSource, targetKeys, rowKey]);
 
-  const configContext = useContext<ConfigConsumerProps>(ConfigContext);
   const formItemContext = useContext<FormItemStatusContextProps>(FormItemInputContext);
 
-  const { getPrefixCls, renderEmpty, direction } = configContext;
   const { hasFeedback, status } = formItemContext;
 
   const getLocale = (transferLocale: TransferLocale) => ({
@@ -338,7 +348,6 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     ...locale,
   });
 
-  const prefixCls = getPrefixCls('transfer', customizePrefixCls);
   const mergedStatus = getMergedStatus(status, customStatus);
   const mergedPagination = !children && pagination;
 
@@ -350,19 +359,21 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     {
       [`${prefixCls}-disabled`]: disabled,
       [`${prefixCls}-customize-list`]: !!children,
-      [`${prefixCls}-rtl`]: direction === 'rtl',
+      [`${prefixCls}-rtl`]: dir === 'rtl',
     },
     getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
     className,
+    rootClassName,
+    hashId,
   );
 
-  return (
+  return wrapSSR(
     <LocaleReceiver componentName="Transfer" defaultLocale={defaultLocale.Transfer}>
       {(contextLocale) => {
         const listLocale = getLocale(contextLocale);
         const [leftTitle, rightTitle] = getTitles(listLocale);
         return (
-          <TransferFC prefixCls={prefixCls} className={cls} style={style}>
+          <div className={cls} style={style}>
             <List<KeyWise<RecordType>>
               prefixCls={`${prefixCls}-list`}
               titleText={leftTitle}
@@ -380,7 +391,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
               footer={footer}
               onScroll={handleLeftScroll}
               disabled={disabled}
-              direction={direction === 'rtl' ? 'right' : 'left'}
+              direction={dir === 'rtl' ? 'right' : 'left'}
               showSelectAll={showSelectAll}
               selectAllLabel={selectAllLabels[0]}
               pagination={mergedPagination}
@@ -396,7 +407,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
               moveToLeft={moveToLeft}
               style={operationStyle}
               disabled={disabled}
-              direction={direction}
+              direction={dir}
               oneWay={oneWay}
             />
             <List<KeyWise<RecordType>>
@@ -417,17 +428,17 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
               footer={footer}
               onScroll={handleRightScroll}
               disabled={disabled}
-              direction={direction === 'rtl' ? 'left' : 'right'}
+              direction={dir === 'rtl' ? 'left' : 'right'}
               showSelectAll={showSelectAll}
               selectAllLabel={selectAllLabels[1]}
               showRemove={oneWay}
               pagination={mergedPagination}
               {...listLocale}
             />
-          </TransferFC>
+          </div>
         );
       }}
-    </LocaleReceiver>
+    </LocaleReceiver>,
   );
 };
 
