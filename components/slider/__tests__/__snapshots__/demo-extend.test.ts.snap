@@ -470,277 +470,289 @@ exports[`renders ./components/slider/demo/icon-slider.tsx extend context correct
 `;
 
 exports[`renders ./components/slider/demo/input-number.tsx extend context correctly 1`] = `
-<div>
+<div
+  class="ant-space ant-space-vertical"
+  style="width:100%"
+>
   <div
-    class="ant-row"
+    class="ant-space-item"
+    style="margin-bottom:8px"
   >
     <div
-      class="ant-col ant-col-12"
+      class="ant-row"
     >
       <div
-        class="ant-slider ant-slider-horizontal"
+        class="ant-col ant-col-12"
       >
         <div
-          class="ant-slider-rail"
-        />
-        <div
-          class="ant-slider-track"
-          style="left:0%;width:0%"
-        />
-        <div
-          class="ant-slider-step"
-        />
-        <div
-          aria-disabled="false"
-          aria-valuemax="20"
-          aria-valuemin="1"
-          aria-valuenow="1"
-          class="ant-slider-handle"
-          role="slider"
-          style="left:0%;transform:translateX(-50%)"
-          tabindex="0"
-        />
-        <div>
+          class="ant-slider ant-slider-horizontal"
+        >
           <div
-            class="ant-tooltip ant-slider-tooltip"
-            style="opacity:0"
-          >
+            class="ant-slider-rail"
+          />
+          <div
+            class="ant-slider-track"
+            style="left:0%;width:0%"
+          />
+          <div
+            class="ant-slider-step"
+          />
+          <div
+            aria-disabled="false"
+            aria-valuemax="20"
+            aria-valuemin="1"
+            aria-valuenow="1"
+            class="ant-slider-handle"
+            role="slider"
+            style="left:0%;transform:translateX(-50%)"
+            tabindex="0"
+          />
+          <div>
             <div
-              class="ant-tooltip-content"
+              class="ant-tooltip ant-slider-tooltip"
+              style="opacity:0"
             >
               <div
-                class="ant-tooltip-arrow"
+                class="ant-tooltip-content"
               >
-                <span
-                  class="ant-tooltip-arrow-content"
-                />
-              </div>
-              <div
-                class="ant-tooltip-inner"
-                role="tooltip"
-              >
-                1
+                <div
+                  class="ant-tooltip-arrow"
+                >
+                  <span
+                    class="ant-tooltip-arrow-content"
+                  />
+                </div>
+                <div
+                  class="ant-tooltip-inner"
+                  role="tooltip"
+                >
+                  1
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div
-      class="ant-col ant-col-4"
-    >
       <div
-        class="ant-input-number"
-        style="margin:0 16px"
+        class="ant-col ant-col-4"
       >
         <div
-          class="ant-input-number-handler-wrap"
+          class="ant-input-number"
+          style="margin:0 16px"
         >
-          <span
-            aria-disabled="false"
-            aria-label="Increase Value"
-            class="ant-input-number-handler ant-input-number-handler-up"
-            role="button"
-            unselectable="on"
+          <div
+            class="ant-input-number-handler-wrap"
           >
             <span
-              aria-label="up"
-              class="anticon anticon-up ant-input-number-handler-up-inner"
-              role="img"
+              aria-disabled="false"
+              aria-label="Increase Value"
+              class="ant-input-number-handler ant-input-number-handler-up"
+              role="button"
+              unselectable="on"
             >
-              <svg
-                aria-hidden="true"
-                data-icon="up"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
+              <span
+                aria-label="up"
+                class="anticon anticon-up ant-input-number-handler-up-inner"
+                role="img"
               >
-                <path
-                  d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
-                />
-              </svg>
+                <svg
+                  aria-hidden="true"
+                  data-icon="up"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+                  />
+                </svg>
+              </span>
             </span>
-          </span>
-          <span
-            aria-disabled="true"
-            aria-label="Decrease Value"
-            class="ant-input-number-handler ant-input-number-handler-down ant-input-number-handler-down-disabled"
-            role="button"
-            unselectable="on"
-          >
             <span
-              aria-label="down"
-              class="anticon anticon-down ant-input-number-handler-down-inner"
-              role="img"
+              aria-disabled="true"
+              aria-label="Decrease Value"
+              class="ant-input-number-handler ant-input-number-handler-down ant-input-number-handler-down-disabled"
+              role="button"
+              unselectable="on"
             >
-              <svg
-                aria-hidden="true"
-                data-icon="down"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
+              <span
+                aria-label="down"
+                class="anticon anticon-down ant-input-number-handler-down-inner"
+                role="img"
               >
-                <path
-                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                />
-              </svg>
+                <svg
+                  aria-hidden="true"
+                  data-icon="down"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                  />
+                </svg>
+              </span>
             </span>
-          </span>
-        </div>
-        <div
-          class="ant-input-number-input-wrap"
-        >
-          <input
-            aria-valuemax="20"
-            aria-valuemin="1"
-            aria-valuenow="1"
-            autocomplete="off"
-            class="ant-input-number-input"
-            role="spinbutton"
-            step="1"
-            value="1"
-          />
+          </div>
+          <div
+            class="ant-input-number-input-wrap"
+          >
+            <input
+              aria-valuemax="20"
+              aria-valuemin="1"
+              aria-valuenow="1"
+              autocomplete="off"
+              class="ant-input-number-input"
+              role="spinbutton"
+              step="1"
+              value="1"
+            />
+          </div>
         </div>
       </div>
     </div>
   </div>
   <div
-    class="ant-row"
+    class="ant-space-item"
   >
     <div
-      class="ant-col ant-col-12"
+      class="ant-row"
     >
       <div
-        class="ant-slider ant-slider-horizontal"
+        class="ant-col ant-col-12"
       >
         <div
-          class="ant-slider-rail"
-        />
-        <div
-          class="ant-slider-track"
-          style="left:0%;width:0%"
-        />
-        <div
-          class="ant-slider-step"
-        />
-        <div
-          aria-disabled="false"
-          aria-valuemax="1"
-          aria-valuemin="0"
-          aria-valuenow="0"
-          class="ant-slider-handle"
-          role="slider"
-          style="left:0%;transform:translateX(-50%)"
-          tabindex="0"
-        />
-        <div>
+          class="ant-slider ant-slider-horizontal"
+        >
           <div
-            class="ant-tooltip ant-slider-tooltip"
-            style="opacity:0"
-          >
+            class="ant-slider-rail"
+          />
+          <div
+            class="ant-slider-track"
+            style="left:0%;width:0%"
+          />
+          <div
+            class="ant-slider-step"
+          />
+          <div
+            aria-disabled="false"
+            aria-valuemax="1"
+            aria-valuemin="0"
+            aria-valuenow="0"
+            class="ant-slider-handle"
+            role="slider"
+            style="left:0%;transform:translateX(-50%)"
+            tabindex="0"
+          />
+          <div>
             <div
-              class="ant-tooltip-content"
+              class="ant-tooltip ant-slider-tooltip"
+              style="opacity:0"
             >
               <div
-                class="ant-tooltip-arrow"
+                class="ant-tooltip-content"
               >
-                <span
-                  class="ant-tooltip-arrow-content"
-                />
-              </div>
-              <div
-                class="ant-tooltip-inner"
-                role="tooltip"
-              >
-                0
+                <div
+                  class="ant-tooltip-arrow"
+                >
+                  <span
+                    class="ant-tooltip-arrow-content"
+                  />
+                </div>
+                <div
+                  class="ant-tooltip-inner"
+                  role="tooltip"
+                >
+                  0
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div
-      class="ant-col ant-col-4"
-    >
       <div
-        class="ant-input-number"
-        style="margin:0 16px"
+        class="ant-col ant-col-4"
       >
         <div
-          class="ant-input-number-handler-wrap"
+          class="ant-input-number"
+          style="margin:0 16px"
         >
-          <span
-            aria-disabled="false"
-            aria-label="Increase Value"
-            class="ant-input-number-handler ant-input-number-handler-up"
-            role="button"
-            unselectable="on"
+          <div
+            class="ant-input-number-handler-wrap"
           >
             <span
-              aria-label="up"
-              class="anticon anticon-up ant-input-number-handler-up-inner"
-              role="img"
+              aria-disabled="false"
+              aria-label="Increase Value"
+              class="ant-input-number-handler ant-input-number-handler-up"
+              role="button"
+              unselectable="on"
             >
-              <svg
-                aria-hidden="true"
-                data-icon="up"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
+              <span
+                aria-label="up"
+                class="anticon anticon-up ant-input-number-handler-up-inner"
+                role="img"
               >
-                <path
-                  d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
-                />
-              </svg>
+                <svg
+                  aria-hidden="true"
+                  data-icon="up"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+                  />
+                </svg>
+              </span>
             </span>
-          </span>
-          <span
-            aria-disabled="true"
-            aria-label="Decrease Value"
-            class="ant-input-number-handler ant-input-number-handler-down ant-input-number-handler-down-disabled"
-            role="button"
-            unselectable="on"
-          >
             <span
-              aria-label="down"
-              class="anticon anticon-down ant-input-number-handler-down-inner"
-              role="img"
+              aria-disabled="true"
+              aria-label="Decrease Value"
+              class="ant-input-number-handler ant-input-number-handler-down ant-input-number-handler-down-disabled"
+              role="button"
+              unselectable="on"
             >
-              <svg
-                aria-hidden="true"
-                data-icon="down"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
+              <span
+                aria-label="down"
+                class="anticon anticon-down ant-input-number-handler-down-inner"
+                role="img"
               >
-                <path
-                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                />
-              </svg>
+                <svg
+                  aria-hidden="true"
+                  data-icon="down"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                  />
+                </svg>
+              </span>
             </span>
-          </span>
-        </div>
-        <div
-          class="ant-input-number-input-wrap"
-        >
-          <input
-            aria-valuemax="1"
-            aria-valuemin="0"
-            aria-valuenow="0"
-            autocomplete="off"
-            class="ant-input-number-input"
-            role="spinbutton"
-            step="0.01"
-            value="0.00"
-          />
+          </div>
+          <div
+            class="ant-input-number-input-wrap"
+          >
+            <input
+              aria-valuemax="1"
+              aria-valuemin="0"
+              aria-valuenow="0"
+              autocomplete="off"
+              class="ant-input-number-input"
+              role="spinbutton"
+              step="0.01"
+              value="0.00"
+            />
+          </div>
         </div>
       </div>
     </div>
