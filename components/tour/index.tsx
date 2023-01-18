@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import RCTour from '@rc-component/tour';
 import classNames from 'classnames';
-import type { AlignType } from 'rc-trigger/lib/interface';
 import panelRender from './panelRender';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
