@@ -388,7 +388,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
       },
     },
 
-    [`&${componentCls}-compact`]: {
+    [`&${componentCls}-group-compact`]: {
       display: 'block',
       ...clearFix(),
 
