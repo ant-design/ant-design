@@ -37,6 +37,7 @@ export default function rootPropsTest(
 
     afterEach(() => {
       if (!passed || process.env.DEBUG === 'true') {
+        // eslint-disable-next-line no-console
         console.log(document.body.innerHTML);
       }
       jest.useRealTimers();
