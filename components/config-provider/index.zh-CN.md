@@ -12,23 +12,25 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*NVKORa7BCVwAAAAAAA
 
 ConfigProvider 使用 React 的 [context](https://facebook.github.io/react/docs/context.html) 特性，只需在应用外围包裹一次即可全局生效。
 
-```jsx
+```tsx
 import { ConfigProvider } from 'antd';
+import React from 'react';
 
 // ...
-
-export default () => (
+const Demo: React.FC = () => (
   <ConfigProvider direction="rtl">
     <App />
   </ConfigProvider>
 );
+
+export default Demo;
 ```
 
 ### Content Security Policy
 
 部分组件为了支持波纹效果，使用了动态样式。如果开启了 Content Security Policy (CSP)，你可以通过 `csp` 属性来进行配置：
 
-```jsx
+```tsx
 <ConfigProvider csp={{ nonce: 'YourNonceCode' }}>
   <Button>My Button</Button>
 </ConfigProvider>
@@ -70,7 +72,7 @@ export default () => (
 
 设置 `Modal`、`Message`、`Notification` rootPrefixCls。
 
-```jsx
+```ts
 ConfigProvider.config({
   prefixCls: 'ant', // 4.13.0+
   iconPrefixCls: 'anticon', // 4.17.0+

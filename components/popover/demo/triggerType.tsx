@@ -1,5 +1,5 @@
+import { Button, Popover, Space } from 'antd';
 import React from 'react';
-import { Button, Popover } from 'antd';
 
 const content = (
   <div>
@@ -9,7 +9,7 @@ const content = (
 );
 
 const App: React.FC = () => (
-  <div>
+  <Space wrap>
     <Popover content={content} title="Title" trigger="hover">
       <Button>Hover me</Button>
     </Popover>
@@ -19,7 +19,7 @@ const App: React.FC = () => (
     <Popover content={content} title="Title" trigger="click">
       <Button>Click me</Button>
     </Popover>
-  </div>
+  </Space>
 );
 
 export default App;

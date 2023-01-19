@@ -50,8 +50,8 @@ const WaveEffect: React.FC<WaveEffectProps> = (props) => {
 
     // Rect
     const { borderLeftWidth, borderTopWidth } = nodeStyle;
-    setLeft(isStatic ? target.offsetLeft : -parseFloat(borderLeftWidth));
-    setTop(isStatic ? target.offsetTop : -parseFloat(borderTopWidth));
+    setLeft(isStatic ? target.offsetLeft : validateNum(-parseFloat(borderLeftWidth)));
+    setTop(isStatic ? target.offsetTop : validateNum(-parseFloat(borderTopWidth)));
     setWidth(target.offsetWidth);
     setHeight(target.offsetHeight);
 

@@ -18,7 +18,7 @@ import {
 const { RangePicker } = DatePicker;
 const { TextArea } = Input;
 
-const FormDisabledDemo = () => {
+const FormDisabledDemo: React.FC = () => {
   const [componentDisabled, setComponentDisabled] = useState<boolean>(true);
   const onFormLayoutChange = ({ disabled }: { disabled: boolean }) => {
     setComponentDisabled(disabled);
@@ -38,6 +38,7 @@ const FormDisabledDemo = () => {
         layout="horizontal"
         onValuesChange={onFormLayoutChange}
         disabled={componentDisabled}
+        style={{ maxWidth: 600 }}
       >
         <Form.Item label="Checkbox" name="disabled" valuePropName="checked">
           <Checkbox>Checkbox</Checkbox>

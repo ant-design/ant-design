@@ -400,18 +400,22 @@ Array [
       <ul
         class="ant-menu ant-menu-sub ant-menu-inline"
         data-menu-list="true"
+        role="menu"
       >
         <li
           class="ant-menu-item-group"
+          role="presentation"
         >
           <div
             class="ant-menu-item-group-title"
+            role="presentation"
             title="Item 1"
           >
             Item 1
           </div>
           <ul
             class="ant-menu-item-group-list"
+            role="group"
           >
             <li
               class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
@@ -441,15 +445,18 @@ Array [
         </li>
         <li
           class="ant-menu-item-group"
+          role="presentation"
         >
           <div
             class="ant-menu-item-group-title"
+            role="presentation"
             title="Item 2"
           >
             Item 2
           </div>
           <ul
             class="ant-menu-item-group-list"
+            role="group"
           >
             <li
               class="ant-menu-item ant-menu-item-only-child"
@@ -566,15 +573,18 @@ Array [
     </li>
     <li
       class="ant-menu-item-group"
+      role="presentation"
     >
       <div
         class="ant-menu-item-group-title"
+        role="presentation"
         title="Group"
       >
         Group
       </div>
       <ul
         class="ant-menu-item-group-list"
+        role="group"
       >
         <li
           class="ant-menu-item ant-menu-item-only-child"
@@ -781,6 +791,7 @@ exports[`renders ./components/menu/demo/inline-collapsed.tsx correctly 1`] = `
       <ul
         class="ant-menu ant-menu-sub ant-menu-inline"
         data-menu-list="true"
+        role="menu"
       >
         <li
           class="ant-menu-item ant-menu-item-only-child"
@@ -1018,6 +1029,7 @@ Array [
       <ul
         class="ant-menu ant-menu-sub ant-menu-inline"
         data-menu-list="true"
+        role="menu"
       >
         <li
           class="ant-menu-item ant-menu-item-only-child"
@@ -1205,6 +1217,7 @@ Array [
       <ul
         class="ant-menu ant-menu-sub ant-menu-inline"
         data-menu-list="true"
+        role="menu"
       >
         <li
           class="ant-menu-item ant-menu-item-only-child"
@@ -1762,6 +1775,7 @@ Array [
       <ul
         class="ant-menu ant-menu-sub ant-menu-inline"
         data-menu-list="true"
+        role="menu"
       >
         <li
           class="ant-menu-item ant-menu-item-only-child"
@@ -1975,6 +1989,7 @@ Array [
       <ul
         class="ant-menu ant-menu-sub ant-menu-inline"
         data-menu-list="true"
+        role="menu"
       >
         <li
           class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"

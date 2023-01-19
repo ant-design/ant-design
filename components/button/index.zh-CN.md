@@ -87,10 +87,6 @@ group:
   padding: 16px;
   background: rgb(190, 200, 200);
 }
-
-[data-theme="dark"] .site-button-ghost-wrapper {
-  background: rgba(255, 255, 255, 0.2);
-}
 </style>
 
 ## 设计指引

@@ -1,5 +1,5 @@
-import React from 'react';
 import { Button, ConfigProvider, Form, InputNumber } from 'antd';
+import React from 'react';
 import { SketchPicker } from 'react-color';
 
 type ThemeData = {
