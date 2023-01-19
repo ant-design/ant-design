@@ -1,5 +1,5 @@
 import { SmileOutlined } from '@ant-design/icons';
-import { Button, ConfigProvider, Select, Space } from 'antd';
+import { Button, ConfigProvider, Select } from 'antd';
 import React, { useState } from 'react';
 
 // Ant Design site use `es` module for view
@@ -15,10 +15,8 @@ const App: React.FC = () => {
       </Button>
       <br />
       <ConfigProvider prefixCls={prefixCls} iconPrefixCls="bamboo">
-        <Space wrap>
-          <SmileOutlined />
-          <Select style={{ width: 120 }} />
-        </Space>
+        <SmileOutlined />
+        <Select style={{ width: 120 }} />
       </ConfigProvider>
     </>
   );

@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import type { CascaderProps } from 'antd';
 import {
   AutoComplete,
@@ -12,10 +11,17 @@ import {
   Row,
   Select,
 } from 'antd';
+import React, { useState } from 'react';
 
 const { Option } = Select;
 
-const residences: CascaderProps<any>['options'] = [
+interface DataNodeType {
+  value: string;
+  label: string;
+  children?: DataNodeType[];
+}
+
+const residences: CascaderProps<DataNodeType>['options'] = [
   {
     value: 'zhejiang',
     label: 'Zhejiang',

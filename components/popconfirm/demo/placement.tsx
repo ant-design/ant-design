@@ -9,7 +9,7 @@ const confirm = () => {
 };
 
 const App: React.FC = () => (
-  <div>
+  <>
     <div style={{ marginLeft: 70, whiteSpace: 'nowrap' }}>
       <Popconfirm
         placement="topLeft"
@@ -138,7 +138,7 @@ const App: React.FC = () => (
         <Button>BR</Button>
       </Popconfirm>
     </div>
-  </div>
+  </>
 );
 
 export default App;

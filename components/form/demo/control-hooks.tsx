@@ -1,5 +1,5 @@
-import React from 'react';
 import { Button, Form, Input, Select } from 'antd';
+import React from 'react';
 
 const { Option } = Select;
 
@@ -27,7 +27,6 @@ const App: React.FC = () => {
         form.setFieldsValue({ note: 'Hi there!' });
         break;
       default:
-        break;
     }
   };
 
