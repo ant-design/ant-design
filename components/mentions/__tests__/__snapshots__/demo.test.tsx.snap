@@ -35,53 +35,6 @@ exports[`renders ./components/mentions/demo/basic.tsx correctly 1`] = `
   >
     @afc163
   </textarea>
-  <div
-    class="ant-mentions-measure"
-  >
-    <span>
-      @
-    </span>
-    <div>
-      <div
-        class="ant-mentions-dropdown"
-        style="opacity:0"
-      >
-        <ul
-          class="ant-mentions-dropdown-menu ant-mentions-dropdown-menu-root ant-mentions-dropdown-menu-vertical"
-          data-menu-list="true"
-          role="menu"
-          tabindex="0"
-        >
-          <li
-            class="ant-mentions-dropdown-menu-item ant-mentions-dropdown-menu-item-active"
-            role="menuitem"
-            tabindex="-1"
-          >
-            afc163
-          </li>
-          <li
-            class="ant-mentions-dropdown-menu-item"
-            role="menuitem"
-            tabindex="-1"
-          >
-            zombieJ
-          </li>
-          <li
-            class="ant-mentions-dropdown-menu-item"
-            role="menuitem"
-            tabindex="-1"
-          >
-            yesmeck
-          </li>
-        </ul>
-        <div
-          aria-hidden="true"
-          style="display:none"
-        />
-      </div>
-    </div>
-    afc163
-  </div>
 </div>
 `;
 

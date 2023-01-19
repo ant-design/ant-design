@@ -12,7 +12,6 @@ const onSelect = (option: MentionsOptionProps) => {
 
 const App: React.FC = () => (
   <Mentions
-    open
     style={{ width: '100%' }}
     onChange={onChange}
     onSelect={onSelect}
