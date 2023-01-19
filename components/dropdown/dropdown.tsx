@@ -63,6 +63,7 @@ export interface DropdownProps {
   align?: Align;
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   prefixCls?: string;
+  className?: string;
   rootClassName?: string;
   transitionName?: string;
   placement?: Placement;
