@@ -108,7 +108,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
         borderColor: 'transparent',
         cursor: 'pointer',
 
-        '&:not(&-checked):hover': {
+        [`&:not(${token.componentCls}-checkable-checked):hover`]: {
           color: token.colorPrimary,
           backgroundColor: token.colorFillSecondary,
         },

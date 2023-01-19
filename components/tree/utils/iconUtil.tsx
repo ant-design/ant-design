@@ -11,8 +11,8 @@ import type { AntTreeNodeProps, TreeLeafIcon, SwitcherIcon } from '../Tree';
 export default function renderSwitcherIcon(
   prefixCls: string,
   switcherIcon: SwitcherIcon,
-  showLine: boolean | { showLeafIcon: boolean | TreeLeafIcon } | undefined,
   treeNodeProps: AntTreeNodeProps,
+  showLine?: boolean | { showLeafIcon: boolean | TreeLeafIcon },
 ): React.ReactNode {
   const { isLeaf, expanded, loading } = treeNodeProps;
 

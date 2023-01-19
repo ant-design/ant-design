@@ -1,135 +1,152 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/time-picker/demo/12hours.tsx correctly 1`] = `
-Array [
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center"
+  style="flex-wrap:wrap;margin-bottom:-8px"
+>
   <div
-    class="ant-picker"
+    class="ant-space-item"
+    style="margin-right:8px;padding-bottom:8px"
   >
     <div
-      class="ant-picker-input"
+      class="ant-picker"
     >
-      <input
-        autocomplete="off"
-        placeholder="Select time"
-        readonly=""
-        size="12"
-        title=""
-        value=""
-      />
-      <span
-        class="ant-picker-suffix"
+      <div
+        class="ant-picker-input"
       >
+        <input
+          autocomplete="off"
+          placeholder="Select time"
+          readonly=""
+          size="12"
+          title=""
+          value=""
+        />
         <span
-          aria-label="clock-circle"
-          class="anticon anticon-clock-circle"
-          role="img"
+          class="ant-picker-suffix"
         >
-          <svg
-            aria-hidden="true"
-            data-icon="clock-circle"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
+          <span
+            aria-label="clock-circle"
+            class="anticon anticon-clock-circle"
+            role="img"
           >
-            <path
-              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-            />
-            <path
-              d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l165.4 120.6c3.6 2.6 8.6 1.8 11.2-1.7l28.6-39c2.6-3.7 1.8-8.7-1.8-11.2z"
-            />
-          </svg>
+            <svg
+              aria-hidden="true"
+              data-icon="clock-circle"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+              />
+              <path
+                d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l165.4 120.6c3.6 2.6 8.6 1.8 11.2-1.7l28.6-39c2.6-3.7 1.8-8.7-1.8-11.2z"
+              />
+            </svg>
+          </span>
         </span>
-      </span>
+      </div>
     </div>
-  </div>,
+  </div>
   <div
-    class="ant-picker"
-    style="width:140px"
+    class="ant-space-item"
+    style="margin-right:8px;padding-bottom:8px"
   >
     <div
-      class="ant-picker-input"
+      class="ant-picker"
     >
-      <input
-        autocomplete="off"
-        placeholder="Select time"
-        readonly=""
-        size="11"
-        title=""
-        value=""
-      />
-      <span
-        class="ant-picker-suffix"
+      <div
+        class="ant-picker-input"
       >
+        <input
+          autocomplete="off"
+          placeholder="Select time"
+          readonly=""
+          size="11"
+          title=""
+          value=""
+        />
         <span
-          aria-label="clock-circle"
-          class="anticon anticon-clock-circle"
-          role="img"
+          class="ant-picker-suffix"
         >
-          <svg
-            aria-hidden="true"
-            data-icon="clock-circle"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
+          <span
+            aria-label="clock-circle"
+            class="anticon anticon-clock-circle"
+            role="img"
           >
-            <path
-              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-            />
-            <path
-              d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l165.4 120.6c3.6 2.6 8.6 1.8 11.2-1.7l28.6-39c2.6-3.7 1.8-8.7-1.8-11.2z"
-            />
-          </svg>
+            <svg
+              aria-hidden="true"
+              data-icon="clock-circle"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+              />
+              <path
+                d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l165.4 120.6c3.6 2.6 8.6 1.8 11.2-1.7l28.6-39c2.6-3.7 1.8-8.7-1.8-11.2z"
+              />
+            </svg>
+          </span>
         </span>
-      </span>
+      </div>
     </div>
-  </div>,
+  </div>
   <div
-    class="ant-picker"
+    class="ant-space-item"
+    style="padding-bottom:8px"
   >
     <div
-      class="ant-picker-input"
+      class="ant-picker"
     >
-      <input
-        autocomplete="off"
-        placeholder="Select time"
-        readonly=""
-        size="10"
-        title=""
-        value=""
-      />
-      <span
-        class="ant-picker-suffix"
+      <div
+        class="ant-picker-input"
       >
+        <input
+          autocomplete="off"
+          placeholder="Select time"
+          readonly=""
+          size="10"
+          title=""
+          value=""
+        />
         <span
-          aria-label="clock-circle"
-          class="anticon anticon-clock-circle"
-          role="img"
+          class="ant-picker-suffix"
         >
-          <svg
-            aria-hidden="true"
-            data-icon="clock-circle"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
+          <span
+            aria-label="clock-circle"
+            class="anticon anticon-clock-circle"
+            role="img"
           >
-            <path
-              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-            />
-            <path
-              d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l165.4 120.6c3.6 2.6 8.6 1.8 11.2-1.7l28.6-39c2.6-3.7 1.8-8.7-1.8-11.2z"
-            />
-          </svg>
+            <svg
+              aria-hidden="true"
+              data-icon="clock-circle"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+              />
+              <path
+                d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l165.4 120.6c3.6 2.6 8.6 1.8 11.2-1.7l28.6-39c2.6-3.7 1.8-8.7-1.8-11.2z"
+              />
+            </svg>
+          </span>
         </span>
-      </span>
+      </div>
     </div>
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`renders ./components/time-picker/demo/addon.tsx correctly 1`] = `
@@ -696,206 +713,224 @@ exports[`renders ./components/time-picker/demo/render-panel.tsx correctly 1`] = 
 `;
 
 exports[`renders ./components/time-picker/demo/size.tsx correctly 1`] = `
-Array [
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center"
+  style="flex-wrap:wrap;margin-bottom:-8px"
+>
   <div
-    class="ant-picker ant-picker-large"
+    class="ant-space-item"
+    style="margin-right:8px;padding-bottom:8px"
   >
     <div
-      class="ant-picker-input"
+      class="ant-picker ant-picker-large"
     >
-      <input
-        autocomplete="off"
-        placeholder="Select time"
-        readonly=""
-        size="10"
-        title=""
-        value=""
-      />
-      <span
-        class="ant-picker-suffix"
+      <div
+        class="ant-picker-input"
       >
+        <input
+          autocomplete="off"
+          placeholder="Select time"
+          readonly=""
+          size="10"
+          title=""
+          value=""
+        />
         <span
-          aria-label="clock-circle"
-          class="anticon anticon-clock-circle"
-          role="img"
+          class="ant-picker-suffix"
         >
-          <svg
-            aria-hidden="true"
-            data-icon="clock-circle"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
+          <span
+            aria-label="clock-circle"
+            class="anticon anticon-clock-circle"
+            role="img"
           >
-            <path
-              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-            />
-            <path
-              d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l165.4 120.6c3.6 2.6 8.6 1.8 11.2-1.7l28.6-39c2.6-3.7 1.8-8.7-1.8-11.2z"
-            />
-          </svg>
+            <svg
+              aria-hidden="true"
+              data-icon="clock-circle"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+              />
+              <path
+                d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l165.4 120.6c3.6 2.6 8.6 1.8 11.2-1.7l28.6-39c2.6-3.7 1.8-8.7-1.8-11.2z"
+              />
+            </svg>
+          </span>
         </span>
-      </span>
-      <span
-        class="ant-picker-clear"
-        role="button"
-      >
         <span
-          aria-label="close-circle"
-          class="anticon anticon-close-circle"
-          role="img"
+          class="ant-picker-clear"
+          role="button"
         >
-          <svg
-            aria-hidden="true"
-            data-icon="close-circle"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
+          <span
+            aria-label="close-circle"
+            class="anticon anticon-close-circle"
+            role="img"
           >
-            <path
-              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-            />
-          </svg>
+            <svg
+              aria-hidden="true"
+              data-icon="close-circle"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+              />
+            </svg>
+          </span>
         </span>
-      </span>
+      </div>
     </div>
-  </div>,
+  </div>
   <div
-    class="ant-picker"
+    class="ant-space-item"
+    style="margin-right:8px;padding-bottom:8px"
   >
     <div
-      class="ant-picker-input"
+      class="ant-picker"
     >
-      <input
-        autocomplete="off"
-        placeholder="Select time"
-        readonly=""
-        size="10"
-        title=""
-        value=""
-      />
-      <span
-        class="ant-picker-suffix"
+      <div
+        class="ant-picker-input"
       >
+        <input
+          autocomplete="off"
+          placeholder="Select time"
+          readonly=""
+          size="10"
+          title=""
+          value=""
+        />
         <span
-          aria-label="clock-circle"
-          class="anticon anticon-clock-circle"
-          role="img"
+          class="ant-picker-suffix"
         >
-          <svg
-            aria-hidden="true"
-            data-icon="clock-circle"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
+          <span
+            aria-label="clock-circle"
+            class="anticon anticon-clock-circle"
+            role="img"
           >
-            <path
-              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-            />
-            <path
-              d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l165.4 120.6c3.6 2.6 8.6 1.8 11.2-1.7l28.6-39c2.6-3.7 1.8-8.7-1.8-11.2z"
-            />
-          </svg>
+            <svg
+              aria-hidden="true"
+              data-icon="clock-circle"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+              />
+              <path
+                d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l165.4 120.6c3.6 2.6 8.6 1.8 11.2-1.7l28.6-39c2.6-3.7 1.8-8.7-1.8-11.2z"
+              />
+            </svg>
+          </span>
         </span>
-      </span>
-      <span
-        class="ant-picker-clear"
-        role="button"
-      >
         <span
-          aria-label="close-circle"
-          class="anticon anticon-close-circle"
-          role="img"
+          class="ant-picker-clear"
+          role="button"
         >
-          <svg
-            aria-hidden="true"
-            data-icon="close-circle"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
+          <span
+            aria-label="close-circle"
+            class="anticon anticon-close-circle"
+            role="img"
           >
-            <path
-              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-            />
-          </svg>
+            <svg
+              aria-hidden="true"
+              data-icon="close-circle"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+              />
+            </svg>
+          </span>
         </span>
-      </span>
+      </div>
     </div>
-  </div>,
+  </div>
   <div
-    class="ant-picker ant-picker-small"
+    class="ant-space-item"
+    style="padding-bottom:8px"
   >
     <div
-      class="ant-picker-input"
+      class="ant-picker ant-picker-small"
     >
-      <input
-        autocomplete="off"
-        placeholder="Select time"
-        readonly=""
-        size="10"
-        title=""
-        value=""
-      />
-      <span
-        class="ant-picker-suffix"
+      <div
+        class="ant-picker-input"
       >
+        <input
+          autocomplete="off"
+          placeholder="Select time"
+          readonly=""
+          size="10"
+          title=""
+          value=""
+        />
         <span
-          aria-label="clock-circle"
-          class="anticon anticon-clock-circle"
-          role="img"
+          class="ant-picker-suffix"
         >
-          <svg
-            aria-hidden="true"
-            data-icon="clock-circle"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
+          <span
+            aria-label="clock-circle"
+            class="anticon anticon-clock-circle"
+            role="img"
           >
-            <path
-              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-            />
-            <path
-              d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l165.4 120.6c3.6 2.6 8.6 1.8 11.2-1.7l28.6-39c2.6-3.7 1.8-8.7-1.8-11.2z"
-            />
-          </svg>
+            <svg
+              aria-hidden="true"
+              data-icon="clock-circle"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+              />
+              <path
+                d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l165.4 120.6c3.6 2.6 8.6 1.8 11.2-1.7l28.6-39c2.6-3.7 1.8-8.7-1.8-11.2z"
+              />
+            </svg>
+          </span>
         </span>
-      </span>
-      <span
-        class="ant-picker-clear"
-        role="button"
-      >
         <span
-          aria-label="close-circle"
-          class="anticon anticon-close-circle"
-          role="img"
+          class="ant-picker-clear"
+          role="button"
         >
-          <svg
-            aria-hidden="true"
-            data-icon="close-circle"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
+          <span
+            aria-label="close-circle"
+            class="anticon anticon-close-circle"
+            role="img"
           >
-            <path
-              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-            />
-          </svg>
+            <svg
+              aria-hidden="true"
+              data-icon="close-circle"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+              />
+            </svg>
+          </span>
         </span>
-      </span>
+      </div>
     </div>
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`renders ./components/time-picker/demo/status.tsx correctly 1`] = `

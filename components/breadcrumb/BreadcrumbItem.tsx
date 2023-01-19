@@ -48,8 +48,14 @@ const BreadcrumbItem: CompoundedComponent = (props) => {
   /** If overlay is have Wrap a Dropdown */
   const renderBreadcrumbNode = (breadcrumbItem: React.ReactNode) => {
     if (menu || overlay) {
+      const mergeDropDownProps: DropdownProps = {
+        ...dropdownProps,
+      };
+      if ('overlay' in props) {
+        mergeDropDownProps.overlay = overlay;
+      }
       return (
-        <Dropdown menu={menu} overlay={overlay} placement="bottom" {...dropdownProps}>
+        <Dropdown menu={menu} placement="bottom" {...mergeDropDownProps}>
           <span className={`${prefixCls}-overlay-link`}>
             {breadcrumbItem}
             <DownOutlined />

@@ -180,6 +180,40 @@ exports[`renders ./components/popover/demo/arrow.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/popover/demo/arrow-point-at-center.tsx correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center"
+  style="flex-wrap:wrap;margin-bottom:-8px"
+>
+  <div
+    class="ant-space-item"
+    style="margin-right:8px;padding-bottom:8px"
+  >
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        Align edge / 边缘对齐
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+    style="padding-bottom:8px"
+  >
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        Arrow points to center / 箭头指向中心
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
 exports[`renders ./components/popover/demo/basic.tsx correctly 1`] = `
 <button
   class="ant-btn ant-btn-primary"
@@ -214,9 +248,7 @@ exports[`renders ./components/popover/demo/hover-with-click.tsx correctly 1`] = 
 `;
 
 exports[`renders ./components/popover/demo/placement.tsx correctly 1`] = `
-<div
-  class="demo"
->
+<div>
   <div
     style="margin-left:70px;white-space:nowrap"
   >
@@ -406,31 +438,49 @@ Array [
 `;
 
 exports[`renders ./components/popover/demo/triggerType.tsx correctly 1`] = `
-<div>
-  <button
-    class="ant-btn ant-btn-default"
-    type="button"
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center"
+  style="flex-wrap:wrap;margin-bottom:-8px"
+>
+  <div
+    class="ant-space-item"
+    style="margin-right:8px;padding-bottom:8px"
   >
-    <span>
-      Hover me
-    </span>
-  </button>
-  <button
-    class="ant-btn ant-btn-default"
-    type="button"
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        Hover me
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-right:8px;padding-bottom:8px"
   >
-    <span>
-      Focus me
-    </span>
-  </button>
-  <button
-    class="ant-btn ant-btn-default"
-    type="button"
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        Focus me
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+    style="padding-bottom:8px"
   >
-    <span>
-      Click me
-    </span>
-  </button>
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        Click me
+      </span>
+    </button>
+  </div>
 </div>
 `;
 

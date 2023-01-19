@@ -17700,18 +17700,22 @@ HTMLCollection [
         class="config-menu config-menu-sub config-menu-inline"
         data-menu-list="true"
         id="rc-menu-uuid-test-bamboo-popup"
+        role="menu"
       >
         <li
           class="config-menu-item-group"
+          role="presentation"
         >
           <div
             class="config-menu-item-group-title"
+            role="presentation"
             title="Item 1"
           >
             Item 1
           </div>
           <ul
             class="config-menu-item-group-list"
+            role="group"
           >
             <li
               class="config-menu-item config-menu-item-only-child"
@@ -17773,18 +17777,22 @@ HTMLCollection [
         class="config-menu config-menu-sub config-menu-inline"
         data-menu-list="true"
         id="rc-menu-uuid-test-bamboo-popup"
+        role="menu"
       >
         <li
           class="config-menu-item-group"
+          role="presentation"
         >
           <div
             class="config-menu-item-group-title"
+            role="presentation"
             title="Item 1"
           >
             Item 1
           </div>
           <ul
             class="config-menu-item-group-list"
+            role="group"
           >
             <li
               class="config-menu-item config-menu-item-only-child"
@@ -17846,18 +17854,22 @@ HTMLCollection [
         class="config-menu config-menu-sub config-menu-inline"
         data-menu-list="true"
         id="rc-menu-uuid-test-bamboo-popup"
+        role="menu"
       >
         <li
           class="config-menu-item-group"
+          role="presentation"
         >
           <div
             class="config-menu-item-group-title"
+            role="presentation"
             title="Item 1"
           >
             Item 1
           </div>
           <ul
             class="config-menu-item-group-list"
+            role="group"
           >
             <li
               class="config-menu-item config-menu-item-only-child"
@@ -17919,18 +17931,22 @@ HTMLCollection [
         class="config-menu config-menu-sub config-menu-inline"
         data-menu-list="true"
         id="rc-menu-uuid-test-bamboo-popup"
+        role="menu"
       >
         <li
           class="config-menu-item-group"
+          role="presentation"
         >
           <div
             class="config-menu-item-group-title"
+            role="presentation"
             title="Item 1"
           >
             Item 1
           </div>
           <ul
             class="config-menu-item-group-list"
+            role="group"
           >
             <li
               class="config-menu-item config-menu-item-only-child"
@@ -17992,18 +18008,22 @@ HTMLCollection [
         class="ant-menu ant-menu-sub ant-menu-inline"
         data-menu-list="true"
         id="rc-menu-uuid-test-bamboo-popup"
+        role="menu"
       >
         <li
           class="ant-menu-item-group"
+          role="presentation"
         >
           <div
             class="ant-menu-item-group-title"
+            role="presentation"
             title="Item 1"
           >
             Item 1
           </div>
           <ul
             class="ant-menu-item-group-list"
+            role="group"
           >
             <li
               class="ant-menu-item ant-menu-item-only-child"
@@ -18065,18 +18085,22 @@ HTMLCollection [
         class="ant-menu ant-menu-sub ant-menu-inline"
         data-menu-list="true"
         id="rc-menu-uuid-test-bamboo-popup"
+        role="menu"
       >
         <li
           class="ant-menu-item-group"
+          role="presentation"
         >
           <div
             class="ant-menu-item-group-title"
+            role="presentation"
             title="Item 1"
           >
             Item 1
           </div>
           <ul
             class="ant-menu-item-group-list"
+            role="group"
           >
             <li
               class="ant-menu-item ant-menu-item-only-child"
@@ -18138,19 +18162,23 @@ HTMLCollection [
         class="prefix-Menu prefix-Menu-sub prefix-Menu-inline"
         data-menu-list="true"
         id="rc-menu-uuid-test-bamboo-popup"
+        role="menu"
       >
         <li
           class="prefix-Menu-item-group"
           prefixcls="prefix-Menu"
+          role="presentation"
         >
           <div
             class="prefix-Menu-item-group-title"
+            role="presentation"
             title="Item 1"
           >
             Item 1
           </div>
           <ul
             class="prefix-Menu-item-group-list"
+            role="group"
           >
             <li
               class="prefix-Menu-item prefix-Menu-item-only-child"
