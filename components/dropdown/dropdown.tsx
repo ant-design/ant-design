@@ -17,6 +17,7 @@ import { cloneElement } from '../_util/reactNode';
 import warning from '../_util/warning';
 import DropdownButton from './dropdown-button';
 import useStyle from './style';
+import theme from '../theme';
 
 const Placements = [
   'topLeft',
@@ -186,6 +187,8 @@ const Dropdown: CompoundedComponent = (props) => {
   const prefixCls = getPrefixCls('dropdown', customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
+  const { token } = theme.useToken();
+
   const child = React.Children.only(children) as React.ReactElement<any>;
 
   const dropdownTrigger = cloneElement(child, {
@@ -224,6 +227,8 @@ const Dropdown: CompoundedComponent = (props) => {
   const builtinPlacements = getPlacements({
     arrowPointAtCenter: typeof arrow === 'object' && arrow.pointAtCenter,
     autoAdjustOverflow,
+    offset: token.marginXXS,
+    arrowWidth: arrow ? token.sizePopupArrow : 0,
   });
 
   const onMenuClick = React.useCallback(() => {

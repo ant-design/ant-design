@@ -12,10 +12,7 @@ const dynamicStyleMark = `-ant-${Date.now()}-${Math.random()}`;
 export function getStyle(globalPrefixCls: string, theme: Theme) {
   const variables: Record<string, string> = {};
 
-  const formatColor = (
-    color: TinyColor,
-    updater?: (cloneColor: TinyColor) => TinyColor | undefined,
-  ) => {
+  const formatColor = (color: TinyColor, updater?: (cloneColor: TinyColor) => TinyColor) => {
     let clone = color.clone();
     clone = updater?.(clone) || clone;
     return clone.toRgbString();

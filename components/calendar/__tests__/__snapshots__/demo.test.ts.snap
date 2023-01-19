@@ -944,7 +944,7 @@ exports[`renders ./components/calendar/demo/basic.tsx correctly 1`] = `
 
 exports[`renders ./components/calendar/demo/card.tsx correctly 1`] = `
 <div
-  class="site-calendar-demo-card"
+  style="width:300px;border:1px solid #f0f0f0;border-radius:8px"
 >
   <div
     class="ant-picker-calendar ant-picker-calendar-mini"
@@ -1890,7 +1890,7 @@ exports[`renders ./components/calendar/demo/card.tsx correctly 1`] = `
 
 exports[`renders ./components/calendar/demo/customize-header.tsx correctly 1`] = `
 <div
-  class="site-calendar-customize-header-wrapper"
+  style="width:300px;border:1px solid #f0f0f0;border-radius:8px"
 >
   <div
     class="ant-picker-calendar ant-picker-calendar-mini"
