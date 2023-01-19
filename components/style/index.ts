@@ -131,7 +131,7 @@ export const genCommonStyle = (token: DerivativeToken, componentPrefixCls: strin
 };
 
 export const genFocusOutline = (token: DerivativeToken): CSSObject => ({
-  outline: `${token.lineWidth * 4}px solid ${token.colorPrimaryBorder}`,
+  outline: `${token.lineWidthBold}px solid ${token.colorPrimaryBorder}`,
   outlineOffset: 1,
   transition: 'outline-offset 0s, outline 0s',
 });
