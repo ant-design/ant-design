@@ -360,25 +360,6 @@ const GlobalDemoStyles: React.FC = () => {
           inset-inline-end: 0;
         }
 
-        #components-tooltip-demo-placement,
-        #components-popover-demo-placement,
-        #components-popconfirm-demo-placement {
-          .ant-btn {
-            width: 70px;
-            margin-right: 8px;
-            margin-bottom: 8px;
-            padding: 0;
-            text-align: center;
-          }
-          .ant-btn-rtl {
-            width: 70px;
-            margin-bottom: 8px;
-            margin-left: 8px;
-            padding: 0;
-            text-align: center;
-          }
-        }
-
         ${antCls}-row-rtl {
           #components-tooltip-demo-placement,
           #components-popover-demo-placement,
