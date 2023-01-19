@@ -1,25 +1,22 @@
 import React, { useState } from 'react';
-import { Segmented, Button } from 'antd';
-
-const defaultOptions = ['Daily', 'Weekly', 'Monthly'];
+import { Segmented, Button, Space } from 'antd';
 
 const Demo: React.FC = () => {
-  const [options, setOptions] = useState(defaultOptions);
+  const [options, setOptions] = useState(['Daily', 'Weekly', 'Monthly']);
   const [moreLoaded, setMoreLoaded] = useState(false);
 
   const handleLoadOptions = () => {
-    setOptions([...defaultOptions, 'Quarterly', 'Yearly']);
+    setOptions((prev) => [...prev, 'Quarterly', 'Yearly']);
     setMoreLoaded(true);
   };
 
   return (
-    <>
+    <Space direction="vertical">
       <Segmented options={options} />
-      <br />
       <Button type="primary" disabled={moreLoaded} onClick={handleLoadOptions}>
         Load more options
       </Button>
-    </>
+    </Space>
   );
 };
 
