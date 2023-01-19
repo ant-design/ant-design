@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Tour from '..';
 import demoTest, { rootPropsTest } from '../../../tests/shared/demoTest';
 
 demoTest('tour', {
@@ -8,7 +7,7 @@ demoTest('tour', {
 
 rootPropsTest(
   'tour',
-  (props) => (
+  (Tour, props) => (
     <Tour
       {...props}
       steps={[

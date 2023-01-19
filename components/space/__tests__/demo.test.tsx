@@ -1,6 +1,4 @@
 import * as React from 'react';
-import Space from '..';
-import Input from '../../input';
 
 import demoTest, { rootPropsTest } from '../../../tests/shared/demoTest';
 
@@ -8,19 +6,19 @@ demoTest('space', {
   testRootProps: false,
 });
 
-rootPropsTest('space', (props) => (
+rootPropsTest('space', (Space, props) => (
   <Space {...props}>
-    <Input />
-    <Input />
+    <input />
+    <input />
   </Space>
 ));
 
 rootPropsTest(
   'space',
-  (props) => (
+  (Space, props) => (
     <Space.Compact {...props}>
-      <Input />
-      <Input />
+      <input />
+      <input />
     </Space.Compact>
   ),
   {

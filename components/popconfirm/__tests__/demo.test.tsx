@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Popconfirm from '..';
 import demoTest, { rootPropsTest } from '../../../tests/shared/demoTest';
 
 demoTest('popconfirm', {
@@ -8,7 +7,7 @@ demoTest('popconfirm', {
 
 rootPropsTest(
   'popconfirm',
-  (props) => (
+  (Popconfirm, props) => (
     <Popconfirm {...props}>
       <span />
     </Popconfirm>

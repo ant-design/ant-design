@@ -1,6 +1,5 @@
 import { spyElementPrototype } from 'rc-util/lib/test/domHook';
 import * as React from 'react';
-import Affix from '..';
 import demoTest, { rootPropsTest } from '../../../tests/shared/demoTest';
 
 demoTest('affix', {
@@ -9,7 +8,7 @@ demoTest('affix', {
 
 rootPropsTest(
   'affix',
-  (props) => (
+  (Affix, props) => (
     <Affix {...props} className="fixed" target={() => document.querySelector('#holder')}>
       Bamboo
     </Affix>

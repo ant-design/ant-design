@@ -21,7 +21,10 @@ function isSingleNode(node: any): node is Element {
 
 export default function rootPropsTest(
   component: string,
-  customizeRender?: (props: any) => React.ReactNode,
+  customizeRender?: (
+    component: React.ComponentType<any> & Record<string, any>,
+    props: any,
+  ) => React.ReactNode,
   options?: Options,
 ) {
   const Component = require(`../../components/${component}`).default as any;
@@ -65,7 +68,7 @@ export default function rootPropsTest(
         };
 
         const node = customizeRender ? (
-          customizeRender(sharedProps)
+          customizeRender(Component, sharedProps)
         ) : (
           <Component {...sharedProps} />
         );

@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Anchor from '..';
 import demoTest, { rootPropsTest } from '../../../tests/shared/demoTest';
 
 demoTest('anchor', {
@@ -8,7 +7,7 @@ demoTest('anchor', {
 
 rootPropsTest(
   'anchor',
-  (props) => (
+  (Anchor, props) => (
     <Anchor
       {...props}
       items={[

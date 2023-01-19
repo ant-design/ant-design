@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Dropdown from '..';
 import demoTest, { rootPropsTest } from '../../../tests/shared/demoTest';
 
 demoTest('dropdown', {
@@ -8,7 +7,7 @@ demoTest('dropdown', {
 
 rootPropsTest(
   'dropdown',
-  (props) => (
+  (Dropdown, props) => (
     <Dropdown
       {...props}
       menu={{

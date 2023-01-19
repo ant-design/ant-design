@@ -1,12 +1,11 @@
 import * as React from 'react';
 import demoTest, { rootPropsTest } from '../../../tests/shared/demoTest';
-import Menu from '..';
 
 demoTest('menu', { testRootProps: false });
 
 rootPropsTest(
   'Menu',
-  (props) => (
+  (Menu, props) => (
     <Menu
       {...props}
       mode="vertical"

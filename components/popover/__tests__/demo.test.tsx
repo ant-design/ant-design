@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Popover from '..';
 import demoTest, { rootPropsTest } from '../../../tests/shared/demoTest';
 
 demoTest('popover', {
@@ -8,7 +7,7 @@ demoTest('popover', {
 
 rootPropsTest(
   'popover',
-  (props) => (
+  (Popover, props) => (
     <Popover {...props} title="Bamboo" content="Little">
       <span />
     </Popover>

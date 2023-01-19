@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Tooltip from '..';
 import demoTest, { rootPropsTest } from '../../../tests/shared/demoTest';
 
 demoTest('tooltip', {
@@ -8,7 +7,7 @@ demoTest('tooltip', {
 
 rootPropsTest(
   'tooltip',
-  (props) => (
+  (Tooltip, props) => (
     <Tooltip {...props} title="Bamboo">
       <span />
     </Tooltip>

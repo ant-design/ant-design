@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Mentions from '..';
 import demoTest, { rootPropsTest } from '../../../tests/shared/demoTest';
 import { fireEvent } from '../../../tests/utils';
 
@@ -9,7 +8,7 @@ demoTest('mentions', {
 
 rootPropsTest(
   'mentions',
-  (props) => (
+  (Mentions, props) => (
     <Mentions
       {...props}
       value="@"

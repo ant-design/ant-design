@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Select from '..';
 import demoTest, { rootPropsTest } from '../../../tests/shared/demoTest';
 
 demoTest('select', {
@@ -7,7 +6,7 @@ demoTest('select', {
   testRootProps: false,
 });
 
-rootPropsTest('select', (props) => <Select {...props} />, {
+rootPropsTest('select', (Select, props) => <Select {...props} />, {
   findRootElements: () => document.querySelectorAll('.ant-select, .ant-select-dropdown'),
   expectCount: 2,
 });
