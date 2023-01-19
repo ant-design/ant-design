@@ -215,7 +215,6 @@ class Affix extends React.Component<InternalAffixProps, AffixState> {
     this.setState(newState as AffixState);
   };
 
-  // @ts-ignore TS6133
   prepareMeasure = () => {
     // event param is used before. Keep compatible ts define here.
     this.setState({

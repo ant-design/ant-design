@@ -1,5 +1,5 @@
+import { Button, Divider, Space, Tooltip } from 'antd';
 import React from 'react';
-import { Button, Divider, Tooltip } from 'antd';
 
 const colors = [
   'pink',
@@ -16,26 +16,27 @@ const colors = [
   'gold',
   'lime',
 ];
+
 const customColors = ['#f50', '#2db7f5', '#87d068', '#108ee9'];
 
 const App: React.FC = () => (
   <>
     <Divider orientation="left">Presets</Divider>
-    <div>
+    <Space wrap>
       {colors.map((color) => (
         <Tooltip title="prompt text" color={color} key={color}>
           <Button>{color}</Button>
         </Tooltip>
       ))}
-    </div>
+    </Space>
     <Divider orientation="left">Custom</Divider>
-    <div>
+    <Space wrap>
       {customColors.map((color) => (
         <Tooltip title="prompt text" color={color} key={color}>
           <Button>{color}</Button>
         </Tooltip>
       ))}
-    </div>
+    </Space>
   </>
 );
 

@@ -612,6 +612,7 @@ exports[`renders ./components/form/demo/basic.tsx extend context correctly 1`] =
   autocomplete="off"
   class="ant-form ant-form-horizontal"
   id="basic"
+  style="max-width:600px"
 >
   <div
     class="ant-form-item"
@@ -797,6 +798,7 @@ Array [
     autocomplete="off"
     class="ant-form ant-form-horizontal"
     id="basic"
+    style="max-width:600px"
   >
     <div
       class="ant-form-item"
@@ -1583,6 +1585,7 @@ exports[`renders ./components/form/demo/control-hooks.tsx extend context correct
 <form
   class="ant-form ant-form-horizontal"
   id="control-hooks"
+  style="max-width:600px"
 >
   <div
     class="ant-form-item"
@@ -1864,6 +1867,7 @@ exports[`renders ./components/form/demo/control-ref.tsx extend context correctly
 <form
   class="ant-form ant-form-horizontal"
   id="control-ref"
+  style="max-width:600px"
 >
   <div
     class="ant-form-item"
@@ -2381,6 +2385,7 @@ Array [
   </label>,
   <form
     class="ant-form ant-form-horizontal"
+    style="max-width:600px"
   >
     <div
       class="ant-form-item"
@@ -5177,6 +5182,7 @@ Array [
 exports[`renders ./components/form/demo/disabled-input-debug.tsx extend context correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
+  style="max-width:600px"
 >
   <div
     class="ant-form-item"
@@ -5687,6 +5693,7 @@ exports[`renders ./components/form/demo/dynamic-form-item.tsx extend context cor
 <form
   class="ant-form ant-form-horizontal"
   id="dynamic_form_item"
+  style="max-width:600px"
 >
   <div
     class="ant-form-item"
@@ -5812,6 +5819,7 @@ exports[`renders ./components/form/demo/dynamic-form-items.tsx extend context co
   autocomplete="off"
   class="ant-form ant-form-horizontal"
   id="dynamic_form_nest_item"
+  style="max-width:600px"
 >
   <div
     class="ant-form-item"
@@ -5902,6 +5910,7 @@ exports[`renders ./components/form/demo/dynamic-form-items-complex.tsx extend co
   autocomplete="off"
   class="ant-form ant-form-horizontal"
   id="dynamic_form_complex"
+  style="max-width:600px"
 >
   <div
     class="ant-form-item"
@@ -6164,6 +6173,7 @@ exports[`renders ./components/form/demo/dynamic-form-items-no-style.tsx extend c
   autocomplete="off"
   class="ant-form ant-form-horizontal"
   id="dynamic_form_no_style"
+  style="max-width:600px"
 >
   <div
     class="ant-form-item"
@@ -6283,6 +6293,7 @@ exports[`renders ./components/form/demo/dynamic-rule.tsx extend context correctl
 <form
   class="ant-form ant-form-horizontal"
   id="dynamic_rule"
+  style="max-width:600px"
 >
   <div
     class="ant-form-item"
@@ -6434,6 +6445,7 @@ exports[`renders ./components/form/demo/form-context.tsx extend context correctl
 <form
   class="ant-form ant-form-horizontal"
   id="basicForm"
+  style="max-width:600px"
 >
   <div
     class="ant-form-item"
@@ -6923,6 +6935,7 @@ exports[`renders ./components/form/demo/label-debug.tsx extend context correctly
 <form
   class="ant-form ant-form-horizontal"
   id="label-ellipsis"
+  style="max-width:600px"
 >
   <div
     class="ant-form-item"
@@ -7077,6 +7090,7 @@ exports[`renders ./components/form/demo/label-debug.tsx extend context correctly
 exports[`renders ./components/form/demo/layout.tsx extend context correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
+  style="max-width:600px"
 >
   <div
     class="ant-form-item"
@@ -7279,6 +7293,7 @@ exports[`renders ./components/form/demo/layout-can-wrap.tsx extend context corre
 <form
   class="ant-form ant-form-horizontal"
   id="wrap"
+  style="max-width:600px"
 >
   <div
     class="ant-form-item"
@@ -7406,6 +7421,7 @@ exports[`renders ./components/form/demo/nest-messages.tsx extend context correct
 <form
   class="ant-form ant-form-horizontal"
   id="nest-messages"
+  style="max-width:600px"
 >
   <div
     class="ant-form-item"
@@ -7891,6 +7907,7 @@ exports[`renders ./components/form/demo/normal-login.tsx extend context correctl
 exports[`renders ./components/form/demo/ref-item.tsx extend context correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
+  style="max-width:600px"
 >
   <div
     class="ant-form-item"
@@ -7978,6 +7995,7 @@ exports[`renders ./components/form/demo/register.tsx extend context correctly 1`
 <form
   class="ant-form ant-form-horizontal"
   id="register"
+  style="max-width:600px"
 >
   <div
     class="ant-form-item"
@@ -9665,6 +9683,7 @@ exports[`renders ./components/form/demo/required-mark.tsx extend context correct
 exports[`renders ./components/form/demo/size.tsx extend context correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal ant-form-default"
+  style="max-width:600px"
 >
   <div
     class="ant-form-item"
@@ -11084,6 +11103,7 @@ exports[`renders ./components/form/demo/time-related-controls.tsx extend context
 <form
   class="ant-form ant-form-horizontal"
   id="time_related_controls"
+  style="max-width:600px"
 >
   <div
     class="ant-form-item"
@@ -18849,6 +18869,7 @@ exports[`renders ./components/form/demo/validate-other.tsx extend context correc
 <form
   class="ant-form ant-form-horizontal"
   id="validate_other"
+  style="max-width:600px"
 >
   <div
     class="ant-form-item"
@@ -20443,6 +20464,7 @@ exports[`renders ./components/form/demo/validate-other.tsx extend context correc
 exports[`renders ./components/form/demo/validate-static.tsx extend context correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
+  style="max-width:600px"
 >
   <div
     class="ant-form-item ant-form-item-with-help ant-form-item-has-error"
@@ -26687,6 +26709,7 @@ exports[`renders ./components/form/demo/warning-only.tsx extend context correctl
 exports[`renders ./components/form/demo/without-form-create.tsx extend context correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
+  style="max-width:600px"
 >
   <div
     class="ant-form-item ant-form-item-with-help"

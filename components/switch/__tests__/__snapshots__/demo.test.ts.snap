@@ -24,38 +24,48 @@ exports[`renders ./components/switch/demo/basic.tsx correctly 1`] = `
 `;
 
 exports[`renders ./components/switch/demo/disabled.tsx correctly 1`] = `
-Array [
-  <button
-    aria-checked="true"
-    class="ant-switch ant-switch-checked ant-switch-disabled"
-    disabled=""
-    role="switch"
-    type="button"
+<div
+  class="ant-space ant-space-vertical"
+>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
   >
-    <div
-      class="ant-switch-handle"
-    />
-    <span
-      class="ant-switch-inner"
+    <button
+      aria-checked="true"
+      class="ant-switch ant-switch-checked ant-switch-disabled"
+      disabled=""
+      role="switch"
+      type="button"
     >
-      <span
-        class="ant-switch-inner-checked"
+      <div
+        class="ant-switch-handle"
       />
       <span
-        class="ant-switch-inner-unchecked"
-      />
-    </span>
-  </button>,
-  <br />,
-  <button
-    class="ant-btn ant-btn-primary"
-    type="button"
+        class="ant-switch-inner"
+      >
+        <span
+          class="ant-switch-inner-checked"
+        />
+        <span
+          class="ant-switch-inner-unchecked"
+        />
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
   >
-    <span>
-      Toggle disabled
-    </span>
-  </button>,
-]
+    <button
+      class="ant-btn ant-btn-primary"
+      type="button"
+    >
+      <span>
+        Toggle disabled
+      </span>
+    </button>
+  </div>
+</div>
 `;
 
 exports[`renders ./components/switch/demo/loading.tsx correctly 1`] = `

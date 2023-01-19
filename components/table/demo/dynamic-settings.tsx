@@ -92,12 +92,12 @@ const App: React.FC = () => {
   const [showfooter, setShowFooter] = useState(true);
   const [rowSelection, setRowSelection] = useState<TableRowSelection<DataType> | undefined>({});
   const [hasData, setHasData] = useState(true);
-  const [tableLayout, setTableLayout] = useState(undefined);
+  const [tableLayout, setTableLayout] = useState();
   const [top, setTop] = useState<TablePaginationPosition | 'none'>('none');
   const [bottom, setBottom] = useState<TablePaginationPosition>('bottomRight');
   const [ellipsis, setEllipsis] = useState(false);
   const [yScroll, setYScroll] = useState(false);
-  const [xScroll, setXScroll] = useState<string | undefined>(undefined);
+  const [xScroll, setXScroll] = useState<string>();
 
   const handleBorderChange = (enable: boolean) => {
     setBordered(enable);

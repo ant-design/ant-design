@@ -107,7 +107,7 @@
   ],
   "dependencies": {
     "@ant-design/colors": "^7.0.0",
-    "@ant-design/cssinjs": "^1.4.0",
+    "@ant-design/cssinjs": "^1.5.1",
     "@ant-design/icons": "^5.0.0",
     "@ant-design/react-slick": "~1.0.0",
     "@babel/runtime": "^7.18.3",
@@ -129,7 +129,7 @@
     "rc-input": "~0.2.1",
     "rc-input-number": "~7.4.0",
     "rc-mentions": "~2.0.0",
-    "rc-menu": "~9.8.0",
+    "rc-menu": "~9.8.2",
     "rc-motion": "^2.6.1",
     "rc-notification": "~5.0.0",
     "rc-pagination": "~3.2.0",
@@ -282,7 +282,7 @@
     "ts-node": "^10.8.2",
     "typedoc": "^0.23.21",
     "typescript": "~4.9.3",
-    "vanilla-jsoneditor": "^0.11.4",
+    "vanilla-jsoneditor": "^0.12.0",
     "webpack-bundle-analyzer": "^4.1.0",
     "xhr-mock": "^2.4.1",
     "yaml-front-matter": "^4.0.0"

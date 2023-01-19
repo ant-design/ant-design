@@ -29,6 +29,7 @@ export interface ComponentToken {
 }
 
 export type PickerPanelToken = {
+  pickerCellCls: string;
   pickerCellInnerCls: string;
   pickerTextHeight: number;
   pickerPanelCellWidth: number;
@@ -71,6 +72,7 @@ const genPikerPadding = (
 const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
   const {
     componentCls,
+    pickerCellCls,
     pickerCellInnerCls,
     pickerPanelCellHeight,
     motionDurationSlow,
@@ -117,8 +119,8 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
     },
 
     // >>> Hover
-    [`&:hover:not(&-in-view),
-    &:hover:not(&-selected):not(&-range-start):not(&-range-end):not(&-range-hover-start):not(&-range-hover-end)`]:
+    [`&:hover:not(${pickerCellCls}-in-view),
+    &:hover:not(${pickerCellCls}-selected):not(${pickerCellCls}-range-start):not(${pickerCellCls}-range-end):not(${pickerCellCls}-range-hover-start):not(${pickerCellCls}-range-hover-end)`]:
       {
         [pickerCellInnerCls]: {
           background: controlItemBgHover,
@@ -126,7 +128,7 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
       },
 
     // >>> Today
-    [`&-in-view:is(&-today) ${pickerCellInnerCls}`]: {
+    [`&-in-view${pickerCellCls}-today ${pickerCellInnerCls}`]: {
       '&::before': {
         position: 'absolute',
         top: 0,
@@ -141,7 +143,7 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
     },
 
     // >>> In Range
-    '&-in-view:is(&-in-range)': {
+    [`&-in-view${pickerCellCls}-in-range`]: {
       position: 'relative',
 
       '&::before': {
@@ -150,36 +152,36 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
     },
 
     // >>> Selected
-    [`&-in-view:is(&-selected) ${pickerCellInnerCls},
-    &-in-view:is(&-range-start) ${pickerCellInnerCls},
-    &-in-view:is(&-range-end) ${pickerCellInnerCls}`]: {
+    [`&-in-view${pickerCellCls}-selected ${pickerCellInnerCls},
+      &-in-view${pickerCellCls}-range-start ${pickerCellInnerCls},
+      &-in-view${pickerCellCls}-range-end ${pickerCellInnerCls}`]: {
       color: colorTextLightSolid,
       background: colorPrimary,
     },
 
-    [`&-in-view:is(&-range-start):not(&-range-start-single),
-      &-in-view:is(&-range-end):not(&-range-end-single)`]: {
+    [`&-in-view${pickerCellCls}-range-start:not(${pickerCellCls}-range-start-single),
+      &-in-view${pickerCellCls}-range-end:not(${pickerCellCls}-range-end-single)`]: {
       '&::before': {
         background: controlItemBgActive,
       },
     },
 
-    '&-in-view:is(&-range-start)::before': {
+    [`&-in-view${pickerCellCls}-range-start::before`]: {
       insetInlineStart: '50%',
     },
 
-    '&-in-view:is(&-range-end)::before': {
+    [`&-in-view${pickerCellCls}-range-end::before`]: {
       insetInlineEnd: '50%',
     },
 
     // >>> Range Hover
-    [`&-in-view:is(&-range-hover-start):not(&-in-range):not(&-range-start):not(&-range-end),
-      &-in-view:is(&-range-hover-end):not(&-in-range):not(&-range-start):not(&-range-end),
-      &-in-view:is(&-range-hover-start):is(&-range-start-single),
-      &-in-view:is(&-range-hover-start):is(&-range-start):is(&-range-end):is(&-range-end-near-hover),
-      &-in-view:is(&-range-hover-end):is(&-range-start):is(&-range-end):is(&-range-start-near-hover),
-      &-in-view:is(&-range-hover-end):is(&-range-end-single),
-      &-in-view:is(&-range-hover):not(&-in-range)`]: {
+    [`&-in-view${pickerCellCls}-range-hover-start:not(${pickerCellCls}-in-range):not(${pickerCellCls}-range-start):not(${pickerCellCls}-range-end),
+      &-in-view${pickerCellCls}-range-hover-end:not(${pickerCellCls}-in-range):not(${pickerCellCls}-range-start):not(${pickerCellCls}-range-end),
+      &-in-view${pickerCellCls}-range-hover-start${pickerCellCls}-range-start-single,
+      &-in-view${pickerCellCls}-range-hover-start${pickerCellCls}-range-start${pickerCellCls}-range-end${pickerCellCls}-range-end-near-hover,
+      &-in-view${pickerCellCls}-range-hover-end${pickerCellCls}-range-start${pickerCellCls}-range-end${pickerCellCls}-range-start-near-hover,
+      &-in-view${pickerCellCls}-range-hover-end${pickerCellCls}-range-end-single,
+      &-in-view${pickerCellCls}-range-hover:not(${pickerCellCls}-in-range)`]: {
       '&::after': {
         position: 'absolute',
         top: '50%',
@@ -202,22 +204,22 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
     },
 
     // Hover with in range
-    [`&-in-view:is(&-in-range):is(&-range-hover)::before,
-      &-in-view:is(&-range-start):is(&-range-hover)::before,
-      &-in-view:is(&-range-end):is(&-range-hover)::before,
-      &-in-view:is(&-range-start):not(&-range-start-single):is(&-range-hover-start)::before,
-      &-in-view:is(&-range-end):not(&-range-end-single):is(&-range-hover-end)::before,
+    [`&-in-view${pickerCellCls}-in-range${pickerCellCls}-range-hover::before,
+      &-in-view${pickerCellCls}-range-start${pickerCellCls}-range-hover::before,
+      &-in-view${pickerCellCls}-range-end${pickerCellCls}-range-hover::before,
+      &-in-view${pickerCellCls}-range-start:not(${pickerCellCls}-range-start-single)${pickerCellCls}-range-hover-start::before,
+      &-in-view${pickerCellCls}-range-end:not(${pickerCellCls}-range-end-single)${pickerCellCls}-range-hover-end::before,
       ${componentCls}-panel
       > :not(${componentCls}-date-panel)
-      &-in-view:is(&-in-range):is(&-range-hover-start)::before,
+      &-in-view${pickerCellCls}-in-range${pickerCellCls}-range-hover-start::before,
       ${componentCls}-panel
       > :not(${componentCls}-date-panel)
-      &-in-view:is(&-in-range):is(&-range-hover-end)::before`]: {
+      &-in-view${pickerCellCls}-in-range${pickerCellCls}-range-hover-end::before`]: {
       background: pickerBasicCellHoverWithRangeColor,
     },
 
     // range start border-radius
-    [`&-in-view:is(&-range-start):not(&-range-start-single):not(&-range-end) ${pickerCellInnerCls}`]:
+    [`&-in-view${pickerCellCls}-range-start:not(${pickerCellCls}-range-start-single):not(${pickerCellCls}-range-end) ${pickerCellInnerCls}`]:
       {
         borderStartStartRadius: borderRadiusSM,
         borderEndStartRadius: borderRadiusSM,
@@ -226,7 +228,7 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
       },
 
     // range end border-radius
-    [`&-in-view:is(&-range-end):not(&-range-end-single):not(&-range-start) ${pickerCellInnerCls}`]:
+    [`&-in-view${pickerCellCls}-range-end:not(${pickerCellCls}-range-end-single):not(${pickerCellCls}-range-start) ${pickerCellInnerCls}`]:
       {
         borderStartStartRadius: 0,
         borderEndStartRadius: 0,
@@ -234,16 +236,16 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
         borderEndEndRadius: borderRadiusSM,
       },
 
-    '&-range-hover:is(&-range-end)::after': {
+    [`&-range-hover${pickerCellCls}-range-end::after`]: {
       insetInlineStart: '50%',
     },
 
     // Edge start
-    [`tr > &-in-view:is(&-range-hover):first-child::after,
-      tr > &-in-view:is(&-range-hover-end):first-child::after,
-      &-in-view:is(&-start):is(&-range-hover-edge-start):is(&-range-hover-edge-start-near-range)::after,
-      &-in-view:is(&-range-hover-edge-start):not(&-range-hover-edge-start-near-range)::after,
-      &-in-view:is(&-range-hover-start)::after`]: {
+    [`tr > &-in-view${pickerCellCls}-range-hover:first-child::after,
+      tr > &-in-view${pickerCellCls}-range-hover-end:first-child::after,
+      &-in-view${pickerCellCls}-start${pickerCellCls}-range-hover-edge-start${pickerCellCls}-range-hover-edge-start-near-range::after,
+      &-in-view${pickerCellCls}-range-hover-edge-start:not(${pickerCellCls}-range-hover-edge-start-near-range)::after,
+      &-in-view${pickerCellCls}-range-hover-start::after`]: {
       insetInlineStart: (pickerPanelCellWidth - pickerPanelCellHeight) / 2,
       borderInlineStart: `${lineWidth}px dashed ${pickerDateHoverRangeBorderColor}`,
       borderStartStartRadius: lineWidth,
@@ -251,11 +253,11 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
     },
 
     // Edge end
-    [`tr > &-in-view:is(&-range-hover):last-child::after,
-      tr > &-in-view:is(&-range-hover-start):last-child::after,
-      &-in-view:is(&-end):is(&-range-hover-edge-end):is(&-range-hover-edge-end-near-range)::after,
-      &-in-view:is(&-range-hover-edge-end):not(&-range-hover-edge-end-near-range)::after,
-      &-in-view:is(&-range-hover-end)::after`]: {
+    [`tr > &-in-view${pickerCellCls}-range-hover:last-child::after,
+      tr > &-in-view${pickerCellCls}-range-hover-start:last-child::after,
+      &-in-view${pickerCellCls}-end${pickerCellCls}-range-hover-edge-end${pickerCellCls}-range-hover-edge-end-near-range::after,
+      &-in-view${pickerCellCls}-range-hover-edge-end:not(${pickerCellCls}-range-hover-edge-end-near-range)::after,
+      &-in-view${pickerCellCls}-range-hover-end::after`]: {
       insetInlineEnd: (pickerPanelCellWidth - pickerPanelCellHeight) / 2,
       borderInlineEnd: `${lineWidth}px dashed ${pickerDateHoverRangeBorderColor}`,
       borderStartEndRadius: lineWidth,
@@ -275,7 +277,7 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
         background: colorBgContainerDisabled,
       },
     },
-    [`&-disabled:is(&-today) ${pickerCellInnerCls}::before`]: {
+    [`&-disabled${pickerCellCls}-today ${pickerCellInnerCls}::before`]: {
       borderColor: colorTextDisabled,
     },
   };
@@ -542,7 +544,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
         },
 
       // Hover with range start & end
-      '&-range-hover:is(&-range-start)::after': {
+      [`&-range-hover${componentCls}-range-start::after`]: {
         insetInlineEnd: '50%',
       },
 
@@ -602,7 +604,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
           color: colorLinkActive,
         },
 
-        '&:is(&-disabled)': {
+        [`&${componentCls}-today-btn-disabled`]: {
           color: colorTextDisabled,
           cursor: 'not-allowed',
         },
@@ -680,8 +682,8 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
         // Clear cell style
         [`${componentCls}-cell`]: {
           [`&:hover ${pickerCellInnerCls},
-      &-selected ${pickerCellInnerCls},
-      ${pickerCellInnerCls}`]: {
+            &-selected ${pickerCellInnerCls},
+            ${pickerCellInnerCls}`]: {
             background: 'transparent !important',
           },
         },
@@ -1395,6 +1397,7 @@ export const initPickerPanelToken = (token: TokenWithCommonCls<GlobalToken>): Pi
   const { componentCls, controlHeightLG, controlHeightSM, colorPrimary, paddingXXS } = token;
 
   return {
+    pickerCellCls: `${componentCls}-cell`,
     pickerCellInnerCls: `${componentCls}-cell-inner`,
     pickerTextHeight: controlHeightLG,
     pickerPanelCellWidth: controlHeightSM * 1.5,

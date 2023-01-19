@@ -110,6 +110,7 @@ const App = () => (
 - [更新日志](CHANGELOG.zh-CN.md)
 - [React 底层基础组件](http://react-component.github.io/)
 - [移动端组件](http://mobile.ant.design)
+- [小程序组件](http://mini.ant.design)
 - [页面级组件](https://procomponents.ant.design)
 - [Ant Design 图表](https://charts.ant.design)
 - [Ant Design 图标](https://github.com/ant-design/ant-design-icons)

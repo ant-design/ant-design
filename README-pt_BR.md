@@ -107,6 +107,7 @@ Veja [i18n](https://ant.design/docs/react/i18n).
 - [Change Log](CHANGELOG.en-US.md)
 - [rc-components](http://react-component.github.io/)
 - [Mobile UI](http://mobile.ant.design)
+- [Mini Program UI](http://mini.ant.design)
 - [Ant Design Icones](https://github.com/ant-design/ant-design-icons)
 - [Ant Design Cores](https://github.com/ant-design/ant-design-colors)
 - [Ant Design Pro Layout](https://github.com/ant-design/ant-design-pro-layout)

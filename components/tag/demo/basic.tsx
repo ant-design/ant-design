@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tag } from 'antd';
+import { Space, Tag } from 'antd';
 
 const log = (e: React.MouseEvent<HTMLElement>) => {
   console.log(e);
@@ -11,7 +11,7 @@ const preventDefault = (e: React.MouseEvent<HTMLElement>) => {
 };
 
 const App: React.FC = () => (
-  <>
+  <Space size={[0, 8]} wrap>
     <Tag>Tag 1</Tag>
     <Tag>
       <a href="https://github.com/ant-design/ant-design/issues/1862">Link</a>
@@ -22,7 +22,7 @@ const App: React.FC = () => (
     <Tag closable onClose={preventDefault}>
       Prevent Default
     </Tag>
-  </>
+  </Space>
 );
 
 export default App;
