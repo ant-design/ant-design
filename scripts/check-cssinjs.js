@@ -19,7 +19,7 @@ const originError = console.error;
 console.error = (msg) => {
   if (msg.includes('Warning: [Ant Design CSS-in-JS]')) {
     errorCount += 1;
-    console.log(chalk.red(`❌ `), msg.slice(msg.indexOf('Error in'), msg.indexOf('Selector info')));
+    console.log(chalk.red(`❌ `), msg.slice(msg.indexOf('Error in')).replace(/\s+/g, ' '));
   } else {
     originError(msg);
   }
@@ -46,7 +46,7 @@ styleFiles.forEach((file) => {
     useStyle = require(file).default;
   }
   const Component = () => {
-    useStyle('file');
+    useStyle('check');
     return EmptyElement;
   };
   ReactDOMServer.renderToString(
