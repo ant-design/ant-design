@@ -38,10 +38,8 @@ const genSpaceStyle: GenerateStyle<SpaceToken> = (token) => {
           alignItems: 'baseline',
         },
       },
-      [`${componentCls}-item`]: {
-        '&:empty': {
-          display: 'none',
-        },
+      [`${componentCls}-space-item:empty`]: {
+        display: 'none',
       },
     },
   };
