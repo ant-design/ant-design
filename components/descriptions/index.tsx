@@ -47,8 +47,8 @@ function getColumn(column: DescriptionsProps['column'], screens: ScreenMap): num
 
 function getFilledItem(
   node: React.ReactElement,
-  span: number | undefined,
   rowRestCol: number,
+  span?: number,
 ): React.ReactElement {
   let clone = node;
 
@@ -79,7 +79,7 @@ function getRows(children: React.ReactNode, column: number) {
 
     // Additional handle last one
     if (index === childNodes.length - 1) {
-      tmpRow.push(getFilledItem(node, span, rowRestCol));
+      tmpRow.push(getFilledItem(node, rowRestCol, span));
       rows.push(tmpRow);
       return;
     }
@@ -88,7 +88,7 @@ function getRows(children: React.ReactNode, column: number) {
       rowRestCol -= mergedSpan;
       tmpRow.push(node);
     } else {
-      tmpRow.push(getFilledItem(node, mergedSpan, rowRestCol));
+      tmpRow.push(getFilledItem(node, rowRestCol, mergedSpan));
       rows.push(tmpRow);
       rowRestCol = column;
       tmpRow = [];

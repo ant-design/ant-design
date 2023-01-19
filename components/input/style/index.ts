@@ -78,7 +78,7 @@ export const genInputSmallStyle = (token: InputToken): CSSObject => ({
   borderRadius: token.borderRadiusSM,
 });
 
-export const genStatusStyle = (token: InputToken): CSSObject => {
+export const genStatusStyle = (token: InputToken, parentCls: string): CSSObject => {
   const {
     componentCls,
     colorError,
@@ -90,7 +90,7 @@ export const genStatusStyle = (token: InputToken): CSSObject => {
   } = token;
 
   return {
-    '&-status-error:not(&-disabled):not(&-borderless)&': {
+    [`&-status-error:not(${parentCls}-disabled):not(${parentCls}-borderless)${parentCls}`]: {
       borderColor: colorError,
 
       '&:hover': {
@@ -111,7 +111,7 @@ export const genStatusStyle = (token: InputToken): CSSObject => {
         color: colorError,
       },
     },
-    '&-status-warning:not(&-disabled):not(&-borderless)&': {
+    [`&-status-warning:not(${parentCls}-disabled):not(${parentCls}-borderless)${parentCls}`]: {
       borderColor: colorWarning,
 
       '&:hover': {
@@ -511,10 +511,10 @@ const genInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
   const colorSmallPadding = (controlHeightSM - lineWidth * 2 - FIXED_CHROME_COLOR_HEIGHT) / 2;
 
   return {
-    [`${componentCls}`]: {
+    [componentCls]: {
       ...resetComponent(token),
       ...genBasicInputStyle(token),
-      ...genStatusStyle(token),
+      ...genStatusStyle(token, componentCls),
 
       '&[type="color"]': {
         height: token.controlHeight,
@@ -581,7 +581,7 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
       ...genBasicInputStyle(token),
       display: 'inline-flex',
 
-      '&:not(&-disabled):hover': {
+      [`&:not(${componentCls}-affix-wrapper-disabled):hover`]: {
         ...genHoverStyle(token),
         zIndex: 1,
         [`${componentCls}-search-with-button &`]: {
@@ -659,7 +659,7 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
       },
 
       // status
-      ...genStatusStyle(token),
+      ...genStatusStyle(token, `${componentCls}-affix-wrapper`),
     },
   };
 };

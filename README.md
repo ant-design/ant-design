@@ -104,6 +104,7 @@ Dozens of languages supported in `antd`, see [i18n](https://ant.design/docs/reac
 - [Change Log](CHANGELOG.en-US.md)
 - [rc-components](http://react-component.github.io/)
 - [Mobile UI](http://mobile.ant.design)
+- [Mini Program UI](http://mini.ant.design)
 - [Ant Design Pro Components](https://procomponents.ant.design)
 - [Ant Design Charts](https://charts.ant.design)
 - [Ant Design Icons](https://github.com/ant-design/ant-design-icons)

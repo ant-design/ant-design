@@ -83,6 +83,7 @@ $ yarn add antd
 ## 示例
 
 ```jsx
+import React from 'react';
 import { DatePicker } from 'antd';
 
 const App = () => {

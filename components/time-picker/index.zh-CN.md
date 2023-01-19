@@ -115,11 +115,6 @@ type RangeDisabledTime = (
 };
 ```
 
-<style>
-.code-box-demo .ant-picker { margin: 0 8px 12px 0; }
-.ant-row-rtl .code-box-demo .ant-picker { margin: 0 0 12px 8px; }
-</style>
-
 ## FAQ
 
 - [如何在 TimePicker 中使用自定义日期库（如 Moment.js ）](/docs/react/use-custom-date-library#timepicker)

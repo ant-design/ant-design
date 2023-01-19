@@ -441,16 +441,6 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 | warningOnly | Warning only. Not block form submit | boolean | 4.17.0 |
 | whitespace | Failed if only has whitespace, only work with `type: 'string'` rule | boolean |  |
 
-<style>
-.code-box-demo .ant-form:not(.ant-form-inline):not(.ant-form-vertical) {
-  max-width: 600px;
-}
-.markdown.api-container table td:nth-of-type(4) {
-  white-space: nowrap;
-  word-wrap: break-word;
-}
-</style>
-
 ## FAQ
 
 ### Custom validator not working
@@ -540,12 +530,9 @@ dependencies should be `['users', 0, 'name']`
 React can not get correct interaction of controlled component with async value update. When user trigger `onChange`, component will do no response since `value` update is async. If you want to trigger value update async, you should use customize component to handle value state internal and pass sync value control to Form instead.
 
 <style>
-  .site-form-item-icon {
-    color: rgba(0, 0, 0, 0.25);
-  }
-  [data-theme="dark"] .site-form-item-icon {
-    color: rgba(255,255,255,.3);
-  }
+.site-form-item-icon {
+  color: rgba(0, 0, 0, 0.25);
+}
 </style>
 
 ### `scrollToFirstError` and `scrollToField` not working on custom form control?

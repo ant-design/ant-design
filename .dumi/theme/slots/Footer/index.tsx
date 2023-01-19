@@ -121,6 +121,11 @@ const Footer = () => {
           openExternal: true,
         },
         {
+          title: 'Ant Design Mini',
+          url: 'https://mini.ant.design',
+          openExternal: true,
+        },
+        {
           title: 'Ant Design Landing',
           description: <FormattedMessage id="app.footer.landing" />,
           url: 'https://landing.ant.design',
