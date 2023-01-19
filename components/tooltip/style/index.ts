@@ -107,7 +107,6 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
       }),
       {
         colorBg: 'var(--antd-arrow-background-color)',
-        showArrowCls: '',
         contentRadius: tooltipBorderRadius,
         limitVerticalRadius: true,
       },

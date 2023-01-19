@@ -17,6 +17,9 @@ import warning from '../_util/warning';
 import PurePanel from './PurePanel';
 import useStyle from './style';
 import { parseColor } from './util';
+import theme from '../theme';
+
+const { useToken } = theme;
 
 export type { AdjustOverflow, PlacementsConfig };
 
@@ -76,7 +79,9 @@ export interface AbstractTooltipProps extends LegacyTooltipProps {
   placement?: TooltipPlacement;
   builtinPlacements?: typeof Placements;
   openClassName?: string;
+  /** @deprecated Please use `arrow` instead. */
   arrowPointAtCenter?: boolean;
+  arrow?: boolean | { arrowPointAtCenter: boolean };
   autoAdjustOverflow?: boolean | AdjustOverflow;
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   children?: React.ReactNode;
@@ -170,7 +175,12 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
     children,
     afterOpenChange,
     afterVisibleChange,
+    arrow = true,
   } = props;
+
+  const mergedShowArrow = !!arrow;
+
+  const { token } = useToken();
 
   const {
     getPopupContainer: getContextPopupContainer,
@@ -184,6 +194,7 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
       ['defaultVisible', 'defaultOpen'],
       ['onVisibleChange', 'onOpenChange'],
       ['afterVisibleChange', 'afterOpenChange'],
+      ['arrowPointAtCenter', 'arrow'],
     ].forEach(([deprecatedName, newName]) => {
       warning(
         !(deprecatedName in props),
@@ -214,11 +225,17 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
 
   const getTooltipPlacements = () => {
     const { builtinPlacements, arrowPointAtCenter = false, autoAdjustOverflow = true } = props;
+
+    const mergedArrowPointAtCenter =
+      (typeof arrow !== 'boolean' && arrow?.arrowPointAtCenter) ?? arrowPointAtCenter;
+
     return (
       builtinPlacements ||
       getPlacements({
-        arrowPointAtCenter,
+        arrowPointAtCenter: mergedArrowPointAtCenter,
         autoAdjustOverflow,
+        arrowWidth: mergedShowArrow ? token.sizePopupArrow : 0,
+        offset: token.marginXXS,
       })
     );
   };
@@ -313,6 +330,7 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
   return wrapSSR(
     <RcTooltip
       {...otherProps}
+      showArrow={mergedShowArrow}
       placement={placement}
       mouseEnterDelay={mouseEnterDelay}
       mouseLeaveDelay={mouseLeaveDelay}
