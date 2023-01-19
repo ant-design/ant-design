@@ -36,6 +36,7 @@ export interface FormProps<Values = any> extends Omit<RcFormProps<Values>, 'form
   requiredMark?: RequiredMark;
   /** @deprecated Will warning in future branch. Pls use `requiredMark` instead. */
   hideRequiredMark?: boolean;
+  rootClassName?: string;
 }
 
 const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (props, ref) => {
@@ -45,7 +46,8 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
 
   const {
     prefixCls: customizePrefixCls,
-    className = '',
+    className,
+    rootClassName,
     size = contextSize,
     disabled = contextDisabled,
     form,
@@ -96,6 +98,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
     },
     hashId,
     className,
+    rootClassName,
   );
 
   const [wrapForm] = useForm(form);
@@ -121,7 +124,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
   React.useImperativeHandle(ref, () => wrapForm);
 
   const scrollToField = (options: boolean | Options, fieldName: InternalNamePath) => {
-    if(options) {
+    if (options) {
       let defaultScrollToFirstError: Options = { block: 'nearest' };
       if (typeof options === 'object') {
         defaultScrollToFirstError = options;
@@ -135,12 +138,12 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
     if (errorInfo.errorFields.length) {
       const fieldName = errorInfo.errorFields[0].name;
       if (scrollToFirstError !== undefined) {
-        scrollToField(scrollToFirstError, fieldName)
+        scrollToField(scrollToFirstError, fieldName);
         return;
       }
 
       if (contextForm && contextForm.scrollToFirstError !== undefined) {
-        scrollToField(contextForm.scrollToFirstError, fieldName)
+        scrollToField(contextForm.scrollToFirstError, fieldName);
       }
     }
   };
