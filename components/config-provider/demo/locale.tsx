@@ -127,9 +127,7 @@ const App: React.FC = () => {
         </Radio.Group>
       </div>
       <ConfigProvider locale={locale}>
-        <Page
-          key={locale ? locale.locale : 'en' /* Have to refresh for production environment */}
-        />
+        <Page />
       </ConfigProvider>
     </div>
   );
