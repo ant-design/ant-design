@@ -13600,6 +13600,7 @@ exports[`renders ./components/table/demo/head.tsx extend context correctly 1`] =
                                     <ul
                                       class="ant-dropdown-menu ant-dropdown-menu-sub ant-dropdown-menu-vertical"
                                       data-menu-list="true"
+                                      role="menu"
                                     >
                                       <li
                                         class="ant-dropdown-menu-item"
