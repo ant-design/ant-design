@@ -7,7 +7,6 @@ import type { GenerateConfig } from 'rc-picker/lib/generate/index';
 import type { PickerMode } from 'rc-picker/lib/interface';
 import * as React from 'react';
 import { forwardRef, useContext, useImperativeHandle } from 'react';
-import { useCompactItemContext } from '../../space/Compact';
 import type { PickerProps, PickerTimeProps } from '.';
 import { Components, getTimeProps } from '.';
 import { ConfigContext } from '../../config-provider';
@@ -15,6 +14,7 @@ import DisabledContext from '../../config-provider/DisabledContext';
 import SizeContext from '../../config-provider/SizeContext';
 import { FormItemInputContext } from '../../form/context';
 import LocaleReceiver from '../../locale/LocaleReceiver';
+import { useCompactItemContext } from '../../space/Compact';
 import type { InputStatus } from '../../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
 import warning from '../../_util/warning';
@@ -29,6 +29,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
     status?: InputStatus;
     hashId?: string;
     popupClassName?: string;
+    rootClassName?: string;
   };
   type DatePickerProps = PickerProps<DateType> & CustomPickerProps;
   type TimePickerProps = PickerTimeProps<DateType> & CustomPickerProps;
@@ -43,6 +44,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
           prefixCls: customizePrefixCls,
           getPopupContainer: customizeGetPopupContainer,
           className,
+          rootClassName,
           size: customizeSize,
           bordered = true,
           placement,
@@ -155,6 +157,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
                     hashId,
                     compactItemClassnames,
                     className,
+                    rootClassName,
                   )}
                   prefixCls={prefixCls}
                   getPopupContainer={customizeGetPopupContainer || getPopupContainer}
@@ -162,7 +165,11 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
                   components={Components}
                   direction={direction}
                   disabled={mergedDisabled}
-                  dropdownClassName={classNames(hashId, popupClassName || dropdownClassName)}
+                  dropdownClassName={classNames(
+                    hashId,
+                    rootClassName,
+                    popupClassName || dropdownClassName,
+                  )}
                 />
               );
             }}
