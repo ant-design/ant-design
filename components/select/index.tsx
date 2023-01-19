@@ -59,6 +59,7 @@ export interface SelectProps<
   popupClassName?: string;
   /** @deprecated Please use `popupClassName` instead */
   dropdownClassName?: string;
+  rootClassName?: string;
 }
 
 const SECRET_COMBOBOX_MODE_DO_NOT_USE = 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
@@ -68,6 +69,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     prefixCls: customizePrefixCls,
     bordered = true,
     className,
+    rootClassName,
     getPopupContainer,
     popupClassName,
     dropdownClassName,
@@ -154,6 +156,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     {
       [`${prefixCls}-dropdown-${direction}`]: direction === 'rtl',
     },
+    rootClassName,
     hashId,
   );
 
@@ -174,6 +177,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
     compactItemClassnames,
     className,
+    rootClassName,
     hashId,
   );
 
