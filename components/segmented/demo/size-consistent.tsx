@@ -1,8 +1,8 @@
 import React from 'react';
-import { Button, Input, Select, Segmented } from 'antd';
+import { Button, Input, Select, Segmented, Space } from 'antd';
 
-export default () => (
-  <>
+const App: React.FC = () => (
+  <Space direction="vertical">
     <div>
       <Segmented style={{ marginRight: 6 }} size="large" options={['Daily', 'Weekly', 'Monthly']} />
       <Button type="primary" size="large">
@@ -19,5 +19,7 @@ export default () => (
         <Select.Option value="lucy">Lucy</Select.Option>
       </Select>
     </div>
-  </>
+  </Space>
 );
+
+export default App;

@@ -83,10 +83,3 @@ Ant Design 的布局组件若不能满足你的需求，你也可以直接使用
 您可以使用 [主题定制](/docs/react/customize-theme-cn) 修改 `screen[XS|SM|MD|LG|XL|XXL]` 来修改断点值（自 5.1.0 起，[codesandbox demo](https://codesandbox.io/s/antd-reproduction-template-forked-dlq3r9?file=/index.js)）。
 
 响应式栅格的断点扩展自 [BootStrap 4 的规则](https://getbootstrap.com/docs/4.0/layout/overview/#responsive-breakpoints)（不包含链接里 `occasionally` 的部分)。
-
-<style>
-  [data-theme="dark"] #components-grid-demo-playground pre {
-    background: rgba(255,255,255,0.08);
-    color: rgba(255,255,255,.65);
-  }
-</style>

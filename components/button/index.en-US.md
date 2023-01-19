@@ -82,8 +82,4 @@ Following the Ant Design specification, we will add one space between if Button 
   padding: 16px;
   background: rgb(190, 200, 200);
 }
-
-[data-theme="dark"] .site-button-ghost-wrapper {
-  background: rgba(255, 255, 255, 0.2);
-}
 </style>
