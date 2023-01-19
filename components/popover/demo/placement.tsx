@@ -13,7 +13,7 @@ const content = (
 const buttonWidth = 70;
 
 const App: React.FC = () => (
-  <div style={{ overflow: 'visible' }}>
+  <div>
     <div style={{ marginLeft: buttonWidth, whiteSpace: 'nowrap' }}>
       <Popover placement="topLeft" title={text} content={content} trigger="click">
         <Button>TL</Button>

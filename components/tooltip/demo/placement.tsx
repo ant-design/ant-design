@@ -6,7 +6,7 @@ const text = <span>prompt text</span>;
 const buttonWidth = 70;
 
 const App: React.FC = () => (
-  <div style={{ overflow: 'visible' }}>
+  <div>
     <div style={{ marginLeft: buttonWidth, whiteSpace: 'nowrap' }}>
       <Tooltip placement="topLeft" title={text}>
         <Button>TL</Button>

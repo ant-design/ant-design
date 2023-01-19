@@ -9,7 +9,7 @@ const confirm = () => {
 };
 
 const App: React.FC = () => (
-  <div style={{ overflow: 'visible' }}>
+  <div>
     <div style={{ marginLeft: 70, whiteSpace: 'nowrap' }}>
       <Popconfirm
         placement="topLeft"

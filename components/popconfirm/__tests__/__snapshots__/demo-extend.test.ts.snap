@@ -521,9 +521,7 @@ Array [
 `;
 
 exports[`renders ./components/popconfirm/demo/placement.tsx extend context correctly 1`] = `
-<div
-  style="overflow:visible"
->
+<div>
   <div
     style="margin-left:70px;white-space:nowrap"
   >

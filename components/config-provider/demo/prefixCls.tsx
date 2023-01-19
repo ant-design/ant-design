@@ -8,19 +8,18 @@ import React, { useState } from 'react';
 // We may need do convert in site also.
 const App: React.FC = () => {
   const [prefixCls, setPrefixCls] = useState('light');
-
   return (
     <>
       <Button style={{ marginBottom: '12px' }} type="primary" onClick={() => setPrefixCls('dark')}>
         toggle prefixCls
       </Button>
       <br />
-      <Space wrap>
-        <ConfigProvider prefixCls={prefixCls} iconPrefixCls="bamboo">
+      <ConfigProvider prefixCls={prefixCls} iconPrefixCls="bamboo">
+        <Space wrap>
           <SmileOutlined />
           <Select style={{ width: 120 }} />
-        </ConfigProvider>
-      </Space>
+        </Space>
+      </ConfigProvider>
     </>
   );
 };
