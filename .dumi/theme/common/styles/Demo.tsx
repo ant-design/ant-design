@@ -2,7 +2,7 @@ import { css, Global } from '@emotion/react';
 import React from 'react';
 import useSiteToken from '../../../hooks/useSiteToken';
 
-export default () => {
+const App: React.FC = () => {
   const { token } = useSiteToken();
 
   const { antCls, iconCls } = token;
@@ -24,9 +24,9 @@ export default () => {
           display: inline-block;
           width: 100%;
           margin: 0 0 16px;
+          background-color: ${token.colorBgContainer};
           border: 1px solid ${token.colorSplit};
           border-radius: ${token.borderRadius}px;
-          background-color: ${token.colorBgContainer};
           transition: all 0.2s;
 
           .code-box-title {
@@ -360,6 +360,16 @@ export default () => {
           inset-inline-end: 0;
         }
 
+        #components-tooltip-demo-placement,
+        #components-popover-demo-placement,
+        #components-popconfirm-demo-placement {
+          .ant-btn {
+            width: 70px;
+            padding: 0;
+            text-align: center;
+          }
+        }
+
         ${antCls}-row-rtl {
           #components-tooltip-demo-placement,
           #components-popover-demo-placement,
@@ -373,3 +383,5 @@ export default () => {
     />
   );
 };
+
+export default App;

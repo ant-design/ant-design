@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
 import { SmileOutlined } from '@ant-design/icons';
-import { Button, ConfigProvider, Select } from 'antd';
+import { Button, ConfigProvider, Select, Space } from 'antd';
+import React, { useState } from 'react';
 
 // Ant Design site use `es` module for view
 // but do not replace related lib `lib` with `es`
@@ -10,17 +10,18 @@ const App: React.FC = () => {
   const [prefixCls, setPrefixCls] = useState('light');
 
   return (
-    <div>
+    <>
       <Button style={{ marginBottom: '12px' }} type="primary" onClick={() => setPrefixCls('dark')}>
         toggle prefixCls
       </Button>
-      <div>
+      <br />
+      <Space wrap>
         <ConfigProvider prefixCls={prefixCls} iconPrefixCls="bamboo">
           <SmileOutlined />
-          <Select />
+          <Select style={{ width: 120 }} />
         </ConfigProvider>
-      </div>
-    </div>
+      </Space>
+    </>
   );
 };
 

@@ -11,23 +11,25 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*NVKORa7BCVwAAAAAAA
 
 This component provides a configuration to all React components underneath itself via the [context API](https://facebook.github.io/react/docs/context.html). In the render tree all components will have access to the provided config.
 
-```jsx
+```tsx
 import { ConfigProvider } from 'antd';
+import React from 'react';
 
 // ...
-
-export default () => (
+const Demo: React.FC = () => (
   <ConfigProvider direction="rtl">
     <App />
   </ConfigProvider>
 );
+
+export default Demo;
 ```
 
 ### Content Security Policy
 
 Some components use dynamic style to support wave effect. You can config `csp` prop if Content Security Policy (CSP) is enabled:
 
-```jsx
+```tsx
 <ConfigProvider csp={{ nonce: 'YourNonceCode' }}>
   <Button>My Button</Button>
 </ConfigProvider>
@@ -69,7 +71,7 @@ Some components use dynamic style to support wave effect. You can config `csp` p
 
 Setting `Modal`、`Message`、`Notification` rootPrefixCls.
 
-```jsx
+```ts
 ConfigProvider.config({
   prefixCls: 'ant', // 4.13.0+
   iconPrefixCls: 'anticon', // 4.17.0+

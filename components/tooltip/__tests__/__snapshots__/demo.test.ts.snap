@@ -224,7 +224,7 @@ exports[`renders ./components/tooltip/demo/destroy-tooltip-on-hide.tsx correctly
 
 exports[`renders ./components/tooltip/demo/placement.tsx correctly 1`] = `
 <div
-  class="demo"
+  style="overflow:visible"
 >
   <div
     style="margin-left:70px;white-space:nowrap"

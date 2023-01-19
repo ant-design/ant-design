@@ -13,11 +13,4 @@ There are 12 `placement` options available. Use `arrowPointAtCenter` if you want
 #components-popconfirm-demo-placement .ant-popover-wrap > a {
   margin-right: 8px;
 }
-#components-popconfirm-demo-placement .ant-btn {
-  margin-right: 8px;
-  margin-bottom: 8px;
-  width: 70px;
-  text-align: center;
-  padding: 0;
-}
 </style>

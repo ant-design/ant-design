@@ -1,5 +1,5 @@
-import React from 'react';
 import { Button, message, Popconfirm } from 'antd';
+import React from 'react';
 
 const text = 'Are you sure to delete this task?';
 const description = 'Delete the task';
@@ -9,7 +9,7 @@ const confirm = () => {
 };
 
 const App: React.FC = () => (
-  <div className="demo">
+  <div style={{ overflow: 'visible' }}>
     <div style={{ marginLeft: 70, whiteSpace: 'nowrap' }}>
       <Popconfirm
         placement="topLeft"

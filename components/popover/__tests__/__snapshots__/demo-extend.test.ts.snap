@@ -288,7 +288,7 @@ Array [
 
 exports[`renders ./components/popover/demo/placement.tsx extend context correctly 1`] = `
 <div
-  class="demo"
+  style="overflow:visible"
 >
   <div
     style="margin-left:70px;white-space:nowrap"

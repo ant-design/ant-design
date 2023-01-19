@@ -70,7 +70,7 @@ exports[`renders ./components/popconfirm/demo/locale.tsx correctly 1`] = `
 
 exports[`renders ./components/popconfirm/demo/placement.tsx correctly 1`] = `
 <div
-  class="demo"
+  style="overflow:visible"
 >
   <div
     style="margin-left:70px;white-space:nowrap"

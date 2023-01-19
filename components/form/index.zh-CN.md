@@ -532,9 +532,6 @@ React 中异步更新会导致受控组件交互行为异常。当用户交互�
 .site-form-item-icon {
   color: rgba(0, 0, 0, 0.25);
 }
-[data-theme="dark"] .site-form-item-icon {
-  color: rgba(255, 255, 255, .3);
-}
 </style>
 
 ### 自定义表单控件 `scrollToFirstError` 和 `scrollToField` 失效？

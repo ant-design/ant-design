@@ -533,9 +533,6 @@ React can not get correct interaction of controlled component with async value u
 .site-form-item-icon {
   color: rgba(0, 0, 0, 0.25);
 }
-[data-theme="dark"] .site-form-item-icon {
-  color: rgba(255, 255, 255, .3);
-}
 </style>
 
 ### `scrollToFirstError` and `scrollToField` not working on custom form control?
