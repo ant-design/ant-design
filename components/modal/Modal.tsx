@@ -73,6 +73,7 @@ export interface ModalProps {
   maskTransitionName?: string;
   transitionName?: string;
   className?: string;
+  rootClassName?: string;
   getContainer?: string | HTMLElement | getContainerFunc | false;
   zIndex?: number;
   bodyStyle?: React.CSSProperties;
