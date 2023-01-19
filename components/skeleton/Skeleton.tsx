@@ -23,6 +23,7 @@ export interface SkeletonProps {
   loading?: boolean;
   prefixCls?: string;
   className?: string;
+  rootClassName?: string;
   style?: React.CSSProperties;
   children?: React.ReactNode;
   avatar?: SkeletonAvatarProps | boolean;
@@ -90,6 +91,7 @@ const Skeleton: React.FC<SkeletonProps> & CompoundedComponent = (props) => {
     prefixCls: customizePrefixCls,
     loading,
     className,
+    rootClassName,
     style,
     children,
     avatar = false,
@@ -167,6 +169,7 @@ const Skeleton: React.FC<SkeletonProps> & CompoundedComponent = (props) => {
         [`${prefixCls}-round`]: round,
       },
       className,
+      rootClassName,
       hashId,
     );
 
