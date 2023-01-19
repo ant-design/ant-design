@@ -577,6 +577,7 @@ exports[`renders ./components/layout/demo/fixed.tsx extend context correctly 1`]
             <ul
               class="ant-menu ant-menu-sub ant-menu-vertical"
               data-menu-list="true"
+              role="menu"
             />
           </div>
         </div>
@@ -2104,6 +2105,7 @@ exports[`renders ./components/layout/demo/side.tsx extend context correctly 1`] 
               <ul
                 class="ant-menu ant-menu-sub ant-menu-inline"
                 data-menu-list="true"
+                role="menu"
               >
                 <li
                   class="ant-menu-item ant-menu-item-only-child"
@@ -2259,6 +2261,7 @@ exports[`renders ./components/layout/demo/side.tsx extend context correctly 1`] 
               <ul
                 class="ant-menu ant-menu-sub ant-menu-inline"
                 data-menu-list="true"
+                role="menu"
               >
                 <li
                   class="ant-menu-item ant-menu-item-only-child"
@@ -3221,6 +3224,7 @@ exports[`renders ./components/layout/demo/top.tsx extend context correctly 1`] =
             <ul
               class="ant-menu ant-menu-sub ant-menu-vertical"
               data-menu-list="true"
+              role="menu"
             />
           </div>
         </div>
@@ -3787,6 +3791,7 @@ exports[`renders ./components/layout/demo/top-side.tsx extend context correctly 
             <ul
               class="ant-menu ant-menu-sub ant-menu-vertical"
               data-menu-list="true"
+              role="menu"
             />
           </div>
         </div>
@@ -3977,6 +3982,7 @@ exports[`renders ./components/layout/demo/top-side.tsx extend context correctly 
                   <ul
                     class="ant-menu ant-menu-sub ant-menu-inline"
                     data-menu-list="true"
+                    role="menu"
                   >
                     <li
                       class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
@@ -4120,6 +4126,7 @@ exports[`renders ./components/layout/demo/top-side.tsx extend context correctly 
               <ul
                 class="ant-menu ant-menu-sub ant-menu-inline"
                 data-menu-list="true"
+                role="menu"
               >
                 <li
                   class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
@@ -4307,6 +4314,7 @@ exports[`renders ./components/layout/demo/top-side.tsx extend context correctly 
                   <ul
                     class="ant-menu ant-menu-sub ant-menu-inline"
                     data-menu-list="true"
+                    role="menu"
                   >
                     <li
                       class="ant-menu-item ant-menu-item-only-child"
@@ -4496,6 +4504,7 @@ exports[`renders ./components/layout/demo/top-side.tsx extend context correctly 
                   <ul
                     class="ant-menu ant-menu-sub ant-menu-inline"
                     data-menu-list="true"
+                    role="menu"
                   >
                     <li
                       class="ant-menu-item ant-menu-item-only-child"
@@ -5088,6 +5097,7 @@ exports[`renders ./components/layout/demo/top-side-2.tsx extend context correctl
             <ul
               class="ant-menu ant-menu-sub ant-menu-vertical"
               data-menu-list="true"
+              role="menu"
             />
           </div>
         </div>
@@ -5230,6 +5240,7 @@ exports[`renders ./components/layout/demo/top-side-2.tsx extend context correctl
                 <ul
                   class="ant-menu ant-menu-sub ant-menu-inline"
                   data-menu-list="true"
+                  role="menu"
                 >
                   <li
                     class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
@@ -5373,6 +5384,7 @@ exports[`renders ./components/layout/demo/top-side-2.tsx extend context correctl
             <ul
               class="ant-menu ant-menu-sub ant-menu-inline"
               data-menu-list="true"
+              role="menu"
             >
               <li
                 class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
@@ -5560,6 +5572,7 @@ exports[`renders ./components/layout/demo/top-side-2.tsx extend context correctl
                 <ul
                   class="ant-menu ant-menu-sub ant-menu-inline"
                   data-menu-list="true"
+                  role="menu"
                 >
                   <li
                     class="ant-menu-item ant-menu-item-only-child"
@@ -5749,6 +5762,7 @@ exports[`renders ./components/layout/demo/top-side-2.tsx extend context correctl
                 <ul
                   class="ant-menu ant-menu-sub ant-menu-inline"
                   data-menu-list="true"
+                  role="menu"
                 >
                   <li
                     class="ant-menu-item ant-menu-item-only-child"
