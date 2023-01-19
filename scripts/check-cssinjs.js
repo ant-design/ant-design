@@ -35,9 +35,6 @@ const styleFiles = glob.sync(
 );
 
 styleFiles.forEach((file) => {
-  const pathArr = file.split('/');
-  const styleIndex = pathArr.lastIndexOf('style');
-  const componentName = pathArr[styleIndex - 1];
   let useStyle = () => {};
   if (file.includes('grid')) {
     const { useColStyle, useRowStyle } = require(file);
