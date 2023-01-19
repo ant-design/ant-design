@@ -116,7 +116,7 @@ const App: React.FC = () => {
   return (
     <div>
       <div style={{ marginBottom: 16 }}>
-        <span style={{ marginRight: 16 }}>Change locale of components: </span>
+        <span style={{ marginRight: 16 }}>Change locale of components:</span>
         <Radio.Group value={locale} onChange={changeLocale}>
           <Radio.Button key="en" value={enUS}>
             English
