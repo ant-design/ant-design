@@ -2,7 +2,7 @@ import { css, Global } from '@emotion/react';
 import React from 'react';
 import useSiteToken from '../../../hooks/useSiteToken';
 
-const App: React.FC = () => {
+const GlobalDemoStyles: React.FC = () => {
   const { token } = useSiteToken();
 
   const { antCls, iconCls } = token;
@@ -365,6 +365,15 @@ const App: React.FC = () => {
         #components-popconfirm-demo-placement {
           .ant-btn {
             width: 70px;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            padding: 0;
+            text-align: center;
+          }
+          .ant-btn-rtl {
+            width: 70px;
+            margin-bottom: 8px;
+            margin-left: 8px;
             padding: 0;
             text-align: center;
           }
@@ -384,4 +393,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default GlobalDemoStyles;
