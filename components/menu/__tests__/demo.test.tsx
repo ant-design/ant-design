@@ -4,7 +4,7 @@ import demoTest, { rootPropsTest } from '../../../tests/shared/demoTest';
 demoTest('menu', { testRootProps: false });
 
 rootPropsTest(
-  'Menu',
+  'menu',
   (Menu, props) => (
     <Menu
       {...props}
