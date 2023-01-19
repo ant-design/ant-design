@@ -133,6 +133,7 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
     {
       [`${treeSelectPrefixCls}-dropdown-rtl`]: direction === 'rtl',
     },
+    rootClassName,
     hashId,
   );
 
