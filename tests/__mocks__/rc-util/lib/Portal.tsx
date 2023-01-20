@@ -1,7 +1,8 @@
 import React from 'react';
 import { TriggerMockContext } from '../../../shared/demoTestContext';
 
-const OriginPortal = jest.requireActual('rc-util/lib/Portal');
+let OriginPortal = jest.requireActual('rc-util/lib/Portal');
+OriginPortal = OriginPortal.default ?? OriginPortal;
 class MockPortal extends React.Component<{ children?: React.ReactNode }> {
   container: boolean;
 

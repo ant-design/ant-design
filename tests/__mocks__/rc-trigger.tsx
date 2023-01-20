@@ -3,10 +3,12 @@ import MockTrigger from 'rc-trigger/lib/mock';
 import * as React from 'react';
 import { TriggerMockContext } from '../shared/demoTestContext';
 
-const OriginTrigger = jest.requireActual('rc-trigger/lib/index');
+let OriginTrigger = jest.requireActual('rc-trigger');
+OriginTrigger = OriginTrigger.default ?? OriginTrigger;
 
 const ForwardTrigger = React.forwardRef<any, TriggerProps>((props, ref) => {
   const context = React.useContext(TriggerMockContext);
+
   const mergedPopupVisible = context?.popupVisible ?? props.popupVisible;
   (global as any).triggerProps = props;
 
