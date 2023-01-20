@@ -196,7 +196,7 @@ const Badge: CompoundedComponent = ({
         motionAppear={false}
         motionDeadline={1000}
       >
-        {({ className: motionClassName }) => {
+        {({ className: motionClassName, ref }) => {
           const scrollNumberPrefixCls = getPrefixCls(
             'scroll-number',
             customizeScrollNumberPrefixCls,
@@ -230,6 +230,7 @@ const Badge: CompoundedComponent = ({
               title={titleNode}
               style={scrollNumberStyle}
               key="scrollNumber"
+              ref={ref}
             >
               {displayNode}
             </ScrollNumber>
