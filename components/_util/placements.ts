@@ -117,7 +117,7 @@ export default function getPlacements(config: PlacementsConfig) {
     },
     rightBottom: {
       points: ['bl', 'cr'],
-      offset: [offset, verticalArrowShift + halfArrowWidth + offset],
+      offset: [offset, verticalArrowShift + halfArrowWidth],
     },
     bottomLeft: {
       points: ['tl', 'bc'],
