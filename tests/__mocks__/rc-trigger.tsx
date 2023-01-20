@@ -1,8 +1,9 @@
 import type { TriggerProps } from 'rc-trigger';
-import OriginTrigger from 'rc-trigger/lib/index';
 import MockTrigger from 'rc-trigger/lib/mock';
 import * as React from 'react';
 import { TriggerMockContext } from '../shared/demoTestContext';
+
+const OriginTrigger = jest.requireActual('rc-trigger/lib/index');
 
 const ForwardTrigger = React.forwardRef<any, TriggerProps>((props, ref) => {
   const context = React.useContext(TriggerMockContext);
