@@ -23,6 +23,7 @@ const FloatButton: React.ForwardRefRenderFunction<
   const {
     prefixCls: customizePrefixCls,
     className,
+    rootClassName,
     type = 'default',
     shape = 'circle',
     icon,
@@ -41,6 +42,7 @@ const FloatButton: React.ForwardRefRenderFunction<
     hashId,
     prefixCls,
     className,
+    rootClassName,
     `${prefixCls}-${type}`,
     `${prefixCls}-${mergeShape}`,
     {

@@ -3,6 +3,7 @@
 exports[`Watermark Image watermark snapshot 1`] = `
 <div>
   <div
+    class=""
     style="position: relative;"
   >
     <div
@@ -79,6 +80,7 @@ exports[`Watermark The watermark should render successfully 1`] = `
 
 exports[`Watermark rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
+  class=""
   style="position: relative;"
 >
   <div

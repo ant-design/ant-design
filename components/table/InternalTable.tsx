@@ -92,6 +92,7 @@ export interface TableProps<RecordType>
   size?: SizeType;
   bordered?: boolean;
   locale?: TableLocale;
+  rootClassName?: string;
 
   onChange?: (
     pagination: TablePaginationConfig,
@@ -116,6 +117,7 @@ function InternalTable<RecordType extends object = any>(
   const {
     prefixCls: customizePrefixCls,
     className,
+    rootClassName,
     style,
     size: customizeSize,
     bordered,
@@ -517,6 +519,7 @@ function InternalTable<RecordType extends object = any>(
       [`${prefixCls}-wrapper-rtl`]: direction === 'rtl',
     },
     className,
+    rootClassName,
     hashId,
   );
 

@@ -27,6 +27,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     onRefresh,
     style,
     className,
+    rootClassName,
     prefixCls: customizePrefixCls,
   } = props;
   const { getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
@@ -67,7 +68,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     );
   }
 
-  const cls = classNames(prefixCls, className, hashId, {
+  const cls = classNames(prefixCls, className, rootClassName, hashId, {
     [`${prefixCls}-borderless`]: !bordered,
   });
 

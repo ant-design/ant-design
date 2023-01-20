@@ -11,6 +11,7 @@ export interface DividerProps {
   orientation?: 'left' | 'right' | 'center';
   orientationMargin?: string | number;
   className?: string;
+  rootClassName?: string;
   children?: React.ReactNode;
   dashed?: boolean;
   style?: React.CSSProperties;
@@ -26,6 +27,7 @@ const Divider: React.FC<DividerProps> = (props) => {
     orientation = 'center',
     orientationMargin,
     className,
+    rootClassName,
     children,
     dashed,
     plain,
@@ -52,6 +54,7 @@ const Divider: React.FC<DividerProps> = (props) => {
       [`${prefixCls}-no-default-orientation-margin-right`]: hasCustomMarginRight,
     },
     className,
+    rootClassName,
   );
 
   const innerStyle = {

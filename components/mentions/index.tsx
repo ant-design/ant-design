@@ -1,9 +1,9 @@
 import classNames from 'classnames';
 import RcMentions from 'rc-mentions';
 import type {
+  DataDrivenOptionProps as MentionsOptionProps,
   MentionsProps as RcMentionsProps,
   MentionsRef as RcMentionsRef,
-  DataDrivenOptionProps as MentionsOptionProps,
 } from 'rc-mentions/lib/Mentions';
 import { composeRef } from 'rc-util/lib/ref';
 // eslint-disable-next-line import/no-named-as-default
@@ -11,8 +11,8 @@ import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import { FormItemInputContext } from '../form/context';
-import genPurePanel from '../_util/PurePanel';
 import Spin from '../spin';
+import genPurePanel from '../_util/PurePanel';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import warning from '../_util/warning';
@@ -36,6 +36,7 @@ export interface OptionProps {
 }
 
 export interface MentionProps extends Omit<RcMentionsProps, 'suffix'> {
+  rootClassName?: string;
   loading?: boolean;
   status?: InputStatus;
   options?: MentionsOptionProps[];
@@ -66,6 +67,7 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
   {
     prefixCls: customizePrefixCls,
     className,
+    rootClassName,
     disabled,
     loading,
     filterOption,
@@ -158,6 +160,7 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
     },
     getStatusClassNames(prefixCls, mergedStatus),
     !hasFeedback && className,
+    rootClassName,
     hashId,
   );
 
@@ -172,7 +175,7 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
       filterOption={mentionsfilterOption}
       onFocus={onFocus}
       onBlur={onBlur}
-      dropdownClassName={classNames(popupClassName, hashId)}
+      dropdownClassName={classNames(popupClassName, rootClassName, hashId)}
       ref={mergedRef as any}
       options={mergedOptions}
       suffix={hasFeedback && feedbackIcon}

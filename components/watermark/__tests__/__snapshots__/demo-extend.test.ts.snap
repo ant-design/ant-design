@@ -2,6 +2,7 @@
 
 exports[`renders ./components/watermark/demo/basic.tsx extend context correctly 1`] = `
 <div
+  class=""
   style="position:relative"
 >
   <div
@@ -15,6 +16,7 @@ exports[`renders ./components/watermark/demo/custom.tsx extend context correctly
   style="display:flex"
 >
   <div
+    class=""
     style="position:relative"
   >
     <article
@@ -1271,6 +1273,7 @@ exports[`renders ./components/watermark/demo/custom.tsx extend context correctly
 
 exports[`renders ./components/watermark/demo/image.tsx extend context correctly 1`] = `
 <div
+  class=""
   style="position:relative"
 >
   <div
@@ -1281,6 +1284,7 @@ exports[`renders ./components/watermark/demo/image.tsx extend context correctly 
 
 exports[`renders ./components/watermark/demo/multi-line.tsx extend context correctly 1`] = `
 <div
+  class=""
   style="position:relative"
 >
   <div

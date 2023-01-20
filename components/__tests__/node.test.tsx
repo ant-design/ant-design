@@ -10,6 +10,8 @@ jest.mock('../../tests/shared/demoTest', () => {
     (global as any).testConfig[name] = option;
   }
 
+  fakeDemoTest.rootPropsTest = () => {};
+
   return fakeDemoTest;
 });
 
