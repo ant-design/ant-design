@@ -47,7 +47,7 @@ const getGroupRadioStyle: GenerateStyle<RadioToken> = (token) => {
       fontSize: 0,
 
       // RTL
-      '&&-rtl': {
+      [`&${groupPrefixCls}-rtl`]: {
         direction: 'rtl',
       },
 
@@ -99,7 +99,7 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
       cursor: 'pointer',
 
       // RTL
-      '&&-rtl': {
+      [`&${componentCls}-wrapper-rtl`]: {
         direction: 'rtl',
       },
 
@@ -469,7 +469,7 @@ const getRadioButtonStyle: GenerateStyle<RadioToken> = (token) => {
         },
       },
 
-      '&-disabled&-checked': {
+      [`&-disabled${componentCls}-button-wrapper-checked`]: {
         color: radioDisabledButtonCheckedColor,
         backgroundColor: radioDisabledButtonCheckedBg,
         borderColor: colorBorder,
