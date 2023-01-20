@@ -101,7 +101,7 @@ export default function getPlacements(config: PlacementsConfig) {
     },
     leftTop: {
       points: ['tr', 'cl'],
-      offset: [-offset, -(verticalArrowShift + halfArrowWidth + offset)],
+      offset: [-offset, -(verticalArrowShift + halfArrowWidth)],
     },
     topRight: {
       points: ['br', 'tc'],
@@ -109,7 +109,7 @@ export default function getPlacements(config: PlacementsConfig) {
     },
     rightTop: {
       points: ['tl', 'cr'],
-      offset: [offset, -(verticalArrowShift + halfArrowWidth + offset)],
+      offset: [offset, -(verticalArrowShift + halfArrowWidth)],
     },
     bottomRight: {
       points: ['tr', 'bc'],
@@ -125,7 +125,7 @@ export default function getPlacements(config: PlacementsConfig) {
     },
     leftBottom: {
       points: ['br', 'cl'],
-      offset: [-offset, verticalArrowShift + halfArrowWidth + offset],
+      offset: [-offset, verticalArrowShift + halfArrowWidth],
     },
   };
   Object.keys(placementMap).forEach((key) => {
