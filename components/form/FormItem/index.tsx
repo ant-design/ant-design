@@ -58,6 +58,7 @@ export interface FormItemProps<Values = any>
   noStyle?: boolean;
   style?: React.CSSProperties;
   className?: string;
+  rootClassName?: string;
   children?: ChildrenType<Values>;
   id?: string;
   hasFeedback?: boolean;

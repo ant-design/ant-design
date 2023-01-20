@@ -30,6 +30,7 @@ export interface AvatarProps {
   style?: React.CSSProperties;
   prefixCls?: string;
   className?: string;
+  rootClassName?: string;
   children?: React.ReactNode;
   alt?: string;
   crossOrigin?: '' | 'anonymous' | 'use-credentials';
@@ -99,6 +100,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
     srcSet,
     icon,
     className,
+    rootClassName,
     alt,
     draggable,
     children,
@@ -155,6 +157,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
       [`${prefixCls}-icon`]: !!icon,
     },
     className,
+    rootClassName,
     hashId,
   );
 

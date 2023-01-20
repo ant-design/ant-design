@@ -8,9 +8,9 @@ import { ConfigContext } from '../config-provider';
 import getScroll from '../_util/getScroll';
 import scrollTo from '../_util/scrollTo';
 import warning from '../_util/warning';
-import AnchorContext from './context';
 import type { AnchorLinkBaseProps } from './AnchorLink';
 import AnchorLink from './AnchorLink';
+import AnchorContext from './context';
 
 import useStyle from './style';
 
@@ -53,6 +53,7 @@ interface Section {
 export interface AnchorProps {
   prefixCls?: string;
   className?: string;
+  rootClassName?: string;
   style?: React.CSSProperties;
   /**
    * @deprecated Please use `items` instead.
@@ -359,14 +360,18 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
 };
 
 const Anchor: React.FC<AnchorProps> = (props) => {
-  const { prefixCls: customizePrefixCls } = props;
+  const { prefixCls: customizePrefixCls, rootClassName } = props;
   const { getPrefixCls } = React.useContext<ConfigConsumerProps>(ConfigContext);
   const anchorPrefixCls = getPrefixCls('anchor', customizePrefixCls);
 
   const [wrapSSR, hashId] = useStyle(anchorPrefixCls);
 
   return wrapSSR(
-    <AnchorContent {...props} rootClassName={hashId} anchorPrefixCls={anchorPrefixCls} />,
+    <AnchorContent
+      {...props}
+      rootClassName={classNames(hashId, rootClassName)}
+      anchorPrefixCls={anchorPrefixCls}
+    />,
   );
 };
 

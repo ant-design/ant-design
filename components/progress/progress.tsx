@@ -32,6 +32,7 @@ export interface SuccessProps {
 export interface ProgressProps {
   prefixCls?: string;
   className?: string;
+  rootClassName?: string;
   type?: ProgressType;
   percent?: number;
   format?: (percent?: number, successPercent?: number) => React.ReactNode;
@@ -57,6 +58,7 @@ const Progress: React.FC<ProgressProps> = (props) => {
   const {
     prefixCls: customizePrefixCls,
     className,
+    rootClassName,
     steps,
     strokeColor,
     percent = 0,
@@ -160,6 +162,7 @@ const Progress: React.FC<ProgressProps> = (props) => {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
+    rootClassName,
     hashId,
   );
 

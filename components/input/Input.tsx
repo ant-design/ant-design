@@ -121,6 +121,7 @@ export interface InputProps
     RcInputProps,
     'wrapperClassName' | 'groupClassName' | 'inputClassName' | 'affixWrapperClassName'
   > {
+  rootClassName?: string;
   size?: SizeType;
   disabled?: boolean;
   status?: InputStatus;
@@ -142,6 +143,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     addonAfter,
     addonBefore,
     className,
+    rootClassName,
     onChange,
     ...rest
   } = props;
@@ -226,7 +228,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
       onFocus={handleFocus}
       suffix={suffixNode}
       allowClear={mergedAllowClear}
-      className={classNames(className, compactItemClassnames)}
+      className={classNames(className, rootClassName, compactItemClassnames)}
       onChange={handleChange}
       addonAfter={
         addonAfter && (
