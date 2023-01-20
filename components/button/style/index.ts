@@ -55,30 +55,13 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
       },
 
       // make `btn-icon-only` not too narrow
-      '&-icon-only&-compact-item': {
+      [`&-icon-only${componentCls}-compact-item`]: {
         flex: 'none',
       },
       // Special styles for Primary Button
       [`&-compact-item${componentCls}-primary`]: {
-        '&:not([disabled]) + &:not([disabled])': {
-          position: 'relative',
-
-          '&:before': {
-            position: 'absolute',
-            top: -token.lineWidth,
-            insetInlineStart: -token.lineWidth,
-            display: 'inline-block',
-            width: token.lineWidth,
-            height: `calc(100% + ${token.lineWidth * 2}px)`,
-            backgroundColor: token.colorPrimaryHover,
-            content: '""',
-          },
-        },
-      },
-      // Special styles for Primary Button
-      '&-compact-vertical-item': {
-        [`&${componentCls}-primary`]: {
-          '&:not([disabled]) + &:not([disabled])': {
+        [`&:not([disabled]) + ${componentCls}-compact-item${componentCls}-primary:not([disabled])`]:
+          {
             position: 'relative',
 
             '&:before': {
@@ -86,12 +69,31 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
               top: -token.lineWidth,
               insetInlineStart: -token.lineWidth,
               display: 'inline-block',
-              width: `calc(100% + ${token.lineWidth * 2}px)`,
-              height: token.lineWidth,
+              width: token.lineWidth,
+              height: `calc(100% + ${token.lineWidth * 2}px)`,
               backgroundColor: token.colorPrimaryHover,
               content: '""',
             },
           },
+      },
+      // Special styles for Primary Button
+      '&-compact-vertical-item': {
+        [`&${componentCls}-primary`]: {
+          [`&:not([disabled]) + ${componentCls}-compact-vertical-item${componentCls}-primary:not([disabled])`]:
+            {
+              position: 'relative',
+
+              '&:before': {
+                position: 'absolute',
+                top: -token.lineWidth,
+                insetInlineStart: -token.lineWidth,
+                display: 'inline-block',
+                width: `calc(100% + ${token.lineWidth * 2}px)`,
+                height: token.lineWidth,
+                backgroundColor: token.colorPrimaryHover,
+                content: '""',
+              },
+            },
         },
       },
     },

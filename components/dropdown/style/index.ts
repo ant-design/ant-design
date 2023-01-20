@@ -1,4 +1,4 @@
-import getArrowStyle, { getArrowOffset } from '../../style/placementArrow';
+import { genFocusStyle, resetComponent } from '../../style';
 import {
   initMoveMotion,
   initSlideMotion,
@@ -8,11 +8,11 @@ import {
   slideUpIn,
   slideUpOut,
 } from '../../style/motion';
+import getArrowStyle, { getArrowOffset } from '../../style/placementArrow';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import genButtonStyle from './button';
 import genStatusStyle from './status';
-import { genFocusStyle, resetComponent } from '../../style';
 
 export interface ComponentToken {
   zIndexPopup: number;
@@ -98,39 +98,140 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
         },
 
         // =============================================================
+        // ==                          Arrow                          ==
+        // =============================================================
+        // Offset the popover to account for the dropdown arrow
+        [`
+        &-show-arrow${componentCls}-placement-topLeft,
+        &-show-arrow${componentCls}-placement-top,
+        &-show-arrow${componentCls}-placement-topRight
+      `]: {
+          paddingBottom: dropdownArrowDistance,
+        },
+
+        [`
+        &-show-arrow${componentCls}-placement-bottomLeft,
+        &-show-arrow${componentCls}-placement-bottom,
+        &-show-arrow${componentCls}-placement-bottomRight
+      `]: {
+          paddingTop: dropdownArrowDistance,
+        },
+
+        // Note: .popover-arrow is outer, .popover-arrow:after is inner
+        [`${componentCls}-arrow`]: {
+          position: 'absolute',
+          zIndex: 1, // lift it up so the menu wouldn't cask shadow on it
+          display: 'block',
+
+          ...roundedArrow(
+            sizePopupArrow,
+            token.borderRadiusXS,
+            token.borderRadiusOuter,
+            colorBgElevated,
+            boxShadowPopoverArrow,
+          ),
+        },
+
+        [`
+        &-placement-top > ${componentCls}-arrow,
+        &-placement-topLeft > ${componentCls}-arrow,
+        &-placement-topRight > ${componentCls}-arrow
+      `]: {
+          bottom: dropdownArrowDistance,
+          transform: 'translateY(100%) rotate(180deg)',
+        },
+
+        [`&-placement-top > ${componentCls}-arrow`]: {
+          left: {
+            _skip_check_: true,
+            value: '50%',
+          },
+          transform: 'translateX(-50%) translateY(100%) rotate(180deg)',
+        },
+
+        [`&-placement-topLeft > ${componentCls}-arrow`]: {
+          left: {
+            _skip_check_: true,
+            value: dropdownArrowOffset,
+          },
+        },
+
+        [`&-placement-topRight > ${componentCls}-arrow`]: {
+          right: {
+            _skip_check_: true,
+            value: dropdownArrowOffset,
+          },
+        },
+
+        [`
+          &-placement-bottom > ${componentCls}-arrow,
+          &-placement-bottomLeft > ${componentCls}-arrow,
+          &-placement-bottomRight > ${componentCls}-arrow
+        `]: {
+          top: dropdownArrowDistance,
+          transform: `translateY(-100%)`,
+        },
+
+        [`&-placement-bottom > ${componentCls}-arrow`]: {
+          left: {
+            _skip_check_: true,
+            value: '50%',
+          },
+          transform: `translateY(-100%) translateX(-50%)`,
+        },
+
+        [`&-placement-bottomLeft > ${componentCls}-arrow`]: {
+          left: {
+            _skip_check_: true,
+            value: dropdownArrowOffset,
+          },
+        },
+
+        [`&-placement-bottomRight > ${componentCls}-arrow`]: {
+          right: {
+            _skip_check_: true,
+            value: dropdownArrowOffset,
+          },
+        },
+
+        // =============================================================
         // ==                         Motion                          ==
         // =============================================================
         // When position is not enough for dropdown, the placement will revert.
         // We will handle this with revert motion name.
-        [`&${antCls}-slide-down-enter${antCls}-slide-down-enter-active&-placement-bottomLeft,
-          &${antCls}-slide-down-appear${antCls}-slide-down-appear-active&-placement-bottomLeft
-          &${antCls}-slide-down-enter${antCls}-slide-down-enter-active&-placement-bottom,
-          &${antCls}-slide-down-appear${antCls}-slide-down-appear-active&-placement-bottom,
-          &${antCls}-slide-down-enter${antCls}-slide-down-enter-active&-placement-bottomRight,
-          &${antCls}-slide-down-appear${antCls}-slide-down-appear-active&-placement-bottomRight`]: {
-          animationName: slideUpIn,
-        },
+        [`&${antCls}-slide-down-enter${antCls}-slide-down-enter-active${componentCls}-placement-bottomLeft,
+          &${antCls}-slide-down-appear${antCls}-slide-down-appear-active${componentCls}-placement-bottomLeft,
+          &${antCls}-slide-down-enter${antCls}-slide-down-enter-active${componentCls}-placement-bottom,
+          &${antCls}-slide-down-appear${antCls}-slide-down-appear-active${componentCls}-placement-bottom,
+          &${antCls}-slide-down-enter${antCls}-slide-down-enter-active${componentCls}-placement-bottomRight,
+          &${antCls}-slide-down-appear${antCls}-slide-down-appear-active${componentCls}-placement-bottomRight`]:
+          {
+            animationName: slideUpIn,
+          },
 
-        [`&${antCls}-slide-up-enter${antCls}-slide-up-enter-active&-placement-topLeft,
-          &${antCls}-slide-up-appear${antCls}-slide-up-appear-active&-placement-topLeft,
-          &${antCls}-slide-up-enter${antCls}-slide-up-enter-active&-placement-top,
-          &${antCls}-slide-up-appear${antCls}-slide-up-appear-active&-placement-top,
-          &${antCls}-slide-up-enter${antCls}-slide-up-enter-active&-placement-topRight,
-          &${antCls}-slide-up-appear${antCls}-slide-up-appear-active&-placement-topRight`]: {
-          animationName: slideDownIn,
-        },
+        [`&${antCls}-slide-up-enter${antCls}-slide-up-enter-active${componentCls}-placement-topLeft,
+          &${antCls}-slide-up-appear${antCls}-slide-up-appear-active${componentCls}-placement-topLeft,
+          &${antCls}-slide-up-enter${antCls}-slide-up-enter-active${componentCls}-placement-top,
+          &${antCls}-slide-up-appear${antCls}-slide-up-appear-active${componentCls}-placement-top,
+          &${antCls}-slide-up-enter${antCls}-slide-up-enter-active${componentCls}-placement-topRight,
+          &${antCls}-slide-up-appear${antCls}-slide-up-appear-active${componentCls}-placement-topRight`]:
+          {
+            animationName: slideDownIn,
+          },
 
-        [`&${antCls}-slide-down-leave${antCls}-slide-down-leave-active&-placement-bottomLeft,
-          &${antCls}-slide-down-leave${antCls}-slide-down-leave-active&-placement-bottom,
-          &${antCls}-slide-down-leave${antCls}-slide-down-leave-active&-placement-bottomRight`]: {
-          animationName: slideUpOut,
-        },
+        [`&${antCls}-slide-down-leave${antCls}-slide-down-leave-active${componentCls}-placement-bottomLeft,
+          &${antCls}-slide-down-leave${antCls}-slide-down-leave-active${componentCls}-placement-bottom,
+          &${antCls}-slide-down-leave${antCls}-slide-down-leave-active${componentCls}-placement-bottomRight`]:
+          {
+            animationName: slideUpOut,
+          },
 
-        [`&${antCls}-slide-up-leave${antCls}-slide-up-leave-active&-placement-topLeft,
-          &${antCls}-slide-up-leave${antCls}-slide-up-leave-active&-placement-top,
-          &${antCls}-slide-up-leave${antCls}-slide-up-leave-active&-placement-topRight`]: {
-          animationName: slideDownOut,
-        },
+        [`&${antCls}-slide-up-leave${antCls}-slide-up-leave-active${componentCls}-placement-topLeft,
+          &${antCls}-slide-up-leave${antCls}-slide-up-leave-active${componentCls}-placement-top,
+          &${antCls}-slide-up-leave${antCls}-slide-up-leave-active${componentCls}-placement-topRight`]:
+          {
+            animationName: slideDownOut,
+          },
       },
     },
 

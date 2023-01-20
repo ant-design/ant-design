@@ -46,10 +46,6 @@ export const resetIcon = (): CSSObject => ({
   svg: {
     display: 'inline-block',
   },
-
-  '& &-icon': {
-    display: 'block',
-  },
 });
 
 export const clearFix = (): CSSObject => ({

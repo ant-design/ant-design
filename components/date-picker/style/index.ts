@@ -870,7 +870,7 @@ const genPickerStatusStyle: GenerateStyle<PickerToken> = (token) => {
 
   return {
     [componentCls]: {
-      '&-status-error&': {
+      [`&-status-error${componentCls}`]: {
         '&, &:not([disabled]):hover': {
           backgroundColor: colorBgContainer,
           borderColor: colorError,
@@ -891,7 +891,7 @@ const genPickerStatusStyle: GenerateStyle<PickerToken> = (token) => {
         },
       },
 
-      '&-status-warning&': {
+      [`&-status-warning${componentCls}`]: {
         '&, &:not([disabled]):hover': {
           backgroundColor: colorBgContainer,
           borderColor: colorWarning,
@@ -984,7 +984,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
           ...genActiveStyle(token),
         },
 
-        '&&-disabled': {
+        [`&${componentCls}-disabled`]: {
           background: colorBgContainerDisabled,
           borderColor: colorBorder,
           cursor: 'not-allowed',
@@ -994,7 +994,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
           },
         },
 
-        '&&-borderless': {
+        [`&${componentCls}-borderless`]: {
           backgroundColor: 'transparent !important',
           borderColor: 'transparent !important',
           boxShadow: 'none !important',
@@ -1178,11 +1178,11 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
           },
           zIndex: zIndexPopup,
 
-          '&&-hidden': {
+          [`&${componentCls}-dropdown-hidden`]: {
             display: 'none',
           },
 
-          '&&-placement-bottomLeft': {
+          [`&${componentCls}-dropdown-placement-bottomLeft`]: {
             [`${componentCls}-range-arrow`]: {
               top: 0,
               display: 'block',
@@ -1190,7 +1190,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
             },
           },
 
-          '&&-placement-topLeft': {
+          [`&${componentCls}-dropdown-placement-topLeft`]: {
             [`${componentCls}-range-arrow`]: {
               bottom: 0,
               display: 'block',
@@ -1198,29 +1198,33 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
             },
           },
 
-          [`&${antCls}-slide-up-enter${antCls}-slide-up-enter-active&-placement-topLeft,
-          &${antCls}-slide-up-enter${antCls}-slide-up-enter-active&-placement-topRight,
-          &${antCls}-slide-up-appear${antCls}-slide-up-appear-active&-placement-topLeft,
-          &${antCls}-slide-up-appear${antCls}-slide-up-appear-active&-placement-topRight`]: {
-            animationName: slideDownIn,
-          },
+          [`&${antCls}-slide-up-enter${antCls}-slide-up-enter-active${componentCls}-dropdown-placement-topLeft,
+          &${antCls}-slide-up-enter${antCls}-slide-up-enter-active${componentCls}-dropdown-placement-topRight,
+          &${antCls}-slide-up-appear${antCls}-slide-up-appear-active${componentCls}-dropdown-placement-topLeft,
+          &${antCls}-slide-up-appear${antCls}-slide-up-appear-active${componentCls}-dropdown-placement-topRight`]:
+            {
+              animationName: slideDownIn,
+            },
 
-          [`&${antCls}-slide-up-enter${antCls}-slide-up-enter-active&-placement-bottomLeft,
-          &${antCls}-slide-up-enter${antCls}-slide-up-enter-active&-placement-bottomRight,
-          &${antCls}-slide-up-appear${antCls}-slide-up-appear-active&-placement-bottomLeft,
-          &${antCls}-slide-up-appear${antCls}-slide-up-appear-active&-placement-bottomRight`]: {
-            animationName: slideUpIn,
-          },
+          [`&${antCls}-slide-up-enter${antCls}-slide-up-enter-active${componentCls}-dropdown-placement-bottomLeft,
+          &${antCls}-slide-up-enter${antCls}-slide-up-enter-active${componentCls}-dropdown-placement-bottomRight,
+          &${antCls}-slide-up-appear${antCls}-slide-up-appear-active${componentCls}-dropdown-placement-bottomLeft,
+          &${antCls}-slide-up-appear${antCls}-slide-up-appear-active${componentCls}-dropdown-placement-bottomRight`]:
+            {
+              animationName: slideUpIn,
+            },
 
-          [`&${antCls}-slide-up-leave${antCls}-slide-up-leave-active&-placement-topLeft,
-          &${antCls}-slide-up-leave${antCls}-slide-up-leave-active&-placement-topRight`]: {
-            animationName: slideDownOut,
-          },
+          [`&${antCls}-slide-up-leave${antCls}-slide-up-leave-active${componentCls}-dropdown-placement-topLeft,
+          &${antCls}-slide-up-leave${antCls}-slide-up-leave-active${componentCls}-dropdown-placement-topRight`]:
+            {
+              animationName: slideDownOut,
+            },
 
-          [`&${antCls}-slide-up-leave${antCls}-slide-up-leave-active&-placement-bottomLeft,
-          &${antCls}-slide-up-leave${antCls}-slide-up-leave-active&-placement-bottomRight`]: {
-            animationName: slideUpOut,
-          },
+          [`&${antCls}-slide-up-leave${antCls}-slide-up-leave-active${componentCls}-dropdown-placement-bottomLeft,
+          &${antCls}-slide-up-leave${antCls}-slide-up-leave-active${componentCls}-dropdown-placement-bottomRight`]:
+            {
+              animationName: slideUpOut,
+            },
 
           // Time picker with additional style
           [`${componentCls}-panel > ${componentCls}-time-panel`]: {
