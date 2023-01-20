@@ -107,7 +107,7 @@ export const genStatusStyle = (token: InputToken, parentCls: string): CSSObject 
         ),
       },
 
-      [`${componentCls}-prefix`]: {
+      [`${componentCls}-prefix, ${componentCls}-suffix`]: {
         color: colorError,
       },
     },
@@ -128,7 +128,7 @@ export const genStatusStyle = (token: InputToken, parentCls: string): CSSObject 
         ),
       },
 
-      [`${componentCls}-prefix`]: {
+      [`${componentCls}-prefix, ${componentCls}-suffix`]: {
         color: colorWarning,
       },
     },
