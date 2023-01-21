@@ -5,7 +5,7 @@ import React from 'react';
 const url = 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg';
 
 const App: React.FC = () => (
-  <Space wrap>
+  <Space size={16} wrap>
     <Avatar icon={<UserOutlined />} />
     <Avatar>U</Avatar>
     <Avatar size={40}>USER</Avatar>

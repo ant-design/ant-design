@@ -1041,11 +1041,11 @@ Array [
 exports[`renders ./components/avatar/demo/type.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap:wrap;margin-bottom:-8px"
+  style="flex-wrap:wrap;margin-bottom:-16px"
 >
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:8px"
+    style="margin-right:16px;padding-bottom:16px"
   >
     <span
       class="ant-avatar ant-avatar-circle ant-avatar-icon"
@@ -1073,7 +1073,7 @@ exports[`renders ./components/avatar/demo/type.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:8px"
+    style="margin-right:16px;padding-bottom:16px"
   >
     <span
       class="ant-avatar ant-avatar-circle"
@@ -1088,7 +1088,7 @@ exports[`renders ./components/avatar/demo/type.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:8px"
+    style="margin-right:16px;padding-bottom:16px"
   >
     <span
       class="ant-avatar ant-avatar-circle"
@@ -1104,7 +1104,7 @@ exports[`renders ./components/avatar/demo/type.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:8px"
+    style="margin-right:16px;padding-bottom:16px"
   >
     <span
       class="ant-avatar ant-avatar-circle ant-avatar-image"
@@ -1116,7 +1116,7 @@ exports[`renders ./components/avatar/demo/type.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:8px"
+    style="margin-right:16px;padding-bottom:16px"
   >
     <span
       class="ant-avatar ant-avatar-circle ant-avatar-image"
@@ -1129,7 +1129,7 @@ exports[`renders ./components/avatar/demo/type.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:8px"
+    style="margin-right:16px;padding-bottom:16px"
   >
     <span
       class="ant-avatar ant-avatar-circle"
@@ -1145,7 +1145,7 @@ exports[`renders ./components/avatar/demo/type.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-space-item"
-    style="padding-bottom:8px"
+    style="padding-bottom:16px"
   >
     <span
       class="ant-avatar ant-avatar-circle ant-avatar-icon"
