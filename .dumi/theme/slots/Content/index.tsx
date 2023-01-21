@@ -1,19 +1,19 @@
-import type { ReactNode } from 'react';
-import React, { useMemo, useState, useLayoutEffect, useContext } from 'react';
-import { useIntl, useRouteMeta, FormattedMessage } from 'dumi';
-import { Col, Typography, Avatar, Tooltip, Affix, Anchor, Space, Skeleton } from 'antd';
 import { CalendarOutlined } from '@ant-design/icons';
-import ContributorsList from '@qixian.cs/github-contributors-list';
-import DayJS from 'dayjs';
 import { css } from '@emotion/react';
+import ContributorsList from '@qixian.cs/github-contributors-list';
+import { Affix, Anchor, Avatar, Col, Skeleton, Space, Tooltip, Typography } from 'antd';
 import classNames from 'classnames';
-import Footer from '../Footer';
-import EditButton from '../../common/EditButton';
+import DayJS from 'dayjs';
+import { FormattedMessage, useIntl, useRouteMeta } from 'dumi';
+import type { ReactNode } from 'react';
+import React, { useContext, useLayoutEffect, useMemo, useState } from 'react';
 import useLocation from '../../../hooks/useLocation';
 import useSiteToken from '../../../hooks/useSiteToken';
+import EditButton from '../../common/EditButton';
 import PrevAndNext from '../../common/PrevAndNext';
 import type { DemoContextProps } from '../DemoContext';
 import DemoContext from '../DemoContext';
+import Footer from '../Footer';
 import SiteContext from '../SiteContext';
 
 const useStyle = () => {
@@ -26,10 +26,16 @@ const useStyle = () => {
       display: flex;
       flex-wrap: wrap;
       margin-top: 120px !important;
-
       a,
       ${antCls}-avatar + ${antCls}-avatar {
+        transition: all ${token.motionDurationSlow};
         margin-inline-end: -8px;
+      }
+      &:hover {
+        a,
+        ${antCls}-avatar {
+          margin-inline-end: 0;
+        }
       }
     `,
     toc: css`
@@ -86,8 +92,7 @@ const useStyle = () => {
       @media only screen and (max-width: ${token.screenLG}px) {
         &,
         &.rtl {
-          padding-right: 48px;
-          padding-left: 48px;
+          padding: 0 48px;
         }
       }
     `,
@@ -169,13 +174,13 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
                 children: item.children
                   ?.filter((child) => showDebug || !debugDemos.includes(child.id))
                   .map((child) => ({
+                    key: child.id,
                     href: `#${child.id}`,
                     title: (
                       <span className={classNames(debugDemos.includes(child.id) && 'toc-debug')}>
                         {child?.title}
                       </span>
                     ),
-                    key: child.id,
                   })),
               }))}
             />
@@ -194,7 +199,6 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
               />
             )}
           </Typography.Title>
-
           {/* 添加作者、时间等信息 */}
           {meta.frontmatter.date || meta.frontmatter.author ? (
             <Typography.Paragraph style={{ opacity: 0.65 }}>
@@ -213,10 +217,11 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
               </Space>
             </Typography.Paragraph>
           ) : null}
-
           {children}
           {meta.frontmatter.filename && (
             <ContributorsList
+              repo="ant-design"
+              owner="ant-design"
               css={styles.contributorsList}
               fileName={meta.frontmatter.filename}
               renderItem={(item, loading) =>
@@ -224,6 +229,7 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
                   avatarPlaceholder
                 ) : (
                   <Tooltip
+                    mouseEnterDelay={0.3}
                     title={`${formatMessage({ id: 'app.content.contributors' })}: ${item.username}`}
                     key={item.username}
                   >
@@ -239,8 +245,6 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
                   </Tooltip>
                 )
               }
-              repo="ant-design"
-              owner="ant-design"
             />
           )}
         </article>
