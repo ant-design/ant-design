@@ -253,12 +253,9 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
         boxShadow: 'none',
         transformOrigin: '0 0',
 
-        'ul,li': {
+        'ul, li': {
           listStyle: 'none',
-        },
-
-        ul: {
-          marginInline: '0.3em',
+          margin: 0,
         },
       },
 
@@ -284,7 +281,6 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
             position: 'relative',
             display: 'flex',
             alignItems: 'center',
-            borderRadius: token.borderRadiusSM,
           },
 
           [`${menuCls}-item-icon`]: {
@@ -323,6 +319,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
             lineHeight: token.lineHeight,
             cursor: 'pointer',
             transition: `all ${motionDurationMid}`,
+            borderRadius: token.borderRadiusSM,
 
             [`&:hover, &-active`]: {
               backgroundColor: token.controlItemBgHover,
