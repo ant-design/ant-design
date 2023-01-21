@@ -40,6 +40,7 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
     colorBgTextHover,
     tourCloseSize,
     motionDurationSlow,
+    borderRadiusOuter,
   } = token;
 
   return [
@@ -228,23 +229,29 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
     },
 
     // ============================= Arrow ===========================
-    getArrowStyle<TourToken>(token, {
-      colorBg: 'var(--antd-arrow-background-color)',
-      contentRadius: tourBorderRadius,
-      limitVerticalRadius: true,
-    }),
+    getArrowStyle<TourToken>(
+      mergeToken<TourToken>(token, {
+        borderRadiusOuter,
+      }),
+      {
+        colorBg: 'var(--antd-arrow-background-color)',
+        contentRadius: tourBorderRadius,
+        limitVerticalRadius: true,
+      },
+    ),
   ];
 };
 
 // ============================== Export ==============================
 export default genComponentStyleHook('Tour', (token) => {
-  const { borderRadiusLG, fontSize, lineHeight } = token;
+  const { borderRadiusLG, fontSize, lineHeight, borderRadiusOuter } = token;
   const TourToken = mergeToken<TourToken>(token, {
     tourZIndexPopup: token.zIndexPopupBase + 70,
     sliderWidth: 6,
     sliderHeight: 6,
     tourBorderRadius: borderRadiusLG,
     tourCloseSize: fontSize * lineHeight,
+    borderRadiusOuter: borderRadiusOuter > 4 ? 4 : borderRadiusOuter,
   });
   return [genBaseStyle(TourToken)];
 });

@@ -13,7 +13,7 @@ export type PopoverToken = FullToken<'Popover'> & {
   popoverBg: string;
   popoverColor: string;
   popoverPadding: number | string;
-  tooltipRadiusOuter: number;
+  borderRadiusOuter: number;
 };
 
 const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
@@ -86,11 +86,16 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
     },
 
     // Arrow Style
-    getArrowStyle(token, {
-      colorBg: 'var(--antd-arrow-background-color)',
-      contentRadius: borderRadiusOuter,
-      limitVerticalRadius: true,
-    }),
+    getArrowStyle(
+      mergeToken<PopoverToken>(token, {
+        borderRadiusOuter,
+      }),
+      {
+        colorBg: 'var(--antd-arrow-background-color)',
+        contentRadius: borderRadiusOuter,
+        limitVerticalRadius: true,
+      },
+    ),
 
     // Pure Render
     {
@@ -173,7 +178,7 @@ export default genComponentStyleHook(
       popoverBg: colorBgElevated,
       popoverColor: colorText,
       popoverPadding: 12, // Fixed Value
-      tooltipRadiusOuter: borderRadiusOuter > 4 ? 4 : borderRadiusOuter,
+      borderRadiusOuter: borderRadiusOuter > 4 ? 4 : borderRadiusOuter,
     });
 
     return [
