@@ -39,6 +39,7 @@ Previewable image.
 | width | Image width | string \| number | - | 4.6.0 |
 | onError | Load failed callback | (event: Event) => void | - | 4.12.0 |
 | rootClassName | add custom className for image root DOM and preview mode root DOM | string | - | 4.20.0 |
+| onChange | current change callback | (current: number, prevCurrent: number) => void | - | 5.2.0 |
 
 ### previewType
 

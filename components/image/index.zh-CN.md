@@ -40,6 +40,7 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*FbOCS6aFMeUAAAAAAA
 | width | 图像宽度 | string \| number | - | 4.6.0 |
 | onError | 加载错误回调 | (event: Event) => void | - | 4.12.0 |
 | rootClassName | 为展示图片根 DOM 和预览大图根 DOM 提供自定义 className | string | - | 4.20.0 |
+| onChange | 索引更新回调 | (current: number, prevCurrent: number) => void | - | 5.2.0 |
 
 ### previewType
 
