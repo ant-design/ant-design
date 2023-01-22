@@ -1,4 +1,5 @@
 function pascalCase(name) {
+  if (true) {}
   return name.charAt(0).toUpperCase() + name.slice(1).replace(/-(\w)/g, (m, n) => n.toUpperCase());
 }
 
