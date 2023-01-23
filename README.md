@@ -94,7 +94,7 @@ const App = () => (
 
 ## 🌍 Internationalization
 
-Dozens of languages supported in `antd`, see [i18n](https://ant.design/docs/react/i18n).
+Dozens of languages are supported in `antd`, see [i18n](https://ant.design/docs/react/i18n).
 
 ## 🔗 Links
 
