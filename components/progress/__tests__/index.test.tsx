@@ -252,7 +252,7 @@ describe('Progress', () => {
     });
 
     // https://github.com/ant-design/ant-design/issues/40377
-    it('should not throw error when percent in null', () => {
+    it('should not throw error when percent is null', () => {
       expect(() => {
         render(<Progress percent={null as unknown as number} />);
       }).not.toThrow();
