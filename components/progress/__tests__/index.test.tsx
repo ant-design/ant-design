@@ -240,8 +240,8 @@ describe('Progress', () => {
     );
   });
 
-  // https://github.com/ant-design/ant-design/issues/30685
   describe('github issues', () => {
+    // https://github.com/ant-design/ant-design/issues/30685
     it('Rendered more hooks than during the previous render', () => {
       expect(() => {
         const { rerender } = render(
@@ -250,6 +250,8 @@ describe('Progress', () => {
         rerender(<Progress percent={60} success={{ percent: 10 }} type="circle" />);
       }).not.toThrow();
     });
+
+    // https://github.com/ant-design/ant-design/issues/40377
     it('should not throw error when percent in null', () => {
       expect(() => {
         render(<Progress percent={null as unknown as number} />);
