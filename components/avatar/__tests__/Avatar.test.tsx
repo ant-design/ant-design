@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import { act } from 'react-dom/test-utils';
 import Avatar from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -141,12 +141,10 @@ describe('Avatar Render', () => {
   Object.entries(sizes).forEach(([key, value]) => {
     it(`adjusts component size to ${value} when window size is ${key}`, () => {
       const wrapper = global.document.createElement('div');
-
-      (useBreakpoint as any).mockReturnValue({ [key]: true });
+      (useBreakpoint as jest.Mock).mockReturnValue({ [key]: true });
       act(() => {
-        ReactDOM.render(<Avatar size={sizes} />, wrapper);
+        ReactDOM.createRoot(wrapper).render(<Avatar size={sizes} />);
       });
-
       expect(wrapper).toMatchSnapshot();
     });
   });
