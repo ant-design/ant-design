@@ -178,7 +178,7 @@ When there are too many buttons on the screen, we could group relevant buttons t
 <img class="preview-img no-padding bad" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*3bUZRbPiVBEAAAAAAAAAAABkARQnAQ" alt="Don't" description="If buttons are in the same group, no need to add dividers between them.">
 </ImagePreview>
 
-**Flat display of all the buttons**: could separate different groups using space; or use divider to group similar buttons.
+**Flat display of all the buttons:** could separate different groups using space; or use divider to group similar buttons.
 
 ## Label
 
