@@ -17,7 +17,7 @@ In the interface, we need to resonate with users through dialogue. Accurate and 
 
 ## Language
 
-In the interface, copywriting is the basis of our communication with users. Therefore, the expression of words should be carefully deliberaed and designed. With clear, accurate, and concise copywriting, the user experience can be more user-friendly.
+In the interface, copywriting is the basis of our communication with users. Therefore, the expression of words should be carefully deliberate and designed. With clear, accurate, and concise copywriting, the user experience can be more user-friendly.
 
 ### Articulate foothold
 
@@ -28,7 +28,7 @@ In the interface, copywriting is the basis of our communication with users. Ther
 
 When expressing content, the focus should be on users -- what they can do with your product? Not what you and your product are doing for them. The foothold of content representation is very important. Since it is user-centred design, copywriting should be user-centred as much as possible.
 
-> Note: Use "we" to comunicate with users when they are reporting questions, suggestions or complaints to the systems, such as "We will consider your complaint.".
+> Note: Use "we" to communicate with users when they are reporting questions, suggestions or complaints to the systems, such as "We will consider your complaint.".
 
 ### Concise statement
 
@@ -66,7 +66,7 @@ Use simple, direct and easy-to-understand words. Indirect, ambiguous, obscure, a
 ### Place important information in a prominent position
 
 <ImagePreview>
-<img class="preview-img good no-padding" alt="Correct Example" src="https://gw.alipayobjects.com/zos/antfincdn/ivTpE4BgSU/16dc61e6-f85c-43d1-9abd-86b046730a6a.png" description="Put important information first in a limited space (or make it more visibale with highlights, blank space, etc.).">
+<img class="preview-img good no-padding" alt="Correct Example" src="https://gw.alipayobjects.com/zos/antfincdn/ivTpE4BgSU/16dc61e6-f85c-43d1-9abd-86b046730a6a.png" description="Put important information first in a limited space (or make it more visible with highlights, blank space, etc.).">
 <img class="preview-img bad no-padding" alt="Wrong Example" src="https://gw.alipayobjects.com/zos/antfincdn/X%24DPUktJbT/a19e0548-1bdd-49f0-ab93-5358b5cf1a4c.png" description="The content that the user cares most is hidden in the paragraph, which is not easy to find out.">
 </ImagePreview>
 
@@ -121,7 +121,7 @@ Language defines content, while emotions and atmosphere are expressed more in to
 
 Don't refer to the user by using "my" and "your" in the same phrase.
 
-> Note: To aovoid confusing the users, don't mix first person("I","me", or "my") and second person("you","your") in the same sentence.
+> Note: To avoid confusing the users, don't mix first person("I","me", or "my") and second person("you","your") in the same sentence.
 
 ### Be friendly and respectful
 
@@ -150,7 +150,7 @@ Don't use too absolute expression that will make the user uncomfortable.
 <img class="preview-img bad no-padding" alt="Wrong Example" src="https://gw.alipayobjects.com/zos/antfincdn/VVdJdMspm2/9e64ab85-9786-43df-b134-7f4a505d76b1.png">
 </ImagePreview>
 
-When using the full name of the product, capitalize the first lettter of each word. Write the abbreviations of product names in capital, such as ESC, SLB, etc.
+When using the full name of the product, capitalize the first letter of each word. Write the abbreviations of product names in capital, such as ESC, SLB, etc.
 
 > People are much more used to reading words in lowercase letters, those are what our brains find easiest to scan and instantly absorb. Please avoid capitalizing whole words or phrases.
 
