@@ -71,7 +71,7 @@ const Progress: React.FC<ProgressProps> = (props) => {
   const percentNumber = React.useMemo<number>(() => {
     const successPercent = getSuccessPercent(props);
     return parseInt(
-      successPercent !== undefined ? (successPercent || 0).toString() : (percent || 0).toString(),
+      successPercent !== undefined ? (successPercent ?? 0)?.toString() : (percent ?? 0)?.toString(),
       10,
     );
   }, [percent, props.success, props.successPercent]);
