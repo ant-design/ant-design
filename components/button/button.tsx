@@ -17,14 +17,6 @@ import type { ButtonType, ButtonHTMLType, ButtonShape } from './buttonHelpers';
 import type { SizeType } from '../config-provider/SizeContext';
 
 export type LegacyButtonType = ButtonType | 'danger';
-
-export function convertLegacyProps(type?: LegacyButtonType): ButtonProps {
-  if (type === 'danger') {
-    return { danger: true };
-  }
-  return { type };
-}
-
 export interface BaseButtonProps {
   type?: ButtonType;
   icon?: React.ReactNode;

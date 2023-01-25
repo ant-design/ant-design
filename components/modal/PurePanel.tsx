@@ -4,7 +4,7 @@ import { Panel } from 'rc-dialog';
 import type { PanelProps } from 'rc-dialog/lib/Dialog/Content/Panel';
 import * as React from 'react';
 import Button from '../button';
-import { convertLegacyProps } from '../button/button';
+import { convertLegacyProps } from '../button/buttonHelpers';
 import { ConfigContext } from '../config-provider';
 import LocaleReceiver from '../locale/LocaleReceiver';
 import { ConfirmContent } from './ConfirmDialog';

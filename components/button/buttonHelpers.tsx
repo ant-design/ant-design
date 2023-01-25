@@ -1,8 +1,16 @@
 import React from 'react';
 import { cloneElement, isFragment } from '../_util/reactNode';
+import { ButtonProps, LegacyButtonType } from './button';
 
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
 export const isTwoCNChar = rxTwoCNChar.test.bind(rxTwoCNChar);
+
+export function convertLegacyProps(type?: LegacyButtonType): ButtonProps {
+  if (type === 'danger') {
+    return { danger: true };
+  }
+  return { type };
+}
 
 export function isString(str: any) {
   return typeof str === 'string';
