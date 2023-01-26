@@ -26664,7 +26664,6 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                               class="config-table-column-sorter-inner"
                             >
                               <span
-                                aria-label="caret-up"
                                 class="anticon anticon-caret-up config-table-column-sorter-up"
                                 role="presentation"
                               >
@@ -26683,7 +26682,6 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                                 </svg>
                               </span>
                               <span
-                                aria-label="caret-down"
                                 class="anticon anticon-caret-down config-table-column-sorter-down"
                                 role="presentation"
                               >
@@ -26970,7 +26968,6 @@ exports[`ConfigProvider components Table configProvider componentDisabled 1`] = 
                               class="config-table-column-sorter-inner"
                             >
                               <span
-                                aria-label="caret-up"
                                 class="anticon anticon-caret-up config-table-column-sorter-up"
                                 role="presentation"
                               >
@@ -26989,7 +26986,6 @@ exports[`ConfigProvider components Table configProvider componentDisabled 1`] = 
                                 </svg>
                               </span>
                               <span
-                                aria-label="caret-down"
                                 class="anticon anticon-caret-down config-table-column-sorter-down"
                                 role="presentation"
                               >
@@ -27278,7 +27274,6 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                               class="config-table-column-sorter-inner"
                             >
                               <span
-                                aria-label="caret-up"
                                 class="anticon anticon-caret-up config-table-column-sorter-up"
                                 role="presentation"
                               >
@@ -27297,7 +27292,6 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                                 </svg>
                               </span>
                               <span
-                                aria-label="caret-down"
                                 class="anticon anticon-caret-down config-table-column-sorter-down"
                                 role="presentation"
                               >
@@ -27584,7 +27578,6 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                               class="config-table-column-sorter-inner"
                             >
                               <span
-                                aria-label="caret-up"
                                 class="anticon anticon-caret-up config-table-column-sorter-up"
                                 role="presentation"
                               >
@@ -27603,7 +27596,6 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                                 </svg>
                               </span>
                               <span
-                                aria-label="caret-down"
                                 class="anticon anticon-caret-down config-table-column-sorter-down"
                                 role="presentation"
                               >
@@ -27890,7 +27882,6 @@ exports[`ConfigProvider components Table configProvider virtual and dropdownMatc
                               class="ant-table-column-sorter-inner"
                             >
                               <span
-                                aria-label="caret-up"
                                 class="anticon anticon-caret-up ant-table-column-sorter-up"
                                 role="presentation"
                               >
@@ -27909,7 +27900,6 @@ exports[`ConfigProvider components Table configProvider virtual and dropdownMatc
                                 </svg>
                               </span>
                               <span
-                                aria-label="caret-down"
                                 class="anticon anticon-caret-down ant-table-column-sorter-down"
                                 role="presentation"
                               >
@@ -28196,7 +28186,6 @@ exports[`ConfigProvider components Table normal 1`] = `
                               class="ant-table-column-sorter-inner"
                             >
                               <span
-                                aria-label="caret-up"
                                 class="anticon anticon-caret-up ant-table-column-sorter-up"
                                 role="presentation"
                               >
@@ -28215,7 +28204,6 @@ exports[`ConfigProvider components Table normal 1`] = `
                                 </svg>
                               </span>
                               <span
-                                aria-label="caret-down"
                                 class="anticon anticon-caret-down ant-table-column-sorter-down"
                                 role="presentation"
                               >
@@ -28502,7 +28490,6 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                               class="prefix-Table-column-sorter-inner"
                             >
                               <span
-                                aria-label="caret-up"
                                 class="anticon anticon-caret-up prefix-Table-column-sorter-up"
                                 role="presentation"
                               >
@@ -28521,7 +28508,6 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                                 </svg>
                               </span>
                               <span
-                                aria-label="caret-down"
                                 class="anticon anticon-caret-down prefix-Table-column-sorter-down"
                                 role="presentation"
                               >

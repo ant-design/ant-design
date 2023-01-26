@@ -1177,7 +1177,6 @@ exports[`renders ./components/table/demo/custom-filter-panel.tsx correctly 1`] =
                               class="ant-table-column-sorter-inner"
                             >
                               <span
-                                aria-label="caret-up"
                                 class="anticon anticon-caret-up ant-table-column-sorter-up"
                                 role="presentation"
                               >
@@ -1196,7 +1195,6 @@ exports[`renders ./components/table/demo/custom-filter-panel.tsx correctly 1`] =
                                 </svg>
                               </span>
                               <span
-                                aria-label="caret-down"
                                 class="anticon anticon-caret-down ant-table-column-sorter-down"
                                 role="presentation"
                               >
@@ -2693,7 +2691,6 @@ Array [
                             class="ant-table-column-sorter-inner"
                           >
                             <span
-                              aria-label="caret-up"
                               class="anticon anticon-caret-up ant-table-column-sorter-up"
                               role="presentation"
                             >
@@ -2712,7 +2709,6 @@ Array [
                               </svg>
                             </span>
                             <span
-                              aria-label="caret-down"
                               class="anticon anticon-caret-down ant-table-column-sorter-down"
                               role="presentation"
                             >
@@ -2794,7 +2790,6 @@ Array [
                             class="ant-table-column-sorter-inner"
                           >
                             <span
-                              aria-label="caret-up"
                               class="anticon anticon-caret-up ant-table-column-sorter-up"
                               role="presentation"
                             >
@@ -2813,7 +2808,6 @@ Array [
                               </svg>
                             </span>
                             <span
-                              aria-label="caret-down"
                               class="anticon anticon-caret-down ant-table-column-sorter-down"
                               role="presentation"
                             >
@@ -5792,7 +5786,6 @@ exports[`renders ./components/table/demo/filter-in-tree.tsx correctly 1`] = `
                           class="ant-table-column-sorter-inner"
                         >
                           <span
-                            aria-label="caret-up"
                             class="anticon anticon-caret-up ant-table-column-sorter-up"
                             role="presentation"
                           >
@@ -5811,7 +5804,6 @@ exports[`renders ./components/table/demo/filter-in-tree.tsx correctly 1`] = `
                             </svg>
                           </span>
                           <span
-                            aria-label="caret-down"
                             class="anticon anticon-caret-down ant-table-column-sorter-down"
                             role="presentation"
                           >
@@ -6141,7 +6133,6 @@ exports[`renders ./components/table/demo/filter-search.tsx correctly 1`] = `
                           class="ant-table-column-sorter-inner"
                         >
                           <span
-                            aria-label="caret-up"
                             class="anticon anticon-caret-up ant-table-column-sorter-up"
                             role="presentation"
                           >
@@ -6160,7 +6151,6 @@ exports[`renders ./components/table/demo/filter-search.tsx correctly 1`] = `
                             </svg>
                           </span>
                           <span
-                            aria-label="caret-down"
                             class="anticon anticon-caret-down ant-table-column-sorter-down"
                             role="presentation"
                           >
@@ -6470,7 +6460,6 @@ exports[`renders ./components/table/demo/fixed-columns.tsx correctly 1`] = `
                           class="ant-table-column-sorter-inner"
                         >
                           <span
-                            aria-label="caret-up"
                             class="anticon anticon-caret-up ant-table-column-sorter-up"
                             role="presentation"
                           >
@@ -6489,7 +6478,6 @@ exports[`renders ./components/table/demo/fixed-columns.tsx correctly 1`] = `
                             </svg>
                           </span>
                           <span
-                            aria-label="caret-down"
                             class="anticon anticon-caret-down ant-table-column-sorter-down"
                             role="presentation"
                           >
@@ -9399,7 +9387,6 @@ exports[`renders ./components/table/demo/grouping-columns.tsx correctly 1`] = `
                           class="ant-table-column-sorter-inner"
                         >
                           <span
-                            aria-label="caret-up"
                             class="anticon anticon-caret-up ant-table-column-sorter-up"
                             role="presentation"
                           >
@@ -9418,7 +9405,6 @@ exports[`renders ./components/table/demo/grouping-columns.tsx correctly 1`] = `
                             </svg>
                           </span>
                           <span
-                            aria-label="caret-down"
                             class="anticon anticon-caret-down ant-table-column-sorter-down"
                             role="presentation"
                           >
@@ -10371,7 +10357,6 @@ exports[`renders ./components/table/demo/head.tsx correctly 1`] = `
                               class="ant-table-column-sorter-inner"
                             >
                               <span
-                                aria-label="caret-down"
                                 class="anticon anticon-caret-down ant-table-column-sorter-down"
                                 role="presentation"
                               >
@@ -10441,7 +10426,6 @@ exports[`renders ./components/table/demo/head.tsx correctly 1`] = `
                           class="ant-table-column-sorter-inner"
                         >
                           <span
-                            aria-label="caret-up"
                             class="anticon anticon-caret-up ant-table-column-sorter-up"
                             role="presentation"
                           >
@@ -10460,7 +10444,6 @@ exports[`renders ./components/table/demo/head.tsx correctly 1`] = `
                             </svg>
                           </span>
                           <span
-                            aria-label="caret-down"
                             class="anticon anticon-caret-down ant-table-column-sorter-down active"
                             role="presentation"
                           >
@@ -11106,7 +11089,6 @@ exports[`renders ./components/table/demo/multiple-sorter.tsx correctly 1`] = `
                           class="ant-table-column-sorter-inner"
                         >
                           <span
-                            aria-label="caret-up"
                             class="anticon anticon-caret-up ant-table-column-sorter-up"
                             role="presentation"
                           >
@@ -11125,7 +11107,6 @@ exports[`renders ./components/table/demo/multiple-sorter.tsx correctly 1`] = `
                             </svg>
                           </span>
                           <span
-                            aria-label="caret-down"
                             class="anticon anticon-caret-down ant-table-column-sorter-down"
                             role="presentation"
                           >
@@ -11168,7 +11149,6 @@ exports[`renders ./components/table/demo/multiple-sorter.tsx correctly 1`] = `
                           class="ant-table-column-sorter-inner"
                         >
                           <span
-                            aria-label="caret-up"
                             class="anticon anticon-caret-up ant-table-column-sorter-up"
                             role="presentation"
                           >
@@ -11187,7 +11167,6 @@ exports[`renders ./components/table/demo/multiple-sorter.tsx correctly 1`] = `
                             </svg>
                           </span>
                           <span
-                            aria-label="caret-down"
                             class="anticon anticon-caret-down ant-table-column-sorter-down"
                             role="presentation"
                           >
@@ -11230,7 +11209,6 @@ exports[`renders ./components/table/demo/multiple-sorter.tsx correctly 1`] = `
                           class="ant-table-column-sorter-inner"
                         >
                           <span
-                            aria-label="caret-up"
                             class="anticon anticon-caret-up ant-table-column-sorter-up"
                             role="presentation"
                           >
@@ -11249,7 +11227,6 @@ exports[`renders ./components/table/demo/multiple-sorter.tsx correctly 1`] = `
                             </svg>
                           </span>
                           <span
-                            aria-label="caret-down"
                             class="anticon anticon-caret-down ant-table-column-sorter-down"
                             role="presentation"
                           >
@@ -15512,7 +15489,6 @@ Array [
                                 class="ant-table-column-sorter-inner"
                               >
                                 <span
-                                  aria-label="caret-up"
                                   class="anticon anticon-caret-up ant-table-column-sorter-up"
                                   role="presentation"
                                 >
@@ -15531,7 +15507,6 @@ Array [
                                   </svg>
                                 </span>
                                 <span
-                                  aria-label="caret-down"
                                   class="anticon anticon-caret-down ant-table-column-sorter-down"
                                   role="presentation"
                                 >
@@ -15602,7 +15577,6 @@ Array [
                             class="ant-table-column-sorter-inner"
                           >
                             <span
-                              aria-label="caret-up"
                               class="anticon anticon-caret-up ant-table-column-sorter-up"
                               role="presentation"
                             >
@@ -15621,7 +15595,6 @@ Array [
                               </svg>
                             </span>
                             <span
-                              aria-label="caret-down"
                               class="anticon anticon-caret-down ant-table-column-sorter-down"
                               role="presentation"
                             >
@@ -15671,7 +15644,6 @@ Array [
                                 class="ant-table-column-sorter-inner"
                               >
                                 <span
-                                  aria-label="caret-up"
                                   class="anticon anticon-caret-up ant-table-column-sorter-up"
                                   role="presentation"
                                 >
@@ -15690,7 +15662,6 @@ Array [
                                   </svg>
                                 </span>
                                 <span
-                                  aria-label="caret-down"
                                   class="anticon anticon-caret-down ant-table-column-sorter-down"
                                   role="presentation"
                                 >
@@ -15996,7 +15967,6 @@ exports[`renders ./components/table/demo/resizable-column.tsx correctly 1`] = `
                           class="ant-table-column-sorter-inner"
                         >
                           <span
-                            aria-label="caret-up"
                             class="anticon anticon-caret-up ant-table-column-sorter-up"
                             role="presentation"
                           >
@@ -16015,7 +15985,6 @@ exports[`renders ./components/table/demo/resizable-column.tsx correctly 1`] = `
                             </svg>
                           </span>
                           <span
-                            aria-label="caret-down"
                             class="anticon anticon-caret-down ant-table-column-sorter-down"
                             role="presentation"
                           >

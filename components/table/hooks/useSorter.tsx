@@ -132,6 +132,7 @@ function injectSorter<RecordType>(
           className={classNames(`${prefixCls}-column-sorter-up`, {
             active: sorterOrder === ASCEND,
           })}
+          aria-label={undefined}
           role="presentation"
         />
       );
@@ -140,6 +141,7 @@ function injectSorter<RecordType>(
           className={classNames(`${prefixCls}-column-sorter-down`, {
             active: sorterOrder === DESCEND,
           })}
+          aria-label={undefined}
           role="presentation"
         />
       );

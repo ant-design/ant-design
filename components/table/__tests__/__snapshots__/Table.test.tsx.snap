@@ -264,7 +264,6 @@ exports[`Table should render title 1`] = `
                             class="ant-table-column-sorter-inner"
                           >
                             <span
-                              aria-label="caret-up"
                               class="anticon anticon-caret-up ant-table-column-sorter-up"
                               role="presentation"
                             >
@@ -283,7 +282,6 @@ exports[`Table should render title 1`] = `
                               </svg>
                             </span>
                             <span
-                              aria-label="caret-down"
                               class="anticon anticon-caret-down ant-table-column-sorter-down"
                               role="presentation"
                             >
@@ -328,7 +326,6 @@ exports[`Table should render title 1`] = `
                             class="ant-table-column-sorter-inner"
                           >
                             <span
-                              aria-label="caret-up"
                               class="anticon anticon-caret-up ant-table-column-sorter-up"
                               role="presentation"
                             >
@@ -347,7 +344,6 @@ exports[`Table should render title 1`] = `
                               </svg>
                             </span>
                             <span
-                              aria-label="caret-down"
                               class="anticon anticon-caret-down ant-table-column-sorter-down"
                               role="presentation"
                             >
@@ -397,7 +393,6 @@ exports[`Table should render title 1`] = `
                             class="ant-table-column-sorter-inner"
                           >
                             <span
-                              aria-label="caret-up"
                               class="anticon anticon-caret-up ant-table-column-sorter-up"
                               role="presentation"
                             >
@@ -416,7 +411,6 @@ exports[`Table should render title 1`] = `
                               </svg>
                             </span>
                             <span
-                              aria-label="caret-down"
                               class="anticon anticon-caret-down ant-table-column-sorter-down"
                               role="presentation"
                             >
@@ -459,7 +453,6 @@ exports[`Table should render title 1`] = `
                             class="ant-table-column-sorter-inner"
                           >
                             <span
-                              aria-label="caret-up"
                               class="anticon anticon-caret-up ant-table-column-sorter-up"
                               role="presentation"
                             >
@@ -478,7 +471,6 @@ exports[`Table should render title 1`] = `
                               </svg>
                             </span>
                             <span
-                              aria-label="caret-down"
                               class="anticon anticon-caret-down ant-table-column-sorter-down"
                               role="presentation"
                             >
@@ -521,7 +513,6 @@ exports[`Table should render title 1`] = `
                             class="ant-table-column-sorter-inner"
                           >
                             <span
-                              aria-label="caret-up"
                               class="anticon anticon-caret-up ant-table-column-sorter-up"
                               role="presentation"
                             >
@@ -540,7 +531,6 @@ exports[`Table should render title 1`] = `
                               </svg>
                             </span>
                             <span
-                              aria-label="caret-down"
                               class="anticon anticon-caret-down ant-table-column-sorter-down"
                               role="presentation"
                             >
