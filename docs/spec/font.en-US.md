@@ -88,8 +88,8 @@ Text will be difficult to read if it is too close to the background color. To ac
 
 ## Advanced Tips
 
-The construction of the font system is the first step to achieve "the beauty of dynamic order". In practical design, we have three more advanced tips：
+The construction of the font system is the first step to achieve "the beauty of dynamic order". In practical design, we have three more advanced tips:
 
 1. **Establish a systematic design thinking:** In the UI design of the same system, a systematic design thinking should be established first. The primary, secondary, auxiliary, title, display, and other types of fonts are planned in a unified manner. And then make any necessary fine tuning according to the specific situation. The establishment of a systematic design approach helps to increase the consistency of horizontal font landing, improve the cost-effectiveness of font uses, and avoid unnecessary style waste.
-1. **Less is more：**Visual design should be achieved with as few styles as possible. Avoid meaningless use of large numbers of font scales, colors, and font weight to emphasize visual or contrast relationships.
-1. **Try to make font scale dance like a note** When you need to expand any gap, you can try to choose the different sizes of the font from the font scale table, which will create a subtle rhythm between the word scales.
+1. **Less is more:** Visual design should be achieved with as few styles as possible. Avoid meaningless use of large numbers of font scales, colors, and font weight to emphasize visual or contrast relationships.
+1. **Try to make font scale dance like a note:** When you need to expand any gap, you can try to choose the different sizes of the font from the font scale table, which will create a subtle rhythm between the word scales.
