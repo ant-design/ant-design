@@ -3,9 +3,9 @@ import classNames from 'classnames';
 import * as React from 'react';
 
 import { ConfigContext } from '../config-provider';
-import { cloneElement } from '../_util/reactNode';
 import type { TimelineItemProps } from './TimelineItem';
 import TimelineItem from './TimelineItem';
+import warning from '../_util/warning';
 
 // CSSINJS
 import useStyle from './style';
@@ -20,11 +20,12 @@ export interface TimelineProps {
   style?: React.CSSProperties;
   reverse?: boolean;
   mode?: 'left' | 'alternate' | 'right';
+  items?: TimelineItemProps[];
   children?: React.ReactNode;
 }
 
 type CompoundedComponent = React.FC<TimelineProps> & {
-  Item: React.FC<TimelineItemProps>;
+  Item?: React.FC<TimelineItemProps>;
 };
 
 const Timeline: CompoundedComponent = (props) => {
@@ -37,56 +38,70 @@ const Timeline: CompoundedComponent = (props) => {
     className,
     rootClassName,
     reverse = false,
+    items,
     mode = '' as TimelineProps['mode'],
     ...restProps
   } = props;
   const prefixCls = getPrefixCls('timeline', customizePrefixCls);
   const pendingNode = typeof pending === 'boolean' ? null : pending;
 
+  // =================== Warning =====================
+  if (process.env.NODE_ENV !== 'production') {
+    warning(!children, 'Timeline', '`Timeline.Item` is deprecated. Please use `items` instead.');
+  }
+
   // Style
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
-  const pendingItem = pending ? (
-    <TimelineItem pending={!!pending} dot={pendingDot || <LoadingOutlined />}>
-      {pendingNode}
-    </TimelineItem>
-  ) : null;
+  const mergedItems = items || [];
 
-  const timeLineItems = React.Children.toArray(children);
-  timeLineItems.push(pendingItem!);
-  if (reverse) {
-    timeLineItems.reverse();
+  if (pending) {
+    mergedItems.push({
+      pending: !!pending,
+      dot: pendingDot || <LoadingOutlined />,
+      content: pendingNode,
+    });
   }
 
-  const getPositionCls = (ele: React.ReactElement<any>, idx: number) => {
+  if (reverse) {
+    mergedItems.reverse();
+  }
+
+  const getPositionCls = (item: TimelineItemProps, idx: number) => {
+    const { position } = item;
     if (mode === 'alternate') {
-      if (ele.props.position === 'right') return `${prefixCls}-item-right`;
-      if (ele.props.position === 'left') return `${prefixCls}-item-left`;
+      if (position === 'right') return `${prefixCls}-item-right`;
+      if (position === 'left') return `${prefixCls}-item-left`;
       return idx % 2 === 0 ? `${prefixCls}-item-left` : `${prefixCls}-item-right`;
     }
     if (mode === 'left') return `${prefixCls}-item-left`;
     if (mode === 'right') return `${prefixCls}-item-right`;
-    if (ele.props.position === 'right') return `${prefixCls}-item-right`;
+    if (position === 'right') return `${prefixCls}-item-right`;
     return '';
   };
 
-  // Remove falsy items
-  const truthyItems = timeLineItems.filter((item) => !!item);
-  const itemsCount = React.Children.count(truthyItems);
+  const itemsCount = mergedItems.length;
   const lastCls = `${prefixCls}-item-last`;
-  const items = React.Children.map(truthyItems, (ele: React.ReactElement<any>, idx) => {
-    const pendingClass = idx === itemsCount - 2 ? lastCls : '';
-    const readyClass = idx === itemsCount - 1 ? lastCls : '';
-    return cloneElement(ele, {
-      className: classNames([
-        ele.props.className,
-        !reverse && !!pending ? pendingClass : readyClass,
-        getPositionCls(ele, idx),
-      ]),
-    });
-  });
 
-  const hasLabelItem = timeLineItems.some((item: React.ReactElement<any>) => !!item?.props?.label);
+  const ItemsDOM = mergedItems
+    .filter((item) => !!item)
+    .map((item, idx) => {
+      const pendingClass = idx === itemsCount - 2 ? lastCls : '';
+      const readyClass = idx === itemsCount - 1 ? lastCls : '';
+      return (
+        <TimelineItem
+          className={classNames([
+            className,
+            !reverse && !!pending ? pendingClass : readyClass,
+            getPositionCls(item, idx),
+          ])}
+          {...item}
+          key={item.content as string}
+        />
+      );
+    });
+
+  const hasLabelItem = mergedItems.some((item) => !!item?.label);
 
   const classString = classNames(
     prefixCls,
@@ -104,7 +119,7 @@ const Timeline: CompoundedComponent = (props) => {
 
   return wrapSSR(
     <ul {...restProps} className={classString}>
-      {items}
+      {ItemsDOM}
     </ul>,
   );
 };

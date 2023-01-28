@@ -14,6 +14,7 @@ export interface TimelineItemProps {
   position?: string;
   style?: React.CSSProperties;
   label?: React.ReactNode;
+  content?: React.ReactNode;
   children?: React.ReactNode;
 }
 
@@ -31,6 +32,7 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
   pending = false,
   position /** Dead, but do not pass in <li {...omit()} */,
   label,
+  content,
   children,
   ...restProps
 }) => {
@@ -60,7 +62,7 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
       <div className={dotClassName} style={{ borderColor: customColor, color: customColor }}>
         {dot}
       </div>
-      <div className={`${prefixCls}-item-content`}>{children}</div>
+      <div className={`${prefixCls}-item-content`}>{content || children}</div>
     </li>
   );
 };

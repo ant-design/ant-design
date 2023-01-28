@@ -30,12 +30,14 @@ demo:
 ## API
 
 ```jsx
-<Timeline>
-  <Timeline.Item>创建服务现场 2015-09-01</Timeline.Item>
-  <Timeline.Item>初步排除网络异常 2015-09-01</Timeline.Item>
-  <Timeline.Item>技术测试异常 2015-09-01</Timeline.Item>
-  <Timeline.Item>网络异常正在修复 2015-09-01</Timeline.Item>
-</Timeline>
+// >=5.2.0 可用，推荐的写法 ✅
+const items = [{ value: 'sample', label: 'sample' }];
+return <Timeline items={items} />;
+
+// <5.2.0 可用，>=5.2.0 时不推荐 🙅🏻‍♀️
+<Timeline onChange={onChange}>
+  <Timeline.Item value="sample">Sample</Timeline.Item>
+</Timeline>;
 ```
 
 ### Timeline
@@ -43,13 +45,14 @@ demo:
 时间轴。
 
 | 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| mode | 通过设置 `mode` 可以改变时间轴和内容的相对位置 | `left` \| `alternate` \| `right` | - |
-| pending | 指定最后一个幽灵节点是否存在或内容 | boolean \| ReactNode | false |
+| --- | --- | --- | --- | --- |
+| mode | 通过设置 `mode` 可以改变时间轴和内容的相对位置 | `left` \  | `alternate` \| `right` | - |
+| pending | 指定最后一个幽灵节点是否存在或内容 | boolean \  | ReactNode | false |
 | pendingDot | 当最后一个幽灵节点存在時，指定其时间图点 | ReactNode | &lt;LoadingOutlined /> |
 | reverse | 节点排序 | boolean | false |
+| items | 选项配置 | [Items](#Items) | [] | 5.1.0 |
 
-### Timeline.Item
+### Items
 
 时间轴的每一个节点。
 
