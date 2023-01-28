@@ -38,7 +38,7 @@ const Timeline: CompoundedComponent = (props) => {
     className,
     rootClassName,
     reverse = false,
-    items,
+    items: itemsProp,
     mode = '' as TimelineProps['mode'],
     ...restProps
   } = props;
@@ -53,7 +53,7 @@ const Timeline: CompoundedComponent = (props) => {
   // Style
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
-  const mergedItems = items || [];
+  const mergedItems = itemsProp || [];
 
   if (pending) {
     mergedItems.push({
@@ -83,7 +83,7 @@ const Timeline: CompoundedComponent = (props) => {
   const itemsCount = mergedItems.length;
   const lastCls = `${prefixCls}-item-last`;
 
-  const ItemsDOM = mergedItems
+  const items = mergedItems
     .filter((item) => !!item)
     .map((item, idx) => {
       const pendingClass = idx === itemsCount - 2 ? lastCls : '';
@@ -119,7 +119,7 @@ const Timeline: CompoundedComponent = (props) => {
 
   return wrapSSR(
     <ul {...restProps} className={classString}>
-      {ItemsDOM}
+      {items}
     </ul>,
   );
 };
