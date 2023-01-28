@@ -71,7 +71,7 @@ const Timeline: CompoundedComponent = (props) => {
 
   //  support items
   if (hasItems) {
-    const mergedItems = itemsProp || [];
+    const mergedItems = (itemsProp || []).concat([]);
     if (pending) {
       mergedItems.push({
         pending: !!pending,
