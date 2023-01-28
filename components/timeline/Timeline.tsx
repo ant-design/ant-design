@@ -96,7 +96,7 @@ const Timeline: CompoundedComponent = (props) => {
             className={classNames([
               className,
               !reverse && !!pending ? pendingClass : readyClass,
-              item.position ? getPositionCls(item.position, idx) : '',
+              getPositionCls(item?.position ?? '', idx),
             ])}
             {...item}
             key={item.content as string}

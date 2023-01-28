@@ -15,9 +15,7 @@ const App: React.FC = () => (
       },
       {
         dot: <ClockCircleOutlined style={{ fontSize: '16px' }} />,
-        content: `Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-        laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto
-        beatae vitae dicta sunt explicabo.`,
+        content: `Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.`,
       },
       {
         color: 'red',
