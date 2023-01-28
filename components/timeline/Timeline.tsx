@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import * as React from 'react';
 
 import { ConfigContext } from '../config-provider';
+import { cloneElement } from '../_util/reactNode';
 import type { TimelineItemProps } from './TimelineItem';
 import TimelineItem from './TimelineItem';
 import warning from '../_util/warning';
@@ -52,23 +53,11 @@ const Timeline: CompoundedComponent = (props) => {
 
   // Style
   const [wrapSSR, hashId] = useStyle(prefixCls);
+  const hasItems = 'items' in props;
+  let items;
+  let hasLabelItem;
 
-  const mergedItems = itemsProp || [];
-
-  if (pending) {
-    mergedItems.push({
-      pending: !!pending,
-      dot: pendingDot || <LoadingOutlined />,
-      content: pendingNode,
-    });
-  }
-
-  if (reverse) {
-    mergedItems.reverse();
-  }
-
-  const getPositionCls = (item: TimelineItemProps, idx: number) => {
-    const { position } = item;
+  const getPositionCls = (position: string, idx: number) => {
     if (mode === 'alternate') {
       if (position === 'right') return `${prefixCls}-item-right`;
       if (position === 'left') return `${prefixCls}-item-left`;
@@ -80,28 +69,71 @@ const Timeline: CompoundedComponent = (props) => {
     return '';
   };
 
-  const itemsCount = mergedItems.length;
-  const lastCls = `${prefixCls}-item-last`;
+  //  support items
+  if (hasItems) {
+    const mergedItems = itemsProp || [];
+    if (pending) {
+      mergedItems.push({
+        pending: !!pending,
+        dot: pendingDot || <LoadingOutlined />,
+        content: pendingNode,
+      });
+    }
 
-  const items = mergedItems
-    .filter((item) => !!item)
-    .map((item, idx) => {
+    if (reverse) {
+      mergedItems.reverse();
+    }
+    const itemsCount = mergedItems.length;
+    const lastCls = `${prefixCls}-item-last`;
+
+    items = mergedItems
+      .filter((item) => !!item)
+      .map((item, idx) => {
+        const pendingClass = idx === itemsCount - 2 ? lastCls : '';
+        const readyClass = idx === itemsCount - 1 ? lastCls : '';
+        return (
+          <TimelineItem
+            className={classNames([
+              className,
+              !reverse && !!pending ? pendingClass : readyClass,
+              item.position ? getPositionCls(item.position, idx) : '',
+            ])}
+            {...item}
+            key={item.content as string}
+          />
+        );
+      });
+    hasLabelItem = mergedItems.some((item) => !!item?.label);
+  } else {
+    const pendingItem = pending ? (
+      <TimelineItem pending={!!pending} dot={pendingDot || <LoadingOutlined />}>
+        {pendingNode}
+      </TimelineItem>
+    ) : null;
+
+    const timeLineItems = React.Children.toArray(children);
+    timeLineItems.push(pendingItem!);
+    if (reverse) {
+      timeLineItems.reverse();
+    }
+    // Remove falsy items
+    const truthyItems = timeLineItems.filter((item) => !!item);
+    const itemsCount = React.Children.count(truthyItems);
+    const lastCls = `${prefixCls}-item-last`;
+    items = React.Children.map(truthyItems, (ele: React.ReactElement<any>, idx) => {
       const pendingClass = idx === itemsCount - 2 ? lastCls : '';
       const readyClass = idx === itemsCount - 1 ? lastCls : '';
-      return (
-        <TimelineItem
-          className={classNames([
-            className,
-            !reverse && !!pending ? pendingClass : readyClass,
-            getPositionCls(item, idx),
-          ])}
-          {...item}
-          key={item.content as string}
-        />
-      );
+      return cloneElement(ele, {
+        className: classNames([
+          ele.props.className,
+          !reverse && !!pending ? pendingClass : readyClass,
+          getPositionCls(ele.props.position, idx),
+        ]),
+      });
     });
 
-  const hasLabelItem = mergedItems.some((item) => !!item?.label);
+    hasLabelItem = timeLineItems.some((item: React.ReactElement<any>) => !!item?.props?.label);
+  }
 
   const classString = classNames(
     prefixCls,
