@@ -32,11 +32,11 @@ ReactDOM.render(<Alert message="After version 5.2.0, we provide a simpler usage 
 ```
 
 ```jsx
-// works when >=5.1.0, recommended ✅
+// works when >=5.2.0, recommended ✅
 const options = [{ value: 'sample', label: 'sample' }];
 return <Timeline options={options} />;
 
-// works when <5.1.0, deprecated when >=5.1.0 🙅🏻‍♀️
+// works when <5.2.0, deprecated when >=5.2.0 🙅🏻‍♀️
 <Timeline onChange={onChange}>
   <Timeline.Item>Sample</Timeline.Item>
 </Timeline>;
