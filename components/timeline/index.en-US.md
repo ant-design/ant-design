@@ -49,13 +49,14 @@ return <Mentions options={options} />;
 Timeline
 
 | Property | Description | Type | Default |
-| --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | mode | By sending `alternate` the timeline will distribute the nodes to the left and right | `left` \| `alternate` \| `right` | - |
 | pending | Set the last ghost node's existence or its content | boolean \| ReactNode | false |
 | pendingDot | Set the dot of the last ghost node when pending is true | ReactNode | &lt;LoadingOutlined /> |
 | reverse | Whether reverse nodes or not | boolean | false |
+| items | 选项配置 | [Items](#Items) | [] | 5.2.0 |
 
-### Timeline.Item
+### Items
 
 Node of timeline
 
@@ -64,4 +65,5 @@ Node of timeline
 | color | Set the circle's color to `blue`, `red`, `green`, `gray` or other custom colors | string | `blue` |
 | dot | Customize timeline dot | ReactNode | - |
 | label | Set the label | ReactNode | - |
+| content | Set the content | ReactNode | - |
 | position | Customize node position | `left` \| `right` | - |
