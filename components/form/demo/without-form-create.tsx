@@ -26,15 +26,17 @@ const formItemLayout = {
   wrapperCol: { span: 12 },
 };
 
-const tips =
-  'A prime is a natural number greater than 1 that has no positive divisors other than 1 and itself.';
-
 const App: React.FC = () => {
   const [number, setNumber] = useState<{
     value: number;
     validateStatus?: ValidateStatus;
     errorMsg?: string | null;
-  }>({ value: 11 });
+  }>({
+    value: 11,
+  });
+
+  const tips =
+    'A prime is a natural number greater than 1 that has no positive divisors other than 1 and itself.';
 
   const onNumberChange = (value: number) => {
     setNumber({
@@ -44,7 +46,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <Form style={{ maxWidth: 600 }}>
+    <Form>
       <Form.Item
         {...formItemLayout}
         label="Prime between 8 & 12"

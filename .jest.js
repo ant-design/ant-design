@@ -4,7 +4,6 @@ const compileModules = [
   'react-dnd-html5-backend',
   '@react-dnd',
   'dnd-core',
-  'react-sticky-box',
   'tween-one',
   '@babel',
   '@ant-design',

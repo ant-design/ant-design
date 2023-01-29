@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { closePicker, openPicker, selectCell } from '../../date-picker/__tests__/utils';
 import ConfigProvider from '..';
 import DatePicker from '../../date-picker';
@@ -27,12 +27,15 @@ describe('ConfigProvider.Locale', () => {
 
   // https://github.com/ant-design/ant-design/issues/18731
   it('should not reset locale for Modal', () => {
-    const App: React.FC = () => {
-      const [showButton, setShowButton] = useState<boolean>(false);
-      useEffect(() => {
-        setShowButton(true);
-      }, []);
-      const openConfirm = () => {
+    class App extends React.Component {
+      state = { showButton: false };
+
+      componentDidMount() {
+        this.setState({ showButton: true });
+      }
+
+      // eslint-disable-next-line class-methods-use-this
+      openConfirm = () => {
         jest.useFakeTimers();
         Modal.confirm({ title: 'title', content: 'Some descriptions' });
         act(() => {
@@ -40,18 +43,22 @@ describe('ConfigProvider.Locale', () => {
         });
         jest.useRealTimers();
       };
-      return (
-        <ConfigProvider locale={zhCN}>
-          {showButton ? (
-            <ConfigProvider locale={enUS}>
-              <button type="button" onClick={openConfirm}>
-                open
-              </button>
-            </ConfigProvider>
-          ) : null}
-        </ConfigProvider>
-      );
-    };
+
+      render() {
+        return (
+          <ConfigProvider locale={zhCN}>
+            {this.state.showButton ? (
+              <ConfigProvider locale={enUS}>
+                <button type="button" onClick={this.openConfirm}>
+                  open
+                </button>
+              </ConfigProvider>
+            ) : null}
+          </ConfigProvider>
+        );
+      }
+    }
+
     const wrapper = render(<App />);
     fireEvent.click(wrapper.container.querySelector('button')!);
     expect($$('.ant-btn-primary')[0].textContent).toBe('OK');

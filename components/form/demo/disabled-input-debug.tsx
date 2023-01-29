@@ -2,7 +2,7 @@ import React from 'react';
 import { Form, Input } from 'antd';
 
 const App: React.FC = () => (
-  <Form style={{ maxWidth: 600 }}>
+  <Form>
     <Form.Item label="Normal0">
       <Input placeholder="unavailable choice" value="Buggy!" />
     </Form.Item>

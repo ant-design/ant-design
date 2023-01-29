@@ -1,10 +1,10 @@
 ---
 title: about antd test library migration
-date: 2022-12-20
-author: li-jia-nan,zombieJ
+date: 2022-12-16
+author: zombieJ,li-jia-nan
 ---
 
-Hello, I am **[@li-jia-nan](https://github.com/li-jia-nan)**. It is also a new Collaborator who joined antd in the past few months. Fortunately, as one of the Collaborators, I developed the **[FloatButton component](/components/float-button)** and **[QRCode component](/components/qrcode)**, as well as some other maintenance work. Let me share the migration of the antd test library son~
+Hello, I am [@li-jia-nan](https://github.com/li-jia-nan). I also joined the antd Collaborator a few months ago. Fortunately, as one of the Collaborators, I developed the **FloatButton component** and **QRCode component**, as well as some other maintenance work. Let me share the migration of the antd test library son~
 
 ## introduction
 
@@ -80,7 +80,7 @@ In `enzyme`, some built-in APIs are provided to manipulate dom, or find componen
 - setProps(nextProps): Set the properties of the component
 - find(selector): Find the node according to the selector, the selector can be the selector in CSS, or the constructor of the component, and the displayName of the component, etc.
 
-In `testing-library`, these APIs are not provided (as mentioned above - `testing-library` focuses more on behavioral testing), so it needs to be replaced by native dom operations:
+在 `testing-library` 中，没有提供这些 api（正如上面提到过的 - `testing-library` 更加注重行为上的测试），所以需要换成原生的 dom 操作：
 
 ```diff
     expect(ref.current.getPopupDomNode()).toBe(null);

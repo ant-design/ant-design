@@ -12,10 +12,19 @@ const App: React.FC = () => {
   };
 
   const formItemLayout =
-    formLayout === 'horizontal' ? { labelCol: { span: 4 }, wrapperCol: { span: 14 } } : null;
+    formLayout === 'horizontal'
+      ? {
+          labelCol: { span: 4 },
+          wrapperCol: { span: 14 },
+        }
+      : null;
 
   const buttonItemLayout =
-    formLayout === 'horizontal' ? { wrapperCol: { span: 14, offset: 4 } } : null;
+    formLayout === 'horizontal'
+      ? {
+          wrapperCol: { span: 14, offset: 4 },
+        }
+      : null;
 
   return (
     <Form
@@ -24,7 +33,6 @@ const App: React.FC = () => {
       form={form}
       initialValues={{ layout: formLayout }}
       onValuesChange={onFormLayoutChange}
-      style={{ maxWidth: 600 }}
     >
       <Form.Item label="Form Layout" name="layout">
         <Radio.Group value={formLayout}>

@@ -1,7 +1,7 @@
 ## zh-CN
 
-后缀图标。
+基本使用。
 
 ## en-US
 
-suffix icon.
+Basic Usage.

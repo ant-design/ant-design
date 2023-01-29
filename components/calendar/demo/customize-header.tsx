@@ -1,28 +1,20 @@
 import React from 'react';
+import { Calendar, Col, Radio, Row, Select, Typography } from 'antd';
+import type { Dayjs } from 'dayjs';
 import dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
-import type { Dayjs } from 'dayjs';
 import dayLocaleData from 'dayjs/plugin/localeData';
-import { Calendar, Col, Radio, Row, Select, Typography, theme } from 'antd';
 import type { CalendarMode } from 'antd/es/calendar/generateCalendar';
 
 dayjs.extend(dayLocaleData);
 
 const App: React.FC = () => {
-  const { token } = theme.useToken();
-
   const onPanelChange = (value: Dayjs, mode: CalendarMode) => {
     console.log(value.format('YYYY-MM-DD'), mode);
   };
 
-  const wrapperStyle = {
-    width: 300,
-    border: `1px solid ${token.colorBorderSecondary}`,
-    borderRadius: token.borderRadiusLG,
-  };
-
   return (
-    <div style={wrapperStyle}>
+    <div className="site-calendar-customize-header-wrapper">
       <Calendar
         fullscreen={false}
         headerRender={({ value, type, onChange, onTypeChange }) => {

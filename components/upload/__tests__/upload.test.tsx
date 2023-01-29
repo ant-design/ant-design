@@ -2,7 +2,7 @@
 import produce from 'immer';
 import { cloneDeep } from 'lodash';
 import type { UploadRequestOption } from 'rc-upload/lib/interface';
-import React, { useEffect, useRef } from 'react';
+import React, { createRef } from 'react';
 import type { RcFile, UploadFile, UploadProps } from '..';
 import Upload from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -39,17 +39,21 @@ describe('Upload', () => {
   // https://github.com/react-component/upload/issues/36
   it('should get refs inside Upload in componentDidMount', () => {
     let ref: React.RefObject<HTMLInputElement>;
-    const App: React.FC = () => {
-      const inputRef = useRef<HTMLInputElement>(null);
-      useEffect(() => {
-        ref = inputRef;
-      }, []);
-      return (
-        <Upload supportServerRender={false}>
-          <input ref={inputRef} />
-        </Upload>
-      );
-    };
+    class App extends React.Component {
+      inputRef = createRef<HTMLInputElement>();
+
+      componentDidMount() {
+        ref = this.inputRef;
+      }
+
+      render() {
+        return (
+          <Upload supportServerRender={false}>
+            <input ref={this.inputRef} />
+          </Upload>
+        );
+      }
+    }
     render(<App />);
     expect(ref!).toBeDefined();
   });

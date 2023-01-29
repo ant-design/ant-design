@@ -45,7 +45,7 @@ demo:
 
 ## API
 
-```tsx
+```jsx
 <Select>
   <Option value="lucy">lucy</Option>
 </Select>
@@ -150,7 +150,7 @@ demo:
 
 Select 当失去焦点时会关闭下拉框，如果你可以通过阻止默认行为避免丢失焦点导致的关闭：
 
-```tsx
+```jsx
 <Select
   dropdownRender={() => (
     <div

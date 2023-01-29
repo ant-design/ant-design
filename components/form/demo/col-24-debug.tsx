@@ -38,7 +38,6 @@ const App: React.FC = () => {
         initialValues={{ remember: true }}
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
-        style={{ maxWidth: 600 }}
         autoComplete="off"
       >
         <Form.Item

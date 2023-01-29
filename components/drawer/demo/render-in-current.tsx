@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { Button, Drawer, theme } from 'antd';
+import { Button, Drawer } from 'antd';
 
 const App: React.FC = () => {
-  const { token } = theme.useToken();
   const [open, setOpen] = useState(false);
 
   const showDrawer = () => {
@@ -13,19 +12,8 @@ const App: React.FC = () => {
     setOpen(false);
   };
 
-  const containerStyle: React.CSSProperties = {
-    position: 'relative',
-    height: 200,
-    padding: 48,
-    overflow: 'hidden',
-    textAlign: 'center',
-    background: token.colorFillAlter,
-    border: `1px solid ${token.colorBorderSecondary}`,
-    borderRadius: token.borderRadiusLG,
-  };
-
   return (
-    <div style={containerStyle}>
+    <div className="site-drawer-render-in-current-wrapper">
       Render in this
       <div style={{ marginTop: 16 }}>
         <Button type="primary" onClick={showDrawer}>

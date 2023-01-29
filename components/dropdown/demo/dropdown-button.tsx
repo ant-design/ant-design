@@ -28,14 +28,6 @@ const items: MenuProps['items'] = [
     label: '3rd menu item',
     key: '3',
     icon: <UserOutlined />,
-    danger: true,
-  },
-  {
-    label: '4rd menu item',
-    key: '4',
-    icon: <UserOutlined />,
-    danger: true,
-    disabled: true,
   },
 ];
 

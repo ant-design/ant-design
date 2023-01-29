@@ -11,14 +11,13 @@ exports[`Transfer rtl render component should be rendered correctly in RTL direc
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper ant-checkbox-rtl ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
+        class="ant-checkbox-wrapper ant-checkbox-rtl ant-transfer-list-checkbox"
       >
         <span
-          class="ant-checkbox ant-checkbox-disabled"
+          class="ant-checkbox"
         >
           <input
             class="ant-checkbox-input"
-            disabled=""
             type="checkbox"
             value=""
           />
@@ -171,14 +170,13 @@ exports[`Transfer rtl render component should be rendered correctly in RTL direc
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper ant-checkbox-rtl ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
+        class="ant-checkbox-wrapper ant-checkbox-rtl ant-transfer-list-checkbox"
       >
         <span
-          class="ant-checkbox ant-checkbox-disabled"
+          class="ant-checkbox"
         >
           <input
             class="ant-checkbox-input"
-            disabled=""
             type="checkbox"
             value=""
           />
@@ -935,14 +933,13 @@ exports[`Transfer should support render value and label in item 1`] = `
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
+        class="ant-checkbox-wrapper ant-transfer-list-checkbox"
       >
         <span
-          class="ant-checkbox ant-checkbox-disabled"
+          class="ant-checkbox"
         >
           <input
             class="ant-checkbox-input"
-            disabled=""
             type="checkbox"
             value=""
           />
@@ -1185,14 +1182,13 @@ exports[`immutable data dataSource is frozen 1`] = `
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
+        class="ant-checkbox-wrapper ant-transfer-list-checkbox"
       >
         <span
-          class="ant-checkbox ant-checkbox-disabled"
+          class="ant-checkbox"
         >
           <input
             class="ant-checkbox-input"
-            disabled=""
             type="checkbox"
             value=""
           />

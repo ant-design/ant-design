@@ -1,6 +1,8 @@
 import React from 'react';
 import { Tabs } from 'antd';
 
+const { TabPane } = Tabs;
+
 const LANGS = {
   tsx: 'TypeScript',
   jsx: 'JavaScript',
@@ -21,15 +23,13 @@ const CodePreview: React.FC<CodePreviewProps> = ({ toReactComponent, codes, onCo
     content = toReactComponent(['pre', { lang: langList[0], highlighted: codes[langList[0]] }]);
   } else {
     content = (
-      <Tabs
-        centered
-        onChange={onCodeTypeChange}
-        items={langList.map((lang) => ({
-          label: LANGS[lang],
-          key: lang,
-          children: toReactComponent(['pre', { lang, highlighted: codes[lang] }]),
-        }))}
-      />
+      <Tabs centered onChange={onCodeTypeChange}>
+        {langList.map((lang) => (
+          <TabPane tab={LANGS[lang]} key={lang}>
+            {toReactComponent(['pre', { lang, highlighted: codes[lang] }])}
+          </TabPane>
+        ))}
+      </Tabs>
     );
   }
 

@@ -21,10 +21,12 @@ const ButtonGroup: React.FC<ButtonGroupProps> = (props) => {
   const { prefixCls: customizePrefixCls, size, className, ...others } = props;
   const prefixCls = getPrefixCls('btn-group', customizePrefixCls);
 
+  // Here we only need hashId
   const [, , hashId] = useToken();
 
+  // large => lg
+  // small => sm
   let sizeCls = '';
-
   switch (size) {
     case 'large':
       sizeCls = 'lg';

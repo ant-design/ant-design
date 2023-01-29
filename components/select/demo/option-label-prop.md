@@ -5,3 +5,9 @@
 ## en-US
 
 Specify the prop name of Option which will be rendered in select box.
+
+```css
+.demo-option-label-item > span {
+  margin-right: 6px;
+}
+```

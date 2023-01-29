@@ -3,19 +3,19 @@ import useForceUpdate from '../_util/hooks/useForceUpdate';
 import { cloneElement } from '../_util/reactNode';
 import type { StatisticProps } from './Statistic';
 import Statistic from './Statistic';
-import type { valueType, FormatConfig } from './utils';
+import type { countdownValueType, FormatConfig, valueType } from './utils';
 import { formatCountdown } from './utils';
 
 const REFRESH_INTERVAL = 1000 / 30;
 
 export interface CountdownProps extends StatisticProps {
-  value?: valueType;
+  value?: countdownValueType;
   format?: string;
   onFinish?: () => void;
-  onChange?: (value?: valueType) => void;
+  onChange?: (value?: countdownValueType) => void;
 }
 
-function getTime(value?: valueType) {
+function getTime(value?: countdownValueType) {
   return new Date(value as valueType).getTime();
 }
 
@@ -57,7 +57,7 @@ const Countdown: React.FC<CountdownProps> = (props) => {
     };
   }, [value]);
 
-  const formatter = (formatValue: valueType, config: FormatConfig) =>
+  const formatter = (formatValue: countdownValueType, config: FormatConfig) =>
     formatCountdown(formatValue, { ...config, format });
 
   const valueRender = (node: React.ReactElement<HTMLDivElement>) =>

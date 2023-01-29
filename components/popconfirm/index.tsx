@@ -135,8 +135,4 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
 /* istanbul ignore next */
 Popconfirm._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 
-if (process.env.NODE_ENV !== 'production') {
-  Popconfirm.displayName = 'Popconfirm';
-}
-
 export default Popconfirm;

@@ -188,7 +188,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
         },
       },
 
-      [`&${componentCls}-disabled`]: {
+      '&&-disabled': {
         cursor: 'not-allowed',
 
         [`${componentCls}-rail`]: {

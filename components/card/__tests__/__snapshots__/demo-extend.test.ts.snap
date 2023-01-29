@@ -1,131 +1,124 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/card/demo/basic.tsx extend context correctly 1`] = `
-<div
-  class="ant-space ant-space-vertical"
->
+Array [
   <div
-    class="ant-space-item"
-    style="margin-bottom:16px"
+    class="ant-card ant-card-bordered"
+    style="width:300px"
   >
     <div
-      class="ant-card ant-card-bordered"
-      style="width:300px"
+      class="ant-card-head"
     >
       <div
-        class="ant-card-head"
+        class="ant-card-head-wrapper"
       >
         <div
-          class="ant-card-head-wrapper"
+          class="ant-card-head-title"
         >
-          <div
-            class="ant-card-head-title"
+          Default size card
+        </div>
+        <div
+          class="ant-card-extra"
+        >
+          <a
+            href="#"
           >
-            Default size card
-          </div>
-          <div
-            class="ant-card-extra"
-          >
-            <a
-              href="#"
-            >
-              More
-            </a>
-          </div>
+            More
+          </a>
         </div>
       </div>
-      <div
-        class="ant-card-body"
-      >
-        <p>
-          Card content
-        </p>
-        <p>
-          Card content
-        </p>
-        <p>
-          Card content
-        </p>
-      </div>
     </div>
-  </div>
+    <div
+      class="ant-card-body"
+    >
+      <p>
+        Card content
+      </p>
+      <p>
+        Card content
+      </p>
+      <p>
+        Card content
+      </p>
+    </div>
+  </div>,
   <div
-    class="ant-space-item"
+    class="ant-card ant-card-bordered ant-card-small"
+    style="width:300px"
   >
     <div
-      class="ant-card ant-card-bordered ant-card-small"
-      style="width:300px"
+      class="ant-card-head"
     >
       <div
-        class="ant-card-head"
+        class="ant-card-head-wrapper"
       >
         <div
-          class="ant-card-head-wrapper"
+          class="ant-card-head-title"
         >
-          <div
-            class="ant-card-head-title"
+          Small size card
+        </div>
+        <div
+          class="ant-card-extra"
+        >
+          <a
+            href="#"
           >
-            Small size card
-          </div>
-          <div
-            class="ant-card-extra"
-          >
-            <a
-              href="#"
-            >
-              More
-            </a>
-          </div>
+            More
+          </a>
         </div>
       </div>
-      <div
-        class="ant-card-body"
-      >
-        <p>
-          Card content
-        </p>
-        <p>
-          Card content
-        </p>
-        <p>
-          Card content
-        </p>
-      </div>
     </div>
-  </div>
-</div>
+    <div
+      class="ant-card-body"
+    >
+      <p>
+        Card content
+      </p>
+      <p>
+        Card content
+      </p>
+      <p>
+        Card content
+      </p>
+    </div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/card/demo/border-less.tsx extend context correctly 1`] = `
 <div
-  class="ant-card"
-  style="width:300px"
+  class="site-card-border-less-wrapper"
 >
   <div
-    class="ant-card-head"
+    class="ant-card"
+    style="width:300px"
   >
     <div
-      class="ant-card-head-wrapper"
+      class="ant-card-head"
     >
       <div
-        class="ant-card-head-title"
+        class="ant-card-head-wrapper"
       >
-        Card title
+        <div
+          class="ant-card-head-title"
+        >
+          Card title
+        </div>
       </div>
     </div>
-  </div>
-  <div
-    class="ant-card-body"
-  >
-    <p>
-      Card content
-    </p>
-    <p>
-      Card content
-    </p>
-    <p>
-      Card content
-    </p>
+    <div
+      class="ant-card-body"
+    >
+      <p>
+        Card content
+      </p>
+      <p>
+        Card content
+      </p>
+      <p>
+        Card content
+      </p>
+    </div>
   </div>
 </div>
 `;
@@ -236,87 +229,91 @@ exports[`renders ./components/card/demo/grid-card.tsx extend context correctly 1
 
 exports[`renders ./components/card/demo/in-column.tsx extend context correctly 1`] = `
 <div
-  class="ant-row"
-  style="margin-left:-8px;margin-right:-8px"
+  class="site-card-wrapper"
 >
   <div
-    class="ant-col ant-col-8"
-    style="padding-left:8px;padding-right:8px"
+    class="ant-row"
+    style="margin-left:-8px;margin-right:-8px"
   >
     <div
-      class="ant-card"
+      class="ant-col ant-col-8"
+      style="padding-left:8px;padding-right:8px"
     >
       <div
-        class="ant-card-head"
+        class="ant-card"
       >
         <div
-          class="ant-card-head-wrapper"
+          class="ant-card-head"
         >
           <div
-            class="ant-card-head-title"
+            class="ant-card-head-wrapper"
           >
-            Card title
+            <div
+              class="ant-card-head-title"
+            >
+              Card title
+            </div>
           </div>
         </div>
-      </div>
-      <div
-        class="ant-card-body"
-      >
-        Card content
+        <div
+          class="ant-card-body"
+        >
+          Card content
+        </div>
       </div>
     </div>
-  </div>
-  <div
-    class="ant-col ant-col-8"
-    style="padding-left:8px;padding-right:8px"
-  >
     <div
-      class="ant-card"
+      class="ant-col ant-col-8"
+      style="padding-left:8px;padding-right:8px"
     >
       <div
-        class="ant-card-head"
+        class="ant-card"
       >
         <div
-          class="ant-card-head-wrapper"
+          class="ant-card-head"
         >
           <div
-            class="ant-card-head-title"
+            class="ant-card-head-wrapper"
           >
-            Card title
+            <div
+              class="ant-card-head-title"
+            >
+              Card title
+            </div>
           </div>
         </div>
-      </div>
-      <div
-        class="ant-card-body"
-      >
-        Card content
+        <div
+          class="ant-card-body"
+        >
+          Card content
+        </div>
       </div>
     </div>
-  </div>
-  <div
-    class="ant-col ant-col-8"
-    style="padding-left:8px;padding-right:8px"
-  >
     <div
-      class="ant-card"
+      class="ant-col ant-col-8"
+      style="padding-left:8px;padding-right:8px"
     >
       <div
-        class="ant-card-head"
+        class="ant-card"
       >
         <div
-          class="ant-card-head-wrapper"
+          class="ant-card-head"
         >
           <div
-            class="ant-card-head-title"
+            class="ant-card-head-wrapper"
           >
-            Card title
+            <div
+              class="ant-card-head-title"
+            >
+              Card title
+            </div>
           </div>
         </div>
-      </div>
-      <div
-        class="ant-card-body"
-      >
-        Card content
+        <div
+          class="ant-card-body"
+        >
+          Card content
+        </div>
       </div>
     </div>
   </div>

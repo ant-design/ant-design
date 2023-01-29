@@ -43,7 +43,7 @@
 
 </div>
 
-[![](https://user-images.githubusercontent.com/507615/209472919-6f7e8561-be8c-4b0b-9976-eb3c692aa20a.png)](https://ant.design)
+[![](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Yl83RJhUE7kAAAAAAAAAAABkARQnAQ)](https://ant.design)
 
 [English](./README.md) | [Português](./README-pt_BR.md) | [简体中文](./README-zh_CN.md) | [Українською](./README-uk_UA.md) | [Spanish](./README-sp_MX.md) | 日本語
 
@@ -79,7 +79,6 @@ yarn add antd
 ## 🔨 使い方
 
 ```jsx
-import React from 'react';
 import { Button, DatePicker } from 'antd';
 
 const App = () => (
@@ -106,7 +105,6 @@ const App = () => (
 - [変更ログ](CHANGELOG.en-US.md)
 - [rc-components](http://react-component.github.io/)
 - [Mobile UI](http://mobile.ant.design)
-- [Mini Program UI](http://mini.ant.design)
 - [Ant Design Pro コンポーネント](https://procomponents.ant.design)
 - [Ant Design チャート](https://charts.ant.design)
 - [Ant Design アイコン](https://github.com/ant-design/ant-design-icons)

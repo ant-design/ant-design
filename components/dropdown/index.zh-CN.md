@@ -49,13 +49,13 @@ demo:
 | destroyPopupOnHide | 关闭后是否销毁 Dropdown | boolean | false |  |
 | dropdownRender | 自定义下拉框内容 | (menus: ReactNode) => ReactNode | - | 4.24.0 |
 | getPopupContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位。[示例](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | (triggerNode: HTMLElement) => HTMLElement | () => document.body |  |
-| menu | 菜单配置项 | [MenuProps](/components/menu-cn#api) | - | 4.24.0 |
+| menu | 菜单配置项 | [MenuProps](/components/menu-cn#API) | - | 4.24.0 |
 | overlayClassName | 下拉根元素的类名称 | string | - |  |
 | overlayStyle | 下拉根元素的样式 | CSSProperties | - |  |
 | placement | 菜单弹出位置：`bottom` `bottomLeft` `bottomRight` `top` `topLeft` `topRight` | string | `bottomLeft` |  |
 | trigger | 触发下拉的行为, 移动端不支持 hover | Array&lt;`click`\|`hover`\|`contextMenu`> | \[`hover`] |  |
-| open | 菜单是否显示，小于 4.23.0 使用 `visible`（[为什么?](/docs/react/faq#弹层类组件为什么要统一至-open-属性)） | boolean | - | 4.23.0 |
-| onOpenChange | 菜单显示状态改变时调用，点击菜单按钮导致的消失不会触发。小于 4.23.0 使用 `onVisibleChange`（[为什么?](/docs/react/faq#弹层类组件为什么要统一至-open-属性)） | (open: boolean) => void | - | 4.23.0 |
+| open | 菜单是否显示，小于 4.23.0 使用 `visible`（[为什么?](/docs/react/faq#why-open)） | boolean | - | 4.23.0 |
+| onOpenChange | 菜单显示状态改变时调用，点击菜单按钮导致的消失不会触发。小于 4.23.0 使用 `onVisibleChange`（[为什么?](/docs/react/faq#why-open)） | (open: boolean) => void | - | 4.23.0 |
 
 ### Dropdown.Button
 
@@ -67,6 +67,6 @@ demo:
 | loading | 设置按钮载入状态 | boolean \| { delay: number } | false |  |
 | danger | 设置危险按钮 | boolean | - | 4.23.0 |
 | icon | 右侧的 icon | ReactNode | - |  |
-| size | 按钮大小，和 [Button](/components/button-cn#api) 一致 | string | `default` |  |
-| type | 按钮类型，和 [Button](/components/button-cn#api) 一致 | string | `default` |  |
-| onClick | 点击左侧按钮的回调，和 [Button](/components/button-cn#api) 一致 | (event) => void | - |  |
+| size | 按钮大小，和 [Button](/components/button-cn#API) 一致 | string | `default` |  |
+| type | 按钮类型，和 [Button](/components/button-cn#API) 一致 | string | `default` |  |
+| onClick | 点击左侧按钮的回调，和 [Button](/components/button-cn#API) 一致 | (event) => void | - |  |

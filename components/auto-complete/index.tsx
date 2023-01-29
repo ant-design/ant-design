@@ -12,7 +12,7 @@ import toArray from 'rc-util/lib/Children/toArray';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
 import type { ConfigConsumerProps } from '../config-provider';
-import { ConfigContext } from '../config-provider';
+import { ConfigConsumer } from '../config-provider';
 import type {
   BaseOptionType,
   DefaultOptionType,
@@ -137,25 +137,29 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
     );
   }
 
-  const { getPrefixCls } = React.useContext<ConfigConsumerProps>(ConfigContext);
-
-  const prefixCls = getPrefixCls('select', customizePrefixCls);
-
   return (
-    <Select
-      ref={ref}
-      {...omit(props, ['dataSource', 'dropdownClassName'])}
-      prefixCls={prefixCls}
-      popupClassName={popupClassName || dropdownClassName}
-      className={classNames(`${prefixCls}-auto-complete`, className)}
-      mode={Select.SECRET_COMBOBOX_MODE_DO_NOT_USE as any}
-      {...{
-        // Internal api
-        getInputElement,
+    <ConfigConsumer>
+      {({ getPrefixCls }: ConfigConsumerProps) => {
+        const prefixCls = getPrefixCls('select', customizePrefixCls);
+
+        return (
+          <Select
+            ref={ref}
+            {...omit(props, ['dataSource', 'dropdownClassName'])}
+            prefixCls={prefixCls}
+            popupClassName={popupClassName || dropdownClassName}
+            className={classNames(`${prefixCls}-auto-complete`, className)}
+            mode={Select.SECRET_COMBOBOX_MODE_DO_NOT_USE as any}
+            {...{
+              // Internal api
+              getInputElement,
+            }}
+          >
+            {optionChildren}
+          </Select>
+        );
       }}
-    >
-      {optionChildren}
-    </Select>
+    </ConfigConsumer>
   );
 };
 
@@ -179,9 +183,5 @@ const PurePanel = genPurePanel(RefAutoComplete);
 
 RefAutoComplete.Option = Option;
 RefAutoComplete._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
-
-if (process.env.NODE_ENV !== 'production') {
-  AutoComplete.displayName = 'AutoComplete';
-}
 
 export default RefAutoComplete;

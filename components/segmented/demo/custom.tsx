@@ -1,9 +1,9 @@
 import React from 'react';
-import { Avatar, Segmented, Space } from 'antd';
+import { Avatar, Segmented } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 
-const App: React.FC = () => (
-  <Space direction="vertical">
+export default () => (
+  <>
     <Segmented
       options={[
         {
@@ -35,6 +35,7 @@ const App: React.FC = () => (
         },
       ]}
     />
+    <br />
     <Segmented
       options={[
         {
@@ -75,7 +76,5 @@ const App: React.FC = () => (
         },
       ]}
     />
-  </Space>
+  </>
 );
-
-export default App;

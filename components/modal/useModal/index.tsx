@@ -5,7 +5,6 @@ import { withConfirm, withError, withInfo, withSuccess, withWarn } from '../conf
 import type { ModalFuncProps } from '../Modal';
 import type { HookModalRef } from './HookModal';
 import HookModal from './HookModal';
-import destroyFns from '../destroyFns';
 
 let uuid = 0;
 
@@ -28,10 +27,7 @@ const ElementsHolder = React.memo(
   }),
 );
 
-function useModal(): readonly [
-  instance: Omit<ModalStaticFunctions, 'warn'>,
-  contextHolder: React.ReactElement,
-] {
+export default function useModal(): [Omit<ModalStaticFunctions, 'warn'>, React.ReactElement] {
   const holderRef = React.useRef<ElementsHolderRef>(null);
 
   // ========================== Effect ==========================
@@ -70,10 +66,6 @@ function useModal(): readonly [
 
         closeFunc = holderRef.current?.patchElement(modal);
 
-        if (closeFunc) {
-          destroyFns.push(closeFunc);
-        }
-
         return {
           destroy: () => {
             function destroyAction() {
@@ -102,7 +94,7 @@ function useModal(): readonly [
     [],
   );
 
-  const fns = React.useMemo<Omit<ModalStaticFunctions, 'warn'>>(
+  const fns = React.useMemo(
     () => ({
       info: getConfirmFunc(withInfo),
       success: getConfirmFunc(withSuccess),
@@ -113,7 +105,6 @@ function useModal(): readonly [
     [],
   );
 
-  return [fns, <ElementsHolder key="modal-holder" ref={holderRef} />] as const;
+  // eslint-disable-next-line react/jsx-key
+  return [fns, <ElementsHolder ref={holderRef} />];
 }
-
-export default useModal;

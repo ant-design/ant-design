@@ -10,11 +10,11 @@ import {
   HistoryOutlined,
   IssuesCloseOutlined,
   MediumOutlined,
+  ProfileOutlined,
   QuestionCircleOutlined,
   TwitterOutlined,
   UsergroupAddOutlined,
   ZhihuOutlined,
-  MessageOutlined,
 } from '@ant-design/icons';
 import { css } from '@emotion/react';
 import { TinyColor } from '@ctrl/tinycolor';
@@ -67,10 +67,6 @@ const useStyle = () => {
         }
       }
 
-      .rc-footer-item-icon {
-        top: -1.5px;
-      }
-
       .rc-footer-container {
         max-width: 1208px;
         margin-inline: auto;
@@ -118,11 +114,6 @@ const Footer = () => {
         {
           title: 'Ant Design Mobile',
           url: 'https://mobile.ant.design',
-          openExternal: true,
-        },
-        {
-          title: 'Ant Design Mini',
-          url: 'https://mini.ant.design',
           openExternal: true,
         },
         {
@@ -261,7 +252,7 @@ const Footer = () => {
           LinkComponent: Link,
         },
         {
-          icon: <QuestionCircleOutlined />,
+          icon: <ProfileOutlined />,
           title: <FormattedMessage id="app.footer.faq" />,
           url: getLink('/docs/react/faq'),
           LinkComponent: Link,
@@ -279,7 +270,7 @@ const Footer = () => {
           openExternal: true,
         },
         {
-          icon: <MessageOutlined />,
+          icon: <QuestionCircleOutlined />,
           title: <FormattedMessage id="app.footer.discussions" />,
           url: 'https://github.com/ant-design/ant-design/discussions',
           openExternal: true,
@@ -333,7 +324,12 @@ const Footer = () => {
           openExternal: true,
         },
         {
-          icon: <img src="https://www.eggjs.org/logo.svg" alt="Egg" />,
+          icon: (
+            <img
+              src="https://gw.alipayobjects.com/zos/antfincdn/v2%24rh7lqpu/82f338dd-b0a6-41bc-9a86-58aaa9df217b.png"
+              alt="Egg"
+            />
+          ),
           title: 'Egg',
           url: 'https://eggjs.org',
           description: <FormattedMessage id="app.footer.egg.slogan" />,

@@ -197,7 +197,6 @@ exports[`Menu all types must be available in the "items" syntax 1`] = `
         class="ant-menu ant-menu-sub ant-menu-inline"
         data-menu-list="true"
         id="rc-menu-uuid-test-submenu-popup"
-        role="menu"
       >
         <li
           class="ant-menu-item ant-menu-item-only-child"
@@ -232,18 +231,15 @@ exports[`Menu all types must be available in the "items" syntax 1`] = `
     />
     <li
       class="ant-menu-item-group"
-      role="presentation"
     >
       <div
         class="ant-menu-item-group-title"
-        role="presentation"
         title="Group"
       >
         Group
       </div>
       <ul
         class="ant-menu-item-group-list"
-        role="group"
       >
         <li
           class="ant-menu-item ant-menu-item-only-child"
@@ -288,7 +284,6 @@ exports[`Menu all types must be available in the "items" syntax 1`] = `
             class="ant-menu ant-menu-sub ant-menu-inline"
             data-menu-list="true"
             id="rc-menu-uuid-test-group-submenu-popup"
-            role="menu"
           >
             <li
               class="ant-menu-item ant-menu-item-only-child"
@@ -349,15 +344,12 @@ HTMLCollection [
     </li>
     <li
       class="ant-menu-item-group"
-      role="presentation"
     >
       <div
         class="ant-menu-item-group-title"
-        role="presentation"
       />
       <ul
         class="ant-menu-item-group-list"
-        role="group"
       />
     </li>
     <li

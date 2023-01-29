@@ -28,7 +28,6 @@ title: 工作台
     <div>
       <h4>降低记忆负载</h4>
       <p>理解用户再次访问的核心目标，为可能的目的地提供最短导航路径。</p>
-    </div>
   </div>
 </div>
 
@@ -36,9 +35,7 @@ title: 工作台
 
 #### 模板 - 工作台
 
-<ImagePreview>
-<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*8s67TL62WEoAAAAAAAAAAABkARQnAQ">
-</ImagePreview>
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*8s67TL62WEoAAAAAAAAAAABkARQnAQ">
 
 **什么时候使用**
 
@@ -57,9 +54,7 @@ title: 工作台
 
 #### 模板 - 新手引导
 
-<ImagePreview>
-<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*LQBmQauTEAsAAAAAAAAAAABkARQnAQ">
-</ImagePreview>
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*LQBmQauTEAsAAAAAAAAAAABkARQnAQ">
 
 **什么时候使用**
 
@@ -95,9 +90,7 @@ title: 工作台
 
 #### 按照使用频次布置内容
 
-<ImagePreview>
-<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*1tfiR5-xKUQAAAAAAAAAAABkARQnAQ">
-</ImagePreview>
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*1tfiR5-xKUQAAAAAAAAAAABkARQnAQ">
 
 用户在日常工作中最常使用的内容，按照使用频次将内容布置以下各区域。
 

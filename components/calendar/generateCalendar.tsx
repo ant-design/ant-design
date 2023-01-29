@@ -290,10 +290,6 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
     );
   };
 
-  if (process.env.NODE_ENV !== 'production') {
-    Calendar.displayName = 'Calendar';
-  }
-
   return Calendar;
 }
 

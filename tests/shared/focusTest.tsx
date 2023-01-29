@@ -1,10 +1,11 @@
 import React from 'react';
-import { fireEvent, render, sleep } from '../utils';
+import { sleep, render, fireEvent } from '../utils';
 
-const focusTest = (
+// eslint-disable-next-line jest/no-export
+export default function focusTest(
   Component: React.ComponentType<any>,
-  { refFocus = false, blurDelay = 0 } = {},
-) => {
+  { refFocus = false, testLib = false, blurDelay = 0 } = {},
+) {
   describe('focus and blur', () => {
     let focused = false;
     let blurred = false;
@@ -22,7 +23,41 @@ const focusTest = (
       }
     });
 
-    let containerHtml: HTMLDivElement;
+    // ==================== React Test Lib ====================
+    if (testLib) {
+      it('Test: focus() and onFocus', () => {
+        const handleFocus = jest.fn();
+        const ref = React.createRef<any>();
+        const { unmount } = render(<Component onFocus={handleFocus} ref={ref} />);
+        ref.current.focus();
+        expect(handleFocus).toHaveBeenCalled();
+
+        unmount();
+      });
+
+      it('Test: blur() and onBlur', async () => {
+        const handleBlur = jest.fn();
+        const ref = React.createRef<any>();
+        const { unmount } = render(<Component ref={ref} onBlur={handleBlur} />);
+        ref.current.focus();
+        ref.current.blur();
+        expect(handleBlur).toHaveBeenCalled();
+
+        unmount();
+      });
+
+      it('Test: autoFocus', () => {
+        const handleFocus = jest.fn();
+        const { unmount } = render(<Component autoFocus onFocus={handleFocus} />);
+        expect(handleFocus).toHaveBeenCalled();
+
+        unmount();
+      });
+
+      return;
+    }
+
+    let containerHtml: HTMLElement;
     beforeEach(() => {
       containerHtml = document.createElement('div');
       document.body.appendChild(containerHtml);
@@ -39,7 +74,7 @@ const focusTest = (
       document.body.removeChild(containerHtml);
     });
 
-    const getElement = (container: HTMLElement) =>
+    const getElement = (container: { querySelector: Function }) =>
       container.querySelector('input') ||
       container.querySelector('button') ||
       container.querySelector('textarea') ||
@@ -57,7 +92,7 @@ const focusTest = (
         ref.current.focus();
         expect(focused).toBeTruthy();
 
-        fireEvent.focus(getElement(container)!);
+        fireEvent.focus(getElement(container));
         expect(onFocus).toHaveBeenCalled();
       });
 
@@ -74,7 +109,7 @@ const focusTest = (
         ref.current.blur();
         expect(blurred).toBeTruthy();
 
-        fireEvent.blur(getElement(container)!);
+        fireEvent.blur(getElement(container));
         await sleep(blurDelay);
         expect(onBlur).toHaveBeenCalled();
       });
@@ -85,14 +120,14 @@ const focusTest = (
 
         expect(focused).toBeTruthy();
 
-        fireEvent.focus(getElement(container)!);
+        fireEvent.focus(getElement(container));
         expect(onFocus).toHaveBeenCalled();
       });
     } else {
       it('focus() and onFocus', () => {
         const handleFocus = jest.fn();
         const { container } = render(<Component onFocus={handleFocus} />);
-        fireEvent.focus(getElement(container)!);
+        fireEvent.focus(getElement(container));
         expect(handleFocus).toHaveBeenCalled();
       });
 
@@ -100,9 +135,9 @@ const focusTest = (
         jest.useRealTimers();
         const handleBlur = jest.fn();
         const { container } = render(<Component onBlur={handleBlur} />);
-        fireEvent.focus(getElement(container)!);
+        fireEvent.focus(getElement(container));
         await sleep(0);
-        fireEvent.blur(getElement(container)!);
+        fireEvent.blur(getElement(container));
         await sleep(0);
         expect(handleBlur).toHaveBeenCalled();
       });
@@ -114,7 +149,4 @@ const focusTest = (
       });
     }
   });
-};
-
-// eslint-disable-next-line jest/no-export
-export default focusTest;
+}

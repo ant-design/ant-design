@@ -163,10 +163,7 @@ const Breadcrumb: CompoundedComponent = ({
 };
 
 Breadcrumb.Item = BreadcrumbItem;
-Breadcrumb.Separator = BreadcrumbSeparator;
 
-if (process.env.NODE_ENV !== 'production') {
-  Breadcrumb.displayName = 'Breadcrumb';
-}
+Breadcrumb.Separator = BreadcrumbSeparator;
 
 export default Breadcrumb;

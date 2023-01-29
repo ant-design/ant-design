@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "antd": ["components/index.ts"],
+      "antd": ["components/index.tsx"],
       "antd/es/*": ["components/*"],
       "antd/lib/*": ["components/*"],
       "antd/locale/*": ["components/locale/*"]

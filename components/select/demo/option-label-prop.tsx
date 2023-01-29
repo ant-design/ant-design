@@ -1,5 +1,5 @@
 import React from 'react';
-import { Select, Space } from 'antd';
+import { Select } from 'antd';
 
 const { Option } = Select;
 
@@ -17,36 +17,36 @@ const App: React.FC = () => (
     optionLabelProp="label"
   >
     <Option value="china" label="China">
-      <Space>
+      <div className="demo-option-label-item">
         <span role="img" aria-label="China">
           🇨🇳
         </span>
         China (中国)
-      </Space>
+      </div>
     </Option>
     <Option value="usa" label="USA">
-      <Space>
+      <div className="demo-option-label-item">
         <span role="img" aria-label="USA">
           🇺🇸
         </span>
         USA (美国)
-      </Space>
+      </div>
     </Option>
     <Option value="japan" label="Japan">
-      <Space>
+      <div className="demo-option-label-item">
         <span role="img" aria-label="Japan">
           🇯🇵
         </span>
         Japan (日本)
-      </Space>
+      </div>
     </Option>
     <Option value="korea" label="Korea">
-      <Space>
+      <div className="demo-option-label-item">
         <span role="img" aria-label="Korea">
           🇰🇷
         </span>
         Korea (韩国)
-      </Space>
+      </div>
     </Option>
   </Select>
 );

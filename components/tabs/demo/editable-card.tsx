@@ -1,8 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { Tabs } from 'antd';
 
-type TargetKey = React.MouseEvent | React.KeyboardEvent | string;
-
 const initialItems = [
   { label: 'Tab 1', children: 'Content of Tab 1', key: '1' },
   { label: 'Tab 2', children: 'Content of Tab 2', key: '2' },
@@ -31,7 +29,7 @@ const App: React.FC = () => {
     setActiveKey(newActiveKey);
   };
 
-  const remove = (targetKey: TargetKey) => {
+  const remove = (targetKey: string) => {
     let newActiveKey = activeKey;
     let lastIndex = -1;
     items.forEach((item, i) => {
@@ -51,10 +49,7 @@ const App: React.FC = () => {
     setActiveKey(newActiveKey);
   };
 
-  const onEdit = (
-    targetKey: React.MouseEvent | React.KeyboardEvent | string,
-    action: 'add' | 'remove',
-  ) => {
+  const onEdit = (targetKey: string, action: 'add' | 'remove') => {
     if (action === 'add') {
       add();
     } else {

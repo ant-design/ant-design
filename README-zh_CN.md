@@ -43,7 +43,7 @@
 
 </div>
 
-[![](https://user-images.githubusercontent.com/507615/209472919-6f7e8561-be8c-4b0b-9976-eb3c692aa20a.png)](https://ant.design)
+[![](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Ey3wTo-5__QAAAAAAAAAAABkARQnAQ)](https://ant.design/index-cn)
 
 [English](./README.md) | [Português](./README-pt_BR.md) | 简体中文 | [Українською](./README-uk_UA.md) | [Spanish](./README-sp_MX.md) | [日本語](./README-ja_JP.md)
 
@@ -79,7 +79,6 @@ yarn add antd
 ## 🔨 示例
 
 ```jsx
-import React from 'react';
 import { Button, DatePicker } from 'antd';
 
 const App = () => (
@@ -107,10 +106,9 @@ const App = () => (
 - [首页](https://ant.design/)
 - [所有组件](https://ant.design/components/overview-cn)
 - [Ant Design Pro](http://pro.ant.design/)
-- [更新日志](CHANGELOG.zh-CN.md)
+- [更新日志](CHANGELOG.en-US.md)
 - [React 底层基础组件](http://react-component.github.io/)
 - [移动端组件](http://mobile.ant.design)
-- [小程序组件](http://mini.ant.design)
 - [页面级组件](https://procomponents.ant.design)
 - [Ant Design 图表](https://charts.ant.design)
 - [Ant Design 图标](https://github.com/ant-design/ant-design-icons)

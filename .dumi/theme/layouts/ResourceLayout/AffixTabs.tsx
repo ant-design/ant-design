@@ -115,7 +115,7 @@ export default () => {
   return (
     <div css={[styles.affixTabs, fixedId && styles.affixTabsFixed]} ref={containerRef}>
       <Tabs
-        activeKey={fixedId}
+        activeKey={fixedId || undefined}
         onChange={(key) => {
           scrollToId(key);
         }}

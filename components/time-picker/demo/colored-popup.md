@@ -1,7 +1,13 @@
 ## zh-CN
 
-将自定义 class 传给 `TimePicker` 弹框。
+カスタムクラスを `TimePicker`ポップアップに渡す
 
 ## en-US
 
-Passing custom class to `TimePicker` popup.
+Passing custom class to `TimePicker` popup
+
+```css
+.myCustomClassName .ant-picker-time-panel-cell-inner {
+  color: red !important;
+}
+```

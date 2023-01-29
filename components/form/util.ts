@@ -14,9 +14,7 @@ export function toArray<T>(candidate?: T | T[] | false): T[] {
 }
 
 export function getFieldId(namePath: InternalNamePath, formName?: string): string | undefined {
-  if (!namePath.length) {
-    return undefined;
-  }
+  if (!namePath.length) return undefined;
 
   const mergedId = namePath.join('_');
 

@@ -12,7 +12,7 @@ export interface TransferSearchProps {
   disabled?: boolean;
 }
 
-const Search: React.FC<TransferSearchProps> = (props) => {
+export default function Search(props: TransferSearchProps) {
   const { placeholder = '', value, prefixCls, disabled, onChange, handleClear } = props;
 
   const handleChange = React.useCallback(
@@ -36,10 +36,4 @@ const Search: React.FC<TransferSearchProps> = (props) => {
       prefix={<SearchOutlined />}
     />
   );
-};
-
-if (process.env.NODE_ENV !== 'production') {
-  Search.displayName = 'Search';
 }
-
-export default Search;

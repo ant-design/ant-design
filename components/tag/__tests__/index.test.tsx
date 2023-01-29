@@ -8,19 +8,6 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, render, fireEvent } from '../../../tests/utils';
 
-(global as any).isVisible = true;
-
-jest.mock('rc-util/lib/Dom/isVisible', () => {
-  const mockFn = () => (global as any).isVisible;
-  return mockFn;
-});
-
-function waitRaf() {
-  act(() => {
-    jest.advanceTimersByTime(100);
-  });
-}
-
 describe('Tag', () => {
   mountTest(Tag);
   mountTest(Tag.CheckableTag);
@@ -164,11 +151,5 @@ describe('Tag', () => {
       fireEvent.click(container.querySelectorAll('.ant-tag')[0]);
       expect(onChange).toHaveBeenCalledWith(true);
     });
-  });
-  it('should onClick is undefined', async () => {
-    const { container } = render(<Tag onClick={undefined} />);
-    fireEvent.click(container.querySelectorAll('.ant-tag')[0]);
-    waitRaf();
-    expect(document.querySelector('.ant-wave')).toBeFalsy();
   });
 });

@@ -1,12 +1,12 @@
-import { Button, Tooltip } from 'antd';
 import React from 'react';
+import { Button, Tooltip } from 'antd';
 
 const text = <span>prompt text</span>;
 
 const buttonWidth = 70;
 
 const App: React.FC = () => (
-  <div>
+  <div className="demo">
     <div style={{ marginLeft: buttonWidth, whiteSpace: 'nowrap' }}>
       <Tooltip placement="topLeft" title={text}>
         <Button>TL</Button>

@@ -24,3 +24,12 @@ Add or remove form items dynamically. `add` function support config initial valu
   opacity: 0.5;
 }
 ```
+
+<style>
+  [data-theme="dark"] .dynamic-delete-button {
+    color: rgba(255,255,255,.45);
+  }
+  [data-theme="dark"] .dynamic-delete-button:hover {
+    color: rgba(255,255,255,.65);
+  }
+</style>

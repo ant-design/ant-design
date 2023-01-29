@@ -12,14 +12,13 @@ exports[`renders ./components/transfer/demo/advanced.tsx extend context correctl
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
+        class="ant-checkbox-wrapper ant-transfer-list-checkbox"
       >
         <span
-          class="ant-checkbox ant-checkbox-disabled"
+          class="ant-checkbox"
         >
           <input
             class="ant-checkbox-input"
-            disabled=""
             type="checkbox"
           />
           <span
@@ -388,14 +387,13 @@ exports[`renders ./components/transfer/demo/advanced.tsx extend context correctl
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
+        class="ant-checkbox-wrapper ant-transfer-list-checkbox"
       >
         <span
-          class="ant-checkbox ant-checkbox-disabled"
+          class="ant-checkbox"
         >
           <input
             class="ant-checkbox-input"
-            disabled=""
             type="checkbox"
           />
           <span
@@ -1656,14 +1654,13 @@ exports[`renders ./components/transfer/demo/custom-item.tsx extend context corre
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
+        class="ant-checkbox-wrapper ant-transfer-list-checkbox"
       >
         <span
-          class="ant-checkbox ant-checkbox-disabled"
+          class="ant-checkbox"
         >
           <input
             class="ant-checkbox-input"
-            disabled=""
             type="checkbox"
           />
           <span
@@ -1947,14 +1944,13 @@ exports[`renders ./components/transfer/demo/custom-item.tsx extend context corre
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
+        class="ant-checkbox-wrapper ant-transfer-list-checkbox"
       >
         <span
-          class="ant-checkbox ant-checkbox-disabled"
+          class="ant-checkbox"
         >
           <input
             class="ant-checkbox-input"
-            disabled=""
             type="checkbox"
           />
           <span
@@ -4469,14 +4465,13 @@ exports[`renders ./components/transfer/demo/search.tsx extend context correctly 
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
+        class="ant-checkbox-wrapper ant-transfer-list-checkbox"
       >
         <span
-          class="ant-checkbox ant-checkbox-disabled"
+          class="ant-checkbox"
         >
           <input
             class="ant-checkbox-input"
-            disabled=""
             type="checkbox"
           />
           <span
@@ -4825,14 +4820,13 @@ exports[`renders ./components/transfer/demo/search.tsx extend context correctly 
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
+        class="ant-checkbox-wrapper ant-transfer-list-checkbox"
       >
         <span
-          class="ant-checkbox ant-checkbox-disabled"
+          class="ant-checkbox"
         >
           <input
             class="ant-checkbox-input"
-            disabled=""
             type="checkbox"
           />
           <span
@@ -5141,14 +5135,13 @@ exports[`renders ./components/transfer/demo/status.tsx extend context correctly 
           class="ant-transfer-list-header"
         >
           <label
-            class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
           >
             <span
-              class="ant-checkbox ant-checkbox-disabled"
+              class="ant-checkbox"
             >
               <input
                 class="ant-checkbox-input"
-                disabled=""
                 type="checkbox"
               />
               <span
@@ -5431,14 +5424,13 @@ exports[`renders ./components/transfer/demo/status.tsx extend context correctly 
           class="ant-transfer-list-header"
         >
           <label
-            class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
           >
             <span
-              class="ant-checkbox ant-checkbox-disabled"
+              class="ant-checkbox"
             >
               <input
                 class="ant-checkbox-input"
-                disabled=""
                 type="checkbox"
               />
               <span
@@ -5675,14 +5667,13 @@ exports[`renders ./components/transfer/demo/status.tsx extend context correctly 
           class="ant-transfer-list-header"
         >
           <label
-            class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
           >
             <span
-              class="ant-checkbox ant-checkbox-disabled"
+              class="ant-checkbox"
             >
               <input
                 class="ant-checkbox-input"
-                disabled=""
                 type="checkbox"
               />
               <span
@@ -6031,14 +6022,13 @@ exports[`renders ./components/transfer/demo/status.tsx extend context correctly 
           class="ant-transfer-list-header"
         >
           <label
-            class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
           >
             <span
-              class="ant-checkbox ant-checkbox-disabled"
+              class="ant-checkbox"
             >
               <input
                 class="ant-checkbox-input"
-                disabled=""
                 type="checkbox"
               />
               <span
@@ -7708,68 +7698,56 @@ Array [
       </div>
     </div>
   </div>,
-  <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
+  <button
+    aria-checked="false"
+    class="ant-switch"
+    role="switch"
     style="margin-top:16px"
+    type="button"
   >
     <div
-      class="ant-space-item"
-      style="margin-right:8px"
+      class="ant-switch-handle"
+    />
+    <span
+      class="ant-switch-inner"
     >
-      <button
-        aria-checked="false"
-        class="ant-switch"
-        role="switch"
-        type="button"
+      <span
+        class="ant-switch-inner-checked"
       >
-        <div
-          class="ant-switch-handle"
-        />
-        <span
-          class="ant-switch-inner"
-        >
-          <span
-            class="ant-switch-inner-checked"
-          >
-            disabled
-          </span>
-          <span
-            class="ant-switch-inner-unchecked"
-          >
-            disabled
-          </span>
-        </span>
-      </button>
-    </div>
+        disabled
+      </span>
+      <span
+        class="ant-switch-inner-unchecked"
+      >
+        disabled
+      </span>
+    </span>
+  </button>,
+  <button
+    aria-checked="false"
+    class="ant-switch"
+    role="switch"
+    style="margin-top:16px"
+    type="button"
+  >
     <div
-      class="ant-space-item"
+      class="ant-switch-handle"
+    />
+    <span
+      class="ant-switch-inner"
     >
-      <button
-        aria-checked="false"
-        class="ant-switch"
-        role="switch"
-        type="button"
+      <span
+        class="ant-switch-inner-checked"
       >
-        <div
-          class="ant-switch-handle"
-        />
-        <span
-          class="ant-switch-inner"
-        >
-          <span
-            class="ant-switch-inner-checked"
-          >
-            showSearch
-          </span>
-          <span
-            class="ant-switch-inner-unchecked"
-          >
-            showSearch
-          </span>
-        </span>
-      </button>
-    </div>
-  </div>,
+        showSearch
+      </span>
+      <span
+        class="ant-switch-inner-unchecked"
+      >
+        showSearch
+      </span>
+    </span>
+  </button>,
 ]
 `;
 

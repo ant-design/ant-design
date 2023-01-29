@@ -10,4 +10,8 @@ Set a node as an icon or other custom element.
 .timeline-clock-icon {
   font-size: 16px;
 }
+
+[data-theme='compact'] .timeline-clock-icon {
+  font-size: 14px;
+}
 ```

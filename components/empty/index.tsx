@@ -86,8 +86,4 @@ const Empty: CompoundedComponent = ({
 Empty.PRESENTED_IMAGE_DEFAULT = defaultEmptyImg;
 Empty.PRESENTED_IMAGE_SIMPLE = simpleEmptyImg;
 
-if (process.env.NODE_ENV !== 'production') {
-  Empty.displayName = 'Empty';
-}
-
 export default Empty;

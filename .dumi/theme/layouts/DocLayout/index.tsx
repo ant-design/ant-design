@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useLayoutEffect, useMemo, useRef } from 'react';
 import 'dayjs/locale/zh-cn';
 import dayjs from 'dayjs';
-import { Helmet, useOutlet, useSiteData } from 'dumi';
+import { Helmet, useOutlet } from 'dumi';
 import '../../static/style';
 import ConfigProvider from 'antd/es/config-provider';
 import classNames from 'classnames';
@@ -30,11 +30,10 @@ const locales = {
 const DocLayout: React.FC = () => {
   const outlet = useOutlet();
   const location = useLocation();
-  const { pathname, search, hash } = location;
+  const { pathname, search } = location;
   const [locale, lang] = useLocale(locales);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
   const { direction } = useContext(SiteContext);
-  const { loading } = useSiteData();
 
   useLayoutEffect(() => {
     if (lang === 'cn') {
@@ -52,13 +51,6 @@ const DocLayout: React.FC = () => {
       }, 0);
     }
   }, []);
-
-  // handle hash change or visit page hash from Link component, and jump after async chunk loaded
-  useEffect(() => {
-    const id = hash.replace('#', '');
-
-    if (id) document.getElementById(decodeURIComponent(id))?.scrollIntoView();
-  }, [loading, hash]);
 
   React.useEffect(() => {
     if (typeof (window as any).ga !== 'undefined') {
@@ -111,7 +103,7 @@ const DocLayout: React.FC = () => {
           content="https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png"
         />
       </Helmet>
-      <ConfigProvider direction={direction} locale={lang === 'cn' ? zhCN : undefined}>
+      <ConfigProvider locale={lang === 'cn' ? zhCN : undefined}>
         <GlobalStyles />
         <Header />
         {content}

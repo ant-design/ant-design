@@ -16,10 +16,10 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*VXtCTp93KPAAAAAAAA
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">典型卡片</code>
-<code src="./demo/border-less.tsx" background="grey">无边框</code>
+<code src="./demo/border-less.tsx">无边框</code>
 <code src="./demo/simple.tsx">简洁卡片</code>
 <code src="./demo/flexible-content.tsx">更灵活的内容展示</code>
-<code src="./demo/in-column.tsx" background="grey">栅格卡片</code>
+<code src="./demo/in-column.tsx">栅格卡片</code>
 <code src="./demo/loading.tsx">预加载的卡片</code>
 <code src="./demo/grid-card.tsx">网格型内嵌卡片</code>
 <code src="./demo/inner.tsx">内部卡片</code>
@@ -49,7 +49,7 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*VXtCTp93KPAAAAAAAA
 | size | card 的尺寸 | `default` \| `small` | `default` |  |
 | tabBarExtraContent | tab bar 上额外的元素 | ReactNode | - |  |
 | tabList | 页签标题列表 | Array&lt;{key: string, tab: ReactNode}> | - |  |
-| tabProps | [Tabs](/components/tabs-cn#tabs) | - | - |  |
+| tabProps | [Tabs](/components/tabs-cn#Tabs) | - | - |  |
 | title | 卡片标题 | ReactNode | - |  |
 | type | 卡片类型，可设置为 `inner` 或 不设置 | string | - |  |
 | onTabChange | 页签切换的回调 | (key) => void | - |  |

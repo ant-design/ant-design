@@ -10,8 +10,7 @@ import { resetWarned } from '../../_util/warning';
 
 const { defaultAlgorithm, darkAlgorithm, compactAlgorithm } = theme;
 
-// eslint-disable-next-line no-var
-var mockCanUseDom = true;
+let mockCanUseDom = true;
 
 jest.mock('rc-util/lib/Dom/canUseDom', () => () => mockCanUseDom);
 

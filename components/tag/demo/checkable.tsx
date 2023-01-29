@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Space, Tag } from 'antd';
+import { Tag } from 'antd';
 
 const { CheckableTag } = Tag;
 
@@ -19,17 +19,15 @@ const App: React.FC = () => {
   return (
     <>
       <span style={{ marginRight: 8 }}>Categories:</span>
-      <Space size={[0, 8]} wrap>
-        {tagsData.map((tag) => (
-          <CheckableTag
-            key={tag}
-            checked={selectedTags.includes(tag)}
-            onChange={(checked) => handleChange(tag, checked)}
-          >
-            {tag}
-          </CheckableTag>
-        ))}
-      </Space>
+      {tagsData.map((tag) => (
+        <CheckableTag
+          key={tag}
+          checked={selectedTags.indexOf(tag) > -1}
+          onChange={(checked) => handleChange(tag, checked)}
+        >
+          {tag}
+        </CheckableTag>
+      ))}
     </>
   );
 };

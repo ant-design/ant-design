@@ -1,6 +1,6 @@
 ## zh-CN
 
-调试使用
+Debug usage
 
 ## en-US
 

@@ -29,9 +29,7 @@ title: 消息与反馈
 
 #### 留在原地
 
-<ImagePreview>
-<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*qQ8NTKMH-2IAAAAAAAAAAABkARQnAQ">
-</ImagePreview>
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*qQ8NTKMH-2IAAAAAAAAAAABkARQnAQ">
 
 **对话框 Modal**
 
@@ -39,9 +37,7 @@ title: 消息与反馈
 
 ####
 
-<ImagePreview>
-<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*NPVGQr6f5-4AAAAAAAAAAABkARQnAQ">
-</ImagePreview>
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*NPVGQr6f5-4AAAAAAAAAAABkARQnAQ">
 
 **全局提示 Message**
 
@@ -49,9 +45,7 @@ title: 消息与反馈
 
 #### 跳转
 
-<ImagePreview>
-<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*0EdyRa7WeUAAAAAAAAAAAABkARQnAQ">
-</ImagePreview>
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*0EdyRa7WeUAAAAAAAAAAAABkARQnAQ">
 
 **独占式 Inline Text & Illustration**
 
@@ -60,9 +54,7 @@ title: 消息与反馈
 
 ####
 
-<ImagePreview>
-<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*524fSKE97wYAAAAAAAAAAABkARQnAQ">
-</ImagePreview>
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*524fSKE97wYAAAAAAAAAAABkARQnAQ">
 
 **全局提示 Message**
 
@@ -72,9 +64,7 @@ title: 消息与反馈
 
 #### 留在原地
 
-<ImagePreview>
-<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*S03WS5uHqDsAAAAAAAAAAABkARQnAQ">
-</ImagePreview>
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*S03WS5uHqDsAAAAAAAAAAABkARQnAQ">
 
 **对话框 Model**
 
@@ -82,9 +72,7 @@ title: 消息与反馈
 
 ####
 
-<ImagePreview>
-<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*4sHLQowCs6IAAAAAAAAAAABkARQnAQ">
-</ImagePreview>
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*4sHLQowCs6IAAAAAAAAAAABkARQnAQ">
 
 **警告提示 Alert**
 
@@ -92,9 +80,7 @@ title: 消息与反馈
 
 ####
 
-<ImagePreview>
-<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Qg51Sq2A_M4AAAAAAAAAAABkARQnAQ">
-</ImagePreview>
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Qg51Sq2A_M4AAAAAAAAAAABkARQnAQ">
 
 **表单校验提示**
 
@@ -104,9 +90,7 @@ title: 消息与反馈
 
 ####
 
-<ImagePreview>
-<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*QeWqTIWqrWEAAAAAAAAAAABkARQnAQ">
-</ImagePreview>
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*QeWqTIWqrWEAAAAAAAAAAABkARQnAQ">
 
 **通知提醒框 Notification**
 
@@ -115,9 +99,7 @@ title: 消息与反馈
 
 #### 跳转
 
-<ImagePreview>
-<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*7ES2TrY6UJgAAAAAAAAAAABkARQnAQ">
-</ImagePreview>
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*7ES2TrY6UJgAAAAAAAAAAABkARQnAQ">
 
 **独占式 Inline Text & Illustration**
 
@@ -126,9 +108,7 @@ title: 消息与反馈
 
 ### 后台操作
 
-<ImagePreview>
-<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*owL_SK1xmggAAAAAAAAAAABkARQnAQ">
-</ImagePreview>
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*owL_SK1xmggAAAAAAAAAAABkARQnAQ">
 
 **通知提醒框 Notification**
 
@@ -137,9 +117,7 @@ title: 消息与反馈
 
 ####
 
-<ImagePreview>
-<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*IGpqRbPGZxQAAAAAAAAAAABkARQnAQ">
-</ImagePreview>
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*IGpqRbPGZxQAAAAAAAAAAABkARQnAQ">
 
 **通知中心**
 

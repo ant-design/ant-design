@@ -21,4 +21,8 @@ Table with editable cells. When work with `shouldCellUpdate`, please take care o
   border: 1px solid #d9d9d9;
   border-radius: 2px;
 }
+
+[data-theme='dark'] .editable-row:hover .editable-cell-value-wrap {
+  border: 1px solid #434343;
+}
 ```

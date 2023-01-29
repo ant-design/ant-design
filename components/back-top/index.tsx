@@ -1,6 +1,7 @@
 import VerticalAlignTopOutlined from '@ant-design/icons/VerticalAlignTopOutlined';
 import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
+import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
 import type { ConfigConsumerProps } from '../config-provider';
@@ -35,6 +36,7 @@ const BackTop: React.FC<BackTopProps> = (props) => {
   const [visible, setVisible] = React.useState<boolean>(visibilityHeight === 0);
 
   const ref = React.useRef<HTMLDivElement>(null);
+  const scrollEvent = React.useRef<ReturnType<typeof addEventListener> | null>(null);
 
   const getDefaultTarget = (): HTMLElement | Document | Window =>
     ref.current && ref.current.ownerDocument ? ref.current.ownerDocument : window;
@@ -46,18 +48,22 @@ const BackTop: React.FC<BackTopProps> = (props) => {
     },
   );
 
+  const bindScrollEvent = () => {
+    const getTarget = target || getDefaultTarget;
+    const container = getTarget();
+    scrollEvent.current = addEventListener(container, 'scroll', handleScroll);
+    handleScroll({ target: container });
+  };
+
   if (process.env.NODE_ENV !== 'production') {
     warning(false, 'BackTop', '`BackTop` is deprecated, please use `FloatButton.BackTop` instead.');
   }
 
   React.useEffect(() => {
-    const getTarget = target || getDefaultTarget;
-    const container = getTarget();
-    handleScroll({ target: container });
-    container?.addEventListener('scroll', handleScroll);
+    bindScrollEvent();
     return () => {
       handleScroll.cancel();
-      container?.removeEventListener('scroll', handleScroll);
+      scrollEvent.current?.remove();
     };
   }, [target]);
 
@@ -110,9 +116,5 @@ const BackTop: React.FC<BackTopProps> = (props) => {
     </div>,
   );
 };
-
-if (process.env.NODE_ENV !== 'production') {
-  BackTop.displayName = 'BackTop';
-}
 
 export default React.memo(BackTop);

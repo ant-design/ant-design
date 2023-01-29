@@ -24,3 +24,9 @@ Used together with `react-router@6+`.
   margin-top: 16px;
 }
 ```
+
+<style>
+  [data-theme="dark"] .demo-nav {
+    background: #141414;
+  }
+</style>

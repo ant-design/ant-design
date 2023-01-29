@@ -1,8 +1,7 @@
-import { Button, Popover } from 'antd';
 import React from 'react';
+import { Button, Popover } from 'antd';
 
 const text = <span>Title</span>;
-
 const content = (
   <div>
     <p>Content</p>
@@ -13,7 +12,7 @@ const content = (
 const buttonWidth = 70;
 
 const App: React.FC = () => (
-  <div>
+  <div className="demo">
     <div style={{ marginLeft: buttonWidth, whiteSpace: 'nowrap' }}>
       <Popover placement="topLeft" title={text} content={content} trigger="click">
         <Button>TL</Button>

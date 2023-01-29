@@ -99,16 +99,14 @@ getTwoToneColor(); // #eb2f96
 
 在 `3.9.0` 之后，我们提供了一个 `createFromIconfontCN` 方法，方便开发者调用在 [iconfont.cn](http://iconfont.cn/) 上自行管理的图标。
 
-```jsx
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+```js
 import { createFromIconfontCN } from '@ant-design/icons';
 
 const MyIcon = createFromIconfontCN({
   scriptUrl: '//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js', // 在 iconfont.cn 上生成
 });
 
-ReactDOM.createRoot(mountNode).render(<MyIcon type="icon-example" />);
+ReactDOM.render(<MyIcon type="icon-example" />, mountedNode);
 ```
 
 其本质上是创建了一个使用 `<use>` 标签来渲染图标的组件。
@@ -130,8 +128,7 @@ options 的配置项如下：
 
 ```js
 // webpack.config.js
-module.exports = {
-  // ... other config
+{
   test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
   use: [
     {
@@ -145,18 +142,16 @@ module.exports = {
       },
     },
   ],
-};
+}
 ```
 
 ```jsx
-import React from 'react';
-import ReactDOM from 'react-dom/client';
 import Icon from '@ant-design/icons';
-import MessageSvg from 'path/to/message.svg'; // 你的 '*.svg' 文件路径
+import MessageSvg from 'path/to/message.svg'; // path to your '*.svg' file.
 // in create-react-app:
 // import { ReactComponent as MessageSvg } from 'path/to/message.svg';
 
-ReactDOM.createRoot(mountNode).render(<Icon component={MessageSvg} />);
+ReactDOM.render(<Icon component={MessageSvg} />, mountNode);
 ```
 
 `Icon` 中的 `component` 组件的接受的属性如下：

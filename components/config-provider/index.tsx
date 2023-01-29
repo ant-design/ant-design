@@ -29,7 +29,6 @@ export {
   type CSPConfig,
   type DirectionType,
   type ConfigConsumerProps,
-  type ThemeConfig,
 };
 export { defaultIconPrefixCls };
 
@@ -326,9 +325,5 @@ const ConfigProvider: React.FC<ConfigProviderProps> & {
 ConfigProvider.ConfigContext = ConfigContext;
 ConfigProvider.SizeContext = SizeContext;
 ConfigProvider.config = setGlobalConfig;
-
-if (process.env.NODE_ENV !== 'production') {
-  ConfigProvider.displayName = 'ConfigProvider';
-}
 
 export default ConfigProvider;

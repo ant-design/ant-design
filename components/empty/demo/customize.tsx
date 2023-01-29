@@ -4,7 +4,9 @@ import { Button, Empty } from 'antd';
 const App: React.FC = () => (
   <Empty
     image="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
-    imageStyle={{ height: 60 }}
+    imageStyle={{
+      height: 60,
+    }}
     description={
       <span>
         Customize <a href="#API">Description</a>

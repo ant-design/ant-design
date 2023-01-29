@@ -1,13 +1,14 @@
 // TODO: 4.0 - codemod should help to change `filterOption` to support node props.
+
 import classNames from 'classnames';
-import RcSelect, { OptGroup, Option } from 'rc-select';
-import type { SelectProps as RcSelectProps, BaseSelectRef } from 'rc-select';
+import type { SelectProps as RcSelectProps } from 'rc-select';
+import RcSelect, { type BaseSelectRef, OptGroup, Option } from 'rc-select';
 import type { OptionProps } from 'rc-select/lib/Option';
 import type { BaseOptionType, DefaultOptionType } from 'rc-select/lib/Select';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
-import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
+import defaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import DisabledContext from '../config-provider/DisabledContext';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
@@ -134,7 +135,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
   } else if (mode === 'combobox') {
     mergedNotFound = null;
   } else {
-    mergedNotFound = renderEmpty?.('Select') || <DefaultRenderEmpty componentName="Select" />;
+    mergedNotFound = (renderEmpty || defaultRenderEmpty)('Select');
   }
 
   // ===================== Icons =====================
@@ -228,10 +229,6 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     />,
   );
 };
-
-if (process.env.NODE_ENV !== 'production') {
-  InternalSelect.displayName = 'Select';
-}
 
 const Select = React.forwardRef(InternalSelect) as unknown as (<
   ValueType = any,

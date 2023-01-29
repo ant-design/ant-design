@@ -11,9 +11,11 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
     componentCls,
     colorItemText,
     colorItemTextSelected,
+    colorItemTextSelectedHorizontal,
     colorGroupTitle,
     colorItemBg,
     colorSubItemBg,
+    colorItemBgSelectedHorizontal,
     colorItemBgSelected,
     colorActiveBarHeight,
     colorActiveBarWidth,
@@ -39,10 +41,6 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
 
     colorItemBgHover,
     menuSubMenuBg,
-
-    // Horizontal
-    colorItemTextSelectedHorizontal,
-    colorItemBgSelectedHorizontal,
   } = token;
 
   return {
@@ -87,7 +85,6 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
             backgroundColor: colorItemBgSelected,
           },
         },
-
         [`${componentCls}-submenu-title`]: {
           '&:hover': {
             backgroundColor: colorItemBgHover,
@@ -133,7 +130,7 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
         },
       },
 
-      [`& ${componentCls}-item-selected`]: {
+      [`&:not(${componentCls}-horizontal) ${componentCls}-item-selected`]: {
         backgroundColor: colorItemBgSelected,
 
         // Danger
@@ -168,7 +165,7 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
           top: colorActiveBarBorderSize,
           marginTop: -colorActiveBarBorderSize,
           marginBottom: 0,
-          borderRadius: 0,
+          borderRadius: token.radiusItem,
 
           '&::after': {
             position: 'absolute',
@@ -181,7 +178,7 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
 
           [`&:hover, &-active, &-open`]: {
             '&::after': {
-              borderBottomWidth: colorActiveBarHeight,
+              borderWidth: `${colorActiveBarHeight}px`,
               borderBottomColor: colorItemTextSelectedHorizontal,
             },
           },
@@ -189,7 +186,7 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
             color: colorItemTextSelectedHorizontal,
             backgroundColor: colorItemBgSelectedHorizontal,
             '&::after': {
-              borderBottomWidth: colorActiveBarHeight,
+              borderWidth: `${colorActiveBarHeight}px`,
               borderBottomColor: colorItemTextSelectedHorizontal,
             },
           },

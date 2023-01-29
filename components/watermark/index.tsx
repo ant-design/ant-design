@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
-import MutateObserver from '@rc-component/mutate-observer';
-import { getStyleStr, getPixelRatio, rotateWatermark, reRendering } from './utils';
+import useMutationObserver from './useMutationObserver';
+import { getStyleStr, getPixelRatio, rotateWatermark } from './utils';
 
 /**
  * Base size of the canvas, 1 for parallel layout and 2 for alternate layout
@@ -96,7 +96,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
 
   const containerRef = useRef<HTMLDivElement>(null);
   const watermarkRef = useRef<HTMLDivElement>();
-  const stopObservation = useRef(false);
+  const { createObserver, destroyObserver, reRendering } = useMutationObserver();
 
   const destroyWatermark = () => {
     if (watermarkRef.current) {
@@ -107,7 +107,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
 
   const appendWatermark = (base64Url: string, markWidth: number) => {
     if (containerRef.current && watermarkRef.current) {
-      stopObservation.current = true;
+      destroyObserver();
       watermarkRef.current.setAttribute(
         'style',
         getStyleStr({
@@ -117,9 +117,14 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
         }),
       );
       containerRef.current?.append(watermarkRef.current);
-      // Delayed execution
-      setTimeout(() => {
-        stopObservation.current = false;
+      createObserver(containerRef.current, (mutations) => {
+        mutations.forEach((mutation) => {
+          if (reRendering(mutation, watermarkRef.current)) {
+            destroyWatermark();
+            // eslint-disable-next-line @typescript-eslint/no-use-before-define
+            renderWatermark();
+          }
+        });
       });
     }
   };
@@ -216,18 +221,6 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
     }
   };
 
-  const onMutate = (mutations: MutationRecord[]) => {
-    if (stopObservation.current) {
-      return;
-    }
-    mutations.forEach((mutation) => {
-      if (reRendering(mutation, watermarkRef.current)) {
-        destroyWatermark();
-        renderWatermark();
-      }
-    });
-  };
-
   useEffect(renderWatermark, [
     rotate,
     zIndex,
@@ -247,16 +240,10 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
   ]);
 
   return (
-    <MutateObserver onMutate={onMutate}>
-      <div ref={containerRef} className={className} style={{ position: 'relative', ...style }}>
-        {children}
-      </div>
-    </MutateObserver>
+    <div ref={containerRef} className={className} style={{ position: 'relative', ...style }}>
+      {children}
+    </div>
   );
 };
-
-if (process.env.NODE_ENV !== 'production') {
-  Watermark.displayName = 'Watermark';
-}
 
 export default Watermark;

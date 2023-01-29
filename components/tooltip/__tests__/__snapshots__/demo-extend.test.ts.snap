@@ -1,83 +1,72 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/tooltip/demo/arrow-point-at-center.tsx extend context correctly 1`] = `
-<div
-  class="ant-space ant-space-vertical"
->
-  <div
-    class="ant-space-item"
-    style="margin-bottom:8px"
+Array [
+  <button
+    class="ant-btn ant-btn-default"
+    type="button"
   >
-    <button
-      class="ant-btn ant-btn-default"
-      type="button"
+    <span>
+      Align edge / 边缘对齐
+    </span>
+  </button>,
+  <div>
+    <div
+      class="ant-tooltip"
+      style="opacity:0"
     >
-      <span>
-        Align edge / 边缘对齐
-      </span>
-    </button>
-    <div>
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-arrow"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            Prompt Text
-          </div>
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          Prompt Text
         </div>
       </div>
     </div>
-  </div>
-  <div
-    class="ant-space-item"
+  </div>,
+  <button
+    class="ant-btn ant-btn-default"
+    type="button"
   >
-    <button
-      class="ant-btn ant-btn-default"
-      type="button"
+    <span>
+      Arrow points to center / 箭头指向中心
+    </span>
+  </button>,
+  <div>
+    <div
+      class="ant-tooltip"
+      style="opacity:0"
     >
-      <span>
-        Arrow points to center / 箭头指向中心
-      </span>
-    </button>
-    <div>
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-arrow"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            Prompt Text
-          </div>
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          Prompt Text
         </div>
       </div>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/tooltip/demo/auto-adjust-overflow.tsx extend context correctly 1`] = `
@@ -196,487 +185,419 @@ Array [
       Presets
     </span>
   </div>,
-  <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
-    style="flex-wrap:wrap;margin-bottom:-8px"
-  >
-    <div
-      class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
+  <div>
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
     >
-      <button
-        class="ant-btn ant-btn-default"
-        type="button"
+      <span>
+        pink
+      </span>
+    </button>
+    <div>
+      <div
+        class="ant-tooltip ant-tooltip-pink"
+        style="opacity:0"
       >
-        <span>
-          pink
-        </span>
-      </button>
-      <div>
         <div
-          class="ant-tooltip ant-tooltip-pink"
-          style="opacity:0"
+          class="ant-tooltip-content"
         >
           <div
-            class="ant-tooltip-content"
+            class="ant-tooltip-arrow"
           >
-            <div
-              class="ant-tooltip-arrow"
-            >
-              <span
-                class="ant-tooltip-arrow-content"
-              />
-            </div>
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            >
-              prompt text
-            </div>
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            prompt text
           </div>
         </div>
       </div>
     </div>
-    <div
-      class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
     >
-      <button
-        class="ant-btn ant-btn-default"
-        type="button"
+      <span>
+        red
+      </span>
+    </button>
+    <div>
+      <div
+        class="ant-tooltip ant-tooltip-red"
+        style="opacity:0"
       >
-        <span>
-          red
-        </span>
-      </button>
-      <div>
         <div
-          class="ant-tooltip ant-tooltip-red"
-          style="opacity:0"
+          class="ant-tooltip-content"
         >
           <div
-            class="ant-tooltip-content"
+            class="ant-tooltip-arrow"
           >
-            <div
-              class="ant-tooltip-arrow"
-            >
-              <span
-                class="ant-tooltip-arrow-content"
-              />
-            </div>
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            >
-              prompt text
-            </div>
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            prompt text
           </div>
         </div>
       </div>
     </div>
-    <div
-      class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
     >
-      <button
-        class="ant-btn ant-btn-default"
-        type="button"
+      <span>
+        yellow
+      </span>
+    </button>
+    <div>
+      <div
+        class="ant-tooltip ant-tooltip-yellow"
+        style="opacity:0"
       >
-        <span>
-          yellow
-        </span>
-      </button>
-      <div>
         <div
-          class="ant-tooltip ant-tooltip-yellow"
-          style="opacity:0"
+          class="ant-tooltip-content"
         >
           <div
-            class="ant-tooltip-content"
+            class="ant-tooltip-arrow"
           >
-            <div
-              class="ant-tooltip-arrow"
-            >
-              <span
-                class="ant-tooltip-arrow-content"
-              />
-            </div>
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            >
-              prompt text
-            </div>
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            prompt text
           </div>
         </div>
       </div>
     </div>
-    <div
-      class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
     >
-      <button
-        class="ant-btn ant-btn-default"
-        type="button"
+      <span>
+        orange
+      </span>
+    </button>
+    <div>
+      <div
+        class="ant-tooltip ant-tooltip-orange"
+        style="opacity:0"
       >
-        <span>
-          orange
-        </span>
-      </button>
-      <div>
         <div
-          class="ant-tooltip ant-tooltip-orange"
-          style="opacity:0"
+          class="ant-tooltip-content"
         >
           <div
-            class="ant-tooltip-content"
+            class="ant-tooltip-arrow"
           >
-            <div
-              class="ant-tooltip-arrow"
-            >
-              <span
-                class="ant-tooltip-arrow-content"
-              />
-            </div>
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            >
-              prompt text
-            </div>
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            prompt text
           </div>
         </div>
       </div>
     </div>
-    <div
-      class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
     >
-      <button
-        class="ant-btn ant-btn-default"
-        type="button"
+      <span>
+        cyan
+      </span>
+    </button>
+    <div>
+      <div
+        class="ant-tooltip ant-tooltip-cyan"
+        style="opacity:0"
       >
-        <span>
-          cyan
-        </span>
-      </button>
-      <div>
         <div
-          class="ant-tooltip ant-tooltip-cyan"
-          style="opacity:0"
+          class="ant-tooltip-content"
         >
           <div
-            class="ant-tooltip-content"
+            class="ant-tooltip-arrow"
           >
-            <div
-              class="ant-tooltip-arrow"
-            >
-              <span
-                class="ant-tooltip-arrow-content"
-              />
-            </div>
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            >
-              prompt text
-            </div>
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            prompt text
           </div>
         </div>
       </div>
     </div>
-    <div
-      class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
     >
-      <button
-        class="ant-btn ant-btn-default"
-        type="button"
+      <span>
+        green
+      </span>
+    </button>
+    <div>
+      <div
+        class="ant-tooltip ant-tooltip-green"
+        style="opacity:0"
       >
-        <span>
-          green
-        </span>
-      </button>
-      <div>
         <div
-          class="ant-tooltip ant-tooltip-green"
-          style="opacity:0"
+          class="ant-tooltip-content"
         >
           <div
-            class="ant-tooltip-content"
+            class="ant-tooltip-arrow"
           >
-            <div
-              class="ant-tooltip-arrow"
-            >
-              <span
-                class="ant-tooltip-arrow-content"
-              />
-            </div>
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            >
-              prompt text
-            </div>
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            prompt text
           </div>
         </div>
       </div>
     </div>
-    <div
-      class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
     >
-      <button
-        class="ant-btn ant-btn-default"
-        type="button"
+      <span>
+        blue
+      </span>
+    </button>
+    <div>
+      <div
+        class="ant-tooltip ant-tooltip-blue"
+        style="opacity:0"
       >
-        <span>
-          blue
-        </span>
-      </button>
-      <div>
         <div
-          class="ant-tooltip ant-tooltip-blue"
-          style="opacity:0"
+          class="ant-tooltip-content"
         >
           <div
-            class="ant-tooltip-content"
+            class="ant-tooltip-arrow"
           >
-            <div
-              class="ant-tooltip-arrow"
-            >
-              <span
-                class="ant-tooltip-arrow-content"
-              />
-            </div>
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            >
-              prompt text
-            </div>
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            prompt text
           </div>
         </div>
       </div>
     </div>
-    <div
-      class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
     >
-      <button
-        class="ant-btn ant-btn-default"
-        type="button"
+      <span>
+        purple
+      </span>
+    </button>
+    <div>
+      <div
+        class="ant-tooltip ant-tooltip-purple"
+        style="opacity:0"
       >
-        <span>
-          purple
-        </span>
-      </button>
-      <div>
         <div
-          class="ant-tooltip ant-tooltip-purple"
-          style="opacity:0"
+          class="ant-tooltip-content"
         >
           <div
-            class="ant-tooltip-content"
+            class="ant-tooltip-arrow"
           >
-            <div
-              class="ant-tooltip-arrow"
-            >
-              <span
-                class="ant-tooltip-arrow-content"
-              />
-            </div>
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            >
-              prompt text
-            </div>
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            prompt text
           </div>
         </div>
       </div>
     </div>
-    <div
-      class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
     >
-      <button
-        class="ant-btn ant-btn-default"
-        type="button"
+      <span>
+        geekblue
+      </span>
+    </button>
+    <div>
+      <div
+        class="ant-tooltip ant-tooltip-geekblue"
+        style="opacity:0"
       >
-        <span>
-          geekblue
-        </span>
-      </button>
-      <div>
         <div
-          class="ant-tooltip ant-tooltip-geekblue"
-          style="opacity:0"
+          class="ant-tooltip-content"
         >
           <div
-            class="ant-tooltip-content"
+            class="ant-tooltip-arrow"
           >
-            <div
-              class="ant-tooltip-arrow"
-            >
-              <span
-                class="ant-tooltip-arrow-content"
-              />
-            </div>
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            >
-              prompt text
-            </div>
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            prompt text
           </div>
         </div>
       </div>
     </div>
-    <div
-      class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
     >
-      <button
-        class="ant-btn ant-btn-default"
-        type="button"
+      <span>
+        magenta
+      </span>
+    </button>
+    <div>
+      <div
+        class="ant-tooltip ant-tooltip-magenta"
+        style="opacity:0"
       >
-        <span>
-          magenta
-        </span>
-      </button>
-      <div>
         <div
-          class="ant-tooltip ant-tooltip-magenta"
-          style="opacity:0"
+          class="ant-tooltip-content"
         >
           <div
-            class="ant-tooltip-content"
+            class="ant-tooltip-arrow"
           >
-            <div
-              class="ant-tooltip-arrow"
-            >
-              <span
-                class="ant-tooltip-arrow-content"
-              />
-            </div>
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            >
-              prompt text
-            </div>
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            prompt text
           </div>
         </div>
       </div>
     </div>
-    <div
-      class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
     >
-      <button
-        class="ant-btn ant-btn-default"
-        type="button"
+      <span>
+        volcano
+      </span>
+    </button>
+    <div>
+      <div
+        class="ant-tooltip ant-tooltip-volcano"
+        style="opacity:0"
       >
-        <span>
-          volcano
-        </span>
-      </button>
-      <div>
         <div
-          class="ant-tooltip ant-tooltip-volcano"
-          style="opacity:0"
+          class="ant-tooltip-content"
         >
           <div
-            class="ant-tooltip-content"
+            class="ant-tooltip-arrow"
           >
-            <div
-              class="ant-tooltip-arrow"
-            >
-              <span
-                class="ant-tooltip-arrow-content"
-              />
-            </div>
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            >
-              prompt text
-            </div>
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            prompt text
           </div>
         </div>
       </div>
     </div>
-    <div
-      class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
     >
-      <button
-        class="ant-btn ant-btn-default"
-        type="button"
+      <span>
+        gold
+      </span>
+    </button>
+    <div>
+      <div
+        class="ant-tooltip ant-tooltip-gold"
+        style="opacity:0"
       >
-        <span>
-          gold
-        </span>
-      </button>
-      <div>
         <div
-          class="ant-tooltip ant-tooltip-gold"
-          style="opacity:0"
+          class="ant-tooltip-content"
         >
           <div
-            class="ant-tooltip-content"
+            class="ant-tooltip-arrow"
           >
-            <div
-              class="ant-tooltip-arrow"
-            >
-              <span
-                class="ant-tooltip-arrow-content"
-              />
-            </div>
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            >
-              prompt text
-            </div>
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            prompt text
           </div>
         </div>
       </div>
     </div>
-    <div
-      class="ant-space-item"
-      style="padding-bottom:8px"
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
     >
-      <button
-        class="ant-btn ant-btn-default"
-        type="button"
+      <span>
+        lime
+      </span>
+    </button>
+    <div>
+      <div
+        class="ant-tooltip ant-tooltip-lime"
+        style="opacity:0"
       >
-        <span>
-          lime
-        </span>
-      </button>
-      <div>
         <div
-          class="ant-tooltip ant-tooltip-lime"
-          style="opacity:0"
+          class="ant-tooltip-content"
         >
           <div
-            class="ant-tooltip-content"
+            class="ant-tooltip-arrow"
           >
-            <div
-              class="ant-tooltip-arrow"
-            >
-              <span
-                class="ant-tooltip-arrow-content"
-              />
-            </div>
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            >
-              prompt text
-            </div>
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            prompt text
           </div>
         </div>
       </div>
@@ -692,158 +613,135 @@ Array [
       Custom
     </span>
   </div>,
-  <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
-    style="flex-wrap:wrap;margin-bottom:-8px"
-  >
-    <div
-      class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
+  <div>
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
     >
-      <button
-        class="ant-btn ant-btn-default"
-        type="button"
+      <span>
+        #f50
+      </span>
+    </button>
+    <div>
+      <div
+        class="ant-tooltip"
+        style="opacity:0;--antd-arrow-background-color:#f50"
       >
-        <span>
-          #f50
-        </span>
-      </button>
-      <div>
         <div
-          class="ant-tooltip"
-          style="opacity:0;--antd-arrow-background-color:#f50"
+          class="ant-tooltip-content"
         >
           <div
-            class="ant-tooltip-content"
+            class="ant-tooltip-arrow"
           >
-            <div
-              class="ant-tooltip-arrow"
-            >
-              <span
-                class="ant-tooltip-arrow-content"
-              />
-            </div>
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-              style="background:#f50"
-            >
-              prompt text
-            </div>
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+            style="background:#f50"
+          >
+            prompt text
           </div>
         </div>
       </div>
     </div>
-    <div
-      class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
     >
-      <button
-        class="ant-btn ant-btn-default"
-        type="button"
+      <span>
+        #2db7f5
+      </span>
+    </button>
+    <div>
+      <div
+        class="ant-tooltip"
+        style="opacity:0;--antd-arrow-background-color:#2db7f5"
       >
-        <span>
-          #2db7f5
-        </span>
-      </button>
-      <div>
         <div
-          class="ant-tooltip"
-          style="opacity:0;--antd-arrow-background-color:#2db7f5"
+          class="ant-tooltip-content"
         >
           <div
-            class="ant-tooltip-content"
+            class="ant-tooltip-arrow"
           >
-            <div
-              class="ant-tooltip-arrow"
-            >
-              <span
-                class="ant-tooltip-arrow-content"
-              />
-            </div>
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-              style="background:#2db7f5"
-            >
-              prompt text
-            </div>
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+            style="background:#2db7f5"
+          >
+            prompt text
           </div>
         </div>
       </div>
     </div>
-    <div
-      class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
     >
-      <button
-        class="ant-btn ant-btn-default"
-        type="button"
+      <span>
+        #87d068
+      </span>
+    </button>
+    <div>
+      <div
+        class="ant-tooltip"
+        style="opacity:0;--antd-arrow-background-color:#87d068"
       >
-        <span>
-          #87d068
-        </span>
-      </button>
-      <div>
         <div
-          class="ant-tooltip"
-          style="opacity:0;--antd-arrow-background-color:#87d068"
+          class="ant-tooltip-content"
         >
           <div
-            class="ant-tooltip-content"
+            class="ant-tooltip-arrow"
           >
-            <div
-              class="ant-tooltip-arrow"
-            >
-              <span
-                class="ant-tooltip-arrow-content"
-              />
-            </div>
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-              style="background:#87d068"
-            >
-              prompt text
-            </div>
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+            style="background:#87d068"
+          >
+            prompt text
           </div>
         </div>
       </div>
     </div>
-    <div
-      class="ant-space-item"
-      style="padding-bottom:8px"
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
     >
-      <button
-        class="ant-btn ant-btn-default"
-        type="button"
+      <span>
+        #108ee9
+      </span>
+    </button>
+    <div>
+      <div
+        class="ant-tooltip"
+        style="opacity:0;--antd-arrow-background-color:#108ee9"
       >
-        <span>
-          #108ee9
-        </span>
-      </button>
-      <div>
         <div
-          class="ant-tooltip"
-          style="opacity:0;--antd-arrow-background-color:#108ee9"
+          class="ant-tooltip-content"
         >
           <div
-            class="ant-tooltip-content"
+            class="ant-tooltip-arrow"
           >
-            <div
-              class="ant-tooltip-arrow"
-            >
-              <span
-                class="ant-tooltip-arrow-content"
-              />
-            </div>
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-              style="background:#108ee9"
-            >
-              prompt text
-            </div>
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+            style="background:#108ee9"
+          >
+            prompt text
           </div>
         </div>
       </div>
@@ -885,7 +783,9 @@ Array [
 `;
 
 exports[`renders ./components/tooltip/demo/placement.tsx extend context correctly 1`] = `
-<div>
+<div
+  class="demo"
+>
   <div
     style="margin-left:70px;white-space:nowrap"
   >

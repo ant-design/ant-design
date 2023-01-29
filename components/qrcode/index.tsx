@@ -80,7 +80,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
               {status === 'loading' && <Spin />}
               {status === 'expired' && (
                 <>
-                  <p className={`${prefixCls}-expired`}>{locale.expired}</p>
+                  <p>{locale.expired}</p>
                   {typeof onRefresh === 'function' && (
                     <Button type="link" icon={<ReloadOutlined />} onClick={onRefresh}>
                       {locale.refresh}
@@ -96,9 +96,5 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     </LocaleReceiver>,
   );
 };
-
-if (process.env.NODE_ENV !== 'production') {
-  QRCode.displayName = 'QRCode';
-}
 
 export default QRCode;

@@ -5,9 +5,8 @@ import RcTreeSelect, { SHOW_ALL, SHOW_CHILD, SHOW_PARENT, TreeNode } from 'rc-tr
 import type { BaseOptionType, DefaultOptionType } from 'rc-tree-select/lib/TreeSelect';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
-import type { Placement } from 'rc-select/lib/BaseSelect';
 import { ConfigContext } from '../config-provider';
-import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
+import defaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import DisabledContext from '../config-provider/DisabledContext';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
@@ -161,7 +160,7 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
   if (notFoundContent !== undefined) {
     mergedNotFound = notFoundContent;
   } else {
-    mergedNotFound = renderEmpty?.('Select') || <DefaultRenderEmpty componentName="Select" />;
+    mergedNotFound = (renderEmpty || defaultRenderEmpty)('Select');
   }
 
   // ==================== Render =====================
@@ -174,11 +173,13 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
   ]);
 
   // ===================== Placement =====================
-  const getPlacement = (): Placement => {
+  const getPlacement = () => {
     if (placement !== undefined) {
       return placement;
     }
-    return direction === 'rtl' ? 'bottomRight' : 'bottomLeft';
+    return direction === 'rtl'
+      ? ('bottomRight' as SelectCommonPlacement)
+      : ('bottomLeft' as SelectCommonPlacement);
   };
 
   const mergedSize = compactSize || customizeSize || size;
@@ -222,7 +223,7 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
       removeIcon={removeIcon}
       clearIcon={clearIcon}
       switcherIcon={(nodeProps: AntTreeNodeProps) =>
-        renderSwitcherIcon(treePrefixCls, switcherIcon, nodeProps, treeLine)
+        renderSwitcherIcon(treePrefixCls, switcherIcon, treeLine, nodeProps)
       }
       showTreeIcon={treeIcon as any}
       notFoundContent={mergedNotFound}

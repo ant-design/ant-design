@@ -1,45 +1,22 @@
 import React from 'react';
 import mountTest from '../../../tests/shared/mountTest';
-import { render, fireEvent, getByText, waitFakeTimer, act } from '../../../tests/utils';
+import { render, waitFakeTimer, fireEvent, act } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 import Wave from '../wave';
-
-(global as any).isVisible = true;
-
-jest.mock('rc-util/lib/Dom/isVisible', () => {
-  const mockFn = () => (global as any).isVisible;
-  return mockFn;
-});
+import type { InternalWave } from '../wave';
 
 describe('Wave component', () => {
   mountTest(Wave);
 
-  let obCnt = 0;
-  let disCnt = 0;
-
   beforeAll(() => {
-    /* eslint-disable class-methods-use-this */
-    class FakeResizeObserver {
-      observe = () => {
-        obCnt += 1;
-      };
-
-      disconnect = () => {
-        disCnt += 1;
-      };
-    }
-
-    (window as any).ResizeObserver = FakeResizeObserver;
     jest.useFakeTimers();
   });
 
   afterAll(() => {
     jest.useRealTimers();
-    expect(obCnt).not.toBe(0);
-    expect(disCnt).not.toBe(0);
   });
 
   beforeEach(() => {
-    (global as any).isVisible = true;
     document.body.innerHTML = '';
   });
 
@@ -51,60 +28,46 @@ describe('Wave component', () => {
     }
   });
 
-  function getWaveStyle() {
-    const styleObj: Record<string, string> = {};
-    const { style } = document.querySelector<HTMLElement>('.ant-wave')!;
-    style.cssText.split(';').forEach((kv) => {
-      if (kv.trim()) {
-        const cells = kv.split(':');
-        styleObj[cells[0].trim()] = cells[1].trim();
-      }
-    });
-
-    return styleObj;
+  function filterStyles(styles: any) {
+    return Array.from<HTMLStyleElement>(styles).filter(
+      (style: HTMLStyleElement) => !style.hasAttribute('data-css-hash'),
+    );
   }
 
-  function waitRaf() {
-    act(() => {
-      jest.advanceTimersByTime(100);
-    });
-  }
-
-  it('work', async () => {
+  it('isHidden works', () => {
+    const TEST_NODE_ENV = process.env.NODE_ENV;
+    process.env.NODE_ENV = 'development';
     const { container, unmount } = render(
       <Wave>
         <button type="button">button</button>
       </Wave>,
     );
+    expect(container.querySelector('button')?.className).toBe('');
 
-    fireEvent.click(container.querySelector('button')!);
-    waitRaf();
-    expect(document.querySelector('.ant-wave')).toBeTruthy();
+    container.querySelector('button')?.click();
 
-    // Match deadline
-    await waitFakeTimer();
-
-    expect(document.querySelector('.ant-wave')).toBeFalsy();
-
+    expect(
+      container.querySelector('button')?.hasAttribute('ant-click-animating-without-extra-node'),
+    ).toBeFalsy();
     unmount();
+    process.env.NODE_ENV = TEST_NODE_ENV;
   });
 
-  it('invisible in screen', () => {
-    (global as any).isVisible = false;
+  it('isHidden is mocked', () => {
     const { container, unmount } = render(
       <Wave>
         <button type="button">button</button>
       </Wave>,
     );
-
-    fireEvent.click(container.querySelector('button')!);
-    waitRaf();
-    expect(document.querySelector('.ant-wave')).toBeFalsy();
-
+    expect(container.querySelector('button')?.className).toBe('');
+    container.querySelector('button')?.click();
+    expect(
+      container.querySelector('button')?.getAttribute('ant-click-animating-without-extra-node'),
+    ).toBe('false');
     unmount();
   });
 
-  it('wave color is grey', () => {
+  it('wave color is grey', async () => {
     const { container, unmount } = render(
       <Wave>
         <button
@@ -115,18 +78,17 @@ describe('Wave component', () => {
         </button>
       </Wave>,
     );
-
-    fireEvent.click(container.querySelector('button')!);
-    waitRaf();
-
-    const style = getWaveStyle();
-
-    expect(style['--wave-color']).toBeFalsy();
-
+    container.querySelector('button')?.click();
+    await waitFakeTimer();
+    let styles: HTMLCollectionOf<HTMLStyleElement> | HTMLStyleElement[] = (
+      container.querySelector('button')?.getRootNode() as HTMLButtonElement
+    ).getElementsByTagName('style');
+    styles = filterStyles(styles);
+    expect(styles.length).toBe(0);
     unmount();
   });
 
-  it('wave color is not grey', () => {
+  it('wave color is not grey', async () => {
     const { container, unmount } = render(
       <Wave>
         <button type="button" style={{ borderColor: 'red' }}>
@@ -134,65 +96,69 @@ describe('Wave component', () => {
         </button>
       </Wave>,
     );
-
-    fireEvent.click(container.querySelector('button')!);
-    waitRaf();
-
-    const style = getWaveStyle();
-    expect(style['--wave-color']).toEqual('red');
-
+    container.querySelector('button')?.click();
+    await waitFakeTimer();
+    let styles: HTMLCollectionOf<HTMLStyleElement> | HTMLStyleElement[] = (
+      container.querySelector('button')?.getRootNode() as HTMLButtonElement
+    ).getElementsByTagName('style');
+    styles = filterStyles(styles);
+    expect(styles.length).toBe(1);
+    expect(styles[0].innerHTML).toContain('--antd-wave-shadow-color: red;');
     unmount();
   });
 
-  it('read wave color from border-top-color', () => {
+  it('read wave color from border-top-color', async () => {
     const { container, unmount } = render(
       <Wave>
         <div style={{ borderTopColor: 'blue' }}>button</div>
       </Wave>,
     );
-
-    fireEvent.click(getByText(container, 'button')!);
-    waitRaf();
-
-    const style = getWaveStyle();
-    expect(style['--wave-color']).toEqual('blue');
-
+    container.querySelector('div')?.click();
+    await waitFakeTimer();
+    let styles: HTMLCollectionOf<HTMLStyleElement> | HTMLStyleElement[] = (
+      container.querySelector('div')?.getRootNode() as HTMLDivElement
+    ).getElementsByTagName('style');
+    styles = filterStyles(styles);
+    expect(styles.length).toBe(1);
+    expect(styles[0].innerHTML).toContain('--antd-wave-shadow-color: blue;');
     unmount();
   });
 
-  it('read wave color from background color', () => {
+  it('read wave color from background color', async () => {
     const { container, unmount } = render(
       <Wave>
         <div style={{ backgroundColor: 'green' }}>button</div>
       </Wave>,
     );
-
-    fireEvent.click(getByText(container, 'button')!);
-    waitRaf();
-
-    const style = getWaveStyle();
-    expect(style['--wave-color']).toEqual('green');
-
+    container.querySelector('div')?.click();
+    await waitFakeTimer();
+    let styles: HTMLCollectionOf<HTMLStyleElement> | HTMLStyleElement[] = (
+      container.querySelector('div')?.getRootNode() as HTMLDivElement
+    ).getElementsByTagName('style');
+    styles = filterStyles(styles);
+    expect(styles.length).toBe(1);
+    expect(styles[0].innerHTML).toContain('--antd-wave-shadow-color: green;');
     unmount();
   });
 
-  it('read wave color from border firstly', () => {
+  it('read wave color from border firstly', async () => {
     const { container, unmount } = render(
       <Wave>
         <div style={{ borderColor: 'yellow', backgroundColor: 'green' }}>button</div>
       </Wave>,
     );
-
-    fireEvent.click(getByText(container, 'button')!);
-    waitRaf();
-
-    const style = getWaveStyle();
-    expect(style['--wave-color']).toEqual('yellow');
-
+    container.querySelector('div')?.click();
+    await waitFakeTimer();
+    let styles: HTMLCollectionOf<HTMLStyleElement> | HTMLStyleElement[] = (
+      container.querySelector('div')?.getRootNode() as HTMLDivElement
+    ).getElementsByTagName('style');
+    styles = filterStyles(styles);
+    expect(styles.length).toBe(1);
+    expect(styles[0].innerHTML).toContain('--antd-wave-shadow-color: yellow;');
     unmount();
   });
 
-  it('hidden element with -leave className', () => {
+  it('hidden element with -leave className', async () => {
     const { container, unmount } = render(
       <Wave>
         <button type="button" className="xx-leave">
@@ -200,53 +166,66 @@ describe('Wave component', () => {
         </button>
       </Wave>,
     );
-
-    fireEvent.click(container.querySelector('button')!);
-    waitRaf();
-    expect(document.querySelector('.ant-wave')).toBeFalsy();
-
+    container.querySelector('button')?.click();
+    await waitFakeTimer();
+    let styles: HTMLCollectionOf<HTMLStyleElement> | HTMLStyleElement[] = (
+      container.querySelector('button')?.getRootNode() as HTMLButtonElement
+    ).getElementsByTagName('style');
+    styles = filterStyles(styles);
+    expect(styles.length).toBe(0);
     unmount();
   });
 
-  it('not show when disabled', () => {
-    const { container } = render(
-      <Wave>
+  it('ConfigProvider csp', async () => {
+    const { container, unmount } = render(
+      <ConfigProvider csp={{ nonce: 'YourNonceCode' }}>
+        <Wave>
+          <button type="button">button</button>
+        </Wave>
+      </ConfigProvider>,
+    );
+    container.querySelector('button')?.click();
+    await waitFakeTimer();
+    let styles: HTMLCollectionOf<HTMLStyleElement> | HTMLStyleElement[] = (
+      container.querySelector('button')?.getRootNode() as HTMLButtonElement
+    ).getElementsByTagName('style');
+    styles = filterStyles(styles);
+    expect(styles[0].getAttribute('nonce')).toBe('YourNonceCode');
+    unmount();
+  });
+
+  it('bindAnimationEvent should return when node is null', () => {
+    const ref = React.createRef<InternalWave>();
+    render(
+      <Wave ref={ref}>
         <button type="button" disabled>
           button
         </button>
       </Wave>,
     );
-
-    fireEvent.click(container.querySelector('button')!);
-    expect(document.querySelector('.ant-wave')).toBeFalsy();
+    expect(ref.current?.bindAnimationEvent()).toBe(undefined);
   });
 
-  it('not show when hidden', () => {
-    (global as any).isVisible = false;
-
-    const { container } = render(
-      <Wave>
+  it('bindAnimationEvent.onClick should return when children is hidden', () => {
+    const ref = React.createRef<InternalWave>();
+    render(
+      <Wave ref={ref}>
         <button type="button" style={{ display: 'none' }}>
           button
         </button>
       </Wave>,
     );
-
-    fireEvent.click(container.querySelector('button')!);
-    waitRaf();
-    expect(document.querySelector('.ant-wave')).toBeFalsy();
+    expect(ref.current?.bindAnimationEvent()).toBe(undefined);
   });
 
-  it('not show when is input', () => {
-    const { container } = render(
-      <Wave>
+  it('bindAnimationEvent.onClick should return when children is input', () => {
+    const ref = React.createRef<InternalWave>();
+    render(
+      <Wave ref={ref}>
         <input />
       </Wave>,
     );
-
-    fireEvent.click(container.querySelector('input')!);
-    waitRaf();
-    expect(document.querySelector('.ant-wave')).toBeFalsy();
+    expect(ref.current?.bindAnimationEvent()).toBe(undefined);
   });
 
   it('should not throw when click it', () => {
@@ -257,18 +236,14 @@ describe('Wave component', () => {
         </Wave>,
       );
       fireEvent.click(container);
-      waitRaf();
     }).not.toThrow();
   });
 
   it('should not throw when no children', () => {
-    expect(() => {
-      render(<Wave />);
-      waitRaf();
-    }).not.toThrow();
+    expect(() => render(<Wave />)).not.toThrow();
   });
 
-  it('wave color should inferred if border is transparent and background is not', () => {
+  it('wave color should inferred if border is transparent and background is not', async () => {
     const { container, unmount } = render(
       <Wave>
         <button type="button" style={{ borderColor: 'transparent', background: 'red' }}>
@@ -277,15 +252,17 @@ describe('Wave component', () => {
       </Wave>,
     );
     fireEvent.click(container.querySelector('button')!);
-    waitRaf();
-
-    const style = getWaveStyle();
-    expect(style['--wave-color']).toEqual('red');
-
+    await waitFakeTimer();
+    let styles = (container.querySelector('button')!.getRootNode() as any).getElementsByTagName(
+      'style',
+    );
+    styles = filterStyles(styles);
+    expect(styles.length).toBe(1);
+    expect(styles[0].innerHTML).toContain('--antd-wave-shadow-color: red;');
     unmount();
   });
 
-  it('wave color should inferred if borderTopColor is transparent and borderColor is not', () => {
+  it('wave color should inferred if borderTopColor is transparent and borderColor is not', async () => {
     const { container, unmount } = render(
       <Wave>
         <button type="button" style={{ borderColor: 'red', borderTopColor: 'transparent' }}>
@@ -293,17 +270,19 @@ describe('Wave component', () => {
         </button>
       </Wave>,
     );
-
     fireEvent.click(container.querySelector('button')!);
-    waitRaf();
+    await waitFakeTimer();
+    let styles = (container.querySelector('button')!.getRootNode() as any).getElementsByTagName(
+      'style',
+    );
+    styles = filterStyles(styles);
 
-    const style = getWaveStyle();
-    expect(style['--wave-color']).toEqual('red');
-
+    expect(styles[0].innerHTML).toContain('--antd-wave-shadow-color: red;');
     unmount();
   });
 
   it('Wave style should append to validate element', () => {
+    jest.useFakeTimers();
     const { container } = render(
       <Wave>
         <div className="bamboo" style={{ borderColor: 'red' }} />
@@ -316,13 +295,20 @@ describe('Wave component', () => {
     fakeDoc.appendChild(document.createElement('span'));
     expect(fakeDoc.childNodes).toHaveLength(2);
 
-    const elem = container.querySelector('.bamboo')!;
-    elem.getRootNode = () => fakeDoc;
+    const elem = container.querySelector('.bamboo');
 
-    // Click should not throw
-    fireEvent.click(elem);
-    waitRaf();
+    if (elem) {
+      elem.getRootNode = () => fakeDoc;
 
-    expect(container.querySelector('.ant-wave')).toBeTruthy();
+      // Click should not throw
+      fireEvent.click(elem);
+      act(() => {
+        jest.runAllTimers();
+      });
+
+      expect(fakeDoc.querySelector('style')).toBeTruthy();
+    }
+
+    jest.useRealTimers();
   });
 });

@@ -12,7 +12,6 @@ const formItemLayout = {
     sm: { span: 20 },
   },
 };
-
 const formItemLayoutWithOutLabel = {
   wrapperCol: {
     xs: { span: 24, offset: 0 },
@@ -26,12 +25,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <Form
-      name="dynamic_form_item"
-      {...formItemLayoutWithOutLabel}
-      onFinish={onFinish}
-      style={{ maxWidth: 600 }}
-    >
+    <Form name="dynamic_form_item" {...formItemLayoutWithOutLabel} onFinish={onFinish}>
       <Form.List
         name="names"
         rules={[

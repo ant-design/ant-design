@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Input, Typography } from 'antd';
-
-const { Paragraph } = Typography;
+import { Form, Input } from 'antd';
 
 interface FieldData {
   name: string | number | (string | number)[];
@@ -46,9 +44,7 @@ const App: React.FC = () => {
           setFields(newFields);
         }}
       />
-      <Paragraph style={{ maxWidth: 440, marginTop: 24 }}>
-        <pre style={{ border: 'none' }}>{JSON.stringify(fields, null, 2)}</pre>
-      </Paragraph>
+      <pre className="language-bash">{JSON.stringify(fields, null, 2)}</pre>
     </>
   );
 };

@@ -1,36 +1,27 @@
-import { Button, Modal } from 'antd';
 import React from 'react';
+import { Button, Modal } from 'antd';
 
-const App: React.FC = () => {
-  const [modal, contextHolder] = Modal.useModal();
+const countDown = () => {
+  let secondsToGo = 5;
 
-  const countDown = () => {
-    let secondsToGo = 5;
+  const modal = Modal.success({
+    title: 'This is a notification message',
+    content: `This modal will be destroyed after ${secondsToGo} second.`,
+  });
 
-    const instance = modal.success({
-      title: 'This is a notification message',
+  const timer = setInterval(() => {
+    secondsToGo -= 1;
+    modal.update({
       content: `This modal will be destroyed after ${secondsToGo} second.`,
     });
+  }, 1000);
 
-    const timer = setInterval(() => {
-      secondsToGo -= 1;
-      instance.update({
-        content: `This modal will be destroyed after ${secondsToGo} second.`,
-      });
-    }, 1000);
-
-    setTimeout(() => {
-      clearInterval(timer);
-      instance.destroy();
-    }, secondsToGo * 1000);
-  };
-
-  return (
-    <>
-      <Button onClick={countDown}>Open modal to close in 5s</Button>
-      {contextHolder}
-    </>
-  );
+  setTimeout(() => {
+    clearInterval(timer);
+    modal.destroy();
+  }, secondsToGo * 1000);
 };
+
+const App: React.FC = () => <Button onClick={countDown}>Open modal to close in 5s</Button>;
 
 export default App;

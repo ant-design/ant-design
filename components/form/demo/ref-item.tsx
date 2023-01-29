@@ -7,7 +7,7 @@ const App: React.FC = () => {
   const ref = React.useRef<InputRef>(null);
 
   return (
-    <Form form={form} initialValues={{ list: ['light'] }} style={{ maxWidth: 600 }}>
+    <Form form={form} initialValues={{ list: ['light'] }}>
       <Form.Item name="test" label="test">
         <Input ref={ref} />
       </Form.Item>

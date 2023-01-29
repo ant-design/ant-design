@@ -10,12 +10,6 @@ const App: React.FC = () => (
     <Button type="dashed" block>
       Dashed
     </Button>
-    <Button disabled block>
-      disabled
-    </Button>
-    <Button type="text" block>
-      text
-    </Button>
     <Button type="link" block>
       Link
     </Button>

@@ -1,2 +1,2 @@
-const destroyFns: Array<Function> = [];
+const destroyFns: Array<() => void> = [];
 export default destroyFns;

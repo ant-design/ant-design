@@ -7,7 +7,6 @@ const layout = {
   labelCol: { span: 8 },
   wrapperCol: { span: 16 },
 };
-
 const tailLayout = {
   wrapperCol: { offset: 8, span: 16 },
 };
@@ -89,7 +88,7 @@ const App: React.FC = () => {
         }
       }}
     >
-      <Form {...layout} name="basicForm" onFinish={onFinish} style={{ maxWidth: 600 }}>
+      <Form {...layout} name="basicForm" onFinish={onFinish}>
         <Form.Item name="group" label="Group Name" rules={[{ required: true }]}>
           <Input />
         </Form.Item>

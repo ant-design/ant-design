@@ -3,14 +3,13 @@ import CSSMotion from 'rc-motion';
 import * as React from 'react';
 import { useMemo, useRef } from 'react';
 import { ConfigContext } from '../config-provider';
-import type { PresetStatusColorType } from '../_util/colors';
+import type { PresetColorType, PresetStatusColorType } from '../_util/colors';
 import { cloneElement } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
 import Ribbon from './Ribbon';
 import ScrollNumber from './ScrollNumber';
 import useStyle from './style';
-import { isPresetColor } from '../_util/colors';
-import type { PresetColorKey } from '../theme/internal';
+import { isPresetColor } from './utils';
 
 export type { ScrollNumberProps } from './ScrollNumber';
 
@@ -31,7 +30,7 @@ export interface BadgeProps {
   scrollNumberPrefixCls?: string;
   className?: string;
   status?: PresetStatusColorType;
-  color?: LiteralUnion<PresetColorKey>;
+  color?: LiteralUnion<PresetColorType, string>;
   text?: React.ReactNode;
   size?: 'default' | 'small';
   offset?: [number | string, number | string];
@@ -145,18 +144,15 @@ const Badge: CompoundedComponent = ({
           },
         }));
 
-  // InternalColor
-  const isInternalColor = isPresetColor(color, false);
-
   // Shared styles
   const statusCls = classNames({
     [`${prefixCls}-status-dot`]: hasStatus,
     [`${prefixCls}-status-${status}`]: !!status,
-    [`${prefixCls}-status-${color}`]: isInternalColor,
+    [`${prefixCls}-status-${color}`]: isPresetColor(color),
   });
 
   const statusStyle: React.CSSProperties = {};
-  if (color && !isInternalColor) {
+  if (color && !isPresetColor(color)) {
     statusStyle.color = color;
     statusStyle.background = color;
   }
@@ -196,7 +192,7 @@ const Badge: CompoundedComponent = ({
         motionAppear={false}
         motionDeadline={1000}
       >
-        {({ className: motionClassName, ref }) => {
+        {({ className: motionClassName }) => {
           const scrollNumberPrefixCls = getPrefixCls(
             'scroll-number',
             customizeScrollNumberPrefixCls,
@@ -211,11 +207,11 @@ const Badge: CompoundedComponent = ({
             [`${prefixCls}-multiple-words`]:
               !isDot && displayCount && displayCount.toString().length > 1,
             [`${prefixCls}-status-${status}`]: !!status,
-            [`${prefixCls}-status-${color}`]: isInternalColor,
+            [`${prefixCls}-status-${color}`]: isPresetColor(color),
           });
 
           let scrollNumberStyle: React.CSSProperties = { ...mergedStyle };
-          if (color && !isInternalColor) {
+          if (color && !isPresetColor(color)) {
             scrollNumberStyle = scrollNumberStyle || {};
             scrollNumberStyle.background = color;
           }
@@ -230,7 +226,6 @@ const Badge: CompoundedComponent = ({
               title={titleNode}
               style={scrollNumberStyle}
               key="scrollNumber"
-              ref={ref}
             >
               {displayNode}
             </ScrollNumber>
@@ -243,9 +238,5 @@ const Badge: CompoundedComponent = ({
 };
 
 Badge.Ribbon = Ribbon;
-
-if (process.env.NODE_ENV !== 'production') {
-  Badge.displayName = 'Badge';
-}
 
 export default Badge;

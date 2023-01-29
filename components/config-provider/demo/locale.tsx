@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import type { RadioChangeEvent } from 'antd';
 import {
   Button,
@@ -9,16 +10,14 @@ import {
   Popconfirm,
   Radio,
   Select,
-  Space,
   Table,
   TimePicker,
   Transfer,
 } from 'antd';
-import enUS from 'antd/locale/en_US';
-import zhCN from 'antd/locale/zh_CN';
 import dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
-import React, { useState } from 'react';
+import enUS from 'antd/locale/en_US';
+import zhCN from 'antd/locale/zh_CN';
 
 dayjs.locale('en');
 
@@ -29,7 +28,12 @@ const columns = [
   {
     title: 'Name',
     dataIndex: 'name',
-    filters: [{ text: 'filter1', value: 'filter1' }],
+    filters: [
+      {
+        text: 'filter1',
+        value: 'filter1',
+      },
+    ],
   },
   {
     title: 'Age',
@@ -37,7 +41,7 @@ const columns = [
   },
 ];
 
-const Page: React.FC = () => {
+const Page = () => {
   const [open, setOpen] = useState(false);
 
   const showModal = () => {
@@ -63,13 +67,11 @@ const Page: React.FC = () => {
   };
 
   return (
-    <Space
-      direction="vertical"
-      size={[0, 16]}
-      style={{ width: '100%', paddingTop: 16, borderTop: `1px solid #d9d9d9` }}
-    >
-      <Pagination defaultCurrent={1} total={50} showSizeChanger />
-      <Space wrap>
+    <div className="locale-components">
+      <div className="example">
+        <Pagination defaultCurrent={1} total={50} showSizeChanger />
+      </div>
+      <div className="example">
         <Select showSearch style={{ width: 200 }}>
           <Option value="jack">jack</Option>
           <Option value="lucy">lucy</Option>
@@ -77,8 +79,8 @@ const Page: React.FC = () => {
         <DatePicker />
         <TimePicker />
         <RangePicker style={{ width: 200 }} />
-      </Space>
-      <Space wrap>
+      </div>
+      <div className="example">
         <Button type="primary" onClick={showModal}>
           Show Modal
         </Button>
@@ -87,16 +89,20 @@ const Page: React.FC = () => {
         <Popconfirm title="Question?">
           <a href="#">Click to confirm</a>
         </Popconfirm>
-      </Space>
-      <Transfer dataSource={[]} showSearch targetKeys={[]} />
-      <div style={{ width: 320, border: `1px solid #d9d9d9`, borderRadius: 8 }}>
+      </div>
+      <div className="example">
+        <Transfer dataSource={[]} showSearch targetKeys={[]} />
+      </div>
+      <div className="site-config-provider-calendar-wrapper">
         <Calendar fullscreen={false} value={dayjs()} />
       </div>
-      <Table dataSource={[]} columns={columns} />
+      <div className="example">
+        <Table dataSource={[]} columns={columns} />
+      </div>
       <Modal title="Locale Modal" open={open} onCancel={hideModal}>
         <p>Locale Modal</p>
       </Modal>
-    </Space>
+    </div>
   );
 };
 
@@ -114,9 +120,9 @@ const App: React.FC = () => {
   };
 
   return (
-    <>
-      <div style={{ marginBottom: 16 }}>
-        <span style={{ marginRight: 16 }}>Change locale of components:</span>
+    <div>
+      <div className="change-locale">
+        <span style={{ marginRight: 16 }}>Change locale of components: </span>
         <Radio.Group value={locale} onChange={changeLocale}>
           <Radio.Button key="en" value={enUS}>
             English
@@ -127,9 +133,11 @@ const App: React.FC = () => {
         </Radio.Group>
       </div>
       <ConfigProvider locale={locale}>
-        <Page />
+        <Page
+          key={locale ? locale.locale : 'en' /* Have to refresh for production environment */}
+        />
       </ConfigProvider>
-    </>
+    </div>
   );
 };
 

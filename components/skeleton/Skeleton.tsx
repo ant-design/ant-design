@@ -31,7 +31,7 @@ export interface SkeletonProps {
   round?: boolean;
 }
 
-function getComponentProps<T>(prop?: T | boolean): T | {} {
+function getComponentProps<T>(prop: T | boolean | undefined): T | {} {
   if (prop && typeof prop === 'object') {
     return prop;
   }
@@ -185,9 +185,5 @@ Skeleton.Avatar = SkeletonAvatar;
 Skeleton.Input = SkeletonInput;
 Skeleton.Image = SkeletonImage;
 Skeleton.Node = SkeletonNode;
-
-if (process.env.NODE_ENV !== 'production') {
-  Skeleton.displayName = 'Skeleton';
-}
 
 export default Skeleton;

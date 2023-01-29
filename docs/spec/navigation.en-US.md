@@ -20,17 +20,13 @@ Navigation menu is an effective and user-friendly way for representing site stru
 
 ### Top Navigation
 
-<ImagePreview>
-<img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/pWbHrSnmicFxcgmWIFst.png">
-</ImagePreview>
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/pWbHrSnmicFxcgmWIFst.png">
 
 Top navigation menu put hyperlinks in a row and present information in a simple and straightforward way. It is suitable for landing pages and consumer facing web apps. The number of first level menu items should be between 2 and 7. Title for each menu item should contain less than 15 characters.
 
 ### Side Navigation
 
-<ImagePreview>
-<img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/VvajPSfjYcVNiNoxZFVH.png">
-</ImagePreview>
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/VvajPSfjYcVNiNoxZFVH.png">
 
 Vertical navigation is more flexible than horizontal one, menu items are easily extensible downward, and longer labels can be allowed. With help from a scrollbar, unlimited number of menu items can be supported. It is suitable for multi-level, operation intensive and dashboard-like web apps.
 
@@ -42,9 +38,7 @@ Vertical navigation is more flexible than horizontal one, menu items are easily 
 
 Breadcrumb tell users where they are now among page hierarchy, and parent-child relationships between pages.
 
-<ImagePreview>
-<img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/ZeChCVQTCUdghxmwqKIO.png">
-</ImagePreview>
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/ZeChCVQTCUdghxmwqKIO.png">
 
 > Notes:
 >
@@ -59,33 +53,25 @@ Tabs categorize content, in order to present large amount of information in a li
 
 ### Basic
 
-<ImagePreview>
-<img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/dPpWpAhQYzJOWMCeKqhe.png">
-</ImagePreview>
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/dPpWpAhQYzJOWMCeKqhe.png">
 
 Control content of the entire page. Usually used for switching among core functionalities.
 
 ### Card
 
-<ImagePreview>
-<img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/aJypXYetynQcJxohHefp.png">
-</ImagePreview>
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/aJypXYetynQcJxohHefp.png">
 
 Control part of page content. Bordered container naturally separate it from other parts of the page.
 
 ### Pill
 
-<ImagePreview>
-<img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/QsgJeCmaQkoRLgGRxUim.png" description="Usually used in a small section, or along with basic and card tabs.">
-</ImagePreview>
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/QsgJeCmaQkoRLgGRxUim.png" description="Usually used in a small section, or along with basic and card tabs.">
 
 Switch among options in a card. Usually used along with other types of tabs, so that user can navigate to intended content via quick tab switching.
 
 ### Vertical
 
-<ImagePreview>
-<img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/WvnEwzlmauGlKByAxZJH.png">
-</ImagePreview>
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/WvnEwzlmauGlKByAxZJH.png">
 
 Used for large number of tab options. It can be easily extended to contain an unlimited number of categories.
 
@@ -97,17 +83,13 @@ Steps is a navigation bar guiding users to perform a task following a predefined
 
 ### Horizontal
 
-<ImagePreview>
-<img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/ugeAGDXQQYkZIbCAGlIP.png">
-</ImagePreview>
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/ugeAGDXQQYkZIbCAGlIP.png">
 
 Used for more than 2 but less than 5 steps. Title for each step should contain less than 12 characters.
 
 ### Vertical
 
-<ImagePreview>
-<img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/PnDNqhBRyWLLLgQSVwvF.png">
-</ImagePreview>
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/PnDNqhBRyWLLLgQSVwvF.png">
 
 Usually float at the left side of pages, in a fixed position. Multi-line description can be attached to each step. Suitable for large or dynamic number of steps, i.e. time-based steps with dynamic descriptions.
 
@@ -119,24 +101,18 @@ Used for paginating large amount of content. Users can clearly know the total am
 
 ### Basic
 
-<ImagePreview>
-<img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/MlxHpEgkFHhIVaxpaiYJ.png" description="Quick page jumper can be used when there are more than 5 pages">
-</ImagePreview>
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/MlxHpEgkFHhIVaxpaiYJ.png" description="Quick page jumper can be used when there are more than 5 pages">
 
 When there is a large number of rows, page size can be made customizable by users, so that users can query and browse information more flexibly and effectively.
 
 ### Mini
 
-<ImagePreview>
-<img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/GtIWNdAtogjxXJNuuqTE.png">
-</ImagePreview>
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/GtIWNdAtogjxXJNuuqTE.png">
 
 Commonly used in a Card or a floating layer.
 
 ### Simple
 
-<ImagePreview>
-<img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/LCUZrQJyHQXplzEzDrub.png">
-</ImagePreview>
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/LCUZrQJyHQXplzEzDrub.png">
 
 Commonly used in a Card or a data table, for no more than 10 pages.

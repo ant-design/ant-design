@@ -29,7 +29,6 @@ const App: React.FC = () => {
       initialValues={{ size: componentSize }}
       onValuesChange={onFormLayoutChange}
       size={componentSize as SizeType}
-      style={{ maxWidth: 600 }}
     >
       <Form.Item label="Form Size" name="size">
         <Radio.Group>
@@ -59,7 +58,12 @@ const App: React.FC = () => {
             {
               value: 'zhejiang',
               label: 'Zhejiang',
-              children: [{ value: 'hangzhou', label: 'Hangzhou' }],
+              children: [
+                {
+                  value: 'hangzhou',
+                  label: 'Hangzhou',
+                },
+              ],
             },
           ]}
         />

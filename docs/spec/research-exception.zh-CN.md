@@ -38,9 +38,7 @@ title: 异常页
 
 ### 异常页
 
-<ImagePreview>
-<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*OIo9TYjVhAEAAAAAAAAAAABkARQnAQ">
-</ImagePreview>
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*OIo9TYjVhAEAAAAAAAAAAABkARQnAQ">
 
 当页面出现异常时展示，其包含以下要素：
 
@@ -54,9 +52,7 @@ title: 异常页
 
 #### 模板 - 404
 
-<ImagePreview>
-<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*tVUkTr052wUAAAAAAAAAAABkARQnAQ">
-</ImagePreview>
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*tVUkTr052wUAAAAAAAAAAABkARQnAQ">
 
 **什么时候用**
 
@@ -64,9 +60,7 @@ title: 异常页
 
 #### 模板 - 403
 
-<ImagePreview>
-<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*j5LCQabCiz8AAAAAAAAAAABkARQnAQ">
-</ImagePreview>
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*j5LCQabCiz8AAAAAAAAAAABkARQnAQ">
 
 **什么时候用**
 
@@ -74,9 +68,7 @@ title: 异常页
 
 #### 模板 - 500
 
-<ImagePreview>
-<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*PRRMRY9cMPIAAAAAAAAAAABkARQnAQ">
-</ImagePreview>
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*PRRMRY9cMPIAAAAAAAAAAABkARQnAQ">
 
 **什么时候用**
 
@@ -84,9 +76,7 @@ title: 异常页
 
 #### 模板 - 浏览器不兼容
 
-<ImagePreview>
-<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*bowLQ7DhaKsAAAAAAAAAAABkARQnAQ">
-</ImagePreview>
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*bowLQ7DhaKsAAAAAAAAAAABkARQnAQ">
 
 **什么时候用**
 
@@ -94,9 +84,7 @@ title: 异常页
 
 <br>
 
-<ImagePreview>
-<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*PpLRQb0Rc5gAAAAAAAAAAABkARQnAQ">
-</ImagePreview>
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*PpLRQb0Rc5gAAAAAAAAAAABkARQnAQ">
 
 **设计建议**
 
@@ -108,9 +96,7 @@ title: 异常页
 
 ### 加载失败
 
-<ImagePreview>
-<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*NfSZSb3jGl8AAAAAAAAAAABkARQnAQ">
-</ImagePreview>
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*NfSZSb3jGl8AAAAAAAAAAABkARQnAQ">
 
 **什么时候用**
 

@@ -589,12 +589,10 @@ exports[`renders ./components/collapse/demo/collapsible.tsx extend context corre
 
 exports[`renders ./components/collapse/demo/custom.tsx extend context correctly 1`] = `
 <div
-  class="ant-collapse ant-collapse-icon-position-start ant-collapse-borderless"
-  style="background:#ffffff"
+  class="ant-collapse ant-collapse-icon-position-start ant-collapse-borderless site-collapse-custom-collapse"
 >
   <div
-    class="ant-collapse-item ant-collapse-item-active"
-    style="margin-bottom:24px;background:rgba(0, 0, 0, 0.02);border-radius:8px;border:none"
+    class="ant-collapse-item ant-collapse-item-active site-collapse-custom-panel"
   >
     <div
       aria-disabled="false"
@@ -648,8 +646,7 @@ exports[`renders ./components/collapse/demo/custom.tsx extend context correctly 
     </div>
   </div>
   <div
-    class="ant-collapse-item"
-    style="margin-bottom:24px;background:rgba(0, 0, 0, 0.02);border-radius:8px;border:none"
+    class="ant-collapse-item site-collapse-custom-panel"
   >
     <div
       aria-disabled="false"
@@ -689,8 +686,7 @@ exports[`renders ./components/collapse/demo/custom.tsx extend context correctly 
     </div>
   </div>
   <div
-    class="ant-collapse-item"
-    style="margin-bottom:24px;background:rgba(0, 0, 0, 0.02);border-radius:8px;border:none"
+    class="ant-collapse-item site-collapse-custom-panel"
   >
     <div
       aria-disabled="false"

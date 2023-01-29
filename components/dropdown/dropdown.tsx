@@ -307,8 +307,4 @@ const WrapPurePanel = (props: DropdownProps) => (
 
 Dropdown._InternalPanelDoNotUseOrYouWillBeFired = WrapPurePanel;
 
-if (process.env.NODE_ENV !== 'production') {
-  Dropdown.displayName = 'Dropdown';
-}
-
 export default Dropdown;

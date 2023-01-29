@@ -35,7 +35,7 @@ export interface ListItemProps {
     customIcon: React.ReactNode,
     callback: () => void,
     prefixCls: string,
-    title?: string,
+    title?: string | undefined,
   ) => React.ReactNode;
   itemRender?: ItemRender;
   onPreview: (file: UploadFile, e: React.SyntheticEvent<HTMLElement>) => void;

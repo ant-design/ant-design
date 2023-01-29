@@ -89,16 +89,27 @@ describe('Directory Tree', () => {
     });
 
     describe('with state control', () => {
-      const StateDirTree: React.FC<TreeProps> = (props) => {
-        const [expandedKeys, setExpandedKeys] = React.useState<Key[]>([]);
-        return (
-          <DirectoryTree expandedKeys={expandedKeys} onExpand={setExpandedKeys} {...props}>
-            <TreeNode key="0-0" title="parent">
-              <TreeNode key="0-0-0" title="children" />
-            </TreeNode>
-          </DirectoryTree>
-        );
-      };
+      class StateDirTree extends React.Component<TreeProps, { expandedKeys: Key[] }> {
+        state = {
+          expandedKeys: [],
+        };
+
+        onExpand: TreeProps['onExpand'] = (expandedKeys) => {
+          this.setState({ expandedKeys });
+        };
+
+        render() {
+          const { expandedKeys } = this.state;
+
+          return (
+            <DirectoryTree expandedKeys={expandedKeys} onExpand={this.onExpand} {...this.props}>
+              <TreeNode key="0-0" title="parent">
+                <TreeNode key="0-0-0" title="children" />
+              </TreeNode>
+            </DirectoryTree>
+          );
+        }
+      }
 
       it('click', () => {
         const { container, asFragment } = render(<StateDirTree expandAction="click" />);

@@ -1,17 +1,17 @@
 import classNames from 'classnames';
 // eslint-disable-next-line import/no-named-as-default
 import * as React from 'react';
+import type { RenderEmptyHandler } from '../config-provider';
 import { ConfigContext } from '../config-provider';
-import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
+import defaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import { Row } from '../grid';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import type { PaginationConfig } from '../pagination';
 import Pagination from '../pagination';
 import type { SpinProps } from '../spin';
 import Spin from '../spin';
-import type { Breakpoint } from '../_util/responsiveObserver';
-import { responsiveArray } from '../_util/responsiveObserver';
-import extendsObject from '../_util/extendsObject';
+import type { Breakpoint } from '../_util/responsiveObserve';
+import { responsiveArray } from '../_util/responsiveObserve';
 import Item from './Item';
 
 // CSSINJS
@@ -142,8 +142,13 @@ function List<T>({
 
   const isSomethingAfterLastItem = () => !!(loadMore || pagination || footer);
 
-  const prefixCls = getPrefixCls('list', customizePrefixCls);
+  const renderEmptyFunc = (prefixCls: string, renderEmptyHandler: RenderEmptyHandler) => (
+    <div className={`${prefixCls}-empty-text`}>
+      {(locale && locale.emptyText) || renderEmptyHandler('List')}
+    </div>
+  );
 
+  const prefixCls = getPrefixCls('list', customizePrefixCls);
   // Style
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
@@ -185,15 +190,13 @@ function List<T>({
     hashId,
   );
 
-  const paginationProps = extendsObject<PaginationConfig>(
-    defaultPaginationProps,
-    {
-      total: dataSource.length,
-      current: paginationCurrent,
-      pageSize: paginationSize,
-    },
-    pagination || {},
-  );
+  const paginationProps = {
+    ...defaultPaginationProps,
+    total: dataSource.length,
+    current: paginationCurrent,
+    pageSize: paginationSize,
+    ...(pagination || {}),
+  };
 
   const largestPage = Math.ceil(paginationProps.total / paginationProps.pageSize);
   if (paginationProps.current > largestPage) {
@@ -247,7 +250,7 @@ function List<T>({
     }
   }, [grid?.column, currentBreakpoint]);
 
-  let childrenContent: React.ReactNode = isLoading && <div style={{ minHeight: 53 }} />;
+  let childrenContent = isLoading && <div style={{ minHeight: 53 }} />;
   if (splitDataSource.length > 0) {
     const items = splitDataSource.map((item: T, index: number) => renderInnerItem(item, index));
     childrenContent = grid ? (
@@ -262,13 +265,7 @@ function List<T>({
       <ul className={`${prefixCls}-items`}>{items}</ul>
     );
   } else if (!children && !isLoading) {
-    childrenContent = (
-      <div className={`${prefixCls}-empty-text`}>
-        {(locale && locale.emptyText) || renderEmpty?.('List') || (
-          <DefaultRenderEmpty componentName="List" />
-        )}
-      </div>
-    );
+    childrenContent = renderEmptyFunc(prefixCls, renderEmpty || defaultRenderEmpty);
   }
 
   const paginationPosition = paginationProps.position || 'bottom';
@@ -292,10 +289,6 @@ function List<T>({
       </div>
     </ListContext.Provider>,
   );
-}
-
-if (process.env.NODE_ENV !== 'production') {
-  List.displayName = 'List';
 }
 
 List.Item = Item;

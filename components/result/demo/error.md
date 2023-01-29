@@ -11,3 +11,9 @@ Complex error feedback.
   color: red;
 }
 ```
+
+<style>
+[data-theme="dark"] .site-result-demo-error-icon {
+  color: #a61d24;
+}
+</style>

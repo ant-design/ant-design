@@ -25,7 +25,7 @@ const ColorPicker: React.FC<ColorPickerProps> = (props) => {
   const [displayColorPicker, setDisplayColorPicker] = useState<boolean>(false);
 
   const handleClick = () => {
-    setDisplayColorPicker((prev) => !prev);
+    setDisplayColorPicker(displayColorPicker);
   };
 
   const handleClose = () => {

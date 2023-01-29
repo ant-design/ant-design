@@ -2,8 +2,8 @@ import classNames from 'classnames';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import useFlexGapSupport from '../_util/hooks/useFlexGapSupport';
-import type { Breakpoint, ScreenMap } from '../_util/responsiveObserver';
-import useResponsiveObserver, { responsiveArray } from '../_util/responsiveObserver';
+import type { Breakpoint, ScreenMap } from '../_util/responsiveObserve';
+import useResponsiveObserve, { responsiveArray } from '../_util/responsiveObserve';
 import RowContext from './RowContext';
 import { useRowStyle } from './style';
 
@@ -39,9 +39,6 @@ function useMergePropByScreen(oriProp: RowProps['align'] | RowProps['justify'], 
   const [prop, setProp] = React.useState(typeof oriProp === 'string' ? oriProp : '');
 
   const clacMergeAlignOrJustify = () => {
-    if (typeof oriProp === 'string') {
-      setProp(oriProp);
-    }
     if (typeof oriProp !== 'object') {
       return;
     }
@@ -106,11 +103,11 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
 
   const gutterRef = React.useRef<Gutter | [Gutter, Gutter]>(gutter);
 
-  const responsiveObserver = useResponsiveObserver();
+  const responsiveObserve = useResponsiveObserve();
 
   // ================================== Effect ==================================
   React.useEffect(() => {
-    const token = responsiveObserver.subscribe((screen) => {
+    const token = responsiveObserve.subscribe((screen) => {
       setCurScreens(screen);
       const currentGutter = gutterRef.current || 0;
       if (
@@ -121,7 +118,7 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
         setScreens(screen);
       }
     });
-    return () => responsiveObserver.unsubscribe(token);
+    return () => responsiveObserve.unsubscribe(token);
   }, []);
 
   // ================================== Render ==================================

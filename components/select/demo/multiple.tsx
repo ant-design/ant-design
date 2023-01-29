@@ -1,9 +1,8 @@
 import React from 'react';
-import { Select, Space } from 'antd';
+import { Select } from 'antd';
 import type { SelectProps } from 'antd';
 
 const options: SelectProps['options'] = [];
-
 for (let i = 10; i < 36; i++) {
   options.push({
     label: i.toString(36) + i,
@@ -16,7 +15,7 @@ const handleChange = (value: string[]) => {
 };
 
 const App: React.FC = () => (
-  <Space style={{ width: '100%' }} direction="vertical">
+  <>
     <Select
       mode="multiple"
       allowClear
@@ -26,6 +25,7 @@ const App: React.FC = () => (
       onChange={handleChange}
       options={options}
     />
+    <br />
     <Select
       mode="multiple"
       disabled
@@ -35,7 +35,7 @@ const App: React.FC = () => (
       onChange={handleChange}
       options={options}
     />
-  </Space>
+  </>
 );
 
 export default App;

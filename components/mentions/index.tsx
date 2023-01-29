@@ -9,7 +9,7 @@ import { composeRef } from 'rc-util/lib/ref';
 // eslint-disable-next-line import/no-named-as-default
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
-import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
+import defaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import { FormItemInputContext } from '../form/context';
 import genPurePanel from '../_util/PurePanel';
 import Spin from '../spin';
@@ -118,12 +118,13 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
     setFocused(false);
   };
 
-  const notFoundContentEle = React.useMemo<React.ReactNode>(() => {
+  const getNotFoundContent = () => {
     if (notFoundContent !== undefined) {
       return notFoundContent;
     }
-    return renderEmpty?.('Select') || <DefaultRenderEmpty componentName="Select" />;
-  }, [notFoundContent, renderEmpty]);
+
+    return (renderEmpty || defaultRenderEmpty)('Select');
+  };
 
   const getOptions = () => {
     if (loading) {
@@ -147,7 +148,12 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
       ]
     : options;
 
-  const mentionsfilterOption = loading ? loadingFilterOption : filterOption;
+  const getFilterOption = (): any => {
+    if (loading) {
+      return loadingFilterOption;
+    }
+    return filterOption;
+  };
 
   const prefixCls = getPrefixCls('mentions', customizePrefixCls);
 
@@ -168,12 +174,12 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
   const mentions = (
     <RcMentions
       prefixCls={prefixCls}
-      notFoundContent={notFoundContentEle}
+      notFoundContent={getNotFoundContent()}
       className={mergedClassName}
       disabled={disabled}
       direction={direction}
       {...restProps}
-      filterOption={mentionsfilterOption}
+      filterOption={getFilterOption()}
       onFocus={onFocus}
       onBlur={onBlur}
       dropdownClassName={classNames(popupClassName, hashId)}

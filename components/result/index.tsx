@@ -146,8 +146,4 @@ Result.PRESENTED_IMAGE_403 = ExceptionMap['403'];
 Result.PRESENTED_IMAGE_404 = ExceptionMap['404'];
 Result.PRESENTED_IMAGE_500 = ExceptionMap['500'];
 
-if (process.env.NODE_ENV !== 'production') {
-  Result.displayName = 'Result';
-}
-
 export default Result;

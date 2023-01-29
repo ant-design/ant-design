@@ -151,16 +151,11 @@ const Space: React.FC<SpaceProps> = (props) => {
   );
 };
 
-if (process.env.NODE_ENV !== 'production') {
-  Space.displayName = 'Space';
-}
-
 type CompoundedComponent = React.FC<SpaceProps> & {
   Compact: typeof Compact;
 };
 
 const CompoundedSpace = Space as CompoundedComponent;
-
 CompoundedSpace.Compact = Compact;
 
 export default CompoundedSpace;

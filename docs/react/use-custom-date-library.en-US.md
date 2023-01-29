@@ -98,7 +98,7 @@ We also provide another implementation, which we provide with `@ant-design/momen
 
 ```js
 // webpack-config.js
-const AntdMomentWebpackPlugin = require('@ant-design/moment-webpack-plugin');
+import AntdMomentWebpackPlugin from '@ant-design/moment-webpack-plugin';
 
 module.exports = {
   // ...

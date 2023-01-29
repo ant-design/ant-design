@@ -1,5 +1,5 @@
 import type { DrawerPopupProps } from 'rc-drawer/lib/DrawerPopup';
-import React, { useState } from 'react';
+import React from 'react';
 import Drawer from '..';
 import { fireEvent, render } from '../../../tests/utils';
 import Button from '../../button';
@@ -9,94 +9,111 @@ interface DrawerPropsType {
   placement?: DrawerPopupProps['placement'];
 }
 
-const MultiDrawer: React.FC<DrawerPropsType> = (props) => {
-  const { placement, push } = props;
+interface DrawerStateType {
+  open: boolean;
+  hasChildren: boolean;
+  childrenDrawer: boolean;
+}
 
-  const [open, setOpen] = useState<boolean>(false);
-  const [hasChildren, setHasChildren] = useState<boolean>(true);
-  const [childrenDrawer, setChildrenDrawer] = useState<boolean>(false);
+class MultiDrawer extends React.Component<DrawerPropsType, DrawerStateType> {
+  state = { open: false, childrenDrawer: false, hasChildren: true };
 
-  const showDrawer = () => {
-    setOpen(true);
-    setHasChildren(true);
+  showDrawer = () => {
+    this.setState({
+      open: true,
+      hasChildren: true,
+    });
   };
 
-  const onClose = () => {
-    setOpen(false);
+  onClose = () => {
+    this.setState({
+      open: false,
+    });
   };
 
-  const showChildrenDrawer = () => {
-    setChildrenDrawer(true);
-    setHasChildren(true);
+  showChildrenDrawer = () => {
+    this.setState({
+      childrenDrawer: true,
+      hasChildren: true,
+    });
   };
 
-  const onChildrenDrawerClose = () => {
-    setChildrenDrawer(false);
+  onChildrenDrawerClose = () => {
+    this.setState({
+      childrenDrawer: false,
+    });
   };
 
-  const onRemoveChildDrawer = () => {
-    setHasChildren(false);
+  onRemoveChildDrawer = () => {
+    this.setState({
+      hasChildren: false,
+    });
   };
 
-  return (
-    <div>
-      <Button type="primary" id="open_drawer" onClick={showDrawer}>
-        Open drawer
-      </Button>
-      <Button type="primary" id="remove_drawer" onClick={onRemoveChildDrawer}>
-        rm child drawer
-      </Button>
-      <Drawer
-        title="Multi-level drawer"
-        className="test_drawer"
-        width={520}
-        onClose={onClose}
-        getContainer={false}
-        placement={placement}
-        open={open}
-        push={push}
-      >
-        <Button type="primary" id="open_two_drawer" onClick={showChildrenDrawer}>
-          Two-level drawer
+  render() {
+    const { childrenDrawer, open, hasChildren } = this.state;
+    const { placement, push } = this.props;
+    return (
+      <div>
+        <Button type="primary" id="open_drawer" onClick={this.showDrawer}>
+          Open drawer
         </Button>
-        {hasChildren && (
-          <Drawer
-            title="Two-level Drawer"
-            width={320}
-            className="Two-level"
-            getContainer={false}
-            placement={placement}
-            onClose={onChildrenDrawerClose}
-            open={childrenDrawer}
-          >
-            <div id="two_drawer_text">This is two-level drawer</div>
-          </Drawer>
-        )}
-        <div
-          style={{
-            position: 'absolute',
-            bottom: 0,
-            width: '100%',
-            borderTop: '1px solid #e8e8e8',
-            padding: '10px 16px',
-            textAlign: 'right',
-            left: 0,
-            backgroundColor: '#fff',
-            borderRadius: '0 0 4px 4px',
-          }}
+        <Button type="primary" id="remove_drawer" onClick={this.onRemoveChildDrawer}>
+          rm child drawer
+        </Button>
+        <Drawer
+          title="Multi-level drawer"
+          className="test_drawer"
+          width={520}
+          onClose={this.onClose}
+          getContainer={false}
+          placement={placement}
+          open={open}
+          push={push}
         >
-          <Button style={{ marginRight: 8 }} onClick={onClose}>
-            Cancel
+          <Button type="primary" id="open_two_drawer" onClick={this.showChildrenDrawer}>
+            Two-level drawer
           </Button>
-          <Button onClick={onClose} type="primary">
-            Submit
-          </Button>
-        </div>
-      </Drawer>
-      <div className="childrenDrawer">{String(childrenDrawer)}</div>
-    </div>
-  );
-};
+          {hasChildren && (
+            <Drawer
+              title="Two-level Drawer"
+              width={320}
+              className="Two-level"
+              getContainer={false}
+              placement={placement}
+              onClose={this.onChildrenDrawerClose}
+              open={childrenDrawer}
+            >
+              <div id="two_drawer_text">This is two-level drawer</div>
+            </Drawer>
+          )}
+          <div
+            style={{
+              position: 'absolute',
+              bottom: 0,
+              width: '100%',
+              borderTop: '1px solid #e8e8e8',
+              padding: '10px 16px',
+              textAlign: 'right',
+              left: 0,
+              backgroundColor: '#fff',
+              borderRadius: '0 0 4px 4px',
+            }}
+          >
+            <Button style={{ marginRight: 8 }} onClick={this.onClose}>
+              Cancel
+            </Button>
+            <Button onClick={this.onClose} type="primary">
+              Submit
+            </Button>
+          </div>
+        </Drawer>
+
+        <div className="childrenDrawer">{String(childrenDrawer)}</div>
+      </div>
+    );
+  }
+}
 
 describe('Drawer', () => {
   it('render right MultiDrawer', () => {

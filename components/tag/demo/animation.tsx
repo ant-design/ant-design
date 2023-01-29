@@ -1,13 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { PlusOutlined } from '@ant-design/icons';
 import type { InputRef } from 'antd';
-import { Input, Tag, theme } from 'antd';
+import { Input, Tag } from 'antd';
 import { TweenOneGroup } from 'rc-tween-one';
 
 const App: React.FC = () => {
-  const { token } = theme.useToken();
-  const [tags, setTags] = useState(['Tag 1', 'Tag 2', 'Tag 3']);
-  const [inputVisible, setInputVisible] = useState(false);
+  const [tags, setTags] = useState<string[]>(['Tag 1', 'Tag 2', 'Tag 3']);
+  const [inputVisible, setInputVisible] = useState<boolean>(false);
   const [inputValue, setInputValue] = useState('');
   const inputRef = useRef<InputRef>(null);
 
@@ -59,12 +58,6 @@ const App: React.FC = () => {
   };
 
   const tagChild = tags.map(forMap);
-
-  const tagPlusStyle = {
-    background: token.colorBgContainer,
-    borderStyle: 'dashed',
-  };
-
   return (
     <>
       <div style={{ marginBottom: 16 }}>
@@ -86,7 +79,7 @@ const App: React.FC = () => {
           {tagChild}
         </TweenOneGroup>
       </div>
-      {inputVisible ? (
+      {inputVisible && (
         <Input
           ref={inputRef}
           type="text"
@@ -97,8 +90,9 @@ const App: React.FC = () => {
           onBlur={handleInputConfirm}
           onPressEnter={handleInputConfirm}
         />
-      ) : (
-        <Tag onClick={showInput} style={tagPlusStyle}>
+      )}
+      {!inputVisible && (
+        <Tag onClick={showInput} className="site-tag-plus">
           <PlusOutlined /> New Tag
         </Tag>
       )}

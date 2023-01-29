@@ -3,9 +3,9 @@ import type { ProgressProps } from '..';
 import Progress from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render } from '../../../tests/utils';
 import { handleGradient, sortGradient } from '../Line';
 import ProgressSteps from '../Steps';
+import { render } from '../../../tests/utils';
 
 describe('Progress', () => {
   mountTest(Progress);
@@ -139,7 +139,7 @@ describe('Progress', () => {
     expect(handleGradient({ from: 'test', to: 'test' }).backgroundImage).toBe(
       'linear-gradient(to right, test, test)',
     );
-    expect(handleGradient({}).backgroundImage).toBe('linear-gradient(to right, #1677FF, #1677FF)');
+    expect(handleGradient({}).backgroundImage).toBe('linear-gradient(to right, #1890FF, #1890FF)');
     expect(handleGradient({ from: 'test', to: 'test', '0%': 'test' }).backgroundImage).toBe(
       'linear-gradient(to right, test 0%)',
     );
@@ -240,21 +240,14 @@ describe('Progress', () => {
     );
   });
 
+  // https://github.com/ant-design/ant-design/issues/30685
   describe('github issues', () => {
-    // https://github.com/ant-design/ant-design/issues/30685
-    it('Rendered more hooks than during the previous render', () => {
+    it('"Rendered more hooks than during the previous render"', () => {
       expect(() => {
         const { rerender } = render(
           <Progress percent={60} success={{ percent: 0 }} type="circle" />,
         );
         rerender(<Progress percent={60} success={{ percent: 10 }} type="circle" />);
-      }).not.toThrow();
-    });
-
-    // https://github.com/ant-design/ant-design/issues/40377
-    it('should not throw error when percent is null', () => {
-      expect(() => {
-        render(<Progress percent={null as unknown as number} />);
       }).not.toThrow();
     });
   });

@@ -1,19 +1,19 @@
-import { CalendarOutlined } from '@ant-design/icons';
-import { css } from '@emotion/react';
-import ContributorsList from '@qixian.cs/github-contributors-list';
-import { Affix, Anchor, Avatar, Col, Skeleton, Space, Tooltip, Typography } from 'antd';
-import classNames from 'classnames';
-import DayJS from 'dayjs';
-import { FormattedMessage, useIntl, useRouteMeta } from 'dumi';
 import type { ReactNode } from 'react';
-import React, { useContext, useLayoutEffect, useMemo, useState } from 'react';
+import React, { useMemo, useState, useLayoutEffect, useContext } from 'react';
+import { useIntl, useRouteMeta, FormattedMessage } from 'dumi';
+import { Col, Typography, Avatar, Tooltip, Affix, Anchor, Space } from 'antd';
+import { CalendarOutlined } from '@ant-design/icons';
+import ContributorsList from '@qixian.cs/github-contributors-list';
+import DayJS from 'dayjs';
+import { css } from '@emotion/react';
+import classNames from 'classnames';
+import Footer from '../Footer';
+import EditButton from '../../common/EditButton';
 import useLocation from '../../../hooks/useLocation';
 import useSiteToken from '../../../hooks/useSiteToken';
-import EditButton from '../../common/EditButton';
 import PrevAndNext from '../../common/PrevAndNext';
 import type { DemoContextProps } from '../DemoContext';
 import DemoContext from '../DemoContext';
-import Footer from '../Footer';
 import SiteContext from '../SiteContext';
 
 const useStyle = () => {
@@ -26,16 +26,11 @@ const useStyle = () => {
       display: flex;
       flex-wrap: wrap;
       margin-top: 120px !important;
+
       a,
       ${antCls}-avatar + ${antCls}-avatar {
-        transition: all ${token.motionDurationSlow};
-        margin-inline-end: -8px;
-      }
-      &:hover {
-        a,
-        ${antCls}-avatar {
-          margin-inline-end: 0;
-        }
+        margin-bottom: 8px;
+        margin-inline-end: 8px;
       }
     `,
     toc: css`
@@ -67,7 +62,7 @@ const useStyle = () => {
       > div {
         box-sizing: border-box;
         width: 100%;
-        max-height: calc(100vh - 40px) !important;
+        max-height: calc(100vh - 40px);
         margin: 0 auto;
         overflow: auto;
         padding-inline: 4px;
@@ -92,7 +87,8 @@ const useStyle = () => {
       @media only screen and (max-width: ${token.screenLG}px) {
         &,
         &.rtl {
-          padding: 0 48px;
+          padding-right: 48px;
+          padding-left: 48px;
         }
       }
     `,
@@ -110,7 +106,6 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
   const { pathname, hash } = useLocation();
   const { formatMessage } = useIntl();
   const styles = useStyle();
-  const { token } = useSiteToken();
   const { direction } = useContext(SiteContext);
 
   const [showDebug, setShowDebug] = useState(false);
@@ -149,41 +144,32 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
 
   const isRTL = direction === 'rtl';
 
-  const avatarPlaceholder = (
-    <>
-      <Skeleton.Avatar size="small" active />
-      <Skeleton.Avatar size="small" active style={{ marginLeft: -8 }} />
-      <Skeleton.Avatar size="small" active style={{ marginLeft: -8 }} />
-    </>
-  );
-
   return (
     <DemoContext.Provider value={contextValue}>
       <Col xxl={20} xl={19} lg={18} md={18} sm={24} xs={24}>
         <Affix>
           <section css={styles.tocWrapper} className={classNames({ rtl: isRTL })}>
-            <Anchor
-              css={styles.toc}
-              affix={false}
-              targetOffset={token.marginXXL}
-              showInkInFixed
-              items={anchorItems.map((item) => ({
-                href: `#${item.id}`,
-                title: item.title,
-                key: item.id,
-                children: item.children
-                  ?.filter((child) => showDebug || !debugDemos.includes(child.id))
-                  .map((child) => ({
-                    key: child.id,
-                    href: `#${child.id}`,
-                    title: (
-                      <span className={classNames(debugDemos.includes(child.id) && 'toc-debug')}>
-                        {child?.title}
-                      </span>
-                    ),
-                  })),
-              }))}
-            />
+            <Anchor css={styles.toc} affix={false} showInkInFixed>
+              {anchorItems.map((item) => (
+                <Anchor.Link href={`#${item.id}`} title={item?.title} key={item.id}>
+                  {item.children
+                    ?.filter((child) => showDebug || !debugDemos.includes(child.id))
+                    .map((child) => (
+                      <Anchor.Link
+                        href={`#${child.id}`}
+                        title={
+                          <span
+                            className={classNames(debugDemos.includes(child.id) && 'toc-debug')}
+                          >
+                            {child?.title}
+                          </span>
+                        }
+                        key={child.id}
+                      />
+                    ))}
+                </Anchor.Link>
+              ))}
+            </Anchor>
           </section>
         </Affix>
         <article css={styles.articleWrapper} className={classNames({ rtl: isRTL })}>
@@ -199,6 +185,7 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
               />
             )}
           </Typography.Title>
+
           {/* 添加作者、时间等信息 */}
           {meta.frontmatter.date || meta.frontmatter.author ? (
             <Typography.Paragraph style={{ opacity: 0.65 }}>
@@ -217,34 +204,36 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
               </Space>
             </Typography.Paragraph>
           ) : null}
+
           {children}
           {meta.frontmatter.filename && (
             <ContributorsList
-              repo="ant-design"
-              owner="ant-design"
               css={styles.contributorsList}
               fileName={meta.frontmatter.filename}
               renderItem={(item, loading) =>
-                loading || !item ? (
-                  avatarPlaceholder
+                loading ? (
+                  <Avatar style={{ opacity: 0.3 }} />
                 ) : (
-                  <Tooltip
-                    mouseEnterDelay={0.3}
-                    title={`${formatMessage({ id: 'app.content.contributors' })}: ${item.username}`}
-                    key={item.username}
-                  >
-                    <a
-                      href={`https://github.com/${item.username}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                  item && (
+                    <Tooltip
+                      title={`${formatMessage({ id: 'app.content.contributors' })}: ${
+                        item.username
+                      }`}
+                      key={item.username}
                     >
-                      <Avatar size="small" src={item.url}>
-                        {item.username}
-                      </Avatar>
-                    </a>
-                  </Tooltip>
+                      <a
+                        href={`https://github.com/${item.username}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Avatar src={item.url}>{item.username}</Avatar>
+                      </a>
+                    </Tooltip>
+                  )
                 )
               }
+              repo="ant-design"
+              owner="ant-design"
             />
           )}
         </article>

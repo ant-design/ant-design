@@ -1,14 +1,11 @@
 import classNames from 'classnames';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
-import type { LiteralUnion } from '../_util/type';
-
-type Color = 'blue' | 'red' | 'green' | 'gray';
 
 export interface TimelineItemProps {
   prefixCls?: string;
   className?: string;
-  color?: LiteralUnion<Color>;
+  color?: string;
   dot?: React.ReactNode;
   pending?: boolean;
   position?: string;
@@ -45,13 +42,13 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
     className,
   );
 
-  const customColor = /blue|red|green|gray/.test(color || '') ? undefined : color;
-
   const dotClassName = classNames({
     [`${prefixCls}-item-head`]: true,
     [`${prefixCls}-item-head-custom`]: !!dot,
-    [`${prefixCls}-item-head-${color}`]: !customColor,
+    [`${prefixCls}-item-head-${color}`]: true,
   });
+
+  const customColor = /blue|red|green|gray/.test(color || '') ? undefined : color;
 
   return (
     <li {...restProps} className={itemClassName}>

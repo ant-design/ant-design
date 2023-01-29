@@ -47,7 +47,7 @@ const getGroupRadioStyle: GenerateStyle<RadioToken> = (token) => {
       fontSize: 0,
 
       // RTL
-      [`&${groupPrefixCls}-rtl`]: {
+      '&&-rtl': {
         direction: 'rtl',
       },
 
@@ -99,13 +99,12 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
       cursor: 'pointer',
 
       // RTL
-      [`&${componentCls}-wrapper-rtl`]: {
+      '&&-rtl': {
         direction: 'rtl',
       },
 
       '&-disabled': {
         cursor: 'not-allowed',
-        color: token.colorTextDisabled,
       },
 
       '&::after': {
@@ -228,7 +227,7 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
           },
         },
 
-        [`${componentCls}-input`]: {
+        '&-input': {
           cursor: 'not-allowed',
         },
 
@@ -405,7 +404,7 @@ const getRadioButtonStyle: GenerateStyle<RadioToken> = (token) => {
         pointerEvents: 'none',
       },
 
-      [`&-checked:not(${componentCls}-button-wrapper-disabled)`]: {
+      '&-checked:not(&-disabled)': {
         zIndex: 1,
         color: radioCheckedColor,
         background: radioButtonCheckedBg,
@@ -438,7 +437,7 @@ const getRadioButtonStyle: GenerateStyle<RadioToken> = (token) => {
         },
       },
 
-      [`${componentCls}-group-solid &-checked:not(${componentCls}-button-wrapper-disabled)`]: {
+      [`${componentCls}-group-solid &-checked:not(&-disabled)`]: {
         color: radioSolidCheckedColor,
         background: radioCheckedColor,
         borderColor: radioCheckedColor,
@@ -469,7 +468,7 @@ const getRadioButtonStyle: GenerateStyle<RadioToken> = (token) => {
         },
       },
 
-      [`&-disabled${componentCls}-button-wrapper-checked`]: {
+      '&-disabled&-checked': {
         color: radioDisabledButtonCheckedColor,
         backgroundColor: radioDisabledButtonCheckedBg,
         borderColor: colorBorder,

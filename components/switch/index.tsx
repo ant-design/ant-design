@@ -90,7 +90,7 @@ const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>(
     );
 
     return wrapSSR(
-      <Wave>
+      <Wave insertExtraNode>
         <RcSwitch
           {...props}
           prefixCls={prefixCls}

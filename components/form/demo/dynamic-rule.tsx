@@ -33,12 +33,17 @@ const App: React.FC = () => {
   };
 
   return (
-    <Form form={form} name="dynamic_rule" style={{ maxWidth: 600 }}>
+    <Form form={form} name="dynamic_rule">
       <Form.Item
         {...formItemLayout}
         name="username"
         label="Name"
-        rules={[{ required: true, message: 'Please input your name' }]}
+        rules={[
+          {
+            required: true,
+            message: 'Please input your name',
+          },
+        ]}
       >
         <Input placeholder="Please input your name" />
       </Form.Item>
@@ -46,7 +51,12 @@ const App: React.FC = () => {
         {...formItemLayout}
         name="nickname"
         label="Nickname"
-        rules={[{ required: checkNick, message: 'Please input your nickname' }]}
+        rules={[
+          {
+            required: checkNick,
+            message: 'Please input your nickname',
+          },
+        ]}
       >
         <Input placeholder="Please input your nickname" />
       </Form.Item>

@@ -24,11 +24,7 @@ const DEPRECIATED_VERSION = {
   ],
   '4.24.0': ['https://github.com/ant-design/ant-design/issues/38371'],
   '5.0.4': ['https://github.com/ant-design/ant-design/issues/39284'],
-  '5.0.6': ['https://github.com/ant-design/ant-design/issues/39807'],
-  '5.1.0': ['https://github.com/react-component/drawer/pull/370'],
-  '5.1.2': ['https://github.com/ant-design/ant-design/issues/39949'],
-  '5.1.3': ['https://github.com/ant-design/ant-design/issues/40113'],
-  '5.1.4': ['https://github.com/ant-design/ant-design/issues/40186'],
+  '5.0.6': [],
 };
 
 function matchDeprecated(version) {

@@ -521,7 +521,9 @@ Array [
 `;
 
 exports[`renders ./components/popconfirm/demo/placement.tsx extend context correctly 1`] = `
-Array [
+<div
+  class="demo"
+>
   <div
     style="margin-left:70px;white-space:nowrap"
   >
@@ -813,7 +815,7 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
+  </div>
   <div
     style="width:70px;float:left"
   >
@@ -1105,7 +1107,7 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
+  </div>
   <div
     style="width:70px;margin-left:304px"
   >
@@ -1397,7 +1399,7 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
+  </div>
   <div
     style="margin-left:70px;clear:both;white-space:nowrap"
   >
@@ -1689,8 +1691,8 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`renders ./components/popconfirm/demo/promise.tsx extend context correctly 1`] = `

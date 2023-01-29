@@ -3,8 +3,7 @@ import classNames from 'classnames';
 import type { BasicDataNode, TreeProps as RcTreeProps } from 'rc-tree';
 import RcTree from 'rc-tree';
 import type { DataNode, Key } from 'rc-tree/lib/interface';
-import type { Component } from 'react';
-import React from 'react';
+import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import initCollapseMotion from '../_util/motion';
 import dropIndicatorRender from './utils/dropIndicator';
@@ -54,7 +53,7 @@ export interface AntTreeNodeProps {
   [customProp: string]: any;
 }
 
-export interface AntTreeNode extends Component<AntTreeNodeProps, {}> {}
+export interface AntTreeNode extends React.Component<AntTreeNodeProps, {}> {}
 
 export interface AntTreeNodeBaseEvent {
   node: AntTreeNode;
@@ -239,7 +238,7 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
       checkable={checkable ? <span className={`${prefixCls}-checkbox-inner`} /> : checkable}
       selectable={selectable}
       switcherIcon={(nodeProps: AntTreeNodeProps) =>
-        renderSwitcherIcon(prefixCls, switcherIcon, nodeProps, showLine)
+        renderSwitcherIcon(prefixCls, switcherIcon, showLine, nodeProps)
       }
       draggable={draggableConfig}
     >
@@ -247,9 +246,5 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
     </RcTree>,
   );
 });
-
-if (process.env.NODE_ENV !== 'production') {
-  Tree.displayName = 'Tree';
-}
 
 export default Tree;

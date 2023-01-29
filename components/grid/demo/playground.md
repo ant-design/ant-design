@@ -31,3 +31,9 @@ A simple playground for column count and gutter.
   padding: 0;
 }
 ```
+
+<style>
+[data-theme="dark"] #components-grid-demo-playground [class~='ant-col'] > div {
+  background: #028ac8;
+}
+</style>

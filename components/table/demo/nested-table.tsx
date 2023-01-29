@@ -33,7 +33,12 @@ const App: React.FC = () => {
       {
         title: 'Status',
         key: 'state',
-        render: () => <Badge status="success" text="Finished" />,
+        render: () => (
+          <span>
+            <Badge status="success" />
+            Finished
+          </span>
+        ),
       },
       { title: 'Upgrade Status', dataIndex: 'upgradeNum', key: 'upgradeNum' },
       {
@@ -80,7 +85,7 @@ const App: React.FC = () => {
   for (let i = 0; i < 3; ++i) {
     data.push({
       key: i.toString(),
-      name: 'Screen',
+      name: 'Screem',
       platform: 'iOS',
       version: '10.3.4.5654',
       upgradeNum: 500,

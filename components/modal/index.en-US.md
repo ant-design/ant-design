@@ -11,9 +11,7 @@ Modal dialogs.
 
 ## When To Use
 
-When requiring users to interact with the application, but without jumping to a new page and interrupting the user's workflow, you can use `Modal` to create a new floating layer over the current page to get user feedback or display information.
-
-Additionally, if you need show a simple confirmation dialog, you can use [`App.useApp`](/components/app/) hooks.
+When requiring users to interact with the application, but without jumping to a new page and interrupting the user's workflow, you can use `Modal` to create a new floating layer over the current page to get user feedback or display information. Additionally, if you need show a simple confirmation dialog, you can use `antd.Modal.confirm()`, and so on.
 
 ## Examples
 
@@ -22,16 +20,16 @@ Additionally, if you need show a simple confirmation dialog, you can use [`App.u
 <code src="./demo/async.tsx">Asynchronously close</code>
 <code src="./demo/footer.tsx">Customized Footer</code>
 <code src="./demo/confirm.tsx">Confirmation modal dialog</code>
+<code src="./demo/info.tsx">Information modal dialog</code>
 <code src="./demo/locale.tsx">Internationalization</code>
 <code src="./demo/manual.tsx">Manual to update destroy</code>
 <code src="./demo/position.tsx">To customize the position of modal</code>
+<code src="./demo/confirm-router.tsx">destroy confirmation modal dialog</code>
 <code src="./demo/dark.tsx" debug>Dark Bg</code>
 <code src="./demo/button-props.tsx">Customize footer buttons props</code>
 <code src="./demo/hooks.tsx">Use hooks to get context</code>
 <code src="./demo/modal-render.tsx">Custom modal content render</code>
 <code src="./demo/width.tsx">To customize the width of modal</code>
-<code src="./demo/static-info.tsx">Static Method</code>
-<code src="./demo/confirm-router.tsx">destroy confirmation modal dialog</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/custom-mouse-position.tsx" debug>Control modal's animation origin position</code>
 <code src="./demo/wireframe.tsx" debug>Wireframe</code>
@@ -42,7 +40,7 @@ Additionally, if you need show a simple confirmation dialog, you can use [`App.u
 | --- | --- | --- | --- | --- |
 | afterClose | Specify a function that will be called when modal is closed completely | function | - |  |
 | bodyStyle | Body style for modal body element. Such as height, padding etc | CSSProperties |  |  |
-| cancelButtonProps | The cancel button props | [ButtonProps](/components/button/#api) | - |  |
+| cancelButtonProps | The cancel button props | [ButtonProps](/components/button/#API) | - |  |
 | cancelText | Text of the Cancel button | ReactNode | `Cancel` |  |
 | centered | Centered Modal | boolean | false |  |
 | closable | Whether a close (x) button is visible on top right of the modal dialog or not | boolean | true |  |
@@ -58,7 +56,7 @@ Additionally, if you need show a simple confirmation dialog, you can use [`App.u
 | maskClosable | Whether to close the modal dialog when the mask (area outside the modal) is clicked | boolean | true |  |
 | maskStyle | Style for modal's mask element | CSSProperties |  |  |
 | modalRender | Custom modal content render | (node: ReactNode) => ReactNode | - | 4.7.0 |
-| okButtonProps | The ok button props | [ButtonProps](/components/button/#api) | - |  |
+| okButtonProps | The ok button props | [ButtonProps](/components/button/#API) | - |  |
 | okText | Text of the OK button | ReactNode | `OK` |  |
 | okType | Button `type` of the OK button | string | `primary` |  |
 | style | Style of floating layer, typically used at least for adjusting the position | CSSProperties | - |  |
@@ -93,7 +91,7 @@ The items listed above are all functions, expecting a settings object as paramet
 | afterClose | Specify a function that will be called when modal is closed completely | function | - | 4.9.0 |
 | autoFocusButton | Specify which button to autofocus | null \| `ok` \| `cancel` | `ok` |  |
 | bodyStyle | Body style for modal body element. Such as height, padding etc | CSSProperties |  | 4.8.0 |
-| cancelButtonProps | The cancel button props | [ButtonProps](/components/button/#api) | - |  |
+| cancelButtonProps | The cancel button props | [ButtonProps](/components/button/#API) | - |  |
 | cancelText | Text of the Cancel button with Modal.confirm | string | `Cancel` |  |
 | centered | Centered Modal | boolean | false |  |
 | className | The className of container | string | - |  |
@@ -107,7 +105,7 @@ The items listed above are all functions, expecting a settings object as paramet
 | mask | Whether show mask or not. | boolean | true |  |
 | maskClosable | Whether to close the modal dialog when the mask (area outside the modal) is clicked | boolean | false |  |
 | maskStyle | Style for modal's mask element | object | {} |  |
-| okButtonProps | The ok button props | [ButtonProps](/components/button/#api) | - |  |
+| okButtonProps | The ok button props | [ButtonProps](/components/button/#API) | - |  |
 | okText | Text of the OK button | string | `OK` |  |
 | okType | Button `type` of the OK button | string | `primary` |  |
 | style | Style of floating layer, typically used at least for adjusting the position | CSSProperties | - |  |
@@ -196,12 +194,10 @@ return (
 
 **Note:** You must insert `contextHolder` into your children with hooks. You can use origin method if you do not need context connection.
 
-> [App Package Component](/components/app) can be used to simplify the problem of `useModal` and other methods that need to manually implant contextHolder.
-
 ### How to disable motion?
 
 You can config `transitionName=""` and `maskTransitionName=""` to remove motion class. But you should note that these prop is internal usage which we don't promise exist in next major version.
 
 ### How to set static methods prefixCls ？
 
-You can config with [`ConfigProvider.config`](/components/config-provider#configproviderconfig-4130)
+You can config with [`ConfigProvider.config`](</components/config-provider/#ConfigProvider.config()-4.13.0+>)

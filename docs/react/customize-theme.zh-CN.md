@@ -21,8 +21,8 @@ Ant Design 设计规范和技术上支持灵活的样式定制，以满足业务
 通过在 ConfigProvider 中传入 `theme`，可以配置主题。在升级 v5 后，将默认使用 v5 的主题，以下是将配置主题示例：
 
 ```tsx
-import { Button, ConfigProvider } from 'antd';
 import React from 'react';
+import { ConfigProvider, Button } from 'antd';
 
 const App: React.FC = () => (
   <ConfigProvider
@@ -48,8 +48,8 @@ export default App;
 通过修改算法可以快速生成风格迥异的主题，5.0 版本中默认提供三套预设算法，分别是默认算法 `theme.defaultAlgorithm`、暗色算法 `theme.darkAlgorithm` 和紧凑算法 `theme.compactAlgorithm`。你可以通过修改 ConfigProvider 中 `theme` 属性的 `algorithm` 属性来切换算法。
 
 ```tsx
-import { Button, ConfigProvider, theme } from 'antd';
 import React from 'react';
+import { ConfigProvider, Button, theme } from 'antd';
 
 const App: React.FC = () => (
   <ConfigProvider
@@ -69,8 +69,8 @@ export default App;
 除了整体的 Design Token，各个组件也会开放自己的 Component Token 来实现针对组件的样式定制能力，不同的组件之间不会相互影响。同样地，也可以通过这种方式来覆盖组件的其他 Design Token。
 
 ```tsx
-import { Checkbox, ConfigProvider, Radio } from 'antd';
 import React from 'react';
+import { ConfigProvider, Radio, Checkbox } from 'antd';
 
 const App: React.FC = () => (
   <ConfigProvider
@@ -94,8 +94,6 @@ export default App;
 
 ![component token](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*EMY0QrHFDjsAAAAAAAAAAAAAARQnAQ)
 
-> 注意：`ConfigProvider` 对 `message.xxx`、`Modal.xxx`、`notification.xxx` 等静态方法不会生效，原因是在这些方法中，antd 会通过 `ReactDOM.render` 动态创建新的 React 实体。其 context 与当前代码所在 context 并不相同，因而无法获取 context 信息。当你需要 context 信息（例如 ConfigProvider 配置的内容）时，可以通过 `Modal.useModal` 方法会返回 modal 实体以及 contextHolder 节点。将其插入到你需要获取 context 位置即可，也可通过 [App 包裹组件](/components/app-cn) 简化 useModal 等方法需要手动植入 contextHolder 的问题。
-
 ## 动态主题的其他使用方式
 
 ### 动态切换
@@ -107,8 +105,8 @@ export default App;
 可以嵌套使用 `ConfigProvider` 来实现局部主题的更换。在子主题中未被改变的 Design Token 将会继承父主题。
 
 ```tsx
-import { Button, ConfigProvider } from 'antd';
 import React from 'react';
+import { ConfigProvider, Button } from 'antd';
 
 const App: React.FC = () => (
   <ConfigProvider
@@ -139,8 +137,8 @@ export default App;
 如果你希望使用当前主题下的 Design Token，我们提供了 `useToken` 这个 hook 来获取 Design Token。
 
 ```tsx
-import { Button, theme } from 'antd';
 import React from 'react';
+import { Button, theme } from 'antd';
 
 const { useToken } = theme;
 
@@ -238,13 +236,40 @@ const theme = {
 };
 ```
 
+### 兼容性调整
+
+Ant Design 的 CSS-in-JS 默认通过 `:where` 选择器降低 CSS Selector 优先级，以减少用户升级 v5 时额外调整自定义样式成本。在某些场景下你如果需要支持的旧版浏览器，你可以使用 `@ant-design/cssinjs` 取消默认的降权操作（请注意版本保持与 antd 一致）：
+
+```tsx
+import React from 'react';
+import { StyleProvider } from '@ant-design/cssinjs';
+
+export default () => (
+  <StyleProvider hashPriority="high">
+    <MyApp />
+  </StyleProvider>
+);
+```
+
+切换后，样式将从 `:where` 切换为类选择器：
+
+```diff
+--  :where(.css-bAMboO).ant-btn {
+++  .css-bAMboO.ant-btn {
+      color: #fff;
+    }
+```
+
+注意：关闭 `:where` 降权后，你可能需要手动调整一些样式的优先级。
+
 ### 服务端渲染
 
 使用 `@ant-design/cssinjs` 将所需样式抽离：
 
 ```tsx
-import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
+import React from 'react';
 import { renderToString } from 'react-dom/server';
+import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
 
 export default () => {
   // SSR Render
@@ -274,17 +299,14 @@ export default () => {
 };
 ```
 
-### 兼容旧版浏览器
-
-请参考文档 [样式兼容](/docs/react/compatible-style-cn)。
-
 ### Shadow DOM 场景
 
 在 Shadow DOM 场景中，由于其添加 `<style />` 标签的方式与普通 DOM 不同，所以需要使用 `@ant-design/cssinjs` 的 `StyleProvider` 配置 `container` 属性用于设置插入位置：
 
 ```tsx
-import { StyleProvider } from '@ant-design/cssinjs';
+import React from 'react';
 import { createRoot } from 'react-dom/client';
+import { StyleProvider } from '@ant-design/cssinjs';
 
 const shadowRoot = someEle.attachShadow({ mode: 'open' });
 const container = document.createElement('div');
@@ -330,10 +352,6 @@ root.render(
 > 继承所有 SeedToken 和 MapToken 的属性
 
 <TokenTable type="alias"></TokenTable>
-
-### StyleProvider
-
-请参考 [`@ant-design/cssinjs`](https://github.com/ant-design/cssinjs#styleprovider)。
 
 ## 调试主题
 

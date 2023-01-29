@@ -5,3 +5,14 @@
 ## en-US
 
 Cards usually cooperate with grid column layout in overview page.
+
+<style>
+.site-card-wrapper {
+  padding: 30px;
+  background: #ececec;
+}
+
+[data-theme="dark"] .site-card-wrapper {
+  background: #303030;
+}
+</style>

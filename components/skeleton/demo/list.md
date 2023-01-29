@@ -5,3 +5,9 @@
 ## en-US
 
 Use skeleton in list component.
+
+<style>
+.skeleton-demo {
+  border: 1px solid #f4f4f4;
+}
+</style>

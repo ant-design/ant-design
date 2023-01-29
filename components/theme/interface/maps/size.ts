@@ -46,23 +46,10 @@ export interface SizeMapToken {
 
 export interface HeightMapToken {
   // Control
-  /** Only Used for control inside component like Multiple Select inner selection item */
-
-  /**
-   * @nameZH 更小的组件高度
-   * @nameEN XS component height
-   */
+  /** @internal Only Used for control inside component like Multiple Select inner selection item */
   controlHeightXS: number;
-
-  /**
-   * @nameZH 较小的组件高度
-   * @nameEN SM component height
-   */
+  /** @internal */
   controlHeightSM: number;
-
-  /**
-   * @nameZH 较高的组件高度
-   * @nameEN LG component height
-   */
+  /** @internal */
   controlHeightLG: number;
 }
