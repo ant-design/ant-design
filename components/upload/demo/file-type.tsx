@@ -78,8 +78,11 @@ const App: React.FC = () => {
     ];
     // console.log(1, file, listType);
     let icon = file.status === 'uploading' ? <LoadingOutlined /> : <PaperClipOutlined />;
-    if (listType === 'picture' || listType === 'picture-card') {
-      if (listType === 'picture-card' && file.status === 'uploading') {
+    if (listType === 'picture' || listType === 'picture-card' || listType === 'picture-circle') {
+      if (
+        (listType === 'picture-card' || listType === 'picture-circle') &&
+        file.status === 'uploading'
+      ) {
         icon = <LoadingOutlined />; // or icon = 'uploading...';
       } else {
         fileSufIconList.forEach((item) => {
