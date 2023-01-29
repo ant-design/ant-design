@@ -5,17 +5,3 @@
 ## en-US
 
 Animating the Tag by using [rc-tween-one](https://github.com/react-component/tween-one).
-
-```css
-.site-tag-plus {
-  background: #fff;
-  border-style: dashed;
-}
-```
-
-<style>
-  [data-theme="dark"] .site-tag-plus {
-    background: transparent;
-    border-style: dashed;
-  }
-</style>

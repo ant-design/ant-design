@@ -117,10 +117,9 @@ title: 从 v4 到 v5
 - 移除 PageHeader 组件，移至 `@ant-design/pro-components` 中维护。
 
   ```diff
-  - import { PageHeader, Comment, Input, Button } from 'antd';
+  - import { PageHeader, Comment } from 'antd';
   + import { Comment } from '@ant-design/compatible';
   + import { PageHeader } from '@ant-design/pro-layout';
-  + import { Input, Button } from 'antd';
 
     const App: React.FC = () => (
       <>
@@ -196,14 +195,15 @@ const mapToken = defaultAlgorithm(defaultSeed);
 const v4Token = convertLegacyToken(mapToken);
 
 // Webpack Config
-{
-  loader: "less-loader",
+module.exports = {
+  // ... other config
+  loader: 'less-loader',
   options: {
     lessOptions: {
       modifyVars: v4Token,
     },
   },
-}
+};
 ```
 
 同时移除对 antd less 文件的直接引用：

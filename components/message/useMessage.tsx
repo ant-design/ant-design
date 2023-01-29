@@ -38,6 +38,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     prefixCls: staticPrefixCls,
     getContainer: staticGetContainer,
     maxCount,
+    duration = DEFAULT_DURATION,
     rtl,
     transitionName,
     onAllRemoved,
@@ -75,7 +76,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     motion: getNotificationMotion,
     closable: false,
     closeIcon: mergedCloseIcon,
-    duration: DEFAULT_DURATION,
+    duration,
     getContainer: () => staticGetContainer?.() || getPopupContainer?.() || document.body,
     maxCount,
     onAllRemoved,
@@ -98,7 +99,7 @@ let keyIndex = 0;
 
 export function useInternalMessage(
   notificationConfig?: HolderProps,
-): [MessageInstance, React.ReactElement] {
+): readonly [MessageInstance, React.ReactElement] {
   const holderRef = React.useRef<HolderRef>(null);
 
   // ================================ API ================================
@@ -212,7 +213,10 @@ export function useInternalMessage(
   }, []);
 
   // ============================== Return ===============================
-  return [wrapAPI, <Holder key="holder" {...notificationConfig} ref={holderRef} />];
+  return [
+    wrapAPI,
+    <Holder key="message-holder" {...notificationConfig} ref={holderRef} />,
+  ] as const;
 }
 
 export default function useMessage(notificationConfig?: ConfigOptions) {

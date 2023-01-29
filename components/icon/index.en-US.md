@@ -104,14 +104,16 @@ We added a `createFromIconfontCN` function to help developer use their own icons
 
 > This method is specified for [iconfont.cn](http://iconfont.cn/).
 
-```js
+```jsx
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 import { createFromIconfontCN } from '@ant-design/icons';
 
 const MyIcon = createFromIconfontCN({
-  scriptUrl: '//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js', // 在 iconfont.cn 上生成
+  scriptUrl: '//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js', // generate in iconfont.cn
 });
 
-ReactDOM.render(<MyIcon type="icon-example" />, mountedNode);
+ReactDOM.createRoot(mountNode).render(<MyIcon type="icon-example" />);
 ```
 
 It creates a component that uses SVG sprites in essence.
@@ -133,7 +135,8 @@ You can import SVG icon as a react component by using `webpack` and [`@svgr/webp
 
 ```js
 // webpack.config.js
-{
+module.exports = {
+  // ... other config
   test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
   use: [
     {
@@ -147,16 +150,18 @@ You can import SVG icon as a react component by using `webpack` and [`@svgr/webp
       },
     },
   ],
-}
+};
 ```
 
 ```jsx
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 import Icon from '@ant-design/icons';
 import MessageSvg from 'path/to/message.svg'; // path to your '*.svg' file.
 // in create-react-app:
 // import { ReactComponent as MessageSvg } from 'path/to/message.svg';
 
-ReactDOM.render(<Icon component={MessageSvg} />, mountNode);
+ReactDOM.createRoot(mountNode).render(<Icon component={MessageSvg} />);
 ```
 
 The following properties are available for the component:

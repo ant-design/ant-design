@@ -33,9 +33,3 @@ Note: You don't need `Col` to control the width in the `compact` mode.
   border-right-width: 1px;
 }
 ```
-
-<style>
-[data-theme="dark"] .site-input-group-wrapper .site-input-split {
-  background-color: transparent;
-}
-</style>

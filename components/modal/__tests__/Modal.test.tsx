@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import type { ModalProps } from '..';
 import Modal from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -8,29 +8,21 @@ import { resetWarned } from '../../_util/warning';
 
 jest.mock('rc-util/lib/Portal');
 
-class ModalTester extends React.Component<ModalProps, { open: boolean }> {
-  state = { open: false };
-
-  componentDidMount() {
-    this.setState({ open: true }); // eslint-disable-line react/no-did-mount-set-state
-  }
-
-  container = React.createRef<HTMLDivElement>();
-
-  getContainer = () => this.container?.current!;
-
-  render() {
-    const { open } = this.state;
-    return (
-      <div>
-        <div ref={this.container} />
-        <Modal {...this.props} open={open} getContainer={this.getContainer}>
-          Here is content of Modal
-        </Modal>
-      </div>
-    );
-  }
-}
+const ModalTester: React.FC<ModalProps> = (props) => {
+  const [open, setOpen] = React.useState(false);
+  const container = React.useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    setOpen(true);
+  }, []);
+  return (
+    <div>
+      <div ref={container} />
+      <Modal {...props} open={open} getContainer={container.current!}>
+        Here is content of Modal
+      </Modal>
+    </div>
+  );
+};
 
 describe('Modal', () => {
   mountTest(Modal);

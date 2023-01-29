@@ -36,7 +36,7 @@ Set components spacing.
 | --- | --- | --- | --- | --- |
 | align | Align items | `start` \| `end` \|`center` \|`baseline` | - | 4.2.0 |
 | direction | The space direction | `vertical` \| `horizontal` | `horizontal` | 4.1.0 |
-| size | The space size | [Size](#Size) \| [Size\[\]](#Size) | `small` | 4.1.0 \| Array: 4.9.0 |
+| size | The space size | [Size](#size) \| [Size\[\]](#size) | `small` | 4.1.0 \| Array: 4.9.0 |
 | split | Set split | ReactNode | - | 4.7.0 |
 | wrap | Auto wrap line, when `horizontal` effective | boolean | false | 4.9.0 |
 

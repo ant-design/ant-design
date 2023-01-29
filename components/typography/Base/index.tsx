@@ -4,7 +4,7 @@ import EditOutlined from '@ant-design/icons/EditOutlined';
 import classNames from 'classnames';
 import copy from 'copy-to-clipboard';
 import ResizeObserver from 'rc-resize-observer';
-import type { AutoSizeType } from 'rc-textarea/lib/ResizableTextArea';
+import type { AutoSizeType } from 'rc-textarea';
 import toArray from 'rc-util/lib/Children/toArray';
 import useIsomorphicLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
@@ -84,19 +84,21 @@ function wrapperDecorations(
 ) {
   let currentContent = content;
 
-  function wrap(needed: boolean | undefined, tag: string) {
-    if (!needed) return;
+  function wrap(tag: string, needed?: boolean) {
+    if (!needed) {
+      return;
+    }
 
     currentContent = React.createElement(tag, {}, currentContent);
   }
 
-  wrap(strong, 'strong');
-  wrap(underline, 'u');
-  wrap(del, 'del');
-  wrap(code, 'code');
-  wrap(mark, 'mark');
-  wrap(keyboard, 'kbd');
-  wrap(italic, 'i');
+  wrap('strong', strong);
+  wrap('u', underline);
+  wrap('del', del);
+  wrap('code', code);
+  wrap('mark', mark);
+  wrap('kbd', keyboard);
+  wrap('i', italic);
 
   return currentContent;
 }

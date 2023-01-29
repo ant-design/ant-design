@@ -35,7 +35,7 @@ const genSpaceStyle: GenerateStyle<SpaceToken> = (token) => {
           alignItems: 'flex-end',
         },
         '&-baseline': {
-          alignItems: 'flex-baseline',
+          alignItems: 'baseline',
         },
       },
       [`${componentCls}-space-item`]: {

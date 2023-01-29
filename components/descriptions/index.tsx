@@ -4,8 +4,8 @@ import toArray from 'rc-util/lib/Children/toArray';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import { cloneElement } from '../_util/reactNode';
-import type { Breakpoint, ScreenMap } from '../_util/responsiveObserve';
-import useResponsiveObserve, { responsiveArray } from '../_util/responsiveObserve';
+import type { Breakpoint, ScreenMap } from '../_util/responsiveObserver';
+import useResponsiveObserver, { responsiveArray } from '../_util/responsiveObserver';
 import warning from '../_util/warning';
 import DescriptionsItem from './Item';
 import Row from './Row';
@@ -47,8 +47,8 @@ function getColumn(column: DescriptionsProps['column'], screens: ScreenMap): num
 
 function getFilledItem(
   node: React.ReactElement,
-  span: number | undefined,
   rowRestCol: number,
+  span?: number,
 ): React.ReactElement {
   let clone = node;
 
@@ -74,12 +74,12 @@ function getRows(children: React.ReactNode, column: number) {
   let rowRestCol = column;
 
   childNodes.forEach((node, index) => {
-    const span: number | undefined = node.props?.span;
+    const span: number = node.props?.span;
     const mergedSpan = span || 1;
 
     // Additional handle last one
     if (index === childNodes.length - 1) {
-      tmpRow.push(getFilledItem(node, span, rowRestCol));
+      tmpRow.push(getFilledItem(node, rowRestCol, span));
       rows.push(tmpRow);
       return;
     }
@@ -88,7 +88,7 @@ function getRows(children: React.ReactNode, column: number) {
       rowRestCol -= mergedSpan;
       tmpRow.push(node);
     } else {
-      tmpRow.push(getFilledItem(node, mergedSpan, rowRestCol));
+      tmpRow.push(getFilledItem(node, rowRestCol, mergedSpan));
       rows.push(tmpRow);
       rowRestCol = column;
       tmpRow = [];
@@ -135,11 +135,11 @@ function Descriptions({
   const mergedColumn = getColumn(column, screens);
 
   const [wrapSSR, hashId] = useStyle(prefixCls);
-  const responsiveObserve = useResponsiveObserve();
+  const responsiveObserver = useResponsiveObserver();
 
   // Responsive
   React.useEffect(() => {
-    const token = responsiveObserve.subscribe((newScreens) => {
+    const token = responsiveObserver.subscribe((newScreens) => {
       if (typeof column !== 'object') {
         return;
       }
@@ -147,7 +147,7 @@ function Descriptions({
     });
 
     return () => {
-      responsiveObserve.unsubscribe(token);
+      responsiveObserver.unsubscribe(token);
     };
   }, []);
 
@@ -200,6 +200,10 @@ function Descriptions({
       </div>
     </DescriptionsContext.Provider>,
   );
+}
+
+if (process.env.NODE_ENV !== 'production') {
+  Descriptions.displayName = 'Descriptions';
 }
 
 Descriptions.Item = DescriptionsItem;

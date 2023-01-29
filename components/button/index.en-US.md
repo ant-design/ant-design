@@ -36,6 +36,7 @@ And 4 other properties additionally.
 <code src="./demo/basic.tsx">Type</code>
 <code src="./demo/icon.tsx">Icon</code>
 <code src="./demo/debug-icon.tsx" debug>Debug Icon</code>
+<code src="./demo/debug-block.tsx" debug>Debug Block</code>
 <code src="./demo/size.tsx">Size</code>
 <code src="./demo/disabled.tsx">Disabled</code>
 <code src="./demo/loading.tsx">Loading</code>
@@ -72,7 +73,7 @@ It accepts all props which native buttons support.
 
 ### How to remove space between 2 chinese characters?
 
-Following the Ant Design specification, we will add one space between if Button (exclude Text button and Link button) contains two Chinese characters only. If you don't need that, you can use [ConfigProvider](/components/config-provider/#API) to set `autoInsertSpaceInButton` as `false`.
+Following the Ant Design specification, we will add one space between if Button (exclude Text button and Link button) contains two Chinese characters only. If you don't need that, you can use [ConfigProvider](/components/config-provider/#api) to set `autoInsertSpaceInButton` as `false`.
 
 <img src="https://gw.alipayobjects.com/zos/antfincdn/MY%26THAPZrW/38f06cb9-293a-4b42-b183-9f443e79ffea.png" style="box-shadow: none; margin: 0; width: 100px" alt="Button with two Chinese characters" />
 
@@ -80,9 +81,5 @@ Following the Ant Design specification, we will add one space between if Button 
 .site-button-ghost-wrapper {
   padding: 16px;
   background: rgb(190, 200, 200);
-}
-
-[data-theme="dark"] .site-button-ghost-wrapper {
-  background: rgba(255, 255, 255, 0.2);
 }
 </style>

@@ -76,7 +76,7 @@ const RecommendItem = ({ extra, index, icons, itemCss }: RecommendItemProps) => 
       <Typography.Paragraph type="secondary" style={{ flex: 'auto' }}>
         {extra.description}
       </Typography.Paragraph>
-      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <Typography.Text>{extra.date}</Typography.Text>
         {icon && <img src={icon.href} style={{ height: token.fontSize }} alt="banner" />}
       </div>

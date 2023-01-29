@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
-import { Result, Button } from 'antd';
 import { HomeOutlined } from '@ant-design/icons';
+import { Button, Result } from 'antd';
 import { Link, useLocation } from 'dumi';
+import React, { useEffect } from 'react';
 import * as utils from '../../theme/utils';
 
 export interface NotFoundProps {
@@ -28,6 +28,15 @@ const NotFoundPage: React.FC<NotFoundProps> = ({ router }) => {
       if (pathname.includes(matchPath)) {
         router.replace(utils.getLocalizedPathname(`/${DIRECT_MAP[matchPath]}`, isZhCN).pathname);
       }
+    }
+
+    // Report if necessary
+    const { yuyanMonitor } = window as any;
+    if (yuyanMonitor) {
+      yuyanMonitor.log({
+        code: 11,
+        msg: `Page not found: ${location.href}; Source: ${document.referrer}`,
+      });
     }
   }, []);
 

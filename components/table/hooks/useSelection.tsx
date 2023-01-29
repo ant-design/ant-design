@@ -54,22 +54,17 @@ export type INTERNAL_SELECTION_ITEM =
   | typeof SELECTION_INVERT
   | typeof SELECTION_NONE;
 
-function flattenData<RecordType>(
-  data: RecordType[] | undefined,
-  childrenColumnName: string,
-): RecordType[] {
+function flattenData<RecordType>(childrenColumnName: string, data?: RecordType[]): RecordType[] {
   let list: RecordType[] = [];
   (data || []).forEach((record) => {
     list.push(record);
-
     if (record && typeof record === 'object' && childrenColumnName in record) {
       list = [
         ...list,
-        ...flattenData<RecordType>((record as any)[childrenColumnName], childrenColumnName),
+        ...flattenData<RecordType>(childrenColumnName, (record as any)[childrenColumnName]),
       ];
     }
   });
-
   return list;
 }
 
@@ -159,7 +154,7 @@ export default function useSelection<RecordType>(
 
   // Get flatten data
   const flattedData = useMemo(
-    () => flattenData(pageData, childrenColumnName),
+    () => flattenData(childrenColumnName, pageData),
     [pageData, childrenColumnName],
   );
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, message, Steps } from 'antd';
+import { Button, message, Steps, theme } from 'antd';
 
 const steps = [
   {
@@ -17,6 +17,7 @@ const steps = [
 ];
 
 const App: React.FC = () => {
+  const { token } = theme.useToken();
   const [current, setCurrent] = useState(0);
 
   const next = () => {
@@ -26,13 +27,24 @@ const App: React.FC = () => {
   const prev = () => {
     setCurrent(current - 1);
   };
+
   const items = steps.map((item) => ({ key: item.title, title: item.title }));
+
+  const contentStyle: React.CSSProperties = {
+    lineHeight: '260px',
+    textAlign: 'center',
+    color: token.colorTextTertiary,
+    backgroundColor: token.colorFillAlter,
+    borderRadius: token.borderRadiusLG,
+    border: `1px dashed ${token.colorBorder}`,
+    marginTop: 16,
+  };
 
   return (
     <>
       <Steps current={current} items={items} />
-      <div className="steps-content">{steps[current].content}</div>
-      <div className="steps-action">
+      <div style={contentStyle}>{steps[current].content}</div>
+      <div style={{ marginTop: 24 }}>
         {current < steps.length - 1 && (
           <Button type="primary" onClick={() => next()}>
             Next

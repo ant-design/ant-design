@@ -54,7 +54,6 @@ export default function fromDumiProps<P extends object>(
             [
               (node: any) => JsonML.isElement(node) && JsonML.getTagName(node) === 'pre',
               (node: any, index: any) => {
-                // @ts-ignore
                 // ref: https://github.com/benjycui/bisheng/blob/master/packages/bisheng/src/bisheng-plugin-highlight/lib/browser.js#L7
                 const attr = JsonML.getAttributes(node);
                 return React.createElement(
@@ -86,8 +85,7 @@ export default function fromDumiProps<P extends object>(
       location,
       src: demoUrl,
       expand,
-      // FIXME: confirm is there has any case?
-      highlightedStyle: '',
+      highlightedStyle: meta.style ? Prism.highlight(meta.style, Prism.languages.css, 'css') : '',
     } as P;
 
     return <WrappedComponent {...transformedProps} />;

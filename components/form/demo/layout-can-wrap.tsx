@@ -9,6 +9,7 @@ const App: React.FC = () => (
     labelWrap
     wrapperCol={{ flex: 1 }}
     colon={false}
+    style={{ maxWidth: 600 }}
   >
     <Form.Item label="正常标签文案" name="username" rules={[{ required: true }]}>
       <Input />

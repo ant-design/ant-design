@@ -12,7 +12,7 @@ An enterprise-class UI design language and React UI library.
 
 [![CI status][github-action-image]][github-action-url] [![codecov][codecov-image]][codecov-url] [![NPM version][npm-image]][npm-url] [![NPM downloads][download-image]][download-url]
 
-[![Total alerts][lgtm-image]][lgtm-url] [![][bundlephobia-image]][bundlephobia-url] [![][bundlesize-js-image]][unpkg-js-url] [![FOSSA Status][fossa-image]][fossa-url]
+[![][bundlephobia-image]][bundlephobia-url] [![][bundlesize-js-image]][unpkg-js-url] [![FOSSA Status][fossa-image]][fossa-url]
 
 [![Follow Twitter][twitter-image]][twitter-url] [![Renovate status][renovate-image]][renovate-dashboard-url] [![][issues-helper-image]][issues-helper-url] [![Issues need help][help-wanted-image]][help-wanted-url]
 
@@ -24,8 +24,6 @@ An enterprise-class UI design language and React UI library.
 [codecov-url]: https://codecov.io/gh/ant-design/ant-design/branch/master
 [download-image]: https://img.shields.io/npm/dm/antd.svg?style=flat-square
 [download-url]: https://npmjs.org/package/antd
-[lgtm-image]: https://flat.badgen.net/lgtm/alerts/g/ant-design/ant-design
-[lgtm-url]: https://lgtm.com/projects/g/ant-design/ant-design/alerts/
 [fossa-image]: https://app.fossa.io/api/projects/git%2Bgithub.com%2Fant-design%2Fant-design.svg?type=shield
 [fossa-url]: https://app.fossa.io/projects/git%2Bgithub.com%2Fant-design%2Fant-design?ref=badge_shield
 [help-wanted-image]: https://flat.badgen.net/github/label-issues/ant-design/ant-design/help%20wanted/open
@@ -43,7 +41,7 @@ An enterprise-class UI design language and React UI library.
 
 </div>
 
-[![](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Yl83RJhUE7kAAAAAAAAAAABkARQnAQ)](https://ant.design)
+[![](https://user-images.githubusercontent.com/507615/209472919-6f7e8561-be8c-4b0b-9976-eb3c692aa20a.png)](https://ant.design)
 
 English | [Português](./README-pt_BR.md) | [简体中文](./README-zh_CN.md) | [Українською](./README-uk_UA.md) | [Spanish](./README-sp_MX.md) | [日本語](./README-ja_JP.md)
 
@@ -79,6 +77,7 @@ yarn add antd
 ## 🔨 Usage
 
 ```jsx
+import React from 'react';
 import { Button, DatePicker } from 'antd';
 
 const App = () => (
@@ -95,7 +94,7 @@ const App = () => (
 
 ## 🌍 Internationalization
 
-Dozens of languages supported in `antd`, see [i18n](https://ant.design/docs/react/i18n).
+Dozens of languages are supported in `antd`, see [i18n](https://ant.design/docs/react/i18n).
 
 ## 🔗 Links
 
@@ -105,6 +104,7 @@ Dozens of languages supported in `antd`, see [i18n](https://ant.design/docs/reac
 - [Change Log](CHANGELOG.en-US.md)
 - [rc-components](http://react-component.github.io/)
 - [Mobile UI](http://mobile.ant.design)
+- [Mini Program UI](http://mini.ant.design)
 - [Ant Design Pro Components](https://procomponents.ant.design)
 - [Ant Design Charts](https://charts.ant.design)
 - [Ant Design Icons](https://github.com/ant-design/ant-design-icons)

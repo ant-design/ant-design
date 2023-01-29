@@ -39,31 +39,41 @@ title: 可视化
 
 #### 时间类
 
-<img class="preview-img no-padding" align="right" description="代表类型：折线图、面积图等" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*z0ZSRabgdpQAAAAAAAAAAABkARQnAQ" />
+<ImagePreview>
+<img class="preview-img no-padding" description="代表类型：折线图、面积图等" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*z0ZSRabgdpQAAAAAAAAAAABkARQnAQ" />
+</ImagePreview>
 
 通常用于表现数据在时间维度上的趋势和变化。
 
 #### 比较类
 
-<img class="preview-img no-padding" align="right" description="代表类型：柱状图、气泡图等" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*mvE4T6jti5QAAAAAAAAAAABkARQnAQ" />
+<ImagePreview>
+<img class="preview-img no-padding" description="代表类型：柱状图、气泡图等" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*mvE4T6jti5QAAAAAAAAAAABkARQnAQ" />
+</ImagePreview>
 
 使用图形的长度、宽度、位置、面积、角度和颜色来比较数值的大小，通常用于展示不同分类间的数值对比。
 
 #### 分布类
 
-<img class="preview-img no-padding" align="right" description="代表类型：散点图、箱形图等" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*_ft8Soe5p6EAAAAAAAAAAABkARQnAQ" />
+<ImagePreview>
+<img class="preview-img no-padding" description="代表类型：散点图、箱形图等" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*_ft8Soe5p6EAAAAAAAAAAABkARQnAQ" />
+</ImagePreview>
 
 通常用于展示连续数据上数值的分布情况。
 
 #### 流程类
 
-<img class="preview-img no-padding" align="right" description="代表类型：漏斗图等" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*kJj6Qo3-UFIAAAAAAAAAAABkARQnAQ" />
+<ImagePreview>
+<img class="preview-img no-padding" description="代表类型：漏斗图等" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*kJj6Qo3-UFIAAAAAAAAAAABkARQnAQ" />
+</ImagePreview>
 
 通常用于表示流程流转、流量关系。
 
 #### 占比类
 
-<img class="preview-img no-padding" align="right" description="代表类型：环图、饼图、百分比堆叠类型图表等" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*52XJRK9B0KUAAAAAAAAAAABkARQnAQ" />
+<ImagePreview>
+<img class="preview-img no-padding" description="代表类型：环图、饼图、百分比堆叠类型图表等" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*52XJRK9B0KUAAAAAAAAAAABkARQnAQ" />
+</ImagePreview>
 
 显示同一维度上占比关系。
 
@@ -71,7 +81,9 @@ title: 可视化
 
 ### 色板
 
-<img class="preview-img no-padding" align="right" description="AntV 官方默认色板示例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Skn6TZsQ7ksAAAAAAAAAAABkARQnAQ" />
+<ImagePreview>
+<img class="preview-img no-padding" description="AntV 官方默认色板示例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Skn6TZsQ7ksAAAAAAAAAAABkARQnAQ" />
+</ImagePreview>
 
 AntV 提供了一套默认的图表颜色，包括颜色的用法，
 
@@ -85,35 +97,49 @@ AntV 提供了一套默认的图表颜色，包括颜色的用法，
 
 #### 轴
 
-<img class="preview-img no-padding" align="right" description="轴的元素" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*i4tXQZkMGrMAAAAAAAAAAABkARQnAQ" />
+<ImagePreview>
+<img class="preview-img no-padding" description="轴的元素" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*i4tXQZkMGrMAAAAAAAAAAABkARQnAQ" />
+</ImagePreview>
 
-<img class="preview-img no-padding" align="right" description="轴的分类" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*-ycMQZ48GykAAAAAAAAAAABkARQnAQ" />
+<ImagePreview>
+<img class="preview-img no-padding" description="轴的分类" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*-ycMQZ48GykAAAAAAAAAAABkARQnAQ" />
+</ImagePreview>
 
 用来定义坐标系中数据在方向和值的映射关系。
 
 #### 图例
 
-<img class="preview-img no-padding" align="right" description="图例的元素" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*8oYwRJbGmhMAAAAAAAAAAABkARQnAQ" />
+<ImagePreview>
+<img class="preview-img no-padding" description="图例的元素" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*8oYwRJbGmhMAAAAAAAAAAABkARQnAQ" />
+</ImagePreview>
 
-<img class="preview-img no-padding" align="right" description="图例的分类" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*sSGjRJGyrqQAAAAAAAAAAABkARQnAQ" />
+<ImagePreview>
+<img class="preview-img no-padding" description="图例的分类" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*sSGjRJGyrqQAAAAAAAAAAABkARQnAQ" />
+</ImagePreview>
 
 用来解释图表区域中包含的所有视觉元素的含义。
 
 #### 标签
 
-<img class="preview-img no-padding" align="right" description="标签的分类" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*j2gNQ4E-wAoAAAAAAAAAAABkARQnAQ" />
+<ImagePreview>
+<img class="preview-img no-padding" description="标签的分类" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*j2gNQ4E-wAoAAAAAAAAAAABkARQnAQ" />
+</ImagePreview>
 
 对当前的一组数据进行的内容标注。
 
 #### 提示信息
 
-<img class="preview-img no-padding" align="right" description="提示信息的元素" src="https://gw.alipayobjects.com/zos/basement_prod/f9683e72-81a4-47cc-a208-6570187cce11.svg" />
+<ImagePreview>
+<img class="preview-img no-padding" description="提示信息的元素" src="https://gw.alipayobjects.com/zos/basement_prod/f9683e72-81a4-47cc-a208-6570187cce11.svg" />
+</ImagePreview>
 
 指当鼠标悬停在图表上或者手指点按移动设备的某个数据点时，以交互提示信息的形式展示该点的数据，比如该点的值，数据单位等。
 
 #### 图形
 
-<img class="preview-img no-padding" align="right" description="图形的分类" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*itDLQb2fXpkAAAAAAAAAAABkARQnAQ" />
+<ImagePreview>
+<img class="preview-img no-padding" description="图形的分类" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*itDLQb2fXpkAAAAAAAAAAABkARQnAQ" />
+</ImagePreview>
 
 图形是统计图表的视觉通道在形状上映射的视觉展现，是图表的主体部分，其他图表组件的目的是帮助读者更好地理解数据在图形上的映射关系。
 
@@ -121,11 +147,15 @@ AntV 提供了一套默认的图表颜色，包括颜色的用法，
 
 ### 图表布局适应
 
-<img class="preview-img no-padding" align="right" description="图表响应式示意" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*0vfXTIlbSXwAAAAAAAAAAABkARQnAQ" />
+<ImagePreview>
+<img class="preview-img no-padding" description="图表响应式示意" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*0vfXTIlbSXwAAAAAAAAAAABkARQnAQ" />
+</ImagePreview>
 
 数据可视化始终面对海量数据量与有限屏幕空间的冲突，如何解决不同端、不同屏幕尺寸下内容的适配问题，在有限的空间内帮助用户更快地理解信息和更快地分析洞察，是我们一直致力研究的问题。
 
-<img class="preview-img no-padding" align="right" description="设计思路" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*WsO3T5klNMIAAAAAAAAAAABkARQnAQ" />
+<ImagePreview>
+<img class="preview-img no-padding" description="设计思路" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*WsO3T5klNMIAAAAAAAAAAABkARQnAQ" />
+</ImagePreview>
 
 在 Ant Design 的可视化体系中，我们发展出一套适用于全量图表的布局适应规则，从整体图表、图表内原子组件梳理了适用于所有图表的布局适应体系。以右侧动图为例，图中横轴的轴标签跟随具体尺寸发生了旋转。更多内容即将发布，敬请期待。
 

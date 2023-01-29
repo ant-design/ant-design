@@ -1,11 +1,17 @@
-import React, { useCallback, useEffect, useMemo } from 'react';
-import { createSearchParams, useOutlet, useSearchParams } from 'dumi';
+import {
+  createCache,
+  legacyNotSelectorLinter,
+  logicalPropertiesLinter,
+  parentSelectorLinter,
+  StyleProvider,
+} from '@ant-design/cssinjs';
 import { ConfigProvider, theme as antdTheme } from 'antd';
-import { createCache, StyleProvider } from '@ant-design/cssinjs';
 import type { DirectionType } from 'antd/es/config-provider';
-import ThemeSwitch from '../common/ThemeSwitch';
-import type { ThemeName } from '../common/ThemeSwitch';
+import { createSearchParams, useOutlet, useSearchParams } from 'dumi';
+import React, { startTransition, useCallback, useEffect, useMemo } from 'react';
 import useLocation from '../../hooks/useLocation';
+import type { ThemeName } from '../common/ThemeSwitch';
+import ThemeSwitch from '../common/ThemeSwitch';
 import type { SiteContextProps } from '../slots/SiteContext';
 import SiteContext from '../slots/SiteContext';
 
@@ -78,10 +84,13 @@ const GlobalLayout: React.FC = () => {
   useEffect(() => {
     const _theme = searchParams.getAll('theme') as ThemeName[];
     const _direction = searchParams.get('direction') as DirectionType;
-    setSiteState({ theme: _theme, direction: _direction === 'rtl' ? 'rtl' : 'ltr' });
 
-    // Handle isMobile
-    updateMobileMode();
+    startTransition(() => {
+      setSiteState({ theme: _theme, direction: _direction === 'rtl' ? 'rtl' : 'ltr' });
+      // Handle isMobile
+      updateMobileMode();
+    });
+
     window.addEventListener('resize', updateMobileMode);
     return () => {
       window.removeEventListener('resize', updateMobileMode);
@@ -99,7 +108,10 @@ const GlobalLayout: React.FC = () => {
   );
 
   return (
-    <StyleProvider cache={styleCache}>
+    <StyleProvider
+      cache={styleCache}
+      linters={[logicalPropertiesLinter, legacyNotSelectorLinter, parentSelectorLinter]}
+    >
       <SiteContext.Provider value={siteContextValue}>
         <ConfigProvider
           theme={{

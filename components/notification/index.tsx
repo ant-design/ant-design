@@ -59,10 +59,10 @@ interface GlobalHolderRef {
 const GlobalHolder = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
   const [prefixCls, setPrefixCls] = React.useState<string>();
   const [container, setContainer] = React.useState<HTMLElement>();
-  const [maxCount, setMaxCount] = React.useState<number | undefined>();
-  const [rtl, setRTL] = React.useState<boolean | undefined>();
-  const [top, setTop] = React.useState<number | undefined>();
-  const [bottom, setBottom] = React.useState<number | undefined>();
+  const [maxCount, setMaxCount] = React.useState<number>();
+  const [rtl, setRTL] = React.useState<boolean>();
+  const [top, setTop] = React.useState<number>();
+  const [bottom, setBottom] = React.useState<number>();
 
   const [api, holder] = useInternalNotification({
     prefixCls,

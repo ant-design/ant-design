@@ -39,7 +39,7 @@ export function resolveOnChange<E extends HTMLInputElement | HTMLTextAreaElement
     | React.ChangeEvent<E>
     | React.MouseEvent<HTMLElement, MouseEvent>
     | React.CompositionEvent<HTMLElement>,
-  onChange: undefined | ((event: React.ChangeEvent<E>) => void),
+  onChange?: (event: React.ChangeEvent<E>) => void,
   targetValue?: string,
 ) {
   if (!onChange) {
@@ -221,7 +221,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
       prefixCls={prefixCls}
       autoComplete={input?.autoComplete}
       {...rest}
-      disabled={mergedDisabled || undefined}
+      disabled={mergedDisabled}
       onBlur={handleBlur}
       onFocus={handleFocus}
       suffix={suffixNode}

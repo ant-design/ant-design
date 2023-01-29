@@ -133,7 +133,7 @@ const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
       display: 'inline-block',
       cursor: 'pointer',
 
-      [`&:not(&-customize-input) ${componentCls}-selector`]: {
+      [`&:not(${componentCls}-customize-input) ${componentCls}-selector`]: {
         ...genSelectorStyle(token),
         ...getSearchInputWithoutBorderStyle(token),
       },
@@ -259,7 +259,7 @@ const genSelectStyle: GenerateStyle<SelectToken> = (token) => {
         },
 
         // ==================== In Form ====================
-        '&&-in-form-item': {
+        [`&${componentCls}-in-form-item`]: {
           width: '100%',
         },
       },

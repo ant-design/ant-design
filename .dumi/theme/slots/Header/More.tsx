@@ -61,15 +61,15 @@ export function getEcosystemGroup(): Exclude<MenuProps['items'], undefined> {
 }
 
 export default (props: SharedProps) => {
-  const downstyle = props.isRTL ? '-1px 2px 0 0' : '-1px 0 0 2px';
+  const downStyle = props.isRTL ? '-1px 2px 0 0' : '-1px 0 0 2px';
   return (
     <Dropdown menu={{ items: getEcosystemGroup() }} placement="bottomRight">
-      <Button size="small" className="header-button">
+      <Button size="small">
         <FormattedMessage id="app.header.menu.more" />
         <DownOutlined
           style={{
             fontSize: '9px',
-            margin: downstyle,
+            margin: downStyle,
             verticalAlign: 'middle',
           }}
         />

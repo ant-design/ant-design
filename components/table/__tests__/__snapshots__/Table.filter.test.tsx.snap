@@ -645,7 +645,7 @@ exports[`Table.filter renders menu correctly 1`] = `
           Title
         </span>
         <span
-          class="ant-dropdown-menu-submenu-expand-icon"
+          class="ant-dropdown-menu-submenu-expand-icon ant-dropdown-menu-submenu-arrow"
         >
           <span
             aria-label="right"
@@ -787,7 +787,7 @@ exports[`Table.filter renders radio filter correctly 1`] = `
           Title
         </span>
         <span
-          class="ant-dropdown-menu-submenu-expand-icon"
+          class="ant-dropdown-menu-submenu-expand-icon ant-dropdown-menu-submenu-arrow"
         >
           <span
             aria-label="right"

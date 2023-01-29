@@ -105,10 +105,10 @@ describe('Table.expand', () => {
       );
 
       // header has td element (a11y): https://github.com/react-component/table/pull/859
-      const tdNodeList = container.querySelectorAll('td');
+      const tdNodeList = container.querySelectorAll('tbody td');
 
-      expect(tdNodeList[2].textContent).toEqual('bamboo');
-      expect(tdNodeList[3].querySelector('.ant-table-row-expand-icon')).toBeTruthy();
+      expect(tdNodeList[0].textContent).toEqual('bamboo');
+      expect(tdNodeList[1].querySelector('.ant-table-row-expand-icon')).toBeTruthy();
     });
 
     it('work with selection', () => {
@@ -123,10 +123,10 @@ describe('Table.expand', () => {
           rowSelection={{}}
         />,
       );
-      const tdNodeList = container.querySelectorAll('td');
-      expect(tdNodeList[2].querySelector('.ant-checkbox-input')).toBeTruthy();
-      expect(tdNodeList[3].textContent).toEqual('bamboo');
-      expect(tdNodeList[4].querySelector('.ant-table-row-expand-icon')).toBeTruthy();
+      const tdNodeList = container.querySelectorAll('tbody td');
+      expect(tdNodeList[0].querySelector('.ant-checkbox-input')).toBeTruthy();
+      expect(tdNodeList[1].textContent).toEqual('bamboo');
+      expect(tdNodeList[2].querySelector('.ant-table-row-expand-icon')).toBeTruthy();
     });
   });
 });

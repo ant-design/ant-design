@@ -2,19 +2,19 @@
 
 import type * as React from 'react';
 import classNames from 'classnames';
-import { PresetColorTypes } from '../_util/colors';
-
-const PresetColorRegex = new RegExp(`^(${PresetColorTypes.join('|')})(-inverse)?$`);
+import { isPresetColor } from '../_util/colors';
 
 export function parseColor(prefixCls: string, color?: string) {
+  const isInternalColor = isPresetColor(color);
+
   const className = classNames({
-    [`${prefixCls}-${color}`]: color && PresetColorRegex.test(color),
+    [`${prefixCls}-${color}`]: color && isInternalColor,
   });
 
   const overlayStyle: React.CSSProperties = {};
   const arrowStyle: React.CSSProperties = {};
 
-  if (color && !PresetColorRegex.test(color)) {
+  if (color && !isInternalColor) {
     overlayStyle.background = color;
     // @ts-ignore
     arrowStyle['--antd-arrow-background-color'] = color;

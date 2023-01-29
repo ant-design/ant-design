@@ -75,6 +75,7 @@ Arvin Xu <arvinx@foxmail.com>
 Ash Kumar <kumar.ashwin@outlook.com>
 Ashot Mnatsakanyan <mnatsakanyan.ashot@gmail.com>
 Austaras <austaras@outlook.com>
+Ayden <itxcc420@gmail.com>
 Aymen Bouchekoua <bouchekoua.aymen@gmail.com>
 Aymen Chebbi <a.chebi@klarx.com>
 BK Heleth <bon.hoo@hotmail.com>
@@ -137,6 +138,8 @@ Chang Wei <867597730@qq.com>
 Charles Covey-Brandt <chazcb@gmail.com>
 Charlie Jonas <charlie@callawaycloudconsulting.com>
 Chelsea Huang <chelsea.huang@sap.com>
+ChenXiao <xiaoxiang930601@163.com>
+ChenXiao <2459402883@qq.com>
 Cheng Liu <liucheng.tech@outlook.com>
 Chenjia <ariesjia00@hotmail.com>
 Chiciuc Nicușor <nicuchiciuc@gmail.com>
@@ -461,6 +464,7 @@ Junyu Zhan <irrigator@yeah.net>
 Juraj Carnogursky <durisvk2@gmail.com>
 Justin Reich <reich.justin@gmail.com>
 Justin Schuldt <justinschuldt@gmail.com>
+Justin Sun <i@jsun969.cn>
 Jógvan Olsen <jogvanolsen@hotmail.com>
 Kaan KÜÇÜK <kaankck@gmail.com>
 Kaien Liao <liaokaien@gmail.com>
@@ -687,6 +691,7 @@ Pengsha Ying <810998652@qq.com>
 Peritot Chan <peritotchan@gmail.com>
 Peter <usstpeter@gmail.com>
 Peter Berg <atticusberg@gmail.com>
+Peter Gassner <peter@gassner.io>
 Phanupong Janthapoon <panupong.jtp@gmail.com>
 Philip Oliver <philipodev@gmail.com>
 Phyllis <escapiststupor@gmail.com>
@@ -1224,8 +1229,8 @@ melchior voidwolf <kmno4k2mno4@gmail.com>
 memoryza <jincai.wang@foxmail.com>
 mgrdevport <mgrdevport@gmail.com>
 mingyan.yu <mingyan.yu@wormpex.com>
-miracles1919 <lujie@yuantutech.com>
 miracles1919 <516571350@qq.com>
+miracles1919 <lujie@yuantutech.com>
 mjfwebb <bugeyedboy@gmail.com>
 mkermani144 <mkermani144@gmail.com>
 mmmveggies <jakeselig@gmail.com>
@@ -1276,6 +1281,7 @@ realEago <774855001@qq.com>
 rendaoer <rendaoer@outlook.com>
 renzhao1113 <547249523@qq.com>
 richardison <richard.ison@carleton.ca>
+roottool <operation.versatile.roottool@gmail.com>
 ryangun <ryangun@foxmail.com>
 ryanhoho <hswacoal@gmail.com>
 ryannz <c5e1856@gmail.com>
@@ -1485,6 +1491,7 @@ zz <2418184580@qq.com>
 庄天翼 <zty0826@gmail.com>
 廖应龙 <vigossliao@gmail.com>
 廖星 <liaoxing.lx@bytedance.com>
+张仕传 <zsc.guru@gmail.com>
 张大大 <249812928@qq.com>
 张威 <1051127659@qq.com>
 张秀玲 <18811794335@163.com>
@@ -1494,6 +1501,7 @@ zz <2418184580@qq.com>
 曾凯 <zengkai2009@foxmail.com>
 期贤 <qixian.cs@antgroup.com>
 朮厃 <cn.ah.liu@gmail.com>
+李瀚 <lihan@lihansir.com>
 李环冀 <158757774@qq.com>
 杨兴洲 <dr2009.china@gmail.com>
 杨哲迪 <yangzhedi@yidian-inc.com>

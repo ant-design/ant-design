@@ -150,4 +150,8 @@ const RefCollapse = React.forwardRef<HTMLDivElement, CollapseProps>(
 
 RefCollapse.Panel = CollapsePanel;
 
+if (process.env.NODE_ENV !== 'production') {
+  RefCollapse.displayName = 'Collapse';
+}
+
 export default RefCollapse;

@@ -1,7 +1,7 @@
 ---
 order: 1
 title: Resources
-description: Here list all the resources that related with Ant Design.
+description: List all the resources that are related with Ant Design here.
 toc: false
 ---
 

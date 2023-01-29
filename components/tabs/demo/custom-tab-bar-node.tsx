@@ -12,7 +12,8 @@ interface DraggableTabPaneProps extends React.HTMLAttributes<HTMLDivElement> {
 
 const DraggableTabNode = ({ index, children, moveNode }: DraggableTabPaneProps) => {
   const ref = useRef<HTMLDivElement>(null);
-  const [{ isOver, dropClassName }, drop] = useDrop({
+
+  const [{ isOver }, drop] = useDrop({
     accept: type,
     collect: (monitor) => {
       const { index: dragIndex } = monitor.getItem() || {};
@@ -21,7 +22,6 @@ const DraggableTabNode = ({ index, children, moveNode }: DraggableTabPaneProps) 
       }
       return {
         isOver: monitor.isOver(),
-        dropClassName: 'dropping',
       };
     },
     drop: (item: { index: React.Key }) => {
@@ -37,8 +37,14 @@ const DraggableTabNode = ({ index, children, moveNode }: DraggableTabPaneProps) 
   });
   drop(drag(ref));
 
+  // Style
+  const style: React.CSSProperties = { marginRight: 24 };
+  if (isOver) {
+    style.transition = 'all 0.3s';
+  }
+
   return (
-    <div ref={ref} style={{ marginRight: 24 }} className={isOver ? dropClassName : ''}>
+    <div ref={ref} style={style}>
       {children}
     </div>
   );
