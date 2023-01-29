@@ -32,7 +32,7 @@ const data: DataType[] = [
     key: '3',
     name: 'Jim Green',
     age: 32,
-    address: 'Sidney No. 1 Lake Park',
+    address: 'Sydney No. 1 Lake Park',
   },
   {
     key: '4',
