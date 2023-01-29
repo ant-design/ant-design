@@ -80,11 +80,11 @@ const genFixedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         },
 
         '&::before': {
-          insetInlineStart: 0,
+          left: 0,
         },
 
         '&::after': {
-          insetInlineEnd: 0,
+          right: 0,
         },
       },
 
