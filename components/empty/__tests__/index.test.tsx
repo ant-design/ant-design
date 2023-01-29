@@ -29,7 +29,7 @@ describe('Empty', () => {
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
-  it.only('dark mode compatible', () => {
+  it('dark mode compatible', () => {
     const { container } = render(
       <ConfigProvider
         theme={{
@@ -39,8 +39,6 @@ describe('Empty', () => {
         <Empty />
       </ConfigProvider>,
     );
-
-    console.log(document.body.innerHTML);
 
     expect(container.querySelector('svg')).toHaveStyle({
       opacity: 0.65,
