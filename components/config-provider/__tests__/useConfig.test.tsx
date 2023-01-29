@@ -5,7 +5,7 @@ import { render } from '../../../tests/utils';
 
 describe('ConfigProvider.useConfig', () => {
   it('useConfig - componentSize', () => {
-    let size: string | undefined = undefined;
+    let size;
 
     const App: React.FC = () => {
       const { componentSize } = ConfigProvider.useConfig();
@@ -24,7 +24,7 @@ describe('ConfigProvider.useConfig', () => {
   });
 
   it('useConfig - componentDisabled', () => {
-    let disabled: boolean | undefined = undefined;
+    let disabled;
     const App: React.FC = () => {
       const { componentDisabled } = ConfigProvider.useConfig();
       disabled = componentDisabled;
