@@ -28,18 +28,18 @@ Vertical display timeline.
 
 ```__react
 import Alert from '../alert';
-ReactDOM.render(<Alert message="After version 5.2.0, we provide a simpler usage <Mentions options={[...]} />  with better performance and potential of writing simpler code style in your applications. Meanwhile, we deprecated the old usage in browser console, we will remove it in antd 6.0." />, mountNode);
+ReactDOM.render(<Alert message="After version 5.2.0, we provide a simpler usage <Timeline items={[...]} />  with better performance and potential of writing simpler code style in your applications. Meanwhile, we deprecated the old usage in browser console, we will remove it in antd 6.0." />, mountNode);
 ```
 
 ```jsx
 // works when >=5.1.0, recommended ✅
 const options = [{ value: 'sample', label: 'sample' }];
-return <Mentions options={options} />;
+return <Timeline options={options} />;
 
 // works when <5.1.0, deprecated when >=5.1.0 🙅🏻‍♀️
-<Mentions onChange={onChange}>
-  <Mentions.Option value="sample">Sample</Mentions.Option>
-</Mentions>;
+<Timeline onChange={onChange}>
+  <Timeline.Item>Sample</Timeline.Item>
+</Timeline>;
 ```
 
 ## API

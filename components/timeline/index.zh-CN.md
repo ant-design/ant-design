@@ -29,7 +29,7 @@ demo:
 
 ```__react
 import Alert from '../alert';
-ReactDOM.render(<Alert message="After version 5.2.0, we provide a simpler usage <Mentions options={[...]} />  with better performance and potential of writing simpler code style in your applications. Meanwhile, we deprecated the old usage in browser console, we will remove it in antd 6.0." />, mountNode);
+ReactDOM.render(<Alert message="After version 5.2.0, we provide a simpler usage <Timeline items={[...]} />  with better performance and potential of writing simpler code style in your applications. Meanwhile, we deprecated the old usage in browser console, we will remove it in antd 6.0." />, mountNode);
 ```
 
 ```jsx
@@ -39,7 +39,7 @@ return <Timeline items={items} />;
 
 // <5.2.0 可用，>=5.2.0 时不推荐 🙅🏻‍♀️
 <Timeline onChange={onChange}>
-  <Timeline.Item value="sample">Sample</Timeline.Item>
+  <Timeline.Item>Sample</Timeline.Item>
 </Timeline>;
 ```
 
