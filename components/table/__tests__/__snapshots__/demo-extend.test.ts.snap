@@ -2074,7 +2074,7 @@ exports[`renders ./components/table/demo/drag-sorting.tsx extend context correct
                   <td
                     class="ant-table-cell"
                   >
-                    Sydney No. 1 Lake Park
+                    Sidney No. 1 Lake Park
                   </td>
                 </tr>
               </tbody>
