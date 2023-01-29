@@ -161,7 +161,8 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
 
   const listClassNames = classNames({
     [`${prefixCls}-list`]: true,
-    [`${prefixCls}-list-${listType}`]: true,
+    [`${prefixCls}-list-picture-card`]: listType === 'picture-card',
+    [`${prefixCls}-list-picture-circle`]: listType === 'picture-circle',
   });
 
   // >>> Motion config
