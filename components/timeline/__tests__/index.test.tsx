@@ -5,26 +5,59 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render } from '../../../tests/utils';
 
-const { Item } = TimeLine;
-
-const renderFactory = (
-  timeLineProps: TimelineProps = {},
-  labelItems: TimelineProps['children'] = null,
-) =>
+const renderFactory = (timeLineProps: TimelineProps = {}) =>
   render(
-    <TimeLine {...timeLineProps}>
-      <Item key="1">foo</Item>
-      <Item key="2">bar</Item>
-      <Item key="3">baz</Item>
-      {labelItems}
-    </TimeLine>,
+    <TimeLine
+      {...timeLineProps}
+      items={[
+        {
+          content: 'foo',
+        },
+        {
+          content: 'bar',
+        },
+        {
+          content: 'baz',
+        },
+      ]}
+    />,
   );
 
 describe('TimeLine', () => {
   mountTest(TimeLine);
-  mountTest(TimeLine.Item);
+  mountTest(TimeLine.Item as React.ComponentType);
   rtlTest(TimeLine);
-  rtlTest(TimeLine.Item);
+  rtlTest(TimeLine.Item as React.ComponentType);
+
+  it('render TimeLine.Item  should correctly', () => {
+    // @ts-ignore
+    const itemRender = (content) => <TimeLine.Item key={content}>{content}</TimeLine.Item>;
+    const items = [
+      {
+        content: 'foo',
+      },
+      {
+        content: 'bar',
+      },
+      {
+        content: 'baz',
+      },
+    ];
+    const { container } = render(
+      <TimeLine>{items.map((item) => itemRender(item.content))}</TimeLine>,
+    );
+
+    // has 3 timeline item
+    expect(container.querySelectorAll('li.ant-timeline-item')).toHaveLength(3);
+
+    // has only 1 timeline item is marked as the last item
+    expect(container.querySelectorAll('li.ant-timeline-item-last')).toHaveLength(1);
+
+    // its last item is marked as the last item
+    expect(container.querySelectorAll('li.ant-timeline-item')[2]).toHaveClass(
+      'ant-timeline-item-last',
+    );
+  });
 
   it('renders items without passing any props correctly', () => {
     const { container } = renderFactory();
@@ -132,11 +165,21 @@ describe('TimeLine', () => {
 
   it('renders Timeline item with label correctly', () => {
     const label = '2020-01-01';
-    const { container } = renderFactory(
-      {},
-      <Item key="1" label={label}>
-        foo
-      </Item>,
+    const { container } = render(
+      <TimeLine
+        items={[
+          {
+            label,
+            content: 'foo',
+          },
+          {
+            content: 'bar',
+          },
+          {
+            content: 'baz',
+          },
+        ]}
+      />,
     );
     expect(container.querySelectorAll('.ant-timeline-label')).toHaveLength(1);
     expect(container.querySelector('.ant-timeline-item-label')).toHaveTextContent(label);
@@ -148,9 +191,14 @@ describe('TimeLine', () => {
     presetColors.forEach((color) => {
       it(`className should have a preset color ${color}`, () => {
         const { container } = render(
-          <TimeLine>
-            <Item color={color}>foo</Item>
-          </TimeLine>,
+          <TimeLine
+            items={[
+              {
+                color,
+                content: 'foo',
+              },
+            ]}
+          />,
         );
         expect(container.querySelector('.ant-timeline-item-head')).toHaveClass(
           `ant-timeline-item-head-${color}`,
@@ -167,9 +215,14 @@ describe('TimeLine', () => {
     nonPresetColors.forEach((color) => {
       it(`className should not have a non-preset color ${color}`, () => {
         const { container } = render(
-          <TimeLine>
-            <Item color={color}>foo</Item>
-          </TimeLine>,
+          <TimeLine
+            items={[
+              {
+                color,
+                content: 'foo',
+              },
+            ]}
+          />,
         );
         expect(container.querySelector('.ant-timeline-item-head')).not.toHaveClass(
           `ant-timeline-item-head-${color}`,

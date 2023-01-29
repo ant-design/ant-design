@@ -529,9 +529,14 @@ describe('ConfigProvider', () => {
 
     // Timeline
     testPair('Timeline', (props) => (
-      <Timeline {...props}>
-        <Timeline.Item {...props}>Bamboo</Timeline.Item>
-      </Timeline>
+      <Timeline
+        items={[
+          {
+            content: 'Bamboo',
+          },
+        ]}
+        {...props}
+      />
     ));
 
     // Tooltip
