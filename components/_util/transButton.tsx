@@ -1,7 +1,7 @@
 /**
- * Wrap of sub component which need use as Button capacity (like Icon component).
+ * Wrap the sub-component that needs to be used as a button (such as an Icon component).
  *
- * This helps accessibility reader to tread as a interactive button to operation.
+ * This helps accessibility readers treat it as an interactive button for operation.
  */
 import KeyCode from 'rc-util/lib/KeyCode';
 import * as React from 'react';
