@@ -25,13 +25,12 @@ const renderFactory = (timeLineProps: TimelineProps = {}) =>
 
 describe('TimeLine', () => {
   mountTest(TimeLine);
-  mountTest(TimeLine.Item as React.ComponentType);
+  mountTest(TimeLine.Item);
   rtlTest(TimeLine);
-  rtlTest(TimeLine.Item as React.ComponentType);
+  rtlTest(TimeLine.Item);
 
   it('render TimeLine.Item  should correctly', () => {
-    // @ts-ignore
-    const itemRender = (content) => <TimeLine.Item key={content}>{content}</TimeLine.Item>;
+    const itemRender = (content: string) => <TimeLine.Item key={content}>{content}</TimeLine.Item>;
     const items = [
       {
         content: 'foo',

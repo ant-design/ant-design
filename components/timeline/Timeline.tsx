@@ -26,7 +26,7 @@ export interface TimelineProps {
 }
 
 type CompoundedComponent = React.FC<TimelineProps> & {
-  Item?: React.FC<TimelineItemProps>;
+  Item: React.FC<TimelineItemProps>;
 };
 
 const Timeline: CompoundedComponent = (props) => {
