@@ -433,7 +433,8 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
       <span
         className={classNames(
           `${prefixCls}-wrapper`,
-          `${prefixCls}-${listType}-wrapper`,
+          `${prefixCls}-picture-card-wrapper`: listType === 'picture-card',
+          `${prefixCls}-picture-circle-wrapper`: listType === 'picture-circle',
           rtlCls,
           className,
           hashId,
