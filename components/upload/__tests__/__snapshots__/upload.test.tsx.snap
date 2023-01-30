@@ -21,7 +21,7 @@ exports[`Upload rtl render component should be rendered correctly in RTL directi
     </span>
   </div>
   <div
-    class="ant-upload-list"
+    class="ant-upload-list ant-upload-list-text"
   />
 </span>
 `;

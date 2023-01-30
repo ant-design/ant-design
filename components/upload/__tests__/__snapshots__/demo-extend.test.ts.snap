@@ -154,7 +154,7 @@ exports[`renders ./components/upload/demo/basic.tsx extend context correctly 1`]
     </span>
   </div>
   <div
-    class="ant-upload-list"
+    class="ant-upload-list ant-upload-list-text"
   />
 </span>
 `;
@@ -206,7 +206,7 @@ exports[`renders ./components/upload/demo/customize-progress-bar.tsx extend cont
     </span>
   </div>
   <div
-    class="ant-upload-list"
+    class="ant-upload-list ant-upload-list-text"
   />
 </span>
 `;
@@ -258,7 +258,7 @@ exports[`renders ./components/upload/demo/defaultFileList.tsx extend context cor
     </span>
   </div>
   <div
-    class="ant-upload-list"
+    class="ant-upload-list ant-upload-list-text"
   >
     <div
       class="ant-upload-list-item-container"
@@ -547,7 +547,7 @@ exports[`renders ./components/upload/demo/directory.tsx extend context correctly
     </span>
   </div>
   <div
-    class="ant-upload-list"
+    class="ant-upload-list ant-upload-list-text"
   />
 </span>
 `;
@@ -610,7 +610,7 @@ exports[`renders ./components/upload/demo/drag.tsx extend context correctly 1`] 
     </span>
   </div>
   <div
-    class="ant-upload-list"
+    class="ant-upload-list ant-upload-list-text"
   />
 </span>
 `;
@@ -662,7 +662,7 @@ exports[`renders ./components/upload/demo/drag-sorting.tsx extend context correc
     </span>
   </div>
   <div
-    class="ant-upload-list"
+    class="ant-upload-list ant-upload-list-text"
   >
     <div
       class="ant-upload-list-item-container"
@@ -1788,7 +1788,7 @@ exports[`renders ./components/upload/demo/fileList.tsx extend context correctly 
     </span>
   </div>
   <div
-    class="ant-upload-list"
+    class="ant-upload-list ant-upload-list-text"
   >
     <div
       class="ant-upload-list-item-container"
@@ -3260,7 +3260,7 @@ exports[`renders ./components/upload/demo/upload-custom-action-icon.tsx extend c
     </span>
   </div>
   <div
-    class="ant-upload-list"
+    class="ant-upload-list ant-upload-list-text"
   >
     <div
       class="ant-upload-list-item-container"
@@ -3566,7 +3566,7 @@ Array [
       </span>
     </div>
     <div
-      class="ant-upload-list"
+      class="ant-upload-list ant-upload-list-text"
     />
   </span>,
   <button
@@ -3629,7 +3629,7 @@ exports[`renders ./components/upload/demo/upload-png-only.tsx extend context cor
     </span>
   </div>
   <div
-    class="ant-upload-list"
+    class="ant-upload-list ant-upload-list-text"
   />
 </span>
 `;
@@ -3710,7 +3710,7 @@ exports[`renders ./components/upload/demo/upload-with-aliyun-oss.tsx extend cont
                 </span>
               </div>
               <div
-                class="ant-upload-list"
+                class="ant-upload-list ant-upload-list-text"
               />
             </span>
           </div>

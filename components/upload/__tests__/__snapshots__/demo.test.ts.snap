@@ -154,7 +154,7 @@ exports[`renders ./components/upload/demo/basic.tsx correctly 1`] = `
     </span>
   </div>
   <div
-    class="ant-upload-list"
+    class="ant-upload-list ant-upload-list-text"
   />
 </span>
 `;
@@ -206,7 +206,7 @@ exports[`renders ./components/upload/demo/customize-progress-bar.tsx correctly 1
     </span>
   </div>
   <div
-    class="ant-upload-list"
+    class="ant-upload-list ant-upload-list-text"
   />
 </span>
 `;
@@ -258,7 +258,7 @@ exports[`renders ./components/upload/demo/defaultFileList.tsx correctly 1`] = `
     </span>
   </div>
   <div
-    class="ant-upload-list"
+    class="ant-upload-list ant-upload-list-text"
   >
     <div
       class="ant-upload-list-item-container"
@@ -523,7 +523,7 @@ exports[`renders ./components/upload/demo/directory.tsx correctly 1`] = `
     </span>
   </div>
   <div
-    class="ant-upload-list"
+    class="ant-upload-list ant-upload-list-text"
   />
 </span>
 `;
@@ -586,7 +586,7 @@ exports[`renders ./components/upload/demo/drag.tsx correctly 1`] = `
     </span>
   </div>
   <div
-    class="ant-upload-list"
+    class="ant-upload-list ant-upload-list-text"
   />
 </span>
 `;
@@ -638,7 +638,7 @@ exports[`renders ./components/upload/demo/drag-sorting.tsx correctly 1`] = `
     </span>
   </div>
   <div
-    class="ant-upload-list"
+    class="ant-upload-list ant-upload-list-text"
   >
     <div
       class="ant-upload-list-item-container"
@@ -1668,7 +1668,7 @@ exports[`renders ./components/upload/demo/fileList.tsx correctly 1`] = `
     </span>
   </div>
   <div
-    class="ant-upload-list"
+    class="ant-upload-list ant-upload-list-text"
   >
     <div
       class="ant-upload-list-item-container"
@@ -3068,7 +3068,7 @@ exports[`renders ./components/upload/demo/upload-custom-action-icon.tsx correctl
     </span>
   </div>
   <div
-    class="ant-upload-list"
+    class="ant-upload-list ant-upload-list-text"
   >
     <div
       class="ant-upload-list-item-container"
@@ -3350,7 +3350,7 @@ Array [
       </span>
     </div>
     <div
-      class="ant-upload-list"
+      class="ant-upload-list ant-upload-list-text"
     />
   </span>,
   <button
@@ -3413,7 +3413,7 @@ exports[`renders ./components/upload/demo/upload-png-only.tsx correctly 1`] = `
     </span>
   </div>
   <div
-    class="ant-upload-list"
+    class="ant-upload-list ant-upload-list-text"
   />
 </span>
 `;
@@ -3494,7 +3494,7 @@ exports[`renders ./components/upload/demo/upload-with-aliyun-oss.tsx correctly 1
                 </span>
               </div>
               <div
-                class="ant-upload-list"
+                class="ant-upload-list ant-upload-list-text"
               />
             </span>
           </div>

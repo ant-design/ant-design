@@ -25,7 +25,7 @@ exports[`Upload List handle error 1`] = `
     </span>
   </div>
   <div
-    class="ant-upload-list"
+    class="ant-upload-list ant-upload-list-text"
   >
     <div
       class="ant-upload-list-item-container"
@@ -101,7 +101,7 @@ exports[`Upload List handle error 1`] = `
 
 exports[`Upload List itemRender 1`] = `
 <div
-  class="ant-upload-list"
+  class="ant-upload-list ant-upload-list-text"
 >
   <div
     class="ant-upload-list-item-container"
@@ -183,7 +183,7 @@ exports[`Upload List should be uploading when upload a file 1`] = `
     </span>
   </div>
   <div
-    class="ant-upload-list"
+    class="ant-upload-list ant-upload-list-text"
   >
     <div
       class="ant-upload-list-item-container ant-upload-animate-appear ant-upload-animate-appear-start ant-upload-animate"
