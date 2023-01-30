@@ -25,7 +25,7 @@ demo:
 <code src="./demo/avatar.tsx">用户头像</code>
 <code src="./demo/defaultFileList.tsx">已上传的文件列表</code>
 <code src="./demo/picture-card.tsx">照片墙</code>
-<code src="./demo/picture-circle.tsx">picture-card 类型的图片</code>
+<code src="./demo/picture-circle.tsx">圆形照片墙</code>
 <code src="./demo/fileList.tsx">完全控制的上传列表</code>
 <code src="./demo/drag.tsx">拖拽上传</code>
 <code src="./demo/directory.tsx">文件夹上传</code>
