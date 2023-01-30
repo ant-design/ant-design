@@ -43,5 +43,5 @@ demo:
 | disabled | 是否禁用 | boolean | false |  |
 | onChange | 选项变化时的回调函数 | function(value: string \| number) |  |  |
 | options | 数据化配置选项内容 | string\[] \| number\[] \| Array<{ label: ReactNode value: string icon? ReactNode disabled?: boolean className?: string }> | [] |  |
-| size | 控件尺寸 | `large` \| `middle` \| `small` | - |  |
+| size | 控件尺寸 | `large` \| `middle` \| `small` | `middle` |  |
 | value | 当前选中的值 | string \| number |  |  |
