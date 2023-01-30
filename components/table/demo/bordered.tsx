@@ -44,7 +44,7 @@ const data: DataType[] = [
     key: '3',
     name: 'Joe Black',
     money: '￥120,000.00',
-    address: 'Sidney No. 1 Lake Park',
+    address: 'Sydney No. 1 Lake Park',
   },
 ];
 

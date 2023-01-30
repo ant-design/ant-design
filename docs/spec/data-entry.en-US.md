@@ -49,7 +49,7 @@ Hints is usually added in Input to help remind users, which can increase efficie
 </ImagePreview>
 
 <ImagePreview>
-<img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/AUTvHOWDsCTgSojYrQms.png" description="You can put the short input tip below the input (as shorter than a sentense).">
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/AUTvHOWDsCTgSojYrQms.png" description="You can put the short input tip below the input (as shorter than a sentence).">
 </ImagePreview>
 
 ### Search

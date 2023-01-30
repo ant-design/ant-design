@@ -1,7 +1,7 @@
 import type { CSSObject } from '@ant-design/cssinjs';
+import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import { resetComponent } from '../../style';
 
 export interface ComponentToken {
   contentWidth: number;
@@ -275,6 +275,7 @@ const genBaseStyle: GenerateStyle<ListToken> = (token) => {
         marginBlockEnd: padding,
 
         [`${componentCls}-item-meta-title`]: {
+          marginBlockStart: 0,
           marginBlockEnd: paddingSM,
           color: colorText,
           fontSize: token.fontSizeLG,

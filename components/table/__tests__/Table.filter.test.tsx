@@ -1,25 +1,25 @@
 /* eslint-disable no-unsafe-optional-chaining */
 /* eslint-disable react/no-multi-comp */
 import React, { useEffect, useState } from 'react';
+import type { ColumnGroupType, ColumnType, TableProps } from '..';
 import Table from '..';
-import { fireEvent, render, waitFor, act } from '../../../tests/utils';
+import { act, fireEvent, render, waitFor } from '../../../tests/utils';
 import Button from '../../button';
 import ConfigProvider from '../../config-provider';
 import Input from '../../input';
 import Menu from '../../menu';
+import type { SelectProps } from '../../select';
 import Select from '../../select';
 import Tooltip from '../../tooltip';
-import type { SelectProps } from '../../select';
-import type { ColumnGroupType, ColumnType, TableProps } from '..';
-import type {
-  ColumnFilterItem,
-  FilterDropdownProps,
-  FilterValue,
-  ColumnsType,
-  SorterResult,
-} from '../interface';
 import { resetWarned } from '../../_util/warning';
 import type { TreeColumnFilterItem } from '../hooks/useFilter/FilterDropdown';
+import type {
+  ColumnFilterItem,
+  ColumnsType,
+  FilterDropdownProps,
+  FilterValue,
+  SorterResult,
+} from '../interface';
 
 // https://github.com/Semantic-Org/Semantic-UI-React/blob/72c45080e4f20b531fda2e3e430e384083d6766b/test/specs/modules/Dropdown/Dropdown-test.js#L73
 const nativeEvent = { nativeEvent: { stopImmediatePropagation: () => {} } };
@@ -89,6 +89,7 @@ describe('Table.filter', () => {
   });
 
   afterEach(() => {
+    jest.clearAllTimers();
     jest.useRealTimers();
   });
 
@@ -1686,7 +1687,7 @@ describe('Table.filter', () => {
         key: '2',
         name: 'Joe Black',
         age: 32,
-        address: 'Sidney No. 1 Lake Park',
+        address: 'Sydney No. 1 Lake Park',
       },
     ];
 
@@ -1799,7 +1800,7 @@ describe('Table.filter', () => {
               key: '3',
               name: 'Joe Black',
               age: 66,
-              address: 'Sidney No. 1 Lake Park',
+              address: 'Sydney No. 1 Lake Park',
             },
             {
               key: '4',
@@ -1909,7 +1910,7 @@ describe('Table.filter', () => {
           key: '3',
           name: 'Joe Black',
           age: 32,
-          address: 'Sidney No. 1 Lake Park',
+          address: 'Sydney No. 1 Lake Park',
         },
         {
           key: '4',
@@ -1956,7 +1957,7 @@ describe('Table.filter', () => {
           {
             key: '3',
             name1: 'Joe Black',
-            address: 'Sidney No. 1 Lake Park',
+            address: 'Sydney No. 1 Lake Park',
           },
           {
             key: '4',
@@ -2060,7 +2061,7 @@ describe('Table.filter', () => {
 
     it('should skip search when filters[0].text is ReactNode', () => {
       jest.spyOn(console, 'error').mockImplementation(() => undefined);
-      const { container } = render(
+      const { container, unmount } = render(
         createTable({
           columns: [
             {
@@ -2094,11 +2095,13 @@ describe('Table.filter', () => {
       expect(container.querySelectorAll('li.ant-dropdown-menu-item').length).toBe(3);
       fireEvent.change(container.querySelector('.ant-input')!, { target: { value: '123' } });
       expect(container.querySelectorAll('li.ant-dropdown-menu-item').length).toBe(2);
+
+      unmount();
     });
 
     it('should supports filterSearch has type of function', () => {
-      jest.spyOn(console, 'error').mockImplementation(() => undefined);
-      const { container } = render(
+      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => undefined);
+      const { container, unmount } = render(
         createTable({
           columns: [
             {
@@ -2122,6 +2125,9 @@ describe('Table.filter', () => {
       expect(container.querySelectorAll('li.ant-dropdown-menu-item').length).toBe(3);
       fireEvent.change(container.querySelector('.ant-input')!, { target: { value: '456' } });
       expect(container.querySelectorAll('li.ant-dropdown-menu-item').length).toBe(2);
+
+      unmount();
+      errorSpy.mockRestore();
     });
 
     it('should supports filterSearch has type of function when filterMode is tree', () => {
@@ -2552,9 +2558,19 @@ describe('Table.filter', () => {
     expect(onSelect).toHaveBeenCalled();
   });
 
-  it('filteredKeys should all be controlled or not controlled', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    errorSpy.mockReset();
+  describe('filteredKeys should all be controlled or not controlled', () => {
+    let errorSpy: jest.SpyInstance;
+
+    beforeEach(() => {
+      resetWarned();
+      errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      errorSpy.mockReset();
+    });
+
+    afterEach(() => {
+      errorSpy.mockRestore();
+    });
+
     const tableData = [
       {
         key: '1',
@@ -2562,7 +2578,7 @@ describe('Table.filter', () => {
         age: 32,
       },
     ];
-    const columns = [
+    const getColumns = () => [
       {
         title: 'name',
         dataIndex: 'name',
@@ -2576,33 +2592,43 @@ describe('Table.filter', () => {
         filters: [],
       },
     ];
-    render(
-      createTable({
-        columns,
-        data: tableData,
-      } as TableProps<any>),
-    );
-    expect(errorSpy).not.toHaveBeenCalled();
-    errorSpy.mockReset();
-    (columns[0] as any).filteredValue = [];
-    render(
-      createTable({
-        columns,
-        data: tableData,
-      } as TableProps<any>),
-    );
-    expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Table] Columns should all contain `filteredValue` or not contain `filteredValue`.',
-    );
-    errorSpy.mockReset();
-    (columns[1] as any).filteredValue = [];
-    render(
-      createTable({
-        columns,
-        data: tableData,
-      } as TableProps<any>),
-    );
-    expect(errorSpy).not.toHaveBeenCalled();
+
+    it('all uncontrolled', () => {
+      render(
+        createTable({
+          columns: getColumns(),
+          data: tableData,
+        } as TableProps<any>),
+      );
+      expect(errorSpy).not.toHaveBeenCalled();
+    });
+
+    it('part controlled', () => {
+      const columns = getColumns();
+      (columns[0] as any).filteredValue = [];
+      render(
+        createTable({
+          columns,
+          data: tableData,
+        } as TableProps<any>),
+      );
+      expect(errorSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Table] Columns should all contain `filteredValue` or not contain `filteredValue`.',
+      );
+    });
+
+    it('all controlled', () => {
+      const columns = getColumns();
+      (columns[0] as any).filteredValue = [];
+      (columns[1] as any).filteredValue = [];
+      render(
+        createTable({
+          columns,
+          data: tableData,
+        } as TableProps<any>),
+      );
+      expect(errorSpy).not.toHaveBeenCalled();
+    });
   });
 
   // Warning: An update to Item ran an effect, but was not wrapped in act(...).
