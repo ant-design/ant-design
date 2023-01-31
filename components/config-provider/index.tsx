@@ -341,7 +341,7 @@ Object.defineProperty(ConfigProvider, 'SizeContext', {
       'ConfigProvider',
       'ConfigProvider.SizeContext is deprecated. Please use `ConfigProvider.useConfig().componentSize` instead',
     );
-    return ConfigProvider.SizeContext;
+    return SizeContext;
   },
 });
 
