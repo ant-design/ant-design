@@ -25,6 +25,24 @@ describe('Badge', () => {
     jest.useRealTimers();
   });
 
+  it('no strict warning', () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const { rerender } = render(
+      <Badge dot>
+        <span />
+      </Badge>,
+    );
+
+    rerender(
+      <Badge>
+        <span />
+      </Badge>,
+    );
+
+    expect(errSpy).not.toHaveBeenCalled();
+    errSpy.mockRestore();
+  });
+
   it('badge dot not scaling count > 9', () => {
     const { container } = render(<Badge count={10} dot />);
     expect(container.querySelectorAll('.ant-card-multiple-words').length).toBe(0);
@@ -193,7 +211,7 @@ describe('Badge', () => {
         <Badge count={0} showZero color="#ff0" />
         <Badge count={0} showZero color="blue" />
         <Badge count={0} showZero />
-        <Badge count={0} showZero color='green'>
+        <Badge count={0} showZero color="green">
           <div />
         </Badge>
       </>,

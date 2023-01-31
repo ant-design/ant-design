@@ -2,6 +2,7 @@ import {
   createCache,
   legacyNotSelectorLinter,
   logicalPropertiesLinter,
+  parentSelectorLinter,
   StyleProvider,
 } from '@ant-design/cssinjs';
 import { ConfigProvider, theme as antdTheme } from 'antd';
@@ -107,7 +108,10 @@ const GlobalLayout: React.FC = () => {
   );
 
   return (
-    <StyleProvider cache={styleCache} linters={[logicalPropertiesLinter, legacyNotSelectorLinter]}>
+    <StyleProvider
+      cache={styleCache}
+      linters={[logicalPropertiesLinter, legacyNotSelectorLinter, parentSelectorLinter]}
+    >
       <SiteContext.Provider value={siteContextValue}>
         <ConfigProvider
           theme={{

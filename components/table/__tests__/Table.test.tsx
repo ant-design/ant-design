@@ -109,8 +109,6 @@ describe('Table', () => {
       { key: '2', age: 42 },
     ];
 
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-
     const columnsPageRange = jest.fn();
     const columnsPageSize = jest.fn();
     const props = { columnsPageRange, columnsPageSize };
@@ -120,7 +118,7 @@ describe('Table', () => {
       </Table>,
     );
 
-    expect(errorSpy).not.toHaveBeenCalledWith(
+    expect(warnSpy).not.toHaveBeenCalledWith(
       '`columnsPageRange` and `columnsPageSize` are removed, please use fixed columns instead, see: https://u.ant.design/fixed-columns.',
     );
 

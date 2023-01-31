@@ -107,7 +107,7 @@ export const genStatusStyle = (token: InputToken, parentCls: string): CSSObject 
         ),
       },
 
-      [`${componentCls}-prefix`]: {
+      [`${componentCls}-prefix, ${componentCls}-suffix`]: {
         color: colorError,
       },
     },
@@ -128,7 +128,7 @@ export const genStatusStyle = (token: InputToken, parentCls: string): CSSObject 
         ),
       },
 
-      [`${componentCls}-prefix`]: {
+      [`${componentCls}-prefix, ${componentCls}-suffix`]: {
         color: colorWarning,
       },
     },
@@ -317,7 +317,6 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
     },
 
     [`${componentCls}`]: {
-      float: 'inline-start',
       width: '100%',
       marginBottom: 0,
       textAlign: 'inherit',
@@ -388,7 +387,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
       },
     },
 
-    '&&-compact': {
+    [`&${componentCls}-group-compact`]: {
       display: 'block',
       ...clearFix(),
 
@@ -528,6 +527,11 @@ const genInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
           paddingBottom: colorSmallPadding,
         },
       },
+
+      '&[type="search"]::-webkit-search-cancel-button, &[type="search"]::-webkit-search-decoration':
+        {
+          '-webkit-appearance': 'none',
+        },
     },
   };
 };

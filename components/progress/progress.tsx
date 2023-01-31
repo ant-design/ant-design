@@ -11,8 +11,8 @@ import warning from '../_util/warning';
 import Circle from './Circle';
 import Line from './Line';
 import Steps from './Steps';
-import { getSuccessPercent, validProgress } from './utils';
 import useStyle from './style';
+import { getSuccessPercent, validProgress } from './utils';
 
 const ProgressTypes = ['line', 'circle', 'dashboard'] as const;
 export type ProgressType = typeof ProgressTypes[number];
@@ -73,7 +73,7 @@ const Progress: React.FC<ProgressProps> = (props) => {
   const percentNumber = React.useMemo<number>(() => {
     const successPercent = getSuccessPercent(props);
     return parseInt(
-      successPercent !== undefined ? successPercent.toString() : percent.toString(),
+      successPercent !== undefined ? (successPercent ?? 0)?.toString() : (percent ?? 0)?.toString(),
       10,
     );
   }, [percent, props.success, props.successPercent]);
