@@ -132,7 +132,7 @@ const genMessageStyle: GenerateStyle<MessageToken> = (token) => {
           pointerEvents: 'all',
         },
 
-        [`${componentCls}-success ${iconCls}`]: {
+        [`${componentCls}-success > ${iconCls}`]: {
           color: colorSuccess,
         },
         [`${componentCls}-error > ${iconCls}`]: {
