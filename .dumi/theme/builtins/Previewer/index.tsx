@@ -195,7 +195,7 @@ const Demo: React.FC<DemoProps> = (props) => {
   const codepenPrefillConfig = {
     title: `${localizedTitle} - antd@${dependencies.antd}`,
     html,
-    js: `${'const { createRoot } = ReactDOM;\n'}${sourceCodes?.jsx
+    js: `const { createRoot } = ReactDOM;\n${sourceCodes?.jsx
       .replace(/import\s+(?:React,\s+)?{(\s+[^}]*\s+)}\s+from\s+'react'/, `const { $1 } = React;`)
       .replace(/import\s+{(\s+[^}]*\s+)}\s+from\s+'antd';/, 'const { $1 } = antd;')
       .replace(/import\s+{(\s+[^}]*\s+)}\s+from\s+'@ant-design\/icons';/, 'const { $1 } = icons;')
@@ -407,7 +407,9 @@ const Demo: React.FC<DemoProps> = (props) => {
               codepenIconRef.current?.submit();
             }}
           >
-            <input type="hidden" name="data" value={JSON.stringify(codepenPrefillConfig)} />
+            {typeof window !== 'undefined' && (
+              <input type="hidden" name="data" value={JSON.stringify(codepenPrefillConfig)} />
+            )}
             <Tooltip title={<FormattedMessage id="app.demo.codepen" />}>
               <CodePenIcon className="code-box-codepen" />
             </Tooltip>
