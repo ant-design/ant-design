@@ -19,7 +19,7 @@ const methods: NoticeType[] = ['success', 'info', 'warning', 'error', 'loading']
 
 let message: GlobalMessage | null = null;
 
-let act: (callback: VoidFunction) => Promise<void> | void = (callback: VoidFunction) => callback();
+let act: (callback: VoidFunction) => Promise<void> | void = (callback) => callback();
 
 interface GlobalMessage {
   fragment: DocumentFragment;
