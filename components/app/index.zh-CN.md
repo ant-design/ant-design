@@ -118,3 +118,12 @@ export default () => {
   );
 };
 ```
+
+## API
+
+### App
+
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| messageConfig | App 内 Message 的全局配置 | [MessageConfig](/components/message-cn/#messageconfig) | - |  |
+| notificationConfig | App 内 Notification 的全局配置 | [NotificationConfig](/components/notification-cn/#notificationconfig) | - |  |

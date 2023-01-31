@@ -117,3 +117,12 @@ export default () => {
   );
 };
 ```
+
+## API
+
+### App
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| messageConfig | Global config for Message | [MessageConfig](/components/message/#messageconfig) | - |  |
+| notificationConfig | Global config for Notification | [NotificationConfig](/components/notification/#notificationconfig) | - |  |
