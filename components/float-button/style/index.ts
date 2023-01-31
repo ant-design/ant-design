@@ -103,7 +103,7 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
         position: 'relative',
         marginBottom: margin,
       },
-      '&&-rtl': {
+      [`&${groupPrefixCls}-rtl`]: {
         direction: 'rtl',
       },
       [componentCls]: {

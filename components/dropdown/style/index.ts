@@ -1,4 +1,4 @@
-import getArrowStyle, { getArrowOffset } from '../../style/placementArrow';
+import { genFocusStyle, resetComponent } from '../../style';
 import {
   initMoveMotion,
   initSlideMotion,
@@ -8,11 +8,11 @@ import {
   slideUpIn,
   slideUpOut,
 } from '../../style/motion';
+import getArrowStyle, { getArrowOffset } from '../../style/placementArrow';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import genButtonStyle from './button';
 import genStatusStyle from './status';
-import { genFocusStyle, resetComponent } from '../../style';
 
 export interface ComponentToken {
   zIndexPopup: number;
@@ -102,35 +102,39 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
         // =============================================================
         // When position is not enough for dropdown, the placement will revert.
         // We will handle this with revert motion name.
-        [`&${antCls}-slide-down-enter${antCls}-slide-down-enter-active&-placement-bottomLeft,
-          &${antCls}-slide-down-appear${antCls}-slide-down-appear-active&-placement-bottomLeft
-          &${antCls}-slide-down-enter${antCls}-slide-down-enter-active&-placement-bottom,
-          &${antCls}-slide-down-appear${antCls}-slide-down-appear-active&-placement-bottom,
-          &${antCls}-slide-down-enter${antCls}-slide-down-enter-active&-placement-bottomRight,
-          &${antCls}-slide-down-appear${antCls}-slide-down-appear-active&-placement-bottomRight`]: {
-          animationName: slideUpIn,
-        },
+        [`&${antCls}-slide-down-enter${antCls}-slide-down-enter-active${componentCls}-placement-bottomLeft,
+          &${antCls}-slide-down-appear${antCls}-slide-down-appear-active${componentCls}-placement-bottomLeft,
+          &${antCls}-slide-down-enter${antCls}-slide-down-enter-active${componentCls}-placement-bottom,
+          &${antCls}-slide-down-appear${antCls}-slide-down-appear-active${componentCls}-placement-bottom,
+          &${antCls}-slide-down-enter${antCls}-slide-down-enter-active${componentCls}-placement-bottomRight,
+          &${antCls}-slide-down-appear${antCls}-slide-down-appear-active${componentCls}-placement-bottomRight`]:
+          {
+            animationName: slideUpIn,
+          },
 
-        [`&${antCls}-slide-up-enter${antCls}-slide-up-enter-active&-placement-topLeft,
-          &${antCls}-slide-up-appear${antCls}-slide-up-appear-active&-placement-topLeft,
-          &${antCls}-slide-up-enter${antCls}-slide-up-enter-active&-placement-top,
-          &${antCls}-slide-up-appear${antCls}-slide-up-appear-active&-placement-top,
-          &${antCls}-slide-up-enter${antCls}-slide-up-enter-active&-placement-topRight,
-          &${antCls}-slide-up-appear${antCls}-slide-up-appear-active&-placement-topRight`]: {
-          animationName: slideDownIn,
-        },
+        [`&${antCls}-slide-up-enter${antCls}-slide-up-enter-active${componentCls}-placement-topLeft,
+          &${antCls}-slide-up-appear${antCls}-slide-up-appear-active${componentCls}-placement-topLeft,
+          &${antCls}-slide-up-enter${antCls}-slide-up-enter-active${componentCls}-placement-top,
+          &${antCls}-slide-up-appear${antCls}-slide-up-appear-active${componentCls}-placement-top,
+          &${antCls}-slide-up-enter${antCls}-slide-up-enter-active${componentCls}-placement-topRight,
+          &${antCls}-slide-up-appear${antCls}-slide-up-appear-active${componentCls}-placement-topRight`]:
+          {
+            animationName: slideDownIn,
+          },
 
-        [`&${antCls}-slide-down-leave${antCls}-slide-down-leave-active&-placement-bottomLeft,
-          &${antCls}-slide-down-leave${antCls}-slide-down-leave-active&-placement-bottom,
-          &${antCls}-slide-down-leave${antCls}-slide-down-leave-active&-placement-bottomRight`]: {
-          animationName: slideUpOut,
-        },
+        [`&${antCls}-slide-down-leave${antCls}-slide-down-leave-active${componentCls}-placement-bottomLeft,
+          &${antCls}-slide-down-leave${antCls}-slide-down-leave-active${componentCls}-placement-bottom,
+          &${antCls}-slide-down-leave${antCls}-slide-down-leave-active${componentCls}-placement-bottomRight`]:
+          {
+            animationName: slideUpOut,
+          },
 
-        [`&${antCls}-slide-up-leave${antCls}-slide-up-leave-active&-placement-topLeft,
-          &${antCls}-slide-up-leave${antCls}-slide-up-leave-active&-placement-top,
-          &${antCls}-slide-up-leave${antCls}-slide-up-leave-active&-placement-topRight`]: {
-          animationName: slideDownOut,
-        },
+        [`&${antCls}-slide-up-leave${antCls}-slide-up-leave-active${componentCls}-placement-topLeft,
+          &${antCls}-slide-up-leave${antCls}-slide-up-leave-active${componentCls}-placement-top,
+          &${antCls}-slide-up-leave${antCls}-slide-up-leave-active${componentCls}-placement-topRight`]:
+          {
+            animationName: slideDownOut,
+          },
       },
     },
 
@@ -159,12 +163,9 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
         boxShadow: 'none',
         transformOrigin: '0 0',
 
-        'ul,li': {
+        'ul, li': {
           listStyle: 'none',
-        },
-
-        ul: {
-          marginInline: '0.3em',
+          margin: 0,
         },
       },
 
@@ -190,7 +191,6 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
             position: 'relative',
             display: 'flex',
             alignItems: 'center',
-            borderRadius: token.borderRadiusSM,
           },
 
           [`${menuCls}-item-icon`]: {
@@ -229,6 +229,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
             lineHeight: token.lineHeight,
             cursor: 'pointer',
             transition: `all ${motionDurationMid}`,
+            borderRadius: token.borderRadiusSM,
 
             [`&:hover, &-active`]: {
               backgroundColor: token.controlItemBgHover,

@@ -118,24 +118,25 @@ const genPaginationMiniStyle: GenerateStyle<PaginationToken, CSSObject> = (token
   const { componentCls } = token;
 
   return {
-    [`&&-mini ${componentCls}-total-text, &&-mini ${componentCls}-simple-pager`]: {
-      height: token.paginationItemSizeSM,
-      lineHeight: `${token.paginationItemSizeSM}px`,
-    },
+    [`&${componentCls}-mini ${componentCls}-total-text, &${componentCls}-mini ${componentCls}-simple-pager`]:
+      {
+        height: token.paginationItemSizeSM,
+        lineHeight: `${token.paginationItemSizeSM}px`,
+      },
 
-    [`&&-mini ${componentCls}-item`]: {
+    [`&${componentCls}-mini ${componentCls}-item`]: {
       minWidth: token.paginationItemSizeSM,
       height: token.paginationItemSizeSM,
       margin: 0,
       lineHeight: `${token.paginationItemSizeSM - 2}px`,
     },
 
-    [`&&-mini ${componentCls}-item:not(${componentCls}-item-active)`]: {
+    [`&${componentCls}-mini ${componentCls}-item:not(${componentCls}-item-active)`]: {
       backgroundColor: 'transparent',
       borderColor: 'transparent',
     },
 
-    [`&&-mini ${componentCls}-prev, &&-mini ${componentCls}-next`]: {
+    [`&${componentCls}-mini ${componentCls}-prev, &${componentCls}-mini ${componentCls}-next`]: {
       minWidth: token.paginationItemSizeSM,
       height: token.paginationItemSizeSM,
       margin: 0,
@@ -143,8 +144,8 @@ const genPaginationMiniStyle: GenerateStyle<PaginationToken, CSSObject> = (token
     },
 
     [`
-    &&-mini ${componentCls}-prev ${componentCls}-item-link,
-    &&-mini ${componentCls}-next ${componentCls}-item-link
+    &${componentCls}-mini ${componentCls}-prev ${componentCls}-item-link,
+    &${componentCls}-mini ${componentCls}-next ${componentCls}-item-link
     `]: {
       backgroundColor: 'transparent',
       borderColor: 'transparent',
@@ -155,13 +156,14 @@ const genPaginationMiniStyle: GenerateStyle<PaginationToken, CSSObject> = (token
       },
     },
 
-    [`&&-mini ${componentCls}-jump-prev, &&-mini ${componentCls}-jump-next`]: {
-      height: token.paginationItemSizeSM,
-      marginInlineEnd: 0,
-      lineHeight: `${token.paginationItemSizeSM}px`,
-    },
+    [`&${componentCls}-mini ${componentCls}-jump-prev, &${componentCls}-mini ${componentCls}-jump-next`]:
+      {
+        height: token.paginationItemSizeSM,
+        marginInlineEnd: 0,
+        lineHeight: `${token.paginationItemSizeSM}px`,
+      },
 
-    [`&&-mini ${componentCls}-options`]: {
+    [`&${componentCls}-mini ${componentCls}-options`]: {
       marginInlineStart: token.paginationMiniOptionsMarginInlineStart,
 
       [`&-size-changer`]: {

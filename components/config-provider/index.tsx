@@ -30,6 +30,7 @@ export {
   type CSPConfig,
   type DirectionType,
   type ConfigConsumerProps,
+  type ThemeConfig,
 };
 export { defaultIconPrefixCls };
 

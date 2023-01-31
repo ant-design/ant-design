@@ -72,7 +72,7 @@ In view of the natural design principle, we do not recommend using Q version car
 <br />
 
 <ImagePreview>
-<img class="preview-img" alt="9 variants of common professioal character design" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Zt7BSI2OL7gAAAAAAAAAAABkARQnAQ" />
+<img class="preview-img" alt="9 variants of common professional character design" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Zt7BSI2OL7gAAAAAAAAAAABkARQnAQ" />
 </ImagePreview>
 
 Concurrently, we integrated emotions when designing the 9 common professional roles. Fusing some characteristics of the role while radiating vastly different personalities, meeting the needs of varies business requirements.
