@@ -195,10 +195,10 @@ interface FilterConfig<RecordType> {
 
 const getMergedColumns = <RecordType extends unknown>(
   rawMergedColumns: ColumnsType<RecordType>,
-): ColumnType<RecordType>[] =>
+): ColumnsType<RecordType> =>
   rawMergedColumns.flatMap((column) => {
     if ('children' in column) {
-      return [column, ...column.children];
+      return [column, ...getMergedColumns(column.children)];
     }
     return [column];
   });
