@@ -9,7 +9,12 @@ const useStyle = (iconPrefixCls: string) => {
     { theme, token, hashId: '', path: ['ant-design-icons', iconPrefixCls] },
     () => [
       {
-        [`.${iconPrefixCls}`]: resetIcon(),
+        [`.${iconPrefixCls}`]: {
+          ...resetIcon(),
+          [`.${iconPrefixCls} .${iconPrefixCls}-icon`]: {
+            display: 'block',
+          },
+        },
       },
     ],
   );

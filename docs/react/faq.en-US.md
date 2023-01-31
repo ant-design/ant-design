@@ -9,7 +9,7 @@ Here are the frequently asked questions about Ant Design and antd that you shoul
 
 ## Is there a difference between `undefined` and `null` in the controlled components of `antd`?
 
-**Yes. antd will treats `undefined` as uncontrolled but `null` as controlled components which means empty value of it.**
+**Yes. antd will treat `undefined` as uncontrolled but `null` as controlled component which means empty value of it.**
 
 As input element, React treats both `undefined` and `null` as uncontrolled. When the `value` is converted from a valid value to `undefined` or `null`, the component is no longer controlled, which causes some unexpected cases.
 
@@ -19,7 +19,7 @@ Note: For `options` in `Select-like` components, it is **strongly recommended no
 
 ## Can I use internal API which is not documented on the site?
 
-NOT RECOMMEND. Internal API is not guaranteed to be compatible with future versions. It may be removed or changed in some versions. If you really need to use it, you should to make sure these API is still valid when upgrading to a new version or just lock version for usage.
+NOT RECOMMENDED. Internal API is not guaranteed to be compatible with future versions. It may be removed or changed in some versions. If you really need to use it, you should make sure these APIs are still valid when upgrading to a new version or just lock version for usage.
 
 ## Why API request should be strict discussion?
 
@@ -126,7 +126,7 @@ type DataSource = TableProps['dataSource'];
 
 ## Date-related components locale is not working?
 
-Please check whether import dayjs locale correctly.
+Please check whether you have imported dayjs locale correctly.
 
 ```jsx
 import 'dayjs/locale/zh-cn';
@@ -134,7 +134,7 @@ import 'dayjs/locale/zh-cn';
 dayjs.locale('zh-cn');
 ```
 
-Please check whether there is two version of dayjs installed.
+Please check whether there are two versions of dayjs installed.
 
 ```jsx
 npm ls dayjs

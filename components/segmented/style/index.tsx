@@ -63,16 +63,16 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
       },
 
       // RTL styles
-      '&&-rtl': {
+      [`&${componentCls}-rtl`]: {
         direction: 'rtl',
       },
 
       // block styles
-      '&&-block': {
+      [`&${componentCls}-block`]: {
         display: 'flex',
       },
 
-      [`&&-block ${componentCls}-item`]: {
+      [`&${componentCls}-block ${componentCls}-item`]: {
         flex: 1,
         minWidth: 0,
       },
@@ -151,7 +151,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
       },
 
       // size styles
-      '&&-lg': {
+      [`&${componentCls}-lg`]: {
         borderRadius: token.borderRadiusLG,
         [`${componentCls}-item-label`]: {
           minHeight: token.controlHeightLG - token.segmentedContainerPadding * 2,
@@ -164,7 +164,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
         },
       },
 
-      '&&-sm': {
+      [`&${componentCls}-sm`]: {
         borderRadius: token.borderRadiusSM,
         [`${componentCls}-item-label`]: {
           minHeight: token.controlHeightSM - token.segmentedContainerPadding * 2,

@@ -38,19 +38,21 @@ const genSwitchSmallStyle: GenerateStyle<SwitchToken, CSSObject> = (token) => {
         lineHeight: `${token.switchHeightSM}px`,
 
         [`${componentCls}-inner`]: {
+          paddingInlineStart: token.switchInnerMarginMaxSM,
+          paddingInlineEnd: token.switchInnerMarginMinSM,
           [`${switchInnerCls}-checked`]: {
-            marginInlineStart: `calc(${token.switchInnerMarginMinSM}px - 100% + ${
+            marginInlineStart: `calc(-100% + ${
               token.switchPinSizeSM + token.switchPadding * 2
-            }px)`,
-            marginInlineEnd: `calc(${token.switchInnerMarginMaxSM}px + 100% - ${
-              token.switchPinSizeSM + token.switchPadding * 2
+            }px - ${token.switchInnerMarginMaxSM * 2}px)`,
+            marginInlineEnd: `calc(100% - ${token.switchPinSizeSM + token.switchPadding * 2}px + ${
+              token.switchInnerMarginMaxSM * 2
             }px)`,
           },
 
           [`${switchInnerCls}-unchecked`]: {
             marginTop: -token.switchHeightSM,
-            marginInlineStart: token.switchInnerMarginMaxSM,
-            marginInlineEnd: token.switchInnerMarginMinSM,
+            marginInlineStart: 0,
+            marginInlineEnd: 0,
           },
         },
 
@@ -66,18 +68,20 @@ const genSwitchSmallStyle: GenerateStyle<SwitchToken, CSSObject> = (token) => {
 
         [`&${componentCls}-checked`]: {
           [`${componentCls}-inner`]: {
+            paddingInlineStart: token.switchInnerMarginMinSM,
+            paddingInlineEnd: token.switchInnerMarginMaxSM,
             [`${switchInnerCls}-checked`]: {
-              marginInlineStart: token.switchInnerMarginMinSM,
-              marginInlineEnd: token.switchInnerMarginMaxSM,
+              marginInlineStart: 0,
+              marginInlineEnd: 0,
             },
 
             [`${switchInnerCls}-unchecked`]: {
-              marginInlineStart: `calc(${token.switchInnerMarginMaxSM}px + 100% - ${
+              marginInlineStart: `calc(100% - ${
                 token.switchPinSizeSM + token.switchPadding * 2
-              }px)`,
-              marginInlineEnd: `calc(${token.switchInnerMarginMinSM}px - 100% + ${
+              }px + ${token.switchInnerMarginMaxSM * 2}px)`,
+              marginInlineEnd: `calc(-100% + ${
                 token.switchPinSizeSM + token.switchPadding * 2
-              }px)`,
+              }px - ${token.switchInnerMarginMaxSM * 2}px)`,
             },
           },
 
@@ -89,15 +93,15 @@ const genSwitchSmallStyle: GenerateStyle<SwitchToken, CSSObject> = (token) => {
         [`&:not(${componentCls}-disabled):active`]: {
           [`&:not(${componentCls}-checked) ${switchInnerCls}`]: {
             [`${switchInnerCls}-unchecked`]: {
-              marginInlineStart: token.switchInnerMarginMaxSM + token.marginXXS / 2,
-              marginInlineEnd: token.switchInnerMarginMinSM - token.marginXXS / 2,
+              marginInlineStart: token.marginXXS / 2,
+              marginInlineEnd: -token.marginXXS / 2,
             },
           },
 
           [`&${componentCls}-checked ${switchInnerCls}`]: {
             [`${switchInnerCls}-checked`]: {
-              marginInlineStart: token.switchInnerMarginMinSM - token.marginXXS / 2,
-              marginInlineEnd: token.switchInnerMarginMaxSM + token.marginXXS / 2,
+              marginInlineStart: -token.marginXXS / 2,
+              marginInlineEnd: token.marginXXS / 2,
             },
           },
         },
@@ -183,6 +187,9 @@ const genSwitchInnerStyle: GenerateStyle<SwitchToken, CSSObject> = (token) => {
         overflow: 'hidden',
         borderRadius: 100,
         height: '100%',
+        paddingInlineStart: token.switchInnerMarginMax,
+        paddingInlineEnd: token.switchInnerMarginMin,
+        transition: `padding-inline-start ${token.switchDuration} ease-in-out, padding-inline-end ${token.switchDuration} ease-in-out`,
 
         [`${switchInnerCls}-checked, ${switchInnerCls}-unchecked`]: {
           display: 'block',
@@ -193,33 +200,35 @@ const genSwitchInnerStyle: GenerateStyle<SwitchToken, CSSObject> = (token) => {
         },
 
         [`${switchInnerCls}-checked`]: {
-          marginInlineStart: `calc(${token.switchInnerMarginMin}px - 100% + ${
-            token.switchPinSize + token.switchPadding * 2
+          marginInlineStart: `calc(-100% + ${token.switchPinSize + token.switchPadding * 2}px - ${
+            token.switchInnerMarginMax * 2
           }px)`,
-          marginInlineEnd: `calc(${token.switchInnerMarginMax}px + 100% - ${
-            token.switchPinSize + token.switchPadding * 2
+          marginInlineEnd: `calc(100% - ${token.switchPinSize + token.switchPadding * 2}px + ${
+            token.switchInnerMarginMax * 2
           }px)`,
         },
 
         [`${switchInnerCls}-unchecked`]: {
           marginTop: -token.switchHeight,
-          marginInlineStart: token.switchInnerMarginMax,
-          marginInlineEnd: token.switchInnerMarginMin,
+          marginInlineStart: 0,
+          marginInlineEnd: 0,
         },
       },
 
       [`&${componentCls}-checked ${switchInnerCls}`]: {
+        paddingInlineStart: token.switchInnerMarginMin,
+        paddingInlineEnd: token.switchInnerMarginMax,
         [`${switchInnerCls}-checked`]: {
-          marginInlineStart: token.switchInnerMarginMin,
-          marginInlineEnd: token.switchInnerMarginMax,
+          marginInlineStart: 0,
+          marginInlineEnd: 0,
         },
 
         [`${switchInnerCls}-unchecked`]: {
-          marginInlineStart: `calc(${token.switchInnerMarginMax}px + 100% - ${
-            token.switchPinSize + token.switchPadding * 2
+          marginInlineStart: `calc(100% - ${token.switchPinSize + token.switchPadding * 2}px + ${
+            token.switchInnerMarginMax * 2
           }px)`,
-          marginInlineEnd: `calc(${token.switchInnerMarginMin}px - 100% + ${
-            token.switchPinSize + token.switchPadding * 2
+          marginInlineEnd: `calc(-100% + ${token.switchPinSize + token.switchPadding * 2}px - ${
+            token.switchInnerMarginMax * 2
           }px)`,
         },
       },
@@ -227,15 +236,15 @@ const genSwitchInnerStyle: GenerateStyle<SwitchToken, CSSObject> = (token) => {
       [`&:not(${componentCls}-disabled):active`]: {
         [`&:not(${componentCls}-checked) ${switchInnerCls}`]: {
           [`${switchInnerCls}-unchecked`]: {
-            marginInlineStart: token.switchInnerMarginMax + token.switchPadding * 2,
-            marginInlineEnd: token.switchInnerMarginMin - token.switchPadding * 2,
+            marginInlineStart: token.switchPadding * 2,
+            marginInlineEnd: -token.switchPadding * 2,
           },
         },
 
         [`&${componentCls}-checked ${switchInnerCls}`]: {
           [`${switchInnerCls}-checked`]: {
-            marginInlineStart: token.switchInnerMarginMin - token.switchPadding * 2,
-            marginInlineEnd: token.switchInnerMarginMax + token.switchPadding * 2,
+            marginInlineStart: -token.switchPadding * 2,
+            marginInlineEnd: token.switchPadding * 2,
           },
         },
       },

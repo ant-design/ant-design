@@ -56,7 +56,7 @@ Ant Design has 3 types of Tabs for different situations.
 | tabBarExtraContent | Extra content in tab bar | ReactNode \| {left?: ReactNode, right?: ReactNode} | - | object: 4.6.0 |
 | tabBarGutter | The gap between tabs | number | - |  |
 | tabBarStyle | Tab bar style object | CSSProperties | - |  |
-| tabPosition | Position of tabs | `top` \| `right` \| `bottom` \  | `left` | `top` |  |
+| tabPosition | Position of tabs | `top` \| `right` \| `bottom` \| `left` | `top` |  |
 | destroyInactiveTabPane | Whether destroy inactive TabPane when change tab | boolean | false |  |
 | type | Basic style of tabs | `line` \| `card` \| `editable-card` | `line` |  |
 | onChange | Callback executed when active tab is changed | function(activeKey) {} | - |  |

@@ -57,26 +57,28 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token) => {
         boxShadow: token.boxShadowSecondary,
 
         [`
-            &${antCls}-slide-up-enter${antCls}-slide-up-enter-active&-placement-bottomLeft,
-            &${antCls}-slide-up-appear${antCls}-slide-up-appear-active&-placement-bottomLeft
+            &${antCls}-slide-up-enter${antCls}-slide-up-enter-active${componentCls}-dropdown-placement-bottomLeft,
+            &${antCls}-slide-up-appear${antCls}-slide-up-appear-active${componentCls}-dropdown-placement-bottomLeft
           `]: {
           animationName: slideUpIn,
         },
 
         [`
-            &${antCls}-slide-up-enter${antCls}-slide-up-enter-active&-placement-topLeft,
-            &${antCls}-slide-up-appear${antCls}-slide-up-appear-active&-placement-topLeft
+            &${antCls}-slide-up-enter${antCls}-slide-up-enter-active${componentCls}-dropdown-placement-topLeft,
+            &${antCls}-slide-up-appear${antCls}-slide-up-appear-active${componentCls}-dropdown-placement-topLeft
           `]: {
           animationName: slideDownIn,
         },
 
-        [`&${antCls}-slide-up-leave${antCls}-slide-up-leave-active&-placement-bottomLeft`]: {
-          animationName: slideUpOut,
-        },
+        [`&${antCls}-slide-up-leave${antCls}-slide-up-leave-active${componentCls}-dropdown-placement-bottomLeft`]:
+          {
+            animationName: slideUpOut,
+          },
 
-        [`&${antCls}-slide-up-leave${antCls}-slide-up-leave-active&-placement-topLeft`]: {
-          animationName: slideDownOut,
-        },
+        [`&${antCls}-slide-up-leave${antCls}-slide-up-leave-active${componentCls}-dropdown-placement-topLeft`]:
+          {
+            animationName: slideDownOut,
+          },
 
         '&-hidden': {
           display: 'none',

@@ -15,6 +15,24 @@ timeline: true
 
 ---
 
+## 5.1.6
+
+`2023-1-20`
+
+- 🐞 Fix DatePicker animation timing function. [#40133](https://github.com/ant-design/ant-design/pull/40133) [@MadCcc](https://github.com/MadCcc)
+- Menu
+  - 🐞 Fix Tooltip incorrectly shown when Menu collapsed. [#40328](https://github.com/ant-design/ant-design/pull/40328)
+  - 🐞 Fix Menu split line style error. [#40268](https://github.com/ant-design/ant-design/pull/40268) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 Fix the console warning of wave effect when bind component unmount before wave effect trigger. [#40307](https://github.com/ant-design/ant-design/pull/40307) [@luo3house](https://github.com/luo3house)
+- 🐞 Fix Breadcrumb throw wrong overlay deprecation warning when use `menu` prop. [#40211](https://github.com/ant-design/ant-design/pull/40211) [@candy4290](https://github.com/candy4290)
+- 🐞 Fix Modal.useModal hooks `destroyAll` not work as expect. [#40281](https://github.com/ant-design/ant-design/pull/40281) [@ds1371dani](https://github.com/ds1371dani)
+- 🐞 Fix `message` global static method `config` setting `duration` not working. [#40232](https://github.com/ant-design/ant-design/pull/40232) [@Yuiai01](https://github.com/Yuiai01)
+- 🐞 Fix Button text color when containing an `a` tag. [#40269](https://github.com/ant-design/ant-design/pull/40269) [@ds1371dani](https://github.com/ds1371dani)
+- 🐞 Fix Radio displaying wrong text color and cursor when `disabled`. [#40273](https://github.com/ant-design/ant-design/pull/40273) [@ds1371dani](https://github.com/ds1371dani)
+- 💄 Optimize the calculation logic of focus `outline`, replace `lineWidth` with `lineWidthBold`. [#40291](https://github.com/ant-design/ant-design/pull/40291) [@simonpfish](https://github.com/simonpfish)
+- 💄 Rewrite part component style to compatible the browser that not support concat `:not` selector. [#40264](https://github.com/ant-design/ant-design/pull/40264)
+- 🌐 Fix missing translation for `pt_BR`. [#40270](https://github.com/ant-design/ant-design/pull/40270) [@rafaelncarvalho](https://github.com/rafaelncarvalho)
+
 ## 5.1.5
 
 `2023-1-15`

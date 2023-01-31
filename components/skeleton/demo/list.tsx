@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
 import type Icon from '@ant-design/icons';
 import { LikeOutlined, MessageOutlined, StarOutlined } from '@ant-design/icons';
 import { Avatar, List, Skeleton, Switch } from 'antd';
+import React, { useState } from 'react';
 
 interface IconTextProps {
   icon: typeof Icon;
@@ -10,7 +10,7 @@ interface IconTextProps {
 
 const listData = Array.from({ length: 3 }).map((_, i) => ({
   href: 'https://ant.design',
-  title: `ant design part ${i}`,
+  title: `ant design part ${i + 1}`,
   avatar: 'https://joeschmoe.io/api/v1/random',
   description:
     'Ant Design, a design language for background applications, is refined by Ant UED Team.',
@@ -18,11 +18,11 @@ const listData = Array.from({ length: 3 }).map((_, i) => ({
     'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
 }));
 
-const IconText = ({ icon, text }: IconTextProps) => (
-  <span>
+const IconText: React.FC<IconTextProps> = ({ icon, text }) => (
+  <>
     {React.createElement(icon, { style: { marginRight: 8 } })}
     {text}
-  </span>
+  </>
 );
 
 const App: React.FC = () => {
@@ -31,10 +31,10 @@ const App: React.FC = () => {
   const onChange = (checked: boolean) => {
     setLoading(!checked);
   };
+
   return (
     <>
-      <Switch checked={!loading} onChange={onChange} />
-
+      <Switch checked={!loading} onChange={onChange} style={{ marginBottom: 16 }} />
       <List
         itemLayout="vertical"
         size="large"

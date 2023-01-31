@@ -53,7 +53,7 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
       wordWrap: 'break-word',
       borderRadius,
 
-      '&&-rtl': {
+      [`&${componentCls}-rtl`]: {
         direction: 'rtl',
       },
 
@@ -77,7 +77,7 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
         color: colorText,
       },
 
-      '&&-motion-leave': {
+      [`&${componentCls}-motion-leave`]: {
         overflow: 'hidden',
         opacity: 1,
         transition: `max-height ${duration} ${motionEaseInOutCirc}, opacity ${duration} ${motionEaseInOutCirc},
@@ -85,7 +85,7 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
         margin-bottom ${duration} ${motionEaseInOutCirc}`,
       },
 
-      '&&-motion-leave-active': {
+      [`&${componentCls}-motion-leave-active`]: {
         maxHeight: 0,
         marginBottom: '0 !important',
         paddingTop: 0,

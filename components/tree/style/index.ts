@@ -75,7 +75,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
       borderRadius: token.borderRadius,
       transition: `background-color ${token.motionDurationSlow}`,
 
-      '&&-rtl': {
+      [`&${treeCls}-rtl`]: {
         // >>> Switcher
         [`${treeCls}-switcher`]: {
           '&_close': {

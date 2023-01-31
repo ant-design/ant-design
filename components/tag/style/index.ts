@@ -52,13 +52,13 @@ const genPresetStyle = (token: TagToken) =>
   }));
 
 const genBaseStyle = (token: TagToken): CSSInterpolation => {
-  const { paddingXXS, lineWidth, tagPaddingHorizontal } = token;
+  const { paddingXXS, lineWidth, tagPaddingHorizontal, componentCls } = token;
   const paddingInline = tagPaddingHorizontal - lineWidth;
   const iconMarginInline = paddingXXS - lineWidth;
 
   return {
     // Result
-    [token.componentCls]: {
+    [componentCls]: {
       ...resetComponent(token),
       display: 'inline-block',
       height: 'auto',
@@ -75,7 +75,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
       textAlign: 'start',
 
       // RTL
-      '&&-rtl': {
+      [`&${componentCls}-rtl`]: {
         direction: 'rtl',
       },
 
@@ -83,7 +83,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
         color: token.tagDefaultColor,
       },
 
-      [`${token.componentCls}-close-icon`]: {
+      [`${componentCls}-close-icon`]: {
         marginInlineStart: iconMarginInline,
         color: token.colorTextDescription,
         fontSize: token.tagIconSize,
@@ -95,7 +95,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
         },
       },
 
-      [`&&-has-color`]: {
+      [`&${componentCls}-has-color`]: {
         borderColor: 'transparent',
 
         [`&, a, a:hover, ${token.iconCls}-close, ${token.iconCls}-close:hover`]: {
@@ -108,7 +108,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
         borderColor: 'transparent',
         cursor: 'pointer',
 
-        [`&:not(${token.componentCls}-checkable-checked):hover`]: {
+        [`&:not(${componentCls}-checkable-checked):hover`]: {
           color: token.colorPrimary,
           backgroundColor: token.colorFillSecondary,
         },
