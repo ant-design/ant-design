@@ -91,7 +91,6 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
     tableFooterTextColor,
     tableFooterBg,
     paddingContentVerticalLG,
-    wireframe,
   } = token;
   const tableBorder = `${lineWidth}px ${lineType} ${tableBorderColor}`;
   return {
@@ -170,44 +169,11 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
       },
 
       // ============================ Body ============================
-      // Borderless Table has unique hover style, which would be implemented with `borderTop`.
-      [`${componentCls}:not(${componentCls}-bordered)`]: {
-        [`${componentCls}-tbody`]: {
-          '> tr': {
-            '> td': {
-              borderTop: tableBorder,
-              borderBottom: 'transparent',
-            },
-
-            '&:last-child > td': {
-              borderBottom: tableBorder,
-            },
-
-            [`&:first-child > td,
-              &${componentCls}-measure-row + tr > td`]: {
-              borderTop: 'none',
-              borderTopColor: 'transparent',
-            },
-          },
-        },
-      },
-
-      // Bordered Table remains simple `borderBottom`.
-      // Ref issue: https://github.com/ant-design/ant-design/issues/38724
-      [`${componentCls}${componentCls}-bordered`]: {
-        [`${componentCls}-tbody`]: {
-          '> tr': {
-            '> td': {
-              borderBottom: tableBorder,
-            },
-          },
-        },
-      },
-
       [`${componentCls}-tbody`]: {
         '> tr': {
           '> td': {
             transition: `background ${motionDurationMid}, border-color ${motionDurationMid}`,
+            borderBottom: tableBorder,
 
             // ========================= Nest Table ===========================
             [`
@@ -247,39 +213,6 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
           },
         },
       },
-
-      [`${componentCls}:not(${componentCls}-bordered) ${componentCls}-tbody > tr`]: wireframe
-        ? undefined
-        : {
-            [`&${componentCls}-row:hover, &${componentCls}-row${componentCls}-row-selected`]: {
-              [`+ tr${componentCls}-row > td`]: {
-                borderTopColor: 'transparent',
-              },
-            },
-
-            [`&${componentCls}-row:last-child:hover > td,
-          &${componentCls}-row${componentCls}-row-selected:last-child > td`]: {
-              borderBottomColor: 'transparent',
-            },
-
-            [`
-          &${componentCls}-row:hover > td,
-          > td${componentCls}-cell-row-hover,
-          &${componentCls}-row${componentCls}-row-selected > td
-        `]: {
-              borderTopColor: 'transparent',
-
-              '&:first-child': {
-                borderStartStartRadius: tableRadius,
-                borderEndStartRadius: tableRadius,
-              },
-
-              '&:last-child': {
-                borderStartEndRadius: tableRadius,
-                borderEndEndRadius: tableRadius,
-              },
-            },
-          },
 
       // ============================ Footer ============================
       [`${componentCls}-footer`]: {
