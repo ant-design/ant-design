@@ -12329,7 +12329,7 @@ exports[`ConfigProvider components Collapse configProvider componentDisabled 1`]
 
 exports[`ConfigProvider components Collapse configProvider componentSize large 1`] = `
 <div
-  class="config-collapse config-collapse-icon-position-start"
+  class="config-collapse config-collapse-icon-position-start config-collapse-large"
 >
   <div
     class="config-collapse-item"
