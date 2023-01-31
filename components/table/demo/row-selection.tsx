@@ -42,13 +42,13 @@ const data: DataType[] = [
     key: '3',
     name: 'Joe Black',
     age: 32,
-    address: 'Sidney No. 1 Lake Park',
+    address: 'Sydney No. 1 Lake Park',
   },
   {
     key: '4',
     name: 'Disabled User',
     age: 99,
-    address: 'Sidney No. 1 Lake Park',
+    address: 'Sydney No. 1 Lake Park',
   },
 ];
 

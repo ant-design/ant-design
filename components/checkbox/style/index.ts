@@ -55,11 +55,11 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
         },
 
         // Checkbox near checkbox
-        '& + &': {
+        [`& + ${wrapperCls}`]: {
           marginInlineStart: token.marginXS,
         },
 
-        '&&-in-form-item': {
+        [`&${wrapperCls}-in-form-item`]: {
           'input[type="checkbox"]': {
             width: 14, // FIXME: magic
             height: 14, // FIXME: magic

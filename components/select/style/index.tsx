@@ -259,7 +259,7 @@ const genSelectStyle: GenerateStyle<SelectToken> = (token) => {
         },
 
         // ==================== In Form ====================
-        '&&-in-form-item': {
+        [`&${componentCls}-in-form-item`]: {
           width: '100%',
         },
       },

@@ -18,7 +18,7 @@ demo:
 ## 代码演示
 
 <!-- prettier-ignore -->
-<code src="./demo/basic.tsx">basic</code>
+<code src="./demo/basic.tsx">基本用法</code>
 
 ## 如何使用
 
@@ -27,8 +27,8 @@ demo:
 App 组件通过 `Context` 提供上下文方法调用，因而 useApp 需要作为子组件才能使用，我们推荐在应用中顶层包裹 App。
 
 ```tsx
-import React from 'react';
 import { App } from 'antd';
+import React from 'react';
 
 const MyPage: React.FC = () => {
   const { message, notification, modal } = App.useApp();
@@ -78,11 +78,10 @@ App 组件只能在 `ConfigProvider` 之下才能使用 Design Token， 如果�
 
 ```tsx
 // Entry component
-import React, { useEffect } from 'react';
 import { App } from 'antd';
 import type { MessageInstance } from 'antd/es/message/interface';
-import type { NotificationInstance } from 'antd/es/notification/interface';
 import type { ModalStaticFunctions } from 'antd/es/modal/confirm';
+import type { NotificationInstance } from 'antd/es/notification/interface';
 
 let message: MessageInstance;
 let notification: NotificationInstance;
@@ -101,9 +100,9 @@ export { message, notification, modal };
 
 ```tsx
 // sub page
-import React from 'react';
 import { Button, Space } from 'antd';
-import { message, modal, notification } from './store';
+import React from 'react';
+import { message } from './store';
 
 export default () => {
   const showMessage = () => {

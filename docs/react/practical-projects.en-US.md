@@ -180,9 +180,11 @@ let products: Product[] = [
 ];
 
 export default defineMock({
-  'GET /api/products': {
-    status: 'ok',
-    data: products,
+  'GET /api/products': (_, res) => {
+    res.send({
+      status: 'ok',
+      data: products,
+    });
   },
   'DELETE /api/products/:id': (req, res) => {
     products = products.filter((item) => item.id !== req.params.id);

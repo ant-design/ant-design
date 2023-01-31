@@ -1,126 +1,160 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/layout/demo/basic.tsx extend context correctly 1`] = `
-Array [
-  <section
-    class="ant-layout"
+<div
+  class="ant-space ant-space-vertical"
+  style="width:100%"
+>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:0"
   >
-    <header
-      class="ant-layout-header"
-    >
-      Header
-    </header>
-    <main
-      class="ant-layout-content"
-    >
-      Content
-    </main>
-    <footer
-      class="ant-layout-footer"
-    >
-      Footer
-    </footer>
-  </section>,
-  <section
-    class="ant-layout"
-  >
-    <header
-      class="ant-layout-header"
-    >
-      Header
-    </header>
-    <section
-      class="ant-layout"
-    >
-      <aside
-        class="ant-layout-sider ant-layout-sider-dark"
-        style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
-      >
-        <div
-          class="ant-layout-sider-children"
-        >
-          Sider
-        </div>
-      </aside>
-      <main
-        class="ant-layout-content"
-      >
-        Content
-      </main>
-    </section>
-    <footer
-      class="ant-layout-footer"
-    >
-      Footer
-    </footer>
-  </section>,
-  <section
-    class="ant-layout"
-  >
-    <header
-      class="ant-layout-header"
-    >
-      Header
-    </header>
-    <section
-      class="ant-layout"
-    >
-      <main
-        class="ant-layout-content"
-      >
-        Content
-      </main>
-      <aside
-        class="ant-layout-sider ant-layout-sider-dark"
-        style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
-      >
-        <div
-          class="ant-layout-sider-children"
-        >
-          Sider
-        </div>
-      </aside>
-    </section>
-    <footer
-      class="ant-layout-footer"
-    >
-      Footer
-    </footer>
-  </section>,
-  <section
-    class="ant-layout"
-  >
-    <aside
-      class="ant-layout-sider ant-layout-sider-dark"
-      style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
-    >
-      <div
-        class="ant-layout-sider-children"
-      >
-        Sider
-      </div>
-    </aside>
     <section
       class="ant-layout"
     >
       <header
         class="ant-layout-header"
+        style="text-align:center;color:#fff;height:64px;padding-inline:50px;line-height:64px;background-color:#7dbcea"
       >
         Header
       </header>
       <main
         class="ant-layout-content"
+        style="text-align:center;min-height:120px;line-height:120px;color:#fff;background-color:#108ee9"
       >
         Content
       </main>
       <footer
         class="ant-layout-footer"
+        style="text-align:center;color:#fff;background-color:#7dbcea"
       >
         Footer
       </footer>
     </section>
-  </section>,
-]
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:0"
+  >
+    <section
+      class="ant-layout"
+    >
+      <header
+        class="ant-layout-header"
+        style="text-align:center;color:#fff;height:64px;padding-inline:50px;line-height:64px;background-color:#7dbcea"
+      >
+        Header
+      </header>
+      <section
+        class="ant-layout"
+      >
+        <aside
+          class="ant-layout-sider ant-layout-sider-dark"
+          style="text-align:center;line-height:120px;color:#fff;background-color:#3ba0e9;flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
+        >
+          <div
+            class="ant-layout-sider-children"
+          >
+            Sider
+          </div>
+        </aside>
+        <main
+          class="ant-layout-content"
+          style="text-align:center;min-height:120px;line-height:120px;color:#fff;background-color:#108ee9"
+        >
+          Content
+        </main>
+      </section>
+      <footer
+        class="ant-layout-footer"
+        style="text-align:center;color:#fff;background-color:#7dbcea"
+      >
+        Footer
+      </footer>
+    </section>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:0"
+  >
+    <section
+      class="ant-layout"
+    >
+      <header
+        class="ant-layout-header"
+        style="text-align:center;color:#fff;height:64px;padding-inline:50px;line-height:64px;background-color:#7dbcea"
+      >
+        Header
+      </header>
+      <section
+        class="ant-layout"
+      >
+        <main
+          class="ant-layout-content"
+          style="text-align:center;min-height:120px;line-height:120px;color:#fff;background-color:#108ee9"
+        >
+          Content
+        </main>
+        <aside
+          class="ant-layout-sider ant-layout-sider-dark"
+          style="text-align:center;line-height:120px;color:#fff;background-color:#3ba0e9;flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
+        >
+          <div
+            class="ant-layout-sider-children"
+          >
+            Sider
+          </div>
+        </aside>
+      </section>
+      <footer
+        class="ant-layout-footer"
+        style="text-align:center;color:#fff;background-color:#7dbcea"
+      >
+        Footer
+      </footer>
+    </section>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <section
+      class="ant-layout"
+    >
+      <aside
+        class="ant-layout-sider ant-layout-sider-dark"
+        style="text-align:center;line-height:120px;color:#fff;background-color:#3ba0e9;flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
+      >
+        <div
+          class="ant-layout-sider-children"
+        >
+          Sider
+        </div>
+      </aside>
+      <section
+        class="ant-layout"
+      >
+        <header
+          class="ant-layout-header"
+          style="text-align:center;color:#fff;height:64px;padding-inline:50px;line-height:64px;background-color:#7dbcea"
+        >
+          Header
+        </header>
+        <main
+          class="ant-layout-content"
+          style="text-align:center;min-height:120px;line-height:120px;color:#fff;background-color:#108ee9"
+        >
+          Content
+        </main>
+        <footer
+          class="ant-layout-footer"
+          style="text-align:center;color:#fff;background-color:#7dbcea"
+        >
+          Footer
+        </footer>
+      </section>
+    </section>
+  </div>
+</div>
 `;
 
 exports[`renders ./components/layout/demo/custom-trigger.tsx extend context correctly 1`] = `
