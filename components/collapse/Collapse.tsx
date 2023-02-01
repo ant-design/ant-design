@@ -54,11 +54,7 @@ interface PanelProps {
   collapsible?: CollapsibleType;
 }
 
-type CompoundedComponent = React.FC<CollapseProps> & {
-  Panel: typeof CollapsePanel;
-};
-
-const Collapse: CompoundedComponent = (props) => {
+const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const size = React.useContext(SizeContext);
 
@@ -144,6 +140,7 @@ const Collapse: CompoundedComponent = (props) => {
 
   return wrapSSR(
     <RcCollapse
+      ref={ref}
       openMotion={openMotion}
       {...omit(props, ['rootClassName'])}
       expandIcon={renderExpandIcon}
@@ -153,12 +150,10 @@ const Collapse: CompoundedComponent = (props) => {
       {getItems()}
     </RcCollapse>,
   );
-};
-
-Collapse.Panel = CollapsePanel;
+});
 
 if (process.env.NODE_ENV !== 'production') {
   Collapse.displayName = 'Collapse';
 }
 
-export default Collapse;
+export default Object.assign(Collapse, { Panel: CollapsePanel });
