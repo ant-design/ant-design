@@ -13,7 +13,7 @@ import React, { useContext, useEffect, useRef, useState } from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import ReactDOM from 'react-dom';
 import { FormattedMessage } from 'dumi';
-import ClientOnly from 'dumi/theme/common/ClientOnly';
+import ClientOnly from '../../common/ClientOnly';
 import BrowserFrame from '../../common/BrowserFrame';
 import EditButton from '../../common/EditButton';
 import CodePenIcon from '../../common/CodePenIcon';
