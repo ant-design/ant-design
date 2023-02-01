@@ -1,7 +1,7 @@
 import type { CSSObject } from '@ant-design/cssinjs';
+import { genFocusStyle, resetComponent, textEllipsis } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import { genFocusStyle, resetComponent, textEllipsis } from '../../style';
 import genMotionStyle from './motion';
 
 export interface ComponentToken {
@@ -170,7 +170,7 @@ const genDropdownStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject
         backgroundClip: 'padding-box',
         borderRadius: token.borderRadiusLG,
         outline: 'none',
-        boxShadow: token.boxShadowTertiary,
+        boxShadow: token.boxShadowSecondary,
 
         '&-item': {
           ...textEllipsis,
@@ -772,22 +772,6 @@ const genTabsStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
           padding: tabsCardHorizontalPadding,
           background: 'transparent',
           border: 0,
-
-          '&::after': {
-            position: 'absolute',
-            right: {
-              _skip_check_: true,
-              value: 0,
-            },
-            bottom: 0,
-            left: {
-              _skip_check_: true,
-              value: 0,
-            },
-            height: token.controlHeightLG / 8,
-            transform: 'translateY(100%)',
-            content: "''",
-          },
         },
 
         [`${componentCls}-nav-add`]: {
