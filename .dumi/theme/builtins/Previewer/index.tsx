@@ -13,6 +13,7 @@ import React, { useContext, useEffect, useRef, useState } from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import ReactDOM from 'react-dom';
 import { FormattedMessage } from 'dumi';
+import ClientOnly from 'dumi/theme/common/ClientOnly';
 import BrowserFrame from '../../common/BrowserFrame';
 import EditButton from '../../common/EditButton';
 import CodePenIcon from '../../common/CodePenIcon';
@@ -407,9 +408,9 @@ const Demo: React.FC<DemoProps> = (props) => {
               codepenIconRef.current?.submit();
             }}
           >
-            {typeof window !== 'undefined' && (
+            <ClientOnly>
               <input type="hidden" name="data" value={JSON.stringify(codepenPrefillConfig)} />
-            )}
+            </ClientOnly>
             <Tooltip title={<FormattedMessage id="app.demo.codepen" />}>
               <CodePenIcon className="code-box-codepen" />
             </Tooltip>
