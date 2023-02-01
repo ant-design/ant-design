@@ -128,9 +128,9 @@ describe('Table.filter', () => {
   it('renders menu correctly', async () => {
     const { container } = render(createTable());
     fireEvent.click(container.querySelector('span.ant-dropdown-trigger')!, nativeEvent);
-    await waitFor(() =>
-      expect(container.querySelector('.ant-table-filter-dropdown')).toMatchSnapshot(),
-    );
+    await waitFor(() => {
+      expect(container.querySelector('.ant-table-filter-dropdown')).toMatchSnapshot();
+    });
   });
 
   it('renders empty menu correctly', () => {
@@ -169,9 +169,9 @@ describe('Table.filter', () => {
       }),
     );
     fireEvent.click(container.querySelector('span.ant-dropdown-trigger')!, nativeEvent);
-    await waitFor(() =>
-      expect(container.querySelector('.ant-table-filter-dropdown')).toMatchSnapshot(),
-    );
+    await waitFor(() => {
+      expect(container.querySelector('.ant-table-filter-dropdown')).toMatchSnapshot();
+    });
   });
 
   it('renders custom content correctly', async () => {
@@ -188,9 +188,9 @@ describe('Table.filter', () => {
     );
 
     fireEvent.click(container.querySelector('span.ant-dropdown-trigger')!, nativeEvent);
-    await waitFor(() =>
-      expect(container.querySelector('.ant-table-filter-dropdown')).toMatchSnapshot(),
-    );
+    await waitFor(() => {
+      expect(container.querySelector('.ant-table-filter-dropdown')).toMatchSnapshot();
+    });
   });
 
   it('override custom filter correctly', () => {
@@ -409,7 +409,7 @@ describe('Table.filter', () => {
   });
 
   it('should handle filteredValue and non-array filterValue as expected', () => {
-    let filterKeys = new Set();
+    const filterKeys = new Set<React.Key | boolean>();
 
     const { rerender } = render(
       createTable({
@@ -426,9 +426,10 @@ describe('Table.filter', () => {
       }),
     );
 
-    expect(Array.from(filterKeys)).toEqual(['Lucy', '12', 'true']);
+    expect(Array.from(filterKeys)).toEqual(['Lucy', 12, true]);
 
-    filterKeys = new Set();
+    filterKeys.clear();
+
     rerender(
       createTable({
         columns: [
@@ -443,7 +444,7 @@ describe('Table.filter', () => {
         ],
       }),
     );
-    expect(Array.from(filterKeys)).toHaveLength(0);
+    expect(filterKeys.size).toBe(0);
   });
 
   it('can be controlled by filteredValue null', () => {
@@ -708,7 +709,7 @@ describe('Table.filter', () => {
   });
 
   describe('should support value types', () => {
-    const filterKeys = new Set();
+    const filterKeys = new Set<React.Key | boolean>();
     [
       ['Light', 93],
       ['Bamboo', false],
@@ -742,17 +743,17 @@ describe('Table.filter', () => {
           container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary')!,
         );
 
-        await waitFor(() =>
+        await waitFor(() => {
           expect(
             container
               ?.querySelector('.ant-table-filter-dropdown')
               ?.querySelectorAll<HTMLInputElement>('.ant-checkbox-input')[0].checked,
-          ).toEqual(true),
-        );
+          ).toEqual(true);
+        });
 
         expect(typeof Array.from(filterKeys)[0]).toEqual('number');
 
-        expect(Array.from(filterKeys).length > 0).toBeTruthy();
+        expect(filterKeys.size).toBeTruthy();
 
         onChange.mock.calls.forEach(([, currentFilters]) => {
           const [, val] = Object.entries(currentFilters)[0];

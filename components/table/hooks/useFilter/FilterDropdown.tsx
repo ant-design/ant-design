@@ -1,4 +1,5 @@
 import FilterFilled from '@ant-design/icons/FilterFilled';
+import type { ItemType } from 'antd/es/menu/hooks/useItems';
 import classNames from 'classnames';
 import type { FieldDataNode } from 'rc-tree';
 import isEqual from 'rc-util/lib/isEqual';
@@ -64,7 +65,7 @@ function renderFilterItems({
   filterSearch: FilterSearchType<ColumnFilterItem>;
 }): Required<MenuProps>['items'] {
   return (filters || []).map((filter, index) => {
-    const key = typeof filter.value === 'boolean' ? String(filter.value) : filter.value;
+    const key = filter.value as React.Key;
     if (filter.children) {
       return {
         key: key ?? index,
@@ -83,8 +84,8 @@ function renderFilterItems({
 
     const Component = filterMultiple ? Checkbox : Radio;
 
-    const item = {
-      key: filter.value !== undefined ? key : index,
+    const item: ItemType = {
+      key: key ?? index,
       label: (
         <>
           <Component checked={filteredKeys.includes(key)} />
@@ -260,7 +261,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     setSearchValue('');
 
     if (filterResetToDefaultFilteredValue) {
-      setFilteredKeysSync((defaultFilteredValue || []).map((key) => String(key)));
+      setFilteredKeysSync((defaultFilteredValue || []) as Key[]);
     } else {
       setFilteredKeysSync([]);
     }
@@ -294,7 +295,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
 
   const onCheckAll = (e: CheckboxChangeEvent) => {
     if (e.target.checked) {
-      const allFilterKeys = flattenKeys(column?.filters).map((key) => String(key));
+      const allFilterKeys = flattenKeys(column?.filters) as Key[];
       setFilteredKeysSync(allFilterKeys);
     } else {
       setFilteredKeysSync([]);
@@ -303,10 +304,10 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
 
   const getTreeData = ({ filters }: { filters?: ColumnFilterItem[] }) =>
     (filters || []).map((filter, index) => {
-      const key = typeof filter.value === 'boolean' ? String(filter.value) : filter.value;
+      const key = filter.value as React.Key;
       const item: FilterTreeDataNode = {
         title: filter.text,
-        key: filter.value !== undefined ? key : index,
+        key: key ?? index,
       };
       if (filter.children) {
         item.children = getTreeData({ filters: filter.children });
@@ -443,13 +444,8 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
 
     const getResetDisabled = () => {
       if (filterResetToDefaultFilteredValue) {
-        return isEqual(
-          (defaultFilteredValue || []).map((key) => String(key)),
-          selectedKeys,
-          true,
-        );
+        return isEqual(defaultFilteredValue || [], selectedKeys, true);
       }
-
       return selectedKeys.length === 0;
     };
 
