@@ -15,7 +15,7 @@ interface TooltipToken extends FullToken<'Tooltip'> {
   tooltipColor: string;
   tooltipBg: string;
   tooltipBorderRadius: number;
-  borderRadiusOuter: number;
+  tooltipRadiusOuter: number;
 }
 
 const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
@@ -30,7 +30,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
     boxShadowSecondary,
     paddingSM,
     paddingXS,
-    borderRadiusOuter,
+    tooltipRadiusOuter,
   } = token;
 
   return [
@@ -103,7 +103,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
     // Arrow Style
     getArrowStyle<TooltipToken>(
       mergeToken<TooltipToken>(token, {
-        borderRadiusOuter,
+        borderRadiusOuter: tooltipRadiusOuter,
       }),
       {
         colorBg: 'var(--antd-arrow-background-color)',
@@ -140,7 +140,7 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         tooltipColor: colorTextLightSolid,
         tooltipBorderRadius: borderRadius,
         tooltipBg: colorBgDefault,
-        borderRadiusOuter: borderRadiusOuter > 4 ? 4 : borderRadiusOuter,
+        tooltipRadiusOuter: borderRadiusOuter > 4 ? 4 : borderRadiusOuter,
       });
 
       return [genTooltipStyle(TooltipToken), initZoomMotion(token, 'zoom-big-fast')];
