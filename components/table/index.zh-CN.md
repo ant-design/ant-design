@@ -170,7 +170,7 @@ const columns = [
 | className | 列样式类名 | string | - |  |
 | colSpan | 表头列合并,设置为 0 时，不渲染 | number | - |  |
 | dataIndex | 列数据在数据项中对应的路径，支持通过数组查询嵌套路径 | string \| string\[] | - |  |
-| defaultFilteredValue | 默认筛选值 | string\[] | - |  |
+| defaultFilteredValue | 默认筛选值 | (string \| number)\[] | - |  |
 | filterResetToDefaultFilteredValue | 点击重置按钮的时候，是否恢复默认筛选值 | boolean | false |  |
 | defaultSortOrder | 默认排序顺序 | `ascend` \| `descend` | - |  |
 | ellipsis | 超过宽度将自动省略，暂不支持和排序筛选一起使用。<br />设置为 `true` 或 `{ showTitle?: boolean }` 时，表格布局将变成 `tableLayout="fixed"`。 | boolean \| { showTitle?: boolean } | false | showTitle: 4.3.0 |
@@ -285,6 +285,7 @@ const columns = [
 ```tsx
 import { Table } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
+import React from 'react';
 
 interface User {
   key: number;
@@ -306,15 +307,17 @@ const data: User[] = [
   },
 ];
 
-export default () => (
+const App: React.FC = () => (
   <>
     <Table<User> columns={columns} dataSource={data} />
-    /* 使用 JSX 风格的 API */
+    {/* 使用 JSX 风格的 API */}
     <Table<User> dataSource={data}>
       <Table.Column<User> key="name" title="Name" dataIndex="name" />
     </Table>
   </>
 );
+
+export default App;
 ```
 
 TypeScript 里使用 Table 的 [CodeSandbox 实例](https://codesandbox.io/s/serene-platform-0jo5t)。

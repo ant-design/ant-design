@@ -168,7 +168,7 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | className | The className of this column | string | - |  |
 | colSpan | Span of this column's title | number | - |  |
 | dataIndex | Display field of the data record, support nest path by string array | string \| string\[] | - |  |
-| defaultFilteredValue | Default filtered values | string\[] | - |  |
+| defaultFilteredValue | Default filtered values | (string \| number)\[] | - |  |
 | filterResetToDefaultFilteredValue | click the reset button, whether to restore the default filter | boolean | false |  |
 | defaultSortOrder | Default order of sorted values | `ascend` \| `descend` | - |  |
 | ellipsis | The ellipsis cell content, not working with sorter and filters for now.<br />tableLayout would be `fixed` when `ellipsis` is `true` or `{ showTitle?: boolean }` | boolean \| {showTitle?: boolean } | false | showTitle: 4.3.0 |
@@ -282,6 +282,7 @@ Properties for row selection.
 ```tsx
 import { Table } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
+import React from 'react';
 
 interface User {
   key: number;
@@ -303,15 +304,17 @@ const data: User[] = [
   },
 ];
 
-export default () => (
+const App: React.FC = () => (
   <>
     <Table<User> columns={columns} dataSource={data} />
-    /* JSX style usage */
+    {/* JSX style usage */}
     <Table<User> dataSource={data}>
       <Table.Column<User> key="name" title="Name" dataIndex="name" />
     </Table>
   </>
 );
+
+export default App;
 ```
 
 Here is the [CodeSandbox for TypeScript](https://codesandbox.io/s/serene-platform-0jo5t).
