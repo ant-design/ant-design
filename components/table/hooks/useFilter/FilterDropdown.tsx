@@ -303,7 +303,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
 
   const getTreeData = ({ filters }: { filters?: ColumnFilterItem[] }) =>
     (filters || []).map((filter, index) => {
-      const key = String(filter.value);
+      const key = typeof filter.value === 'boolean' ? String(filter.value) : filter.value;
       const item: FilterTreeDataNode = {
         title: filter.text,
         key: filter.value !== undefined ? key : index,
