@@ -50,7 +50,7 @@ interface PanelProps {
   collapsible?: CollapsibleType;
 }
 
-const Collapse: React.ForwardRefRenderFunction<HTMLDivElement, CollapseProps> = (props, ref) => {
+const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const {
     prefixCls: customizePrefixCls,
@@ -138,20 +138,10 @@ const Collapse: React.ForwardRefRenderFunction<HTMLDivElement, CollapseProps> = 
       {getItems()}
     </RcCollapse>,
   );
-};
-
-const RefCollapse = React.forwardRef<HTMLDivElement, CollapseProps>(
-  Collapse,
-) as unknown as React.ForwardRefExoticComponent<
-  CollapseProps & React.RefAttributes<HTMLDivElement>
-> & {
-  Panel: typeof CollapsePanel;
-};
-
-RefCollapse.Panel = CollapsePanel;
+});
 
 if (process.env.NODE_ENV !== 'production') {
-  RefCollapse.displayName = 'Collapse';
+  Collapse.displayName = 'Collapse';
 }
 
-export default RefCollapse;
+export default Object.assign(Collapse, { Panel: CollapsePanel });
