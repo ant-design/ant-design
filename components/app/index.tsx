@@ -17,13 +17,23 @@ export type AppProps = {
   rootClassName?: string;
   prefixCls?: string;
   children?: ReactNode;
+} & AppConfig;
+
+export type AppConfig = {
   messageConfig?: MessageConfig;
   notificationConfig?: NotificationConfig;
 };
 
-const useApp = () => React.useContext<useAppProps>(AppContext);
+export type InternalUseAppProps = useAppProps & {
+  /** @internal: internal usage only for nested app */
+  __INTERNAL__?: AppConfig;
+};
 
-const App: React.FC<AppProps> & { useApp: () => useAppProps } = (props) => {
+function useApp<UseAppPropsType extends useAppProps = useAppProps>() {
+  return React.useContext(AppContext) as UseAppPropsType;
+}
+
+const App: React.FC<AppProps> & { useApp: typeof useApp } = (props) => {
   const {
     prefixCls: customizePrefixCls,
     children,
@@ -37,15 +47,29 @@ const App: React.FC<AppProps> & { useApp: () => useAppProps } = (props) => {
   const [wrapSSR, hashId] = useStyle(prefixCls);
   const customClassName = classNames(hashId, prefixCls, className, rootClassName);
 
-  const [messageApi, messageContextHolder] = useMessage(messageConfig);
-  const [notificationApi, notificationContextHolder] = useNotification(notificationConfig);
+  const { __INTERNAL__ } = useApp<InternalUseAppProps>();
+  const mergedMessageConfig = React.useMemo(
+    () => ({ ...messageConfig, ...__INTERNAL__?.messageConfig }),
+    [messageConfig, __INTERNAL__?.messageConfig],
+  );
+  const mergedNotificationConfig = React.useMemo(
+    () => ({ ...notificationConfig, ...__INTERNAL__?.notificationConfig }),
+    [notificationConfig, __INTERNAL__?.notificationConfig],
+  );
+
+  const [messageApi, messageContextHolder] = useMessage(mergedMessageConfig);
+  const [notificationApi, notificationContextHolder] = useNotification(mergedNotificationConfig);
   const [ModalApi, ModalContextHolder] = useModal();
 
-  const memoizedContextValue = React.useMemo<useAppProps>(
+  const memoizedContextValue = React.useMemo<InternalUseAppProps>(
     () => ({
       message: messageApi,
       notification: notificationApi,
       modal: ModalApi,
+      __INTERNAL__: {
+        messageConfig: mergedMessageConfig,
+        notificationConfig: mergedNotificationConfig,
+      },
     }),
     [messageApi, notificationApi, ModalApi],
   );
