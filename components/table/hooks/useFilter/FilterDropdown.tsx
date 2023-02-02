@@ -182,6 +182,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
 
   // ===================== Select Keys =====================
   const propFilteredKeys = filterState?.filteredKeys;
+
   const [getFilteredKeysSync, setFilteredKeysSync] = useSyncState(propFilteredKeys || []);
 
   const onSelectKeys = ({ selectedKeys }: { selectedKeys: Key[] }) => {
@@ -314,6 +315,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
       }
       return item;
     });
+
   const getFilterData = (node: FilterTreeDataNode): TreeColumnFilterItem => ({
     ...node,
     text: node.title,
@@ -346,13 +348,8 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
           <Empty
             image={Empty.PRESENTED_IMAGE_SIMPLE}
             description={locale.filterEmptyText}
-            imageStyle={{
-              height: 24,
-            }}
-            style={{
-              margin: 0,
-              padding: '16px 0',
-            }}
+            imageStyle={{ height: 24 }}
+            style={{ margin: 0, padding: '16px 0' }}
           />
         );
       }
@@ -500,12 +497,8 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
         <span
           role="button"
           tabIndex={-1}
-          className={classNames(`${prefixCls}-trigger`, {
-            active: filtered,
-          })}
-          onClick={(e) => {
-            e.stopPropagation();
-          }}
+          className={classNames(`${prefixCls}-trigger`, { active: filtered })}
+          onClick={(e) => e.stopPropagation()}
         >
           {filterIcon}
         </span>
