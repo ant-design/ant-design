@@ -29,33 +29,56 @@ describe('TimeLine', () => {
   rtlTest(TimeLine);
   rtlTest(TimeLine.Item);
 
-  it('render TimeLine.Item  should correctly', () => {
-    const itemRender = (content: string) => <TimeLine.Item key={content}>{content}</TimeLine.Item>;
-    const items = [
-      {
-        content: 'foo',
-      },
-      {
-        content: 'bar',
-      },
-      {
-        content: 'baz',
-      },
-    ];
-    const { container } = render(
-      <TimeLine>{items.map((item) => itemRender(item.content))}</TimeLine>,
-    );
+  describe('render TimeLine.Item', () => {
+    it('TimeLine.Item  should correctly', () => {
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const itemRender = (content: string) => (
+        <TimeLine.Item key={content}>{content}</TimeLine.Item>
+      );
+      const items = [
+        {
+          content: 'foo',
+        },
+        {
+          content: 'bar',
+        },
+        {
+          content: 'baz',
+        },
+      ];
+      const { container } = render(
+        <TimeLine reverse>{items.map((item) => itemRender(item.content))}</TimeLine>,
+      );
 
-    // has 3 timeline item
-    expect(container.querySelectorAll('li.ant-timeline-item')).toHaveLength(3);
+      // has 3 timeline item
+      expect(container.querySelectorAll('li.ant-timeline-item')).toHaveLength(3);
 
-    // has only 1 timeline item is marked as the last item
-    expect(container.querySelectorAll('li.ant-timeline-item-last')).toHaveLength(1);
+      // has only 1 timeline item is marked as the last item
+      expect(container.querySelectorAll('li.ant-timeline-item-last')).toHaveLength(1);
 
-    // its last item is marked as the last item
-    expect(container.querySelectorAll('li.ant-timeline-item')[2]).toHaveClass(
-      'ant-timeline-item-last',
-    );
+      // its last item is marked as the last item
+      expect(container.querySelectorAll('li.ant-timeline-item')[2]).toHaveClass(
+        'ant-timeline-item-last',
+      );
+
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Timeline] `Timeline.Item` is deprecated. Please use `items` instead.',
+      );
+      errSpy.mockRestore();
+    });
+
+    const pending = <div>pending...</div>;
+    const pendingDot = <i>dot</i>;
+
+    it('has extra pending timeline item', () => {
+      const { container } = renderFactory({ pending });
+      expect(container.querySelectorAll('li.ant-timeline-item-pending')).toHaveLength(1);
+    });
+
+    it("has no pending dot if without passing a truthy 'pending' prop", () => {
+      const { queryByText } = renderFactory({ pendingDot });
+      expect(queryByText('dot')).toBeFalsy();
+    });
   });
 
   it('renders items without passing any props correctly', () => {
