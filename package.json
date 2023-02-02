@@ -158,6 +158,9 @@
   "devDependencies": {
     "@ant-design/tools": "^17.0.0",
     "@babel/eslint-plugin": "^7.19.1",
+    "@dnd-kit/core": "^6.0.7",
+    "@dnd-kit/sortable": "^7.0.2",
+    "@dnd-kit/utilities": "^3.2.1",
     "@emotion/babel-preset-css-prop": "^11.10.0",
     "@emotion/css": "^11.10.5",
     "@emotion/react": "^11.10.4",
