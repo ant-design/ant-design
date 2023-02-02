@@ -91,6 +91,7 @@ const columns = [
 <code src="./demo/edit-row.tsx">Editable Rows</code>
 <code src="./demo/nested-table.tsx">Nested tables</code>
 <code src="./demo/drag-sorting.tsx">Drag sorting</code>
+<code src="./demo/drag-sorting-handler.tsx">Drag sorting with handler</code>
 <code src="./demo/resizable-column.tsx" debug>Resizable column</code>
 <code src="./demo/ellipsis.tsx">ellipsis column</code>
 <code src="./demo/ellipsis-custom-tooltip.tsx">ellipsis column custom tooltip</code>
