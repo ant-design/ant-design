@@ -1,8 +1,8 @@
 import React from 'react';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import classNames from 'classnames';
-
 import TimelineItem from './TimelineItem';
+import type { TimelineItemProps } from './TimelineItem';
 import type { TimelineProps } from './Timeline';
 import { cloneElement } from '../_util/reactNode';
 
@@ -68,7 +68,7 @@ function useItems(props: TimelineProps, prefixCls: string) {
           />
         );
       });
-    hasLabelItem = mergedItems.some((item) => !!item?.label);
+    hasLabelItem = mergedItems.some((item: TimelineItemProps) => !!item?.label);
   } else {
     const pendingItem = pending ? (
       <TimelineItem pending={!!pending} dot={pendingDot || <LoadingOutlined />}>
