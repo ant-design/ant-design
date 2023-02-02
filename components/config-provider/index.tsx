@@ -339,7 +339,7 @@ Object.defineProperty(ConfigProvider, 'SizeContext', {
     warning(
       false,
       'ConfigProvider',
-      'ConfigProvider.SizeContext is deprecated. Please use `ConfigProvider.useConfig().componentSize` instead',
+      'ConfigProvider.SizeContext is deprecated. Please use `ConfigProvider.useConfig().componentSize` instead.',
     );
     return SizeContext;
   },
