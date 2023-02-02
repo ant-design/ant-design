@@ -32,22 +32,13 @@ describe('TimeLine', () => {
   describe('render TimeLine.Item', () => {
     it('TimeLine.Item  should correctly', () => {
       const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-      const itemRender = (content: string) => (
-        <TimeLine.Item key={content}>{content}</TimeLine.Item>
-      );
-      const items = [
-        {
-          content: 'foo',
-        },
-        {
-          content: 'bar',
-        },
-        {
-          content: 'baz',
-        },
-      ];
+
       const { container } = render(
-        <TimeLine reverse>{items.map((item) => itemRender(item.content))}</TimeLine>,
+        <TimeLine reverse>
+          <TimeLine.Item>foo</TimeLine.Item>
+          <TimeLine.Item>bar</TimeLine.Item>
+          <TimeLine.Item>baz</TimeLine.Item>
+        </TimeLine>,
       );
 
       // has 3 timeline item
@@ -67,16 +58,25 @@ describe('TimeLine', () => {
       errSpy.mockRestore();
     });
 
-    const pending = <div>pending...</div>;
-    const pendingDot = <i>dot</i>;
-
     it('has extra pending timeline item', () => {
-      const { container } = renderFactory({ pending });
+      const { container } = render(
+        <TimeLine pending={<div>pending...</div>} reverse>
+          <TimeLine.Item>foo</TimeLine.Item>
+          <TimeLine.Item>bar</TimeLine.Item>
+          <TimeLine.Item>baz</TimeLine.Item>
+        </TimeLine>,
+      );
       expect(container.querySelectorAll('li.ant-timeline-item-pending')).toHaveLength(1);
     });
 
     it("has no pending dot if without passing a truthy 'pending' prop", () => {
-      const { queryByText } = renderFactory({ pendingDot });
+      const { queryByText } = render(
+        <TimeLine pendingDot={<i>dot</i>} reverse>
+          <TimeLine.Item>foo</TimeLine.Item>
+          <TimeLine.Item>bar</TimeLine.Item>
+          <TimeLine.Item>baz</TimeLine.Item>
+        </TimeLine>,
+      );
       expect(queryByText('dot')).toBeFalsy();
     });
   });
