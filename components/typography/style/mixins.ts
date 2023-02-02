@@ -85,7 +85,7 @@ export const getLinkStyles: GenerateStyle<TypographyToken, CSSObject> = (token) 
 
 export const getResetStyles: GenerateStyle<TypographyToken, CSSObject> = (token): CSSObject => ({
   code: {
-    margin: '0 0.2em',
+    marginInline: '0.2em',
     paddingInline: '0.4em',
     paddingBlock: '0.2em 0.1em',
     fontSize: '85%',
@@ -96,7 +96,7 @@ export const getResetStyles: GenerateStyle<TypographyToken, CSSObject> = (token)
   },
 
   kbd: {
-    margin: '0 0.2em',
+    marginInline: '0.2em',
     paddingInline: '0.4em',
     paddingBlock: '0.15em 0.1em',
     fontSize: '90%',
@@ -237,7 +237,8 @@ export const getCopiableStyles: GenerateStyle<TypographyToken, CSSObject> = (tok
 export const getEllipsisStyles = (): CSSObject => ({
   [`
   a&-ellipsis,
-  span&-ellipsis
+  span&-ellipsis,
+  &-ellipsis > code,
   `]: {
     display: 'inline-block',
     maxWidth: '100%',
@@ -248,8 +249,10 @@ export const getEllipsisStyles = (): CSSObject => ({
   },
 
   '&-ellipsis-single-line': {
-    overflow: 'hidden',
-    textOverflow: 'ellipsis',
+    '&, & > code': {
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
+    },
 
     // https://blog.csdn.net/iefreer/article/details/50421025
     'a&, span&': {
@@ -262,5 +265,11 @@ export const getEllipsisStyles = (): CSSObject => ({
     overflow: 'hidden',
     WebkitLineClamp: 3,
     WebkitBoxOrient: 'vertical',
+  },
+
+  '&-ellipsis > code': {
+    boxSizing: 'border-box',
+    width: 'calc(100% - 0.2em * 2)', // 0.2em = marginInline
+    lineHeight: 7 / 6,
   },
 });
