@@ -1,3 +1,4 @@
+import { MenuOutlined } from '@ant-design/icons';
 import type { DragEndEvent } from '@dnd-kit/core';
 import { DndContext } from '@dnd-kit/core';
 import {
@@ -20,6 +21,9 @@ interface DataType {
 
 const columns: ColumnsType<DataType> = [
   {
+    key: 'sort',
+  },
+  {
     title: 'Name',
     dataIndex: 'name',
   },
@@ -37,8 +41,16 @@ interface RowProps extends React.HTMLAttributes<HTMLTableRowElement> {
   'data-row-key': string;
 }
 
-const Row = (props: RowProps) => {
-  const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
+const Row = ({ children, ...props }: RowProps) => {
+  const {
+    attributes,
+    listeners,
+    setNodeRef,
+    setActivatorNodeRef,
+    transform,
+    transition,
+    isDragging,
+  } = useSortable({
     id: props['data-row-key'],
   });
 
@@ -46,11 +58,27 @@ const Row = (props: RowProps) => {
     ...props.style,
     transform: CSS.Transform.toString(transform && { ...transform, scaleY: 1 }),
     transition,
-    cursor: 'move',
     ...(isDragging ? { position: 'relative', zIndex: 9999 } : {}),
   };
 
-  return <tr {...props} ref={setNodeRef} style={style} {...attributes} {...listeners} />;
+  return (
+    <tr {...props} ref={setNodeRef} style={style} {...attributes}>
+      {React.Children.map(children, (child) => {
+        if ((child as React.ReactElement).key === 'sort') {
+          return React.cloneElement(child as React.ReactElement, {
+            children: (
+              <MenuOutlined
+                ref={setActivatorNodeRef}
+                style={{ touchAction: 'none', cursor: 'move' }}
+                {...listeners}
+              />
+            ),
+          });
+        }
+        return child;
+      })}
+    </tr>
+  );
 };
 
 const App: React.FC = () => {
@@ -78,10 +106,10 @@ const App: React.FC = () => {
 
   const onDragEnd = ({ active, over }: DragEndEvent) => {
     if (active.id !== over?.id) {
-      setDataSource((prev) => {
-        const activeIndex = prev.findIndex((i) => i.key === active.id);
-        const overIndex = prev.findIndex((i) => i.key === over?.id);
-        return arrayMove(prev, activeIndex, overIndex);
+      setDataSource((previous) => {
+        const activeIndex = previous.findIndex((i) => i.key === active.id);
+        const overIndex = previous.findIndex((i) => i.key === over?.id);
+        return arrayMove(previous, activeIndex, overIndex);
       });
     }
   };

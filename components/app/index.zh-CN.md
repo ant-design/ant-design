@@ -18,7 +18,7 @@ demo:
 ## 代码演示
 
 <!-- prettier-ignore -->
-<code src="./demo/basic.tsx">basic</code>
+<code src="./demo/basic.tsx">基本用法</code>
 
 ## 如何使用
 

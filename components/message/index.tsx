@@ -19,7 +19,7 @@ const methods: NoticeType[] = ['success', 'info', 'warning', 'error', 'loading']
 
 let message: GlobalMessage | null = null;
 
-let act: (callback: VoidFunction) => Promise<void> | void = (callback: VoidFunction) => callback();
+let act: (callback: VoidFunction) => Promise<void> | void = (callback) => callback();
 
 interface GlobalMessage {
   fragment: DocumentFragment;
@@ -84,7 +84,7 @@ interface GlobalHolderRef {
 }
 
 const GlobalHolder = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
-  const initializeMeassgConfig: () => ConfigOptions = () => {
+  const initializeMessageConfig: () => ConfigOptions = () => {
     const { prefixCls, container, maxCount, duration, rtl, top } = getGlobalContext();
 
     return {
@@ -97,16 +97,16 @@ const GlobalHolder = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
     };
   };
 
-  const [meassgConfig, setMeassgConfig] = React.useState<ConfigOptions>(initializeMeassgConfig);
+  const [messageConfig, setMessageConfig] = React.useState<ConfigOptions>(initializeMessageConfig);
 
-  const [api, holder] = useInternalMessage(meassgConfig);
+  const [api, holder] = useInternalMessage(messageConfig);
 
   const global = globalConfig();
   const rootPrefixCls = global.getRootPrefixCls();
   const rootIconPrefixCls = global.getIconPrefixCls();
 
   const sync = () => {
-    setMeassgConfig(initializeMeassgConfig);
+    setMessageConfig(initializeMessageConfig);
   };
 
   React.useEffect(sync, []);
