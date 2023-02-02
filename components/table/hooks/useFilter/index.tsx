@@ -198,7 +198,7 @@ const getMergedColumns = <RecordType extends unknown>(
 ): ColumnsType<RecordType> =>
   rawMergedColumns.flatMap((column) => {
     if ('children' in column) {
-      return [column, ...getMergedColumns(column.children)];
+      return [column, ...getMergedColumns(column.children || [])];
     }
     return [column];
   });
