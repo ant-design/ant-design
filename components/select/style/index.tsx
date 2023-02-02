@@ -91,7 +91,6 @@ const genStatusStyle = (
 
           [`&:hover ${componentCls}-selector`]: {
             borderColor: borderHoverColor,
-            borderInlineEndWidth: `${token.lineWidth}px !important`,
           },
         },
     },
