@@ -43,6 +43,20 @@ const App: React.FC = () => {
         </Paragraph>
       )}
 
+      <br />
+
+      {/* https://github.com/ant-design/ant-design/issues/40261 */}
+      <Text code ellipsis={longText}>
+        Ant Design, a design language for background applications, is refined by Ant UED Team. Ant
+        Design, a design language for background applications, is refined by Ant UED Team. Ant
+        Design, a design language for background applications, is refined by Ant UED Team. Ant
+        Design, a design language for background applications, is refined by Ant UED Team. Ant
+        Design, a design language for background applications, is refined by Ant UED Team. Ant
+        Design, a design language for background applications, is refined by Ant UED Team.
+      </Text>
+
+      <br />
+
       <Text style={{ maxWidth: 400, fontSize: 24 }} copyable ellipsis>
         In the process of internal desktop applications development, many different design specs and
         implementations would be involved, which might cause designers and developers difficulties
