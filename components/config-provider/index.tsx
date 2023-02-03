@@ -5,7 +5,6 @@ import type { ValidateMessages } from 'rc-field-form/lib/interface';
 import { setValues } from 'rc-field-form/lib/utils/valueUtil';
 import useMemo from 'rc-util/lib/hooks/useMemo';
 import type { ReactElement } from 'react';
-import isEqual from 'rc-util/lib/isEqual';
 import * as React from 'react';
 import type { Options } from 'scroll-into-view-if-needed';
 import type { RequiredMark } from '../form/Form';
@@ -244,16 +243,15 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
 
   let childNode = shouldWrapSSR ? wrapSSR(children as ReactElement) : children;
 
-  const validateMessages = useMemo(
+  const validateMessages = React.useMemo(
     () =>
       setValues(
         {},
         defaultLocale.Form?.defaultValidateMessages || {},
-        config.locale?.Form?.defaultValidateMessages || {},
+        memoedConfig.locale?.Form?.defaultValidateMessages || {},
         form?.validateMessages || {},
       ),
-    [config.locale?.Form?.defaultValidateMessages, form?.validateMessages],
-    (prev, current) => isEqual(prev, current, true),
+    [memoedConfig, form?.validateMessages],
   );
 
   if (Object.keys(validateMessages).length > 0) {
