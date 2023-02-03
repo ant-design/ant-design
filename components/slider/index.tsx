@@ -44,6 +44,7 @@ export interface SliderBaseProps {
   dots?: boolean;
   included?: boolean;
   disabled?: boolean;
+  keyboard?: boolean;
   vertical?: boolean;
   className?: string;
   rootClassName?: string;
