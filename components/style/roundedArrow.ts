@@ -31,7 +31,6 @@ export const roundedArrow = (
     width,
     height: width,
     overflow: 'hidden',
-    // filter: 'drop-shadow(0 -2px 2px rgb(0 0 0 / 5%))',
 
     '&::before': {
       position: 'absolute',
