@@ -431,15 +431,12 @@ export default genComponentStyleHook(
       lineHeight,
       paddingXXS,
       componentCls,
-      borderRadiusOuter,
       borderRadiusLG,
     } = token;
 
     const dropdownPaddingVertical = (controlHeight - fontSize * lineHeight) / 2;
     const { dropdownArrowOffset } = getArrowOffset({
-      sizePopupArrow,
       contentRadius: borderRadiusLG,
-      borderRadiusOuter,
     });
 
     const dropdownToken = mergeToken<DropdownToken>(token, {
