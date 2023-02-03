@@ -8,30 +8,37 @@ export interface BackgroundImageProps {
   isLight?: boolean;
 }
 
-const useStyle = (light: boolean, activeColor: string) => {
+const useStyle = () => {
   const { token } = useSiteToken();
-  return (color: string) => css`
-    transition: all ${token.motionDurationSlow};
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    object-position: right top;
-    opacity: ${light && activeColor === color ? 1 : 0};
-  `;
+  return {
+    image: css`
+      transition: all ${token.motionDurationSlow};
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: right top;
+    `,
+  };
 };
 
 const BackgroundImage: React.FC<BackgroundImageProps> = ({ colorPrimary, isLight }) => {
   const activeColor = useMemo(() => getClosetColor(colorPrimary), [colorPrimary]);
 
-  const serializedCss = useStyle(isLight, activeColor);
+  const { image } = useStyle();
 
   return (
     <>
       {COLOR_IMAGES.filter(({ url }) => url).map(({ color, url }) => (
-        <img css={serializedCss(color)} key={color} src={url} alt="" />
+        <img
+          css={image}
+          style={{ opacity: isLight && activeColor === color ? 1 : 0 }}
+          key={color}
+          src={url}
+          alt=""
+        />
       ))}
     </>
   );
