@@ -76,7 +76,7 @@ export const getEcosystemGroup = (): MenuProps['items'] => [
 const More: React.FC<SharedProps> = ({ isRTL }) => {
   const { downOutlined } = useStyle(isRTL);
   return (
-    <Dropdown trigger={['click']} menu={{ items: getEcosystemGroup() }} placement="bottomRight">
+    <Dropdown menu={{ items: getEcosystemGroup() }} placement="bottomRight">
       <Button size="small">
         <FormattedMessage id="app.header.menu.more" />
         <DownOutlined css={downOutlined} />
