@@ -919,7 +919,6 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
   const {
     componentCls,
     antCls,
-    boxShadowPopoverArrow,
     controlHeight,
     fontSize,
     inputPaddingHorizontal,
@@ -960,6 +959,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
     controlItemBgHover,
     presetsWidth,
     presetsMaxWidth,
+    boxShadowPopoverArrow,
   } = token;
 
   return [
