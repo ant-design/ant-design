@@ -246,7 +246,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
   const validateMessages = setValues(
     {},
     defaultLocale.Form?.defaultValidateMessages || {},
-    config?.locale?.Form?.defaultValidateMessages || {},
+    config.locale?.Form?.defaultValidateMessages || {},
     form?.validateMessages || {},
   );
 
