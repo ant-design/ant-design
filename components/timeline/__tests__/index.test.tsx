@@ -60,10 +60,10 @@ describe('TimeLine', () => {
 
     it('has extra pending timeline item', () => {
       const { container } = render(
-        <TimeLine pending={<div>pending...</div>} reverse>
+        <TimeLine pending={<div>pending...</div>} reverse mode="alternate">
           <TimeLine.Item>foo</TimeLine.Item>
-          <TimeLine.Item>bar</TimeLine.Item>
-          <TimeLine.Item>baz</TimeLine.Item>
+          <TimeLine.Item position="right">bar</TimeLine.Item>
+          <TimeLine.Item position="left">baz</TimeLine.Item>
         </TimeLine>,
       );
       expect(container.querySelectorAll('li.ant-timeline-item-pending')).toHaveLength(1);
@@ -74,7 +74,7 @@ describe('TimeLine', () => {
         <TimeLine pendingDot={<i>dot</i>} reverse>
           <TimeLine.Item>foo</TimeLine.Item>
           <TimeLine.Item>bar</TimeLine.Item>
-          <TimeLine.Item>baz</TimeLine.Item>
+          <TimeLine.Item position="right">baz</TimeLine.Item>
         </TimeLine>,
       );
       expect(queryByText('dot')).toBeFalsy();

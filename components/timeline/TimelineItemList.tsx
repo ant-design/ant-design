@@ -10,7 +10,7 @@ const TimelineItemList: React.FC<TimelineProps & { hashId: string; direction?: s
   className,
   pending = false,
   children,
-  items = [],
+  items,
   rootClassName,
   reverse = false,
   direction,
