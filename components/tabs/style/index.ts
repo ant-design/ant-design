@@ -170,7 +170,7 @@ const genDropdownStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject
         backgroundClip: 'padding-box',
         borderRadius: token.borderRadiusLG,
         outline: 'none',
-        boxShadow: token.boxShadow,
+        boxShadow: token.boxShadowTertiary,
 
         '&-item': {
           ...textEllipsis,
