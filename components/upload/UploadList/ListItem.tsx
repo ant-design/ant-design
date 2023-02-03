@@ -142,7 +142,7 @@ const ListItem = React.forwardRef(
     const removeIcon = showRemoveIcon
       ? actionIconRender(
           (typeof customRemoveIcon === 'function' ? customRemoveIcon(file) : customRemoveIcon) || (
-            <DeleteOutlined />
+            <DeleteOutlined style={{ verticalAlign: 'baseline' }} />
           ),
           () => onClose(file),
           prefixCls,
