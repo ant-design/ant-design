@@ -919,7 +919,6 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
   const {
     componentCls,
     antCls,
-    boxShadowPopoverArrow,
     controlHeight,
     fontSize,
     inputPaddingHorizontal,
@@ -1270,13 +1269,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
             display: 'none',
             marginInlineStart: inputPaddingHorizontal * 1.5,
             transition: `left ${motionDurationSlow} ease-out`,
-            ...roundedArrow(
-              sizePopupArrow,
-              borderRadiusXS,
-              borderRadiusOuter,
-              colorBgElevated,
-              boxShadowPopoverArrow,
-            ),
+            ...roundedArrow(sizePopupArrow, borderRadiusXS, borderRadiusOuter, colorBgElevated),
           },
 
           [`${componentCls}-panel-container`]: {

@@ -46,7 +46,6 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
     fontSizeIcon,
     controlPaddingHorizontal,
     colorBgElevated,
-    boxShadowPopoverArrow,
   } = token;
 
   return [
@@ -130,7 +129,6 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
             token.borderRadiusXS,
             token.borderRadiusOuter,
             colorBgElevated,
-            boxShadowPopoverArrow,
           ),
         },
 
@@ -424,15 +422,12 @@ export default genComponentStyleHook(
       lineHeight,
       paddingXXS,
       componentCls,
-      borderRadiusOuter,
       borderRadiusLG,
     } = token;
 
     const dropdownPaddingVertical = (controlHeight - fontSize * lineHeight) / 2;
     const { dropdownArrowOffset } = getArrowOffset({
-      sizePopupArrow,
       contentRadius: borderRadiusLG,
-      borderRadiusOuter,
     });
 
     const dropdownToken = mergeToken<DropdownToken>(token, {
