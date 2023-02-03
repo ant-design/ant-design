@@ -3,19 +3,21 @@ import classNames from 'classnames';
 import RcDropdown from 'rc-dropdown';
 import useEvent from 'rc-util/lib/hooks/useEvent';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import omit from 'rc-util/lib/omit';
 import * as React from 'react';
-import Menu from '../menu';
-import type { MenuProps } from '../menu';
 import { ConfigContext } from '../config-provider';
+import type { MenuProps } from '../menu';
+import Menu from '../menu';
 import { OverrideProvider } from '../menu/OverrideContext';
-import genPurePanel from '../_util/PurePanel';
+import { NoCompactStyle } from '../space/Compact';
 import type { AdjustOverflow } from '../_util/placements';
 import getPlacements from '../_util/placements';
+import genPurePanel from '../_util/PurePanel';
 import { cloneElement } from '../_util/reactNode';
 import warning from '../_util/warning';
-import { NoCompactStyle } from '../space/Compact';
 import DropdownButton from './dropdown-button';
 import useStyle from './style';
+import theme from '../theme';
 
 const Placements = [
   'topLeft',
@@ -63,6 +65,7 @@ export interface DropdownProps {
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   prefixCls?: string;
   className?: string;
+  rootClassName?: string;
   transitionName?: string;
   placement?: Placement;
   overlayClassName?: string;
@@ -156,6 +159,7 @@ const Dropdown: CompoundedComponent = (props) => {
     dropdownRender,
     getPopupContainer,
     overlayClassName,
+    rootClassName,
     open,
     onOpenChange,
 
@@ -182,6 +186,8 @@ const Dropdown: CompoundedComponent = (props) => {
 
   const prefixCls = getPrefixCls('dropdown', customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
+
+  const { token } = theme.useToken();
 
   const child = React.Children.only(children) as React.ReactElement<any>;
 
@@ -214,13 +220,15 @@ const Dropdown: CompoundedComponent = (props) => {
   });
 
   // =========================== Overlay ============================
-  const overlayClassNameCustomized = classNames(overlayClassName, hashId, {
+  const overlayClassNameCustomized = classNames(overlayClassName, rootClassName, hashId, {
     [`${prefixCls}-rtl`]: direction === 'rtl',
   });
 
   const builtinPlacements = getPlacements({
     arrowPointAtCenter: typeof arrow === 'object' && arrow.pointAtCenter,
     autoAdjustOverflow,
+    offset: token.marginXXS,
+    arrowWidth: arrow ? token.sizePopupArrow : 0,
   });
 
   const onMenuClick = React.useCallback(() => {
@@ -276,7 +284,7 @@ const Dropdown: CompoundedComponent = (props) => {
   return wrapSSR(
     <RcDropdown
       alignPoint={alignPoint!}
-      {...props}
+      {...omit(props, ['rootClassName'])}
       mouseEnterDelay={mouseEnterDelay}
       mouseLeaveDelay={mouseLeaveDelay}
       visible={mergedOpen}
@@ -309,5 +317,9 @@ const WrapPurePanel = (props: DropdownProps) => (
 );
 
 Dropdown._InternalPanelDoNotUseOrYouWillBeFired = WrapPurePanel;
+
+if (process.env.NODE_ENV !== 'production') {
+  Dropdown.displayName = 'Dropdown';
+}
 
 export default Dropdown;

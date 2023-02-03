@@ -19,6 +19,7 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*EYuhSpw1iSwAAAAAAA
 <code src="./demo/basic.tsx">基础列表</code>
 <code src="./demo/loadmore.tsx">加载更多</code>
 <code src="./demo/vertical.tsx">竖排列表样式</code>
+<code src="./demo/pagination.tsx">分页设置</code>
 <code src="./demo/grid.tsx">栅格列表</code>
 <code src="./demo/grid-test.tsx" debug>测试栅格列表</code>
 <code src="./demo/responsive.tsx">响应式的栅格列表</code>
@@ -36,10 +37,10 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*EYuhSpw1iSwAAAAAAA
 | bordered | 是否展示边框 | boolean | false |  |
 | dataSource | 列表数据源 | any\[] | - |  |
 | footer | 列表底部 | ReactNode | - |  |
-| grid | 列表栅格配置 | [object](#List-grid-props) | - |  |
+| grid | 列表栅格配置 | [object](#list-grid-props) | - |  |
 | header | 列表头部 | ReactNode | - |  |
 | itemLayout | 设置 `List.Item` 布局, 设置成 `vertical` 则竖直样式显示, 默认横排 | string | - |  |
-| loading | 当卡片内容还在加载中时，可以用 `loading` 展示一个占位 | boolean \| [object](/components/spin-cn#API) ([更多](https://github.com/ant-design/ant-design/issues/8659)) | false |  |
+| loading | 当卡片内容还在加载中时，可以用 `loading` 展示一个占位 | boolean \| [object](/components/spin-cn#api) ([更多](https://github.com/ant-design/ant-design/issues/8659)) | false |  |
 | loadMore | 加载更多 | ReactNode | - |  |
 | locale | 默认文案设置，目前包括空数据文案 | object | {emptyText: `暂无数据`} |  |
 | pagination | 对应的 `pagination` 配置, 设置 false 不显示 | boolean \| object | false |  |
@@ -52,9 +53,10 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*EYuhSpw1iSwAAAAAAA
 
 分页的配置项。
 
-| 参数     | 说明               | 类型                        | 默认值   |
-| -------- | ------------------ | --------------------------- | -------- |
-| position | 指定分页显示的位置 | `top` \| `bottom` \| `both` | `bottom` |
+| 参数     | 说明               | 类型                         | 默认值   |
+| -------- | ------------------ | ---------------------------- | -------- |
+| position | 指定分页显示的位置 | `top` \| `bottom` \| `both`  | `bottom` |
+| align    | 指定分页对齐的位置 | `start` \| `center` \| `end` | `end`    |
 
 更多配置项，请查看 [`Pagination`](/components/pagination-cn)。
 

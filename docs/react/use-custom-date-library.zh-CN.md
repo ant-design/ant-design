@@ -18,7 +18,7 @@ Ant Design 默认使用 [Day.js](https://day.js.org) 来处理时间日期问题
 编写如下代码:
 
 ```tsx
-import { Moment } from 'moment';
+import type { Moment } from 'moment';
 import momentGenerateConfig from 'rc-picker/es/generate/moment';
 import generatePicker from 'antd/es/date-picker/generatePicker';
 
@@ -34,16 +34,16 @@ export default DatePicker;
 编写如下代码:
 
 ```tsx
-import { Moment } from 'moment';
+import type { Moment } from 'moment';
 import * as React from 'react';
+import type { PickerTimeProps } from 'antd/es/date-picker/generatePicker';
 import DatePicker from './DatePicker';
-import { PickerTimeProps } from 'antd/es/date-picker/generatePicker';
 
 export interface TimePickerProps extends Omit<PickerTimeProps<Moment>, 'picker'> {}
 
-const TimePicker = React.forwardRef<any, TimePickerProps>((props, ref) => {
-  return <DatePicker {...props} picker="time" mode={undefined} ref={ref} />;
-});
+const TimePicker = React.forwardRef<any, TimePickerProps>((props, ref) => (
+  <DatePicker {...props} picker="time" mode={undefined} ref={ref} />
+));
 
 TimePicker.displayName = 'TimePicker';
 
@@ -57,7 +57,7 @@ export default TimePicker;
 编写如下代码:
 
 ```tsx
-import { Moment } from 'moment';
+import type { Moment } from 'moment';
 import momentGenerateConfig from 'rc-picker/es/generate/moment';
 import generateCalendar from 'antd/es/calendar/generateCalendar';
 
@@ -96,7 +96,7 @@ export { default as TimePicker } from './TimePicker';
 
 ```js
 // webpack-config.js
-import AntdMomentWebpackPlugin from '@ant-design/moment-webpack-plugin';
+const AntdMomentWebpackPlugin = require('@ant-design/moment-webpack-plugin');
 
 module.exports = {
   // ...

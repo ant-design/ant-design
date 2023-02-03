@@ -138,13 +138,9 @@ exports[`ConfigProvider components Anchor configProvider 1`] = `
       <div
         class="config-anchor"
       >
-        <div
+        <span
           class="config-anchor-ink"
-        >
-          <span
-            class="config-anchor-ink-ball"
-          />
-        </div>
+        />
         <div
           class="config-anchor-link"
         >
@@ -174,13 +170,9 @@ exports[`ConfigProvider components Anchor configProvider componentDisabled 1`] =
       <div
         class="config-anchor"
       >
-        <div
+        <span
           class="config-anchor-ink"
-        >
-          <span
-            class="config-anchor-ink-ball"
-          />
-        </div>
+        />
         <div
           class="config-anchor-link"
         >
@@ -210,13 +202,9 @@ exports[`ConfigProvider components Anchor configProvider componentSize large 1`]
       <div
         class="config-anchor"
       >
-        <div
+        <span
           class="config-anchor-ink"
-        >
-          <span
-            class="config-anchor-ink-ball"
-          />
-        </div>
+        />
         <div
           class="config-anchor-link"
         >
@@ -246,13 +234,9 @@ exports[`ConfigProvider components Anchor configProvider componentSize middle 1`
       <div
         class="config-anchor"
       >
-        <div
+        <span
           class="config-anchor-ink"
-        >
-          <span
-            class="config-anchor-ink-ball"
-          />
-        </div>
+        />
         <div
           class="config-anchor-link"
         >
@@ -282,13 +266,9 @@ exports[`ConfigProvider components Anchor configProvider virtual and dropdownMat
       <div
         class="ant-anchor"
       >
-        <div
+        <span
           class="ant-anchor-ink"
-        >
-          <span
-            class="ant-anchor-ink-ball"
-          />
-        </div>
+        />
         <div
           class="ant-anchor-link"
         >
@@ -318,13 +298,9 @@ exports[`ConfigProvider components Anchor normal 1`] = `
       <div
         class="ant-anchor"
       >
-        <div
+        <span
           class="ant-anchor-ink"
-        >
-          <span
-            class="ant-anchor-ink-ball"
-          />
-        </div>
+        />
         <div
           class="ant-anchor-link"
         >
@@ -354,13 +330,9 @@ exports[`ConfigProvider components Anchor prefixCls 1`] = `
       <div
         class="prefix-Anchor"
       >
-        <div
+        <span
           class="prefix-Anchor-ink"
-        >
-          <span
-            class="prefix-Anchor-ink-ball"
-          />
-        </div>
+        />
         <div
           class="prefix-Anchor-link"
         >
@@ -12357,7 +12329,7 @@ exports[`ConfigProvider components Collapse configProvider componentDisabled 1`]
 
 exports[`ConfigProvider components Collapse configProvider componentSize large 1`] = `
 <div
-  class="config-collapse config-collapse-icon-position-start"
+  class="config-collapse config-collapse-icon-position-start config-collapse-large"
 >
   <div
     class="config-collapse-item"
@@ -17728,18 +17700,22 @@ HTMLCollection [
         class="config-menu config-menu-sub config-menu-inline"
         data-menu-list="true"
         id="rc-menu-uuid-test-bamboo-popup"
+        role="menu"
       >
         <li
           class="config-menu-item-group"
+          role="presentation"
         >
           <div
             class="config-menu-item-group-title"
+            role="presentation"
             title="Item 1"
           >
             Item 1
           </div>
           <ul
             class="config-menu-item-group-list"
+            role="group"
           >
             <li
               class="config-menu-item config-menu-item-only-child"
@@ -17801,18 +17777,22 @@ HTMLCollection [
         class="config-menu config-menu-sub config-menu-inline"
         data-menu-list="true"
         id="rc-menu-uuid-test-bamboo-popup"
+        role="menu"
       >
         <li
           class="config-menu-item-group"
+          role="presentation"
         >
           <div
             class="config-menu-item-group-title"
+            role="presentation"
             title="Item 1"
           >
             Item 1
           </div>
           <ul
             class="config-menu-item-group-list"
+            role="group"
           >
             <li
               class="config-menu-item config-menu-item-only-child"
@@ -17874,18 +17854,22 @@ HTMLCollection [
         class="config-menu config-menu-sub config-menu-inline"
         data-menu-list="true"
         id="rc-menu-uuid-test-bamboo-popup"
+        role="menu"
       >
         <li
           class="config-menu-item-group"
+          role="presentation"
         >
           <div
             class="config-menu-item-group-title"
+            role="presentation"
             title="Item 1"
           >
             Item 1
           </div>
           <ul
             class="config-menu-item-group-list"
+            role="group"
           >
             <li
               class="config-menu-item config-menu-item-only-child"
@@ -17947,18 +17931,22 @@ HTMLCollection [
         class="config-menu config-menu-sub config-menu-inline"
         data-menu-list="true"
         id="rc-menu-uuid-test-bamboo-popup"
+        role="menu"
       >
         <li
           class="config-menu-item-group"
+          role="presentation"
         >
           <div
             class="config-menu-item-group-title"
+            role="presentation"
             title="Item 1"
           >
             Item 1
           </div>
           <ul
             class="config-menu-item-group-list"
+            role="group"
           >
             <li
               class="config-menu-item config-menu-item-only-child"
@@ -18020,18 +18008,22 @@ HTMLCollection [
         class="ant-menu ant-menu-sub ant-menu-inline"
         data-menu-list="true"
         id="rc-menu-uuid-test-bamboo-popup"
+        role="menu"
       >
         <li
           class="ant-menu-item-group"
+          role="presentation"
         >
           <div
             class="ant-menu-item-group-title"
+            role="presentation"
             title="Item 1"
           >
             Item 1
           </div>
           <ul
             class="ant-menu-item-group-list"
+            role="group"
           >
             <li
               class="ant-menu-item ant-menu-item-only-child"
@@ -18093,18 +18085,22 @@ HTMLCollection [
         class="ant-menu ant-menu-sub ant-menu-inline"
         data-menu-list="true"
         id="rc-menu-uuid-test-bamboo-popup"
+        role="menu"
       >
         <li
           class="ant-menu-item-group"
+          role="presentation"
         >
           <div
             class="ant-menu-item-group-title"
+            role="presentation"
             title="Item 1"
           >
             Item 1
           </div>
           <ul
             class="ant-menu-item-group-list"
+            role="group"
           >
             <li
               class="ant-menu-item ant-menu-item-only-child"
@@ -18166,19 +18162,23 @@ HTMLCollection [
         class="prefix-Menu prefix-Menu-sub prefix-Menu-inline"
         data-menu-list="true"
         id="rc-menu-uuid-test-bamboo-popup"
+        role="menu"
       >
         <li
           class="prefix-Menu-item-group"
           prefixcls="prefix-Menu"
+          role="presentation"
         >
           <div
             class="prefix-Menu-item-group-title"
+            role="presentation"
             title="Item 1"
           >
             Item 1
           </div>
           <ul
             class="prefix-Menu-item-group-list"
+            role="group"
           >
             <li
               class="prefix-Menu-item prefix-Menu-item-only-child"
@@ -25487,7 +25487,7 @@ exports[`ConfigProvider components Slider configProvider 1`] = `
   />
   <div>
     <div
-      class="config-tooltip config-slider-tooltip config-zoom-down-appear config-zoom-down-appear-prepare config-zoom-down"
+      class="config-tooltip config-slider-tooltip config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast"
       style="opacity: 0;"
     >
       <div
@@ -25538,7 +25538,7 @@ exports[`ConfigProvider components Slider configProvider componentDisabled 1`] =
   />
   <div>
     <div
-      class="config-tooltip config-slider-tooltip config-zoom-down-appear config-zoom-down-appear-prepare config-zoom-down"
+      class="config-tooltip config-slider-tooltip config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast"
       style="opacity: 0;"
     >
       <div
@@ -25589,7 +25589,7 @@ exports[`ConfigProvider components Slider configProvider componentSize large 1`]
   />
   <div>
     <div
-      class="config-tooltip config-slider-tooltip config-zoom-down-appear config-zoom-down-appear-prepare config-zoom-down"
+      class="config-tooltip config-slider-tooltip config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast"
       style="opacity: 0;"
     >
       <div
@@ -25640,7 +25640,7 @@ exports[`ConfigProvider components Slider configProvider componentSize middle 1`
   />
   <div>
     <div
-      class="config-tooltip config-slider-tooltip config-zoom-down-appear config-zoom-down-appear-prepare config-zoom-down"
+      class="config-tooltip config-slider-tooltip config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast"
       style="opacity: 0;"
     >
       <div
@@ -25691,7 +25691,7 @@ exports[`ConfigProvider components Slider configProvider virtual and dropdownMat
   />
   <div>
     <div
-      class="ant-tooltip ant-slider-tooltip ant-zoom-down-appear ant-zoom-down-appear-prepare ant-zoom-down"
+      class="ant-tooltip ant-slider-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
       style="opacity: 0;"
     >
       <div
@@ -25742,7 +25742,7 @@ exports[`ConfigProvider components Slider normal 1`] = `
   />
   <div>
     <div
-      class="ant-tooltip ant-slider-tooltip ant-zoom-down-appear ant-zoom-down-appear-prepare ant-zoom-down"
+      class="ant-tooltip ant-slider-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
       style="opacity: 0;"
     >
       <div
@@ -25793,7 +25793,7 @@ exports[`ConfigProvider components Slider prefixCls 1`] = `
   />
   <div>
     <div
-      class="prefix-Slider-tooltip prefix-Slider-tooltip ant-zoom-down-appear ant-zoom-down-appear-prepare ant-zoom-down"
+      class="prefix-Slider-tooltip prefix-Slider-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
       style="opacity: 0;"
     >
       <div
@@ -26610,7 +26610,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
               >
                 <tr>
                   <th
-                    aria-label="this column's title is Name,this column is sortable"
+                    aria-label="Name"
                     class="config-table-cell config-table-column-has-sorters"
                     scope="col"
                     tabindex="0"
@@ -26765,7 +26765,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                                     Submenu
                                   </span>
                                   <span
-                                    class="config-dropdown-menu-submenu-expand-icon"
+                                    class="config-dropdown-menu-submenu-expand-icon config-dropdown-menu-submenu-arrow"
                                   >
                                     <span
                                       aria-label="right"
@@ -26916,7 +26916,7 @@ exports[`ConfigProvider components Table configProvider componentDisabled 1`] = 
               >
                 <tr>
                   <th
-                    aria-label="this column's title is Name,this column is sortable"
+                    aria-label="Name"
                     class="config-table-cell config-table-column-has-sorters"
                     scope="col"
                     tabindex="0"
@@ -27072,7 +27072,7 @@ exports[`ConfigProvider components Table configProvider componentDisabled 1`] = 
                                     Submenu
                                   </span>
                                   <span
-                                    class="config-dropdown-menu-submenu-expand-icon"
+                                    class="config-dropdown-menu-submenu-expand-icon config-dropdown-menu-submenu-arrow"
                                   >
                                     <span
                                       aria-label="right"
@@ -27224,7 +27224,7 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
               >
                 <tr>
                   <th
-                    aria-label="this column's title is Name,this column is sortable"
+                    aria-label="Name"
                     class="config-table-cell config-table-column-has-sorters"
                     scope="col"
                     tabindex="0"
@@ -27379,7 +27379,7 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                                     Submenu
                                   </span>
                                   <span
-                                    class="config-dropdown-menu-submenu-expand-icon"
+                                    class="config-dropdown-menu-submenu-expand-icon config-dropdown-menu-submenu-arrow"
                                   >
                                     <span
                                       aria-label="right"
@@ -27530,7 +27530,7 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
               >
                 <tr>
                   <th
-                    aria-label="this column's title is Name,this column is sortable"
+                    aria-label="Name"
                     class="config-table-cell config-table-column-has-sorters"
                     scope="col"
                     tabindex="0"
@@ -27685,7 +27685,7 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                                     Submenu
                                   </span>
                                   <span
-                                    class="config-dropdown-menu-submenu-expand-icon"
+                                    class="config-dropdown-menu-submenu-expand-icon config-dropdown-menu-submenu-arrow"
                                   >
                                     <span
                                       aria-label="right"
@@ -27836,7 +27836,7 @@ exports[`ConfigProvider components Table configProvider virtual and dropdownMatc
               >
                 <tr>
                   <th
-                    aria-label="this column's title is Name,this column is sortable"
+                    aria-label="Name"
                     class="ant-table-cell ant-table-column-has-sorters"
                     scope="col"
                     tabindex="0"
@@ -27991,7 +27991,7 @@ exports[`ConfigProvider components Table configProvider virtual and dropdownMatc
                                     Submenu
                                   </span>
                                   <span
-                                    class="ant-dropdown-menu-submenu-expand-icon"
+                                    class="ant-dropdown-menu-submenu-expand-icon ant-dropdown-menu-submenu-arrow"
                                   >
                                     <span
                                       aria-label="right"
@@ -28142,7 +28142,7 @@ exports[`ConfigProvider components Table normal 1`] = `
               >
                 <tr>
                   <th
-                    aria-label="this column's title is Name,this column is sortable"
+                    aria-label="Name"
                     class="ant-table-cell ant-table-column-has-sorters"
                     scope="col"
                     tabindex="0"
@@ -28297,7 +28297,7 @@ exports[`ConfigProvider components Table normal 1`] = `
                                     Submenu
                                   </span>
                                   <span
-                                    class="ant-dropdown-menu-submenu-expand-icon"
+                                    class="ant-dropdown-menu-submenu-expand-icon ant-dropdown-menu-submenu-arrow"
                                   >
                                     <span
                                       aria-label="right"
@@ -28448,7 +28448,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
               >
                 <tr>
                   <th
-                    aria-label="this column's title is Name,this column is sortable"
+                    aria-label="Name"
                     class="prefix-Table-cell prefix-Table-column-has-sorters"
                     scope="col"
                     tabindex="0"
@@ -28603,7 +28603,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                                     Submenu
                                   </span>
                                   <span
-                                    class="ant-dropdown-menu-submenu-expand-icon"
+                                    class="ant-dropdown-menu-submenu-expand-icon ant-dropdown-menu-submenu-arrow"
                                   >
                                     <span
                                       aria-label="right"
@@ -38402,13 +38402,14 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
       class="config-transfer-list-header"
     >
       <label
-        class="config-checkbox-wrapper config-transfer-list-checkbox"
+        class="config-checkbox-wrapper config-checkbox-wrapper-disabled config-transfer-list-checkbox"
       >
         <span
-          class="config-checkbox"
+          class="config-checkbox config-checkbox-disabled"
         >
           <input
             class="config-checkbox-input"
+            disabled=""
             type="checkbox"
             value=""
           />
@@ -38561,13 +38562,14 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
       class="config-transfer-list-header"
     >
       <label
-        class="config-checkbox-wrapper config-transfer-list-checkbox"
+        class="config-checkbox-wrapper config-checkbox-wrapper-disabled config-transfer-list-checkbox"
       >
         <span
-          class="config-checkbox"
+          class="config-checkbox config-checkbox-disabled"
         >
           <input
             class="config-checkbox-input"
+            disabled=""
             type="checkbox"
             value=""
           />
@@ -38946,13 +38948,14 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
       class="config-transfer-list-header"
     >
       <label
-        class="config-checkbox-wrapper config-transfer-list-checkbox"
+        class="config-checkbox-wrapper config-checkbox-wrapper-disabled config-transfer-list-checkbox"
       >
         <span
-          class="config-checkbox"
+          class="config-checkbox config-checkbox-disabled"
         >
           <input
             class="config-checkbox-input"
+            disabled=""
             type="checkbox"
             value=""
           />
@@ -39105,13 +39108,14 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
       class="config-transfer-list-header"
     >
       <label
-        class="config-checkbox-wrapper config-transfer-list-checkbox"
+        class="config-checkbox-wrapper config-checkbox-wrapper-disabled config-transfer-list-checkbox"
       >
         <span
-          class="config-checkbox"
+          class="config-checkbox config-checkbox-disabled"
         >
           <input
             class="config-checkbox-input"
+            disabled=""
             type="checkbox"
             value=""
           />
@@ -39217,13 +39221,14 @@ exports[`ConfigProvider components Transfer configProvider componentSize middle 
       class="config-transfer-list-header"
     >
       <label
-        class="config-checkbox-wrapper config-transfer-list-checkbox"
+        class="config-checkbox-wrapper config-checkbox-wrapper-disabled config-transfer-list-checkbox"
       >
         <span
-          class="config-checkbox"
+          class="config-checkbox config-checkbox-disabled"
         >
           <input
             class="config-checkbox-input"
+            disabled=""
             type="checkbox"
             value=""
           />
@@ -39376,13 +39381,14 @@ exports[`ConfigProvider components Transfer configProvider componentSize middle 
       class="config-transfer-list-header"
     >
       <label
-        class="config-checkbox-wrapper config-transfer-list-checkbox"
+        class="config-checkbox-wrapper config-checkbox-wrapper-disabled config-transfer-list-checkbox"
       >
         <span
-          class="config-checkbox"
+          class="config-checkbox config-checkbox-disabled"
         >
           <input
             class="config-checkbox-input"
+            disabled=""
             type="checkbox"
             value=""
           />
@@ -39488,13 +39494,14 @@ exports[`ConfigProvider components Transfer configProvider virtual and dropdownM
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+        class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
       >
         <span
-          class="ant-checkbox"
+          class="ant-checkbox ant-checkbox-disabled"
         >
           <input
             class="ant-checkbox-input"
+            disabled=""
             type="checkbox"
             value=""
           />
@@ -39647,13 +39654,14 @@ exports[`ConfigProvider components Transfer configProvider virtual and dropdownM
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+        class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
       >
         <span
-          class="ant-checkbox"
+          class="ant-checkbox ant-checkbox-disabled"
         >
           <input
             class="ant-checkbox-input"
+            disabled=""
             type="checkbox"
             value=""
           />
@@ -39759,13 +39767,14 @@ exports[`ConfigProvider components Transfer normal 1`] = `
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+        class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
       >
         <span
-          class="ant-checkbox"
+          class="ant-checkbox ant-checkbox-disabled"
         >
           <input
             class="ant-checkbox-input"
+            disabled=""
             type="checkbox"
             value=""
           />
@@ -39918,13 +39927,14 @@ exports[`ConfigProvider components Transfer normal 1`] = `
       class="ant-transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+        class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
       >
         <span
-          class="ant-checkbox"
+          class="ant-checkbox ant-checkbox-disabled"
         >
           <input
             class="ant-checkbox-input"
+            disabled=""
             type="checkbox"
             value=""
           />
@@ -40030,13 +40040,14 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
       class="prefix-Transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper prefix-Transfer-list-checkbox"
+        class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled prefix-Transfer-list-checkbox"
       >
         <span
-          class="ant-checkbox"
+          class="ant-checkbox ant-checkbox-disabled"
         >
           <input
             class="ant-checkbox-input"
+            disabled=""
             type="checkbox"
             value=""
           />
@@ -40189,13 +40200,14 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
       class="prefix-Transfer-list-header"
     >
       <label
-        class="ant-checkbox-wrapper prefix-Transfer-list-checkbox"
+        class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled prefix-Transfer-list-checkbox"
       >
         <span
-          class="ant-checkbox"
+          class="ant-checkbox ant-checkbox-disabled"
         >
           <input
             class="ant-checkbox-input"
+            disabled=""
             type="checkbox"
             value=""
           />

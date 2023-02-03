@@ -5,9 +5,3 @@
 ## en-US
 
 We preset a series of colorful Tooltip styles for use in different situations.
-
-```css
-.ant-tag {
-  margin-bottom: 8px;
-}
-```

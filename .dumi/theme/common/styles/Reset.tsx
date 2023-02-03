@@ -10,7 +10,7 @@ export default () => {
       styles={css`
         @font-face {
           font-weight: normal;
-          font-family: PuHuiTi;
+          font-family: AlibabaPuHuiTi;
           src: url('//at.alicdn.com/t/webfont_6e11e43nfj.woff2') format('woff2'),
             url('//at.alicdn.com/t/webfont_6e11e43nfj.woff') format('woff'),
             /* chrome、firefox */ url('//at.alicdn.com/t/webfont_6e11e43nfj.ttf') format('truetype'); /* chrome、firefox、opera、Safari, Android, iOS 4.2+ */
@@ -19,7 +19,7 @@ export default () => {
 
         @font-face {
           font-weight: bold;
-          font-family: PuHuiTi;
+          font-family: AlibabaPuHuiTi;
           src: url('//at.alicdn.com/t/webfont_exesdog9toj.woff2') format('woff2'),
             url('//at.alicdn.com/t/webfont_exesdog9toj.woff') format('woff'),
             /* chrome、firefox */ url('//at.alicdn.com/t/webfont_exesdog9toj.ttf')

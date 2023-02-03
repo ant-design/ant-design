@@ -11,17 +11,4 @@ Integrate virtual scroll with `react-window` to achieve a high performance table
   .virtual-table .ant-table-container:after {
     display: none;
   }
-  .virtual-table-cell {
-    box-sizing: border-box;
-    padding: 16px;
-    border-bottom: 1px solid #e8e8e8;
-    background: #FFF;
-  }
- [data-theme="dark"]  .virtual-table-cell {
-    box-sizing: border-box;
-    padding: 16px;
-    border-bottom: 1px solid #303030;
-    background: #141414;
-  }
-
 </style>

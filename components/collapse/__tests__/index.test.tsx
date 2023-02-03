@@ -39,6 +39,14 @@ describe('Collapse', () => {
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
+  it('should be able to config size', () => {
+    const { container: small } = render(<Collapse size="small" />);
+    const { container: large } = render(<Collapse size="large" />);
+
+    expect(small.querySelector('.ant-collapse')).toHaveClass('ant-collapse-small');
+    expect(large.querySelector('.ant-collapse')).toHaveClass('ant-collapse-large');
+  });
+
   it('should keep the className of the expandIcon', () => {
     const { container } = render(
       <Collapse
@@ -122,9 +130,9 @@ describe('Collapse', () => {
       .spyOn(window, 'requestAnimationFrame')
       .mockImplementation((cb) => setTimeout(cb, 16.66));
 
-    let setActiveKeyOuter: React.Dispatch<React.SetStateAction<React.Key | undefined>>;
-    const Test = () => {
-      const [activeKey, setActiveKey] = React.useState();
+    let setActiveKeyOuter: React.Dispatch<React.SetStateAction<React.Key>>;
+    const Test: React.FC = () => {
+      const [activeKey, setActiveKey] = React.useState<React.Key>();
       setActiveKeyOuter = setActiveKey;
       return (
         <div hidden>

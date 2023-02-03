@@ -34,7 +34,7 @@ const treeData = [
   },
 ];
 const App: React.FC = () => {
-  const [value, setValue] = useState<string | undefined>(undefined);
+  const [value, setValue] = useState<string>();
 
   const onChange = (newValue: string) => {
     setValue(newValue);

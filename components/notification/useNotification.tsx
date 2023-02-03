@@ -84,7 +84,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
 // ==============================================================================
 export function useInternalNotification(
   notificationConfig?: HolderProps,
-): [NotificationInstance, React.ReactElement] {
+): readonly [NotificationInstance, React.ReactElement] {
   const holderRef = React.useRef<HolderRef>(null);
 
   // ================================ API ================================
@@ -160,7 +160,10 @@ export function useInternalNotification(
   }, []);
 
   // ============================== Return ===============================
-  return [wrapAPI, <Holder key="notification-holder" {...notificationConfig} ref={holderRef} />];
+  return [
+    wrapAPI,
+    <Holder key="notification-holder" {...notificationConfig} ref={holderRef} />,
+  ] as const;
 }
 
 export default function useNotification(notificationConfig?: NotificationConfig) {

@@ -125,10 +125,9 @@ This document will help you upgrade from antd `4.x` version to antd `5.x` versio
 - Move PageHeader component into `@ant-design/pro-components`.
 
   ```diff
-  - import { PageHeader, Comment, Input, Button } from 'antd';
+  - import { PageHeader, Comment } from 'antd';
   + import { Comment } from '@ant-design/compatible';
   + import { PageHeader } from '@ant-design/pro-layout';
-  + import { Input, Button } from 'antd';
 
     const App: React.FC = () => (
       <>
@@ -204,14 +203,15 @@ const mapToken = defaultAlgorithm(defaultSeed);
 const v4Token = convertLegacyToken(mapToken);
 
 // Webpack Config
-{
-  loader: "less-loader",
+module.exports = {
+  // ... other config
+  loader: 'less-loader',
   options: {
     lessOptions: {
       modifyVars: v4Token,
     },
   },
-}
+};
 ```
 
 Ant then remove antd less reference in your less file:

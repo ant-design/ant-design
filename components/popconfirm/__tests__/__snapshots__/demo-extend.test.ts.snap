@@ -521,9 +521,7 @@ Array [
 `;
 
 exports[`renders ./components/popconfirm/demo/placement.tsx extend context correctly 1`] = `
-<div
-  class="demo"
->
+Array [
   <div
     style="margin-left:70px;white-space:nowrap"
   >
@@ -815,7 +813,7 @@ exports[`renders ./components/popconfirm/demo/placement.tsx extend context corre
         </div>
       </div>
     </div>
-  </div>
+  </div>,
   <div
     style="width:70px;float:left"
   >
@@ -1107,7 +1105,7 @@ exports[`renders ./components/popconfirm/demo/placement.tsx extend context corre
         </div>
       </div>
     </div>
-  </div>
+  </div>,
   <div
     style="width:70px;margin-left:304px"
   >
@@ -1399,7 +1397,7 @@ exports[`renders ./components/popconfirm/demo/placement.tsx extend context corre
         </div>
       </div>
     </div>
-  </div>
+  </div>,
   <div
     style="margin-left:70px;clear:both;white-space:nowrap"
   >
@@ -1691,8 +1689,8 @@ exports[`renders ./components/popconfirm/demo/placement.tsx extend context corre
         </div>
       </div>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/popconfirm/demo/promise.tsx extend context correctly 1`] = `

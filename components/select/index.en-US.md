@@ -44,7 +44,7 @@ Select component to select value from options.
 
 ## API
 
-```jsx
+```tsx
 <Select>
   <Option value="lucy">lucy</Option>
 </Select>
@@ -149,7 +149,7 @@ You can control it by `open` prop: [codesandbox](https://codesandbox.io/s/ji-ben
 
 Select will close when it lose focus. You can prevent event to handle this:
 
-```jsx
+```tsx
 <Select
   dropdownRender={() => (
     <div
@@ -168,7 +168,7 @@ Select will close when it lose focus. You can prevent event to handle this:
 
 Virtual scroll internal set item height as `24px`. You need to adjust `listItemHeight` when your option height is less and `listHeight` config list container height:
 
-```jsx
+```tsx
 <Select listItemHeight={10} listHeight={250} />
 ```
 

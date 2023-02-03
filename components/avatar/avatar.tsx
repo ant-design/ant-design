@@ -4,8 +4,8 @@ import { composeRef } from 'rc-util/lib/ref';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
-import type { Breakpoint } from '../_util/responsiveObserve';
-import { responsiveArray } from '../_util/responsiveObserve';
+import type { Breakpoint } from '../_util/responsiveObserver';
+import { responsiveArray } from '../_util/responsiveObserver';
 import warning from '../_util/warning';
 import type { AvatarSize } from './SizeContext';
 import SizeContext from './SizeContext';
@@ -30,6 +30,7 @@ export interface AvatarProps {
   style?: React.CSSProperties;
   prefixCls?: string;
   className?: string;
+  rootClassName?: string;
   children?: React.ReactNode;
   alt?: string;
   crossOrigin?: '' | 'anonymous' | 'use-credentials';
@@ -99,6 +100,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
     srcSet,
     icon,
     className,
+    rootClassName,
     alt,
     draggable,
     children,
@@ -155,6 +157,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
       [`${prefixCls}-icon`]: !!icon,
     },
     className,
+    rootClassName,
     hashId,
   );
 

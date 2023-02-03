@@ -37,6 +37,7 @@ export interface AlertProps {
   style?: React.CSSProperties;
   prefixCls?: string;
   className?: string;
+  rootClassName?: string;
   banner?: boolean;
   icon?: React.ReactNode;
   /** Custom closeIcon */
@@ -100,7 +101,8 @@ const Alert: CompoundedComponent = ({
   prefixCls: customizePrefixCls,
   message,
   banner,
-  className = '',
+  className,
+  rootClassName,
   style,
   onMouseEnter,
   onMouseLeave,
@@ -151,6 +153,7 @@ const Alert: CompoundedComponent = ({
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
+    rootClassName,
     hashId,
   );
 
@@ -206,5 +209,9 @@ const Alert: CompoundedComponent = ({
 };
 
 Alert.ErrorBoundary = ErrorBoundary;
+
+if (process.env.NODE_ENV !== 'production') {
+  Alert.displayName = 'Alert';
+}
 
 export default Alert;

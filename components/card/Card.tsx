@@ -32,6 +32,7 @@ export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 't
   children?: React.ReactNode;
   id?: string;
   className?: string;
+  rootClassName?: string;
   size?: CardSize;
   type?: CardType;
   cover?: React.ReactNode;
@@ -75,6 +76,7 @@ const Card = React.forwardRef((props: CardProps, ref: React.Ref<HTMLDivElement>)
   const {
     prefixCls: customizePrefixCls,
     className,
+    rootClassName,
     extra,
     headStyle = {},
     bodyStyle = {},
@@ -164,6 +166,7 @@ const Card = React.forwardRef((props: CardProps, ref: React.Ref<HTMLDivElement>)
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
+    rootClassName,
     hashId,
   );
 

@@ -8,6 +8,7 @@ import Tooltip from '../tooltip';
 import useStyle from './style';
 
 export interface RateProps extends RcRateProps {
+  rootClassName?: string;
   tooltips?: Array<string>;
 }
 
@@ -16,7 +17,14 @@ interface RateNodeProps {
 }
 
 const Rate = React.forwardRef<unknown, RateProps>((props, ref) => {
-  const { prefixCls, tooltips, character = <StarFilled />, ...rest } = props;
+  const {
+    prefixCls,
+    className,
+    rootClassName,
+    tooltips,
+    character = <StarFilled />,
+    ...rest
+  } = props;
   const characterRender = (node: React.ReactElement, { index }: RateNodeProps) => {
     if (!tooltips) {
       return node;
@@ -36,7 +44,7 @@ const Rate = React.forwardRef<unknown, RateProps>((props, ref) => {
       character={character}
       characterRender={characterRender}
       {...rest}
-      className={classNames(props.className, hashId)}
+      className={classNames(className, rootClassName, hashId)}
       prefixCls={ratePrefixCls}
       direction={direction}
     />,

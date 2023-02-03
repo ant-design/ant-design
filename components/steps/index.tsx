@@ -30,6 +30,7 @@ export interface StepProps {
 export interface StepsProps {
   type?: 'default' | 'navigation' | 'inline';
   className?: string;
+  rootClassName?: string;
   current?: number;
   direction?: 'horizontal' | 'vertical';
   iconPrefix?: string;
@@ -56,6 +57,7 @@ const Steps: CompoundedComponent = (props) => {
     percent,
     size,
     className,
+    rootClassName,
     direction,
     items,
     responsive = true,
@@ -86,6 +88,7 @@ const Steps: CompoundedComponent = (props) => {
       [`${prefixCls}-with-progress`]: mergedPercent !== undefined,
     },
     className,
+    rootClassName,
     hashId,
   );
   const icons = {
@@ -135,5 +138,9 @@ const Steps: CompoundedComponent = (props) => {
 };
 
 Steps.Step = RcSteps.Step;
+
+if (process.env.NODE_ENV !== 'production') {
+  Steps.displayName = 'Steps';
+}
 
 export default Steps;

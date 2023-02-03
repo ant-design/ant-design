@@ -50,7 +50,6 @@ Ant Design 团队会关注所有的 pull request，我们会 review 以及合并
 
 1. 基于 [正确的分支](#分支管理) 做修改。
 1. 在项目根目录下运行了 `npm install`。
-   > 在 Windows 10 开发环境下，如果出现 `gyp err! find vs msvs_version not set from command line or npm config`错误, 请在运行 `npm install` 前安装 [最新版 Python v3](https://www.python.org/downloads/)， 并通过 [Visual Studio Installer](https://docs.microsoft.com/en-us/visualstudio/install/install-visual-studio?view=vs-2019#step-3---install-the-visual-studio-installer) 安装 **Desktop development with C++**。
 1. 如果你修复了一个 bug 或者新增了一个功能，请确保写了相应的测试，这很重要。
 1. 确认所有的测试都是通过的 `npm run test`。 小贴士：开发过程中可以用 `npm test -- --watch TestName` 来运行指定的测试。
 1. 运行 `npm test -- -u` 来更新 [jest snapshot](http://facebook.github.io/jest/docs/en/snapshot-testing.html#snapshot-testing-with-jest) 并且把这些更新也提交上来（如果有的话）。
@@ -80,7 +79,8 @@ Ant Design 团队会关注所有的 pull request，我们会 review 以及合并
 
 如果你贡献度足够活跃，希望和 Ant Design 团队一起参与维护工作，你可以[申请成为社区协作者](https://github.com/ant-design/ant-design/wiki/Collaborators#how-to-apply-for-being-a-collaborator)。
 
-你还可以参考下面两篇社区成员写的贡献指南，一步一步成为 antd 的贡献者吧：
+你还可以参考下面三篇社区成员写的贡献指南，一步一步成为 antd 的贡献者吧：
 
 - [记录向：如何快速的成为 Ant Design 的 contributor](https://zhuanlan.zhihu.com/p/123367842) [@Rustin-Liu](https://github.com/Rustin-Liu)
 - [从 0 开始，成为 Ant-Design Contributor](https://zhuanlan.zhihu.com/p/143895612) [@fireairforce](https://github.com/fireairforce)
+- [如何成长为 Collaborator](/docs/blog/to-be-collaborator-cn)

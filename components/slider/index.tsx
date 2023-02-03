@@ -46,6 +46,7 @@ export interface SliderBaseProps {
   disabled?: boolean;
   vertical?: boolean;
   className?: string;
+  rootClassName?: string;
   id?: string;
   style?: React.CSSProperties;
   tooltip?: SliderTooltipProps;
@@ -99,6 +100,7 @@ const Slider = React.forwardRef<unknown, SliderSingleProps | SliderRangeProps>(
       prefixCls: customizePrefixCls,
       range,
       className,
+      rootClassName,
 
       // Deprecated Props
       tooltipPrefixCls: legacyTooltipPrefixCls,
@@ -133,6 +135,7 @@ const Slider = React.forwardRef<unknown, SliderSingleProps | SliderRangeProps>(
 
     const cls = classNames(
       className,
+      rootClassName,
       {
         [`${prefixCls}-rtl`]: direction === 'rtl',
       },
@@ -173,7 +176,6 @@ const Slider = React.forwardRef<unknown, SliderSingleProps | SliderRangeProps>(
     const handleRender: RcSliderProps['handleRender'] = (node, info) => {
       const { index, dragging } = info;
 
-      const rootPrefixCls = getPrefixCls();
       const { tooltip = {}, vertical } = props;
 
       const tooltipProps: SliderTooltipProps = {
@@ -217,7 +219,6 @@ const Slider = React.forwardRef<unknown, SliderSingleProps | SliderRangeProps>(
           title={mergedTipFormatter ? mergedTipFormatter(info.value) : ''}
           open={open}
           placement={getTooltipPlacement(tooltipPlacement ?? legacyTooltipPlacement, vertical)}
-          transitionName={`${rootPrefixCls}-zoom-down`}
           key={index}
           overlayClassName={`${prefixCls}-tooltip`}
           getPopupContainer={

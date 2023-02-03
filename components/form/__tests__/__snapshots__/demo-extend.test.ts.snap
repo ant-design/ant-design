@@ -3,8 +3,9 @@
 exports[`renders ./components/form/demo/advanced-search.tsx extend context correctly 1`] = `
 <div>
   <form
-    class="ant-form ant-form-horizontal ant-advanced-search-form"
+    class="ant-form ant-form-horizontal"
     id="advanced_search"
+    style="max-width:none;background:rgba(0, 0, 0, 0.02);border-radius:8px;padding:24px"
   >
     <div
       class="ant-row"
@@ -599,7 +600,7 @@ exports[`renders ./components/form/demo/advanced-search.tsx extend context corre
     </div>
   </form>
   <div
-    class="search-result-list"
+    style="line-height:200px;text-align:center;background:rgba(0, 0, 0, 0.02);border-radius:8px;margin-top:16px"
   >
     Search Result List
   </div>
@@ -611,6 +612,7 @@ exports[`renders ./components/form/demo/basic.tsx extend context correctly 1`] =
   autocomplete="off"
   class="ant-form ant-form-horizontal"
   id="basic"
+  style="max-width:600px"
 >
   <div
     class="ant-form-item"
@@ -796,6 +798,7 @@ Array [
     autocomplete="off"
     class="ant-form ant-form-horizontal"
     id="basic"
+    style="max-width:600px"
   >
     <div
       class="ant-form-item"
@@ -1582,6 +1585,7 @@ exports[`renders ./components/form/demo/control-hooks.tsx extend context correct
 <form
   class="ant-form ant-form-horizontal"
   id="control-hooks"
+  style="max-width:600px"
 >
   <div
     class="ant-form-item"
@@ -1863,6 +1867,7 @@ exports[`renders ./components/form/demo/control-ref.tsx extend context correctly
 <form
   class="ant-form ant-form-horizontal"
   id="control-ref"
+  style="max-width:600px"
 >
   <div
     class="ant-form-item"
@@ -2380,6 +2385,7 @@ Array [
   </label>,
   <form
     class="ant-form ant-form-horizontal"
+    style="max-width:600px"
   >
     <div
       class="ant-form-item"
@@ -5176,6 +5182,7 @@ Array [
 exports[`renders ./components/form/demo/disabled-input-debug.tsx extend context correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
+  style="max-width:600px"
 >
   <div
     class="ant-form-item"
@@ -5686,6 +5693,7 @@ exports[`renders ./components/form/demo/dynamic-form-item.tsx extend context cor
 <form
   class="ant-form ant-form-horizontal"
   id="dynamic_form_item"
+  style="max-width:600px"
 >
   <div
     class="ant-form-item"
@@ -5811,6 +5819,7 @@ exports[`renders ./components/form/demo/dynamic-form-items.tsx extend context co
   autocomplete="off"
   class="ant-form ant-form-horizontal"
   id="dynamic_form_nest_item"
+  style="max-width:600px"
 >
   <div
     class="ant-form-item"
@@ -5901,6 +5910,7 @@ exports[`renders ./components/form/demo/dynamic-form-items-complex.tsx extend co
   autocomplete="off"
   class="ant-form ant-form-horizontal"
   id="dynamic_form_complex"
+  style="max-width:600px"
 >
   <div
     class="ant-form-item"
@@ -6163,6 +6173,7 @@ exports[`renders ./components/form/demo/dynamic-form-items-no-style.tsx extend c
   autocomplete="off"
   class="ant-form ant-form-horizontal"
   id="dynamic_form_no_style"
+  style="max-width:600px"
 >
   <div
     class="ant-form-item"
@@ -6282,6 +6293,7 @@ exports[`renders ./components/form/demo/dynamic-rule.tsx extend context correctl
 <form
   class="ant-form ant-form-horizontal"
   id="dynamic_rule"
+  style="max-width:600px"
 >
   <div
     class="ant-form-item"
@@ -6433,6 +6445,7 @@ exports[`renders ./components/form/demo/form-context.tsx extend context correctl
 <form
   class="ant-form ant-form-horizontal"
   id="basicForm"
+  style="max-width:600px"
 >
   <div
     class="ant-form-item"
@@ -6752,10 +6765,14 @@ Array [
       </div>
     </div>
   </form>,
-  <pre
-    class="language-bash"
+  <div
+    class="ant-typography"
+    style="max-width:440px;margin-top:24px"
   >
-    [
+    <pre
+      style="border:none"
+    >
+      [
   {
     "name": [
       "username"
@@ -6763,7 +6780,8 @@ Array [
     "value": "Ant Design"
   }
 ]
-  </pre>,
+    </pre>
+  </div>,
 ]
 `;
 
@@ -6917,6 +6935,7 @@ exports[`renders ./components/form/demo/label-debug.tsx extend context correctly
 <form
   class="ant-form ant-form-horizontal"
   id="label-ellipsis"
+  style="max-width:600px"
 >
   <div
     class="ant-form-item"
@@ -7071,6 +7090,7 @@ exports[`renders ./components/form/demo/label-debug.tsx extend context correctly
 exports[`renders ./components/form/demo/layout.tsx extend context correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
+  style="max-width:600px"
 >
   <div
     class="ant-form-item"
@@ -7273,6 +7293,7 @@ exports[`renders ./components/form/demo/layout-can-wrap.tsx extend context corre
 <form
   class="ant-form ant-form-horizontal"
   id="wrap"
+  style="max-width:600px"
 >
   <div
     class="ant-form-item"
@@ -7400,6 +7421,7 @@ exports[`renders ./components/form/demo/nest-messages.tsx extend context correct
 <form
   class="ant-form ant-form-horizontal"
   id="nest-messages"
+  style="max-width:600px"
 >
   <div
     class="ant-form-item"
@@ -7885,6 +7907,7 @@ exports[`renders ./components/form/demo/normal-login.tsx extend context correctl
 exports[`renders ./components/form/demo/ref-item.tsx extend context correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
+  style="max-width:600px"
 >
   <div
     class="ant-form-item"
@@ -7972,6 +7995,7 @@ exports[`renders ./components/form/demo/register.tsx extend context correctly 1`
 <form
   class="ant-form ant-form-horizontal"
   id="register"
+  style="max-width:600px"
 >
   <div
     class="ant-form-item"
@@ -8999,7 +9023,7 @@ exports[`renders ./components/form/demo/register.tsx extend context correctly 1`
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-input-textarea ant-input-textarea-show-count"
+              class="ant-input-show-count ant-input-textarea ant-input-textarea-show-count"
               data-count="0 / 100"
             >
               <textarea
@@ -9007,6 +9031,11 @@ exports[`renders ./components/form/demo/register.tsx extend context correctly 1`
                 class="ant-input"
                 id="register_intro"
               />
+              <span
+                class="ant-input-data-count"
+              >
+                0 / 100
+              </span>
             </div>
           </div>
         </div>
@@ -9654,6 +9683,7 @@ exports[`renders ./components/form/demo/required-mark.tsx extend context correct
 exports[`renders ./components/form/demo/size.tsx extend context correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal ant-form-default"
+  style="max-width:600px"
 >
   <div
     class="ant-form-item"
@@ -11073,6 +11103,7 @@ exports[`renders ./components/form/demo/time-related-controls.tsx extend context
 <form
   class="ant-form ant-form-horizontal"
   id="time_related_controls"
+  style="max-width:600px"
 >
   <div
     class="ant-form-item"
@@ -18838,6 +18869,7 @@ exports[`renders ./components/form/demo/validate-other.tsx extend context correc
 <form
   class="ant-form ant-form-horizontal"
   id="validate_other"
+  style="max-width:600px"
 >
   <div
     class="ant-form-item"
@@ -20432,6 +20464,7 @@ exports[`renders ./components/form/demo/validate-other.tsx extend context correc
 exports[`renders ./components/form/demo/validate-static.tsx extend context correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
+  style="max-width:600px"
 >
   <div
     class="ant-form-item ant-form-item-with-help ant-form-item-has-error"
@@ -26427,8 +26460,8 @@ exports[`renders ./components/form/demo/validate-static.tsx extend context corre
           <div
             class="ant-form-item-control-input-content"
           >
-            <div
-              class="ant-mentions-affix-wrapper ant-mentions-affix-wrapper-status-error ant-mentions-affix-wrapper-has-feedback"
+            <span
+              class="ant-mentions-affix-wrapper"
             >
               <div
                 class="ant-mentions ant-mentions-status-error"
@@ -26465,7 +26498,7 @@ exports[`renders ./components/form/demo/validate-static.tsx extend context corre
                   </span>
                 </span>
               </span>
-            </div>
+            </span>
           </div>
         </div>
       </div>
@@ -26497,62 +26530,76 @@ exports[`renders ./components/form/demo/validate-static.tsx extend context corre
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-input-textarea ant-input-textarea-show-count ant-input-textarea-status-error ant-input-textarea-has-feedback"
+              class="ant-input-show-count ant-input-textarea ant-input-textarea-show-count"
               data-count="0"
             >
               <span
-                class="ant-input-affix-wrapper ant-input-affix-wrapper-textarea-with-clear-btn ant-input-affix-wrapper-status-error ant-input-affix-wrapper-has-feedback"
+                class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-affix-wrapper-status-error"
               >
                 <textarea
                   class="ant-input ant-input-status-error"
                 />
                 <span
-                  aria-label="close-circle"
-                  class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
-                  role="button"
-                  tabindex="-1"
+                  class="ant-input-suffix"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="close-circle"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
+                  <span
+                    class="ant-input-clear-icon ant-input-clear-icon-hidden ant-input-clear-icon-has-suffix"
+                    role="button"
+                    tabindex="-1"
                   >
-                    <path
-                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-                    />
-                  </svg>
+                    <span
+                      aria-label="close-circle"
+                      class="anticon anticon-close-circle"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="close-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <span
+                    class="ant-input-textarea-suffix"
+                  >
+                    <span
+                      class="ant-form-item-feedback-icon ant-form-item-feedback-icon-error"
+                    >
+                      <span
+                        aria-label="close-circle"
+                        class="anticon anticon-close-circle"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="close-circle"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                          />
+                        </svg>
+                      </span>
+                    </span>
+                  </span>
                 </span>
               </span>
               <span
-                class="ant-input-textarea-suffix"
+                class="ant-input-data-count"
               >
-                <span
-                  class="ant-form-item-feedback-icon ant-form-item-feedback-icon-error"
-                >
-                  <span
-                    aria-label="close-circle"
-                    class="anticon anticon-close-circle"
-                    role="img"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="close-circle"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-                      />
-                    </svg>
-                  </span>
-                </span>
+                0
               </span>
             </div>
           </div>
@@ -26662,6 +26709,7 @@ exports[`renders ./components/form/demo/warning-only.tsx extend context correctl
 exports[`renders ./components/form/demo/without-form-create.tsx extend context correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
+  style="max-width:600px"
 >
   <div
     class="ant-form-item ant-form-item-with-help"

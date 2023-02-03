@@ -2,17 +2,17 @@ import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
-import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
 import classNames from 'classnames';
-import * as React from 'react';
-import omit from 'rc-util/lib/omit';
 import type { Meta } from 'rc-field-form/lib/interface';
+import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
+import omit from 'rc-util/lib/omit';
+import * as React from 'react';
+import type { FormItemProps, ValidateStatus } from '.';
 import { Row } from '../../grid';
-import FormItemLabel from '../FormItemLabel';
-import FormItemInput from '../FormItemInput';
 import type { FormItemStatusContextProps, ReportMetaChange } from '../context';
 import { FormContext, FormItemInputContext, NoStyleItemContext } from '../context';
-import type { FormItemProps, ValidateStatus } from '.';
+import FormItemInput from '../FormItemInput';
+import FormItemLabel from '../FormItemLabel';
 import useDebounce from '../hooks/useDebounce';
 
 const iconMap = {
@@ -25,6 +25,7 @@ const iconMap = {
 export interface ItemHolderProps extends FormItemProps {
   prefixCls: string;
   className?: string;
+  rootClassName?: string;
   style?: React.CSSProperties;
   errors: React.ReactNode[];
   warnings: React.ReactNode[];
@@ -39,6 +40,7 @@ export default function ItemHolder(props: ItemHolderProps) {
   const {
     prefixCls,
     className,
+    rootClassName,
     style,
     help,
     errors,
@@ -117,10 +119,8 @@ export default function ItemHolder(props: ItemHolderProps) {
   }, [mergedValidateStatus, hasFeedback]);
 
   // ======================== Render ========================
-  const itemClassName = {
-    [itemPrefixCls]: true,
+  const itemClassName = classNames(itemPrefixCls, className, rootClassName, {
     [`${itemPrefixCls}-with-help`]: hasHelp || debounceErrors.length || debounceWarnings.length,
-    [`${className}`]: !!className,
 
     // Status
     [`${itemPrefixCls}-has-feedback`]: mergedValidateStatus && hasFeedback,
@@ -129,10 +129,10 @@ export default function ItemHolder(props: ItemHolderProps) {
     [`${itemPrefixCls}-has-error`]: mergedValidateStatus === 'error',
     [`${itemPrefixCls}-is-validating`]: mergedValidateStatus === 'validating',
     [`${itemPrefixCls}-hidden`]: hidden,
-  };
+  });
 
   return (
-    <div className={classNames(itemClassName)} style={style} ref={itemRef}>
+    <div className={itemClassName} style={style} ref={itemRef}>
       <Row
         className={`${itemPrefixCls}-row`}
         {...omit(restProps, [

@@ -14,7 +14,7 @@ import RcCascader from 'rc-cascader';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
-import defaultRenderEmpty from '../config-provider/defaultRenderEmpty';
+import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import DisabledContext from '../config-provider/DisabledContext';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
@@ -45,7 +45,7 @@ export type FilledFieldNamesType = Required<FieldNamesType>;
 
 const { SHOW_CHILD, SHOW_PARENT } = RcCascader;
 
-function highlightKeyword(str: string, lowerKeyword: string, prefixCls: string | undefined) {
+function highlightKeyword(str: string, lowerKeyword: string, prefixCls?: string) {
   const cells = str
     .toLowerCase()
     .split(lowerKeyword)
@@ -114,6 +114,7 @@ export type CascaderProps<DataNodeType> = UnionCascaderProps & {
   options?: DataNodeType[];
   status?: InputStatus;
 
+  rootClassName?: string;
   popupClassName?: string;
   /** @deprecated Please use `popupClassName` instead */
   dropdownClassName?: string;
@@ -130,6 +131,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
     size: customizeSize,
     disabled: customDisabled,
     className,
+    rootClassName,
     multiple,
     bordered = true,
     transitionName,
@@ -148,7 +150,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
     ...rest
   } = props;
 
-  const restProps = omit(rest, ['suffixIcon' as any]);
+  const restProps = omit(rest, ['suffixIcon']);
 
   const {
     getPopupContainer: getContextPopupContainer,
@@ -187,7 +189,9 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
   }
 
   // =================== No Found ====================
-  const mergedNotFoundContent = notFoundContent || (renderEmpty || defaultRenderEmpty)('Cascader');
+  const mergedNotFoundContent = notFoundContent || renderEmpty?.('Cascader') || (
+    <DefaultRenderEmpty componentName="Cascader" />
+  );
 
   // ==================== Prefix =====================
   const rootPrefixCls = getPrefixCls();
@@ -205,6 +209,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
     {
       [`${cascaderPrefixCls}-dropdown-rtl`]: mergedDirection === 'rtl',
     },
+    rootClassName,
     hashId,
   );
 
@@ -270,9 +275,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
     if (placement !== undefined) {
       return placement;
     }
-    return direction === 'rtl'
-      ? ('bottomRight' as SelectCommonPlacement)
-      : ('bottomLeft' as SelectCommonPlacement);
+    return isRtl ? 'bottomRight' : 'bottomLeft';
   };
 
   // ==================== Render =====================
@@ -291,6 +294,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
         getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
         compactItemClassnames,
         className,
+        rootClassName,
         hashId,
       )}
       disabled={mergedDisabled}

@@ -164,7 +164,7 @@ const genSubMenuArrowStyle = (token: MenuToken): CSSObject => {
         width: menuArrowSize,
         color: 'currentcolor',
         transform: 'translateY(-50%)',
-        transition: `transform ${motionDurationSlow} ${motionEaseInOut}`,
+        transition: `transform ${motionDurationSlow} ${motionEaseInOut}, opacity ${motionDurationSlow}`,
       },
 
       '&-arrow': {
@@ -298,7 +298,7 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
           transition: [
             `background ${motionDurationSlow} ${motionEaseInOut}`,
             `padding ${motionDurationSlow} ${motionEaseInOut}`,
-          ],
+          ].join(','),
         },
 
         [`${componentCls}-title-content`]: {
@@ -323,6 +323,7 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
           lineHeight: 0,
           borderColor: colorSplit,
           borderStyle: lineType,
+          borderWidth: 0,
           borderTopWidth: lineWidth,
           marginBlock: lineWidth,
           padding: 0,
@@ -441,14 +442,8 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         return [];
       }
 
-      const {
-        colorBgElevated,
-        colorPrimary,
-        colorError,
-        colorErrorHover,
-        colorTextLightSolid,
-        colorTextSecondary,
-      } = token;
+      const { colorBgElevated, colorPrimary, colorError, colorErrorHover, colorTextLightSolid } =
+        token;
 
       const { controlHeightLG, fontSize } = token;
 
@@ -465,12 +460,14 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         menuSubMenuBg: colorBgElevated,
       });
 
+      const colorTextDark = new TinyColor(colorTextLightSolid).setAlpha(0.65).toRgbString();
+
       const menuDarkToken = mergeToken<MenuToken>(
         menuToken,
         {
-          colorItemText: new TinyColor(colorTextLightSolid).setAlpha(0.65).toRgbString(),
+          colorItemText: colorTextDark,
           colorItemTextHover: colorTextLightSolid,
-          colorGroupTitle: colorTextSecondary,
+          colorGroupTitle: colorTextDark,
           colorItemTextSelected: colorTextLightSolid,
           colorItemBg: '#001529',
           colorSubItemBg: '#000c17',
@@ -491,6 +488,10 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
           colorDangerItemBgSelected: colorError,
 
           menuSubMenuBg: '#001529',
+
+          // Horizontal
+          colorItemTextSelectedHorizontal: colorTextLightSolid,
+          colorItemBgSelectedHorizontal: colorPrimary,
         },
         {
           ...overrideComponentToken,

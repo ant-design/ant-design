@@ -1,6 +1,6 @@
 import FilterFilled from '@ant-design/icons/FilterFilled';
 import classNames from 'classnames';
-import shallowEqual from 'shallowequal';
+import isEqual from 'rc-util/lib/isEqual';
 import type { FieldDataNode } from 'rc-tree';
 import * as React from 'react';
 import type { MenuProps } from '../../../menu';
@@ -226,13 +226,13 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   }, [visible]);
 
   // ======================= Submit ========================
-  const internalTriggerFilter = (keys: Key[] | undefined | null) => {
+  const internalTriggerFilter = (keys?: Key[]) => {
     const mergedKeys = keys && keys.length ? keys : null;
     if (mergedKeys === null && (!filterState || !filterState.filteredKeys)) {
       return null;
     }
 
-    if (shallowEqual(mergedKeys, filterState?.filteredKeys)) {
+    if (isEqual(mergedKeys, filterState?.filteredKeys, true)) {
       return null;
     }
 
@@ -444,9 +444,10 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
 
     const getResetDisabled = () => {
       if (filterResetToDefaultFilteredValue) {
-        return shallowEqual(
+        return isEqual(
           (defaultFilteredValue || []).map((key) => String(key)),
           selectedKeys,
+          true,
         );
       }
 

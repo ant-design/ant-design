@@ -16,6 +16,8 @@ Transfer the elements between two columns in an intuitive and efficient way.
 
 One or more elements can be selected from either column, one click on the proper `direction` button, and the transfer is done. The left column is considered the `source` and the right column is considered the `target`. As you can see in the API description, these names are reflected in.
 
+> notice: Transfer is a controlled component, uncontrolled mode is not supported.
+
 ## Examples
 
 <!-- prettier-ignore -->
@@ -36,7 +38,7 @@ One or more elements can be selected from either column, one click on the proper
 | --- | --- | --- | --- | --- |
 | dataSource | Used for setting the source data. The elements that are part of this array will be present the left column. Except the elements whose keys are included in `targetKeys` prop | [RecordType extends TransferItem = TransferItem](https://github.com/ant-design/ant-design/blob/1bf0bab2a7bc0a774119f501806e3e0e3a6ba283/components/transfer/index.tsx#L12)\[] | \[] |  |
 | disabled | Whether disabled transfer | boolean | false |  |
-| filterOption | A function to determine whether an item should show in search result list | (inputValue, option): boolean | - |  |
+| filterOption | A function to determine whether an item should show in search result list, only works when searching | (inputValue, option): boolean | - |  |
 | footer | A function used for rendering the footer | (props, { direction }) => ReactNode | - | direction: 4.17.0 |
 | listStyle | A custom CSS style used for rendering the transfer columns | object \| ({direction: `left` \| `right`}) => object | - |  |
 | locale | The i18n text including filter, empty text, item unit, etc | { itemUnit: string; itemsUnit: string; searchPlaceholder: string; notFoundContent: ReactNode \| ReactNode[]; } | { itemUnit: `item`, itemsUnit: `items`, notFoundContent: `The list is empty`, searchPlaceholder: `Search here` } |  |

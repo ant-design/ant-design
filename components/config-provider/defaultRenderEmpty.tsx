@@ -1,34 +1,33 @@
-import * as React from 'react';
+import React, { useContext } from 'react';
+import { ConfigContext } from '.';
 import type { ConfigConsumerProps } from '.';
-import { ConfigConsumer } from '.';
 import Empty from '../empty';
 
-const defaultRenderEmpty = (componentName?: string): React.ReactNode => (
-  <ConfigConsumer>
-    {({ getPrefixCls }: ConfigConsumerProps) => {
-      const prefix = getPrefixCls('empty');
+interface EmptyProps {
+  componentName?: string;
+}
 
-      switch (componentName) {
-        case 'Table':
-        case 'List':
-          return <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />;
+const DefaultRenderEmpty: React.FC<EmptyProps> = (props) => {
+  const { componentName } = props;
+  const { getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
+  const prefix = getPrefixCls('empty');
+  switch (componentName) {
+    case 'Table':
+    case 'List':
+      return <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />;
+    case 'Select':
+    case 'TreeSelect':
+    case 'Cascader':
+    case 'Transfer':
+    case 'Mentions':
+      return <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} className={`${prefix}-small`} />;
+    /* istanbul ignore next */
+    default:
+      // Should never hit if we take all the component into consider.
+      return <Empty />;
+  }
+};
 
-        case 'Select':
-        case 'TreeSelect':
-        case 'Cascader':
-        case 'Transfer':
-        case 'Mentions':
-          return <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} className={`${prefix}-small`} />;
+export type RenderEmptyHandler = (componentName?: string) => React.ReactNode;
 
-        /* istanbul ignore next */
-        default:
-          // Should never hit if we take all the component into consider.
-          return <Empty />;
-      }
-    }}
-  </ConfigConsumer>
-);
-
-export type RenderEmptyHandler = typeof defaultRenderEmpty;
-
-export default defaultRenderEmpty;
+export default DefaultRenderEmpty;

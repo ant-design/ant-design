@@ -16,6 +16,7 @@ A content area which can be collapsed and expanded.
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Collapse</code>
+<code src="./demo/size.tsx">Size</code>
 <code src="./demo/accordion.tsx">Accordion</code>
 <code src="./demo/mix.tsx">Nested panel</code>
 <code src="./demo/borderless.tsx">Borderless</code>
@@ -40,6 +41,7 @@ A content area which can be collapsed and expanded.
 | expandIcon | Allow to customize collapse icon | (panelProps) => ReactNode | - |  |
 | expandIconPosition | Set expand icon position | `start` \| `end` | - | 4.21.0 |
 | ghost | Make the collapse borderless and its background transparent | boolean | false | 4.4.0 |
+| size | Set the size of collapse | `large` \| `middle` \| `small` | `middle` | 5.2.0 |
 | onChange | Callback function executed when active panel is changed | function | - |  |
 
 ### Collapse.Panel

@@ -66,10 +66,10 @@ demo:
 | maxTagPlaceholder | 隐藏 tag 时显示的内容 | ReactNode \| function(omittedValues) | - | 4.17.0 |
 | notFoundContent | 当下拉列表为空时显示的内容 | string | `Not Found` |  |
 | open | 控制浮层显隐 | boolean | - | 4.17.0 |
-| options | 可选项数据源 | [Option](#Option)\[] | - |  |
+| options | 可选项数据源 | [Option](#option)\[] | - |  |
 | placeholder | 输入框占位文本 | string | `请选择` |  |
 | placement | 浮层预设位置 | `bottomLeft` `bottomRight` `topLeft` `topRight` | `bottomLeft` | 4.17.0 |
-| showSearch | 在选择框中显示搜索框 | boolean \| [Object](#showSearch) | false |  |
+| showSearch | 在选择框中显示搜索框 | boolean \| [Object](#showsearch) | false |  |
 | size | 输入框大小 | `large` \| `middle` \| `small` | - |  |
 | status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
 | style | 自定义样式 | CSSProperties | - |  |

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { useSidebarData } from 'dumi';
-import { Affix, Col, ConfigProvider, Menu } from 'antd';
+import { Col, ConfigProvider, Menu } from 'antd';
 import MobileMenu from 'rc-drawer';
 import { css } from '@emotion/react';
 import SiteContext from '../SiteContext';
@@ -107,6 +107,9 @@ const useStyle = () => {
       z-index: 1;
 
       .main-menu-inner {
+        position: sticky;
+        top: 0;
+        width: 100%;
         height: 100%;
         max-height: 100vh;
         overflow: hidden;
@@ -114,11 +117,6 @@ const useStyle = () => {
 
       &:hover .main-menu-inner {
         overflow-y: auto;
-      }
-
-      > div,
-      > div > div {
-        height: 100%;
       }
     `,
   };
@@ -153,11 +151,7 @@ const Sidebar: React.FC = () => {
     <MobileMenu key="Mobile-menu">{menuChild}</MobileMenu>
   ) : (
     <Col xxl={4} xl={5} lg={6} md={6} sm={24} xs={24} css={styles.mainMenu}>
-      <Affix>
-        <section style={{ width: '100%' }} className="main-menu-inner">
-          {menuChild}
-        </section>
-      </Affix>
+      <section className="main-menu-inner">{menuChild}</section>
     </Col>
   );
 };

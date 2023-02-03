@@ -11,23 +11,25 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*NVKORa7BCVwAAAAAAA
 
 This component provides a configuration to all React components underneath itself via the [context API](https://facebook.github.io/react/docs/context.html). In the render tree all components will have access to the provided config.
 
-```jsx
+```tsx
 import { ConfigProvider } from 'antd';
+import React from 'react';
 
 // ...
-
-export default () => (
+const Demo: React.FC = () => (
   <ConfigProvider direction="rtl">
     <App />
   </ConfigProvider>
 );
+
+export default Demo;
 ```
 
 ### Content Security Policy
 
 Some components use dynamic style to support wave effect. You can config `csp` prop if Content Security Policy (CSP) is enabled:
 
-```jsx
+```tsx
 <ConfigProvider csp={{ nonce: 'YourNonceCode' }}>
   <Button>My Button</Button>
 </ConfigProvider>
@@ -52,7 +54,7 @@ Some components use dynamic style to support wave effect. You can config `csp` p
 | csp | Set [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) config | { nonce: string } | - |  |
 | direction | Set direction of layout. See [demo](#components-config-provider-demo-direction) | `ltr` \| `rtl` | `ltr` |  |
 | dropdownMatchSelectWidth | Determine whether the dropdown menu and the select input are the same width. Default set `min-width` same as input. Will ignore when value less than select width. `false` will disable virtual scroll | boolean \| number | - | 4.3.0 |
-| form | Set Form common props | { validateMessages?: [ValidateMessages](/components/form/#validateMessages), requiredMark?: boolean \| `optional` } | - | requiredMark: 4.8.0 |
+| form | Set Form common props | { validateMessages?: [ValidateMessages](/components/form/#validatemessages), requiredMark?: boolean \| `optional`, scrollToFirstError?: boolean \| [Options](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options) } | - | requiredMark: 4.8.0; colon: 4.18.0; scrollToFirstError: 5.2.0 |
 | getPopupContainer | To set the container of the popup element. The default is to create a `div` element in `body` | function(triggerNode) | () => document.body |  |
 | getTargetContainer | Config Affix, Anchor scroll target container | () => HTMLElement | () => window | 4.2.0 |
 | iconPrefixCls | Set icon prefix className | string | `anticon` | 4.11.0 |
@@ -69,7 +71,7 @@ Some components use dynamic style to support wave effect. You can config `csp` p
 
 Setting `Modal`、`Message`、`Notification` rootPrefixCls.
 
-```jsx
+```ts
 ConfigProvider.config({
   prefixCls: 'ant', // 4.13.0+
   iconPrefixCls: 'anticon', // 4.17.0+
@@ -80,11 +82,11 @@ ConfigProvider.config({
 
 #### How to contribute a new language?
 
-See [&lt;Adding new language&gt;](/docs/react/i18n#Adding-newplanguage).
+See [&lt;Adding new language&gt;](/docs/react/i18n#adding-newplanguage).
 
 #### Date-related components locale is not working?
 
-See FAQ [Date-related-components-locale-is-not-working?](/docs/react/faq#Date-related-components-locale-is-not-working?)
+See FAQ [Date-related-components-locale-is-not-working?](/docs/react/faq#date-related-components-locale-is-not-working)
 
 #### Modal throw error when setting `getPopupContainer`?
 

@@ -34,6 +34,7 @@ const seedToken: SeedToken = {
   fontFamily: `-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
 'Noto Color Emoji'`,
+  codeFontFamily: `'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace`,
   fontSize: 14,
 
   // Line
@@ -49,7 +50,7 @@ const seedToken: SeedToken = {
   motionEaseInOut: 'cubic-bezier(0.645, 0.045, 0.355, 1)',
   motionEaseOutBack: 'cubic-bezier(0.12, 0.4, 0.29, 1.46)',
   motionEaseInBack: 'cubic-bezier(0.71, -0.46, 0.88, 0.6)',
-  motionEaseInQuint: 'cubic-bezier(0.645, 0.045, 0.355, 1)',
+  motionEaseInQuint: 'cubic-bezier(0.755, 0.05, 0.855, 0.06)',
   motionEaseOutQuint: 'cubic-bezier(0.23, 1, 0.32, 1)',
 
   // Radius
