@@ -5,7 +5,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render } from '../../../tests/utils';
 
-const renderFactory = (timeLineProps: TimelineProps = {}) =>
+const renderFactory = (timeLineProps: TimelineProps) =>
   render(
     <TimeLine
       {...timeLineProps}
@@ -82,7 +82,7 @@ describe('TimeLine', () => {
   });
 
   it('renders items without passing any props correctly', () => {
-    const { container } = renderFactory();
+    const { container } = renderFactory({});
 
     // has 3 timeline item
     expect(container.querySelectorAll('li.ant-timeline-item')).toHaveLength(3);
