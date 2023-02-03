@@ -1,4 +1,5 @@
-import * as React from 'react';
+import { css } from '@emotion/react';
+import React, { useMemo } from 'react';
 import useSiteToken from '../../../../hooks/useSiteToken';
 import { COLOR_IMAGES, getClosetColor } from './colorUtil';
 
@@ -7,49 +8,33 @@ export interface BackgroundImageProps {
   isLight?: boolean;
 }
 
-export default function BackgroundImage({ colorPrimary, isLight }: BackgroundImageProps) {
+const useStyle = (light: boolean, activeColor: string) => {
   const { token } = useSiteToken();
+  return (color: string) => css`
+    transition: all ${token.motionDurationSlow};
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: right top;
+    opacity: ${light && activeColor === color ? 1 : 0};
+  `;
+};
 
-  const activeColor = React.useMemo(() => getClosetColor(colorPrimary), [colorPrimary]);
+const BackgroundImage: React.FC<BackgroundImageProps> = ({ colorPrimary, isLight }) => {
+  const activeColor = useMemo(() => getClosetColor(colorPrimary), [colorPrimary]);
 
-  const sharedStyle: React.CSSProperties = {
-    transition: `all ${token.motionDurationSlow}`,
-    position: 'absolute',
-    left: 0,
-    top: 0,
-    height: '100%',
-    width: '100%',
-  };
+  const serializedCss = useStyle(isLight, activeColor);
 
   return (
     <>
-      {COLOR_IMAGES.map(({ color, url }) => {
-        if (!url) {
-          return null;
-        }
-
-        return (
-          <img
-            key={color}
-            style={{
-              ...sharedStyle,
-              opacity: isLight && activeColor === color ? 1 : 0,
-              objectFit: 'cover',
-              objectPosition: 'right top',
-            }}
-            src={url}
-            alt=""
-          />
-        );
-      })}
-
-      {/* <div
-        style={{
-          ...sharedStyle,
-          opacity: isLight || !activeColor || activeColor === DEFAULT_COLOR ? 0 : 1,
-          background: 'rgba(0,0,0,0.79)',
-        }}
-      /> */}
+      {COLOR_IMAGES.filter(({ url }) => url).map(({ color, url }) => (
+        <img css={serializedCss(color)} key={color} src={url} alt="" />
+      ))}
     </>
   );
-}
+};
+
+export default BackgroundImage;
