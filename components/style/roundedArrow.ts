@@ -6,6 +6,7 @@ export const roundedArrow = (
   innerRadius: number,
   outerRadius: number,
   bgColor: string,
+  boxShadow: string,
 ): CSSObject => {
   const unitWidth = width / 2;
 
@@ -22,12 +23,15 @@ export const roundedArrow = (
   const fx = 2 * unitWidth - ax;
   const fy = ay;
 
+  const shadowWidth = unitWidth * Math.sqrt(2) + outerRadius * (Math.sqrt(2) - 2);
+
   return {
     borderRadius: { _skip_check_: true, value: `0 0 ${innerRadius}px` },
     pointerEvents: 'none',
     width,
     height: width,
-    filter: 'drop-shadow(0 -2px 2px rgb(0 0 0 / 5%))',
+    overflow: 'hidden',
+    // filter: 'drop-shadow(0 -2px 2px rgb(0 0 0 / 5%))',
 
     '&::before': {
       position: 'absolute',
@@ -38,6 +42,24 @@ export const roundedArrow = (
       background: bgColor,
       clipPath: `path('M ${ax} ${ay} A ${outerRadius} ${outerRadius} 0 0 0 ${bx} ${by} L ${cx} ${cy} A ${innerRadius} ${innerRadius} 0 0 1 ${dx} ${dy} L ${ex} ${ey} A ${outerRadius} ${outerRadius} 0 0 0 ${fx} ${fy} Z')`,
       content: '""',
+    },
+
+    '&::after': {
+      content: '""',
+      position: 'absolute',
+      width: shadowWidth,
+      height: shadowWidth,
+      bottom: 0,
+      insetInline: 0,
+      margin: 'auto',
+      borderRadius: {
+        _skip_check_: true,
+        value: `0 0 ${innerRadius}px 0`,
+      },
+      transform: 'translateY(50%) rotate(-135deg)',
+      boxShadow,
+      zIndex: 0,
+      background: 'transparent',
     },
   };
 };

@@ -959,6 +959,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
     controlItemBgHover,
     presetsWidth,
     presetsMaxWidth,
+    boxShadowPopoverArrow,
   } = token;
 
   return [
@@ -1269,7 +1270,13 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
             display: 'none',
             marginInlineStart: inputPaddingHorizontal * 1.5,
             transition: `left ${motionDurationSlow} ease-out`,
-            ...roundedArrow(sizePopupArrow, borderRadiusXS, borderRadiusOuter, colorBgElevated),
+            ...roundedArrow(
+              sizePopupArrow,
+              borderRadiusXS,
+              borderRadiusOuter,
+              colorBgElevated,
+              boxShadowPopoverArrow,
+            ),
           },
 
           [`${componentCls}-panel-container`]: {

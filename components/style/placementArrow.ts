@@ -31,7 +31,14 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
     limitVerticalRadius?: boolean;
   },
 ): CSSInterpolation {
-  const { componentCls, sizePopupArrow, marginXXS, borderRadiusXS, borderRadiusOuter } = token;
+  const {
+    componentCls,
+    sizePopupArrow,
+    marginXXS,
+    borderRadiusXS,
+    borderRadiusOuter,
+    boxShadowPopoverArrow,
+  } = token;
 
   const {
     colorBg,
@@ -55,7 +62,13 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
           zIndex: 1, // lift it up so the menu wouldn't cask shadow on it
           display: 'block',
 
-          ...roundedArrow(sizePopupArrow, borderRadiusXS, borderRadiusOuter, colorBg),
+          ...roundedArrow(
+            sizePopupArrow,
+            borderRadiusXS,
+            borderRadiusOuter,
+            colorBg,
+            boxShadowPopoverArrow,
+          ),
 
           '&:before': {
             background: colorBg,

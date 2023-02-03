@@ -46,6 +46,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
     fontSizeIcon,
     controlPaddingHorizontal,
     colorBgElevated,
+    boxShadowPopoverArrow,
   } = token;
 
   return [
@@ -129,6 +130,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
             token.borderRadiusXS,
             token.borderRadiusOuter,
             colorBgElevated,
+            boxShadowPopoverArrow,
           ),
         },
 
