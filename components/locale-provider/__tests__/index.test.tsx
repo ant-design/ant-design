@@ -59,6 +59,7 @@ import 'dayjs/locale/th';
 import 'dayjs/locale/tk';
 import 'dayjs/locale/tr';
 import 'dayjs/locale/uk';
+import 'dayjs/locale/uz';
 import 'dayjs/locale/ur';
 import 'dayjs/locale/vi';
 import 'dayjs/locale/zh-cn';
@@ -145,6 +146,7 @@ import thTH from '../../locale/th_TH';
 import tkTK from '../../locale/tk_TK';
 import trTR from '../../locale/tr_TR';
 import ukUA from '../../locale/uk_UA';
+import uzUZ from '../../locale/uz_UZ';
 import urPK from '../../locale/ur_PK';
 import viVN from '../../locale/vi_VN';
 import zhCN from '../../locale/zh_CN';
@@ -222,6 +224,7 @@ const locales = [
   zhHK,
   zhTW,
   urPK,
+  uzUZ,
 ];
 
 const { Option } = Select;
