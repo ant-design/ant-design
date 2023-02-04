@@ -62,7 +62,7 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
       <div className={dotClassName} style={{ borderColor: customColor, color: customColor }}>
         {dot}
       </div>
-      <div className={`${prefixCls}-item-content`}>{content || children}</div>
+      <div className={`${prefixCls}-item-content`}>{content}</div>
     </li>
   );
 };
