@@ -62,11 +62,11 @@ class Affix extends React.Component<InternalAffixProps, AffixState> {
     prevTarget: null,
   };
 
-  private placeholderNode = createRef<HTMLDivElement>();
+  private placeholderNodeRef = createRef<HTMLDivElement>();
 
-  private fixedNode = createRef<HTMLDivElement>();
+  private fixedNodeRef = createRef<HTMLDivElement>();
 
-  private timer: NodeJS.Timeout;
+  private timer: NodeJS.Timeout | null;
 
   context: ConfigConsumerProps;
 
@@ -124,6 +124,7 @@ class Affix extends React.Component<InternalAffixProps, AffixState> {
   componentWillUnmount() {
     if (this.timer) {
       clearTimeout(this.timer);
+      this.timer = null;
     }
     removeObserveTarget(this);
     this.updatePosition.cancel();
@@ -145,8 +146,8 @@ class Affix extends React.Component<InternalAffixProps, AffixState> {
     const targetFunc = this.getTargetFunc();
     if (
       status !== AffixStatus.Prepare ||
-      !this.fixedNode.current ||
-      !this.placeholderNode.current ||
+      !this.fixedNodeRef.current ||
+      !this.placeholderNodeRef.current ||
       !targetFunc
     ) {
       return;
@@ -164,7 +165,7 @@ class Affix extends React.Component<InternalAffixProps, AffixState> {
       status: AffixStatus.None,
     };
     const targetRect = getTargetRect(targetNode);
-    const placeholderReact = getTargetRect(this.placeholderNode.current);
+    const placeholderReact = getTargetRect(this.placeholderNodeRef.current);
     const fixedTop = getFixedTop(placeholderReact, targetRect, offsetTop);
     const fixedBottom = getFixedBottom(placeholderReact, targetRect, offsetBottom);
 
@@ -238,9 +239,9 @@ class Affix extends React.Component<InternalAffixProps, AffixState> {
       const offsetBottom = this.getOffsetBottom();
 
       const targetNode = targetFunc();
-      if (targetNode && this.placeholderNode.current) {
+      if (targetNode && this.placeholderNodeRef.current) {
         const targetRect = getTargetRect(targetNode);
-        const placeholderReact = getTargetRect(this.placeholderNode.current);
+        const placeholderReact = getTargetRect(this.placeholderNodeRef.current);
         const fixedTop = getFixedTop(placeholderReact, targetRect, offsetTop);
         const fixedBottom = getFixedBottom(placeholderReact, targetRect, offsetBottom);
 
@@ -282,9 +283,9 @@ class Affix extends React.Component<InternalAffixProps, AffixState> {
 
     return (
       <ResizeObserver onResize={this.updatePosition}>
-        <div {...props} ref={this.placeholderNode}>
+        <div {...props} ref={this.placeholderNodeRef}>
           {affixStyle && <div style={placeholderStyle} aria-hidden="true" />}
-          <div className={className} ref={this.fixedNode} style={affixStyle}>
+          <div className={className} ref={this.fixedNodeRef} style={affixStyle}>
             <ResizeObserver onResize={this.updatePosition}>{children}</ResizeObserver>
           </div>
         </div>
