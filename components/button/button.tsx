@@ -99,10 +99,7 @@ const InternalButton: React.ForwardRefRenderFunction<
   const groupSize = React.useContext(GroupSizeContext);
   const [innerLoading, setLoading] = React.useState<Loading>(!!loading);
   const [hasTwoCNChar, setHasTwoCNChar] = React.useState(false);
-
-  const innerRef = React.useRef<HTMLAnchorElement | HTMLButtonElement>(null);
-
-  const buttonRef = (ref as any) || innerRef;
+  const buttonRef = (ref as any) || React.createRef<HTMLAnchorElement | HTMLButtonElement>();
 
   const isNeedInserted = () =>
     React.Children.count(children) === 1 && !icon && !isUnBorderedButtonType(type);
