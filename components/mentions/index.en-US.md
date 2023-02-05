@@ -23,9 +23,11 @@ const options = [{ value: 'sample', label: 'sample' }];
 return <Mentions options={options} />;
 
 // works when <5.1.0, deprecated when >=5.1.0 🙅🏻‍♀️
-<Mentions onChange={onChange}>
-  <Mentions.Option value="sample">Sample</Mentions.Option>
-</Mentions>;
+return (
+  <Mentions onChange={onChange}>
+    <Mentions.Option value="sample">Sample</Mentions.Option>
+  </Mentions>
+);
 ```
 
 ## Examples

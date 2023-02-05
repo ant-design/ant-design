@@ -24,9 +24,11 @@ const options = [{ value: 'sample', label: 'sample' }];
 return <Mentions options={options} />;
 
 // <5.1.0 可用，>=5.1.0 时不推荐 🙅🏻‍♀️
-<Mentions onChange={onChange}>
-  <Mentions.Option value="sample">Sample</Mentions.Option>
-</Mentions>;
+return (
+  <Mentions onChange={onChange}>
+    <Mentions.Option value="sample">Sample</Mentions.Option>
+  </Mentions>
+);
 ```
 
 ## 代码演示
