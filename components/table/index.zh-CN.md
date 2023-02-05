@@ -310,7 +310,7 @@ const data: User[] = [
 export default () => (
   <>
     <Table<User> columns={columns} dataSource={data} />
-    /* 使用 JSX 风格的 API */
+    {/* 使用 JSX 风格的 API */}
     <Table<User> dataSource={data}>
       <Table.Column<User> key="name" title="Name" dataIndex="name" />
     </Table>
