@@ -8,7 +8,7 @@ import Sidebar from '../../slots/Sidebar';
 const useStyle = () => ({
   main: css`
     display: flex;
-    margintop: 40;
+    margin-top: 40px;
   `,
 });
 
