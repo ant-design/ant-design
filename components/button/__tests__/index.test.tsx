@@ -276,20 +276,13 @@ describe('Button', () => {
   });
 
   it('skip check 2 words when ConfigProvider disable this', () => {
-    let buttonInstance: any;
+    const buttonInstance = React.createRef<HTMLElement>();
     render(
       <ConfigProvider autoInsertSpaceInButton={false}>
-        <Button
-          ref={(node) => {
-            buttonInstance = node;
-          }}
-        >
-          test
-        </Button>
+        <Button ref={buttonInstance}>test</Button>
       </ConfigProvider>,
     );
-
-    Object.defineProperty(buttonInstance, 'textContent', {
+    Object.defineProperty(buttonInstance.current, 'textContent', {
       get() {
         throw new Error('Should not called!!!');
       },
