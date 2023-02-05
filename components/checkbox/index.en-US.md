@@ -28,8 +28,6 @@ Checkbox component.
 
 ## API
 
-### Props
-
 #### Checkbox
 
 | Property | Description | Type | Default | Version |
@@ -39,7 +37,7 @@ Checkbox component.
 | defaultChecked | Specifies the initial state: whether or not the checkbox is selected | boolean | false |  |
 | disabled | If disable checkbox | boolean | false |  |
 | indeterminate | The indeterminate checked state of checkbox | boolean | false |  |
-| onChange | The callback function that is triggered when the state changes | function(e: CheckboxChangeEvent) | - |  |
+| onChange | The callback function that is triggered when the state changes | (e: CheckboxChangeEvent) => void | - |  |
 
 #### Checkbox Group
 
@@ -50,7 +48,17 @@ Checkbox component.
 | name | The `name` property of all `input[type="checkbox"]` children | string | - |  |
 | options | Specifies options | string\[] \| number\[] \| Option\[] | \[] |  |
 | value | Used for setting the currently selected value | (string \| number)\[] | \[] |  |
-| onChange | The callback function that is triggered when the state changes | function(checkedValue) | - |  |
+| onChange | The callback function that is triggered when the state changes | (checkedValue: CheckboxValueType[]) => void | - |  |
+
+##### Option
+
+```typescript
+interface Option {
+  label: string;
+  value: string;
+  disabled?: boolean;
+}
+```
 
 ### Methods
 
