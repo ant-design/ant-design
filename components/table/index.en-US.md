@@ -307,7 +307,7 @@ const data: User[] = [
 export default () => (
   <>
     <Table<User> columns={columns} dataSource={data} />
-    /* JSX style usage */
+    {/* JSX style usage */}
     <Table<User> dataSource={data}>
       <Table.Column<User> key="name" title="Name" dataIndex="name" />
     </Table>
