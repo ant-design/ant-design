@@ -1018,6 +1018,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
             padding: 0,
             background: 'transparent',
             border: 0,
+            borderRadius: 0,
 
             '&:focus': {
               boxShadow: 'none',
