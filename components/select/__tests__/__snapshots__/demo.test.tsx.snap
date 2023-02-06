@@ -2160,15 +2160,16 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
     >
       <span
-        class="ant-radio-button"
+        class="ant-radio-button ant-radio-button-checked"
       >
         <input
+          checked=""
           class="ant-radio-button-input"
           type="radio"
-          value="default"
+          value="middle"
         />
         <span
           class="ant-radio-button-inner"
