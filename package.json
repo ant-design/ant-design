@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "5.1.6",
+  "version": "5.1.7",
   "description": "An enterprise-class UI design language and React components implementation",
   "title": "Ant Design",
   "keywords": [
@@ -121,7 +121,7 @@
     "qrcode.react": "^3.1.0",
     "rc-cascader": "~3.8.0",
     "rc-checkbox": "~2.3.0",
-    "rc-collapse": "~3.4.2",
+    "rc-collapse": "~3.5.2",
     "rc-dialog": "~9.0.2",
     "rc-drawer": "~6.1.1",
     "rc-dropdown": "~4.0.0",
@@ -158,6 +158,9 @@
   "devDependencies": {
     "@ant-design/tools": "^17.0.0",
     "@babel/eslint-plugin": "^7.19.1",
+    "@dnd-kit/core": "^6.0.7",
+    "@dnd-kit/sortable": "^7.0.2",
+    "@dnd-kit/utilities": "^3.2.1",
     "@emotion/babel-preset-css-prop": "^11.10.0",
     "@emotion/css": "^11.10.5",
     "@emotion/react": "^11.10.4",
@@ -231,7 +234,7 @@
     "jest-environment-jsdom": "^29.0.1",
     "jest-environment-node": "^29.0.0",
     "jest-image-snapshot": "^6.0.0",
-    "jest-puppeteer": "^6.0.0",
+    "jest-puppeteer": "^7.0.0",
     "jquery": "^3.4.1",
     "jsdom": "^21.0.0",
     "jsonml-to-react-element": "^1.1.11",

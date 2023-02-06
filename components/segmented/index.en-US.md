@@ -40,5 +40,5 @@ Segmented Controls. This component is available since `antd@4.20.0`.
 | disabled | Disable all segments | boolean | false |  |
 | onChange | The callback function that is triggered when the state changes | function(value: string \| number) |  |  |
 | options | Set children optional | string\[] \| number\[] \| Array<{ label: ReactNode value: string icon? ReactNode disabled?: boolean className?: string }> | [] |  |
-| size | The size of the Segmented. | `large` \| `middle` \| `small` | - |  |
+| size | The size of the Segmented. | `large` \| `middle` \| `small` | `middle` |  |
 | value | Currently selected value | string \| number |  |  |
