@@ -11,6 +11,8 @@ import initCollapseMotion from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
 import warning from '../_util/warning';
 import type { CollapsibleType } from './CollapsePanel';
+import type { SizeType } from '../config-provider/SizeContext';
+import SizeContext from '../config-provider/SizeContext';
 import CollapsePanel from './CollapsePanel';
 
 import useStyle from './style';
@@ -28,11 +30,13 @@ export interface CollapseProps {
   onChange?: (key: string | string[]) => void;
   style?: React.CSSProperties;
   className?: string;
+  rootClassName?: string;
   bordered?: boolean;
   prefixCls?: string;
   expandIcon?: (panelProps: PanelProps) => React.ReactNode;
   expandIconPosition?: ExpandIconPosition;
   ghost?: boolean;
+  size?: SizeType;
   collapsible?: CollapsibleType;
   children?: React.ReactNode;
 }
@@ -52,13 +56,19 @@ interface PanelProps {
 
 const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const size = React.useContext(SizeContext);
+
   const {
     prefixCls: customizePrefixCls,
-    className = '',
+    className,
+    rootClassName,
     bordered = true,
     ghost,
+    size: customizeSize,
     expandIconPosition = 'start',
   } = props;
+
+  const mergedSize = customizeSize || size || 'middle';
   const prefixCls = getPrefixCls('collapse', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
   const [wrapSSR, hashId] = useStyle(prefixCls);
@@ -99,8 +109,10 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
       [`${prefixCls}-borderless`]: !bordered,
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-ghost`]: !!ghost,
+      [`${prefixCls}-${mergedSize}`]: mergedSize !== 'middle',
     },
     className,
+    rootClassName,
     hashId,
   );
   const openMotion: CSSMotionProps = {
@@ -130,7 +142,7 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
     <RcCollapse
       ref={ref}
       openMotion={openMotion}
-      {...props}
+      {...omit(props, ['rootClassName'])}
       expandIcon={renderExpandIcon}
       prefixCls={prefixCls}
       className={collapseClassName}

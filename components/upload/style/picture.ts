@@ -11,7 +11,11 @@ const genPictureStyle: GenerateStyle<UploadToken> = (token) => {
   return {
     [`${componentCls}-wrapper`]: {
       // ${listCls} 增加优先级
-      [`${listCls}${listCls}-picture, ${listCls}${listCls}-picture-card`]: {
+      [`
+        ${listCls}${listCls}-picture,
+        ${listCls}${listCls}-picture-card,
+        ${listCls}${listCls}-picture-circle
+      `]: {
         [itemCls]: {
           position: 'relative',
           height: uploadThumbnailSize + token.lineWidth * 2 + token.paddingXS * 2,
@@ -74,6 +78,12 @@ const genPictureStyle: GenerateStyle<UploadToken> = (token) => {
           },
         },
       },
+
+      [`${listCls}${listCls}-picture-circle ${itemCls}`]: {
+        [`&, &::before, ${itemCls}-thumbnail`]: {
+          borderRadius: '50%',
+        },
+      },
     },
   };
 };
@@ -87,7 +97,10 @@ const genPictureCardStyle: GenerateStyle<UploadToken> = (token) => {
   const uploadPictureCardSize = token.uploadPicCardSize;
 
   return {
-    [`${componentCls}-wrapper${componentCls}-picture-card-wrapper`]: {
+    [`
+      ${componentCls}-wrapper${componentCls}-picture-card-wrapper,
+      ${componentCls}-wrapper${componentCls}-picture-circle-wrapper
+    `]: {
       ...clearFix(),
       display: 'inline-block',
       width: '100%',
@@ -119,7 +132,7 @@ const genPictureCardStyle: GenerateStyle<UploadToken> = (token) => {
       },
 
       // list
-      [`${listCls}${listCls}-picture-card`]: {
+      [`${listCls}${listCls}-picture-card, ${listCls}${listCls}-picture-circle`]: {
         [`${listCls}-item-container`]: {
           display: 'inline-block',
           width: uploadPictureCardSize,
@@ -219,6 +232,11 @@ const genPictureCardStyle: GenerateStyle<UploadToken> = (token) => {
           width: `calc(100% - ${token.paddingXS * 2}px)`,
           paddingInlineStart: 0,
         },
+      },
+    },
+    [`${componentCls}-wrapper${componentCls}-picture-circle-wrapper`]: {
+      [`${componentCls}${componentCls}-select`]: {
+        borderRadius: '50%',
       },
     },
   };

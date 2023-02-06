@@ -34,6 +34,7 @@ export interface BaseButtonProps {
   loading?: boolean | { delay?: number };
   prefixCls?: string;
   className?: string;
+  rootClassName?: string;
   ghost?: boolean;
   danger?: boolean;
   block?: boolean;
@@ -78,6 +79,7 @@ const InternalButton: React.ForwardRefRenderFunction<
     size: customizeSize,
     disabled: customDisabled,
     className,
+    rootClassName,
     children,
     icon,
     ghost = false,
@@ -198,6 +200,7 @@ const InternalButton: React.ForwardRefRenderFunction<
     },
     compactItemClassnames,
     className,
+    rootClassName,
   );
 
   const iconNode =

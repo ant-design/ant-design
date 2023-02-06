@@ -48,7 +48,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
 
   // ============================= Effect =============================
   React.useEffect(() => {
-    if (listType !== 'picture' && listType !== 'picture-card') {
+    if (listType !== 'picture' && listType !== 'picture-card' && listType !== 'picture-circle') {
       return;
     }
     (items || []).forEach((file: InternalUploadFile) => {
@@ -107,7 +107,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
     let icon: React.ReactNode = isLoading ? <LoadingOutlined /> : <PaperClipOutlined />;
     if (listType === 'picture') {
       icon = isLoading ? <LoadingOutlined /> : fileIcon;
-    } else if (listType === 'picture-card') {
+    } else if (listType === 'picture-card' || listType === 'picture-circle') {
       icon = isLoading ? locale.uploading : fileIcon;
     }
     return icon;
@@ -172,7 +172,8 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
     })),
   ];
 
-  const animationDirection = listType === 'picture-card' ? 'animate-inline' : 'animate';
+  const animationDirection =
+    listType === 'picture-card' || listType === 'picture-circle' ? 'animate-inline' : 'animate';
   // const transitionName = list.length === 0 ? '' : `${prefixCls}-${animationDirection}`;
 
   let motionConfig: Omit<CSSMotionListProps, 'onVisibleChanged'> = {
@@ -194,7 +195,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
     return motion;
   }, [rootPrefixCls]);
 
-  if (listType !== 'picture-card') {
+  if (listType !== 'picture-card' && listType !== 'picture-circle') {
     motionConfig = {
       ...listItemMotion,
       ...motionConfig,

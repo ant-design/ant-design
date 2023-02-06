@@ -19,12 +19,16 @@ export interface PaginationProps extends RcPaginationProps {
   responsive?: boolean;
   role?: string;
   totalBoundaryShowSizeChanger?: number;
+  rootClassName?: string;
 }
 
 export type PaginationPosition = 'top' | 'bottom' | 'both';
 
-export interface PaginationConfig extends PaginationProps {
+export type PaginationAlign = 'start' | 'center' | 'end';
+
+export interface PaginationConfig extends Omit<PaginationProps, 'rootClassName'> {
   position?: PaginationPosition;
+  align?: PaginationAlign;
 }
 
 export type { PaginationLocale };
@@ -33,6 +37,7 @@ const Pagination: React.FC<PaginationProps> = ({
   prefixCls: customizePrefixCls,
   selectPrefixCls: customizeSelectPrefixCls,
   className,
+  rootClassName,
   size,
   locale: customLocale,
   selectComponentClass,
@@ -105,6 +110,7 @@ const Pagination: React.FC<PaginationProps> = ({
             [`${prefixCls}-rtl`]: direction === 'rtl',
           },
           className,
+          rootClassName,
           hashId,
         );
 

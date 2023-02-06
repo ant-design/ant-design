@@ -12,6 +12,7 @@ import useStyle from './style';
 export interface AbstractCheckboxProps<T> {
   prefixCls?: string;
   className?: string;
+  rootClassName?: string;
   defaultChecked?: boolean;
   checked?: boolean;
   style?: React.CSSProperties;
@@ -51,6 +52,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<HTMLInputElement, Checkbo
   {
     prefixCls: customizePrefixCls,
     className,
+    rootClassName,
     children,
     indeterminate = false,
     style,
@@ -116,6 +118,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<HTMLInputElement, Checkbo
       [`${prefixCls}-wrapper-in-form-item`]: isFormItemInput,
     },
     className,
+    rootClassName,
     hashId,
   );
   const checkboxClass = classNames(

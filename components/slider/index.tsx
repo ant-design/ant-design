@@ -44,8 +44,10 @@ export interface SliderBaseProps {
   dots?: boolean;
   included?: boolean;
   disabled?: boolean;
+  keyboard?: boolean;
   vertical?: boolean;
   className?: string;
+  rootClassName?: string;
   id?: string;
   style?: React.CSSProperties;
   tooltip?: SliderTooltipProps;
@@ -99,6 +101,7 @@ const Slider = React.forwardRef<unknown, SliderSingleProps | SliderRangeProps>(
       prefixCls: customizePrefixCls,
       range,
       className,
+      rootClassName,
 
       // Deprecated Props
       tooltipPrefixCls: legacyTooltipPrefixCls,
@@ -133,6 +136,7 @@ const Slider = React.forwardRef<unknown, SliderSingleProps | SliderRangeProps>(
 
     const cls = classNames(
       className,
+      rootClassName,
       {
         [`${prefixCls}-rtl`]: direction === 'rtl',
       },

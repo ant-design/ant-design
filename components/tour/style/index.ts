@@ -28,7 +28,7 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
     colorFill,
     sliderHeight,
     sliderWidth,
-    boxShadow,
+    boxShadowTertiary,
     tourZIndexPopup,
     fontSize,
     colorBgContainer,
@@ -74,7 +74,7 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
           textAlign: 'start',
           textDecoration: 'none',
           borderRadius: tourBorderRadius,
-          boxShadow,
+          boxShadow: boxShadowTertiary,
           position: 'relative',
           backgroundColor: colorBgContainer,
           border: 'none',
@@ -165,7 +165,7 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
             textDecoration: 'none',
             backgroundColor: colorPrimary,
             borderRadius,
-            boxShadow,
+            boxShadow: boxShadowTertiary,
 
             [`${componentCls}-close`]: {
               color: colorTextLightSolid,
@@ -230,7 +230,6 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
     // ============================= Arrow ===========================
     getArrowStyle<TourToken>(token, {
       colorBg: 'var(--antd-arrow-background-color)',
-      showArrowCls: '',
       contentRadius: tourBorderRadius,
       limitVerticalRadius: true,
     }),

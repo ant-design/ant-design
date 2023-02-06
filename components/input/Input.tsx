@@ -26,67 +26,6 @@ export interface InputFocusOptions extends FocusOptions {
 
 export type { InputRef };
 
-export function fixControlledValue<T>(value: T) {
-  if (typeof value === 'undefined' || value === null) {
-    return '';
-  }
-  return String(value);
-}
-
-export function resolveOnChange<E extends HTMLInputElement | HTMLTextAreaElement>(
-  target: E,
-  e:
-    | React.ChangeEvent<E>
-    | React.MouseEvent<HTMLElement, MouseEvent>
-    | React.CompositionEvent<HTMLElement>,
-  onChange?: (event: React.ChangeEvent<E>) => void,
-  targetValue?: string,
-) {
-  if (!onChange) {
-    return;
-  }
-  let event = e as React.ChangeEvent<E>;
-
-  if (e.type === 'click') {
-    // Clone a new target for event.
-    // Avoid the following usage, the setQuery method gets the original value.
-    //
-    // const [query, setQuery] = React.useState('');
-    // <Input
-    //   allowClear
-    //   value={query}
-    //   onChange={(e)=> {
-    //     setQuery((prevStatus) => e.target.value);
-    //   }}
-    // />
-
-    const currentTarget = target.cloneNode(true) as E;
-
-    // click clear icon
-    event = Object.create(e, {
-      target: { value: currentTarget },
-      currentTarget: { value: currentTarget },
-    });
-
-    currentTarget.value = '';
-    onChange(event);
-    return;
-  }
-
-  // Trigger by composition event, this means we need force change the input value
-  if (targetValue !== undefined) {
-    event = Object.create(e, {
-      target: { value: target },
-      currentTarget: { value: target },
-    });
-
-    target.value = targetValue;
-    onChange(event);
-    return;
-  }
-  onChange(event);
-}
-
 export function triggerFocus(
   element?: HTMLInputElement | HTMLTextAreaElement,
   option?: InputFocusOptions,
@@ -121,6 +60,7 @@ export interface InputProps
     RcInputProps,
     'wrapperClassName' | 'groupClassName' | 'inputClassName' | 'affixWrapperClassName'
   > {
+  rootClassName?: string;
   size?: SizeType;
   disabled?: boolean;
   status?: InputStatus;
@@ -142,6 +82,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     addonAfter,
     addonBefore,
     className,
+    rootClassName,
     onChange,
     ...rest
   } = props;
@@ -226,7 +167,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
       onFocus={handleFocus}
       suffix={suffixNode}
       allowClear={mergedAllowClear}
-      className={classNames(className, compactItemClassnames)}
+      className={classNames(className, rootClassName, compactItemClassnames)}
       onChange={handleChange}
       addonAfter={
         addonAfter && (
@@ -246,41 +187,43 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
           </NoCompactStyle>
         )
       }
-      inputClassName={classNames(
-        {
-          [`${prefixCls}-sm`]: mergedSize === 'small',
-          [`${prefixCls}-lg`]: mergedSize === 'large',
-          [`${prefixCls}-rtl`]: direction === 'rtl',
-          [`${prefixCls}-borderless`]: !bordered,
-        },
-        !inputHasPrefixSuffix && getStatusClassNames(prefixCls, mergedStatus),
-        hashId,
-      )}
-      affixWrapperClassName={classNames(
-        {
-          [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
-          [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
-          [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
-          [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
-        },
-        getStatusClassNames(`${prefixCls}-affix-wrapper`, mergedStatus, hasFeedback),
-        hashId,
-      )}
-      wrapperClassName={classNames(
-        {
-          [`${prefixCls}-group-rtl`]: direction === 'rtl',
-        },
-        hashId,
-      )}
-      groupClassName={classNames(
-        {
-          [`${prefixCls}-group-wrapper-sm`]: mergedSize === 'small',
-          [`${prefixCls}-group-wrapper-lg`]: mergedSize === 'large',
-          [`${prefixCls}-group-wrapper-rtl`]: direction === 'rtl',
-        },
-        getStatusClassNames(`${prefixCls}-group-wrapper`, mergedStatus, hasFeedback),
-        hashId,
-      )}
+      classes={{
+        input: classNames(
+          {
+            [`${prefixCls}-sm`]: mergedSize === 'small',
+            [`${prefixCls}-lg`]: mergedSize === 'large',
+            [`${prefixCls}-rtl`]: direction === 'rtl',
+            [`${prefixCls}-borderless`]: !bordered,
+          },
+          !inputHasPrefixSuffix && getStatusClassNames(prefixCls, mergedStatus),
+          hashId,
+        ),
+        affixWrapper: classNames(
+          {
+            [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
+            [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
+            [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
+            [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
+          },
+          getStatusClassNames(`${prefixCls}-affix-wrapper`, mergedStatus, hasFeedback),
+          hashId,
+        ),
+        wrapper: classNames(
+          {
+            [`${prefixCls}-group-rtl`]: direction === 'rtl',
+          },
+          hashId,
+        ),
+        group: classNames(
+          {
+            [`${prefixCls}-group-wrapper-sm`]: mergedSize === 'small',
+            [`${prefixCls}-group-wrapper-lg`]: mergedSize === 'large',
+            [`${prefixCls}-group-wrapper-rtl`]: direction === 'rtl',
+          },
+          getStatusClassNames(`${prefixCls}-group-wrapper`, mergedStatus, hasFeedback),
+          hashId,
+        ),
+      }}
     />,
   );
 });

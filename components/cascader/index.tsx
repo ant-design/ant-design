@@ -114,6 +114,7 @@ export type CascaderProps<DataNodeType> = UnionCascaderProps & {
   options?: DataNodeType[];
   status?: InputStatus;
 
+  rootClassName?: string;
   popupClassName?: string;
   /** @deprecated Please use `popupClassName` instead */
   dropdownClassName?: string;
@@ -130,6 +131,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
     size: customizeSize,
     disabled: customDisabled,
     className,
+    rootClassName,
     multiple,
     bordered = true,
     transitionName,
@@ -207,6 +209,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
     {
       [`${cascaderPrefixCls}-dropdown-rtl`]: mergedDirection === 'rtl',
     },
+    rootClassName,
     hashId,
   );
 
@@ -291,6 +294,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
         getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
         compactItemClassnames,
         className,
+        rootClassName,
         hashId,
       )}
       disabled={mergedDisabled}

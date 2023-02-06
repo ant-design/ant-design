@@ -13,6 +13,7 @@ import useStyle from './style';
 export interface TimelineProps {
   prefixCls?: string;
   className?: string;
+  rootClassName?: string;
   /** 指定最后一个幽灵节点是否存在或内容 */
   pending?: React.ReactNode;
   pendingDot?: React.ReactNode;
@@ -34,6 +35,7 @@ const Timeline: CompoundedComponent = (props) => {
     pendingDot,
     children,
     className,
+    rootClassName,
     reverse = false,
     mode = '' as TimelineProps['mode'],
     ...restProps
@@ -96,10 +98,12 @@ const Timeline: CompoundedComponent = (props) => {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
+    rootClassName,
+    hashId,
   );
 
   return wrapSSR(
-    <ul {...restProps} className={classNames(classString, hashId)}>
+    <ul {...restProps} className={classString}>
       {items}
     </ul>,
   );

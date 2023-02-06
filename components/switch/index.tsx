@@ -22,6 +22,7 @@ export interface SwitchProps {
   prefixCls?: string;
   size?: SwitchSize;
   className?: string;
+  rootClassName?: string;
   checked?: boolean;
   defaultChecked?: boolean;
   onChange?: SwitchChangeEventHandler;
@@ -51,7 +52,8 @@ const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>(
       size: customizeSize,
       disabled: customDisabled,
       loading,
-      className = '',
+      className,
+      rootClassName,
       ...props
     },
     ref,
@@ -86,6 +88,7 @@ const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>(
         [`${prefixCls}-rtl`]: direction === 'rtl',
       },
       className,
+      rootClassName,
       hashId,
     );
 

@@ -32,12 +32,12 @@ export interface AffixProps {
   target?: () => Window | HTMLElement | null;
   prefixCls?: string;
   className?: string;
+  rootClassName?: string;
   children: React.ReactNode;
 }
 
 interface InternalAffixProps extends AffixProps {
   affixPrefixCls: string;
-  rootClassName: string;
 }
 
 enum AffixStatus {
@@ -262,8 +262,7 @@ class Affix extends React.Component<InternalAffixProps, AffixState> {
   render() {
     const { affixStyle, placeholderStyle } = this.state;
     const { affixPrefixCls, rootClassName, children } = this.props;
-    const className = classNames({
-      [rootClassName]: !!affixStyle,
+    const className = classNames(affixStyle && rootClassName, {
       [affixPrefixCls]: !!affixStyle,
     });
 
@@ -297,7 +296,7 @@ class Affix extends React.Component<InternalAffixProps, AffixState> {
 export type InternalAffixClass = Affix;
 
 const AffixFC = forwardRef<Affix, AffixProps>((props, ref) => {
-  const { prefixCls: customizePrefixCls } = props;
+  const { prefixCls: customizePrefixCls, rootClassName } = props;
   const { getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
   const affixPrefixCls = getPrefixCls('affix', customizePrefixCls);
 
@@ -306,7 +305,7 @@ const AffixFC = forwardRef<Affix, AffixProps>((props, ref) => {
   const AffixProps: InternalAffixProps = {
     ...props,
     affixPrefixCls,
-    rootClassName: hashId,
+    rootClassName: classNames(rootClassName, hashId),
   };
 
   return wrapSSR(<Affix {...AffixProps} ref={ref} />);

@@ -9,6 +9,8 @@ type CollapseToken = FullToken<'Collapse'> & {
   collapseContentBg: string;
   collapseHeaderBg: string;
   collapseHeaderPadding: string;
+  collapseHeaderPaddingSM: string;
+  collapseHeaderPaddingLG: string;
   collapsePanelBorderRadius: number;
   collapseContentPaddingHorizontal: number;
 };
@@ -21,6 +23,8 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
     collapseContentPaddingHorizontal,
     collapseHeaderBg,
     collapseHeaderPadding,
+    collapseHeaderPaddingSM,
+    collapseHeaderPaddingLG,
     collapsePanelBorderRadius,
 
     lineWidth,
@@ -30,9 +34,11 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
     colorTextHeading,
     colorTextDisabled,
     fontSize,
+    fontSizeLG,
     lineHeight,
     marginSM,
     paddingSM,
+    paddingLG,
     motionDurationSlow,
     fontSizeIcon,
   } = token;
@@ -138,6 +144,34 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
 
         [`&-hidden`]: {
           display: 'none',
+        },
+      },
+
+      [`&-small`]: {
+        [`> ${componentCls}-item`]: {
+          [`> ${componentCls}-header`]: {
+            padding: collapseHeaderPaddingSM,
+          },
+          [`> ${componentCls}-content > ${componentCls}-content-box`]: {
+            padding: paddingSM,
+          },
+        },
+      },
+
+      [`&-large`]: {
+        [`> ${componentCls}-item`]: {
+          fontSize: fontSizeLG,
+
+          [`> ${componentCls}-header`]: {
+            padding: collapseHeaderPaddingLG,
+
+            [`> ${componentCls}-expand-icon`]: {
+              height: fontSizeLG * lineHeight,
+            },
+          },
+          [`> ${componentCls}-content > ${componentCls}-content-box`]: {
+            padding: paddingLG,
+          },
         },
       },
 
@@ -254,6 +288,8 @@ export default genComponentStyleHook('Collapse', (token) => {
     collapseContentBg: token.colorBgContainer,
     collapseHeaderBg: token.colorFillAlter,
     collapseHeaderPadding: `${token.paddingSM}px ${token.padding}px`,
+    collapseHeaderPaddingSM: `${token.paddingXS}px ${token.paddingSM}px`,
+    collapseHeaderPaddingLG: `${token.padding}px ${token.paddingLG}px`,
     collapsePanelBorderRadius: token.borderRadiusLG,
     collapseContentPaddingHorizontal: 16, // Fixed value
   });

@@ -31,6 +31,7 @@ export interface BreadcrumbProps {
   ) => React.ReactNode;
   style?: React.CSSProperties;
   className?: string;
+  rootClassName?: string;
   children?: React.ReactNode;
 }
 
@@ -79,6 +80,7 @@ const Breadcrumb: CompoundedComponent = ({
   separator = '/',
   style,
   className,
+  rootClassName,
   routes,
   children,
   itemRender = defaultItemRender,
@@ -152,6 +154,7 @@ const Breadcrumb: CompoundedComponent = ({
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
+    rootClassName,
     hashId,
   );
 
