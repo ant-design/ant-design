@@ -5,7 +5,7 @@ import { useContext, useMemo } from 'react';
 import { FormItemInputContext } from '../form/context';
 import { Button, Group } from '../radio';
 import Select from '../select';
-import type { CalendarMode } from './generateCalendar';
+import type { CalendarMode, CalendarSelectable } from './generateCalendar';
 
 const YearSelectOffset = 10;
 const YearSelectTotal = 20;
@@ -18,7 +18,7 @@ interface SharedProps<DateType> {
   locale: Locale;
   fullscreen: boolean;
   divRef: React.RefObject<HTMLDivElement>;
-  onChange: (year: DateType) => void;
+  onChange: (year: DateType, selectType: CalendarSelectable) => void;
 }
 
 function YearSelect<DateType>(props: SharedProps<DateType>) {
@@ -68,7 +68,7 @@ function YearSelect<DateType>(props: SharedProps<DateType>) {
           }
         }
 
-        onChange(newDate);
+        onChange(newDate, 'year');
       }}
       getPopupContainer={() => divRef!.current!}
     />
@@ -110,7 +110,7 @@ function MonthSelect<DateType>(props: SharedProps<DateType>) {
       value={month}
       options={options}
       onChange={(newMonth) => {
-        onChange(generateConfig.setMonth(value, newMonth));
+        onChange(generateConfig.setMonth(value, newMonth), 'month');
       }}
       getPopupContainer={() => divRef!.current!}
     />
@@ -147,7 +147,7 @@ export interface CalendarHeaderProps<DateType> {
   locale: Locale;
   mode: CalendarMode;
   fullscreen: boolean;
-  onChange: (date: DateType) => void;
+  onChange: (date: DateType, selectType: CalendarSelectable) => void;
   onModeChange: (mode: CalendarMode) => void;
 }
 function CalendarHeader<DateType>(props: CalendarHeaderProps<DateType>) {
