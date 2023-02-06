@@ -30,11 +30,11 @@ const TimelineItemList: React.FC<TimelineProps & { hashId: string; direction?: s
     if (position === 'right') return `${prefixCls}-item-right`;
     return '';
   };
-  const mergeItems = (items || []).concat([]);
+  const mergedItems = [...(items || [])];
   const pendingNode = typeof pending === 'boolean' ? null : pending;
 
   if (pending) {
-    mergeItems.push({
+    mergedItems.push({
       pending: !!pending,
       dot: pendingDot || <LoadingOutlined />,
       content: pendingNode,
@@ -42,12 +42,12 @@ const TimelineItemList: React.FC<TimelineProps & { hashId: string; direction?: s
   }
 
   if (reverse) {
-    mergeItems.reverse();
+    mergedItems.reverse();
   }
-  const itemsCount = mergeItems.length;
+  const itemsCount = mergedItems.length;
   const lastCls = `${prefixCls}-item-last`;
 
-  const itemsList = mergeItems
+  const itemsList = mergedItems
     .filter((item: TimelineItemProps) => !!item)
     .map((item: TimelineItemProps, idx: number) => {
       const pendingClass = idx === itemsCount - 2 ? lastCls : '';
@@ -65,7 +65,7 @@ const TimelineItemList: React.FC<TimelineProps & { hashId: string; direction?: s
       );
     });
 
-  const hasLabelItem = mergeItems.some((item: TimelineItemProps) => !!item?.label);
+  const hasLabelItem = mergedItems.some((item: TimelineItemProps) => !!item?.label);
 
   const classString = classNames(
     prefixCls,
