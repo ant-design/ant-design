@@ -87,12 +87,12 @@ const App: React.FC = () => {
 
   const handleTableChange = (
     pagination: TablePaginationConfig,
-    filters: Record<string, FilterValue>,
-    sorter: SorterResult<DataType>,
+    filters: Record<string, FilterValue | null>,
+    sorter: SorterResult<DataType> | SorterResult<DataType>[]
   ) => {
     setTableParams({
       pagination,
-      filters,
+      filters: filters as Record<string, FilterValue>, // Cast filters as Record<string, FilterValue>
       ...sorter,
     });
 
