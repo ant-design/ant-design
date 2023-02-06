@@ -61,7 +61,7 @@ const TimelineItemList: React.FC<TimelineProps & { hashId: string; direction?: s
           ])}
           {...item}
           /* eslint-disable-next-line react/no-array-index-key */
-          key={idx}
+          key={item?.key || idx}
         />
       );
     });
