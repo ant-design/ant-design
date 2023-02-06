@@ -10,31 +10,44 @@ export const roundedArrow = (
 ): CSSObject => {
   const unitWidth = width / 2;
 
-  const ax = unitWidth - outerRadius * (Math.sqrt(2) - 1);
+  const ax = 0;
   const ay = unitWidth;
-  const bx = unitWidth + outerRadius * (1 - 1 / Math.sqrt(2));
+  const bx = (outerRadius * 1) / Math.sqrt(2);
   const by = unitWidth - outerRadius * (1 - 1 / Math.sqrt(2));
-  const cx = 2 * unitWidth - innerRadius * (1 / Math.sqrt(2));
-  const cy = innerRadius * (1 / Math.sqrt(2));
-  const dx = 4 * unitWidth - cx;
+  const cx = unitWidth - innerRadius * (1 / Math.sqrt(2));
+  const cy = outerRadius * (Math.sqrt(2) - 1) + innerRadius * (1 / Math.sqrt(2));
+  const dx = 2 * unitWidth - cx;
   const dy = cy;
-  const ex = 4 * unitWidth - bx;
+  const ex = 2 * unitWidth - bx;
   const ey = by;
-  const fx = 4 * unitWidth - ax;
+  const fx = 2 * unitWidth - ax;
   const fy = ay;
+
+  const shadowWidth = unitWidth * Math.sqrt(2) + outerRadius * (Math.sqrt(2) - 2);
 
   return {
     borderRadius: { _skip_check_: true, value: `0 0 ${innerRadius}px` },
     pointerEvents: 'none',
-    width: width * 2,
-    height: width * 2,
+    width,
+    height: width,
     overflow: 'hidden',
+
+    '&::before': {
+      position: 'absolute',
+      bottom: 0,
+      insetInlineStart: 0,
+      width,
+      height: width / 2,
+      background: bgColor,
+      clipPath: `path('M ${ax} ${ay} A ${outerRadius} ${outerRadius} 0 0 0 ${bx} ${by} L ${cx} ${cy} A ${innerRadius} ${innerRadius} 0 0 1 ${dx} ${dy} L ${ex} ${ey} A ${outerRadius} ${outerRadius} 0 0 0 ${fx} ${fy} Z')`,
+      content: '""',
+    },
 
     '&::after': {
       content: '""',
       position: 'absolute',
-      width: width / Math.sqrt(2),
-      height: width / Math.sqrt(2),
+      width: shadowWidth,
+      height: shadowWidth,
       bottom: 0,
       insetInline: 0,
       margin: 'auto',
@@ -46,17 +59,6 @@ export const roundedArrow = (
       boxShadow,
       zIndex: 0,
       background: 'transparent',
-    },
-
-    '&::before': {
-      position: 'absolute',
-      bottom: 0,
-      insetInlineStart: 0,
-      width: width * 2,
-      height: width / 2,
-      background: bgColor,
-      clipPath: `path('M ${ax} ${ay} A ${outerRadius} ${outerRadius} 0 0 0 ${bx} ${by} L ${cx} ${cy} A ${innerRadius} ${innerRadius} 0 0 1 ${dx} ${dy} L ${ex} ${ey} A ${outerRadius} ${outerRadius} 0 0 0 ${fx} ${fy} Z')`,
-      content: '""',
     },
   };
 };

@@ -1,7 +1,6 @@
 import type { FC } from 'react';
 import React, { useMemo } from 'react';
 /* eslint import/no-unresolved: 0 */
-// @ts-ignore
 import tokenMeta from 'antd/es/version/token-meta.json';
 import { getDesignToken } from 'antd-token-previewer';
 import { Table } from 'antd';

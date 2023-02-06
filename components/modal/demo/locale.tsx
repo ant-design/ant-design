@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
 import { ExclamationCircleOutlined } from '@ant-design/icons';
 import { Button, Modal, Space } from 'antd';
+import React, { useState } from 'react';
 
 const LocalizedModal = () => {
   const [open, setOpen] = useState(false);
@@ -34,21 +34,28 @@ const LocalizedModal = () => {
   );
 };
 
-const confirm = () => {
-  Modal.confirm({
-    title: 'Confirm',
-    icon: <ExclamationCircleOutlined />,
-    content: 'Bla bla ...',
-    okText: '确认',
-    cancelText: '取消',
-  });
-};
+const App: React.FC = () => {
+  const [modal, contextHolder] = Modal.useModal();
 
-const App: React.FC = () => (
-  <Space>
-    <LocalizedModal />
-    <Button onClick={confirm}>Confirm</Button>
-  </Space>
-);
+  const confirm = () => {
+    modal.confirm({
+      title: 'Confirm',
+      icon: <ExclamationCircleOutlined />,
+      content: 'Bla bla ...',
+      okText: '确认',
+      cancelText: '取消',
+    });
+  };
+
+  return (
+    <>
+      <Space>
+        <LocalizedModal />
+        <Button onClick={confirm}>Confirm</Button>
+      </Space>
+      {contextHolder}
+    </>
+  );
+};
 
 export default App;

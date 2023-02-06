@@ -92,6 +92,7 @@ const columns = [
 <code src="./demo/edit-row.tsx">可编辑行</code>
 <code src="./demo/nested-table.tsx">嵌套子表格</code>
 <code src="./demo/drag-sorting.tsx">拖拽排序</code>
+<code src="./demo/drag-sorting-handler.tsx">拖拽手柄列</code>
 <code src="./demo/resizable-column.tsx" debug>可伸缩列</code>
 <code src="./demo/ellipsis.tsx">单元格自动省略</code>
 <code src="./demo/ellipsis-custom-tooltip.tsx">自定义单元格省略提示</code>
@@ -309,7 +310,7 @@ const data: User[] = [
 export default () => (
   <>
     <Table<User> columns={columns} dataSource={data} />
-    /* 使用 JSX 风格的 API */
+    {/* 使用 JSX 风格的 API */}
     <Table<User> dataSource={data}>
       <Table.Column<User> key="name" title="Name" dataIndex="name" />
     </Table>

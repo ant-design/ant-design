@@ -253,7 +253,6 @@ describe('Anchor Render', () => {
         <Link href={`#${hash2}`} title={hash2} />
       </Anchor>,
       // https://github.com/testing-library/react-testing-library/releases/tag/v13.0.0
-      // @ts-ignore
       { legacyRoot: true },
     );
 
@@ -377,7 +376,6 @@ describe('Anchor Render', () => {
           <Link href={`#${hash2}`} title={hash2} />
         </Anchor>,
         // https://github.com/testing-library/react-testing-library/releases/tag/v13.0.0
-        // @ts-ignore
         { legacyRoot: true },
       );
 

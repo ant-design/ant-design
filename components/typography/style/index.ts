@@ -26,19 +26,19 @@ const genTypographyStyle: GenerateStyle<TypographyToken> = (token) => {
       color: token.colorText,
       wordBreak: 'break-word',
       lineHeight: token.lineHeight,
-      '&&-secondary': {
+      [`&${componentCls}-secondary`]: {
         color: token.colorTextDescription,
       },
 
-      '&&-success': {
+      [`&${componentCls}-success`]: {
         color: token.colorSuccess,
       },
 
-      '&&-warning': {
+      [`&${componentCls}-warning`]: {
         color: token.colorWarning,
       },
 
-      '&&-danger': {
+      [`&${componentCls}-danger`]: {
         color: token.colorError,
         'a&:active, a&:focus': {
           color: token.colorErrorActive,
@@ -48,7 +48,7 @@ const genTypographyStyle: GenerateStyle<TypographyToken> = (token) => {
         },
       },
 
-      '&&-disabled': {
+      [`&${componentCls}-disabled`]: {
         color: token.colorTextDisabled,
         cursor: 'not-allowed',
         userSelect: 'none',
@@ -64,11 +64,11 @@ const genTypographyStyle: GenerateStyle<TypographyToken> = (token) => {
       ...getTitleStyles(token),
 
       [`
-      & + h1&,
-      & + h2&,
-      & + h3&,
-      & + h4&,
-      & + h5&
+      & + h1${componentCls},
+      & + h2${componentCls},
+      & + h3${componentCls},
+      & + h4${componentCls},
+      & + h5${componentCls}
       `]: {
         marginTop: sizeMarginHeadingVerticalStart,
       },

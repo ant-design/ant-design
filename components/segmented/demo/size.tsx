@@ -1,12 +1,12 @@
 import React from 'react';
-import { Segmented } from 'antd';
+import { Segmented, Space } from 'antd';
 
-export default () => (
-  <>
+const App: React.FC = () => (
+  <Space direction="vertical">
     <Segmented size="large" options={['Daily', 'Weekly', 'Monthly', 'Quarterly', 'Yearly']} />
-    <br />
     <Segmented options={['Daily', 'Weekly', 'Monthly', 'Quarterly', 'Yearly']} />
-    <br />
     <Segmented size="small" options={['Daily', 'Weekly', 'Monthly', 'Quarterly', 'Yearly']} />
-  </>
+  </Space>
 );
+
+export default App;

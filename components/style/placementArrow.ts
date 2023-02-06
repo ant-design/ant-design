@@ -10,17 +10,14 @@ function connectArrowCls(classList: string[], showArrowCls: string = '') {
 export const MAX_VERTICAL_CONTENT_RADIUS = 8;
 
 export function getArrowOffset(options: {
-  sizePopupArrow: number;
   contentRadius: number;
-  borderRadiusOuter: number;
   limitVerticalRadius?: boolean;
 }) {
   const maxVerticalContentRadius = MAX_VERTICAL_CONTENT_RADIUS;
-  const { sizePopupArrow, contentRadius, borderRadiusOuter, limitVerticalRadius } = options;
-  const arrowInnerOffset = sizePopupArrow / 2 - Math.ceil(borderRadiusOuter * (Math.sqrt(2) - 1));
-  const dropdownArrowOffset = (contentRadius > 12 ? contentRadius + 2 : 12) - arrowInnerOffset;
+  const { contentRadius, limitVerticalRadius } = options;
+  const dropdownArrowOffset = contentRadius > 12 ? contentRadius + 2 : 12;
   const dropdownArrowOffsetVertical = limitVerticalRadius
-    ? maxVerticalContentRadius - arrowInnerOffset
+    ? maxVerticalContentRadius
     : dropdownArrowOffset;
   return { dropdownArrowOffset, dropdownArrowOffsetVertical };
 }
@@ -51,9 +48,7 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
   } = options;
 
   const { dropdownArrowOffsetVertical, dropdownArrowOffset } = getArrowOffset({
-    sizePopupArrow,
     contentRadius,
-    borderRadiusOuter,
     limitVerticalRadius,
   });
   const dropdownArrowDistance = sizePopupArrow / 2 + marginXXS;

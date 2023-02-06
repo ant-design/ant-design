@@ -69,9 +69,7 @@ exports[`renders ./components/popconfirm/demo/locale.tsx correctly 1`] = `
 `;
 
 exports[`renders ./components/popconfirm/demo/placement.tsx correctly 1`] = `
-<div
-  class="demo"
->
+Array [
   <div
     style="margin-left:70px;white-space:nowrap"
   >
@@ -99,7 +97,7 @@ exports[`renders ./components/popconfirm/demo/placement.tsx correctly 1`] = `
         TR
       </span>
     </button>
-  </div>
+  </div>,
   <div
     style="width:70px;float:left"
   >
@@ -127,7 +125,7 @@ exports[`renders ./components/popconfirm/demo/placement.tsx correctly 1`] = `
         LB
       </span>
     </button>
-  </div>
+  </div>,
   <div
     style="width:70px;margin-left:304px"
   >
@@ -155,7 +153,7 @@ exports[`renders ./components/popconfirm/demo/placement.tsx correctly 1`] = `
         RB
       </span>
     </button>
-  </div>
+  </div>,
   <div
     style="margin-left:70px;clear:both;white-space:nowrap"
   >
@@ -183,8 +181,8 @@ exports[`renders ./components/popconfirm/demo/placement.tsx correctly 1`] = `
         BR
       </span>
     </button>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/popconfirm/demo/promise.tsx correctly 1`] = `

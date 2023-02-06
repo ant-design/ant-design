@@ -226,7 +226,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
           },
         },
 
-        '&:not(&-disabled)': {
+        [`&:not(${componentCls}-list-content-item-disabled)`]: {
           '&:hover': {
             backgroundColor: token.controlItemBgHover,
             cursor: 'pointer',
@@ -235,12 +235,6 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
           [`&${componentCls}-list-content-item-checked:hover`]: {
             backgroundColor: controlItemBgActiveHover,
           },
-        },
-
-        // Do not change hover style when `oneWay` mode
-        '&-show-remove &-item:not(&-item-disabled):hover': {
-          background: 'transparent',
-          cursor: 'default',
         },
 
         '&-checked': {
@@ -252,6 +246,13 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
           cursor: 'not-allowed',
         },
       },
+
+      // Do not change hover style when `oneWay` mode
+      [`&-show-remove ${componentCls}-list-content-item:not(${componentCls}-list-content-item-disabled):hover`]:
+        {
+          background: 'transparent',
+          cursor: 'default',
+        },
     },
 
     '&-pagination': {

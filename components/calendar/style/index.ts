@@ -119,7 +119,7 @@ export const genCalendarStyles = (token: CalendarToken): CSSObject => {
           display: 'none',
         },
         // >>> Selected
-        '&-in-view:is(&-selected)': {
+        [`&-in-view${componentCls}-cell-selected`]: {
           [`${calendarCls}-date, ${calendarCls}-date-today`]: {
             background: calendarItemActiveBg,
           },

@@ -212,8 +212,7 @@ export default function genMultipleStyle(token: SelectToken): CSSInterpolation {
     {
       [`${componentCls}-multiple${componentCls}-sm`]: {
         [`${componentCls}-selection-placeholder`]: {
-          insetInlineStart: token.controlPaddingHorizontalSM - token.lineWidth,
-          insetInlineEnd: 'auto',
+          insetInline: token.controlPaddingHorizontalSM - token.lineWidth,
         },
 
         // https://github.com/ant-design/ant-design/issues/29559

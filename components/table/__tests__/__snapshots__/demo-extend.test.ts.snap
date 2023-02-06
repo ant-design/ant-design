@@ -617,7 +617,7 @@ exports[`renders ./components/table/demo/basic.tsx extend context correctly 1`] 
                   <td
                     class="ant-table-cell"
                   >
-                    Sidney No. 1 Lake Park
+                    Sydney No. 1 Lake Park
                   </td>
                   <td
                     class="ant-table-cell"
@@ -870,7 +870,7 @@ exports[`renders ./components/table/demo/bordered.tsx extend context correctly 1
                   <td
                     class="ant-table-cell"
                   >
-                    Sidney No. 1 Lake Park
+                    Sydney No. 1 Lake Park
                   </td>
                 </tr>
               </tbody>
@@ -1098,7 +1098,7 @@ exports[`renders ./components/table/demo/colspan-rowspan.tsx extend context corr
                   <td
                     class="ant-table-cell"
                   >
-                    Sidney No. 1 Lake Park
+                    Sydney No. 1 Lake Park
                   </td>
                 </tr>
                 <tr
@@ -1582,12 +1582,13 @@ exports[`renders ./components/table/demo/custom-filter-panel.tsx extend context 
                             class="ant-table-column-sorter ant-table-column-sorter-full"
                           >
                             <span
+                              aria-hidden="true"
                               class="ant-table-column-sorter-inner"
                             >
                               <span
                                 aria-label="caret-up"
                                 class="anticon anticon-caret-up ant-table-column-sorter-up"
-                                role="presentation"
+                                role="img"
                               >
                                 <svg
                                   aria-hidden="true"
@@ -1606,7 +1607,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.tsx extend context 
                               <span
                                 aria-label="caret-down"
                                 class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                role="presentation"
+                                role="img"
                               >
                                 <svg
                                   aria-hidden="true"
@@ -1837,7 +1838,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.tsx extend context 
                   <td
                     class="ant-table-cell"
                   >
-                    Sidney No. 1 Lake Park
+                    Sydney No. 1 Lake Park
                   </td>
                 </tr>
                 <tr
@@ -2000,9 +2001,14 @@ exports[`renders ./components/table/demo/drag-sorting.tsx extend context correct
                 class="ant-table-tbody"
               >
                 <tr
+                  aria-describedby="DndDescribedBy-1"
+                  aria-disabled="false"
+                  aria-roledescription="sortable"
                   class="ant-table-row ant-table-row-level-0"
                   data-row-key="1"
+                  role="button"
                   style="cursor:move"
+                  tabindex="0"
                 >
                   <td
                     class="ant-table-cell"
@@ -2017,13 +2023,18 @@ exports[`renders ./components/table/demo/drag-sorting.tsx extend context correct
                   <td
                     class="ant-table-cell"
                   >
-                    New York No. 1 Lake Park
+                    Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text
                   </td>
                 </tr>
                 <tr
+                  aria-describedby="DndDescribedBy-1"
+                  aria-disabled="false"
+                  aria-roledescription="sortable"
                   class="ant-table-row ant-table-row-level-0"
                   data-row-key="2"
+                  role="button"
                   style="cursor:move"
+                  tabindex="0"
                 >
                   <td
                     class="ant-table-cell"
@@ -2042,10 +2053,304 @@ exports[`renders ./components/table/demo/drag-sorting.tsx extend context correct
                   </td>
                 </tr>
                 <tr
+                  aria-describedby="DndDescribedBy-1"
+                  aria-disabled="false"
+                  aria-roledescription="sortable"
                   class="ant-table-row ant-table-row-level-0"
                   data-row-key="3"
+                  role="button"
                   style="cursor:move"
+                  tabindex="0"
                 >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Joe Black
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    32
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Sidney No. 1 Lake Park
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <ul
+        class="ant-pagination ant-table-pagination ant-table-pagination-right"
+      >
+        <li
+          aria-disabled="true"
+          class="ant-pagination-prev ant-pagination-disabled"
+          title="Previous Page"
+        >
+          <button
+            class="ant-pagination-item-link"
+            disabled=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              aria-label="left"
+              class="anticon anticon-left"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="left"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                />
+              </svg>
+            </span>
+          </button>
+        </li>
+        <li
+          class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+          tabindex="0"
+          title="1"
+        >
+          <a
+            rel="nofollow"
+          >
+            1
+          </a>
+        </li>
+        <li
+          aria-disabled="true"
+          class="ant-pagination-next ant-pagination-disabled"
+          title="Next Page"
+        >
+          <button
+            class="ant-pagination-item-link"
+            disabled=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              aria-label="right"
+              class="anticon anticon-right"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="right"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                />
+              </svg>
+            </span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/table/demo/drag-sorting-handler.tsx extend context correctly 1`] = `
+<div
+  class="ant-table-wrapper"
+>
+  <div
+    class="ant-spin-nested-loading"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="ant-table"
+      >
+        <div
+          class="ant-table-container"
+        >
+          <div
+            class="ant-table-content"
+          >
+            <table
+              style="table-layout:auto"
+            >
+              <colgroup />
+              <thead
+                class="ant-table-thead"
+              >
+                <tr>
+                  <td
+                    class="ant-table-cell"
+                  />
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Name
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Age
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Address
+                  </th>
+                </tr>
+              </thead>
+              <tbody
+                class="ant-table-tbody"
+              >
+                <tr
+                  aria-describedby="DndDescribedBy-0"
+                  aria-disabled="false"
+                  aria-roledescription="sortable"
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
+                  role="button"
+                  tabindex="0"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    <span
+                      aria-label="menu"
+                      class="anticon anticon-menu"
+                      role="img"
+                      style="touch-action:none;cursor:move"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="menu"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M904 160H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0 624H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0-312H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    John Brown
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    32
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text
+                  </td>
+                </tr>
+                <tr
+                  aria-describedby="DndDescribedBy-0"
+                  aria-disabled="false"
+                  aria-roledescription="sortable"
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="2"
+                  role="button"
+                  tabindex="0"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    <span
+                      aria-label="menu"
+                      class="anticon anticon-menu"
+                      role="img"
+                      style="touch-action:none;cursor:move"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="menu"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M904 160H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0 624H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0-312H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Jim Green
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    42
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London No. 1 Lake Park
+                  </td>
+                </tr>
+                <tr
+                  aria-describedby="DndDescribedBy-0"
+                  aria-disabled="false"
+                  aria-roledescription="sortable"
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="3"
+                  role="button"
+                  tabindex="0"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    <span
+                      aria-label="menu"
+                      class="anticon anticon-menu"
+                      role="img"
+                      style="touch-action:none;cursor:move"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="menu"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M904 160H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0 624H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0-312H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </td>
                   <td
                     class="ant-table-cell"
                   >
@@ -3220,12 +3525,13 @@ Array [
                           class="ant-table-column-sorter ant-table-column-sorter-full"
                         >
                           <span
+                            aria-hidden="true"
                             class="ant-table-column-sorter-inner"
                           >
                             <span
                               aria-label="caret-up"
                               class="anticon anticon-caret-up ant-table-column-sorter-up"
-                              role="presentation"
+                              role="img"
                             >
                               <svg
                                 aria-hidden="true"
@@ -3244,7 +3550,7 @@ Array [
                             <span
                               aria-label="caret-down"
                               class="anticon anticon-caret-down ant-table-column-sorter-down"
-                              role="presentation"
+                              role="img"
                             >
                               <svg
                                 aria-hidden="true"
@@ -3533,12 +3839,13 @@ Array [
                           class="ant-table-column-sorter ant-table-column-sorter-full"
                         >
                           <span
+                            aria-hidden="true"
                             class="ant-table-column-sorter-inner"
                           >
                             <span
                               aria-label="caret-up"
                               class="anticon anticon-caret-up ant-table-column-sorter-up"
-                              role="presentation"
+                              role="img"
                             >
                               <svg
                                 aria-hidden="true"
@@ -3557,7 +3864,7 @@ Array [
                             <span
                               aria-label="caret-down"
                               class="anticon anticon-caret-down ant-table-column-sorter-down"
-                              role="presentation"
+                              role="img"
                             >
                               <svg
                                 aria-hidden="true"
@@ -6018,27 +6325,27 @@ exports[`renders ./components/table/demo/ellipsis.tsx extend context correctly 1
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
-                    title="Sidney No. 1 Lake Park, Sidney No. 1 Lake Park"
+                    title="Sydney No. 1 Lake Park, Sydney No. 1 Lake Park"
                   >
-                    Sidney No. 1 Lake Park, Sidney No. 1 Lake Park
+                    Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
-                    title="Sidney No. 1 Lake Park, Sidney No. 1 Lake Park"
+                    title="Sydney No. 1 Lake Park, Sydney No. 1 Lake Park"
                   >
-                    Sidney No. 1 Lake Park, Sidney No. 1 Lake Park
+                    Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
-                    title="Sidney No. 1 Lake Park, Sidney No. 1 Lake Park"
+                    title="Sydney No. 1 Lake Park, Sydney No. 1 Lake Park"
                   >
-                    Sidney No. 1 Lake Park, Sidney No. 1 Lake Park
+                    Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
-                    title="Sidney No. 1 Lake Park, Sidney No. 1 Lake Park"
+                    title="Sydney No. 1 Lake Park, Sydney No. 1 Lake Park"
                   >
-                    Sidney No. 1 Lake Park, Sidney No. 1 Lake Park
+                    Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
                   </td>
                 </tr>
               </tbody>
@@ -6511,7 +6818,7 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.tsx extend cont
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
                     <span>
-                      Sidney No. 1 Lake Park, Sidney No. 1 Lake Park
+                      Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
                     </span>
                     <div>
                       <div
@@ -6532,7 +6839,7 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.tsx extend cont
                             class="ant-tooltip-inner"
                             role="tooltip"
                           >
-                            Sidney No. 1 Lake Park, Sidney No. 1 Lake Park
+                            Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
                           </div>
                         </div>
                       </div>
@@ -6542,7 +6849,7 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.tsx extend cont
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
                     <span>
-                      Sidney No. 1 Lake Park, Sidney No. 1 Lake Park
+                      Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
                     </span>
                     <div>
                       <div
@@ -6563,7 +6870,7 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.tsx extend cont
                             class="ant-tooltip-inner"
                             role="tooltip"
                           >
-                            Sidney No. 1 Lake Park, Sidney No. 1 Lake Park
+                            Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
                           </div>
                         </div>
                       </div>
@@ -6573,7 +6880,7 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.tsx extend cont
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
                     <span>
-                      Sidney No. 1 Lake Park, Sidney No. 1 Lake Park
+                      Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
                     </span>
                     <div>
                       <div
@@ -6594,7 +6901,7 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.tsx extend cont
                             class="ant-tooltip-inner"
                             role="tooltip"
                           >
-                            Sidney No. 1 Lake Park, Sidney No. 1 Lake Park
+                            Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
                           </div>
                         </div>
                       </div>
@@ -6604,7 +6911,7 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.tsx extend cont
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
                     <span>
-                      Sidney No. 1 Lake Park, Sidney No. 1 Lake Park
+                      Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
                     </span>
                     <div>
                       <div
@@ -6625,7 +6932,7 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.tsx extend cont
                             class="ant-tooltip-inner"
                             role="tooltip"
                           >
-                            Sidney No. 1 Lake Park, Sidney No. 1 Lake Park
+                            Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
                           </div>
                         </div>
                       </div>
@@ -6922,7 +7229,7 @@ exports[`renders ./components/table/demo/expand.tsx extend context correctly 1`]
                   <td
                     class="ant-table-cell"
                   >
-                    Sidney No. 1 Lake Park
+                    Sydney No. 1 Lake Park
                   </td>
                   <td
                     class="ant-table-cell"
@@ -7513,12 +7820,13 @@ exports[`renders ./components/table/demo/filter-in-tree.tsx extend context corre
                         class="ant-table-column-sorter ant-table-column-sorter-full"
                       >
                         <span
+                          aria-hidden="true"
                           class="ant-table-column-sorter-inner"
                         >
                           <span
                             aria-label="caret-up"
                             class="anticon anticon-caret-up ant-table-column-sorter-up"
-                            role="presentation"
+                            role="img"
                           >
                             <svg
                               aria-hidden="true"
@@ -7537,7 +7845,7 @@ exports[`renders ./components/table/demo/filter-in-tree.tsx extend context corre
                           <span
                             aria-label="caret-down"
                             class="anticon anticon-caret-down ant-table-column-sorter-down"
-                            role="presentation"
+                            role="img"
                           >
                             <svg
                               aria-hidden="true"
@@ -7908,7 +8216,7 @@ exports[`renders ./components/table/demo/filter-in-tree.tsx extend context corre
                   <td
                     class="ant-table-cell"
                   >
-                    Sidney No. 1 Lake Park
+                    Sydney No. 1 Lake Park
                   </td>
                 </tr>
                 <tr
@@ -8336,12 +8644,13 @@ exports[`renders ./components/table/demo/filter-search.tsx extend context correc
                         class="ant-table-column-sorter ant-table-column-sorter-full"
                       >
                         <span
+                          aria-hidden="true"
                           class="ant-table-column-sorter-inner"
                         >
                           <span
                             aria-label="caret-up"
                             class="anticon anticon-caret-up ant-table-column-sorter-up"
-                            role="presentation"
+                            role="img"
                           >
                             <svg
                               aria-hidden="true"
@@ -8360,7 +8669,7 @@ exports[`renders ./components/table/demo/filter-search.tsx extend context correc
                           <span
                             aria-label="caret-down"
                             class="anticon anticon-caret-down ant-table-column-sorter-down"
-                            role="presentation"
+                            role="img"
                           >
                             <svg
                               aria-hidden="true"
@@ -8731,7 +9040,7 @@ exports[`renders ./components/table/demo/filter-search.tsx extend context correc
                   <td
                     class="ant-table-cell"
                   >
-                    Sidney No. 1 Lake Park
+                    Sydney No. 1 Lake Park
                   </td>
                 </tr>
                 <tr
@@ -8915,12 +9224,13 @@ exports[`renders ./components/table/demo/fixed-columns.tsx extend context correc
                         class="ant-table-column-sorter ant-table-column-sorter-full"
                       >
                         <span
+                          aria-hidden="true"
                           class="ant-table-column-sorter-inner"
                         >
                           <span
                             aria-label="caret-up"
                             class="anticon anticon-caret-up ant-table-column-sorter-up"
-                            role="presentation"
+                            role="img"
                           >
                             <svg
                               aria-hidden="true"
@@ -8939,7 +9249,7 @@ exports[`renders ./components/table/demo/fixed-columns.tsx extend context correc
                           <span
                             aria-label="caret-down"
                             class="anticon anticon-caret-down ant-table-column-sorter-down"
-                            role="presentation"
+                            role="img"
                           >
                             <svg
                               aria-hidden="true"
@@ -12264,12 +12574,13 @@ exports[`renders ./components/table/demo/grouping-columns.tsx extend context cor
                         class="ant-table-column-sorter ant-table-column-sorter-full"
                       >
                         <span
+                          aria-hidden="true"
                           class="ant-table-column-sorter-inner"
                         >
                           <span
                             aria-label="caret-up"
                             class="anticon anticon-caret-up ant-table-column-sorter-up"
-                            role="presentation"
+                            role="img"
                           >
                             <svg
                               aria-hidden="true"
@@ -12288,7 +12599,7 @@ exports[`renders ./components/table/demo/grouping-columns.tsx extend context cor
                           <span
                             aria-label="caret-down"
                             class="anticon anticon-caret-down ant-table-column-sorter-down"
-                            role="presentation"
+                            role="img"
                           >
                             <svg
                               aria-hidden="true"
@@ -13364,12 +13675,13 @@ exports[`renders ./components/table/demo/head.tsx extend context correctly 1`] =
                             class="ant-table-column-sorter"
                           >
                             <span
+                              aria-hidden="true"
                               class="ant-table-column-sorter-inner"
                             >
                               <span
                                 aria-label="caret-down"
                                 class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                role="presentation"
+                                role="img"
                               >
                                 <svg
                                   aria-hidden="true"
@@ -13600,6 +13912,7 @@ exports[`renders ./components/table/demo/head.tsx extend context correctly 1`] =
                                     <ul
                                       class="ant-dropdown-menu ant-dropdown-menu-sub ant-dropdown-menu-vertical"
                                       data-menu-list="true"
+                                      role="menu"
                                     >
                                       <li
                                         class="ant-dropdown-menu-item"
@@ -13843,12 +14156,13 @@ exports[`renders ./components/table/demo/head.tsx extend context correctly 1`] =
                         class="ant-table-column-sorter ant-table-column-sorter-full"
                       >
                         <span
+                          aria-hidden="true"
                           class="ant-table-column-sorter-inner"
                         >
                           <span
                             aria-label="caret-up"
                             class="anticon anticon-caret-up ant-table-column-sorter-up"
-                            role="presentation"
+                            role="img"
                           >
                             <svg
                               aria-hidden="true"
@@ -13867,7 +14181,7 @@ exports[`renders ./components/table/demo/head.tsx extend context correctly 1`] =
                           <span
                             aria-label="caret-down"
                             class="anticon anticon-caret-down ant-table-column-sorter-down active"
-                            role="presentation"
+                            role="img"
                           >
                             <svg
                               aria-hidden="true"
@@ -14200,7 +14514,7 @@ exports[`renders ./components/table/demo/head.tsx extend context correctly 1`] =
                   <td
                     class="ant-table-cell"
                   >
-                    Sidney No. 1 Lake Park
+                    Sydney No. 1 Lake Park
                   </td>
                 </tr>
                 <tr
@@ -14538,7 +14852,7 @@ exports[`renders ./components/table/demo/jsx.tsx extend context correctly 1`] = 
                   <td
                     class="ant-table-cell"
                   >
-                    Sidney No. 1 Lake Park
+                    Sydney No. 1 Lake Park
                   </td>
                   <td
                     class="ant-table-cell"
@@ -14720,12 +15034,13 @@ exports[`renders ./components/table/demo/multiple-sorter.tsx extend context corr
                         class="ant-table-column-sorter ant-table-column-sorter-full"
                       >
                         <span
+                          aria-hidden="true"
                           class="ant-table-column-sorter-inner"
                         >
                           <span
                             aria-label="caret-up"
                             class="anticon anticon-caret-up ant-table-column-sorter-up"
-                            role="presentation"
+                            role="img"
                           >
                             <svg
                               aria-hidden="true"
@@ -14744,7 +15059,7 @@ exports[`renders ./components/table/demo/multiple-sorter.tsx extend context corr
                           <span
                             aria-label="caret-down"
                             class="anticon anticon-caret-down ant-table-column-sorter-down"
-                            role="presentation"
+                            role="img"
                           >
                             <svg
                               aria-hidden="true"
@@ -14806,12 +15121,13 @@ exports[`renders ./components/table/demo/multiple-sorter.tsx extend context corr
                         class="ant-table-column-sorter ant-table-column-sorter-full"
                       >
                         <span
+                          aria-hidden="true"
                           class="ant-table-column-sorter-inner"
                         >
                           <span
                             aria-label="caret-up"
                             class="anticon anticon-caret-up ant-table-column-sorter-up"
-                            role="presentation"
+                            role="img"
                           >
                             <svg
                               aria-hidden="true"
@@ -14830,7 +15146,7 @@ exports[`renders ./components/table/demo/multiple-sorter.tsx extend context corr
                           <span
                             aria-label="caret-down"
                             class="anticon anticon-caret-down ant-table-column-sorter-down"
-                            role="presentation"
+                            role="img"
                           >
                             <svg
                               aria-hidden="true"
@@ -14892,12 +15208,13 @@ exports[`renders ./components/table/demo/multiple-sorter.tsx extend context corr
                         class="ant-table-column-sorter ant-table-column-sorter-full"
                       >
                         <span
+                          aria-hidden="true"
                           class="ant-table-column-sorter-inner"
                         >
                           <span
                             aria-label="caret-up"
                             class="anticon anticon-caret-up ant-table-column-sorter-up"
-                            role="presentation"
+                            role="img"
                           >
                             <svg
                               aria-hidden="true"
@@ -14916,7 +15233,7 @@ exports[`renders ./components/table/demo/multiple-sorter.tsx extend context corr
                           <span
                             aria-label="caret-down"
                             class="anticon anticon-caret-down ant-table-column-sorter-down"
-                            role="presentation"
+                            role="img"
                           >
                             <svg
                               aria-hidden="true"
@@ -19693,7 +20010,7 @@ exports[`renders ./components/table/demo/order-column.tsx extend context correct
                   <td
                     class="ant-table-cell"
                   >
-                    Sidney No. 1 Lake Park
+                    Sydney No. 1 Lake Park
                   </td>
                 </tr>
               </tbody>
@@ -20233,7 +20550,7 @@ exports[`renders ./components/table/demo/pagination.tsx extend context correctly
                     <td
                       class="ant-table-cell"
                     >
-                      Sidney No. 1 Lake Park
+                      Sydney No. 1 Lake Park
                     </td>
                     <td
                       class="ant-table-cell"
@@ -20463,12 +20780,13 @@ Array [
                               class="ant-table-column-sorter ant-table-column-sorter-full"
                             >
                               <span
+                                aria-hidden="true"
                                 class="ant-table-column-sorter-inner"
                               >
                                 <span
                                   aria-label="caret-up"
                                   class="anticon anticon-caret-up ant-table-column-sorter-up"
-                                  role="presentation"
+                                  role="img"
                                 >
                                   <svg
                                     aria-hidden="true"
@@ -20487,7 +20805,7 @@ Array [
                                 <span
                                   aria-label="caret-down"
                                   class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                  role="presentation"
+                                  role="img"
                                 >
                                   <svg
                                     aria-hidden="true"
@@ -20765,12 +21083,13 @@ Array [
                           class="ant-table-column-sorter ant-table-column-sorter-full"
                         >
                           <span
+                            aria-hidden="true"
                             class="ant-table-column-sorter-inner"
                           >
                             <span
                               aria-label="caret-up"
                               class="anticon anticon-caret-up ant-table-column-sorter-up"
-                              role="presentation"
+                              role="img"
                             >
                               <svg
                                 aria-hidden="true"
@@ -20789,7 +21108,7 @@ Array [
                             <span
                               aria-label="caret-down"
                               class="anticon anticon-caret-down ant-table-column-sorter-down"
-                              role="presentation"
+                              role="img"
                             >
                               <svg
                                 aria-hidden="true"
@@ -20858,12 +21177,13 @@ Array [
                               class="ant-table-column-sorter ant-table-column-sorter-full"
                             >
                               <span
+                                aria-hidden="true"
                                 class="ant-table-column-sorter-inner"
                               >
                                 <span
                                   aria-label="caret-up"
                                   class="anticon anticon-caret-up ant-table-column-sorter-up"
-                                  role="presentation"
+                                  role="img"
                                 >
                                   <svg
                                     aria-hidden="true"
@@ -20882,7 +21202,7 @@ Array [
                                 <span
                                   aria-label="caret-down"
                                   class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                  role="presentation"
+                                  role="img"
                                 >
                                   <svg
                                     aria-hidden="true"
@@ -21210,9 +21530,9 @@ Array [
                     </td>
                     <td
                       class="ant-table-cell ant-table-cell-ellipsis"
-                      title="Sidney No. 1 Lake Park"
+                      title="Sydney No. 1 Lake Park"
                     >
-                      Sidney No. 1 Lake Park
+                      Sydney No. 1 Lake Park
                     </td>
                   </tr>
                   <tr
@@ -21395,12 +21715,13 @@ exports[`renders ./components/table/demo/resizable-column.tsx extend context cor
                         class="ant-table-column-sorter ant-table-column-sorter-full"
                       >
                         <span
+                          aria-hidden="true"
                           class="ant-table-column-sorter-inner"
                         >
                           <span
                             aria-label="caret-up"
                             class="anticon anticon-caret-up ant-table-column-sorter-up"
-                            role="presentation"
+                            role="img"
                           >
                             <svg
                               aria-hidden="true"
@@ -21419,7 +21740,7 @@ exports[`renders ./components/table/demo/resizable-column.tsx extend context cor
                           <span
                             aria-label="caret-down"
                             class="anticon anticon-caret-down ant-table-column-sorter-down"
-                            role="presentation"
+                            role="img"
                           >
                             <svg
                               aria-hidden="true"
@@ -22069,7 +22390,7 @@ exports[`renders ./components/table/demo/row-selection.tsx extend context correc
                     <td
                       class="ant-table-cell"
                     >
-                      Sidney No. 1 Lake Park
+                      Sydney No. 1 Lake Park
                     </td>
                   </tr>
                   <tr
@@ -22112,7 +22433,7 @@ exports[`renders ./components/table/demo/row-selection.tsx extend context correc
                     <td
                       class="ant-table-cell"
                     >
-                      Sidney No. 1 Lake Park
+                      Sydney No. 1 Lake Park
                     </td>
                   </tr>
                 </tbody>
@@ -26546,7 +26867,7 @@ Array [
                     <td
                       class="ant-table-cell"
                     >
-                      Sidney No. 1 Lake Park
+                      Sydney No. 1 Lake Park
                     </td>
                   </tr>
                 </tbody>
@@ -26752,7 +27073,7 @@ Array [
                     <td
                       class="ant-table-cell"
                     >
-                      Sidney No. 1 Lake Park
+                      Sydney No. 1 Lake Park
                     </td>
                   </tr>
                 </tbody>
@@ -28985,7 +29306,7 @@ Array [
                     <td
                       class="ant-table-cell"
                     >
-                      Sidney No. 1 Lake Park
+                      Sydney No. 1 Lake Park
                     </td>
                   </tr>
                 </tbody>
@@ -29708,7 +30029,7 @@ Array [
                     <td
                       class="ant-table-cell"
                     >
-                      Sidney No. 1 Lake Park
+                      Sydney No. 1 Lake Park
                     </td>
                   </tr>
                 </tbody>

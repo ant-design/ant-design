@@ -440,16 +440,6 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 | warningOnly | 仅警告，不阻塞表单提交 | boolean | 4.17.0 |
 | whitespace | 如果字段仅包含空格则校验不通过，只在 `type: 'string'` 时生效 | boolean |  |
 
-<style>
-.code-box-demo .ant-form:not(.ant-form-inline):not(.ant-form-vertical) {
-  max-width: 600px;
-}
-.markdown.api-container table td:nth-of-type(4) {
-  white-space: nowrap;
-  word-wrap: break-word;
-}
-</style>
-
 ## FAQ
 
 ### 自定义 validator 没有效果
@@ -539,12 +529,9 @@ Form.List 下的字段需要包裹 Form.List 本身的 `name`，比如：
 React 中异步更新会导致受控组件交互行为异常。当用户交互触发 `onChange` 后，通过异步改变值会导致组件 `value` 不会立刻更新，使得组件呈现假死状态。如果你需要异步触发变更，请通过自定义组件实现内部异步状态。
 
 <style>
-  .site-form-item-icon {
-    color: rgba(0, 0, 0, 0.25);
-  }
-  [data-theme="dark"] .site-form-item-icon {
-    color: rgba(255,255,255,.3);
-  }
+.site-form-item-icon {
+  color: rgba(0, 0, 0, 0.25);
+}
 </style>
 
 ### 自定义表单控件 `scrollToFirstError` 和 `scrollToField` 失效？

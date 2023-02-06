@@ -170,7 +170,7 @@ const genDropdownStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject
         backgroundClip: 'padding-box',
         borderRadius: token.borderRadiusLG,
         outline: 'none',
-        boxShadow: token.boxShadow,
+        boxShadow: token.boxShadowSecondary,
 
         '&-item': {
           ...textEllipsis,
@@ -772,22 +772,6 @@ const genTabsStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
           padding: tabsCardHorizontalPadding,
           background: 'transparent',
           border: 0,
-
-          '&::after': {
-            position: 'absolute',
-            right: {
-              _skip_check_: true,
-              value: 0,
-            },
-            bottom: 0,
-            left: {
-              _skip_check_: true,
-              value: 0,
-            },
-            height: token.controlHeightLG / 8,
-            transform: 'translateY(100%)',
-            content: "''",
-          },
         },
 
         [`${componentCls}-nav-add`]: {

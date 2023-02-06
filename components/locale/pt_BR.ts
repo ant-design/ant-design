@@ -21,6 +21,8 @@ const localeValues: Locale = {
     filterConfirm: 'OK',
     filterReset: 'Resetar',
     filterEmptyText: 'Sem filtros',
+    filterCheckall: 'Selecionar todos os itens',
+    filterSearchPlaceholder: 'Pesquisar nos filtros',
     emptyText: 'Sem conteúdo',
     selectAll: 'Selecionar página atual',
     selectInvert: 'Inverter seleção',
@@ -32,6 +34,11 @@ const localeValues: Locale = {
     triggerDesc: 'Clique organiza por descendente',
     triggerAsc: 'Clique organiza por ascendente',
     cancelSort: 'Clique para cancelar organização',
+  },
+  Tour: {
+    Next: 'Próximo',
+    Previous: 'Anterior',
+    Finish: 'Finalizar',
   },
   Modal: {
     okText: 'OK',
