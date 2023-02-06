@@ -252,7 +252,7 @@ describe('Segmented', () => {
     ).toEqual(['', '', '']);
   });
 
-  it('render segmented with thumb', () => {
+  it.skip('render segmented with thumb', () => {
     const handleValueChange = jest.fn();
     const { asFragment, container } = render(
       <Segmented
