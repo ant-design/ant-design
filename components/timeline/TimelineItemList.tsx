@@ -60,7 +60,8 @@ const TimelineItemList: React.FC<TimelineProps & { hashId: string; direction?: s
             getPositionCls(item?.position ?? '', idx),
           ])}
           {...item}
-          key={item.content as string}
+          /* eslint-disable-next-line react/no-array-index-key */
+          key={idx}
         />
       );
     });

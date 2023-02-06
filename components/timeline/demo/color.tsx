@@ -10,6 +10,10 @@ const App: React.FC = () => (
         content: 'Create a services site 2015-09-01',
       },
       {
+        color: 'green',
+        content: 'Create a services site 2015-09-01',
+      },
+      {
         color: 'red',
         content: (
           <>
