@@ -225,6 +225,13 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
           borderRadius: Math.min(tourBorderRadius, MAX_VERTICAL_CONTENT_RADIUS),
         },
       },
+
+      [`@media (max-width: ${token.screenMD}px)`]: {
+        [componentCls]: {
+          maxWidth: 'calc(100vw - 16px)',
+          margin: `0 ${token.marginXS}`,
+        },
+      },
     },
 
     // ============================= Arrow ===========================
