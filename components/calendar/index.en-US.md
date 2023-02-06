@@ -39,7 +39,7 @@ When data is in the form of dates, such as schedules, timetables, prices calenda
 ```
 
 | Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- | --- |
 | dateCellRender | Customize the display of the date cell, the returned content will be appended to the cell | function(date: Dayjs): ReactNode | - |  |
 | dateFullCellRender | Customize the display of the date cell, the returned content will override the cell | function(date: Dayjs): ReactNode | - |  |
 | defaultValue | The date selected by default | [dayjs](https://day.js.org/) | - |  |
@@ -54,6 +54,7 @@ When data is in the form of dates, such as schedules, timetables, prices calenda
 | value | The current selected date | [dayjs](https://day.js.org/) | - |  |
 | onChange | Callback for when date changes | function(date: Dayjs) | - |  |
 | onPanelChange | Callback for when panel changes | function(date: Dayjs, mode: string) | - |  |
+| selectable | Make calendar selectable by `date`, `month` and `year` |  | ('date' | 'year' | 'month')[] | - |  |
 | onSelect | Callback for when a date is selected | function(date: Dayjs） | - |  |
 
 ## FAQ

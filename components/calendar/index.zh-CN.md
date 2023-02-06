@@ -40,7 +40,7 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*nF6_To7pDSAAAAAAAA
 ```
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- | --- |
 | dateCellRender | 自定义渲染日期单元格，返回内容会被追加到单元格 | function(date: Dayjs): ReactNode | - |  |
 | dateFullCellRender | 自定义渲染日期单元格，返回内容覆盖单元格 | function(date: Dayjs): ReactNode | - |  |
 | defaultValue | 默认展示的日期 | [dayjs](https://day.js.org/) | - |  |
@@ -55,6 +55,7 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*nF6_To7pDSAAAAAAAA
 | value | 展示日期 | [dayjs](https://day.js.org/) | - |  |
 | onChange | 日期变化回调 | function(date: Dayjs) | - |  |
 | onPanelChange | 日期面板变化回调 | function(date: Dayjs, mode: string) | - |  |
+| selectable | 使日历可以按`date`、`month`和`year`进行选择 |  | ('date' | 'year' | 'month')[] | - |  |
 | onSelect | 点击选择日期回调 | function(date: Dayjs） | - |  |
 
 ## FAQ
