@@ -119,7 +119,7 @@ describe('Calendar', () => {
 
     onSelect.mockReset();
 
-    wrapper.rerender(<Calendar onSelect={onSelect} mode={'month'} selectable={['month']} />);
+    wrapper.rerender(<Calendar onSelect={onSelect} mode='month' selectable={['month']} />);
 
     openSelect(wrapper.container, '.ant-picker-calendar-month-select');
     fireEvent.click(
@@ -195,7 +195,7 @@ describe('Calendar', () => {
 
     onSelect.mockReset();
 
-    wrapper.rerender(<Calendar onSelect={onSelect} mode={'month'} selectable={['date']} />);
+    wrapper.rerender(<Calendar onSelect={onSelect} mode='month' selectable={['date']} />);
 
     openSelect(wrapper.container, '.ant-picker-calendar-month-select');
     fireEvent.click(
@@ -242,9 +242,7 @@ describe('Calendar', () => {
 
     onSelect.mockReset();
 
-    wrapper.rerender(
-      <Calendar onSelect={onSelect} mode={'month'} selectable={['date', 'month']} />,
-    );
+    wrapper.rerender(<Calendar onSelect={onSelect} mode='month' selectable={['date', 'month']} />);
 
     openSelect(wrapper.container, '.ant-picker-calendar-month-select');
     fireEvent.click(
@@ -291,7 +289,7 @@ describe('Calendar', () => {
 
     onSelect.mockReset();
 
-    wrapper.rerender(<Calendar onSelect={onSelect} mode={'month'} selectable={['date', 'year']} />);
+    wrapper.rerender(<Calendar onSelect={onSelect} mode='month' selectable={['date', 'year']} />);
 
     openSelect(wrapper.container, '.ant-picker-calendar-month-select');
     fireEvent.click(
@@ -338,9 +336,7 @@ describe('Calendar', () => {
 
     onSelect.mockReset();
 
-    wrapper.rerender(
-      <Calendar onSelect={onSelect} mode={'month'} selectable={['month', 'year']} />,
-    );
+    wrapper.rerender(<Calendar onSelect={onSelect} mode='month' selectable={['month', 'year']} />);
 
     openSelect(wrapper.container, '.ant-picker-calendar-month-select');
     fireEvent.click(
