@@ -87,8 +87,11 @@ const Demo: React.FC<DemoProps> = (props) => {
   const { theme } = useContext<SiteContextProps>(SiteContext);
 
   const { hash, pathname, search } = location;
-  const isDev = process.env.NODE_ENV === 'development';
   const docsOnlineUrl = `https://ant.design${pathname}${search}#${meta.id}`;
+
+  const regexp = /preview-(\d+)-ant-design/; // matching PR preview addresses
+  const showOnlineUrl =
+    process.env.NODE_ENV === 'development' || regexp.test(window.location.hostname);
 
   const handleCodeExpand = (demo: string) => {
     setCodeExpand((prev) => !prev);
@@ -347,7 +350,7 @@ const Demo: React.FC<DemoProps> = (props) => {
         </div>
         <div className="code-box-description">{introChildren}</div>
         <Space wrap size="middle" className="code-box-actions">
-          {isDev && (
+          {showOnlineUrl && (
             <Tooltip title={<FormattedMessage id="app.demo.online" />}>
               <a
                 className="code-box-code-action"
