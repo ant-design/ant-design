@@ -27,7 +27,7 @@ demo:
 <code src="./demo/label.tsx">标签</code>
 <code src="./demo/wireframe.tsx" debug>线框风格</code>
 
-<Alert message="5.2.0版本之后，我们提供了更简单的用法 &lt;Timeline items={[...]} /&gt; 其以提供具有更好的性能和使您在应用程序中能编写更简单代码潜力。 与此同时，我们弃用了旧的用法，我们将在 antd 6.0 中删除它。" />
+<Alert message="5.2.0版本之后，我们提供了更简单的用法 &lt;Timeline items={[...]} /&gt; 以提供具有更好的性能和使您在应用程序中能编写更简单代码潜力。 与此同时，我们弃用了旧的用法，我们将在 antd 6.0 中删除它。"></Alert>
 
 ```jsx
 // >=5.2.0 可用，推荐的写法 ✅
