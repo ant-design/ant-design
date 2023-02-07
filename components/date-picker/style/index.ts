@@ -869,14 +869,14 @@ const genPickerStatusStyle: GenerateStyle<PickerToken> = (token) => {
   } = token;
 
   return {
-    [componentCls]: {
-      [`&-status-error${componentCls}`]: {
+    [`${componentCls}:not(${componentCls}-disabled)`]: {
+      [`&${componentCls}-status-error`]: {
         '&, &:not([disabled]):hover': {
           backgroundColor: colorBgContainer,
           borderColor: colorError,
         },
 
-        '&-focused, &:focus': {
+        [`&${componentCls}-focused, &:focus`]: {
           ...genActiveStyle(
             mergeToken<PickerToken>(token, {
               inputBorderActiveColor: colorError,
@@ -891,13 +891,13 @@ const genPickerStatusStyle: GenerateStyle<PickerToken> = (token) => {
         },
       },
 
-      [`&-status-warning${componentCls}`]: {
+      [`&${componentCls}-status-warning`]: {
         '&, &:not([disabled]):hover': {
           backgroundColor: colorBgContainer,
           borderColor: colorWarning,
         },
 
-        '&-focused, &:focus': {
+        [`&${componentCls}-focused, &:focus`]: {
           ...genActiveStyle(
             mergeToken<PickerToken>(token, {
               inputBorderActiveColor: colorWarning,
