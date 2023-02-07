@@ -1,8 +1,10 @@
-import React, { useRef, useEffect } from 'react';
+/* eslint-disable react/no-unstable-nested-components */
+import React, { useEffect, useRef } from 'react';
 import Tour from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, screen } from '../../../tests/utils';
+import type { TourProps } from '../interface';
 import panelRender from '../panelRender';
 
 describe('Tour', () => {
@@ -336,5 +338,35 @@ describe('Tour', () => {
       'rgb(69, 69, 255)',
     );
     expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it('custom indicator', () => {
+    const steps: TourProps['steps'] = [
+      {
+        title: 'Upload File',
+        description: 'Put your files here.',
+      },
+      {
+        title: 'Save',
+        description: 'Save your changes.',
+      },
+      {
+        title: 'Other Actions',
+        description: 'Click to see other actions.',
+      },
+    ];
+    const App: React.FC = () => (
+      <Tour
+        open
+        steps={steps}
+        stepRender={(current, total) => (
+          <span className="custom-indicator">
+            {current + 1} / {total}
+          </span>
+        )}
+      />
+    );
+    const { container } = render(<App />);
+    expect(container.querySelector<HTMLSpanElement>('.custom-indicator')).toBeTruthy();
   });
 });
