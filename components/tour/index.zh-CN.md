@@ -40,7 +40,7 @@ demo:
 | onChange | 步骤改变时的回调，current 为当前前的步骤 | `(current: number) => void` | - |  |
 | current | 当前处于哪一步 | `number` | - |  |
 | scrollIntoViewOptions | 是否支持当前元素滚动到视窗内，也可传入配置指定滚动视窗的相关参数 | `boolean \| ScrollIntoViewOptions` | `true` | 5.2.0 |
-| indicatorsRender | 自定义指示器 | `(current: number, total: number) => ReactNode` | - |  |
+| indicatorsRender | 自定义指示器 | `(current: number, total: number) => ReactNode` | - | 5.2.0 |
 
 ### TourStep 引导步骤卡片
 
