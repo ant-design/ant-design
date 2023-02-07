@@ -1,8 +1,7 @@
-import React, { useCallback, useRef, useState } from 'react';
 import { UploadOutlined } from '@ant-design/icons';
 import { Button, Tooltip, Upload } from 'antd';
 import type { UploadFile, UploadProps } from 'antd/es/upload/interface';
-import update from 'immutability-helper';
+import React, { useCallback, useRef, useState } from 'react';
 import { DndProvider, useDrag, useDrop } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 
@@ -95,14 +94,12 @@ const App: React.FC = () => {
   const moveRow = useCallback(
     (dragIndex: number, hoverIndex: number) => {
       const dragRow = fileList[dragIndex];
-      setFileList(
-        update(fileList, {
-          $splice: [
-            [dragIndex, 1],
-            [hoverIndex, 0, dragRow],
-          ],
-        }),
-      );
+      setFileList((currentFileList) => {
+        const newFileList = [...currentFileList];
+        newFileList.splice(dragIndex, 1);
+        newFileList.splice(hoverIndex, 0, dragRow);
+        return newFileList;
+      });
     },
     [fileList],
   );

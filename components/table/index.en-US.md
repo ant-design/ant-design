@@ -91,6 +91,7 @@ const columns = [
 <code src="./demo/edit-row.tsx">Editable Rows</code>
 <code src="./demo/nested-table.tsx">Nested tables</code>
 <code src="./demo/drag-sorting.tsx">Drag sorting</code>
+<code src="./demo/drag-sorting-handler.tsx">Drag sorting with handler</code>
 <code src="./demo/resizable-column.tsx" debug>Resizable column</code>
 <code src="./demo/ellipsis.tsx">ellipsis column</code>
 <code src="./demo/ellipsis-custom-tooltip.tsx">ellipsis column custom tooltip</code>
@@ -306,7 +307,7 @@ const data: User[] = [
 export default () => (
   <>
     <Table<User> columns={columns} dataSource={data} />
-    /* JSX style usage */
+    {/* JSX style usage */}
     <Table<User> dataSource={data}>
       <Table.Column<User> key="name" title="Name" dataIndex="name" />
     </Table>

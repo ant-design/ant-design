@@ -163,7 +163,7 @@ const genModalStyle: GenerateStyle<ModalToken> = (token) => {
           backgroundClip: 'padding-box',
           border: 0,
           borderRadius: token.borderRadiusLG,
-          boxShadow: token.boxShadowSecondary,
+          boxShadow: token.boxShadow,
           pointerEvents: 'auto',
           padding: `${token.paddingMD}px ${token.paddingContentHorizontalLG}px`,
         },

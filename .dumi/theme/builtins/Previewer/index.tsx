@@ -13,6 +13,7 @@ import React, { useContext, useEffect, useRef, useState } from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import ReactDOM from 'react-dom';
 import { FormattedMessage } from 'dumi';
+import ClientOnly from '../../common/ClientOnly';
 import BrowserFrame from '../../common/BrowserFrame';
 import EditButton from '../../common/EditButton';
 import CodePenIcon from '../../common/CodePenIcon';
@@ -86,8 +87,11 @@ const Demo: React.FC<DemoProps> = (props) => {
   const { theme } = useContext<SiteContextProps>(SiteContext);
 
   const { hash, pathname, search } = location;
-  const isDev = process.env.NODE_ENV === 'development';
   const docsOnlineUrl = `https://ant.design${pathname}${search}#${meta.id}`;
+
+  const regexp = /preview-(\d+)-ant-design/; // matching PR preview addresses
+  const showOnlineUrl =
+    process.env.NODE_ENV === 'development' || regexp.test(window.location.hostname);
 
   const handleCodeExpand = (demo: string) => {
     setCodeExpand((prev) => !prev);
@@ -195,7 +199,7 @@ const Demo: React.FC<DemoProps> = (props) => {
   const codepenPrefillConfig = {
     title: `${localizedTitle} - antd@${dependencies.antd}`,
     html,
-    js: `${'const { createRoot } = ReactDOM;\n'}${sourceCodes?.jsx
+    js: `const { createRoot } = ReactDOM;\n${sourceCodes?.jsx
       .replace(/import\s+(?:React,\s+)?{(\s+[^}]*\s+)}\s+from\s+'react'/, `const { $1 } = React;`)
       .replace(/import\s+{(\s+[^}]*\s+)}\s+from\s+'antd';/, 'const { $1 } = antd;')
       .replace(/import\s+{(\s+[^}]*\s+)}\s+from\s+'@ant-design\/icons';/, 'const { $1 } = icons;')
@@ -346,7 +350,7 @@ const Demo: React.FC<DemoProps> = (props) => {
         </div>
         <div className="code-box-description">{introChildren}</div>
         <Space wrap size="middle" className="code-box-actions">
-          {isDev && (
+          {showOnlineUrl && (
             <Tooltip title={<FormattedMessage id="app.demo.online" />}>
               <a
                 className="code-box-code-action"
@@ -407,7 +411,9 @@ const Demo: React.FC<DemoProps> = (props) => {
               codepenIconRef.current?.submit();
             }}
           >
-            <input type="hidden" name="data" value={JSON.stringify(codepenPrefillConfig)} />
+            <ClientOnly>
+              <input type="hidden" name="data" value={JSON.stringify(codepenPrefillConfig)} />
+            </ClientOnly>
             <Tooltip title={<FormattedMessage id="app.demo.codepen" />}>
               <CodePenIcon className="code-box-codepen" />
             </Tooltip>

@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
 import omit from 'rc-util/lib/omit';
-import * as React from 'react';
+import React, { createRef, forwardRef, useContext } from 'react';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import throttleByAnimationFrame from '../_util/throttleByAnimationFrame';
@@ -50,7 +50,6 @@ export interface AffixState {
   placeholderStyle?: React.CSSProperties;
   status: AffixStatus;
   lastAffix: boolean;
-
   prevTarget: Window | HTMLElement | null;
 }
 
@@ -63,11 +62,11 @@ class Affix extends React.Component<InternalAffixProps, AffixState> {
     prevTarget: null,
   };
 
-  placeholderNode: HTMLDivElement;
+  private placeholderNodeRef = createRef<HTMLDivElement>();
 
-  fixedNode: HTMLDivElement;
+  private fixedNodeRef = createRef<HTMLDivElement>();
 
-  private timeout: NodeJS.Timeout | null;
+  private timer: NodeJS.Timeout | null;
 
   context: ConfigConsumerProps;
 
@@ -88,7 +87,7 @@ class Affix extends React.Component<InternalAffixProps, AffixState> {
     if (targetFunc) {
       // [Legacy] Wait for parent component ref has its value.
       // We should use target as directly element instead of function which makes element check hard.
-      this.timeout = setTimeout(() => {
+      this.timer = setTimeout(() => {
         addObserveTarget(targetFunc(), this);
         // Mock Event object.
         this.updatePosition();
@@ -119,14 +118,13 @@ class Affix extends React.Component<InternalAffixProps, AffixState> {
     ) {
       this.updatePosition();
     }
-
     this.measure();
   }
 
   componentWillUnmount() {
-    if (this.timeout) {
-      clearTimeout(this.timeout);
-      this.timeout = null;
+    if (this.timer) {
+      clearTimeout(this.timer);
+      this.timer = null;
     }
     removeObserveTarget(this);
     this.updatePosition.cancel();
@@ -141,20 +139,17 @@ class Affix extends React.Component<InternalAffixProps, AffixState> {
 
   getOffsetBottom = () => this.props.offsetBottom;
 
-  savePlaceholderNode = (node: HTMLDivElement) => {
-    this.placeholderNode = node;
-  };
-
-  saveFixedNode = (node: HTMLDivElement) => {
-    this.fixedNode = node;
-  };
-
   // =================== Measure ===================
   measure = () => {
     const { status, lastAffix } = this.state;
     const { onChange } = this.props;
     const targetFunc = this.getTargetFunc();
-    if (status !== AffixStatus.Prepare || !this.fixedNode || !this.placeholderNode || !targetFunc) {
+    if (
+      status !== AffixStatus.Prepare ||
+      !this.fixedNodeRef.current ||
+      !this.placeholderNodeRef.current ||
+      !targetFunc
+    ) {
       return;
     }
 
@@ -170,7 +165,7 @@ class Affix extends React.Component<InternalAffixProps, AffixState> {
       status: AffixStatus.None,
     };
     const targetRect = getTargetRect(targetNode);
-    const placeholderReact = getTargetRect(this.placeholderNode);
+    const placeholderReact = getTargetRect(this.placeholderNodeRef.current);
     const fixedTop = getFixedTop(placeholderReact, targetRect, offsetTop);
     const fixedBottom = getFixedBottom(placeholderReact, targetRect, offsetBottom);
 
@@ -244,9 +239,9 @@ class Affix extends React.Component<InternalAffixProps, AffixState> {
       const offsetBottom = this.getOffsetBottom();
 
       const targetNode = targetFunc();
-      if (targetNode && this.placeholderNode) {
+      if (targetNode && this.placeholderNodeRef.current) {
         const targetRect = getTargetRect(targetNode);
-        const placeholderReact = getTargetRect(this.placeholderNode);
+        const placeholderReact = getTargetRect(this.placeholderNodeRef.current);
         const fixedTop = getFixedTop(placeholderReact, targetRect, offsetTop);
         const fixedBottom = getFixedBottom(placeholderReact, targetRect, offsetBottom);
 
@@ -287,9 +282,9 @@ class Affix extends React.Component<InternalAffixProps, AffixState> {
 
     return (
       <ResizeObserver onResize={this.updatePosition}>
-        <div {...props} ref={this.savePlaceholderNode}>
+        <div {...props} ref={this.placeholderNodeRef}>
           {affixStyle && <div style={placeholderStyle} aria-hidden="true" />}
-          <div className={className} ref={this.saveFixedNode} style={affixStyle}>
+          <div className={className} ref={this.fixedNodeRef} style={affixStyle}>
             <ResizeObserver onResize={this.updatePosition}>{children}</ResizeObserver>
           </div>
         </div>
@@ -300,9 +295,9 @@ class Affix extends React.Component<InternalAffixProps, AffixState> {
 // just use in test
 export type InternalAffixClass = Affix;
 
-const AffixFC = React.forwardRef<Affix, AffixProps>((props, ref) => {
+const AffixFC = forwardRef<Affix, AffixProps>((props, ref) => {
   const { prefixCls: customizePrefixCls, rootClassName } = props;
-  const { getPrefixCls } = React.useContext(ConfigContext);
+  const { getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
   const affixPrefixCls = getPrefixCls('affix', customizePrefixCls);
 
   const [wrapSSR, hashId] = useStyle(affixPrefixCls);

@@ -35,7 +35,7 @@ const customRender = (ui: ReactElement, options?: Omit<RenderOptions, 'wrapper'>
 export function renderHook<T>(func: () => T): { result: React.RefObject<T> } {
   const result = React.createRef<T>();
 
-  const Demo = () => {
+  const Demo: React.FC = () => {
     (result as any).current = func();
 
     return null;

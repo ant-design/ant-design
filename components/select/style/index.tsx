@@ -64,7 +64,6 @@ const genStatusStyle = (
     borderHoverColor: string;
     outlineColor: string;
     controlOutlineWidth: number;
-    controlLineWidth: number;
   },
   overwriteDefaultBorder: boolean = false,
 ): CSSObject => {
@@ -87,13 +86,11 @@ const genStatusStyle = (
           [`${componentCls}-focused& ${componentCls}-selector`]: {
             borderColor: borderHoverColor,
             boxShadow: `0 0 0 ${token.controlOutlineWidth}px ${outlineColor}`,
-            borderInlineEndWidth: `${token.controlLineWidth}px !important`,
             outline: 0,
           },
 
           [`&:hover ${componentCls}-selector`]: {
             borderColor: borderHoverColor,
-            borderInlineEndWidth: `${token.controlLineWidth}px !important`,
           },
         },
     },

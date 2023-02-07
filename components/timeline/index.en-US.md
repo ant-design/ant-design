@@ -26,29 +26,37 @@ Vertical display timeline.
 <code src="./demo/label.tsx">Label</code>
 <code src="./demo/wireframe.tsx" debug>Wireframe</code>
 
-## API
+```__react
+import Alert from '../alert';
+ReactDOM.render(<Alert message="After version 5.3.0, we provide a simpler usage <Timeline items={[...]} />  with better performance and potential of writing simpler code style in your applications. Meanwhile, we deprecated the old usage in browser console, we will remove it in antd 6.0." />, mountNode);
+```
 
 ```jsx
-<Timeline>
-  <Timeline.Item>step1 2015-09-01</Timeline.Item>
-  <Timeline.Item>step2 2015-09-01</Timeline.Item>
-  <Timeline.Item>step3 2015-09-01</Timeline.Item>
-  <Timeline.Item>step4 2015-09-01</Timeline.Item>
-</Timeline>
+// works when >=5.3.0, recommended ✅
+const items = [{ children: 'sample', label: 'sample' }];
+return <Timeline items={items} />;
+
+// works when <5.3.0, deprecated when >=5.3.0 🙅🏻‍♀️
+<Timeline onChange={onChange}>
+  <Timeline.Item>Sample</Timeline.Item>
+</Timeline>;
 ```
+
+## API
 
 ### Timeline
 
 Timeline
 
 | Property | Description | Type | Default |
-| --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | mode | By sending `alternate` the timeline will distribute the nodes to the left and right | `left` \| `alternate` \| `right` | - |
 | pending | Set the last ghost node's existence or its content | boolean \| ReactNode | false |
 | pendingDot | Set the dot of the last ghost node when pending is true | ReactNode | &lt;LoadingOutlined /> |
 | reverse | Whether reverse nodes or not | boolean | false |
+| items | 选项配置 | [Items](#Items) | [] | 5.3.0 |
 
-### Timeline.Item
+### Items
 
 Node of timeline
 
@@ -57,4 +65,5 @@ Node of timeline
 | color | Set the circle's color to `blue`, `red`, `green`, `gray` or other custom colors | string | `blue` |
 | dot | Customize timeline dot | ReactNode | - |
 | label | Set the label | ReactNode | - |
+| children | Set the content | ReactNode | - |
 | position | Customize node position | `left` \| `right` | - |
