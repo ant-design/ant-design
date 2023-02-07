@@ -15,9 +15,9 @@ export function file2Obj(file: RcFile): InternalUploadFile {
 }
 
 /** Upload fileList. Replace file if exist or just push into it. */
-export function updateFileList(file: UploadFile, fileList: (UploadFile | Readonly<UploadFile>)[]) {
+export function updateFileList(file: UploadFile<any>, fileList: UploadFile<any>[]) {
   const nextFileList = [...fileList];
-  const fileIndex = nextFileList.findIndex(({ uid }) => uid === file.uid);
+  const fileIndex = nextFileList.findIndex(({ uid }: UploadFile) => uid === file.uid);
   if (fileIndex === -1) {
     nextFileList.push(file);
   } else {
@@ -26,12 +26,12 @@ export function updateFileList(file: UploadFile, fileList: (UploadFile | Readonl
   return nextFileList;
 }
 
-export function getFileItem(file: RcFile, fileList: (UploadFile | Readonly<UploadFile>)[]) {
+export function getFileItem(file: RcFile, fileList: UploadFile[]) {
   const matchKey = file.uid !== undefined ? 'uid' : 'name';
   return fileList.filter((item) => item[matchKey] === file[matchKey])[0];
 }
 
-export function removeFileItem(file: UploadFile, fileList: (UploadFile | Readonly<UploadFile>)[]) {
+export function removeFileItem(file: UploadFile, fileList: UploadFile[]) {
   const matchKey = file.uid !== undefined ? 'uid' : 'name';
   const removed = fileList.filter((item) => item[matchKey] !== file[matchKey]);
   if (removed.length === fileList.length) {
@@ -74,7 +74,6 @@ export const isImageUrl = (file: UploadFile): boolean => {
 };
 
 const MEASURE_SIZE = 200;
-
 export function previewImage(file: File | Blob): Promise<string> {
   return new Promise((resolve) => {
     if (!file.type || !isImageFileType(file.type)) {

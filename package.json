@@ -265,7 +265,7 @@
     "react-infinite-scroll-component": "^6.1.0",
     "react-resizable": "^3.0.1",
     "react-router-dom": "^6.0.2",
-    "react-sticky-box": "^2.0.0",
+    "react-sticky-box": "^1.0.2",
     "react-window": "^1.8.5",
     "remark": "^14.0.1",
     "remark-cli": "^11.0.0",
