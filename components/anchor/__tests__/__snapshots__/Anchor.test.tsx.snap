@@ -1,5 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Anchor Render render items and ignore jsx children 1`] = `
+<div>
+  <div
+    class=""
+  >
+    <div
+      class="ant-anchor-wrapper"
+      style="max-height: 100vh;"
+    >
+      <div
+        class="ant-anchor"
+      >
+        <span
+          class="ant-anchor-ink"
+        />
+        <div
+          class="ant-anchor-link"
+        >
+          <a
+            class="ant-anchor-link-title"
+            href="#components-anchor-demo-basic"
+            title="Item Basic Demo"
+          >
+            Item Basic Demo
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Anchor Render renders items correctly 1`] = `
 <div>
   <div
@@ -12,13 +44,9 @@ exports[`Anchor Render renders items correctly 1`] = `
       <div
         class="ant-anchor"
       >
-        <div
+        <span
           class="ant-anchor-ink"
-        >
-          <span
-            class="ant-anchor-ink-ball"
-          />
-        </div>
+        />
         <div
           class="ant-anchor-link"
         >
@@ -73,6 +101,60 @@ exports[`Anchor Render renders items correctly 1`] = `
               </a>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Anchor Render renders items correctly#horizontal 1`] = `
+<div>
+  <div
+    class=""
+  >
+    <div
+      class="ant-anchor-wrapper"
+      style="max-height: 100vh;"
+    >
+      <div
+        class="ant-anchor"
+      >
+        <span
+          class="ant-anchor-ink"
+        />
+        <div
+          class="ant-anchor-link"
+        >
+          <a
+            class="ant-anchor-link-title"
+            href="#components-anchor-demo-basic"
+            title="Item Basic Demo"
+          >
+            Item Basic Demo
+          </a>
+        </div>
+        <div
+          class="ant-anchor-link"
+        >
+          <a
+            class="ant-anchor-link-title"
+            href="#components-anchor-demo-static"
+            title="Static demo"
+          >
+            Static demo
+          </a>
+        </div>
+        <div
+          class="ant-anchor-link"
+        >
+          <a
+            class="ant-anchor-link-title"
+            href="#api"
+            title="API"
+          >
+            API
+          </a>
         </div>
       </div>
     </div>

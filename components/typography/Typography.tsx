@@ -11,6 +11,7 @@ export interface TypographyProps<C extends keyof JSX.IntrinsicElements>
   id?: string;
   prefixCls?: string;
   className?: string;
+  rootClassName?: string;
   style?: React.CSSProperties;
   children?: React.ReactNode;
   /** @internal */
@@ -34,6 +35,7 @@ const Typography = React.forwardRef<
       prefixCls: customizePrefixCls,
       component: Component = 'article',
       className,
+      rootClassName,
       setContentRef,
       children,
       direction: typographyDirection,
@@ -62,6 +64,7 @@ const Typography = React.forwardRef<
         [`${prefixCls}-rtl`]: direction === 'rtl',
       },
       className,
+      rootClassName,
       hashId,
     );
 

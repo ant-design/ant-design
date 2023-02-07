@@ -110,11 +110,11 @@ Since the boilerplate uses configured routing, as the name implies, the routes a
 Then we edit the `src/layouts/index.tsx` file and add the navigation to the `/products` path in the global layout route.
 
 ```diff
-<li>  
-  <Link to="/docs">Docs</Link>  
-</li>  
-+ <li>  
-+   <Link to="/products">Products</Link>  
+<li>
+  <Link to="/docs">Docs</Link>
+</li>
++ <li>
++   <Link to="/products">Products</Link>
 + </li>
 ```
 
@@ -129,8 +129,8 @@ As your application grows, you'll need to share UI elements across multiple page
 Create a new `src/components/ProductList.tsx` file with the following code.
 
 ```tsx
+import { Button, Popconfirm, Table } from 'antd';
 import React from 'react';
-import { Table, Popconfirm, Button } from 'antd';
 
 const ProductList: React.FC<{ products: { name: string }[]; onDelete: (id: string) => void }> = ({
   onDelete,
@@ -165,7 +165,7 @@ Assuming we have agreed on an API interface with the backend developers, we can 
 Create a `mock` directory and add a new `products.ts` file to this directory with the following code.
 
 ```ts
-import { defineMock } from "umi";
+import { defineMock } from 'umi';
 
 type Product = {
   id: string;
@@ -178,7 +178,7 @@ let products: Product[] = [
   { id: '3', name: 'Ant Design Pro' },
   { id: '4', name: 'Dva' },
 ];
-  
+
 export default defineMock({
   'GET /api/products': (_, res) => {
     res.send({
@@ -189,7 +189,7 @@ export default defineMock({
   'DELETE /api/products/:id': (req, res) => {
     products = products.filter((item) => item.id !== req.params.id);
     res.send({ status: 'ok' });
-  }
+  },
 });
 ```
 
@@ -219,11 +219,11 @@ export default defineConfig({
 Edit `src/pages/products.tsx` with the following code.
 
 ```tsx
+import ProductList from '@/components/ProductList';
+import axios from 'axios';
 import React from 'react';
-import { useQuery, useMutation, useQueryClient } from 'umi';
-import axios from "axios";
+import { useMutation, useQuery, useQueryClient } from 'umi';
 import styles from './products.less';
-import ProductList from "@/components/ProductList";
 
 export default function Page() {
   const queryClient = useQueryClient();
@@ -239,14 +239,17 @@ export default function Page() {
     onSettled: () => {
       queryClient.invalidateQueries({ queryKey: ['products'] });
     },
-  })
+  });
   if (productsQuery.isLoading) return null;
   return (
     <div>
       <h1 className={styles.title}>Page products</h1>
-      <ProductList products={productsQuery.data.data} onDelete={(id) => {
-        productsDeleteMutation.mutate(id);
-      }} />
+      <ProductList
+        products={productsQuery.data.data}
+        onDelete={(id) => {
+          productsDeleteMutation.mutate(id);
+        }}
+      />
     </div>
   );
 }
@@ -285,8 +288,8 @@ export default defineConfig({
 Edit `src/layouts/index.tsx` with the following code.
 
 ```tsx
-import { Link, Outlet, useAppData, useLocation } from 'umi';
 import { ProLayout } from '@ant-design/pro-layout';
+import { Link, Outlet, useAppData, useLocation } from 'umi';
 
 export default function Layout() {
   const { clientRoutes } = useAppData();

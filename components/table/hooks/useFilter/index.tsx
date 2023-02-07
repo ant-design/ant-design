@@ -189,10 +189,20 @@ interface FilterConfig<RecordType> {
   getPopupContainer?: GetPopupContainer;
 }
 
+const getMergedColumns = <RecordType extends unknown>(
+  rawMergedColumns: ColumnsType<RecordType>,
+): ColumnsType<RecordType> =>
+  rawMergedColumns.flatMap((column) => {
+    if ('children' in column) {
+      return [column, ...getMergedColumns(column.children || [])];
+    }
+    return [column];
+  });
+
 function useFilter<RecordType>({
   prefixCls,
   dropdownPrefixCls,
-  mergedColumns,
+  mergedColumns: rawMergedColumns,
   onFilterChange,
   getPopupContainer,
   locale: tableLocale,
@@ -201,6 +211,8 @@ function useFilter<RecordType>({
   FilterState<RecordType>[],
   Record<string, FilterValue | null>,
 ] {
+  const mergedColumns = getMergedColumns(rawMergedColumns || []);
+
   const [filterStates, setFilterStates] = React.useState<FilterState<RecordType>[]>(() =>
     collectFilterStates(mergedColumns, true),
   );

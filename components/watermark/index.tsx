@@ -1,6 +1,7 @@
-import React, { useEffect, useRef } from 'react';
 import MutateObserver from '@rc-component/mutate-observer';
-import { getStyleStr, getPixelRatio, rotateWatermark, reRendering } from './utils';
+import classNames from 'classnames';
+import React, { useEffect, useRef } from 'react';
+import { getPixelRatio, getStyleStr, reRendering, rotateWatermark } from './utils';
 
 /**
  * Base size of the canvas, 1 for parallel layout and 2 for alternate layout
@@ -25,6 +26,7 @@ export interface WatermarkProps {
   };
   style?: React.CSSProperties;
   className?: string;
+  rootClassName?: string;
   gap?: [number, number];
   offset?: [number, number];
   children?: React.ReactNode;
@@ -45,6 +47,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
     font = {},
     style,
     className,
+    rootClassName,
     gap = [100, 100],
     offset,
     children,
@@ -248,7 +251,11 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
 
   return (
     <MutateObserver onMutate={onMutate}>
-      <div ref={containerRef} className={className} style={{ position: 'relative', ...style }}>
+      <div
+        ref={containerRef}
+        className={classNames(className, rootClassName)}
+        style={{ position: 'relative', ...style }}
+      >
         {children}
       </div>
     </MutateObserver>

@@ -62,6 +62,7 @@ export interface TreeSelectProps<
   treeLine?: TreeProps['showLine'];
   status?: InputStatus;
   switcherIcon?: SwitcherIcon | RcTreeSelectProps<ValueType, OptionType>['switcherIcon'];
+  rootClassName?: string;
 }
 
 const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionType = BaseOptionType>(
@@ -71,6 +72,7 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
     disabled: customDisabled,
     bordered = true,
     className,
+    rootClassName,
     treeCheckable,
     multiple,
     listHeight = 256,
@@ -131,6 +133,7 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
     {
       [`${treeSelectPrefixCls}-dropdown-rtl`]: direction === 'rtl',
     },
+    rootClassName,
     hashId,
   );
 
@@ -198,6 +201,7 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
     getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
     compactItemClassnames,
     className,
+    rootClassName,
     hashId,
   );
 

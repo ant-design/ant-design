@@ -22,8 +22,8 @@ demo:
 <code src="./demo/basic.tsx">基本</code>
 <code src="./demo/triggerType.tsx">三种触发方式</code>
 <code src="./demo/placement.tsx">位置</code>
+<code src="./demo/arrow.tsx">箭头展示</code>
 <code src="./demo/control.tsx">从浮层内关闭</code>
-<code src="./demo/arrow-point-at-center.tsx">箭头指向</code>
 <code src="./demo/hover-with-click.tsx">悬停点击弹出窗口</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/wireframe.tsx" debug>线框风格</code>

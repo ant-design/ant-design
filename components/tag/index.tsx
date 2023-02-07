@@ -15,6 +15,7 @@ export type { CheckableTagProps } from './CheckableTag';
 export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   prefixCls?: string;
   className?: string;
+  rootClassName?: string;
   color?: LiteralUnion<PresetColorType | PresetStatusColorType>;
   closable?: boolean;
   closeIcon?: React.ReactNode;
@@ -34,6 +35,7 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
   {
     prefixCls: customizePrefixCls,
     className,
+    rootClassName,
     style,
     children,
     icon,
@@ -83,6 +85,7 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
+    rootClassName,
     hashId,
   );
 

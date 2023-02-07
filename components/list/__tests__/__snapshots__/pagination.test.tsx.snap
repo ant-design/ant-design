@@ -120,7 +120,7 @@ exports[`List.pagination renders pagination correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-list-pagination"
+    class="ant-list-pagination ant-list-pagination-align-end"
   >
     <ul
       class="ant-pagination my-page"

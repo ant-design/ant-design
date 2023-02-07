@@ -574,4 +574,9 @@ describe('TextArea allowClear', () => {
 
     textareaSpy.mockRestore();
   });
+
+  it('should support custom clearIcon', () => {
+    const { container } = render(<TextArea allowClear={{ clearIcon: 'clear' }} />);
+    expect(container.querySelector('.ant-input-clear-icon')?.textContent).toBe('clear');
+  });
 });

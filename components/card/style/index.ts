@@ -228,7 +228,7 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
     cardShadow,
     cardHeadPadding,
     colorBorderSecondary,
-    boxShadow,
+    boxShadowTertiary,
     cardPaddingBase,
   } = token;
 
@@ -241,7 +241,7 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
       borderRadius: token.borderRadiusLG,
 
       [`&:not(${componentCls}-bordered)`]: {
-        boxShadow,
+        boxShadow: boxShadowTertiary,
       },
 
       [`${componentCls}-head`]: genCardHeadStyle(token),

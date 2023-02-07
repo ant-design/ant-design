@@ -1,15 +1,26 @@
-import type { FC, PropsWithChildren } from 'react';
+import { css } from '@emotion/react';
+import type { PropsWithChildren } from 'react';
 import React from 'react';
-import Sidebar from '../../slots/Sidebar';
-import Content from '../../slots/Content';
 import CommonHelmet from '../../common/CommonHelmet';
+import Content from '../../slots/Content';
+import Sidebar from '../../slots/Sidebar';
 
-const SidebarLayout: FC<PropsWithChildren<{}>> = ({ children }) => (
-  <main style={{ display: 'flex', marginTop: 40 }}>
-    <CommonHelmet />
-    <Sidebar />
-    <Content>{children}</Content>
-  </main>
-);
+const useStyle = () => ({
+  main: css`
+    display: flex;
+    margin-top: 40px;
+  `,
+});
+
+const SidebarLayout: React.FC<PropsWithChildren<{}>> = ({ children }) => {
+  const { main } = useStyle();
+  return (
+    <main css={main}>
+      <CommonHelmet />
+      <Sidebar />
+      <Content>{children}</Content>
+    </main>
+  );
+};
 
 export default SidebarLayout;

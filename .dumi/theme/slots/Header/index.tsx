@@ -1,20 +1,21 @@
-import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
-import { useLocation } from 'dumi';
-import DumiSearchBar from 'dumi/theme-default/slots/SearchBar';
-import classNames from 'classnames';
-import { Col, Modal, Popover, Row, Select } from 'antd';
 import { GithubOutlined, MenuOutlined } from '@ant-design/icons';
 import { ClassNames, css } from '@emotion/react';
+import { Col, Modal, Popover, Row, Select } from 'antd';
+import classNames from 'classnames';
+import { useLocation } from 'dumi';
+import DumiSearchBar from 'dumi/theme-default/slots/SearchBar';
+import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
+import packageJson from '../../../../package.json';
+import useLocale from '../../../hooks/useLocale';
+import useSiteToken from '../../../hooks/useSiteToken';
 import * as utils from '../../utils';
 import { getThemeConfig, ping } from '../../utils';
-import packageJson from '../../../../package.json';
+import type { SiteContextProps } from '../SiteContext';
+import SiteContext from '../SiteContext';
+import type { SharedProps } from './interface';
 import Logo from './Logo';
 import More from './More';
 import Navigation from './Navigation';
-import type { SiteContextProps } from '../SiteContext';
-import SiteContext from '../SiteContext';
-import useSiteToken from '../../../hooks/useSiteToken';
-import useLocale from '../../../hooks/useLocale';
 import SwitchBtn from './SwitchBtn';
 
 const RESPONSIVE_XS = 1120;
@@ -262,7 +263,7 @@ const Header: React.FC = () => {
     'home-header': isHome,
   });
 
-  const sharedProps = {
+  const sharedProps: SharedProps = {
     isZhCN,
     isRTL,
     isClient,

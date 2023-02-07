@@ -41,6 +41,7 @@ export type ListItemLayout = 'horizontal' | 'vertical';
 export interface ListProps<T> {
   bordered?: boolean;
   className?: string;
+  rootClassName?: string;
   style?: React.CSSProperties;
   children?: React.ReactNode;
   dataSource?: T[];
@@ -80,6 +81,7 @@ function List<T>({
   bordered = false,
   split = true,
   className,
+  rootClassName,
   children,
   itemLayout,
   loadMore,
@@ -182,6 +184,7 @@ function List<T>({
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
+    rootClassName,
     hashId,
   );
 
@@ -200,7 +203,12 @@ function List<T>({
     paginationProps.current = largestPage;
   }
   const paginationContent = pagination ? (
-    <div className={`${prefixCls}-pagination`}>
+    <div
+      className={classNames(
+        `${prefixCls}-pagination`,
+        `${prefixCls}-pagination-align-${paginationProps?.align ?? 'end'}`,
+      )}
+    >
       <Pagination
         {...paginationProps}
         onChange={onPaginationChange}

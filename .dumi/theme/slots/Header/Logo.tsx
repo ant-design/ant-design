@@ -1,8 +1,8 @@
-import * as React from 'react';
-import { Link, useLocation } from 'dumi';
 import { css } from '@emotion/react';
-import * as utils from '../../utils';
+import { Link, useLocation } from 'dumi';
+import * as React from 'react';
 import useSiteToken from '../../../hooks/useSiteToken';
+import * as utils from '../../utils';
 
 const useStyle = () => {
   const { token } = useSiteToken();
@@ -31,14 +31,17 @@ const useStyle = () => {
 
       img {
         height: 32px;
-        margin-inline-end: 12px;
         vertical-align: middle;
+        margin-inline-end: 12px;
       }
 
       @media only screen and (max-width: ${mobileMaxWidth}px) {
         padding-inline-start: 0;
         padding-inline-end: 0;
       }
+    `,
+    title: css`
+      line-height: 32px;
     `,
   };
 };
@@ -48,15 +51,14 @@ export interface LogoProps {
   location: any;
 }
 
-const Logo = ({ isZhCN }: LogoProps) => {
+const Logo: React.FC<LogoProps> = ({ isZhCN }) => {
   const { search } = useLocation();
-  const { logo } = useStyle();
-
+  const { logo, title } = useStyle();
   return (
     <h1>
       <Link to={utils.getLocalizedPathname('/', isZhCN, search)} css={logo}>
-        <img alt="logo" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" />
-        <span style={{ lineHeight: '32px' }}>Ant Design</span>
+        <img src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" alt="logo" />
+        <span css={title}>Ant Design</span>
       </Link>
     </h1>
   );

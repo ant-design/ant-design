@@ -18,7 +18,7 @@ $ mkdir myapp && cd myapp
 $ pnpm create umi
 ```
 
-> 如果你使用 npm，可执行 `npm create umi`，效果一致；如果你使用 yarn，可执行 `yarn create umi`，效果也一致；如果你使用 bun，那说明你是个非常潮的人，可执行 `bunx create-umi`（注意，create 和 umi 之间有个 `-`）。
+> 如果你使用 npm，可执行  `npm create umi`，效果一致；如果你使用 yarn，可执行  `yarn create umi`，效果也一致；如果你使用 bun，那说明你是个非常潮的人，可执行 `bunx create-umi`（注意，create 和 umi 之间有个 `-`）。
 
 这里选「Simple App」，因为我们要从 “0” 开始。
 
@@ -110,11 +110,11 @@ export default defineConfig({
 然后我们编辑下 `src/layouts/index.tsx` 文件，在全局布局路由里加上到 `/products` 路径的导航。
 
 ```diff
-<li>  
-  <Link to="/docs">Docs</Link>  
-</li>  
-+ <li>  
-+   <Link to="/products">Products</Link>  
+<li>
+  <Link to="/docs">Docs</Link>
+</li>
++ <li>
++   <Link to="/products">Products</Link>
 + </li>
 ```
 
@@ -129,8 +129,8 @@ export default defineConfig({
 新建 `src/components/ProductList.tsx` 文件，内容如下。
 
 ```tsx
+import { Button, Popconfirm, Table } from 'antd';
 import React from 'react';
-import { Table, Popconfirm, Button } from 'antd';
 
 const ProductList: React.FC<{ products: { name: string }[]; onDelete: (id: string) => void }> = ({
   onDelete,
@@ -165,7 +165,7 @@ export default ProductList;
 创建 `mock` 目录，并在此目录下新增 `products.ts` 文件，内容如下。
 
 ```ts
-import { defineMock } from "umi";
+import { defineMock } from 'umi';
 
 type Product = {
   id: string;
@@ -178,7 +178,7 @@ let products: Product[] = [
   { id: '3', name: 'Ant Design Pro' },
   { id: '4', name: 'Dva' },
 ];
-  
+
 export default defineMock({
   'GET /api/products': (_, res) => {
     res.send({
@@ -189,7 +189,7 @@ export default defineMock({
   'DELETE /api/products/:id': (req, res) => {
     products = products.filter((item) => item.id !== req.params.id);
     res.send({ status: 'ok' });
-  }
+  },
 });
 ```
 
@@ -219,11 +219,11 @@ export default defineConfig({
 再编辑 `src/pages/products.tsx`，内容如下。
 
 ```tsx
+import ProductList from '@/components/ProductList';
+import axios from 'axios';
 import React from 'react';
-import { useQuery, useMutation, useQueryClient } from 'umi';
-import axios from "axios";
+import { useMutation, useQuery, useQueryClient } from 'umi';
 import styles from './products.less';
-import ProductList from "@/components/ProductList";
 
 export default function Page() {
   const queryClient = useQueryClient();
@@ -239,14 +239,17 @@ export default function Page() {
     onSettled: () => {
       queryClient.invalidateQueries({ queryKey: ['products'] });
     },
-  })
+  });
   if (productsQuery.isLoading) return null;
   return (
     <div>
       <h1 className={styles.title}>Page products</h1>
-      <ProductList products={productsQuery.data.data} onDelete={(id) => {
-        productsDeleteMutation.mutate(id);
-      }} />
+      <ProductList
+        products={productsQuery.data.data}
+        onDelete={(id) => {
+          productsDeleteMutation.mutate(id);
+        }}
+      />
     </div>
   );
 }
@@ -260,7 +263,7 @@ export default function Page() {
 
 ## ProLayout
 
-一个标准的中后台页面，一般都需要一个布局，这个布局很多时候都是高度雷同的，[ProLayout](https://procomponents.ant.design/components/layout/) 封装了常用的菜单，面包屑，页头等功能，提供了一个不依赖的框架且开箱即用的高级布局组件。并且支持 `side`, `mix`, `top` 三种模式，更是内置了菜单选中，菜单生成面包屑，自动设置页面标题的逻辑。
+一个标准的中后台页面，一般都需要一个布局，这个布局很多时候都是高度雷同的，[ProLayout](https://procomponents.ant.design/components/layout/) 封装了常用的菜单，面包屑，页头等功能，提供了一个不依赖的框架且开箱即用的高级布局组件。并且支持  `side`, `mix`, `top`  三种模式，更是内置了菜单选中，菜单生成面包屑，自动设置页面标题的逻辑。
 
 先修改配置，为每个路由新增 name 字段，用于给 ProLayout 做菜单渲染使用。
 
@@ -285,8 +288,8 @@ export default defineConfig({
 编辑 `src/layouts/index.tsx`，内容如下。
 
 ```tsx
-import { Link, Outlet, useAppData, useLocation } from 'umi';
 import { ProLayout } from '@ant-design/pro-layout';
+import { Link, Outlet, useAppData, useLocation } from 'umi';
 
 export default function Layout() {
   const { clientRoutes } = useAppData();
@@ -343,7 +346,7 @@ info  - File sizes after gzip:
 event - Build index.html
 ```
 
-构建会打包所有的资源，包含 JavaScript, CSS, Web Fonts, 图片, Html 等。你可以在 `dist/` 目录下找到这些文件。
+构建会打包所有的资源，包含 JavaScript, CSS, Web Fonts, 图片, Html 等。你可以在  `dist/`  目录下找到这些文件。
 
 ## 下一步
 
@@ -357,10 +360,9 @@ event - Build index.html
 
 你可以：
 
-- 访问 [Umi 官网](https://umijs.org/)
-- 了解 [Umi 的路由](https://umijs.org/docs/guides/routes)
-- 了解比 Umi 集成度更高的 [Umi Max](https://umijs.org/docs/max/introduce)
-- 了解开箱即用的中后台脚手架 [Ant Design Pro](https://pro.ant.design/)
-- 了解高级布局 [ProLayout](https://procomponents.ant.design/components/layout)
-- 了解高级表格 [ProTable](https://procomponents.ant.design/components/table)
-
+- 访问  [Umi 官网](https://umijs.org/)
+- 了解  [Umi 的路由](https://umijs.org/docs/guides/routes)
+- 了解比 Umi 集成度更高的  [Umi Max](https://umijs.org/docs/max/introduce)
+- 了解开箱即用的中后台脚手架  [Ant Design Pro](https://pro.ant.design/)
+- 了解高级布局  [ProLayout](https://procomponents.ant.design/components/layout)
+- 了解高级表格  [ProTable](https://procomponents.ant.design/components/table)

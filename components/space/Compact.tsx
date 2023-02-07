@@ -52,6 +52,7 @@ export interface SpaceCompactProps extends React.HTMLAttributes<HTMLDivElement> 
   size?: SizeType;
   direction?: 'horizontal' | 'vertical';
   block?: boolean;
+  rootClassName?: string;
 }
 
 const CompactItem: React.FC<React.PropsWithChildren<SpaceCompactItemContextType>> = ({
@@ -70,6 +71,7 @@ const Compact: React.FC<SpaceCompactProps> = (props) => {
     block,
     prefixCls: customizePrefixCls,
     className,
+    rootClassName,
     children,
     ...restProps
   } = props;
@@ -85,6 +87,7 @@ const Compact: React.FC<SpaceCompactProps> = (props) => {
       [`${prefixCls}-vertical`]: direction === 'vertical',
     },
     className,
+    rootClassName,
   );
 
   const compactItemContext = React.useContext(SpaceCompactItemContext);
