@@ -1,17 +1,18 @@
-import React from 'react';
-import type { ReactNode } from 'react';
-import classNames from 'classnames';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
-import type { TourStepProps } from './interface';
-import LocaleReceiver from '../locale/LocaleReceiver';
-import Button from '../button';
+import classNames from 'classnames';
+import type { ReactNode } from 'react';
+import React from 'react';
 import type { ButtonProps } from '../button';
+import Button from '../button';
 import defaultLocale from '../locale/en_US';
+import LocaleReceiver from '../locale/LocaleReceiver';
+import type { TourStepProps } from './interface';
 
 const panelRender = (
   props: TourStepProps,
   current: number,
   type: TourStepProps['type'],
+  stepRender?: TourStepProps['stepRender'],
 ): ReactNode => {
   const {
     prefixCls,
@@ -25,7 +26,6 @@ const panelRender = (
     description,
     nextButtonProps,
     prevButtonProps,
-    stepRender,
     type: stepType,
     arrow,
     className,

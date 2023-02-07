@@ -1,14 +1,14 @@
-import React, { useContext } from 'react';
 import RCTour from '@rc-component/tour';
 import classNames from 'classnames';
-import panelRender from './panelRender';
+import React, { useContext } from 'react';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
-import useStyle from './style';
-import type { TourProps, TourStepProps } from './interface';
-import PurePanel from './PurePanel';
 import theme from '../theme';
 import getPlacements from '../_util/placements';
+import type { TourProps, TourStepProps } from './interface';
+import panelRender from './panelRender';
+import PurePanel from './PurePanel';
+import useStyle from './style';
 
 const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel } = (
   props,
@@ -19,6 +19,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     current,
     type,
     rootClassName,
+    stepRender,
     ...restProps
   } = props;
   const { getPrefixCls, direction } = useContext<ConfigConsumerProps>(ConfigContext);
@@ -42,7 +43,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
   );
 
   const mergedRenderPanel = (stepProps: TourStepProps, stepCurrent: number) =>
-    panelRender(stepProps, stepCurrent, type);
+    panelRender(stepProps, stepCurrent, type, stepRender);
 
   return wrapSSR(
     <RCTour
