@@ -77,8 +77,8 @@ const panelRender = (
       <span
         key={stepItem}
         className={classNames(
-          index === current && `${prefixCls}-slider-active`,
-          `${prefixCls}-slider`,
+          index === current && `${prefixCls}-indicator-active`,
+          `${prefixCls}-indicator`,
         )}
       />
     ));
@@ -107,7 +107,7 @@ const panelRender = (
             {headerNode}
             {descriptionNode}
             <div className={`${prefixCls}-footer`}>
-              <div className={`${prefixCls}-sliders`}>{slickNode}</div>
+              <div className={`${prefixCls}-indicators`}>{slickNode}</div>
               <div className={`${prefixCls}-buttons`}>
                 {current !== 0 ? (
                   <Button
