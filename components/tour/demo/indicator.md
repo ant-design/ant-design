@@ -4,4 +4,4 @@
 
 ## en-US
 
-custom indicator.
+Custom indicator.
