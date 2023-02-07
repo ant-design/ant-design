@@ -27,6 +27,7 @@ timeline: true
   - 🆕 Collapse supports setting `size`. [#40286](https://github.com/ant-design/ant-design/pull/40286) [@Yuiai01](https://github.com/Yuiai01)
   - 🆕 Add ref for Collapse and Panel. [#40443](https://github.com/ant-design/ant-design/pull/40443) [@any1024](https://github.com/any1024)
 - Slider
+  - 🆕 Slider add `railStyle` for custom style. [#40579](https://github.com/ant-design/ant-design/pull/40579) [@david-cord](https://github.com/david-cord)
   - 🆕 Slider add support for disable `keyboard` events. [#40526](https://github.com/ant-design/ant-design/pull/40526)
   - 🐞 Fix Slider missing Tooltip appear motion. [#39857](https://github.com/ant-design/ant-design/pull/39857)
 - Dropdown
@@ -47,6 +48,10 @@ timeline: true
   - 🐞 Fix selection column cover by other cell when fixed. [#39940](https://github.com/ant-design/ant-design/pull/39940) [@kiner-tang](https://github.com/kiner-tang)
   - 🐞 Fix Sorted/Filtered table fixed column transparent background unreadable. [#39012](https://github.com/ant-design/ant-design/pull/39012) [@kiner-tang](https://github.com/kiner-tang)
   - 💄 Fix border style problem when Table filter. [#39938](https://github.com/ant-design/ant-design/pull/39938) [@JarvisArt](https://github.com/JarvisArt)
+- DatePicker
+  - 🐞 Fix DatePicker that have status style when disabled. [#40608](https://github.com/ant-design/ant-design/pull/40608)
+  - 💄 Optimize the DatePicker input box style. [#40549](https://github.com/ant-design/ant-design/pull/40549) [@Wxh16144](https://github.com/Wxh16144)
+  - 💄 Optimize DatePicker Dropdown arrow style. [#40521](https://github.com/ant-design/ant-design/pull/40521)
 - 🐞 Fix Space `ant-space-item` selector bug. [#40554](https://github.com/ant-design/ant-design/pull/40554) [@cncolder](https://github.com/cncolder)
 - 🐞 Fix Modal useModal default confirm button text logic. [#39884](https://github.com/ant-design/ant-design/pull/39884) [@BoyYangzai](https://github.com/BoyYangzai)
 - 🛠 Refactored the water ripple visual effect to trigger multiple water ripples at the same time. [#39705](https://github.com/ant-design/ant-design/pull/39705) [@li-jia-nan](https://github.com/li-jia-nan)
@@ -59,13 +64,11 @@ timeline: true
 - 💄 Fix Select placeholder style issue. [#40477](https://github.com/ant-design/ant-design/pull/40477) [@Wxh16144](https://github.com/Wxh16144)
 - 💄 Adjust Descriptions label style for more readable. [#40085](https://github.com/ant-design/ant-design/pull/40085)
 - 💄 Optimize QRCode expiration display style. [#39849](https://github.com/ant-design/ant-design/pull/39849)
-- DatePicker
-  - 💄 Optimize the DatePicker input box style. [#40549](https://github.com/ant-design/ant-design/pull/40549) [@Wxh16144](https://github.com/Wxh16144)
-  - 💄 Optimize DatePicker Dropdown arrow style. [#40521](https://github.com/ant-design/ant-design/pull/40521)
 - 💄 Optimize `boxShadow` tokens. [#40516](https://github.com/ant-design/ant-design/pull/40516)
 - TypeScript
   - 🤖 Optimize Badge Tag Tooltip `color` type definition. [#39871](https://github.com/ant-design/ant-design/pull/39871)
   - 🤖 Add `Breakpoint` `ThmeConfig` `GlobalToken` type export. [#40508](https://github.com/ant-design/ant-design/pull/40508) [@Kamahl19](https://github.com/Kamahl19)
+  - 🤖 Update Upload fileList type. [#40585](https://github.com/ant-design/ant-design/pull/40585)
   - 🤖 Remove Tour ForwardRefRenderFunction. [#39924](https://github.com/ant-design/ant-design/pull/39924)
 - 🌐 Localization
   - 🇮🇳 Add `ta_IN` local. [#39936](https://github.com/ant-design/ant-design/pull/39936) [@KIRUBASHANKAR26](https://github.com/KIRUBASHANKAR26)
