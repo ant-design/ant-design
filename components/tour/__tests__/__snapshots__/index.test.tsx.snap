@@ -70,7 +70,7 @@ exports[`Tour Primary 1`] = `
               class="ant-tour-footer"
             >
               <div
-                class="ant-tour-sliders"
+                class="ant-tour-indicators"
               />
               <div
                 class="ant-tour-buttons"
@@ -298,13 +298,13 @@ exports[`Tour custom step pre btn & next btn className & style 1`] = `
           class="ant-tour-footer"
         >
           <div
-            class="ant-tour-sliders"
+            class="ant-tour-indicators"
           >
             <span
-              class="ant-tour-slider-active ant-tour-slider"
+              class="ant-tour-indicator-active ant-tour-indicator"
             />
             <span
-              class="ant-tour-slider"
+              class="ant-tour-indicator"
             />
           </div>
           <div
@@ -390,7 +390,7 @@ exports[`Tour single 1`] = `
               class="ant-tour-footer"
             >
               <div
-                class="ant-tour-sliders"
+                class="ant-tour-indicators"
               />
               <div
                 class="ant-tour-buttons"
@@ -568,13 +568,13 @@ exports[`Tour step support Primary 1`] = `
               class="ant-tour-footer"
             >
               <div
-                class="ant-tour-sliders"
+                class="ant-tour-indicators"
               >
                 <span
-                  class="ant-tour-slider"
+                  class="ant-tour-indicator"
                 />
                 <span
-                  class="ant-tour-slider-active ant-tour-slider"
+                  class="ant-tour-indicator-active ant-tour-indicator"
                 />
               </div>
               <div

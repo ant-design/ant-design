@@ -371,25 +371,25 @@ exports[`renders ./components/tour/demo/render-panel.tsx correctly 1`] = `
               class="ant-tour-footer"
             >
               <div
-                class="ant-tour-sliders"
+                class="ant-tour-indicators"
               >
                 <span
-                  class="ant-tour-slider-active ant-tour-slider"
+                  class="ant-tour-indicator-active ant-tour-indicator"
                 />
                 <span
-                  class="ant-tour-slider"
+                  class="ant-tour-indicator"
                 />
                 <span
-                  class="ant-tour-slider"
+                  class="ant-tour-indicator"
                 />
                 <span
-                  class="ant-tour-slider"
+                  class="ant-tour-indicator"
                 />
                 <span
-                  class="ant-tour-slider"
+                  class="ant-tour-indicator"
                 />
                 <span
-                  class="ant-tour-slider"
+                  class="ant-tour-indicator"
                 />
               </div>
               <div
@@ -474,28 +474,28 @@ exports[`renders ./components/tour/demo/render-panel.tsx correctly 1`] = `
               class="ant-tour-footer"
             >
               <div
-                class="ant-tour-sliders"
+                class="ant-tour-indicators"
               >
                 <span
-                  class="ant-tour-slider"
+                  class="ant-tour-indicator"
                 />
                 <span
-                  class="ant-tour-slider"
+                  class="ant-tour-indicator"
                 />
                 <span
-                  class="ant-tour-slider"
+                  class="ant-tour-indicator"
                 />
                 <span
-                  class="ant-tour-slider"
+                  class="ant-tour-indicator"
                 />
                 <span
-                  class="ant-tour-slider"
+                  class="ant-tour-indicator"
                 />
                 <span
-                  class="ant-tour-slider-active ant-tour-slider"
+                  class="ant-tour-indicator-active ant-tour-indicator"
                 />
                 <span
-                  class="ant-tour-slider"
+                  class="ant-tour-indicator"
                 />
               </div>
               <div
@@ -580,22 +580,22 @@ exports[`renders ./components/tour/demo/render-panel.tsx correctly 1`] = `
               class="ant-tour-footer"
             >
               <div
-                class="ant-tour-sliders"
+                class="ant-tour-indicators"
               >
                 <span
-                  class="ant-tour-slider"
+                  class="ant-tour-indicator"
                 />
                 <span
-                  class="ant-tour-slider"
+                  class="ant-tour-indicator"
                 />
                 <span
-                  class="ant-tour-slider"
+                  class="ant-tour-indicator"
                 />
                 <span
-                  class="ant-tour-slider"
+                  class="ant-tour-indicator"
                 />
                 <span
-                  class="ant-tour-slider-active ant-tour-slider"
+                  class="ant-tour-indicator-active ant-tour-indicator"
                 />
               </div>
               <div
