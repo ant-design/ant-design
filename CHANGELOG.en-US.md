@@ -17,7 +17,7 @@ timeline: true
 
 ## 5.2.0
 
-`2023-2-7`
+`2023-2-8`
 
 - 🔥 Add `picture-circle` to Upload's listType prop. [#40134](https://github.com/ant-design/ant-design/pull/40134) [@ds1371dani](https://github.com/ds1371dani)
 - 🔥 Anchor component add `direction`, which supports vertical. [#39372](https://github.com/ant-design/ant-design/pull/39372) [@foryuki](https://github.com/foryuki)

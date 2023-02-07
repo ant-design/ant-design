@@ -17,7 +17,7 @@ timeline: true
 
 ## 5.2.0
 
-`2023-2-7`
+`2023-2-8`
 
 - 🔥 Upload 的 listType 属性添加 `picture-circle` 支持。[#40134](https://github.com/ant-design/ant-design/pull/40134) [@ds1371dani](https://github.com/ds1371dani)
 - 🔥 Anchor 组件新增 `direction` 属性，支持 vertical。[#39372](https://github.com/ant-design/ant-design/pull/39372) [@foryuki](https://github.com/foryuki)
