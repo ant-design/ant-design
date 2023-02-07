@@ -3,13 +3,11 @@ import type { ReactNode } from 'react';
 import React, { useContext } from 'react';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
-import type { ConfigOptions as MessageConfig } from '../message/interface';
 import useMessage from '../message/useMessage';
 import useModal from '../modal/useModal';
-import type { NotificationConfig } from '../notification/interface';
 import useNotification from '../notification/useNotification';
-import type { useAppProps } from './context';
-import AppContext from './context';
+import AppContext, { AppConfigContext } from './context';
+import type { AppConfig, useAppProps } from './context';
 import useStyle from './style';
 
 export type AppProps = {
@@ -19,19 +17,7 @@ export type AppProps = {
   children?: ReactNode;
 } & AppConfig;
 
-export type AppConfig = {
-  messageConfig?: MessageConfig;
-  notificationConfig?: NotificationConfig;
-};
-
-export type InternalUseAppProps = useAppProps & {
-  /** @internal: internal usage only for nested app */
-  __INTERNAL__?: AppConfig;
-};
-
-function useApp<UseAppPropsType extends useAppProps = useAppProps>() {
-  return React.useContext(AppContext) as UseAppPropsType;
-}
+const useApp = () => React.useContext(AppContext);
 
 const App: React.FC<AppProps> & { useApp: typeof useApp } = (props) => {
   const {
@@ -39,49 +25,48 @@ const App: React.FC<AppProps> & { useApp: typeof useApp } = (props) => {
     children,
     className,
     rootClassName,
-    messageConfig,
-    notificationConfig,
+    message,
+    notification,
   } = props;
   const { getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('app', customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
   const customClassName = classNames(hashId, prefixCls, className, rootClassName);
 
-  const { __INTERNAL__ } = useApp<InternalUseAppProps>();
-  const mergedMessageConfig = React.useMemo(
-    () => ({ ...messageConfig, ...__INTERNAL__?.messageConfig }),
-    [messageConfig, __INTERNAL__?.messageConfig],
-  );
-  const mergedNotificationConfig = React.useMemo(
-    () => ({ ...notificationConfig, ...__INTERNAL__?.notificationConfig }),
-    [notificationConfig, __INTERNAL__?.notificationConfig],
+  const appConfig = useContext(AppConfigContext);
+  const mergedAppConfig = React.useMemo<AppConfig>(
+    () => ({
+      message: { ...message, ...appConfig.message },
+      notification: { ...notification, ...appConfig.notification },
+    }),
+    [message, notification, appConfig.message, appConfig.message],
   );
 
-  const [messageApi, messageContextHolder] = useMessage(mergedMessageConfig);
-  const [notificationApi, notificationContextHolder] = useNotification(mergedNotificationConfig);
+  const [messageApi, messageContextHolder] = useMessage(mergedAppConfig.message);
+  const [notificationApi, notificationContextHolder] = useNotification(
+    mergedAppConfig.notification,
+  );
   const [ModalApi, ModalContextHolder] = useModal();
 
-  const memoizedContextValue = React.useMemo<InternalUseAppProps>(
+  const memoizedContextValue = React.useMemo<useAppProps>(
     () => ({
       message: messageApi,
       notification: notificationApi,
       modal: ModalApi,
-      __INTERNAL__: {
-        messageConfig: mergedMessageConfig,
-        notificationConfig: mergedNotificationConfig,
-      },
     }),
     [messageApi, notificationApi, ModalApi],
   );
 
   return wrapSSR(
     <AppContext.Provider value={memoizedContextValue}>
-      <div className={customClassName}>
-        {ModalContextHolder}
-        {messageContextHolder}
-        {notificationContextHolder}
-        {children}
-      </div>
+      <AppConfigContext.Provider value={mergedAppConfig}>
+        <div className={customClassName}>
+          {ModalContextHolder}
+          {messageContextHolder}
+          {notificationContextHolder}
+          {children}
+        </div>
+      </AppConfigContext.Provider>
     </AppContext.Provider>,
   );
 };
