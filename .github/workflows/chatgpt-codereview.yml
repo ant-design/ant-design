@@ -7,6 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     name: Let chatgpt comment on your PR.
     steps:
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
       - name: ChatGPT comment
         uses: afc163/chatgpt-action@main
         id: chatgpt
