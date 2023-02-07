@@ -93,13 +93,17 @@ const Spin: React.FC<SpinClassProps> = (props) => {
   );
 
   React.useEffect(() => {
-    const updateSpinning = debounce(delay, () => {
-      setSpinning(customSpinning);
-    });
-    updateSpinning();
-    return () => {
-      updateSpinning?.cancel?.();
-    };
+    if (customSpinning) {
+      const showSpinning = debounce(delay, () => {
+        setSpinning(true);
+      });
+      showSpinning();
+      return () => {
+        showSpinning?.cancel?.();
+      };
+    }
+
+    setSpinning(false);
   }, [delay, customSpinning]);
 
   const isNestedPattern = React.useMemo<boolean>(() => typeof children !== 'undefined', [children]);
