@@ -37,7 +37,7 @@ Use when you want to guide users through a product.
 | open | Open tour | `boolean` | - |  |
 | onChange | Callback when the step changes. Current is the previous step | `(current: number) => void` | - |  |
 | current | What is the current step | `number` | - |  |
-| scrollIntoViewOptions | support pass custom scrollIntoView options | `boolean \| ScrollIntoViewOptions` | `true` | 5.2.0 |
+| stepRender | Custom indicator | `(current: number, total: number) => ReactNode` | - |  |
 | stepRender | custom indicator | `(current: number, total: number) => ReactNode` | - |  |
 
 ### TourStep
