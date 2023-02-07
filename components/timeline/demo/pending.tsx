@@ -15,13 +15,13 @@ const App: React.FC = () => {
         reverse={reverse}
         items={[
           {
-            content: 'Create a services site 2015-09-01',
+            children: 'Create a services site 2015-09-01',
           },
           {
-            content: 'Solve initial network problems 2015-09-01',
+            children: 'Solve initial network problems 2015-09-01',
           },
           {
-            content: 'Technical testing 2015-09-01',
+            children: 'Technical testing 2015-09-01',
           },
         ]}
       />

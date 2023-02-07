@@ -27,18 +27,18 @@ const App: React.FC = () => {
         items={[
           {
             label: '2015-09-01',
-            content: 'Create a services',
+            children: 'Create a services',
           },
           {
             label: '2015-09-01 09:12:11',
-            content: 'Solve initial network problems',
+            children: 'Solve initial network problems',
           },
           {
-            content: 'Technical testing',
+            children: 'Technical testing',
           },
           {
             label: '2015-09-01 09:12:11',
-            content: 'Network problems being solved',
+            children: 'Network problems being solved',
           },
         ]}
       />

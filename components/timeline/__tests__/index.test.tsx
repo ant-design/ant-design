@@ -11,13 +11,13 @@ const renderFactory = (timeLineProps: TimelineProps) =>
       {...timeLineProps}
       items={[
         {
-          content: 'foo',
+          children: 'foo',
         },
         {
-          content: 'bar',
+          children: 'bar',
         },
         {
-          content: 'baz',
+          children: 'baz',
         },
       ]}
     />,
@@ -192,13 +192,13 @@ describe('TimeLine', () => {
         items={[
           {
             label,
-            content: 'foo',
+            children: 'foo',
           },
           {
-            content: 'bar',
+            children: 'bar',
           },
           {
-            content: 'baz',
+            children: 'baz',
           },
         ]}
       />,
@@ -217,7 +217,7 @@ describe('TimeLine', () => {
             items={[
               {
                 color,
-                content: 'foo',
+                children: 'foo',
               },
             ]}
           />,
@@ -241,7 +241,7 @@ describe('TimeLine', () => {
             items={[
               {
                 color,
-                content: 'foo',
+                children: 'foo',
               },
             ]}
           />,

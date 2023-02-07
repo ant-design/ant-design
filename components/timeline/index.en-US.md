@@ -65,5 +65,5 @@ Node of timeline
 | color | Set the circle's color to `blue`, `red`, `green`, `gray` or other custom colors | string | `blue` |
 | dot | Customize timeline dot | ReactNode | - |
 | label | Set the label | ReactNode | - |
-| content | Set the content | ReactNode | - |
+| children | Set the content | ReactNode | - |
 | position | Customize node position | `left` \| `right` | - |

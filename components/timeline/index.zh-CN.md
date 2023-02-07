@@ -66,5 +66,5 @@ return <Timeline items={items} />;
 | color | 指定圆圈颜色 `blue`、`red`、`green`、`gray`，或自定义的色值 | string | `blue` |
 | dot | 自定义时间轴点 | ReactNode | - |
 | label | 设置标签 | ReactNode | - |
-| content | 设置内容 | ReactNode | - |
+| children | 设置内容 | ReactNode | - |
 | position | 自定义节点位置 | `left` \| `right` | - |

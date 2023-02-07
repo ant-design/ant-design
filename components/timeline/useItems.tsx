@@ -6,7 +6,7 @@ function useItems(items?: TimelineItemProps[], children?: React.ReactNode): Time
   if (items && Array.isArray(items)) return items;
 
   return toArray(children).map((ele: React.ReactElement<any>) => ({
-    content: ele?.props?.children ?? '',
+    children: ele?.props?.children ?? '',
     ...ele.props,
   }));
 }

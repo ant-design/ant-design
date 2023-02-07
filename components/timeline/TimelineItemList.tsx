@@ -37,7 +37,7 @@ const TimelineItemList: React.FC<TimelineProps & { hashId: string; direction?: s
     mergedItems.push({
       pending: !!pending,
       dot: pendingDot || <LoadingOutlined />,
-      content: pendingNode,
+      children: pendingNode,
     });
   }
 
