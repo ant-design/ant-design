@@ -77,6 +77,7 @@ export interface SliderSingleProps extends SliderBaseProps {
   onAfterChange?: (value: number) => void;
   handleStyle?: React.CSSProperties;
   trackStyle?: React.CSSProperties;
+  railStyle?: React.CSSProperties;
 }
 
 export interface SliderRangeProps extends SliderBaseProps {
@@ -87,6 +88,7 @@ export interface SliderRangeProps extends SliderBaseProps {
   onAfterChange?: (value: [number, number]) => void;
   handleStyle?: React.CSSProperties[];
   trackStyle?: React.CSSProperties[];
+  railStyle?: React.CSSProperties;
 }
 
 interface SliderRange {
