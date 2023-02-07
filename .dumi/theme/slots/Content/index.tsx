@@ -187,18 +187,20 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
           </section>
         </Affix>
         <article css={styles.articleWrapper} className={classNames({ rtl: isRTL })}>
-          <Typography.Title style={{ fontSize: 30 }}>
-            {meta.frontmatter?.title}
-            {meta.frontmatter.subtitle && (
-              <span style={{ marginLeft: 12 }}>{meta.frontmatter.subtitle}</span>
-            )}
-            {!pathname.startsWith('/components/overview') && (
-              <EditButton
-                title={<FormattedMessage id="app.content.edit-page" />}
-                filename={meta.frontmatter.filename}
-              />
-            )}
-          </Typography.Title>
+          {meta.frontmatter?.title && meta.frontmatter.subtitle ? (
+            <Typography.Title style={{ fontSize: 30 }}>
+              {meta.frontmatter?.title}
+              {meta.frontmatter.subtitle && (
+                <span style={{ marginLeft: 12 }}>{meta.frontmatter.subtitle}</span>
+              )}
+              {!pathname.startsWith('/components/overview') && (
+                <EditButton
+                  title={<FormattedMessage id="app.content.edit-page" />}
+                  filename={meta.frontmatter.filename}
+                />
+              )}
+            </Typography.Title>
+          ) : null}
           {/* 添加作者、时间等信息 */}
           {meta.frontmatter.date || meta.frontmatter.author ? (
             <Typography.Paragraph style={{ opacity: 0.65 }}>

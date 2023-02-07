@@ -11,6 +11,7 @@ import Countdown from './Countdown';
 export interface StatisticProps extends FormatConfig {
   prefixCls?: string;
   className?: string;
+  rootClassName?: string;
   style?: React.CSSProperties;
   value?: valueType;
   valueStyle?: React.CSSProperties;
@@ -31,6 +32,7 @@ const Statistic: React.FC<StatisticProps> & CompoundedComponent = (props) => {
   const {
     prefixCls: customizePrefixCls,
     className,
+    rootClassName,
     style,
     valueStyle,
     value = 0,
@@ -67,6 +69,7 @@ const Statistic: React.FC<StatisticProps> & CompoundedComponent = (props) => {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
+    rootClassName,
     hashId,
   );
 

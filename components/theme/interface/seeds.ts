@@ -67,10 +67,17 @@ export interface SeedToken extends PresetColorType {
 
   /**
    * @nameZH 字体
-   * @nameEN FontFamily
+   * @nameEN Font family for default text
    * @desc Ant Design 的字体家族中优先使用系统默认的界面字体，同时提供了一套利于屏显的备用字体库，来维护在不同平台以及浏览器的显示下，字体始终保持良好的易读性和可读性，体现了友好、稳定和专业的特性。
    */
   fontFamily: string;
+
+  /**
+   * @nameZH 代码字体
+   * @nameEN Font family for code text
+   * @desc 代码字体，用于 Typography 内的 code、pre 和 kbd 类型的元素
+   */
+  codeFontFamily: string;
 
   /**
    * @nameZH 默认字号

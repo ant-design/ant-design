@@ -15,7 +15,7 @@ import useStyle from './style';
 const BackTop: React.FC<BackTopProps> = (props) => {
   const {
     prefixCls: customizePrefixCls,
-    className = '',
+    className,
     type = 'default',
     shape = 'circle',
     visibilityHeight = 400,

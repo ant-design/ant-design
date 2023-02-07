@@ -1,5 +1,6 @@
 import * as React from 'react';
 import type { DerivativeFunc } from '@ant-design/cssinjs';
+import type { Options } from 'scroll-into-view-if-needed';
 import type { RequiredMark } from '../form/Form';
 import type { Locale } from '../locale';
 import type { AliasToken, MapToken, OverrideToken, SeedToken } from '../theme/interface';
@@ -61,6 +62,7 @@ export interface ConfigConsumerProps {
   form?: {
     requiredMark?: RequiredMark;
     colon?: boolean;
+    scrollToFirstError?: Options | boolean;
   };
   theme?: ThemeConfig;
   select?: {

@@ -5,10 +5,15 @@ const CommonHelmet = () => {
   const meta = useRouteMeta();
 
   const [title, description] = useMemo(() => {
-    const helmetTitle = `${meta.frontmatter.subtitle || ''} ${
-      meta.frontmatter?.title
-    } - Ant Design`;
-    const helmetDescription = meta.frontmatter.description;
+    let helmetTitle;
+    if (!meta.frontmatter.subtitle && !meta.frontmatter.title) {
+      helmetTitle = '404 Not Found - Ant Design';
+    } else {
+      helmetTitle = `${meta.frontmatter.subtitle || ''} ${
+        meta.frontmatter?.title || ''
+      } - Ant Design`;
+    }
+    const helmetDescription = meta.frontmatter.description || '';
     return [helmetTitle, helmetDescription];
   }, [meta]);
 

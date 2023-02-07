@@ -3,14 +3,14 @@ import CSSMotion from 'rc-motion';
 import * as React from 'react';
 import { useMemo, useRef } from 'react';
 import { ConfigContext } from '../config-provider';
+import type { PresetColorKey } from '../theme/internal';
 import type { PresetStatusColorType } from '../_util/colors';
+import { isPresetColor } from '../_util/colors';
 import { cloneElement } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
 import Ribbon from './Ribbon';
 import ScrollNumber from './ScrollNumber';
 import useStyle from './style';
-import { isPresetColor } from '../_util/colors';
-import type { PresetColorKey } from '../theme/internal';
 
 export type { ScrollNumberProps } from './ScrollNumber';
 
@@ -30,6 +30,7 @@ export interface BadgeProps {
   prefixCls?: string;
   scrollNumberPrefixCls?: string;
   className?: string;
+  rootClassName?: string;
   status?: PresetStatusColorType;
   color?: LiteralUnion<PresetColorKey>;
   text?: React.ReactNode;
@@ -54,6 +55,7 @@ const Badge: CompoundedComponent = ({
   offset,
   style,
   className,
+  rootClassName,
   showZero = false,
   ...restProps
 }) => {
@@ -169,13 +171,15 @@ const Badge: CompoundedComponent = ({
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
+    rootClassName,
+    hashId,
   );
 
   // <Badge status="success" />
   if (!children && hasStatus) {
     const statusTextColor = mergedStyle.color;
     return wrapSSR(
-      <span {...restProps} className={classNames(badgeClassName, hashId)} style={mergedStyle}>
+      <span {...restProps} className={badgeClassName} style={mergedStyle}>
         <span className={statusCls} style={statusStyle} />
         {text && (
           <span style={{ color: statusTextColor }} className={`${prefixCls}-status-text`}>
@@ -186,9 +190,8 @@ const Badge: CompoundedComponent = ({
     );
   }
 
-  // <Badge status="success" count={<Icon type="xxx" />}></Badge>
   return wrapSSR(
-    <span {...restProps} className={classNames(badgeClassName, hashId)}>
+    <span {...restProps} className={badgeClassName}>
       {children}
       <CSSMotion
         visible={!isHidden}

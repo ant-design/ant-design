@@ -17,6 +17,7 @@ export interface TransferLocale {
 export interface EmptyProps {
   prefixCls?: string;
   className?: string;
+  rootClassName?: string;
   style?: React.CSSProperties;
   /** @since 3.16.0 */
   imageStyle?: React.CSSProperties;
@@ -32,6 +33,7 @@ type CompoundedComponent = React.FC<EmptyProps> & {
 
 const Empty: CompoundedComponent = ({
   className,
+  rootClassName,
   prefixCls: customizePrefixCls,
   image = defaultEmptyImg,
   description,
@@ -68,6 +70,7 @@ const Empty: CompoundedComponent = ({
                 [`${prefixCls}-rtl`]: direction === 'rtl',
               },
               className,
+              rootClassName,
             )}
             {...restProps}
           >

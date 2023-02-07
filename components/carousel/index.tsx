@@ -13,6 +13,7 @@ export interface CarouselProps extends Omit<Settings, 'dots' | 'dotsClass'> {
   effect?: CarouselEffect;
   style?: React.CSSProperties;
   prefixCls?: string;
+  rootClassName?: string;
   slickGoTo?: number;
   dotPosition?: DotPosition;
   children?: React.ReactNode;
@@ -35,6 +36,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>(
       draggable = false,
       dotPosition = 'bottom',
       vertical = dotPosition === 'left' || dotPosition === 'right',
+      rootClassName,
       ...props
     },
     ref,
@@ -95,6 +97,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>(
         [`${prefixCls}-vertical`]: newProps.vertical,
       },
       hashId,
+      rootClassName,
     );
 
     return wrapSSR(

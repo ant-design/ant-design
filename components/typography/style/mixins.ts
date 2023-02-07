@@ -83,12 +83,13 @@ export const getLinkStyles: GenerateStyle<TypographyToken, CSSObject> = (token) 
   };
 };
 
-export const getResetStyles = (): CSSObject => ({
+export const getResetStyles: GenerateStyle<TypographyToken, CSSObject> = (token): CSSObject => ({
   code: {
     margin: '0 0.2em',
     paddingInline: '0.4em',
     paddingBlock: '0.2em 0.1em',
     fontSize: '85%',
+    fontFamily: token.codeFontFamily,
     background: 'rgba(150, 150, 150, 0.1)',
     border: '1px solid rgba(100, 100, 100, 0.2)',
     borderRadius: 3,
@@ -99,6 +100,7 @@ export const getResetStyles = (): CSSObject => ({
     paddingInline: '0.4em',
     paddingBlock: '0.15em 0.1em',
     fontSize: '90%',
+    fontFamily: token.codeFontFamily,
     background: 'rgba(150, 150, 150, 0.06)',
     border: '1px solid rgba(100, 100, 100, 0.2)',
     borderBottomWidth: 2,
@@ -162,6 +164,7 @@ export const getResetStyles = (): CSSObject => ({
     background: 'rgba(150, 150, 150, 0.1)',
     border: '1px solid rgba(100, 100, 100, 0.2)',
     borderRadius: 3,
+    fontFamily: token.codeFontFamily,
 
     // Compatible for marked
     code: {

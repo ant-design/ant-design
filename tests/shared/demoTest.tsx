@@ -5,48 +5,16 @@ import * as React from 'react';
 import { renderToString } from 'react-dom/server';
 import { TriggerMockContext } from './demoTestContext';
 import { excludeWarning } from './excludeWarning';
+import rootPropsTest from './rootPropsTest';
+
+export { rootPropsTest };
 
 require('isomorphic-fetch');
-
-// function normalizeAriaValue(value: string | null): string {
-//   const defaultValue = value || '';
-
-//   return defaultValue
-//     .replace(/\d+/g, 'test')
-//     .replace(/TEST_OR_SSR/g, 'test')
-//     .replace(/-test-test/g, '-test');
-// }
-
-// function normalizeAria(element: Element, ariaName: string) {
-//   if (element.hasAttribute(ariaName)) {
-//     element.setAttribute(ariaName, normalizeAriaValue(element.getAttribute(ariaName)));
-//   }
-// }
-
-// /**
-//  * Rc component will generate id for aria usage. It's created as `test-uuid` when env === 'test'. Or
-//  * `f7fa7a3c-a675-47bc-912e-0c45fb6a74d9`(randomly) when not test env. So we need hack of this to
-//  * modify the `aria-controls`.
-//  */
-// function ariaConvert(element: Element) {
-//   normalizeAria(element, 'aria-owns');
-//   normalizeAria(element, 'aria-controls');
-//   normalizeAria(element, 'aria-labelledby');
-//   normalizeAria(element, 'aria-activedescendant');
-//   normalizeAria(element, 'data-menu-id');
-//   normalizeAria(element, 'stroke');
-//   if (element.id) {
-//     element.id = normalizeAriaValue(element.id);
-//   }
-
-//   Array.from(element.children).forEach(child => {
-//     ariaConvert(child);
-//   });
-// }
 
 export type Options = {
   skip?: boolean | string[];
   testingLib?: boolean;
+  testRootProps?: false | object;
 };
 
 function baseText(doInject: boolean, component: string, options: Options = {}) {
@@ -107,4 +75,10 @@ export function extendTest(component: string, options: Options = {}) {
 
 export default function demoTest(component: string, options: Options = {}) {
   baseText(false, component, options);
+
+  if (options?.testRootProps !== false) {
+    rootPropsTest(component, null!, {
+      props: options?.testRootProps,
+    });
+  }
 }
