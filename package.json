@@ -225,7 +225,6 @@
     "husky": "^8.0.1",
     "identity-obj-proxy": "^3.0.0",
     "immer": "^9.0.1",
-    "immutability-helper": "^3.0.0",
     "inquirer": "^9.1.2",
     "isomorphic-fetch": "^3.0.0",
     "jest": "^29.4.1",
