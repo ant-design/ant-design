@@ -45,7 +45,7 @@ const App: React.FC = () => {
         open={open}
         onClose={() => setOpen(false)}
         steps={steps}
-        stepRender={(current, total) => (
+        indicatorsRender={(current, total) => (
           <span>
             {current + 1} / {total}
           </span>

@@ -704,7 +704,7 @@ exports[`Tour steps is empty 1`] = `
 </body>
 `;
 
-exports[`Tour steps props stepRender 1`] = `
+exports[`Tour steps props indicatorsRender 1`] = `
 <body>
   <div
     style="position: absolute; top: 0px; left: 0px; width: 100%;"

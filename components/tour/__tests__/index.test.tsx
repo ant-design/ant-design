@@ -54,9 +54,9 @@ describe('Tour', () => {
     expect(baseElement).toMatchSnapshot();
   });
 
-  it('steps props stepRender', () => {
+  it('steps props indicatorsRender', () => {
     const onClickMock = jest.fn();
-    const stepRenderMock = jest.fn();
+    const indicatorsRenderMock = jest.fn();
     const App: React.FC = () => {
       const coverBtnRef = useRef<HTMLButtonElement>(null);
       return (
@@ -66,7 +66,7 @@ describe('Tour', () => {
           </button>
           <Tour
             type="default"
-            stepRender={stepRenderMock}
+            indicatorsRender={indicatorsRenderMock}
             steps={[
               {
                 title: 'With Cover',
@@ -359,7 +359,7 @@ describe('Tour', () => {
       <Tour
         open
         steps={steps}
-        stepRender={(current, total) => (
+        indicatorsRender={(current, total) => (
           <span className="custom-indicator">
             {current + 1} / {total}
           </span>

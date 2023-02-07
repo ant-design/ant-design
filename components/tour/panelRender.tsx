@@ -12,7 +12,7 @@ const panelRender = (
   props: TourStepProps,
   current: number,
   type: TourStepProps['type'],
-  stepRender?: TourStepProps['stepRender'],
+  indicatorsRender?: TourStepProps['indicatorsRender'],
 ): ReactNode => {
   const {
     prefixCls,
@@ -72,7 +72,7 @@ const panelRender = (
   }
 
   const mergedSlickNode =
-    (typeof stepRender === 'function' && stepRender(current, total)) ||
+    (typeof indicatorsRender === 'function' && indicatorsRender(current, total)) ||
     [...Array.from({ length: total }).keys()].map((stepItem, index) => (
       <span
         key={stepItem}

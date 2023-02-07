@@ -19,7 +19,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     current,
     type,
     rootClassName,
-    stepRender,
+    indicatorsRender,
     ...restProps
   } = props;
   const { getPrefixCls, direction } = useContext<ConfigConsumerProps>(ConfigContext);
@@ -43,7 +43,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
   );
 
   const mergedRenderPanel = (stepProps: TourStepProps, stepCurrent: number) =>
-    panelRender(stepProps, stepCurrent, type, stepRender);
+    panelRender(stepProps, stepCurrent, type, indicatorsRender);
 
   return wrapSSR(
     <RCTour
