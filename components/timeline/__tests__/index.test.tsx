@@ -5,19 +5,22 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render } from '../../../tests/utils';
 
-const { Item } = TimeLine;
-
-const renderFactory = (
-  timeLineProps: TimelineProps = {},
-  labelItems: TimelineProps['children'] = null,
-) =>
+const renderFactory = (timeLineProps: TimelineProps) =>
   render(
-    <TimeLine {...timeLineProps}>
-      <Item key="1">foo</Item>
-      <Item key="2">bar</Item>
-      <Item key="3">baz</Item>
-      {labelItems}
-    </TimeLine>,
+    <TimeLine
+      {...timeLineProps}
+      items={[
+        {
+          children: 'foo',
+        },
+        {
+          children: 'bar',
+        },
+        {
+          children: 'baz',
+        },
+      ]}
+    />,
   );
 
 describe('TimeLine', () => {
@@ -26,8 +29,60 @@ describe('TimeLine', () => {
   rtlTest(TimeLine);
   rtlTest(TimeLine.Item);
 
+  describe('render TimeLine.Item', () => {
+    it('TimeLine.Item  should correctly', () => {
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+      const { container } = render(
+        <TimeLine reverse>
+          <TimeLine.Item>foo</TimeLine.Item>
+          <TimeLine.Item>bar</TimeLine.Item>
+          <TimeLine.Item>baz</TimeLine.Item>
+        </TimeLine>,
+      );
+
+      // has 3 timeline item
+      expect(container.querySelectorAll('li.ant-timeline-item')).toHaveLength(3);
+
+      // has only 1 timeline item is marked as the last item
+      expect(container.querySelectorAll('li.ant-timeline-item-last')).toHaveLength(1);
+
+      // its last item is marked as the last item
+      expect(container.querySelectorAll('li.ant-timeline-item')[2]).toHaveClass(
+        'ant-timeline-item-last',
+      );
+
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Timeline] `Timeline.Item` is deprecated. Please use `items` instead.',
+      );
+      errSpy.mockRestore();
+    });
+
+    it('has extra pending timeline item', () => {
+      const { container } = render(
+        <TimeLine pending={<div>pending...</div>} reverse mode="alternate">
+          <TimeLine.Item>foo</TimeLine.Item>
+          <TimeLine.Item position="right">bar</TimeLine.Item>
+          <TimeLine.Item position="left">baz</TimeLine.Item>
+        </TimeLine>,
+      );
+      expect(container.querySelectorAll('li.ant-timeline-item-pending')).toHaveLength(1);
+    });
+
+    it("has no pending dot if without passing a truthy 'pending' prop", () => {
+      const { queryByText } = render(
+        <TimeLine pendingDot={<i>dot</i>} reverse>
+          <TimeLine.Item>foo</TimeLine.Item>
+          <TimeLine.Item>bar</TimeLine.Item>
+          <TimeLine.Item position="right">baz</TimeLine.Item>
+        </TimeLine>,
+      );
+      expect(queryByText('dot')).toBeFalsy();
+    });
+  });
+
   it('renders items without passing any props correctly', () => {
-    const { container } = renderFactory();
+    const { container } = renderFactory({});
 
     // has 3 timeline item
     expect(container.querySelectorAll('li.ant-timeline-item')).toHaveLength(3);
@@ -132,11 +187,21 @@ describe('TimeLine', () => {
 
   it('renders Timeline item with label correctly', () => {
     const label = '2020-01-01';
-    const { container } = renderFactory(
-      {},
-      <Item key="1" label={label}>
-        foo
-      </Item>,
+    const { container } = render(
+      <TimeLine
+        items={[
+          {
+            label,
+            children: 'foo',
+          },
+          {
+            children: 'bar',
+          },
+          {
+            children: 'baz',
+          },
+        ]}
+      />,
     );
     expect(container.querySelectorAll('.ant-timeline-label')).toHaveLength(1);
     expect(container.querySelector('.ant-timeline-item-label')).toHaveTextContent(label);
@@ -148,9 +213,14 @@ describe('TimeLine', () => {
     presetColors.forEach((color) => {
       it(`className should have a preset color ${color}`, () => {
         const { container } = render(
-          <TimeLine>
-            <Item color={color}>foo</Item>
-          </TimeLine>,
+          <TimeLine
+            items={[
+              {
+                color,
+                children: 'foo',
+              },
+            ]}
+          />,
         );
         expect(container.querySelector('.ant-timeline-item-head')).toHaveClass(
           `ant-timeline-item-head-${color}`,
@@ -167,9 +237,14 @@ describe('TimeLine', () => {
     nonPresetColors.forEach((color) => {
       it(`className should not have a non-preset color ${color}`, () => {
         const { container } = render(
-          <TimeLine>
-            <Item color={color}>foo</Item>
-          </TimeLine>,
+          <TimeLine
+            items={[
+              {
+                color,
+                children: 'foo',
+              },
+            ]}
+          />,
         );
         expect(container.querySelector('.ant-timeline-item-head')).not.toHaveClass(
           `ant-timeline-item-head-${color}`,

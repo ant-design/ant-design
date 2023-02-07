@@ -6,6 +6,7 @@ import type { LiteralUnion } from '../_util/type';
 type Color = 'blue' | 'red' | 'green' | 'gray';
 
 export interface TimelineItemProps {
+  key?: React.Key;
   prefixCls?: string;
   className?: string;
   color?: LiteralUnion<Color>;
