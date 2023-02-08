@@ -51,7 +51,7 @@ export interface AntTreeNodeProps {
   [customProp: string]: any;
 }
 
-export interface AntTreeNode extends React.Component<AntTreeNodeProps, {}> { }
+export interface AntTreeNode extends React.Component<AntTreeNodeProps, {}> {}
 
 export interface AntTreeNodeBaseEvent {
   node: AntTreeNode;
@@ -144,9 +144,9 @@ export interface TreeProps<T extends BasicDataNode = DataNode>
   style?: React.CSSProperties;
   showIcon?: boolean;
   icon?:
-  | ((nodeProps: AntdTreeNodeAttribute) => React.ReactNode)
-  | React.ReactNode
-  | RcTreeProps<T>['icon'];
+    | ((nodeProps: AntdTreeNodeAttribute) => React.ReactNode)
+    | React.ReactNode
+    | RcTreeProps<T>['icon'];
   switcherIcon?: SwitcherIcon | RcTreeProps<T>['switcherIcon'];
   prefixCls?: string;
   children?: React.ReactNode;

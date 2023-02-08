@@ -40,7 +40,9 @@
       border-right: @border-width-base @border-style-base @border-color-base;
       border-radius: 0 @border-radius-base @border-radius-base 0;
     }
-    .@{radio-prefix-cls-button-wrapper}-checked:not([class*=~"' @{radio-prefix-cls}-button-wrapper-disabled'"])& {
+    .@{radio-prefix-cls-button-wrapper}-checked:not(
+        [class*=~"' @{radio-prefix-cls}-button-wrapper-disabled'"]
+      )& {
       border-right-color: @radio-button-hover-color;
     }
   }

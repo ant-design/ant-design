@@ -63,7 +63,7 @@ const Timeline: CompoundedComponent = (props) => {
   };
 
   // Remove falsy items
-  const truthyItems = timeLineItems.filter(item => !!item);
+  const truthyItems = timeLineItems.filter((item) => !!item);
   const itemsCount = React.Children.count(truthyItems);
   const lastCls = `${prefixCls}-item-last`;
   const items = React.Children.map(truthyItems, (ele: React.ReactElement<any>, idx) => {

@@ -31,9 +31,9 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
      */
     dropdownClassName?: string;
     popupClassName?: string;
-  }
+  };
   type DatePickerProps = PickerProps<DateType> & CustomPickerProps;
-  type TimePickerProps = PickerTimeProps<DateType> & CustomPickerProps
+  type TimePickerProps = PickerTimeProps<DateType> & CustomPickerProps;
 
   function getPicker<InnerPickerProps extends DatePickerProps>(
     picker?: PickerMode,
@@ -119,7 +119,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
 
         return (
           <LocaleReceiver componentName="DatePicker" defaultLocale={enUS}>
-            {contextLocale => {
+            {(contextLocale) => {
               const locale = { ...contextLocale, ...props.locale };
 
               return (
@@ -179,10 +179,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
   const MonthPicker = getPicker<Omit<DatePickerProps, 'picker'>>('month', 'MonthPicker');
   const YearPicker = getPicker<Omit<DatePickerProps, 'picker'>>('year', 'YearPicker');
   const TimePicker = getPicker<Omit<TimePickerProps, 'picker'>>('time', 'TimePicker');
-  const QuarterPicker = getPicker<Omit<TimePickerProps, 'picker'>>(
-    'quarter',
-    'QuarterPicker',
-  );
+  const QuarterPicker = getPicker<Omit<TimePickerProps, 'picker'>>('quarter', 'QuarterPicker');
 
   return { DatePicker, WeekPicker, MonthPicker, YearPicker, TimePicker, QuarterPicker };
 }

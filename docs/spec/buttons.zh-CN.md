@@ -86,12 +86,12 @@ title: 按钮
 经常独立出现，行动号召按钮就像是电脑在对用户大声说“跟我来吧”，有点命令用户点击的意味，通常出现于 landing page 或者 一些引导性场景。最大可以将按钮放宽到与父区域等宽。一个屏幕空间中，建议只有一个行动号召按钮。
 
 ## 位置
+
 ### 按钮区
 
 <img class="preview-img no-padding" align="right" src="https://img.alicdn.com/imgextra/i1/O1CN01Wd9Dbh1z6A5MQwEnh_!!6000000006664-2-tps-930-290.png">
 
 按钮区是用于放置按钮的区域，一个按钮区内可以有多个按钮。
-
 
 ### 跟随内容的按钮区
 
@@ -99,13 +99,11 @@ title: 按钮
 
 按钮区跟随受控内容。将按钮区放置于用户浏览路径中，便于被用户发现。
 
-
 ### 工具栏中的按钮区
 
 <img class="preview-img no-padding" align="right" src="https://img.alicdn.com/imgextra/i2/O1CN01aAZHoi1uZrgx1C3zR_!!6000000006052-2-tps-928-332.png">
 
 工具栏中的按钮区，靠右放置。控制工具栏控制的内容范围。
-
 
 ### 如何确定按钮区的放置位置？
 
@@ -126,6 +124,7 @@ title: 按钮
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*KGGWQLCBfm0AAAAAAAAAAABkARQnAQ">
 
 为避免页脚工具栏滥用，我们不推荐使用页脚工具栏，仅建议以下两种场景使用：
+
 - 1）对象详情页，「推进」对象的进展，例如审批流「通过」「驳回」。
 - 2）异常复杂的表单页，表单的内容复杂到需要切分为多张卡片。
 
@@ -160,7 +159,6 @@ title: 按钮
 - 视图控制：控制内容展示的形式。例如：全屏、表格密度、放大缩小、布局控制等；
 - 其他：刷新、分享、设置等；
 - 溢出：被折叠的操作，若进行响应式设计，从右往左折叠至溢出操作。
-
 
 ### 按钮分组
 

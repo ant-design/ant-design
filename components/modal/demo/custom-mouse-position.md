@@ -38,11 +38,11 @@ const App: React.FC = () => {
       <Button type="primary" onClick={showModal}>
         Open Modal
       </Button>
-      <Modal 
-        title="Basic Modal" 
-        open={isModalOpen} 
-        onOk={handleOk} 
-        onCancel={handleCancel} 
+      <Modal
+        title="Basic Modal"
+        open={isModalOpen}
+        onOk={handleOk}
+        onCancel={handleCancel}
         mousePosition={{ x: 300, y: 300 }}
       >
         <p>Some contents...</p>

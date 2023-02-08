@@ -5,9 +5,9 @@ import type { DataNode } from 'rc-tree/lib/interface';
 
 import type { TreeProps } from './Tree';
 import TreePure from './Tree';
-import DirectoryTree from './DirectoryTree'
+import DirectoryTree from './DirectoryTree';
 
-export { DataNode }
+export { DataNode };
 export { EventDataNode } from 'rc-tree/lib/interface';
 export { DirectoryTreeProps, ExpandAction as DirectoryTreeExpandAction } from './DirectoryTree';
 export {
@@ -21,7 +21,6 @@ export {
   TreeProps,
 } from './Tree';
 
-
 type CompoundedComponent = (<T extends BasicDataNode | DataNode = DataNode>(
   props: React.PropsWithChildren<TreeProps<T>> & { ref?: React.Ref<RcTree> },
 ) => React.ReactElement) & {
@@ -29,8 +28,8 @@ type CompoundedComponent = (<T extends BasicDataNode | DataNode = DataNode>(
   DirectoryTree: typeof DirectoryTree;
 };
 
-const Tree = TreePure as unknown as CompoundedComponent
-Tree.DirectoryTree = DirectoryTree
-Tree.TreeNode = TreeNode
+const Tree = TreePure as unknown as CompoundedComponent;
+Tree.DirectoryTree = DirectoryTree;
+Tree.TreeNode = TreeNode;
 
 export default Tree;

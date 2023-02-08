@@ -163,9 +163,7 @@ describe('Input.Search', () => {
 
   it('should not trigger onSearch when press enter while loading', () => {
     const onSearch = jest.fn();
-    const { container } = render(
-      <Search loading onSearch={onSearch} />,
-    );
+    const { container } = render(<Search loading onSearch={onSearch} />);
     fireEvent.keyDown(container.querySelector('input')!, { key: 'Enter', keyCode: 13 });
     expect(onSearch).not.toHaveBeenCalled();
   });

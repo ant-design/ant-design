@@ -29,8 +29,7 @@ const MINI_LIST: PanelProps[] = [
     href: 'https://antv.vision',
   },
   {
-    img:
-      'https://gw.alipayobjects.com/zos/antfincdn/888xda6kBc/Ant%252520Design%252520shouyepeitu.svg',
+    img: 'https://gw.alipayobjects.com/zos/antfincdn/888xda6kBc/Ant%252520Design%252520shouyepeitu.svg',
     title: 'Ant Design Pro',
     description: 'app.home.product-pro-slogan',
     href: 'https://pro.ant.design/',
@@ -252,7 +251,8 @@ const DesignPage = (props: { location: any }) => {
                       Ant Design of React
                     </Link>
                     <span style={smallStyle}>
-                      (<FormattedMessage id="app.implementation.official" />)
+                      (
+                      <FormattedMessage id="app.implementation.official" />)
                     </span>
                   </li>
                   <li>
@@ -260,7 +260,8 @@ const DesignPage = (props: { location: any }) => {
                       Ant Design of Angular
                     </a>
                     <span style={smallStyle}>
-                      (<FormattedMessage id="app.implementation.community" />)
+                      (
+                      <FormattedMessage id="app.implementation.community" />)
                     </span>
                   </li>
                   <li>
@@ -268,7 +269,8 @@ const DesignPage = (props: { location: any }) => {
                       Ant Design of Vue
                     </a>
                     <span style={smallStyle}>
-                      (<FormattedMessage id="app.implementation.community" />)
+                      (
+                      <FormattedMessage id="app.implementation.community" />)
                     </span>
                   </li>
                 </ul>
@@ -295,7 +297,7 @@ const DesignPage = (props: { location: any }) => {
         ]}
         className="design-mini-panels"
       >
-        {MINI_LIST.map(panel => (
+        {MINI_LIST.map((panel) => (
           <MiniPanel key={panel.description} {...panel} isZhCN={isZhCN} query={location.query} />
         ))}
       </Row>
