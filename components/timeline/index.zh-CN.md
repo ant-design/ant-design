@@ -15,6 +15,21 @@ demo:
 - 当有一系列信息需按时间排列时，可正序和倒序。
 - 需要有一条时间轴进行视觉上的串联时。
 
+<Alert message="5.2.0版本之后，我们提供了更简单的用法 &lt;Timeline items={[...]} /&gt; 以提供具有更好的性能和使您在应用程序中能编写更简单代码潜力。 与此同时，我们弃用了旧的用法，我们将在 antd 6.0 中删除它。"></Alert>
+
+```jsx
+// >=5.2.0 可用，推荐的写法 ✅
+const items = [{ children: 'sample', label: 'sample' }];
+return <Timeline items={items} />;
+
+// <5.2.0 可用，>=5.2.0 时不推荐 🙅🏻‍♀️
+return (
+  <Timeline onChange={onChange}>
+    <Timeline.Item>Sample</Timeline.Item>
+  </Timeline>
+);
+```
+
 ## 代码演示
 
 <!-- prettier-ignore -->
@@ -26,19 +41,6 @@ demo:
 <code src="./demo/right.tsx">右侧时间轴点</code>
 <code src="./demo/label.tsx">标签</code>
 <code src="./demo/wireframe.tsx" debug>线框风格</code>
-
-<Alert message="5.2.0版本之后，我们提供了更简单的用法 &lt;Timeline items={[...]} /&gt; 以提供具有更好的性能和使您在应用程序中能编写更简单代码潜力。 与此同时，我们弃用了旧的用法，我们将在 antd 6.0 中删除它。"></Alert>
-
-```jsx
-// >=5.2.0 可用，推荐的写法 ✅
-const items = [{ children: 'sample', label: 'sample' }];
-return <Timeline items={items} />;
-
-// <5.2.0 可用，>=5.2.0 时不推荐 🙅🏻‍♀️
-<Timeline onChange={onChange}>
-  <Timeline.Item>Sample</Timeline.Item>
-</Timeline>;
-```
 
 ## API
 
