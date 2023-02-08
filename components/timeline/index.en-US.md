@@ -45,19 +45,17 @@ return (
 
 ### Timeline
 
-Timeline
-
 | Property | Description | Type | Default |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | mode | By sending `alternate` the timeline will distribute the nodes to the left and right | `left` \| `alternate` \| `right` | - |
 | pending | Set the last ghost node's existence or its content | boolean \| ReactNode | false |
-| pendingDot | Set the dot of the last ghost node when pending is true | ReactNode | &lt;LoadingOutlined /> |
+| pendingDot | Set the dot of the last ghost node when pending is true | ReactNode | &lt;LoadingOutlined /&gt; |
 | reverse | Whether reverse nodes or not | boolean | false |
-| items | 选项配置 | [Items](#Items) | [] | 5.2.0 |
+| items | Each node of timeline | [Items](#Items)[] | 5.2.0 |
 
 ### Items
 
-Node of timeline
+Node of timeline.
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
