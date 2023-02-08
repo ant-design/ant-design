@@ -109,9 +109,7 @@ const panelRender = (
             {headerNode}
             {descriptionNode}
             <div className={`${prefixCls}-footer`}>
-              <div className={`${prefixCls}-indicators`}>
-                {total > 1 ? mergeIndicatorNode : null}
-              </div>
+              {total > 1 && <div className={`${prefixCls}-indicators`}>{mergeIndicatorNode}</div>}
               <div className={`${prefixCls}-buttons`}>
                 {current !== 0 ? (
                   <Button
