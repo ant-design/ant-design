@@ -8,6 +8,10 @@ import defaultLocale from '../locale/en_US';
 import LocaleReceiver from '../locale/LocaleReceiver';
 import type { TourStepProps } from './interface';
 
+function isValidNode(node: ReactNode): boolean {
+  return node !== undefined && node !== null;
+}
+
 const panelRender = (
   props: TourStepProps,
   current: number,
@@ -32,13 +36,12 @@ const panelRender = (
   } = props;
 
   const mergedType = typeof stepType !== 'undefined' ? stepType : type;
+
   const isLastStep = current === total - 1;
 
   const prevBtnClick = () => {
     onPrev?.();
-    if (typeof prevButtonProps?.onClick === 'function') {
-      prevButtonProps?.onClick();
-    }
+    prevButtonProps?.onClick?.();
   };
 
   const nextBtnClick = () => {
@@ -47,33 +50,25 @@ const panelRender = (
     } else {
       onNext?.();
     }
-    if (typeof nextButtonProps?.onClick === 'function') {
-      nextButtonProps?.onClick();
-    }
+    nextButtonProps?.onClick?.();
   };
 
-  let headerNode: ReactNode;
-  if (title) {
-    headerNode = (
-      <div className={`${prefixCls}-header`}>
-        <div className={`${prefixCls}-title`}>{title}</div>
-      </div>
-    );
-  }
+  const headerNode = isValidNode(title) ? (
+    <div className={`${prefixCls}-header`}>
+      <div className={`${prefixCls}-title`}>{title}</div>
+    </div>
+  ) : null;
 
-  let descriptionNode: ReactNode;
-  if (description) {
-    descriptionNode = <div className={`${prefixCls}-description`}>{description}</div>;
-  }
+  const descriptionNode = isValidNode(description) ? (
+    <div className={`${prefixCls}-description`}>{description}</div>
+  ) : null;
 
-  let coverNode: ReactNode;
-  if (cover) {
-    coverNode = <div className={`${prefixCls}-cover`}>{cover}</div>;
-  }
+  const coverNode = isValidNode(description) ? (
+    <div className={`${prefixCls}-cover`}>{cover}</div>
+  ) : null;
 
-  const mergedSlickNode =
-    (typeof indicatorsRender === 'function' && indicatorsRender(current, total)) ||
-    [...Array.from({ length: total }).keys()].map((stepItem, index) => (
+  const defaultIndicators = [...Array.from({ length: total }).keys()].map<ReactNode>(
+    (stepItem, index) => (
       <span
         key={stepItem}
         className={classNames(
@@ -81,8 +76,12 @@ const panelRender = (
           `${prefixCls}-indicator`,
         )}
       />
-    ));
-  const slickNode: ReactNode = total > 1 ? mergedSlickNode : null;
+    ),
+  );
+
+  const customIndicators = indicatorsRender?.(current, total);
+
+  const mergeIndicatorNode = isValidNode(customIndicators) ? customIndicators : defaultIndicators;
 
   const mainBtnType = mergedType === 'primary' ? 'default' : 'primary';
   const secondaryBtnProps: ButtonProps = {
@@ -107,7 +106,9 @@ const panelRender = (
             {headerNode}
             {descriptionNode}
             <div className={`${prefixCls}-footer`}>
-              <div className={`${prefixCls}-indicators`}>{slickNode}</div>
+              <div className={`${prefixCls}-indicators`}>
+                {total > 1 ? mergeIndicatorNode : null}
+              </div>
               <div className={`${prefixCls}-buttons`}>
                 {current !== 0 ? (
                   <Button
