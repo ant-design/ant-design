@@ -7,6 +7,7 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { CSSProperties } from 'react';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
+import theme from '../theme';
 import type { PresetColorType } from '../_util/colors';
 import { getTransitionName } from '../_util/motion';
 import type { AdjustOverflow, PlacementsConfig } from '../_util/placements';
@@ -17,7 +18,6 @@ import warning from '../_util/warning';
 import PurePanel from './PurePanel';
 import useStyle from './style';
 import { parseColor } from './util';
-import theme from '../theme';
 
 const { useToken } = theme;
 
@@ -53,7 +53,12 @@ interface LegacyTooltipProps
   extends Partial<
     Omit<
       RcTooltipProps,
-      'children' | 'visible' | 'defaultVisible' | 'onVisibleChange' | 'afterVisibleChange'
+      | 'children'
+      | 'visible'
+      | 'defaultVisible'
+      | 'onVisibleChange'
+      | 'afterVisibleChange'
+      | 'destroyTooltipOnHide'
     >
   > {
   open?: RcTooltipProps['visible'];
@@ -86,6 +91,7 @@ export interface AbstractTooltipProps extends LegacyTooltipProps {
   autoAdjustOverflow?: boolean | AdjustOverflow;
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   children?: React.ReactNode;
+  destroyTooltipOnHide?: boolean | { keepParent?: boolean };
 }
 
 export type RenderFunction = () => React.ReactNode;
@@ -176,6 +182,7 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
     children,
     afterOpenChange,
     afterVisibleChange,
+    destroyTooltipOnHide,
     arrow = true,
   } = props;
 
@@ -189,6 +196,7 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
     direction,
   } = React.useContext(ConfigContext);
 
+  // ============================== Warn ==============================
   if (process.env.NODE_ENV !== 'production') {
     [
       ['visible', 'open'],
@@ -203,8 +211,15 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
         `\`${deprecatedName}\` is deprecated, please use \`${newName}\` instead.`,
       );
     });
+
+    warning(
+      !destroyTooltipOnHide || typeof destroyTooltipOnHide === 'boolean',
+      'Tooltip',
+      '`destroyTooltipOnHide` no need config `keepParent` anymore. Please use `boolean` value directly.',
+    );
   }
 
+  // ============================== Open ==============================
   const [open, setOpen] = useMergedState(false, {
     value: props.open ?? props.visible,
     defaultValue: props.defaultOpen ?? props.defaultVisible,
@@ -300,6 +315,7 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
     tempOpen = false;
   }
 
+  // ============================= Render =============================
   const child = getDisabledCompatibleChildren(
     isValidElement(children) && !isFragment(children) ? children : <span>{children}</span>,
     prefixCls,
@@ -357,6 +373,7 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
         motionName: getTransitionName(rootPrefixCls, 'zoom-big-fast', props.transitionName),
         motionDeadline: 1000,
       }}
+      destroyTooltipOnHide={!!destroyTooltipOnHide}
     >
       {tempOpen ? cloneElement(child, { className: childCls }) : child}
     </RcTooltip>,

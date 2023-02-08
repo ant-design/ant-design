@@ -42,7 +42,7 @@ The following APIs are shared by Tooltip, Popconfirm, Popover.
 | autoAdjustOverflow | Whether to adjust popup placement automatically when popup is off screen | boolean | true |  |
 | color | The background color | string | - | 4.3.0 |
 | defaultOpen | Whether the floating tooltip card is open by default | boolean | false | 4.23.0 |
-| destroyTooltipOnHide | Whether destroy tooltip when hidden, parent container of tooltip will be destroyed when `keepParent` is false | boolean \| { keepParent?: boolean } | false |  |
+| destroyTooltipOnHide | Whether destroy tooltip when hidden | boolean | false |  |
 | getPopupContainer | The DOM container of the tip, the default behavior is to create a `div` element in `body` | (triggerNode: HTMLElement) => HTMLElement | () => document.body |  |
 | mouseEnterDelay | Delay in seconds, before tooltip is shown on mouse enter | number | 0.1 |  |
 | mouseLeaveDelay | Delay in seconds, before tooltip is hidden on mouse leave | number | 0.1 |  |
