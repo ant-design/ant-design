@@ -97,11 +97,7 @@ describe('Modal', () => {
       const containerRef = React.useRef<HTMLDivElement>(null);
       return (
         <div ref={containerRef}>
-          <Modal
-            open
-            getContainer={() => containerRef.current!}
-            mousePosition={{ x: 100, y: 100 }}
-          />
+          <Modal open getContainer={() => containerRef.current!} mousePosition={{x: 100, y: 100}} />
         </div>
       );
     };

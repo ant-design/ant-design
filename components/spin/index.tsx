@@ -70,7 +70,7 @@ function shouldDelay(spinning?: boolean, delay?: number): boolean {
   return !!spinning && !!delay && !isNaN(Number(delay));
 }
 
-const Spin: React.FC<SpinClassProps> = (props) => {
+const Spin: React.FC<SpinClassProps> = props => {
   const {
     spinPrefixCls: prefixCls,
     spinning: customSpinning = true,
@@ -147,7 +147,7 @@ const Spin: React.FC<SpinClassProps> = (props) => {
   return <ConfigConsumer>{renderSpin}</ConfigConsumer>;
 };
 
-const SpinFC: SpinFCType = (props) => {
+const SpinFC: SpinFCType = props => {
   const { prefixCls: customizePrefixCls } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
 

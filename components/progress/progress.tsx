@@ -88,7 +88,7 @@ const Progress: React.FC<ProgressProps> = (props: ProgressProps) => {
       return null;
     }
     let text;
-    const textFormatter = format || ((percentNumber) => `${percentNumber}%`);
+    const textFormatter = format || (percentNumber => `${percentNumber}%`);
     const isLineType = type === 'line';
     if (format || (progressStatus !== 'exception' && progressStatus !== 'success')) {
       text = textFormatter(validProgress(percent), validProgress(successPercent));
