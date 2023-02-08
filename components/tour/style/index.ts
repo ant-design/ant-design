@@ -139,7 +139,9 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
                 display: 'inline-block',
                 borderRadius: '50%',
                 background: colorFill,
-                marginInlineEnd: indicatorHeight,
+                '&:not(:last-child)': {
+                  marginInlineEnd: indicatorHeight,
+                },
                 '&-active': {
                   background: colorPrimary,
                 },
