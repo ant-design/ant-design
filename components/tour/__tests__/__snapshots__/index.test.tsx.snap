@@ -70,9 +70,6 @@ exports[`Tour Primary 1`] = `
               class="ant-tour-footer"
             >
               <div
-                class="ant-tour-indicators"
-              />
-              <div
                 class="ant-tour-buttons"
               >
                 <button
@@ -389,9 +386,6 @@ exports[`Tour single 1`] = `
             <div
               class="ant-tour-footer"
             >
-              <div
-                class="ant-tour-indicators"
-              />
               <div
                 class="ant-tour-buttons"
               >
