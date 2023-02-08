@@ -9,6 +9,7 @@ import Input from '../../input';
 import Menu from '../../menu';
 import Select from '../../select';
 import Tooltip from '../../tooltip';
+import { resetWarned } from '../../_util/warning';
 import type { SelectProps } from '../../select';
 import type { ColumnGroupType, ColumnType, TableProps } from '..';
 import type { ColumnFilterItem, FilterDropdownProps, FilterValue } from '../interface';
@@ -18,7 +19,7 @@ import type { TreeColumnFilterItem } from '../hooks/useFilter/FilterDropdown';
 const nativeEvent = { nativeEvent: { stopImmediatePropagation: () => {} } };
 
 describe('Table.filter', () => {
-  window.requestAnimationFrame = callback => window.setTimeout(callback, 16);
+  window.requestAnimationFrame = (callback) => window.setTimeout(callback, 16);
   window.cancelAnimationFrame = window.clearTimeout;
 
   const filterFn = (value: any, record: any) => record.name.includes(value);
@@ -61,7 +62,7 @@ describe('Table.filter', () => {
     container
       ?.querySelector('.ant-table-tbody')
       ?.querySelectorAll('tr')
-      ?.forEach(tr => {
+      ?.forEach((tr) => {
         namesList.push(tr.querySelector('td')?.textContent);
       });
     return namesList;
@@ -72,6 +73,7 @@ describe('Table.filter', () => {
   });
 
   afterEach(() => {
+    jest.clearAllTimers();
     jest.useRealTimers();
   });
 
@@ -308,7 +310,7 @@ describe('Table.filter', () => {
       ?.querySelector('.ant-table-filter-dropdown')
       ?.querySelectorAll<HTMLInputElement>('input[type="checkbox"]');
     expect(checkboxList?.length).toBeTruthy();
-    checkboxList?.forEach(checkbox => {
+    checkboxList?.forEach((checkbox) => {
       expect((checkbox as any)?.checkbox).toBeFalsy();
     });
 
@@ -390,7 +392,7 @@ describe('Table.filter', () => {
           {
             ...column,
             filteredValue: ['Lucy', 12, true],
-            onFilter: value => {
+            onFilter: (value) => {
               filterKeys.add(value);
               return false;
             },
@@ -408,7 +410,7 @@ describe('Table.filter', () => {
           {
             ...column,
             filteredValue: null,
-            onFilter: value => {
+            onFilter: (value) => {
               filterKeys.add(value);
               return true;
             },
@@ -449,7 +451,7 @@ describe('Table.filter', () => {
 
   // Warning: An update to Item ran an effect, but was not wrapped in act(...).
   it('render checked of checkbox correctly controlled by filteredValue', () => {
-    ['Lucy', 23, false].forEach(val => {
+    ['Lucy', 23, false].forEach((val) => {
       const { container } = render(
         createTable({
           columns: [
@@ -705,7 +707,7 @@ describe('Table.filter', () => {
               {
                 ...column,
                 filters,
-                onFilter: val => {
+                onFilter: (val) => {
                   expect(val).toBe(value);
                   filterKeys.add(val);
                   return false;
@@ -967,7 +969,7 @@ describe('Table.filter', () => {
                 <div>
                   <Input
                     value={selectedKeys[0]}
-                    onChange={e => {
+                    onChange={(e) => {
                       setSelectedKeys(e.target.value ? [e.target.value] : []);
                     }}
                   />
@@ -993,7 +995,7 @@ describe('Table.filter', () => {
   it('should not trigger onChange when bluring custom filterDropdown', () => {
     const onChange = jest.fn();
     const filterDropdown = ({ setSelectedKeys }: FilterDropdownProps) => (
-      <input onChange={e => setSelectedKeys([e.target.value])} />
+      <input onChange={(e) => setSelectedKeys([e.target.value])} />
     );
     const { container } = render(
       createTable({
@@ -1018,7 +1020,7 @@ describe('Table.filter', () => {
     const onChange = jest.fn();
     const filterDropdown = ({ setSelectedKeys, confirm }: FilterDropdownProps) => (
       <div>
-        <input onChange={e => setSelectedKeys([e.target.value])} />
+        <input onChange={(e) => setSelectedKeys([e.target.value])} />
         <button className="confirm-btn" type="submit" onClick={() => confirm()}>
           Confirm
         </button>
@@ -1055,7 +1057,7 @@ describe('Table.filter', () => {
 
     const filterDropdown = ({ setSelectedKeys, selectedKeys, confirm }: FilterDropdownProps) => {
       renderSelectedKeys = selectedKeys;
-      const handleChange: SelectProps['onChange'] = selectedValues => {
+      const handleChange: SelectProps['onChange'] = (selectedValues) => {
         setSelectedKeys(selectedValues);
       };
 
@@ -1196,7 +1198,7 @@ describe('Table.filter', () => {
   });
 
   it('should support getPopupContainer', () => {
-    const getPopupContainer = jest.fn(node => node.parentNode);
+    const getPopupContainer = jest.fn((node) => node.parentNode);
 
     render(
       createTable({
@@ -1213,7 +1215,7 @@ describe('Table.filter', () => {
   });
 
   it('should support getPopupContainer from ConfigProvider', () => {
-    const getPopupContainer = jest.fn(node => node.parentNode);
+    const getPopupContainer = jest.fn((node) => node.parentNode);
 
     render(
       <ConfigProvider getPopupContainer={getPopupContainer}>
@@ -1877,7 +1879,7 @@ describe('Table.filter', () => {
 
     it('should skip search when filters[0].text is ReactNode', () => {
       jest.spyOn(console, 'error').mockImplementation(() => undefined);
-      const { container } = render(
+      const { container, unmount } = render(
         createTable({
           columns: [
             {
@@ -1911,11 +1913,13 @@ describe('Table.filter', () => {
       expect(container.querySelectorAll('li.ant-dropdown-menu-item').length).toBe(3);
       fireEvent.change(container.querySelector('.ant-input')!, { target: { value: '123' } });
       expect(container.querySelectorAll('li.ant-dropdown-menu-item').length).toBe(2);
+
+      unmount();
     });
 
     it('should supports filterSearch has type of function', () => {
-      jest.spyOn(console, 'error').mockImplementation(() => undefined);
-      const { container } = render(
+      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => undefined);
+      const { container, unmount } = render(
         createTable({
           columns: [
             {
@@ -1939,6 +1943,9 @@ describe('Table.filter', () => {
       expect(container.querySelectorAll('li.ant-dropdown-menu-item').length).toBe(3);
       fireEvent.change(container.querySelector('.ant-input')!, { target: { value: '456' } });
       expect(container.querySelectorAll('li.ant-dropdown-menu-item').length).toBe(2);
+
+      unmount();
+      errorSpy.mockRestore();
     });
 
     it('should supports filterSearch has type of function when filterMode is tree', () => {
@@ -2369,9 +2376,18 @@ describe('Table.filter', () => {
     expect(onSelect).toHaveBeenCalled();
   });
 
-  it('filteredKeys should all be controlled or not controlled', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    errorSpy.mockReset();
+  describe('filteredKeys should all be controlled or not controlled', () => {
+    let errorSpy: jest.SpyInstance;
+
+    beforeEach(() => {
+      resetWarned();
+      errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      errorSpy.mockReset();
+    });
+
+    afterEach(() => {
+      errorSpy.mockRestore();
+    });
     const tableData = [
       {
         key: '1',
@@ -2379,7 +2395,7 @@ describe('Table.filter', () => {
         age: 32,
       },
     ];
-    const columns = [
+    const getColumns = () => [
       {
         title: 'name',
         dataIndex: 'name',
@@ -2393,33 +2409,42 @@ describe('Table.filter', () => {
         filters: [],
       },
     ];
-    render(
-      createTable({
-        columns,
-        data: tableData,
-      } as TableProps<any>),
-    );
-    expect(errorSpy).not.toHaveBeenCalled();
-    errorSpy.mockReset();
-    (columns[0] as any).filteredValue = [];
-    render(
-      createTable({
-        columns,
-        data: tableData,
-      } as TableProps<any>),
-    );
-    expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Table] Columns should all contain `filteredValue` or not contain `filteredValue`.',
-    );
-    errorSpy.mockReset();
-    (columns[1] as any).filteredValue = [];
-    render(
-      createTable({
-        columns,
-        data: tableData,
-      } as TableProps<any>),
-    );
-    expect(errorSpy).not.toHaveBeenCalled();
+    it('all uncontrolled', () => {
+      render(
+        createTable({
+          columns: getColumns(),
+          data: tableData,
+        } as TableProps<any>),
+      );
+      expect(errorSpy).not.toHaveBeenCalled();
+    });
+
+    it('part controlled', () => {
+      const columns = getColumns();
+      (columns[0] as any).filteredValue = [];
+      render(
+        createTable({
+          columns,
+          data: tableData,
+        } as TableProps<any>),
+      );
+      expect(errorSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Table] Columns should all contain `filteredValue` or not contain `filteredValue`.',
+      );
+    });
+
+    it('all controlled', () => {
+      const columns = getColumns();
+      (columns[0] as any).filteredValue = [];
+      (columns[1] as any).filteredValue = [];
+      render(
+        createTable({
+          columns,
+          data: tableData,
+        } as TableProps<any>),
+      );
+      expect(errorSpy).not.toHaveBeenCalled();
+    });
   });
 
   // Warning: An update to Item ran an effect, but was not wrapped in act(...).

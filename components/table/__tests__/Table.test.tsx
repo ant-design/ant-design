@@ -108,8 +108,6 @@ describe('Table', () => {
       { key: '2', age: 42 },
     ];
 
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-
     const columnsPageRange = jest.fn();
     const columnsPageSize = jest.fn();
     const props = { columnsPageRange, columnsPageSize };
@@ -119,7 +117,7 @@ describe('Table', () => {
       </Table>,
     );
 
-    expect(errorSpy).not.toHaveBeenCalledWith(
+    expect(warnSpy).not.toHaveBeenCalledWith(
       '`columnsPageRange` and `columnsPageSize` are removed, please use fixed columns instead, see: https://u.ant.design/fixed-columns.',
     );
 
@@ -197,7 +195,7 @@ describe('Table', () => {
       { title: 'age', dataKey: 'age', ellipsis: { showTitle: false } },
     ];
     const { container } = render(<Table columns={columns} dataSource={data} />);
-    container.querySelectorAll('td').forEach(td => {
+    container.querySelectorAll('td').forEach((td) => {
       expect(td.className.includes('ant-table-cell-ellipsis')).toBe(true);
     });
   });
@@ -219,10 +217,10 @@ describe('Table', () => {
     ];
 
     const { container } = render(<Table columns={columns} dataSource={data} />);
-    container.querySelectorAll<HTMLTableCellElement>('.ant-table-thead th').forEach(td => {
+    container.querySelectorAll<HTMLTableCellElement>('.ant-table-thead th').forEach((td) => {
       expect((td.attributes as any).title).toBeTruthy();
     });
-    container.querySelectorAll('.ant-table-tbody td').forEach(td => {
+    container.querySelectorAll('.ant-table-tbody td').forEach((td) => {
       expect((td.attributes as any).title).toBeFalsy();
     });
   });
@@ -238,7 +236,7 @@ describe('Table', () => {
     const { container } = render(<Table columns={columns} dataSource={data} />);
     container
       .querySelectorAll<HTMLTableCellElement>('.ant-table-thead th.ant-table-cell')
-      .forEach(td => {
+      .forEach((td) => {
         expect((td.attributes as any).title).toBeTruthy();
       });
   });
@@ -266,7 +264,7 @@ describe('Table', () => {
         dataIndex: 'name',
       },
     ];
-    render(<Table columns={columns} rowKey={record => record.key} />);
+    render(<Table columns={columns} rowKey={(record) => record.key} />);
     expect(warnSpy).not.toHaveBeenCalled();
   });
 

@@ -1915,6 +1915,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
               <ul
                 class="ant-menu ant-menu-sub ant-menu-inline"
                 data-menu-list="true"
+                role="menu"
               >
                 <li
                   class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
@@ -2227,6 +2228,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
             <ul
               class="ant-menu ant-menu-sub ant-menu-inline"
               data-menu-list="true"
+              role="menu"
             >
               <li
                 class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
