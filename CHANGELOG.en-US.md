@@ -39,6 +39,7 @@ timeline: true
   - 🆕 Tour support `scrollIntoViewOptions` to change scrollIntoView options. [#39980](https://github.com/ant-design/ant-design/pull/39980) [@kiner-tang](https://github.com/kiner-tang)
   - 🆕 Tour masks support passing custom styles and fill colors. [#39919](https://github.com/ant-design/ant-design/pull/39919) [@kiner-tang](https://github.com/kiner-tang)
   - 🐞 Fixed `findDomNode` method warning thrown by the tour component when called in strict mode. [#40160](https://github.com/ant-design/ant-design/pull/40160) [@kiner-tang](https://github.com/kiner-tang)
+  - 💄 Deleted margin of the last indicator. [#40624](https://github.com/ant-design/ant-design/pull/40624)
 - 🆕 Adds Design token `fontFamilyCode` and apply to Typography `code` `kbd` `pre` elements. [#39823](https://github.com/ant-design/ant-design/pull/39823)
 - 🆕 ConfigProvider add Form `scrollToFirstError`。[#39509](https://github.com/ant-design/ant-design/pull/39509) [@linxianxi](https://github.com/linxianxi)
 - 🐞 Fill rest `rootClassName` for all components. [#40217](https://github.com/ant-design/ant-design/pull/40217)
