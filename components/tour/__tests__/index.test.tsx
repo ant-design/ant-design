@@ -294,10 +294,21 @@ describe('Tour', () => {
     expect(container.querySelector('.ant-tour')).toBeFalsy();
     expect(baseElement).toMatchSnapshot();
   });
-  it('panelRender should correct render when total is undefined', () => {
-    expect(() => {
-      panelRender({ total: undefined, title: <div>test</div> }, 0, 'default');
-    }).not.toThrow();
+
+  it('panelRender should correct render when total is undefined or null', () => {
+    [undefined, null].forEach((total) => {
+      expect(() => {
+        panelRender({ total: total as unknown as number, title: <div>test</div> }, 0, 'default');
+      }).not.toThrow();
+    });
+  });
+
+  it('panelRender should correct render when title is null or null', () => {
+    [undefined, null].forEach((title) => {
+      expect(() => {
+        panelRender({ total: 1, title }, 0, 'default');
+      }).not.toThrow();
+    });
   });
 
   it('custom step pre btn & next btn className & style', () => {

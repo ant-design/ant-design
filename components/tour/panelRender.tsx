@@ -77,9 +77,14 @@ const panelRender = (
     ),
   );
 
-  const customIndicators = indicatorsRender?.(current, total);
+  let mergeIndicatorNode: ReactNode = defaultIndicators;
 
-  const mergeIndicatorNode = isValidNode(customIndicators) ? customIndicators : defaultIndicators;
+  if (indicatorsRender) {
+    const customIndicators = indicatorsRender(current, total);
+    if (isValidNode(customIndicators)) {
+      mergeIndicatorNode = customIndicators;
+    }
+  }
 
   const mainBtnType = mergedType === 'primary' ? 'default' : 'primary';
   const secondaryBtnProps: ButtonProps = {
