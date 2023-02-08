@@ -48,13 +48,13 @@ export interface UploadChangeParam<T = UploadFile> {
   event?: { percent: number };
 }
 
-export interface ShowUploadListInterface {
+export interface ShowUploadListInterface<T = any> {
   showRemoveIcon?: boolean;
   showPreviewIcon?: boolean;
   showDownloadIcon?: boolean;
-  removeIcon?: React.ReactNode | ((file: UploadFile) => React.ReactNode);
-  downloadIcon?: React.ReactNode | ((file: UploadFile) => React.ReactNode);
-  previewIcon?: React.ReactNode | ((file: UploadFile) => React.ReactNode);
+  removeIcon?: React.ReactNode | ((file: UploadFile<T>) => React.ReactNode);
+  downloadIcon?: React.ReactNode | ((file: UploadFile<T>) => React.ReactNode);
+  previewIcon?: React.ReactNode | ((file: UploadFile<T>) => React.ReactNode);
 }
 
 export interface UploadLocale {
@@ -71,7 +71,7 @@ export type UploadListProgressProps = Omit<ProgressProps, 'percent' | 'type'>;
 
 export type ItemRender<T = any> = (
   originNode: React.ReactElement,
-  file: UploadFile,
+  file: UploadFile<T>,
   fileList: Array<UploadFile<T>>,
   actions: {
     download: () => void;
@@ -125,7 +125,7 @@ export interface UploadProps<T = any> extends Pick<RcUploadProps, 'capture'> {
   /** @deprecated Please use `beforeUpload` directly */
   transformFile?: TransformFileHandler;
   iconRender?: (file: UploadFile<T>, listType?: UploadListType) => React.ReactNode;
-  isImageUrl?: (file: UploadFile) => boolean;
+  isImageUrl?: (file: UploadFile<T>) => boolean;
   progress?: UploadListProgressProps;
   itemRender?: ItemRender<T>;
   /** Config max count of `fileList`. Will replace current one when `maxCount` is 1 */
@@ -156,7 +156,7 @@ export interface UploadListProps<T = any> {
   locale: UploadLocale;
   previewFile?: PreviewFileHandler;
   iconRender?: (file: UploadFile<T>, listType?: UploadListType) => React.ReactNode;
-  isImageUrl?: (file: UploadFile) => boolean;
+  isImageUrl?: (file: UploadFile<T>) => boolean;
   appendAction?: React.ReactNode;
   appendActionVisible?: boolean;
   itemRender?: ItemRender<T>;
