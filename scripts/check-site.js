@@ -41,7 +41,7 @@ describe('site test', () => {
   const expectComponent = async (component) => {
     const { status, $ } = await render(`/${component}/`);
     expect(status).toBe(200);
-    expect($('h1').text().toLowerCase()).toMatch(handleComponentName(component));
+    expect($('main h1').text().toLowerCase()).toMatch(handleComponentName(component));
   };
 
   beforeAll(() => {
