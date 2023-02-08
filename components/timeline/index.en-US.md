@@ -14,6 +14,21 @@ Vertical display timeline.
 - When a series of information needs to be ordered by time (ascending or descending).
 - When you need a timeline to make a visual connection.
 
+<Alert message="After version 5.2.0, we provide a simpler usage &lt;Timeline items={[...]} /&gt; with better performance and potential of writing simpler code style in your applications. Meanwhile, we deprecated the old usage in browser console, we will remove it in antd 6.0."></Alert>
+
+```jsx
+// works when >=5.2.0, recommended ✅
+const items = [{ children: 'sample', label: 'sample' }];
+return <Timeline items={items} />;
+
+// works when <5.2.0, deprecated when >=5.2.0 🙅🏻‍♀️
+return (
+  <Timeline onChange={onChange}>
+    <Timeline.Item>Sample</Timeline.Item>
+  </Timeline>
+);
+```
+
 ## Examples
 
 <!-- prettier-ignore -->
@@ -25,19 +40,6 @@ Vertical display timeline.
 <code src="./demo/right.tsx">Right alternate</code>
 <code src="./demo/label.tsx">Label</code>
 <code src="./demo/wireframe.tsx" debug>Wireframe</code>
-
-<Alert message="After version 5.2.0, we provide a simpler usage &lt;Timeline items={[...]} /&gt; with better performance and potential of writing simpler code style in your applications. Meanwhile, we deprecated the old usage in browser console, we will remove it in antd 6.0."></Alert>
-
-```jsx
-// works when >=5.2.0, recommended ✅
-const items = [{ children: 'sample', label: 'sample' }];
-return <Timeline items={items} />;
-
-// works when <5.2.0, deprecated when >=5.2.0 🙅🏻‍♀️
-<Timeline onChange={onChange}>
-  <Timeline.Item>Sample</Timeline.Item>
-</Timeline>;
-```
 
 ## API
 
