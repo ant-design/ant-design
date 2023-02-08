@@ -286,6 +286,7 @@ const columns = [
 ```tsx
 import { Table } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
+import React from 'react';
 
 interface User {
   key: number;
@@ -307,7 +308,7 @@ const data: User[] = [
   },
 ];
 
-export default () => (
+const Demo: React.FC = () => (
   <>
     <Table<User> columns={columns} dataSource={data} />
     {/* 使用 JSX 风格的 API */}
@@ -316,6 +317,8 @@ export default () => (
     </Table>
   </>
 );
+
+export default Demo;
 ```
 
 TypeScript 里使用 Table 的 [CodeSandbox 实例](https://codesandbox.io/s/serene-platform-0jo5t)。
