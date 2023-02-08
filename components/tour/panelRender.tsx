@@ -63,9 +63,7 @@ const panelRender = (
     <div className={`${prefixCls}-description`}>{description}</div>
   ) : null;
 
-  const coverNode = isValidNode(description) ? (
-    <div className={`${prefixCls}-cover`}>{cover}</div>
-  ) : null;
+  const coverNode = isValidNode(cover) ? <div className={`${prefixCls}-cover`}>{cover}</div> : null;
 
   const defaultIndicators = [...Array.from({ length: total }).keys()].map<ReactNode>(
     (stepItem, index) => (
