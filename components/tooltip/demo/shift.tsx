@@ -2,17 +2,13 @@ import { Button, Tooltip } from 'antd';
 import React from 'react';
 
 const App: React.FC = () => {
-  const holderRef = React.useRef<HTMLDivElement>(null);
-
   React.useEffect(() => {
-    if (holderRef.current) {
-      holderRef.current.scrollTop = holderRef.current.clientHeight;
-      holderRef.current.scrollLeft = holderRef.current.clientWidth;
-    }
+    document.documentElement.scrollTop = document.documentElement.clientHeight;
+    document.documentElement.scrollLeft = document.documentElement.clientWidth;
   }, []);
 
   return (
-    <div style={{ width: '100vw', height: '100vh', overflow: 'scroll' }} ref={holderRef}>
+    <div>
       <div
         style={{
           width: '300vw',
@@ -23,7 +19,7 @@ const App: React.FC = () => {
         }}
       >
         <Tooltip title="Thanks for using antd. Have a nice day!" open>
-          <Button>Scroll Me</Button>
+          <Button>Scroll The Window</Button>
         </Tooltip>
       </div>
     </div>
