@@ -251,6 +251,7 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
         arrowPointAtCenter: mergedArrowPointAtCenter,
         autoAdjustOverflow,
         arrowWidth: mergedShowArrow ? token.sizePopupArrow : 0,
+        borderRadius: token.borderRadius,
         offset: token.marginXXS,
       })
     );
