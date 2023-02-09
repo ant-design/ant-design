@@ -16,6 +16,7 @@ const genSizeStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         ${componentCls}-title,
         ${componentCls}-footer,
         ${componentCls}-thead > tr > th,
+        ${componentCls}-tbody > tr > th,
         ${componentCls}-tbody > tr > td,
         tfoot > tr > th,
         tfoot > tr > td
