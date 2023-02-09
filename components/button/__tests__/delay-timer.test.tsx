@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { act } from 'react-dom/test-utils';
 import { fireEvent, render } from '../../../tests/utils';
+import isFunction from '../../_util/isFunction';
 import Button from '../button';
 
 const specialDelay = 9529;
@@ -60,7 +61,7 @@ it('Delay loading timer in Button component', () => {
   act(() => {
     const timerHandler = setTimeoutMock.mock.calls[0][0];
 
-    if (typeof timerHandler === 'function') {
+    if (isFunction(timerHandler)) {
       timerHandler();
     }
   });

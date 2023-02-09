@@ -9,9 +9,10 @@ import type { PaginationConfig } from '../pagination';
 import Pagination from '../pagination';
 import type { SpinProps } from '../spin';
 import Spin from '../spin';
+import extendsObject from '../_util/extendsObject';
+import isFunction from '../_util/isFunction';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { responsiveArray } from '../_util/responsiveObserver';
-import extendsObject from '../_util/extendsObject';
 import Item from './Item';
 
 // CSSINJS
@@ -123,11 +124,13 @@ function List<T>({
   const onPaginationShowSizeChange = triggerPaginationEvent('onShowSizeChange');
 
   const renderInnerItem = (item: T, index: number) => {
-    if (!renderItem) return null;
+    if (!renderItem) {
+      return null;
+    }
 
     let key;
 
-    if (typeof rowKey === 'function') {
+    if (isFunction(rowKey)) {
       key = rowKey(item);
     } else if (rowKey) {
       key = item[rowKey];

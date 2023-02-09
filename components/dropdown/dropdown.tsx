@@ -10,6 +10,8 @@ import type { MenuProps } from '../menu';
 import Menu from '../menu';
 import { OverrideProvider } from '../menu/OverrideContext';
 import { NoCompactStyle } from '../space/Compact';
+import theme from '../theme';
+import isFunction from '../_util/isFunction';
 import type { AdjustOverflow } from '../_util/placements';
 import getPlacements from '../_util/placements';
 import genPurePanel from '../_util/PurePanel';
@@ -17,7 +19,6 @@ import { cloneElement } from '../_util/reactNode';
 import warning from '../_util/warning';
 import DropdownButton from './dropdown-button';
 import useStyle from './style';
-import theme from '../theme';
 
 const Placements = [
   'topLeft',
@@ -243,7 +244,7 @@ const Dropdown: CompoundedComponent = (props) => {
     let overlayNode: React.ReactNode;
     if (menu?.items) {
       overlayNode = <Menu {...menu} />;
-    } else if (typeof overlay === 'function') {
+    } else if (isFunction(overlay)) {
       overlayNode = overlay();
     } else {
       overlayNode = overlay;

@@ -1,17 +1,16 @@
 import classNames from 'classnames';
 import * as React from 'react';
 import scrollIntoView from 'scroll-into-view-if-needed';
-
 import Affix from '../affix';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import getScroll from '../_util/getScroll';
+import isFunction from '../_util/isFunction';
 import scrollTo from '../_util/scrollTo';
 import warning from '../_util/warning';
 import type { AnchorLinkBaseProps } from './AnchorLink';
 import AnchorLink from './AnchorLink';
 import AnchorContext from './context';
-
 import useStyle from './style';
 
 export interface AnchorLinkItemProps extends AnchorLinkBaseProps {
@@ -222,7 +221,7 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
     }
 
     // https://github.com/ant-design/ant-design/issues/30584
-    const newLink = typeof getCurrentAnchor === 'function' ? getCurrentAnchor(link) : link;
+    const newLink = isFunction(getCurrentAnchor) ? getCurrentAnchor(link) : link;
     setActiveLink(newLink);
     activeLinkRef.current = newLink;
 
@@ -235,7 +234,7 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
     if (animating.current) {
       return;
     }
-    if (typeof getCurrentAnchor === 'function') {
+    if (isFunction(getCurrentAnchor)) {
       return;
     }
     const currentActiveLink = getInternalCurrentAnchor(
@@ -325,7 +324,7 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
   }, [dependencyListItem]);
 
   React.useEffect(() => {
-    if (typeof getCurrentAnchor === 'function') {
+    if (isFunction(getCurrentAnchor)) {
       setCurrentActiveLink(getCurrentAnchor(activeLinkRef.current || ''));
     }
   }, [getCurrentAnchor]);

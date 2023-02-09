@@ -8,6 +8,7 @@ import type { FormItemStatusContextProps } from '../form/context';
 import { FormItemInputContext } from '../form/context';
 import defaultLocale from '../locale/en_US';
 import LocaleReceiver from '../locale/LocaleReceiver';
+import isFunction from '../_util/isFunction';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { groupDisabledKeysMap, groupKeysMap } from '../_util/transKeys';
@@ -191,9 +192,9 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   const setStateKeys = useCallback(
     (direction: TransferDirection, keys: string[] | ((prevKeys: string[]) => string[])) => {
       if (direction === 'left') {
-        setSourceSelectedKeys((prev) => (typeof keys === 'function' ? keys(prev || []) : keys));
+        setSourceSelectedKeys((prev) => (isFunction(keys) ? keys(prev || []) : keys));
       } else {
-        setTargetSelectedKeys((prev) => (typeof keys === 'function' ? keys(prev || []) : keys));
+        setTargetSelectedKeys((prev) => (isFunction(keys) ? keys(prev || []) : keys));
       }
     },
     [sourceSelectedKeys, targetSelectedKeys],
@@ -312,12 +313,8 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     );
   };
 
-  const handleListStyle = (direction: TransferDirection): CSSProperties => {
-    if (typeof listStyle === 'function') {
-      return listStyle({ direction });
-    }
-    return listStyle || {};
-  };
+  const handleListStyle = (direction: TransferDirection): CSSProperties =>
+    isFunction(listStyle) ? listStyle({ direction }) : listStyle || {};
 
   const [leftDataSource, rightDataSource] = useMemo(() => {
     const leftData: KeyWise<RecordType>[] = [];

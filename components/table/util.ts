@@ -1,4 +1,5 @@
 /* eslint-disable import/prefer-default-export */
+import isFunction from '../_util/isFunction';
 import type { ColumnTitle, ColumnTitleProps, ColumnType, Key } from './interface';
 
 export function getColumnKey<RecordType>(column: ColumnType<RecordType>, defaultKey: string): Key {
@@ -20,11 +21,7 @@ export function renderColumnTitle<RecordType>(
   title: ColumnTitle<RecordType>,
   props: ColumnTitleProps<RecordType>,
 ) {
-  if (typeof title === 'function') {
-    return title(props);
-  }
-
-  return title;
+  return isFunction(title) ? title(props) : title;
 }
 
 /**

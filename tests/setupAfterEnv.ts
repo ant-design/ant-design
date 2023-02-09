@@ -1,8 +1,9 @@
-import { toHaveNoViolations } from 'jest-axe';
 import '@testing-library/jest-dom';
-import format, { plugins } from 'pretty-format';
+import { toHaveNoViolations } from 'jest-axe';
 import jsdom from 'jsdom';
+import format, { plugins } from 'pretty-format';
 import { defaultConfig } from '../components/theme/internal';
+import isFunction from '../components/_util/isFunction';
 
 // Not use dynamic hashed for test env since version will change hash dynamically.
 defaultConfig.hashed = false;
@@ -78,7 +79,7 @@ expect.addSnapshotSerializer({
 
     // Clean up `data-reactroot` since React 18 do not have this
     children.forEach((ele: HTMLElement) => {
-      if (typeof ele.removeAttribute === 'function') {
+      if (isFunction(ele.removeAttribute)) {
         ele.removeAttribute('data-reactroot');
       }
     });

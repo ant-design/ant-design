@@ -7,7 +7,8 @@ import glob from 'glob';
 import { configureToMatchImageSnapshot } from 'jest-image-snapshot';
 import MockDate from 'mockdate';
 import ReactDOMServer from 'react-dom/server';
-import { App, theme, ConfigProvider } from '../../components';
+import { App, ConfigProvider, theme } from '../../components';
+import isFunction from '../../components/_util/isFunction';
 
 const toMatchImageSnapshot = configureToMatchImageSnapshot({
   customSnapshotsDir: `${process.cwd()}/imageSnapshots`,
@@ -89,7 +90,7 @@ export function imageDemoTest(component: string, options: Options = {}) {
     describeMethod(`Test ${file} image`, () => {
       // eslint-disable-next-line global-require,import/no-dynamic-require
       let Demo = require(`../.${file}`).default;
-      if (typeof Demo === 'function') {
+      if (isFunction(Demo)) {
         Demo = <Demo />;
       }
       imageTest(Demo);

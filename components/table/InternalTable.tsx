@@ -15,6 +15,7 @@ import Pagination from '../pagination';
 import type { SpinProps } from '../spin';
 import Spin from '../spin';
 import type { TooltipProps } from '../tooltip';
+import isFunction from '../_util/isFunction';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import scrollTo from '../_util/scrollTo';
 import warning from '../_util/warning';
@@ -28,6 +29,7 @@ import type { SortState } from './hooks/useSorter';
 import useSorter, { getSortData } from './hooks/useSorter';
 import useTitleColumns from './hooks/useTitleColumns';
 import type {
+  ColumnsType,
   ColumnTitleProps,
   ColumnType,
   ExpandableConfig,
@@ -35,15 +37,14 @@ import type {
   FilterValue,
   GetPopupContainer,
   GetRowKey,
+  RefInternalTable,
   SorterResult,
   SortOrder,
   TableAction,
   TableCurrentDataSource,
   TableLocale,
-  TableRowSelection,
-  ColumnsType,
   TablePaginationConfig,
-  RefInternalTable,
+  TableRowSelection,
 } from './interface';
 import RcTable from './RcTable';
 
@@ -146,7 +147,7 @@ function InternalTable<RecordType extends object = any>(
 
   if (process.env.NODE_ENV !== 'production') {
     warning(
-      !(typeof rowKey === 'function' && rowKey.length > 1),
+      !(isFunction(rowKey) && rowKey.length > 1),
       'Table',
       '`index` parameter of `rowKey` function is deprecated. There is no guarantee that it will work as expected.',
     );
@@ -214,11 +215,10 @@ function InternalTable<RecordType extends object = any>(
 
   // ============================ RowKey ============================
   const getRowKey = React.useMemo<GetRowKey<RecordType>>(() => {
-    if (typeof rowKey === 'function') {
+    if (isFunction(rowKey)) {
       return rowKey;
     }
-
-    return (record: RecordType) => (record as any)?.[rowKey as string];
+    return (record: RecordType) => (record as any)?.[rowKey];
   }, [rowKey]);
 
   const [getRecordByKey] = useLazyKVMap(rawData, childrenColumnName, getRowKey);
@@ -413,7 +413,7 @@ function InternalTable<RecordType extends object = any>(
 
   const internalRowClassName = (record: RecordType, index: number, indent: number) => {
     let mergedRowClassName: string;
-    if (typeof rowClassName === 'function') {
+    if (isFunction(rowClassName)) {
       mergedRowClassName = classNames(rowClassName(record, index, indent));
     } else {
       mergedRowClassName = classNames(rowClassName);

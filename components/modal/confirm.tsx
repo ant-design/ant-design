@@ -1,6 +1,7 @@
 import { render as reactRender, unmount as reactUnmount } from 'rc-util/lib/React/render';
 import * as React from 'react';
 import { globalConfig } from '../config-provider';
+import isFunction from '../_util/isFunction';
 import warning from '../_util/warning';
 import ConfirmDialog from './ConfirmDialog';
 import destroyFns from './destroyFns';
@@ -81,10 +82,9 @@ export default function confirm(config: ModalFuncProps) {
       ...currentConfig,
       open: false,
       afterClose: () => {
-        if (typeof config.afterClose === 'function') {
+        if (isFunction(config.afterClose)) {
           config.afterClose();
         }
-
         destroy.apply(this, args);
       },
     };
@@ -98,13 +98,10 @@ export default function confirm(config: ModalFuncProps) {
   }
 
   function update(configUpdate: ConfigUpdate) {
-    if (typeof configUpdate === 'function') {
+    if (isFunction(configUpdate)) {
       currentConfig = configUpdate(currentConfig);
     } else {
-      currentConfig = {
-        ...currentConfig,
-        ...configUpdate,
-      };
+      currentConfig = { ...currentConfig, ...configUpdate };
     }
     render(currentConfig);
   }

@@ -1,6 +1,7 @@
 import raf from 'rc-util/lib/raf';
 import { easeInOutCubic } from './easings';
 import getScroll, { isWindow } from './getScroll';
+import isFunction from './isFunction';
 
 interface ScrollToOptions {
   /** Scroll container, default as window */
@@ -30,7 +31,7 @@ export default function scrollTo(y: number, options: ScrollToOptions = {}) {
     }
     if (time < duration) {
       raf(frameFunc);
-    } else if (typeof callback === 'function') {
+    } else if (isFunction(callback)) {
       callback();
     }
   };

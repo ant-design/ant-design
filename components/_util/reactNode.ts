@@ -1,4 +1,5 @@
 import * as React from 'react';
+import isFunction from './isFunction';
 
 export const { isValidElement } = React;
 
@@ -18,10 +19,7 @@ export function replaceElement(
   if (!isValidElement(element)) {
     return replacement;
   }
-  return React.cloneElement(
-    element,
-    typeof props === 'function' ? props(element.props || {}) : props,
-  );
+  return React.cloneElement(element, isFunction(props) ? props(element.props || {}) : props);
 }
 
 export function cloneElement(element: React.ReactNode, props?: RenderProps): React.ReactElement {

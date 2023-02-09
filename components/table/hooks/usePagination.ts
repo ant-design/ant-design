@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import type { PaginationProps } from '../../pagination';
-import type { TablePaginationConfig } from '../interface';
 import extendsObject from '../../_util/extendsObject';
+import isFunction from '../../_util/isFunction';
+import type { TablePaginationConfig } from '../interface';
 
 export const DEFAULT_PAGE_SIZE = 10;
 
@@ -13,12 +14,12 @@ export function getPaginationParam(
     current: mergedPagination.current,
     pageSize: mergedPagination.pageSize,
   };
+
   const paginationObj = pagination && typeof pagination === 'object' ? pagination : {};
 
-  Object.keys(paginationObj).forEach((pageProp) => {
-    const value = (mergedPagination as any)[pageProp];
-
-    if (typeof value !== 'function') {
+  Object.keys(paginationObj).forEach((pageProp: keyof TablePaginationConfig) => {
+    const value = mergedPagination[pageProp];
+    if (!isFunction(value)) {
       param[pageProp] = value;
     }
   });

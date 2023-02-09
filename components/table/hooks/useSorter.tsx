@@ -5,6 +5,7 @@ import KeyCode from 'rc-util/lib/KeyCode';
 import * as React from 'react';
 import type { TooltipProps } from '../../tooltip';
 import Tooltip from '../../tooltip';
+import isFunction from '../../_util/isFunction';
 import type {
   ColumnGroupType,
   ColumnsType,
@@ -32,7 +33,7 @@ function getMultiplePriority<RecordType>(column: ColumnType<RecordType>): number
 function getSortFunction<RecordType>(
   sorter: ColumnType<RecordType>['sorter'],
 ): CompareFn<RecordType> | false {
-  if (typeof sorter === 'function') {
+  if (isFunction(sorter)) {
     return sorter;
   }
   if (sorter && typeof sorter === 'object' && sorter.compare) {

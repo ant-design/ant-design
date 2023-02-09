@@ -13,6 +13,7 @@ import type {
 } from 'rc-picker/lib/RangePicker';
 import type { SizeType } from '../../config-provider/SizeContext';
 import type { TimePickerLocale } from '../../time-picker';
+import isFunction from '../../_util/isFunction';
 import type { InputStatus } from '../../_util/statusUtils';
 import PickerButton from '../PickerButton';
 import generateRangePicker from './generateRangePicker';
@@ -60,7 +61,7 @@ export function getTimeProps<DateType, DisabledTime>(
     return showTimeObj;
   }
 
-  if (typeof firstFormat === 'function') {
+  if (isFunction(firstFormat)) {
     // format of showTime should use default when format is custom format function
     delete showTimeObj.format;
   }

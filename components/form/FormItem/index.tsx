@@ -6,19 +6,19 @@ import type { Meta, NamePath } from 'rc-field-form/lib/interface';
 import useState from 'rc-util/lib/hooks/useState';
 import { supportRef } from 'rc-util/lib/ref';
 import * as React from 'react';
-import useFormItemStatus from '../hooks/useFormItemStatus';
 import { ConfigContext } from '../../config-provider';
+import isFunction from '../../_util/isFunction';
 import { cloneElement, isValidElement } from '../../_util/reactNode';
 import warning from '../../_util/warning';
 import { FormContext, NoStyleItemContext } from '../context';
 import type { FormItemInputProps } from '../FormItemInput';
 import type { FormItemLabelProps, LabelTooltipType } from '../FormItemLabel';
+import useFormItemStatus from '../hooks/useFormItemStatus';
 import useFrameState from '../hooks/useFrameState';
 import useItemRef from '../hooks/useItemRef';
+import useStyle from '../style';
 import { getFieldId, toArray } from '../util';
 import ItemHolder from './ItemHolder';
-
-import useStyle from '../style';
 
 const NAME_SPLIT = '__SPLIT__';
 
@@ -28,6 +28,7 @@ interface FieldError {
 }
 
 const ValidateStatuses = ['success', 'warning', 'error', 'validating', ''] as const;
+
 export type ValidateStatus = typeof ValidateStatuses[number];
 
 type RenderChildren<Values = any> = (form: FormInstance<Values>) => React.ReactNode;
@@ -108,7 +109,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
   } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
   const { name: formName } = React.useContext(FormContext);
-  const isRenderProps = typeof children === 'function';
+  const isRenderProps = isFunction(children);
   const notifyParentMetaChange = React.useContext(NoStyleItemContext);
 
   const { validateTrigger: contextValidateTrigger } = React.useContext(FieldContext);
@@ -265,7 +266,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
                   if (rule && typeof rule === 'object' && rule.required && !rule.warningOnly) {
                     return true;
                   }
-                  if (typeof rule === 'function') {
+                  if (isFunction(rule)) {
                     const ruleEntity = rule(context);
                     return ruleEntity && ruleEntity.required && !ruleEntity.warningOnly;
                   }

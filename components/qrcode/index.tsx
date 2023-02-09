@@ -1,16 +1,17 @@
-import React, { useMemo, useContext } from 'react';
-import { QRCodeCanvas } from 'qrcode.react';
-import classNames from 'classnames';
 import { ReloadOutlined } from '@ant-design/icons';
+import classNames from 'classnames';
+import { QRCodeCanvas } from 'qrcode.react';
+import React, { useContext, useMemo } from 'react';
+import Button from '../button';
+import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import LocaleReceiver from '../locale/LocaleReceiver';
-import type { ConfigConsumerProps } from '../config-provider';
-import type { QRCodeProps, QRPropsCanvas } from './interface';
-import warning from '../_util/warning';
-import useStyle from './style/index';
 import Spin from '../spin';
-import Button from '../button';
 import theme from '../theme';
+import isFunction from '../_util/isFunction';
+import warning from '../_util/warning';
+import type { QRCodeProps, QRPropsCanvas } from './interface';
+import useStyle from './style/index';
 
 const { useToken } = theme;
 
@@ -82,7 +83,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
               {status === 'expired' && (
                 <>
                   <p className={`${prefixCls}-expired`}>{locale.expired}</p>
-                  {typeof onRefresh === 'function' && (
+                  {isFunction(onRefresh) && (
                     <Button type="link" icon={<ReloadOutlined />} onClick={onRefresh}>
                       {locale.refresh}
                     </Button>

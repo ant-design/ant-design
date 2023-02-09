@@ -4,11 +4,12 @@ import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import type { PresetColorType, PresetStatusColorType } from '../_util/colors';
 import { isPresetColor, isPresetStatusColor } from '../_util/colors';
-import Wave from '../_util/wave';
+import isFunction from '../_util/isFunction';
+import type { LiteralUnion } from '../_util/type';
 import warning from '../_util/warning';
+import Wave from '../_util/wave';
 import CheckableTag from './CheckableTag';
 import useStyle from './style';
-import type { LiteralUnion } from '../_util/type';
 
 export type { CheckableTagProps } from './CheckableTag';
 
@@ -112,9 +113,8 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
     return null;
   };
 
-  const isNeedWave =
-    typeof props.onClick === 'function' ||
-    (children && (children as React.ReactElement<any>).type === 'a');
+  const isNeedWave = isFunction(props.onClick) || (children as React.ReactElement)?.type === 'a';
+
   const iconNode = icon || null;
   const kids = iconNode ? (
     <>

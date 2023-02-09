@@ -1,21 +1,22 @@
-import * as React from 'react';
+import CloseOutlined from '@ant-design/icons/CloseOutlined';
+import classNames from 'classnames';
 import { useNotification as useRcNotification } from 'rc-notification';
 import type { NotificationAPI } from 'rc-notification/lib';
-import classNames from 'classnames';
-import CloseOutlined from '@ant-design/icons/CloseOutlined';
+import * as React from 'react';
 import { ConfigContext } from '../config-provider';
-import useStyle from './style';
+import isFunction from '../_util/isFunction';
+import warning from '../_util/warning';
 import type {
-  MessageInstance,
   ArgsProps,
-  MessageType,
   ConfigOptions,
+  MessageInstance,
+  MessageType,
   NoticeType,
   TypeOpen,
 } from './interface';
-import { getMotion, wrapPromiseFn } from './util';
-import warning from '../_util/warning';
 import { PureContent } from './PurePanel';
+import useStyle from './style';
+import { getMotion, wrapPromiseFn } from './util';
 
 const DEFAULT_OFFSET = 8;
 const DEFAULT_DURATION = 3;
@@ -189,7 +190,7 @@ export function useInternalMessage(
         // Params
         let mergedDuration: number | undefined;
         let mergedOnClose: VoidFunction | undefined;
-        if (typeof duration === 'function') {
+        if (isFunction(duration)) {
           mergedOnClose = duration;
         } else {
           mergedDuration = duration;

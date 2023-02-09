@@ -7,6 +7,7 @@ import * as React from 'react';
 import { ConfigContext } from '../../config-provider';
 import Progress from '../../progress';
 import Tooltip from '../../tooltip';
+import isFunction from '../../_util/isFunction';
 import type {
   ItemRender,
   UploadFile,
@@ -141,7 +142,7 @@ const ListItem = React.forwardRef(
 
     const removeIcon = showRemoveIcon
       ? actionIconRender(
-          (typeof customRemoveIcon === 'function' ? customRemoveIcon(file) : customRemoveIcon) || (
+          (isFunction(customRemoveIcon) ? customRemoveIcon(file) : customRemoveIcon) || (
             <DeleteOutlined />
           ),
           () => onClose(file),
@@ -153,9 +154,9 @@ const ListItem = React.forwardRef(
     const downloadIcon =
       showDownloadIcon && mergedStatus === 'done'
         ? actionIconRender(
-            (typeof customDownloadIcon === 'function'
-              ? customDownloadIcon(file)
-              : customDownloadIcon) || <DownloadOutlined />,
+            (isFunction(customDownloadIcon) ? customDownloadIcon(file) : customDownloadIcon) || (
+              <DownloadOutlined />
+            ),
             () => onDownload(file),
             prefixCls,
             locale.downloadFile,
@@ -214,7 +215,7 @@ const ListItem = React.forwardRef(
         onClick={(e) => onPreview(file, e)}
         title={locale.previewFile}
       >
-        {typeof customPreviewIcon === 'function'
+        {isFunction(customPreviewIcon)
           ? customPreviewIcon(file)
           : customPreviewIcon || <EyeOutlined />}
       </a>

@@ -11,6 +11,7 @@ import type { ButtonProps } from '../../button';
 import Button from '../../button';
 import { ConfigContext } from '../../config-provider';
 import useForceUpdate from '../../_util/hooks/useForceUpdate';
+import isFunction from '../../_util/isFunction';
 import initCollapseMotion from '../../_util/motion';
 import { cloneElement, isValidElement } from '../../_util/reactNode';
 import type { InternalUploadFile, UploadFile, UploadListProps } from '../interface';
@@ -87,7 +88,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
   };
 
   const onInternalDownload = (file: UploadFile) => {
-    if (typeof onDownload === 'function') {
+    if (isFunction(onDownload)) {
       onDownload(file);
     } else if (file.url) {
       window.open(file.url);

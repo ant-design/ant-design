@@ -2,11 +2,12 @@
 import type { CSSInterpolation } from '@ant-design/cssinjs';
 import { useStyleRegister } from '@ant-design/cssinjs';
 import { useContext } from 'react';
-import { genCommonStyle, genLinkStyle } from '../../style';
 import { ConfigContext } from '../../config-provider/context';
+import { genCommonStyle, genLinkStyle } from '../../style';
+import isFunction from '../../_util/isFunction';
+import type { ComponentTokenMap, GlobalToken } from '../interface';
 import type { UseComponentStyleResult } from '../internal';
 import { mergeToken, statisticToken, useToken } from '../internal';
-import type { ComponentTokenMap, GlobalToken } from '../interface';
 
 export type OverrideTokenWithoutDerivative = ComponentTokenMap;
 export type OverrideComponent = keyof OverrideTokenWithoutDerivative;
@@ -61,8 +62,9 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
         () => {
           const { token: proxyToken, flush } = statisticToken(token);
 
-          const defaultComponentToken =
-            typeof getDefaultToken === 'function' ? getDefaultToken(proxyToken) : getDefaultToken;
+          const defaultComponentToken = isFunction(getDefaultToken)
+            ? getDefaultToken(proxyToken)
+            : getDefaultToken;
           const mergedComponentToken = { ...defaultComponentToken, ...token[component] };
 
           const componentCls = `.${prefixCls}`;

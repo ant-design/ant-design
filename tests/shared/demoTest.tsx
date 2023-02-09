@@ -3,6 +3,7 @@ import { createCache, StyleProvider } from '@ant-design/cssinjs';
 import glob from 'glob';
 import * as React from 'react';
 import { renderToString } from 'react-dom/server';
+import isFunction from '../../components/_util/isFunction';
 import { TriggerMockContext } from './demoTestContext';
 import { excludeWarning } from './excludeWarning';
 import rootPropsTest from './rootPropsTest';
@@ -38,7 +39,7 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
 
         let Demo = require(`../.${file}`).default; // eslint-disable-line global-require, import/no-dynamic-require
         // Inject Trigger status unless skipped
-        Demo = typeof Demo === 'function' ? <Demo /> : Demo;
+        Demo = isFunction(Demo) ? <Demo /> : Demo;
         if (doInject) {
           Demo = (
             <TriggerMockContext.Provider

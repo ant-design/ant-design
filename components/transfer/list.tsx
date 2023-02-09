@@ -5,6 +5,7 @@ import React, { useMemo, useRef, useState } from 'react';
 import Checkbox from '../checkbox';
 import Dropdown from '../dropdown';
 import type { MenuProps } from '../menu';
+import isFunction from '../_util/isFunction';
 import { isValidElement } from '../_util/reactNode';
 import { groupKeysMap } from '../_util/transKeys';
 import type {
@@ -254,7 +255,7 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
 
   const getSelectAllLabel = (selectedCount: number, totalCount: number): React.ReactNode => {
     if (selectAllLabel) {
-      return typeof selectAllLabel === 'function'
+      return isFunction(selectAllLabel)
         ? selectAllLabel({ selectedCount, totalCount })
         : selectAllLabel;
     }
