@@ -15,7 +15,7 @@ demo:
 - 当有一系列信息需按时间排列时，可正序和倒序。
 - 需要有一条时间轴进行视觉上的串联时。
 
-<Alert message="5.2.0版本之后，我们提供了更简单的用法 &lt;Timeline items={[...]} /&gt; 以提供具有更好的性能和使您在应用程序中能编写更简单代码潜力。 与此同时，我们弃用了旧的用法，我们将在 antd 6.0 中删除它。"></Alert>
+<Alert message="5.2.0版本之后，我们提供了更简单的用法 &lt;Timeline items={[...]} /&gt; 以获得更好的性能，使您能在应用中编写更简单的代码。与此同时，我们弃用了旧的用法，并且将在下一个 major 版本中删除它。"></Alert>
 
 ```jsx
 // >=5.2.0 可用，推荐的写法 ✅
@@ -46,15 +46,13 @@ return (
 
 ### Timeline
 
-时间轴。
-
 | 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | mode | 通过设置 `mode` 可以改变时间轴和内容的相对位置 | `left` \| `alternate` \| `right` | - |
 | pending | 指定最后一个幽灵节点是否存在或内容 | boolean \| ReactNode | false |
-| pendingDot | 当最后一个幽灵节点存在時，指定其时间图点 | ReactNode | &lt;LoadingOutlined /> |
+| pendingDot | 当最后一个幽灵节点存在時，指定其时间图点 | ReactNode | &lt;LoadingOutlined /&gt; |
 | reverse | 节点排序 | boolean | false |
-| items | 选项配置 | [Items](#Items) | [] | 5.2.0 |
+| items | 选项配置 | [Items](#Items)[] | 5.2.0 |
 
 ### Items
 

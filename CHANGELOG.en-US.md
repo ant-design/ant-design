@@ -33,7 +33,7 @@ timeline: true
   - 🐞 Fix Slider missing Tooltip appear motion. [#39857](https://github.com/ant-design/ant-design/pull/39857)
 - Dropdown
   - 🆕 Dropdown support `autoAdjustOverflow` option. [#39735](https://github.com/ant-design/ant-design/pull/39735)
-  - 💄 Fix Dropdown component `dange` and `disabled` style priority issue. [#39904](https://github.com/ant-design/ant-design/pull/39904) [@Wxh16144](https://github.com/Wxh16144)
+  - 💄 Fix Dropdown component `danger` and `disabled` style priority issue. [#39904](https://github.com/ant-design/ant-design/pull/39904) [@Wxh16144](https://github.com/Wxh16144)
 - Tour
   - 🆕 Tour added `indicatorsRender` to support custom indicators. [#40613](https://github.com/ant-design/ant-design/pull/40613)
   - 🆕 Tour support `scrollIntoViewOptions` to change scrollIntoView options. [#39980](https://github.com/ant-design/ant-design/pull/39980) [@kiner-tang](https://github.com/kiner-tang)
@@ -50,7 +50,7 @@ timeline: true
   - 🐞 Fix the problem that the header filter is invalid in the case of group headers. [#40463](https://github.com/ant-design/ant-design/pull/40463) [@roman40a](https://github.com/roman40a)
   - 🐞 Fix selection column cover by other cell when fixed. [#39940](https://github.com/ant-design/ant-design/pull/39940) [@kiner-tang](https://github.com/kiner-tang)
   - 🐞 Fix Sorted/Filtered table fixed column transparent background unreadable. [#39012](https://github.com/ant-design/ant-design/pull/39012) [@kiner-tang](https://github.com/kiner-tang)
-  - 💄 Fix border style problem when Table filter. [#39938](https://github.com/ant-design/ant-design/pull/39938) [@JarvisArt](https://github.com/JarvisArt)
+  - 💄 Optimize Table hover style to fix problems with border. [#40469](https://github.com/ant-design/ant-design/pull/40469)
 - DatePicker
   - 🐞 Fix DatePicker that have status style when disabled. [#40608](https://github.com/ant-design/ant-design/pull/40608)
   - 💄 Optimize the DatePicker input box style. [#40549](https://github.com/ant-design/ant-design/pull/40549) [@Wxh16144](https://github.com/Wxh16144)

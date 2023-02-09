@@ -65,25 +65,22 @@ const panelRender = (
 
   const coverNode = isValidNode(cover) ? <div className={`${prefixCls}-cover`}>{cover}</div> : null;
 
-  const defaultIndicators = [...Array.from({ length: total }).keys()].map<ReactNode>(
-    (stepItem, index) => (
-      <span
-        key={stepItem}
-        className={classNames(
-          index === current && `${prefixCls}-indicator-active`,
-          `${prefixCls}-indicator`,
-        )}
-      />
-    ),
-  );
-
-  let mergeIndicatorNode: ReactNode = defaultIndicators;
+  let mergeIndicatorNode: ReactNode;
 
   if (indicatorsRender) {
-    const customIndicators = indicatorsRender(current, total);
-    if (isValidNode(customIndicators)) {
-      mergeIndicatorNode = customIndicators;
-    }
+    mergeIndicatorNode = indicatorsRender(current, total);
+  } else {
+    mergeIndicatorNode = [...Array.from({ length: total }).keys()].map<ReactNode>(
+      (stepItem, index) => (
+        <span
+          key={stepItem}
+          className={classNames(
+            index === current && `${prefixCls}-indicator-active`,
+            `${prefixCls}-indicator`,
+          )}
+        />
+      ),
+    );
   }
 
   const mainBtnType = mergedType === 'primary' ? 'default' : 'primary';
