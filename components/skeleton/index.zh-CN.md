@@ -4,6 +4,7 @@ subtitle: 骨架屏
 group: 反馈
 title: Skeleton
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*uae3QbkNCm8AAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*VcjGQLSrYdcAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 在需要等待加载内容的位置提供一个占位图形组合。
