@@ -14,6 +14,21 @@ Vertical display timeline.
 - When a series of information needs to be ordered by time (ascending or descending).
 - When you need a timeline to make a visual connection.
 
+<Alert message="After version 5.2.0, we provide a simpler usage &lt;Timeline items={[...]} /&gt; with better performance and potential of writing simpler code style in your applications. Meanwhile, we deprecated the old usage in browser console, we will remove it in antd 6.0."></Alert>
+
+```jsx
+// works when >=5.2.0, recommended ✅
+const items = [{ children: 'sample', label: 'sample' }];
+return <Timeline items={items} />;
+
+// works when <5.2.0, deprecated when >=5.2.0 🙅🏻‍♀️
+return (
+  <Timeline onChange={onChange}>
+    <Timeline.Item>Sample</Timeline.Item>
+  </Timeline>
+);
+```
+
 ## Examples
 
 <!-- prettier-ignore -->
@@ -26,36 +41,21 @@ Vertical display timeline.
 <code src="./demo/label.tsx">Label</code>
 <code src="./demo/wireframe.tsx" debug>Wireframe</code>
 
-<Alert message="After version 5.2.0, we provide a simpler usage &lt;Timeline items={[...]} /&gt; with better performance and potential of writing simpler code style in your applications. Meanwhile, we deprecated the old usage in browser console, we will remove it in antd 6.0."></Alert>
-
-```jsx
-// works when >=5.2.0, recommended ✅
-const items = [{ children: 'sample', label: 'sample' }];
-return <Timeline items={items} />;
-
-// works when <5.2.0, deprecated when >=5.2.0 🙅🏻‍♀️
-<Timeline onChange={onChange}>
-  <Timeline.Item>Sample</Timeline.Item>
-</Timeline>;
-```
-
 ## API
 
 ### Timeline
 
-Timeline
-
 | Property | Description | Type | Default |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | mode | By sending `alternate` the timeline will distribute the nodes to the left and right | `left` \| `alternate` \| `right` | - |
 | pending | Set the last ghost node's existence or its content | boolean \| ReactNode | false |
-| pendingDot | Set the dot of the last ghost node when pending is true | ReactNode | &lt;LoadingOutlined /> |
+| pendingDot | Set the dot of the last ghost node when pending is true | ReactNode | &lt;LoadingOutlined /&gt; |
 | reverse | Whether reverse nodes or not | boolean | false |
-| items | 选项配置 | [Items](#Items) | [] | 5.2.0 |
+| items | Each node of timeline | [Items](#Items)[] | 5.2.0 |
 
 ### Items
 
-Node of timeline
+Node of timeline.
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |

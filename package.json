@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "5.1.7",
+  "version": "5.2.0",
   "description": "An enterprise-class UI design language and React components implementation",
   "title": "Ant Design",
   "keywords": [
@@ -208,7 +208,7 @@
     "eslint-config-airbnb": "^19.0.0",
     "eslint-config-prettier": "^8.0.0",
     "eslint-import-resolver-typescript": "^3.5.2",
-    "eslint-plugin-compat": "~4.0.0",
+    "eslint-plugin-compat": "^4.1.1",
     "eslint-plugin-import": "^2.21.1",
     "eslint-plugin-jest": "^27.0.1",
     "eslint-plugin-jsx-a11y": "^6.2.1",
@@ -265,7 +265,7 @@
     "react-infinite-scroll-component": "^6.1.0",
     "react-resizable": "^3.0.1",
     "react-router-dom": "^6.0.2",
-    "react-sticky-box": "^1.0.2",
+    "react-sticky-box": "^2.0.0",
     "react-window": "^1.8.5",
     "remark": "^14.0.1",
     "remark-cli": "^11.0.0",
