@@ -203,7 +203,7 @@
     "dekko": "^0.2.1",
     "dumi": "^2.0.17",
     "duplicate-package-checker-webpack-plugin": "^3.0.0",
-    "esbuild-loader": "^2.13.1",
+    "esbuild-loader": "^3.0.0",
     "eslint": "^8.0.0",
     "eslint-config-airbnb": "^19.0.0",
     "eslint-config-prettier": "^8.0.0",
