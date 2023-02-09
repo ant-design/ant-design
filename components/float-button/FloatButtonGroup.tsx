@@ -1,6 +1,6 @@
 import React, { useRef, memo, useContext, useEffect, useCallback, useMemo } from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
-import FileTextOutlined from '@ant-design/icons/FileTextOutlined';
+import QuestionCircleOutlined from '@ant-design/icons/QuestionCircleOutlined';
 import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
@@ -18,7 +18,7 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
     style,
     shape = 'circle',
     type = 'default',
-    icon = <FileTextOutlined />,
+    icon = <QuestionCircleOutlined />,
     closeIcon = <CloseOutlined />,
     description,
     trigger,
