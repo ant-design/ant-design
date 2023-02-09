@@ -3,6 +3,7 @@ import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
 import RotateLeftOutlined from '@ant-design/icons/RotateLeftOutlined';
 import RotateRightOutlined from '@ant-design/icons/RotateRightOutlined';
+import SwapOutlined from '@ant-design/icons/SwapOutlined';
 import ZoomInOutlined from '@ant-design/icons/ZoomInOutlined';
 import ZoomOutOutlined from '@ant-design/icons/ZoomOutOutlined';
 import RcImage from 'rc-image';
@@ -22,6 +23,8 @@ export const icons = {
   close: <CloseOutlined />,
   left: <LeftOutlined />,
   right: <RightOutlined />,
+  flipX: <SwapOutlined />,
+  flipY: <SwapOutlined rotate={90} />,
 };
 
 const InternalPreviewGroup: React.FC<GroupConsumerProps> = ({
