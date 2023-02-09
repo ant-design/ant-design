@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import FileTextOutlined from '@ant-design/icons/FileTextOutlined';
+import QuestionCircleOutlined from '@ant-design/icons/QuestionCircleOutlined';
 import classNames from 'classnames';
 import type { FloatButtonContentProps } from './interface';
 
@@ -7,7 +7,7 @@ const FloatButtonContent: React.FC<FloatButtonContentProps> = (props) => {
   const { icon, description, prefixCls, className } = props;
   const defaultElement = (
     <div className={`${prefixCls}-icon`}>
-      <FileTextOutlined />
+      <QuestionCircleOutlined />
     </div>
   );
   return (
