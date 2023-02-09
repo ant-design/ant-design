@@ -7,7 +7,7 @@ const buttonWidth = 70;
 
 const App: React.FC = () => {
   const options = ['Show', 'Hide', 'Center'];
-  const [arrow, setArrow] = useState('Center');
+  const [arrow, setArrow] = useState('Show');
 
   const mergedArrow = useMemo(() => {
     if (arrow === 'Hide') {
@@ -24,7 +24,7 @@ const App: React.FC = () => {
   }, [arrow]);
 
   return (
-    <div className="demo" style={{ padding: '0 200px' }}>
+    <div className="demo">
       <Segmented
         value={arrow}
         options={options}

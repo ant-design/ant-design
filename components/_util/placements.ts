@@ -1,15 +1,5 @@
-import type { BuildInPlacements } from '@rc-component/trigger';
+import type { AlignType, BuildInPlacements } from '@rc-component/trigger';
 import { getArrowOffset } from '../style/placementArrow';
-
-const autoAdjustOverflowEnabled = {
-  adjustX: 1,
-  adjustY: 1,
-};
-
-const autoAdjustOverflowDisabled = {
-  adjustX: 0,
-  adjustY: 0,
-};
 
 export interface AdjustOverflow {
   adjustX?: 0 | 1;
@@ -24,14 +14,53 @@ export interface PlacementsConfig {
   borderRadius: number;
 }
 
-export function getOverflowOptions(autoAdjustOverflow?: boolean | AdjustOverflow) {
-  if (typeof autoAdjustOverflow === 'boolean') {
-    return autoAdjustOverflow ? autoAdjustOverflowEnabled : autoAdjustOverflowDisabled;
+export function getOverflowOptions(
+  placement: string,
+  arrowOffset: ReturnType<typeof getArrowOffset>,
+  arrowWidth: number,
+  autoAdjustOverflow?: boolean | AdjustOverflow,
+) {
+  if (autoAdjustOverflow === false) {
+    return {
+      adjustX: false,
+      adjustY: false,
+    };
   }
-  return {
-    ...autoAdjustOverflowDisabled,
-    ...autoAdjustOverflow,
+
+  const overflow =
+    autoAdjustOverflow && typeof autoAdjustOverflow === 'object' ? autoAdjustOverflow : {};
+
+  const baseOverflow: AlignType['overflow'] = {};
+
+  switch (placement) {
+    case 'top':
+    case 'bottom':
+      baseOverflow.shiftX = arrowOffset.dropdownArrowOffset * 2 + arrowWidth;
+      break;
+
+    case 'left':
+    case 'right':
+      baseOverflow.shiftY = arrowOffset.dropdownArrowOffsetVertical * 2 + arrowWidth;
+      break;
+
+    default:
+    // Do nothing
+  }
+
+  const mergedOverflow = {
+    ...baseOverflow,
+    ...overflow,
   };
+
+  // Support auto shift
+  if (!mergedOverflow.shiftX) {
+    mergedOverflow.adjustX = true;
+  }
+  if (!mergedOverflow.shiftY) {
+    mergedOverflow.adjustY = true;
+  }
+
+  return mergedOverflow;
 }
 
 type PlacementType = keyof BuildInPlacements;
@@ -125,10 +154,8 @@ export default function getPlacements(config: PlacementsConfig) {
 
     const placementInfo = {
       ...template,
-      overflow: getOverflowOptions(autoAdjustOverflow),
       offset: [0, 0],
     };
-
     placementMap[key] = placementInfo;
 
     // Disable autoArrow since design is fixed position
@@ -167,12 +194,12 @@ export default function getPlacements(config: PlacementsConfig) {
     }
 
     // Dynamic offset
-    if (arrowPointAtCenter) {
-      const arrowOffset = getArrowOffset({
-        contentRadius: borderRadius,
-        limitVerticalRadius: true,
-      });
+    const arrowOffset = getArrowOffset({
+      contentRadius: borderRadius,
+      limitVerticalRadius: true,
+    });
 
+    if (arrowPointAtCenter) {
       switch (key) {
         case 'topLeft':
         case 'bottomLeft':
@@ -198,6 +225,9 @@ export default function getPlacements(config: PlacementsConfig) {
         // Do nothing
       }
     }
+
+    // Overflow
+    placementInfo.overflow = getOverflowOptions(key, arrowOffset, arrowWidth, autoAdjustOverflow);
   });
 
   return placementMap;
