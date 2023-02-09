@@ -80,22 +80,22 @@ ConfigProvider.config({
 });
 ```
 
-### ConfigProvider.useConfig() `5.2.0+`
+### ConfigProvider.useConfig() `5.3.0+`
 
 `5.2.0` 版本后可用。获取父级 `Provider` 的值。如 `DisabledContextProvider`、`SizeContextProvider`。
 
 ```jsx
 const {
-  componentDisabled, // 5.2.0+
-  componentSize, // 5.2.0+
+  componentDisabled, // 5.3.0+
+  componentSize, // 5.3.0+
 } = ConfigProvider.useConfig();
 ```
 
 <!-- prettier-ignore -->
 | 返回值 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| componentDisabled | antd 组件禁用状态 | boolean | - | 5.2.0 |
-| componentSize | antd 组件大小状态 | `small` \| `middle` \| `large` | - | 5.2.0 |
+| componentDisabled | antd 组件禁用状态 | boolean | - | 5.3.0 |
+| componentSize | antd 组件大小状态 | `small` \| `middle` \| `large` | - | 5.3.0 |
 
 ## FAQ
 
