@@ -1,4 +1,4 @@
-import RightOutlined from '@ant-design/icons/RightOutlined';
+import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import classNames from 'classnames';
 import RcCollapse from 'rc-collapse';
 import type { CSSMotionProps } from 'rc-motion';
@@ -94,7 +94,7 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
       expandIcon ? (
         expandIcon(panelProps)
       ) : (
-        <RightOutlined rotate={panelProps.isActive ? 90 : undefined} />
+        <LeftOutlined rotate={panelProps.isActive ? undefined : 90} />
       )
     ) as React.ReactNode;
 

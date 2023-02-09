@@ -1,7 +1,7 @@
 import CalendarOutlined from '@ant-design/icons/CalendarOutlined';
 import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
-import SwapRightOutlined from '@ant-design/icons/SwapRightOutlined';
+import SwapLeftOutlined from '@ant-design/icons/SwapLeftOutlined';
 import classNames from 'classnames';
 import { RangePicker as RCRangePicker } from 'rc-picker';
 import type { GenerateConfig } from 'rc-picker/lib/generate/index';
@@ -111,7 +111,7 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
             <RCRangePicker<DateType>
               separator={
                 <span aria-label="to" className={`${prefixCls}-separator`}>
-                  <SwapRightOutlined />
+                  <SwapLeftOutlined rotate={180} />
                 </span>
               }
               disabled={mergedDisabled}

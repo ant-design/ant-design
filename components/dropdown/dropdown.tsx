@@ -1,4 +1,4 @@
-import RightOutlined from '@ant-design/icons/RightOutlined';
+import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import classNames from 'classnames';
 import RcDropdown from 'rc-dropdown';
 import useEvent from 'rc-util/lib/hooks/useEvent';
@@ -260,7 +260,7 @@ const Dropdown: CompoundedComponent = (props) => {
         prefixCls={`${prefixCls}-menu`}
         expandIcon={
           <span className={`${prefixCls}-menu-submenu-arrow`}>
-            <RightOutlined className={`${prefixCls}-menu-submenu-arrow-icon`} />
+            <LeftOutlined rotate={180} className={`${prefixCls}-menu-submenu-arrow-icon`} />
           </span>
         }
         mode="vertical"

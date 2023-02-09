@@ -1,7 +1,7 @@
 import React, { useMemo, useContext } from 'react';
 import { QRCodeCanvas } from 'qrcode.react';
 import classNames from 'classnames';
-import { ReloadOutlined } from '@ant-design/icons';
+import ReloadOutlined from '@ant-design/icons/ReloadOutlined';
 import { ConfigContext } from '../config-provider';
 import LocaleReceiver from '../locale/LocaleReceiver';
 import type { ConfigConsumerProps } from '../config-provider';

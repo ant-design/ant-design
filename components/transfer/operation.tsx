@@ -1,5 +1,4 @@
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
-import RightOutlined from '@ant-design/icons/RightOutlined';
 import * as React from 'react';
 import Button from '../button';
 import type { DirectionType } from '../config-provider';
@@ -39,7 +38,7 @@ const Operation: React.FC<TransferOperationProps> = (props) => {
         size="small"
         disabled={disabled || !rightActive}
         onClick={moveToRight}
-        icon={direction !== 'rtl' ? <RightOutlined /> : <LeftOutlined />}
+        icon={direction !== 'rtl' ? <LeftOutlined rotate={180} /> : <LeftOutlined />}
       >
         {rightArrowText}
       </Button>
@@ -49,7 +48,7 @@ const Operation: React.FC<TransferOperationProps> = (props) => {
           size="small"
           disabled={disabled || !leftActive}
           onClick={moveToLeft}
-          icon={direction !== 'rtl' ? <LeftOutlined /> : <RightOutlined />}
+          icon={direction !== 'rtl' ? <LeftOutlined /> : <LeftOutlined rotate={180} />}
         >
           {leftArrowText}
         </Button>

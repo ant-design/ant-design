@@ -1,7 +1,5 @@
 import DoubleLeftOutlined from '@ant-design/icons/DoubleLeftOutlined';
-import DoubleRightOutlined from '@ant-design/icons/DoubleRightOutlined';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
-import RightOutlined from '@ant-design/icons/RightOutlined';
 import classNames from 'classnames';
 import type { PaginationProps as RcPaginationProps, PaginationLocale } from 'rc-pagination';
 import RcPagination from 'rc-pagination';
@@ -64,7 +62,7 @@ const Pagination: React.FC<PaginationProps> = ({
     );
     let nextIcon = (
       <button className={`${prefixCls}-item-link`} type="button" tabIndex={-1}>
-        <RightOutlined />
+        <LeftOutlined rotate={180} />
       </button>
     );
     let jumpPrevIcon = (
@@ -80,7 +78,7 @@ const Pagination: React.FC<PaginationProps> = ({
       <a className={`${prefixCls}-item-link`}>
         {/* You can use transition effects in the container :) */}
         <div className={`${prefixCls}-item-container`}>
-          <DoubleRightOutlined className={`${prefixCls}-item-link-icon`} />
+          <DoubleLeftOutlined rotate={180} className={`${prefixCls}-item-link-icon`} />
           {ellipsis}
         </div>
       </a>

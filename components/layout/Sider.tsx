@@ -1,6 +1,5 @@
 import BarsOutlined from '@ant-design/icons/BarsOutlined';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
-import RightOutlined from '@ant-design/icons/RightOutlined';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
@@ -171,8 +170,8 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>(
           </span>
         ) : null;
       const iconObj = {
-        expanded: reverseArrow ? <RightOutlined /> : <LeftOutlined />,
-        collapsed: reverseArrow ? <LeftOutlined /> : <RightOutlined />,
+        expanded: reverseArrow ? <LeftOutlined rotate={180} /> : <LeftOutlined />,
+        collapsed: reverseArrow ? <LeftOutlined /> : <LeftOutlined rotate={180} />,
       };
       const status = collapsed ? 'collapsed' : 'expanded';
       const defaultTrigger = iconObj[status];

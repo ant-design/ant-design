@@ -1,5 +1,4 @@
 import DownOutlined from '@ant-design/icons/DownOutlined';
-import UpOutlined from '@ant-design/icons/UpOutlined';
 import type { ValueType } from '@rc-component/mini-decimal';
 import classNames from 'classnames';
 import type { InputNumberProps as RcInputNumberProps } from 'rc-input-number';
@@ -60,7 +59,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
-  let upIcon = <UpOutlined className={`${prefixCls}-handler-up-inner`} />;
+  let upIcon = <DownOutlined rotate={180} className={`${prefixCls}-handler-up-inner`} />;
   let downIcon = <DownOutlined className={`${prefixCls}-handler-down-inner`} />;
   const controlsTemp = typeof controls === 'boolean' ? controls : undefined;
 

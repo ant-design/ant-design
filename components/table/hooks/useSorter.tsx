@@ -1,5 +1,4 @@
 import CaretDownOutlined from '@ant-design/icons/CaretDownOutlined';
-import CaretUpOutlined from '@ant-design/icons/CaretUpOutlined';
 import classNames from 'classnames';
 import KeyCode from 'rc-util/lib/KeyCode';
 import * as React from 'react';
@@ -128,7 +127,8 @@ function injectSorter<RecordType>(
       const sorterOrder = sorterState ? sorterState.sortOrder : null;
       const nextSortOrder = nextSortDirection(sortDirections, sorterOrder);
       const upNode: React.ReactNode = sortDirections.includes(ASCEND) && (
-        <CaretUpOutlined
+        <CaretDownOutlined
+          rotate={180}
           className={classNames(`${prefixCls}-column-sorter-up`, {
             active: sorterOrder === ASCEND,
           })}

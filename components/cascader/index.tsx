@@ -1,6 +1,5 @@
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
-import RightOutlined from '@ant-design/icons/RightOutlined';
 import classNames from 'classnames';
 import type {
   BaseOptionType,
@@ -244,7 +243,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
   // ===================== Icon ======================
   let mergedExpandIcon = expandIcon;
   if (!expandIcon) {
-    mergedExpandIcon = isRtl ? <LeftOutlined /> : <RightOutlined />;
+    mergedExpandIcon = isRtl ? <LeftOutlined /> : <LeftOutlined rotate={180} />;
   }
 
   const loadingIcon = (

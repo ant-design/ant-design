@@ -1,4 +1,3 @@
-import DotChartOutlined from '@ant-design/icons/DotChartOutlined';
 import classNames from 'classnames';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
@@ -34,12 +33,10 @@ const SkeletonNode: React.FC<SkeletonNodeProps> = (props) => {
     rootClassName,
   );
 
-  const content = children ?? <DotChartOutlined />;
-
   return wrapSSR(
     <div className={cls}>
       <div className={classNames(`${prefixCls}-image`, className)} style={style}>
-        {content}
+        {children}
       </div>
     </div>,
   );
