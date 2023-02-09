@@ -2,6 +2,7 @@
 category: Components
 title: Badge
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*e0qITYqF394AAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ZD-0Q5IjTrMAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 group: Data Display
