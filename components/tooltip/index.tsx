@@ -1,7 +1,10 @@
 import classNames from 'classnames';
 import RcTooltip from 'rc-tooltip';
 import type { placements as Placements } from 'rc-tooltip/lib/placements';
-import type { TooltipProps as RcTooltipProps } from 'rc-tooltip/lib/Tooltip';
+import type {
+  TooltipProps as RcTooltipProps,
+  TooltipRef as RcTooltipRef,
+} from 'rc-tooltip/lib/Tooltip';
 import type { AlignType } from 'rc-trigger/lib/interface';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { CSSProperties } from 'react';
@@ -22,6 +25,12 @@ import { parseColor } from './util';
 const { useToken } = theme;
 
 export type { AdjustOverflow, PlacementsConfig };
+
+export interface TooltipRef {
+  /** @deprecated Please use `forceAlign` instead */
+  forcePopupAlign: VoidFunction;
+  forceAlign: VoidFunction;
+}
 
 export type TooltipPlacement =
   | 'top'
@@ -171,7 +180,7 @@ function getDisabledCompatibleChildren(element: React.ReactElement<any>, prefixC
   return element;
 }
 
-const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
+const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     openClassName,
@@ -195,6 +204,21 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
     getPrefixCls,
     direction,
   } = React.useContext(ConfigContext);
+
+  // ============================== Ref ===============================
+  const tooltipRef = React.useRef<RcTooltipRef>(null);
+
+  const forceAlign = () => {
+    tooltipRef.current?.forceAlign();
+  };
+
+  React.useImperativeHandle(ref, () => ({
+    forceAlign,
+    forcePopupAlign: () => {
+      warning(false, 'Tooltip', '`forcePopupAlign` is align to `forceAlign` instead.');
+      forceAlign();
+    },
+  }));
 
   // ============================== Warn ==============================
   if (process.env.NODE_ENV !== 'production') {
@@ -361,7 +385,7 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
         ...overlayStyle,
       }}
       getTooltipContainer={getPopupContainer || getTooltipContainer || getContextPopupContainer}
-      ref={ref}
+      ref={tooltipRef}
       builtinPlacements={getTooltipPlacements()}
       overlay={getOverlay()}
       visible={tempOpen}
