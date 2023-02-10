@@ -296,11 +296,9 @@ describe('Tour', () => {
   });
 
   it('panelRender should correct render when total is undefined or null', () => {
-    [undefined, null].forEach((total) => {
+    [undefined, null].forEach((total: undefined) => {
       expect(() => {
-        render(
-          panelRender({ total: total as unknown as number, title: <div>test</div> }, 0, 'default'),
-        );
+        render(panelRender({ total, title: <div>test</div> }, 0, 'default'));
       }).not.toThrow();
     });
   });
