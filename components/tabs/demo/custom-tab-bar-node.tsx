@@ -9,7 +9,6 @@ import {
 import { CSS } from '@dnd-kit/utilities';
 import { css } from '@emotion/css';
 import { Tabs } from 'antd';
-import type { ReactElement } from 'react';
 import React, { useEffect, useState } from 'react';
 
 interface DraggableTabPaneProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -44,7 +43,7 @@ const DraggableTabNode = ({ className, onActiveBarTransform, ...props }: Draggab
     }
   }, [className, isSorting, transform]);
 
-  return React.cloneElement(props.children as ReactElement, {
+  return React.cloneElement(props.children as React.ReactElement, {
     ref: setNodeRef,
     style,
     ...attributes,
