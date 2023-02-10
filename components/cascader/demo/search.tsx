@@ -11,38 +11,42 @@ interface Option {
 
 const options: Option[] = [
   {
-    value: 'zhejiang',
-    label: 'Zhejiang',
+    value: '待实验配置',
+    label: '待实验配置',
     children: [
       {
         value: 'hangzhou',
         label: 'Hangzhou',
         children: [
+        ],
+      },
+    ],
+  },
+ {
+    value: '已配置实验',
+    label: '已配置实验',
+    children: [
+      {
+        value: '自营商品提权实验',
+        label: '自营商品提权实验',
+        children: [
           {
-            value: 'xihu',
+            value: '策略1',
             label: 'West Lake',
           },
           {
-            value: 'xiasha',
+            value: '策略2',
             label: 'Xia Sha',
-            disabled: true,
+            disabled: false,
           },
         ],
       },
     ],
   },
   {
-    value: 'jiangsu',
-    label: 'Jiangsu',
+    value: '100%',
+    label: '100%',
     children: [
-      {
-        value: 'nanjing',
-        label: 'Nanjing',
-        children: [
-          {
-            value: 'zhonghuamen',
-            label: 'Zhong Hua men',
-          },
         ],
       },
     ],
