@@ -307,8 +307,8 @@ describe('Tour', () => {
     [undefined, null].forEach((title) => {
       const { container } = render(<Tour open steps={[{ title, total: 1 }]} />);
       expect(
-        container.querySelector<HTMLDivElement>('.ant-tour-content .ant-tour-inner'),
-      ).toBeTruthy();
+        container.querySelector<HTMLDivElement>('.ant-tour-content .ant-tour-header'),
+      ).toBeFalsy();
     });
   });
 
