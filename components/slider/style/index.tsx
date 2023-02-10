@@ -170,7 +170,6 @@ const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
       [`${componentCls}-step`]: {
         position: 'absolute',
         background: 'transparent',
-        pointerEvents: 'none',
       },
 
       [`${componentCls}-dot`]: {
