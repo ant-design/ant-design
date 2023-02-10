@@ -12,12 +12,14 @@ function isValidNode(node: ReactNode): boolean {
   return node !== undefined && node !== null;
 }
 
-const panelRender = (
-  props: TourStepProps,
-  current: number,
-  type: TourStepProps['type'],
-  indicatorsRender?: TourStepProps['indicatorsRender'],
-): ReactNode => {
+interface PanelRenderProps {
+  props: TourStepProps;
+  current: number;
+  type: TourStepProps['type'];
+  indicatorsRender?: TourStepProps['indicatorsRender'];
+}
+
+const PanelRender: React.FC<PanelRenderProps> = ({ props, current, type, indicatorsRender }) => {
   const {
     prefixCls,
     total = 1,
@@ -84,6 +86,7 @@ const panelRender = (
   }
 
   const mainBtnType = mergedType === 'primary' ? 'default' : 'primary';
+
   const secondaryBtnProps: ButtonProps = {
     type: 'default',
     ghost: mergedType === 'primary',
@@ -138,4 +141,4 @@ const panelRender = (
   );
 };
 
-export default panelRender;
+export default PanelRender;
