@@ -17,7 +17,7 @@ const panelRender = (
   current: number,
   type: TourStepProps['type'],
   indicatorsRender?: TourStepProps['indicatorsRender'],
-): ReactNode => {
+) => {
   const {
     prefixCls,
     total = 1,
