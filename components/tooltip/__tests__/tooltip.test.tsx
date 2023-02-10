@@ -4,13 +4,13 @@ import type { TooltipPlacement } from '..';
 import Tooltip from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, waitFakeTimer, waitFor, act } from '../../../tests/utils';
+import { act, fireEvent, render, waitFakeTimer, waitFor } from '../../../tests/utils';
 import Button from '../../button';
 import DatePicker from '../../date-picker';
 import Input from '../../input';
 import Group from '../../input/Group';
-import Switch from '../../switch';
 import Radio from '../../radio';
+import Switch from '../../switch';
 import { resetWarned } from '../../_util/warning';
 
 describe('Tooltip', () => {
@@ -489,6 +489,8 @@ describe('Tooltip', () => {
         </>
       </Tooltip>,
     );
+
+    function isTooltipOpen() {}
 
     const divElement = container.querySelector('.hello');
     fireEvent.mouseEnter(divElement!);
