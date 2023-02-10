@@ -296,14 +296,10 @@ describe('Tour', () => {
   });
 
   it('panelRender should correct render when total is undefined or null', () => {
-    [undefined, null].forEach((total) => {
+    [undefined, null].forEach((total: undefined) => {
       expect(() => {
         render(
-          <PanelRender
-            current={0}
-            type="default"
-            props={{ total: total as unknown as number, title: <div>test</div> }}
-          />,
+          <PanelRender current={0} type="default" props={{ total, title: <div>test</div> }} />,
         );
       }).not.toThrow();
     });
