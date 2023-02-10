@@ -147,7 +147,7 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
             },
             [`${componentCls}-buttons`]: {
               marginInlineStart: 'auto',
-              [`& button`]: {
+             [`${antCls}-btn`]: {
                 marginInlineStart: marginXS,
               },
             },
