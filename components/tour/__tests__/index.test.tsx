@@ -5,7 +5,6 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, screen } from '../../../tests/utils';
 import type { TourProps } from '../interface';
-import panelRender from '../panelRender';
 
 describe('Tour', () => {
   mountTest(Tour);
@@ -297,17 +296,19 @@ describe('Tour', () => {
 
   it('panelRender should correct render when total is undefined or null', () => {
     [undefined, null].forEach((total: undefined) => {
-      expect(() => {
-        render(panelRender({ total, title: <div>test</div> }, 0, 'default'));
-      }).not.toThrow();
+      const { container } = render(<Tour open steps={[{ title: <div>test</div>, total }]} />);
+      expect(
+        container.querySelector<HTMLDivElement>('.ant-tour-content .ant-tour-indicators'),
+      ).toBeFalsy();
     });
   });
 
   it('panelRender should correct render when title is undefined or null', () => {
     [undefined, null].forEach((title) => {
-      expect(() => {
-        render(panelRender({ total: 1, title }, 0, 'default'));
-      }).not.toThrow();
+      const { container } = render(<Tour open steps={[{ title, total: 1 }]} />);
+      expect(
+        container.querySelector<HTMLDivElement>('.ant-tour-content .ant-tour-inner'),
+      ).toBeTruthy();
     });
   });
 

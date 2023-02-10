@@ -84,6 +84,7 @@ const panelRender = (
   }
 
   const mainBtnType = mergedType === 'primary' ? 'default' : 'primary';
+
   const secondaryBtnProps: ButtonProps = {
     type: 'default',
     ghost: mergedType === 'primary',
