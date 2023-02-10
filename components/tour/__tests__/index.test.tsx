@@ -5,7 +5,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, screen } from '../../../tests/utils';
 import type { TourProps } from '../interface';
-import panelRender from '../panelRender';
+import PanelRender from '../panelRender';
 
 describe('Tour', () => {
   mountTest(Tour);
@@ -298,7 +298,13 @@ describe('Tour', () => {
   it('panelRender should correct render when total is undefined or null', () => {
     [undefined, null].forEach((total) => {
       expect(() => {
-        panelRender({ total: total as unknown as number, title: <div>test</div> }, 0, 'default');
+        render(
+          <PanelRender
+            current={0}
+            type="default"
+            props={{ total: total as unknown as number, title: <div>test</div> }}
+          />,
+        );
       }).not.toThrow();
     });
   });
@@ -306,7 +312,7 @@ describe('Tour', () => {
   it('panelRender should correct render when title is null or null', () => {
     [undefined, null].forEach((title) => {
       expect(() => {
-        panelRender({ total: 1, title }, 0, 'default');
+        render(<PanelRender current={0} type="default" props={{ total: 1, title }} />);
       }).not.toThrow();
     });
   });
