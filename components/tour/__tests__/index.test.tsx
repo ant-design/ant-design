@@ -303,7 +303,7 @@ describe('Tour', () => {
     });
   });
 
-  it('panelRender should correct render when title is null or null', () => {
+  it('panelRender should correct render when title is undefined or null', () => {
     [undefined, null].forEach((title) => {
       expect(() => {
         panelRender({ total: 1, title }, 0, 'default');
