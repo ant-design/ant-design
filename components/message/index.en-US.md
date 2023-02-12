@@ -136,4 +136,4 @@ return (
 
 ### How to set static methods prefixCls ？
 
-You can config with [`ConfigProvider.config`](/components/config-provider#configproviderconfig-4130)
+You can config with [`message.config`](/components/message#messageconfig) or [`ConfigProvider.config`](/components/config-provider#configproviderconfig-4130)

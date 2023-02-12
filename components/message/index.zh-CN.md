@@ -137,4 +137,4 @@ return (
 
 ### 静态方法如何设置 prefixCls ？
 
-你可以通过 [`ConfigProvider.config`](/components/config-provider-cn#configproviderconfig-4130) 进行设置。
+你可以通过 [`message.config`](/components/message-cn#messageconfig) 或者 [`ConfigProvider.config`](/components/config-provider-cn#configproviderconfig-4130) 进行设置。
