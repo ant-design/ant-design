@@ -54,7 +54,7 @@ let taskQueue: Task[] = [];
 
 let defaultGlobalConfig: ConfigOptions = {};
 
-function getGlobalContext() {
+function getGlobalConfig(): ConfigOptions {
   const {
     prefixCls: globalPrefixCls,
     getContainer: globalGetContainer,
@@ -68,7 +68,7 @@ function getGlobalContext() {
 
   return {
     prefixCls: mergedPrefixCls,
-    container: mergedContainer,
+    getContainer: () => mergedContainer!,
     duration,
     rtl,
     maxCount,
@@ -82,20 +82,7 @@ interface GlobalHolderRef {
 }
 
 const GlobalHolder = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
-  const initializeMessageConfig: () => ConfigOptions = () => {
-    const { prefixCls, container, maxCount, duration, rtl, top } = getGlobalContext();
-
-    return {
-      prefixCls,
-      getContainer: () => container!,
-      maxCount,
-      duration,
-      rtl,
-      top,
-    };
-  };
-
-  const [messageConfig, setMessageConfig] = React.useState<ConfigOptions>(initializeMessageConfig);
+  const [messageConfig, setMessageConfig] = React.useState<ConfigOptions>(getGlobalConfig);
 
   const [api, holder] = useInternalMessage(messageConfig);
 
@@ -104,7 +91,7 @@ const GlobalHolder = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
   const rootIconPrefixCls = global.getIconPrefixCls();
 
   const sync = () => {
-    setMessageConfig(initializeMessageConfig);
+    setMessageConfig(getGlobalConfig);
   };
 
   React.useEffect(sync, []);

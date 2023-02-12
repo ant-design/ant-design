@@ -7,7 +7,7 @@ import type {
   NotificationInstance,
   ArgsProps,
   NotificationPlacement,
-  NotificationConfig,
+  ConfigOptions,
 } from './interface';
 import { getPlacementStyle, getMotion } from './util';
 import warning from '../_util/warning';
@@ -20,7 +20,7 @@ const DEFAULT_DURATION = 4.5;
 // ==============================================================================
 // ==                                  Holder                                  ==
 // ==============================================================================
-type HolderProps = NotificationConfig & {
+type HolderProps = ConfigOptions & {
   onAllRemoved?: VoidFunction;
 };
 
@@ -105,15 +105,7 @@ export function useInternalNotification(
       const { open: originOpen, prefixCls, hashId } = holderRef.current;
       const noticePrefixCls = `${prefixCls}-notice`;
 
-      const {
-        message,
-        description,
-        icon,
-        type,
-        btn,
-        className,
-        ...restConfig
-      } = config;
+      const { message, description, icon, type, btn, className, ...restConfig } = config;
 
       return originOpen({
         placement: 'topRight',
@@ -165,6 +157,6 @@ export function useInternalNotification(
   ] as const;
 }
 
-export default function useNotification(notificationConfig?: NotificationConfig) {
+export default function useNotification(notificationConfig?: ConfigOptions) {
   return useInternalNotification(notificationConfig);
 }
