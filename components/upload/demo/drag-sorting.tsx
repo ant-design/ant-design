@@ -5,21 +5,21 @@ import React, { useCallback, useRef, useState } from 'react';
 import { DndProvider, useDrag, useDrop } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 
-const type = 'DragableUploadList';
+const type = 'DraggableUploadList';
 
-interface DragableUploadListItemProps {
+interface DraggableUploadListItemProps {
   originNode: React.ReactElement<any, string | React.JSXElementConstructor<any>>;
   file: UploadFile;
   fileList: UploadFile[];
   moveRow: (dragIndex: any, hoverIndex: any) => void;
 }
 
-const DragableUploadListItem = ({
+const DraggableUploadListItem = ({
   originNode,
   moveRow,
   file,
   fileList,
-}: DragableUploadListItemProps) => {
+}: DraggableUploadListItemProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const index = fileList.indexOf(file);
   const [{ isOver, dropClassName }, drop] = useDrop({
@@ -115,7 +115,7 @@ const App: React.FC = () => {
         fileList={fileList}
         onChange={onChange}
         itemRender={(originNode, file, currFileList) => (
-          <DragableUploadListItem
+          <DraggableUploadListItem
             originNode={originNode}
             file={file}
             fileList={currFileList}
