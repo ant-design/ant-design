@@ -1,7 +1,7 @@
 import { render } from 'rc-util/lib/React/render';
 import * as React from 'react';
 import ConfigProvider, { globalConfig } from '../config-provider';
-import type { ArgsProps, GlobalConfigProps, NotificationInstance } from './interface';
+import type { ArgsProps, ConfigOptions, NotificationInstance } from './interface';
 import PurePanel from './PurePanel';
 import useNotification, { useInternalNotification } from './useNotification';
 
@@ -27,9 +27,9 @@ type Task =
 
 let taskQueue: Task[] = [];
 
-let defaultGlobalConfig: GlobalConfigProps = {};
+let defaultGlobalConfig: ConfigOptions = {};
 
-function getGlobalContext() {
+function getGlobalConfig() {
   const {
     prefixCls: globalPrefixCls,
     getContainer: globalGetContainer,
@@ -43,12 +43,12 @@ function getGlobalContext() {
 
   return {
     prefixCls: mergedPrefixCls,
-    container: mergedContainer,
+    getContainer: () => mergedContainer!,
     rtl,
     maxCount,
     top,
     bottom,
-  };
+  } as ConfigOptions;
 }
 
 interface GlobalHolderRef {
@@ -57,42 +57,17 @@ interface GlobalHolderRef {
 }
 
 const GlobalHolder = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
-  const [prefixCls, setPrefixCls] = React.useState<string>();
-  const [container, setContainer] = React.useState<HTMLElement>();
-  const [maxCount, setMaxCount] = React.useState<number>();
-  const [rtl, setRTL] = React.useState<boolean>();
-  const [top, setTop] = React.useState<number>();
-  const [bottom, setBottom] = React.useState<number>();
+  const [notificationConfig, setNotificationConfig] =
+    React.useState<ConfigOptions>(getGlobalConfig);
 
-  const [api, holder] = useInternalNotification({
-    prefixCls,
-    getContainer: () => container!,
-    maxCount,
-    rtl,
-    top,
-    bottom,
-  });
+  const [api, holder] = useInternalNotification(notificationConfig);
 
   const global = globalConfig();
   const rootPrefixCls = global.getRootPrefixCls();
   const rootIconPrefixCls = global.getIconPrefixCls();
 
   const sync = () => {
-    const {
-      prefixCls: nextGlobalPrefixCls,
-      container: nextGlobalContainer,
-      maxCount: nextGlobalMaxCount,
-      rtl: nextGlobalRTL,
-      top: nextTop,
-      bottom: nextBottom,
-    } = getGlobalContext();
-
-    setPrefixCls(nextGlobalPrefixCls);
-    setContainer(nextGlobalContainer);
-    setMaxCount(nextGlobalMaxCount);
-    setRTL(nextGlobalRTL);
-    setTop(nextTop);
-    setBottom(nextBottom);
+    setNotificationConfig(getGlobalConfig);
   };
 
   React.useEffect(sync, []);
@@ -190,7 +165,7 @@ function flushNotice() {
 const methods = ['success', 'info', 'warning', 'error'] as const;
 type MethodType = typeof methods[number];
 
-function setNotificationGlobalConfig(config: GlobalConfigProps) {
+function setNotificationGlobalConfig(config: ConfigOptions) {
   defaultGlobalConfig = {
     ...defaultGlobalConfig,
     ...config,
@@ -221,7 +196,7 @@ function destroy(key: React.Key) {
 const baseStaticMethods: {
   open: (config: ArgsProps) => void;
   destroy: (key?: React.Key) => void;
-  config: any;
+  config: typeof setNotificationGlobalConfig;
   useNotification: typeof useNotification;
   /** @private Internal Component. Do not use in your production. */
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;

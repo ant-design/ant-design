@@ -40,10 +40,10 @@ export interface NotificationInstance {
   destroy(key?: React.Key): void;
 }
 
-export interface GlobalConfigProps {
+export interface ConfigOptions {
   top?: number;
   bottom?: number;
-  duration?: number;
+  duration?: number | null;
   prefixCls?: string;
   getContainer?: () => HTMLElement;
   placement?: NotificationPlacement;
@@ -51,13 +51,4 @@ export interface GlobalConfigProps {
   rtl?: boolean;
   maxCount?: number;
   props?: DivProps;
-}
-
-export interface NotificationConfig {
-  top?: number;
-  bottom?: number;
-  prefixCls?: string;
-  getContainer?: () => HTMLElement;
-  maxCount?: number;
-  rtl?: boolean;
 }
