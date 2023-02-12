@@ -51,7 +51,7 @@ The properties of config are as follows:
 | className | Customized CSS class | string | - |
 | closeIcon | Custom close icon | ReactNode | - |
 | description | The content of notification box (required) | ReactNode | - |
-| duration | Time in seconds before Notification is closed. When set to 0 or null, it will never be closed automatically | number | 4.5 |
+| duration | Time in seconds before Notification is closed. When set to 0 or null, it will never be closed automatically | `number` \| `null` | 4.5 |
 | getContainer | Return the mount node for Notification | () => HTMLNode | () => document.body |
 | icon | Customized icon | ReactNode | - |
 | key | The unique identifier of the Notification | string | - |
@@ -67,9 +67,9 @@ The properties of config are as follows:
 
 - `notification.config(options)`
 
-  > When you use `ConfigProvider` for global configuration, the system will automatically start RTL mode by default.(4.3.0+)
-  >
-  > When you want to use it alone, you can start the RTL mode through the following settings.
+> When you use `ConfigProvider` for global configuration, the system will automatically start RTL mode by default.(4.3.0+)
+>
+> When you want to use it alone, you can start the RTL mode through the following settings.
 
 ```js
 notification.config({
@@ -84,12 +84,13 @@ notification.config({
 | --- | --- | --- | --- | --- |
 | bottom | Distance from the bottom of the viewport, when `placement` is `bottomRight` or `bottomLeft` (unit: pixels) | number | 24 |  |
 | closeIcon | Custom close icon | ReactNode | - |  |
-| duration | Time in seconds before Notification is closed. When set to 0 or null, it will never be closed automatically | number | 4.5 |  |
+| duration | Time in seconds before Notification is closed. When set to 0 or null, it will never be closed automatically | `number` \| `null` | 4.5 |  |
 | getContainer | Return the mount node for Notification | () => HTMLNode | () => document.body |  |
 | placement | Position of Notification, can be one of `topLeft` `topRight` `bottomLeft` `bottomRight` | string | `topRight` |  |
 | rtl | Whether to enable RTL mode | boolean | false |  |
 | top | Distance from the top of the viewport, when `placement` is `topRight` or `topLeft` (unit: pixels) | number | 24 |  |
 | maxCount | Max Notification show, drop oldest if exceed limit | number | - | 4.17.0 |
+| props | Props passed down | Object | An object that can contain `data-*`, `aria-*`, or `role` props, to be put on the notification `div`. This currently only allows `data-testid` instead of `data-*` in TypeScript. See https://github.com/microsoft/TypeScript/issues/28960. |  |
 
 ## FAQ
 
