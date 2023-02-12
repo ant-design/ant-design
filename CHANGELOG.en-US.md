@@ -15,6 +15,16 @@ timeline: true
 
 ---
 
+## 5.2.1
+
+`2023-2-13`
+
+- 💄 Optimize Steps custom `icon` size. [#40672](https://github.com/ant-design/ant-design/pull/40672) [@MadCcc](https://github.com/MadCcc)
+- TypeScript
+  - 🤖 Update Upload to support generic types. [#40634](https://github.com/ant-design/ant-design/pull/40634) [@riyadelberkawy](https://github.com/riyadelberkawy)
+- 🌐 国际化
+  - 🇮🇷/🇺🇦 add missing translations for ru_RU and uk_UA. [#40656](https://github.com/ant-design/ant-design/pull/40656) [@eldarcodes](https://github.com/eldarcodes)
+
 ## 5.2.0
 
 `2023-2-8`
