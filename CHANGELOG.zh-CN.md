@@ -15,6 +15,15 @@ timeline: true
 
 ---
 
+## 4.24.8
+
+`2023-2-6`
+
+- 🐞 修复 Tabs 组件某些情况下报错的问题。[df09516](https://github.com/ant-design/ant-design/commit/df09516ee542159eb3fa40927eec8981d4581bd0)
+- 🌐 补全 `pt_BR` 国际化。[#40019](https://github.com/ant-design/ant-design/pull/40019) [@rafaelncarvalho](https://github.com/rafaelncarvalho)
+- TypeScript
+  - 🤖 修复部分组件 `CompoundedComponent` 类型报错。[#39058](https://github.com/ant-design/ant-design/pull/39058) [@wangcch](https://github.com/wangcch)
+
 ## 4.24.7
 
 `2022-12-30`
