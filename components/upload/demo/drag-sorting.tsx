@@ -1,59 +1,47 @@
 import { UploadOutlined } from '@ant-design/icons';
-import { Button, Tooltip, Upload } from 'antd';
+import type { DragEndEvent } from '@dnd-kit/core';
+import { DndContext } from '@dnd-kit/core';
+import {
+  arrayMove,
+  SortableContext,
+  useSortable,
+  verticalListSortingStrategy,
+} from '@dnd-kit/sortable';
+import { CSS } from '@dnd-kit/utilities';
+import { css } from '@emotion/css';
+import { Button, Upload } from 'antd';
 import type { UploadFile, UploadProps } from 'antd/es/upload/interface';
-import React, { useCallback, useRef, useState } from 'react';
-import { DndProvider, useDrag, useDrop } from 'react-dnd';
-import { HTML5Backend } from 'react-dnd-html5-backend';
-
-const type = 'DragableUploadList';
+import React, { useState } from 'react';
 
 interface DragableUploadListItemProps {
   originNode: React.ReactElement<any, string | React.JSXElementConstructor<any>>;
-  file: UploadFile;
-  fileList: UploadFile[];
-  moveRow: (dragIndex: any, hoverIndex: any) => void;
+  file: UploadFile<any>;
 }
 
-const DragableUploadListItem = ({
-  originNode,
-  moveRow,
-  file,
-  fileList,
-}: DragableUploadListItemProps) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const index = fileList.indexOf(file);
-  const [{ isOver, dropClassName }, drop] = useDrop({
-    accept: type,
-    collect: (monitor) => {
-      const { index: dragIndex } = monitor.getItem() || {};
-      if (dragIndex === index) {
-        return {};
-      }
-      return {
-        isOver: monitor.isOver(),
-        dropClassName: dragIndex < index ? ' drop-over-downward' : ' drop-over-upward',
-      };
-    },
-    drop: (item: any) => {
-      moveRow(item.index, index);
-    },
+const DragableUploadListItem = ({ originNode, file }: DragableUploadListItemProps) => {
+  const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
+    id: file.uid,
   });
-  const [, drag] = useDrag({
-    type,
-    item: { index },
-    collect: (monitor) => ({
-      isDragging: monitor.isDragging(),
-    }),
-  });
-  drop(drag(ref));
-  const errorNode = <Tooltip title="Upload Error">{originNode.props.children}</Tooltip>;
+
+  const style: React.CSSProperties = {
+    transform: CSS.Transform.toString(transform),
+    transition,
+    cursor: 'move',
+  };
+
+  // prevent preview event when drag end
+  const className = isDragging
+    ? css`
+        a {
+          pointer-events: none;
+        }
+      `
+    : '';
+
   return (
-    <div
-      ref={ref}
-      className={`ant-upload-draggable-list-item ${isOver ? dropClassName : ''}`}
-      style={{ cursor: 'move' }}
-    >
-      {file.status === 'error' ? errorNode : originNode}
+    <div ref={setNodeRef} style={style} className={className} {...attributes} {...listeners}>
+      {/* hide error tooltip when dragging */}
+      {file.status === 'error' && isDragging ? originNode.props.children : originNode}
     </div>
   );
 };
@@ -91,41 +79,35 @@ const App: React.FC = () => {
     },
   ]);
 
-  const moveRow = useCallback(
-    (dragIndex: number, hoverIndex: number) => {
-      const dragRow = fileList[dragIndex];
-      setFileList((currentFileList) => {
-        const newFileList = [...currentFileList];
-        newFileList.splice(dragIndex, 1);
-        newFileList.splice(hoverIndex, 0, dragRow);
-        return newFileList;
+  const onDragEnd = ({ active, over }: DragEndEvent) => {
+    if (active.id !== over?.id) {
+      setFileList((prev) => {
+        const activeIndex = prev.findIndex((i) => i.uid === active.id);
+        const overIndex = prev.findIndex((i) => i.uid === over?.id);
+        return arrayMove(prev, activeIndex, overIndex);
       });
-    },
-    [fileList],
-  );
+    }
+  };
 
   const onChange: UploadProps['onChange'] = ({ fileList: newFileList }) => {
     setFileList(newFileList);
   };
 
   return (
-    <DndProvider backend={HTML5Backend}>
-      <Upload
-        action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-        fileList={fileList}
-        onChange={onChange}
-        itemRender={(originNode, file, currFileList) => (
-          <DragableUploadListItem
-            originNode={originNode}
-            file={file}
-            fileList={currFileList}
-            moveRow={moveRow}
-          />
-        )}
-      >
-        <Button icon={<UploadOutlined />}>Click to Upload</Button>
-      </Upload>
-    </DndProvider>
+    <DndContext onDragEnd={onDragEnd}>
+      <SortableContext items={fileList.map((i) => i.uid)} strategy={verticalListSortingStrategy}>
+        <Upload
+          action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+          fileList={fileList}
+          onChange={onChange}
+          itemRender={(originNode, file) => (
+            <DragableUploadListItem originNode={originNode} file={file} />
+          )}
+        >
+          <Button icon={<UploadOutlined />}>Click to Upload</Button>
+        </Upload>
+      </SortableContext>
+    </DndContext>
   );
 };
 
