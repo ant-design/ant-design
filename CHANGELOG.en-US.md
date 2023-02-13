@@ -17,7 +17,7 @@ timeline: true
 
 ## 4.24.8
 
-`2023-2-6`
+`2023-2-13`
 
 - 🐞 Fix Tabs that throw error in some cases. [df09516](https://github.com/ant-design/ant-design/commit/df09516ee542159eb3fa40927eec8981d4581bd0)
 - 🌐 Add missing translation for `pt_BR`. [#40019](https://github.com/ant-design/ant-design/pull/40019) [@rafaelncarvalho](https://github.com/rafaelncarvalho)
