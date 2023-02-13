@@ -86,6 +86,7 @@ const PanelRender: React.FC<PanelRenderProps> = ({ props, current, type, indicat
   }
 
   const mainBtnType = mergedType === 'primary' ? 'default' : 'primary';
+
   const secondaryBtnProps: ButtonProps = {
     type: 'default',
     ghost: mergedType === 'primary',

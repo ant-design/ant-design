@@ -5,7 +5,6 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, screen } from '../../../tests/utils';
 import type { TourProps } from '../interface';
-import PanelRender from '../panelRender';
 
 describe('Tour', () => {
   mountTest(Tour);
@@ -297,19 +296,19 @@ describe('Tour', () => {
 
   it('panelRender should correct render when total is undefined or null', () => {
     [undefined, null].forEach((total: undefined) => {
-      expect(() => {
-        render(
-          <PanelRender current={0} type="default" props={{ total, title: <div>test</div> }} />,
-        );
-      }).not.toThrow();
+      const { container } = render(<Tour open steps={[{ title: <div>test</div>, total }]} />);
+      expect(
+        container.querySelector<HTMLDivElement>('.ant-tour-content .ant-tour-indicators'),
+      ).toBeFalsy();
     });
   });
 
-  it('panelRender should correct render when title is null or null', () => {
+  it('panelRender should correct render when title is undefined or null', () => {
     [undefined, null].forEach((title) => {
-      expect(() => {
-        render(<PanelRender current={0} type="default" props={{ total: 1, title }} />);
-      }).not.toThrow();
+      const { container } = render(<Tour open steps={[{ title, total: 1 }]} />);
+      expect(
+        container.querySelector<HTMLDivElement>('.ant-tour-content .ant-tour-header'),
+      ).toBeFalsy();
     });
   });
 
@@ -343,9 +342,9 @@ describe('Tour', () => {
 
     const { container } = render(<App />);
     // className
-    expect(
-      screen.getByRole('button', { name: 'Next' }).className.includes('customClassName'),
-    ).toEqual(true);
+    expect(screen.getByRole('button', { name: 'Next' }).className.includes('customClassName')).toBe(
+      true,
+    );
     // style
     expect(screen.getByRole('button', { name: 'Next' }).style.backgroundColor).toEqual(
       'rgb(69, 69, 255)',
