@@ -207,6 +207,14 @@ describe('TimeLine', () => {
     expect(container.querySelector('.ant-timeline-item-label')).toHaveTextContent(label);
   });
 
+  it('TimeLine className should correctly', () => {
+    const { container } = renderFactory({ className: 'timelineBox' });
+
+    expect(container.querySelector('.ant-timeline')).toHaveClass('timelineBox');
+
+    expect(container.querySelectorAll('li.ant-timeline-item')[0]).not.toHaveClass('timelineBox');
+  });
+
   describe('prop: color', () => {
     const presetColors = ['blue', 'red', 'green', 'gray'];
 
