@@ -52,7 +52,7 @@ FloatButton. Available since `5.0.0`.
 | trigger | Which action can trigger menu open/close | `click` \| `hover` | - |  |
 | open | Whether the menu is visible or not | boolean | - |  |
 | onOpenChange | Callback executed when active menu is changed | (open: boolean) => void | - |  |
-| onClick | Set the handler to handle `click` event | (event) => void | - |  |
+| onClick | Set the handler to handle `click` event (only work in `Menu mode`) | (event) => void | - | 5.3.0 |
 
 ### FloatButton.BackTop
 

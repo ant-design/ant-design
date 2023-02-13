@@ -47,13 +47,13 @@ demo:
 
 ### FloatButton.Group
 
-| 参数         | 说明                             | 类型                    | 默认值   | 版本 |
-| ------------ | -------------------------------- | ----------------------- | -------- | ---- |
-| shape        | 设置包含的 FloatButton 按钮形状  | `circle` \| `square`    | `circle` |      |
-| trigger      | 触发方式（有触发方式为菜单模式） | `click` \| `hover`      | -        |      |
-| open         | 受控展开                         | boolean                 | -        |      |
-| onOpenChange | 展开收起时的回调                 | (open: boolean) => void | -        |      |
-| onClick      | 点击按钮时的回调                 | (event) => void         | -        |      |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| shape | 设置包含的 FloatButton 按钮形状 | `circle` \| `square` | `circle` |  |
+| trigger | 触发方式（有触发方式为菜单模式） | `click` \| `hover` | - |  |
+| open | 受控展开 | boolean | - |  |
+| onOpenChange | 展开收起时的回调 | (open: boolean) => void | - |  |
+| onClick | 点击按钮时的回调（仅在菜单模式中有效） | (event) => void | - | 5.3.0 |
 
 ### FloatButton.BackTop
 
