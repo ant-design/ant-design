@@ -13,12 +13,12 @@ import { Button, Upload } from 'antd';
 import type { UploadFile, UploadProps } from 'antd/es/upload/interface';
 import React, { useState } from 'react';
 
-interface DragableUploadListItemProps {
+interface DraggableUploadListItemProps {
   originNode: React.ReactElement<any, string | React.JSXElementConstructor<any>>;
   file: UploadFile<any>;
 }
 
-const DragableUploadListItem = ({ originNode, file }: DragableUploadListItemProps) => {
+const DraggableUploadListItem = ({ originNode, file }: DraggableUploadListItemProps) => {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
     id: file.uid,
   });
@@ -101,7 +101,7 @@ const App: React.FC = () => {
           fileList={fileList}
           onChange={onChange}
           itemRender={(originNode, file) => (
-            <DragableUploadListItem originNode={originNode} file={file} />
+            <DraggableUploadListItem originNode={originNode} file={file} />
           )}
         >
           <Button icon={<UploadOutlined />}>Click to Upload</Button>
