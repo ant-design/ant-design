@@ -1,6 +1,6 @@
 import notification, { actWrapper } from '..';
 import { act, fireEvent } from '../../../tests/utils';
-import type { ArgsProps, GlobalConfigProps } from '../interface';
+import type { ArgsProps, ConfigOptions } from '../interface';
 import { awaitPromise, triggerMotionEnd } from './util';
 
 describe('Notification.placement', () => {
@@ -12,7 +12,7 @@ describe('Notification.placement', () => {
     });
   }
 
-  function config(args: Partial<GlobalConfigProps>) {
+  function config(args: Partial<ConfigOptions>) {
     notification.config({
       ...args,
     });
@@ -36,8 +36,8 @@ describe('Notification.placement', () => {
     await triggerMotionEnd();
 
     notification.config({
-      prefixCls: null,
-      getContainer: null,
+      prefixCls: '',
+      getContainer: undefined,
     });
 
     jest.useRealTimers();
