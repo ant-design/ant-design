@@ -15,6 +15,21 @@ timeline: true
 
 ---
 
+## 5.2.1
+
+`2023-2-13`
+
+- 🛠 重构 Tour 中 `panelRender` 为函数式组件。[#40670](https://github.com/ant-design/ant-design/pull/40670) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🐞 修复 TimeLine 中 `className` 传给子节点的问题。[#40700](https://github.com/ant-design/ant-design/pull/40700) [@any1024](https://github.com/any1024)
+- 🐞 修复 Silder 中的标记点在边缘无法点击的问题。[#40679](https://github.com/ant-design/ant-design/pull/40679) [@LongHaoo](https://github.com/LongHaoo)
+- 🐞 修复 Tour 不支持 `0` 作为节点的问题。[#40631](https://github.com/ant-design/ant-design/pull/40631) [@li-jia-nan](https://github.com/li-jia-nan)
+- 💄 修复 DataPicker.RangePicker 的 hover 范围样式。[#40607](https://github.com/ant-design/ant-design/pull/40607) [@Yuiai01](https://github.com/Yuiai01)
+- 💄 优化 Steps 组件自定义 `icon` 的大小。[#40672](https://github.com/ant-design/ant-design/pull/40672) [@MadCcc](https://github.com/MadCcc)
+- TypeScript
+  - 🤖 Upload 组件支持泛型。[#40634](https://github.com/ant-design/ant-design/pull/40634) [@riyadelberkawy](https://github.com/riyadelberkawy)
+- 🌐 国际化
+  - 🇷🇺/🇺🇦 补全 `ru_RU` 和 `uk_UA` 文案。[#40656](https://github.com/ant-design/ant-design/pull/40656) [@eldarcodes](https://github.com/eldarcodes)
+
 ## 5.2.0
 
 `2023-2-8`
