@@ -23,6 +23,7 @@ This document will help you upgrade from antd `4.x` version to antd `5.x` versio
 - Remove less, adopt CSS-in-JS, for better support of dynamic themes. The bottom layer uses [@ant-design/cssinjs](https://github.com/ant-design/cssinjs) as a solution.
   - All less files are removed, and less variables are no longer exported.
   - Css files are no longer included in package. Since CSS-in-JS supports importing on demand, the original `antd/dist/antd.css` has also been abandoned. If you need to reset some basic styles, please import `antd/dist/reset.css`.
+  - If you need reset style based on `.ant-app`, you can use the [App](components/app) to solve the problem that native elements do not have antd specification style.
 - Remove css variables and dynamic theme built on top of them.
 - LocaleProvider has been deprecated in 4.x (use `<ConfigProvider locale />` instead), we removed the related folder `antd/es/locale-provider` and `antd/lib/locale-provider` in 5.x.
 - Replace built-in Moment.js with Dayjs. For more: [Use custom date library](/docs/react/use-custom-date-library/).
