@@ -11,8 +11,8 @@ import warning from '../_util/warning';
 import Circle from './Circle';
 import Line from './Line';
 import Steps from './Steps';
-import { getSuccessPercent, validProgress } from './utils';
 import useStyle from './style';
+import { getSuccessPercent, validProgress } from './utils';
 
 const ProgressTypes = ['line', 'circle', 'dashboard'] as const;
 export type ProgressType = typeof ProgressTypes[number];
@@ -32,6 +32,7 @@ export interface SuccessProps {
 export interface ProgressProps {
   prefixCls?: string;
   className?: string;
+  rootClassName?: string;
   type?: ProgressType;
   percent?: number;
   format?: (percent?: number, successPercent?: number) => React.ReactNode;
@@ -57,6 +58,7 @@ const Progress: React.FC<ProgressProps> = (props) => {
   const {
     prefixCls: customizePrefixCls,
     className,
+    rootClassName,
     steps,
     strokeColor,
     percent = 0,
@@ -71,7 +73,7 @@ const Progress: React.FC<ProgressProps> = (props) => {
   const percentNumber = React.useMemo<number>(() => {
     const successPercent = getSuccessPercent(props);
     return parseInt(
-      successPercent !== undefined ? successPercent.toString() : percent.toString(),
+      successPercent !== undefined ? (successPercent ?? 0)?.toString() : (percent ?? 0)?.toString(),
       10,
     );
   }, [percent, props.success, props.successPercent]);
@@ -160,6 +162,7 @@ const Progress: React.FC<ProgressProps> = (props) => {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
+    rootClassName,
     hashId,
   );
 

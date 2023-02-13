@@ -4,6 +4,7 @@ group: 数据展示
 title: Table
 subtitle: 表格
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*3yz3QqMlShYAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Sv8XQ50NB40AAAAAAAAAAAAADrJ8AQ/original
 ---
 
 展示行列数据。
@@ -92,6 +93,7 @@ const columns = [
 <code src="./demo/edit-row.tsx">可编辑行</code>
 <code src="./demo/nested-table.tsx">嵌套子表格</code>
 <code src="./demo/drag-sorting.tsx">拖拽排序</code>
+<code src="./demo/drag-sorting-handler.tsx">拖拽手柄列</code>
 <code src="./demo/resizable-column.tsx" debug>可伸缩列</code>
 <code src="./demo/ellipsis.tsx">单元格自动省略</code>
 <code src="./demo/ellipsis-custom-tooltip.tsx">自定义单元格省略提示</code>
@@ -285,6 +287,7 @@ const columns = [
 ```tsx
 import { Table } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
+import React from 'react';
 
 interface User {
   key: number;
@@ -306,15 +309,17 @@ const data: User[] = [
   },
 ];
 
-export default () => (
+const Demo: React.FC = () => (
   <>
     <Table<User> columns={columns} dataSource={data} />
-    /* 使用 JSX 风格的 API */
+    {/* 使用 JSX 风格的 API */}
     <Table<User> dataSource={data}>
       <Table.Column<User> key="name" title="Name" dataIndex="name" />
     </Table>
   </>
 );
+
+export default Demo;
 ```
 
 TypeScript 里使用 Table 的 [CodeSandbox 实例](https://codesandbox.io/s/serene-platform-0jo5t)。

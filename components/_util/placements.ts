@@ -19,11 +19,12 @@ export interface AdjustOverflow {
 }
 
 export interface PlacementsConfig {
-  arrowWidth?: number;
+  arrowWidth: number;
   horizontalArrowShift?: number;
   verticalArrowShift?: number;
   arrowPointAtCenter?: boolean;
   autoAdjustOverflow?: boolean | AdjustOverflow;
+  offset: number;
 }
 
 export function getOverflowOptions(autoAdjustOverflow?: boolean | AdjustOverflow) {
@@ -36,73 +37,114 @@ export function getOverflowOptions(autoAdjustOverflow?: boolean | AdjustOverflow
   };
 }
 
+type PlacementType = keyof BuildInPlacements;
+
+function getArrowOffset(type: PlacementType, arrowWidth: number, offset: number): number[] {
+  switch (type) {
+    case 'top':
+    case 'topLeft':
+    case 'topRight':
+      return [0, -(arrowWidth / 2 + offset)];
+    case 'bottom':
+    case 'bottomLeft':
+    case 'bottomRight':
+      return [0, arrowWidth / 2 + offset];
+    case 'left':
+    case 'leftTop':
+    case 'leftBottom':
+      return [-(arrowWidth / 2 + offset), 0];
+    case 'right':
+    case 'rightTop':
+    case 'rightBottom':
+      return [arrowWidth / 2 + offset, 0];
+    /* istanbul ignore next */
+    default:
+      return [0, 0];
+  }
+}
+
+function vertexCalc(point1: number[], point2: number[]): number[] {
+  return [point1[0] + point2[0], point1[1] + point2[1]];
+}
+
 export default function getPlacements(config: PlacementsConfig) {
   const {
-    arrowWidth = 4,
+    arrowWidth,
     horizontalArrowShift = 16,
     verticalArrowShift = 8,
     autoAdjustOverflow,
     arrowPointAtCenter,
+    offset,
   } = config;
+  const halfArrowWidth = arrowWidth / 2;
+
   const placementMap: BuildInPlacements = {
     left: {
       points: ['cr', 'cl'],
-      offset: [-4, 0],
+      offset: [-offset, 0],
     },
     right: {
       points: ['cl', 'cr'],
-      offset: [4, 0],
+      offset: [offset, 0],
     },
     top: {
       points: ['bc', 'tc'],
-      offset: [0, -4],
+      offset: [0, -offset],
     },
     bottom: {
       points: ['tc', 'bc'],
-      offset: [0, 4],
+      offset: [0, offset],
     },
     topLeft: {
       points: ['bl', 'tc'],
-      offset: [-(horizontalArrowShift + arrowWidth), -4],
+      offset: [-(horizontalArrowShift + halfArrowWidth), -offset],
     },
     leftTop: {
       points: ['tr', 'cl'],
-      offset: [-4, -(verticalArrowShift + arrowWidth)],
+      offset: [-offset, -(verticalArrowShift + halfArrowWidth)],
     },
     topRight: {
       points: ['br', 'tc'],
-      offset: [horizontalArrowShift + arrowWidth, -4],
+      offset: [horizontalArrowShift + halfArrowWidth, -offset],
     },
     rightTop: {
       points: ['tl', 'cr'],
-      offset: [4, -(verticalArrowShift + arrowWidth)],
+      offset: [offset, -(verticalArrowShift + halfArrowWidth)],
     },
     bottomRight: {
       points: ['tr', 'bc'],
-      offset: [horizontalArrowShift + arrowWidth, 4],
+      offset: [horizontalArrowShift + halfArrowWidth, offset],
     },
     rightBottom: {
       points: ['bl', 'cr'],
-      offset: [4, verticalArrowShift + arrowWidth],
+      offset: [offset, verticalArrowShift + halfArrowWidth],
     },
     bottomLeft: {
       points: ['tl', 'bc'],
-      offset: [-(horizontalArrowShift + arrowWidth), 4],
+      offset: [-(horizontalArrowShift + halfArrowWidth), offset],
     },
     leftBottom: {
       points: ['br', 'cl'],
-      offset: [-4, verticalArrowShift + arrowWidth],
+      offset: [-offset, verticalArrowShift + halfArrowWidth],
     },
   };
   Object.keys(placementMap).forEach((key) => {
     placementMap[key] = arrowPointAtCenter
       ? {
           ...placementMap[key],
+          offset: vertexCalc(
+            placementMap[key].offset!,
+            getArrowOffset(key as PlacementType, arrowWidth, offset),
+          ),
           overflow: getOverflowOptions(autoAdjustOverflow),
           targetOffset,
         }
       : {
           ...placements[key],
+          offset: vertexCalc(
+            placements[key].offset!,
+            getArrowOffset(key as PlacementType, arrowWidth, offset),
+          ),
           overflow: getOverflowOptions(autoAdjustOverflow),
         };
 

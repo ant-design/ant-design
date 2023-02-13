@@ -1,9 +1,15 @@
-import React, { useCallback, useRef, useState } from 'react';
+import type { DragEndEvent } from '@dnd-kit/core';
+import { DndContext } from '@dnd-kit/core';
+import {
+  arrayMove,
+  SortableContext,
+  useSortable,
+  verticalListSortingStrategy,
+} from '@dnd-kit/sortable';
+import { CSS } from '@dnd-kit/utilities';
 import { Table } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
-import update from 'immutability-helper';
-import { DndProvider, useDrag, useDrop } from 'react-dnd';
-import { HTML5Backend } from 'react-dnd-html5-backend';
+import React, { useState } from 'react';
 
 interface DataType {
   key: string;
@@ -12,81 +18,49 @@ interface DataType {
   address: string;
 }
 
-interface DraggableBodyRowProps extends React.HTMLAttributes<HTMLTableRowElement> {
-  index: number;
-  moveRow: (dragIndex: number, hoverIndex: number) => void;
-}
-
-const type = 'DraggableBodyRow';
-
-const DraggableBodyRow = ({
-  index,
-  moveRow,
-  className,
-  style,
-  ...restProps
-}: DraggableBodyRowProps) => {
-  const ref = useRef<HTMLTableRowElement>(null);
-  const [{ isOver, dropClassName }, drop] = useDrop({
-    accept: type,
-    collect: (monitor) => {
-      const { index: dragIndex } = monitor.getItem() || {};
-      if (dragIndex === index) {
-        return {};
-      }
-      return {
-        isOver: monitor.isOver(),
-        dropClassName: dragIndex < index ? ' drop-over-downward' : ' drop-over-upward',
-      };
-    },
-    drop: (item: { index: number }) => {
-      moveRow(item.index, index);
-    },
-  });
-  const [, drag] = useDrag({
-    type,
-    item: { index },
-    collect: (monitor) => ({
-      isDragging: monitor.isDragging(),
-    }),
-  });
-  drop(drag(ref));
-
-  return (
-    <tr
-      ref={ref}
-      className={`${className}${isOver ? dropClassName : ''}`}
-      style={{ cursor: 'move', ...style }}
-      {...restProps}
-    />
-  );
-};
-
 const columns: ColumnsType<DataType> = [
   {
     title: 'Name',
     dataIndex: 'name',
-    key: 'name',
   },
   {
     title: 'Age',
     dataIndex: 'age',
-    key: 'age',
   },
   {
     title: 'Address',
     dataIndex: 'address',
-    key: 'address',
   },
 ];
 
+interface RowProps extends React.HTMLAttributes<HTMLTableRowElement> {
+  'data-row-key': string;
+}
+
+const Row = (props: RowProps) => {
+  const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
+    id: props['data-row-key'],
+  });
+
+  const style: React.CSSProperties = {
+    ...props.style,
+    transform: CSS.Transform.toString(transform && { ...transform, scaleY: 1 }),
+    transition,
+    cursor: 'move',
+    ...(isDragging ? { position: 'relative', zIndex: 9999 } : {}),
+  };
+
+  return <tr {...props} ref={setNodeRef} style={style} {...attributes} {...listeners} />;
+};
+
 const App: React.FC = () => {
-  const [data, setData] = useState([
+  const [dataSource, setDataSource] = useState([
     {
       key: '1',
       name: 'John Brown',
       age: 32,
-      address: 'New York No. 1 Lake Park',
+      address:
+        'Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text',
     },
     {
       key: '2',
@@ -102,42 +76,35 @@ const App: React.FC = () => {
     },
   ]);
 
-  const components = {
-    body: {
-      row: DraggableBodyRow,
-    },
+  const onDragEnd = ({ active, over }: DragEndEvent) => {
+    if (active.id !== over?.id) {
+      setDataSource((prev) => {
+        const activeIndex = prev.findIndex((i) => i.key === active.id);
+        const overIndex = prev.findIndex((i) => i.key === over?.id);
+        return arrayMove(prev, activeIndex, overIndex);
+      });
+    }
   };
 
-  const moveRow = useCallback(
-    (dragIndex: number, hoverIndex: number) => {
-      const dragRow = data[dragIndex];
-      setData(
-        update(data, {
-          $splice: [
-            [dragIndex, 1],
-            [hoverIndex, 0, dragRow],
-          ],
-        }),
-      );
-    },
-    [data],
-  );
-
   return (
-    <DndProvider backend={HTML5Backend}>
-      <Table
-        columns={columns}
-        dataSource={data}
-        components={components}
-        onRow={(_, index) => {
-          const attr = {
-            index,
-            moveRow,
-          };
-          return attr as React.HTMLAttributes<any>;
-        }}
-      />
-    </DndProvider>
+    <DndContext onDragEnd={onDragEnd}>
+      <SortableContext
+        // rowKey array
+        items={dataSource.map((i) => i.key)}
+        strategy={verticalListSortingStrategy}
+      >
+        <Table
+          components={{
+            body: {
+              row: Row,
+            },
+          }}
+          rowKey="key"
+          columns={columns}
+          dataSource={dataSource}
+        />
+      </SortableContext>
+    </DndContext>
   );
 };
 

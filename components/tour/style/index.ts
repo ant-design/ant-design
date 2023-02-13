@@ -1,15 +1,15 @@
 import { TinyColor } from '@ctrl/tinycolor';
-import type { FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import { resetComponent } from '../../style';
 import getArrowStyle, { MAX_VERTICAL_CONTENT_RADIUS } from '../../style/placementArrow';
+import type { FullToken, GenerateStyle } from '../../theme/internal';
+import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {}
 
 interface TourToken extends FullToken<'Tour'> {
   tourZIndexPopup: number;
-  sliderWidth: number;
-  sliderHeight: number;
+  indicatorWidth: number;
+  indicatorHeight: number;
   tourBorderRadius: number;
   tourCloseSize: number;
 }
@@ -26,9 +26,9 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
     colorPrimary,
     colorText,
     colorFill,
-    sliderHeight,
-    sliderWidth,
-    boxShadow,
+    indicatorHeight,
+    indicatorWidth,
+    boxShadowTertiary,
     tourZIndexPopup,
     fontSize,
     colorBgContainer,
@@ -40,6 +40,7 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
     colorBgTextHover,
     tourCloseSize,
     motionDurationSlow,
+    antCls,
   } = token;
 
   return [
@@ -74,7 +75,7 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
           textAlign: 'start',
           textDecoration: 'none',
           borderRadius: tourBorderRadius,
-          boxShadow,
+          boxShadow: boxShadowTertiary,
           position: 'relative',
           backgroundColor: colorBgContainer,
           border: 'none',
@@ -128,26 +129,28 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
             textAlign: 'end',
             borderRadius: `0 0 ${borderRadiusXS}px ${borderRadiusXS}px`,
             display: 'flex',
-            justifyContent: 'space-between',
-
-            [`${componentCls}-sliders`]: {
+            [`${componentCls}-indicators`]: {
               display: 'inline-block',
 
-              [`${componentCls}-slider`]: {
-                width: `${sliderWidth}px`,
-                height: `${sliderHeight}px`,
+              [`${componentCls}-indicator`]: {
+                width: indicatorWidth,
+                height: indicatorHeight,
                 display: 'inline-block',
                 borderRadius: '50%',
                 background: colorFill,
-                marginInlineEnd: sliderHeight,
-
+                '&:not(:last-child)': {
+                  marginInlineEnd: indicatorHeight,
+                },
                 '&-active': {
                   background: colorPrimary,
                 },
               },
             },
-            [`${componentCls}-buttons button`]: {
-              marginInlineStart: marginXS,
+            [`${componentCls}-buttons`]: {
+              marginInlineStart: 'auto',
+              [`${antCls}-btn`]: {
+                marginInlineStart: marginXS,
+              },
             },
           },
         },
@@ -165,16 +168,15 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
             textDecoration: 'none',
             backgroundColor: colorPrimary,
             borderRadius,
-            boxShadow,
+            boxShadow: boxShadowTertiary,
 
             [`${componentCls}-close`]: {
               color: colorTextLightSolid,
             },
 
-            [`${componentCls}-sliders`]: {
-              [`${componentCls}-slider`]: {
+            [`${componentCls}-indicators`]: {
+              [`${componentCls}-indicator`]: {
                 background: new TinyColor(colorTextLightSolid).setAlpha(0.15).toRgbString(),
-
                 '&-active': {
                   background: colorTextLightSolid,
                 },
@@ -230,7 +232,6 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
     // ============================= Arrow ===========================
     getArrowStyle<TourToken>(token, {
       colorBg: 'var(--antd-arrow-background-color)',
-      showArrowCls: '',
       contentRadius: tourBorderRadius,
       limitVerticalRadius: true,
     }),
@@ -242,8 +243,8 @@ export default genComponentStyleHook('Tour', (token) => {
   const { borderRadiusLG, fontSize, lineHeight } = token;
   const TourToken = mergeToken<TourToken>(token, {
     tourZIndexPopup: token.zIndexPopupBase + 70,
-    sliderWidth: 6,
-    sliderHeight: 6,
+    indicatorWidth: 6,
+    indicatorHeight: 6,
     tourBorderRadius: borderRadiusLG,
     tourCloseSize: fontSize * lineHeight,
   });

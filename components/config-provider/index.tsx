@@ -5,6 +5,7 @@ import type { ValidateMessages } from 'rc-field-form/lib/interface';
 import useMemo from 'rc-util/lib/hooks/useMemo';
 import * as React from 'react';
 import type { ReactElement } from 'react';
+import type { Options } from 'scroll-into-view-if-needed';
 import type { RequiredMark } from '../form/Form';
 import type { Locale } from '../locale';
 import LocaleProvider, { ANT_MARK } from '../locale';
@@ -29,6 +30,7 @@ export {
   type CSPConfig,
   type DirectionType,
   type ConfigConsumerProps,
+  type ThemeConfig,
 };
 export { defaultIconPrefixCls };
 
@@ -69,6 +71,7 @@ export interface ConfigProviderProps {
     validateMessages?: ValidateMessages;
     requiredMark?: RequiredMark;
     colon?: boolean;
+    scrollToFirstError?: Options | boolean;
   };
   input?: {
     autoComplete?: string;

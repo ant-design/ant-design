@@ -10,6 +10,7 @@ export interface GeneratorProps {
 }
 export interface BasicProps extends React.HTMLAttributes<HTMLDivElement> {
   prefixCls?: string;
+  rootClassName?: string;
   hasSider?: boolean;
 }
 
@@ -58,7 +59,15 @@ const BasicLayout = React.forwardRef<HTMLElement, BasicPropsWithTagName>((props,
 
   const [siders, setSiders] = React.useState<string[]>([]);
 
-  const { prefixCls, className, children, hasSider, tagName: Tag, ...others } = props;
+  const {
+    prefixCls,
+    className,
+    rootClassName,
+    children,
+    hasSider,
+    tagName: Tag,
+    ...others
+  } = props;
   const [wrapSSR, hashId] = useStyle(prefixCls as string);
   const classString = classNames(
     prefixCls,
@@ -67,6 +76,7 @@ const BasicLayout = React.forwardRef<HTMLElement, BasicPropsWithTagName>((props,
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
+    rootClassName,
     hashId,
   );
 

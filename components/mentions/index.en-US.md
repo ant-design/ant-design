@@ -3,6 +3,7 @@ category: Components
 group: Data Entry
 title: Mentions
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*e4bXT7Uhi9YAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*pxR2S53P_xoAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -12,6 +13,23 @@ Mention component.
 ## When To Use
 
 When you need to mention someone or something.
+
+### Usage upgrade after 5.1.0
+
+<Alert message="After version 5.1.0, we provide a simpler usage &lt;Mentions options={[...]} /&gt;  with better performance and potential of writing simpler code style in your applications. Meanwhile, we deprecated the old usage in browser console, we will remove it in antd 6.0."></Alert>
+
+```jsx
+// works when >=5.1.0, recommended ✅
+const options = [{ value: 'sample', label: 'sample' }];
+return <Mentions options={options} />;
+
+// works when <5.1.0, deprecated when >=5.1.0 🙅🏻‍♀️
+return (
+  <Mentions onChange={onChange}>
+    <Mentions.Option value="sample">Sample</Mentions.Option>
+  </Mentions>
+);
+```
 
 ## Examples
 
@@ -25,24 +43,6 @@ When you need to mention someone or something.
 <code src="./demo/autoSize.tsx">autoSize</code>
 <code src="./demo/status.tsx">Status</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
-
-### Usage upgrade after 5.1.0
-
-```__react
-import Alert from '../alert';
-ReactDOM.render(<Alert message="After version 5.1.0, we provide a simpler usage <Mentions options={[...]} />  with better performance and potential of writing simpler code style in your applications. Meanwhile, we deprecated the old usage in browser console, we will remove it in antd 6.0." />, mountNode);
-```
-
-```jsx
-// works when >=5.1.0, recommended ✅
-const options = [{ value: 'sample', label: 'sample' }];
-return <Mentions options={options} />;
-
-// works when <5.1.0, deprecated when >=5.1.0 🙅🏻‍♀️
-<Mentions onChange={onChange}>
-  <Mentions.Option value="sample">Sample</Mentions.Option>
-</Mentions>;
-```
 
 ## API
 

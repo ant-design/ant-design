@@ -45,6 +45,7 @@ export type HeaderRender<DateType> = (config: {
 export interface CalendarProps<DateType> {
   prefixCls?: string;
   className?: string;
+  rootClassName?: string;
   style?: React.CSSProperties;
   locale?: typeof enUS;
   validRange?: [DateType, DateType];
@@ -84,6 +85,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
     const {
       prefixCls: customizePrefixCls,
       className,
+      rootClassName,
       style,
       dateFullCellRender,
       dateCellRender,
@@ -246,6 +248,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
                 [`${calendarPrefixCls}-rtl`]: direction === 'rtl',
               },
               className,
+              rootClassName,
               hashId,
             )}
             style={style}

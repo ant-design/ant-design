@@ -13,6 +13,7 @@ export type FloatButtonGroupTrigger = 'click' | 'hover';
 export interface FloatButtonProps {
   prefixCls?: string;
   className?: string;
+  rootClassName?: string;
   style?: React.CSSProperties;
   icon?: React.ReactNode;
   description?: React.ReactNode;
@@ -51,6 +52,7 @@ export interface BackTopProps extends Omit<FloatButtonProps, 'target'> {
   prefixCls?: string;
   children?: React.ReactNode;
   className?: string;
+  rootClassName?: string;
   style?: React.CSSProperties;
   duration?: number;
 }

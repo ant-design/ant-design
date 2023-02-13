@@ -1,7 +1,7 @@
 import type { CSSObject } from '@ant-design/cssinjs';
+import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import { resetComponent } from '../../style';
 
 export interface ComponentToken {
   contentWidth: number;
@@ -122,6 +122,13 @@ const genBaseStyle: GenerateStyle<ListToken> = (token) => {
     lineWidth,
   } = token;
 
+  const alignCls: any = {};
+  ['start', 'center', 'end'].forEach((item) => {
+    alignCls[`&-align-${item}`] = {
+      textAlign: item,
+    };
+  });
+
   return {
     [`${componentCls}`]: {
       ...resetComponent(token),
@@ -133,9 +140,11 @@ const genBaseStyle: GenerateStyle<ListToken> = (token) => {
         background: 'transparent',
         paddingBlock: paddingSM,
       },
+
       [`${componentCls}-pagination`]: {
         marginBlockStart: marginLG,
-        textAlign: 'end',
+
+        ...alignCls,
 
         // https://github.com/ant-design/ant-design/issues/20037
         [`${antCls}-pagination-options`]: {
@@ -275,6 +284,7 @@ const genBaseStyle: GenerateStyle<ListToken> = (token) => {
         marginBlockEnd: padding,
 
         [`${componentCls}-item-meta-title`]: {
+          marginBlockStart: 0,
           marginBlockEnd: paddingSM,
           color: colorText,
           fontSize: token.fontSizeLG,

@@ -5,6 +5,7 @@ group: 通用
 title: Icon
 toc: false
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*PdAYS7anRpoAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*xEDOTJx2DEkAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -101,13 +102,14 @@ getTwoToneColor(); // #eb2f96
 
 ```jsx
 import React from 'react';
+import ReactDOM from 'react-dom/client';
 import { createFromIconfontCN } from '@ant-design/icons';
 
 const MyIcon = createFromIconfontCN({
   scriptUrl: '//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js', // 在 iconfont.cn 上生成
 });
 
-ReactDOM.render(<MyIcon type="icon-example" />, mountedNode);
+ReactDOM.createRoot(mountNode).render(<MyIcon type="icon-example" />);
 ```
 
 其本质上是创建了一个使用 `<use>` 标签来渲染图标的组件。
@@ -148,12 +150,14 @@ module.exports = {
 ```
 
 ```jsx
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 import Icon from '@ant-design/icons';
-import MessageSvg from 'path/to/message.svg'; // path to your '*.svg' file.
+import MessageSvg from 'path/to/message.svg'; // 你的 '*.svg' 文件路径
 // in create-react-app:
 // import { ReactComponent as MessageSvg } from 'path/to/message.svg';
 
-ReactDOM.render(<Icon component={MessageSvg} />, mountNode);
+ReactDOM.createRoot(mountNode).render(<Icon component={MessageSvg} />);
 ```
 
 `Icon` 中的 `component` 组件的接受的属性如下：

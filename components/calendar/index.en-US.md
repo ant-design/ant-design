@@ -3,6 +3,7 @@ category: Components
 group: Data Display
 title: Calendar
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*nF6_To7pDSAAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-p-wQLik200AAAAAAAAAAAAADrJ8AQ/original
 ---
 
 Container for displaying data in calendar form.

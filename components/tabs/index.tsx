@@ -22,6 +22,7 @@ export type TabsPosition = 'top' | 'right' | 'bottom' | 'left';
 export type { TabPaneProps };
 
 export interface TabsProps extends Omit<RcTabsProps, 'editable'> {
+  rootClassName?: string;
   type?: TabsType;
   size?: SizeType;
   hideAdd?: boolean;
@@ -34,6 +35,7 @@ export interface TabsProps extends Omit<RcTabsProps, 'editable'> {
 function Tabs({
   type,
   className,
+  rootClassName,
   size: propSize,
   onEdit,
   hideAdd,
@@ -92,6 +94,7 @@ function Tabs({
           [`${prefixCls}-centered`]: centered,
         },
         className,
+        rootClassName,
         hashId,
       )}
       popupClassName={classNames(popupClassName, hashId)}

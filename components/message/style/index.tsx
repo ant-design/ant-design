@@ -20,7 +20,7 @@ const genMessageStyle: GenerateStyle<MessageToken> = (token) => {
   const {
     componentCls,
     iconCls,
-    boxShadowSecondary,
+    boxShadow,
     colorBgElevated,
     colorSuccess,
     colorError,
@@ -117,7 +117,7 @@ const genMessageStyle: GenerateStyle<MessageToken> = (token) => {
         padding: paddingXS,
         textAlign: 'center',
 
-        [iconCls]: {
+        [`${componentCls}-custom-content > ${iconCls}`]: {
           verticalAlign: 'text-bottom',
           marginInlineEnd: marginXS, // affected by ltr or rtl
           fontSize: fontSizeLG,
@@ -128,22 +128,22 @@ const genMessageStyle: GenerateStyle<MessageToken> = (token) => {
           padding: messageNoticeContentPadding,
           background: colorBgElevated,
           borderRadius: borderRadiusLG,
-          boxShadow: boxShadowSecondary,
+          boxShadow,
           pointerEvents: 'all',
         },
 
-        [`${componentCls}-success ${iconCls}`]: {
+        [`${componentCls}-success > ${iconCls}`]: {
           color: colorSuccess,
         },
-        [`${componentCls}-error ${iconCls}`]: {
+        [`${componentCls}-error > ${iconCls}`]: {
           color: colorError,
         },
-        [`${componentCls}-warning ${iconCls}`]: {
+        [`${componentCls}-warning > ${iconCls}`]: {
           color: colorWarning,
         },
         [`
-        ${componentCls}-info ${iconCls},
-        ${componentCls}-loading ${iconCls}`]: {
+        ${componentCls}-info > ${iconCls},
+        ${componentCls}-loading > ${iconCls}`]: {
           color: colorInfo,
         },
       },

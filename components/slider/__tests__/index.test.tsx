@@ -3,11 +3,11 @@ import Slider from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render, fireEvent, act } from '../../../tests/utils';
+import { act, fireEvent, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
-import SliderTooltip from '../SliderTooltip';
 import type { TooltipProps } from '../../tooltip';
 import { resetWarned } from '../../_util/warning';
+import SliderTooltip from '../SliderTooltip';
 
 function tooltipProps(): TooltipProps {
   return (global as any).tooltipProps;
@@ -26,7 +26,7 @@ jest.mock('../../tooltip', () => {
 describe('Slider', () => {
   mountTest(Slider);
   rtlTest(Slider);
-  focusTest(Slider, { testLib: true });
+  focusTest(Slider);
 
   beforeEach(() => {
     jest.useFakeTimers();
@@ -134,21 +134,13 @@ describe('Slider', () => {
   });
 
   it('should keepAlign by calling forcePopupAlign', async () => {
-    let ref: any;
-    render(
-      <SliderTooltip
-        title="30"
-        open
-        ref={(node) => {
-          ref = node;
-        }}
-      />,
-    );
-    ref.forcePopupAlign = jest.fn();
+    const ref = React.createRef<any>();
+    render(<SliderTooltip title="30" open ref={ref} />);
+    ref.current.forcePopupAlign = jest.fn();
     act(() => {
       jest.runAllTimers();
     });
-    expect(ref.forcePopupAlign).toHaveBeenCalled();
+    expect(ref.current.forcePopupAlign).toHaveBeenCalled();
   });
 
   it('tipFormatter should not crash with undefined value', () => {

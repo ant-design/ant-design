@@ -1,14 +1,4 @@
-const compileModules = [
-  'array-move',
-  'react-dnd',
-  'react-dnd-html5-backend',
-  '@react-dnd',
-  'dnd-core',
-  'react-sticky-box',
-  'tween-one',
-  '@babel',
-  '@ant-design',
-];
+const compileModules = ['dnd-core', 'react-sticky-box', 'tween-one', '@babel', '@ant-design'];
 
 const ignoreList = [];
 
@@ -27,7 +17,7 @@ const transformIgnorePatterns = [
 
 function getTestRegex(libDir) {
   if (['dist', 'lib', 'es'].includes(libDir)) {
-    return 'demo\\.test\\.(j|t)s$';
+    return 'demo\\.test\\.(j|t)sx?$';
   }
   return '.*\\.test\\.(j|t)sx?$';
 }

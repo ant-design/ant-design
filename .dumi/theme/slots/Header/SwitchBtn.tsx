@@ -1,6 +1,6 @@
-import * as React from 'react';
-import { Tooltip } from 'antd';
 import { css } from '@emotion/react';
+import { Tooltip } from 'antd';
+import React from 'react';
 import useSiteToken from '../../../hooks/useSiteToken';
 
 export interface LangBtnProps {
@@ -17,12 +17,21 @@ const BASE_SIZE = '1.2em';
 
 const useStyle = () => {
   const { token } = useSiteToken();
-  const { controlHeight, motionDurationMid } = token;
+
+  const {
+    colorText,
+    colorBorder,
+    colorBgContainer,
+    colorBgTextHover,
+    borderRadius,
+    controlHeight,
+    motionDurationMid,
+  } = token;
 
   return {
     btn: css`
-      color: ${token.colorText};
-      border-color: ${token.colorBorder};
+      color: ${colorText};
+      border-color: ${colorBorder};
       padding: 0 !important;
       width: ${controlHeight}px;
       height: ${controlHeight}px;
@@ -31,100 +40,67 @@ const useStyle = () => {
       justify-content: center;
       border: none;
       background: transparent;
-      border-radius: ${token.borderRadius}px;
+      border-radius: ${borderRadius}px;
       transition: all ${motionDurationMid};
       cursor: pointer;
-
       .btn-inner {
         transition: all ${motionDurationMid};
       }
-
       &:hover {
-        background: ${token.colorBgTextHover};
+        background: ${colorBgTextHover};
       }
-
       img {
         width: ${BASE_SIZE};
         height: ${BASE_SIZE};
       }
-
       .anticon {
         font-size: ${BASE_SIZE};
       }
     `,
+    innerDiv: css`
+      position: relative;
+      width: ${BASE_SIZE};
+      height: ${BASE_SIZE};
+    `,
+    labelStyle: css`
+      position: absolute;
+      font-size: ${BASE_SIZE};
+      line-height: 1;
+      border: 1px solid ${colorText};
+      color: ${colorText};
+    `,
+    label1Style: css`
+      left: -5%;
+      top: 0;
+      z-index: 1;
+      background-color: ${colorText};
+      color: ${colorBgContainer};
+      transform: scale(0.7);
+      transform-origin: 0 0;
+    `,
+    label2Style: css`
+      right: -5%;
+      bottom: 0;
+      z-index: 0;
+      transform: scale(0.5);
+      transform-origin: 100% 100%;
+    `,
   };
 };
 
-export default function LangBtn({
-  label1,
-  label2,
-  tooltip1,
-  tooltip2,
-  value,
-  pure,
-  onClick,
-}: LangBtnProps) {
-  const { token } = useSiteToken();
-  const style = useStyle();
+const LangBtn: React.FC<LangBtnProps> = (props) => {
+  const { label1, label2, tooltip1, tooltip2, value, pure, onClick } = props;
 
-  let label1Style: React.CSSProperties;
-  let label2Style: React.CSSProperties;
+  const { btn, innerDiv, labelStyle, label1Style, label2Style } = useStyle();
 
-  const iconStyle: React.CSSProperties = {
-    position: 'absolute',
-    fontSize: BASE_SIZE,
-    lineHeight: 1,
-    border: `1px solid ${token.colorText}`,
-    color: token.colorText,
-  };
-
-  const fontStyle: React.CSSProperties = {
-    left: '-5%',
-    top: 0,
-    zIndex: 1,
-    background: token.colorText,
-    color: token.colorBgContainer,
-    transformOrigin: '0 0',
-    transform: `scale(0.7)`,
-  };
-  const backStyle: React.CSSProperties = {
-    right: '-5%',
-    bottom: 0,
-    zIndex: 0,
-    transformOrigin: '100% 100%',
-    transform: `scale(0.5)`,
-  };
-
-  if (value === 1) {
-    label1Style = fontStyle;
-    label2Style = backStyle;
-  } else {
-    label1Style = backStyle;
-    label2Style = fontStyle;
-  }
-
-  let node = (
-    <button onClick={onClick} css={[style.btn]} key="lang-button">
+  const node = (
+    <button onClick={onClick} css={btn} key="lang-button">
       <div className="btn-inner">
         {pure && (value === 1 ? label1 : label2)}
         {!pure && (
-          <div style={{ position: 'relative', width: BASE_SIZE, height: BASE_SIZE }}>
-            <span
-              style={{
-                ...iconStyle,
-                ...label1Style,
-              }}
-            >
-              {label1}
-            </span>
-            <span
-              style={{
-                ...iconStyle,
-                ...label2Style,
-              }}
-            >
-              {label2}
-            </span>
+          <div css={innerDiv}>
+            <span css={[labelStyle, value === 1 ? label1Style : label2Style]}>{label1}</span>
+            <span css={[labelStyle, value === 1 ? label2Style : label1Style]}>{label2}</span>
           </div>
         )}
       </div>
@@ -132,8 +108,10 @@ export default function LangBtn({
   );
 
   if (tooltip1 || tooltip2) {
-    node = <Tooltip title={value === 1 ? tooltip1 : tooltip2}>{node}</Tooltip>;
+    return <Tooltip title={value === 1 ? tooltip1 : tooltip2}>{node}</Tooltip>;
   }
 
   return node;
-}
+};
+
+export default LangBtn;

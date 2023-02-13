@@ -16,6 +16,13 @@ import { resetWarned } from '../../_util/warning';
 describe('Tooltip', () => {
   mountTest(Tooltip);
   rtlTest(Tooltip);
+  beforeEach(() => {
+    jest.useFakeTimers();
+  });
+  afterEach(() => {
+    jest.useRealTimers();
+    jest.clearAllTimers();
+  });
 
   beforeAll(() => {
     spyElementPrototype(HTMLElement, 'offsetParent', {
@@ -188,6 +195,7 @@ describe('Tooltip', () => {
     const arrowWidth = 5;
     const horizontalArrowShift = 16;
     const triggerWidth = 200;
+    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
     const suit = () => {
       const { container } = render(
@@ -227,13 +235,39 @@ describe('Tooltip', () => {
       );
       fireEvent.click(container2.getElementsByTagName('button')[0]);
       const popupLeftArrowPointAtCenter = parseInt(
-        container.querySelector<HTMLDivElement>('.point-center-element')?.style?.left!,
+        container2.querySelector<HTMLDivElement>('.point-center-element')?.style?.left!,
         10,
       );
 
       expect(popupLeftArrowPointAtCenter - popupLeftDefault).toBe(
         triggerWidth / 2 - horizontalArrowShift - arrowWidth,
       );
+
+      const { container: container3 } = render(
+        <Tooltip
+          title="xxxxx"
+          trigger="click"
+          mouseEnterDelay={0}
+          mouseLeaveDelay={0}
+          placement="bottomLeft"
+          arrow={{ arrowPointAtCenter: true }}
+          overlayClassName="point-center-element"
+        >
+          <button type="button" style={{ width: triggerWidth }}>
+            Hello world!
+          </button>
+        </Tooltip>,
+      );
+      fireEvent.click(container3.getElementsByTagName('button')[0]);
+      const popupLeftArrowPointAtCenter2 = parseInt(
+        container3.querySelector<HTMLDivElement>('.point-center-element')?.style?.left!,
+        10,
+      );
+
+      expect(popupLeftArrowPointAtCenter2 - popupLeftDefault).toBe(
+        triggerWidth / 2 - horizontalArrowShift - arrowWidth,
+      );
+      expect(warnSpy).toHaveBeenCalledTimes(1);
     };
 
     (jest.dontMock as any)('rc-trigger', suit);
@@ -566,5 +600,23 @@ describe('Tooltip', () => {
 
     expect(container.querySelector('.bamboo')).toBeTruthy();
     expect(container.querySelector('.ant-tooltip')).toBeTruthy();
+  });
+
+  it('support arrow props pass false to hide arrow', () => {
+    const { container } = render(
+      <Tooltip open arrow={false}>
+        <div className="target">target</div>
+      </Tooltip>,
+    );
+    expect(container).toMatchSnapshot();
+  });
+
+  it('support arrow props by default', () => {
+    const { container } = render(
+      <Tooltip open>
+        <div className="target">target</div>
+      </Tooltip>,
+    );
+    expect(container).toMatchSnapshot();
   });
 });

@@ -16,6 +16,7 @@ const SkeletonButton: React.FC<SkeletonButtonProps> = (props) => {
   const {
     prefixCls: customizePrefixCls,
     className,
+    rootClassName,
     active,
     block = false,
     size = 'default',
@@ -33,6 +34,7 @@ const SkeletonButton: React.FC<SkeletonButtonProps> = (props) => {
       [`${prefixCls}-block`]: block,
     },
     className,
+    rootClassName,
     hashId,
   );
 

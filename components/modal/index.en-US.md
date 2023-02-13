@@ -3,6 +3,7 @@ group: Feedback
 category: Components
 title: Modal
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*wM3qQ5XrhlcAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*fBrgSJBmavgAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---

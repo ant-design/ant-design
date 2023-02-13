@@ -2,6 +2,7 @@
 
 exports[`renders ./components/watermark/demo/basic.tsx correctly 1`] = `
 <div
+  class=""
   style="position:relative"
 >
   <div
@@ -15,6 +16,7 @@ exports[`renders ./components/watermark/demo/custom.tsx correctly 1`] = `
   style="display:flex"
 >
   <div
+    class=""
     style="position:relative"
   >
     <article
@@ -769,6 +771,7 @@ exports[`renders ./components/watermark/demo/custom.tsx correctly 1`] = `
 
 exports[`renders ./components/watermark/demo/image.tsx correctly 1`] = `
 <div
+  class=""
   style="position:relative"
 >
   <div
@@ -779,6 +782,7 @@ exports[`renders ./components/watermark/demo/image.tsx correctly 1`] = `
 
 exports[`renders ./components/watermark/demo/multi-line.tsx correctly 1`] = `
 <div
+  class=""
   style="position:relative"
 >
   <div

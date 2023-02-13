@@ -1,19 +1,30 @@
 import React from 'react';
 import { act } from 'react-dom/test-utils';
+import scrollIntoView from 'scroll-into-view-if-needed';
+import Button from '../../button';
 import ConfigProvider from '..';
-import { render } from '../../../tests/utils';
+import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import type { FormInstance } from '../../form';
 import Form from '../../form';
 import Input from '../../input';
 import zhCN from '../../locale/zh_CN';
 
+jest.mock('scroll-into-view-if-needed');
+
 describe('ConfigProvider.Form', () => {
+  (scrollIntoView as any).mockImplementation(() => {});
+
+  beforeEach(() => {
+    (scrollIntoView as any).mockReset();
+  });
+
   beforeAll(() => {
     jest.useFakeTimers();
   });
 
   afterAll(() => {
     jest.useRealTimers();
+    (scrollIntoView as any).mockRestore();
   });
 
   describe('form validateMessages', () => {
@@ -144,6 +155,91 @@ describe('ConfigProvider.Form', () => {
 
       expect(container.querySelector('#input1[disabled]')).toBeFalsy();
       expect(container.querySelector('#input[disabled]')).toBeTruthy();
+    });
+  });
+
+  describe('form scrollToFirstError', () => {
+    it('set object, form not set', async () => {
+      (scrollIntoView as any).mockImplementation(() => {});
+      const onFinishFailed = jest.fn();
+
+      const { container } = render(
+        <ConfigProvider form={{ scrollToFirstError: { block: 'center' } }}>
+          <Form onFinishFailed={onFinishFailed}>
+            <Form.Item name="test" rules={[{ required: true }]}>
+              <input />
+            </Form.Item>
+            <Form.Item>
+              <Button htmlType="submit">Submit</Button>
+            </Form.Item>
+          </Form>
+        </ConfigProvider>,
+      );
+
+      expect(scrollIntoView).not.toHaveBeenCalled();
+      fireEvent.submit(container.querySelector('form')!);
+      await waitFakeTimer();
+
+      const inputNode = document.getElementById('test');
+      expect(scrollIntoView).toHaveBeenCalledWith(inputNode, {
+        block: 'center',
+        scrollMode: 'if-needed',
+      });
+      expect(onFinishFailed).toHaveBeenCalled();
+    });
+
+    it('not set, form set object', async () => {
+      (scrollIntoView as any).mockImplementation(() => {});
+      const onFinishFailed = jest.fn();
+
+      const { container } = render(
+        <ConfigProvider>
+          <Form scrollToFirstError={{ block: 'center' }} onFinishFailed={onFinishFailed}>
+            <Form.Item name="test" rules={[{ required: true }]}>
+              <input />
+            </Form.Item>
+            <Form.Item>
+              <Button htmlType="submit">Submit</Button>
+            </Form.Item>
+          </Form>
+        </ConfigProvider>,
+      );
+
+      expect(scrollIntoView).not.toHaveBeenCalled();
+      fireEvent.submit(container.querySelector('form')!);
+      await waitFakeTimer();
+
+      const inputNode = document.getElementById('test');
+      expect(scrollIntoView).toHaveBeenCalledWith(inputNode, {
+        block: 'center',
+        scrollMode: 'if-needed',
+      });
+      expect(onFinishFailed).toHaveBeenCalled();
+    });
+
+    it('set object, form set false', async () => {
+      (scrollIntoView as any).mockImplementation(() => {});
+      const onFinishFailed = jest.fn();
+
+      const { container } = render(
+        <ConfigProvider form={{ scrollToFirstError: { block: 'center' } }}>
+          <Form scrollToFirstError={false} onFinishFailed={onFinishFailed}>
+            <Form.Item name="test" rules={[{ required: true }]}>
+              <input />
+            </Form.Item>
+            <Form.Item>
+              <Button htmlType="submit">Submit</Button>
+            </Form.Item>
+          </Form>
+        </ConfigProvider>,
+      );
+
+      expect(scrollIntoView).not.toHaveBeenCalled();
+      fireEvent.submit(container.querySelector('form')!);
+      await waitFakeTimer();
+
+      expect(scrollIntoView).not.toHaveBeenCalled();
+      expect(onFinishFailed).toHaveBeenCalled();
     });
   });
 });
