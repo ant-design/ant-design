@@ -55,7 +55,6 @@ const TimelineItemList: React.FC<TimelineProps & { hashId: string; direction?: s
       return (
         <TimelineItem
           className={classNames([
-            className,
             !reverse && !!pending ? pendingClass : readyClass,
             getPositionCls(item?.position ?? '', idx),
           ])}
