@@ -24,6 +24,7 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
     trigger,
     children,
     onOpenChange,
+    onClick: customizeOnClick,
   } = props;
 
   const { direction, getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
@@ -104,6 +105,7 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
               shape={shape}
               icon={open ? closeIcon : icon}
               description={description}
+              onClick={customizeOnClick}
             />
           </>
         ) : (
