@@ -3,7 +3,7 @@ import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import { RawPurePanel as PopoverRawPurePanel } from '../popover/PurePanel';
 import type { TourStepProps } from './interface';
-import PanelRender from './panelRender';
+import TourPanel from './panelRender';
 import useStyle from './style';
 
 export interface PurePanelProps extends TourStepProps {}
@@ -31,11 +31,9 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
       className={classNames(className, `${prefixCls}-pure`, type && `${prefixCls}-${type}`)}
       style={style}
     >
-      <PanelRender props={{ ...restProps, prefixCls, total }} current={current} type={type} />
+      <TourPanel stepProps={{ ...restProps, prefixCls, total }} current={current} type={type} />
     </PopoverRawPurePanel>,
   );
-
-  // return node as React.ReactElement;
 };
 
 export default PurePanel;

@@ -6,7 +6,7 @@ import { ConfigContext } from '../config-provider';
 import theme from '../theme';
 import getPlacements from '../_util/placements';
 import type { TourProps, TourStepProps } from './interface';
-import PanelRender from './panelRender';
+import TourPanel from './panelRender';
 import PurePanel from './PurePanel';
 import useStyle from './style';
 
@@ -43,9 +43,9 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
   );
 
   const mergedRenderPanel = (stepProps: TourStepProps, stepCurrent: number): React.ReactNode => (
-    <PanelRender
+    <TourPanel
       type={type}
-      props={stepProps}
+      stepProps={stepProps}
       current={stepCurrent}
       indicatorsRender={indicatorsRender}
     />
