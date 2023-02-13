@@ -12,12 +12,14 @@ function isValidNode(node: ReactNode): boolean {
   return node !== undefined && node !== null;
 }
 
-const panelRender = (
-  props: TourStepProps,
-  current: number,
-  type: TourStepProps['type'],
-  indicatorsRender?: TourStepProps['indicatorsRender'],
-) => {
+interface TourPanelProps {
+  stepProps: TourStepProps;
+  current: number;
+  type: TourStepProps['type'];
+  indicatorsRender?: TourStepProps['indicatorsRender'];
+}
+
+const TourPanel: React.FC<TourPanelProps> = ({ stepProps, current, type, indicatorsRender }) => {
   const {
     prefixCls,
     total = 1,
@@ -33,7 +35,7 @@ const panelRender = (
     type: stepType,
     arrow,
     className,
-  } = props;
+  } = stepProps;
 
   const mergedType = typeof stepType !== 'undefined' ? stepType : type;
 
@@ -139,4 +141,4 @@ const panelRender = (
   );
 };
 
-export default panelRender;
+export default TourPanel;
