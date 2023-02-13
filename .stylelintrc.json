@@ -1,9 +1,5 @@
 {
-  "extends": [
-    "stylelint-config-standard",
-    "stylelint-config-rational-order",
-    "stylelint-config-prettier"
-  ],
+  "extends": ["stylelint-config-standard", "stylelint-config-rational-order"],
   "customSyntax": "postcss-less",
   "plugins": ["stylelint-declaration-block-no-ignored-properties"],
   "rules": {
