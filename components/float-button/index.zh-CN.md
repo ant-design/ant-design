@@ -53,6 +53,7 @@ demo:
 | trigger      | 触发方式（有触发方式为菜单模式） | `click` \| `hover`      | -        |      |
 | open         | 受控展开                         | boolean                 | -        |      |
 | onOpenChange | 展开收起时的回调                 | (open: boolean) => void | -        |      |
+| onClick      | 点击按钮时的回调                 | (event) => void         | -        |      |
 
 ### FloatButton.BackTop
 
