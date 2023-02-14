@@ -4,6 +4,21 @@ const util = require('util');
 // eslint-disable-next-line no-console
 console.log('Current React Version:', React.version);
 
+const originConsoleErr = console.error;
+
+// Hack off React warning to avoid too large log in CI.
+console.error = (...args) => {
+  const str = args.join('').replace(/\n/g, '');
+
+  if (
+    ['validateDOMNesting', 'on an unmounted component', 'not wrapped in act'].every(
+      (warn) => !str.includes(warn),
+    )
+  ) {
+    originConsoleErr(...args);
+  }
+};
+
 /* eslint-disable global-require */
 if (typeof window !== 'undefined') {
   global.window.resizeTo = (width, height) => {
