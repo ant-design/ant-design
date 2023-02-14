@@ -4,7 +4,7 @@ import type { TooltipPlacement } from '..';
 import Tooltip from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, waitFakeTimer, waitFor } from '../../../tests/utils';
+import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
 import DatePicker from '../../date-picker';
 import Input from '../../input';
@@ -366,17 +366,6 @@ describe('Tooltip', () => {
   });
 
   describe('support other placement when mouse enter', () => {
-    beforeAll(() => {
-      jest.useFakeTimers();
-    });
-
-    afterAll(() => {
-      jest.useRealTimers();
-    });
-
-    afterEach(() => {
-      jest.clearAllTimers();
-    });
     const placementList = [
       'top',
       'left',
@@ -391,10 +380,17 @@ describe('Tooltip', () => {
       'rightTop',
       'rightBottom',
     ] as const;
+
     const testPlacement = (name: string, placement: TooltipPlacement) => {
       it(name, async () => {
         const { container } = render(
-          <Tooltip title="xxxxx" transitionName="" mouseEnterDelay={0} placement={placement}>
+          <Tooltip
+            title="xxxxx"
+            transitionName=""
+            mouseEnterDelay={0}
+            placement={placement}
+            autoAdjustOverflow={false}
+          >
             <span>Hello world!</span>
           </Tooltip>,
         );
@@ -402,9 +398,7 @@ describe('Tooltip', () => {
         const element = container.getElementsByTagName('span')[0];
         fireEvent.mouseEnter(element);
         await waitFakeTimer();
-        await waitFor(() => {
-          expect(document.querySelector(`.ant-tooltip-placement-${placement}`)).not.toBeNull();
-        });
+        expect(document.querySelector(`.ant-tooltip-placement-${placement}`)).toBeTruthy();
       });
     };
 
