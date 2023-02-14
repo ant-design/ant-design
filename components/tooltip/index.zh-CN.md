@@ -4,6 +4,7 @@ subtitle: 文字提示
 group: 数据展示
 title: Tooltip
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*3u9eSZO_4c0AAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*gwrhTozoTC4AAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---

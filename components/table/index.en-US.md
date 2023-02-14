@@ -3,6 +3,7 @@ category: Components
 group: Data Display
 title: Table
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*3yz3QqMlShYAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Sv8XQ50NB40AAAAAAAAAAAAADrJ8AQ/original
 ---
 
 A table displays rows of data.
@@ -283,6 +284,7 @@ Properties for row selection.
 ```tsx
 import { Table } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
+import React from 'react';
 
 interface User {
   key: number;
@@ -304,7 +306,7 @@ const data: User[] = [
   },
 ];
 
-export default () => (
+const Demo: React.FC = () => (
   <>
     <Table<User> columns={columns} dataSource={data} />
     {/* JSX style usage */}
@@ -313,6 +315,8 @@ export default () => (
     </Table>
   </>
 );
+
+export default Demo;
 ```
 
 Here is the [CodeSandbox for TypeScript](https://codesandbox.io/s/serene-platform-0jo5t).

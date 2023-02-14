@@ -89,9 +89,14 @@ const Demo: React.FC<DemoProps> = (props) => {
   const { hash, pathname, search } = location;
   const docsOnlineUrl = `https://ant.design${pathname}${search}#${meta.id}`;
 
-  const regexp = /preview-(\d+)-ant-design/; // matching PR preview addresses
-  const showOnlineUrl =
-    process.env.NODE_ENV === 'development' || regexp.test(window.location.hostname);
+  const [showOnlineUrl, setShowOnlineUrl] = useState<boolean>(false);
+
+  useEffect(() => {
+    const regexp = /preview-(\d+)-ant-design/; // matching PR preview addresses
+    setShowOnlineUrl(
+      process.env.NODE_ENV === 'development' || regexp.test(window.location.hostname),
+    );
+  }, []);
 
   const handleCodeExpand = (demo: string) => {
     setCodeExpand((prev) => !prev);

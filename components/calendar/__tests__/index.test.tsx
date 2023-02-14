@@ -106,7 +106,7 @@ describe('Calendar', () => {
     const elem = container
       .querySelector('[title="2018-02-20"]')!
       .className.includes('ant-picker-cell-disabled');
-    expect(elem).toEqual(true);
+    expect(elem).toBe(true);
     expect(onSelect.mock.calls.length).toBe(0);
   });
 

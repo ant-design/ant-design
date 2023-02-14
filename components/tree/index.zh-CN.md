@@ -4,6 +4,7 @@ group: 数据展示
 title: Tree
 subtitle: 树形控件
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Ag9_Q6ArswEAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*1GeUQJPTGUYAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---

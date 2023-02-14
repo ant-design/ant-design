@@ -187,7 +187,7 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
           </section>
         </Affix>
         <article css={styles.articleWrapper} className={classNames({ rtl: isRTL })}>
-          {meta.frontmatter?.title && meta.frontmatter.subtitle ? (
+          {meta.frontmatter?.title ? (
             <Typography.Title style={{ fontSize: 30 }}>
               {meta.frontmatter?.title}
               {meta.frontmatter.subtitle && (

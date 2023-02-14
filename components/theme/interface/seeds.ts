@@ -77,7 +77,7 @@ export interface SeedToken extends PresetColorType {
    * @nameEN Font family for code text
    * @desc 代码字体，用于 Typography 内的 code、pre 和 kbd 类型的元素
    */
-  codeFontFamily: string;
+  fontFamilyCode: string;
 
   /**
    * @nameZH 默认字号

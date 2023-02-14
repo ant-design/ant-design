@@ -332,6 +332,7 @@ export default genComponentStyleHook(
       fontSizeHeading3,
       fontSize,
       controlHeight,
+      controlHeightSM,
       controlHeightLG,
       colorTextLightSolid,
       colorText,
@@ -356,7 +357,7 @@ export default genComponentStyleHook(
       stepsIconSize,
       stepsIconCustomSize: stepsIconSize,
       stepsIconCustomTop: 0,
-      stepsIconCustomFontSize: controlHeightLG / 2,
+      stepsIconCustomFontSize: controlHeightSM,
       stepsIconTop: -0.5, // magic for ui experience
       stepsIconFontSize: fontSize,
       stepsTitleLineHeight: controlHeight,

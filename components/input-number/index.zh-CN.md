@@ -4,6 +4,7 @@ subtitle: 数字输入框
 group: 数据录入
 title: InputNumber
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*JvWbSYhuNlIAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*1uH-R5kLAMIAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
