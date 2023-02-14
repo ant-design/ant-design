@@ -113,7 +113,7 @@ describe('Tooltip', () => {
     expect(container.querySelector('.ant-tooltip-open')).toBeNull();
   });
 
-  it('should hide when mouse leave native disabled button', () => {
+  it('should hide when mouse leave native disabled button', async () => {
     const onOpenChange = jest.fn();
     const ref = React.createRef<any>();
 
@@ -135,19 +135,21 @@ describe('Tooltip', () => {
     const button = container.getElementsByTagName('span')[0];
 
     fireEvent.mouseEnter(button);
+    await waitFakeTimer();
     expect(onOpenChange).toHaveBeenCalledWith(true);
-    expect(ref.current?.props.visible).toBe(true);
+    expect(isTooltipOpen()).toBeTruthy();
     expect(container.querySelector('.ant-tooltip-open')).not.toBeNull();
 
     fireEvent.mouseLeave(button);
+    await waitFakeTimer();
     expect(onOpenChange).toHaveBeenCalledWith(false);
-    expect(ref.current?.props.visible).toBe(false);
+    expect(isTooltipOpen()).toBeFalsy();
     expect(container.querySelector('.ant-tooltip-open')).toBeNull();
   });
 
   describe('should hide when mouse leave antd disabled component', () => {
     function testComponent(name: string, Component: typeof Button | typeof Switch) {
-      it(name, () => {
+      it(name, async () => {
         const onOpenChange = jest.fn();
         const ref = React.createRef<any>();
         const { container } = render(
@@ -166,13 +168,15 @@ describe('Tooltip', () => {
         const button = container.getElementsByTagName('span')[0];
 
         fireEvent.mouseEnter(button);
+        await waitFakeTimer();
         expect(onOpenChange).toHaveBeenCalledWith(true);
-        expect(ref.current.props.visible).toBe(true);
+        expect(isTooltipOpen()).toBeTruthy();
         expect(container.querySelector('.ant-tooltip-open')).not.toBeNull();
 
         fireEvent.mouseLeave(button);
+        await waitFakeTimer();
         expect(onOpenChange).toHaveBeenCalledWith(false);
-        expect(ref.current.props.visible).toBe(false);
+        expect(isTooltipOpen()).toBeFalsy();
         expect(container.querySelector('.ant-tooltip-open')).toBeNull();
       });
     }
@@ -281,7 +285,6 @@ describe('Tooltip', () => {
   });
 
   it('should works for date picker', async () => {
-    jest.useFakeTimers();
     const onOpenChange = jest.fn();
     const ref = React.createRef<any>();
 
@@ -297,20 +300,17 @@ describe('Tooltip', () => {
     fireEvent.mouseEnter(picker);
     await waitFakeTimer();
     expect(onOpenChange).toHaveBeenCalledWith(true);
-    expect(ref.current?.props.visible).toBe(true);
+    expect(isTooltipOpen()).toBeTruthy();
     expect(container.querySelector('.ant-tooltip-open')).not.toBeNull();
 
     fireEvent.mouseLeave(picker);
     await waitFakeTimer();
     expect(onOpenChange).toHaveBeenCalledWith(false);
-    expect(ref.current?.props.visible).toBe(false);
+    expect(isTooltipOpen()).toBeFalsy();
     expect(container.querySelector('.ant-tooltip-open')).toBeNull();
-    jest.clearAllTimers();
-    jest.useRealTimers();
   });
 
   it('should works for input group', async () => {
-    jest.useFakeTimers();
     const onOpenChange = jest.fn();
     const ref = React.createRef<any>();
     const { container } = render(
@@ -327,16 +327,14 @@ describe('Tooltip', () => {
     fireEvent.mouseEnter(inputGroup);
     await waitFakeTimer();
     expect(onOpenChange).toHaveBeenCalledWith(true);
-    expect(ref.current.props.visible).toBe(true);
+    expect(isTooltipOpen()).toBeTruthy();
     expect(container.querySelector('.ant-tooltip-open')).not.toBeNull();
 
     fireEvent.mouseLeave(inputGroup);
     await waitFakeTimer();
     expect(onOpenChange).toHaveBeenCalledWith(false);
-    expect(ref.current.props.visible).toBe(false);
+    expect(isTooltipOpen()).toBeFalsy();
     expect(container.querySelector('.ant-tooltip-open')).toBeNull();
-    jest.clearAllTimers();
-    jest.useRealTimers();
   });
 
   // https://github.com/ant-design/ant-design/issues/20891
