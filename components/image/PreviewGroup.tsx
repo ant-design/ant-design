@@ -19,7 +19,7 @@ export const icons = {
   zoomOut: <ZoomOutOutlined />,
   close: <CloseOutlined />,
   left: <LeftOutlined />,
-  right: <LeftOutlined rotate={180} />,
+  right: <LeftOutlined rotate={180} aria-label="right" />,
 };
 
 const InternalPreviewGroup: React.FC<GroupConsumerProps> = ({

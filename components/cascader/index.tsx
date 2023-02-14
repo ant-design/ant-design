@@ -243,7 +243,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
   // ===================== Icon ======================
   let mergedExpandIcon = expandIcon;
   if (!expandIcon) {
-    mergedExpandIcon = isRtl ? <LeftOutlined /> : <LeftOutlined rotate={180} />;
+    mergedExpandIcon = isRtl ? <LeftOutlined /> : <LeftOutlined rotate={180} aria-label="right" />;
   }
 
   const loadingIcon = (

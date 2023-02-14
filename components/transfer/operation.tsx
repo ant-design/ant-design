@@ -38,7 +38,9 @@ const Operation: React.FC<TransferOperationProps> = (props) => {
         size="small"
         disabled={disabled || !rightActive}
         onClick={moveToRight}
-        icon={direction !== 'rtl' ? <LeftOutlined rotate={180} /> : <LeftOutlined />}
+        icon={
+          direction !== 'rtl' ? <LeftOutlined rotate={180} aria-label="right" /> : <LeftOutlined />
+        }
       >
         {rightArrowText}
       </Button>
@@ -48,7 +50,13 @@ const Operation: React.FC<TransferOperationProps> = (props) => {
           size="small"
           disabled={disabled || !leftActive}
           onClick={moveToLeft}
-          icon={direction !== 'rtl' ? <LeftOutlined /> : <LeftOutlined rotate={180} />}
+          icon={
+            direction !== 'rtl' ? (
+              <LeftOutlined />
+            ) : (
+              <LeftOutlined rotate={180} aria-label="right" />
+            )
+          }
         >
           {leftArrowText}
         </Button>

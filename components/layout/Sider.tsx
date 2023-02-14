@@ -170,8 +170,16 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>(
           </span>
         ) : null;
       const iconObj = {
-        expanded: reverseArrow ? <LeftOutlined rotate={180} /> : <LeftOutlined />,
-        collapsed: reverseArrow ? <LeftOutlined /> : <LeftOutlined rotate={180} />,
+        expanded: reverseArrow ? (
+          <LeftOutlined rotate={180} aria-label="right" />
+        ) : (
+          <LeftOutlined />
+        ),
+        collapsed: reverseArrow ? (
+          <LeftOutlined />
+        ) : (
+          <LeftOutlined rotate={180} aria-label="right" />
+        ),
       };
       const status = collapsed ? 'collapsed' : 'expanded';
       const defaultTrigger = iconObj[status];

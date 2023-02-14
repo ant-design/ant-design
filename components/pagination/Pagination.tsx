@@ -62,7 +62,7 @@ const Pagination: React.FC<PaginationProps> = ({
     );
     let nextIcon = (
       <button className={`${prefixCls}-item-link`} type="button" tabIndex={-1}>
-        <LeftOutlined rotate={180} />
+        <LeftOutlined rotate={180} aria-label="right" />
       </button>
     );
     let jumpPrevIcon = (
