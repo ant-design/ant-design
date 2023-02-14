@@ -20,6 +20,7 @@ Use when you want to guide users through a product.
 <code src="./demo/non-modal.tsx">Non-modal</code>
 <code src="./demo/placement.tsx">Placement</code>
 <code src="./demo/mask.tsx">custom mask style</code>
+<code src="./demo/indicator.tsx">custom indicator</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
@@ -37,6 +38,7 @@ Use when you want to guide users through a product.
 | onChange | Callback when the step changes. Current is the previous step | `(current: number) => void` | - |  |
 | current | What is the current step | `number` | - |  |
 | scrollIntoViewOptions | support pass custom scrollIntoView options | `boolean \| ScrollIntoViewOptions` | `true` | 5.2.0 |
+| indicatorsRender | custom indicator | `(current: number, total: number) => ReactNode` | - | 5.2.0 |
 
 ### TourStep
 
