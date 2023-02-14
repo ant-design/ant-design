@@ -1,18 +1,22 @@
 import {
   CheckOutlined,
+  LinkOutlined,
   SnippetsOutlined,
   ThunderboltOutlined,
-  LinkOutlined,
 } from '@ant-design/icons';
-import stackblitzSdk from '@stackblitz/sdk';
 import type { Project } from '@stackblitz/sdk';
-import { Alert, Badge, Tooltip, Space } from 'antd';
+import stackblitzSdk from '@stackblitz/sdk';
+import { Alert, Badge, Space, Tooltip } from 'antd';
 import classNames from 'classnames';
 import LZString from 'lz-string';
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
-import ReactDOM from 'react-dom';
+import type { IPreviewerProps } from 'dumi';
 import { FormattedMessage } from 'dumi';
+import Prism from 'prismjs';
+import JsonML from 'jsonml.js/lib/utils';
+import toReactElement from 'jsonml-to-react-element';
+import { ping } from '../../utils';
 import ClientOnly from '../../common/ClientOnly';
 import BrowserFrame from '../../common/BrowserFrame';
 import EditButton from '../../common/EditButton';
@@ -21,12 +25,32 @@ import CodePreview from '../../common/CodePreview';
 import CodeSandboxIcon from '../../common/CodeSandboxIcon';
 import RiddleIcon from '../../common/RiddleIcon';
 import ExternalLinkIcon from '../../common/ExternalLinkIcon';
-import fromDumiProps from './fromDumiProps';
 import type { SiteContextProps } from '../../slots/SiteContext';
 import SiteContext from '../../slots/SiteContext';
-import { version } from '../../../../package.json';
 
 const { ErrorBoundary } = Alert;
+
+function toReactComponent(jsonML: any) {
+  return toReactElement(jsonML, [
+    [
+      (node: any) => JsonML.isElement(node) && JsonML.getTagName(node) === 'pre',
+      (node: any, index: any) => {
+        // ref: https://github.com/benjycui/bisheng/blob/master/packages/bisheng/src/bisheng-plugin-highlight/lib/browser.js#L7
+        const attr = JsonML.getAttributes(node);
+        return React.createElement(
+          'pre',
+          {
+            key: index,
+            className: `language-${attr.lang}`,
+          },
+          React.createElement('code', {
+            dangerouslySetInnerHTML: { __html: attr.highlighted },
+          }),
+        );
+      },
+    ],
+  ]);
+}
 
 function compress(string: string): string {
   return LZString.compressToBase64(string)
@@ -42,38 +66,47 @@ const track = ({ type, demo }: { type: string; demo: string }) => {
   window.gtag('event', 'demo', { event_category: type, event_label: demo });
 };
 
-interface DemoProps {
-  meta: any;
-  intl: any;
-  utils?: any;
-  src: string;
-  content: string;
-  highlightedCodes: Record<PropertyKey, string>;
-  style: string;
-  highlightedStyle: string;
-  expand: boolean;
-  sourceCodes: Record<'jsx' | 'tsx', string>;
-  location: Location;
-  showRiddleButton: boolean;
-  preview: (react: typeof React, reactDOM: typeof ReactDOM) => React.ReactNode;
+let pingDeferrer: PromiseLike<boolean>;
+
+function useShowRiddleButton() {
+  const [showRiddleButton, setShowRiddleButton] = useState(false);
+
+  useEffect(() => {
+    pingDeferrer ??= new Promise<boolean>((resolve) => {
+      ping((status) => {
+        if (status !== 'timeout' && status !== 'error') {
+          return resolve(true);
+        }
+
+        return resolve(false);
+      });
+    });
+    pingDeferrer.then(setShowRiddleButton);
+  }, []);
+
+  return showRiddleButton;
 }
 
-const Demo: React.FC<DemoProps> = (props) => {
+const CodePreviewer: React.FC<IPreviewerProps> = (props) => {
   const {
-    location,
-    sourceCodes,
-    meta,
-    src,
-    utils,
-    content,
-    highlightedCodes,
-    style,
-    highlightedStyle,
+    asset,
     expand,
-    intl: { locale },
-    showRiddleButton,
-    preview,
+    iframe,
+    demoUrl,
+    children,
+    title,
+    description,
+    debug,
+    jsx,
+    style,
+    compact,
+    background,
+    filePath,
+    version,
   } = props;
+
+  const entryCode = asset.dependencies['index.tsx'].value;
+  const showRiddleButton = useShowRiddleButton();
 
   const liveDemo = useRef<React.ReactNode>(null);
   const anchorRef = useRef<HTMLAnchorElement>(null);
@@ -87,9 +120,16 @@ const Demo: React.FC<DemoProps> = (props) => {
   const { theme } = useContext<SiteContextProps>(SiteContext);
 
   const { hash, pathname, search } = location;
-  const docsOnlineUrl = `https://ant.design${pathname}${search}#${meta.id}`;
+  const docsOnlineUrl = `https://ant.design${pathname}${search}#${asset.id}`;
 
   const [showOnlineUrl, setShowOnlineUrl] = useState<boolean>(false);
+
+  const highlightedCodes = {
+    jsx: Prism.highlight(jsx, Prism.languages.javascript, 'jsx'),
+    tsx: Prism.highlight(entryCode, Prism.languages.javascript, 'jsx'),
+  };
+
+  const highlightedStyle = style ? Prism.highlight(style, Prism.languages.css, 'css') : '';
 
   useEffect(() => {
     const regexp = /preview-(\d+)-ant-design/; // matching PR preview addresses
@@ -116,7 +156,7 @@ const Demo: React.FC<DemoProps> = (props) => {
   };
 
   useEffect(() => {
-    if (meta.id === hash.slice(1)) {
+    if (asset.id === hash.slice(1)) {
       anchorRef.current?.click();
     }
   }, []);
@@ -126,23 +166,27 @@ const Demo: React.FC<DemoProps> = (props) => {
   }, [expand]);
 
   if (!liveDemo.current) {
-    liveDemo.current = meta.iframe ? (
+    liveDemo.current = iframe ? (
       <BrowserFrame>
-        <iframe src={src} height={meta.iframe} title="demo" className="iframe-demo" />
+        <iframe
+          src={demoUrl}
+          height={iframe === true ? undefined : iframe}
+          title="demo"
+          className="iframe-demo"
+        />
       </BrowserFrame>
     ) : (
-      preview(React, ReactDOM)
+      children
     );
   }
 
   const codeBoxClass = classNames('code-box', {
     expand: codeExpand,
-    'code-box-debug': meta.originDebug,
+    'code-box-debug': debug,
   });
 
-  const localizedTitle = meta?.title[locale] || meta?.title;
-  const localizeIntro = content[locale] || content;
-  const introChildren = <div dangerouslySetInnerHTML={{ __html: localizeIntro }} />;
+  const localizedTitle = title;
+  const introChildren = <div dangerouslySetInnerHTML={{ __html: description }} />;
   const highlightClass = classNames('highlight-wrapper', {
     'highlight-wrapper-expand': codeExpand,
   });
@@ -176,7 +220,7 @@ const Demo: React.FC<DemoProps> = (props) => {
 
   const suffix = codeType === 'tsx' ? 'tsx' : 'js';
 
-  const dependencies: Record<PropertyKey, string> = sourceCodes?.jsx.split('\n').reduce(
+  const dependencies: Record<PropertyKey, string> = jsx.split('\n').reduce(
     (acc, line) => {
       const matches = line.match(/import .+? from '(.+)';$/);
       if (matches && matches[1] && !line.includes('antd')) {
@@ -204,7 +248,7 @@ const Demo: React.FC<DemoProps> = (props) => {
   const codepenPrefillConfig = {
     title: `${localizedTitle} - antd@${dependencies.antd}`,
     html,
-    js: `const { createRoot } = ReactDOM;\n${sourceCodes?.jsx
+    js: `const { createRoot } = ReactDOM;\n${jsx
       .replace(/import\s+(?:React,\s+)?{(\s+[^}]*\s+)}\s+from\s+'react'/, `const { $1 } = React;`)
       .replace(/import\s+{(\s+[^}]*\s+)}\s+from\s+'antd';/, 'const { $1 } = antd;')
       .replace(/import\s+{(\s+[^}]*\s+)}\s+from\s+'@ant-design\/icons';/, 'const { $1 } = icons;')
@@ -239,8 +283,8 @@ const Demo: React.FC<DemoProps> = (props) => {
   const riddlePrefillConfig = {
     title: `${localizedTitle} - antd@${dependencies.antd}`,
     js: `${
-      /import React(\D*)from 'react';/.test(sourceCodes?.jsx) ? '' : `import React from 'react';\n`
-    }import { createRoot } from 'react-dom/client';\n${sourceCodes?.jsx.replace(
+      /import React(\D*)from 'react';/.test(jsx) ? '' : `import React from 'react';\n`
+    }import { createRoot } from 'react-dom/client';\n${jsx.replace(
       /export default/,
       'const ComponentDemo =',
     )}\n\ncreateRoot(mountNode).render(<ComponentDemo />);\n`,
@@ -249,7 +293,7 @@ const Demo: React.FC<DemoProps> = (props) => {
   };
 
   // Reorder source code
-  let parsedSourceCode = suffix === 'tsx' ? sourceCodes?.tsx : sourceCodes?.jsx;
+  let parsedSourceCode = suffix === 'tsx' ? entryCode : jsx;
   let importReactContent = "import React from 'react';";
   const importReactReg = /import React(\D*)from 'react';/;
   const matchImportReact = parsedSourceCode.match(importReactReg);
@@ -264,7 +308,7 @@ const Demo: React.FC<DemoProps> = (props) => {
     `.trim();
   const indexCssContent = (style || '')
     .trim()
-    .replace(new RegExp(`#${meta.id}\\s*`, 'g'), '')
+    .replace(new RegExp(`#${asset.id}\\s*`, 'g'), '')
     .replace('</style>', '')
     .replace('<style>', '');
 
@@ -328,13 +372,13 @@ const Demo: React.FC<DemoProps> = (props) => {
   const backgroundGrey = theme.includes('dark') ? '#303030' : '#f0f2f5';
 
   const codeBoxDemoStyle: React.CSSProperties = {
-    padding: meta.iframe || meta.compact ? 0 : undefined,
-    overflow: meta.iframe || meta.compact ? 'hidden' : undefined,
-    backgroundColor: meta.background === 'grey' ? backgroundGrey : undefined,
+    padding: iframe || compact ? 0 : undefined,
+    overflow: iframe || compact ? 'hidden' : undefined,
+    backgroundColor: background === 'grey' ? backgroundGrey : undefined,
   };
 
   const codeBox: React.ReactNode = (
-    <section className={codeBoxClass} id={meta.id}>
+    <section className={codeBoxClass} id={asset.id}>
       <section className="code-box-demo" style={codeBoxDemoStyle}>
         <ErrorBoundary>
           <React.StrictMode>{liveDemo.current}</React.StrictMode>
@@ -343,15 +387,12 @@ const Demo: React.FC<DemoProps> = (props) => {
       </section>
       <section className="code-box-meta markdown">
         <div className="code-box-title">
-          <Tooltip title={meta.originDebug ? <FormattedMessage id="app.demo.debug" /> : ''}>
-            <a href={`#${meta.id}`} ref={anchorRef}>
+          <Tooltip title={debug ? <FormattedMessage id="app.demo.debug" /> : ''}>
+            <a href={`#${asset.id}`} ref={anchorRef}>
               {localizedTitle}
             </a>
           </Tooltip>
-          <EditButton
-            title={<FormattedMessage id="app.content.edit-demo" />}
-            filename={meta.filename}
-          />
+          <EditButton title={<FormattedMessage id="app.content.edit-demo" />} filename={filePath} />
         </div>
         <div className="code-box-description">{introChildren}</div>
         <Space wrap size="middle" className="code-box-actions">
@@ -375,7 +416,7 @@ const Demo: React.FC<DemoProps> = (props) => {
               target="_blank"
               ref={riddleIconRef}
               onClick={() => {
-                track({ type: 'riddle', demo: meta.id });
+                track({ type: 'riddle', demo: asset.id });
                 riddleIconRef.current?.submit();
               }}
             >
@@ -392,7 +433,7 @@ const Demo: React.FC<DemoProps> = (props) => {
             target="_blank"
             ref={codeSandboxIconRef}
             onClick={() => {
-              track({ type: 'codesandbox', demo: meta.id });
+              track({ type: 'codesandbox', demo: asset.id });
               codeSandboxIconRef.current?.submit();
             }}
           >
@@ -412,7 +453,7 @@ const Demo: React.FC<DemoProps> = (props) => {
             target="_blank"
             ref={codepenIconRef}
             onClick={() => {
-              track({ type: 'codepen', demo: meta.id });
+              track({ type: 'codepen', demo: asset.id });
               codepenIconRef.current?.submit();
             }}
           >
@@ -427,7 +468,7 @@ const Demo: React.FC<DemoProps> = (props) => {
             <span
               className="code-box-code-action"
               onClick={() => {
-                track({ type: 'stackblitz', demo: meta.id });
+                track({ type: 'stackblitz', demo: asset.id });
                 stackblitzSdk.openProject(stackblitzPrefillConfig, {
                   openFile: [`demo.${suffix}`],
                 });
@@ -436,7 +477,7 @@ const Demo: React.FC<DemoProps> = (props) => {
               <ThunderboltOutlined className="code-box-stackblitz" />
             </span>
           </Tooltip>
-          <CopyToClipboard text={sourceCodes?.tsx} onCopy={() => handleCodeCopied(meta.id)}>
+          <CopyToClipboard text={entryCode} onCopy={() => handleCodeCopied(asset.id)}>
             <Tooltip
               open={copyTooltipOpen as boolean}
               onOpenChange={onCopyTooltipOpenChange}
@@ -448,7 +489,7 @@ const Demo: React.FC<DemoProps> = (props) => {
             </Tooltip>
           </CopyToClipboard>
           <Tooltip title={<FormattedMessage id="app.demo.separate" />}>
-            <a className="code-box-code-action" target="_blank" rel="noreferrer" href={src}>
+            <a className="code-box-code-action" target="_blank" rel="noreferrer" href={demoUrl}>
               <ExternalLinkIcon className="code-box-separate" />
             </a>
           </Tooltip>
@@ -465,7 +506,7 @@ const Demo: React.FC<DemoProps> = (props) => {
                     : 'https://gw.alipayobjects.com/zos/antfincdn/Z5c7kzvi30/expand.svg'
                 }
                 className={codeExpand ? 'code-expand-icon-hide' : 'code-expand-icon-show'}
-                onClick={() => handleCodeExpand(meta.id)}
+                onClick={() => handleCodeExpand(asset.id)}
               />
               <img
                 alt="expand code"
@@ -475,7 +516,7 @@ const Demo: React.FC<DemoProps> = (props) => {
                     : 'https://gw.alipayobjects.com/zos/antfincdn/4zAaozCvUH/unexpand.svg'
                 }
                 className={codeExpand ? 'code-expand-icon-show' : 'code-expand-icon-hide'}
-                onClick={() => handleCodeExpand(meta.id)}
+                onClick={() => handleCodeExpand(asset.id)}
               />
             </div>
           </Tooltip>
@@ -484,7 +525,7 @@ const Demo: React.FC<DemoProps> = (props) => {
       <section className={highlightClass} key="code">
         <CodePreview
           codes={highlightedCodes}
-          toReactComponent={utils?.toReactComponent}
+          toReactComponent={toReactComponent}
           onCodeTypeChange={(type) => setCodeType(type)}
         />
         {highlightedStyle ? (
@@ -498,9 +539,9 @@ const Demo: React.FC<DemoProps> = (props) => {
     </section>
   );
 
-  if (meta.version) {
+  if (version) {
     return (
-      <Badge.Ribbon text={meta.version} color={meta.version.includes('<') ? 'red' : null}>
+      <Badge.Ribbon text={version} color={version.includes('<') ? 'red' : null}>
         {codeBox}
       </Badge.Ribbon>
     );
@@ -509,4 +550,4 @@ const Demo: React.FC<DemoProps> = (props) => {
   return codeBox;
 };
 
-export default fromDumiProps(Demo);
+export default CodePreviewer;

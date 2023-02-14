@@ -157,6 +157,7 @@
   },
   "devDependencies": {
     "@ant-design/tools": "^17.0.0",
+    "@antv/g6": "^4.8.5",
     "@babel/eslint-plugin": "^7.19.1",
     "@dnd-kit/core": "^6.0.7",
     "@dnd-kit/sortable": "^7.0.2",

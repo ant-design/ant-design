@@ -18,6 +18,11 @@ const useStyle = createStyles(({ token }) => ({
   title: css`
     font-size: ${token.fontSizeLG}px;
     font-weight: ${token.fontWeightStrong};
+    color: ${token.colorTextHeading};
+
+    &:hover {
+      color: ${token.colorTextHeading};
+    }
   `,
   description: css`
     margin-top: ${token.margin}px;
@@ -40,7 +45,7 @@ const useStyle = createStyles(({ token }) => ({
   `,
 }));
 
-const DesignPreviewer: FC<IPreviewerProps> = ({ children, title, description, tip }) => {
+const DesignPreviewer: FC<IPreviewerProps> = ({ children, title, description, tip, asset }) => {
   const { styles } = useStyle();
   const demoRef = useRef<HTMLDivElement>(null);
   const { message } = App.useApp();
@@ -57,8 +62,10 @@ const DesignPreviewer: FC<IPreviewerProps> = ({ children, title, description, ti
   };
 
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.title}>{title}</div>
+    <div className={styles.wrapper} id={asset.id}>
+      <a className={styles.title} href={`#${asset.id}`}>
+        {title}
+      </a>
       <div className={styles.description} dangerouslySetInnerHTML={{ __html: description }} />
       <div className={styles.copy} onClick={handleCopy}>
         <SketchOutlined />
