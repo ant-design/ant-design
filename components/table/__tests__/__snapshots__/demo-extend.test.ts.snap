@@ -304,20 +304,21 @@ exports[`renders ./components/table/demo/basic.tsx extend context correctly 1`] 
           >
             <span
               aria-label="right"
-              class="anticon anticon-right"
+              class="anticon anticon-left"
               role="img"
             >
               <svg
                 aria-hidden="true"
-                data-icon="right"
+                data-icon="left"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
+                style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                 viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </span>
@@ -523,20 +524,21 @@ exports[`renders ./components/table/demo/bordered.tsx extend context correctly 1
           >
             <span
               aria-label="right"
-              class="anticon anticon-right"
+              class="anticon anticon-left"
               role="img"
             >
               <svg
                 aria-hidden="true"
-                data-icon="right"
+                data-icon="left"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
+                style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                 viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </span>
@@ -806,20 +808,21 @@ exports[`renders ./components/table/demo/colspan-rowspan.tsx extend context corr
           >
             <span
               aria-label="right"
-              class="anticon anticon-right"
+              class="anticon anticon-left"
               role="img"
             >
               <svg
                 aria-hidden="true"
-                data-icon="right"
+                data-icon="left"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
+                style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                 viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </span>
@@ -1168,20 +1171,21 @@ exports[`renders ./components/table/demo/custom-filter-panel.tsx extend context 
                             >
                               <span
                                 aria-label="caret-up"
-                                class="anticon anticon-caret-up ant-table-column-sorter-up"
+                                class="anticon anticon-caret-down ant-table-column-sorter-up"
                                 role="img"
                               >
                                 <svg
                                   aria-hidden="true"
-                                  data-icon="caret-up"
+                                  data-icon="caret-down"
                                   fill="currentColor"
                                   focusable="false"
                                   height="1em"
+                                  style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                                   viewBox="0 0 1024 1024"
                                   width="1em"
                                 >
                                   <path
-                                    d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                                    d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
                                   />
                                 </svg>
                               </span>
@@ -1506,20 +1510,21 @@ exports[`renders ./components/table/demo/custom-filter-panel.tsx extend context 
           >
             <span
               aria-label="right"
-              class="anticon anticon-right"
+              class="anticon anticon-left"
               role="img"
             >
               <svg
                 aria-hidden="true"
-                data-icon="right"
+                data-icon="left"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
+                style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                 viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </span>
@@ -1723,20 +1728,21 @@ exports[`renders ./components/table/demo/drag-sorting.tsx extend context correct
           >
             <span
               aria-label="right"
-              class="anticon anticon-right"
+              class="anticon anticon-left"
               role="img"
             >
               <svg
                 aria-hidden="true"
-                data-icon="right"
+                data-icon="left"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
+                style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                 viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </span>
@@ -2012,20 +2018,21 @@ exports[`renders ./components/table/demo/drag-sorting-handler.tsx extend context
           >
             <span
               aria-label="right"
-              class="anticon anticon-right"
+              class="anticon anticon-left"
               role="img"
             >
               <svg
                 aria-hidden="true"
-                data-icon="right"
+                data-icon="left"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
+                style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                 viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </span>
@@ -3111,20 +3118,21 @@ Array [
                           >
                             <span
                               aria-label="caret-up"
-                              class="anticon anticon-caret-up ant-table-column-sorter-up"
+                              class="anticon anticon-caret-down ant-table-column-sorter-up"
                               role="img"
                             >
                               <svg
                                 aria-hidden="true"
-                                data-icon="caret-up"
+                                data-icon="caret-down"
                                 fill="currentColor"
                                 focusable="false"
                                 height="1em"
+                                style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                                 viewBox="0 0 1024 1024"
                                 width="1em"
                               >
                                 <path
-                                  d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                                  d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
                                 />
                               </svg>
                             </span>
@@ -3425,20 +3433,21 @@ Array [
                           >
                             <span
                               aria-label="caret-up"
-                              class="anticon anticon-caret-up ant-table-column-sorter-up"
+                              class="anticon anticon-caret-down ant-table-column-sorter-up"
                               role="img"
                             >
                               <svg
                                 aria-hidden="true"
-                                data-icon="caret-up"
+                                data-icon="caret-down"
                                 fill="currentColor"
                                 focusable="false"
                                 height="1em"
+                                style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                                 viewBox="0 0 1024 1024"
                                 width="1em"
                               >
                                 <path
-                                  d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                                  d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
                                 />
                               </svg>
                             </span>
@@ -4603,20 +4612,21 @@ Array [
             >
               <span
                 aria-label="right"
-                class="anticon anticon-right"
+                class="anticon anticon-left"
                 role="img"
               >
                 <svg
                   aria-hidden="true"
-                  data-icon="right"
+                  data-icon="left"
                   fill="currentColor"
                   focusable="false"
                   height="1em"
+                  style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
                   <path
-                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                   />
                 </svg>
               </span>
@@ -4993,20 +5003,21 @@ exports[`renders ./components/table/demo/edit-cell.tsx extend context correctly 
             >
               <span
                 aria-label="right"
-                class="anticon anticon-right"
+                class="anticon anticon-left"
                 role="img"
               >
                 <svg
                   aria-hidden="true"
-                  data-icon="right"
+                  data-icon="left"
                   fill="currentColor"
                   focusable="false"
                   height="1em"
+                  style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
                   <path
-                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                   />
                 </svg>
               </span>
@@ -5483,20 +5494,21 @@ exports[`renders ./components/table/demo/edit-row.tsx extend context correctly 1
             >
               <span
                 aria-label="double-right"
-                class="anticon anticon-double-right ant-pagination-item-link-icon"
+                class="anticon anticon-double-left ant-pagination-item-link-icon"
                 role="img"
               >
                 <svg
                   aria-hidden="true"
-                  data-icon="double-right"
+                  data-icon="double-left"
                   fill="currentColor"
                   focusable="false"
                   height="1em"
+                  style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
                   <path
-                    d="M533.2 492.3L277.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H188c-6.7 0-10.4 7.7-6.3 12.9L447.1 512 181.7 851.1A7.98 7.98 0 00188 864h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5zm304 0L581.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H492c-6.7 0-10.4 7.7-6.3 12.9L751.1 512 485.7 851.1A7.98 7.98 0 00492 864h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5z"
+                    d="M272.9 512l265.4-339.1c4.1-5.2.4-12.9-6.3-12.9h-77.3c-4.9 0-9.6 2.3-12.6 6.1L186.8 492.3a31.99 31.99 0 000 39.5l255.3 326.1c3 3.9 7.7 6.1 12.6 6.1H532c6.7 0 10.4-7.7 6.3-12.9L272.9 512zm304 0l265.4-339.1c4.1-5.2.4-12.9-6.3-12.9h-77.3c-4.9 0-9.6 2.3-12.6 6.1L490.8 492.3a31.99 31.99 0 000 39.5l255.3 326.1c3 3.9 7.7 6.1 12.6 6.1H836c6.7 0 10.4-7.7 6.3-12.9L576.9 512z"
                   />
                 </svg>
               </span>
@@ -5532,20 +5544,21 @@ exports[`renders ./components/table/demo/edit-row.tsx extend context correctly 1
           >
             <span
               aria-label="right"
-              class="anticon anticon-right"
+              class="anticon anticon-left"
               role="img"
             >
               <svg
                 aria-hidden="true"
-                data-icon="right"
+                data-icon="left"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
+                style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                 viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </span>
@@ -5993,20 +6006,21 @@ exports[`renders ./components/table/demo/ellipsis.tsx extend context correctly 1
           >
             <span
               aria-label="right"
-              class="anticon anticon-right"
+              class="anticon anticon-left"
               role="img"
             >
               <svg
                 aria-hidden="true"
-                data-icon="right"
+                data-icon="left"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
+                style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                 viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </span>
@@ -6584,20 +6598,21 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.tsx extend cont
           >
             <span
               aria-label="right"
-              class="anticon anticon-right"
+              class="anticon anticon-left"
               role="img"
             >
               <svg
                 aria-hidden="true"
-                data-icon="right"
+                data-icon="left"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
+                style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                 viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </span>
@@ -6884,20 +6899,21 @@ exports[`renders ./components/table/demo/expand.tsx extend context correctly 1`]
           >
             <span
               aria-label="right"
-              class="anticon anticon-right"
+              class="anticon anticon-left"
               role="img"
             >
               <svg
                 aria-hidden="true"
-                data-icon="right"
+                data-icon="left"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
+                style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                 viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </span>
@@ -7406,20 +7422,21 @@ exports[`renders ./components/table/demo/filter-in-tree.tsx extend context corre
                         >
                           <span
                             aria-label="caret-up"
-                            class="anticon anticon-caret-up ant-table-column-sorter-up"
+                            class="anticon anticon-caret-down ant-table-column-sorter-up"
                             role="img"
                           >
                             <svg
                               aria-hidden="true"
-                              data-icon="caret-up"
+                              data-icon="caret-down"
                               fill="currentColor"
                               focusable="false"
                               height="1em"
+                              style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                               viewBox="0 0 1024 1024"
                               width="1em"
                             >
                               <path
-                                d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                                d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
                               />
                             </svg>
                           </span>
@@ -7884,20 +7901,21 @@ exports[`renders ./components/table/demo/filter-in-tree.tsx extend context corre
           >
             <span
               aria-label="right"
-              class="anticon anticon-right"
+              class="anticon anticon-left"
               role="img"
             >
               <svg
                 aria-hidden="true"
-                data-icon="right"
+                data-icon="left"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
+                style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                 viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </span>
@@ -8230,20 +8248,21 @@ exports[`renders ./components/table/demo/filter-search.tsx extend context correc
                         >
                           <span
                             aria-label="caret-up"
-                            class="anticon anticon-caret-up ant-table-column-sorter-up"
+                            class="anticon anticon-caret-down ant-table-column-sorter-up"
                             role="img"
                           >
                             <svg
                               aria-hidden="true"
-                              data-icon="caret-up"
+                              data-icon="caret-down"
                               fill="currentColor"
                               focusable="false"
                               height="1em"
+                              style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                               viewBox="0 0 1024 1024"
                               width="1em"
                             >
                               <path
-                                d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                                d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
                               />
                             </svg>
                           </span>
@@ -8708,20 +8727,21 @@ exports[`renders ./components/table/demo/filter-search.tsx extend context correc
           >
             <span
               aria-label="right"
-              class="anticon anticon-right"
+              class="anticon anticon-left"
               role="img"
             >
               <svg
                 aria-hidden="true"
-                data-icon="right"
+                data-icon="left"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
+                style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                 viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </span>
@@ -8810,20 +8830,21 @@ exports[`renders ./components/table/demo/fixed-columns.tsx extend context correc
                         >
                           <span
                             aria-label="caret-up"
-                            class="anticon anticon-caret-up ant-table-column-sorter-up"
+                            class="anticon anticon-caret-down ant-table-column-sorter-up"
                             role="img"
                           >
                             <svg
                               aria-hidden="true"
-                              data-icon="caret-up"
+                              data-icon="caret-down"
                               fill="currentColor"
                               focusable="false"
                               height="1em"
+                              style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                               viewBox="0 0 1024 1024"
                               width="1em"
                             >
                               <path
-                                d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                                d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
                               />
                             </svg>
                           </span>
@@ -9222,20 +9243,21 @@ exports[`renders ./components/table/demo/fixed-columns.tsx extend context correc
           >
             <span
               aria-label="right"
-              class="anticon anticon-right"
+              class="anticon anticon-left"
               role="img"
             >
               <svg
                 aria-hidden="true"
-                data-icon="right"
+                data-icon="left"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
+                style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                 viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </span>
@@ -10243,20 +10265,21 @@ exports[`renders ./components/table/demo/fixed-columns-header.tsx extend context
             >
               <span
                 aria-label="double-right"
-                class="anticon anticon-double-right ant-pagination-item-link-icon"
+                class="anticon anticon-double-left ant-pagination-item-link-icon"
                 role="img"
               >
                 <svg
                   aria-hidden="true"
-                  data-icon="double-right"
+                  data-icon="double-left"
                   fill="currentColor"
                   focusable="false"
                   height="1em"
+                  style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
                   <path
-                    d="M533.2 492.3L277.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H188c-6.7 0-10.4 7.7-6.3 12.9L447.1 512 181.7 851.1A7.98 7.98 0 00188 864h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5zm304 0L581.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H492c-6.7 0-10.4 7.7-6.3 12.9L751.1 512 485.7 851.1A7.98 7.98 0 00492 864h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5z"
+                    d="M272.9 512l265.4-339.1c4.1-5.2.4-12.9-6.3-12.9h-77.3c-4.9 0-9.6 2.3-12.6 6.1L186.8 492.3a31.99 31.99 0 000 39.5l255.3 326.1c3 3.9 7.7 6.1 12.6 6.1H532c6.7 0 10.4-7.7 6.3-12.9L272.9 512zm304 0l265.4-339.1c4.1-5.2.4-12.9-6.3-12.9h-77.3c-4.9 0-9.6 2.3-12.6 6.1L490.8 492.3a31.99 31.99 0 000 39.5l255.3 326.1c3 3.9 7.7 6.1 12.6 6.1H836c6.7 0 10.4-7.7 6.3-12.9L576.9 512z"
                   />
                 </svg>
               </span>
@@ -10292,20 +10315,21 @@ exports[`renders ./components/table/demo/fixed-columns-header.tsx extend context
           >
             <span
               aria-label="right"
-              class="anticon anticon-right"
+              class="anticon anticon-left"
               role="img"
             >
               <svg
                 aria-hidden="true"
-                data-icon="right"
+                data-icon="left"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
+                style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                 viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </span>
@@ -11660,20 +11684,21 @@ exports[`renders ./components/table/demo/fixed-header.tsx extend context correct
           >
             <span
               aria-label="right"
-              class="anticon anticon-right"
+              class="anticon anticon-left"
               role="img"
             >
               <svg
                 aria-hidden="true"
-                data-icon="right"
+                data-icon="left"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
+                style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                 viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </span>
@@ -12160,20 +12185,21 @@ exports[`renders ./components/table/demo/grouping-columns.tsx extend context cor
                         >
                           <span
                             aria-label="caret-up"
-                            class="anticon anticon-caret-up ant-table-column-sorter-up"
+                            class="anticon anticon-caret-down ant-table-column-sorter-up"
                             role="img"
                           >
                             <svg
                               aria-hidden="true"
-                              data-icon="caret-up"
+                              data-icon="caret-down"
                               fill="currentColor"
                               focusable="false"
                               height="1em"
+                              style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                               viewBox="0 0 1024 1024"
                               width="1em"
                             >
                               <path
-                                d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                                d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
                               />
                             </svg>
                           </span>
@@ -12961,20 +12987,21 @@ exports[`renders ./components/table/demo/grouping-columns.tsx extend context cor
             >
               <span
                 aria-label="double-right"
-                class="anticon anticon-double-right ant-pagination-item-link-icon"
+                class="anticon anticon-double-left ant-pagination-item-link-icon"
                 role="img"
               >
                 <svg
                   aria-hidden="true"
-                  data-icon="double-right"
+                  data-icon="double-left"
                   fill="currentColor"
                   focusable="false"
                   height="1em"
+                  style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
                   <path
-                    d="M533.2 492.3L277.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H188c-6.7 0-10.4 7.7-6.3 12.9L447.1 512 181.7 851.1A7.98 7.98 0 00188 864h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5zm304 0L581.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H492c-6.7 0-10.4 7.7-6.3 12.9L751.1 512 485.7 851.1A7.98 7.98 0 00492 864h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5z"
+                    d="M272.9 512l265.4-339.1c4.1-5.2.4-12.9-6.3-12.9h-77.3c-4.9 0-9.6 2.3-12.6 6.1L186.8 492.3a31.99 31.99 0 000 39.5l255.3 326.1c3 3.9 7.7 6.1 12.6 6.1H532c6.7 0 10.4-7.7 6.3-12.9L272.9 512zm304 0l265.4-339.1c4.1-5.2.4-12.9-6.3-12.9h-77.3c-4.9 0-9.6 2.3-12.6 6.1L490.8 492.3a31.99 31.99 0 000 39.5l255.3 326.1c3 3.9 7.7 6.1 12.6 6.1H836c6.7 0 10.4-7.7 6.3-12.9L576.9 512z"
                   />
                 </svg>
               </span>
@@ -13010,20 +13037,21 @@ exports[`renders ./components/table/demo/grouping-columns.tsx extend context cor
           >
             <span
               aria-label="right"
-              class="anticon anticon-right"
+              class="anticon anticon-left"
               role="img"
             >
               <svg
                 aria-hidden="true"
-                data-icon="right"
+                data-icon="left"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
+                style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                 viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </span>
@@ -13466,20 +13494,21 @@ exports[`renders ./components/table/demo/head.tsx extend context correctly 1`] =
                                   >
                                     <span
                                       aria-label="right"
-                                      class="anticon anticon-right ant-dropdown-menu-submenu-arrow-icon"
+                                      class="anticon anticon-left ant-dropdown-menu-submenu-arrow-icon"
                                       role="img"
                                     >
                                       <svg
                                         aria-hidden="true"
-                                        data-icon="right"
+                                        data-icon="left"
                                         fill="currentColor"
                                         focusable="false"
                                         height="1em"
+                                        style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                                         viewBox="64 64 896 896"
                                         width="1em"
                                       >
                                         <path
-                                          d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                                          d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                                         />
                                       </svg>
                                     </span>
@@ -13742,20 +13771,21 @@ exports[`renders ./components/table/demo/head.tsx extend context correctly 1`] =
                         >
                           <span
                             aria-label="caret-up"
-                            class="anticon anticon-caret-up ant-table-column-sorter-up"
+                            class="anticon anticon-caret-down ant-table-column-sorter-up"
                             role="img"
                           >
                             <svg
                               aria-hidden="true"
-                              data-icon="caret-up"
+                              data-icon="caret-down"
                               fill="currentColor"
                               focusable="false"
                               height="1em"
+                              style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                               viewBox="0 0 1024 1024"
                               width="1em"
                             >
                               <path
-                                d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                                d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
                               />
                             </svg>
                           </span>
@@ -14182,20 +14212,21 @@ exports[`renders ./components/table/demo/head.tsx extend context correctly 1`] =
           >
             <span
               aria-label="right"
-              class="anticon anticon-right"
+              class="anticon anticon-left"
               role="img"
             >
               <svg
                 aria-hidden="true"
-                data-icon="right"
+                data-icon="left"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
+                style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                 viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </span>
@@ -14539,20 +14570,21 @@ exports[`renders ./components/table/demo/jsx.tsx extend context correctly 1`] = 
           >
             <span
               aria-label="right"
-              class="anticon anticon-right"
+              class="anticon anticon-left"
               role="img"
             >
               <svg
                 aria-hidden="true"
-                data-icon="right"
+                data-icon="left"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
+                style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                 viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </span>
@@ -14620,20 +14652,21 @@ exports[`renders ./components/table/demo/multiple-sorter.tsx extend context corr
                         >
                           <span
                             aria-label="caret-up"
-                            class="anticon anticon-caret-up ant-table-column-sorter-up"
+                            class="anticon anticon-caret-down ant-table-column-sorter-up"
                             role="img"
                           >
                             <svg
                               aria-hidden="true"
-                              data-icon="caret-up"
+                              data-icon="caret-down"
                               fill="currentColor"
                               focusable="false"
                               height="1em"
+                              style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                               viewBox="0 0 1024 1024"
                               width="1em"
                             >
                               <path
-                                d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                                d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
                               />
                             </svg>
                           </span>
@@ -14707,20 +14740,21 @@ exports[`renders ./components/table/demo/multiple-sorter.tsx extend context corr
                         >
                           <span
                             aria-label="caret-up"
-                            class="anticon anticon-caret-up ant-table-column-sorter-up"
+                            class="anticon anticon-caret-down ant-table-column-sorter-up"
                             role="img"
                           >
                             <svg
                               aria-hidden="true"
-                              data-icon="caret-up"
+                              data-icon="caret-down"
                               fill="currentColor"
                               focusable="false"
                               height="1em"
+                              style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                               viewBox="0 0 1024 1024"
                               width="1em"
                             >
                               <path
-                                d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                                d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
                               />
                             </svg>
                           </span>
@@ -14794,20 +14828,21 @@ exports[`renders ./components/table/demo/multiple-sorter.tsx extend context corr
                         >
                           <span
                             aria-label="caret-up"
-                            class="anticon anticon-caret-up ant-table-column-sorter-up"
+                            class="anticon anticon-caret-down ant-table-column-sorter-up"
                             role="img"
                           >
                             <svg
                               aria-hidden="true"
-                              data-icon="caret-up"
+                              data-icon="caret-down"
                               fill="currentColor"
                               focusable="false"
                               height="1em"
+                              style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                               viewBox="0 0 1024 1024"
                               width="1em"
                             >
                               <path
-                                d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                                d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
                               />
                             </svg>
                           </span>
@@ -15027,20 +15062,21 @@ exports[`renders ./components/table/demo/multiple-sorter.tsx extend context corr
           >
             <span
               aria-label="right"
-              class="anticon anticon-right"
+              class="anticon anticon-left"
               role="img"
             >
               <svg
                 aria-hidden="true"
-                data-icon="right"
+                data-icon="left"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
+                style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                 viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </span>
@@ -15462,20 +15498,21 @@ exports[`renders ./components/table/demo/narrow.tsx extend context correctly 1`]
               >
                 <span
                   aria-label="double-right"
-                  class="anticon anticon-double-right ant-pagination-item-link-icon"
+                  class="anticon anticon-double-left ant-pagination-item-link-icon"
                   role="img"
                 >
                   <svg
                     aria-hidden="true"
-                    data-icon="double-right"
+                    data-icon="double-left"
                     fill="currentColor"
                     focusable="false"
                     height="1em"
+                    style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                     viewBox="64 64 896 896"
                     width="1em"
                   >
                     <path
-                      d="M533.2 492.3L277.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H188c-6.7 0-10.4 7.7-6.3 12.9L447.1 512 181.7 851.1A7.98 7.98 0 00188 864h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5zm304 0L581.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H492c-6.7 0-10.4 7.7-6.3 12.9L751.1 512 485.7 851.1A7.98 7.98 0 00492 864h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5z"
+                      d="M272.9 512l265.4-339.1c4.1-5.2.4-12.9-6.3-12.9h-77.3c-4.9 0-9.6 2.3-12.6 6.1L186.8 492.3a31.99 31.99 0 000 39.5l255.3 326.1c3 3.9 7.7 6.1 12.6 6.1H532c6.7 0 10.4-7.7 6.3-12.9L272.9 512zm304 0l265.4-339.1c4.1-5.2.4-12.9-6.3-12.9h-77.3c-4.9 0-9.6 2.3-12.6 6.1L490.8 492.3a31.99 31.99 0 000 39.5l255.3 326.1c3 3.9 7.7 6.1 12.6 6.1H836c6.7 0 10.4-7.7 6.3-12.9L576.9 512z"
                     />
                   </svg>
                 </span>
@@ -15511,20 +15548,21 @@ exports[`renders ./components/table/demo/narrow.tsx extend context correctly 1`]
             >
               <span
                 aria-label="right"
-                class="anticon anticon-right"
+                class="anticon anticon-left"
                 role="img"
               >
                 <svg
                   aria-hidden="true"
-                  data-icon="right"
+                  data-icon="left"
                   fill="currentColor"
                   focusable="false"
                   height="1em"
+                  style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
                   <path
-                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                   />
                 </svg>
               </span>
@@ -16124,20 +16162,21 @@ Array [
             >
               <span
                 aria-label="right"
-                class="anticon anticon-right"
+                class="anticon anticon-left"
                 role="img"
               >
                 <svg
                   aria-hidden="true"
-                  data-icon="right"
+                  data-icon="left"
                   fill="currentColor"
                   focusable="false"
                   height="1em"
+                  style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
                   <path
-                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                   />
                 </svg>
               </span>
@@ -17181,20 +17220,21 @@ Array [
             >
               <span
                 aria-label="right"
-                class="anticon anticon-right"
+                class="anticon anticon-left"
                 role="img"
               >
                 <svg
                   aria-hidden="true"
-                  data-icon="right"
+                  data-icon="left"
                   fill="currentColor"
                   focusable="false"
                   height="1em"
+                  style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
                   <path
-                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                   />
                 </svg>
               </span>
@@ -18233,20 +18273,21 @@ Array [
             >
               <span
                 aria-label="right"
-                class="anticon anticon-right"
+                class="anticon anticon-left"
                 role="img"
               >
                 <svg
                   aria-hidden="true"
-                  data-icon="right"
+                  data-icon="left"
                   fill="currentColor"
                   focusable="false"
                   height="1em"
+                  style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
                   <path
-                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                   />
                 </svg>
               </span>
@@ -19285,20 +19326,21 @@ Array [
             >
               <span
                 aria-label="right"
-                class="anticon anticon-right"
+                class="anticon anticon-left"
                 role="img"
               >
                 <svg
                   aria-hidden="true"
-                  data-icon="right"
+                  data-icon="left"
                   fill="currentColor"
                   focusable="false"
                   height="1em"
+                  style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
                   <path
-                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                   />
                 </svg>
               </span>
@@ -19658,20 +19700,21 @@ exports[`renders ./components/table/demo/order-column.tsx extend context correct
           >
             <span
               aria-label="right"
-              class="anticon anticon-right"
+              class="anticon anticon-left"
               role="img"
             >
               <svg
                 aria-hidden="true"
-                data-icon="right"
+                data-icon="left"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
+                style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                 viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </span>
@@ -19919,20 +19962,21 @@ exports[`renders ./components/table/demo/pagination.tsx extend context correctly
             >
               <span
                 aria-label="right"
-                class="anticon anticon-right"
+                class="anticon anticon-left"
                 role="img"
               >
                 <svg
                   aria-hidden="true"
-                  data-icon="right"
+                  data-icon="left"
                   fill="currentColor"
                   focusable="false"
                   height="1em"
+                  style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
                   <path
-                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                   />
                 </svg>
               </span>
@@ -20239,20 +20283,21 @@ exports[`renders ./components/table/demo/pagination.tsx extend context correctly
             >
               <span
                 aria-label="right"
-                class="anticon anticon-right"
+                class="anticon anticon-left"
                 role="img"
               >
                 <svg
                   aria-hidden="true"
-                  data-icon="right"
+                  data-icon="left"
                   fill="currentColor"
                   focusable="false"
                   height="1em"
+                  style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
                   <path
-                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                   />
                 </svg>
               </span>
@@ -20366,20 +20411,21 @@ Array [
                               >
                                 <span
                                   aria-label="caret-up"
-                                  class="anticon anticon-caret-up ant-table-column-sorter-up"
+                                  class="anticon anticon-caret-down ant-table-column-sorter-up"
                                   role="img"
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    data-icon="caret-up"
+                                    data-icon="caret-down"
                                     fill="currentColor"
                                     focusable="false"
                                     height="1em"
+                                    style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                                     viewBox="0 0 1024 1024"
                                     width="1em"
                                   >
                                     <path
-                                      d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                                      d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
                                     />
                                   </svg>
                                 </span>
@@ -20669,20 +20715,21 @@ Array [
                           >
                             <span
                               aria-label="caret-up"
-                              class="anticon anticon-caret-up ant-table-column-sorter-up"
+                              class="anticon anticon-caret-down ant-table-column-sorter-up"
                               role="img"
                             >
                               <svg
                                 aria-hidden="true"
-                                data-icon="caret-up"
+                                data-icon="caret-down"
                                 fill="currentColor"
                                 focusable="false"
                                 height="1em"
+                                style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                                 viewBox="0 0 1024 1024"
                                 width="1em"
                               >
                                 <path
-                                  d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                                  d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
                                 />
                               </svg>
                             </span>
@@ -20763,20 +20810,21 @@ Array [
                               >
                                 <span
                                   aria-label="caret-up"
-                                  class="anticon anticon-caret-up ant-table-column-sorter-up"
+                                  class="anticon anticon-caret-down ant-table-column-sorter-up"
                                   role="img"
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    data-icon="caret-up"
+                                    data-icon="caret-down"
                                     fill="currentColor"
                                     focusable="false"
                                     height="1em"
+                                    style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                                     viewBox="0 0 1024 1024"
                                     width="1em"
                                   >
                                     <path
-                                      d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                                      d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
                                     />
                                   </svg>
                                 </span>
@@ -21203,20 +21251,21 @@ Array [
             >
               <span
                 aria-label="right"
-                class="anticon anticon-right"
+                class="anticon anticon-left"
                 role="img"
               >
                 <svg
                   aria-hidden="true"
-                  data-icon="right"
+                  data-icon="left"
                   fill="currentColor"
                   focusable="false"
                   height="1em"
+                  style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
                   <path
-                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                   />
                 </svg>
               </span>
@@ -21301,20 +21350,21 @@ exports[`renders ./components/table/demo/resizable-column.tsx extend context cor
                         >
                           <span
                             aria-label="caret-up"
-                            class="anticon anticon-caret-up ant-table-column-sorter-up"
+                            class="anticon anticon-caret-down ant-table-column-sorter-up"
                             role="img"
                           >
                             <svg
                               aria-hidden="true"
-                              data-icon="caret-up"
+                              data-icon="caret-down"
                               fill="currentColor"
                               focusable="false"
                               height="1em"
+                              style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                               viewBox="0 0 1024 1024"
                               width="1em"
                             >
                               <path
-                                d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                                d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
                               />
                             </svg>
                           </span>
@@ -21557,20 +21607,21 @@ exports[`renders ./components/table/demo/resizable-column.tsx extend context cor
           >
             <span
               aria-label="right"
-              class="anticon anticon-right"
+              class="anticon anticon-left"
               role="img"
             >
               <svg
                 aria-hidden="true"
-                data-icon="right"
+                data-icon="left"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
+                style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                 viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </span>
@@ -21696,20 +21747,21 @@ exports[`renders ./components/table/demo/responsive.tsx extend context correctly
           >
             <span
               aria-label="right"
-              class="anticon anticon-right"
+              class="anticon anticon-left"
               role="img"
             >
               <svg
                 aria-hidden="true"
-                data-icon="right"
+                data-icon="left"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
+                style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                 viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </span>
@@ -22081,20 +22133,21 @@ exports[`renders ./components/table/demo/row-selection.tsx extend context correc
             >
               <span
                 aria-label="right"
-                class="anticon anticon-right"
+                class="anticon anticon-left"
                 role="img"
               >
                 <svg
                   aria-hidden="true"
-                  data-icon="right"
+                  data-icon="left"
                   fill="currentColor"
                   focusable="false"
                   height="1em"
+                  style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
                   <path
-                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                   />
                 </svg>
               </span>
@@ -22701,20 +22754,21 @@ exports[`renders ./components/table/demo/row-selection-and-operation.tsx extend 
             >
               <span
                 aria-label="right"
-                class="anticon anticon-right"
+                class="anticon anticon-left"
                 role="img"
               >
                 <svg
                   aria-hidden="true"
-                  data-icon="right"
+                  data-icon="left"
                   fill="currentColor"
                   focusable="false"
                   height="1em"
+                  style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
                   <path
-                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                   />
                 </svg>
               </span>
@@ -23625,20 +23679,21 @@ exports[`renders ./components/table/demo/row-selection-custom.tsx extend context
           >
             <span
               aria-label="right"
-              class="anticon anticon-right"
+              class="anticon anticon-left"
               role="img"
             >
               <svg
                 aria-hidden="true"
-                data-icon="right"
+                data-icon="left"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
+                style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                 viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </span>
@@ -24040,20 +24095,21 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.tsx extend c
           >
             <span
               aria-label="right"
-              class="anticon anticon-right"
+              class="anticon anticon-left"
               role="img"
             >
               <svg
                 aria-hidden="true"
-                data-icon="right"
+                data-icon="left"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
+                style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                 viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </span>
@@ -24082,20 +24138,21 @@ Array [
       >
         <span
           aria-label="up"
-          class="anticon anticon-up ant-input-number-handler-up-inner"
+          class="anticon anticon-down ant-input-number-handler-up-inner"
           role="img"
         >
           <svg
             aria-hidden="true"
-            data-icon="up"
+            data-icon="down"
             fill="currentColor"
             focusable="false"
             height="1em"
+            style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
             viewBox="64 64 896 896"
             width="1em"
           >
             <path
-              d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
             />
           </svg>
         </span>
@@ -26515,20 +26572,21 @@ Array [
             >
               <span
                 aria-label="right"
-                class="anticon anticon-right"
+                class="anticon anticon-left"
                 role="img"
               >
                 <svg
                   aria-hidden="true"
-                  data-icon="right"
+                  data-icon="left"
                   fill="currentColor"
                   focusable="false"
                   height="1em"
+                  style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
                   <path
-                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                   />
                 </svg>
               </span>
@@ -26721,20 +26779,21 @@ Array [
             >
               <span
                 aria-label="right"
-                class="anticon anticon-right"
+                class="anticon anticon-left"
                 role="img"
               >
                 <svg
                   aria-hidden="true"
-                  data-icon="right"
+                  data-icon="left"
                   fill="currentColor"
                   focusable="false"
                   height="1em"
+                  style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
                   <path
-                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                   />
                 </svg>
               </span>
@@ -27801,20 +27860,21 @@ exports[`renders ./components/table/demo/sticky.tsx extend context correctly 1`]
             >
               <span
                 aria-label="double-right"
-                class="anticon anticon-double-right ant-pagination-item-link-icon"
+                class="anticon anticon-double-left ant-pagination-item-link-icon"
                 role="img"
               >
                 <svg
                   aria-hidden="true"
-                  data-icon="double-right"
+                  data-icon="double-left"
                   fill="currentColor"
                   focusable="false"
                   height="1em"
+                  style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
                   <path
-                    d="M533.2 492.3L277.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H188c-6.7 0-10.4 7.7-6.3 12.9L447.1 512 181.7 851.1A7.98 7.98 0 00188 864h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5zm304 0L581.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H492c-6.7 0-10.4 7.7-6.3 12.9L751.1 512 485.7 851.1A7.98 7.98 0 00492 864h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5z"
+                    d="M272.9 512l265.4-339.1c4.1-5.2.4-12.9-6.3-12.9h-77.3c-4.9 0-9.6 2.3-12.6 6.1L186.8 492.3a31.99 31.99 0 000 39.5l255.3 326.1c3 3.9 7.7 6.1 12.6 6.1H532c6.7 0 10.4-7.7 6.3-12.9L272.9 512zm304 0l265.4-339.1c4.1-5.2.4-12.9-6.3-12.9h-77.3c-4.9 0-9.6 2.3-12.6 6.1L490.8 492.3a31.99 31.99 0 000 39.5l255.3 326.1c3 3.9 7.7 6.1 12.6 6.1H836c6.7 0 10.4-7.7 6.3-12.9L576.9 512z"
                   />
                 </svg>
               </span>
@@ -27850,20 +27910,21 @@ exports[`renders ./components/table/demo/sticky.tsx extend context correctly 1`]
           >
             <span
               aria-label="right"
-              class="anticon anticon-right"
+              class="anticon anticon-left"
               role="img"
             >
               <svg
                 aria-hidden="true"
-                data-icon="right"
+                data-icon="left"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
+                style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                 viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </span>
@@ -28954,20 +29015,21 @@ Array [
             >
               <span
                 aria-label="right"
-                class="anticon anticon-right"
+                class="anticon anticon-left"
                 role="img"
               >
                 <svg
                   aria-hidden="true"
-                  data-icon="right"
+                  data-icon="left"
                   fill="currentColor"
                   focusable="false"
                   height="1em"
+                  style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
                   <path
-                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                   />
                 </svg>
               </span>
@@ -29677,20 +29739,21 @@ Array [
             >
               <span
                 aria-label="right"
-                class="anticon anticon-right"
+                class="anticon anticon-left"
                 role="img"
               >
                 <svg
                   aria-hidden="true"
-                  data-icon="right"
+                  data-icon="left"
                   fill="currentColor"
                   focusable="false"
                   height="1em"
+                  style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
                   <path
-                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                   />
                 </svg>
               </span>
