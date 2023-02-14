@@ -7,7 +7,7 @@ import * as React from 'react';
 import TestUtils from 'react-dom/test-utils';
 import type { ModalFuncProps } from '..';
 import Modal from '..';
-import { waitFakeTimer, act } from '../../../tests/utils';
+import { waitFakeTimer, act, sleep } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import type { ModalFunc } from '../confirm';
 import destroyFns from '../destroyFns';
@@ -201,6 +201,21 @@ describe('Modal.confirm triggers callbacks correctly', () => {
 
     expect($$(`.ant-modal-confirm-confirm`)).toHaveLength(0);
     expect(onCancel).toHaveBeenCalledTimes(1);
+  });
+
+  it('should not fire twice onOk when button is pressed twice', async () => {
+    const onOk = jest.fn(() => Promise.resolve(''));
+    await open({
+      onOk,
+    });
+
+    await sleep();
+    $$('.ant-btn-primary')[0].click();
+
+    await sleep();
+    $$('.ant-btn-primary')[0].click();
+
+    expect(onOk).toHaveBeenCalledTimes(1);
   });
 
   it('should not hide confirm when onOk return Promise.resolve', async () => {

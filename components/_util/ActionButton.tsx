@@ -36,6 +36,7 @@ const ActionButton: React.FC<ActionButtonProps> = (props) => {
   const clickedRef = React.useRef<boolean>(false);
   const buttonRef = React.useRef<HTMLButtonElement | HTMLAnchorElement>(null);
   const [loading, setLoading] = useState<ButtonProps['loading']>(false);
+  const [waitingPromise, setWaitingPromise] = useState(false);
 
   const onInternalClose = (...args: any[]) => {
     close?.(...args);
@@ -59,6 +60,7 @@ const ActionButton: React.FC<ActionButtonProps> = (props) => {
     if (!isThenable(returnValueOfOnOk)) {
       return;
     }
+    setWaitingPromise(true);
     setLoading(true);
     returnValueOfOnOk!.then(
       (...args: any[]) => {
@@ -70,6 +72,7 @@ const ActionButton: React.FC<ActionButtonProps> = (props) => {
         // See: https://github.com/ant-design/ant-design/issues/6183
         setLoading(false, true);
         clickedRef.current = false;
+        setWaitingPromise(false);
         return Promise.reject(e);
       },
     );
@@ -111,6 +114,7 @@ const ActionButton: React.FC<ActionButtonProps> = (props) => {
       {...convertLegacyProps(type)}
       onClick={onClick}
       loading={loading}
+      disabled={waitingPromise}
       prefixCls={prefixCls}
       {...buttonProps}
       ref={buttonRef}
