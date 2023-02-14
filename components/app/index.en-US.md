@@ -124,5 +124,5 @@ export default () => {
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| messageConfig | Global config for Message | [MessageConfig](/components/message/#messageconfig) | - |  |
-| notificationConfig | Global config for Notification | [NotificationConfig](/components/notification/#notificationconfig) | - |  |
+| message | Global config for Message | [MessageConfig](/components/message/#messageconfig) | - |  |
+| notification | Global config for Notification | [NotificationConfig](/components/notification/#notificationconfig) | - |  |
