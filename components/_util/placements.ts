@@ -1,3 +1,4 @@
+/* eslint-disable default-case */
 import type { AlignType, BuildInPlacements } from '@rc-component/trigger';
 import { getArrowOffset } from '../style/placementArrow';
 
@@ -42,9 +43,6 @@ export function getOverflowOptions(
     case 'right':
       baseOverflow.shiftY = arrowOffset.dropdownArrowOffsetVertical * 2 + arrowWidth;
       break;
-
-    default:
-    // Do nothing
   }
 
   const mergedOverflow = {
@@ -188,9 +186,6 @@ export default function getPlacements(config: PlacementsConfig) {
       case 'rightBottom':
         placementInfo.offset[0] = halfArrowWidth + offset;
         break;
-
-      default:
-      // Do nothing
     }
 
     // Dynamic offset
@@ -220,9 +215,6 @@ export default function getPlacements(config: PlacementsConfig) {
         case 'rightBottom':
           placementInfo.offset[1] = arrowOffset.dropdownArrowOffset + halfArrowWidth;
           break;
-
-        default:
-        // Do nothing
       }
     }
 
