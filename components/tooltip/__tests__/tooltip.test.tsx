@@ -31,7 +31,7 @@ describe('Tooltip', () => {
     });
   });
 
-  it('check `onOpenChange` arguments', () => {
+  it('check `onOpenChange` arguments', async () => {
     const onOpenChange = jest.fn();
     const ref = React.createRef<any>();
 
@@ -50,13 +50,15 @@ describe('Tooltip', () => {
     // `title` is empty.
     const divElement = container.querySelector('#hello');
     fireEvent.mouseEnter(divElement!);
+    await waitFakeTimer();
     expect(onOpenChange).not.toHaveBeenCalled();
-    expect(ref.current.props.visible).toBe(false);
+    expect(isTooltipOpen()).toBeFalsy();
     expect(container.querySelector('.ant-tooltip-open')).toBeNull();
 
     fireEvent.mouseLeave(divElement!);
+    await waitFakeTimer();
     expect(onOpenChange).not.toHaveBeenCalled();
-    expect(ref.current.props.visible).toBe(false);
+    expect(isTooltipOpen()).toBeFalsy();
     expect(container.querySelector('.ant-tooltip-open')).toBeNull();
 
     // update `title` value.
@@ -72,13 +74,15 @@ describe('Tooltip', () => {
       </Tooltip>,
     );
     fireEvent.mouseEnter(divElement!);
+    await waitFakeTimer();
     expect(onOpenChange).toHaveBeenLastCalledWith(true);
-    expect(ref.current.props.visible).toBe(true);
+    expect(isTooltipOpen()).toBeTruthy();
     expect(container.querySelector('.ant-tooltip-open')).not.toBeNull();
 
     fireEvent.mouseLeave(divElement!);
+    await waitFakeTimer();
     expect(onOpenChange).toHaveBeenLastCalledWith(false);
-    expect(ref.current.props.visible).toBe(false);
+    expect(isTooltipOpen()).toBeFalsy();
     expect(container.querySelector('.ant-tooltip-open')).toBeNull();
 
     // add `open` props.
@@ -95,15 +99,17 @@ describe('Tooltip', () => {
       </Tooltip>,
     );
     fireEvent.mouseEnter(divElement!);
+    await waitFakeTimer();
     expect(onOpenChange).toHaveBeenLastCalledWith(true);
     const lastCount = onOpenChange.mock.calls.length;
-    expect(ref.current.props.visible).toBe(false);
+    expect(isTooltipOpen()).toBeFalsy();
     expect(container.querySelector('.ant-tooltip-open')).toBeNull();
 
     // always trigger onOpenChange
     fireEvent.mouseLeave(divElement!);
+    await waitFakeTimer();
     expect(onOpenChange.mock.calls.length).toBe(lastCount); // no change with lastCount
-    expect(ref.current.props.visible).toBe(false);
+    expect(isTooltipOpen()).toBeFalsy();
     expect(container.querySelector('.ant-tooltip-open')).toBeNull();
   });
 
