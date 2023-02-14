@@ -4,7 +4,7 @@ import type { TooltipPlacement } from '..';
 import Tooltip from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { act, fireEvent, render, waitFakeTimer, waitFor } from '../../../tests/utils';
+import { fireEvent, render, waitFakeTimer, waitFor } from '../../../tests/utils';
 import Button from '../../button';
 import DatePicker from '../../date-picker';
 import Input from '../../input';
@@ -12,6 +12,7 @@ import Group from '../../input/Group';
 import Radio from '../../radio';
 import Switch from '../../switch';
 import { resetWarned } from '../../_util/warning';
+import { isTooltipOpen } from './util';
 
 describe('Tooltip', () => {
   mountTest(Tooltip);
@@ -471,7 +472,7 @@ describe('Tooltip', () => {
     expect(container.querySelector('.ant-tooltip-open')).not.toBeNull();
   });
 
-  it('should work with Fragment children', () => {
+  it('should work with Fragment children', async () => {
     const onOpenChange = jest.fn();
     const ref = React.createRef<any>();
 
@@ -490,23 +491,22 @@ describe('Tooltip', () => {
       </Tooltip>,
     );
 
-    function isTooltipOpen() {}
-
     const divElement = container.querySelector('.hello');
     fireEvent.mouseEnter(divElement!);
     expect(onOpenChange).toHaveBeenLastCalledWith(true);
-    expect(ref.current.props.visible).toBe(true);
+    await waitFakeTimer();
+    expect(isTooltipOpen()).toBeTruthy();
     expect(container.querySelector('.ant-tooltip-open')).not.toBeNull();
 
     fireEvent.mouseLeave(divElement!);
     expect(onOpenChange).toHaveBeenLastCalledWith(false);
-    expect(ref.current.props.visible).toBe(false);
+    await waitFakeTimer();
+    expect(isTooltipOpen()).toBeFalsy();
     expect(container.querySelector('.ant-tooltip-open')).toBeNull();
   });
 
-  it('deprecated warning', () => {
+  it('deprecated warning', async () => {
     resetWarned();
-    jest.useFakeTimers();
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
     // defaultVisible
@@ -515,14 +515,12 @@ describe('Tooltip', () => {
         <a />
       </Tooltip>,
     );
-    act(() => {
-      jest.runAllTimers();
-    });
+    await waitFakeTimer();
 
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: Tooltip] `defaultVisible` is deprecated, please use `defaultOpen` instead.',
     );
-    expect(document.querySelector('.ant-tooltip')).toBeTruthy();
+    expect(isTooltipOpen()).toBeTruthy();
 
     // visible
     rerender(
@@ -539,13 +537,11 @@ describe('Tooltip', () => {
         <a />
       </Tooltip>,
     );
-    act(() => {
-      jest.runAllTimers();
-    });
+    await waitFakeTimer();
     if (container.querySelector('.ant-zoom-big-fast-leave-active')) {
       fireEvent.animationEnd(container.querySelector('.ant-zoom-big-fast-leave-active')!);
     }
-    expect(document.querySelector('.ant-tooltip-hidden')).toBeTruthy();
+    expect(isTooltipOpen()).toBeFalsy();
 
     // onVisibleChange
     rerender(
@@ -582,13 +578,10 @@ describe('Tooltip', () => {
     );
 
     fireEvent.mouseLeave(container.querySelector('a')!);
-    act(() => {
-      jest.runAllTimers();
-    });
+    await waitFakeTimer();
     expect(onVisibleChange).toHaveBeenCalled();
     expect(afterVisibleChange).toHaveBeenCalled();
 
-    jest.useRealTimers();
     errSpy.mockRestore();
   });
 
