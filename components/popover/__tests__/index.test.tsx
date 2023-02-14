@@ -1,7 +1,7 @@
 import React from 'react';
 import Popover from '..';
 import mountTest from '../../../tests/shared/mountTest';
-import { render, fireEvent } from '../../../tests/utils';
+import { fireEvent, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
 describe('Popover', () => {
@@ -16,7 +16,6 @@ describe('Popover', () => {
       </Popover>,
     );
 
-    expect(ref.current.getPopupDomNode()).toBe(null);
     expect(popover.container.querySelector('.ant-popover-inner-content')).toBeFalsy();
     fireEvent.click(popover.container.querySelector('span')!);
     expect(popover.container.querySelector('.ant-popover-inner-content')).toBeTruthy();
@@ -35,7 +34,7 @@ describe('Popover', () => {
 
     fireEvent.click(popover.container.querySelector('span')!);
 
-    const popup = ref.current.getPopupDomNode();
+    const popup = document.querySelector('.ant-popover')!;
     expect(popup).not.toBe(null);
     expect(popup.innerHTML).toContain('some-title');
     expect(popup.innerHTML).toContain('some-content');
