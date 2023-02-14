@@ -13,6 +13,7 @@ const useStyle = createStyles(({ token }) => ({
     border-radius: ${token.borderRadius}px;
     padding: 20px 24px 40px;
     position: relative;
+    margin-bottom: ${token.marginLG}px;
   `,
   title: css`
     font-size: ${token.fontSizeLG}px;
@@ -33,9 +34,13 @@ const useStyle = createStyles(({ token }) => ({
     color: ${token.colorTextTertiary};
     cursor: pointer;
   `,
+  tip: css`
+    color: ${token.colorTextTertiary};
+    margin-top: 40px;
+  `,
 }));
 
-const DesignPreviewer: FC<IPreviewerProps> = ({ children, title, description }) => {
+const DesignPreviewer: FC<IPreviewerProps> = ({ children, title, description, tip }) => {
   const { styles } = useStyle();
   const demoRef = useRef<HTMLDivElement>(null);
   const { message } = App.useApp();
@@ -62,6 +67,7 @@ const DesignPreviewer: FC<IPreviewerProps> = ({ children, title, description }) 
       <div className={styles.demo}>
         <div ref={demoRef}>{children}</div>
       </div>
+      <div className={styles.tip}>{tip}</div>
     </div>
   );
 };
