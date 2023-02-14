@@ -627,6 +627,9 @@ Array [
     class="ant-tooltip ant-tooltip-pure ant-tooltip-placement-top ant-tooltip-pink"
   >
     <div
+      class="ant-tooltip-arrow"
+    />
+    <div
       class="ant-tooltip-content"
     >
       <div
@@ -642,6 +645,9 @@ Array [
     style="--antd-arrow-background-color:#f50"
   >
     <div
+      class="ant-tooltip-arrow"
+    />
+    <div
       class="ant-tooltip-content"
     >
       <div
@@ -656,6 +662,9 @@ Array [
   <div
     class="ant-tooltip ant-tooltip-pure ant-tooltip-placement-bottomLeft"
   >
+    <div
+      class="ant-tooltip-arrow"
+    />
     <div
       class="ant-tooltip-content"
       style="width:200px"
