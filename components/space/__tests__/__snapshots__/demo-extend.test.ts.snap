@@ -231,6 +231,84 @@ exports[`renders ./components/space/demo/base.tsx extend context correctly 1`] =
   <div
     class="ant-space-item"
   >
+    <div
+      class="ant-popover ant-popconfirm ant-popover-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
+      <div
+        class="ant-popover-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-inner"
+          role="tooltip"
+        >
+          <div
+            class="ant-popover-inner-content"
+          >
+            <div
+              class="ant-popconfirm-inner-content"
+            >
+              <div
+                class="ant-popconfirm-message"
+              >
+                <span
+                  class="ant-popconfirm-message-icon"
+                >
+                  <span
+                    aria-label="exclamation-circle"
+                    class="anticon anticon-exclamation-circle"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="exclamation-circle"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <div
+                  class="ant-popconfirm-message-title"
+                >
+                  Are you sure delete this task?
+                </div>
+              </div>
+              <div
+                class="ant-popconfirm-buttons"
+              >
+                <button
+                  class="ant-btn ant-btn-default ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    No
+                  </span>
+                </button>
+                <button
+                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    Yes
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <button
       class="ant-btn ant-btn-default"
       type="button"
@@ -239,89 +317,6 @@ exports[`renders ./components/space/demo/base.tsx extend context correctly 1`] =
         Confirm
       </span>
     </button>
-    <div>
-      <div
-        class="ant-popover ant-popconfirm"
-        style="opacity:0"
-      >
-        <div
-          class="ant-popover-content"
-        >
-          <div
-            class="ant-popover-arrow"
-          >
-            <span
-              class="ant-popover-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-popover-inner"
-            role="tooltip"
-          >
-            <div
-              class="ant-popover-inner-content"
-            >
-              <div
-                class="ant-popconfirm-inner-content"
-              >
-                <div
-                  class="ant-popconfirm-message"
-                >
-                  <span
-                    class="ant-popconfirm-message-icon"
-                  >
-                    <span
-                      aria-label="exclamation-circle"
-                      class="anticon anticon-exclamation-circle"
-                      role="img"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="exclamation-circle"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                        />
-                      </svg>
-                    </span>
-                  </span>
-                  <div
-                    class="ant-popconfirm-message-title"
-                  >
-                    Are you sure delete this task?
-                  </div>
-                </div>
-                <div
-                  class="ant-popconfirm-buttons"
-                >
-                  <button
-                    class="ant-btn ant-btn-default ant-btn-sm"
-                    type="button"
-                  >
-                    <span>
-                      No
-                    </span>
-                  </button>
-                  <button
-                    class="ant-btn ant-btn-primary ant-btn-sm"
-                    type="button"
-                  >
-                    <span>
-                      Yes
-                    </span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </div>
 `;
@@ -394,6 +389,25 @@ exports[`renders ./components/space/demo/compact.tsx extend context correctly 1`
       type="text"
       value="git@github.com:ant-design/ant-design.git"
     />
+    <div
+      class="ant-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
+      <div
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          copy git url
+        </div>
+      </div>
+    </div>
     <button
       class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
       type="button"
@@ -418,30 +432,6 @@ exports[`renders ./components/space/demo/compact.tsx extend context correctly 1`
         </svg>
       </span>
     </button>
-    <div>
-      <div
-        class="ant-tooltip"
-        style="opacity:0"
-      >
-        <div
-          class="ant-tooltip-content"
-        >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            copy git url
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
   <br />
   <div
@@ -8468,6 +8458,25 @@ exports[`renders ./components/space/demo/compact-buttons.tsx extend context corr
   <div
     class="ant-space-compact ant-space-compact-block"
   >
+    <div
+      class="ant-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
+      <div
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          Like
+        </div>
+      </div>
+    </div>
     <button
       class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-compact-item ant-btn-compact-first-item"
       type="button"
@@ -8492,27 +8501,22 @@ exports[`renders ./components/space/demo/compact-buttons.tsx extend context corr
         </svg>
       </span>
     </button>
-    <div>
+    <div
+      class="ant-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            Like
-          </div>
+          Comment
         </div>
       </div>
     </div>
@@ -8549,27 +8553,22 @@ exports[`renders ./components/space/demo/compact-buttons.tsx extend context corr
         </svg>
       </span>
     </button>
-    <div>
+    <div
+      class="ant-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            Comment
-          </div>
+          Star
         </div>
       </div>
     </div>
@@ -8597,27 +8596,22 @@ exports[`renders ./components/space/demo/compact-buttons.tsx extend context corr
         </svg>
       </span>
     </button>
-    <div>
+    <div
+      class="ant-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            Star
-          </div>
+          Heart
         </div>
       </div>
     </div>
@@ -8645,27 +8639,22 @@ exports[`renders ./components/space/demo/compact-buttons.tsx extend context corr
         </svg>
       </span>
     </button>
-    <div>
+    <div
+      class="ant-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            Heart
-          </div>
+          Share
         </div>
       </div>
     </div>
@@ -8693,27 +8682,22 @@ exports[`renders ./components/space/demo/compact-buttons.tsx extend context corr
         </svg>
       </span>
     </button>
-    <div>
+    <div
+      class="ant-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            Share
-          </div>
+          Download
         </div>
       </div>
     </div>
@@ -8741,30 +8725,6 @@ exports[`renders ./components/space/demo/compact-buttons.tsx extend context corr
         </svg>
       </span>
     </button>
-    <div>
-      <div
-        class="ant-tooltip"
-        style="opacity:0"
-      >
-        <div
-          class="ant-tooltip-content"
-        >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            Download
-          </div>
-        </div>
-      </div>
-    </div>
     <button
       class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
       type="button"
@@ -8800,6 +8760,23 @@ exports[`renders ./components/space/demo/compact-buttons.tsx extend context corr
           role="menu"
           tabindex="0"
         >
+          <div
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+            style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+          >
+            <div
+              class="ant-tooltip-arrow"
+              style="position:absolute;top:0;left:0"
+            />
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
           <li
             class="ant-dropdown-menu-item"
             role="menuitem"
@@ -8830,26 +8807,21 @@ exports[`renders ./components/space/demo/compact-buttons.tsx extend context corr
               Report
             </span>
           </li>
-          <div>
+          <div
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+            style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+          >
             <div
-              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-              style="opacity:0"
+              class="ant-tooltip-arrow"
+              style="position:absolute;top:0;left:0"
+            />
+            <div
+              class="ant-tooltip-content"
             >
               <div
-                class="ant-tooltip-content"
-              >
-                <div
-                  class="ant-tooltip-arrow"
-                >
-                  <span
-                    class="ant-tooltip-arrow-content"
-                  />
-                </div>
-                <div
-                  class="ant-tooltip-inner"
-                  role="tooltip"
-                />
-              </div>
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
             </div>
           </div>
           <li
@@ -8882,26 +8854,21 @@ exports[`renders ./components/space/demo/compact-buttons.tsx extend context corr
               Mail
             </span>
           </li>
-          <div>
+          <div
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+            style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+          >
             <div
-              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-              style="opacity:0"
+              class="ant-tooltip-arrow"
+              style="position:absolute;top:0;left:0"
+            />
+            <div
+              class="ant-tooltip-content"
             >
               <div
-                class="ant-tooltip-content"
-              >
-                <div
-                  class="ant-tooltip-arrow"
-                >
-                  <span
-                    class="ant-tooltip-arrow-content"
-                  />
-                </div>
-                <div
-                  class="ant-tooltip-inner"
-                  role="tooltip"
-                />
-              </div>
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
             </div>
           </div>
           <li
@@ -8934,97 +8901,60 @@ exports[`renders ./components/space/demo/compact-buttons.tsx extend context corr
               Mobile
             </span>
           </li>
-          <div>
-            <div
-              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-              style="opacity:0"
-            >
-              <div
-                class="ant-tooltip-content"
-              >
-                <div
-                  class="ant-tooltip-arrow"
-                >
-                  <span
-                    class="ant-tooltip-arrow-content"
-                  />
-                </div>
-                <div
-                  class="ant-tooltip-inner"
-                  role="tooltip"
-                />
-              </div>
-            </div>
-          </div>
         </ul>
         <div
           aria-hidden="true"
           style="display:none"
         >
-          <div>
+          <div
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+            style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+          >
             <div
-              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-              style="opacity:0"
+              class="ant-tooltip-arrow"
+              style="position:absolute;top:0;left:0"
+            />
+            <div
+              class="ant-tooltip-content"
             >
               <div
-                class="ant-tooltip-content"
-              >
-                <div
-                  class="ant-tooltip-arrow"
-                >
-                  <span
-                    class="ant-tooltip-arrow-content"
-                  />
-                </div>
-                <div
-                  class="ant-tooltip-inner"
-                  role="tooltip"
-                />
-              </div>
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
             </div>
           </div>
-          <div>
+          <div
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+            style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+          >
             <div
-              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-              style="opacity:0"
+              class="ant-tooltip-arrow"
+              style="position:absolute;top:0;left:0"
+            />
+            <div
+              class="ant-tooltip-content"
             >
               <div
-                class="ant-tooltip-content"
-              >
-                <div
-                  class="ant-tooltip-arrow"
-                >
-                  <span
-                    class="ant-tooltip-arrow-content"
-                  />
-                </div>
-                <div
-                  class="ant-tooltip-inner"
-                  role="tooltip"
-                />
-              </div>
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
             </div>
           </div>
-          <div>
+          <div
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+            style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+          >
             <div
-              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-              style="opacity:0"
+              class="ant-tooltip-arrow"
+              style="position:absolute;top:0;left:0"
+            />
+            <div
+              class="ant-tooltip-content"
             >
               <div
-                class="ant-tooltip-content"
-              >
-                <div
-                  class="ant-tooltip-arrow"
-                >
-                  <span
-                    class="ant-tooltip-arrow-content"
-                  />
-                </div>
-                <div
-                  class="ant-tooltip-inner"
-                  role="tooltip"
-                />
-              </div>
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
             </div>
           </div>
         </div>
@@ -9067,6 +8997,25 @@ exports[`renders ./components/space/demo/compact-buttons.tsx extend context corr
         Button 4
       </span>
     </button>
+    <div
+      class="ant-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
+      <div
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          Tooltip
+        </div>
+      </div>
+    </div>
     <span
       class="ant-tooltip-disabled-compatible-wrapper"
       style="display:inline-block;cursor:not-allowed"
@@ -9098,27 +9047,22 @@ exports[`renders ./components/space/demo/compact-buttons.tsx extend context corr
         </span>
       </button>
     </span>
-    <div>
+    <div
+      class="ant-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            Tooltip
-          </div>
+          Tooltip
         </div>
       </div>
     </div>
@@ -9146,30 +9090,6 @@ exports[`renders ./components/space/demo/compact-buttons.tsx extend context corr
         </svg>
       </span>
     </button>
-    <div>
-      <div
-        class="ant-tooltip"
-        style="opacity:0"
-      >
-        <div
-          class="ant-tooltip-content"
-        >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            Tooltip
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
   <br />
   <div
@@ -9199,6 +9119,25 @@ exports[`renders ./components/space/demo/compact-buttons.tsx extend context corr
         Button 3
       </span>
     </button>
+    <div
+      class="ant-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
+      <div
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          Tooltip
+        </div>
+      </div>
+    </div>
     <span
       class="ant-tooltip-disabled-compatible-wrapper"
       style="display:inline-block;cursor:not-allowed"
@@ -9230,27 +9169,22 @@ exports[`renders ./components/space/demo/compact-buttons.tsx extend context corr
         </span>
       </button>
     </span>
-    <div>
+    <div
+      class="ant-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            Tooltip
-          </div>
+          Tooltip
         </div>
       </div>
     </div>
@@ -9278,30 +9212,6 @@ exports[`renders ./components/space/demo/compact-buttons.tsx extend context corr
         </svg>
       </span>
     </button>
-    <div>
-      <div
-        class="ant-tooltip"
-        style="opacity:0"
-      >
-        <div
-          class="ant-tooltip-content"
-        >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            Tooltip
-          </div>
-        </div>
-      </div>
-    </div>
     <button
       class="ant-btn ant-btn-primary ant-btn-compact-item"
       type="button"
@@ -9345,6 +9255,23 @@ exports[`renders ./components/space/demo/compact-buttons.tsx extend context corr
           role="menu"
           tabindex="0"
         >
+          <div
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+            style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+          >
+            <div
+              class="ant-tooltip-arrow"
+              style="position:absolute;top:0;left:0"
+            />
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
           <li
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             role="menuitem"
@@ -9356,26 +9283,21 @@ exports[`renders ./components/space/demo/compact-buttons.tsx extend context corr
               1st item
             </span>
           </li>
-          <div>
+          <div
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+            style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+          >
             <div
-              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-              style="opacity:0"
+              class="ant-tooltip-arrow"
+              style="position:absolute;top:0;left:0"
+            />
+            <div
+              class="ant-tooltip-content"
             >
               <div
-                class="ant-tooltip-content"
-              >
-                <div
-                  class="ant-tooltip-arrow"
-                >
-                  <span
-                    class="ant-tooltip-arrow-content"
-                  />
-                </div>
-                <div
-                  class="ant-tooltip-inner"
-                  role="tooltip"
-                />
-              </div>
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
             </div>
           </div>
           <li
@@ -9389,26 +9311,21 @@ exports[`renders ./components/space/demo/compact-buttons.tsx extend context corr
               2nd item
             </span>
           </li>
-          <div>
+          <div
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+            style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+          >
             <div
-              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-              style="opacity:0"
+              class="ant-tooltip-arrow"
+              style="position:absolute;top:0;left:0"
+            />
+            <div
+              class="ant-tooltip-content"
             >
               <div
-                class="ant-tooltip-content"
-              >
-                <div
-                  class="ant-tooltip-arrow"
-                >
-                  <span
-                    class="ant-tooltip-arrow-content"
-                  />
-                </div>
-                <div
-                  class="ant-tooltip-inner"
-                  role="tooltip"
-                />
-              </div>
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
             </div>
           </div>
           <li
@@ -9422,97 +9339,60 @@ exports[`renders ./components/space/demo/compact-buttons.tsx extend context corr
               3rd item
             </span>
           </li>
-          <div>
-            <div
-              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-              style="opacity:0"
-            >
-              <div
-                class="ant-tooltip-content"
-              >
-                <div
-                  class="ant-tooltip-arrow"
-                >
-                  <span
-                    class="ant-tooltip-arrow-content"
-                  />
-                </div>
-                <div
-                  class="ant-tooltip-inner"
-                  role="tooltip"
-                />
-              </div>
-            </div>
-          </div>
         </ul>
         <div
           aria-hidden="true"
           style="display:none"
         >
-          <div>
+          <div
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+            style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+          >
             <div
-              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-              style="opacity:0"
+              class="ant-tooltip-arrow"
+              style="position:absolute;top:0;left:0"
+            />
+            <div
+              class="ant-tooltip-content"
             >
               <div
-                class="ant-tooltip-content"
-              >
-                <div
-                  class="ant-tooltip-arrow"
-                >
-                  <span
-                    class="ant-tooltip-arrow-content"
-                  />
-                </div>
-                <div
-                  class="ant-tooltip-inner"
-                  role="tooltip"
-                />
-              </div>
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
             </div>
           </div>
-          <div>
+          <div
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+            style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+          >
             <div
-              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-              style="opacity:0"
+              class="ant-tooltip-arrow"
+              style="position:absolute;top:0;left:0"
+            />
+            <div
+              class="ant-tooltip-content"
             >
               <div
-                class="ant-tooltip-content"
-              >
-                <div
-                  class="ant-tooltip-arrow"
-                >
-                  <span
-                    class="ant-tooltip-arrow-content"
-                  />
-                </div>
-                <div
-                  class="ant-tooltip-inner"
-                  role="tooltip"
-                />
-              </div>
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
             </div>
           </div>
-          <div>
+          <div
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+            style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+          >
             <div
-              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-              style="opacity:0"
+              class="ant-tooltip-arrow"
+              style="position:absolute;top:0;left:0"
+            />
+            <div
+              class="ant-tooltip-content"
             >
               <div
-                class="ant-tooltip-content"
-              >
-                <div
-                  class="ant-tooltip-arrow"
-                >
-                  <span
-                    class="ant-tooltip-arrow-content"
-                  />
-                </div>
-                <div
-                  class="ant-tooltip-inner"
-                  role="tooltip"
-                />
-              </div>
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
             </div>
           </div>
         </div>
@@ -9573,6 +9453,25 @@ exports[`renders ./components/space/demo/compact-debug.tsx extend context correc
           Link Button
         </span>
       </button>
+      <div
+        class="ant-tooltip ant-tooltip-placement-top"
+        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      >
+        <div
+          class="ant-tooltip-arrow"
+          style="position:absolute;bottom:0;left:0"
+        />
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            Tooltip
+          </div>
+        </div>
+      </div>
       <span
         class="ant-tooltip-disabled-compatible-wrapper"
         style="display:inline-block;cursor:not-allowed"
@@ -9604,30 +9503,6 @@ exports[`renders ./components/space/demo/compact-debug.tsx extend context correc
           </span>
         </button>
       </span>
-      <div>
-        <div
-          class="ant-tooltip"
-          style="opacity:0"
-        >
-          <div
-            class="ant-tooltip-content"
-          >
-            <div
-              class="ant-tooltip-arrow"
-            >
-              <span
-                class="ant-tooltip-arrow-content"
-              />
-            </div>
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            >
-              Tooltip
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
   <div
@@ -10559,6 +10434,23 @@ exports[`renders ./components/space/demo/compact-debug.tsx extend context correc
               role="menu"
               tabindex="0"
             >
+              <div
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+              >
+                <div
+                  class="ant-tooltip-arrow"
+                  style="position:absolute;top:0;left:0"
+                />
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
               <li
                 class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                 role="menuitem"
@@ -10577,26 +10469,21 @@ exports[`renders ./components/space/demo/compact-debug.tsx extend context correc
                   </button>
                 </span>
               </li>
-              <div>
+              <div
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+              >
                 <div
-                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                  style="opacity:0"
+                  class="ant-tooltip-arrow"
+                  style="position:absolute;top:0;left:0"
+                />
+                <div
+                  class="ant-tooltip-content"
                 >
                   <div
-                    class="ant-tooltip-content"
-                  >
-                    <div
-                      class="ant-tooltip-arrow"
-                    >
-                      <span
-                        class="ant-tooltip-arrow-content"
-                      />
-                    </div>
-                    <div
-                      class="ant-tooltip-inner"
-                      role="tooltip"
-                    />
-                  </div>
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
                 </div>
               </div>
               <li
@@ -10610,75 +10497,43 @@ exports[`renders ./components/space/demo/compact-debug.tsx extend context correc
                   normal menu item
                 </span>
               </li>
-              <div>
-                <div
-                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                  style="opacity:0"
-                >
-                  <div
-                    class="ant-tooltip-content"
-                  >
-                    <div
-                      class="ant-tooltip-arrow"
-                    >
-                      <span
-                        class="ant-tooltip-arrow-content"
-                      />
-                    </div>
-                    <div
-                      class="ant-tooltip-inner"
-                      role="tooltip"
-                    />
-                  </div>
-                </div>
-              </div>
             </ul>
             <div
               aria-hidden="true"
               style="display:none"
             >
-              <div>
+              <div
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+              >
                 <div
-                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                  style="opacity:0"
+                  class="ant-tooltip-arrow"
+                  style="position:absolute;top:0;left:0"
+                />
+                <div
+                  class="ant-tooltip-content"
                 >
                   <div
-                    class="ant-tooltip-content"
-                  >
-                    <div
-                      class="ant-tooltip-arrow"
-                    >
-                      <span
-                        class="ant-tooltip-arrow-content"
-                      />
-                    </div>
-                    <div
-                      class="ant-tooltip-inner"
-                      role="tooltip"
-                    />
-                  </div>
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
                 </div>
               </div>
-              <div>
+              <div
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+              >
                 <div
-                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                  style="opacity:0"
+                  class="ant-tooltip-arrow"
+                  style="position:absolute;top:0;left:0"
+                />
+                <div
+                  class="ant-tooltip-content"
                 >
                   <div
-                    class="ant-tooltip-content"
-                  >
-                    <div
-                      class="ant-tooltip-arrow"
-                    >
-                      <span
-                        class="ant-tooltip-arrow-content"
-                      />
-                    </div>
-                    <div
-                      class="ant-tooltip-inner"
-                      role="tooltip"
-                    />
-                  </div>
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
                 </div>
               </div>
             </div>
@@ -14378,6 +14233,25 @@ Array [
       class="ant-slider-step"
     />
     <div
+      class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
+      <div
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          8
+        </div>
+      </div>
+    </div>
+    <div
       aria-disabled="false"
       aria-valuemax="100"
       aria-valuemin="0"
@@ -14387,30 +14261,6 @@ Array [
       style="left:8%;transform:translateX(-50%)"
       tabindex="0"
     />
-    <div>
-      <div
-        class="ant-tooltip ant-slider-tooltip"
-        style="opacity:0"
-      >
-        <div
-          class="ant-tooltip-content"
-        >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            8
-          </div>
-        </div>
-      </div>
-    </div>
   </div>,
   <br />,
   <br />,
@@ -14505,6 +14355,84 @@ exports[`renders ./components/space/demo/debug.tsx extend context correctly 1`] 
     class="ant-space-item"
     style="margin-right:8px"
   >
+    <div
+      class="ant-popover ant-popconfirm ant-popover-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
+      <div
+        class="ant-popover-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-inner"
+          role="tooltip"
+        >
+          <div
+            class="ant-popover-inner-content"
+          >
+            <div
+              class="ant-popconfirm-inner-content"
+            >
+              <div
+                class="ant-popconfirm-message"
+              >
+                <span
+                  class="ant-popconfirm-message-icon"
+                >
+                  <span
+                    aria-label="exclamation-circle"
+                    class="anticon anticon-exclamation-circle"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="exclamation-circle"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <div
+                  class="ant-popconfirm-message-title"
+                >
+                  Are you sure delete this task?
+                </div>
+              </div>
+              <div
+                class="ant-popconfirm-buttons"
+              >
+                <button
+                  class="ant-btn ant-btn-default ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    No
+                  </span>
+                </button>
+                <button
+                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    Yes
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <button
       class="ant-btn ant-btn-default"
       type="button"
@@ -14513,94 +14441,89 @@ exports[`renders ./components/space/demo/debug.tsx extend context correctly 1`] 
         Delete
       </span>
     </button>
-    <div>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-right:8px"
+  >
+    <div
+      class="ant-popover ant-popconfirm ant-popover-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-popover ant-popconfirm"
-        style="opacity:0"
+        class="ant-popover-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-popover-content"
       >
         <div
-          class="ant-popover-content"
+          class="ant-popover-inner"
+          role="tooltip"
         >
           <div
-            class="ant-popover-arrow"
-          >
-            <span
-              class="ant-popover-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-popover-inner"
-            role="tooltip"
+            class="ant-popover-inner-content"
           >
             <div
-              class="ant-popover-inner-content"
+              class="ant-popconfirm-inner-content"
             >
               <div
-                class="ant-popconfirm-inner-content"
+                class="ant-popconfirm-message"
               >
-                <div
-                  class="ant-popconfirm-message"
+                <span
+                  class="ant-popconfirm-message-icon"
                 >
                   <span
-                    class="ant-popconfirm-message-icon"
+                    aria-label="exclamation-circle"
+                    class="anticon anticon-exclamation-circle"
+                    role="img"
                   >
-                    <span
-                      aria-label="exclamation-circle"
-                      class="anticon anticon-exclamation-circle"
-                      role="img"
+                    <svg
+                      aria-hidden="true"
+                      data-icon="exclamation-circle"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
                     >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="exclamation-circle"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                        />
-                      </svg>
-                    </span>
+                      <path
+                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                      />
+                    </svg>
                   </span>
-                  <div
-                    class="ant-popconfirm-message-title"
-                  >
-                    Are you sure delete this task?
-                  </div>
-                </div>
+                </span>
                 <div
-                  class="ant-popconfirm-buttons"
+                  class="ant-popconfirm-message-title"
                 >
-                  <button
-                    class="ant-btn ant-btn-default ant-btn-sm"
-                    type="button"
-                  >
-                    <span>
-                      No
-                    </span>
-                  </button>
-                  <button
-                    class="ant-btn ant-btn-primary ant-btn-sm"
-                    type="button"
-                  >
-                    <span>
-                      Yes
-                    </span>
-                  </button>
+                  Are you sure delete this task?
                 </div>
+              </div>
+              <div
+                class="ant-popconfirm-buttons"
+              >
+                <button
+                  class="ant-btn ant-btn-default ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    No
+                  </span>
+                </button>
+                <button
+                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    Yes
+                  </span>
+                </button>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div
-    class="ant-space-item"
-    style="margin-right:8px"
-  >
     <span
       class="ant-popover-disabled-compatible-wrapper"
       style="display:inline-block;cursor:not-allowed"
@@ -14616,89 +14539,6 @@ exports[`renders ./components/space/demo/debug.tsx extend context correctly 1`] 
         </span>
       </button>
     </span>
-    <div>
-      <div
-        class="ant-popover ant-popconfirm"
-        style="opacity:0"
-      >
-        <div
-          class="ant-popover-content"
-        >
-          <div
-            class="ant-popover-arrow"
-          >
-            <span
-              class="ant-popover-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-popover-inner"
-            role="tooltip"
-          >
-            <div
-              class="ant-popover-inner-content"
-            >
-              <div
-                class="ant-popconfirm-inner-content"
-              >
-                <div
-                  class="ant-popconfirm-message"
-                >
-                  <span
-                    class="ant-popconfirm-message-icon"
-                  >
-                    <span
-                      aria-label="exclamation-circle"
-                      class="anticon anticon-exclamation-circle"
-                      role="img"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="exclamation-circle"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                        />
-                      </svg>
-                    </span>
-                  </span>
-                  <div
-                    class="ant-popconfirm-message-title"
-                  >
-                    Are you sure delete this task?
-                  </div>
-                </div>
-                <div
-                  class="ant-popconfirm-buttons"
-                >
-                  <button
-                    class="ant-btn ant-btn-default ant-btn-sm"
-                    type="button"
-                  >
-                    <span>
-                      No
-                    </span>
-                  </button>
-                  <button
-                    class="ant-btn ant-btn-primary ant-btn-sm"
-                    type="button"
-                  >
-                    <span>
-                      Yes
-                    </span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
   <div
     class="ant-space-item"

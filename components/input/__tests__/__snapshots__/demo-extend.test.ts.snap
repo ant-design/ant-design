@@ -638,6 +638,25 @@ Array [
   >
     Ant Design
     <div
+      class="ant-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
+      <div
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          Copy
+        </div>
+      </div>
+    </div>
+    <div
       aria-label="Copy"
       class="ant-typography-copy"
       role="button"
@@ -663,30 +682,6 @@ Array [
           />
         </svg>
       </span>
-    </div>
-    <div>
-      <div
-        class="ant-tooltip"
-        style="opacity:0"
-      >
-        <div
-          class="ant-tooltip-content"
-        >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            Copy
-          </div>
-        </div>
-      </div>
     </div>
   </span>,
   <span
@@ -5487,6 +5482,25 @@ exports[`renders ./components/input/demo/group.tsx extend context correctly 1`] 
       type="text"
       value="git@github.com:ant-design/ant-design.git"
     />
+    <div
+      class="ant-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
+      <div
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          copy git url
+        </div>
+      </div>
+    </div>
     <button
       class="ant-btn ant-btn-default ant-btn-icon-only"
       type="button"
@@ -5511,30 +5525,6 @@ exports[`renders ./components/input/demo/group.tsx extend context correctly 1`] 
         </svg>
       </span>
     </button>
-    <div>
-      <div
-        class="ant-tooltip"
-        style="opacity:0"
-      >
-        <div
-          class="ant-tooltip-content"
-        >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            copy git url
-          </div>
-        </div>
-      </div>
-    </div>
   </span>
   <br />
   <span
@@ -9074,6 +9064,25 @@ Array [
     <span
       class="ant-input-suffix"
     >
+      <div
+        class="ant-tooltip ant-tooltip-placement-top"
+        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      >
+        <div
+          class="ant-tooltip-arrow"
+          style="position:absolute;bottom:0;left:0"
+        />
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            Extra information
+          </div>
+        </div>
+      </div>
       <span
         aria-label="info-circle"
         class="anticon anticon-info-circle"
@@ -9097,30 +9106,6 @@ Array [
           />
         </svg>
       </span>
-      <div>
-        <div
-          class="ant-tooltip"
-          style="opacity:0"
-        >
-          <div
-            class="ant-tooltip-content"
-          >
-            <div
-              class="ant-tooltip-arrow"
-            >
-              <span
-                class="ant-tooltip-arrow-content"
-              />
-            </div>
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            >
-              Extra information
-            </div>
-          </div>
-        </div>
-      </div>
     </span>
   </span>,
   <br />,
@@ -10079,6 +10064,25 @@ Array [
 
 exports[`renders ./components/input/demo/tooltip.tsx extend context correctly 1`] = `
 Array [
+  <div
+    class="ant-tooltip numeric-input ant-tooltip-placement-topLeft"
+    style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+  >
+    <div
+      class="ant-tooltip-arrow"
+      style="position:absolute"
+    />
+    <div
+      class="ant-tooltip-content"
+    >
+      <div
+        class="ant-tooltip-inner"
+        role="tooltip"
+      >
+        Input a number
+      </div>
+    </div>
+  </div>,
   <input
     class="ant-input"
     maxlength="16"
@@ -10087,29 +10091,5 @@ Array [
     type="text"
     value=""
   />,
-  <div>
-    <div
-      class="ant-tooltip numeric-input"
-      style="opacity:0"
-    >
-      <div
-        class="ant-tooltip-content"
-      >
-        <div
-          class="ant-tooltip-arrow"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-tooltip-inner"
-          role="tooltip"
-        >
-          Input a number
-        </div>
-      </div>
-    </div>
-  </div>,
 ]
 `;
