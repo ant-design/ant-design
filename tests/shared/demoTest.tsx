@@ -31,10 +31,6 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
     testMethod(
       doInject ? `renders ${file} extend context correctly` : `renders ${file} correctly`,
       () => {
-        const originCreate = window.document.createElement;
-        // Reset window to force SSR
-        (window as any).document.createElement = null;
-
         const errSpy = excludeWarning();
 
         Date.now = jest.fn(() => new Date('2016-11-22').getTime());
@@ -67,8 +63,6 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
         }).toMatchSnapshot();
 
         errSpy.mockRestore();
-
-        (window as any).document.createElement = originCreate;
       },
     );
     jest.useRealTimers();
