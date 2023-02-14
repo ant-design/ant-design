@@ -260,7 +260,11 @@ const Dropdown: CompoundedComponent = (props) => {
         prefixCls={`${prefixCls}-menu`}
         expandIcon={
           <span className={`${prefixCls}-menu-submenu-arrow`}>
-            <LeftOutlined rotate={180} className={`${prefixCls}-menu-submenu-arrow-icon`} />
+            <LeftOutlined
+              rotate={180}
+              aria-label="right"
+              className={`${prefixCls}-menu-submenu-arrow-icon`}
+            />
           </span>
         }
         mode="vertical"
