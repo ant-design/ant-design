@@ -24,6 +24,7 @@ title: 从 v4 到 v5
 - 弃用 less，采用 CSS-in-JS，更好地支持动态主题。底层使用 [@ant-design/cssinjs](https://github.com/ant-design/cssinjs) 作为解决方案。
   - 所有 less 文件全部移除，less 变量不再支持透出。
   - 产物中不再包含 css 文件。由于 CSS-in-JS 支持按需引入，原本的 `antd/dist/antd.css` 也已经移除，如果需要重置一些基本样式请引入 `antd/dist/reset.css`。
+  - 如果需要组件重置样式，又不想引入 `antd/dist/reset.css` 从而导致污染全局样式的话，可以尝试在应用最外层使用[App 组件](components/app-cn)，解决原生元素没有 antd 规范样式的问题。
 - 移除 css variables 以及在此之上构筑的动态主题方案。
 - LocaleProvider 在 4.x 中已经废弃（使用 `<ConfigProvider locale />` 替代），我们在 5.x 里彻底移除了相关目录 `antd/es/locale-provider`、`antd/lib/locale-provider`。
 - 内置的时间库使用 Dayjs 替代 Moment.js，具体请查看 [使用自定义日期库](/docs/react/use-custom-date-library-cn/)。

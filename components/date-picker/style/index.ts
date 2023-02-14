@@ -321,7 +321,6 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
     pickerDateHoverRangeBorderColor,
     borderRadiusSM,
     colorTextLightSolid,
-    borderRadius,
     controlItemBgHover,
     pickerTimePanelColumnHeight,
     pickerTimePanelColumnWidth,
@@ -331,8 +330,11 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
   } = token;
 
   const pickerPanelWidth = pickerPanelCellWidth * 7 + paddingSM * 2 + 4;
-  const hoverCellFixedDistance =
-    (pickerPanelWidth - paddingXS * 2) / 3 - pickerYearMonthCellWidth / 2;
+  const commonHoverCellFixedDistance =
+    (pickerPanelWidth - paddingXS * 2) / 3 - pickerYearMonthCellWidth - paddingSM;
+
+  const quarterHoverCellFixedDistance =
+    (pickerPanelWidth - paddingXS * 2) / 4 - pickerYearMonthCellWidth;
 
   return {
     [componentCls]: {
@@ -565,6 +567,26 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
         [`${componentCls}-content`]: {
           height: pickerQuarterPanelContentHeight,
         },
+
+        // Quarter Panel Special Style
+        [`${componentCls}-cell-range-hover-start::after`]: {
+          insetInlineStart: quarterHoverCellFixedDistance,
+          borderInlineStart: `${lineWidth}px dashed ${pickerDateHoverRangeBorderColor}`,
+
+          [`${componentCls}-panel-rtl &`]: {
+            insetInlineEnd: quarterHoverCellFixedDistance,
+            borderInlineEnd: `${lineWidth}px dashed ${pickerDateHoverRangeBorderColor}`,
+          },
+        },
+        [`${componentCls}-cell-range-hover-end::after`]: {
+          insetInlineEnd: quarterHoverCellFixedDistance,
+          borderInlineEnd: `${lineWidth}px dashed ${pickerDateHoverRangeBorderColor}`,
+
+          [`${componentCls}-panel-rtl &`]: {
+            insetInlineStart: quarterHoverCellFixedDistance,
+            borderInlineStart: `${lineWidth}px dashed ${pickerDateHoverRangeBorderColor}`,
+          },
+        },
       },
 
       // ======================== Footer ========================
@@ -638,37 +660,51 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
         },
 
         [`${componentCls}-cell-range-hover-start::after`]: {
-          insetInlineStart: hoverCellFixedDistance,
-          borderInlineStart: `${lineWidth}px dashed ${pickerDateHoverRangeBorderColor}`,
           borderStartStartRadius: borderRadiusSM,
-          borderBottomStartRadius: borderRadiusSM,
+          borderEndStartRadius: borderRadiusSM,
           borderStartEndRadius: 0,
-          borderBottomEndRadius: 0,
+          borderEndEndRadius: 0,
 
           [`${componentCls}-panel-rtl &`]: {
-            insetInlineEnd: hoverCellFixedDistance,
-            borderInlineEnd: `${lineWidth}px dashed ${pickerDateHoverRangeBorderColor}`,
             borderStartStartRadius: 0,
-            borderBottomStartRadius: 0,
+            borderEndStartRadius: 0,
             borderStartEndRadius: borderRadiusSM,
-            borderBottomEndRadius: borderRadiusSM,
+            borderEndEndRadius: borderRadiusSM,
           },
         },
         [`${componentCls}-cell-range-hover-end::after`]: {
-          insetInlineEnd: hoverCellFixedDistance,
-          borderInlineEnd: `${lineWidth}px dashed ${pickerDateHoverRangeBorderColor}`,
           borderStartStartRadius: 0,
-          borderBottomStartRadius: 0,
-          borderStartEndRadius: borderRadius,
-          borderBottomEndRadius: borderRadius,
+          borderEndStartRadius: 0,
+          borderStartEndRadius: borderRadiusSM,
+          borderEndEndRadius: borderRadiusSM,
 
           [`${componentCls}-panel-rtl &`]: {
-            insetInlineStart: hoverCellFixedDistance,
-            borderInlineStart: `${lineWidth}px dashed ${pickerDateHoverRangeBorderColor}`,
-            borderStartStartRadius: borderRadius,
-            borderBottomStartRadius: borderRadius,
+            borderStartStartRadius: borderRadiusSM,
+            borderEndStartRadius: borderRadiusSM,
             borderStartEndRadius: 0,
-            borderBottomEndRadius: 0,
+            borderEndEndRadius: 0,
+          },
+        },
+      },
+
+      [`&-year-panel,
+        &-month-panel`]: {
+        [`${componentCls}-cell-range-hover-start::after`]: {
+          insetInlineStart: commonHoverCellFixedDistance,
+          borderInlineStart: `${lineWidth}px dashed ${pickerDateHoverRangeBorderColor}`,
+
+          [`${componentCls}-panel-rtl &`]: {
+            insetInlineEnd: commonHoverCellFixedDistance,
+            borderInlineEnd: `${lineWidth}px dashed ${pickerDateHoverRangeBorderColor}`,
+          },
+        },
+        [`${componentCls}-cell-range-hover-end::after`]: {
+          insetInlineEnd: commonHoverCellFixedDistance,
+          borderInlineEnd: `${lineWidth}px dashed ${pickerDateHoverRangeBorderColor}`,
+
+          [`${componentCls}-panel-rtl &`]: {
+            insetInlineStart: commonHoverCellFixedDistance,
+            borderInlineStart: `${lineWidth}px dashed ${pickerDateHoverRangeBorderColor}`,
           },
         },
       },

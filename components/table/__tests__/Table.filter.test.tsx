@@ -494,7 +494,7 @@ describe('Table.filter', () => {
         container
           ?.querySelector('.ant-table-filter-dropdown')
           ?.querySelectorAll<HTMLInputElement>('.ant-checkbox-input')[0].checked,
-      ).toEqual(true);
+      ).toBe(true);
     });
 
     const { container } = render(
@@ -514,7 +514,7 @@ describe('Table.filter', () => {
       container
         ?.querySelector('.ant-table-filter-dropdown')
         ?.querySelectorAll<HTMLInputElement>('.ant-checkbox-input')[0]?.checked,
-    ).toEqual(false);
+    ).toBe(false);
   });
 
   it('can read defaults from defaultFilteredValue', () => {
@@ -767,7 +767,7 @@ describe('Table.filter', () => {
           container
             ?.querySelector('.ant-table-filter-dropdown')
             ?.querySelectorAll<HTMLInputElement>('.ant-checkbox-input')[0].checked,
-        ).toEqual(false);
+        ).toBe(false);
       });
     });
   });
@@ -1574,7 +1574,7 @@ describe('Table.filter', () => {
     const checkbox = container
       ?.querySelector('.ant-dropdown-menu-item')
       ?.querySelector<HTMLInputElement>('input[type=checkbox]');
-    expect(checkbox?.checked).toEqual(false);
+    expect(checkbox?.checked).toBe(false);
   });
 
   it('should not trigger onChange when filters is empty', () => {
