@@ -94,7 +94,10 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
       expandIcon ? (
         expandIcon(panelProps)
       ) : (
-        <LeftOutlined rotate={panelProps.isActive ? 270 : 180} />
+        <LeftOutlined
+          aria-label={panelProps.isActive ? 'down' : 'right'}
+          rotate={panelProps.isActive ? 270 : 180}
+        />
       )
     ) as React.ReactNode;
 
