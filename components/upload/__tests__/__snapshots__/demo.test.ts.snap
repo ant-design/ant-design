@@ -644,8 +644,13 @@ exports[`renders ./components/upload/demo/drag-sorting.tsx correctly 1`] = `
       class="ant-upload-list-item-container"
     >
       <div
-        class="ant-upload-draggable-list-item "
+        aria-describedby="DndDescribedBy-0"
+        aria-disabled="false"
+        aria-roledescription="sortable"
+        class=""
+        role="button"
         style="cursor:move"
+        tabindex="0"
       >
         <div
           class="ant-upload-list-item ant-upload-list-item-done"
@@ -719,8 +724,13 @@ exports[`renders ./components/upload/demo/drag-sorting.tsx correctly 1`] = `
       class="ant-upload-list-item-container"
     >
       <div
-        class="ant-upload-draggable-list-item "
+        aria-describedby="DndDescribedBy-0"
+        aria-disabled="false"
+        aria-roledescription="sortable"
+        class=""
+        role="button"
         style="cursor:move"
+        tabindex="0"
       >
         <div
           class="ant-upload-list-item ant-upload-list-item-done"
@@ -794,8 +804,13 @@ exports[`renders ./components/upload/demo/drag-sorting.tsx correctly 1`] = `
       class="ant-upload-list-item-container"
     >
       <div
-        class="ant-upload-draggable-list-item "
+        aria-describedby="DndDescribedBy-0"
+        aria-disabled="false"
+        aria-roledescription="sortable"
+        class=""
+        role="button"
         style="cursor:move"
+        tabindex="0"
       >
         <div
           class="ant-upload-list-item ant-upload-list-item-done"
@@ -869,8 +884,13 @@ exports[`renders ./components/upload/demo/drag-sorting.tsx correctly 1`] = `
       class="ant-upload-list-item-container"
     >
       <div
-        class="ant-upload-draggable-list-item "
+        aria-describedby="DndDescribedBy-0"
+        aria-disabled="false"
+        aria-roledescription="sortable"
+        class=""
+        role="button"
         style="cursor:move"
+        tabindex="0"
       >
         <div
           class="ant-upload-list-item ant-upload-list-item-done"
@@ -944,8 +964,13 @@ exports[`renders ./components/upload/demo/drag-sorting.tsx correctly 1`] = `
       class="ant-upload-list-item-container"
     >
       <div
-        class="ant-upload-draggable-list-item "
+        aria-describedby="DndDescribedBy-0"
+        aria-disabled="false"
+        aria-roledescription="sortable"
+        class=""
+        role="button"
         style="cursor:move"
+        tabindex="0"
       >
         <div
           class="ant-upload-list-item ant-upload-list-item-error"
