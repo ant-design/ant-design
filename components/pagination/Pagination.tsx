@@ -78,7 +78,11 @@ const Pagination: React.FC<PaginationProps> = ({
       <a className={`${prefixCls}-item-link`}>
         {/* You can use transition effects in the container :) */}
         <div className={`${prefixCls}-item-container`}>
-          <DoubleLeftOutlined rotate={180} className={`${prefixCls}-item-link-icon`} />
+          <DoubleLeftOutlined
+            rotate={180}
+            aria-label="double-right"
+            className={`${prefixCls}-item-link-icon`}
+          />
           {ellipsis}
         </div>
       </a>

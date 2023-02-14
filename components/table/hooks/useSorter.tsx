@@ -129,6 +129,7 @@ function injectSorter<RecordType>(
       const upNode: React.ReactNode = sortDirections.includes(ASCEND) && (
         <CaretDownOutlined
           rotate={180}
+          aria-label="caret-up"
           className={classNames(`${prefixCls}-column-sorter-up`, {
             active: sorterOrder === ASCEND,
           })}

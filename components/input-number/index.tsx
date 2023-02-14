@@ -59,7 +59,9 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
-  let upIcon = <DownOutlined rotate={180} className={`${prefixCls}-handler-up-inner`} />;
+  let upIcon = (
+    <DownOutlined rotate={180} aria-label="up" className={`${prefixCls}-handler-up-inner`} />
+  );
   let downIcon = <DownOutlined className={`${prefixCls}-handler-down-inner`} />;
   const controlsTemp = typeof controls === 'boolean' ? controls : undefined;
 

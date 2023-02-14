@@ -14,7 +14,7 @@ import useStyle from './style';
 
 export const icons = {
   rotateLeft: <RotateLeftOutlined />,
-  rotateRight: <RotateLeftOutlined style={{ transform: 'scaleX(-1)' }} />,
+  rotateRight: <RotateLeftOutlined style={{ transform: 'scaleX(-1)' }} aria-label="rotate-right" />,
   zoomIn: <ZoomInOutlined />,
   zoomOut: <ZoomOutOutlined />,
   close: <CloseOutlined />,
