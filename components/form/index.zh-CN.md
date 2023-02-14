@@ -4,6 +4,7 @@ subtitle: 表单
 group: 数据录入
 title: Form
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-lcdS5Qm1bsAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 高性能表单控件，自带数据域管理。包含数据录入、校验以及对应样式。

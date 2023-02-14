@@ -215,7 +215,7 @@ const Footer: React.FC = () => {
         {
           icon: <ZhihuOutlined style={{ color: '#056de8' }} />,
           title: <FormattedMessage id="app.footer.zhihu.xtech" />,
-          url: 'http://zhuanlan.zhihu.com/xtech',
+          url: 'https://www.zhihu.com/column/c_1543658574504751104',
           openExternal: true,
         },
         {

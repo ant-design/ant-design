@@ -40,6 +40,7 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
     colorBgTextHover,
     tourCloseSize,
     motionDurationSlow,
+    antCls,
   } = token;
 
   return [
@@ -128,8 +129,6 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
             textAlign: 'end',
             borderRadius: `0 0 ${borderRadiusXS}px ${borderRadiusXS}px`,
             display: 'flex',
-            justifyContent: 'space-between',
-
             [`${componentCls}-indicators`]: {
               display: 'inline-block',
 
@@ -147,8 +146,11 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
                 },
               },
             },
-            [`${componentCls}-buttons button`]: {
-              marginInlineStart: marginXS,
+            [`${componentCls}-buttons`]: {
+              marginInlineStart: 'auto',
+              [`${antCls}-btn`]: {
+                marginInlineStart: marginXS,
+              },
             },
           },
         },

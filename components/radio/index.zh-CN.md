@@ -4,6 +4,7 @@ subtitle: 单选框
 group: 数据录入
 title: Radio
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*M-YKTJnWM2kAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*a9roS6DHFIcAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
