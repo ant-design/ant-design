@@ -505,9 +505,7 @@ exports[`renders ./components/tooltip/demo/destroy-tooltip-on-hide.tsx correctly
 `;
 
 exports[`renders ./components/tooltip/demo/placement.tsx correctly 1`] = `
-<div
-  style="padding:80px"
->
+<div>
   <div
     style="margin-left:70px;white-space:nowrap"
   >
