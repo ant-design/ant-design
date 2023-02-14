@@ -97,11 +97,29 @@ describe('App', () => {
 
     render(<Wrapper />);
 
-    await waitFakeTimer();
-
     expect(offsetConsumedConfig?.message).toStrictEqual({ maxCount: 1, top: 32 });
     expect(offsetConsumedConfig?.notification).toStrictEqual({ maxCount: 2, top: 96 });
     expect(maxCountConsumedConfig?.message).toStrictEqual({ maxCount: 1 });
     expect(maxCountConsumedConfig?.notification).toStrictEqual({ maxCount: 2 });
+  });
+
+  it('should respect config from props in priority', async () => {
+    let config: AppConfig | undefined;
+    const Consumer = () => {
+      config = React.useContext(AppConfigContext);
+      return <div />;
+    };
+    const Wrapper = () => (
+      <App message={{ maxCount: 10, top: 20 }} notification={{ maxCount: 30, bottom: 40 }}>
+        <App message={{ maxCount: 11 }} notification={{ bottom: 41 }}>
+          <Consumer />
+        </App>
+      </App>
+    );
+
+    render(<Wrapper />);
+
+    expect(config?.message).toStrictEqual({ maxCount: 11, top: 20 });
+    expect(config?.notification).toStrictEqual({ maxCount: 30, bottom: 41 });
   });
 });

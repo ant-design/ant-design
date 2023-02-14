@@ -36,8 +36,8 @@ const App: React.FC<AppProps> & { useApp: typeof useApp } = (props) => {
   const appConfig = useContext(AppConfigContext);
   const mergedAppConfig = React.useMemo<AppConfig>(
     () => ({
-      message: { ...message, ...appConfig.message },
-      notification: { ...notification, ...appConfig.notification },
+      message: { ...appConfig.message, ...message },
+      notification: { ...appConfig.notification, ...notification },
     }),
     [message, notification, appConfig.message, appConfig.message],
   );
