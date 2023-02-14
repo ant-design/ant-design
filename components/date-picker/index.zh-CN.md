@@ -3,13 +3,12 @@ category: Components
 group: 数据录入
 title: DatePicker
 subtitle: 日期选择框
+description: 输入或选择日期的控件。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*xXA9TJ8BTioAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*3OpRQKcygo8AAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-输入或选择日期的控件。
 
 ## 何时使用
 

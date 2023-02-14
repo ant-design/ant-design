@@ -39,6 +39,7 @@ export default function fromDumiProps<P extends object>(
     const { asset, children, demoUrl, expand, description = '', ...meta } = props;
     const intl = useIntl();
     const entryCode = asset.dependencies['index.tsx'].value;
+
     const transformedProps = {
       meta: {
         id: asset.id,
