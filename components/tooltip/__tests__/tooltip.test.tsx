@@ -11,6 +11,7 @@ import Input from '../../input';
 import Group from '../../input/Group';
 import Radio from '../../radio';
 import Switch from '../../switch';
+import getPlacements from '../../_util/placements';
 import { resetWarned } from '../../_util/warning';
 import { isTooltipOpen } from './util';
 
@@ -399,6 +400,27 @@ describe('Tooltip', () => {
         fireEvent.mouseEnter(element);
         await waitFakeTimer();
         expect(document.querySelector(`.ant-tooltip-placement-${placement}`)).toBeTruthy();
+      });
+
+      it(`${name} with arrowPointAtCenter`, async () => {
+        const placementInfo: Record<string, any> = getPlacements({
+          arrowPointAtCenter: true,
+          autoAdjustOverflow: false,
+          arrowWidth: 0,
+          borderRadius: 10,
+          offset: 0,
+        });
+
+        // Safe to rewrite follow all check
+        const { offset } = placementInfo[placement];
+
+        const existO = offset[0] !== 0 || offset[1] !== 0;
+
+        if (['left', 'right', 'top', 'bottom'].includes(placement)) {
+          expect(existO).toBeFalsy();
+        } else {
+          expect(existO).toBeTruthy();
+        }
       });
     };
 
