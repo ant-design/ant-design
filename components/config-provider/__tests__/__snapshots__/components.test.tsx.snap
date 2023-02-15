@@ -16015,7 +16015,7 @@ exports[`ConfigProvider components Input configProvider componentDisabled 1`] = 
       value=""
     />
     <span
-      class="config-input-group-wrapper config-input-search"
+      class="config-input-group-wrapper config-input-search config-input-group-wrapper-disabled"
     >
       <span
         class="config-input-wrapper config-input-group"
