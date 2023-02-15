@@ -163,6 +163,29 @@ exports[`renders ./components/checkbox/demo/debug-disable-popover.tsx extend con
 <div
   style="padding:56px"
 >
+  <div
+    class="ant-popover ant-popover-placement-top"
+    style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+  >
+    <div
+      class="ant-popover-arrow"
+      style="position:absolute;bottom:0;left:0"
+    />
+    <div
+      class="ant-popover-content"
+    >
+      <div
+        class="ant-popover-inner"
+        role="tooltip"
+      >
+        <div
+          class="ant-popover-inner-content"
+        >
+          xxxx
+        </div>
+      </div>
+    </div>
+  </div>
   <label
     class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-disabled"
   >
@@ -180,34 +203,6 @@ exports[`renders ./components/checkbox/demo/debug-disable-popover.tsx extend con
       />
     </span>
   </label>
-  <div>
-    <div
-      class="ant-popover"
-      style="opacity:0"
-    >
-      <div
-        class="ant-popover-content"
-      >
-        <div
-          class="ant-popover-arrow"
-        >
-          <span
-            class="ant-popover-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-popover-inner"
-          role="tooltip"
-        >
-          <div
-            class="ant-popover-inner-content"
-          >
-            xxxx
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
 `;
 

@@ -348,35 +348,30 @@ exports[`Table.filter renders custom filter icon with right Tooltip title 1`] = 
                         role="button"
                         tabindex="-1"
                       >
+                        <div
+                          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+                          style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                        >
+                          <div
+                            class="ant-tooltip-arrow"
+                            style="position: absolute; bottom: 0px; left: 0px;"
+                          />
+                          <div
+                            class="ant-tooltip-content"
+                          >
+                            <div
+                              class="ant-tooltip-inner"
+                              role="tooltip"
+                            >
+                              title
+                            </div>
+                          </div>
+                        </div>
                         <span
                           class="ant-tooltip-open"
                         >
                           Tooltip
                         </span>
-                        <div>
-                          <div
-                            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-                            style="opacity: 0;"
-                          >
-                            <div
-                              class="ant-tooltip-content"
-                            >
-                              <div
-                                class="ant-tooltip-arrow"
-                              >
-                                <span
-                                  class="ant-tooltip-arrow-content"
-                                />
-                              </div>
-                              <div
-                                class="ant-tooltip-inner"
-                                role="tooltip"
-                              >
-                                title
-                              </div>
-                            </div>
-                          </div>
-                        </div>
                       </span>
                     </div>
                   </th>

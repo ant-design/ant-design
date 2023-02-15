@@ -1,26 +1,35 @@
-import React, { useMemo, useState } from 'react';
 import { Button, Divider, Segmented, Tooltip } from 'antd';
+import React, { useMemo, useState } from 'react';
 
 const text = <span>prompt text</span>;
 
 const buttonWidth = 70;
 
 const App: React.FC = () => {
-  const [showArrow, setShowArrow] = useState(true);
-  const [arrowAtCenter, setArrowAtCenter] = useState(false);
+  const options = ['Show', 'Hide', 'Center'];
+  const [arrow, setArrow] = useState('Show');
 
   const mergedArrow = useMemo(() => {
-    if (arrowAtCenter) return { arrowPointAtCenter: true };
-    return showArrow;
-  }, [showArrow, arrowAtCenter]);
+    if (arrow === 'Hide') {
+      return false;
+    }
+
+    if (arrow === 'Show') {
+      return true;
+    }
+
+    return {
+      arrowPointAtCenter: true,
+    };
+  }, [arrow]);
 
   return (
     <div className="demo">
       <Segmented
-        options={['Show', 'Hide', 'Center']}
-        onChange={(val) => {
-          setShowArrow(val !== 'Hide');
-          setArrowAtCenter(val === 'Center');
+        value={arrow}
+        options={options}
+        onChange={(val: string) => {
+          setArrow(val);
         }}
       />
       <Divider orientation="center">Content</Divider>
