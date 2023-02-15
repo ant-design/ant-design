@@ -21,7 +21,7 @@ describe('App', () => {
 
   it('single', () => {
     // Sub page
-    const MyPage = () => {
+    const MyPage: React.FC = () => {
       const { message } = App.useApp();
       React.useEffect(() => {
         message.success('Good!');
@@ -31,7 +31,7 @@ describe('App', () => {
     };
 
     // Entry component
-    const MyApp = () => (
+    const MyApp: React.FC = () => (
       <App>
         <MyPage />
       </App>
@@ -121,5 +121,23 @@ describe('App', () => {
 
     expect(config?.message).toStrictEqual({ maxCount: 11, top: 20 });
     expect(config?.notification).toStrictEqual({ maxCount: 30, bottom: 41 });
+  });
+
+  it('support className', () => {
+    const { container } = render(
+      <App className="test-class">
+        <div>test</div>
+      </App>,
+    );
+    expect(container.querySelector<HTMLDivElement>('.ant-app')).toHaveClass('test-class');
+  });
+
+  it('support style', () => {
+    const { container } = render(
+      <App style={{ color: 'blue' }}>
+        <div>test</div>
+      </App>,
+    );
+    expect(container.querySelector<HTMLDivElement>('.ant-app')).toHaveStyle('color: blue;');
   });
 });

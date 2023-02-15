@@ -6,18 +6,19 @@ import { ConfigContext } from '../config-provider';
 import useMessage from '../message/useMessage';
 import useModal from '../modal/useModal';
 import useNotification from '../notification/useNotification';
-import AppContext, { AppConfigContext } from './context';
 import type { AppConfig, useAppProps } from './context';
+import AppContext, { AppConfigContext } from './context';
 import useStyle from './style';
 
-export type AppProps = {
+export interface AppProps extends AppConfig {
+  style?: React.CSSProperties;
   className?: string;
   rootClassName?: string;
   prefixCls?: string;
   children?: ReactNode;
-} & AppConfig;
+}
 
-const useApp = () => React.useContext(AppContext);
+const useApp = () => React.useContext<useAppProps>(AppContext);
 
 const App: React.FC<AppProps> & { useApp: typeof useApp } = (props) => {
   const {
@@ -27,13 +28,15 @@ const App: React.FC<AppProps> & { useApp: typeof useApp } = (props) => {
     rootClassName,
     message,
     notification,
+    style,
   } = props;
   const { getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('app', customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
   const customClassName = classNames(hashId, prefixCls, className, rootClassName);
 
-  const appConfig = useContext(AppConfigContext);
+  const appConfig = useContext<AppConfig>(AppConfigContext);
+
   const mergedAppConfig = React.useMemo<AppConfig>(
     () => ({
       message: { ...appConfig.message, ...message },
@@ -60,7 +63,7 @@ const App: React.FC<AppProps> & { useApp: typeof useApp } = (props) => {
   return wrapSSR(
     <AppContext.Provider value={memoizedContextValue}>
       <AppConfigContext.Provider value={mergedAppConfig}>
-        <div className={customClassName}>
+        <div className={customClassName} style={style}>
           {ModalContextHolder}
           {messageContextHolder}
           {notificationContextHolder}
