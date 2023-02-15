@@ -40,7 +40,7 @@ const FormDisabledDemo: React.FC = () => {
         disabled={componentDisabled}
         style={{ maxWidth: 600 }}
       >
-        <Form.Item label="Checkbox" name="disabled" valuePropName="checked">
+        <Form.Item label="Checkbox">
           <Checkbox>Checkbox</Checkbox>
         </Form.Item>
         <Form.Item label="Radio">
