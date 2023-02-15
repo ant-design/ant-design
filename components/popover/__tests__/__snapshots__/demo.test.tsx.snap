@@ -190,11 +190,11 @@ Array [
     class="ant-popover ant-popover-pure ant-popover-placement-top"
   >
     <div
+      class="ant-popover-arrow"
+    />
+    <div
       class="ant-popover-content"
     >
-      <div
-        class="ant-popover-arrow"
-      />
       <div
         class="ant-popover-inner"
         role="tooltip"
@@ -224,12 +224,12 @@ Array [
     style="width:250px"
   >
     <div
+      class="ant-popover-arrow"
+    />
+    <div
       class="ant-popover-content"
       style="width:250px"
     >
-      <div
-        class="ant-popover-arrow"
-      />
       <div
         class="ant-popover-inner"
         role="tooltip"
@@ -310,11 +310,11 @@ Array [
     class="ant-popover ant-popover-pure ant-popover-placement-top"
   >
     <div
+      class="ant-popover-arrow"
+    />
+    <div
       class="ant-popover-content"
     >
-      <div
-        class="ant-popover-arrow"
-      />
       <div
         class="ant-popover-inner"
         role="tooltip"
@@ -344,12 +344,12 @@ Array [
     style="width:250px"
   >
     <div
+      class="ant-popover-arrow"
+    />
+    <div
       class="ant-popover-content"
       style="width:250px"
     >
-      <div
-        class="ant-popover-arrow"
-      />
       <div
         class="ant-popover-inner"
         role="tooltip"

@@ -445,6 +445,25 @@ exports[`Menu should controlled collapse work 2`] = `
     role="menu"
     tabindex="0"
   >
+    <div
+      class="ant-tooltip ant-zoom-big-fast-enter ant-zoom-big-fast-enter-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+      style="left: 0px; top: 0px; pointer-events: none; box-sizing: border-box;"
+    >
+      <div
+        class="ant-tooltip-arrow"
+        style="position: absolute; top: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          Option 1
+        </div>
+      </div>
+    </div>
     <li
       class="ant-menu-item"
       data-menu-id="rc-menu-uuid-test-1"
@@ -481,6 +500,26 @@ exports[`Menu should controlled collapse work 2`] = `
   <div
     aria-hidden="true"
     style="display: none;"
-  />
+  >
+    <div
+      class="ant-tooltip ant-zoom-big-fast-enter ant-zoom-big-fast-enter-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+      style="left: 0px; top: 0px; pointer-events: none; box-sizing: border-box;"
+    >
+      <div
+        class="ant-tooltip-arrow"
+        style="position: absolute; top: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          Option 1
+        </div>
+      </div>
+    </div>
+  </div>
 </DocumentFragment>
 `;

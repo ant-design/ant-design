@@ -23,6 +23,7 @@ demo:
 <code src="./demo/basic.tsx">基本</code>
 <code src="./demo/placement.tsx">位置</code>
 <code src="./demo/arrow.tsx">箭头展示</code>
+<code src="./demo/shift.tsx" iframe="200">贴边偏移</code>
 <code src="./demo/auto-adjust-overflow.tsx" debug>自动调整位置</code>
 <code src="./demo/destroy-tooltip-on-hide.tsx" debug>隐藏后销毁</code>
 <code src="./demo/colorful.tsx">多彩文字提示</code>
@@ -45,7 +46,7 @@ demo:
 | autoAdjustOverflow | 气泡被遮挡时自动调整位置 | boolean | true |  |
 | color | 背景颜色 | string | - | 4.3.0 |
 | defaultOpen | 默认是否显隐 | boolean | false | 4.23.0 |
-| destroyTooltipOnHide | 关闭后是否销毁 Tooltip，当 `keepParent` 为 `false` 时销毁父容器 | boolean \| { keepParent?: boolean } | false |  |
+| destroyTooltipOnHide | 关闭后是否销毁 Tooltip | boolean | false |  |
 | getPopupContainer | 浮层渲染父节点，默认渲染到 body 上 | (triggerNode: HTMLElement) => HTMLElement | () => document.body |  |
 | mouseEnterDelay | 鼠标移入后延时多少才显示 Tooltip，单位：秒 | number | 0.1 |  |
 | mouseLeaveDelay | 鼠标移出后延时多少才隐藏 Tooltip，单位：秒 | number | 0.1 |  |

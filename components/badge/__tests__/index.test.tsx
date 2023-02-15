@@ -85,7 +85,7 @@ describe('Badge', () => {
       fireEvent.mouseEnter(container.querySelector('.ant-badge')!);
       jest.runAllTimers();
     });
-    expect((container.firstChild! as HTMLElement).classList).toContain('ant-tooltip-open');
+    expect(container.querySelector('.ant-tooltip-open')).toBeTruthy();
   });
 
   it('should render when count is changed', () => {

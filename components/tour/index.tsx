@@ -32,6 +32,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     autoAdjustOverflow: true,
     offset: token.marginXXS,
     arrowWidth: token.sizePopupArrow,
+    borderRadius: token.borderRadius,
   });
 
   const customClassName = classNames(

@@ -1,5 +1,437 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`renders ./components/tooltip/demo/arrow.tsx extend context correctly 1`] = `
+<div
+  class="demo"
+>
+  <div
+    class="ant-segmented"
+  >
+    <div
+      class="ant-segmented-group"
+    >
+      <label
+        class="ant-segmented-item ant-segmented-item-selected"
+      >
+        <input
+          checked=""
+          class="ant-segmented-item-input"
+          type="radio"
+        />
+        <div
+          class="ant-segmented-item-label"
+          title="Show"
+        >
+          Show
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          type="radio"
+        />
+        <div
+          class="ant-segmented-item-label"
+          title="Hide"
+        >
+          Hide
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          type="radio"
+        />
+        <div
+          class="ant-segmented-item-label"
+          title="Center"
+        >
+          Center
+        </div>
+      </label>
+    </div>
+  </div>
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      Content
+    </span>
+  </div>
+  <div
+    style="margin-left:70px;white-space:nowrap"
+  >
+    <div
+      class="ant-tooltip ant-tooltip-placement-topLeft"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
+      <div
+        class="ant-tooltip-arrow"
+        style="position:absolute"
+      />
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          <span>
+            prompt text
+          </span>
+        </div>
+      </div>
+    </div>
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        TL
+      </span>
+    </button>
+    <div
+      class="ant-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
+      <div
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          <span>
+            prompt text
+          </span>
+        </div>
+      </div>
+    </div>
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        Top
+      </span>
+    </button>
+    <div
+      class="ant-tooltip ant-tooltip-placement-topRight"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
+      <div
+        class="ant-tooltip-arrow"
+        style="position:absolute"
+      />
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          <span>
+            prompt text
+          </span>
+        </div>
+      </div>
+    </div>
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        TR
+      </span>
+    </button>
+  </div>
+  <div
+    style="width:70px;float:left"
+  >
+    <div
+      class="ant-tooltip ant-tooltip-placement-leftTop"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
+      <div
+        class="ant-tooltip-arrow"
+        style="position:absolute"
+      />
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          <span>
+            prompt text
+          </span>
+        </div>
+      </div>
+    </div>
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        LT
+      </span>
+    </button>
+    <div
+      class="ant-tooltip ant-tooltip-placement-left"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
+      <div
+        class="ant-tooltip-arrow"
+        style="position:absolute;top:0;right:0"
+      />
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          <span>
+            prompt text
+          </span>
+        </div>
+      </div>
+    </div>
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        Left
+      </span>
+    </button>
+    <div
+      class="ant-tooltip ant-tooltip-placement-leftBottom"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
+      <div
+        class="ant-tooltip-arrow"
+        style="position:absolute"
+      />
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          <span>
+            prompt text
+          </span>
+        </div>
+      </div>
+    </div>
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        LB
+      </span>
+    </button>
+  </div>
+  <div
+    style="width:70px;margin-left:304px"
+  >
+    <div
+      class="ant-tooltip ant-tooltip-placement-rightTop"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
+      <div
+        class="ant-tooltip-arrow"
+        style="position:absolute"
+      />
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          <span>
+            prompt text
+          </span>
+        </div>
+      </div>
+    </div>
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        RT
+      </span>
+    </button>
+    <div
+      class="ant-tooltip ant-tooltip-placement-right"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
+      <div
+        class="ant-tooltip-arrow"
+        style="position:absolute;top:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          <span>
+            prompt text
+          </span>
+        </div>
+      </div>
+    </div>
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        Right
+      </span>
+    </button>
+    <div
+      class="ant-tooltip ant-tooltip-placement-rightBottom"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
+      <div
+        class="ant-tooltip-arrow"
+        style="position:absolute"
+      />
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          <span>
+            prompt text
+          </span>
+        </div>
+      </div>
+    </div>
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        RB
+      </span>
+    </button>
+  </div>
+  <div
+    style="margin-left:70px;clear:both;white-space:nowrap"
+  >
+    <div
+      class="ant-tooltip ant-tooltip-placement-bottomLeft"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
+      <div
+        class="ant-tooltip-arrow"
+        style="position:absolute"
+      />
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          <span>
+            prompt text
+          </span>
+        </div>
+      </div>
+    </div>
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        BL
+      </span>
+    </button>
+    <div
+      class="ant-tooltip ant-tooltip-placement-bottom"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
+      <div
+        class="ant-tooltip-arrow"
+        style="position:absolute;top:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          <span>
+            prompt text
+          </span>
+        </div>
+      </div>
+    </div>
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        Bottom
+      </span>
+    </button>
+    <div
+      class="ant-tooltip ant-tooltip-placement-bottomRight"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
+      <div
+        class="ant-tooltip-arrow"
+        style="position:absolute"
+      />
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          <span>
+            prompt text
+          </span>
+        </div>
+      </div>
+    </div>
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        BR
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
 exports[`renders ./components/tooltip/demo/arrow-point-at-center.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
@@ -8,6 +440,25 @@ exports[`renders ./components/tooltip/demo/arrow-point-at-center.tsx extend cont
     class="ant-space-item"
     style="margin-bottom:8px"
   >
+    <div
+      class="ant-tooltip ant-tooltip-placement-topLeft"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
+      <div
+        class="ant-tooltip-arrow"
+        style="position:absolute"
+      />
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          Prompt Text
+        </div>
+      </div>
+    </div>
     <button
       class="ant-btn ant-btn-default"
       type="button"
@@ -16,34 +467,29 @@ exports[`renders ./components/tooltip/demo/arrow-point-at-center.tsx extend cont
         Align edge / 边缘对齐
       </span>
     </button>
-    <div>
-      <div
-        class="ant-tooltip"
-        style="opacity:0"
-      >
-        <div
-          class="ant-tooltip-content"
-        >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            Prompt Text
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
   <div
     class="ant-space-item"
   >
+    <div
+      class="ant-tooltip ant-tooltip-placement-topLeft"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
+      <div
+        class="ant-tooltip-arrow"
+        style="position:absolute"
+      />
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          Prompt Text
+        </div>
+      </div>
+    </div>
     <button
       class="ant-btn ant-btn-default"
       type="button"
@@ -52,135 +498,61 @@ exports[`renders ./components/tooltip/demo/arrow-point-at-center.tsx extend cont
         Arrow points to center / 箭头指向中心
       </span>
     </button>
-    <div>
-      <div
-        class="ant-tooltip"
-        style="opacity:0"
-      >
-        <div
-          class="ant-tooltip-content"
-        >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            Prompt Text
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </div>
 `;
 
 exports[`renders ./components/tooltip/demo/auto-adjust-overflow.tsx extend context correctly 1`] = `
 <div
-  style="overflow:hidden;position:relative;padding:24px;border:1px solid #e9e9e9"
+  style="overflow:auto;position:relative;padding:24px;border:1px solid #e9e9e9"
 >
-  <button
-    class="ant-btn ant-btn-default"
-    type="button"
+  <div
+    style="width:200%;display:flex;flex-direction:column;align-items:center;row-gap:16px"
   >
-    <span>
-      Adjust automatically / 自动调整
-    </span>
-  </button>
-  <div>
-    <div
-      class="ant-tooltip"
-      style="opacity:0"
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
     >
-      <div
-        class="ant-tooltip-content"
-      >
-        <div
-          class="ant-tooltip-arrow"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-tooltip-inner"
-          role="tooltip"
-        >
-          Prompt Text
-        </div>
-      </div>
-    </div>
-  </div>
-  <br />
-  <button
-    class="ant-btn ant-btn-default"
-    type="button"
-  >
-    <span>
-      Ignore / 不处理
-    </span>
-  </button>
-  <div>
-    <div
-      class="ant-tooltip"
-      style="opacity:0"
+      <span>
+        Adjust automatically / 自动调整
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
     >
-      <div
-        class="ant-tooltip-content"
-      >
-        <div
-          class="ant-tooltip-arrow"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-tooltip-inner"
-          role="tooltip"
-        >
-          Prompt Text
-        </div>
-      </div>
-    </div>
+      <span>
+        Ignore / 不处理
+      </span>
+    </button>
   </div>
 </div>
 `;
 
 exports[`renders ./components/tooltip/demo/basic.tsx extend context correctly 1`] = `
 Array [
-  <span>
-    Tooltip will show on mouse enter.
-  </span>,
-  <div>
+  <div
+    class="ant-tooltip ant-tooltip-placement-top"
+    style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+  >
     <div
-      class="ant-tooltip"
-      style="opacity:0"
+      class="ant-tooltip-arrow"
+      style="position:absolute;bottom:0;left:0"
+    />
+    <div
+      class="ant-tooltip-content"
     >
       <div
-        class="ant-tooltip-content"
+        class="ant-tooltip-inner"
+        role="tooltip"
       >
-        <div
-          class="ant-tooltip-arrow"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-tooltip-inner"
-          role="tooltip"
-        >
-          prompt text
-        </div>
+        prompt text
       </div>
     </div>
   </div>,
+  <span>
+    Tooltip will show on mouse enter.
+  </span>,
 ]
 `;
 
@@ -204,6 +576,25 @@ Array [
       class="ant-space-item"
       style="margin-right:8px;padding-bottom:8px"
     >
+      <div
+        class="ant-tooltip ant-tooltip-pink ant-tooltip-placement-top"
+        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      >
+        <div
+          class="ant-tooltip-arrow"
+          style="position:absolute;bottom:0;left:0"
+        />
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            prompt text
+          </div>
+        </div>
+      </div>
       <button
         class="ant-btn ant-btn-default"
         type="button"
@@ -212,35 +603,30 @@ Array [
           pink
         </span>
       </button>
-      <div>
-        <div
-          class="ant-tooltip ant-tooltip-pink"
-          style="opacity:0"
-        >
-          <div
-            class="ant-tooltip-content"
-          >
-            <div
-              class="ant-tooltip-arrow"
-            >
-              <span
-                class="ant-tooltip-arrow-content"
-              />
-            </div>
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            >
-              prompt text
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
     <div
       class="ant-space-item"
       style="margin-right:8px;padding-bottom:8px"
     >
+      <div
+        class="ant-tooltip ant-tooltip-red ant-tooltip-placement-top"
+        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      >
+        <div
+          class="ant-tooltip-arrow"
+          style="position:absolute;bottom:0;left:0"
+        />
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            prompt text
+          </div>
+        </div>
+      </div>
       <button
         class="ant-btn ant-btn-default"
         type="button"
@@ -249,35 +635,30 @@ Array [
           red
         </span>
       </button>
-      <div>
-        <div
-          class="ant-tooltip ant-tooltip-red"
-          style="opacity:0"
-        >
-          <div
-            class="ant-tooltip-content"
-          >
-            <div
-              class="ant-tooltip-arrow"
-            >
-              <span
-                class="ant-tooltip-arrow-content"
-              />
-            </div>
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            >
-              prompt text
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
     <div
       class="ant-space-item"
       style="margin-right:8px;padding-bottom:8px"
     >
+      <div
+        class="ant-tooltip ant-tooltip-yellow ant-tooltip-placement-top"
+        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      >
+        <div
+          class="ant-tooltip-arrow"
+          style="position:absolute;bottom:0;left:0"
+        />
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            prompt text
+          </div>
+        </div>
+      </div>
       <button
         class="ant-btn ant-btn-default"
         type="button"
@@ -286,35 +667,30 @@ Array [
           yellow
         </span>
       </button>
-      <div>
-        <div
-          class="ant-tooltip ant-tooltip-yellow"
-          style="opacity:0"
-        >
-          <div
-            class="ant-tooltip-content"
-          >
-            <div
-              class="ant-tooltip-arrow"
-            >
-              <span
-                class="ant-tooltip-arrow-content"
-              />
-            </div>
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            >
-              prompt text
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
     <div
       class="ant-space-item"
       style="margin-right:8px;padding-bottom:8px"
     >
+      <div
+        class="ant-tooltip ant-tooltip-orange ant-tooltip-placement-top"
+        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      >
+        <div
+          class="ant-tooltip-arrow"
+          style="position:absolute;bottom:0;left:0"
+        />
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            prompt text
+          </div>
+        </div>
+      </div>
       <button
         class="ant-btn ant-btn-default"
         type="button"
@@ -323,35 +699,30 @@ Array [
           orange
         </span>
       </button>
-      <div>
-        <div
-          class="ant-tooltip ant-tooltip-orange"
-          style="opacity:0"
-        >
-          <div
-            class="ant-tooltip-content"
-          >
-            <div
-              class="ant-tooltip-arrow"
-            >
-              <span
-                class="ant-tooltip-arrow-content"
-              />
-            </div>
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            >
-              prompt text
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
     <div
       class="ant-space-item"
       style="margin-right:8px;padding-bottom:8px"
     >
+      <div
+        class="ant-tooltip ant-tooltip-cyan ant-tooltip-placement-top"
+        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      >
+        <div
+          class="ant-tooltip-arrow"
+          style="position:absolute;bottom:0;left:0"
+        />
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            prompt text
+          </div>
+        </div>
+      </div>
       <button
         class="ant-btn ant-btn-default"
         type="button"
@@ -360,35 +731,30 @@ Array [
           cyan
         </span>
       </button>
-      <div>
-        <div
-          class="ant-tooltip ant-tooltip-cyan"
-          style="opacity:0"
-        >
-          <div
-            class="ant-tooltip-content"
-          >
-            <div
-              class="ant-tooltip-arrow"
-            >
-              <span
-                class="ant-tooltip-arrow-content"
-              />
-            </div>
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            >
-              prompt text
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
     <div
       class="ant-space-item"
       style="margin-right:8px;padding-bottom:8px"
     >
+      <div
+        class="ant-tooltip ant-tooltip-green ant-tooltip-placement-top"
+        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      >
+        <div
+          class="ant-tooltip-arrow"
+          style="position:absolute;bottom:0;left:0"
+        />
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            prompt text
+          </div>
+        </div>
+      </div>
       <button
         class="ant-btn ant-btn-default"
         type="button"
@@ -397,35 +763,30 @@ Array [
           green
         </span>
       </button>
-      <div>
-        <div
-          class="ant-tooltip ant-tooltip-green"
-          style="opacity:0"
-        >
-          <div
-            class="ant-tooltip-content"
-          >
-            <div
-              class="ant-tooltip-arrow"
-            >
-              <span
-                class="ant-tooltip-arrow-content"
-              />
-            </div>
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            >
-              prompt text
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
     <div
       class="ant-space-item"
       style="margin-right:8px;padding-bottom:8px"
     >
+      <div
+        class="ant-tooltip ant-tooltip-blue ant-tooltip-placement-top"
+        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      >
+        <div
+          class="ant-tooltip-arrow"
+          style="position:absolute;bottom:0;left:0"
+        />
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            prompt text
+          </div>
+        </div>
+      </div>
       <button
         class="ant-btn ant-btn-default"
         type="button"
@@ -434,35 +795,30 @@ Array [
           blue
         </span>
       </button>
-      <div>
-        <div
-          class="ant-tooltip ant-tooltip-blue"
-          style="opacity:0"
-        >
-          <div
-            class="ant-tooltip-content"
-          >
-            <div
-              class="ant-tooltip-arrow"
-            >
-              <span
-                class="ant-tooltip-arrow-content"
-              />
-            </div>
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            >
-              prompt text
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
     <div
       class="ant-space-item"
       style="margin-right:8px;padding-bottom:8px"
     >
+      <div
+        class="ant-tooltip ant-tooltip-purple ant-tooltip-placement-top"
+        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      >
+        <div
+          class="ant-tooltip-arrow"
+          style="position:absolute;bottom:0;left:0"
+        />
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            prompt text
+          </div>
+        </div>
+      </div>
       <button
         class="ant-btn ant-btn-default"
         type="button"
@@ -471,35 +827,30 @@ Array [
           purple
         </span>
       </button>
-      <div>
-        <div
-          class="ant-tooltip ant-tooltip-purple"
-          style="opacity:0"
-        >
-          <div
-            class="ant-tooltip-content"
-          >
-            <div
-              class="ant-tooltip-arrow"
-            >
-              <span
-                class="ant-tooltip-arrow-content"
-              />
-            </div>
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            >
-              prompt text
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
     <div
       class="ant-space-item"
       style="margin-right:8px;padding-bottom:8px"
     >
+      <div
+        class="ant-tooltip ant-tooltip-geekblue ant-tooltip-placement-top"
+        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      >
+        <div
+          class="ant-tooltip-arrow"
+          style="position:absolute;bottom:0;left:0"
+        />
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            prompt text
+          </div>
+        </div>
+      </div>
       <button
         class="ant-btn ant-btn-default"
         type="button"
@@ -508,35 +859,30 @@ Array [
           geekblue
         </span>
       </button>
-      <div>
-        <div
-          class="ant-tooltip ant-tooltip-geekblue"
-          style="opacity:0"
-        >
-          <div
-            class="ant-tooltip-content"
-          >
-            <div
-              class="ant-tooltip-arrow"
-            >
-              <span
-                class="ant-tooltip-arrow-content"
-              />
-            </div>
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            >
-              prompt text
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
     <div
       class="ant-space-item"
       style="margin-right:8px;padding-bottom:8px"
     >
+      <div
+        class="ant-tooltip ant-tooltip-magenta ant-tooltip-placement-top"
+        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      >
+        <div
+          class="ant-tooltip-arrow"
+          style="position:absolute;bottom:0;left:0"
+        />
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            prompt text
+          </div>
+        </div>
+      </div>
       <button
         class="ant-btn ant-btn-default"
         type="button"
@@ -545,35 +891,30 @@ Array [
           magenta
         </span>
       </button>
-      <div>
-        <div
-          class="ant-tooltip ant-tooltip-magenta"
-          style="opacity:0"
-        >
-          <div
-            class="ant-tooltip-content"
-          >
-            <div
-              class="ant-tooltip-arrow"
-            >
-              <span
-                class="ant-tooltip-arrow-content"
-              />
-            </div>
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            >
-              prompt text
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
     <div
       class="ant-space-item"
       style="margin-right:8px;padding-bottom:8px"
     >
+      <div
+        class="ant-tooltip ant-tooltip-volcano ant-tooltip-placement-top"
+        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      >
+        <div
+          class="ant-tooltip-arrow"
+          style="position:absolute;bottom:0;left:0"
+        />
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            prompt text
+          </div>
+        </div>
+      </div>
       <button
         class="ant-btn ant-btn-default"
         type="button"
@@ -582,35 +923,30 @@ Array [
           volcano
         </span>
       </button>
-      <div>
-        <div
-          class="ant-tooltip ant-tooltip-volcano"
-          style="opacity:0"
-        >
-          <div
-            class="ant-tooltip-content"
-          >
-            <div
-              class="ant-tooltip-arrow"
-            >
-              <span
-                class="ant-tooltip-arrow-content"
-              />
-            </div>
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            >
-              prompt text
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
     <div
       class="ant-space-item"
       style="margin-right:8px;padding-bottom:8px"
     >
+      <div
+        class="ant-tooltip ant-tooltip-gold ant-tooltip-placement-top"
+        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      >
+        <div
+          class="ant-tooltip-arrow"
+          style="position:absolute;bottom:0;left:0"
+        />
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            prompt text
+          </div>
+        </div>
+      </div>
       <button
         class="ant-btn ant-btn-default"
         type="button"
@@ -619,35 +955,30 @@ Array [
           gold
         </span>
       </button>
-      <div>
-        <div
-          class="ant-tooltip ant-tooltip-gold"
-          style="opacity:0"
-        >
-          <div
-            class="ant-tooltip-content"
-          >
-            <div
-              class="ant-tooltip-arrow"
-            >
-              <span
-                class="ant-tooltip-arrow-content"
-              />
-            </div>
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            >
-              prompt text
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
     <div
       class="ant-space-item"
       style="padding-bottom:8px"
     >
+      <div
+        class="ant-tooltip ant-tooltip-lime ant-tooltip-placement-top"
+        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      >
+        <div
+          class="ant-tooltip-arrow"
+          style="position:absolute;bottom:0;left:0"
+        />
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            prompt text
+          </div>
+        </div>
+      </div>
       <button
         class="ant-btn ant-btn-default"
         type="button"
@@ -656,30 +987,6 @@ Array [
           lime
         </span>
       </button>
-      <div>
-        <div
-          class="ant-tooltip ant-tooltip-lime"
-          style="opacity:0"
-        >
-          <div
-            class="ant-tooltip-content"
-          >
-            <div
-              class="ant-tooltip-arrow"
-            >
-              <span
-                class="ant-tooltip-arrow-content"
-              />
-            </div>
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            >
-              prompt text
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>,
   <div
@@ -700,6 +1007,26 @@ Array [
       class="ant-space-item"
       style="margin-right:8px;padding-bottom:8px"
     >
+      <div
+        class="ant-tooltip ant-tooltip-placement-top"
+        style="left:-1000vw;top:-1000vh;box-sizing:border-box;--antd-arrow-background-color:#f50"
+      >
+        <div
+          class="ant-tooltip-arrow"
+          style="position:absolute;bottom:0;left:0"
+        />
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+            style="background:#f50"
+          >
+            prompt text
+          </div>
+        </div>
+      </div>
       <button
         class="ant-btn ant-btn-default"
         type="button"
@@ -708,36 +1035,31 @@ Array [
           #f50
         </span>
       </button>
-      <div>
-        <div
-          class="ant-tooltip"
-          style="opacity:0;--antd-arrow-background-color:#f50"
-        >
-          <div
-            class="ant-tooltip-content"
-          >
-            <div
-              class="ant-tooltip-arrow"
-            >
-              <span
-                class="ant-tooltip-arrow-content"
-              />
-            </div>
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-              style="background:#f50"
-            >
-              prompt text
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
     <div
       class="ant-space-item"
       style="margin-right:8px;padding-bottom:8px"
     >
+      <div
+        class="ant-tooltip ant-tooltip-placement-top"
+        style="left:-1000vw;top:-1000vh;box-sizing:border-box;--antd-arrow-background-color:#2db7f5"
+      >
+        <div
+          class="ant-tooltip-arrow"
+          style="position:absolute;bottom:0;left:0"
+        />
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+            style="background:#2db7f5"
+          >
+            prompt text
+          </div>
+        </div>
+      </div>
       <button
         class="ant-btn ant-btn-default"
         type="button"
@@ -746,36 +1068,31 @@ Array [
           #2db7f5
         </span>
       </button>
-      <div>
-        <div
-          class="ant-tooltip"
-          style="opacity:0;--antd-arrow-background-color:#2db7f5"
-        >
-          <div
-            class="ant-tooltip-content"
-          >
-            <div
-              class="ant-tooltip-arrow"
-            >
-              <span
-                class="ant-tooltip-arrow-content"
-              />
-            </div>
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-              style="background:#2db7f5"
-            >
-              prompt text
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
     <div
       class="ant-space-item"
       style="margin-right:8px;padding-bottom:8px"
     >
+      <div
+        class="ant-tooltip ant-tooltip-placement-top"
+        style="left:-1000vw;top:-1000vh;box-sizing:border-box;--antd-arrow-background-color:#87d068"
+      >
+        <div
+          class="ant-tooltip-arrow"
+          style="position:absolute;bottom:0;left:0"
+        />
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+            style="background:#87d068"
+          >
+            prompt text
+          </div>
+        </div>
+      </div>
       <button
         class="ant-btn ant-btn-default"
         type="button"
@@ -784,36 +1101,31 @@ Array [
           #87d068
         </span>
       </button>
-      <div>
-        <div
-          class="ant-tooltip"
-          style="opacity:0;--antd-arrow-background-color:#87d068"
-        >
-          <div
-            class="ant-tooltip-content"
-          >
-            <div
-              class="ant-tooltip-arrow"
-            >
-              <span
-                class="ant-tooltip-arrow-content"
-              />
-            </div>
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-              style="background:#87d068"
-            >
-              prompt text
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
     <div
       class="ant-space-item"
       style="padding-bottom:8px"
     >
+      <div
+        class="ant-tooltip ant-tooltip-placement-top"
+        style="left:-1000vw;top:-1000vh;box-sizing:border-box;--antd-arrow-background-color:#108ee9"
+      >
+        <div
+          class="ant-tooltip-arrow"
+          style="position:absolute;bottom:0;left:0"
+        />
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+            style="background:#108ee9"
+          >
+            prompt text
+          </div>
+        </div>
+      </div>
       <button
         class="ant-btn ant-btn-default"
         type="button"
@@ -822,31 +1134,6 @@ Array [
           #108ee9
         </span>
       </button>
-      <div>
-        <div
-          class="ant-tooltip"
-          style="opacity:0;--antd-arrow-background-color:#108ee9"
-        >
-          <div
-            class="ant-tooltip-content"
-          >
-            <div
-              class="ant-tooltip-arrow"
-            >
-              <span
-                class="ant-tooltip-arrow-content"
-              />
-            </div>
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-              style="background:#108ee9"
-            >
-              prompt text
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>,
 ]
@@ -854,33 +1141,28 @@ Array [
 
 exports[`renders ./components/tooltip/demo/destroy-tooltip-on-hide.tsx extend context correctly 1`] = `
 Array [
-  <span>
-    Tooltip will destroy when hidden.
-  </span>,
-  <div>
+  <div
+    class="ant-tooltip ant-tooltip-placement-top"
+    style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+  >
     <div
-      class="ant-tooltip"
-      style="opacity:0"
+      class="ant-tooltip-arrow"
+      style="position:absolute;bottom:0;left:0"
+    />
+    <div
+      class="ant-tooltip-content"
     >
       <div
-        class="ant-tooltip-content"
+        class="ant-tooltip-inner"
+        role="tooltip"
       >
-        <div
-          class="ant-tooltip-arrow"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-tooltip-inner"
-          role="tooltip"
-        >
-          prompt text
-        </div>
+        prompt text
       </div>
     </div>
   </div>,
+  <span>
+    Tooltip will destroy when hidden.
+  </span>,
 ]
 `;
 
@@ -889,6 +1171,27 @@ exports[`renders ./components/tooltip/demo/placement.tsx extend context correctl
   <div
     style="margin-left:70px;white-space:nowrap"
   >
+    <div
+      class="ant-tooltip ant-tooltip-placement-topLeft"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
+      <div
+        class="ant-tooltip-arrow"
+        style="position:absolute"
+      />
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          <span>
+            prompt text
+          </span>
+        </div>
+      </div>
+    </div>
     <button
       class="ant-btn ant-btn-default"
       type="button"
@@ -897,29 +1200,24 @@ exports[`renders ./components/tooltip/demo/placement.tsx extend context correctl
         TL
       </span>
     </button>
-    <div>
+    <div
+      class="ant-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            <span>
-              prompt text
-            </span>
-          </div>
+          <span>
+            prompt text
+          </span>
         </div>
       </div>
     </div>
@@ -931,29 +1229,24 @@ exports[`renders ./components/tooltip/demo/placement.tsx extend context correctl
         Top
       </span>
     </button>
-    <div>
+    <div
+      class="ant-tooltip ant-tooltip-placement-topRight"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position:absolute"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            <span>
-              prompt text
-            </span>
-          </div>
+          <span>
+            prompt text
+          </span>
         </div>
       </div>
     </div>
@@ -965,36 +1258,31 @@ exports[`renders ./components/tooltip/demo/placement.tsx extend context correctl
         TR
       </span>
     </button>
-    <div>
-      <div
-        class="ant-tooltip"
-        style="opacity:0"
-      >
-        <div
-          class="ant-tooltip-content"
-        >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            <span>
-              prompt text
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
   <div
     style="width:70px;float:left"
   >
+    <div
+      class="ant-tooltip ant-tooltip-placement-leftTop"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
+      <div
+        class="ant-tooltip-arrow"
+        style="position:absolute"
+      />
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          <span>
+            prompt text
+          </span>
+        </div>
+      </div>
+    </div>
     <button
       class="ant-btn ant-btn-default"
       type="button"
@@ -1003,29 +1291,24 @@ exports[`renders ./components/tooltip/demo/placement.tsx extend context correctl
         LT
       </span>
     </button>
-    <div>
+    <div
+      class="ant-tooltip ant-tooltip-placement-left"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position:absolute;top:0;right:0"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            <span>
-              prompt text
-            </span>
-          </div>
+          <span>
+            prompt text
+          </span>
         </div>
       </div>
     </div>
@@ -1037,29 +1320,24 @@ exports[`renders ./components/tooltip/demo/placement.tsx extend context correctl
         Left
       </span>
     </button>
-    <div>
+    <div
+      class="ant-tooltip ant-tooltip-placement-leftBottom"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position:absolute"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            <span>
-              prompt text
-            </span>
-          </div>
+          <span>
+            prompt text
+          </span>
         </div>
       </div>
     </div>
@@ -1071,36 +1349,31 @@ exports[`renders ./components/tooltip/demo/placement.tsx extend context correctl
         LB
       </span>
     </button>
-    <div>
-      <div
-        class="ant-tooltip"
-        style="opacity:0"
-      >
-        <div
-          class="ant-tooltip-content"
-        >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            <span>
-              prompt text
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
   <div
     style="width:70px;margin-left:304px"
   >
+    <div
+      class="ant-tooltip ant-tooltip-placement-rightTop"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
+      <div
+        class="ant-tooltip-arrow"
+        style="position:absolute"
+      />
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          <span>
+            prompt text
+          </span>
+        </div>
+      </div>
+    </div>
     <button
       class="ant-btn ant-btn-default"
       type="button"
@@ -1109,29 +1382,24 @@ exports[`renders ./components/tooltip/demo/placement.tsx extend context correctl
         RT
       </span>
     </button>
-    <div>
+    <div
+      class="ant-tooltip ant-tooltip-placement-right"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position:absolute;top:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            <span>
-              prompt text
-            </span>
-          </div>
+          <span>
+            prompt text
+          </span>
         </div>
       </div>
     </div>
@@ -1143,29 +1411,24 @@ exports[`renders ./components/tooltip/demo/placement.tsx extend context correctl
         Right
       </span>
     </button>
-    <div>
+    <div
+      class="ant-tooltip ant-tooltip-placement-rightBottom"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position:absolute"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            <span>
-              prompt text
-            </span>
-          </div>
+          <span>
+            prompt text
+          </span>
         </div>
       </div>
     </div>
@@ -1177,36 +1440,31 @@ exports[`renders ./components/tooltip/demo/placement.tsx extend context correctl
         RB
       </span>
     </button>
-    <div>
-      <div
-        class="ant-tooltip"
-        style="opacity:0"
-      >
-        <div
-          class="ant-tooltip-content"
-        >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            <span>
-              prompt text
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
   <div
     style="margin-left:70px;clear:both;white-space:nowrap"
   >
+    <div
+      class="ant-tooltip ant-tooltip-placement-bottomLeft"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
+      <div
+        class="ant-tooltip-arrow"
+        style="position:absolute"
+      />
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          <span>
+            prompt text
+          </span>
+        </div>
+      </div>
+    </div>
     <button
       class="ant-btn ant-btn-default"
       type="button"
@@ -1215,29 +1473,24 @@ exports[`renders ./components/tooltip/demo/placement.tsx extend context correctl
         BL
       </span>
     </button>
-    <div>
+    <div
+      class="ant-tooltip ant-tooltip-placement-bottom"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position:absolute;top:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            <span>
-              prompt text
-            </span>
-          </div>
+          <span>
+            prompt text
+          </span>
         </div>
       </div>
     </div>
@@ -1249,29 +1502,24 @@ exports[`renders ./components/tooltip/demo/placement.tsx extend context correctl
         Bottom
       </span>
     </button>
-    <div>
+    <div
+      class="ant-tooltip ant-tooltip-placement-bottomRight"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position:absolute"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            <span>
-              prompt text
-            </span>
-          </div>
+          <span>
+            prompt text
+          </span>
         </div>
       </div>
     </div>
@@ -1283,32 +1531,6 @@ exports[`renders ./components/tooltip/demo/placement.tsx extend context correctl
         BR
       </span>
     </button>
-    <div>
-      <div
-        class="ant-tooltip"
-        style="opacity:0"
-      >
-        <div
-          class="ant-tooltip-content"
-        >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            <span>
-              prompt text
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </div>
 `;
@@ -1319,11 +1541,11 @@ Array [
     class="ant-tooltip ant-tooltip-pure ant-tooltip-placement-top ant-tooltip-pink"
   >
     <div
+      class="ant-tooltip-arrow"
+    />
+    <div
       class="ant-tooltip-content"
     >
-      <div
-        class="ant-tooltip-arrow"
-      />
       <div
         class="ant-tooltip-inner"
         role="tooltip"
@@ -1337,11 +1559,11 @@ Array [
     style="--antd-arrow-background-color:#f50"
   >
     <div
+      class="ant-tooltip-arrow"
+    />
+    <div
       class="ant-tooltip-content"
     >
-      <div
-        class="ant-tooltip-arrow"
-      />
       <div
         class="ant-tooltip-inner"
         role="tooltip"
@@ -1355,12 +1577,12 @@ Array [
     class="ant-tooltip ant-tooltip-pure ant-tooltip-placement-bottomLeft"
   >
     <div
+      class="ant-tooltip-arrow"
+    />
+    <div
       class="ant-tooltip-content"
       style="width:200px"
     >
-      <div
-        class="ant-tooltip-arrow"
-      />
       <div
         class="ant-tooltip-inner"
         role="tooltip"
@@ -1370,4 +1592,40 @@ Array [
     </div>
   </div>,
 ]
+`;
+
+exports[`renders ./components/tooltip/demo/shift.tsx extend context correctly 1`] = `
+<div>
+  <div
+    style="width:300vw;height:300vh;display:flex;align-items:center;justify-content:center"
+  >
+    <div
+      class="ant-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
+      <div
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          Thanks for using antd. Have a nice day!
+        </div>
+      </div>
+    </div>
+    <button
+      class="ant-btn ant-btn-default ant-tooltip-open"
+      type="button"
+    >
+      <span>
+        Scroll The Window
+      </span>
+    </button>
+  </div>
+</div>
 `;

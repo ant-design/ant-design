@@ -3,6 +3,7 @@ import demoTest, { rootPropsTest } from '../../../tests/shared/demoTest';
 
 demoTest('tooltip', {
   testRootProps: false,
+  skip: ['shift.tsx'],
 });
 
 rootPropsTest(

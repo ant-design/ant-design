@@ -1,8 +1,8 @@
+import { genPresetColor, resetComponent } from '../../style';
 import { initZoomMotion } from '../../style/motion';
+import getArrowStyle, { MAX_VERTICAL_CONTENT_RADIUS } from '../../style/placementArrow';
 import type { FullToken, GenerateStyle, UseComponentStyleResult } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import { genPresetColor, resetComponent } from '../../style';
-import getArrowStyle, { MAX_VERTICAL_CONTENT_RADIUS } from '../../style/placementArrow';
 
 export interface ComponentToken {
   zIndexPopup: number;
@@ -117,6 +117,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
       [`${componentCls}-pure`]: {
         position: 'relative',
         maxWidth: 'none',
+        margin: token.sizePopupArrow,
       },
     },
   ];
