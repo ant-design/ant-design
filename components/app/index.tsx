@@ -6,8 +6,8 @@ import { ConfigContext } from '../config-provider';
 import useMessage from '../message/useMessage';
 import useModal from '../modal/useModal';
 import useNotification from '../notification/useNotification';
-import type { useAppProps } from './context';
-import AppContext from './context';
+import AppContext, { AppConfigContext } from './context';
+import type { AppConfig, useAppProps } from './context';
 import useStyle from './style';
 
 export type AppProps = {
@@ -15,19 +15,37 @@ export type AppProps = {
   rootClassName?: string;
   prefixCls?: string;
   children?: ReactNode;
-};
+} & AppConfig;
 
-const useApp = () => React.useContext<useAppProps>(AppContext);
+const useApp = () => React.useContext(AppContext);
 
-const App: React.FC<AppProps> & { useApp: () => useAppProps } = (props) => {
-  const { prefixCls: customizePrefixCls, children, className, rootClassName } = props;
+const App: React.FC<AppProps> & { useApp: typeof useApp } = (props) => {
+  const {
+    prefixCls: customizePrefixCls,
+    children,
+    className,
+    rootClassName,
+    message,
+    notification,
+  } = props;
   const { getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('app', customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
   const customClassName = classNames(hashId, prefixCls, className, rootClassName);
 
-  const [messageApi, messageContextHolder] = useMessage();
-  const [notificationApi, notificationContextHolder] = useNotification();
+  const appConfig = useContext(AppConfigContext);
+  const mergedAppConfig = React.useMemo<AppConfig>(
+    () => ({
+      message: { ...appConfig.message, ...message },
+      notification: { ...appConfig.notification, ...notification },
+    }),
+    [message, notification, appConfig.message, appConfig.message],
+  );
+
+  const [messageApi, messageContextHolder] = useMessage(mergedAppConfig.message);
+  const [notificationApi, notificationContextHolder] = useNotification(
+    mergedAppConfig.notification,
+  );
   const [ModalApi, ModalContextHolder] = useModal();
 
   const memoizedContextValue = React.useMemo<useAppProps>(
@@ -41,12 +59,14 @@ const App: React.FC<AppProps> & { useApp: () => useAppProps } = (props) => {
 
   return wrapSSR(
     <AppContext.Provider value={memoizedContextValue}>
-      <div className={customClassName}>
-        {ModalContextHolder}
-        {messageContextHolder}
-        {notificationContextHolder}
-        {children}
-      </div>
+      <AppConfigContext.Provider value={mergedAppConfig}>
+        <div className={customClassName}>
+          {ModalContextHolder}
+          {messageContextHolder}
+          {notificationContextHolder}
+          {children}
+        </div>
+      </AppConfigContext.Provider>
     </AppContext.Provider>,
   );
 };
