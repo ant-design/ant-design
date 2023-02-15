@@ -113,46 +113,35 @@ exports[`renders ./components/watermark/demo/custom.tsx extend context correctly
               class="ant-form-item-control-input-content"
             >
               <div
-                style="padding:4px;background:#fff;border-radius:2px;border:1px solid #dedede;display:inline-block;cursor:pointer"
+                class="ant-popover ant-popover-placement-bottomLeft"
+                style="left:-1000vw;top:-1000vh;box-sizing:border-box"
               >
                 <div
-                  style="width:36px;height:14px;border-radius:2px;background:rgba(0, 0, 0, 0.15)"
+                  class="ant-popover-arrow"
+                  style="position:absolute"
                 />
-              </div>
-              <div>
                 <div
-                  class="ant-popover"
-                  style="opacity:0"
+                  class="ant-popover-content"
                 >
                   <div
-                    class="ant-popover-content"
+                    class="ant-popover-inner"
+                    role="tooltip"
+                    style="padding:0"
                   >
                     <div
-                      class="ant-popover-arrow"
-                    >
-                      <span
-                        class="ant-popover-arrow-content"
-                      />
-                    </div>
-                    <div
-                      class="ant-popover-inner"
-                      role="tooltip"
-                      style="padding:0"
+                      class="ant-popover-inner-content"
                     >
                       <div
-                        class="ant-popover-inner-content"
+                        class="sketch-picker "
+                        style="width:200px;padding:10px 10px 0;box-sizing:initial;background:#fff;-ms-border-radius:4px;-moz-border-radius:4px;-o-border-radius:4px;-webkit-border-radius:4px;border-radius:4px;-ms-box-shadow:0 0 0 1px rgba(0,0,0,.15), 0 8px 16px rgba(0,0,0,.15);-moz-box-shadow:0 0 0 1px rgba(0,0,0,.15), 0 8px 16px rgba(0,0,0,.15);-o-box-shadow:0 0 0 1px rgba(0,0,0,.15), 0 8px 16px rgba(0,0,0,.15);-webkit-box-shadow:0 0 0 1px rgba(0,0,0,.15), 0 8px 16px rgba(0,0,0,.15);box-shadow:0 0 0 1px rgba(0,0,0,.15), 0 8px 16px rgba(0,0,0,.15)"
                       >
                         <div
-                          class="sketch-picker "
-                          style="width:200px;padding:10px 10px 0;box-sizing:initial;background:#fff;-ms-border-radius:4px;-moz-border-radius:4px;-o-border-radius:4px;-webkit-border-radius:4px;border-radius:4px;-ms-box-shadow:0 0 0 1px rgba(0,0,0,.15), 0 8px 16px rgba(0,0,0,.15);-moz-box-shadow:0 0 0 1px rgba(0,0,0,.15), 0 8px 16px rgba(0,0,0,.15);-o-box-shadow:0 0 0 1px rgba(0,0,0,.15), 0 8px 16px rgba(0,0,0,.15);-webkit-box-shadow:0 0 0 1px rgba(0,0,0,.15), 0 8px 16px rgba(0,0,0,.15);box-shadow:0 0 0 1px rgba(0,0,0,.15), 0 8px 16px rgba(0,0,0,.15)"
+                          style="width:100%;padding-bottom:75%;position:relative;overflow:hidden"
                         >
                           <div
-                            style="width:100%;padding-bottom:75%;position:relative;overflow:hidden"
+                            style="position:absolute;top:0px;right:0px;bottom:0px;left:0px;background:hsl(0,100%, 50%)"
                           >
-                            <div
-                              style="position:absolute;top:0px;right:0px;bottom:0px;left:0px;background:hsl(0,100%, 50%)"
-                            >
-                              <style>
+                            <style>
           .saturation-white {
             background: -webkit-linear-gradient(to right, #fff, rgba(255,255,255,0));
             background: linear-gradient(to right, #fff, rgba(255,255,255,0));
@@ -161,48 +150,48 @@ exports[`renders ./components/watermark/demo/custom.tsx extend context correctly
             background: -webkit-linear-gradient(to top, #000, rgba(0,0,0,0));
             background: linear-gradient(to top, #000, rgba(0,0,0,0));
           }
-                              </style>
+                            </style>
+                            <div
+                              class="saturation-white"
+                              style="position:absolute;top:0px;right:0px;bottom:0px;left:0px"
+                            >
                               <div
-                                class="saturation-white"
+                                class="saturation-black"
                                 style="position:absolute;top:0px;right:0px;bottom:0px;left:0px"
+                              />
+                              <div
+                                style="position:absolute;top:100%;left:0%;cursor:default"
                               >
                                 <div
-                                  class="saturation-black"
-                                  style="position:absolute;top:0px;right:0px;bottom:0px;left:0px"
-                                />
-                                <div
-                                  style="position:absolute;top:100%;left:0%;cursor:default"
-                                >
-                                  <div
-                                    style="width:4px;height:4px;-ms-box-shadow:0 0 0 1.5px #fff, inset 0 0 1px 1px rgba(0,0,0,.3),
+                                  style="width:4px;height:4px;-ms-box-shadow:0 0 0 1.5px #fff, inset 0 0 1px 1px rgba(0,0,0,.3),
             0 0 1px 2px rgba(0,0,0,.4);-moz-box-shadow:0 0 0 1.5px #fff, inset 0 0 1px 1px rgba(0,0,0,.3),
             0 0 1px 2px rgba(0,0,0,.4);-o-box-shadow:0 0 0 1.5px #fff, inset 0 0 1px 1px rgba(0,0,0,.3),
             0 0 1px 2px rgba(0,0,0,.4);-webkit-box-shadow:0 0 0 1.5px #fff, inset 0 0 1px 1px rgba(0,0,0,.3),
             0 0 1px 2px rgba(0,0,0,.4);box-shadow:0 0 0 1.5px #fff, inset 0 0 1px 1px rgba(0,0,0,.3),
             0 0 1px 2px rgba(0,0,0,.4);-ms-border-radius:50%;-moz-border-radius:50%;-o-border-radius:50%;-webkit-border-radius:50%;border-radius:50%;cursor:hand;-ms-transform:translate(-2px, -2px);-moz-transform:translate(-2px, -2px);-o-transform:translate(-2px, -2px);-webkit-transform:translate(-2px, -2px);transform:translate(-2px, -2px)"
-                                  />
-                                </div>
+                                />
                               </div>
                             </div>
                           </div>
+                        </div>
+                        <div
+                          class="flexbox-fix"
+                          style="display:flex"
+                        >
                           <div
-                            class="flexbox-fix"
-                            style="display:flex"
+                            style="padding:4px 0;-webkit-box-flex:1;-moz-box-flex:1;-webkit-flex:1;-ms-flex:1;flex:1"
                           >
                             <div
-                              style="padding:4px 0;-webkit-box-flex:1;-moz-box-flex:1;-webkit-flex:1;-ms-flex:1;flex:1"
+                              style="position:relative;height:10px;overflow:hidden"
                             >
                               <div
-                                style="position:relative;height:10px;overflow:hidden"
+                                style="position:absolute;top:0px;right:0px;bottom:0px;left:0px"
                               >
                                 <div
-                                  style="position:absolute;top:0px;right:0px;bottom:0px;left:0px"
+                                  class="hue-horizontal"
+                                  style="padding:0 2px;position:relative;height:100%"
                                 >
-                                  <div
-                                    class="hue-horizontal"
-                                    style="padding:0 2px;position:relative;height:100%"
-                                  >
-                                    <style>
+                                  <style>
             .hue-horizontal {
               background: linear-gradient(to right, #f00 0%, #ff0 17%, #0f0
                 33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);
@@ -215,339 +204,345 @@ exports[`renders ./components/watermark/demo/custom.tsx extend context correctly
               background: -webkit-linear-gradient(to top, #f00 0%, #ff0 17%,
                 #0f0 33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);
             }
-                                    </style>
-                                    <div
-                                      style="position:absolute;left:0%"
-                                    >
-                                      <div
-                                        style="margin-top:1px;width:4px;-ms-border-radius:1px;-moz-border-radius:1px;-o-border-radius:1px;-webkit-border-radius:1px;border-radius:1px;height:8px;-ms-box-shadow:0 0 2px rgba(0, 0, 0, .6);-moz-box-shadow:0 0 2px rgba(0, 0, 0, .6);-o-box-shadow:0 0 2px rgba(0, 0, 0, .6);-webkit-box-shadow:0 0 2px rgba(0, 0, 0, .6);box-shadow:0 0 2px rgba(0, 0, 0, .6);background:#fff;-ms-transform:translateX(-2px);-moz-transform:translateX(-2px);-o-transform:translateX(-2px);-webkit-transform:translateX(-2px);transform:translateX(-2px)"
-                                      />
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <div
-                                style="position:relative;height:10px;margin-top:4px;overflow:hidden"
-                              >
-                                <div
-                                  style="position:absolute;top:0px;right:0px;bottom:0px;left:0px"
-                                >
+                                  </style>
                                   <div
-                                    style="position:absolute;top:0px;right:0px;bottom:0px;left:0px;overflow:hidden"
+                                    style="position:absolute;left:0%"
                                   >
                                     <div
-                                      style="position:absolute;top:0px;right:0px;bottom:0px;left:0px;background:url(data:image/png;base64,00) center left"
+                                      style="margin-top:1px;width:4px;-ms-border-radius:1px;-moz-border-radius:1px;-o-border-radius:1px;-webkit-border-radius:1px;border-radius:1px;height:8px;-ms-box-shadow:0 0 2px rgba(0, 0, 0, .6);-moz-box-shadow:0 0 2px rgba(0, 0, 0, .6);-o-box-shadow:0 0 2px rgba(0, 0, 0, .6);-webkit-box-shadow:0 0 2px rgba(0, 0, 0, .6);box-shadow:0 0 2px rgba(0, 0, 0, .6);background:#fff;-ms-transform:translateX(-2px);-moz-transform:translateX(-2px);-o-transform:translateX(-2px);-webkit-transform:translateX(-2px);transform:translateX(-2px)"
                                     />
                                   </div>
-                                  <div
-                                    style="position:absolute;top:0px;right:0px;bottom:0px;left:0px;background:linear-gradient(to right, rgba(0,0,0, 0) 0%,
-           rgba(0,0,0, 1) 100%)"
-                                  />
-                                  <div
-                                    style="position:relative;height:100%;margin:0 3px"
-                                  >
-                                    <div
-                                      style="position:absolute;left:15%"
-                                    >
-                                      <div
-                                        style="width:4px;-ms-border-radius:1px;-moz-border-radius:1px;-o-border-radius:1px;-webkit-border-radius:1px;border-radius:1px;height:8px;-ms-box-shadow:0 0 2px rgba(0, 0, 0, .6);-moz-box-shadow:0 0 2px rgba(0, 0, 0, .6);-o-box-shadow:0 0 2px rgba(0, 0, 0, .6);-webkit-box-shadow:0 0 2px rgba(0, 0, 0, .6);box-shadow:0 0 2px rgba(0, 0, 0, .6);background:#fff;margin-top:1px;-ms-transform:translateX(-2px);-moz-transform:translateX(-2px);-o-transform:translateX(-2px);-webkit-transform:translateX(-2px);transform:translateX(-2px)"
-                                      />
-                                    </div>
-                                  </div>
                                 </div>
                               </div>
                             </div>
                             <div
-                              style="width:24px;height:24px;position:relative;margin-top:4px;margin-left:4px;-ms-border-radius:3px;-moz-border-radius:3px;-o-border-radius:3px;-webkit-border-radius:3px;border-radius:3px"
+                              style="position:relative;height:10px;margin-top:4px;overflow:hidden"
                             >
                               <div
-                                style="position:absolute;top:0px;right:0px;bottom:0px;left:0px;background:url(data:image/png;base64,00) center left"
-                              />
-                              <div
-                                style="position:absolute;top:0px;right:0px;bottom:0px;left:0px;-ms-border-radius:2px;-moz-border-radius:2px;-o-border-radius:2px;-webkit-border-radius:2px;border-radius:2px;background:rgba(0,0,0,0.15);-ms-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25);-moz-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25);-o-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25);-webkit-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25)"
-                              />
-                            </div>
-                          </div>
-                          <div
-                            class="flexbox-fix"
-                            style="display:flex;padding-top:4px"
-                          >
-                            <div
-                              style="-webkit-box-flex:2;-moz-box-flex:2;-webkit-flex:2;-ms-flex:2;flex:2"
-                            >
-                              <div
-                                style="position:relative"
+                                style="position:absolute;top:0px;right:0px;bottom:0px;left:0px"
                               >
-                                <input
-                                  id="rc-editable-input-1"
-                                  spellcheck="false"
-                                  style="width:80%;padding:4px 10% 3px;border:none;-ms-box-shadow:inset 0 0 0 1px #ccc;-moz-box-shadow:inset 0 0 0 1px #ccc;-o-box-shadow:inset 0 0 0 1px #ccc;-webkit-box-shadow:inset 0 0 0 1px #ccc;box-shadow:inset 0 0 0 1px #ccc;font-size:11px"
-                                  value="000000"
-                                />
-                                <label
-                                  for="rc-editable-input-1"
-                                  style="display:block;text-align:center;font-size:11px;color:#222;padding-top:3px;padding-bottom:4px;text-transform:capitalize"
+                                <div
+                                  style="position:absolute;top:0px;right:0px;bottom:0px;left:0px;overflow:hidden"
                                 >
-                                  hex
-                                </label>
-                              </div>
-                            </div>
-                            <div
-                              style="-webkit-box-flex:1;-moz-box-flex:1;-webkit-flex:1;-ms-flex:1;flex:1;padding-left:6px"
-                            >
-                              <div
-                                style="position:relative"
-                              >
-                                <input
-                                  id="rc-editable-input-2"
-                                  spellcheck="false"
-                                  style="width:80%;padding:4px 10% 3px;border:none;-ms-box-shadow:inset 0 0 0 1px #ccc;-moz-box-shadow:inset 0 0 0 1px #ccc;-o-box-shadow:inset 0 0 0 1px #ccc;-webkit-box-shadow:inset 0 0 0 1px #ccc;box-shadow:inset 0 0 0 1px #ccc;font-size:11px"
-                                  value="0"
+                                  <div
+                                    style="position:absolute;top:0px;right:0px;bottom:0px;left:0px;background:url(data:image/png;base64,00) center left"
+                                  />
+                                </div>
+                                <div
+                                  style="position:absolute;top:0px;right:0px;bottom:0px;left:0px;background:linear-gradient(to right, rgba(0,0,0, 0) 0%,
+           rgba(0,0,0, 1) 100%)"
                                 />
-                                <label
-                                  for="rc-editable-input-2"
-                                  style="display:block;text-align:center;font-size:11px;color:#222;padding-top:3px;padding-bottom:4px;text-transform:capitalize;cursor:ew-resize"
+                                <div
+                                  style="position:relative;height:100%;margin:0 3px"
                                 >
-                                  r
-                                </label>
-                              </div>
-                            </div>
-                            <div
-                              style="-webkit-box-flex:1;-moz-box-flex:1;-webkit-flex:1;-ms-flex:1;flex:1;padding-left:6px"
-                            >
-                              <div
-                                style="position:relative"
-                              >
-                                <input
-                                  id="rc-editable-input-3"
-                                  spellcheck="false"
-                                  style="width:80%;padding:4px 10% 3px;border:none;-ms-box-shadow:inset 0 0 0 1px #ccc;-moz-box-shadow:inset 0 0 0 1px #ccc;-o-box-shadow:inset 0 0 0 1px #ccc;-webkit-box-shadow:inset 0 0 0 1px #ccc;box-shadow:inset 0 0 0 1px #ccc;font-size:11px"
-                                  value="0"
-                                />
-                                <label
-                                  for="rc-editable-input-3"
-                                  style="display:block;text-align:center;font-size:11px;color:#222;padding-top:3px;padding-bottom:4px;text-transform:capitalize;cursor:ew-resize"
-                                >
-                                  g
-                                </label>
-                              </div>
-                            </div>
-                            <div
-                              style="-webkit-box-flex:1;-moz-box-flex:1;-webkit-flex:1;-ms-flex:1;flex:1;padding-left:6px"
-                            >
-                              <div
-                                style="position:relative"
-                              >
-                                <input
-                                  id="rc-editable-input-4"
-                                  spellcheck="false"
-                                  style="width:80%;padding:4px 10% 3px;border:none;-ms-box-shadow:inset 0 0 0 1px #ccc;-moz-box-shadow:inset 0 0 0 1px #ccc;-o-box-shadow:inset 0 0 0 1px #ccc;-webkit-box-shadow:inset 0 0 0 1px #ccc;box-shadow:inset 0 0 0 1px #ccc;font-size:11px"
-                                  value="0"
-                                />
-                                <label
-                                  for="rc-editable-input-4"
-                                  style="display:block;text-align:center;font-size:11px;color:#222;padding-top:3px;padding-bottom:4px;text-transform:capitalize;cursor:ew-resize"
-                                >
-                                  b
-                                </label>
-                              </div>
-                            </div>
-                            <div
-                              style="-webkit-box-flex:1;-moz-box-flex:1;-webkit-flex:1;-ms-flex:1;flex:1;padding-left:6px"
-                            >
-                              <div
-                                style="position:relative"
-                              >
-                                <input
-                                  id="rc-editable-input-5"
-                                  spellcheck="false"
-                                  style="width:80%;padding:4px 10% 3px;border:none;-ms-box-shadow:inset 0 0 0 1px #ccc;-moz-box-shadow:inset 0 0 0 1px #ccc;-o-box-shadow:inset 0 0 0 1px #ccc;-webkit-box-shadow:inset 0 0 0 1px #ccc;box-shadow:inset 0 0 0 1px #ccc;font-size:11px"
-                                  value="15"
-                                />
-                                <label
-                                  for="rc-editable-input-5"
-                                  style="display:block;text-align:center;font-size:11px;color:#222;padding-top:3px;padding-bottom:4px;text-transform:capitalize;cursor:ew-resize"
-                                >
-                                  a
-                                </label>
+                                  <div
+                                    style="position:absolute;left:15%"
+                                  >
+                                    <div
+                                      style="width:4px;-ms-border-radius:1px;-moz-border-radius:1px;-o-border-radius:1px;-webkit-border-radius:1px;border-radius:1px;height:8px;-ms-box-shadow:0 0 2px rgba(0, 0, 0, .6);-moz-box-shadow:0 0 2px rgba(0, 0, 0, .6);-o-box-shadow:0 0 2px rgba(0, 0, 0, .6);-webkit-box-shadow:0 0 2px rgba(0, 0, 0, .6);box-shadow:0 0 2px rgba(0, 0, 0, .6);background:#fff;margin-top:1px;-ms-transform:translateX(-2px);-moz-transform:translateX(-2px);-o-transform:translateX(-2px);-webkit-transform:translateX(-2px);transform:translateX(-2px)"
+                                    />
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
                           <div
-                            class="flexbox-fix"
-                            style="margin:0 -10px;padding:10px 0 0 10px;border-top:1px solid #eee;display:flex;flex-wrap:wrap;position:relative"
+                            style="width:24px;height:24px;position:relative;margin-top:4px;margin-left:4px;-ms-border-radius:3px;-moz-border-radius:3px;-o-border-radius:3px;-webkit-border-radius:3px;border-radius:3px"
                           >
                             <div
-                              style="width:16px;height:16px;margin:0 10px 10px 0"
-                            >
-                              <span>
-                                <div
-                                  style="background:#D0021B;height:100%;width:100%;cursor:pointer;position:relative;outline:none;-ms-border-radius:3px;-moz-border-radius:3px;-o-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;-ms-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-moz-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-o-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-webkit-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)"
-                                  tabindex="0"
-                                  title="#D0021B"
-                                />
-                              </span>
-                            </div>
+                              style="position:absolute;top:0px;right:0px;bottom:0px;left:0px;background:url(data:image/png;base64,00) center left"
+                            />
                             <div
-                              style="width:16px;height:16px;margin:0 10px 10px 0"
-                            >
-                              <span>
-                                <div
-                                  style="background:#F5A623;height:100%;width:100%;cursor:pointer;position:relative;outline:none;-ms-border-radius:3px;-moz-border-radius:3px;-o-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;-ms-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-moz-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-o-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-webkit-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)"
-                                  tabindex="0"
-                                  title="#F5A623"
-                                />
-                              </span>
-                            </div>
+                              style="position:absolute;top:0px;right:0px;bottom:0px;left:0px;-ms-border-radius:2px;-moz-border-radius:2px;-o-border-radius:2px;-webkit-border-radius:2px;border-radius:2px;background:rgba(0,0,0,0.15);-ms-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25);-moz-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25);-o-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25);-webkit-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25)"
+                            />
+                          </div>
+                        </div>
+                        <div
+                          class="flexbox-fix"
+                          style="display:flex;padding-top:4px"
+                        >
+                          <div
+                            style="-webkit-box-flex:2;-moz-box-flex:2;-webkit-flex:2;-ms-flex:2;flex:2"
+                          >
                             <div
-                              style="width:16px;height:16px;margin:0 10px 10px 0"
+                              style="position:relative"
                             >
-                              <span>
-                                <div
-                                  style="background:#F8E71C;height:100%;width:100%;cursor:pointer;position:relative;outline:none;-ms-border-radius:3px;-moz-border-radius:3px;-o-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;-ms-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-moz-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-o-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-webkit-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)"
-                                  tabindex="0"
-                                  title="#F8E71C"
-                                />
-                              </span>
+                              <input
+                                id="rc-editable-input-1"
+                                spellcheck="false"
+                                style="width:80%;padding:4px 10% 3px;border:none;-ms-box-shadow:inset 0 0 0 1px #ccc;-moz-box-shadow:inset 0 0 0 1px #ccc;-o-box-shadow:inset 0 0 0 1px #ccc;-webkit-box-shadow:inset 0 0 0 1px #ccc;box-shadow:inset 0 0 0 1px #ccc;font-size:11px"
+                                value="000000"
+                              />
+                              <label
+                                for="rc-editable-input-1"
+                                style="display:block;text-align:center;font-size:11px;color:#222;padding-top:3px;padding-bottom:4px;text-transform:capitalize"
+                              >
+                                hex
+                              </label>
                             </div>
+                          </div>
+                          <div
+                            style="-webkit-box-flex:1;-moz-box-flex:1;-webkit-flex:1;-ms-flex:1;flex:1;padding-left:6px"
+                          >
                             <div
-                              style="width:16px;height:16px;margin:0 10px 10px 0"
+                              style="position:relative"
                             >
-                              <span>
-                                <div
-                                  style="background:#8B572A;height:100%;width:100%;cursor:pointer;position:relative;outline:none;-ms-border-radius:3px;-moz-border-radius:3px;-o-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;-ms-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-moz-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-o-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-webkit-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)"
-                                  tabindex="0"
-                                  title="#8B572A"
-                                />
-                              </span>
+                              <input
+                                id="rc-editable-input-2"
+                                spellcheck="false"
+                                style="width:80%;padding:4px 10% 3px;border:none;-ms-box-shadow:inset 0 0 0 1px #ccc;-moz-box-shadow:inset 0 0 0 1px #ccc;-o-box-shadow:inset 0 0 0 1px #ccc;-webkit-box-shadow:inset 0 0 0 1px #ccc;box-shadow:inset 0 0 0 1px #ccc;font-size:11px"
+                                value="0"
+                              />
+                              <label
+                                for="rc-editable-input-2"
+                                style="display:block;text-align:center;font-size:11px;color:#222;padding-top:3px;padding-bottom:4px;text-transform:capitalize;cursor:ew-resize"
+                              >
+                                r
+                              </label>
                             </div>
+                          </div>
+                          <div
+                            style="-webkit-box-flex:1;-moz-box-flex:1;-webkit-flex:1;-ms-flex:1;flex:1;padding-left:6px"
+                          >
                             <div
-                              style="width:16px;height:16px;margin:0 10px 10px 0"
+                              style="position:relative"
                             >
-                              <span>
-                                <div
-                                  style="background:#7ED321;height:100%;width:100%;cursor:pointer;position:relative;outline:none;-ms-border-radius:3px;-moz-border-radius:3px;-o-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;-ms-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-moz-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-o-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-webkit-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)"
-                                  tabindex="0"
-                                  title="#7ED321"
-                                />
-                              </span>
+                              <input
+                                id="rc-editable-input-3"
+                                spellcheck="false"
+                                style="width:80%;padding:4px 10% 3px;border:none;-ms-box-shadow:inset 0 0 0 1px #ccc;-moz-box-shadow:inset 0 0 0 1px #ccc;-o-box-shadow:inset 0 0 0 1px #ccc;-webkit-box-shadow:inset 0 0 0 1px #ccc;box-shadow:inset 0 0 0 1px #ccc;font-size:11px"
+                                value="0"
+                              />
+                              <label
+                                for="rc-editable-input-3"
+                                style="display:block;text-align:center;font-size:11px;color:#222;padding-top:3px;padding-bottom:4px;text-transform:capitalize;cursor:ew-resize"
+                              >
+                                g
+                              </label>
                             </div>
+                          </div>
+                          <div
+                            style="-webkit-box-flex:1;-moz-box-flex:1;-webkit-flex:1;-ms-flex:1;flex:1;padding-left:6px"
+                          >
                             <div
-                              style="width:16px;height:16px;margin:0 10px 10px 0"
+                              style="position:relative"
                             >
-                              <span>
-                                <div
-                                  style="background:#417505;height:100%;width:100%;cursor:pointer;position:relative;outline:none;-ms-border-radius:3px;-moz-border-radius:3px;-o-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;-ms-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-moz-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-o-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-webkit-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)"
-                                  tabindex="0"
-                                  title="#417505"
-                                />
-                              </span>
+                              <input
+                                id="rc-editable-input-4"
+                                spellcheck="false"
+                                style="width:80%;padding:4px 10% 3px;border:none;-ms-box-shadow:inset 0 0 0 1px #ccc;-moz-box-shadow:inset 0 0 0 1px #ccc;-o-box-shadow:inset 0 0 0 1px #ccc;-webkit-box-shadow:inset 0 0 0 1px #ccc;box-shadow:inset 0 0 0 1px #ccc;font-size:11px"
+                                value="0"
+                              />
+                              <label
+                                for="rc-editable-input-4"
+                                style="display:block;text-align:center;font-size:11px;color:#222;padding-top:3px;padding-bottom:4px;text-transform:capitalize;cursor:ew-resize"
+                              >
+                                b
+                              </label>
                             </div>
+                          </div>
+                          <div
+                            style="-webkit-box-flex:1;-moz-box-flex:1;-webkit-flex:1;-ms-flex:1;flex:1;padding-left:6px"
+                          >
                             <div
-                              style="width:16px;height:16px;margin:0 10px 10px 0"
+                              style="position:relative"
                             >
-                              <span>
-                                <div
-                                  style="background:#BD10E0;height:100%;width:100%;cursor:pointer;position:relative;outline:none;-ms-border-radius:3px;-moz-border-radius:3px;-o-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;-ms-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-moz-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-o-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-webkit-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)"
-                                  tabindex="0"
-                                  title="#BD10E0"
-                                />
-                              </span>
+                              <input
+                                id="rc-editable-input-5"
+                                spellcheck="false"
+                                style="width:80%;padding:4px 10% 3px;border:none;-ms-box-shadow:inset 0 0 0 1px #ccc;-moz-box-shadow:inset 0 0 0 1px #ccc;-o-box-shadow:inset 0 0 0 1px #ccc;-webkit-box-shadow:inset 0 0 0 1px #ccc;box-shadow:inset 0 0 0 1px #ccc;font-size:11px"
+                                value="15"
+                              />
+                              <label
+                                for="rc-editable-input-5"
+                                style="display:block;text-align:center;font-size:11px;color:#222;padding-top:3px;padding-bottom:4px;text-transform:capitalize;cursor:ew-resize"
+                              >
+                                a
+                              </label>
                             </div>
-                            <div
-                              style="width:16px;height:16px;margin:0 10px 10px 0"
-                            >
-                              <span>
-                                <div
-                                  style="background:#9013FE;height:100%;width:100%;cursor:pointer;position:relative;outline:none;-ms-border-radius:3px;-moz-border-radius:3px;-o-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;-ms-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-moz-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-o-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-webkit-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)"
-                                  tabindex="0"
-                                  title="#9013FE"
-                                />
-                              </span>
-                            </div>
-                            <div
-                              style="width:16px;height:16px;margin:0 10px 10px 0"
-                            >
-                              <span>
-                                <div
-                                  style="background:#4A90E2;height:100%;width:100%;cursor:pointer;position:relative;outline:none;-ms-border-radius:3px;-moz-border-radius:3px;-o-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;-ms-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-moz-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-o-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-webkit-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)"
-                                  tabindex="0"
-                                  title="#4A90E2"
-                                />
-                              </span>
-                            </div>
-                            <div
-                              style="width:16px;height:16px;margin:0 10px 10px 0"
-                            >
-                              <span>
-                                <div
-                                  style="background:#50E3C2;height:100%;width:100%;cursor:pointer;position:relative;outline:none;-ms-border-radius:3px;-moz-border-radius:3px;-o-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;-ms-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-moz-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-o-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-webkit-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)"
-                                  tabindex="0"
-                                  title="#50E3C2"
-                                />
-                              </span>
-                            </div>
-                            <div
-                              style="width:16px;height:16px;margin:0 10px 10px 0"
-                            >
-                              <span>
-                                <div
-                                  style="background:#B8E986;height:100%;width:100%;cursor:pointer;position:relative;outline:none;-ms-border-radius:3px;-moz-border-radius:3px;-o-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;-ms-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-moz-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-o-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-webkit-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)"
-                                  tabindex="0"
-                                  title="#B8E986"
-                                />
-                              </span>
-                            </div>
-                            <div
-                              style="width:16px;height:16px;margin:0 10px 10px 0"
-                            >
-                              <span>
-                                <div
-                                  style="background:#000000;height:100%;width:100%;cursor:pointer;position:relative;outline:none;-ms-border-radius:3px;-moz-border-radius:3px;-o-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;-ms-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-moz-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-o-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-webkit-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)"
-                                  tabindex="0"
-                                  title="#000000"
-                                />
-                              </span>
-                            </div>
-                            <div
-                              style="width:16px;height:16px;margin:0 10px 10px 0"
-                            >
-                              <span>
-                                <div
-                                  style="background:#4A4A4A;height:100%;width:100%;cursor:pointer;position:relative;outline:none;-ms-border-radius:3px;-moz-border-radius:3px;-o-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;-ms-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-moz-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-o-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-webkit-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)"
-                                  tabindex="0"
-                                  title="#4A4A4A"
-                                />
-                              </span>
-                            </div>
-                            <div
-                              style="width:16px;height:16px;margin:0 10px 10px 0"
-                            >
-                              <span>
-                                <div
-                                  style="background:#9B9B9B;height:100%;width:100%;cursor:pointer;position:relative;outline:none;-ms-border-radius:3px;-moz-border-radius:3px;-o-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;-ms-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-moz-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-o-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-webkit-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)"
-                                  tabindex="0"
-                                  title="#9B9B9B"
-                                />
-                              </span>
-                            </div>
-                            <div
-                              style="width:16px;height:16px;margin:0 10px 10px 0"
-                            >
-                              <span>
-                                <div
-                                  style="background:#FFFFFF;height:100%;width:100%;cursor:pointer;position:relative;outline:none;-ms-border-radius:3px;-moz-border-radius:3px;-o-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;-ms-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-moz-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-o-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-webkit-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)"
-                                  tabindex="0"
-                                  title="#FFFFFF"
-                                />
-                              </span>
-                            </div>
+                          </div>
+                        </div>
+                        <div
+                          class="flexbox-fix"
+                          style="margin:0 -10px;padding:10px 0 0 10px;border-top:1px solid #eee;display:flex;flex-wrap:wrap;position:relative"
+                        >
+                          <div
+                            style="width:16px;height:16px;margin:0 10px 10px 0"
+                          >
+                            <span>
+                              <div
+                                style="background:#D0021B;height:100%;width:100%;cursor:pointer;position:relative;outline:none;-ms-border-radius:3px;-moz-border-radius:3px;-o-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;-ms-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-moz-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-o-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-webkit-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)"
+                                tabindex="0"
+                                title="#D0021B"
+                              />
+                            </span>
+                          </div>
+                          <div
+                            style="width:16px;height:16px;margin:0 10px 10px 0"
+                          >
+                            <span>
+                              <div
+                                style="background:#F5A623;height:100%;width:100%;cursor:pointer;position:relative;outline:none;-ms-border-radius:3px;-moz-border-radius:3px;-o-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;-ms-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-moz-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-o-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-webkit-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)"
+                                tabindex="0"
+                                title="#F5A623"
+                              />
+                            </span>
+                          </div>
+                          <div
+                            style="width:16px;height:16px;margin:0 10px 10px 0"
+                          >
+                            <span>
+                              <div
+                                style="background:#F8E71C;height:100%;width:100%;cursor:pointer;position:relative;outline:none;-ms-border-radius:3px;-moz-border-radius:3px;-o-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;-ms-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-moz-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-o-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-webkit-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)"
+                                tabindex="0"
+                                title="#F8E71C"
+                              />
+                            </span>
+                          </div>
+                          <div
+                            style="width:16px;height:16px;margin:0 10px 10px 0"
+                          >
+                            <span>
+                              <div
+                                style="background:#8B572A;height:100%;width:100%;cursor:pointer;position:relative;outline:none;-ms-border-radius:3px;-moz-border-radius:3px;-o-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;-ms-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-moz-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-o-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-webkit-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)"
+                                tabindex="0"
+                                title="#8B572A"
+                              />
+                            </span>
+                          </div>
+                          <div
+                            style="width:16px;height:16px;margin:0 10px 10px 0"
+                          >
+                            <span>
+                              <div
+                                style="background:#7ED321;height:100%;width:100%;cursor:pointer;position:relative;outline:none;-ms-border-radius:3px;-moz-border-radius:3px;-o-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;-ms-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-moz-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-o-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-webkit-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)"
+                                tabindex="0"
+                                title="#7ED321"
+                              />
+                            </span>
+                          </div>
+                          <div
+                            style="width:16px;height:16px;margin:0 10px 10px 0"
+                          >
+                            <span>
+                              <div
+                                style="background:#417505;height:100%;width:100%;cursor:pointer;position:relative;outline:none;-ms-border-radius:3px;-moz-border-radius:3px;-o-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;-ms-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-moz-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-o-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-webkit-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)"
+                                tabindex="0"
+                                title="#417505"
+                              />
+                            </span>
+                          </div>
+                          <div
+                            style="width:16px;height:16px;margin:0 10px 10px 0"
+                          >
+                            <span>
+                              <div
+                                style="background:#BD10E0;height:100%;width:100%;cursor:pointer;position:relative;outline:none;-ms-border-radius:3px;-moz-border-radius:3px;-o-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;-ms-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-moz-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-o-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-webkit-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)"
+                                tabindex="0"
+                                title="#BD10E0"
+                              />
+                            </span>
+                          </div>
+                          <div
+                            style="width:16px;height:16px;margin:0 10px 10px 0"
+                          >
+                            <span>
+                              <div
+                                style="background:#9013FE;height:100%;width:100%;cursor:pointer;position:relative;outline:none;-ms-border-radius:3px;-moz-border-radius:3px;-o-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;-ms-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-moz-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-o-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-webkit-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)"
+                                tabindex="0"
+                                title="#9013FE"
+                              />
+                            </span>
+                          </div>
+                          <div
+                            style="width:16px;height:16px;margin:0 10px 10px 0"
+                          >
+                            <span>
+                              <div
+                                style="background:#4A90E2;height:100%;width:100%;cursor:pointer;position:relative;outline:none;-ms-border-radius:3px;-moz-border-radius:3px;-o-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;-ms-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-moz-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-o-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-webkit-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)"
+                                tabindex="0"
+                                title="#4A90E2"
+                              />
+                            </span>
+                          </div>
+                          <div
+                            style="width:16px;height:16px;margin:0 10px 10px 0"
+                          >
+                            <span>
+                              <div
+                                style="background:#50E3C2;height:100%;width:100%;cursor:pointer;position:relative;outline:none;-ms-border-radius:3px;-moz-border-radius:3px;-o-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;-ms-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-moz-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-o-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-webkit-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)"
+                                tabindex="0"
+                                title="#50E3C2"
+                              />
+                            </span>
+                          </div>
+                          <div
+                            style="width:16px;height:16px;margin:0 10px 10px 0"
+                          >
+                            <span>
+                              <div
+                                style="background:#B8E986;height:100%;width:100%;cursor:pointer;position:relative;outline:none;-ms-border-radius:3px;-moz-border-radius:3px;-o-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;-ms-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-moz-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-o-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-webkit-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)"
+                                tabindex="0"
+                                title="#B8E986"
+                              />
+                            </span>
+                          </div>
+                          <div
+                            style="width:16px;height:16px;margin:0 10px 10px 0"
+                          >
+                            <span>
+                              <div
+                                style="background:#000000;height:100%;width:100%;cursor:pointer;position:relative;outline:none;-ms-border-radius:3px;-moz-border-radius:3px;-o-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;-ms-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-moz-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-o-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-webkit-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)"
+                                tabindex="0"
+                                title="#000000"
+                              />
+                            </span>
+                          </div>
+                          <div
+                            style="width:16px;height:16px;margin:0 10px 10px 0"
+                          >
+                            <span>
+                              <div
+                                style="background:#4A4A4A;height:100%;width:100%;cursor:pointer;position:relative;outline:none;-ms-border-radius:3px;-moz-border-radius:3px;-o-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;-ms-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-moz-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-o-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-webkit-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)"
+                                tabindex="0"
+                                title="#4A4A4A"
+                              />
+                            </span>
+                          </div>
+                          <div
+                            style="width:16px;height:16px;margin:0 10px 10px 0"
+                          >
+                            <span>
+                              <div
+                                style="background:#9B9B9B;height:100%;width:100%;cursor:pointer;position:relative;outline:none;-ms-border-radius:3px;-moz-border-radius:3px;-o-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;-ms-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-moz-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-o-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-webkit-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)"
+                                tabindex="0"
+                                title="#9B9B9B"
+                              />
+                            </span>
+                          </div>
+                          <div
+                            style="width:16px;height:16px;margin:0 10px 10px 0"
+                          >
+                            <span>
+                              <div
+                                style="background:#FFFFFF;height:100%;width:100%;cursor:pointer;position:relative;outline:none;-ms-border-radius:3px;-moz-border-radius:3px;-o-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;-ms-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-moz-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-o-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-webkit-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)"
+                                tabindex="0"
+                                title="#FFFFFF"
+                              />
+                            </span>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
+              </div>
+              <div
+                style="padding:4px;background:#fff;border-radius:2px;border:1px solid #dedede;display:inline-block;cursor:pointer"
+              >
+                <div
+                  style="width:36px;height:14px;border-radius:2px;background:rgba(0, 0, 0, 0.15)"
+                />
               </div>
             </div>
           </div>
@@ -594,6 +589,25 @@ exports[`renders ./components/watermark/demo/custom.tsx extend context correctly
                   class="ant-slider-step"
                 />
                 <div
+                  class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
+                  style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                    style="position:absolute;bottom:0;left:0"
+                  />
+                  <div
+                    class="ant-tooltip-content"
+                  >
+                    <div
+                      class="ant-tooltip-inner"
+                      role="tooltip"
+                    >
+                      16
+                    </div>
+                  </div>
+                </div>
+                <div
                   aria-disabled="false"
                   aria-valuemax="100"
                   aria-valuemin="0"
@@ -603,30 +617,6 @@ exports[`renders ./components/watermark/demo/custom.tsx extend context correctly
                   style="left:16%;transform:translateX(-50%)"
                   tabindex="0"
                 />
-                <div>
-                  <div
-                    class="ant-tooltip ant-slider-tooltip"
-                    style="opacity:0"
-                  >
-                    <div
-                      class="ant-tooltip-content"
-                    >
-                      <div
-                        class="ant-tooltip-arrow"
-                      >
-                        <span
-                          class="ant-tooltip-arrow-content"
-                        />
-                      </div>
-                      <div
-                        class="ant-tooltip-inner"
-                        role="tooltip"
-                      >
-                        16
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -673,6 +663,25 @@ exports[`renders ./components/watermark/demo/custom.tsx extend context correctly
                   class="ant-slider-step"
                 />
                 <div
+                  class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
+                  style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                    style="position:absolute;bottom:0;left:0"
+                  />
+                  <div
+                    class="ant-tooltip-content"
+                  >
+                    <div
+                      class="ant-tooltip-inner"
+                      role="tooltip"
+                    >
+                      11
+                    </div>
+                  </div>
+                </div>
+                <div
                   aria-disabled="false"
                   aria-valuemax="100"
                   aria-valuemin="0"
@@ -682,30 +691,6 @@ exports[`renders ./components/watermark/demo/custom.tsx extend context correctly
                   style="left:11%;transform:translateX(-50%)"
                   tabindex="0"
                 />
-                <div>
-                  <div
-                    class="ant-tooltip ant-slider-tooltip"
-                    style="opacity:0"
-                  >
-                    <div
-                      class="ant-tooltip-content"
-                    >
-                      <div
-                        class="ant-tooltip-arrow"
-                      >
-                        <span
-                          class="ant-tooltip-arrow-content"
-                        />
-                      </div>
-                      <div
-                        class="ant-tooltip-inner"
-                        role="tooltip"
-                      >
-                        11
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -752,6 +737,25 @@ exports[`renders ./components/watermark/demo/custom.tsx extend context correctly
                   class="ant-slider-step"
                 />
                 <div
+                  class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
+                  style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                    style="position:absolute;bottom:0;left:0"
+                  />
+                  <div
+                    class="ant-tooltip-content"
+                  >
+                    <div
+                      class="ant-tooltip-inner"
+                      role="tooltip"
+                    >
+                      -22
+                    </div>
+                  </div>
+                </div>
+                <div
                   aria-disabled="false"
                   aria-valuemax="180"
                   aria-valuemin="-180"
@@ -761,30 +765,6 @@ exports[`renders ./components/watermark/demo/custom.tsx extend context correctly
                   style="left:43.888888888888886%;transform:translateX(-50%)"
                   tabindex="0"
                 />
-                <div>
-                  <div
-                    class="ant-tooltip ant-slider-tooltip"
-                    style="opacity:0"
-                  >
-                    <div
-                      class="ant-tooltip-content"
-                    >
-                      <div
-                        class="ant-tooltip-arrow"
-                      >
-                        <span
-                          class="ant-tooltip-arrow-content"
-                        />
-                      </div>
-                      <div
-                        class="ant-tooltip-inner"
-                        role="tooltip"
-                      >
-                        -22
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>

@@ -335,6 +335,30 @@ Array [
       class="ant-progress-inner"
       style="width:14px;height:14px;font-size:8.1px"
     >
+      <div
+        class="ant-tooltip ant-tooltip-placement-top"
+        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      >
+        <div
+          class="ant-tooltip-arrow"
+          style="position:absolute;bottom:0;left:0"
+        />
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            <span
+              class="ant-progress-text"
+              title="进行中，已完成60%"
+            >
+              进行中，已完成60%
+            </span>
+          </div>
+        </div>
+      </div>
       <svg
         class="ant-progress-circle"
         role="presentation"
@@ -371,35 +395,6 @@ Array [
           style="stroke:#52C41A;stroke-dasharray:251.32741228718345px 251.32741228718345;stroke-dashoffset:251.31741228718346;transform:rotate(-90deg);transform-origin:0 0;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
         />
       </svg>
-      <div>
-        <div
-          class="ant-tooltip"
-          style="opacity:0"
-        >
-          <div
-            class="ant-tooltip-content"
-          >
-            <div
-              class="ant-tooltip-arrow"
-            >
-              <span
-                class="ant-tooltip-arrow-content"
-              />
-            </div>
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            >
-              <span
-                class="ant-progress-text"
-                title="进行中，已完成60%"
-              >
-                进行中，已完成60%
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>,
   <span
@@ -1599,6 +1594,25 @@ Array [
 exports[`renders ./components/progress/demo/segment.tsx extend context correctly 1`] = `
 Array [
   <div
+    class="ant-tooltip ant-tooltip-placement-top"
+    style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+  >
+    <div
+      class="ant-tooltip-arrow"
+      style="position:absolute;bottom:0;left:0"
+    />
+    <div
+      class="ant-tooltip-content"
+    >
+      <div
+        class="ant-tooltip-inner"
+        role="tooltip"
+      >
+        3 done / 3 in progress / 4 to do
+      </div>
+    </div>
+  </div>,
+  <div
     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
     role="progressbar"
   >
@@ -1625,30 +1639,6 @@ Array [
       60%
     </span>
   </div>,
-  <div>
-    <div
-      class="ant-tooltip"
-      style="opacity:0"
-    >
-      <div
-        class="ant-tooltip-content"
-      >
-        <div
-          class="ant-tooltip-arrow"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-tooltip-inner"
-          role="tooltip"
-        >
-          3 done / 3 in progress / 4 to do
-        </div>
-      </div>
-    </div>
-  </div>,
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
     style="flex-wrap:wrap;margin-bottom:-8px"
@@ -1657,6 +1647,25 @@ Array [
       class="ant-space-item"
       style="margin-right:8px;padding-bottom:8px"
     >
+      <div
+        class="ant-tooltip ant-tooltip-placement-top"
+        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      >
+        <div
+          class="ant-tooltip-arrow"
+          style="position:absolute;bottom:0;left:0"
+        />
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            3 done / 3 in progress / 4 to do
+          </div>
+        </div>
+      </div>
       <div
         class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
         role="progressbar"
@@ -1708,35 +1717,30 @@ Array [
           </span>
         </div>
       </div>
-      <div>
-        <div
-          class="ant-tooltip"
-          style="opacity:0"
-        >
-          <div
-            class="ant-tooltip-content"
-          >
-            <div
-              class="ant-tooltip-arrow"
-            >
-              <span
-                class="ant-tooltip-arrow-content"
-              />
-            </div>
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            >
-              3 done / 3 in progress / 4 to do
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
     <div
       class="ant-space-item"
       style="padding-bottom:8px"
     >
+      <div
+        class="ant-tooltip ant-tooltip-placement-top"
+        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      >
+        <div
+          class="ant-tooltip-arrow"
+          style="position:absolute;bottom:0;left:0"
+        />
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            3 done / 3 in progress / 4 to do
+          </div>
+        </div>
+      </div>
       <div
         class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
         role="progressbar"
@@ -1786,30 +1790,6 @@ Array [
           >
             60%
           </span>
-        </div>
-      </div>
-      <div>
-        <div
-          class="ant-tooltip"
-          style="opacity:0"
-        >
-          <div
-            class="ant-tooltip-content"
-          >
-            <div
-              class="ant-tooltip-arrow"
-            >
-              <span
-                class="ant-tooltip-arrow-content"
-              />
-            </div>
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            >
-              3 done / 3 in progress / 4 to do
-            </div>
-          </div>
         </div>
       </div>
     </div>

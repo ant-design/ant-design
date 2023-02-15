@@ -252,45 +252,40 @@ exports[`renders ./components/steps/demo/customized-progress-dot.tsx extend cont
         <span
           class="ant-steps-icon"
         >
-          <span
-            class="ant-steps-icon-dot"
-          />
-          <div>
+          <div
+            class="ant-popover ant-popover-placement-top"
+            style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+          >
             <div
-              class="ant-popover"
-              style="opacity:0"
+              class="ant-popover-arrow"
+              style="position:absolute;bottom:0;left:0"
+            />
+            <div
+              class="ant-popover-content"
             >
               <div
-                class="ant-popover-content"
+                class="ant-popover-inner"
+                role="tooltip"
               >
                 <div
-                  class="ant-popover-arrow"
+                  class="ant-popover-inner-content"
                 >
-                  <span
-                    class="ant-popover-arrow-content"
-                  />
-                </div>
-                <div
-                  class="ant-popover-inner"
-                  role="tooltip"
-                >
-                  <div
-                    class="ant-popover-inner-content"
-                  >
-                    <span>
-                      step
-                      <!-- -->
-                      0
-                      <!-- -->
-                       status:
-                      <!-- -->
-                      finish
-                    </span>
-                  </div>
+                  <span>
+                    step
+                    <!-- -->
+                    0
+                    <!-- -->
+                     status:
+                    <!-- -->
+                    finish
+                  </span>
                 </div>
               </div>
             </div>
           </div>
+          <span
+            class="ant-steps-icon-dot"
+          />
         </span>
       </div>
       <div
@@ -324,45 +319,40 @@ exports[`renders ./components/steps/demo/customized-progress-dot.tsx extend cont
         <span
           class="ant-steps-icon"
         >
-          <span
-            class="ant-steps-icon-dot"
-          />
-          <div>
+          <div
+            class="ant-popover ant-popover-placement-top"
+            style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+          >
             <div
-              class="ant-popover"
-              style="opacity:0"
+              class="ant-popover-arrow"
+              style="position:absolute;bottom:0;left:0"
+            />
+            <div
+              class="ant-popover-content"
             >
               <div
-                class="ant-popover-content"
+                class="ant-popover-inner"
+                role="tooltip"
               >
                 <div
-                  class="ant-popover-arrow"
+                  class="ant-popover-inner-content"
                 >
-                  <span
-                    class="ant-popover-arrow-content"
-                  />
-                </div>
-                <div
-                  class="ant-popover-inner"
-                  role="tooltip"
-                >
-                  <div
-                    class="ant-popover-inner-content"
-                  >
-                    <span>
-                      step
-                      <!-- -->
-                      1
-                      <!-- -->
-                       status:
-                      <!-- -->
-                      process
-                    </span>
-                  </div>
+                  <span>
+                    step
+                    <!-- -->
+                    1
+                    <!-- -->
+                     status:
+                    <!-- -->
+                    process
+                  </span>
                 </div>
               </div>
             </div>
           </div>
+          <span
+            class="ant-steps-icon-dot"
+          />
         </span>
       </div>
       <div
@@ -396,45 +386,40 @@ exports[`renders ./components/steps/demo/customized-progress-dot.tsx extend cont
         <span
           class="ant-steps-icon"
         >
-          <span
-            class="ant-steps-icon-dot"
-          />
-          <div>
+          <div
+            class="ant-popover ant-popover-placement-top"
+            style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+          >
             <div
-              class="ant-popover"
-              style="opacity:0"
+              class="ant-popover-arrow"
+              style="position:absolute;bottom:0;left:0"
+            />
+            <div
+              class="ant-popover-content"
             >
               <div
-                class="ant-popover-content"
+                class="ant-popover-inner"
+                role="tooltip"
               >
                 <div
-                  class="ant-popover-arrow"
+                  class="ant-popover-inner-content"
                 >
-                  <span
-                    class="ant-popover-arrow-content"
-                  />
-                </div>
-                <div
-                  class="ant-popover-inner"
-                  role="tooltip"
-                >
-                  <div
-                    class="ant-popover-inner-content"
-                  >
-                    <span>
-                      step
-                      <!-- -->
-                      2
-                      <!-- -->
-                       status:
-                      <!-- -->
-                      wait
-                    </span>
-                  </div>
+                  <span>
+                    step
+                    <!-- -->
+                    2
+                    <!-- -->
+                     status:
+                    <!-- -->
+                    wait
+                  </span>
                 </div>
               </div>
             </div>
           </div>
+          <span
+            class="ant-steps-icon-dot"
+          />
         </span>
       </div>
       <div
@@ -468,45 +453,40 @@ exports[`renders ./components/steps/demo/customized-progress-dot.tsx extend cont
         <span
           class="ant-steps-icon"
         >
-          <span
-            class="ant-steps-icon-dot"
-          />
-          <div>
+          <div
+            class="ant-popover ant-popover-placement-top"
+            style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+          >
             <div
-              class="ant-popover"
-              style="opacity:0"
+              class="ant-popover-arrow"
+              style="position:absolute;bottom:0;left:0"
+            />
+            <div
+              class="ant-popover-content"
             >
               <div
-                class="ant-popover-content"
+                class="ant-popover-inner"
+                role="tooltip"
               >
                 <div
-                  class="ant-popover-arrow"
+                  class="ant-popover-inner-content"
                 >
-                  <span
-                    class="ant-popover-arrow-content"
-                  />
-                </div>
-                <div
-                  class="ant-popover-inner"
-                  role="tooltip"
-                >
-                  <div
-                    class="ant-popover-inner-content"
-                  >
-                    <span>
-                      step
-                      <!-- -->
-                      3
-                      <!-- -->
-                       status:
-                      <!-- -->
-                      wait
-                    </span>
-                  </div>
+                  <span>
+                    step
+                    <!-- -->
+                    3
+                    <!-- -->
+                     status:
+                    <!-- -->
+                    wait
+                  </span>
                 </div>
               </div>
             </div>
           </div>
+          <span
+            class="ant-steps-icon-dot"
+          />
         </span>
       </div>
       <div
@@ -923,6 +903,25 @@ exports[`renders ./components/steps/demo/inline.tsx extend context correctly 1`]
               style="margin-top:8px"
             >
               <div
+                class="ant-tooltip ant-tooltip-placement-top"
+                style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+              >
+                <div
+                  class="ant-tooltip-arrow"
+                  style="position:absolute;bottom:0;left:0"
+                />
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  >
+                    This is a Step 1.
+                  </div>
+                </div>
+              </div>
+              <div
                 class="ant-steps-item ant-steps-item-process ant-steps-item-active"
               >
                 <div
@@ -958,27 +957,22 @@ exports[`renders ./components/steps/demo/inline.tsx extend context correctly 1`]
                   </div>
                 </div>
               </div>
-              <div>
+              <div
+                class="ant-tooltip ant-tooltip-placement-top"
+                style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+              >
                 <div
-                  class="ant-tooltip"
-                  style="opacity:0"
+                  class="ant-tooltip-arrow"
+                  style="position:absolute;bottom:0;left:0"
+                />
+                <div
+                  class="ant-tooltip-content"
                 >
                   <div
-                    class="ant-tooltip-content"
+                    class="ant-tooltip-inner"
+                    role="tooltip"
                   >
-                    <div
-                      class="ant-tooltip-arrow"
-                    >
-                      <span
-                        class="ant-tooltip-arrow-content"
-                      />
-                    </div>
-                    <div
-                      class="ant-tooltip-inner"
-                      role="tooltip"
-                    >
-                      This is a Step 1.
-                    </div>
+                    This is a Step 2.
                   </div>
                 </div>
               </div>
@@ -1018,27 +1012,22 @@ exports[`renders ./components/steps/demo/inline.tsx extend context correctly 1`]
                   </div>
                 </div>
               </div>
-              <div>
+              <div
+                class="ant-tooltip ant-tooltip-placement-top"
+                style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+              >
                 <div
-                  class="ant-tooltip"
-                  style="opacity:0"
+                  class="ant-tooltip-arrow"
+                  style="position:absolute;bottom:0;left:0"
+                />
+                <div
+                  class="ant-tooltip-content"
                 >
                   <div
-                    class="ant-tooltip-content"
+                    class="ant-tooltip-inner"
+                    role="tooltip"
                   >
-                    <div
-                      class="ant-tooltip-arrow"
-                    >
-                      <span
-                        class="ant-tooltip-arrow-content"
-                      />
-                    </div>
-                    <div
-                      class="ant-tooltip-inner"
-                      role="tooltip"
-                    >
-                      This is a Step 2.
-                    </div>
+                    This is a Step 3.
                   </div>
                 </div>
               </div>
@@ -1072,30 +1061,6 @@ exports[`renders ./components/steps/demo/inline.tsx extend context correctly 1`]
                     </div>
                     <div
                       class="ant-steps-item-description"
-                    >
-                      This is a Step 3.
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <div
-                  class="ant-tooltip"
-                  style="opacity:0"
-                >
-                  <div
-                    class="ant-tooltip-content"
-                  >
-                    <div
-                      class="ant-tooltip-arrow"
-                    >
-                      <span
-                        class="ant-tooltip-arrow-content"
-                      />
-                    </div>
-                    <div
-                      class="ant-tooltip-inner"
-                      role="tooltip"
                     >
                       This is a Step 3.
                     </div>
@@ -1145,6 +1110,25 @@ exports[`renders ./components/steps/demo/inline.tsx extend context correctly 1`]
               style="margin-top:8px"
             >
               <div
+                class="ant-tooltip ant-tooltip-placement-top"
+                style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+              >
+                <div
+                  class="ant-tooltip-arrow"
+                  style="position:absolute;bottom:0;left:0"
+                />
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  >
+                    This is a Step 1.
+                  </div>
+                </div>
+              </div>
+              <div
                 class="ant-steps-item ant-steps-item-finish ant-steps-next-error"
               >
                 <div
@@ -1180,27 +1164,22 @@ exports[`renders ./components/steps/demo/inline.tsx extend context correctly 1`]
                   </div>
                 </div>
               </div>
-              <div>
+              <div
+                class="ant-tooltip ant-tooltip-placement-top"
+                style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+              >
                 <div
-                  class="ant-tooltip"
-                  style="opacity:0"
+                  class="ant-tooltip-arrow"
+                  style="position:absolute;bottom:0;left:0"
+                />
+                <div
+                  class="ant-tooltip-content"
                 >
                   <div
-                    class="ant-tooltip-content"
+                    class="ant-tooltip-inner"
+                    role="tooltip"
                   >
-                    <div
-                      class="ant-tooltip-arrow"
-                    >
-                      <span
-                        class="ant-tooltip-arrow-content"
-                      />
-                    </div>
-                    <div
-                      class="ant-tooltip-inner"
-                      role="tooltip"
-                    >
-                      This is a Step 1.
-                    </div>
+                    This is a Step 2.
                   </div>
                 </div>
               </div>
@@ -1240,27 +1219,22 @@ exports[`renders ./components/steps/demo/inline.tsx extend context correctly 1`]
                   </div>
                 </div>
               </div>
-              <div>
+              <div
+                class="ant-tooltip ant-tooltip-placement-top"
+                style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+              >
                 <div
-                  class="ant-tooltip"
-                  style="opacity:0"
+                  class="ant-tooltip-arrow"
+                  style="position:absolute;bottom:0;left:0"
+                />
+                <div
+                  class="ant-tooltip-content"
                 >
                   <div
-                    class="ant-tooltip-content"
+                    class="ant-tooltip-inner"
+                    role="tooltip"
                   >
-                    <div
-                      class="ant-tooltip-arrow"
-                    >
-                      <span
-                        class="ant-tooltip-arrow-content"
-                      />
-                    </div>
-                    <div
-                      class="ant-tooltip-inner"
-                      role="tooltip"
-                    >
-                      This is a Step 2.
-                    </div>
+                    This is a Step 3.
                   </div>
                 </div>
               </div>
@@ -1294,30 +1268,6 @@ exports[`renders ./components/steps/demo/inline.tsx extend context correctly 1`]
                     </div>
                     <div
                       class="ant-steps-item-description"
-                    >
-                      This is a Step 3.
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <div
-                  class="ant-tooltip"
-                  style="opacity:0"
-                >
-                  <div
-                    class="ant-tooltip-content"
-                  >
-                    <div
-                      class="ant-tooltip-arrow"
-                    >
-                      <span
-                        class="ant-tooltip-arrow-content"
-                      />
-                    </div>
-                    <div
-                      class="ant-tooltip-inner"
-                      role="tooltip"
                     >
                       This is a Step 3.
                     </div>
@@ -1367,6 +1317,25 @@ exports[`renders ./components/steps/demo/inline.tsx extend context correctly 1`]
               style="margin-top:8px"
             >
               <div
+                class="ant-tooltip ant-tooltip-placement-top"
+                style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+              >
+                <div
+                  class="ant-tooltip-arrow"
+                  style="position:absolute;bottom:0;left:0"
+                />
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  >
+                    This is a Step 1.
+                  </div>
+                </div>
+              </div>
+              <div
                 class="ant-steps-item ant-steps-item-finish"
               >
                 <div
@@ -1402,27 +1371,22 @@ exports[`renders ./components/steps/demo/inline.tsx extend context correctly 1`]
                   </div>
                 </div>
               </div>
-              <div>
+              <div
+                class="ant-tooltip ant-tooltip-placement-top"
+                style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+              >
                 <div
-                  class="ant-tooltip"
-                  style="opacity:0"
+                  class="ant-tooltip-arrow"
+                  style="position:absolute;bottom:0;left:0"
+                />
+                <div
+                  class="ant-tooltip-content"
                 >
                   <div
-                    class="ant-tooltip-content"
+                    class="ant-tooltip-inner"
+                    role="tooltip"
                   >
-                    <div
-                      class="ant-tooltip-arrow"
-                    >
-                      <span
-                        class="ant-tooltip-arrow-content"
-                      />
-                    </div>
-                    <div
-                      class="ant-tooltip-inner"
-                      role="tooltip"
-                    >
-                      This is a Step 1.
-                    </div>
+                    This is a Step 2.
                   </div>
                 </div>
               </div>
@@ -1462,27 +1426,22 @@ exports[`renders ./components/steps/demo/inline.tsx extend context correctly 1`]
                   </div>
                 </div>
               </div>
-              <div>
+              <div
+                class="ant-tooltip ant-tooltip-placement-top"
+                style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+              >
                 <div
-                  class="ant-tooltip"
-                  style="opacity:0"
+                  class="ant-tooltip-arrow"
+                  style="position:absolute;bottom:0;left:0"
+                />
+                <div
+                  class="ant-tooltip-content"
                 >
                   <div
-                    class="ant-tooltip-content"
+                    class="ant-tooltip-inner"
+                    role="tooltip"
                   >
-                    <div
-                      class="ant-tooltip-arrow"
-                    >
-                      <span
-                        class="ant-tooltip-arrow-content"
-                      />
-                    </div>
-                    <div
-                      class="ant-tooltip-inner"
-                      role="tooltip"
-                    >
-                      This is a Step 2.
-                    </div>
+                    This is a Step 3.
                   </div>
                 </div>
               </div>
@@ -1516,30 +1475,6 @@ exports[`renders ./components/steps/demo/inline.tsx extend context correctly 1`]
                     </div>
                     <div
                       class="ant-steps-item-description"
-                    >
-                      This is a Step 3.
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <div
-                  class="ant-tooltip"
-                  style="opacity:0"
-                >
-                  <div
-                    class="ant-tooltip-content"
-                  >
-                    <div
-                      class="ant-tooltip-arrow"
-                    >
-                      <span
-                        class="ant-tooltip-arrow-content"
-                      />
-                    </div>
-                    <div
-                      class="ant-tooltip-inner"
-                      role="tooltip"
                     >
                       This is a Step 3.
                     </div>
@@ -1589,6 +1524,25 @@ exports[`renders ./components/steps/demo/inline.tsx extend context correctly 1`]
               style="margin-top:8px"
             >
               <div
+                class="ant-tooltip ant-tooltip-placement-top"
+                style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+              >
+                <div
+                  class="ant-tooltip-arrow"
+                  style="position:absolute;bottom:0;left:0"
+                />
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  >
+                    This is a Step 1.
+                  </div>
+                </div>
+              </div>
+              <div
                 class="ant-steps-item ant-steps-item-finish"
               >
                 <div
@@ -1624,27 +1578,22 @@ exports[`renders ./components/steps/demo/inline.tsx extend context correctly 1`]
                   </div>
                 </div>
               </div>
-              <div>
+              <div
+                class="ant-tooltip ant-tooltip-placement-top"
+                style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+              >
                 <div
-                  class="ant-tooltip"
-                  style="opacity:0"
+                  class="ant-tooltip-arrow"
+                  style="position:absolute;bottom:0;left:0"
+                />
+                <div
+                  class="ant-tooltip-content"
                 >
                   <div
-                    class="ant-tooltip-content"
+                    class="ant-tooltip-inner"
+                    role="tooltip"
                   >
-                    <div
-                      class="ant-tooltip-arrow"
-                    >
-                      <span
-                        class="ant-tooltip-arrow-content"
-                      />
-                    </div>
-                    <div
-                      class="ant-tooltip-inner"
-                      role="tooltip"
-                    >
-                      This is a Step 1.
-                    </div>
+                    This is a Step 2.
                   </div>
                 </div>
               </div>
@@ -1684,27 +1633,22 @@ exports[`renders ./components/steps/demo/inline.tsx extend context correctly 1`]
                   </div>
                 </div>
               </div>
-              <div>
+              <div
+                class="ant-tooltip ant-tooltip-placement-top"
+                style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+              >
                 <div
-                  class="ant-tooltip"
-                  style="opacity:0"
+                  class="ant-tooltip-arrow"
+                  style="position:absolute;bottom:0;left:0"
+                />
+                <div
+                  class="ant-tooltip-content"
                 >
                   <div
-                    class="ant-tooltip-content"
+                    class="ant-tooltip-inner"
+                    role="tooltip"
                   >
-                    <div
-                      class="ant-tooltip-arrow"
-                    >
-                      <span
-                        class="ant-tooltip-arrow-content"
-                      />
-                    </div>
-                    <div
-                      class="ant-tooltip-inner"
-                      role="tooltip"
-                    >
-                      This is a Step 2.
-                    </div>
+                    This is a Step 3.
                   </div>
                 </div>
               </div>
@@ -1738,30 +1682,6 @@ exports[`renders ./components/steps/demo/inline.tsx extend context correctly 1`]
                     </div>
                     <div
                       class="ant-steps-item-description"
-                    >
-                      This is a Step 3.
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <div
-                  class="ant-tooltip"
-                  style="opacity:0"
-                >
-                  <div
-                    class="ant-tooltip-content"
-                  >
-                    <div
-                      class="ant-tooltip-arrow"
-                    >
-                      <span
-                        class="ant-tooltip-arrow-content"
-                      />
-                    </div>
-                    <div
-                      class="ant-tooltip-inner"
-                      role="tooltip"
                     >
                       This is a Step 3.
                     </div>

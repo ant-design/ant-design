@@ -2,50 +2,45 @@
 
 exports[`renders ./components/qrcode/demo/Popover.tsx extend context correctly 1`] = `
 Array [
+  <div
+    class="ant-popover ant-popover-placement-top"
+    style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+  >
+    <div
+      class="ant-popover-arrow"
+      style="position:absolute;bottom:0;left:0"
+    />
+    <div
+      class="ant-popover-content"
+    >
+      <div
+        class="ant-popover-inner"
+        role="tooltip"
+        style="padding:0"
+      >
+        <div
+          class="ant-popover-inner-content"
+        >
+          <div
+            class="ant-qrcode ant-qrcode-borderless"
+            style="width:160px;height:160px"
+          >
+            <canvas
+              height="134"
+              style="height:134px;width:134px"
+              width="134"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
   <img
     alt="icon"
     height="100"
     src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
     width="100"
   />,
-  <div>
-    <div
-      class="ant-popover"
-      style="opacity:0"
-    >
-      <div
-        class="ant-popover-content"
-      >
-        <div
-          class="ant-popover-arrow"
-        >
-          <span
-            class="ant-popover-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-popover-inner"
-          role="tooltip"
-          style="padding:0"
-        >
-          <div
-            class="ant-popover-inner-content"
-          >
-            <div
-              class="ant-qrcode ant-qrcode-borderless"
-              style="width:160px;height:160px"
-            >
-              <canvas
-                height="134"
-                style="height:134px;width:134px"
-                width="134"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>,
 ]
 `;
 
