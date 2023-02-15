@@ -18,7 +18,7 @@ export interface AppProps extends AppConfig {
   children?: ReactNode;
 }
 
-const useApp = () => React.useContext(AppContext);
+const useApp = () => React.useContext<useAppProps>(AppContext);
 
 const App: React.FC<AppProps> & { useApp: typeof useApp } = (props) => {
   const {
