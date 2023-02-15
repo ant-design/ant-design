@@ -1,5 +1,6 @@
 import React from 'react';
 import Radio, { Button, Group } from '..';
+import Form from '../../form';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -32,5 +33,16 @@ describe('Radio', () => {
 
     fireEvent.mouseLeave(container.querySelector('label')!);
     expect(onMouseLeave).toHaveBeenCalled();
+  });
+
+  it('should use own disabled status first', () => {
+    const { container } = render(
+      <Form disabled>
+        <Radio disabled={false} />
+      </Form>,
+    );
+    expect(container.querySelector('.ant-radio-wrapper')).not.toHaveClass(
+      'ant-radio-wrapper-disabled',
+    );
   });
 });
