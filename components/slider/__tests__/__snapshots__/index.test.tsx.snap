@@ -77,7 +77,7 @@ exports[`Slider should render in RTL direction 1`] = `
 
 exports[`Slider should show tooltip when hovering slider handler 1`] = `
 <div
-  class="ant-tooltip ant-zoom-big-fast-enter ant-zoom-big-fast-enter-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
   style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
 >
   <div
