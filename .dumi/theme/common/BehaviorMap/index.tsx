@@ -2,6 +2,7 @@ import type { FC } from 'react';
 import React, { useEffect, useRef } from 'react';
 import G6 from '@antv/g6';
 import { createStyles, css } from 'antd-style';
+import { useRouteMeta } from 'dumi';
 
 G6.registerNode('behavior-start-node', {
   draw: (cfg, group) => {
@@ -216,13 +217,53 @@ type BehaviorMapItem = {
 
 const useStyle = createStyles(() => ({
   container: css`
-      width: 100%;
-      height: 600px;
-      background-color: #f5f5f5;
-      border: 1px solid #e8e8e8;
-      border-radius: 8px;
-      overflow: hidden;
-    `,
+    width: 100%;
+    height: 600px;
+    background-color: #f5f5f5;
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+  `,
+  title: css`
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 16px;
+  `,
+  tips: css`
+    display: flex;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+  `,
+  mvp: css`
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    &::before {
+      content: '';
+      display: block;
+      width: 8px;
+      height: 8px;
+      background-color: #1677ff;
+      border-radius: 50%;
+      margin-right: 8px;
+    }
+  `,
+  extension: css`
+    display: flex;
+    align-items: center;
+    &::before {
+      content: '';
+      display: block;
+      width: 8px;
+      height: 8px;
+      background-color: #A0A0A0;
+      border-radius: 50%;
+      margin-right: 8px;
+    }
+  `,
 }));
 
 export type BehaviorMapProps = {
@@ -232,6 +273,7 @@ export type BehaviorMapProps = {
 const BehaviorMap: FC<BehaviorMapProps> = ({ data }) => {
   const ref = useRef<HTMLDivElement>(null);
   const { styles } = useStyle();
+  const meta = useRouteMeta();
 
   useEffect(() => {
     const graph = new G6.TreeGraph({
@@ -278,7 +320,15 @@ const BehaviorMap: FC<BehaviorMapProps> = ({ data }) => {
     graph.fitCenter();
   }, []);
 
-  return <div ref={ref} className={styles.container} />;
+  return (
+    <div ref={ref} className={styles.container}>
+      <div className={styles.title}>{`${meta.frontmatter.title} 行为模式地图`}</div>
+      <div className={styles.tips}>
+        <div className={styles.mvp}>MVP 行为目的</div>
+        <div className={styles.extension}>拓展行为目的</div>
+      </div>
+    </div>
+  );
 };
 
 export default BehaviorMap;
