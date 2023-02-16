@@ -4,6 +4,13 @@ import React, { useMemo, useState } from 'react';
 const text = <span>prompt text</span>;
 
 const buttonWidth = 70;
+const gap = 8;
+
+const btnProps = {
+  style: {
+    width: buttonWidth,
+  },
+};
 
 const App: React.FC = () => {
   const options = ['Show', 'Hide', 'Center'];
@@ -33,18 +40,26 @@ const App: React.FC = () => {
         }}
       />
       <Divider orientation="center">Content</Divider>
-      <div style={{ marginLeft: buttonWidth, whiteSpace: 'nowrap' }}>
+      <div style={{ marginLeft: buttonWidth, display: 'flex', flexWrap: 'nowrap', columnGap: gap }}>
         <Tooltip placement="topLeft" title={text} arrow={mergedArrow}>
-          <Button>TL</Button>
+          <Button {...btnProps}>TL</Button>
         </Tooltip>
         <Tooltip placement="top" title={text} arrow={mergedArrow}>
-          <Button>Top</Button>
+          <Button {...btnProps}>Top</Button>
         </Tooltip>
         <Tooltip placement="topRight" title={text} arrow={mergedArrow}>
-          <Button>TR</Button>
+          <Button {...btnProps}>TR</Button>
         </Tooltip>
       </div>
-      <div style={{ width: buttonWidth, float: 'left' }}>
+      <div
+        style={{
+          width: buttonWidth,
+          float: 'left',
+          display: 'flex',
+          flexDirection: 'column',
+          rowGap: gap,
+        }}
+      >
         <Tooltip placement="leftTop" title={text} arrow={mergedArrow}>
           <Button>LT</Button>
         </Tooltip>
@@ -55,7 +70,15 @@ const App: React.FC = () => {
           <Button>LB</Button>
         </Tooltip>
       </div>
-      <div style={{ width: buttonWidth, marginLeft: buttonWidth * 4 + 24 }}>
+      <div
+        style={{
+          width: buttonWidth,
+          marginLeft: buttonWidth * 4 + 24,
+          display: 'flex',
+          flexDirection: 'column',
+          rowGap: gap,
+        }}
+      >
         <Tooltip placement="rightTop" title={text} arrow={mergedArrow}>
           <Button>RT</Button>
         </Tooltip>
@@ -66,15 +89,23 @@ const App: React.FC = () => {
           <Button>RB</Button>
         </Tooltip>
       </div>
-      <div style={{ marginLeft: buttonWidth, clear: 'both', whiteSpace: 'nowrap' }}>
+      <div
+        style={{
+          marginLeft: buttonWidth,
+          clear: 'both',
+          display: 'flex',
+          flexWrap: 'nowrap',
+          columnGap: gap,
+        }}
+      >
         <Tooltip placement="bottomLeft" title={text} arrow={mergedArrow}>
-          <Button>BL</Button>
+          <Button {...btnProps}>BL</Button>
         </Tooltip>
         <Tooltip placement="bottom" title={text} arrow={mergedArrow}>
-          <Button>Bottom</Button>
+          <Button {...btnProps}>Bottom</Button>
         </Tooltip>
         <Tooltip placement="bottomRight" title={text} arrow={mergedArrow}>
-          <Button>BR</Button>
+          <Button {...btnProps}>BR</Button>
         </Tooltip>
       </div>
     </div>

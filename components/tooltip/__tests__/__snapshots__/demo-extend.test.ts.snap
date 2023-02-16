@@ -66,7 +66,7 @@ exports[`renders ./components/tooltip/demo/arrow.tsx extend context correctly 1`
     </span>
   </div>
   <div
-    style="margin-left:70px;white-space:nowrap"
+    style="margin-left:70px;display:flex;flex-wrap:nowrap;column-gap:8px"
   >
     <div
       class="ant-tooltip ant-tooltip-placement-topLeft"
@@ -91,6 +91,7 @@ exports[`renders ./components/tooltip/demo/arrow.tsx extend context correctly 1`
     </div>
     <button
       class="ant-btn ant-btn-default"
+      style="width:70px"
       type="button"
     >
       <span>
@@ -120,6 +121,7 @@ exports[`renders ./components/tooltip/demo/arrow.tsx extend context correctly 1`
     </div>
     <button
       class="ant-btn ant-btn-default"
+      style="width:70px"
       type="button"
     >
       <span>
@@ -149,6 +151,7 @@ exports[`renders ./components/tooltip/demo/arrow.tsx extend context correctly 1`
     </div>
     <button
       class="ant-btn ant-btn-default"
+      style="width:70px"
       type="button"
     >
       <span>
@@ -157,7 +160,7 @@ exports[`renders ./components/tooltip/demo/arrow.tsx extend context correctly 1`
     </button>
   </div>
   <div
-    style="width:70px;float:left"
+    style="width:70px;float:left;display:flex;flex-direction:column;row-gap:8px"
   >
     <div
       class="ant-tooltip ant-tooltip-placement-leftTop"
@@ -248,7 +251,7 @@ exports[`renders ./components/tooltip/demo/arrow.tsx extend context correctly 1`
     </button>
   </div>
   <div
-    style="width:70px;margin-left:304px"
+    style="width:70px;margin-left:304px;display:flex;flex-direction:column;row-gap:8px"
   >
     <div
       class="ant-tooltip ant-tooltip-placement-rightTop"
@@ -339,7 +342,7 @@ exports[`renders ./components/tooltip/demo/arrow.tsx extend context correctly 1`
     </button>
   </div>
   <div
-    style="margin-left:70px;clear:both;white-space:nowrap"
+    style="margin-left:70px;clear:both;display:flex;flex-wrap:nowrap;column-gap:8px"
   >
     <div
       class="ant-tooltip ant-tooltip-placement-bottomLeft"
@@ -364,6 +367,7 @@ exports[`renders ./components/tooltip/demo/arrow.tsx extend context correctly 1`
     </div>
     <button
       class="ant-btn ant-btn-default"
+      style="width:70px"
       type="button"
     >
       <span>
@@ -393,6 +397,7 @@ exports[`renders ./components/tooltip/demo/arrow.tsx extend context correctly 1`
     </div>
     <button
       class="ant-btn ant-btn-default"
+      style="width:70px"
       type="button"
     >
       <span>
@@ -422,6 +427,7 @@ exports[`renders ./components/tooltip/demo/arrow.tsx extend context correctly 1`
     </div>
     <button
       class="ant-btn ant-btn-default"
+      style="width:70px"
       type="button"
     >
       <span>
