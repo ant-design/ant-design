@@ -1,7 +1,7 @@
 ## zh-CN
 
-当贴边时，自动偏移。
+支持显示、隐藏以及将箭头保持居中定位。
 
 ## en-US
 
-Auto shift when out of screen
+Support show, hide or keep arrow in the center.

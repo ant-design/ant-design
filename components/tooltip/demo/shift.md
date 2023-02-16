@@ -1,27 +1,7 @@
 ## zh-CN
 
-通过 `arrow` 属性隐藏箭头。
+当 Tooltip 贴边时，自动偏移并且调整箭头位置。当超出过多时，则一同滚出屏幕。
 
 ## en-US
 
-Hide arrow by `arrow`.
-
-<style>
-.code-box-demo .demo {
-  overflow: auto;
-}
-.code-box-demo .ant-btn {
-  margin-right: 8px;
-  margin-bottom: 8px;
-}
-.code-box-demo .ant-btn-rtl {
-  margin-right: 0;
-  margin-left: 8px;
-  margin-bottom: 8px;
-}
-#components-tooltip-demo-arrow .ant-btn {
-  width: 70px;
-  text-align: center;
-  padding: 0;
-}
-</style>
+Auto adjust Popup and arrow position when Tooltip is close to the edge of the screen. Will be out of screen when exceed limitation.
