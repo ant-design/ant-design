@@ -27,6 +27,7 @@ import RiddleIcon from '../../common/RiddleIcon';
 import ExternalLinkIcon from '../../common/ExternalLinkIcon';
 import type { SiteContextProps } from '../../slots/SiteContext';
 import SiteContext from '../../slots/SiteContext';
+import useLocation from '../../../hooks/useLocation';
 
 const { ErrorBoundary } = Alert;
 
@@ -104,6 +105,8 @@ const CodePreviewer: React.FC<IPreviewerProps> = (props) => {
     filePath,
     version,
   } = props;
+
+  const location = useLocation();
 
   const entryCode = asset.dependencies['index.tsx'].value;
   const showRiddleButton = useShowRiddleButton();
