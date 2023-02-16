@@ -2,19 +2,19 @@
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
-import warning from '../_util/warning';
-import Wave from '../_util/wave';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
 import SizeContext from '../config-provider/SizeContext';
 import { useCompactItemContext } from '../space/Compact';
+import warning from '../_util/warning';
+import Wave from '../_util/wave';
 import Group, { GroupSizeContext } from './button-group';
 import { isTwoCNChar, isUnBorderedButtonType, spaceChildren } from './buttonHelpers';
 import LoadingIcon from './LoadingIcon';
 import useStyle from './style';
 
-import type { ButtonType, ButtonHTMLType, ButtonShape } from './buttonHelpers';
 import type { SizeType } from '../config-provider/SizeContext';
+import type { ButtonHTMLType, ButtonShape, ButtonType } from './buttonHelpers';
 
 export type LegacyButtonType = ButtonType | 'danger';
 
@@ -99,7 +99,9 @@ const InternalButton: React.ForwardRefRenderFunction<
   const mergedDisabled = customDisabled ?? disabled;
 
   const groupSize = React.useContext(GroupSizeContext);
-  const [innerLoading, setLoading] = React.useState<Loading>(!!loading);
+  const [innerLoading, setLoading] = React.useState<Loading>(
+    !Number.isNaN((loading as { delay?: number })?.delay) ? false : !!loading,
+  );
   const [hasTwoCNChar, setHasTwoCNChar] = React.useState(false);
   const buttonRef = (ref as any) || React.createRef<HTMLAnchorElement | HTMLButtonElement>();
 
