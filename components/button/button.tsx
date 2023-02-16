@@ -66,6 +66,20 @@ type CompoundedComponent = React.ForwardRefExoticComponent<
 
 type Loading = number | boolean;
 
+type LoadingConfigType = {
+  loading: boolean;
+  delay: number | null;
+};
+
+export function getLoadingConfig(loading: BaseButtonProps['loading']): LoadingConfigType {
+  const delay = (loading as { delay?: number })?.delay;
+  const isDelay = !Number.isNaN(delay) && typeof delay === 'number';
+  return {
+    loading: isDelay ? false : typeof loading === 'boolean' ? loading : true,
+    delay: isDelay ? delay : null,
+  };
+}
+
 const InternalButton: React.ForwardRefRenderFunction<
   HTMLButtonElement | HTMLAnchorElement,
   ButtonProps
@@ -99,9 +113,11 @@ const InternalButton: React.ForwardRefRenderFunction<
   const mergedDisabled = customDisabled ?? disabled;
 
   const groupSize = React.useContext(GroupSizeContext);
-  const [innerLoading, setLoading] = React.useState<Loading>(
-    !Number.isNaN((loading as { delay?: number })?.delay) ? false : !!loading,
+  const loadingOrDelay: LoadingConfigType = React.useMemo(
+    () => getLoadingConfig(loading),
+    [loading],
   );
+  const [innerLoading, setLoading] = React.useState<Loading>(loadingOrDelay.loading);
   const [hasTwoCNChar, setHasTwoCNChar] = React.useState(false);
   const buttonRef = (ref as any) || React.createRef<HTMLAnchorElement | HTMLButtonElement>();
 
@@ -123,18 +139,16 @@ const InternalButton: React.ForwardRefRenderFunction<
     }
   };
 
-  const loadingOrDelay: Loading = typeof loading === 'boolean' ? loading : loading?.delay || true;
-
   React.useEffect(() => {
     let delayTimer: number | null = null;
 
-    if (typeof loadingOrDelay === 'number') {
+    if (typeof loadingOrDelay.delay === 'number') {
       delayTimer = window.setTimeout(() => {
         delayTimer = null;
-        setLoading(loadingOrDelay);
-      }, loadingOrDelay);
+        setLoading(true);
+      }, loadingOrDelay.delay);
     } else {
-      setLoading(loadingOrDelay);
+      setLoading(loadingOrDelay.loading);
     }
 
     function cleanupTimer() {
