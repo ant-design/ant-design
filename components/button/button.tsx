@@ -74,8 +74,9 @@ type LoadingConfigType = {
 export function getLoadingConfig(loading: BaseButtonProps['loading']): LoadingConfigType {
   const delay = (loading as { delay?: number })?.delay;
   const isDelay = !Number.isNaN(delay) && typeof delay === 'number';
+  const loadingValue = typeof loading === 'boolean' ? loading : true;
   return {
-    loading: isDelay ? false : typeof loading === 'boolean' ? loading : true,
+    loading: isDelay ? false : loadingValue,
     delay: isDelay ? delay : null,
   };
 }
