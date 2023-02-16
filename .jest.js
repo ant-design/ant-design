@@ -51,7 +51,8 @@ module.exports = {
     '!components/**/*/interface.{ts,tsx}',
     '!components/*/__tests__/image.test.{ts,tsx}',
     '!components/__tests__/node.test.tsx',
-    '!components/*/demo/**',
+    '!components/*/demo/*.tsx',
+    '!components/*/design/**',
   ],
   transformIgnorePatterns,
   globals: {

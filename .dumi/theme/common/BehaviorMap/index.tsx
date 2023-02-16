@@ -5,9 +5,9 @@ import { createStyles, css } from 'antd-style';
 
 G6.registerNode('behavior-start-node', {
   draw: (cfg, group) => {
-    const textWidth = G6.Util.getTextSize(cfg.label, 16)[0];
+    const textWidth = G6.Util.getTextSize(cfg!.label, 16)[0];
     const size = [textWidth + 20 * 2, 48];
-    const keyShape = group.addShape('rect', {
+    const keyShape = group!.addShape('rect', {
       name: 'start-node',
       attrs: {
         width: size[0],
@@ -17,9 +17,9 @@ G6.registerNode('behavior-start-node', {
         fill: '#fff',
       },
     });
-    group.addShape('text', {
+    group!.addShape('text', {
       attrs: {
-        text: `${cfg.label}`,
+        text: `${cfg!.label}`,
         fill: 'rgba(0, 0, 0, 0.88)',
         fontSize: 16,
         fontWeight: 500,
@@ -42,10 +42,10 @@ G6.registerNode(
   'behavior-sub-node',
   {
     draw: (cfg, group) => {
-      const textWidth = G6.Util.getTextSize(cfg.label, 14)[0];
+      const textWidth = G6.Util.getTextSize(cfg!.label, 14)[0];
       const padding = 16;
-      const size = [textWidth + 16 * 2 + (cfg.targetType ? 12 : 0) + (cfg.link ? 20 : 0), 40];
-      const keyShape = group.addShape('rect', {
+      const size = [textWidth + 16 * 2 + (cfg!.targetType ? 12 : 0) + (cfg!.link ? 20 : 0), 40];
+      const keyShape = group!.addShape('rect', {
         name: 'sub-node',
         attrs: {
           width: size[0],
@@ -56,10 +56,10 @@ G6.registerNode(
           cursor: 'pointer',
         },
       });
-      group.addShape('text', {
+      group!.addShape('text', {
         attrs: {
-          text: `${cfg.label}`,
-          x: cfg.targetType ? 12 + 16 : padding,
+          text: `${cfg!.label}`,
+          x: cfg!.targetType ? 12 + 16 : padding,
           fill: 'rgba(0, 0, 0, 0.88)',
           fontSize: 14,
           textBaseline: 'middle',
@@ -67,8 +67,8 @@ G6.registerNode(
         },
         name: 'sub-node-text',
       });
-      if (cfg.targetType) {
-        group.addShape('rect', {
+      if (cfg!.targetType) {
+        group!.addShape('rect', {
           name: 'sub-node-type',
           attrs: {
             width: 8,
@@ -76,14 +76,14 @@ G6.registerNode(
             radius: 4,
             y: -4,
             x: 12,
-            fill: cfg.targetType === 'mvp' ? '#1677ff' : '#A0A0A0',
+            fill: cfg!.targetType === 'mvp' ? '#1677ff' : '#A0A0A0',
             cursor: 'pointer',
           },
         });
       }
-      if (cfg.children) {
-        const { length } = cfg.children as any;
-        group.addShape('rect', {
+      if (cfg!.children) {
+        const { length } = cfg!.children as any;
+        group!.addShape('rect', {
           name: 'sub-node-children-length',
           attrs: {
             width: 20,
@@ -95,7 +95,7 @@ G6.registerNode(
             cursor: 'pointer',
           },
         });
-        group.addShape('text', {
+        group!.addShape('text', {
           name: 'sub-node-children-length-text',
           attrs: {
             text: `${length}`,
@@ -107,8 +107,8 @@ G6.registerNode(
           },
         });
       }
-      if (cfg.link) {
-        group.addShape('dom', {
+      if (cfg!.link) {
+        group!.addShape('dom', {
           attrs: {
             width: 16,
             height: 16,
@@ -180,9 +180,9 @@ G6.registerNode(
   'rect',
 );
 
-const dataTransform = (data) => {
-  const changeData = (d, level = 0) => {
-    const clonedData = {
+const dataTransform = (data: BehaviorMapItem) => {
+  const changeData = (d: any, level = 0) => {
+    const clonedData: any = {
       ...d,
     };
     switch (level) {
@@ -199,7 +199,7 @@ const dataTransform = (data) => {
     }
 
     if (d.children) {
-      clonedData.children = d.children.map((child) => changeData(child, level + 1));
+      clonedData.children = d.children.map((child: any) => changeData(child, level + 1));
     }
     return clonedData;
   };
@@ -209,113 +209,9 @@ const dataTransform = (data) => {
 type BehaviorMapItem = {
   id: string;
   label: string;
-  type?: 'mvp' | 'extension';
+  targetType?: 'mvp' | 'extension';
   children?: BehaviorMapItem[];
   link?: string;
-};
-
-const data = {
-  id: '200000004',
-  label: '选择（输入）日期数据',
-  children: [
-    {
-      id: '500000061',
-      label: '选择时间点',
-      targetType: 'mvp',
-      children: [
-        {
-          id: '707000085',
-          label: '选择某天',
-          link: 'components-date-picker-index-tab-design-zh-cn-demo-pick-date',
-        },
-        {
-          id: '707000086',
-          label: '选择某周',
-          link: 'components-date-picker-index-tab-design-zh-cn-demo-pick-week',
-        },
-        {
-          id: '707000087',
-          label: '选择某月',
-          link: 'components-date-picker-index-tab-design-zh-cn-demo-pick-month',
-        },
-        {
-          id: '707000088',
-          label: '选择某季度',
-          link: 'components-date-picker-index-tab-design-zh-cn-demo-pick-quarter',
-        },
-        {
-          id: '707000089',
-          label: '选择某年',
-          link: 'components-date-picker-index-tab-design-zh-cn-demo-pick-year',
-        },
-        {
-          id: '707000090',
-          label: '选择某时间',
-          link: 'components-date-picker-index-tab-design-zh-cn-demo-pick-time',
-        },
-      ],
-    },
-    {
-      id: '200000005',
-      label: '选择时间段',
-      targetType: 'mvp',
-      children: [
-        {
-          id: '7070000851',
-          label: '选择某天至某天',
-          link: 'components-date-picker-index-tab-design-zh-cn-demo-pick-date-range',
-        },
-        {
-          id: '7070000861',
-          label: '选择某周至某周',
-          link: 'components-date-picker-index-tab-design-zh-cn-demo-pick-week-range',
-        },
-        {
-          id: '7070000871',
-          label: '选择某月至某月',
-          link: 'components-date-picker-index-tab-design-zh-cn-demo-pick-month-range',
-        },
-        {
-          id: '7070000881',
-          label: '选择某季度至某季度',
-          link: 'components-date-picker-index-tab-design-zh-cn-demo-pick-quarter-range',
-        },
-        {
-          id: '7070000891',
-          label: '选择某年至某年',
-          link: 'components-date-picker-index-tab-design-zh-cn-demo-pick-year-range',
-        },
-        {
-          id: '7070000901',
-          label: '选择某时间至某时间',
-          link: 'components-date-picker-index-tab-design-zh-cn-demo-pick-time-range',
-        },
-      ],
-    },
-    {
-      id: '200000006',
-      label: '快捷选择日期数据',
-      targetType: 'extension',
-      children: [
-        {
-          id: '70700008912',
-          label: '快捷选择时间点',
-          link: 'components-date-picker-index-tab-design-zh-cn-demo-preset-time',
-        },
-        {
-          id: '70700009012',
-          label: '快捷选择时间段',
-          link: 'components-date-picker-index-tab-design-zh-cn-demo-preset-range',
-        },
-      ],
-    },
-    {
-      id: '200000007',
-      label: '查看日期附属信息',
-      targetType: 'extension',
-      link: 'components-date-picker-index-tab-design-zh-cn-demo-date-extra-info',
-    },
-  ],
 };
 
 const useStyle = createStyles(() => ({
@@ -330,18 +226,18 @@ const useStyle = createStyles(() => ({
 }));
 
 export type BehaviorMapProps = {
-  items: BehaviorMapItem[];
+  data: BehaviorMapItem;
 };
 
-const BehaviorMap: FC<BehaviorMapProps> = ({ items }) => {
+const BehaviorMap: FC<BehaviorMapProps> = ({ data }) => {
   const ref = useRef<HTMLDivElement>(null);
   const { styles } = useStyle();
 
   useEffect(() => {
     const graph = new G6.TreeGraph({
-      container: ref.current,
-      width: ref.current.scrollWidth,
-      height: ref.current.scrollHeight,
+      container: ref.current!,
+      width: ref.current!.scrollWidth,
+      height: ref.current!.scrollHeight,
       renderer: 'svg',
       modes: {
         default: ['collapse-expand', 'drag-canvas'],
@@ -357,22 +253,21 @@ const BehaviorMap: FC<BehaviorMapProps> = ({ items }) => {
         type: 'mindmap',
         direction: 'LR',
         getHeight: () => 48,
-        getWidth: (node) => G6.Util.getTextSize(node.label, 16)[0] + 20 * 2,
+        getWidth: (node: any) => G6.Util.getTextSize(node.label, 16)[0] + 20 * 2,
         getVGap: () => 10,
         getHGap: () => 60,
-        getSide: (node) => node.data.direction,
+        getSide: (node: any) => node.data.direction,
       },
     });
 
     graph.on('node:mouseenter', (e) => {
-      console.log(e.item);
-      graph.setItemState(e.item, 'hover', true);
+      graph.setItemState(e.item!, 'hover', true);
     });
     graph.on('node:mouseleave', (e) => {
-      graph.setItemState(e.item, 'hover', false);
+      graph.setItemState(e.item!, 'hover', false);
     });
     graph.on('node:click', (e) => {
-      const { link } = e.item.getModel();
+      const { link } = e.item!.getModel();
       if (link) {
         window.location.hash = link as string;
       }

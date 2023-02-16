@@ -220,7 +220,7 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
               </Space>
             </Typography.Paragraph>
           ) : null}
-          {meta.frontmatter.description}
+          {meta.frontmatter.description !== meta.texts[0]?.value && meta.frontmatter.description}
           {children}
           {meta.frontmatter.filename && (
             <ContributorsList
