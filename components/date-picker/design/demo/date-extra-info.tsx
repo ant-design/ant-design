@@ -18,7 +18,7 @@ const useStyle = createStyles(() => ({
 
 const Demo: FC = () => {
   const { styles } = useStyle();
-  const dateRender = (current: Dayjs, today: Dayjs) => (
+  const dateRender = (current: Dayjs) => (
     <div
       className={classNames(
         'ant-picker-cell-inner',

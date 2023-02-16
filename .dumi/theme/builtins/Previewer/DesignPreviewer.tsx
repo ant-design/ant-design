@@ -2,7 +2,7 @@ import type { FC } from 'react';
 import React, { useRef } from 'react';
 import type { IPreviewerProps } from 'dumi';
 import { createStyles, css } from 'antd-style';
-import { SketchOutlined } from '@ant-design/icons';
+import { CheckOutlined, SketchOutlined } from '@ant-design/icons';
 import { nodeToGroup } from 'html2sketch';
 import copy from 'copy-to-clipboard';
 import { App } from 'antd';
@@ -36,8 +36,15 @@ const useStyle = createStyles(({ token }) => ({
     position: absolute;
     inset-inline-end: 20px;
     inset-block-start: 20px;
-    color: ${token.colorTextTertiary};
     cursor: pointer;
+  `,
+  copyTip: css`
+    color: ${token.colorTextTertiary};
+  `,
+  copiedTip: css`
+    .anticon {
+      color: ${token.colorSuccess};
+    }
   `,
   tip: css`
     color: ${token.colorTextTertiary};
@@ -48,13 +55,17 @@ const useStyle = createStyles(({ token }) => ({
 const DesignPreviewer: FC<IPreviewerProps> = ({ children, title, description, tip, asset }) => {
   const { styles } = useStyle();
   const demoRef = useRef<HTMLDivElement>(null);
+  const [copied, setCopied] = React.useState<boolean>(false);
   const { message } = App.useApp();
 
   const handleCopy = async () => {
     try {
       const group = await nodeToGroup(demoRef.current);
       copy(JSON.stringify(group.toSketchJSON()));
-      message.success('复制成功');
+      setCopied(true);
+      setTimeout(() => {
+        setCopied(false);
+      }, 5000);
     } catch (e) {
       console.error(e);
       message.error('复制失败');
@@ -67,9 +78,18 @@ const DesignPreviewer: FC<IPreviewerProps> = ({ children, title, description, ti
         {title}
       </a>
       <div className={styles.description} dangerouslySetInnerHTML={{ __html: description }} />
-      <div className={styles.copy} onClick={handleCopy}>
-        <SketchOutlined />
-        <span style={{ marginLeft: 8 }}>粘贴至 Sketch</span>
+      <div className={styles.copy}>
+        {copied ? (
+          <div className={styles.copiedTip}>
+            <CheckOutlined />
+            <span style={{ marginLeft: 8 }}>已复制，使用 Kitchen 插件即可粘贴</span>
+          </div>
+        ) : (
+          <div onClick={handleCopy} className={styles.copyTip}>
+            <SketchOutlined />
+            <span style={{ marginLeft: 8 }}>复制 Sketch JSON</span>
+          </div>
+        )}
       </div>
       <div className={styles.demo} ref={demoRef}>
         {children}
