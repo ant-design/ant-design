@@ -2,27 +2,39 @@ import type { FC } from 'react';
 import React from 'react';
 import { DatePicker } from 'antd';
 import type { Dayjs } from 'dayjs';
+import { createStyles, css } from 'antd-style';
+import classNames from 'classnames';
 
 const { _InternalPanelDoNotUseOrYouWillBeFired: PureDatePicker } = DatePicker;
 
-const seed = Math.random();
-
-const getSales = (date: Dayjs) => Math.floor((date.date() + date.month() * 30) * seed * 1000);
+const useStyle = createStyles(() => ({
+  weekendCell: css`
+    color: #ff4d4f40;
+    .ant-picker-cell-in-view & {
+      color: #ff4d4f;
+    }
+  `,
+}));
 
 const Demo: FC = () => {
-  const dateRender = (current: Dayjs) => (
-    <div className="ant-picker-cell-inner" style={{ width: 40, height: 40, margin: '0 4px' }}>
+  const { styles } = useStyle();
+  const dateRender = (current: Dayjs, today: Dayjs) => (
+    <div
+      className={classNames(
+        'ant-picker-cell-inner',
+        [6, 0].includes(current.day()) && styles.weekendCell,
+      )}
+    >
       {current.date()}
-      <div style={{ transform: 'scale(0.8)', color: 'rgba(0,0,0,0.65)', marginTop: -8 }}>
-        {getSales(current)}
-      </div>
     </div>
   );
 
   return (
-    <div>
-      <div>电商场景：预览销售额信息</div>
-      <PureDatePicker dateRender={dateRender} />
+    <div style={{ width: '100%' }}>
+      <div style={{ color: 'rgba(0,0,0,0.45)', marginBottom: 32 }}>办公场景：预览节假日信息</div>
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <PureDatePicker dateRender={dateRender} />
+      </div>
     </div>
   );
 };

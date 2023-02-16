@@ -71,8 +71,8 @@ const DesignPreviewer: FC<IPreviewerProps> = ({ children, title, description, ti
         <SketchOutlined />
         <span style={{ marginLeft: 8 }}>粘贴至 Sketch</span>
       </div>
-      <div className={styles.demo}>
-        <div ref={demoRef}>{children}</div>
+      <div className={styles.demo} ref={demoRef}>
+        {children}
       </div>
       <div className={styles.tip}>{tip}</div>
     </div>
