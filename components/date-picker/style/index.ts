@@ -7,20 +7,20 @@ import {
   genHoverStyle,
   initInputToken,
 } from '../../input/style';
+import { resetComponent, roundedArrow, textEllipsis } from '../../style';
+import { genCompactItemStyle } from '../../style/compact-item';
 import {
-  initSlideMotion,
   initMoveMotion,
+  initSlideMotion,
   slideDownIn,
   slideDownOut,
   slideUpIn,
   slideUpOut,
 } from '../../style/motion';
+import type { GlobalToken } from '../../theme/interface';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import type { GlobalToken } from '../../theme/interface';
 import type { TokenWithCommonCls } from '../../theme/util/genComponentStyleHook';
-import { resetComponent, roundedArrow, textEllipsis } from '../../style';
-import { genCompactItemStyle } from '../../style/compact-item';
 
 export interface ComponentToken {
   presetsWidth: number;
@@ -739,11 +739,14 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
             },
           },
 
-          '&:hover td': {
-            background: controlItemBgHover,
-          },
+          // '&:hover td': {
+          //   background: controlItemBgHover,
+          // },
 
-          [`&-selected td,
+          [`&:hover td,
+            &-range-start td,
+            &-range-end td,
+            &-selected td,
             &-selected:hover td`]: {
             background: colorPrimary,
 
@@ -758,6 +761,10 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
             [pickerCellInnerCls]: {
               color: colorTextLightSolid,
             },
+          },
+
+          [`&-range-hover td`]: {
+            background: controlItemBgActive,
           },
         },
       },
