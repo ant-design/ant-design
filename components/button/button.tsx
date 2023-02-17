@@ -68,22 +68,22 @@ type Loading = number | boolean;
 
 type LoadingConfigType = {
   loading: boolean;
-  delay: number | null;
+  delay: number;
 };
 
 function getLoadingConfig(loading: BaseButtonProps['loading']): LoadingConfigType {
-  const delay = (loading as { delay?: number })?.delay;
-  const isDelay = !Number.isNaN(delay) && typeof delay === 'number';
-  const loadingValue = typeof loading === 'boolean' ? loading : true;
-  if (isDelay) {
+  if (typeof loading === 'object') {
+    const delay = loading?.delay;
+    const isDelay = !Number.isNaN(delay) && typeof delay === 'number';
     return {
       loading: false,
-      delay,
+      delay: isDelay ? delay : 0,
     };
   }
+
   return {
-    loading: loadingValue,
-    delay: null,
+    loading: !!loading,
+    delay: 0,
   };
 }
 
@@ -149,7 +149,7 @@ const InternalButton: React.ForwardRefRenderFunction<
   React.useEffect(() => {
     let delayTimer: number | null = null;
 
-    if (typeof loadingOrDelay.delay === 'number') {
+    if (loadingOrDelay.delay > 0) {
       delayTimer = window.setTimeout(() => {
         delayTimer = null;
         setLoading(true);
