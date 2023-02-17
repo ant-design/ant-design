@@ -729,14 +729,16 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
 
         '&-row': {
           td: {
-            transition: `background ${motionDurationMid}`,
+            '&:before': {
+              transition: `background ${motionDurationMid}`,
+            },
 
-            '&:first-child': {
+            '&:first-child:before': {
               borderStartStartRadius: borderRadiusSM,
               borderEndStartRadius: borderRadiusSM,
             },
 
-            '&:last-child': {
+            '&:last-child:before': {
               borderStartEndRadius: borderRadiusSM,
               borderEndEndRadius: borderRadiusSM,
             },
@@ -746,14 +748,12 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
             &-range-start td,
             &-range-end td,
             &-selected:hover td`]: {
-            background: colorPrimary,
+            '&:before': {
+              background: colorPrimary,
+            },
 
             [`&${componentCls}-cell-week`]: {
               color: new TinyColor(colorTextLightSolid).setAlpha(0.5).toHexString(),
-            },
-
-            [`&${componentCls}-cell-today ${pickerCellInnerCls}::before`]: {
-              borderColor: colorTextLightSolid,
             },
 
             [pickerCellInnerCls]: {
@@ -761,7 +761,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
             },
           },
 
-          [`&-range-hover td`]: {
+          [`&-range-hover td:before`]: {
             background: controlItemBgActive,
           },
         },
