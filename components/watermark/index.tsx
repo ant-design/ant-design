@@ -164,6 +164,27 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
     });
   };
 
+  const drawText = (
+    canvas: HTMLCanvasElement,
+    ctx: CanvasRenderingContext2D,
+    drawX: number,
+    drawY: number,
+    drawWidth: number,
+    drawHeight: number,
+    alternateRotateX: number,
+    alternateRotateY: number,
+    alternateDrawX: number,
+    alternateDrawY: number,
+    markWidth: number,
+  ) => {
+    fillTexts(ctx, drawX, drawY, drawWidth, drawHeight);
+    /** Fill the interleaved text after rotation */
+    ctx.restore();
+    rotateWatermark(ctx, alternateRotateX, alternateRotateY, rotate);
+    fillTexts(ctx, alternateDrawX, alternateDrawY, drawWidth, drawHeight);
+    appendWatermark(canvas.toDataURL(), markWidth);
+  };
+
   const renderWatermark = () => {
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
@@ -205,16 +226,37 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
           ctx.drawImage(img, alternateDrawX, alternateDrawY, drawWidth, drawHeight);
           appendWatermark(canvas.toDataURL(), markWidth);
         };
+        img.onerror = () =>
+          drawText(
+            canvas,
+            ctx,
+            drawX,
+            drawY,
+            drawWidth,
+            drawHeight,
+            alternateRotateX,
+            alternateRotateY,
+            alternateDrawX,
+            alternateDrawY,
+            markWidth,
+          );
         img.crossOrigin = 'anonymous';
         img.referrerPolicy = 'no-referrer';
         img.src = image;
       } else {
-        fillTexts(ctx, drawX, drawY, drawWidth, drawHeight);
-        /** Fill the interleaved text after rotation */
-        ctx.restore();
-        rotateWatermark(ctx, alternateRotateX, alternateRotateY, rotate);
-        fillTexts(ctx, alternateDrawX, alternateDrawY, drawWidth, drawHeight);
-        appendWatermark(canvas.toDataURL(), markWidth);
+        drawText(
+          canvas,
+          ctx,
+          drawX,
+          drawY,
+          drawWidth,
+          drawHeight,
+          alternateRotateX,
+          alternateRotateY,
+          alternateDrawX,
+          alternateDrawY,
+          markWidth,
+        );
       }
     }
   };
