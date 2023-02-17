@@ -64,6 +64,7 @@ Cascade selection box.
 | loadData | To load option lazily, and it cannot work with `showSearch` | (selectedOptions) => void | - |  |
 | maxTagCount | Max tag count to show. `responsive` will cost render performance | number \| `responsive` | - | 4.17.0 |
 | maxTagPlaceholder | Placeholder for not showing tags | ReactNode \| function(omittedValues) | - | 4.17.0 |
+| maxTagTextLength | Max tag text length to show | number | - | 4.17.0 |
 | notFoundContent | Specify content to show when no result matches | string | `Not Found` |  |
 | open | Set visible of cascader popup | boolean | - | 4.17.0 |
 | options | The data options of cascade | [Option](#option)\[] | - |  |
