@@ -33,7 +33,6 @@ const InternalRadio: React.ForwardRefRenderFunction<HTMLElement, RadioProps> = (
     rootClassName,
     children,
     style,
-    disabled: customDisabled,
     ...restProps
   } = props;
   const radioPrefixCls = getPrefixCls('radio', customizePrefixCls);
@@ -49,14 +48,15 @@ const InternalRadio: React.ForwardRefRenderFunction<HTMLElement, RadioProps> = (
 
   // ===================== Disabled =====================
   const disabled = React.useContext(DisabledContext);
-  radioProps.disabled = customDisabled || disabled;
 
   if (groupContext) {
     radioProps.name = groupContext.name;
     radioProps.onChange = onChange;
     radioProps.checked = props.value === groupContext.value;
-    radioProps.disabled = radioProps.disabled || groupContext.disabled;
+    radioProps.disabled = radioProps.disabled ?? groupContext.disabled;
   }
+
+  radioProps.disabled = radioProps.disabled ?? disabled;
   const wrapperClassString = classNames(
     `${prefixCls}-wrapper`,
     {
