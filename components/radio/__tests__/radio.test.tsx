@@ -36,13 +36,22 @@ describe('Radio', () => {
   });
 
   it('should use own disabled status first', () => {
-    const { container } = render(
+    const { getByRole } = render(
       <Form disabled>
         <Radio disabled={false} />
       </Form>,
     );
-    expect(container.querySelector('.ant-radio-wrapper')).not.toHaveClass(
-      'ant-radio-wrapper-disabled',
+    expect(getByRole('radio')).not.toBeDisabled();
+  });
+
+  it('should obtained correctly disabled status', () => {
+    const { getByRole } = render(
+      <Form disabled>
+        <Radio.Group disabled={false}>
+          <Radio />
+        </Radio.Group>
+      </Form>,
     );
+    expect(getByRole('radio')).not.toBeDisabled();
   });
 });
