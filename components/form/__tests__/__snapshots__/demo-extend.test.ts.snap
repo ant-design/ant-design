@@ -5526,7 +5526,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.tsx extend context 
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-group-wrapper ant-input-group-wrapper-status-error"
+              class="ant-input-group-wrapper ant-input-group-wrapper-disabled ant-input-group-wrapper-status-error"
             >
               <span
                 class="ant-input-wrapper ant-input-group"

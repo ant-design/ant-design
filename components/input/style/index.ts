@@ -1,9 +1,9 @@
 import type { CSSObject } from '@ant-design/cssinjs';
-import type { FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import type { GlobalToken } from '../../theme/interface';
 import { clearFix, resetComponent } from '../../style';
 import { genCompactItemStyle } from '../../style/compact-item';
+import type { GlobalToken } from '../../theme/interface';
+import type { FullToken, GenerateStyle } from '../../theme/internal';
+import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 
 export type InputToken<T extends GlobalToken = FullToken<'Input'>> = T & {
   inputAffixPadding: number;
@@ -669,7 +669,7 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
 };
 
 const genGroupStyle: GenerateStyle<InputToken> = (token: InputToken) => {
-  const { componentCls, colorError, colorSuccess, borderRadiusLG, borderRadiusSM } = token;
+  const { componentCls, colorError, colorWarning, borderRadiusLG, borderRadiusSM } = token;
 
   return {
     [`${componentCls}-group`]: {
@@ -711,9 +711,15 @@ const genGroupStyle: GenerateStyle<InputToken> = (token: InputToken) => {
           },
         },
         '&-status-warning': {
-          [`${componentCls}-group-addon:last-child`]: {
-            color: colorSuccess,
-            borderColor: colorSuccess,
+          [`${componentCls}-group-addon`]: {
+            color: colorWarning,
+            borderColor: colorWarning,
+          },
+        },
+
+        '&-disabled': {
+          [`${componentCls}-group-addon`]: {
+            ...genDisabledStyle(token),
           },
         },
       },
