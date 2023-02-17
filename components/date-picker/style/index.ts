@@ -37,6 +37,7 @@ export type PickerPanelToken = {
   pickerDateHoverRangeBorderColor: string;
   pickerBasicCellHoverWithRangeColor: string;
   pickerPanelWithoutTimeCellHeight: number;
+  pickerDatePanelPaddingHorizontal: number;
   pickerYearMonthCellWidth: number;
   pickerTimePanelColumnHeight: number;
   pickerTimePanelColumnWidth: number;
@@ -327,9 +328,10 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
     pickerTimePanelCellHeight,
     controlItemBgActive,
     marginXXS,
+    pickerDatePanelPaddingHorizontal,
   } = token;
 
-  const pickerPanelWidth = pickerPanelCellWidth * 7 + paddingSM * 2 + 4;
+  const pickerPanelWidth = pickerPanelCellWidth * 7 + pickerDatePanelPaddingHorizontal * 2;
   const commonHoverCellFixedDistance =
     (pickerPanelWidth - paddingXS * 2) / 3 - pickerYearMonthCellWidth - paddingSM;
 
@@ -400,6 +402,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
           border: 0,
           cursor: 'pointer',
           transition: `color ${motionDurationMid}`,
+          fontSize: 'inherit',
         },
 
         '> button': {
@@ -765,7 +768,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
       // ====================== Date Panel ======================
       '&-date-panel': {
         [`${componentCls}-body`]: {
-          padding: `${paddingXS}px ${paddingSM}px`,
+          padding: `${paddingXS}px ${pickerDatePanelPaddingHorizontal}px`,
         },
 
         [`${componentCls}-content`]: {
@@ -1435,7 +1438,8 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
 
 export const initPickerPanelToken = (token: TokenWithCommonCls<GlobalToken>): PickerPanelToken => {
   const pickerTimePanelCellHeight = 28;
-  const { componentCls, controlHeightLG, controlHeightSM, colorPrimary, paddingXXS } = token;
+  const { componentCls, controlHeightLG, controlHeightSM, colorPrimary, paddingXXS, padding } =
+    token;
 
   return {
     pickerCellCls: `${componentCls}-cell`,
@@ -1451,10 +1455,11 @@ export const initPickerPanelToken = (token: TokenWithCommonCls<GlobalToken>): Pi
     pickerTimePanelColumnWidth: controlHeightLG * 1.4,
     pickerTimePanelCellHeight,
     pickerQuarterPanelContentHeight: controlHeightLG * 1.4,
-    pickerCellPaddingVertical: paddingXXS,
+    pickerCellPaddingVertical: paddingXXS + paddingXXS / 2,
     pickerCellBorderGap: 2, // Magic for gap between cells
     pickerControlIconSize: 7,
     pickerControlIconBorderWidth: 1.5,
+    pickerDatePanelPaddingHorizontal: padding + paddingXXS / 2, // 18 in normal
   };
 };
 
