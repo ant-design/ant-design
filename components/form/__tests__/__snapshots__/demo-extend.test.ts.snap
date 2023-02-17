@@ -5501,7 +5501,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.tsx extend context 
     </div>
   </div>
   <div
-    class="ant-form-item ant-form-item-with-help ant-form-item-has-warning"
+    class="ant-form-item ant-form-item-with-help ant-form-item-has-error"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -5526,7 +5526,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.tsx extend context 
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-group-wrapper ant-input-group-wrapper-status-warning"
+              class="ant-input-group-wrapper ant-input-group-wrapper-disabled ant-input-group-wrapper-status-error"
             >
               <span
                 class="ant-input-wrapper ant-input-group"
@@ -5537,16 +5537,12 @@ exports[`renders ./components/form/demo/disabled-input-debug.tsx extend context 
                   Buggy!
                 </span>
                 <input
-                  class="ant-input ant-input-status-warning"
+                  class="ant-input ant-input-disabled ant-input-status-error"
+                  disabled=""
                   placeholder="unavailable choice"
                   type="text"
                   value=""
                 />
-                <span
-                  class="ant-input-group-addon"
-                >
-                  end
-                </span>
               </span>
             </span>
           </div>
@@ -5645,7 +5641,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.tsx extend context 
     </div>
   </div>
   <div
-    class="ant-form-item ant-form-item-with-help ant-form-item-has-warning"
+    class="ant-form-item ant-form-item-with-help ant-form-item-has-error"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -5670,7 +5666,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.tsx extend context 
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-affix-wrapper-status-warning"
+              class="ant-input-affix-wrapper ant-input-affix-wrapper-disabled ant-input-affix-wrapper-status-error"
             >
               <span
                 class="ant-input-prefix"
@@ -5678,7 +5674,8 @@ exports[`renders ./components/form/demo/disabled-input-debug.tsx extend context 
                 人民币
               </span>
               <input
-                class="ant-input"
+                class="ant-input ant-input-disabled"
+                disabled=""
                 placeholder="unavailable choice"
                 type="text"
                 value="50"

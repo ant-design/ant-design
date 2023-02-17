@@ -1,4 +1,4 @@
-import React, { memo, useMemo, useRef, useState } from 'react';
+import React, { memo, useContext, useMemo, useRef, useState } from 'react';
 import type { CSSProperties } from 'react';
 import { Link, useIntl, useSidebarData, useLocation } from 'dumi';
 import { css } from '@emotion/react';
@@ -8,6 +8,7 @@ import { SearchOutlined } from '@ant-design/icons';
 import type { Component } from './ProComponentsList';
 import proComponentsList from './ProComponentsList';
 import useSiteToken from '../../../hooks/useSiteToken';
+import SiteContext from '../../slots/SiteContext';
 
 const useStyle = () => {
   const { token } = useSiteToken();
@@ -79,6 +80,7 @@ const { Title } = Typography;
 
 const Overview: React.FC = () => {
   const style = useStyle();
+  const { theme } = useContext(SiteContext);
 
   const data = useSidebarData();
   const [searchBarAffixed, setSearchBarAffixed] = useState<boolean>(false);
@@ -117,6 +119,7 @@ const Overview: React.FC = () => {
             title: child.frontmatter?.title,
             subtitle: child.frontmatter.subtitle,
             cover: child.frontmatter.cover,
+            coverDark: child.frontmatter.coverDark,
             link: child.link,
           })),
         }))
@@ -202,7 +205,14 @@ const Overview: React.FC = () => {
                             }
                           >
                             <div css={style.componentsOverviewImg}>
-                              <img src={component.cover} alt={component?.title} />
+                              <img
+                                src={
+                                  theme.includes('dark') && component.coverDark
+                                    ? component.coverDark
+                                    : component.cover
+                                }
+                                alt={component?.title}
+                              />
                             </div>
                           </Card>
                         </ComponentLink>

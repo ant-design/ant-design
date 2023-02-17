@@ -3,6 +3,7 @@ category: Components
 subtitle: 徽标数
 title: Badge
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*e0qITYqF394AAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*v8EQT7KoGbcAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 group: 数据展示
