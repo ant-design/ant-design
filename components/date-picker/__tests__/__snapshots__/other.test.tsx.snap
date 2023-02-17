@@ -382,7 +382,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell ant-picker-cell-start ant-picker-cell-in-view ant-picker-cell-selected"
+                      class="ant-picker-cell ant-picker-cell-start ant-picker-cell-in-view"
                       title="2000-01-01"
                     >
                       <div
