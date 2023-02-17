@@ -747,7 +747,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
           [`&:hover td,
             &-range-start td,
             &-range-end td,
-            &-selected:hover td`]: {
+            &-selected td`]: {
             '&:before': {
               background: colorPrimary,
             },
