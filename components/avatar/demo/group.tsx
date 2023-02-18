@@ -1,11 +1,11 @@
 import React from 'react';
-import { AntDesignOutlined, UserOutlined } from '@ant-design/icons';
-import { Avatar, Divider, Tooltip } from 'antd';
+import { AntDesignOutlined,UserOutlined } from '@ant-design/icons';
+import { Avatar,Divider,Tooltip } from 'antd';
 
 const App: React.FC = () => (
   <>
     <Avatar.Group>
-      <Avatar src="https://joeschmoe.io/api/v1/random" />
+      <Avatar src="https://joesch.moe/api/v1/random" />
       <a href="https://ant.design">
         <Avatar style={{ backgroundColor: '#f56a00' }}>K</Avatar>
       </a>
@@ -16,7 +16,7 @@ const App: React.FC = () => (
     </Avatar.Group>
     <Divider />
     <Avatar.Group maxCount={2} maxStyle={{ color: '#f56a00', backgroundColor: '#fde3cf' }}>
-      <Avatar src="https://joeschmoe.io/api/v1/random" />
+      <Avatar src="https://joesch.moe/api/v1/random" />
       <Avatar style={{ backgroundColor: '#f56a00' }}>K</Avatar>
       <Tooltip title="Ant User" placement="top">
         <Avatar style={{ backgroundColor: '#87d068' }} icon={<UserOutlined />} />
@@ -29,7 +29,7 @@ const App: React.FC = () => (
       size="large"
       maxStyle={{ color: '#f56a00', backgroundColor: '#fde3cf' }}
     >
-      <Avatar src="https://joeschmoe.io/api/v1/random" />
+      <Avatar src="https://joesch.moe/api/v1/random" />
       <Avatar style={{ backgroundColor: '#f56a00' }}>K</Avatar>
       <Tooltip title="Ant User" placement="top">
         <Avatar style={{ backgroundColor: '#87d068' }} icon={<UserOutlined />} />
