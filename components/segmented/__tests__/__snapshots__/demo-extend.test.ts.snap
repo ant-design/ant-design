@@ -330,7 +330,7 @@ exports[`renders ./components/segmented/demo/custom.tsx extend context correctly
                 class="ant-avatar ant-avatar-circle ant-avatar-image"
               >
                 <img
-                  src="https://joeschmoe.io/api/v1/random"
+                  src="https://joesch.moe/api/v1/random"
                 />
               </span>
               <div>

@@ -601,7 +601,7 @@ exports[`renders ./components/card/demo/meta.tsx correctly 1`] = `
           class="ant-avatar ant-avatar-circle ant-avatar-image"
         >
           <img
-            src="https://joeschmoe.io/api/v1/random"
+            src="https://joesch.moe/api/v1/random"
           />
         </span>
       </div>
