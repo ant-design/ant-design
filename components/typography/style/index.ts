@@ -1,7 +1,7 @@
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook } from '../../theme/internal';
 import {
-  getCopiableStyles,
+  getCopyableStyles,
   getEditableStyles,
   getEllipsisStyles,
   getLinkStyles,
@@ -110,7 +110,7 @@ const genTypographyStyle: GenerateStyle<TypographyToken> = (token) => {
 
       ...getEditableStyles(token),
 
-      ...getCopiableStyles(token),
+      ...getCopyableStyles(token),
 
       ...getEllipsisStyles(),
 

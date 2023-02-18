@@ -178,7 +178,7 @@ describe('ConfigProvider.Theme', () => {
     expect(tokens.a).toMatchObject(tokens.b);
   });
 
-  it('theme seperated should work', () => {
+  it('theme separated should work', () => {
     let tokenRef: any;
     const Demo = () => {
       const [, token] = useToken();

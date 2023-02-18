@@ -817,9 +817,9 @@ describe('Table.rowSelection', () => {
         dataSource={data}
       />,
     );
-    const checkboxs = container.querySelectorAll('.ant-checkbox');
-    expect(checkboxs.length).toBe(5);
-    checkboxs.forEach((checkbox) => {
+    const checkboxes = container.querySelectorAll('.ant-checkbox');
+    expect(checkboxes.length).toBe(5);
+    checkboxes.forEach((checkbox) => {
       expect(checkbox.querySelector('input')?.checked).toBe(true);
       expect(checkbox.className.includes('ant-checkbox-indeterminate')).toBe(false);
     });
@@ -929,7 +929,7 @@ describe('Table.rowSelection', () => {
   });
 
   it('render correctly when set childrenColumnName', () => {
-    const newDatas = [
+    const newData = [
       {
         key: 1,
         name: 'Jack',
@@ -952,7 +952,7 @@ describe('Table.rowSelection', () => {
       },
     ];
     const { container } = render(
-      <Table columns={columns} dataSource={newDatas} childrenColumnName="test" rowSelection={{}} />,
+      <Table columns={columns} dataSource={newData} childrenColumnName="test" rowSelection={{}} />,
     );
     const checkboxes = container.querySelectorAll('input');
     const objectContaining: { checked?: boolean; indeterminate?: boolean } = {};
@@ -970,7 +970,7 @@ describe('Table.rowSelection', () => {
   // https://github.com/ant-design/ant-design/issues/16614
   it('should get selectedRows correctly when set childrenColumnName', () => {
     const onChange = jest.fn();
-    const newDatas = [
+    const newData = [
       {
         key: 1,
         name: 'Jack',
@@ -985,7 +985,7 @@ describe('Table.rowSelection', () => {
     const { container } = render(
       <Table
         columns={columns}
-        dataSource={newDatas}
+        dataSource={newData}
         childrenColumnName="list"
         rowSelection={{ onChange }}
         expandedRowKeys={[1]}
@@ -995,12 +995,12 @@ describe('Table.rowSelection', () => {
 
     fireEvent.click(checkboxes[2]);
 
-    expect(onChange).toHaveBeenLastCalledWith([11], [newDatas[0].list[0]], { type: 'single' });
+    expect(onChange).toHaveBeenLastCalledWith([11], [newData[0].list[0]], { type: 'single' });
     onChange.mockReset();
 
     fireEvent.click(checkboxes[1]);
-    const item0 = newDatas[0];
-    expect(onChange).toHaveBeenLastCalledWith([11, 1], [newDatas[0].list[0], item0], {
+    const item0 = newData[0];
+    expect(onChange).toHaveBeenLastCalledWith([11, 1], [newData[0].list[0], item0], {
       type: 'single',
     });
   });
@@ -1082,7 +1082,7 @@ describe('Table.rowSelection', () => {
     ).toBeTruthy();
   });
 
-  it('should make select all indeterminated when each item is disabled and some item is checked', () => {
+  it('should make select all indeterminate when each item is disabled and some item is checked', () => {
     const { container } = render(
       createTable({
         rowSelection: {
@@ -1212,8 +1212,8 @@ describe('Table.rowSelection', () => {
       />,
     );
 
-    const checkboxs = container.querySelectorAll('input');
-    fireEvent.click(checkboxs[checkboxs.length - 1]);
+    const checkboxes = container.querySelectorAll('input');
+    fireEvent.click(checkboxes[checkboxes.length - 1]);
 
     expect(onChange.mock.calls[0][1]).toEqual([expect.objectContaining({ name: 'bamboo' })]);
   });
@@ -1593,7 +1593,7 @@ describe('Table.rowSelection', () => {
       );
     });
 
-    it('works with receive selectedRowKeys fron [] to undefined', () => {
+    it('works with receive selectedRowKeys from [] to undefined', () => {
       const onChange = jest.fn();
       const dataSource = [{ name: 'Jack' }];
       const { container, rerender } = render(

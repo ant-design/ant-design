@@ -43,7 +43,7 @@ function getOffsetTop(element: HTMLElement, container: AnchorContainer): number 
   return rect.top;
 }
 
-const sharpMatcherRegx = /#([\S ]+)$/;
+const sharpMatcherRegex = /#([\S ]+)$/;
 
 interface Section {
   link: string;
@@ -196,7 +196,7 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
     const linkSections: Section[] = [];
     const container = getCurrentContainer();
     _links.forEach((link) => {
-      const sharpLinkMatch = sharpMatcherRegx.exec(link?.toString());
+      const sharpLinkMatch = sharpMatcherRegex.exec(link?.toString());
       if (!sharpLinkMatch) {
         return;
       }
@@ -251,7 +251,7 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
       setCurrentActiveLink(link);
       const container = getCurrentContainer();
       const scrollTop = getScroll(container, true);
-      const sharpLinkMatch = sharpMatcherRegx.exec(link);
+      const sharpLinkMatch = sharpMatcherRegex.exec(link);
       if (!sharpLinkMatch) {
         return;
       }
