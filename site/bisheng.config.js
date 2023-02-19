@@ -74,7 +74,7 @@ module.exports = {
       '0.9.x': 'http://09x.ant.design',
     },
     docNewVersions: {
-      '4.x': 'https://ant.design',
+      '4.x': 'https://4x.ant.design',
     },
   },
   filePathMapper(filePath) {
