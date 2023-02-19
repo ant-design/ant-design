@@ -13,18 +13,18 @@ interface DataType {
 
 const columns: ColumnsType<DataType> = [
   {
-    title: 'Name',
+    title: '应用/功能',
     dataIndex: 'name',
     key: 'name',
   },
   {
-    title: 'Age',
+    title: '说明',
     dataIndex: 'age',
     key: 'age',
     width: '12%',
   },
   {
-    title: 'Address',
+    title: '操作',
     dataIndex: 'address',
     width: '30%',
     key: 'address',
@@ -34,65 +34,79 @@ const columns: ColumnsType<DataType> = [
 const data: DataType[] = [
   {
     key: 1,
-    name: 'John Brown sr.',
-    age: 60,
-    address: 'New York No. 1 Lake Park',
+    name: '报送',
+    age: '数据报送',
+    address: '配置',
     children: [
       {
         key: 11,
-        name: 'John Brown',
-        age: 42,
-        address: 'New York No. 2 Lake Park',
+        name: '我的填报',
+        age: 'xxxxxxxxxxxxxxxxxxxxxx',
+        address: '配置',
       },
       {
         key: 12,
-        name: 'John Brown jr.',
-        age: 30,
-        address: 'New York No. 3 Lake Park',
-        children: [
-          {
-            key: 121,
-            name: 'Jimmy Brown',
-            age: 16,
-            address: 'New York No. 3 Lake Park',
-          },
-        ],
+        name: '报送审核',
+        age: 'xxxxxxxxxxxxxxxxxxxxxx',
+        address: '配置',
       },
       {
         key: 13,
-        name: 'Jim Green sr.',
-        age: 72,
-        address: 'London No. 1 Lake Park',
-        children: [
-          {
-            key: 131,
-            name: 'Jim Green',
-            age: 42,
-            address: 'London No. 2 Lake Park',
-            children: [
-              {
-                key: 1311,
-                name: 'Jim Green jr.',
-                age: 25,
-                address: 'London No. 3 Lake Park',
-              },
-              {
-                key: 1312,
-                name: 'Jimmy Green sr.',
-                age: 18,
-                address: 'London No. 4 Lake Park',
-              },
-            ],
-          },
-        ],
+        name: '配置管理',
+        age: 'xxxxxxxxxxxxxxxxxxxxxx',
+        address: '配置',
       },
     ],
   },
   {
     key: 2,
-    name: 'Joe Black',
-    age: 32,
-    address: 'Sydney No. 1 Lake Park',
+    name: '报表',
+    age: 'xxxxxxxxxxxxxxxxxxxxxx',
+    address: '配置',
+  },
+  {
+    key: 3
+    name: '雷达',
+    age: 'xxxxxxxxxxxxxxxxxxxxxx',
+    address: '配置',
+  },
+  {
+    key: 4
+    name: '应用',
+    age: 'xxxxxxxxxxxxxxxxxxxxxx',
+    address: '配置',
+    children: [
+      {
+        key: 41,
+        name: '项目数字报告',
+        age: 'xxxxxxxxxxxxxxxxxxxxxx',
+        address: '配置',
+      },
+      {
+        key: 42,
+        name: '企业风险360',
+        age: 'xxxxxxxxxxxxxxxxxxxxxx',
+        address: '配置',
+      },
+      {
+        key: 43,
+        name: '区域经济',
+        age: 'xxxxxxxxxxxxxxxxxxxxxx',
+        address: '配置',
+      },
+      {
+        key: 44,
+        name: '城投项目助手',
+        age: 'xxxxxxxxxxxxxxxxxxxxxx',
+        address: '配置',
+      },
+      {
+        key: 45,
+        name: '数字化风控报告',
+        age: 'xxxxxxxxxxxxxxxxxxxxxx',
+        address: '配置',
+      },
+    ],
   },
 ];
 
