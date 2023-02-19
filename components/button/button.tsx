@@ -2,19 +2,19 @@
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
-import warning from '../_util/warning';
-import Wave from '../_util/wave';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
 import SizeContext from '../config-provider/SizeContext';
 import { useCompactItemContext } from '../space/Compact';
+import warning from '../_util/warning';
+import Wave from '../_util/wave';
 import Group, { GroupSizeContext } from './button-group';
 import { isTwoCNChar, isUnBorderedButtonType, spaceChildren } from './buttonHelpers';
 import LoadingIcon from './LoadingIcon';
 import useStyle from './style';
 
-import type { ButtonType, ButtonHTMLType, ButtonShape } from './buttonHelpers';
 import type { SizeType } from '../config-provider/SizeContext';
+import type { ButtonHTMLType, ButtonShape, ButtonType } from './buttonHelpers';
 
 export type LegacyButtonType = ButtonType | 'danger';
 
@@ -66,6 +66,27 @@ type CompoundedComponent = React.ForwardRefExoticComponent<
 
 type Loading = number | boolean;
 
+type LoadingConfigType = {
+  loading: boolean;
+  delay: number;
+};
+
+function getLoadingConfig(loading: BaseButtonProps['loading']): LoadingConfigType {
+  if (typeof loading === 'object' && loading) {
+    const delay = loading?.delay;
+    const isDelay = !Number.isNaN(delay) && typeof delay === 'number';
+    return {
+      loading: false,
+      delay: isDelay ? delay : 0,
+    };
+  }
+
+  return {
+    loading: !!loading,
+    delay: 0,
+  };
+}
+
 const InternalButton: React.ForwardRefRenderFunction<
   HTMLButtonElement | HTMLAnchorElement,
   ButtonProps
@@ -99,7 +120,11 @@ const InternalButton: React.ForwardRefRenderFunction<
   const mergedDisabled = customDisabled ?? disabled;
 
   const groupSize = React.useContext(GroupSizeContext);
-  const [innerLoading, setLoading] = React.useState<Loading>(!!loading);
+  const loadingOrDelay: LoadingConfigType = React.useMemo(
+    () => getLoadingConfig(loading),
+    [loading],
+  );
+  const [innerLoading, setLoading] = React.useState<Loading>(loadingOrDelay.loading);
   const [hasTwoCNChar, setHasTwoCNChar] = React.useState(false);
   const buttonRef = (ref as any) || React.createRef<HTMLAnchorElement | HTMLButtonElement>();
 
@@ -121,18 +146,16 @@ const InternalButton: React.ForwardRefRenderFunction<
     }
   };
 
-  const loadingOrDelay: Loading = typeof loading === 'boolean' ? loading : loading?.delay || true;
-
   React.useEffect(() => {
     let delayTimer: number | null = null;
 
-    if (typeof loadingOrDelay === 'number') {
+    if (loadingOrDelay.delay > 0) {
       delayTimer = window.setTimeout(() => {
         delayTimer = null;
-        setLoading(loadingOrDelay);
-      }, loadingOrDelay);
+        setLoading(true);
+      }, loadingOrDelay.delay);
     } else {
-      setLoading(loadingOrDelay);
+      setLoading(loadingOrDelay.loading);
     }
 
     function cleanupTimer() {
