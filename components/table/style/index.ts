@@ -1,5 +1,6 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
+import { clearFix, resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import genBorderedStyle from './bordered';
@@ -16,7 +17,6 @@ import genSizeStyle from './size';
 import genSorterStyle from './sorter';
 import genStickyStyle from './sticky';
 import genSummaryStyle from './summary';
-import { clearFix, resetComponent } from '../../style';
 
 export interface ComponentToken {}
 
@@ -257,14 +257,14 @@ export default genComponentStyleHook('Table', (token) => {
 
   const colorFillSecondarySolid = new TinyColor(colorFillSecondary)
     .onBackground(colorBgContainer)
-    .toHexString();
+    .toHexShortString();
   const colorFillContentSolid = new TinyColor(colorFillContent)
     .onBackground(colorBgContainer)
-    .toHexString();
+    .toHexShortString();
 
   const colorFillAlterSolid = new TinyColor(colorFillAlter)
     .onBackground(colorBgContainer)
-    .toHexString();
+    .toHexShortString();
 
   const tableToken = mergeToken<TableToken>(token, {
     tableFontSize: fontSize,
