@@ -1,9 +1,9 @@
 import type { CSSObject } from '@ant-design/cssinjs';
-import type * as React from 'react';
 import { TinyColor } from '@ctrl/tinycolor';
+import type * as React from 'react';
+import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import { resetComponent } from '../../style';
 
 // Direction naming standard:
 // Horizontal base:
@@ -214,7 +214,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
           height: token.handleSize,
           boxShadow: `0 0 0 ${token.handleLineWidth}px ${new TinyColor(token.colorTextDisabled)
             .onBackground(token.colorBgContainer)
-            .toHexString()}`,
+            .toHexShortString()}`,
           insetInlineStart: 0,
           insetBlockStart: 0,
         },
