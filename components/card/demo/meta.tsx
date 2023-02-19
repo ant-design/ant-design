@@ -1,6 +1,6 @@
 import React from 'react';
-import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
-import { Avatar, Card } from 'antd';
+import { EditOutlined,EllipsisOutlined,SettingOutlined } from '@ant-design/icons';
+import { Avatar,Card } from 'antd';
 
 const { Meta } = Card;
 
@@ -20,7 +20,7 @@ const App: React.FC = () => (
     ]}
   >
     <Meta
-      avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
+      avatar={<Avatar src="https://joesch.moe/api/v1/random" />}
       title="Card title"
       description="This is the description"
     />
