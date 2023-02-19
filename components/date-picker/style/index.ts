@@ -7,20 +7,20 @@ import {
   genHoverStyle,
   initInputToken,
 } from '../../input/style';
+import { resetComponent, roundedArrow, textEllipsis } from '../../style';
+import { genCompactItemStyle } from '../../style/compact-item';
 import {
-  initSlideMotion,
   initMoveMotion,
+  initSlideMotion,
   slideDownIn,
   slideDownOut,
   slideUpIn,
   slideUpOut,
 } from '../../style/motion';
+import type { GlobalToken } from '../../theme/interface';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import type { GlobalToken } from '../../theme/interface';
 import type { TokenWithCommonCls } from '../../theme/util/genComponentStyleHook';
-import { resetComponent, roundedArrow, textEllipsis } from '../../style';
-import { genCompactItemStyle } from '../../style/compact-item';
 
 export interface ComponentToken {
   presetsWidth: number;
@@ -729,38 +729,40 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
 
         '&-row': {
           td: {
-            transition: `background ${motionDurationMid}`,
+            '&:before': {
+              transition: `background ${motionDurationMid}`,
+            },
 
-            '&:first-child': {
+            '&:first-child:before': {
               borderStartStartRadius: borderRadiusSM,
               borderEndStartRadius: borderRadiusSM,
             },
 
-            '&:last-child': {
+            '&:last-child:before': {
               borderStartEndRadius: borderRadiusSM,
               borderEndEndRadius: borderRadiusSM,
             },
           },
 
-          '&:hover td': {
-            background: controlItemBgHover,
-          },
-
-          [`&-selected td,
-            &-selected:hover td`]: {
-            background: colorPrimary,
+          [`&:hover td,
+            &-range-start td,
+            &-range-end td,
+            &-selected td`]: {
+            '&:before': {
+              background: colorPrimary,
+            },
 
             [`&${componentCls}-cell-week`]: {
               color: new TinyColor(colorTextLightSolid).setAlpha(0.5).toHexString(),
             },
 
-            [`&${componentCls}-cell-today ${pickerCellInnerCls}::before`]: {
-              borderColor: colorTextLightSolid,
-            },
-
             [pickerCellInnerCls]: {
               color: colorTextLightSolid,
             },
+          },
+
+          [`&-range-hover td:before`]: {
+            background: controlItemBgActive,
           },
         },
       },
