@@ -170,7 +170,7 @@
     "@stackblitz/sdk": "^1.3.0",
     "@testing-library/dom": "^9.0.0",
     "@testing-library/jest-dom": "^5.16.3",
-    "@testing-library/react": "^13.0.0",
+    "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.2",
     "@types/gtag.js": "^0.0.12",
     "@types/jest": "^29.0.0",
