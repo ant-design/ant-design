@@ -1,7 +1,7 @@
 import type Icon from '@ant-design/icons';
-import { LikeOutlined,MessageOutlined,StarOutlined } from '@ant-design/icons';
-import { Avatar,List,Skeleton,Switch } from 'antd';
-import React,{ useState } from 'react';
+import { LikeOutlined, MessageOutlined, StarOutlined } from '@ant-design/icons';
+import { Avatar, List, Skeleton, Switch } from 'antd';
+import React, { useState } from 'react';
 
 interface IconTextProps {
   icon: typeof Icon;
@@ -11,7 +11,7 @@ interface IconTextProps {
 const listData = Array.from({ length: 3 }).map((_, i) => ({
   href: 'https://ant.design',
   title: `ant design part ${i + 1}`,
-  avatar: 'https://joesch.moe/api/v1/random',
+  avatar: `https://joesch.moe/api/v1/random?key=${i}`,
   description:
     'Ant Design, a design language for background applications, is refined by Ant UED Team.',
   content:
