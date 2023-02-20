@@ -40,7 +40,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
         position: 'absolute',
         zIndex: zIndexPopup,
         display: 'block',
-        '&': [{ width: 'max-content' }, { width: 'intrinsic' }],
+        width: 'max-content',
         maxWidth: tooltipMaxWidth,
         visibility: 'visible',
         '&-hidden': {
