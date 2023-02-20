@@ -19,6 +19,10 @@ jobs:
       - name: checkout
         uses: actions/checkout@v3
 
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
       - name: cache package-lock.json
         uses: actions/cache@v3
         with:
@@ -51,6 +55,10 @@ jobs:
       - name: checkout
         uses: actions/checkout@v3
 
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
       - name: restore cache from package-lock.json
         uses: actions/cache@v3
         with:
@@ -73,6 +81,10 @@ jobs:
       - name: checkout
         uses: actions/checkout@v3
 
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
       - name: restore cache from package-lock.json
         uses: actions/cache@v3
         with:
@@ -94,6 +106,10 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
 
       - name: restore cache from package-lock.json
         uses: actions/cache@v3
@@ -118,6 +134,10 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
 
       - name: restore cache from package-lock.json
         uses: actions/cache@v3
@@ -150,6 +170,10 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
 
       - name: restore cache from package-lock.json
         uses: actions/cache@v3
@@ -188,6 +212,10 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
 
       - name: restore cache from package-lock.json
         uses: actions/cache@v3
@@ -243,6 +271,10 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
 
       - name: restore cache from package-lock.json
         uses: actions/cache@v3
@@ -323,7 +355,11 @@ jobs:
     runs-on: ubuntu-latest
     needs: [normal-test]
     steps:
-      - uses: actions/checkout@v3
+      - name: checkout
+        uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
       - uses: actions/download-artifact@v3
         with:
           name: coverage-artifacts
@@ -345,6 +381,10 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
 
       - name: restore cache from package-lock.json
         uses: actions/cache@v3
@@ -392,6 +432,10 @@ jobs:
         # lib only run in master branch not in pull request
         if: ${{ github.event_name != 'pull_request' || matrix.module != 'lib' }}
         uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
 
       - name: restore cache from package-lock.json
         # lib only run in master branch not in pull request
