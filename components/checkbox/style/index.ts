@@ -5,7 +5,7 @@ import { genFocusOutline, resetComponent } from '../../style';
 
 export interface ComponentToken {}
 
-interface CheckboxToken extends FullToken<'Checkbox'> {
+export interface CheckboxToken extends FullToken<'Checkbox'> {
   checkboxCls: string;
   checkboxSize: number;
 }
