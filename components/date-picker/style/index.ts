@@ -289,6 +289,7 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
 export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
   const {
     componentCls,
+    pickerCellCls,
     pickerCellInnerCls,
     pickerYearMonthCellWidth,
     pickerControlIconSize,
@@ -746,20 +747,28 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
             },
           },
 
-          [`&:hover td,
-            &-range-start td,
+          [`&:hover td`]: {
+            '&:before': {
+              background: controlItemBgHover,
+            },
+          },
+
+          [`&-range-start td,
             &-range-end td,
             &-selected td`]: {
-            '&:before': {
-              background: colorPrimary,
-            },
+            // Rise priority to override hover style
+            [`&${pickerCellCls}`]: {
+              '&:before': {
+                background: colorPrimary,
+              },
 
-            [`&${componentCls}-cell-week`]: {
-              color: new TinyColor(colorTextLightSolid).setAlpha(0.5).toHexString(),
-            },
+              [`&${componentCls}-cell-week`]: {
+                color: new TinyColor(colorTextLightSolid).setAlpha(0.5).toHexString(),
+              },
 
-            [pickerCellInnerCls]: {
-              color: colorTextLightSolid,
+              [pickerCellInnerCls]: {
+                color: colorTextLightSolid,
+              },
             },
           },
 
