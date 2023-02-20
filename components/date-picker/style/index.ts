@@ -206,6 +206,8 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
 
     // Hover with in range
     [`&-in-view${pickerCellCls}-in-range${pickerCellCls}-range-hover::before,
+      &-in-view${pickerCellCls}-in-range${pickerCellCls}-range-hover-start::before,
+      &-in-view${pickerCellCls}-in-range${pickerCellCls}-range-hover-end::before,
       &-in-view${pickerCellCls}-range-start${pickerCellCls}-range-hover::before,
       &-in-view${pickerCellCls}-range-end${pickerCellCls}-range-hover::before,
       &-in-view${pickerCellCls}-range-start:not(${pickerCellCls}-range-start-single)${pickerCellCls}-range-hover-start::before,

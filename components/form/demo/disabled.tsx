@@ -20,9 +20,6 @@ const { TextArea } = Input;
 
 const FormDisabledDemo: React.FC = () => {
   const [componentDisabled, setComponentDisabled] = useState<boolean>(true);
-  const onFormLayoutChange = ({ disabled }: { disabled: boolean }) => {
-    setComponentDisabled(disabled);
-  };
 
   return (
     <>
@@ -36,7 +33,6 @@ const FormDisabledDemo: React.FC = () => {
         labelCol={{ span: 4 }}
         wrapperCol={{ span: 14 }}
         layout="horizontal"
-        onValuesChange={onFormLayoutChange}
         disabled={componentDisabled}
         style={{ maxWidth: 600 }}
       >

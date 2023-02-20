@@ -19,7 +19,10 @@ const DatePicker = generatePicker<Dayjs>(dayjsGenerateConfig);
 /* istanbul ignore next */
 const PurePanel = genPurePanel(DatePicker, 'picker');
 (DatePicker as any)._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
+const PureRangePanel = genPurePanel(DatePicker.RangePicker, 'picker');
+(DatePicker as any)._InternalRangePanelDoNotUseOrYouWillBeFired = PureRangePanel;
 
 export default DatePicker as typeof DatePicker & {
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
+  _InternalRangePanelDoNotUseOrYouWillBeFired: typeof PureRangePanel;
 };

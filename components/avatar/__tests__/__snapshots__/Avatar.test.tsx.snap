@@ -140,7 +140,7 @@ exports[`Avatar Render should handle onError correctly 1`] = `
   class="ant-avatar ant-avatar-circle ant-avatar-image"
 >
   <img
-    src="https://joeschmoe.io/api/v1/random"
+    src="https://joesch.moe/api/v1/random"
   />
 </span>
 `;
@@ -163,7 +163,7 @@ exports[`Avatar Render should show image on success after a failure state 2`] = 
   class="ant-avatar ant-avatar-circle ant-avatar-image"
 >
   <img
-    src="https://joeschmoe.io/api/v1/random"
+    src="https://joesch.moe/api/v1/random"
   />
 </span>
 `;

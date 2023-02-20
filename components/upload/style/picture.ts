@@ -185,6 +185,10 @@ const genPictureCardStyle: GenerateStyle<UploadToken> = (token) => {
             fontSize: fontSizeLG,
             cursor: 'pointer',
             transition: `all ${token.motionDurationSlow}`,
+
+            svg: {
+              verticalAlign: 'baseline',
+            },
           },
         },
 
