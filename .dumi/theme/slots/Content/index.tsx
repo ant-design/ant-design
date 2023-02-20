@@ -4,7 +4,7 @@ import ContributorsList from '@qixian.cs/github-contributors-list';
 import { Affix, Anchor, Avatar, Col, Skeleton, Space, Tooltip, Typography } from 'antd';
 import classNames from 'classnames';
 import DayJS from 'dayjs';
-import { FormattedMessage, useIntl, useRouteMeta } from 'dumi';
+import { FormattedMessage, useIntl, useRouteMeta, useTabMeta } from 'dumi';
 import type { ReactNode } from 'react';
 import React, { useContext, useLayoutEffect, useMemo, useState } from 'react';
 import useLocation from '../../../hooks/useLocation';
@@ -107,6 +107,7 @@ type AnchorItem = {
 
 const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
   const meta = useRouteMeta();
+  const tab = useTabMeta();
   const { pathname, hash } = useLocation();
   const { formatMessage } = useIntl();
   const styles = useStyle();
@@ -132,7 +133,7 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
 
   const anchorItems = useMemo(
     () =>
-      meta.toc.reduce<AnchorItem[]>((result, item) => {
+      (tab?.toc || meta.toc).reduce<AnchorItem[]>((result, item) => {
         if (item.depth === 2) {
           result.push({ ...item });
         } else if (item.depth === 3) {
@@ -144,7 +145,7 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
         }
         return result;
       }, []),
-    [meta.toc],
+    [tab?.toc, meta.toc],
   );
 
   const isRTL = direction === 'rtl';
@@ -219,6 +220,7 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
               </Space>
             </Typography.Paragraph>
           ) : null}
+          {meta.frontmatter.description !== meta.texts[0]?.value && meta.frontmatter.description}
           {children}
           {meta.frontmatter.filename && (
             <ContributorsList

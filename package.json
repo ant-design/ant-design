@@ -158,6 +158,7 @@
   },
   "devDependencies": {
     "@ant-design/tools": "^17.0.0",
+    "@antv/g6": "^4.8.5",
     "@babel/eslint-plugin": "^7.19.1",
     "@dnd-kit/core": "^6.0.7",
     "@dnd-kit/sortable": "^7.0.2",
@@ -196,6 +197,7 @@
     "@typescript-eslint/eslint-plugin": "^5.40.0",
     "@typescript-eslint/parser": "^5.40.0",
     "antd-img-crop": "^4.2.8",
+    "antd-style": "^2.0.2",
     "antd-token-previewer": "^1.1.0-21",
     "chalk": "^4.0.0",
     "cheerio": "1.0.0-rc.12",
@@ -221,6 +223,7 @@
     "fs-extra": "^11.0.0",
     "gh-pages": "^5.0.0",
     "glob": "^8.0.1",
+    "html2sketch": "^1.0.0",
     "http-server": "^14.0.0",
     "husky": "^8.0.1",
     "identity-obj-proxy": "^3.0.0",
