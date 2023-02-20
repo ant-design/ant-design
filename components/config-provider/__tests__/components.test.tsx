@@ -40,6 +40,7 @@ import Skeleton from '../../skeleton';
 import type { SliderTooltipProps } from '../../slider';
 import Slider from '../../slider';
 // eslint-disable-next-line import/no-named-as-default
+import { render } from '../../../tests/utils';
 import Spin from '../../spin';
 import Statistic from '../../statistic';
 import Steps from '../../steps';
@@ -55,7 +56,6 @@ import Transfer from '../../transfer';
 import Tree from '../../tree';
 import TreeSelect from '../../tree-select';
 import Upload from '../../upload';
-import { render } from '../../../tests/utils';
 
 dayjs.extend(customParseFormat);
 jest.mock('rc-util/lib/Portal');
@@ -351,7 +351,7 @@ describe('ConfigProvider', () => {
           <List.Item {...props}>
             <List.Item.Meta
               {...props}
-              avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
+              avatar={<Avatar src="https://joesch.moe/api/v1/random" />}
               title="Ant Design"
               description="Ant Design, a design language for background applications, is refined by Ant UED Team"
             />

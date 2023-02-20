@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const React = require('react');
 const util = require('util');
 
