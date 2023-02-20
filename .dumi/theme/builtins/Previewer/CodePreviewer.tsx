@@ -305,9 +305,9 @@ const CodePreviewer: React.FC<IPreviewerProps> = (props) => {
     parsedSourceCode = parsedSourceCode.replace(importReactReg, '').trim();
   }
   const demoJsContent = `
-    ${importReactContent}
-    import './index.css';
-    ${parsedSourceCode}
+${importReactContent}
+import './index.css';
+${parsedSourceCode}
     `.trim();
   const indexCssContent = (style || '')
     .trim()
@@ -315,12 +315,11 @@ const CodePreviewer: React.FC<IPreviewerProps> = (props) => {
     .replace('</style>', '')
     .replace('<style>', '');
 
-  const indexJsContent = `
-    import React from 'react';
-    import { createRoot } from 'react-dom/client';
-    import Demo from './demo';
+  const indexJsContent = `import React from 'react';
+import { createRoot } from 'react-dom/client';
+import Demo from './demo';
 
-    createRoot(document.getElementById('container')).render(<Demo />);
+createRoot(document.getElementById('container')).render(<Demo />);
   `;
 
   const codesandboxPackage = {
