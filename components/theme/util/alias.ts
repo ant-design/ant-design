@@ -69,6 +69,9 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     // Font
     fontSizeIcon: mergedToken.fontSizeSM,
 
+    // Line
+    lineWidthFocus: mergedToken.lineWidth * 4,
+
     // Control
     lineWidth: mergedToken.lineWidth,
     controlOutlineWidth: mergedToken.lineWidth * 2,
