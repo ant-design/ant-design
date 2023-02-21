@@ -225,12 +225,16 @@ interface BaseMethods {
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
 }
 
+type StaticFn = (config: ArgsProps) => void;
+
 interface NoticeMethods {
-  success: (config: ArgsProps) => void;
-  info: (config: ArgsProps) => void;
-  warning: (config: ArgsProps) => void;
-  error: (config: ArgsProps) => void;
+  success: StaticFn;
+  info: StaticFn;
+  warning: StaticFn;
+  error: StaticFn;
 }
+
+const methods: (keyof NoticeMethods)[] = ['success', 'info', 'warning', 'error'];
 
 const baseStaticMethods: BaseMethods = {
   open,
@@ -240,13 +244,11 @@ const baseStaticMethods: BaseMethods = {
   _InternalPanelDoNotUseOrYouWillBeFired: PurePanel,
 };
 
-const staticMethods: BaseMethods & NoticeMethods = {
-  ...baseStaticMethods,
-  info: (config) => open({ ...config, type: 'info' }),
-  error: (config) => open({ ...config, type: 'error' }),
-  warning: (config) => open({ ...config, type: 'warning' }),
-  success: (config) => open({ ...config, type: 'success' }),
-};
+const staticMethods = baseStaticMethods as NoticeMethods & BaseMethods;
+
+methods.forEach((type: keyof NoticeMethods) => {
+  staticMethods[type] = (config) => open({ ...config, type });
+});
 
 // ==============================================================================
 // ==                                   Test                                   ==
