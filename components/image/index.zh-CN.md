@@ -40,14 +40,13 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*FbOCS6aFMeUAAAAAAA
 | width | 图像宽度 | string \| number | - | 4.6.0 |
 | onError | 加载错误回调 | (event: Event) => void | - | 4.12.0 |
 | rootClassName | 为展示图片根 DOM 和预览大图根 DOM 提供自定义 className | string | - | 4.20.0 |
-| onChange | 索引更新回调 | (current: number, prevCurrent: number) => void | - | 5.2.0 |
 
 ### previewType
 
 ```js
 {
   visible?: boolean;
-  onVisibleChange?: (visible, prevVisible) => void;
+  onVisibleChange?: (visible, prevVisible, current: number) => void;// current 参数v5.2.3后支持
   getContainer?: string | HTMLElement | (() => HTMLElement); // v4.8.0
   src?: string; // v4.10.0
   mask?: ReactNode; // v4.9.0
@@ -56,6 +55,7 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*FbOCS6aFMeUAAAAAAA
   countRender?: (current: number, total: number) => string  // v4.20.0 仅支持 PreviewGroup
   scaleStep?: number;
   forceRender?: boolean;
+  onChange?: (current: number, prevCurrent: number) => void;// v5.2.3后支持
 }
 ```
 

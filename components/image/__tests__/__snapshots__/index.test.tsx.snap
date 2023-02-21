@@ -178,6 +178,12 @@ exports[`Image Default Group preview props 1`] = `
           </svg>
         </span>
       </li>
+      <li
+        class="ant-image-preview-operations-operation ant-image-preview-operations-operation-flipX"
+      />
+      <li
+        class="ant-image-preview-operations-operation ant-image-preview-operations-operation-flipY"
+      />
     </ul>
   </div>
   <div>

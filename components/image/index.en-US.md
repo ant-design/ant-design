@@ -39,14 +39,13 @@ Previewable image.
 | width | Image width | string \| number | - | 4.6.0 |
 | onError | Load failed callback | (event: Event) => void | - | 4.12.0 |
 | rootClassName | add custom className for image root DOM and preview mode root DOM | string | - | 4.20.0 |
-| onChange | current change callback | (current: number, prevCurrent: number) => void | - | 5.2.0 |
 
 ### previewType
 
 ```js
 {
   visible?: boolean;
-  onVisibleChange?: (visible, prevVisible) => void;
+  onVisibleChange?: (visible, prevVisible, current: number) => void;// `current` only support after v5.2.3
   getContainer?: string | HTMLElement | (() => HTMLElement); // v4.8.0
   src?: string; // v4.10.0
   mask?: ReactNode; // v4.9.0
@@ -54,6 +53,7 @@ Previewable image.
   current?: number; // v4.12.0 Only support PreviewGroup
   countRender?: (current: number, total: number) => string  // v4.20.0 Only support PreviewGroup
   scaleStep?: number;
+  onChange?: (current: number, prevCurrent: number) => void;// only support after v5.2.3
 }
 ```
 
