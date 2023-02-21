@@ -314,7 +314,7 @@ Array [
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
       >
         <span
-          class="ant-badge-status-dot ant-badge-status-pink"
+          class="ant-badge-status-dot ant-badge-color-pink"
         />
         <span
           class="ant-badge-status-text"
@@ -331,7 +331,7 @@ Array [
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
       >
         <span
-          class="ant-badge-status-dot ant-badge-status-red"
+          class="ant-badge-status-dot ant-badge-color-red"
         />
         <span
           class="ant-badge-status-text"
@@ -348,7 +348,7 @@ Array [
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
       >
         <span
-          class="ant-badge-status-dot ant-badge-status-yellow"
+          class="ant-badge-status-dot ant-badge-color-yellow"
         />
         <span
           class="ant-badge-status-text"
@@ -365,7 +365,7 @@ Array [
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
       >
         <span
-          class="ant-badge-status-dot ant-badge-status-orange"
+          class="ant-badge-status-dot ant-badge-color-orange"
         />
         <span
           class="ant-badge-status-text"
@@ -382,7 +382,7 @@ Array [
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
       >
         <span
-          class="ant-badge-status-dot ant-badge-status-cyan"
+          class="ant-badge-status-dot ant-badge-color-cyan"
         />
         <span
           class="ant-badge-status-text"
@@ -399,7 +399,7 @@ Array [
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
       >
         <span
-          class="ant-badge-status-dot ant-badge-status-green"
+          class="ant-badge-status-dot ant-badge-color-green"
         />
         <span
           class="ant-badge-status-text"
@@ -416,7 +416,7 @@ Array [
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
       >
         <span
-          class="ant-badge-status-dot ant-badge-status-blue"
+          class="ant-badge-status-dot ant-badge-color-blue"
         />
         <span
           class="ant-badge-status-text"
@@ -433,7 +433,7 @@ Array [
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
       >
         <span
-          class="ant-badge-status-dot ant-badge-status-purple"
+          class="ant-badge-status-dot ant-badge-color-purple"
         />
         <span
           class="ant-badge-status-text"
@@ -450,7 +450,7 @@ Array [
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
       >
         <span
-          class="ant-badge-status-dot ant-badge-status-geekblue"
+          class="ant-badge-status-dot ant-badge-color-geekblue"
         />
         <span
           class="ant-badge-status-text"
@@ -467,7 +467,7 @@ Array [
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
       >
         <span
-          class="ant-badge-status-dot ant-badge-status-magenta"
+          class="ant-badge-status-dot ant-badge-color-magenta"
         />
         <span
           class="ant-badge-status-text"
@@ -484,7 +484,7 @@ Array [
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
       >
         <span
-          class="ant-badge-status-dot ant-badge-status-volcano"
+          class="ant-badge-status-dot ant-badge-color-volcano"
         />
         <span
           class="ant-badge-status-text"
@@ -501,7 +501,7 @@ Array [
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
       >
         <span
-          class="ant-badge-status-dot ant-badge-status-gold"
+          class="ant-badge-status-dot ant-badge-color-gold"
         />
         <span
           class="ant-badge-status-text"
@@ -517,7 +517,7 @@ Array [
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
       >
         <span
-          class="ant-badge-status-dot ant-badge-status-lime"
+          class="ant-badge-status-dot ant-badge-color-lime"
         />
         <span
           class="ant-badge-status-text"
@@ -633,7 +633,7 @@ exports[`renders ./components/badge/demo/colorful-with-count-debug.tsx extend co
         pink
       </div>
       <sup
-        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-status-pink"
+        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-pink"
         data-show="true"
         title="44"
       >
@@ -673,7 +673,7 @@ exports[`renders ./components/badge/demo/colorful-with-count-debug.tsx extend co
         red
       </div>
       <sup
-        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-status-red"
+        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-red"
         data-show="true"
         title="44"
       >
@@ -713,7 +713,7 @@ exports[`renders ./components/badge/demo/colorful-with-count-debug.tsx extend co
         yellow
       </div>
       <sup
-        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-status-yellow"
+        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-yellow"
         data-show="true"
         title="44"
       >
@@ -753,7 +753,7 @@ exports[`renders ./components/badge/demo/colorful-with-count-debug.tsx extend co
         orange
       </div>
       <sup
-        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-status-orange"
+        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-orange"
         data-show="true"
         title="44"
       >
@@ -793,7 +793,7 @@ exports[`renders ./components/badge/demo/colorful-with-count-debug.tsx extend co
         cyan
       </div>
       <sup
-        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-status-cyan"
+        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-cyan"
         data-show="true"
         title="44"
       >
@@ -833,7 +833,7 @@ exports[`renders ./components/badge/demo/colorful-with-count-debug.tsx extend co
         green
       </div>
       <sup
-        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-status-green"
+        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-green"
         data-show="true"
         title="44"
       >
@@ -873,7 +873,7 @@ exports[`renders ./components/badge/demo/colorful-with-count-debug.tsx extend co
         blue
       </div>
       <sup
-        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-status-blue"
+        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-blue"
         data-show="true"
         title="44"
       >
@@ -913,7 +913,7 @@ exports[`renders ./components/badge/demo/colorful-with-count-debug.tsx extend co
         purple
       </div>
       <sup
-        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-status-purple"
+        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-purple"
         data-show="true"
         title="44"
       >
@@ -953,7 +953,7 @@ exports[`renders ./components/badge/demo/colorful-with-count-debug.tsx extend co
         geekblue
       </div>
       <sup
-        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-status-geekblue"
+        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-geekblue"
         data-show="true"
         title="44"
       >
@@ -993,7 +993,7 @@ exports[`renders ./components/badge/demo/colorful-with-count-debug.tsx extend co
         magenta
       </div>
       <sup
-        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-status-magenta"
+        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-magenta"
         data-show="true"
         title="44"
       >
@@ -1033,7 +1033,7 @@ exports[`renders ./components/badge/demo/colorful-with-count-debug.tsx extend co
         volcano
       </div>
       <sup
-        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-status-volcano"
+        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-volcano"
         data-show="true"
         title="44"
       >
@@ -1073,7 +1073,7 @@ exports[`renders ./components/badge/demo/colorful-with-count-debug.tsx extend co
         gold
       </div>
       <sup
-        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-status-gold"
+        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-gold"
         data-show="true"
         title="44"
       >
@@ -1113,7 +1113,7 @@ exports[`renders ./components/badge/demo/colorful-with-count-debug.tsx extend co
         lime
       </div>
       <sup
-        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-status-lime"
+        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-color-lime"
         data-show="true"
         title="44"
       >
@@ -1330,7 +1330,7 @@ exports[`renders ./components/badge/demo/mix.tsx extend context correctly 1`] = 
             />
           </span>
           <sup
-            class="ant-scroll-number ant-badge-count ant-badge-status-blue"
+            class="ant-scroll-number ant-badge-count ant-badge-color-blue"
             data-show="true"
             title="5"
           >
@@ -1439,7 +1439,7 @@ exports[`renders ./components/badge/demo/mix.tsx extend context correctly 1`] = 
             />
           </span>
           <sup
-            class="ant-scroll-number ant-badge-dot ant-badge-status-blue"
+            class="ant-scroll-number ant-badge-dot ant-badge-color-blue"
             data-show="true"
           />
         </span>
@@ -1500,7 +1500,7 @@ exports[`renders ./components/badge/demo/mix.tsx extend context correctly 1`] = 
           class="ant-badge ant-badge-not-a-wrapper"
         >
           <sup
-            class="ant-scroll-number ant-badge-count ant-badge-status-blue"
+            class="ant-scroll-number ant-badge-count ant-badge-color-blue"
             data-show="true"
             title="0"
           >
@@ -1565,7 +1565,7 @@ exports[`renders ./components/badge/demo/mix.tsx extend context correctly 1`] = 
             />
           </span>
           <sup
-            class="ant-scroll-number ant-badge-count ant-badge-status-blue"
+            class="ant-scroll-number ant-badge-count ant-badge-color-blue"
             data-show="true"
             title="0"
           >

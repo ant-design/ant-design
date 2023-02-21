@@ -154,7 +154,7 @@ const Badge: CompoundedComponent = ({
   const statusCls = classNames({
     [`${prefixCls}-status-dot`]: hasStatus,
     [`${prefixCls}-status-${status}`]: !!status,
-    [`${prefixCls}-status-${color}`]: isInternalColor,
+    [`${prefixCls}-color-${color}`]: isInternalColor,
   });
 
   const statusStyle: React.CSSProperties = {};
@@ -214,7 +214,7 @@ const Badge: CompoundedComponent = ({
             [`${prefixCls}-multiple-words`]:
               !isDot && displayCount && displayCount.toString().length > 1,
             [`${prefixCls}-status-${status}`]: !!status,
-            [`${prefixCls}-status-${color}`]: isInternalColor,
+            [`${prefixCls}-color-${color}`]: isInternalColor,
           });
 
           let scrollNumberStyle: React.CSSProperties = { ...mergedStyle };
