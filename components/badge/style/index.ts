@@ -73,8 +73,8 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
   const ribbonPrefixCls = `${antCls}-ribbon`;
   const ribbonWrapperPrefixCls = `${antCls}-ribbon-wrapper`;
 
-  const statusPreset = genPresetColor(token, (colorKey, { darkColor }) => ({
-    [`${componentCls}-status-${colorKey}`]: {
+  const colorPreset = genPresetColor(token, (colorKey, { darkColor }) => ({
+    [`${componentCls}-color-${colorKey}`]: {
       background: darkColor,
     },
   }));
@@ -207,13 +207,13 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
         [`${componentCls}-status-warning`]: {
           backgroundColor: token.colorWarning,
         },
-        ...statusPreset,
         [`${componentCls}-status-text`]: {
           marginInlineStart: marginXS,
           color: token.colorText,
           fontSize: token.fontSize,
         },
       },
+      ...colorPreset,
       [`${componentCls}-zoom-appear, ${componentCls}-zoom-enter`]: {
         animationName: antZoomBadgeIn,
         animationDuration: token.motionDurationSlow,
