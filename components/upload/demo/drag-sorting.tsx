@@ -1,6 +1,6 @@
 import { UploadOutlined } from '@ant-design/icons';
 import type { DragEndEvent } from '@dnd-kit/core';
-import { DndContext } from '@dnd-kit/core';
+import { DndContext, PointerSensor, useSensor } from '@dnd-kit/core';
 import {
   arrayMove,
   SortableContext,
@@ -79,6 +79,10 @@ const App: React.FC = () => {
     },
   ]);
 
+  const sensor = useSensor(PointerSensor, {
+    activationConstraint: { distance: 10 },
+  });
+
   const onDragEnd = ({ active, over }: DragEndEvent) => {
     if (active.id !== over?.id) {
       setFileList((prev) => {
@@ -94,7 +98,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <DndContext onDragEnd={onDragEnd}>
+    <DndContext sensors={[sensor]} onDragEnd={onDragEnd}>
       <SortableContext items={fileList.map((i) => i.uid)} strategy={verticalListSortingStrategy}>
         <Upload
           action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
