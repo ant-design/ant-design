@@ -187,8 +187,6 @@ function flushNotice() {
 // ==============================================================================
 // ==                                  Export                                  ==
 // ==============================================================================
-const methods = ['success', 'info', 'warning', 'error'] as const;
-type MethodType = typeof methods[number];
 
 function setNotificationGlobalConfig(config: GlobalConfigProps) {
   defaultGlobalConfig = {
@@ -227,7 +225,7 @@ interface BaseMethods {
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
 }
 
-interface Methods {
+interface NoticeMethods {
   success: (config: ArgsProps) => void;
   info: (config: ArgsProps) => void;
   warning: (config: ArgsProps) => void;
@@ -242,11 +240,13 @@ const baseStaticMethods: BaseMethods = {
   _InternalPanelDoNotUseOrYouWillBeFired: PurePanel,
 };
 
-const staticMethods: BaseMethods & Methods = baseStaticMethods as any;
-
-methods.forEach((type: MethodType) => {
-  staticMethods[type] = (config) => open({ ...config, type });
-});
+const staticMethods: BaseMethods & NoticeMethods = {
+  ...baseStaticMethods,
+  info: (config) => open({ ...config, type: 'info' }),
+  error: (config) => open({ ...config, type: 'error' }),
+  warning: (config) => open({ ...config, type: 'warning' }),
+  success: (config) => open({ ...config, type: 'success' }),
+};
 
 // ==============================================================================
 // ==                                   Test                                   ==
