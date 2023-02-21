@@ -1,7 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 import type { CSSObject } from '@ant-design/cssinjs';
-import type { GlobalToken } from 'antd';
-import type { DerivativeToken } from '../theme/internal';
+import type { DerivativeToken, AliasToken } from '../theme/internal';
 
 export { operationUnit } from './operationUnit';
 export { roundedArrow } from './roundedArrow';
@@ -127,7 +126,7 @@ export const genCommonStyle = (token: DerivativeToken, componentPrefixCls: strin
   };
 };
 
-export const genFocusOutline = (token: GlobalToken): CSSObject => ({
+export const genFocusOutline = (token: AliasToken): CSSObject => ({
   outline: `${token.lineWidthFocus}px solid ${token.colorPrimaryBorder}`,
   outlineOffset: 1,
   transition: 'outline-offset 0s, outline 0s',
