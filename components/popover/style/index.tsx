@@ -1,8 +1,8 @@
+import { resetComponent } from '../../style';
 import { initZoomMotion } from '../../style/motion';
+import getArrowStyle from '../../style/placementArrow';
 import type { FullToken, GenerateStyle, PresetColorType } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken, PresetColors } from '../../theme/internal';
-import { resetComponent } from '../../style';
-import getArrowStyle from '../../style/placementArrow';
 
 export interface ComponentToken {
   zIndexPopup: number;
@@ -93,6 +93,8 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
       [`${componentCls}-pure`]: {
         position: 'relative',
         maxWidth: 'none',
+        margin: token.sizePopupArrow,
+        display: 'inline-block',
 
         [`${componentCls}-content`]: {
           display: 'inline-block',

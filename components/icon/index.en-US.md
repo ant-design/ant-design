@@ -2,13 +2,17 @@
 category: Components
 group: General
 title: Icon
+description: Semantic vector graphics.
 toc: false
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*PdAYS7anRpoAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*xEDOTJx2DEkAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
 
-Semantic vector graphics. Before use icons, you need to install `@ant-design/icons` package:
+## How to use
+
+Before use icons, you need to install `@ant-design/icons` package:
 
 ```bash
 npm install --save @ant-design/icons

@@ -315,7 +315,11 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                     <td
                       class="ant-picker-cell ant-picker-cell-week"
                     >
-                      1
+                      <div
+                        class="ant-picker-cell-inner"
+                      >
+                        1
+                      </div>
                     </td>
                     <td
                       class="ant-picker-cell"
@@ -378,7 +382,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell ant-picker-cell-start ant-picker-cell-in-view ant-picker-cell-selected"
+                      class="ant-picker-cell ant-picker-cell-start ant-picker-cell-in-view"
                       title="2000-01-01"
                     >
                       <div
@@ -394,7 +398,11 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                     <td
                       class="ant-picker-cell ant-picker-cell-week"
                     >
-                      2
+                      <div
+                        class="ant-picker-cell-inner"
+                      >
+                        2
+                      </div>
                     </td>
                     <td
                       class="ant-picker-cell ant-picker-cell-in-view"
@@ -473,7 +481,11 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                     <td
                       class="ant-picker-cell ant-picker-cell-week"
                     >
-                      3
+                      <div
+                        class="ant-picker-cell-inner"
+                      >
+                        3
+                      </div>
                     </td>
                     <td
                       class="ant-picker-cell ant-picker-cell-in-view"
@@ -552,7 +564,11 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                     <td
                       class="ant-picker-cell ant-picker-cell-week"
                     >
-                      4
+                      <div
+                        class="ant-picker-cell-inner"
+                      >
+                        4
+                      </div>
                     </td>
                     <td
                       class="ant-picker-cell ant-picker-cell-in-view"
@@ -631,7 +647,11 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                     <td
                       class="ant-picker-cell ant-picker-cell-week"
                     >
-                      5
+                      <div
+                        class="ant-picker-cell-inner"
+                      >
+                        5
+                      </div>
                     </td>
                     <td
                       class="ant-picker-cell ant-picker-cell-in-view"
@@ -710,7 +730,11 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                     <td
                       class="ant-picker-cell ant-picker-cell-week"
                     >
-                      6
+                      <div
+                        class="ant-picker-cell-inner"
+                      >
+                        6
+                      </div>
                     </td>
                     <td
                       class="ant-picker-cell ant-picker-cell-in-view"

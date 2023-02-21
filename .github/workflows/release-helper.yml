@@ -44,7 +44,7 @@ jobs:
           branch: 'master, 4.x-stable'
           tag: '5*, 4*'
           latest: '5*'
-          dingding-token: ${{ secrets.DINGDING_BOT_BIGFISH_TOKEN }} ${{ secrets.DINGDING_BOT_YUNFENGDIE_TOKEN }}
+          dingding-token: ${{ secrets.DINGDING_BOT_BIGFISH_TOKEN }} ${{ secrets.DINGDING_BOT_BIGFISH_2_TOKEN }} ${{ secrets.DINGDING_BOT_YUNFENGDIE_TOKEN }}
           dingding-msg: 'CHANGELOG.zh-CN.md'
           dingding-delay-minute: 10
           release: false

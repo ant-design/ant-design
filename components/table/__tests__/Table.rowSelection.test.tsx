@@ -226,7 +226,7 @@ describe('Table.rowSelection', () => {
     });
     expect(handleSelect.mock.calls.length).toBe(1);
     expect(handleSelect.mock.calls[0][0]).toEqual({ key: 3, name: 'Jerry' });
-    expect(handleSelect.mock.calls[0][1]).toEqual(true);
+    expect(handleSelect.mock.calls[0][1]).toBe(true);
     expect(handleSelect.mock.calls[0][2]).toEqual([{ key: 3, name: 'Jerry' }]);
     expect(handleSelect.mock.calls[0][3].type).toBe('click');
     expect(order).toEqual(['onSelect', 'onChange']);

@@ -6,7 +6,7 @@ import { ConfigContext } from '../config-provider';
 import theme from '../theme';
 import getPlacements from '../_util/placements';
 import type { TourProps, TourStepProps } from './interface';
-import panelRender from './panelRender';
+import TourPanel from './panelRender';
 import PurePanel from './PurePanel';
 import useStyle from './style';
 
@@ -32,6 +32,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     autoAdjustOverflow: true,
     offset: token.marginXXS,
     arrowWidth: token.sizePopupArrow,
+    borderRadius: token.borderRadius,
   });
 
   const customClassName = classNames(
@@ -42,8 +43,14 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     rootClassName,
   );
 
-  const mergedRenderPanel = (stepProps: TourStepProps, stepCurrent: number) =>
-    panelRender(stepProps, stepCurrent, type, indicatorsRender);
+  const mergedRenderPanel = (stepProps: TourStepProps, stepCurrent: number): React.ReactNode => (
+    <TourPanel
+      type={type}
+      stepProps={stepProps}
+      current={stepCurrent}
+      indicatorsRender={indicatorsRender}
+    />
+  );
 
   return wrapSSR(
     <RCTour

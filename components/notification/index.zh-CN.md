@@ -5,6 +5,7 @@ noinstant: true
 title: Notification
 subtitle: 通知提醒框
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*6RWNQ78WtvEAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*9hTIToR-3YYAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -62,13 +63,15 @@ config 参数如下：
 | onClick | 点击通知时触发的回调函数 | function | - |
 | onClose | 当通知关闭时触发 | function | - |
 
+### 全局配置
+
 还提供了一个全局配置方法，在调用前提前配置，全局一次生效。
 
-- `notification.config(options)`
+`notification.config(options)`
 
-  > 当你使用 `ConfigProvider` 进行全局化配置时，系统会默认自动开启 RTL 模式。(4.3.0+)
-  >
-  > 当你想单独使用，可通过如下设置开启 RTL 模式。
+> 当你使用 `ConfigProvider` 进行全局化配置时，系统会默认自动开启 RTL 模式。(4.3.0+)
+>
+> 当你想单独使用，可通过如下设置开启 RTL 模式。
 
 ```js
 notification.config({
@@ -78,6 +81,8 @@ notification.config({
   rtl: true,
 });
 ```
+
+#### notification.config
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |

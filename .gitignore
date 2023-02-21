@@ -63,3 +63,4 @@ __image_snapshots__/
 /imageDiffSnapshots
 
 .devcontainer*
+.husky/prepare-commit-msg

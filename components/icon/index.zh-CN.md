@@ -1,15 +1,19 @@
 ---
 category: Components
 subtitle: 图标
+description: 语义化的矢量图形。
 group: 通用
 title: Icon
 toc: false
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*PdAYS7anRpoAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*xEDOTJx2DEkAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
 
-语义化的矢量图形。使用图标组件，你需要安装 `@ant-design/icons` 图标组件包：
+## 使用方法
+
+使用图标组件，你需要安装 `@ant-design/icons` 图标组件包：
 
 ```bash
 npm install --save @ant-design/icons

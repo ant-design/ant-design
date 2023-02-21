@@ -148,8 +148,8 @@ describe('Dropdown', () => {
       expect.objectContaining({
         bottomLeft: expect.objectContaining({
           overflow: {
-            adjustX: 1,
-            adjustY: 1,
+            adjustX: true,
+            adjustY: true,
           },
         }),
       }),

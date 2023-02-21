@@ -3,6 +3,7 @@ category: Components
 group: Data Entry
 title: TreeSelect
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*DfTMRYSDngEAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Y5pcQLplFu4AAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -50,6 +51,7 @@ Tree selection control.
 | loadData | Load data asynchronously | function(node) | - |  |
 | maxTagCount | Max tag count to show. `responsive` will cost render performance | number \| `responsive` | - | responsive: 4.10 |
 | maxTagPlaceholder | Placeholder for not showing tags | ReactNode \| function(omittedValues) | - |  |
+| maxTagTextLength | Max tag text length to show | number | - |  |
 | multiple | Support multiple or not, will be `true` when enable `treeCheckable` | boolean | false |  |
 | notFoundContent | Specify content to show when no result matches | ReactNode | `Not Found` |  |
 | placeholder | Placeholder of the select input | string | - |  |
