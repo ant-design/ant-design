@@ -100,7 +100,7 @@ const genRateStyle: GenerateStyle<RateToken> = (token) => {
       [`&-disabled${componentCls} ${componentCls}-star`]: {
         cursor: 'default',
 
-        '&:hover': {
+        '> div:hover': {
           transform: 'scale(1)',
         },
       },
