@@ -218,14 +218,23 @@ function destroy(key: React.Key) {
   flushNotice();
 }
 
-const baseStaticMethods: {
+interface BaseMethods {
   open: (config: ArgsProps) => void;
   destroy: (key?: React.Key) => void;
   config: any;
   useNotification: typeof useNotification;
   /** @private Internal Component. Do not use in your production. */
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
-} = {
+}
+
+interface Methods {
+  success: (config: ArgsProps) => void;
+  info: (config: ArgsProps) => void;
+  warning: (config: ArgsProps) => void;
+  error: (config: ArgsProps) => void;
+}
+
+const baseStaticMethods: BaseMethods = {
   open,
   destroy,
   config: setNotificationGlobalConfig,
@@ -233,15 +242,10 @@ const baseStaticMethods: {
   _InternalPanelDoNotUseOrYouWillBeFired: PurePanel,
 };
 
-const staticMethods: typeof baseStaticMethods & Record<MethodType, (config: ArgsProps) => void> =
-  baseStaticMethods as any;
+const staticMethods: BaseMethods & Methods = baseStaticMethods as any;
 
-methods.forEach((type) => {
-  staticMethods[type] = (config) =>
-    open({
-      ...config,
-      type,
-    });
+methods.forEach((type: MethodType) => {
+  staticMethods[type] = (config) => open({ ...config, type });
 });
 
 // ==============================================================================
