@@ -53,7 +53,7 @@ export interface AffixState {
   prevTarget: Window | HTMLElement | null;
 }
 
-class Affix extends React.Component<InternalAffixProps, AffixState> {
+class InternalAffix extends React.Component<InternalAffixProps, AffixState> {
   static contextType = ConfigContext;
 
   state: AffixState = {
@@ -293,10 +293,10 @@ class Affix extends React.Component<InternalAffixProps, AffixState> {
   }
 }
 // just use in test
-export type InternalAffixClass = Affix;
+export type InternalAffixClass = InternalAffix;
 
-const AffixFC = forwardRef<Affix, AffixProps>((props, ref) => {
-  const { prefixCls: customizePrefixCls } = props;
+const Affix = forwardRef<InternalAffix, AffixProps>((props, ref) => {
+  const { prefixCls: customizePrefixCls, rootClassName } = props;
   const { getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
   const affixPrefixCls = getPrefixCls('affix', customizePrefixCls);
 
@@ -308,11 +308,11 @@ const AffixFC = forwardRef<Affix, AffixProps>((props, ref) => {
     rootClassName: classNames(rootClassName, hashId),
   };
 
-  return wrapSSR(<Affix {...AffixProps} ref={ref} />);
+  return wrapSSR(<InternalAffix {...AffixProps} ref={ref} />);
 });
 
 if (process.env.NODE_ENV !== 'production') {
-  AffixFC.displayName = 'Affix';
+  Affix.displayName = 'Affix';
 }
 
-export default AffixFC;
+export default Affix;
