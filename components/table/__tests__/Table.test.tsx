@@ -1,5 +1,5 @@
 import { ConfigProvider } from 'antd';
-import React from 'react';
+import React, { useRef } from 'react';
 import type { TableProps } from '..';
 import Table from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -368,5 +368,37 @@ describe('Table', () => {
       </ConfigProvider>,
     );
     expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it('support getPopupContainer inject by ConfigProvider', async () => {
+    const columns = [
+      {
+        title: 'title',
+        key: 'title',
+        dataIndex: 'title',
+        filters: [
+          {
+            text: 'filter',
+            value: 'filter',
+          },
+        ],
+      },
+    ];
+    const Demo = () => {
+      const wrapRef = useRef(null);
+      return (
+        <ConfigProvider getPopupContainer={wrapRef.current!}>
+          <div ref={wrapRef}>
+            <Table columns={columns} />
+          </div>
+        </ConfigProvider>
+      );
+    };
+
+    const { container } = render(<Demo />);
+
+    fireEvent.click(container.querySelector('.ant-table-filter-trigger')!);
+    await waitFakeTimer();
+    expect(container.querySelector('.ant-dropdown')).toBeTruthy();
   });
 });

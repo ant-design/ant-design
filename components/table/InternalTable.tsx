@@ -28,6 +28,7 @@ import type { SortState } from './hooks/useSorter';
 import useSorter, { getSortData } from './hooks/useSorter';
 import useTitleColumns from './hooks/useTitleColumns';
 import type {
+  ColumnsType,
   ColumnTitleProps,
   ColumnType,
   ExpandableConfig,
@@ -35,15 +36,14 @@ import type {
   FilterValue,
   GetPopupContainer,
   GetRowKey,
+  RefInternalTable,
   SorterResult,
   SortOrder,
   TableAction,
   TableCurrentDataSource,
   TableLocale,
-  TableRowSelection,
-  ColumnsType,
   TablePaginationConfig,
-  RefInternalTable,
+  TableRowSelection,
 } from './interface';
 import RcTable from './RcTable';
 
@@ -114,6 +114,7 @@ function InternalTable<RecordType extends object = any>(
   props: InternalTableProps<RecordType>,
   ref: React.MutableRefObject<HTMLDivElement>,
 ) {
+  const { getPopupContainer: getContextPopupContainer } = React.useContext(ConfigContext);
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -323,7 +324,7 @@ function InternalTable<RecordType extends object = any>(
     dropdownPrefixCls,
     mergedColumns,
     onFilterChange,
-    getPopupContainer,
+    getPopupContainer: getPopupContainer || getContextPopupContainer,
   });
   const mergedData = getFilterData(sortedData, filterStates);
 
@@ -408,7 +409,7 @@ function InternalTable<RecordType extends object = any>(
     expandType,
     childrenColumnName,
     locale: tableLocale,
-    getPopupContainer,
+    getPopupContainer: getPopupContainer || getContextPopupContainer,
   });
 
   const internalRowClassName = (record: RecordType, index: number, indent: number) => {
