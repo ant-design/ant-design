@@ -5,7 +5,7 @@ import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import classNames from 'classnames';
 import * as React from 'react';
 import ConfigProvider from '../config-provider';
-import { useLocale } from '../locale/LocaleReceiver';
+import useLocale from '../locale/useLocale';
 import ActionButton from '../_util/ActionButton';
 import { getTransitionName } from '../_util/motion';
 import warning from '../_util/warning';

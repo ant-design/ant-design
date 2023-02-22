@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { ConfigContext } from '../../config-provider';
 import defaultLocale from '../../locale/en_US';
-import { useLocale } from '../../locale/LocaleReceiver';
+import useLocale from '../../locale/useLocale';
 import ConfirmDialog from '../ConfirmDialog';
 import type { ModalFuncProps } from '../Modal';
 

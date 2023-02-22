@@ -5,7 +5,7 @@ import React from 'react';
 import type { ButtonProps } from '../button';
 import Button from '../button';
 import defaultLocale from '../locale/en_US';
-import { useLocale } from '../locale/LocaleReceiver';
+import useLocale from '../locale/useLocale';
 import type { TourStepProps } from './interface';
 
 function isValidNode(node: ReactNode): boolean {

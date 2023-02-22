@@ -12,7 +12,7 @@ import omit from 'rc-util/lib/omit';
 import { composeRef } from 'rc-util/lib/ref';
 import * as React from 'react';
 import { ConfigContext } from '../../config-provider';
-import { useLocale } from '../../locale/LocaleReceiver';
+import useLocale from '../../locale/useLocale';
 import type { TooltipProps } from '../../tooltip';
 import Tooltip from '../../tooltip';
 import { isStyleSupport } from '../../_util/styleChecker';

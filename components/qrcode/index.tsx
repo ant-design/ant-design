@@ -5,7 +5,7 @@ import React, { useContext, useMemo } from 'react';
 import Button from '../button';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
-import { useLocale } from '../locale/LocaleReceiver';
+import useLocale from '../locale/useLocale';
 import Spin from '../spin';
 import theme from '../theme';
 import warning from '../_util/warning';

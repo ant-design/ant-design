@@ -7,7 +7,7 @@ import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import type { FormItemStatusContextProps } from '../form/context';
 import { FormItemInputContext } from '../form/context';
 import defaultLocale from '../locale/en_US';
-import { useLocale } from '../locale/LocaleReceiver';
+import useLocale from '../locale/useLocale';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { groupDisabledKeysMap, groupKeysMap } from '../_util/transKeys';
