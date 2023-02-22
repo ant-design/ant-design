@@ -155,9 +155,6 @@ exports[`Modal render without footer 1`] = `
             >
               Here is content of Modal
             </div>
-            <div
-              class="ant-modal-footer"
-            />
           </div>
           <div
             aria-hidden="true"
