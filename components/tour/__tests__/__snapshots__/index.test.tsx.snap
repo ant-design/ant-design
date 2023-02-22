@@ -2,15 +2,6 @@
 
 exports[`Tour Primary 1`] = `
 <body>
-  <div
-    style="position: absolute; top: 0px; left: 0px; width: 100%;"
-  />
-  <div
-    style="position: absolute; top: 0px; left: 0px; width: 100%;"
-  />
-  <div
-    style="position: absolute; top: 0px; left: 0px; width: 100%;"
-  />
   <div>
     <button
       disabled=""
@@ -18,69 +9,71 @@ exports[`Tour Primary 1`] = `
     >
       Cover
     </button>
-    <div>
+    <div
+      class="ant-tour ant-tour-placement-bottom"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1090;"
+    >
       <div
-        class="ant-tour"
-        style="z-index: 1090; opacity: 0;"
+        class="ant-tour-arrow"
+        style="position: absolute; top: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tour-primary ant-tour-content"
       >
         <div
-          class="ant-tour-primary ant-tour-content"
+          class="ant-tour-arrow"
+        />
+        <div
+          class="ant-tour-inner"
         >
-          <div
-            class="ant-tour-arrow"
-          />
-          <div
-            class="ant-tour-inner"
+          <span
+            aria-label="close"
+            class="anticon anticon-close ant-tour-close"
+            role="img"
+            tabindex="-1"
           >
-            <span
-              aria-label="close"
-              class="anticon anticon-close ant-tour-close"
-              role="img"
-              tabindex="-1"
+            <svg
+              aria-hidden="true"
+              data-icon="close"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
             >
-              <svg
-                aria-hidden="true"
-                data-icon="close"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-                />
-              </svg>
-            </span>
+              <path
+                d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+              />
+            </svg>
+          </span>
+          <div
+            class="ant-tour-header"
+          >
             <div
-              class="ant-tour-header"
+              class="ant-tour-title"
             >
-              <div
-                class="ant-tour-title"
-              >
-                primary title
-              </div>
+              primary title
             </div>
+          </div>
+          <div
+            class="ant-tour-description"
+          >
+            primary description.
+          </div>
+          <div
+            class="ant-tour-footer"
+          >
             <div
-              class="ant-tour-description"
+              class="ant-tour-buttons"
             >
-              primary description.
-            </div>
-            <div
-              class="ant-tour-footer"
-            >
-              <div
-                class="ant-tour-buttons"
+              <button
+                class="ant-btn ant-btn-default ant-btn-sm ant-tour-next-btn"
+                type="button"
               >
-                <button
-                  class="ant-btn ant-btn-default ant-btn-sm ant-tour-next-btn"
-                  type="button"
-                >
-                  <span>
-                    Finish
-                  </span>
-                </button>
-              </div>
+                <span>
+                  Finish
+                </span>
+              </button>
             </div>
           </div>
         </div>
@@ -107,8 +100,8 @@ exports[`Tour Primary 1`] = `
           >
             <rect
               fill="white"
-              height="100%"
-              width="100%"
+              height="100vh"
+              width="100vw"
               x="0"
               y="0"
             />
@@ -166,29 +159,11 @@ exports[`Tour Primary 1`] = `
       </svg>
     </div>
   </div>
-  <div
-    style="position: absolute; top: 0px; left: 0px; width: 100%;"
-  />
 </body>
 `;
 
 exports[`Tour basic 1`] = `
 <body>
-  <div
-    style="position: absolute; top: 0px; left: 0px; width: 100%;"
-  />
-  <div
-    style="position: absolute; top: 0px; left: 0px; width: 100%;"
-  />
-  <div
-    style="position: absolute; top: 0px; left: 0px; width: 100%;"
-  />
-  <div
-    style="position: absolute; top: 0px; left: 0px; width: 100%;"
-  />
-  <div
-    style="position: absolute; top: 0px; left: 0px; width: 100%;"
-  />
   <div>
     <div>
       <button
@@ -209,22 +184,12 @@ exports[`Tour basic 1`] = `
         Placement
       </button>
     </div>
-    <div />
   </div>
-  <div
-    style="position: absolute; top: 0px; left: 0px; width: 100%;"
-  />
 </body>
 `;
 
 exports[`Tour button props onClick 1`] = `
 <body>
-  <div
-    style="position: absolute; top: 0px; left: 0px; width: 100%;"
-  />
-  <div
-    style="position: absolute; top: 0px; left: 0px; width: 100%;"
-  />
   <div>
     <span
       id="btnName"
@@ -237,86 +202,80 @@ exports[`Tour button props onClick 1`] = `
     >
       target
     </button>
-    <div />
   </div>
-  <div
-    style="position: absolute; top: 0px; left: 0px; width: 100%;"
-  />
 </body>
 `;
 
 exports[`Tour custom step pre btn & next btn className & style 1`] = `
-<div>
+<div
+  class="ant-tour ant-tour-placement-bottom"
+  style="left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1090;"
+>
   <div
-    class="ant-tour"
-    style="z-index: 1090; opacity: 0;"
+    class="ant-tour-content"
   >
     <div
-      class="ant-tour-content"
+      class="ant-tour-inner"
     >
-      <div
-        class="ant-tour-inner"
+      <span
+        aria-label="close"
+        class="anticon anticon-close ant-tour-close"
+        role="img"
+        tabindex="-1"
       >
-        <span
-          aria-label="close"
-          class="anticon anticon-close ant-tour-close"
-          role="img"
-          tabindex="-1"
+        <svg
+          aria-hidden="true"
+          data-icon="close"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
         >
-          <svg
-            aria-hidden="true"
-            data-icon="close"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-            />
-          </svg>
-        </span>
+          <path
+            d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+          />
+        </svg>
+      </span>
+      <div
+        class="ant-tour-header"
+      >
         <div
-          class="ant-tour-header"
+          class="ant-tour-title"
         >
-          <div
-            class="ant-tour-title"
-          >
-            Show in Center
-          </div>
+          Show in Center
+        </div>
+      </div>
+      <div
+        class="ant-tour-description"
+      >
+        Here is the content of Tour.
+      </div>
+      <div
+        class="ant-tour-footer"
+      >
+        <div
+          class="ant-tour-indicators"
+        >
+          <span
+            class="ant-tour-indicator-active ant-tour-indicator"
+          />
+          <span
+            class="ant-tour-indicator"
+          />
         </div>
         <div
-          class="ant-tour-description"
+          class="ant-tour-buttons"
         >
-          Here is the content of Tour.
-        </div>
-        <div
-          class="ant-tour-footer"
-        >
-          <div
-            class="ant-tour-indicators"
+          <button
+            class="ant-btn ant-btn-primary ant-btn-sm ant-tour-next-btn customClassName"
+            style="background-color: rgb(69, 69, 255);"
+            type="button"
           >
-            <span
-              class="ant-tour-indicator-active ant-tour-indicator"
-            />
-            <span
-              class="ant-tour-indicator"
-            />
-          </div>
-          <div
-            class="ant-tour-buttons"
-          >
-            <button
-              class="ant-btn ant-btn-primary ant-btn-sm ant-tour-next-btn customClassName"
-              style="background-color: rgb(69, 69, 255);"
-              type="button"
-            >
-              <span>
-                Next
-              </span>
-            </button>
-          </div>
+            <span>
+              Next
+            </span>
+          </button>
         </div>
       </div>
     </div>
@@ -335,69 +294,71 @@ exports[`Tour single 1`] = `
     >
       Cover
     </button>
-    <div>
+    <div
+      class="ant-tour ant-tour-placement-bottom"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1090;"
+    >
       <div
-        class="ant-tour"
-        style="z-index: 1090; opacity: 0;"
+        class="ant-tour-arrow"
+        style="position: absolute; top: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tour-content"
       >
         <div
-          class="ant-tour-content"
+          class="ant-tour-arrow"
+        />
+        <div
+          class="ant-tour-inner"
         >
-          <div
-            class="ant-tour-arrow"
-          />
-          <div
-            class="ant-tour-inner"
+          <span
+            aria-label="close"
+            class="anticon anticon-close ant-tour-close"
+            role="img"
+            tabindex="-1"
           >
-            <span
-              aria-label="close"
-              class="anticon anticon-close ant-tour-close"
-              role="img"
-              tabindex="-1"
+            <svg
+              aria-hidden="true"
+              data-icon="close"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
             >
-              <svg
-                aria-hidden="true"
-                data-icon="close"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-                />
-              </svg>
-            </span>
+              <path
+                d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+              />
+            </svg>
+          </span>
+          <div
+            class="ant-tour-header"
+          >
             <div
-              class="ant-tour-header"
+              class="ant-tour-title"
             >
-              <div
-                class="ant-tour-title"
-              >
-                cover title
-              </div>
+              cover title
             </div>
+          </div>
+          <div
+            class="ant-tour-description"
+          >
+            cover description.
+          </div>
+          <div
+            class="ant-tour-footer"
+          >
             <div
-              class="ant-tour-description"
+              class="ant-tour-buttons"
             >
-              cover description.
-            </div>
-            <div
-              class="ant-tour-footer"
-            >
-              <div
-                class="ant-tour-buttons"
+              <button
+                class="ant-btn ant-btn-primary ant-btn-sm ant-tour-next-btn"
+                type="button"
               >
-                <button
-                  class="ant-btn ant-btn-primary ant-btn-sm ant-tour-next-btn"
-                  type="button"
-                >
-                  <span>
-                    Finish
-                  </span>
-                </button>
-              </div>
+                <span>
+                  Finish
+                </span>
+              </button>
             </div>
           </div>
         </div>
@@ -424,8 +385,8 @@ exports[`Tour single 1`] = `
           >
             <rect
               fill="white"
-              height="100%"
-              width="100%"
+              height="100vh"
+              width="100vw"
               x="0"
               y="0"
             />
@@ -483,26 +444,11 @@ exports[`Tour single 1`] = `
       </svg>
     </div>
   </div>
-  <div
-    style="position: absolute; top: 0px; left: 0px; width: 100%;"
-  />
 </body>
 `;
 
 exports[`Tour step support Primary 1`] = `
 <body>
-  <div
-    style="position: absolute; top: 0px; left: 0px; width: 100%;"
-  />
-  <div
-    style="position: absolute; top: 0px; left: 0px; width: 100%;"
-  />
-  <div
-    style="position: absolute; top: 0px; left: 0px; width: 100%;"
-  />
-  <div
-    style="position: absolute; top: 0px; left: 0px; width: 100%;"
-  />
   <div>
     <button
       disabled=""
@@ -510,87 +456,89 @@ exports[`Tour step support Primary 1`] = `
     >
       Cover
     </button>
-    <div>
+    <div
+      class="ant-tour ant-tour-placement-bottom"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1090;"
+    >
       <div
-        class="ant-tour"
-        style="z-index: 1090; opacity: 0;"
+        class="ant-tour-arrow"
+        style="position: absolute; top: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tour-primary ant-tour-content"
       >
         <div
-          class="ant-tour-primary ant-tour-content"
+          class="ant-tour-arrow"
+        />
+        <div
+          class="ant-tour-inner"
         >
-          <div
-            class="ant-tour-arrow"
-          />
-          <div
-            class="ant-tour-inner"
+          <span
+            aria-label="close"
+            class="anticon anticon-close ant-tour-close"
+            role="img"
+            tabindex="-1"
           >
-            <span
-              aria-label="close"
-              class="anticon anticon-close ant-tour-close"
-              role="img"
-              tabindex="-1"
+            <svg
+              aria-hidden="true"
+              data-icon="close"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
             >
-              <svg
-                aria-hidden="true"
-                data-icon="close"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-                />
-              </svg>
-            </span>
+              <path
+                d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+              />
+            </svg>
+          </span>
+          <div
+            class="ant-tour-header"
+          >
             <div
-              class="ant-tour-header"
+              class="ant-tour-title"
             >
-              <div
-                class="ant-tour-title"
-              >
-                primary title
-              </div>
+              primary title
+            </div>
+          </div>
+          <div
+            class="ant-tour-description"
+          >
+            primary description.
+          </div>
+          <div
+            class="ant-tour-footer"
+          >
+            <div
+              class="ant-tour-indicators"
+            >
+              <span
+                class="ant-tour-indicator"
+              />
+              <span
+                class="ant-tour-indicator-active ant-tour-indicator"
+              />
             </div>
             <div
-              class="ant-tour-description"
+              class="ant-tour-buttons"
             >
-              primary description.
-            </div>
-            <div
-              class="ant-tour-footer"
-            >
-              <div
-                class="ant-tour-indicators"
+              <button
+                class="ant-btn ant-btn-default ant-btn-sm ant-btn-background-ghost ant-tour-prev-btn"
+                type="button"
               >
-                <span
-                  class="ant-tour-indicator"
-                />
-                <span
-                  class="ant-tour-indicator-active ant-tour-indicator"
-                />
-              </div>
-              <div
-                class="ant-tour-buttons"
+                <span>
+                  Previous
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-default ant-btn-sm ant-tour-next-btn"
+                type="button"
               >
-                <button
-                  class="ant-btn ant-btn-default ant-btn-sm ant-btn-background-ghost ant-tour-prev-btn"
-                  type="button"
-                >
-                  <span>
-                    Previous
-                  </span>
-                </button>
-                <button
-                  class="ant-btn ant-btn-default ant-btn-sm ant-tour-next-btn"
-                  type="button"
-                >
-                  <span>
-                    Finish
-                  </span>
-                </button>
-              </div>
+                <span>
+                  Finish
+                </span>
+              </button>
             </div>
           </div>
         </div>
@@ -617,8 +565,8 @@ exports[`Tour step support Primary 1`] = `
           >
             <rect
               fill="white"
-              height="100%"
-              width="100%"
+              height="100vh"
+              width="100vw"
               x="0"
               y="0"
             />
@@ -676,17 +624,11 @@ exports[`Tour step support Primary 1`] = `
       </svg>
     </div>
   </div>
-  <div
-    style="position: absolute; top: 0px; left: 0px; width: 100%;"
-  />
 </body>
 `;
 
 exports[`Tour steps is empty 1`] = `
 <body>
-  <div
-    style="position: absolute; top: 0px; left: 0px; width: 100%;"
-  />
   <div>
     <button
       disabled=""
@@ -700,9 +642,6 @@ exports[`Tour steps is empty 1`] = `
 
 exports[`Tour steps props indicatorsRender 1`] = `
 <body>
-  <div
-    style="position: absolute; top: 0px; left: 0px; width: 100%;"
-  />
   <div>
     <button
       disabled=""
@@ -710,10 +649,6 @@ exports[`Tour steps props indicatorsRender 1`] = `
     >
       Cover
     </button>
-    <div />
   </div>
-  <div
-    style="position: absolute; top: 0px; left: 0px; width: 100%;"
-  />
 </body>
 `;
