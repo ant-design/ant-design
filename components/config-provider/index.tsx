@@ -3,13 +3,14 @@ import IconContext from '@ant-design/icons/lib/components/Context';
 import { FormProvider as RcFormProvider } from 'rc-field-form';
 import type { ValidateMessages } from 'rc-field-form/lib/interface';
 import useMemo from 'rc-util/lib/hooks/useMemo';
-import * as React from 'react';
 import type { ReactElement } from 'react';
+import * as React from 'react';
 import type { Options } from 'scroll-into-view-if-needed';
 import type { RequiredMark } from '../form/Form';
 import type { Locale } from '../locale';
 import LocaleProvider, { ANT_MARK } from '../locale';
-import LocaleReceiver from '../locale/LocaleReceiver';
+import type { LocaleContextProps } from '../locale/context';
+import LocaleContext from '../locale/context';
 import defaultLocale from '../locale/en_US';
 import { DesignTokenContext } from '../theme/internal';
 import defaultSeedToken from '../theme/themes/seed';
@@ -313,17 +314,11 @@ const ConfigProvider: React.FC<ConfigProviderProps> & {
   ConfigContext: typeof ConfigContext;
   SizeContext: typeof SizeContext;
   config: typeof setGlobalConfig;
-} = (props) => (
-  <LocaleReceiver>
-    {(_, __, legacyLocale) => (
-      <ConfigConsumer>
-        {(context) => (
-          <ProviderChildren parentContext={context} legacyLocale={legacyLocale} {...props} />
-        )}
-      </ConfigConsumer>
-    )}
-  </LocaleReceiver>
-);
+} = (props) => {
+  const context = React.useContext<ConfigConsumerProps>(ConfigContext);
+  const antLocale = React.useContext<LocaleContextProps | undefined>(LocaleContext);
+  return <ProviderChildren parentContext={context} legacyLocale={antLocale!} {...props} />;
+};
 
 ConfigProvider.ConfigContext = ConfigContext;
 ConfigProvider.SizeContext = SizeContext;

@@ -3,8 +3,8 @@ import classNames from 'classnames';
 import * as React from 'react';
 import type { ColProps } from '../grid/col';
 import Col from '../grid/col';
-import { useLocaleReceiver } from '../locale/LocaleReceiver';
 import defaultLocale from '../locale/en_US';
+import useLocale from '../locale/useLocale';
 import type { TooltipProps } from '../tooltip';
 import Tooltip from '../tooltip';
 import type { FormContextProps } from './context';
@@ -53,7 +53,7 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
   requiredMark,
   tooltip,
 }) => {
-  const [formLocale] = useLocaleReceiver('Form');
+  const formLocale = useLocale('Form');
 
   const {
     vertical,

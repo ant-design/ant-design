@@ -1,16 +1,16 @@
-import React, { useMemo, useContext } from 'react';
-import { QRCodeCanvas } from 'qrcode.react';
-import classNames from 'classnames';
 import { ReloadOutlined } from '@ant-design/icons';
-import { ConfigContext } from '../config-provider';
-import LocaleReceiver from '../locale/LocaleReceiver';
-import type { ConfigConsumerProps } from '../config-provider';
-import type { QRCodeProps, QRPropsCanvas } from './interface';
-import warning from '../_util/warning';
-import useStyle from './style/index';
-import Spin from '../spin';
+import classNames from 'classnames';
+import { QRCodeCanvas } from 'qrcode.react';
+import React, { useContext, useMemo } from 'react';
 import Button from '../button';
+import type { ConfigConsumerProps } from '../config-provider';
+import { ConfigContext } from '../config-provider';
+import useLocale from '../locale/useLocale';
+import Spin from '../spin';
 import theme from '../theme';
+import warning from '../_util/warning';
+import type { QRCodeProps, QRPropsCanvas } from './interface';
+import useStyle from './style/index';
 
 const { useToken } = theme;
 
@@ -53,6 +53,8 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     };
   }, [errorLevel, color, icon, iconSize, size, value]);
 
+  const locale = useLocale('QRCode');
+
   if (!value) {
     if (process.env.NODE_ENV !== 'production') {
       warning(false, 'QRCode', 'need to receive `value` props');
@@ -73,28 +75,24 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
   });
 
   return wrapSSR(
-    <LocaleReceiver componentName="QRCode">
-      {(locale) => (
-        <div style={{ ...style, width: size, height: size }} className={cls}>
-          {status !== 'active' && (
-            <div className={`${prefixCls}-mask`}>
-              {status === 'loading' && <Spin />}
-              {status === 'expired' && (
-                <>
-                  <p className={`${prefixCls}-expired`}>{locale.expired}</p>
-                  {typeof onRefresh === 'function' && (
-                    <Button type="link" icon={<ReloadOutlined />} onClick={onRefresh}>
-                      {locale.refresh}
-                    </Button>
-                  )}
-                </>
+    <div style={{ ...style, width: size, height: size }} className={cls}>
+      {status !== 'active' && (
+        <div className={`${prefixCls}-mask`}>
+          {status === 'loading' && <Spin />}
+          {status === 'expired' && (
+            <>
+              <p className={`${prefixCls}-expired`}>{locale?.expired}</p>
+              {typeof onRefresh === 'function' && (
+                <Button type="link" icon={<ReloadOutlined />} onClick={onRefresh}>
+                  {locale?.refresh}
+                </Button>
               )}
-            </div>
+            </>
           )}
-          <QRCodeCanvas {...qrCodeProps} />
         </div>
       )}
-    </LocaleReceiver>,
+      <QRCodeCanvas {...qrCodeProps} />
+    </div>,
   );
 };
 

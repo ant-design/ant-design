@@ -13,7 +13,7 @@ import { ConfigContext } from '../../config-provider';
 import DisabledContext from '../../config-provider/DisabledContext';
 import SizeContext from '../../config-provider/SizeContext';
 import { FormItemInputContext } from '../../form/context';
-import LocaleReceiver from '../../locale/LocaleReceiver';
+import useLocale from '../../locale/useLocale';
 import { useCompactItemContext } from '../../space/Compact';
 import type { InputStatus } from '../../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
@@ -122,58 +122,54 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
           </>
         );
 
-        return wrapSSR(
-          <LocaleReceiver componentName="DatePicker" defaultLocale={enUS}>
-            {(contextLocale) => {
-              const locale = { ...contextLocale, ...props.locale };
+        const contextLocale = useLocale('DatePicker', enUS);
 
-              return (
-                <RCPicker<DateType>
-                  ref={innerRef}
-                  placeholder={getPlaceholder(locale, mergedPicker, placeholder)}
-                  suffixIcon={suffixNode}
-                  dropdownAlign={transPlacement2DropdownAlign(direction, placement)}
-                  clearIcon={<CloseCircleFilled />}
-                  prevIcon={<span className={`${prefixCls}-prev-icon`} />}
-                  nextIcon={<span className={`${prefixCls}-next-icon`} />}
-                  superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
-                  superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
-                  allowClear
-                  transitionName={`${rootPrefixCls}-slide-up`}
-                  {...additionalProps}
-                  {...restProps}
-                  {...additionalOverrideProps}
-                  locale={locale!.lang}
-                  className={classNames(
-                    {
-                      [`${prefixCls}-${mergedSize}`]: mergedSize,
-                      [`${prefixCls}-borderless`]: !bordered,
-                    },
-                    getStatusClassNames(
-                      prefixCls as string,
-                      getMergedStatus(contextStatus, customStatus),
-                      hasFeedback,
-                    ),
-                    hashId,
-                    compactItemClassnames,
-                    className,
-                    rootClassName,
-                  )}
-                  prefixCls={prefixCls}
-                  getPopupContainer={customizeGetPopupContainer || getPopupContainer}
-                  generateConfig={generateConfig}
-                  components={Components}
-                  direction={direction}
-                  disabled={mergedDisabled}
-                  dropdownClassName={classNames(
-                    hashId,
-                    rootClassName,
-                    popupClassName || dropdownClassName,
-                  )}
-                />
-              );
-            }}
-          </LocaleReceiver>,
+        const locale = { ...contextLocale, ...props.locale! };
+
+        return wrapSSR(
+          <RCPicker<DateType>
+            ref={innerRef}
+            placeholder={getPlaceholder(locale, mergedPicker, placeholder)}
+            suffixIcon={suffixNode}
+            dropdownAlign={transPlacement2DropdownAlign(direction, placement)}
+            clearIcon={<CloseCircleFilled />}
+            prevIcon={<span className={`${prefixCls}-prev-icon`} />}
+            nextIcon={<span className={`${prefixCls}-next-icon`} />}
+            superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
+            superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
+            allowClear
+            transitionName={`${rootPrefixCls}-slide-up`}
+            {...additionalProps}
+            {...restProps}
+            {...additionalOverrideProps}
+            locale={locale!.lang}
+            className={classNames(
+              {
+                [`${prefixCls}-${mergedSize}`]: mergedSize,
+                [`${prefixCls}-borderless`]: !bordered,
+              },
+              getStatusClassNames(
+                prefixCls as string,
+                getMergedStatus(contextStatus, customStatus),
+                hasFeedback,
+              ),
+              hashId,
+              compactItemClassnames,
+              className,
+              rootClassName,
+            )}
+            prefixCls={prefixCls}
+            getPopupContainer={customizeGetPopupContainer || getPopupContainer}
+            generateConfig={generateConfig}
+            components={Components}
+            direction={direction}
+            disabled={mergedDisabled}
+            dropdownClassName={classNames(
+              hashId,
+              rootClassName,
+              popupClassName || dropdownClassName,
+            )}
+          />,
         );
       },
     );

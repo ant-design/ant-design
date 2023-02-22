@@ -9,7 +9,7 @@ import { NoCompactStyle } from '../space/Compact';
 import { getTransitionName } from '../_util/motion';
 import { canUseDocElement } from '../_util/styleChecker';
 import warning from '../_util/warning';
-import { renderCloseIcon, renderFooter } from './PurePanel';
+import { Footer, renderCloseIcon } from './PurePanel';
 import useStyle from './style';
 
 type MousePosition = { x: number; y: number } | null;
@@ -209,11 +209,13 @@ const Modal: React.FC<ModalProps> = (props) => {
           prefixCls={prefixCls}
           rootClassName={classNames(hashId, rootClassName)}
           wrapClassName={wrapClassNameExtended}
-          footer={renderFooter({
-            ...props,
-            onOk: handleOk,
-            onCancel: handleCancel,
-          })}
+          footer={
+            props.footer === null ? (
+              props.footer
+            ) : (
+              <Footer {...props} onOk={handleOk} onCancel={handleCancel} />
+            )
+          }
           visible={open ?? visible}
           mousePosition={restProps.mousePosition ?? mousePosition}
           onClose={handleCancel}
