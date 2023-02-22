@@ -1,9 +1,9 @@
-import MockDate from 'mockdate';
 import Dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
+import MockDate from 'mockdate';
+import { type PickerPanelProps } from 'rc-picker';
 import dayjsGenerateConfig from 'rc-picker/lib/generate/dayjs';
 import type { Locale } from 'rc-picker/lib/interface';
-import { type PickerPanelProps } from 'rc-picker';
 import React from 'react';
 import Calendar from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -42,7 +42,7 @@ jest.mock('rc-picker', () => {
 
 describe('Calendar', () => {
   mountTest(Calendar);
-  rtlTest(Calendar, { mockDate: true });
+  rtlTest(Calendar, true);
 
   function openSelect(wrapper: HTMLElement, className: string) {
     fireEvent.mouseDown(wrapper.querySelector(className)!.querySelector('.ant-select-selector')!);
