@@ -62,6 +62,9 @@ export interface AliasToken extends MapToken {
   controlInteractiveSize: number;
   controlItemBgActiveDisabled: string; // Note. It also is a color
 
+  // Line
+  lineWidthFocus: number;
+
   // Padding
   paddingXXS: number;
   paddingXS: number;
