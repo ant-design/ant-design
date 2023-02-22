@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
-import LocaleReceiver from '../locale/LocaleReceiver';
+import useLocale from '../locale/useLocale';
 import DefaultEmptyImg from './empty';
 import SimpleEmptyImg from './simple';
 
@@ -46,43 +46,39 @@ const Empty: CompoundedComponent = ({
   const prefixCls = getPrefixCls('empty', customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
+  const locale = useLocale('Empty');
+
+  const des = typeof description !== 'undefined' ? description : locale?.description;
+  const alt = typeof des === 'string' ? des : 'empty';
+
+  let imageNode: React.ReactNode = null;
+
+  if (typeof image === 'string') {
+    imageNode = <img alt={alt} src={image} />;
+  } else {
+    imageNode = image;
+  }
+
   return wrapSSR(
-    <LocaleReceiver componentName="Empty">
-      {(locale: TransferLocale) => {
-        const des = typeof description !== 'undefined' ? description : locale.description;
-        const alt = typeof des === 'string' ? des : 'empty';
-
-        let imageNode: React.ReactNode = null;
-
-        if (typeof image === 'string') {
-          imageNode = <img alt={alt} src={image} />;
-        } else {
-          imageNode = image;
-        }
-
-        return (
-          <div
-            className={classNames(
-              hashId,
-              prefixCls,
-              {
-                [`${prefixCls}-normal`]: image === simpleEmptyImg,
-                [`${prefixCls}-rtl`]: direction === 'rtl',
-              },
-              className,
-              rootClassName,
-            )}
-            {...restProps}
-          >
-            <div className={`${prefixCls}-image`} style={imageStyle}>
-              {imageNode}
-            </div>
-            {des && <div className={`${prefixCls}-description`}>{des}</div>}
-            {children && <div className={`${prefixCls}-footer`}>{children}</div>}
-          </div>
-        );
-      }}
-    </LocaleReceiver>,
+    <div
+      className={classNames(
+        hashId,
+        prefixCls,
+        {
+          [`${prefixCls}-normal`]: image === simpleEmptyImg,
+          [`${prefixCls}-rtl`]: direction === 'rtl',
+        },
+        className,
+        rootClassName,
+      )}
+      {...restProps}
+    >
+      <div className={`${prefixCls}-image`} style={imageStyle}>
+        {imageNode}
+      </div>
+      {des && <div className={`${prefixCls}-description`}>{des}</div>}
+      {children && <div className={`${prefixCls}-footer`}>{children}</div>}
+    </div>,
   );
 };
 

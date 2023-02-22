@@ -10,7 +10,7 @@ import type {
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
-import LocaleReceiver from '../locale/LocaleReceiver';
+import useLocale from '../locale/useLocale';
 import CalendarHeader from './Header';
 import enUS from './locale/en_US';
 
@@ -236,60 +236,57 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
       [monthFullCellRender, monthCellRender],
     );
 
-    return wrapSSR(
-      <LocaleReceiver componentName="Calendar" defaultLocale={getDefaultLocale}>
-        {(contextLocale) => (
-          <div
-            className={classNames(
-              calendarPrefixCls,
-              {
-                [`${calendarPrefixCls}-full`]: fullscreen,
-                [`${calendarPrefixCls}-mini`]: !fullscreen,
-                [`${calendarPrefixCls}-rtl`]: direction === 'rtl',
-              },
-              className,
-              rootClassName,
-              hashId,
-            )}
-            style={style}
-          >
-            {headerRender ? (
-              headerRender({
-                value: mergedValue,
-                type: mergedMode,
-                onChange: onInternalSelect,
-                onTypeChange: triggerModeChange,
-              })
-            ) : (
-              <CalendarHeader
-                prefixCls={calendarPrefixCls}
-                value={mergedValue}
-                generateConfig={generateConfig}
-                mode={mergedMode}
-                fullscreen={fullscreen}
-                locale={contextLocale.lang}
-                validRange={validRange}
-                onChange={onInternalSelect}
-                onModeChange={triggerModeChange}
-              />
-            )}
+    const contextLocale = useLocale('Calendar', getDefaultLocale);
 
-            <RCPickerPanel
-              value={mergedValue}
-              prefixCls={prefixCls}
-              locale={contextLocale.lang}
-              generateConfig={generateConfig}
-              dateRender={dateRender}
-              monthCellRender={(date) => monthRender(date, contextLocale.lang)}
-              onSelect={onInternalSelect}
-              mode={panelMode}
-              picker={panelMode}
-              disabledDate={mergedDisabledDate}
-              hideHeader
-            />
-          </div>
+    return wrapSSR(
+      <div
+        className={classNames(
+          calendarPrefixCls,
+          {
+            [`${calendarPrefixCls}-full`]: fullscreen,
+            [`${calendarPrefixCls}-mini`]: !fullscreen,
+            [`${calendarPrefixCls}-rtl`]: direction === 'rtl',
+          },
+          className,
+          rootClassName,
+          hashId,
         )}
-      </LocaleReceiver>,
+        style={style}
+      >
+        {headerRender ? (
+          headerRender({
+            value: mergedValue,
+            type: mergedMode,
+            onChange: onInternalSelect,
+            onTypeChange: triggerModeChange,
+          })
+        ) : (
+          <CalendarHeader
+            prefixCls={calendarPrefixCls}
+            value={mergedValue}
+            generateConfig={generateConfig}
+            mode={mergedMode}
+            fullscreen={fullscreen}
+            locale={contextLocale?.lang}
+            validRange={validRange}
+            onChange={onInternalSelect}
+            onModeChange={triggerModeChange}
+          />
+        )}
+        <RCPickerPanel
+          value={mergedValue}
+          prefixCls={prefixCls}
+          locale={contextLocale?.lang}
+          generateConfig={generateConfig}
+          dateRender={dateRender}
+          monthCellRender={(date) => monthRender(date, contextLocale?.lang)}
+          onSelect={onInternalSelect}
+          mode={panelMode}
+          picker={panelMode}
+          disabledDate={mergedDisabledDate}
+          hideHeader
+        />
+      </div>,
     );
   };
 

@@ -5,7 +5,7 @@ import React from 'react';
 import type { ButtonProps } from '../button';
 import Button from '../button';
 import defaultLocale from '../locale/en_US';
-import LocaleReceiver from '../locale/LocaleReceiver';
+import useLocale from '../locale/useLocale';
 import type { TourStepProps } from './interface';
 
 function isValidNode(node: ReactNode): boolean {
@@ -92,52 +92,50 @@ const TourPanel: React.FC<TourPanelProps> = ({ stepProps, current, type, indicat
     ghost: mergedType === 'primary',
   };
 
+  const contextLocale = useLocale('Tour', defaultLocale.Tour);
+
   return (
-    <LocaleReceiver componentName="Tour" defaultLocale={defaultLocale.Tour}>
-      {(contextLocale) => (
-        <div
-          className={classNames(
-            mergedType === 'primary' ? `${prefixCls}-primary` : '',
-            className,
-            `${prefixCls}-content`,
-          )}
-        >
-          {arrow && <div className={`${prefixCls}-arrow`} key="arrow" />}
-          <div className={`${prefixCls}-inner`}>
-            <CloseOutlined className={`${prefixCls}-close`} onClick={onClose} />
-            {coverNode}
-            {headerNode}
-            {descriptionNode}
-            <div className={`${prefixCls}-footer`}>
-              {total > 1 && <div className={`${prefixCls}-indicators`}>{mergeIndicatorNode}</div>}
-              <div className={`${prefixCls}-buttons`}>
-                {current !== 0 ? (
-                  <Button
-                    {...secondaryBtnProps}
-                    {...prevButtonProps}
-                    onClick={prevBtnClick}
-                    size="small"
-                    className={classNames(`${prefixCls}-prev-btn`, prevButtonProps?.className)}
-                  >
-                    {prevButtonProps?.children ?? contextLocale.Previous}
-                  </Button>
-                ) : null}
-                <Button
-                  type={mainBtnType}
-                  {...nextButtonProps}
-                  onClick={nextBtnClick}
-                  size="small"
-                  className={classNames(`${prefixCls}-next-btn`, nextButtonProps?.className)}
-                >
-                  {nextButtonProps?.children ??
-                    (isLastStep ? contextLocale.Finish : contextLocale.Next)}
-                </Button>
-              </div>
-            </div>
+    <div
+      className={classNames(
+        mergedType === 'primary' ? `${prefixCls}-primary` : '',
+        className,
+        `${prefixCls}-content`,
+      )}
+    >
+      {arrow && <div className={`${prefixCls}-arrow`} key="arrow" />}
+      <div className={`${prefixCls}-inner`}>
+        <CloseOutlined className={`${prefixCls}-close`} onClick={onClose} />
+        {coverNode}
+        {headerNode}
+        {descriptionNode}
+        <div className={`${prefixCls}-footer`}>
+          {total > 1 && <div className={`${prefixCls}-indicators`}>{mergeIndicatorNode}</div>}
+          <div className={`${prefixCls}-buttons`}>
+            {current !== 0 ? (
+              <Button
+                {...secondaryBtnProps}
+                {...prevButtonProps}
+                onClick={prevBtnClick}
+                size="small"
+                className={classNames(`${prefixCls}-prev-btn`, prevButtonProps?.className)}
+              >
+                {prevButtonProps?.children ?? contextLocale?.Previous}
+              </Button>
+            ) : null}
+            <Button
+              type={mainBtnType}
+              {...nextButtonProps}
+              onClick={nextBtnClick}
+              size="small"
+              className={classNames(`${prefixCls}-next-btn`, nextButtonProps?.className)}
+            >
+              {nextButtonProps?.children ??
+                (isLastStep ? contextLocale?.Finish : contextLocale?.Next)}
+            </Button>
           </div>
         </div>
-      )}
-    </LocaleReceiver>
+      </div>
+    </div>
   );
 };
 

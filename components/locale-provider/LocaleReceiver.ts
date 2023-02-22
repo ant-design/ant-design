@@ -1,6 +1,6 @@
 // locale-provider 文件夹的移除需要修改 @ant-design/tools 和 antd-img-crop
-import LocaleReceiver from '../locale/LocaleReceiver';
+import useLocale from '../locale/useLocale';
 
-export * from '../locale/LocaleReceiver';
+export * from '../locale/useLocale';
 
-export default LocaleReceiver;
+export default useLocale;
