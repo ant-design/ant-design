@@ -426,11 +426,12 @@ exports[`renders ./components/breadcrumb/demo/separator-component.tsx extend con
         Location
       </span>
     </li>
-    <span
+    <li
+      aria-hidden="true"
       class="ant-breadcrumb-separator"
     >
       :
-    </span>
+    </li>
     <li>
       <a
         class="ant-breadcrumb-link"
@@ -439,11 +440,12 @@ exports[`renders ./components/breadcrumb/demo/separator-component.tsx extend con
         Application Center
       </a>
     </li>
-    <span
+    <li
+      aria-hidden="true"
       class="ant-breadcrumb-separator"
     >
       /
-    </span>
+    </li>
     <li>
       <a
         class="ant-breadcrumb-link"
@@ -452,11 +454,12 @@ exports[`renders ./components/breadcrumb/demo/separator-component.tsx extend con
         Application List
       </a>
     </li>
-    <span
+    <li
+      aria-hidden="true"
       class="ant-breadcrumb-separator"
     >
       /
-    </span>
+    </li>
     <li>
       <span
         class="ant-breadcrumb-link"
