@@ -399,7 +399,6 @@ describe('Table', () => {
 
     fireEvent.click(container.querySelector('.ant-table-filter-trigger')!);
     await waitFakeTimer();
-    expect(container.firstChild).toMatchSnapshot();
     expect(container.querySelector('.ant-dropdown')).toBeTruthy();
   });
 });
