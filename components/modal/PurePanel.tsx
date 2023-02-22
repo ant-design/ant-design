@@ -63,7 +63,7 @@ export const Footer: React.FC<
   return footer === undefined ? (
     <>
       <Button onClick={onCancel} {...cancelButtonProps}>
-        {cancelText || locale!.cancelText}
+        {cancelText || locale?.cancelText}
       </Button>
       <Button
         {...convertLegacyProps(okType)}
@@ -71,15 +71,15 @@ export const Footer: React.FC<
         onClick={onOk}
         {...okButtonProps}
       >
-        {okText || locale!.okText}
+        {okText || locale?.okText}
       </Button>
     </>
   ) : (
-    <>{footer}</>
+    (footer as React.ReactElement)
   );
 };
 
-export default function PurePanel(props: PurePanelProps) {
+const PurePanel: React.FC<PurePanelProps> = (props) => {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -140,4 +140,6 @@ export default function PurePanel(props: PurePanelProps) {
       {...additionalProps}
     />
   );
-}
+};
+
+export default PurePanel;
