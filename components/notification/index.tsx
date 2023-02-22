@@ -187,8 +187,6 @@ function flushNotice() {
 // ==============================================================================
 // ==                                  Export                                  ==
 // ==============================================================================
-const methods = ['success', 'info', 'warning', 'error'] as const;
-type MethodType = typeof methods[number];
 
 function setNotificationGlobalConfig(config: GlobalConfigProps) {
   defaultGlobalConfig = {
@@ -218,14 +216,27 @@ function destroy(key: React.Key) {
   flushNotice();
 }
 
-const baseStaticMethods: {
+interface BaseMethods {
   open: (config: ArgsProps) => void;
   destroy: (key?: React.Key) => void;
   config: any;
   useNotification: typeof useNotification;
   /** @private Internal Component. Do not use in your production. */
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
-} = {
+}
+
+type StaticFn = (config: ArgsProps) => void;
+
+interface NoticeMethods {
+  success: StaticFn;
+  info: StaticFn;
+  warning: StaticFn;
+  error: StaticFn;
+}
+
+const methods: (keyof NoticeMethods)[] = ['success', 'info', 'warning', 'error'];
+
+const baseStaticMethods: BaseMethods = {
   open,
   destroy,
   config: setNotificationGlobalConfig,
@@ -233,15 +244,10 @@ const baseStaticMethods: {
   _InternalPanelDoNotUseOrYouWillBeFired: PurePanel,
 };
 
-const staticMethods: typeof baseStaticMethods & Record<MethodType, (config: ArgsProps) => void> =
-  baseStaticMethods as any;
+const staticMethods = baseStaticMethods as NoticeMethods & BaseMethods;
 
-methods.forEach((type) => {
-  staticMethods[type] = (config) =>
-    open({
-      ...config,
-      type,
-    });
+methods.forEach((type: keyof NoticeMethods) => {
+  staticMethods[type] = (config) => open({ ...config, type });
 });
 
 // ==============================================================================
