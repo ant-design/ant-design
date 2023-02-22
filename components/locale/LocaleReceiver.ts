@@ -16,6 +16,8 @@ export interface LocaleReceiverProps<C extends LocaleComponentName = LocaleCompo
   ) => React.ReactElement;
 }
 
+// 这个方法没用了，用下面的 useLocale 代替，但是别删
+/* istanbul ignore next */
 const LocaleReceiver = <C extends LocaleComponentName = LocaleComponentName>(
   props: LocaleReceiverProps<C>,
 ) => {
