@@ -151,7 +151,7 @@ items=this.props.global.template_list.map((item)=>{
 
 if(category===item.category){
 
-return (<Menu.Item key={item.id}>{item.name}</Menu.Item>);
+return <Menu.Item key={item.id}>{item.name}</Menu.Item>;
 
 }
 
@@ -166,19 +166,13 @@ return (<Menu.Item key={item.id}>{item.name}</Menu.Item>);
 import { Menu } from 'antd';
 import React from 'react';
 
-class Demo extends React.Component {
-  state = {
-    collapsed: false,
-  };
+const Demo: React.FC = () => {
+  const [collapsed, setCollapsed] = useState<boolean>(false);
 
-  open = () => {
-    this.setState({ collapsed: true });
-  };
+  const toggle = () => setCollapsed(!collapsed);
 
-  render() {
-    return <Menu>...</Menu>;
-  }
-}
+  return <Menu>...</Menu>;
+};
 
 export default Demo;
 ```
