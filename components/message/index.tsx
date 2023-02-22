@@ -15,8 +15,6 @@ import { wrapPromiseFn } from './util';
 
 export { ArgsProps };
 
-const methods: NoticeType[] = ['success', 'info', 'warning', 'error', 'loading'];
-
 let message: GlobalMessage | null = null;
 
 let act: (callback: VoidFunction) => Promise<void> | void = (callback) => callback();
@@ -220,7 +218,6 @@ function flushNotice() {
 // ==============================================================================
 // ==                                  Export                                  ==
 // ==============================================================================
-type MethodType = typeof methods[number];
 
 function setMessageGlobalConfig(config: ConfigOptions) {
   defaultGlobalConfig = {
@@ -303,14 +300,26 @@ function destroy(key: React.Key) {
   flushNotice();
 }
 
-const baseStaticMethods: {
+interface BaseMethods {
   open: (config: ArgsProps) => MessageType;
   destroy: (key?: React.Key) => void;
   config: typeof setMessageGlobalConfig;
   useMessage: typeof useMessage;
   /** @private Internal Component. Do not use in your production. */
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
-} = {
+}
+
+interface MessageMethods {
+  info: TypeOpen;
+  success: TypeOpen;
+  error: TypeOpen;
+  warning: TypeOpen;
+  loading: TypeOpen;
+}
+
+const methods: (keyof MessageMethods)[] = ['success', 'info', 'warning', 'error', 'loading'];
+
+const baseStaticMethods: BaseMethods = {
   open,
   destroy,
   config: setMessageGlobalConfig,
@@ -318,10 +327,9 @@ const baseStaticMethods: {
   _InternalPanelDoNotUseOrYouWillBeFired: PurePanel,
 };
 
-const staticMethods: typeof baseStaticMethods & Record<MethodType, TypeOpen> =
-  baseStaticMethods as any;
+const staticMethods = baseStaticMethods as MessageMethods & BaseMethods;
 
-methods.forEach((type) => {
+methods.forEach((type: keyof MessageMethods) => {
   staticMethods[type] = (...args: Parameters<TypeOpen>) => typeOpen(type, args);
 });
 
