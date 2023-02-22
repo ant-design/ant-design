@@ -45,13 +45,12 @@ const LocaleReceiver = <C extends LocaleComponentName = LocaleComponentName>(
 
 export default LocaleReceiver;
 
-export const useLocaleReceiver = <C extends LocaleComponentName = LocaleComponentName>(
+export const useLocale = <C extends LocaleComponentName = LocaleComponentName>(
   componentName: C,
   defaultLocale?: Locale[C] | (() => Locale[C]),
-): [Locale[C]] => {
+): Locale[C] => {
   const antLocale = React.useContext<LocaleContextProps | undefined>(LocaleContext);
-
-  const getLocale = React.useMemo<NonNullable<Locale[C]>>(() => {
+  return React.useMemo<NonNullable<Locale[C]>>(() => {
     const locale = defaultLocale || defaultLocaleData[componentName];
     const localeFromContext = antLocale?.[componentName] ?? {};
     return {
@@ -59,6 +58,4 @@ export const useLocaleReceiver = <C extends LocaleComponentName = LocaleComponen
       ...(localeFromContext || {}),
     };
   }, [componentName, defaultLocale, antLocale]);
-
-  return [getLocale];
 };
