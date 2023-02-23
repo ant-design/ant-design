@@ -61,7 +61,7 @@ function highlightKeyword(str: string, lowerKeyword: string, prefixCls?: string)
     if (index % 2 === 1) {
       originWorld = (
         // eslint-disable-next-line react/no-array-index-key
-        <span className={`${prefixCls}-menu-item-keyword`} key={`seperator-${index}`}>
+        <span className={`${prefixCls}-menu-item-keyword`} key={`separator-${index}`}>
           {originWorld}
         </span>
       );
