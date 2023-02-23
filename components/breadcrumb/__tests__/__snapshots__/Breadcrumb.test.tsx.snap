@@ -63,6 +63,8 @@ exports[`Breadcrumb should allow Breadcrumb.Item is null or undefined 1`] = `
       >
         Home
       </span>
+    </li>
+    <li>
       <span
         class="ant-breadcrumb-separator"
       >
@@ -84,6 +86,8 @@ exports[`Breadcrumb should not display Breadcrumb Item when its children is fals
       >
         xxx
       </span>
+    </li>
+    <li>
       <span
         class="ant-breadcrumb-separator"
       >
@@ -96,6 +100,8 @@ exports[`Breadcrumb should not display Breadcrumb Item when its children is fals
       >
         yyy
       </span>
+    </li>
+    <li>
       <span
         class="ant-breadcrumb-separator"
       >
@@ -121,6 +127,8 @@ exports[`Breadcrumb should render a menu 1`] = `
           home
         </a>
       </span>
+    </li>
+    <li>
       <span
         class="ant-breadcrumb-separator"
       >
@@ -160,6 +168,8 @@ exports[`Breadcrumb should render a menu 1`] = `
           </svg>
         </span>
       </span>
+    </li>
+    <li>
       <span
         class="ant-breadcrumb-separator"
       >
@@ -176,6 +186,8 @@ exports[`Breadcrumb should render a menu 1`] = `
           second
         </a>
       </span>
+    </li>
+    <li>
       <span
         class="ant-breadcrumb-separator"
       >
@@ -188,6 +200,8 @@ exports[`Breadcrumb should render a menu 1`] = `
       >
         <span />
       </span>
+    </li>
+    <li>
       <span
         class="ant-breadcrumb-separator"
       >
@@ -209,6 +223,8 @@ exports[`Breadcrumb should support Breadcrumb.Item default separator 1`] = `
       >
         Location
       </span>
+    </li>
+    <li>
       <span
         class="ant-breadcrumb-separator"
       >
@@ -222,6 +238,8 @@ exports[`Breadcrumb should support Breadcrumb.Item default separator 1`] = `
         >
           Mock Node
         </span>
+      </li>
+      <li>
         <span
           class="ant-breadcrumb-separator"
         >
@@ -235,6 +253,8 @@ exports[`Breadcrumb should support Breadcrumb.Item default separator 1`] = `
       >
         Application Center
       </span>
+    </li>
+    <li>
       <span
         class="ant-breadcrumb-separator"
       >
@@ -256,6 +276,8 @@ exports[`Breadcrumb should support React.Fragment and falsy children 1`] = `
       >
         yyy
       </span>
+    </li>
+    <li>
       <span
         class="ant-breadcrumb-separator"
       >
@@ -268,6 +290,8 @@ exports[`Breadcrumb should support React.Fragment and falsy children 1`] = `
       >
         yyy
       </span>
+    </li>
+    <li>
       <span
         class="ant-breadcrumb-separator"
       >
@@ -280,6 +304,8 @@ exports[`Breadcrumb should support React.Fragment and falsy children 1`] = `
       >
         yyy
       </span>
+    </li>
+    <li>
       <span
         class="ant-breadcrumb-separator"
       >
@@ -304,6 +330,8 @@ exports[`Breadcrumb should support custom attribute 1`] = `
       >
         xxx
       </span>
+    </li>
+    <li>
       <span
         class="ant-breadcrumb-separator"
       >
@@ -316,6 +344,8 @@ exports[`Breadcrumb should support custom attribute 1`] = `
       >
         yyy
       </span>
+    </li>
+    <li>
       <span
         class="ant-breadcrumb-separator"
       >
@@ -337,6 +367,8 @@ exports[`Breadcrumb should support string \`0\` and number \`0\` 1`] = `
       >
         0
       </span>
+    </li>
+    <li>
       <span
         class="ant-breadcrumb-separator"
       >
@@ -349,6 +381,8 @@ exports[`Breadcrumb should support string \`0\` and number \`0\` 1`] = `
       >
         0
       </span>
+    </li>
+    <li>
       <span
         class="ant-breadcrumb-separator"
       >

@@ -15,6 +15,8 @@ exports[`react router react router 3 1`] = `
           Home
         </a>
       </span>
+    </li>
+    <li>
       <span
         class="ant-breadcrumb-separator"
       >
@@ -31,6 +33,8 @@ exports[`react router react router 3 1`] = `
           Application List
         </a>
       </span>
+    </li>
+    <li>
       <span
         class="ant-breadcrumb-separator"
       >
@@ -47,6 +51,8 @@ exports[`react router react router 3 1`] = `
           Application1
         </a>
       </span>
+    </li>
+    <li>
       <span
         class="ant-breadcrumb-separator"
       >
@@ -61,6 +67,8 @@ exports[`react router react router 3 1`] = `
           Detail
         </span>
       </span>
+    </li>
+    <li>
       <span
         class="ant-breadcrumb-separator"
       >
