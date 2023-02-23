@@ -16,12 +16,15 @@ exports[`react router react router 3 1`] = `
         </a>
       </span>
     </li>
-    <li>
-      <span
-        class="ant-breadcrumb-separator"
+    <li
+      aria-hidden="true"
+      class="ant-breadcrumb-separator"
+    >
+      <a
+        href="#/"
       >
-        /
-      </span>
+        Home
+      </a>
     </li>
     <li>
       <span
@@ -34,12 +37,15 @@ exports[`react router react router 3 1`] = `
         </a>
       </span>
     </li>
-    <li>
-      <span
-        class="ant-breadcrumb-separator"
+    <li
+      aria-hidden="true"
+      class="ant-breadcrumb-separator"
+    >
+      <a
+        href="#/apps"
       >
-        /
-      </span>
+        Application List
+      </a>
     </li>
     <li>
       <span
@@ -52,12 +58,15 @@ exports[`react router react router 3 1`] = `
         </a>
       </span>
     </li>
-    <li>
-      <span
-        class="ant-breadcrumb-separator"
+    <li
+      aria-hidden="true"
+      class="ant-breadcrumb-separator"
+    >
+      <a
+        href="#/apps/1"
       >
-        /
-      </span>
+        Application1
+      </a>
     </li>
     <li>
       <span
@@ -68,11 +77,12 @@ exports[`react router react router 3 1`] = `
         </span>
       </span>
     </li>
-    <li>
-      <span
-        class="ant-breadcrumb-separator"
-      >
-        /
+    <li
+      aria-hidden="true"
+      class="ant-breadcrumb-separator"
+    >
+      <span>
+        Detail
       </span>
     </li>
   </ol>
