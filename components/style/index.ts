@@ -1,10 +1,10 @@
 /* eslint-disable import/prefer-default-export */
 import type { CSSObject } from '@ant-design/cssinjs';
-import type { DerivativeToken, AliasToken } from '../theme/internal';
+import type { AliasToken, DerivativeToken } from '../theme/internal';
 
 export { operationUnit } from './operationUnit';
-export { roundedArrow } from './roundedArrow';
 export { genPresetColor } from './presetColor';
+export { roundedArrow } from './roundedArrow';
 
 export const textEllipsis: CSSObject = {
   overflow: 'hidden',

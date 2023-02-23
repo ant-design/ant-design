@@ -12,11 +12,12 @@ exports[`Breadcrumb filter React.Fragment 1`] = `
         Location
       </span>
     </li>
-    <span
+    <li
+      aria-hidden="true"
       class="ant-breadcrumb-separator"
     >
       :
-    </span>
+    </li>
     <li>
       <a
         class="ant-breadcrumb-link"
@@ -25,11 +26,12 @@ exports[`Breadcrumb filter React.Fragment 1`] = `
         Application Center
       </a>
     </li>
-    <span
+    <li
+      aria-hidden="true"
       class="ant-breadcrumb-separator"
     >
       /
-    </span>
+    </li>
   </ol>
 </nav>
 `;

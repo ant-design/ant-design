@@ -28,7 +28,7 @@ exports[`Badge render Badge status/color when contains children 1`] = `
   >
     <a />
     <sup
-      class="ant-scroll-number ant-badge-count ant-badge-status-blue"
+      class="ant-scroll-number ant-badge-count ant-badge-color-blue"
       data-show="true"
       title="5"
     >
@@ -232,7 +232,7 @@ exports[`Badge should display custom color and number is 0 1`] = `
     class="ant-badge ant-badge-not-a-wrapper"
   >
     <sup
-      class="ant-scroll-number ant-badge-count ant-badge-status-blue"
+      class="ant-scroll-number ant-badge-count ant-badge-color-blue"
       data-show="true"
       title="0"
     >
@@ -255,7 +255,7 @@ exports[`Badge should display custom color and number is 0 1`] = `
   >
     <div />
     <sup
-      class="ant-scroll-number ant-badge-count ant-badge-status-green"
+      class="ant-scroll-number ant-badge-count ant-badge-color-green"
       data-show="true"
       title="0"
     >
