@@ -83,7 +83,7 @@ High performance Form component with data scope management. Including data colle
 
 ### validateMessages
 
-Form provides [default verification error messages](https://github.com/ant-design/ant-design/blob/master/components/locale/en_US.ts#L88-L134). You can modify the template by configuring `validateMessages` property. A common usage is to configure localization:
+Form provides [default verification error messages](https://github.com/ant-design/ant-design/blob/6234509d18bac1ac60fbb3f92a5b2c6a6361295a/components/locale/en_US.ts#L88-L134). You can modify the template by configuring `validateMessages` property. A common usage is to configure localization:
 
 ```jsx
 const validateMessages = {
