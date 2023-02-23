@@ -99,6 +99,9 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
           insetInlineStart: 0,
           borderRadius: 'inherit',
           transition: `background-color ${token.motionDurationMid}`,
+          // This is mandatory to make it not clickable or hoverable
+          // Ref: https://github.com/ant-design/ant-design/issues/40888
+          pointerEvents: 'none',
         },
 
         [`&:hover:not(${componentCls}-item-selected):not(${componentCls}-item-disabled)`]: {
