@@ -427,12 +427,11 @@ exports[`renders ./components/layout/demo/fixed.tsx correctly 1`] = `
             Home
           </span>
         </li>
-        <li>
-          <span
-            class="ant-breadcrumb-separator"
-          >
-            /
-          </span>
+        <li
+          aria-hidden="true"
+          class="ant-breadcrumb-separator"
+        >
+          Home
         </li>
         <li>
           <span
@@ -441,12 +440,11 @@ exports[`renders ./components/layout/demo/fixed.tsx correctly 1`] = `
             List
           </span>
         </li>
-        <li>
-          <span
-            class="ant-breadcrumb-separator"
-          >
-            /
-          </span>
+        <li
+          aria-hidden="true"
+          class="ant-breadcrumb-separator"
+        >
+          List
         </li>
         <li>
           <span
@@ -455,12 +453,11 @@ exports[`renders ./components/layout/demo/fixed.tsx correctly 1`] = `
             App
           </span>
         </li>
-        <li>
-          <span
-            class="ant-breadcrumb-separator"
-          >
-            /
-          </span>
+        <li
+          aria-hidden="true"
+          class="ant-breadcrumb-separator"
+        >
+          App
         </li>
       </ol>
     </nav>
@@ -1412,12 +1409,11 @@ exports[`renders ./components/layout/demo/side.tsx correctly 1`] = `
               User
             </span>
           </li>
-          <li>
-            <span
-              class="ant-breadcrumb-separator"
-            >
-              /
-            </span>
+          <li
+            aria-hidden="true"
+            class="ant-breadcrumb-separator"
+          >
+            User
           </li>
           <li>
             <span
@@ -1426,12 +1422,11 @@ exports[`renders ./components/layout/demo/side.tsx correctly 1`] = `
               Bill
             </span>
           </li>
-          <li>
-            <span
-              class="ant-breadcrumb-separator"
-            >
-              /
-            </span>
+          <li
+            aria-hidden="true"
+            class="ant-breadcrumb-separator"
+          >
+            Bill
           </li>
         </ol>
       </nav>
@@ -1706,12 +1701,11 @@ exports[`renders ./components/layout/demo/top.tsx correctly 1`] = `
             Home
           </span>
         </li>
-        <li>
-          <span
-            class="ant-breadcrumb-separator"
-          >
-            /
-          </span>
+        <li
+          aria-hidden="true"
+          class="ant-breadcrumb-separator"
+        >
+          Home
         </li>
         <li>
           <span
@@ -1720,12 +1714,11 @@ exports[`renders ./components/layout/demo/top.tsx correctly 1`] = `
             List
           </span>
         </li>
-        <li>
-          <span
-            class="ant-breadcrumb-separator"
-          >
-            /
-          </span>
+        <li
+          aria-hidden="true"
+          class="ant-breadcrumb-separator"
+        >
+          List
         </li>
         <li>
           <span
@@ -1734,12 +1727,11 @@ exports[`renders ./components/layout/demo/top.tsx correctly 1`] = `
             App
           </span>
         </li>
-        <li>
-          <span
-            class="ant-breadcrumb-separator"
-          >
-            /
-          </span>
+        <li
+          aria-hidden="true"
+          class="ant-breadcrumb-separator"
+        >
+          App
         </li>
       </ol>
     </nav>
@@ -1870,12 +1862,11 @@ exports[`renders ./components/layout/demo/top-side.tsx correctly 1`] = `
             Home
           </span>
         </li>
-        <li>
-          <span
-            class="ant-breadcrumb-separator"
-          >
-            /
-          </span>
+        <li
+          aria-hidden="true"
+          class="ant-breadcrumb-separator"
+        >
+          Home
         </li>
         <li>
           <span
@@ -1884,12 +1875,11 @@ exports[`renders ./components/layout/demo/top-side.tsx correctly 1`] = `
             List
           </span>
         </li>
-        <li>
-          <span
-            class="ant-breadcrumb-separator"
-          >
-            /
-          </span>
+        <li
+          aria-hidden="true"
+          class="ant-breadcrumb-separator"
+        >
+          List
         </li>
         <li>
           <span
@@ -1898,12 +1888,11 @@ exports[`renders ./components/layout/demo/top-side.tsx correctly 1`] = `
             App
           </span>
         </li>
-        <li>
-          <span
-            class="ant-breadcrumb-separator"
-          >
-            /
-          </span>
+        <li
+          aria-hidden="true"
+          class="ant-breadcrumb-separator"
+        >
+          App
         </li>
       </ol>
     </nav>
@@ -2438,12 +2427,11 @@ exports[`renders ./components/layout/demo/top-side-2.tsx correctly 1`] = `
               Home
             </span>
           </li>
-          <li>
-            <span
-              class="ant-breadcrumb-separator"
-            >
-              /
-            </span>
+          <li
+            aria-hidden="true"
+            class="ant-breadcrumb-separator"
+          >
+            Home
           </li>
           <li>
             <span
@@ -2452,12 +2440,11 @@ exports[`renders ./components/layout/demo/top-side-2.tsx correctly 1`] = `
               List
             </span>
           </li>
-          <li>
-            <span
-              class="ant-breadcrumb-separator"
-            >
-              /
-            </span>
+          <li
+            aria-hidden="true"
+            class="ant-breadcrumb-separator"
+          >
+            List
           </li>
           <li>
             <span
@@ -2466,12 +2453,11 @@ exports[`renders ./components/layout/demo/top-side-2.tsx correctly 1`] = `
               App
             </span>
           </li>
-          <li>
-            <span
-              class="ant-breadcrumb-separator"
-            >
-              /
-            </span>
+          <li
+            aria-hidden="true"
+            class="ant-breadcrumb-separator"
+          >
+            App
           </li>
         </ol>
       </nav>

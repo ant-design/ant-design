@@ -1141,12 +1141,11 @@ exports[`ConfigProvider components Breadcrumb configProvider 1`] = `
         Bamboo
       </span>
     </li>
-    <li>
-      <span
-        class="config-breadcrumb-separator"
-      >
-        /
-      </span>
+    <li
+      aria-hidden="true"
+      class="config-breadcrumb-separator"
+    >
+      Bamboo
     </li>
     <li>
       <span
@@ -1155,12 +1154,11 @@ exports[`ConfigProvider components Breadcrumb configProvider 1`] = `
         Light
       </span>
     </li>
-    <li>
-      <span
-        class="config-breadcrumb-separator"
-      >
-        /
-      </span>
+    <li
+      aria-hidden="true"
+      class="config-breadcrumb-separator"
+    >
+      Light
     </li>
   </ol>
 </nav>
@@ -1178,12 +1176,11 @@ exports[`ConfigProvider components Breadcrumb configProvider componentDisabled 1
         Bamboo
       </span>
     </li>
-    <li>
-      <span
-        class="config-breadcrumb-separator"
-      >
-        /
-      </span>
+    <li
+      aria-hidden="true"
+      class="config-breadcrumb-separator"
+    >
+      Bamboo
     </li>
     <li>
       <span
@@ -1192,12 +1189,11 @@ exports[`ConfigProvider components Breadcrumb configProvider componentDisabled 1
         Light
       </span>
     </li>
-    <li>
-      <span
-        class="config-breadcrumb-separator"
-      >
-        /
-      </span>
+    <li
+      aria-hidden="true"
+      class="config-breadcrumb-separator"
+    >
+      Light
     </li>
   </ol>
 </nav>
@@ -1215,12 +1211,11 @@ exports[`ConfigProvider components Breadcrumb configProvider componentSize large
         Bamboo
       </span>
     </li>
-    <li>
-      <span
-        class="config-breadcrumb-separator"
-      >
-        /
-      </span>
+    <li
+      aria-hidden="true"
+      class="config-breadcrumb-separator"
+    >
+      Bamboo
     </li>
     <li>
       <span
@@ -1229,12 +1224,11 @@ exports[`ConfigProvider components Breadcrumb configProvider componentSize large
         Light
       </span>
     </li>
-    <li>
-      <span
-        class="config-breadcrumb-separator"
-      >
-        /
-      </span>
+    <li
+      aria-hidden="true"
+      class="config-breadcrumb-separator"
+    >
+      Light
     </li>
   </ol>
 </nav>
@@ -1252,12 +1246,11 @@ exports[`ConfigProvider components Breadcrumb configProvider componentSize middl
         Bamboo
       </span>
     </li>
-    <li>
-      <span
-        class="config-breadcrumb-separator"
-      >
-        /
-      </span>
+    <li
+      aria-hidden="true"
+      class="config-breadcrumb-separator"
+    >
+      Bamboo
     </li>
     <li>
       <span
@@ -1266,12 +1259,11 @@ exports[`ConfigProvider components Breadcrumb configProvider componentSize middl
         Light
       </span>
     </li>
-    <li>
-      <span
-        class="config-breadcrumb-separator"
-      >
-        /
-      </span>
+    <li
+      aria-hidden="true"
+      class="config-breadcrumb-separator"
+    >
+      Light
     </li>
   </ol>
 </nav>
@@ -1289,12 +1281,11 @@ exports[`ConfigProvider components Breadcrumb configProvider virtual and dropdow
         Bamboo
       </span>
     </li>
-    <li>
-      <span
-        class="ant-breadcrumb-separator"
-      >
-        /
-      </span>
+    <li
+      aria-hidden="true"
+      class="ant-breadcrumb-separator"
+    >
+      Bamboo
     </li>
     <li>
       <span
@@ -1303,12 +1294,11 @@ exports[`ConfigProvider components Breadcrumb configProvider virtual and dropdow
         Light
       </span>
     </li>
-    <li>
-      <span
-        class="ant-breadcrumb-separator"
-      >
-        /
-      </span>
+    <li
+      aria-hidden="true"
+      class="ant-breadcrumb-separator"
+    >
+      Light
     </li>
   </ol>
 </nav>
@@ -1326,12 +1316,11 @@ exports[`ConfigProvider components Breadcrumb normal 1`] = `
         Bamboo
       </span>
     </li>
-    <li>
-      <span
-        class="ant-breadcrumb-separator"
-      >
-        /
-      </span>
+    <li
+      aria-hidden="true"
+      class="ant-breadcrumb-separator"
+    >
+      Bamboo
     </li>
     <li>
       <span
@@ -1340,12 +1329,11 @@ exports[`ConfigProvider components Breadcrumb normal 1`] = `
         Light
       </span>
     </li>
-    <li>
-      <span
-        class="ant-breadcrumb-separator"
-      >
-        /
-      </span>
+    <li
+      aria-hidden="true"
+      class="ant-breadcrumb-separator"
+    >
+      Light
     </li>
   </ol>
 </nav>
@@ -1363,12 +1351,11 @@ exports[`ConfigProvider components Breadcrumb prefixCls 1`] = `
         Bamboo
       </span>
     </li>
-    <li>
-      <span
-        class="prefix-Breadcrumb-separator"
-      >
-        /
-      </span>
+    <li
+      aria-hidden="true"
+      class="ant-breadcrumb-separator"
+    >
+      Bamboo
     </li>
     <li>
       <span
@@ -1377,12 +1364,11 @@ exports[`ConfigProvider components Breadcrumb prefixCls 1`] = `
         Light
       </span>
     </li>
-    <li>
-      <span
-        class="prefix-Breadcrumb-separator"
-      >
-        /
-      </span>
+    <li
+      aria-hidden="true"
+      class="ant-breadcrumb-separator"
+    >
+      Light
     </li>
   </ol>
 </nav>
