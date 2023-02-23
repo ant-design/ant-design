@@ -4,8 +4,10 @@ import React, { useContext } from 'react';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import useMessage from '../message/useMessage';
+import type { ConfigOptions as MessageConfig } from '../message/interface';
 import useModal from '../modal/useModal';
 import useNotification from '../notification/useNotification';
+import type { NotificationConfig } from '../notification/interface';
 import type { useAppProps } from './context';
 import AppContext from './context';
 import useStyle from './style';
@@ -14,20 +16,29 @@ export type AppProps = {
   className?: string;
   rootClassName?: string;
   prefixCls?: string;
+  useMessageProps?: MessageConfig;
+  useNotificationProps?: NotificationConfig;
   children?: ReactNode;
 };
 
 const useApp = () => React.useContext<useAppProps>(AppContext);
 
 const App: React.FC<AppProps> & { useApp: () => useAppProps } = (props) => {
-  const { prefixCls: customizePrefixCls, children, className, rootClassName } = props;
+  const {
+    prefixCls: customizePrefixCls,
+    children,
+    className,
+    rootClassName,
+    useMessageProps,
+    useNotificationProps,
+  } = props;
   const { getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('app', customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
   const customClassName = classNames(hashId, prefixCls, className, rootClassName);
 
-  const [messageApi, messageContextHolder] = useMessage();
-  const [notificationApi, notificationContextHolder] = useNotification();
+  const [messageApi, messageContextHolder] = useMessage(useMessageProps);
+  const [notificationApi, notificationContextHolder] = useNotification(useNotificationProps);
   const [ModalApi, ModalContextHolder] = useModal();
 
   const memoizedContextValue = React.useMemo<useAppProps>(
