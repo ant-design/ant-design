@@ -85,10 +85,14 @@ const BreadcrumbItem: CompoundedComponent = (props) => {
   link = renderBreadcrumbNode(link);
   if (children !== undefined && children !== null) {
     return (
-      <li>
-        {link}
-        {separator && <span className={`${prefixCls}-separator`}>{separator}</span>}
-      </li>
+      <>
+        <li>{link}</li>
+        {separator && (
+          <li>
+            <span className={`${prefixCls}-separator`}>{separator}</span>{' '}
+          </li>
+        )}
+      </>
     );
   }
   return null;
