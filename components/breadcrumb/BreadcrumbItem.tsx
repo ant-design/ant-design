@@ -4,6 +4,7 @@ import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import type { DropdownProps } from '../dropdown/dropdown';
 import Dropdown from '../dropdown/dropdown';
+import BreadcrumbSeparator from './BreadcrumbSeparator';
 
 export interface BreadcrumbItemProps {
   prefixCls?: string;
@@ -87,11 +88,7 @@ const BreadcrumbItem: CompoundedComponent = (props) => {
     return (
       <>
         <li>{link}</li>
-        {separator && (
-          <li>
-            <span className={`${prefixCls}-separator`}>{separator}</span>{' '}
-          </li>
-        )}
+        {separator && <BreadcrumbSeparator>{children}</BreadcrumbSeparator>}
       </>
     );
   }
