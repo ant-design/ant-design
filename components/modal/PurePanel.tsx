@@ -58,7 +58,7 @@ export const Footer: React.FC<
     footer,
   } = props;
 
-  const locale = useLocale('Modal', getConfirmLocale());
+  const [locale] = useLocale('Modal', getConfirmLocale());
 
   return footer === undefined ? (
     <>

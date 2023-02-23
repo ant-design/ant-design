@@ -367,7 +367,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     hashId,
   );
 
-  const contextLocale = useLocale('Transfer', defaultLocale.Transfer);
+  const [contextLocale] = useLocale('Transfer', defaultLocale.Transfer);
 
   const listLocale = getLocale(contextLocale!);
 

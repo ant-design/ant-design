@@ -102,7 +102,7 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
       blur: () => innerRef.current?.blur(),
     }));
 
-    const contextLocale = useLocale('Calendar', enUS);
+    const [contextLocale] = useLocale('Calendar', enUS);
 
     const locale = { ...contextLocale, ...props.locale! };
 
