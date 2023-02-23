@@ -1,4 +1,5 @@
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
+import type { InternalAffixClass } from '.';
 
 export type BindElement = HTMLElement | Window | null | undefined;
 
@@ -51,7 +52,10 @@ export function getObserverEntities() {
   return observerEntities;
 }
 
-export function addObserveTarget<T>(target: HTMLElement | Window | null, affix?: T): void {
+export function addObserveTarget<T extends InternalAffixClass>(
+  target: HTMLElement | Window | null,
+  affix?: T,
+): void {
   if (!target) {
     return;
   }
@@ -79,7 +83,7 @@ export function addObserveTarget<T>(target: HTMLElement | Window | null, affix?:
   }
 }
 
-export function removeObserveTarget<T>(affix: T): void {
+export function removeObserveTarget<T extends InternalAffixClass>(affix: T): void {
   const observerEntity = observerEntities.find((oriObserverEntity) => {
     const hasAffix = oriObserverEntity.affixList.some((item) => item === affix);
     if (hasAffix) {

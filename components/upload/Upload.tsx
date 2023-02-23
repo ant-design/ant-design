@@ -6,8 +6,8 @@ import * as React from 'react';
 import { flushSync } from 'react-dom';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
-import LocaleReceiver from '../locale/LocaleReceiver';
 import defaultLocale from '../locale/en_US';
+import useLocale from '../locale/useLocale';
 import warning from '../_util/warning';
 import type { RcFile, ShowUploadListInterface, UploadChangeParam, UploadFile } from './interface';
 import { UploadProps } from './interface';
@@ -339,48 +339,46 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
 
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
-  const renderUploadList = (button?: React.ReactNode, buttonVisible?: boolean) =>
-    showUploadList ? (
-      <LocaleReceiver componentName="Upload" defaultLocale={defaultLocale.Upload}>
-        {(contextLocale) => {
-          const {
-            showRemoveIcon,
-            showPreviewIcon,
-            showDownloadIcon,
-            removeIcon,
-            previewIcon,
-            downloadIcon,
-          } =
-            typeof showUploadList === 'boolean' ? ({} as ShowUploadListInterface) : showUploadList;
-          return (
-            <UploadList
-              prefixCls={prefixCls}
-              listType={listType}
-              items={mergedFileList}
-              previewFile={previewFile}
-              onPreview={onPreview}
-              onDownload={onDownload}
-              onRemove={handleRemove}
-              showRemoveIcon={!mergedDisabled && showRemoveIcon}
-              showPreviewIcon={showPreviewIcon}
-              showDownloadIcon={showDownloadIcon}
-              removeIcon={removeIcon}
-              previewIcon={previewIcon}
-              downloadIcon={downloadIcon}
-              iconRender={iconRender}
-              locale={{ ...contextLocale, ...propLocale }}
-              isImageUrl={isImageUrl}
-              progress={progress}
-              appendAction={button}
-              appendActionVisible={buttonVisible}
-              itemRender={itemRender}
-            />
-          );
-        }}
-      </LocaleReceiver>
-    ) : (
-      button
+  const contextLocale = useLocale('Upload', defaultLocale.Upload);
+
+  const {
+    showRemoveIcon,
+    showPreviewIcon,
+    showDownloadIcon,
+    removeIcon,
+    previewIcon,
+    downloadIcon,
+  } = typeof showUploadList === 'boolean' ? ({} as ShowUploadListInterface) : showUploadList;
+
+  const renderUploadList = (button?: React.ReactNode, buttonVisible?: boolean) => {
+    if (!showUploadList) {
+      return button;
+    }
+    return (
+      <UploadList
+        prefixCls={prefixCls}
+        listType={listType}
+        items={mergedFileList}
+        previewFile={previewFile}
+        onPreview={onPreview}
+        onDownload={onDownload}
+        onRemove={handleRemove}
+        showRemoveIcon={!mergedDisabled && showRemoveIcon}
+        showPreviewIcon={showPreviewIcon}
+        showDownloadIcon={showDownloadIcon}
+        removeIcon={removeIcon}
+        previewIcon={previewIcon}
+        downloadIcon={downloadIcon}
+        iconRender={iconRender}
+        locale={{ ...contextLocale, ...propLocale }}
+        isImageUrl={isImageUrl}
+        progress={progress}
+        appendAction={button}
+        appendActionVisible={buttonVisible}
+        itemRender={itemRender}
+      />
     );
+  };
 
   const rtlCls = {
     [`${prefixCls}-rtl`]: direction === 'rtl',
