@@ -110,9 +110,9 @@ const GlobalHolder = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
   React.useEffect(sync, []);
 
   React.useImperativeHandle(ref, () => {
-    const instance: any = { ...api };
+    const instance: MessageInstance = { ...api };
 
-    Object.keys(instance).forEach((method) => {
+    Object.keys(instance).forEach((method: keyof MessageInstance) => {
       instance[method] = (...args: any[]) => {
         sync();
         return (api as any)[method](...args);
