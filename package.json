@@ -278,7 +278,7 @@
     "stylelint": "^15.1.0",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard": "^30.0.0",
-    "stylelint-prettier": "^2.0.0",
+    "stylelint-prettier": "^3.0.0",
     "sylvanas": "^0.6.1",
     "terser": "^5.16.1",
     "ts-node": "^10.8.2",
