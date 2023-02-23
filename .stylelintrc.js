@@ -1,9 +1,11 @@
 module.exports = {
-  extends: ['stylelint-config-standard', 'stylelint-config-rational-order'],
+  extends: [
+    'stylelint-config-standard',
+    'stylelint-prettier/recommended',
+    'stylelint-config-rational-order',
+  ],
   // 使用 stylelint 来 lint css in js? https://github.com/emotion-js/emotion/discussions/2694
-  plugins: ['stylelint-prettier'],
   rules: {
-    'prettier/prettier': true,
     'function-name-case': ['lower'],
     'function-no-unknown': [
       true,
