@@ -242,7 +242,7 @@ describe('Typography', () => {
       function testStep(
         { name = '', icon, tooltip, triggerType, enterIcon }: EditableConfig,
         submitFunc?: (container: ReturnType<typeof render>['container']) => void,
-        expectFunc?: (callbake: jest.Mock) => void,
+        expectFunc?: (callback: jest.Mock) => void,
       ) {
         it(name, async () => {
           jest.useFakeTimers();

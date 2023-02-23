@@ -65,7 +65,7 @@ describe('Badge', () => {
     expect(container.querySelectorAll('.ant-badge-dot').length).toBe(0);
   });
 
-  it('should have an overriden title attribute', () => {
+  it('should have an overridden title attribute', () => {
     const { container } = render(<Badge count={10} title="Custom title" />);
     expect((container.querySelector('.ant-scroll-number')! as HTMLElement).title).toEqual(
       'Custom title',

@@ -2559,7 +2559,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/date-picker/demo/presetted-ranges.tsx correctly 1`] = `
+exports[`renders ./components/date-picker/demo/preset-ranges.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
