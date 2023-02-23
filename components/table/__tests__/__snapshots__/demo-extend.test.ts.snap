@@ -5047,7 +5047,7 @@ exports[`renders ./components/table/demo/edit-row.tsx extend context correctly 1
                   <td
                     class="ant-table-cell"
                   >
-                    Edrward 0
+                    Edward 0
                   </td>
                   <td
                     class="ant-table-cell"
@@ -5076,7 +5076,7 @@ exports[`renders ./components/table/demo/edit-row.tsx extend context correctly 1
                   <td
                     class="ant-table-cell"
                   >
-                    Edrward 1
+                    Edward 1
                   </td>
                   <td
                     class="ant-table-cell"
@@ -5105,7 +5105,7 @@ exports[`renders ./components/table/demo/edit-row.tsx extend context correctly 1
                   <td
                     class="ant-table-cell"
                   >
-                    Edrward 2
+                    Edward 2
                   </td>
                   <td
                     class="ant-table-cell"
@@ -5134,7 +5134,7 @@ exports[`renders ./components/table/demo/edit-row.tsx extend context correctly 1
                   <td
                     class="ant-table-cell"
                   >
-                    Edrward 3
+                    Edward 3
                   </td>
                   <td
                     class="ant-table-cell"
@@ -5163,7 +5163,7 @@ exports[`renders ./components/table/demo/edit-row.tsx extend context correctly 1
                   <td
                     class="ant-table-cell"
                   >
-                    Edrward 4
+                    Edward 4
                   </td>
                   <td
                     class="ant-table-cell"
@@ -5192,7 +5192,7 @@ exports[`renders ./components/table/demo/edit-row.tsx extend context correctly 1
                   <td
                     class="ant-table-cell"
                   >
-                    Edrward 5
+                    Edward 5
                   </td>
                   <td
                     class="ant-table-cell"
@@ -5221,7 +5221,7 @@ exports[`renders ./components/table/demo/edit-row.tsx extend context correctly 1
                   <td
                     class="ant-table-cell"
                   >
-                    Edrward 6
+                    Edward 6
                   </td>
                   <td
                     class="ant-table-cell"
@@ -5250,7 +5250,7 @@ exports[`renders ./components/table/demo/edit-row.tsx extend context correctly 1
                   <td
                     class="ant-table-cell"
                   >
-                    Edrward 7
+                    Edward 7
                   </td>
                   <td
                     class="ant-table-cell"
@@ -5279,7 +5279,7 @@ exports[`renders ./components/table/demo/edit-row.tsx extend context correctly 1
                   <td
                     class="ant-table-cell"
                   >
-                    Edrward 8
+                    Edward 8
                   </td>
                   <td
                     class="ant-table-cell"
@@ -5308,7 +5308,7 @@ exports[`renders ./components/table/demo/edit-row.tsx extend context correctly 1
                   <td
                     class="ant-table-cell"
                   >
-                    Edrward 9
+                    Edward 9
                   </td>
                   <td
                     class="ant-table-cell"
@@ -9333,7 +9333,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.tsx extend context
                     class="ant-table-cell ant-table-cell-fix-left"
                     style="position:sticky;left:0"
                   >
-                    Edrward 0
+                    Edward 0
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -9398,7 +9398,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.tsx extend context
                     class="ant-table-cell ant-table-cell-fix-left"
                     style="position:sticky;left:0"
                   >
-                    Edrward 1
+                    Edward 1
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -9463,7 +9463,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.tsx extend context
                     class="ant-table-cell ant-table-cell-fix-left"
                     style="position:sticky;left:0"
                   >
-                    Edrward 2
+                    Edward 2
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -9528,7 +9528,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.tsx extend context
                     class="ant-table-cell ant-table-cell-fix-left"
                     style="position:sticky;left:0"
                   >
-                    Edrward 3
+                    Edward 3
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -9593,7 +9593,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.tsx extend context
                     class="ant-table-cell ant-table-cell-fix-left"
                     style="position:sticky;left:0"
                   >
-                    Edrward 4
+                    Edward 4
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -9658,7 +9658,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.tsx extend context
                     class="ant-table-cell ant-table-cell-fix-left"
                     style="position:sticky;left:0"
                   >
-                    Edrward 5
+                    Edward 5
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -9723,7 +9723,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.tsx extend context
                     class="ant-table-cell ant-table-cell-fix-left"
                     style="position:sticky;left:0"
                   >
-                    Edrward 6
+                    Edward 6
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -9788,7 +9788,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.tsx extend context
                     class="ant-table-cell ant-table-cell-fix-left"
                     style="position:sticky;left:0"
                   >
-                    Edrward 7
+                    Edward 7
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -9853,7 +9853,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.tsx extend context
                     class="ant-table-cell ant-table-cell-fix-left"
                     style="position:sticky;left:0"
                   >
-                    Edrward 8
+                    Edward 8
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -9918,7 +9918,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.tsx extend context
                     class="ant-table-cell ant-table-cell-fix-left"
                     style="position:sticky;left:0"
                   >
-                    Edrward 9
+                    Edward 9
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -26433,7 +26433,7 @@ exports[`renders ./components/table/demo/sticky.tsx extend context correctly 1`]
                     class="ant-table-cell ant-table-cell-fix-left"
                     style="position:sticky;left:0"
                   >
-                    Edrward 0
+                    Edward 0
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -26498,7 +26498,7 @@ exports[`renders ./components/table/demo/sticky.tsx extend context correctly 1`]
                     class="ant-table-cell ant-table-cell-fix-left"
                     style="position:sticky;left:0"
                   >
-                    Edrward 1
+                    Edward 1
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -26563,7 +26563,7 @@ exports[`renders ./components/table/demo/sticky.tsx extend context correctly 1`]
                     class="ant-table-cell ant-table-cell-fix-left"
                     style="position:sticky;left:0"
                   >
-                    Edrward 2
+                    Edward 2
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -26628,7 +26628,7 @@ exports[`renders ./components/table/demo/sticky.tsx extend context correctly 1`]
                     class="ant-table-cell ant-table-cell-fix-left"
                     style="position:sticky;left:0"
                   >
-                    Edrward 3
+                    Edward 3
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -26693,7 +26693,7 @@ exports[`renders ./components/table/demo/sticky.tsx extend context correctly 1`]
                     class="ant-table-cell ant-table-cell-fix-left"
                     style="position:sticky;left:0"
                   >
-                    Edrward 4
+                    Edward 4
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -26758,7 +26758,7 @@ exports[`renders ./components/table/demo/sticky.tsx extend context correctly 1`]
                     class="ant-table-cell ant-table-cell-fix-left"
                     style="position:sticky;left:0"
                   >
-                    Edrward 5
+                    Edward 5
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -26823,7 +26823,7 @@ exports[`renders ./components/table/demo/sticky.tsx extend context correctly 1`]
                     class="ant-table-cell ant-table-cell-fix-left"
                     style="position:sticky;left:0"
                   >
-                    Edrward 6
+                    Edward 6
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -26888,7 +26888,7 @@ exports[`renders ./components/table/demo/sticky.tsx extend context correctly 1`]
                     class="ant-table-cell ant-table-cell-fix-left"
                     style="position:sticky;left:0"
                   >
-                    Edrward 7
+                    Edward 7
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -26953,7 +26953,7 @@ exports[`renders ./components/table/demo/sticky.tsx extend context correctly 1`]
                     class="ant-table-cell ant-table-cell-fix-left"
                     style="position:sticky;left:0"
                   >
-                    Edrward 8
+                    Edward 8
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -27018,7 +27018,7 @@ exports[`renders ./components/table/demo/sticky.tsx extend context correctly 1`]
                     class="ant-table-cell ant-table-cell-fix-left"
                     style="position:sticky;left:0"
                   >
-                    Edrward 9
+                    Edward 9
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"

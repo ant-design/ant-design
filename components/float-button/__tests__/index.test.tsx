@@ -11,11 +11,11 @@ describe('FloatButton', () => {
     const { container } = render(<FloatButton />);
     expect(container.firstChild).toMatchSnapshot();
   });
-  it('should render <button> when harf not exist', () => {
+  it('should render <button> when href not exist', () => {
     const { container } = render(<FloatButton href={undefined} />);
     expect(container.querySelector('button')).toBeTruthy();
   });
-  it('should render <a> when harf exist', () => {
+  it('should render <a> when href exist', () => {
     const url = 'https://ant.design/index-cn';
     const target = '_blank';
     const { container } = render(<FloatButton href={url} target={target} />);

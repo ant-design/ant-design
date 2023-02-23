@@ -25,7 +25,7 @@ demo:
 <code src="./demo/disabled.tsx">禁用</code>
 <code src="./demo/disabled-date.tsx">不可选择日期和时间</code>
 <code src="./demo/select-in-range.tsx">选择不超过七天的范围</code>
-<code src="./demo/presetted-ranges.tsx">预设范围</code>
+<code src="./demo/preset-ranges.tsx">预设范围</code>
 <code src="./demo/extra-footer.tsx">额外的页脚</code>
 <code src="./demo/size.tsx">三种大小</code>
 <code src="./demo/date-render.tsx">定制日期单元格</code>
