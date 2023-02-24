@@ -649,7 +649,7 @@ exports[`renders ./components/layout/demo/fixed.tsx extend context correctly 1`]
           aria-hidden="true"
           class="ant-breadcrumb-separator"
         >
-          Home
+          /
         </li>
         <li>
           <span
@@ -662,7 +662,7 @@ exports[`renders ./components/layout/demo/fixed.tsx extend context correctly 1`]
           aria-hidden="true"
           class="ant-breadcrumb-separator"
         >
-          List
+          /
         </li>
         <li>
           <span
@@ -670,12 +670,6 @@ exports[`renders ./components/layout/demo/fixed.tsx extend context correctly 1`]
           >
             App
           </span>
-        </li>
-        <li
-          aria-hidden="true"
-          class="ant-breadcrumb-separator"
-        >
-          App
         </li>
       </ol>
     </nav>
@@ -2400,7 +2394,7 @@ exports[`renders ./components/layout/demo/side.tsx extend context correctly 1`] 
             aria-hidden="true"
             class="ant-breadcrumb-separator"
           >
-            User
+            /
           </li>
           <li>
             <span
@@ -2408,12 +2402,6 @@ exports[`renders ./components/layout/demo/side.tsx extend context correctly 1`] 
             >
               Bill
             </span>
-          </li>
-          <li
-            aria-hidden="true"
-            class="ant-breadcrumb-separator"
-          >
-            Bill
           </li>
         </ol>
       </nav>
@@ -3215,7 +3203,7 @@ exports[`renders ./components/layout/demo/top.tsx extend context correctly 1`] =
           aria-hidden="true"
           class="ant-breadcrumb-separator"
         >
-          Home
+          /
         </li>
         <li>
           <span
@@ -3228,7 +3216,7 @@ exports[`renders ./components/layout/demo/top.tsx extend context correctly 1`] =
           aria-hidden="true"
           class="ant-breadcrumb-separator"
         >
-          List
+          /
         </li>
         <li>
           <span
@@ -3236,12 +3224,6 @@ exports[`renders ./components/layout/demo/top.tsx extend context correctly 1`] =
           >
             App
           </span>
-        </li>
-        <li
-          aria-hidden="true"
-          class="ant-breadcrumb-separator"
-        >
-          App
         </li>
       </ol>
     </nav>
@@ -3491,7 +3473,7 @@ exports[`renders ./components/layout/demo/top-side.tsx extend context correctly 
           aria-hidden="true"
           class="ant-breadcrumb-separator"
         >
-          Home
+          /
         </li>
         <li>
           <span
@@ -3504,7 +3486,7 @@ exports[`renders ./components/layout/demo/top-side.tsx extend context correctly 
           aria-hidden="true"
           class="ant-breadcrumb-separator"
         >
-          List
+          /
         </li>
         <li>
           <span
@@ -3512,12 +3494,6 @@ exports[`renders ./components/layout/demo/top-side.tsx extend context correctly 
           >
             App
           </span>
-        </li>
-        <li
-          aria-hidden="true"
-          class="ant-breadcrumb-separator"
-        >
-          App
         </li>
       </ol>
     </nav>
@@ -5491,7 +5467,7 @@ exports[`renders ./components/layout/demo/top-side-2.tsx extend context correctl
             aria-hidden="true"
             class="ant-breadcrumb-separator"
           >
-            Home
+            /
           </li>
           <li>
             <span
@@ -5504,7 +5480,7 @@ exports[`renders ./components/layout/demo/top-side-2.tsx extend context correctl
             aria-hidden="true"
             class="ant-breadcrumb-separator"
           >
-            List
+            /
           </li>
           <li>
             <span
@@ -5512,12 +5488,6 @@ exports[`renders ./components/layout/demo/top-side-2.tsx extend context correctl
             >
               App
             </span>
-          </li>
-          <li
-            aria-hidden="true"
-            class="ant-breadcrumb-separator"
-          >
-            App
           </li>
         </ol>
       </nav>
