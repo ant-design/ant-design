@@ -65,7 +65,6 @@ Properties that shared by all types.
 | --- | --- | --- | --- |
 | strokeColor | The color of circular progress, render `linear-gradient` when passing an object | string \| object | - |
 | strokeWidth | To set the width of the circular progress, unit: percentage of the canvas width | number | 6 |
-| width | To set the canvas width of the circular progress, unit: `px` | number | 132 |
 
 ### `type="dashboard"`
 
@@ -74,4 +73,3 @@ Properties that shared by all types.
 | gapDegree | The gap degree of half circle, 0 ~ 295 | number | 75 |
 | gapPosition | The gap position, options: `top` `bottom` `left` `right` | string | `bottom` |
 | strokeWidth | To set the width of the dashboard progress, unit: percentage of the canvas width | number | 6 |
-| width | To set the canvas width of the dashboard progress, unit: `px` | number | 132 |
