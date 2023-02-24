@@ -41,12 +41,12 @@ const App: React.FC = () => {
     }
   };
 
-  const stateToRadio = () => {
-    if (chooseTrigger.indexOf('text') !== -1) {
-      return chooseTrigger.indexOf('icon') !== -1 ? 'both' : 'text';
+  const stateToRadio = useMemo<string>(() => {
+    if (chooseTrigger.includes('text')) {
+      return chooseTrigger.includes('icon') ? 'both' : 'text';
     }
     return 'icon';
-  };
+  }, [chooseTrigger]);
 
   return (
     <>
@@ -74,7 +74,7 @@ const App: React.FC = () => {
       Trigger edit with:{' '}
       <Radio.Group
         onChange={(e) => setChooseTrigger(radioToState(e.target.value))}
-        value={stateToRadio()}
+        value={stateToRadio}
       >
         <Radio value="icon">icon</Radio>
         <Radio value="text">text</Radio>
