@@ -2245,15 +2245,15 @@ Array [
         >
           <div
             class="ant-progress-steps-item ant-progress-steps-item-active"
-            style="width:30px;height:30px"
+            style="width:20px;height:20px"
           />
           <div
             class="ant-progress-steps-item ant-progress-steps-item-active"
-            style="width:30px;height:30px"
+            style="width:20px;height:20px"
           />
           <div
             class="ant-progress-steps-item"
-            style="width:30px;height:30px"
+            style="width:20px;height:20px"
           />
           <span
             class="ant-progress-text"
@@ -2277,15 +2277,15 @@ Array [
         >
           <div
             class="ant-progress-steps-item ant-progress-steps-item-active"
-            style="width:30px;height:20px"
+            style="width:20px;height:30px"
           />
           <div
             class="ant-progress-steps-item ant-progress-steps-item-active"
-            style="width:30px;height:20px"
+            style="width:20px;height:30px"
           />
           <div
             class="ant-progress-steps-item"
-            style="width:30px;height:20px"
+            style="width:20px;height:30px"
           />
           <span
             class="ant-progress-text"

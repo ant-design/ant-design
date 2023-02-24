@@ -27,8 +27,8 @@ const App: React.FC = () => (
     <Space size={30} wrap>
       <Progress steps={3} percent={50} />
       <Progress steps={3} percent={50} size="small" />
-      <Progress steps={3} percent={50} size={30} />
-      <Progress steps={3} percent={50} size={[30, 20]} />
+      <Progress steps={3} percent={50} size={20} />
+      <Progress steps={3} percent={50} size={[20, 30]} />
     </Space>
   </>
 );
