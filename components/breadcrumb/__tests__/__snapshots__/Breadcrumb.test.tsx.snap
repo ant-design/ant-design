@@ -21,7 +21,6 @@ exports[`Breadcrumb filter React.Fragment 1`] = `
     <li>
       <a
         class="ant-breadcrumb-link"
-        href=""
       >
         Application Center
       </a>
@@ -188,6 +187,47 @@ exports[`Breadcrumb should render a menu 1`] = `
       class="ant-breadcrumb-separator"
     >
       /
+    </li>
+  </ol>
+</nav>
+`;
+
+exports[`Breadcrumb should render correct 1`] = `
+<nav
+  class="ant-breadcrumb"
+>
+  <ol>
+    <li>
+      <span
+        class="ant-breadcrumb-link"
+      >
+        <a
+          href="#/"
+        >
+          <span>
+            xxx
+          </span>
+        </a>
+      </span>
+      <span
+        class="ant-breadcrumb-separator"
+      >
+        /
+      </span>
+    </li>
+    <li>
+      <span
+        class="ant-breadcrumb-link"
+      >
+        <span>
+          yyy
+        </span>
+      </span>
+      <span
+        class="ant-breadcrumb-separator"
+      >
+        /
+      </span>
     </li>
   </ol>
 </nav>

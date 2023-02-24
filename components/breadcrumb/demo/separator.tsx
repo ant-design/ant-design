@@ -2,12 +2,25 @@ import React from 'react';
 import { Breadcrumb } from 'antd';
 
 const App: React.FC = () => (
-  <Breadcrumb separator=">">
-    <Breadcrumb.Item>Home</Breadcrumb.Item>
-    <Breadcrumb.Item href="">Application Center</Breadcrumb.Item>
-    <Breadcrumb.Item href="">Application List</Breadcrumb.Item>
-    <Breadcrumb.Item>An Application</Breadcrumb.Item>
-  </Breadcrumb>
+  <Breadcrumb
+    separator=">"
+    routes={[
+      {
+        breadcrumbName: 'Home',
+      },
+      {
+        breadcrumbName: 'Application Center',
+        href: '',
+      },
+      {
+        breadcrumbName: 'Application List',
+        href: '',
+      },
+      {
+        breadcrumbName: 'An Application',
+      },
+    ]}
+  />
 );
 
 export default App;

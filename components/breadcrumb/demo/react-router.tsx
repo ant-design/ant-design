@@ -27,17 +27,17 @@ const Home = () => {
 
   const extraBreadcrumbItems = pathSnippets.map((_, index) => {
     const url = `/${pathSnippets.slice(0, index + 1).join('/')}`;
-    return (
-      <Breadcrumb.Item key={url}>
-        <Link to={url}>{breadcrumbNameMap[url]}</Link>
-      </Breadcrumb.Item>
-    );
+    return {
+      key: url,
+      breadcrumbName: <Link to={url}>{breadcrumbNameMap[url]}</Link>,
+    };
   });
 
   const breadcrumbItems = [
-    <Breadcrumb.Item key="home">
-      <Link to="/">Home</Link>
-    </Breadcrumb.Item>,
+    {
+      breadcrumbName: <Link to="/">Home</Link>,
+      key: 'home',
+    },
   ].concat(extraBreadcrumbItems);
 
   return (
@@ -51,7 +51,7 @@ const Home = () => {
         <Route path="*" element={<span>Home Page</span>} />
       </Routes>
       <Alert style={{ margin: '16px 0' }} message="Click the navigation above to switch:" />
-      <Breadcrumb>{breadcrumbItems}</Breadcrumb>
+      <Breadcrumb routes={breadcrumbItems} />
     </div>
   );
 };

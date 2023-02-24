@@ -15,6 +15,8 @@ export interface BreadcrumbItemProps {
   onClick?: React.MouseEventHandler<HTMLAnchorElement | HTMLSpanElement>;
   className?: string;
   children?: React.ReactNode;
+  breadcrumbName?: React.ReactNode;
+  isLastItem?: boolean;
 
   // Deprecated
   /** @deprecated Please use `menu` instead */
@@ -31,6 +33,9 @@ const BreadcrumbItem: CompoundedComponent = (props: BreadcrumbItemProps) => {
     menu,
     overlay,
     dropdownProps,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    breadcrumbName,
+    isLastItem,
     ...restProps
   } = props;
 
@@ -68,13 +73,15 @@ const BreadcrumbItem: CompoundedComponent = (props: BreadcrumbItemProps) => {
   };
 
   let link: React.ReactNode;
-  if ('href' in restProps) {
+  if ('href' in restProps && !isLastItem) {
     link = (
       <a className={`${prefixCls}-link`} {...restProps}>
         {children}
       </a>
     );
-  } else {
+  } else if (children !== undefined) {
+    // TODO
+    delete restProps.href;
     link = (
       <span className={`${prefixCls}-link`} {...restProps}>
         {children}
