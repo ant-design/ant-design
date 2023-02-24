@@ -41,14 +41,14 @@ Properties that shared by all types.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| format | The template function of the content | function(percent, successPercent) | (percent) => percent + `%` |
-| percent | To set the completion percentage | number | 0 |
+| format | The template function of the content | function(percent, successPercent) | (percent) => percent + `%` | - |
+| percent | To set the completion percentage | number | 0 | - |
 | showInfo | Whether to display the progress value and the status icon | boolean | true |
 | status | To set the status of the Progress, options: `success` `exception` `normal` `active`(line only) | string | - |
-| strokeColor | The color of progress bar | string | - |
-| strokeLinecap | To set the style of the progress linecap | `round` \| `butt` \| `square`, see [stroke-linecap](https://developer.mozilla.org/docs/Web/SVG/Attribute/stroke-linecap) | `round` |
-| success | Configs of successfully progress bar | { percent: number, strokeColor: string } | - |
-| trailColor | The color of unfilled part | string | - |
+| strokeColor | The color of progress bar | string | - | - |
+| strokeLinecap | To set the style of the progress linecap | `round` \| `butt` \| `square`, see [stroke-linecap](https://developer.mozilla.org/docs/Web/SVG/Attribute/stroke-linecap) | `round` | - |
+| success | Configs of successfully progress bar | { percent: number, strokeColor: string } | - | - |
+| trailColor | The color of unfilled part | string | - | - |
 | type | To set the type, options: `line` `circle` `dashboard` | string | `line` |
 | size | Progress size | number \| \[number, number] \| "small" \| "default" | "default" | v5.3.0 |
 
