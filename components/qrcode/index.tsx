@@ -53,7 +53,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     };
   }, [errorLevel, color, icon, iconSize, size, value]);
 
-  const locale = useLocale('QRCode');
+  const [locale] = useLocale('QRCode');
 
   if (!value) {
     if (process.env.NODE_ENV !== 'production') {

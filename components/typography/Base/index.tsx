@@ -135,7 +135,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     ...restProps
   } = props;
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
-  const textLocale = useLocale('Text');
+  const [textLocale] = useLocale('Text');
 
   const typographyRef = React.useRef<HTMLElement>(null);
   const editIconRef = React.useRef<HTMLDivElement>(null);

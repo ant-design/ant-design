@@ -339,7 +339,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
 
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
-  const contextLocale = useLocale('Upload', defaultLocale.Upload);
+  const [contextLocale] = useLocale('Upload', defaultLocale.Upload);
 
   const {
     showRemoveIcon,
