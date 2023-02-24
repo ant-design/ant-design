@@ -63,11 +63,6 @@ exports[`Breadcrumb should allow Breadcrumb.Item is null or undefined 1`] = `
       >
         Home
       </span>
-      <span
-        class="ant-breadcrumb-separator"
-      >
-        /
-      </span>
     </li>
   </ol>
 </nav>
@@ -84,22 +79,18 @@ exports[`Breadcrumb should not display Breadcrumb Item when its children is fals
       >
         xxx
       </span>
-      <span
-        class="ant-breadcrumb-separator"
-      >
-        /
-      </span>
+    </li>
+    <li
+      aria-hidden="true"
+      class="ant-breadcrumb-separator"
+    >
+      /
     </li>
     <li>
       <span
         class="ant-breadcrumb-link"
       >
         yyy
-      </span>
-      <span
-        class="ant-breadcrumb-separator"
-      >
-        /
       </span>
     </li>
   </ol>
@@ -121,11 +112,12 @@ exports[`Breadcrumb should render a menu 1`] = `
           home
         </a>
       </span>
-      <span
-        class="ant-breadcrumb-separator"
-      >
-        /
-      </span>
+    </li>
+    <li
+      aria-hidden="true"
+      class="ant-breadcrumb-separator"
+    >
+      /
     </li>
     <li>
       <span
