@@ -46,7 +46,7 @@ const HookModal: React.ForwardRefRenderFunction<HookModalRef, HookModalProps> = 
 
   const mergedOkCancel = innerConfig.okCancel ?? innerConfig.type === 'confirm';
 
-  const contextLocale = useLocale('Modal', defaultLocale.Modal);
+  const [contextLocale] = useLocale('Modal', defaultLocale.Modal);
 
   return (
     <ConfirmDialog

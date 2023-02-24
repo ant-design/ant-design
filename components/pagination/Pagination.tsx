@@ -93,7 +93,7 @@ const Pagination: React.FC<PaginationProps> = ({
     return { prevIcon, nextIcon, jumpPrevIcon, jumpNextIcon };
   };
 
-  const contextLocale = useLocale('Pagination', enUS);
+  const [contextLocale] = useLocale('Pagination', enUS);
 
   const locale = { ...contextLocale, ...customLocale };
 

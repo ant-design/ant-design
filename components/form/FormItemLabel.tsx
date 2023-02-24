@@ -53,7 +53,7 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
   requiredMark,
   tooltip,
 }) => {
-  const formLocale = useLocale('Form');
+  const [formLocale] = useLocale('Form');
 
   const {
     vertical,
