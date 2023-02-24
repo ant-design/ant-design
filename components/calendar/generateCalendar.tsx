@@ -236,7 +236,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
       [monthFullCellRender, monthCellRender],
     );
 
-    const contextLocale = useLocale('Calendar', getDefaultLocale);
+    const [contextLocale] = useLocale('Calendar', getDefaultLocale);
 
     return wrapSSR(
       <div

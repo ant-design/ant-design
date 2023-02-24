@@ -122,7 +122,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
           </>
         );
 
-        const contextLocale = useLocale('DatePicker', enUS);
+        const [contextLocale] = useLocale('DatePicker', enUS);
 
         const locale = { ...contextLocale, ...props.locale! };
 

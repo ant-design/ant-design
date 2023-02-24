@@ -92,7 +92,7 @@ const TourPanel: React.FC<TourPanelProps> = ({ stepProps, current, type, indicat
     ghost: mergedType === 'primary',
   };
 
-  const contextLocale = useLocale('Tour', defaultLocale.Tour);
+  const [contextLocale] = useLocale('Tour', defaultLocale.Tour);
 
   return (
     <div
