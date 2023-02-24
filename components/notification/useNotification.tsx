@@ -110,7 +110,6 @@ export function useInternalNotification(
         description,
         icon,
         type,
-        placement = 'topRight',
         btn,
         className,
         ...restConfig
