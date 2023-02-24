@@ -62,7 +62,6 @@ const ActionButton: React.FC<ActionButtonProps> = (props) => {
     setLoading(true);
     returnValueOfOnOk!.then(
       (...args: any[]) => {
-        setLoading(false, true);
         onInternalClose(...args);
         clickedRef.current = false;
       },
