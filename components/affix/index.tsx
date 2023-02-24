@@ -165,15 +165,15 @@ class InternalAffix extends React.Component<InternalAffixProps, AffixState> {
       status: AffixStatus.None,
     };
     const targetRect = getTargetRect(targetNode);
-    const placeholderReact = getTargetRect(this.placeholderNodeRef.current);
-    const fixedTop = getFixedTop(placeholderReact, targetRect, offsetTop);
-    const fixedBottom = getFixedBottom(placeholderReact, targetRect, offsetBottom);
+    const placeholderRect = getTargetRect(this.placeholderNodeRef.current);
+    const fixedTop = getFixedTop(placeholderRect, targetRect, offsetTop);
+    const fixedBottom = getFixedBottom(placeholderRect, targetRect, offsetBottom);
 
     if (
-      placeholderReact.top === 0 &&
-      placeholderReact.left === 0 &&
-      placeholderReact.width === 0 &&
-      placeholderReact.height === 0
+      placeholderRect.top === 0 &&
+      placeholderRect.left === 0 &&
+      placeholderRect.width === 0 &&
+      placeholderRect.height === 0
     ) {
       return;
     }
@@ -182,23 +182,23 @@ class InternalAffix extends React.Component<InternalAffixProps, AffixState> {
       newState.affixStyle = {
         position: 'fixed',
         top: fixedTop,
-        width: placeholderReact.width,
-        height: placeholderReact.height,
+        width: placeholderRect.width,
+        height: placeholderRect.height,
       };
       newState.placeholderStyle = {
-        width: placeholderReact.width,
-        height: placeholderReact.height,
+        width: placeholderRect.width,
+        height: placeholderRect.height,
       };
     } else if (fixedBottom !== undefined) {
       newState.affixStyle = {
         position: 'fixed',
         bottom: fixedBottom,
-        width: placeholderReact.width,
-        height: placeholderReact.height,
+        width: placeholderRect.width,
+        height: placeholderRect.height,
       };
       newState.placeholderStyle = {
-        width: placeholderReact.width,
-        height: placeholderReact.height,
+        width: placeholderRect.width,
+        height: placeholderRect.height,
       };
     }
 
@@ -241,9 +241,9 @@ class InternalAffix extends React.Component<InternalAffixProps, AffixState> {
       const targetNode = targetFunc();
       if (targetNode && this.placeholderNodeRef.current) {
         const targetRect = getTargetRect(targetNode);
-        const placeholderReact = getTargetRect(this.placeholderNodeRef.current);
-        const fixedTop = getFixedTop(placeholderReact, targetRect, offsetTop);
-        const fixedBottom = getFixedBottom(placeholderReact, targetRect, offsetBottom);
+        const placeholderRect = getTargetRect(this.placeholderNodeRef.current);
+        const fixedTop = getFixedTop(placeholderRect, targetRect, offsetTop);
+        const fixedBottom = getFixedBottom(placeholderRect, targetRect, offsetBottom);
 
         if (
           (fixedTop !== undefined && affixStyle.top === fixedTop) ||
