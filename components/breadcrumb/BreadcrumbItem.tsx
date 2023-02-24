@@ -1,9 +1,10 @@
-import DownOutlined from '@ant-design/icons/DownOutlined';
 import * as React from 'react';
+import DownOutlined from '@ant-design/icons/DownOutlined';
 import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import type { DropdownProps } from '../dropdown/dropdown';
 import Dropdown from '../dropdown/dropdown';
+import BreadcrumbSeparator from './BreadcrumbSeparator';
 
 export interface BreadcrumbItemProps {
   prefixCls?: string;
@@ -22,7 +23,7 @@ export interface BreadcrumbItemProps {
 type CompoundedComponent = React.FC<BreadcrumbItemProps> & {
   __ANT_BREADCRUMB_ITEM: boolean;
 };
-const BreadcrumbItem: CompoundedComponent = (props) => {
+const BreadcrumbItem: CompoundedComponent = (props: BreadcrumbItemProps) => {
   const {
     prefixCls: customizePrefixCls,
     separator = '/',
@@ -85,10 +86,10 @@ const BreadcrumbItem: CompoundedComponent = (props) => {
   link = renderBreadcrumbNode(link);
   if (children !== undefined && children !== null) {
     return (
-      <li>
-        {link}
-        {separator && <span className={`${prefixCls}-separator`}>{separator}</span>}
-      </li>
+      <>
+        <li>{link}</li>
+        {separator && <BreadcrumbSeparator>{separator}</BreadcrumbSeparator>}
+      </>
     );
   }
   return null;

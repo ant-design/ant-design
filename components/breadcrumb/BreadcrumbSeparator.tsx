@@ -12,7 +12,7 @@ const BreadcrumbSeparator: CompoundedComponent = ({ children }) => {
 
   return (
     <li className={`${prefixCls}-separator`} aria-hidden="true">
-      {children || '/'}
+      {children === '' ? children : children || '/'}
     </li>
   );
 };
