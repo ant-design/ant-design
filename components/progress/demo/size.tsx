@@ -13,14 +13,14 @@ const App: React.FC = () => (
     <Space size={30}>
       <Progress type="circle" percent={50} />
       <Progress type="circle" percent={50} size="small" />
-      <Progress type="circle" percent={50} size={30} />
+      <Progress type="circle" percent={50} size={20} />
     </Space>
     <br />
     <br />
     <Space size={30}>
       <Progress type="dashboard" percent={50} />
       <Progress type="dashboard" percent={50} size="small" />
-      <Progress type="dashboard" percent={50} size={30} />
+      <Progress type="dashboard" percent={50} size={20} />
     </Space>
     <br />
     <br />

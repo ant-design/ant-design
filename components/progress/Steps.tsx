@@ -20,8 +20,8 @@ const Steps: React.FC<ProgressStepsProps> = (props) => {
     children,
   } = props;
   const current = Math.round(steps * (percent / 100));
-  const [stepWidth, stepHeight] = getSize(size, 'step');
-  const unitWidth = stepWidth / steps;
+  const [width, height] = getSize(size, 'step', { steps });
+  const unitWidth = width / steps;
   const styledSteps: React.ReactNode[] = new Array(steps);
   for (let i = 0; i < steps; i++) {
     const color = Array.isArray(strokeColor) ? strokeColor[i] : strokeColor;
@@ -34,7 +34,7 @@ const Steps: React.FC<ProgressStepsProps> = (props) => {
         style={{
           backgroundColor: i <= current - 1 ? color : trailColor,
           width: unitWidth,
-          height: stepHeight,
+          height,
         }}
       />
     );

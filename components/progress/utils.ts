@@ -46,10 +46,14 @@ export const getStrokeColor = ({ success = {}, strokeColor }: Partial<CircleProp
 export const getSize = (
   size: ProgressProps['size'],
   type: ProgressProps['type'] | 'step',
+  extra?: {
+    steps?: number;
+  },
 ): [number, number] => {
   let width: number = -1;
   let height: number = -1;
   if (type === 'step') {
+    const steps = extra!.steps!;
     if (typeof size === 'string' || typeof size === 'undefined') {
       width = size === 'small' ? 2 : 14;
       height = 8;
@@ -58,6 +62,7 @@ export const getSize = (
     } else {
       [width = 14, height = 8] = size;
     }
+    width *= steps;
   } else if (type === 'line') {
     if (typeof size === 'string' || typeof size === 'undefined') {
       height = size === 'small' ? 6 : 8;

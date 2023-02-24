@@ -289,7 +289,7 @@ describe('Progress', () => {
       width: '30px',
     });
     expect(container.querySelector('.ant-progress-steps .ant-progress-steps-item')).toHaveStyle({
-      width: '10px',
+      width: '30px',
       height: '30px',
     });
     expect(container.querySelectorAll('.ant-progress-circle .ant-progress-inner')[0]).toHaveStyle({
@@ -308,7 +308,7 @@ describe('Progress', () => {
       height: '20px',
     });
     expect(container.querySelector('.ant-progress-steps .ant-progress-steps-item')).toHaveStyle({
-      width: '20px',
+      width: '60px',
       height: '20px',
     });
     expect(container.querySelectorAll('.ant-progress-circle .ant-progress-inner')[0]).toHaveStyle({
