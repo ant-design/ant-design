@@ -59,7 +59,7 @@ demo:
 | --- | --- | --- | --- | --- |
 | steps | 进度条总共步数 | number | - | - |
 | strokeColor | 进度条的色彩，传入 object 时为渐变。当有 `steps` 时支持传入一个数组。 | string \| string[] \| { from: string; to: string; direction: string } | - | 4.21.0: `string[]` |
-| strokeWidth | To set the width of the progress bar, unit: `px` | number | 10 | v5.3.0 前使用，v5.3.0 之后请用`size`代替 |
+| strokeWidth | To set the width of the progress bar, unit: `px` | number | 10 | < 5.3.0 |
 
 ### `type="circle"`
 
