@@ -88,7 +88,7 @@ const BreadcrumbItem: CompoundedComponent = (props: BreadcrumbItemProps) => {
     return (
       <>
         <li>{link}</li>
-        {separator && <BreadcrumbSeparator>{children}</BreadcrumbSeparator>}
+        {separator && <BreadcrumbSeparator>{separator}</BreadcrumbSeparator>}
       </>
     );
   }
