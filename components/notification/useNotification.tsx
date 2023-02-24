@@ -116,6 +116,7 @@ export function useInternalNotification(
       } = config;
 
       return originOpen({
+        placement: 'topRight',
         ...restConfig,
         content: (
           <PureContent
@@ -127,7 +128,6 @@ export function useInternalNotification(
             btn={btn}
           />
         ),
-        placement,
         className: classNames(type && `${noticePrefixCls}-${type}`, hashId, className),
       });
     };
