@@ -1900,7 +1900,7 @@ Array [
             >
               <div
                 class="ant-progress-inner"
-                style="width:120px;height:120px;font-size:24px"
+                style="width:132px;height:132px;font-size:25.8px"
               >
                 <svg
                   class="ant-progress-circle"
@@ -2666,7 +2666,7 @@ exports[`renders ./components/steps/demo/progress.tsx extend context correctly 1
           >
             <div
               class="ant-progress-inner"
-              style="width:120px;height:120px;font-size:24px"
+              style="width:132px;height:132px;font-size:25.8px"
             >
               <svg
                 class="ant-progress-circle"
@@ -2913,7 +2913,7 @@ Array [
             >
               <div
                 class="ant-progress-inner"
-                style="width:120px;height:120px;font-size:24px"
+                style="width:132px;height:132px;font-size:25.8px"
               >
                 <svg
                   class="ant-progress-circle"
@@ -3095,7 +3095,7 @@ Array [
             >
               <div
                 class="ant-progress-inner"
-                style="width:120px;height:120px;font-size:24px"
+                style="width:132px;height:132px;font-size:25.8px"
               >
                 <svg
                   class="ant-progress-circle"
@@ -3277,7 +3277,7 @@ Array [
             >
               <div
                 class="ant-progress-inner"
-                style="width:120px;height:120px;font-size:24px"
+                style="width:132px;height:132px;font-size:25.8px"
               >
                 <svg
                   class="ant-progress-circle"
@@ -3459,7 +3459,7 @@ Array [
             >
               <div
                 class="ant-progress-inner"
-                style="width:120px;height:120px;font-size:24px"
+                style="width:132px;height:132px;font-size:25.8px"
               >
                 <svg
                   class="ant-progress-circle"
