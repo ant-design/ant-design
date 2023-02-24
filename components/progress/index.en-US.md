@@ -58,6 +58,7 @@ Properties that shared by all types.
 | --- | --- | --- | --- | --- |
 | steps | The total step count | number | - | - |
 | strokeColor | The color of progress bar, render `linear-gradient` when passing an object, could accept `string[]` when has `steps`. | string \| string[] \| { from: string; to: string; direction: string } | - | 4.21.0: `string[]` |
+| strokeWidth | To set the width of the progress bar, unit: `px` | number | 10 | before v5.3.0, after v5.3.0 use `size` instead |
 
 ### `type="circle"`
 
