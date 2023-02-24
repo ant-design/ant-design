@@ -33,6 +33,7 @@ If it will take a long time to complete an operation, you can use `Progress` to 
 <code src="./demo/linecap.tsx">Stroke Linecap</code>
 <code src="./demo/gradient-line.tsx">Custom line gradient</code>
 <code src="./demo/steps.tsx">Progress bar with steps</code>
+<code src="./demo/size.tsx">Progress size</code>
 
 ## API
 
@@ -49,6 +50,7 @@ Properties that shared by all types.
 | success | Configs of successfully progress bar | { percent: number, strokeColor: string } | - |
 | trailColor | The color of unfilled part | string | - |
 | type | To set the type, options: `line` `circle` `dashboard` | string | `line` |
+| size | Progress size | number \| [number, number] \| "small" \| "default" | "default" |
 
 ### `type="line"`
 
@@ -56,7 +58,6 @@ Properties that shared by all types.
 | --- | --- | --- | --- | --- |
 | steps | The total step count | number | - | - |
 | strokeColor | The color of progress bar, render `linear-gradient` when passing an object, could accept `string[]` when has `steps`. | string \| string[] \| { from: string; to: string; direction: string } | - | 4.21.0: `string[]` |
-| strokeWidth | To set the width of the progress bar, unit: `px` | number | 10 | - |
 
 ### `type="circle"`
 

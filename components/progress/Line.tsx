@@ -1,8 +1,9 @@
 import { presetPrimaryColors } from '@ant-design/colors';
 import * as React from 'react';
 import type { DirectionType } from '../config-provider';
+import warning from '../_util/warning';
 import type { ProgressGradient, ProgressProps, StringGradients } from './progress';
-import { getSuccessPercent, validProgress } from './utils';
+import { getSize, getSuccessPercent, validProgress } from './utils';
 
 interface LineProps extends ProgressProps {
   prefixCls: string;
@@ -71,7 +72,6 @@ const Line: React.FC<LineProps> = (props) => {
     prefixCls,
     direction: directionConfig,
     percent,
-    strokeWidth,
     size,
     strokeColor,
     strokeLinecap = 'round',
@@ -92,9 +92,19 @@ const Line: React.FC<LineProps> = (props) => {
     borderRadius,
   };
 
+  const [width, height] = getSize(size, 'line');
+
+  if (process.env.NODE_ENV !== 'production') {
+    warning(
+      !('strokeWidth' in props),
+      'Progress',
+      '`strokeWidth` is deprecated. Please use `size` instead.',
+    );
+  }
+
   const percentStyle: React.CSSProperties = {
     width: `${validProgress(percent)}%`,
-    height: strokeWidth || (size === 'small' ? 6 : 8),
+    height,
     borderRadius,
     ...backgroundProps,
   };
@@ -103,14 +113,19 @@ const Line: React.FC<LineProps> = (props) => {
 
   const successPercentStyle: React.CSSProperties = {
     width: `${validProgress(successPercent)}%`,
-    height: strokeWidth || (size === 'small' ? 6 : 8),
+    height,
     borderRadius,
     backgroundColor: success?.strokeColor,
   };
 
+  const outterStyle: React.CSSProperties = {
+    width: width < 0 ? '100%' : width,
+    height,
+  };
+
   return (
     <>
-      <div className={`${prefixCls}-outer`}>
+      <div className={`${prefixCls}-outer`} style={outterStyle}>
         <div className={`${prefixCls}-inner`} style={trailStyle}>
           <div className={`${prefixCls}-bg`} style={percentStyle} />
           {successPercent !== undefined ? (

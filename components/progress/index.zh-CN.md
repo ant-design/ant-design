@@ -34,6 +34,7 @@ demo:
 <code src="./demo/linecap.tsx">边缘形状</code>
 <code src="./demo/gradient-line.tsx">自定义进度条渐变色</code>
 <code src="./demo/steps.tsx">步骤进度条</code>
+<code src="./demo/size.tsx">尺寸</code>
 
 ## API
 
@@ -50,6 +51,7 @@ demo:
 | success | 成功进度条相关配置 | { percent: number, strokeColor: string } | - |
 | trailColor | 未完成的分段的颜色 | string | - |
 | type | 类型，可选 `line` `circle` `dashboard` | string | `line` |
+| size | 进度条的尺寸 | number \| [number, number] \| "small" \| "default" | "default" |
 
 ### `type="line"`
 
@@ -57,7 +59,6 @@ demo:
 | --- | --- | --- | --- | --- |
 | steps | 进度条总共步数 | number | - | - |
 | strokeColor | 进度条的色彩，传入 object 时为渐变。当有 `steps` 时支持传入一个数组。 | string \| string[] \| { from: string; to: string; direction: string } | - | 4.21.0: `string[]` |
-| strokeWidth | 进度条线的宽度，单位 px | number | 10 | - |
 
 ### `type="circle"`
 

@@ -35,10 +35,46 @@ export const getPercentage = ({ percent, success, successPercent }: ProgressProp
   return [realSuccessPercent, validProgress(validProgress(percent) - realSuccessPercent)];
 };
 
-export const getStrokeColor = ({
-  success = {},
-  strokeColor,
-}: Partial<CircleProps>): (string | Record<PropertyKey, string>)[] => {
+export const getStrokeColor = ({ success = {}, strokeColor }: Partial<CircleProps>): (
+  | string
+  | Record<PropertyKey, string>
+)[] => {
   const { strokeColor: successColor } = success;
   return [successColor || presetPrimaryColors.green, strokeColor || null!];
+};
+
+export const getSize = (
+  size: ProgressProps['size'],
+  type: ProgressProps['type'] | 'step',
+): [number, number] => {
+  let width: number = -1;
+  let height: number = -1;
+  if (type === 'step') {
+    if (typeof size === 'string' || typeof size === 'undefined') {
+      width = size === 'small' ? 2 : 14;
+      height = 8;
+    } else if (typeof size === 'number') {
+      [width, height] = [size, size];
+    } else {
+      [width = 14, height = 8] = size;
+    }
+  } else if (type === 'line') {
+    if (typeof size === 'string' || typeof size === 'undefined') {
+      height = size === 'small' ? 6 : 8;
+    } else if (typeof size === 'number') {
+      [width, height] = [size, size];
+    } else {
+      [width = -1, height = 8] = size;
+    }
+  } else if (type === 'circle' || type === 'dashboard') {
+    if (typeof size === 'string' || typeof size === 'undefined') {
+      [width, height] = size === 'small' ? [60, 60] : [120, 120];
+    } else if (typeof size === 'number') {
+      [width, height] = [size, size];
+    } else {
+      width = size[0] ?? size[1] ?? 120;
+      height = size[0] ?? size[1] ?? 120;
+    }
+  }
+  return [width, height];
 };

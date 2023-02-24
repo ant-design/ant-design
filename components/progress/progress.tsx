@@ -42,12 +42,13 @@ export interface ProgressProps {
   strokeLinecap?: 'butt' | 'square' | 'round';
   strokeColor?: string | string[] | ProgressGradient;
   trailColor?: string;
+  /** @deprecated Use `size` instead */
   width?: number;
   success?: SuccessProps;
   style?: React.CSSProperties;
   gapDegree?: number;
   gapPosition?: 'top' | 'bottom' | 'left' | 'right';
-  size?: ProgressSize;
+  size?: number | [number, number] | ProgressSize;
   steps?: number;
   /** @deprecated Use `success` instead */
   successPercent?: number;
@@ -112,11 +113,14 @@ const Progress: React.FC<ProgressProps> = (props) => {
     );
   }, [showInfo, percentNumber, progressStatus, type, prefixCls, format]);
 
-  warning(
-    !('successPercent' in props),
-    'Progress',
-    '`successPercent` is deprecated. Please use `success.percent` instead.',
-  );
+  if (process.env.NODE_ENV !== 'production') {
+    warning(
+      !('successPercent' in props),
+      'Progress',
+      '`successPercent` is deprecated. Please use `success.percent` instead.',
+    );
+    warning(!('width' in props), 'Progress', '`width` is deprecated. Please use `size` instead.');
+  }
 
   const strokeColorNotArray = Array.isArray(strokeColor) ? strokeColor[0] : strokeColor;
   const strokeColorNotGradient =
@@ -158,7 +162,7 @@ const Progress: React.FC<ProgressProps> = (props) => {
       [`${prefixCls}-${(type === 'dashboard' && 'circle') || (steps && 'steps') || type}`]: true,
       [`${prefixCls}-status-${progressStatus}`]: true,
       [`${prefixCls}-show-info`]: showInfo,
-      [`${prefixCls}-${size}`]: size,
+      [`${prefixCls}-${size}`]: typeof size === 'string',
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,

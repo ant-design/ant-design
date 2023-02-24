@@ -169,6 +169,7 @@ exports[`Progress render format 1`] = `
 >
   <div
     class="ant-progress-outer"
+    style="width: 100%; height: 8px;"
   >
     <div
       class="ant-progress-inner"
@@ -199,6 +200,7 @@ exports[`Progress render negative progress 1`] = `
 >
   <div
     class="ant-progress-outer"
+    style="width: 100%; height: 8px;"
   >
     <div
       class="ant-progress-inner"
@@ -225,6 +227,7 @@ exports[`Progress render negative successPercent 1`] = `
 >
   <div
     class="ant-progress-outer"
+    style="width: 100%; height: 8px;"
   >
     <div
       class="ant-progress-inner"
@@ -255,6 +258,7 @@ exports[`Progress render normal progress 1`] = `
 >
   <div
     class="ant-progress-outer"
+    style="width: 100%; height: 8px;"
   >
     <div
       class="ant-progress-inner"
@@ -281,6 +285,7 @@ exports[`Progress render out-of-range progress 1`] = `
 >
   <div
     class="ant-progress-outer"
+    style="width: 100%; height: 8px;"
   >
     <div
       class="ant-progress-inner"
@@ -324,6 +329,7 @@ exports[`Progress render out-of-range progress with info 1`] = `
 >
   <div
     class="ant-progress-outer"
+    style="width: 100%; height: 8px;"
   >
     <div
       class="ant-progress-inner"
@@ -421,6 +427,7 @@ exports[`Progress render strokeColor 2`] = `
 >
   <div
     class="ant-progress-outer"
+    style="width: 100%; height: 8px;"
   >
     <div
       class="ant-progress-inner"
@@ -447,6 +454,7 @@ exports[`Progress render strokeColor 3`] = `
 >
   <div
     class="ant-progress-outer"
+    style="width: 100%; height: 8px;"
   >
     <div
       class="ant-progress-inner"
@@ -485,30 +493,30 @@ exports[`Progress render strokeWidth of progress 1`] = `
           class="ant-progress-circle-trail"
           cx="0"
           cy="0"
-          r="25"
+          r="47"
           stroke-linecap="round"
-          stroke-width="50"
-          style="stroke-dasharray: 157.07963267948966px 157.07963267948966; stroke-dashoffset: 0; transform: rotate(-90deg); transform-origin: 0 0; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0;"
+          stroke-width="6"
+          style="stroke-dasharray: 295.3097094374406px 295.3097094374406; stroke-dashoffset: 0; transform: rotate(-90deg); transform-origin: 0 0; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0;"
         />
         <circle
           class="ant-progress-circle-path"
           cx="0"
           cy="0"
           opacity="1"
-          r="25"
+          r="47"
           stroke-linecap="round"
-          stroke-width="50"
-          style="stroke-dasharray: 157.07963267948966px 157.07963267948966; stroke-dashoffset: 134.95574287564276; transform: rotate(-90deg); transform-origin: 0 0; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
+          stroke-width="6"
+          style="stroke-dasharray: 295.3097094374406px 295.3097094374406; stroke-dashoffset: 209.7167966062084; transform: rotate(-90deg); transform-origin: 0 0; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
         />
         <circle
           class="ant-progress-circle-path"
           cx="0"
           cy="0"
           opacity="0"
-          r="25"
+          r="47"
           stroke-linecap="round"
-          stroke-width="50"
-          style="stroke: #52C41A; stroke-dasharray: 157.07963267948966px 157.07963267948966; stroke-dashoffset: 157.06963267948967; transform: rotate(-90deg); transform-origin: 0 0; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
+          stroke-width="6"
+          style="stroke: #52C41A; stroke-dasharray: 295.3097094374406px 295.3097094374406; stroke-dashoffset: 295.2997094374406; transform: rotate(-90deg); transform-origin: 0 0; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
         />
       </svg>
       <span
@@ -529,6 +537,7 @@ exports[`Progress render successColor progress 1`] = `
 >
   <div
     class="ant-progress-outer"
+    style="width: 100%; height: 8px;"
   >
     <div
       class="ant-progress-inner"
@@ -667,6 +676,7 @@ exports[`Progress render trailColor progress 1`] = `
 >
   <div
     class="ant-progress-outer"
+    style="width: 100%; height: 8px;"
   >
     <div
       class="ant-progress-inner"
@@ -694,6 +704,7 @@ exports[`Progress rtl render component should be rendered correctly in RTL direc
 >
   <div
     class="ant-progress-outer"
+    style="width: 100%; height: 8px;"
   >
     <div
       class="ant-progress-inner"
@@ -723,15 +734,15 @@ exports[`Progress should support steps 1`] = `
   >
     <div
       class="ant-progress-steps-item"
-      style="width: 14px; height: 8px;"
+      style="width: 4.666666666666667px; height: 8px;"
     />
     <div
       class="ant-progress-steps-item"
-      style="width: 14px; height: 8px;"
+      style="width: 4.666666666666667px; height: 8px;"
     />
     <div
       class="ant-progress-steps-item"
-      style="width: 14px; height: 8px;"
+      style="width: 4.666666666666667px; height: 8px;"
     />
     <span
       class="ant-progress-text"
