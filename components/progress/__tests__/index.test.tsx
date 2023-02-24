@@ -274,8 +274,6 @@ describe('Progress', () => {
     });
   });
 
-  describe('');
-
   describe('progress size', () => {
     const App = (props: { size: ProgressProps['size'] }) => (
       <>
