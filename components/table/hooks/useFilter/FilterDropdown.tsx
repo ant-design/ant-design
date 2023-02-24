@@ -276,7 +276,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
 
   const onVisibleChange = (newVisible: boolean) => {
     if (newVisible && propFilteredKeys !== undefined) {
-      // Sync filteredKeys on appear in controlled mode (propFilteredKeys !== undefiend)
+      // Sync filteredKeys on appear in controlled mode (propFilteredKeys !== undefined)
       setFilteredKeysSync(propFilteredKeys || []);
     }
 

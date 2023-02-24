@@ -53,7 +53,7 @@ describe('Menu', () => {
       enter();
     });
 
-    // React concurrent may delay creat this
+    // React concurrent may delay creating this
     triggerAllTimer();
 
     function getSubMenu() {
@@ -71,7 +71,7 @@ describe('Menu', () => {
       leave();
     });
 
-    // React concurrent may delay creat this
+    // React concurrent may delay creating this
     triggerAllTimer();
 
     if (getSubMenu()) {

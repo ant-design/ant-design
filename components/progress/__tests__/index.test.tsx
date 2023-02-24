@@ -180,14 +180,14 @@ describe('Progress', () => {
     expect(wrapper.firstChild).toMatchSnapshot();
   });
 
-  it('steps should be changable', () => {
+  it('steps should be changeable', () => {
     const { container: wrapper, rerender } = render(<Progress steps={5} percent={60} />);
     expect(wrapper.querySelectorAll('.ant-progress-steps-item-active').length).toBe(3);
     rerender(<Progress steps={5} percent={40} />);
     expect(wrapper.querySelectorAll('.ant-progress-steps-item-active').length).toBe(2);
   });
 
-  it('steps should be changable when has strokeColor', () => {
+  it('steps should be changeable when has strokeColor', () => {
     const { container: wrapper, rerender } = render(
       <Progress steps={5} percent={60} strokeColor="#1890ff" />,
     );
@@ -224,7 +224,7 @@ describe('Progress', () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it('should warnning if use `progress` in success', () => {
+  it('should warning if use `progress` in success', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(<Progress percent={60} success={{ progress: 30 }} />);
     expect(errorSpy).toHaveBeenCalledWith(
@@ -232,7 +232,7 @@ describe('Progress', () => {
     );
   });
 
-  it('should warnning if use `progress` in success in type Circle', () => {
+  it('should warning if use `progress` in success in type Circle', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(<Progress percent={60} success={{ progress: 30 }} type="circle" />);
     expect(errorSpy).toHaveBeenCalledWith(

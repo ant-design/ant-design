@@ -60,6 +60,7 @@ export interface NotificationConfig {
   bottom?: number;
   prefixCls?: string;
   getContainer?: () => HTMLElement;
+  placement?: NotificationPlacement;
   maxCount?: number;
   rtl?: boolean;
 }
