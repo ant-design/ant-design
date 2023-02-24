@@ -164,6 +164,17 @@ describe('Tag', () => {
       fireEvent.click(container.querySelectorAll('.ant-tag')[0]);
       expect(onChange).toHaveBeenCalledWith(true);
     });
+
+    it('support disabled', () => {
+      const disabled = true;
+      const onChange = jest.fn();
+      const { container } = render(
+        <Tag.CheckableTag checked={false} onChange={onChange} disabled={disabled} />,
+      );
+      expect(container.querySelector('.ant-tag-checkable-disabled')).toBeTruthy();
+      fireEvent.click(container.querySelectorAll('.ant-tag')[0]);
+      expect(onChange).not.toHaveBeenCalledWith(true);
+    });
   });
   it('should onClick is undefined', async () => {
     const { container } = render(<Tag onClick={undefined} />);

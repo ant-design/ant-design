@@ -108,13 +108,23 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
         borderColor: 'transparent',
         cursor: 'pointer',
 
-        [`&:not(${componentCls}-checkable-checked):hover`]: {
-          color: token.colorPrimary,
-          backgroundColor: token.colorFillSecondary,
+        [`&:not(${componentCls}-checkable-checked):not(${componentCls}-checkable-disabled):hover`]:
+          {
+            color: token.colorPrimary,
+            backgroundColor: token.colorFillSecondary,
+          },
+
+        [`&:active:not(${componentCls}-checkable-disabled), &-checked`]: {
+          color: token.colorTextLightSolid,
         },
 
-        '&:active, &-checked': {
-          color: token.colorTextLightSolid,
+        '&-disabled': {
+          color: token.colorTextDisabled,
+          cursor: 'not-allowed',
+
+          '&:hover': {
+            cursor: 'not-allowed',
+          },
         },
 
         '&-checked': {
@@ -124,7 +134,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
           },
         },
 
-        '&:active': {
+        [`&:active:not(${componentCls}-checkable-disabled)`]: {
           backgroundColor: token.colorPrimaryActive,
         },
       },
