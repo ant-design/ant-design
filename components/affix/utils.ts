@@ -9,19 +9,19 @@ export function getTargetRect(target: BindElement): DOMRect {
     : ({ top: 0, bottom: window.innerHeight } as DOMRect);
 }
 
-export function getFixedTop(placeholderReact: DOMRect, targetRect: DOMRect, offsetTop?: number) {
-  if (offsetTop !== undefined && targetRect.top > placeholderReact.top - offsetTop) {
+export function getFixedTop(placeholderRect: DOMRect, targetRect: DOMRect, offsetTop?: number) {
+  if (offsetTop !== undefined && targetRect.top > placeholderRect.top - offsetTop) {
     return offsetTop + targetRect.top;
   }
   return undefined;
 }
 
 export function getFixedBottom(
-  placeholderReact: DOMRect,
+  placeholderRect: DOMRect,
   targetRect: DOMRect,
   offsetBottom?: number,
 ) {
-  if (offsetBottom !== undefined && targetRect.bottom < placeholderReact.bottom + offsetBottom) {
+  if (offsetBottom !== undefined && targetRect.bottom < placeholderRect.bottom + offsetBottom) {
     const targetBottomOffset = window.innerHeight - targetRect.bottom;
     return offsetBottom + targetBottomOffset;
   }
