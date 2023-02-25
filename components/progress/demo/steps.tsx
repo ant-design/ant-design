@@ -5,7 +5,6 @@ import { red, green } from '@ant-design/colors';
 const App: React.FC = () => (
   <>
     <Progress percent={50} steps={3} />
-    <Progress percent={50} steps={3} />
     <br />
     <Progress percent={30} steps={5} />
     <br />

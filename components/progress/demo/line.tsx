@@ -4,7 +4,6 @@ import { Progress } from 'antd';
 const App: React.FC = () => (
   <>
     <Progress percent={30} />
-    <Progress percent={30} />
     <Progress percent={50} status="active" />
     <Progress percent={70} status="exception" />
     <Progress percent={100} />
