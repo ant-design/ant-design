@@ -3,7 +3,7 @@ import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render } from '../../../tests/utils';
-import type { Route } from '../Breadcrumb';
+import type { RouteItemType } from '../Breadcrumb';
 import Breadcrumb from '../index';
 
 describe('Breadcrumb', () => {
@@ -161,7 +161,7 @@ describe('Breadcrumb', () => {
   });
 
   it('should render a menu', () => {
-    const routes: Route[] = [
+    const routes: RouteItemType[] = [
       {
         path: 'index',
         breadcrumbName: 'home',

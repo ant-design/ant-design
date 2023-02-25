@@ -1,7 +1,6 @@
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
 import * as React from 'react';
-import type { Params } from 'react-router-dom';
 import { ConfigContext } from '../config-provider';
 import type { DropdownProps } from '../dropdown';
 import Menu from '../menu';
@@ -25,11 +24,11 @@ export type Routes = RouteItemType[];
 export interface BreadcrumbProps {
   prefixCls?: string;
   routes?: Routes;
-  params?: Params;
+  params?: any;
   separator?: React.ReactNode;
   itemRender?: (
     route: RouteItemType,
-    params: Params,
+    params: any,
     routes: Routes,
     paths: string[],
   ) => React.ReactNode;
@@ -39,7 +38,7 @@ export interface BreadcrumbProps {
   children?: React.ReactNode;
 }
 
-function getBreadcrumbName(route: RouteItemType, params: Params) {
+function getBreadcrumbName(route: RouteItemType, params: any) {
   if (!route.breadcrumbName) {
     return null;
   }
@@ -52,7 +51,7 @@ function getBreadcrumbName(route: RouteItemType, params: Params) {
 
 function defaultItemRender(
   route: RouteItemType,
-  params: Params,
+  params: any,
   routes: RouteItemType[],
   paths: string[],
 ) {
@@ -64,7 +63,7 @@ function defaultItemRender(
   return isLastItem ? <span>{name}</span> : <a href={`#/${paths.join('/')}`}>{name}</a>;
 }
 
-const getPath = (path: string, params: Params) => {
+const getPath = (path: string, params: any) => {
   path = (path || '').replace(/^\//, '');
   Object.keys(params).forEach((key) => {
     path = path.replace(`:${key}`, params[key]!);
@@ -72,7 +71,7 @@ const getPath = (path: string, params: Params) => {
   return path;
 };
 
-const addChildPath = (paths: string[], childPath: string, params: Params) => {
+const addChildPath = (paths: string[], childPath: string, params: any) => {
   const originalPaths = [...paths];
   const path = getPath(childPath || '', params);
   if (path) {
