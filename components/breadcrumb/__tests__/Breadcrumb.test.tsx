@@ -33,6 +33,23 @@ describe('Breadcrumb', () => {
     );
   });
 
+  it('should render correct', () => {
+    const { asFragment } = render(
+      <Breadcrumb
+        routes={[
+          {
+            path: '',
+            breadcrumbName: <span>xxx</span>,
+          },
+          {
+            breadcrumbName: 'yyy',
+          },
+        ]}
+      />,
+    );
+    expect(asFragment().firstChild).toMatchSnapshot();
+  });
+
   it('overlay deprecation warning', () => {
     render(
       <Breadcrumb
@@ -101,18 +118,12 @@ describe('Breadcrumb', () => {
   // https://github.com/ant-design/ant-design/issues/5015
   it('should allow Breadcrumb.Item is null or undefined', () => {
     const { asFragment } = render(
-      <Breadcrumb
-        routes={[
-          {
-            breadcrumbName: 'Home',
-          },
-        ]}
-      >
+      <Breadcrumb>
         {null}
+        <Breadcrumb.Item>Home</Breadcrumb.Item>
         {undefined}
       </Breadcrumb>,
     );
-    expect(errorSpy).not.toHaveBeenCalled();
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
@@ -134,44 +145,17 @@ describe('Breadcrumb', () => {
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
-  it('should render correct', () => {
-    const { asFragment } = render(
-      <Breadcrumb
-        routes={[
-          {
-            path: '',
-            breadcrumbName: <span>xxx</span>,
-          },
-          {
-            breadcrumbName: 'yyy',
-          },
-        ]}
-      />,
-    );
-    expect(asFragment().firstChild).toMatchSnapshot();
-  });
-
   // https://github.com/ant-design/ant-design/issues/18260
   it('filter React.Fragment', () => {
     const { asFragment } = render(
-      <Breadcrumb
-        separator=""
-        routes={[
-          {
-            breadcrumbName: 'Location',
-          },
-          {
-            separator: ':',
-          },
-          {
-            href: '',
-            breadcrumbName: 'Application Center',
-          },
-          {
-            separator: '/',
-          },
-        ]}
-      />,
+      <Breadcrumb separator="">
+        <Breadcrumb.Item>Location</Breadcrumb.Item>
+        <Breadcrumb.Separator>:</Breadcrumb.Separator>
+        <>
+          <Breadcrumb.Item href="">Application Center</Breadcrumb.Item>
+          <Breadcrumb.Separator />
+        </>
+      </Breadcrumb>,
     );
     expect(asFragment().firstChild).toMatchSnapshot();
   });
@@ -241,19 +225,13 @@ describe('Breadcrumb', () => {
 
   it('should support React.Fragment and falsy children', () => {
     const { asFragment } = render(
-      <Breadcrumb
-        routes={[
-          {
-            breadcrumbName: 'yyy',
-          },
-          {
-            breadcrumbName: 'yyy',
-          },
-          {
-            breadcrumbName: 0,
-          },
-        ]}
-      >
+      <Breadcrumb>
+        <>
+          <Breadcrumb.Item>yyy</Breadcrumb.Item>
+          <Breadcrumb.Item>yyy</Breadcrumb.Item>
+        </>
+        <Breadcrumb.Item>yyy</Breadcrumb.Item>
+        {0}
         {null}
         {undefined}
       </Breadcrumb>,
@@ -269,22 +247,15 @@ describe('Breadcrumb', () => {
       </span>
     );
     const { asFragment } = render(
-      <Breadcrumb
-        routes={[
-          {
-            breadcrumbName: 'Location',
-          },
-          {
-            breadcrumbName: <MockComponent />,
-          },
-          {
-            breadcrumbName: 'Application Center',
-          },
-        ]}
-      />,
+      <Breadcrumb>
+        <Breadcrumb.Item>Location</Breadcrumb.Item>
+        <MockComponent />
+        <Breadcrumb.Item>Application Center</Breadcrumb.Item>
+      </Breadcrumb>,
     );
     expect(asFragment().firstChild).toMatchSnapshot();
   });
+
   it('should support string `0` and number `0`', () => {
     const { container } = render(
       <Breadcrumb
