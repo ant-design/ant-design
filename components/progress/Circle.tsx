@@ -32,7 +32,7 @@ const Circle: React.FC<CircleProps> = (props) => {
 
   const [width, height] = getSize(size, 'circle');
 
-  let strokeWidth: number | undefined;
+  let { strokeWidth } = props;
   if (strokeWidth === undefined) {
     strokeWidth = Math.max(getMinPercent(width), 6);
   }
