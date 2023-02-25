@@ -131,6 +131,7 @@ const Breadcrumb: CompoundedComponent = ({
       }
 
       const isLastItem = index === routes.length - 1;
+      const mergedSeparator = route?.separator ?? separator ?? '/';
 
       if (hasPath && !hasHref) {
         return (
@@ -143,9 +144,8 @@ const Breadcrumb: CompoundedComponent = ({
       return (
         <BreadcrumbItem
           {...route}
-          separator={route?.separator || separator || '/'}
+          separator={isLastItem ? '' : mergedSeparator}
           key={route?.key ?? index}
-          isLastItem={isLastItem}
         >
           {route?.breadcrumbName ?? ''}
         </BreadcrumbItem>

@@ -16,8 +16,6 @@ export interface BreadcrumbItemProps {
   className?: string;
   children?: React.ReactNode;
   breadcrumbName?: React.ReactNode;
-  isLastItem?: boolean;
-
   // Deprecated
   /** @deprecated Please use `menu` instead */
   overlay?: DropdownProps['overlay'];
@@ -35,7 +33,6 @@ const BreadcrumbItem: CompoundedComponent = (props: BreadcrumbItemProps) => {
     dropdownProps,
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     breadcrumbName,
-    isLastItem,
     ...restProps
   } = props;
 
@@ -73,15 +70,13 @@ const BreadcrumbItem: CompoundedComponent = (props: BreadcrumbItemProps) => {
   };
 
   let link: React.ReactNode;
-  if ('href' in restProps && !isLastItem) {
+  if ('href' in restProps) {
     link = (
       <a className={`${prefixCls}-link`} {...restProps}>
         {children}
       </a>
     );
-  } else if (children !== undefined) {
-    // TODO
-    delete restProps.href;
+  } else {
     link = (
       <span className={`${prefixCls}-link`} {...restProps}>
         {children}
