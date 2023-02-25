@@ -6,9 +6,13 @@ import type { DropdownProps } from '../dropdown/dropdown';
 import Dropdown from '../dropdown/dropdown';
 import BreadcrumbSeparator from './BreadcrumbSeparator';
 
-export interface BreadcrumbItemProps {
-  prefixCls?: string;
+export interface SeparatorType {
   separator?: React.ReactNode;
+  key?: React.Key;
+}
+
+export interface BreadcrumbItemProps extends SeparatorType {
+  prefixCls?: string;
   href?: string;
   menu?: DropdownProps['menu'];
   dropdownProps?: DropdownProps;

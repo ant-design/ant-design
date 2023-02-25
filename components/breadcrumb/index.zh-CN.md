@@ -27,6 +27,19 @@ demo:
 <code src="./demo/overlay.tsx">带下拉菜单的面包屑</code>
 <code src="./demo/separator-component.tsx">分隔符</code>
 
+```jsx
+// >=5.3.0 可用，推荐的写法 ✅
+const routes = [{ breadcrumbName: 'sample' }];
+return <Breadcrumb routes={routes} />;
+
+// <5.3.0 可用，>=5.3.0 时不推荐 🙅🏻‍♀️
+return (
+  <Breadcrumb>
+    <Breadcrumb.Item>sample</Breadcrumb.Item>
+  </Breadcrumb>
+);
+```
+
 ## API
 
 ### Breadcrumb
@@ -38,7 +51,11 @@ demo:
 | routes | router 的路由栈信息 | [routes\[\]](#routes) | - |  |
 | separator | 分隔符自定义 | ReactNode | `/` |  |
 
-### Breadcrumb.Item
+### RouteType
+
+> type RouteType = [RouteItemType](#RouteItemType) | [SeparatorType](#SeparatorType)
+
+### RouteItemType
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
@@ -47,12 +64,19 @@ demo:
 | href | 链接的目的地 | string | - |  |
 | menu | 菜单配置项 | [MenuProps](/components/menu-cn/#api) | - | 4.24.0 |
 | onClick | 单击事件 | (e:MouseEvent) => void | - |  |
+| breadcrumbName | 名称 | ReactNode | - |  |
 
-### Breadcrumb.Separator
+### SeparatorType
 
-| 参数     | 说明           | 类型      | 默认值 | 版本 |
-| -------- | -------------- | --------- | ------ | ---- |
-| children | 要显示的分隔符 | ReactNode | `/`    |      |
+```ts
+const router = {
+  separator: '/', // Must have
+};
+```
+
+| 参数      | 说明           | 类型      | 默认值 | 版本 |
+| --------- | -------------- | --------- | ------ | ---- |
+| separator | 要显示的分隔符 | ReactNode | `/`    |      |
 
 > 注意：在使用 `Breadcrumb.Separator` 时，其父组件的分隔符必须设置为 `separator=""`，否则会出现父组件默认的分隔符。
 
@@ -104,7 +128,6 @@ const routes = [
     breadcrumbName: 'second',
   },
 ];
-
 function itemRender(route, params, routes, paths) {
   const last = routes.indexOf(route) === routes.length - 1;
   return last ? (

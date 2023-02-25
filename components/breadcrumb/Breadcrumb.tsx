@@ -13,28 +13,33 @@ import BreadcrumbSeparator from './BreadcrumbSeparator';
 
 import useStyle from './style';
 
-export interface Route extends Omit<BreadcrumbItemProps, 'children'> {
+export interface RouteItemType extends Omit<BreadcrumbItemProps, 'children'> {
   key?: React.Key;
   path?: string;
   breadcrumbName?: React.ReactNode;
-  children?: Omit<Route, 'children'>[];
+  children?: Omit<RouteItemType, 'children'>[];
 }
 
-export type Routes = Route[];
+export type Routes = RouteItemType[];
 
 export interface BreadcrumbProps {
   prefixCls?: string;
   routes?: Routes;
-  params?: any;
+  params?: Params;
   separator?: React.ReactNode;
-  itemRender?: (route: Route, params: Params, routes: Routes, paths: string[]) => React.ReactNode;
+  itemRender?: (
+    route: RouteItemType,
+    params: Params,
+    routes: Routes,
+    paths: string[],
+  ) => React.ReactNode;
   style?: React.CSSProperties;
   className?: string;
   rootClassName?: string;
   children?: React.ReactNode;
 }
 
-function getBreadcrumbName(route: Route, params: any) {
+function getBreadcrumbName(route: RouteItemType, params: Params) {
   if (!route.breadcrumbName) {
     return null;
   }
@@ -45,7 +50,12 @@ function getBreadcrumbName(route: Route, params: any) {
   );
 }
 
-function defaultItemRender(route: Route, params: Params, routes: Route[], paths: string[]) {
+function defaultItemRender(
+  route: RouteItemType,
+  params: Params,
+  routes: RouteItemType[],
+  paths: string[],
+) {
   const isLastItem = routes.indexOf(route) === routes.length - 1;
   const name =
     typeof route.breadcrumbName === 'string'
@@ -54,10 +64,10 @@ function defaultItemRender(route: Route, params: Params, routes: Route[], paths:
   return isLastItem ? <span>{name}</span> : <a href={`#/${paths.join('/')}`}>{name}</a>;
 }
 
-const getPath = (path: string, params: any) => {
+const getPath = (path: string, params: Params) => {
   path = (path || '').replace(/^\//, '');
   Object.keys(params).forEach((key) => {
-    path = path.replace(`:${key}`, params[key]);
+    path = path.replace(`:${key}`, params[key]!);
   });
   return path;
 };

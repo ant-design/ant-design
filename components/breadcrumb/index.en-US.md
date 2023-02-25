@@ -26,6 +26,19 @@ A breadcrumb displays the current location within a hierarchy. It allows going b
 <code src="./demo/overlay.tsx">Bread crumbs with drop down menu</code>
 <code src="./demo/separator-component.tsx">Configuring the Separator</code>
 
+```jsx
+// works when >=5.3.0, recommended ✅
+const routes = [{ breadcrumbName: 'sample' }];
+return <Breadcrumb routes={routes} />;
+
+// works when <5.3.0, deprecated when >=5.3.0 🙅🏻‍♀️
+return (
+  <Breadcrumb>
+    <Breadcrumb.Item>sample</Breadcrumb.Item>
+  </Breadcrumb>
+);
+```
+
 ## API
 
 ### Breadcrumb
@@ -37,7 +50,11 @@ A breadcrumb displays the current location within a hierarchy. It allows going b
 | routes | The routing stack information of router | [routes\[\]](#routes) | - |  |
 | separator | Custom separator | ReactNode | `/` |  |
 
-### Breadcrumb.Item
+### RouteType
+
+> type RouteType = [RouteItemType](#RouteItemType) | [SeparatorType](#SeparatorType)
+
+### RouteItemType
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
@@ -46,12 +63,19 @@ A breadcrumb displays the current location within a hierarchy. It allows going b
 | href | Target of hyperlink | string | - |  |
 | menu | The menu props | [MenuProps](/components/menu/#api) | - | 4.24.0 |
 | onClick | Set the handler to handle click event | (e:MouseEvent) => void | - |  |
+| breadcrumbName | item name | ReactNode | - |  |
 
-### Breadcrumb.Separator
+### SeparatorType
 
-| Property | Description      | Type      | Default | Version |
-| -------- | ---------------- | --------- | ------- | ------- |
-| children | Custom separator | ReactNode | `/`     |         |
+```ts
+const router = {
+  separator: '/', // Must have
+};
+```
+
+| Property  | Description      | Type      | Default | Version |
+| --------- | ---------------- | --------- | ------- | ------- |
+| separator | Custom separator | ReactNode | `/`     |         |
 
 > When using `Breadcrumb.Separator`,its parent component must be set to `separator=""`, otherwise the default separator of the parent component will appear.
 
