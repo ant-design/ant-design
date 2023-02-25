@@ -16,8 +16,14 @@ const App: React.FC = () => (
         breadcrumbName: 'Application Center',
       },
       {
+        separator: '/',
+      },
+      {
         href: '',
         breadcrumbName: 'Application List',
+      },
+      {
+        separator: '/',
       },
       {
         breadcrumbName: 'An Application',

@@ -35,12 +35,10 @@ const App: React.FC = () => (
         breadcrumbName: 'Ant Design',
       },
       {
-        href: '',
-        breadcrumbName: 'Component',
+        breadcrumbName: <a href="">Component</a>,
       },
       {
-        href: '',
-        breadcrumbName: 'General',
+        breadcrumbName: <a href="">General</a>,
         menu: { items: menuItems },
       },
       {

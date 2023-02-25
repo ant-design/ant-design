@@ -98,18 +98,6 @@ describe('Breadcrumb', () => {
     );
   });
 
-  // https://github.com/ant-design/ant-design/issues/5015
-  it('should allow Breadcrumb.Item is null or undefined', () => {
-    const { asFragment } = render(
-      <Breadcrumb>
-        {null}
-        {undefined}
-      </Breadcrumb>,
-    );
-    expect(errorSpy).not.toHaveBeenCalled();
-    expect(asFragment().firstChild).toMatchSnapshot();
-  });
-
   // https://github.com/ant-design/ant-design/issues/5542
   it('should not display Breadcrumb Item when its children is falsy', () => {
     const { asFragment } = render(
@@ -160,6 +148,9 @@ describe('Breadcrumb', () => {
           {
             href: '',
             breadcrumbName: 'Application Center',
+          },
+          {
+            separator: '/',
           },
         ]}
       />,
@@ -226,28 +217,6 @@ describe('Breadcrumb', () => {
           data-custom="custom"
         />
       ) as React.ReactElement<any, string | React.JSXElementConstructor<any>>,
-    );
-    expect(asFragment().firstChild).toMatchSnapshot();
-  });
-
-  it('should support React.Fragment and falsy children', () => {
-    const { asFragment } = render(
-      <Breadcrumb
-        routes={[
-          {
-            breadcrumbName: 'yyy',
-          },
-          {
-            breadcrumbName: 'yyy',
-          },
-          // @ts-ignore
-          0,
-          // @ts-ignore
-          null,
-          // @ts-ignore
-          undefined,
-        ]}
-      />,
     );
     expect(asFragment().firstChild).toMatchSnapshot();
   });

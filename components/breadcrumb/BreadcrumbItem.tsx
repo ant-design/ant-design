@@ -15,7 +15,6 @@ export interface BreadcrumbItemProps {
   onClick?: React.MouseEventHandler<HTMLAnchorElement | HTMLSpanElement>;
   className?: string;
   children?: React.ReactNode;
-  breadcrumbName?: React.ReactNode;
   // Deprecated
   /** @deprecated Please use `menu` instead */
   overlay?: DropdownProps['overlay'];
@@ -31,8 +30,6 @@ const BreadcrumbItem: CompoundedComponent = (props: BreadcrumbItemProps) => {
     menu,
     overlay,
     dropdownProps,
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    breadcrumbName,
     ...restProps
   } = props;
 

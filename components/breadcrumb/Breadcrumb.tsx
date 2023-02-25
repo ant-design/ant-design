@@ -63,7 +63,7 @@ const getPath = (path: string, params: any) => {
 
 const addChildPath = (paths: string[], childPath: string, params: any) => {
   const originalPaths = [...paths];
-  const path = getPath(childPath, params);
+  const path = getPath(childPath || '', params);
   if (path) {
     originalPaths.push(path);
   }
@@ -131,7 +131,6 @@ const Breadcrumb: CompoundedComponent = ({
       }
 
       const isLastItem = index === routes.length - 1;
-      const mergedSeparator = route?.separator ?? separator ?? '/';
 
       if (hasPath && !hasHref) {
         return (
@@ -140,15 +139,20 @@ const Breadcrumb: CompoundedComponent = ({
           </BreadcrumbItem>
         );
       }
-
+      const { breadcrumbName = '', ...otherRoute } = route;
       return (
-        <BreadcrumbItem
-          {...route}
-          separator={isLastItem ? '' : mergedSeparator}
-          key={route?.key ?? index}
-        >
-          {route?.breadcrumbName ?? ''}
-        </BreadcrumbItem>
+        <>
+          {breadcrumbName && (
+            <BreadcrumbItem
+              {...otherRoute}
+              separator={isLastItem ? '' : separator}
+              key={route?.key ?? index}
+            >
+              {breadcrumbName}
+            </BreadcrumbItem>
+          )}
+          {route.separator && <BreadcrumbSeparator>{route.separator}</BreadcrumbSeparator>}
+        </>
       );
     });
   } else if (children) {

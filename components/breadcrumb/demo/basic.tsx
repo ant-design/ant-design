@@ -8,12 +8,10 @@ const App: React.FC = () => (
         breadcrumbName: 'Home',
       },
       {
-        href: '',
-        breadcrumbName: 'Application Center',
+        breadcrumbName: <a href="">Application Center</a>,
       },
       {
-        href: '',
-        breadcrumbName: 'Application List',
+        breadcrumbName: <a href="">Application List</a>,
       },
       {
         breadcrumbName: 'An Application',
