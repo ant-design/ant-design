@@ -12,7 +12,7 @@ import Circle from './Circle';
 import Line from './Line';
 import Steps from './Steps';
 import useStyle from './style';
-import { getSuccessPercent, validProgress } from './utils';
+import { getSize, getSuccessPercent, validProgress } from './utils';
 
 const ProgressTypes = ['line', 'circle', 'dashboard'] as const;
 export type ProgressType = typeof ProgressTypes[number];
@@ -158,7 +158,7 @@ const Progress: React.FC<ProgressProps> = (props) => {
   const classString = classNames(
     prefixCls,
     {
-      [`${prefixCls}-inline-circle`]: type === 'circle' && props.width! <= 20,
+      [`${prefixCls}-inline-circle`]: type === 'circle' && getSize(size, 'circle')[0] <= 20,
       [`${prefixCls}-${(type === 'dashboard' && 'circle') || (steps && 'steps') || type}`]: true,
       [`${prefixCls}-status-${progressStatus}`]: true,
       [`${prefixCls}-show-info`]: showInfo,
