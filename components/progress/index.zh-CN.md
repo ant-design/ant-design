@@ -63,15 +63,17 @@ demo:
 
 ### `type="circle"`
 
-| 属性        | 说明                                             | 类型             | 默认值 |
-| ----------- | ------------------------------------------------ | ---------------- | ------ |
-| strokeColor | 圆形进度条线的色彩，传入 object 时为渐变         | string \| object | -      |
-| strokeWidth | 圆形进度条线的宽度，单位是进度条画布宽度的百分比 | number           | 6      |
+| 属性 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| strokeColor | 圆形进度条线的色彩，传入 object 时为渐变 | string \| object | - | - |
+| strokeWidth | 圆形进度条线的宽度，单位是进度条画布宽度的百分比 | number | 6 | - |
+| width | 圆形进度条画布宽度，单位 px | number | 120 | < 5.3.0 |
 
 ### `type="dashboard"`
 
-| 属性 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| gapDegree | 仪表盘进度条缺口角度，可取值 0 ~ 295 | number | 75 |
-| gapPosition | 仪表盘进度条缺口位置 | `top` \| `bottom` \| `left` \| `right` | `bottom` |
-| strokeWidth | 仪表盘进度条线的宽度，单位是进度条画布宽度的百分比 | number | 6 |
+| 属性 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| gapDegree | 仪表盘进度条缺口角度，可取值 0 ~ 295 | number | 75 | - |
+| gapPosition | 仪表盘进度条缺口位置 | `top` \| `bottom` \| `left` \| `right` | `bottom` | - |
+| strokeWidth | 仪表盘进度条线的宽度，单位是进度条画布宽度的百分比 | number | 6 | - |
+| width | 仪表盘进度条画布宽度，单位 px | number | 120 | < 5.3.0 |

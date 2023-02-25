@@ -73,12 +73,12 @@ export const getSize = (
     }
   } else if (type === 'circle' || type === 'dashboard') {
     if (typeof size === 'string' || typeof size === 'undefined') {
-      [width, height] = size === 'small' ? [60, 60] : [132, 132];
+      [width, height] = size === 'small' ? [60, 60] : [120, 120];
     } else if (typeof size === 'number') {
       [width, height] = [size, size];
     } else {
-      width = size[0] ?? size[1] ?? 132;
-      height = size[0] ?? size[1] ?? 132;
+      width = size[0] ?? size[1] ?? 120;
+      height = size[0] ?? size[1] ?? 120;
     }
   }
   return [width, height];
