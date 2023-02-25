@@ -139,20 +139,16 @@ const Breadcrumb: CompoundedComponent = ({
           </BreadcrumbItem>
         );
       }
-      const { breadcrumbName = '', ...otherRoute } = route;
+      const { breadcrumbName, ...otherRoute } = route;
       return (
-        <>
-          {breadcrumbName && (
-            <BreadcrumbItem
-              {...otherRoute}
-              separator={isLastItem ? '' : separator}
-              key={route?.key ?? index}
-            >
+        <React.Fragment key={route?.key ?? index}>
+          {(breadcrumbName !== undefined || !route.menu || !overlay) && (
+            <BreadcrumbItem {...otherRoute} separator={isLastItem ? '' : separator}>
               {breadcrumbName}
             </BreadcrumbItem>
           )}
           {route.separator && <BreadcrumbSeparator>{route.separator}</BreadcrumbSeparator>}
-        </>
+        </React.Fragment>
       );
     });
   } else if (children) {
