@@ -73,6 +73,7 @@ const Line: React.FC<LineProps> = (props) => {
     direction: directionConfig,
     percent,
     size,
+    strokeWidth,
     strokeColor,
     strokeLinecap = 'round',
     children,
@@ -92,7 +93,9 @@ const Line: React.FC<LineProps> = (props) => {
     borderRadius,
   };
 
-  const [width, height] = getSize(size, 'line');
+  const mergedSize = size ?? [-1, strokeWidth || (size === 'small' ? 6 : 8)];
+
+  const [width, height] = getSize(mergedSize, 'line', { strokeWidth });
 
   if (process.env.NODE_ENV !== 'production') {
     warning(

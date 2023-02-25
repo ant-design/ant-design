@@ -1543,12 +1543,12 @@ Array [
             class="ant-steps-progress-icon"
           >
             <div
-              class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+              class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info"
               role="progressbar"
             >
               <div
                 class="ant-progress-inner"
-                style="width:120px;height:120px;font-size:24px"
+                style="width:40px;height:40px;font-size:12px"
               >
                 <svg
                   class="ant-progress-circle"
@@ -2309,12 +2309,12 @@ exports[`renders ./components/steps/demo/progress.tsx correctly 1`] = `
           class="ant-steps-progress-icon"
         >
           <div
-            class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+            class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info"
             role="progressbar"
           >
             <div
               class="ant-progress-inner"
-              style="width:120px;height:120px;font-size:24px"
+              style="width:40px;height:40px;font-size:12px"
             >
               <svg
                 class="ant-progress-circle"
@@ -2556,12 +2556,12 @@ Array [
             class="ant-steps-progress-icon"
           >
             <div
-              class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+              class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info"
               role="progressbar"
             >
               <div
                 class="ant-progress-inner"
-                style="width:120px;height:120px;font-size:24px"
+                style="width:40px;height:40px;font-size:12px"
               >
                 <svg
                   class="ant-progress-circle"
@@ -2738,12 +2738,12 @@ Array [
             class="ant-steps-progress-icon"
           >
             <div
-              class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+              class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info"
               role="progressbar"
             >
               <div
                 class="ant-progress-inner"
-                style="width:120px;height:120px;font-size:24px"
+                style="width:32px;height:32px;font-size:10.8px"
               >
                 <svg
                   class="ant-progress-circle"
@@ -2920,12 +2920,12 @@ Array [
             class="ant-steps-progress-icon"
           >
             <div
-              class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+              class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info"
               role="progressbar"
             >
               <div
                 class="ant-progress-inner"
-                style="width:120px;height:120px;font-size:24px"
+                style="width:40px;height:40px;font-size:12px"
               >
                 <svg
                   class="ant-progress-circle"
@@ -3102,12 +3102,12 @@ Array [
             class="ant-steps-progress-icon"
           >
             <div
-              class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+              class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info"
               role="progressbar"
             >
               <div
                 class="ant-progress-inner"
-                style="width:120px;height:120px;font-size:24px"
+                style="width:32px;height:32px;font-size:10.8px"
               >
                 <svg
                   class="ant-progress-circle"

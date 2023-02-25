@@ -24,13 +24,16 @@ const Circle: React.FC<CircleProps> = (props) => {
     strokeLinecap = 'round',
     gapPosition,
     gapDegree,
+    width: oriWidth = 120,
     type,
     children,
     success,
     size,
   } = props;
 
-  const [width, height] = getSize(size, 'circle');
+  const mergedSize = size ?? [oriWidth, oriWidth];
+
+  const [width, height] = getSize(mergedSize, 'circle');
 
   let { strokeWidth } = props;
   if (strokeWidth === undefined) {

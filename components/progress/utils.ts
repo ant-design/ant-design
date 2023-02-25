@@ -48,15 +48,17 @@ export const getSize = (
   type: ProgressProps['type'] | 'step',
   extra?: {
     steps?: number;
+    strokeWidth?: number;
   },
 ): [number, number] => {
   let width: number = -1;
   let height: number = -1;
   if (type === 'step') {
     const steps = extra!.steps!;
+    const strokeWidth = extra!.strokeWidth!;
     if (typeof size === 'string' || typeof size === 'undefined') {
       width = size === 'small' ? 2 : 14;
-      height = 8;
+      height = strokeWidth ?? 8;
     } else if (typeof size === 'number') {
       [width, height] = [size, size];
     } else {
@@ -64,8 +66,9 @@ export const getSize = (
     }
     width *= steps;
   } else if (type === 'line') {
+    const strokeWidth = extra!.strokeWidth!;
     if (typeof size === 'string' || typeof size === 'undefined') {
-      height = size === 'small' ? 6 : 8;
+      height = strokeWidth || (size === 'small' ? 6 : 8);
     } else if (typeof size === 'number') {
       [width, height] = [size, size];
     } else {
