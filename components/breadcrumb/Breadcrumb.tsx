@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
 import * as React from 'react';
+import type { Params } from 'react-router-dom';
 import { ConfigContext } from '../config-provider';
 import type { DropdownProps } from '../dropdown';
 import Menu from '../menu';
@@ -26,7 +27,7 @@ export interface BreadcrumbProps {
   routes?: Routes;
   params?: any;
   separator?: React.ReactNode;
-  itemRender?: (route: Route, params: any, routes: Routes, paths: string[]) => React.ReactNode;
+  itemRender?: (route: Route, params: Params, routes: Routes, paths: string[]) => React.ReactNode;
   style?: React.CSSProperties;
   className?: string;
   rootClassName?: string;
@@ -44,7 +45,7 @@ function getBreadcrumbName(route: Route, params: any) {
   );
 }
 
-function defaultItemRender(route: Route, params: any, routes: Route[], paths: string[]) {
+function defaultItemRender(route: Route, params: Params, routes: Route[], paths: string[]) {
   const isLastItem = routes.indexOf(route) === routes.length - 1;
   const name =
     typeof route.breadcrumbName === 'string'
@@ -61,7 +62,7 @@ const getPath = (path: string, params: any) => {
   return path;
 };
 
-const addChildPath = (paths: string[], childPath: string, params: any) => {
+const addChildPath = (paths: string[], childPath: string, params: Params) => {
   const originalPaths = [...paths];
   const path = getPath(childPath || '', params);
   if (path) {
