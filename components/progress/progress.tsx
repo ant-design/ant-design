@@ -14,7 +14,7 @@ import Steps from './Steps';
 import useStyle from './style';
 import { getSuccessPercent, validProgress } from './utils';
 
-const ProgressTypes = ['line', 'circle', 'dashboard'] as const;
+export const ProgressTypes = ['line', 'circle', 'dashboard'] as const;
 export type ProgressType = typeof ProgressTypes[number];
 const ProgressStatuses = ['normal', 'exception', 'active', 'success'] as const;
 export type ProgressSize = 'default' | 'small';
@@ -110,7 +110,7 @@ const Progress: React.FC<ProgressProps> = (props) => {
         {text}
       </span>
     );
-  }, [showInfo, percentNumber, progressStatus, type, prefixCls, format]);
+  }, [showInfo, percent, percentNumber, progressStatus, type, prefixCls, format]);
 
   warning(
     !('successPercent' in props),
