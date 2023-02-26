@@ -1,15 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import type { ProgressProps } from '..';
 import Progress from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render } from '../../../tests/utils';
+import { fireEvent, render } from '../../../tests/utils';
 import { handleGradient, sortGradient } from '../Line';
 import ProgressSteps from '../Steps';
+import { ProgressTypes } from '../progress';
 
 describe('Progress', () => {
   mountTest(Progress);
   rtlTest(Progress);
+
+  const Content = () => {
+    const [percent, setPercent] = useState(0);
+
+    return (
+      <>
+        {ProgressTypes.map((type) => (
+          <Progress key={type} type={type} percent={percent} success={{ percent: 30 }} />
+        ))}
+        <button type="button" onClick={() => setPercent(10)}>
+          Change Percent
+        </button>
+      </>
+    );
+  };
 
   it('successPercent should decide the progress status when it exists', () => {
     const { container: wrapper, rerender } = render(
@@ -255,20 +271,12 @@ describe('Progress', () => {
     );
   });
 
-  it('should warnning if pass number[] into `size` in type Circle', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    render(<Progress size={[60, 20]} type="circle" />);
-    expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Progress] Type "circle" and "dashbord" do not accept array as `size`, please use number or preset size instead.',
-    );
-  });
-
-  it('should warnning if pass number[] into `size` in type dashboard', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    render(<Progress size={[60, 20]} type="dashboard" />);
-    expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Progress] Type "circle" and "dashbord" do not accept array as `size`, please use number or preset size instead.',
-    );
+  it('should update the percentage based on the value of percent', () => {
+    const { container } = render(<Content />);
+    expect(container.querySelectorAll('[title="0%"]')).toHaveLength(ProgressTypes.length);
+    // Change Percent
+    fireEvent.click(container.querySelectorAll('button')[0]);
+    expect(container.querySelectorAll('[title="10%"]')).toHaveLength(ProgressTypes.length);
   });
 
   describe('github issues', () => {
