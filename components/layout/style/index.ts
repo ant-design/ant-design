@@ -66,33 +66,6 @@ const genLayoutStyle: GenerateStyle<LayoutToken, CSSObject> = (token) => {
         flex: '0 0 auto',
       },
 
-      [`${componentCls}-header`]: {
-        height: layoutHeaderHeight,
-        paddingInline: layoutHeaderPaddingInline,
-        color: layoutHeaderColor,
-        lineHeight: `${layoutHeaderHeight}px`,
-        background: colorBgHeader,
-        // Other components/menu/style/index.less line:686
-        // Integration with header element so menu items have the same height
-        [`${antCls}-menu`]: {
-          lineHeight: 'inherit',
-        },
-      },
-
-      [`${componentCls}-footer`]: {
-        padding: layoutFooterPadding,
-        color: colorText,
-        fontSize,
-        background: colorBgBody,
-      },
-
-      [`${componentCls}-content`]: {
-        flex: 'auto',
-
-        // fix firefox can't set height smaller than content on flex item
-        minHeight: 0,
-      },
-
       [`${componentCls}-sider`]: {
         position: 'relative',
 
@@ -190,6 +163,37 @@ const genLayoutStyle: GenerateStyle<LayoutToken, CSSObject> = (token) => {
       '&-rtl': {
         direction: 'rtl',
       },
+    },
+
+    // ==================== Header ====================
+    [`${componentCls}-header`]: {
+      height: layoutHeaderHeight,
+      paddingInline: layoutHeaderPaddingInline,
+      color: layoutHeaderColor,
+      lineHeight: `${layoutHeaderHeight}px`,
+      background: colorBgHeader,
+
+      // Other components/menu/style/index.less line:686
+      // Integration with header element so menu items have the same height
+      [`${antCls}-menu`]: {
+        lineHeight: 'inherit',
+      },
+    },
+
+    // ==================== Footer ====================
+    [`${componentCls}-footer`]: {
+      padding: layoutFooterPadding,
+      color: colorText,
+      fontSize,
+      background: colorBgBody,
+    },
+
+    // =================== Content ====================
+    [`${componentCls}-content`]: {
+      flex: 'auto',
+
+      // fix firefox can't set height smaller than content on flex item
+      minHeight: 0,
     },
   };
 };
