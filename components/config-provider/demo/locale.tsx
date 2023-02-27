@@ -11,9 +11,11 @@ import {
   Select,
   Space,
   Table,
+  theme,
   TimePicker,
   Transfer,
 } from 'antd';
+import type { Locale } from 'antd/es/locale';
 import enUS from 'antd/locale/en_US';
 import zhCN from 'antd/locale/zh_CN';
 import dayjs from 'dayjs';
@@ -38,6 +40,8 @@ const columns = [
 ];
 
 const Page: React.FC = () => {
+  const { token } = theme.useToken();
+
   const [open, setOpen] = useState(false);
 
   const showModal = () => {
@@ -89,7 +93,7 @@ const Page: React.FC = () => {
         </Popconfirm>
       </Space>
       <Transfer dataSource={[]} showSearch targetKeys={[]} />
-      <div style={{ width: 320, border: `1px solid #d9d9d9`, borderRadius: 8 }}>
+      <div style={{ width: 320, border: `1px solid ${token.colorBorder}`, borderRadius: 8 }}>
         <Calendar fullscreen={false} value={dayjs()} />
       </div>
       <Table dataSource={[]} columns={columns} />
@@ -101,7 +105,7 @@ const Page: React.FC = () => {
 };
 
 const App: React.FC = () => {
-  const [locale, setLocal] = useState(enUS);
+  const [locale, setLocal] = useState<Locale>(enUS);
 
   const changeLocale = (e: RadioChangeEvent) => {
     const localeValue = e.target.value;
