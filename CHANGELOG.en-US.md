@@ -29,7 +29,7 @@ timeline: true
 - 🐞 Fixed an issue where Descriptions did not accept `data-_` and `aria-_` attributes. [#40859](https://github.com/ant-design/ant-design/pull/40859) [@goveo](https://github.com/goveo)
 - 🛠 Changed the Separator's DOM element from `span` to `li`. [#40867](https://github.com/ant-design/ant-design/pull/40867) [@heiyu4585](https://github.com/heiyu4585)
 - 💄 Changed the component's focus `outline` to the default `4px`.[#40839](https://github.com/ant-design/ant-design/pull/40839) [@MadCcc](https://github.com/MadCcc)
-- 🐞 Fixed an issue where the Badge color was displayed abnormally. [#40848](https://github.com/ant-design/ant-design/pull/40848) [@kiner-tang](https://github.com/kiner-tang)
+- 🐞 Fixed the Badge color was displayed abnormally. [#40848](https://github.com/ant-design/ant-design/pull/40848) [@kiner-tang](https://github.com/kiner-tang)
 - 🐞 Fixed an issue with the Timeline item's `className`. [#40835](https://github.com/ant-design/ant-design/pull/40835) [@Yuiai01](https://github.com/Yuiai01)
 - 💄 Fixed the interaction style of the Rate component in the disabled state.[#40836](https://github.com/ant-design/ant-design/pull/40836) [@Yuiai01](https://github.com/Yuiai01)
 - 🇮🇷 Added Iranian localization. [#40895](https://github.com/ant-design/ant-design/pull/40895) [@majidsadr](https://github.com/majidsadr)
