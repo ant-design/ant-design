@@ -146,7 +146,7 @@ const Page: React.FC = () => {
       <div style={{ width: 320, border: `1px solid ${token.colorBorder}`, borderRadius: 8 }}>
         <Calendar fullscreen={false} value={dayjs()} />
       </div>
-      <Form name="basic" autoComplete="off" labelCol={{ span: 2 }} wrapperCol={{ span: 6 }}>
+      <Form name="basic" autoComplete="off" labelCol={{ sm: { span: 4 } }} wrapperCol={{ span: 6 }}>
         <Form.Item label="Username" name="username" rules={[{ required: true }]}>
           <Input width={200} />
         </Form.Item>
@@ -168,7 +168,7 @@ const Page: React.FC = () => {
       <Modal title="Locale Modal" open={open} onCancel={hideModal}>
         <p>Locale Modal</p>
       </Modal>
-      <Space wrap>
+      <Space wrap size={80}>
         <QRCode
           value="https://ant.design/"
           status="expired"
