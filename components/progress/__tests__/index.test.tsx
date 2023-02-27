@@ -259,7 +259,7 @@ describe('Progress', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(<Progress size={[60, 20]} type="circle" />);
     expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Progress] pls pass number type value into "size" when use "circle" or "dashboard" type',
+      'Warning: [antd: Progress] Type "circle" and "dashbord" do not accept array as `size`, please use number or preset size instead.',
     );
   });
 
@@ -267,7 +267,7 @@ describe('Progress', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(<Progress size={[60, 20]} type="dashboard" />);
     expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Progress] pls pass number type value into "size" when use "circle" or "dashboard" type',
+      'Warning: [antd: Progress] Type "circle" and "dashbord" do not accept array as `size`, please use number or preset size instead.',
     );
   });
 

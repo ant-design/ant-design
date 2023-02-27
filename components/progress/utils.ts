@@ -66,7 +66,7 @@ export const getSize = (
     }
     width *= steps;
   } else if (type === 'line') {
-    const strokeWidth = extra!.strokeWidth!;
+    const strokeWidth = extra?.strokeWidth;
     if (typeof size === 'string' || typeof size === 'undefined') {
       height = strokeWidth || (size === 'small' ? 6 : 8);
     } else if (typeof size === 'number') {
@@ -84,7 +84,7 @@ export const getSize = (
         warning(
           false,
           'Progress',
-          'pls pass number type value into "size" when use "circle" or "dashboard" type',
+          'Type "circle" and "dashbord" do not accept array as `size`, please use number or preset size instead.',
         );
       }
 

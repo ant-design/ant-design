@@ -121,14 +121,14 @@ const Line: React.FC<LineProps> = (props) => {
     backgroundColor: success?.strokeColor,
   };
 
-  const outterStyle: React.CSSProperties = {
+  const outerStyle: React.CSSProperties = {
     width: width < 0 ? '100%' : width,
     height,
   };
 
   return (
     <>
-      <div className={`${prefixCls}-outer`} style={outterStyle}>
+      <div className={`${prefixCls}-outer`} style={outerStyle}>
         <div className={`${prefixCls}-inner`} style={trailStyle}>
           <div className={`${prefixCls}-bg`} style={percentStyle} />
           {successPercent !== undefined ? (
