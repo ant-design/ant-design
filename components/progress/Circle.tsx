@@ -31,7 +31,7 @@ const Circle: React.FC<CircleProps> = (props) => {
     size,
   } = props;
 
-  const mergedSize = size ?? [oriWidth, oriWidth];
+  const mergedSize = size ?? [originWidth, originWidth];
 
   const [width, height] = getSize(mergedSize, 'circle');
 
