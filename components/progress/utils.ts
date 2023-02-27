@@ -80,8 +80,8 @@ export const getSize = (
     } else if (typeof size === 'number') {
       [width, height] = [size, size];
     } else {
-      width = size[0] ?? size[1] ?? 120;
-      height = size[0] ?? size[1] ?? 120;
+      width = size[0] ?? 120;
+      height = size[1] ?? size[0] ?? 120;
     }
   }
   return [width, height];
