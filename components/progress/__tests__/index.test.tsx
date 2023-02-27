@@ -263,7 +263,7 @@ describe('Progress', () => {
     );
   });
 
-  it('should warnning if pass number[] into `size` in success in type dashboard', () => {
+  it('should warnning if pass number[] into `size` in type dashboard', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(<Progress size={[60, 20]} type="dashboard" />);
     expect(errorSpy).toHaveBeenCalledWith(
