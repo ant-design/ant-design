@@ -43,10 +43,12 @@ function getBreadcrumbName(route: RouteItemType, params: any) {
     return null;
   }
   const paramsKeys = Object.keys(params).join('|');
-  return `${route.breadcrumbName}`.replace(
-    new RegExp(`:(${paramsKeys})`, 'g'),
-    (replacement, key) => params[key] || replacement,
-  );
+  return typeof route.breadcrumbName === 'object'
+    ? route.breadcrumbName
+    : String(route.breadcrumbName).replace(
+        new RegExp(`:(${paramsKeys})`, 'g'),
+        (replacement, key) => params[key] || replacement,
+      );
 }
 
 function defaultItemRender(
@@ -56,10 +58,7 @@ function defaultItemRender(
   paths: string[],
 ) {
   const isLastItem = routes.indexOf(route) === routes.length - 1;
-  const name =
-    typeof route.breadcrumbName === 'string'
-      ? getBreadcrumbName(route, params)
-      : route.breadcrumbName;
+  const name = getBreadcrumbName(route, params);
   return isLastItem ? <span>{name}</span> : <a href={`#/${paths.join('/')}`}>{name}</a>;
 }
 
