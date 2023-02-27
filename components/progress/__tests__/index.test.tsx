@@ -12,21 +12,6 @@ describe('Progress', () => {
   mountTest(Progress);
   rtlTest(Progress);
 
-  const Content = () => {
-    const [percent, setPercent] = useState(0);
-
-    return (
-      <>
-        {ProgressTypes.map((type) => (
-          <Progress key={type} type={type} percent={percent} success={{ percent: 30 }} />
-        ))}
-        <button type="button" onClick={() => setPercent(10)}>
-          Change Percent
-        </button>
-      </>
-    );
-  };
-
   it('successPercent should decide the progress status when it exists', () => {
     const { container: wrapper, rerender } = render(
       <Progress percent={100} success={{ percent: 50 }} />,
@@ -272,6 +257,21 @@ describe('Progress', () => {
   });
 
   it('should update the percentage based on the value of percent', () => {
+    const Content: React.FC = () => {
+      const [percent, setPercent] = useState(0);
+
+      return (
+        <>
+          {ProgressTypes.map((type) => (
+            <Progress key={type} type={type} percent={percent} success={{ percent: 30 }} />
+          ))}
+          <button type="button" onClick={() => setPercent(10)}>
+            Change Percent
+          </button>
+        </>
+      );
+    };
+
     const { container } = render(<Content />);
     expect(container.querySelectorAll('[title="0%"]')).toHaveLength(ProgressTypes.length);
     // Change Percent
