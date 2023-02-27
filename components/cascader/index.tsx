@@ -180,12 +180,6 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
       'Cascader',
       '`displayRender` not work on `multiple`. Please use `tagRender` instead.',
     );
-
-    warning(
-      !dropdownClassName,
-      'Cascader',
-      '`dropdownClassName` is deprecated. Please use `popupClassName` instead.',
-    );
   }
 
   // =================== No Found ====================
