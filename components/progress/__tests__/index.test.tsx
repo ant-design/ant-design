@@ -255,6 +255,22 @@ describe('Progress', () => {
     );
   });
 
+  it('should warnning if pass number[] into `size` in success in type Circle', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(<Progress size={[60, 20]} type="circle" />);
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Progress] pls pass number type value into "size" when use "circle" or "dashboard" type',
+    );
+  });
+
+  it('should warnning if pass number[] into `size` in success in type dashboard', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(<Progress size={[60, 20]} type="dashboard" />);
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Progress] pls pass number type value into "size" when use "circle" or "dashboard" type',
+    );
+  });
+
   describe('github issues', () => {
     // https://github.com/ant-design/ant-design/issues/30685
     it('Rendered more hooks than during the previous render', () => {

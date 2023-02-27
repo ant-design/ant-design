@@ -80,8 +80,16 @@ export const getSize = (
     } else if (typeof size === 'number') {
       [width, height] = [size, size];
     } else {
-      width = size[0] ?? 120;
-      height = size[1] ?? size[0] ?? 120;
+      if (process.env.NODE_ENV !== 'production') {
+        warning(
+          false,
+          'Progress',
+          'pls pass number type value into "size" when use "circle" or "dashboard" type',
+        );
+      }
+
+      width = size[0] ?? size[1] ?? 120;
+      height = size[0] ?? size[1] ?? 120;
     }
   }
   return [width, height];
