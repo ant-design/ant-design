@@ -1,6 +1,7 @@
 ---
 category: Components
 subtitle: 图标
+description: 语义化的矢量图形。
 group: 通用
 title: Icon
 toc: false
@@ -10,7 +11,9 @@ demo:
   cols: 2
 ---
 
-语义化的矢量图形。使用图标组件，你需要安装 `@ant-design/icons` 图标组件包：
+## 使用方法
+
+使用图标组件，你需要安装 `@ant-design/icons` 图标组件包：
 
 ```bash
 npm install --save @ant-design/icons

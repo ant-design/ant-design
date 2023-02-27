@@ -53,7 +53,7 @@ export interface AffixState {
   prevTarget: Window | HTMLElement | null;
 }
 
-class Affix extends React.Component<InternalAffixProps, AffixState> {
+class InternalAffix extends React.Component<InternalAffixProps, AffixState> {
   static contextType = ConfigContext;
 
   state: AffixState = {
@@ -165,15 +165,15 @@ class Affix extends React.Component<InternalAffixProps, AffixState> {
       status: AffixStatus.None,
     };
     const targetRect = getTargetRect(targetNode);
-    const placeholderReact = getTargetRect(this.placeholderNodeRef.current);
-    const fixedTop = getFixedTop(placeholderReact, targetRect, offsetTop);
-    const fixedBottom = getFixedBottom(placeholderReact, targetRect, offsetBottom);
+    const placeholderRect = getTargetRect(this.placeholderNodeRef.current);
+    const fixedTop = getFixedTop(placeholderRect, targetRect, offsetTop);
+    const fixedBottom = getFixedBottom(placeholderRect, targetRect, offsetBottom);
 
     if (
-      placeholderReact.top === 0 &&
-      placeholderReact.left === 0 &&
-      placeholderReact.width === 0 &&
-      placeholderReact.height === 0
+      placeholderRect.top === 0 &&
+      placeholderRect.left === 0 &&
+      placeholderRect.width === 0 &&
+      placeholderRect.height === 0
     ) {
       return;
     }
@@ -182,23 +182,23 @@ class Affix extends React.Component<InternalAffixProps, AffixState> {
       newState.affixStyle = {
         position: 'fixed',
         top: fixedTop,
-        width: placeholderReact.width,
-        height: placeholderReact.height,
+        width: placeholderRect.width,
+        height: placeholderRect.height,
       };
       newState.placeholderStyle = {
-        width: placeholderReact.width,
-        height: placeholderReact.height,
+        width: placeholderRect.width,
+        height: placeholderRect.height,
       };
     } else if (fixedBottom !== undefined) {
       newState.affixStyle = {
         position: 'fixed',
         bottom: fixedBottom,
-        width: placeholderReact.width,
-        height: placeholderReact.height,
+        width: placeholderRect.width,
+        height: placeholderRect.height,
       };
       newState.placeholderStyle = {
-        width: placeholderReact.width,
-        height: placeholderReact.height,
+        width: placeholderRect.width,
+        height: placeholderRect.height,
       };
     }
 
@@ -241,9 +241,9 @@ class Affix extends React.Component<InternalAffixProps, AffixState> {
       const targetNode = targetFunc();
       if (targetNode && this.placeholderNodeRef.current) {
         const targetRect = getTargetRect(targetNode);
-        const placeholderReact = getTargetRect(this.placeholderNodeRef.current);
-        const fixedTop = getFixedTop(placeholderReact, targetRect, offsetTop);
-        const fixedBottom = getFixedBottom(placeholderReact, targetRect, offsetBottom);
+        const placeholderRect = getTargetRect(this.placeholderNodeRef.current);
+        const fixedTop = getFixedTop(placeholderRect, targetRect, offsetTop);
+        const fixedBottom = getFixedBottom(placeholderRect, targetRect, offsetBottom);
 
         if (
           (fixedTop !== undefined && affixStyle.top === fixedTop) ||
@@ -293,9 +293,9 @@ class Affix extends React.Component<InternalAffixProps, AffixState> {
   }
 }
 // just use in test
-export type InternalAffixClass = Affix;
+export type InternalAffixClass = InternalAffix;
 
-const AffixFC = forwardRef<Affix, AffixProps>((props, ref) => {
+const Affix = forwardRef<InternalAffix, AffixProps>((props, ref) => {
   const { prefixCls: customizePrefixCls, rootClassName } = props;
   const { getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
   const affixPrefixCls = getPrefixCls('affix', customizePrefixCls);
@@ -308,11 +308,11 @@ const AffixFC = forwardRef<Affix, AffixProps>((props, ref) => {
     rootClassName: classNames(rootClassName, hashId),
   };
 
-  return wrapSSR(<Affix {...AffixProps} ref={ref} />);
+  return wrapSSR(<InternalAffix {...AffixProps} ref={ref} />);
 });
 
 if (process.env.NODE_ENV !== 'production') {
-  AffixFC.displayName = 'Affix';
+  Affix.displayName = 'Affix';
 }
 
-export default AffixFC;
+export default Affix;

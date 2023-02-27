@@ -351,7 +351,7 @@ export default genComponentStyleHook(
     const listToken = mergeToken<ListToken>(token, {
       listBorderedCls: `${token.componentCls}-bordered`,
       minHeight: token.controlHeightLG,
-      listItemPadding: `${token.paddingContentVertical}px ${token.paddingContentHorizontalLG}px`,
+      listItemPadding: `${token.paddingContentVertical}px 0`,
       listItemPaddingSM: `${token.paddingContentVerticalSM}px ${token.paddingContentHorizontal}px`,
       listItemPaddingLG: `${token.paddingContentVerticalLG}px ${token.paddingContentHorizontalLG}px`,
     });

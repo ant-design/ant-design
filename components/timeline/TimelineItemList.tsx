@@ -52,13 +52,16 @@ const TimelineItemList: React.FC<TimelineProps & { hashId: string; direction?: s
     .map((item: TimelineItemProps, idx: number) => {
       const pendingClass = idx === itemsCount - 2 ? lastCls : '';
       const readyClass = idx === itemsCount - 1 ? lastCls : '';
+      const { className: itemClassName, ...itemProps } = item;
+
       return (
         <TimelineItem
+          {...itemProps}
           className={classNames([
+            itemClassName,
             !reverse && !!pending ? pendingClass : readyClass,
             getPositionCls(item?.position ?? '', idx),
           ])}
-          {...item}
           /* eslint-disable-next-line react/no-array-index-key */
           key={item?.key || idx}
         />

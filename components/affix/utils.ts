@@ -1,4 +1,5 @@
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
+import type { InternalAffixClass } from '.';
 
 export type BindElement = HTMLElement | Window | null | undefined;
 
@@ -8,19 +9,19 @@ export function getTargetRect(target: BindElement): DOMRect {
     : ({ top: 0, bottom: window.innerHeight } as DOMRect);
 }
 
-export function getFixedTop(placeholderReact: DOMRect, targetRect: DOMRect, offsetTop?: number) {
-  if (offsetTop !== undefined && targetRect.top > placeholderReact.top - offsetTop) {
+export function getFixedTop(placeholderRect: DOMRect, targetRect: DOMRect, offsetTop?: number) {
+  if (offsetTop !== undefined && targetRect.top > placeholderRect.top - offsetTop) {
     return offsetTop + targetRect.top;
   }
   return undefined;
 }
 
 export function getFixedBottom(
-  placeholderReact: DOMRect,
+  placeholderRect: DOMRect,
   targetRect: DOMRect,
   offsetBottom?: number,
 ) {
-  if (offsetBottom !== undefined && targetRect.bottom < placeholderReact.bottom + offsetBottom) {
+  if (offsetBottom !== undefined && targetRect.bottom < placeholderRect.bottom + offsetBottom) {
     const targetBottomOffset = window.innerHeight - targetRect.bottom;
     return offsetBottom + targetBottomOffset;
   }
@@ -51,7 +52,10 @@ export function getObserverEntities() {
   return observerEntities;
 }
 
-export function addObserveTarget<T>(target: HTMLElement | Window | null, affix?: T): void {
+export function addObserveTarget<T extends InternalAffixClass>(
+  target: HTMLElement | Window | null,
+  affix?: T,
+): void {
   if (!target) {
     return;
   }
@@ -79,7 +83,7 @@ export function addObserveTarget<T>(target: HTMLElement | Window | null, affix?:
   }
 }
 
-export function removeObserveTarget<T>(affix: T): void {
+export function removeObserveTarget<T extends InternalAffixClass>(affix: T): void {
   const observerEntity = observerEntities.find((oriObserverEntity) => {
     const hasAffix = oriObserverEntity.affixList.some((item) => item === affix);
     if (hasAffix) {

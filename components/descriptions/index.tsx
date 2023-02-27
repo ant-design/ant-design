@@ -130,6 +130,7 @@ function Descriptions({
   size,
   labelStyle,
   contentStyle,
+  ...restProps
 }: DescriptionsProps) {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('descriptions', customizePrefixCls);
@@ -175,6 +176,7 @@ function Descriptions({
           hashId,
         )}
         style={style}
+        {...restProps}
       >
         {(title || extra) && (
           <div className={`${prefixCls}-header`}>
