@@ -24,7 +24,7 @@ const Circle: React.FC<CircleProps> = (props) => {
     strokeLinecap = 'round',
     gapPosition,
     gapDegree,
-    width: oriWidth = 120,
+    width: originWidth = 120,
     type,
     children,
     success,
