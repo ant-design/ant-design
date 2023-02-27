@@ -176,9 +176,9 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
   // =================== Warning =====================
   if (process.env.NODE_ENV !== 'production') {
     warning(
-      !multiple || !props.displayRender,
+      !dropdownClassName,
       'Cascader',
-      '`displayRender` not work on `multiple`. Please use `tagRender` instead.',
+      '`dropdownClassName` is deprecated. Please use `popupClassName` instead.',
     );
   }
 
