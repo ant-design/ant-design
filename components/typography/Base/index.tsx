@@ -139,6 +139,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
 
   const typographyRef = React.useRef<HTMLElement>(null);
   const editIconRef = React.useRef<HTMLDivElement>(null);
+  const nodeRef = React.useRef<HTMLElement>(null);
 
   // ============================ MISC ============================
   const prefixCls = getPrefixCls('typography', customizePrefixCls);
@@ -339,6 +340,28 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     };
   }, [cssEllipsis, mergedEnableEllipsis]);
 
+  React.useEffect(() => {
+    const nodeElement = nodeRef.current;
+
+    if (nodeElement && restProps.code) {
+      const isOverflow = nodeElement.offsetWidth < nodeElement.scrollWidth;
+      const codeElement = nodeElement.childNodes[0] as HTMLElement;
+
+      if (isOverflow && mergedEnableEllipsis) {
+        codeElement.style.display = 'block';
+        codeElement.style.overflow = 'hidden';
+        codeElement.style.textOverflow = 'ellipsis';
+      } else {
+        if (codeElement.style.cssText) {
+          codeElement.style.display = '';
+          codeElement.style.overflow = '';
+          codeElement.style.textOverflow = '';
+        }
+      }
+    }
+  }),
+    [mergedEnableEllipsis];
+
   // ========================== Tooltip ===========================
   let tooltipProps: TooltipProps = {};
   if (ellipsisConfig.tooltip === true) {
@@ -518,7 +541,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
               WebkitLineClamp: cssLineClamp ? rows : undefined,
             }}
             component={component}
-            ref={composeRef(resizeRef, typographyRef, ref)}
+            ref={composeRef(resizeRef, typographyRef, ref, restProps.code ? nodeRef : null)}
             direction={direction}
             onClick={triggerType.includes('text') ? onEditClick : undefined}
             aria-label={topAriaLabel?.toString()}
@@ -550,7 +573,6 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
                     {renderEllipsis(needEllipsis)}
                   </>,
                 );
-
                 return wrappedContext;
               }}
             </Ellipsis>
