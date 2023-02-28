@@ -33,7 +33,7 @@ Add specific text or patterns to the page.
 | height | The height of the watermark, the default value of `content` is its own height | number | 64 |  |
 | rotate | When the watermark is drawn, the rotation Angle, unit `°` | number | -22 |  |
 | zIndex | The z-index of the appended watermark element | number | 9 |  |
-| image | Image source, it is recommended to export 2x or 3x image, high priority | string | - |  |
+| image | Image source, it is recommended to export 2x or 3x image, high priority (support base64 format) | string | - |  |
 | content | Watermark text content | string \| string[] | - |  |
 | font | Text style | [Font](#font) | [Font](#font) |  |
 | gap | The spacing between watermarks | \[number, number\] | \[100, 100\] |  |
@@ -49,3 +49,20 @@ Add specific text or patterns to the page.
 | fontWeight | font weight | `normal` \| `light` \| `weight` \| number | normal |  |
 | fontFamily | font family | string | sans-serif |  |
 | fontStyle | font style  | `none` \| `normal` \| `italic` \| `oblique` | normal |  |
+
+## FAQ
+
+### Handle abnormal image watermarks
+
+When using an image watermark and the image loads abnormally, you can add `content` at the same time to prevent the watermark from becoming invalid (since 5.2.3).
+
+```typescript jsx
+<Watermark
+  height={30}
+  width={130}
+  content="Ant Design"
+  image="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*lkAoRbywo0oAAAAAAAAAAAAADrJ8AQ/original"
+>
+  <div style={{ height: 500 }} />
+</Watermark>
+```
