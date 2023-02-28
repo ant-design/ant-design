@@ -77,8 +77,6 @@ const router = {
 | --------- | ---------------- | --------- | ------- | ------- |
 | separator | Custom separator | ReactNode | `/`     |         |
 
-> When using `SeparatorType`,its parent component must be set to `separator=""`, otherwise the default separator of the parent component will appear.
-
 ### routes
 
 ```ts
