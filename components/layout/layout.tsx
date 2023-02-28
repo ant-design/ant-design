@@ -75,6 +75,8 @@ const BasicLayout = React.forwardRef<HTMLElement, BasicPropsWithTagName>((props,
   const [siders, setSiders] = React.useState<string[]>([]);
 
   const {
+    // Not use. Only omit this
+    suffixCls,
     prefixCls: customizePrefixCls,
     className,
     rootClassName,
