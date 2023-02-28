@@ -104,7 +104,7 @@ type MultipleCascaderProps = Omit<RcMultipleCascaderProps, 'checkable' | 'option
 
 type UnionCascaderProps = SingleCascaderProps | MultipleCascaderProps;
 
-export type CascaderProps<DataNodeType> = UnionCascaderProps & {
+export type CascaderProps<DataNodeType = any> = UnionCascaderProps & {
   multiple?: boolean;
   size?: SizeType;
   disabled?: boolean;
