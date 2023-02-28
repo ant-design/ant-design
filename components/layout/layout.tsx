@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import omit from 'rc-util/lib/omit';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import useStyle from './style';
@@ -84,6 +85,8 @@ const BasicLayout = React.forwardRef<HTMLElement, BasicPropsWithTagName>((props,
     ...others
   } = props;
 
+  const passedProps = omit(others, ['suffixCls']);
+
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('layout', customizePrefixCls);
 
@@ -115,7 +118,7 @@ const BasicLayout = React.forwardRef<HTMLElement, BasicPropsWithTagName>((props,
 
   return wrapSSR(
     <LayoutContext.Provider value={contextValue}>
-      <Tag ref={ref} className={classString} {...others}>
+      <Tag ref={ref} className={classString} {...passedProps}>
         {children}
       </Tag>
     </LayoutContext.Provider>,
