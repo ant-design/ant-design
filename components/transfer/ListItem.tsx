@@ -43,7 +43,7 @@ const ListItem = <RecordType extends KeyWiseTransferItem>(props: ListItemProps<R
     title = String(renderedText);
   }
 
-  const contextLocale = useLocale('Transfer', defaultLocale.Transfer);
+  const [contextLocale] = useLocale('Transfer', defaultLocale.Transfer);
 
   const liProps: React.HTMLAttributes<HTMLLIElement> = { className, title };
 

@@ -26,7 +26,6 @@ export const roundedArrow = (
   const shadowWidth = unitWidth * Math.sqrt(2) + outerRadius * (Math.sqrt(2) - 2);
 
   return {
-    borderRadius: { _skip_check_: true, value: `0 0 ${innerRadius}px` },
     pointerEvents: 'none',
     width,
     height: width,

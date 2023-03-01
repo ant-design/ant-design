@@ -141,7 +141,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/slider/demo/dragableTrack.tsx extend context correctly 1`] = `
+exports[`renders ./components/slider/demo/draggableTrack.tsx extend context correctly 1`] = `
 <div
   class="ant-slider ant-slider-horizontal"
 >

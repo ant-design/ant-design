@@ -80,7 +80,7 @@ describe('Descriptions', () => {
     wrapper.unmount();
   });
 
-  it('warning if ecceed the row span', () => {
+  it('warning if exceed the row span', () => {
     resetWarned();
 
     render(

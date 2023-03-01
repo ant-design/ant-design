@@ -236,6 +236,9 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
         },
       },
     },
+    [`${componentCls}-rtl`]: {
+      direction: 'rtl',
+    },
     [`${componentCls}-circle`]: {
       height: floatButtonSize,
       borderRadius: '50%',

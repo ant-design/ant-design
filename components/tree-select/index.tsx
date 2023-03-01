@@ -177,12 +177,12 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
   ]);
 
   // ===================== Placement =====================
-  const getPlacement = (): Placement => {
+  const memoizedPlacement = React.useMemo<Placement>(() => {
     if (placement !== undefined) {
       return placement;
     }
     return direction === 'rtl' ? 'bottomRight' : 'bottomLeft';
-  };
+  }, [placement, direction]);
 
   const mergedSize = compactSize || customizeSize || size;
   // ===================== Disabled =====================
@@ -222,7 +222,7 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
       treeLine={!!treeLine}
       inputIcon={suffixIcon}
       multiple={multiple}
-      placement={getPlacement()}
+      placement={memoizedPlacement}
       removeIcon={removeIcon}
       clearIcon={clearIcon}
       switcherIcon={(nodeProps: AntTreeNodeProps) =>

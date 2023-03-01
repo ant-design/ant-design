@@ -38,7 +38,7 @@ export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
 function useMergePropByScreen(oriProp: RowProps['align'] | RowProps['justify'], screen: ScreenMap) {
   const [prop, setProp] = React.useState(typeof oriProp === 'string' ? oriProp : '');
 
-  const clacMergeAlignOrJustify = () => {
+  const calcMergeAlignOrJustify = () => {
     if (typeof oriProp === 'string') {
       setProp(oriProp);
     }
@@ -58,7 +58,7 @@ function useMergePropByScreen(oriProp: RowProps['align'] | RowProps['justify'], 
   };
 
   React.useEffect(() => {
-    clacMergeAlignOrJustify();
+    calcMergeAlignOrJustify();
   }, [JSON.stringify(oriProp), screen]);
 
   return prop;
@@ -97,7 +97,7 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
     xxl: false,
   });
 
-  // ================================== calc reponsive data ==================================
+  // ================================== calc responsive data ==================================
   const mergeAlign = useMergePropByScreen(align, curScreens);
 
   const mergeJustify = useMergePropByScreen(justify, curScreens);

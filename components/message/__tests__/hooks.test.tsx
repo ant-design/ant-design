@@ -2,7 +2,6 @@
 import React from 'react';
 import { act } from 'react-dom/test-utils';
 import { triggerMotionEnd } from './util';
-import type { ArgsProps } from '..';
 import message from '..';
 import ConfigProvider from '../../config-provider';
 import { fireEvent, render } from '../../../tests/utils';
@@ -148,7 +147,7 @@ describe('message.hooks', () => {
           <button
             type="button"
             onClick={() => {
-              hide = api.open({ ontent: 'nice', duration: 0 } as unknown as ArgsProps);
+              hide = api.open({ content: 'nice', duration: 0 });
             }}
           >
             test
