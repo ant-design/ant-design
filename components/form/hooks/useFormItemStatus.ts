@@ -15,7 +15,7 @@ const useFormItemStatus: UseFormItemStatus = () => {
     warning(
       status !== undefined,
       'Form.Item',
-      `Form.Item.useStatus should be used under Form.Item component. For more information: ${window.location.protocol}//${window.location.host}/components/form-cn/#Form.Item.useStatus`,
+      `Form.Item.useStatus should be used under Form.Item component. For more information: https://ant.design/components/form#formitemusestatus,
     );
   }
 
