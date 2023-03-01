@@ -45,6 +45,9 @@ export const genImageMaskStyle = (token: ImageToken): CSSObject => {
       padding: `0 ${paddingXXS}px`,
       [iconCls]: {
         marginInlineEnd: marginXXS,
+        svg: {
+          verticalAlign: 'baseline',
+        },
       },
     },
   };

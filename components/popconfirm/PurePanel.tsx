@@ -56,7 +56,7 @@ export const Overlay: React.FC<OverlayProps> = (props) => {
 
   const { getPrefixCls } = React.useContext(ConfigContext);
 
-  const contextLocale = useLocale('Popconfirm', defaultLocale.Popconfirm);
+  const [contextLocale] = useLocale('Popconfirm', defaultLocale.Popconfirm);
 
   return (
     <div className={`${prefixCls}-inner-content`}>

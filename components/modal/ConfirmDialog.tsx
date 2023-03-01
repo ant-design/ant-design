@@ -81,7 +81,7 @@ export function ConfirmContent(
 
   const autoFocusButton = props.autoFocusButton === null ? false : props.autoFocusButton || 'ok';
 
-  const locale = useLocale('Modal');
+  const [locale] = useLocale('Modal');
 
   const mergedLocale = staticLocale || locale;
 

@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "5.2.2",
+  "version": "5.2.3",
   "description": "An enterprise-class UI design language and React components implementation",
   "title": "Ant Design",
   "keywords": [
@@ -203,7 +203,7 @@
     "cheerio": "1.0.0-rc.12",
     "cross-env": "^7.0.0",
     "dekko": "^0.2.1",
-    "dumi": "^2.0.17",
+    "dumi": "^2.1.13",
     "duplicate-package-checker-webpack-plugin": "^3.0.0",
     "esbuild-loader": "^3.0.0",
     "eslint": "^8.0.0",
@@ -285,7 +285,7 @@
     "ts-node": "^10.8.2",
     "typedoc": "^0.23.21",
     "typescript": "~4.9.3",
-    "vanilla-jsoneditor": "^0.14.0",
+    "vanilla-jsoneditor": "^0.15.1",
     "webpack-bundle-analyzer": "^4.1.0",
     "xhr-mock": "^2.4.1",
     "yaml-front-matter": "^4.0.0"

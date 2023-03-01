@@ -46,7 +46,7 @@ const Empty: CompoundedComponent = ({
   const prefixCls = getPrefixCls('empty', customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
-  const locale = useLocale('Empty');
+  const [locale] = useLocale('Empty');
 
   const des = typeof description !== 'undefined' ? description : locale?.description;
   const alt = typeof des === 'string' ? des : 'empty';

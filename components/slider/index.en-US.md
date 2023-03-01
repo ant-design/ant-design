@@ -26,7 +26,7 @@ To input a value in a range.
 <code src="./demo/vertical.tsx">Vertical</code>
 <code src="./demo/show-tooltip.tsx">Control visible of ToolTip</code>
 <code src="./demo/reverse.tsx">Reverse</code>
-<code src="./demo/dragableTrack.tsx">Draggable track</code>
+<code src="./demo/draggableTrack.tsx">Draggable track</code>
 
 ## API
 

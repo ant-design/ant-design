@@ -12,7 +12,7 @@ import LZString from 'lz-string';
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import type { IPreviewerProps } from 'dumi';
-import { FormattedMessage } from 'dumi';
+import { FormattedMessage, useSiteData } from 'dumi';
 import Prism from 'prismjs';
 import JsonML from 'jsonml.js/lib/utils';
 import toReactElement from 'jsonml-to-react-element';
@@ -103,9 +103,9 @@ const CodePreviewer: React.FC<IPreviewerProps> = (props) => {
     compact,
     background,
     filePath,
-    version,
   } = props;
 
+  const { pkg } = useSiteData();
   const location = useLocation();
 
   const entryCode = asset.dependencies['index.tsx'].value;
@@ -235,7 +235,7 @@ const CodePreviewer: React.FC<IPreviewerProps> = (props) => {
       }
       return acc;
     },
-    { antd: version },
+    { antd: pkg.version },
   );
 
   dependencies['@ant-design/icons'] = 'latest';
@@ -273,7 +273,7 @@ const CodePreviewer: React.FC<IPreviewerProps> = (props) => {
       'react@18/umd/react.development.js',
       'react-dom@18/umd/react-dom.development.js',
       'dayjs@1/dayjs.min.js',
-      `antd@${version}/dist/antd-with-locales.js`,
+      `antd@${pkg.version}/dist/antd-with-locales.js`,
       `@ant-design/icons/dist/index.umd.js`,
       'react-router-dom/dist/umd/react-router-dom.production.min.js',
       'react-router/dist/umd/react-router.production.min.js',
@@ -541,9 +541,9 @@ createRoot(document.getElementById('container')).render(<Demo />);
     </section>
   );
 
-  if (version) {
+  if (pkg.version) {
     return (
-      <Badge.Ribbon text={version} color={version.includes('<') ? 'red' : null}>
+      <Badge.Ribbon text={pkg.version} color={pkg.version.includes('<') ? 'red' : null}>
         {codeBox}
       </Badge.Ribbon>
     );

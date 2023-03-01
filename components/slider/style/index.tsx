@@ -170,6 +170,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
       [`${componentCls}-step`]: {
         position: 'absolute',
         background: 'transparent',
+        pointerEvents: 'none',
       },
 
       [`${componentCls}-dot`]: {
@@ -181,6 +182,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
         borderRadius: '50%',
         cursor: 'pointer',
         transition: `border-color ${token.motionDurationSlow}`,
+        pointerEvents: 'auto',
 
         '&-active': {
           borderColor: token.colorPrimaryBorder,

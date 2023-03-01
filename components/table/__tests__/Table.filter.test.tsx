@@ -546,7 +546,7 @@ describe('Table.filter', () => {
     expect(container.querySelectorAll('tbody tr').length).toBe(1);
     expect(container.querySelector('tbody tr')?.textContent).toBe('Lucy');
 
-    // Should properly be overidden by non-null filteredValue
+    // Should properly be overridden by non-null filteredValue
     rerender(
       createTable({
         columns: [
@@ -561,7 +561,7 @@ describe('Table.filter', () => {
     expect(container.querySelectorAll('tbody tr').length).toBe(1);
     expect(container.querySelector('tbody tr')?.textContent).toBe('Tom');
 
-    // Should properly be overidden by a null filteredValue
+    // Should properly be overridden by a null filteredValue
     rerender(
       createTable({
         columns: [
@@ -990,7 +990,7 @@ describe('Table.filter', () => {
   });
 
   // https://github.com/ant-design/ant-design/issues/17833
-  it('should not trigger onChange when bluring custom filterDropdown', () => {
+  it('should not trigger onChange when blurring custom filterDropdown', () => {
     const onChange = jest.fn();
     const filterDropdown = ({ setSelectedKeys }: FilterDropdownProps) => (
       <input onChange={(e) => setSelectedKeys([e.target.value])} />
@@ -1569,7 +1569,7 @@ describe('Table.filter', () => {
     const { container } = render(createTable({ columns: [filterControlledColumn] }));
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
     fireEvent.click(container.querySelector('.ant-dropdown-menu-item')!);
-    fireEvent.click(container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary')!); // close drodown
+    fireEvent.click(container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary')!); // close dropdown
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!); // reopen
     const checkbox = container
       ?.querySelector('.ant-dropdown-menu-item')
