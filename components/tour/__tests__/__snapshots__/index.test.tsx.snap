@@ -11,7 +11,7 @@ exports[`Tour Primary 1`] = `
     </button>
     <div
       class="ant-tour ant-tour-placement-bottom"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1090;"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
     >
       <div
         class="ant-tour-arrow"
@@ -82,14 +82,8 @@ exports[`Tour Primary 1`] = `
   </div>
   <div>
     <div
-      class="ant-tour-target-placeholder"
-      style="left: -6px; top: -6px; width: 12px; height: 12px; position: fixed; pointer-events: none;"
-    />
-  </div>
-  <div>
-    <div
       class="ant-tour-mask"
-      style="position: fixed; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: 900; pointer-events: none;"
+      style="position: fixed; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: 1001; pointer-events: none;"
     >
       <svg
         style="width: 100%; height: 100%;"
@@ -159,6 +153,12 @@ exports[`Tour Primary 1`] = `
       </svg>
     </div>
   </div>
+  <div>
+    <div
+      class="ant-tour-target-placeholder"
+      style="left: -6px; top: -6px; width: 12px; height: 12px; position: fixed; pointer-events: none;"
+    />
+  </div>
 </body>
 `;
 
@@ -209,7 +209,7 @@ exports[`Tour button props onClick 1`] = `
 exports[`Tour custom step pre btn & next btn className & style 1`] = `
 <div
   class="ant-tour ant-tour-placement-bottom"
-  style="left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1090;"
+  style="left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
 >
   <div
     class="ant-tour-content"
@@ -296,7 +296,7 @@ exports[`Tour single 1`] = `
     </button>
     <div
       class="ant-tour ant-tour-placement-bottom"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1090;"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
     >
       <div
         class="ant-tour-arrow"
@@ -367,14 +367,8 @@ exports[`Tour single 1`] = `
   </div>
   <div>
     <div
-      class="ant-tour-target-placeholder"
-      style="left: -6px; top: -6px; width: 12px; height: 12px; position: fixed; pointer-events: none;"
-    />
-  </div>
-  <div>
-    <div
       class="ant-tour-mask"
-      style="position: fixed; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: 900; pointer-events: none;"
+      style="position: fixed; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: 1001; pointer-events: none;"
     >
       <svg
         style="width: 100%; height: 100%;"
@@ -444,6 +438,12 @@ exports[`Tour single 1`] = `
       </svg>
     </div>
   </div>
+  <div>
+    <div
+      class="ant-tour-target-placeholder"
+      style="left: -6px; top: -6px; width: 12px; height: 12px; position: fixed; pointer-events: none;"
+    />
+  </div>
 </body>
 `;
 
@@ -458,7 +458,7 @@ exports[`Tour step support Primary 1`] = `
     </button>
     <div
       class="ant-tour ant-tour-placement-bottom"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1090;"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
     >
       <div
         class="ant-tour-arrow"
@@ -547,14 +547,8 @@ exports[`Tour step support Primary 1`] = `
   </div>
   <div>
     <div
-      class="ant-tour-target-placeholder"
-      style="left: -6px; top: -6px; width: 12px; height: 12px; position: fixed; pointer-events: none;"
-    />
-  </div>
-  <div>
-    <div
       class="ant-tour-mask"
-      style="position: fixed; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: 900; pointer-events: none;"
+      style="position: fixed; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: 1001; pointer-events: none;"
     >
       <svg
         style="width: 100%; height: 100%;"
@@ -623,6 +617,12 @@ exports[`Tour step support Primary 1`] = `
         />
       </svg>
     </div>
+  </div>
+  <div>
+    <div
+      class="ant-tour-target-placeholder"
+      style="left: -6px; top: -6px; width: 12px; height: 12px; position: fixed; pointer-events: none;"
+    />
   </div>
 </body>
 `;

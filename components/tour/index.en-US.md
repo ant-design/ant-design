@@ -40,6 +40,7 @@ Use when you want to guide users through a product.
 | current | What is the current step | `number` | - |  |
 | scrollIntoViewOptions | support pass custom scrollIntoView options | `boolean \| ScrollIntoViewOptions` | `true` | 5.2.0 |
 | indicatorsRender | custom indicator | `(current: number, total: number) => ReactNode` | - | 5.2.0 |
+| zIndex | Tour's zIndex | number | 1001 | 5.3.0 |
 
 ### TourStep
 
