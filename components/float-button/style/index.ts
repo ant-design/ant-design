@@ -1,10 +1,10 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { Keyframes } from '@ant-design/cssinjs';
+import { resetComponent } from '../../style';
+import { initFadeMotion } from '../../style/motion/fade';
+import { initMotion } from '../../style/motion/motion';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import { initFadeMotion } from '../../style/motion/fade';
-import { resetComponent } from '../../style';
-import { initMotion } from '../../style/motion/motion';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -190,7 +190,6 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
       border: 'none',
       position: 'fixed',
       cursor: 'pointer',
-      overflow: 'hidden',
       zIndex: 99,
       display: 'block',
       justifyContent: 'center',
