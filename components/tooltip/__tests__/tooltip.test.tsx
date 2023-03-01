@@ -203,7 +203,7 @@ describe('Tooltip', () => {
     expect(containerBlock.getElementsByTagName('span')[0].style.display).toBe('block');
   });
 
-  it.only('should works for arrowPointAtCenter', () => {
+  it('should works for arrowPointAtCenter', () => {
     const arrowWidth = 5;
     const horizontalArrowShift = 16;
     const triggerWidth = 200;
