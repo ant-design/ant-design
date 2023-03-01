@@ -21705,6 +21705,7 @@ exports[`ConfigProvider components Progress configProvider 1`] = `
 >
   <div
     class="config-progress-outer"
+    style="width: 100%; height: 8px;"
   >
     <div
       class="config-progress-inner"
@@ -21731,6 +21732,7 @@ exports[`ConfigProvider components Progress configProvider componentDisabled 1`]
 >
   <div
     class="config-progress-outer"
+    style="width: 100%; height: 8px;"
   >
     <div
       class="config-progress-inner"
@@ -21757,6 +21759,7 @@ exports[`ConfigProvider components Progress configProvider componentSize large 1
 >
   <div
     class="config-progress-outer"
+    style="width: 100%; height: 8px;"
   >
     <div
       class="config-progress-inner"
@@ -21783,6 +21786,7 @@ exports[`ConfigProvider components Progress configProvider componentSize middle 
 >
   <div
     class="config-progress-outer"
+    style="width: 100%; height: 8px;"
   >
     <div
       class="config-progress-inner"
@@ -21809,6 +21813,7 @@ exports[`ConfigProvider components Progress configProvider virtual and dropdownM
 >
   <div
     class="ant-progress-outer"
+    style="width: 100%; height: 8px;"
   >
     <div
       class="ant-progress-inner"
@@ -21835,6 +21840,7 @@ exports[`ConfigProvider components Progress normal 1`] = `
 >
   <div
     class="ant-progress-outer"
+    style="width: 100%; height: 8px;"
   >
     <div
       class="ant-progress-inner"
@@ -21861,6 +21867,7 @@ exports[`ConfigProvider components Progress prefixCls 1`] = `
 >
   <div
     class="prefix-Progress-outer"
+    style="width: 100%; height: 8px;"
   >
     <div
       class="prefix-Progress-inner"
