@@ -10,14 +10,11 @@ type UseFormItemStatus = () => {
 const useFormItemStatus: UseFormItemStatus = () => {
   const { status } = useContext(FormItemInputContext);
 
-  const isClient = typeof window !== 'undefined'
-  if (isClient) {
-    warning(
-      status !== undefined,
-      'Form.Item',
-      `Form.Item.useStatus should be used under Form.Item component. For more information: https://ant.design/components/form#formitemusestatus,
-    );
-  }
+  warning(
+    status !== undefined,
+    'Form.Item',
+    'Form.Item.useStatus should be used under Form.Item component. For more information: https://u.ant.design/form-item-usestatus',
+  );
 
   return { status };
 };
