@@ -10,6 +10,7 @@ import sylvanas from 'sylvanas';
 class AntdReactTechStack extends ReactTechStack {
   // eslint-disable-next-line class-methods-use-this
   generatePreviewerProps(...[props, opts]: any) {
+    console.log(props, opts);
     if (opts.type === 'external') {
       // try to find md file with the same name as the demo tsx file
       const locale = opts.mdAbsPath.match(/index\.([a-z-]+)\.md$/i)?.[1];
