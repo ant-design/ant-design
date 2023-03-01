@@ -120,6 +120,9 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
       [`${token.componentCls}-blur`]: {
         clear: 'both',
         opacity: 0.5,
+        WebkitUserSelect: 'none',
+        MsUserSelect: 'none',
+        MozUserSelect: 'none',
         userSelect: 'none',
         pointerEvents: 'none',
 

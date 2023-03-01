@@ -216,6 +216,9 @@ const genCardLoadingStyle: GenerateStyle<CardToken> = (token): CSSObject => {
     overflow: 'hidden',
 
     [`${componentCls}-body`]: {
+      WebkitUserSelect: 'none',
+      MsUserSelect: 'none',
+      MozUserSelect: 'none',
       userSelect: 'none',
     },
   };

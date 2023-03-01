@@ -51,6 +51,9 @@ const genTypographyStyle: GenerateStyle<TypographyToken> = (token) => {
       [`&${componentCls}-disabled`]: {
         color: token.colorTextDisabled,
         cursor: 'not-allowed',
+        WebkitUserSelect: 'none',
+        MsUserSelect: 'none',
+        MozUserSelect: 'none',
         userSelect: 'none',
       },
 

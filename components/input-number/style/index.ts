@@ -245,6 +245,9 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
 
             color: colorTextDescription,
             transition: `all ${motionDurationMid} linear`,
+            WebkitUserSelect: 'none',
+            MsUserSelect: 'none',
+            MozUserSelect: 'none',
             userSelect: 'none',
           },
         },

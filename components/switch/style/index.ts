@@ -271,6 +271,9 @@ const genSwitchStyle = (token: SwitchToken): CSSObject => {
       borderRadius: 100,
       cursor: 'pointer',
       transition: `all ${token.motionDurationMid}`,
+      WebkitUserSelect: 'none',
+      MsUserSelect: 'none',
+      MozUserSelect: 'none',
       userSelect: 'none',
 
       [`&:hover:not(${componentCls}-disabled)`]: {

@@ -51,6 +51,9 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
 
         [`${componentCls}-selection-item`]: {
           position: 'relative',
+          WebkitUserSelect: 'none',
+          MsUserSelect: 'none',
+          MozUserSelect: 'none',
           userSelect: 'none',
         },
 

@@ -46,6 +46,9 @@ const genRateStarStyle: GenerateStyle<RateToken, CSSObject> = (token) => {
       '&-first, &-second': {
         color: token.defaultColor,
         transition: `all ${token.motionDurationMid}`,
+        WebkitUserSelect: 'none',
+        MsUserSelect: 'none',
+        MozUserSelect: 'none',
         userSelect: 'none',
 
         [token.iconCls]: {

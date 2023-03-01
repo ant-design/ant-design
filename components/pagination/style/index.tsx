@@ -344,6 +344,9 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token
       button: {
         color: token.colorText,
         cursor: 'pointer',
+        WebkitUserSelect: 'none',
+        MsUserSelect: 'none',
+        MozUserSelect: 'none',
         userSelect: 'none',
       },
 
@@ -436,6 +439,9 @@ const genPaginationItemStyle: GenerateStyle<PaginationToken, CSSObject> = (token
       borderRadius: token.borderRadius,
       outline: 0,
       cursor: 'pointer',
+      WebkitUserSelect: 'none',
+      MsUserSelect: 'none',
+      MozUserSelect: 'none',
       userSelect: 'none',
 
       a: {

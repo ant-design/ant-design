@@ -187,6 +187,9 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
       [`${treeCls}-indent`]: {
         alignSelf: 'stretch',
         whiteSpace: 'nowrap',
+        WebkitUserSelect: 'none',
+        MsUserSelect: 'none',
+        MozUserSelect: 'none',
         userSelect: 'none',
         '&-unit': {
           display: 'inline-block',
@@ -210,6 +213,9 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         lineHeight: `${treeTitleHeight}px`,
         textAlign: 'center',
         cursor: 'pointer',
+        WebkitUserSelect: 'none',
+        MsUserSelect: 'none',
+        MozUserSelect: 'none',
         userSelect: 'none',
 
         '&-noop': {
@@ -309,6 +315,9 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
       // ==================== Draggable =====================
       [`${treeCls}-node-content-wrapper`]: {
         lineHeight: `${treeTitleHeight}px`,
+        WebkitUserSelect: 'none',
+        MsUserSelect: 'none',
+        MozUserSelect: 'none',
         userSelect: 'none',
 
         ...getDropIndicatorStyle(prefixCls, token),
@@ -412,6 +421,9 @@ export const genDirectoryStyle = (token: TreeToken): CSSObject => {
         // >>> Title
         [`${treeCls}-node-content-wrapper`]: {
           borderRadius: 0,
+          WebkitUserSelect: 'none',
+          MsUserSelect: 'none',
+          MozUserSelect: 'none',
           userSelect: 'none',
 
           '&:hover': {

@@ -160,6 +160,9 @@ const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
         textAlign: 'center',
         wordBreak: 'keep-all',
         cursor: 'pointer',
+        WebkitUserSelect: 'none',
+        MsUserSelect: 'none',
+        MozUserSelect: 'none',
         userSelect: 'none',
 
         '&-active': {

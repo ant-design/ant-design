@@ -24,6 +24,9 @@ export const genPlaceholderStyle = (color: string): CSSObject => ({
   },
   '&::placeholder': {
     color,
+    WebkitUserSelect: 'none',
+    MsUserSelect: 'none',
+    MozUserSelect: 'none',
     userSelect: 'none', // https://github.com/ant-design/ant-design/pull/32639
   },
   '&:placeholder-shown': {

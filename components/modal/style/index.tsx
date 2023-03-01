@@ -58,6 +58,9 @@ export const genModalMaskStyle: GenerateStyle<TokenWithCommonCls<AliasToken>> = 
           opacity: 0,
           animationDuration: token.motionDurationSlow,
           // https://github.com/ant-design/ant-design/issues/11777
+          WebkitUserSelect: 'none',
+          MsUserSelect: 'none',
+          MozUserSelect: 'none',
           userSelect: 'none',
         },
 

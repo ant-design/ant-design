@@ -194,6 +194,9 @@ export const genImagePreviewStyle: GenerateStyle<ImageToken> = (token: ImageToke
           transform: 'scale3d(1, 1, 1)',
           cursor: 'grab',
           transition: `transform ${motionDurationSlow} ${motionEaseOut} 0s`,
+          WebkitUserSelect: 'none',
+          MsUserSelect: 'none',
+          MozUserSelect: 'none',
           userSelect: 'none',
           pointerEvents: 'auto',
 
