@@ -56,9 +56,12 @@ const Popover = React.forwardRef<unknown, PopoverProps>((props, ref) => {
 
   const overlayCls = classNames(overlayClassName, hashId);
 
-  const mergedArrowPointAtCenter =
-    (typeof arrow !== 'boolean' && arrow?.arrowPointAtCenter) ?? arrowPointAtCenter ?? false;
-  const mergedArrow = arrow ?? { arrowPointAtCenter: mergedArrowPointAtCenter };
+  let mergedArrowPointAtCenter = arrowPointAtCenter ?? false;
+  if (typeof arrow === 'object') {
+    mergedArrowPointAtCenter =
+      arrow.pointAtCenter ?? arrow.arrowPointAtCenter ?? mergedArrowPointAtCenter;
+  }
+  const mergedArrow = arrow ?? { pointAtCenter: mergedArrowPointAtCenter };
 
   return wrapSSR(
     <Tooltip
