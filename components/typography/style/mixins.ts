@@ -85,14 +85,11 @@ export const getLinkStyles: GenerateStyle<TypographyToken, CSSObject> = (token) 
 
 export const getResetStyles: GenerateStyle<TypographyToken, CSSObject> = (token): CSSObject => ({
   code: {
-    margin: '0 0.2em',
-    paddingInline: '0.4em',
-    paddingBlock: '0.2em 0.1em',
-    fontSize: '85%',
+    margin: 0,
+    padding: 0,
     fontFamily: token.fontFamilyCode,
-    background: 'rgba(150, 150, 150, 0.1)',
-    border: '1px solid rgba(100, 100, 100, 0.2)',
-    borderRadius: 3,
+    background: 'none',
+    border: 'none',
   },
 
   kbd: {

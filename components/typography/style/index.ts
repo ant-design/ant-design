@@ -54,6 +54,17 @@ const genTypographyStyle: GenerateStyle<TypographyToken> = (token) => {
         userSelect: 'none',
       },
 
+      [`&${componentCls}-code`]: {
+        margin: '0 0.2em',
+        paddingInline: '0.4em',
+        paddingBlock: '0.2em 0.1em',
+        fontSize: '85%',
+        lineHeight: 1.2,
+        background: 'rgba(150, 150, 150, 0.1)',
+        border: '1px solid rgba(100, 100, 100, 0.2)',
+        borderRadius: 3,
+      },
+
       [`
         div&,
         p

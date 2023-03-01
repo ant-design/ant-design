@@ -33,6 +33,18 @@ const App: React.FC = () => {
         Design, a design language for background applications, is refined by Ant UED Team.
       </Paragraph>
 
+      <Text ellipsis={ellipsis} code>
+        Ant Design, a design language for background applications, is refined by Ant UED Team. Ant
+        Design, a design language for background applications, is refined by Ant UED Team. Ant
+        Design, a design language for background applications, is refined by Ant UED Team. Ant
+        Design, a design language for background applications, is refined by Ant UED Team. Ant
+        Design, a design language for background applications, is refined by Ant UED Team. Ant
+        Design, a design language for background applications, is refined by Ant UED Team.
+      </Text>
+
+      <br />
+      <br />
+
       <Text
         style={ellipsis ? { width: 100 } : undefined}
         ellipsis={ellipsis ? { tooltip: 'I am ellipsis now!' } : false}
