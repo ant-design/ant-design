@@ -2,8 +2,9 @@ import classNames from 'classnames';
 import React, { useContext, useMemo } from 'react';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
-import useStyle from './style';
 import Tooltip from '../tooltip';
+import warning from '../_util/warning';
+import FloatButtonGroupContext from './context';
 import Content from './FloatButtonContent';
 import type {
   CompoundedComponent,
@@ -11,8 +12,7 @@ import type {
   FloatButtonProps,
   FloatButtonShape,
 } from './interface';
-import FloatButtonGroupContext from './context';
-import warning from '../_util/warning';
+import useStyle from './style';
 
 export const floatButtonPrefixCls = 'float-btn';
 
@@ -56,7 +56,7 @@ const FloatButton: React.ForwardRefRenderFunction<
   );
 
   const buttonNode = (
-    <Tooltip title={tooltip} placement="left">
+    <Tooltip title={tooltip} placement={direction === 'rtl' ? 'right' : 'left'}>
       <div className={`${prefixCls}-body`}>
         <Content {...contentProps} />
       </div>
