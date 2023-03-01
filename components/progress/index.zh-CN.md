@@ -59,7 +59,6 @@ demo:
 | --- | --- | --- | --- | --- |
 | steps | 进度条总共步数 | number | - | - |
 | strokeColor | 进度条的色彩，传入 object 时为渐变。当有 `steps` 时支持传入一个数组。 | string \| string[] \| { from: string; to: string; direction: string } | - | 4.21.0: `string[]` |
-| strokeWidth | To set the width of the progress bar, unit: `px` | number | 10 | < 5.3.0 |
 
 ### `type="circle"`
 
@@ -67,7 +66,6 @@ demo:
 | --- | --- | --- | --- | --- |
 | strokeColor | 圆形进度条线的色彩，传入 object 时为渐变 | string \| object | - | - |
 | strokeWidth | 圆形进度条线的宽度，单位是进度条画布宽度的百分比 | number | 6 | - |
-| width | 圆形进度条画布宽度，单位 px | number | 120 | < 5.3.0 |
 
 ### `type="dashboard"`
 
@@ -76,4 +74,3 @@ demo:
 | gapDegree | 仪表盘进度条缺口角度，可取值 0 ~ 295 | number | 75 | - |
 | gapPosition | 仪表盘进度条缺口位置 | `top` \| `bottom` \| `left` \| `right` | `bottom` | - |
 | strokeWidth | 仪表盘进度条线的宽度，单位是进度条画布宽度的百分比 | number | 6 | - |
-| width | 仪表盘进度条画布宽度，单位 px | number | 120 | < 5.3.0 |
