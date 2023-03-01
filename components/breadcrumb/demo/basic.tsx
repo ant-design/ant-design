@@ -5,16 +5,16 @@ const App: React.FC = () => (
   <Breadcrumb
     routes={[
       {
-        breadcrumbName: 'Home',
+        title: 'Home',
       },
       {
-        breadcrumbName: <a href="">Application Center</a>,
+        title: <a href="">Application Center</a>,
       },
       {
-        breadcrumbName: <a href="">Application List</a>,
+        title: <a href="">Application List</a>,
       },
       {
-        breadcrumbName: 'An Application',
+        title: 'An Application',
       },
     ]}
   />

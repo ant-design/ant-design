@@ -29,7 +29,7 @@ demo:
 
 ```jsx
 // >=5.3.0 可用，推荐的写法 ✅
-const routes = [{ breadcrumbName: 'sample' }];
+const routes = [{ title: 'sample' }];
 return <Breadcrumb routes={routes} />;
 
 // <5.3.0 可用，>=5.3.0 时不推荐 🙅🏻‍♀️
@@ -64,7 +64,7 @@ return (
 | href | 链接的目的地 | string | - |  |
 | menu | 菜单配置项 | [MenuProps](/components/menu-cn/#api) | - | 4.24.0 |
 | onClick | 单击事件 | (e:MouseEvent) => void | - |  |
-| breadcrumbName | 名称 | ReactNode | - |  |
+| title | 名称 | ReactNode | - |  |
 
 ### SeparatorType
 
@@ -83,10 +83,10 @@ const router = {
 ```ts
 interface Route {
   path: string;
-  breadcrumbName: string;
+  title: string;
   children: Array<{
     path: string;
-    breadcrumbName: string;
+    title: string;
   }>;
 }
 ```
@@ -101,38 +101,34 @@ import { Link } from 'react-router';
 const routes = [
   {
     path: 'index',
-    breadcrumbName: 'home',
+    title: 'home',
   },
   {
     path: 'first',
-    breadcrumbName: 'first',
+    title: 'first',
     children: [
       {
         path: '/general',
-        breadcrumbName: 'General',
+        title: 'General',
       },
       {
         path: '/layout',
-        breadcrumbName: 'Layout',
+        title: 'Layout',
       },
       {
         path: '/navigation',
-        breadcrumbName: 'Navigation',
+        title: 'Navigation',
       },
     ],
   },
   {
     path: 'second',
-    breadcrumbName: 'second',
+    title: 'second',
   },
 ];
 function itemRender(route, params, routes, paths) {
   const last = routes.indexOf(route) === routes.length - 1;
-  return last ? (
-    <span>{route.breadcrumbName}</span>
-  ) : (
-    <Link to={paths.join('/')}>{route.breadcrumbName}</Link>
-  );
+  return last ? <span>{route.title}</span> : <Link to={paths.join('/')}>{route.title}</Link>;
 }
 
 return <Breadcrumb itemRender={itemRender} routes={routes} />;

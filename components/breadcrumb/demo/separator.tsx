@@ -6,18 +6,18 @@ const App: React.FC = () => (
     separator=">"
     routes={[
       {
-        breadcrumbName: 'Home',
+        title: 'Home',
       },
       {
-        breadcrumbName: 'Application Center',
+        title: 'Application Center',
         href: '',
       },
       {
-        breadcrumbName: 'Application List',
+        title: 'Application List',
         href: '',
       },
       {
-        breadcrumbName: 'An Application',
+        title: 'An Application',
       },
     ]}
   />

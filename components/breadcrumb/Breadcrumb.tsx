@@ -15,7 +15,9 @@ import useStyle from './style';
 export interface RouteItemType extends Omit<BreadcrumbItemProps, 'children'> {
   key?: React.Key;
   path?: string;
+  /** @deprecated Please use `title` instead */
   breadcrumbName?: React.ReactNode;
+  title?: React.ReactNode;
   children?: Omit<RouteItemType, 'children'>[];
 }
 
@@ -39,13 +41,14 @@ export interface BreadcrumbProps {
 }
 
 function getBreadcrumbName(route: RouteItemType, params: any) {
-  if (!route.breadcrumbName) {
+  if (!route.title && !route.breadcrumbName) {
     return null;
   }
+  if (!route.title) route.title = route.breadcrumbName;
   const paramsKeys = Object.keys(params).join('|');
-  return typeof route.breadcrumbName === 'object'
-    ? route.breadcrumbName
-    : String(route.breadcrumbName).replace(
+  return typeof route.title === 'object'
+    ? route.title
+    : String(route.title).replace(
         new RegExp(`:(${paramsKeys})`, 'g'),
         (replacement, key) => params[key] || replacement,
       );
@@ -148,12 +151,22 @@ const Breadcrumb: CompoundedComponent = ({
           </BreadcrumbItem>
         );
       }
-      const { breadcrumbName, ...otherRoute } = route;
+      const { title, breadcrumbName, ...otherRoute } = route;
+
+      // =================== Warning =====================
+      if (process.env.NODE_ENV !== 'production') {
+        warning(
+          !breadcrumbName,
+          'Breadcrumb',
+          '`breadcrumbName` is deprecated. Please use `title` instead.',
+        );
+      }
+
       return (
         <React.Fragment key={route?.key ?? index}>
-          {(breadcrumbName !== undefined || !route.menu || !overlay) && (
+          {(title !== undefined || breadcrumbName !== undefined || !route.menu || !overlay) && (
             <BreadcrumbItem {...otherRoute} separator={isLastItem ? '' : separator}>
-              {breadcrumbName}
+              {title || breadcrumbName}
             </BreadcrumbItem>
           )}
           {route.separator && <BreadcrumbSeparator>{route.separator}</BreadcrumbSeparator>}

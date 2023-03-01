@@ -7,11 +7,11 @@ const App: React.FC = () => (
     routes={[
       {
         href: '',
-        breadcrumbName: <HomeOutlined />,
+        title: <HomeOutlined />,
       },
       {
         href: '',
-        breadcrumbName: (
+        title: (
           <>
             <UserOutlined />
             <span>Application List</span>
@@ -19,7 +19,7 @@ const App: React.FC = () => (
         ),
       },
       {
-        breadcrumbName: 'Application',
+        title: 'Application',
       },
     ]}
   />

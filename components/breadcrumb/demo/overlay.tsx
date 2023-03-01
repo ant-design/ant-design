@@ -32,17 +32,17 @@ const App: React.FC = () => (
   <Breadcrumb
     routes={[
       {
-        breadcrumbName: 'Ant Design',
+        title: 'Ant Design',
       },
       {
-        breadcrumbName: <a href="">Component</a>,
+        title: <a href="">Component</a>,
       },
       {
-        breadcrumbName: <a href="">General</a>,
+        title: <a href="">General</a>,
         menu: { items: menuItems },
       },
       {
-        breadcrumbName: 'Button',
+        title: 'Button',
       },
     ]}
   />

@@ -29,13 +29,13 @@ const Home = () => {
     const url = `/${pathSnippets.slice(0, index + 1).join('/')}`;
     return {
       key: url,
-      breadcrumbName: <Link to={url}>{breadcrumbNameMap[url]}</Link>,
+      title: <Link to={url}>{breadcrumbNameMap[url]}</Link>,
     };
   });
 
   const breadcrumbItems = [
     {
-      breadcrumbName: <Link to="/">Home</Link>,
+      title: <Link to="/">Home</Link>,
       key: 'home',
     },
   ].concat(extraBreadcrumbItems);

@@ -92,22 +92,22 @@ describe('react router', () => {
     const routes = [
       {
         name: 'home',
-        breadcrumbName: 'Home',
+        title: 'Home',
         path: '/',
         childRoutes: [
           {
             name: 'apps',
-            breadcrumbName: 'Application List',
+            title: 'Application List',
             path: 'apps',
             childRoutes: [
               {
                 name: 'app',
-                breadcrumbName: 'Application:id',
+                title: 'Application:id',
                 path: ':id',
                 childRoutes: [
                   {
                     name: 'detail',
-                    breadcrumbName: 'Detail',
+                    title: 'Detail',
                     path: 'detail',
                   },
                 ],
@@ -118,17 +118,17 @@ describe('react router', () => {
       },
       {
         name: 'apps',
-        breadcrumbName: 'Application List',
+        title: 'Application List',
         path: 'apps',
         childRoutes: [
           {
             name: 'app',
-            breadcrumbName: 'Application:id',
+            title: 'Application:id',
             path: ':id',
             childRoutes: [
               {
                 name: 'detail',
-                breadcrumbName: 'Detail',
+                title: 'Detail',
                 path: 'detail',
               },
             ],
@@ -137,19 +137,19 @@ describe('react router', () => {
       },
       {
         name: 'app',
-        breadcrumbName: 'Application:id',
+        title: 'Application:id',
         path: ':id',
         childRoutes: [
           {
             name: 'detail',
-            breadcrumbName: 'Detail',
+            title: 'Detail',
             path: 'detail',
           },
         ],
       },
       {
         name: 'detail',
-        breadcrumbName: 'Detail',
+        title: 'Detail',
         path: 'detail',
       },
     ];

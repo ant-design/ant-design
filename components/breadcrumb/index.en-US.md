@@ -28,7 +28,7 @@ A breadcrumb displays the current location within a hierarchy. It allows going b
 
 ```jsx
 // works when >=5.3.0, recommended ✅
-const routes = [{ breadcrumbName: 'sample' }];
+const routes = [{ title: 'sample' }];
 return <Breadcrumb routes={routes} />;
 
 // works when <5.3.0, deprecated when >=5.3.0 🙅🏻‍♀️
@@ -63,7 +63,7 @@ return (
 | href | Target of hyperlink | string | - |  |
 | menu | The menu props | [MenuProps](/components/menu/#api) | - | 4.24.0 |
 | onClick | Set the handler to handle click event | (e:MouseEvent) => void | - |  |
-| breadcrumbName | item name | ReactNode | - |  |
+| title | item name | ReactNode | - |  |
 
 ### SeparatorType
 
@@ -82,10 +82,10 @@ const router = {
 ```ts
 interface Route {
   path: string;
-  breadcrumbName: string;
+  title: string;
   children: Array<{
     path: string;
-    breadcrumbName: string;
+    title: string;
   }>;
 }
 ```
@@ -100,38 +100,34 @@ import { Link } from 'react-router';
 const routes = [
   {
     path: 'index',
-    breadcrumbName: 'home',
+    title: 'home',
   },
   {
     path: 'first',
-    breadcrumbName: 'first',
+    title: 'first',
     children: [
       {
         path: '/general',
-        breadcrumbName: 'General',
+        title: 'General',
       },
       {
         path: '/layout',
-        breadcrumbName: 'Layout',
+        title: 'Layout',
       },
       {
         path: '/navigation',
-        breadcrumbName: 'Navigation',
+        title: 'Navigation',
       },
     ],
   },
   {
     path: 'second',
-    breadcrumbName: 'second',
+    title: 'second',
   },
 ];
 function itemRender(route, params, routes, paths) {
   const last = routes.indexOf(route) === routes.length - 1;
-  return last ? (
-    <span>{route.breadcrumbName}</span>
-  ) : (
-    <Link to={paths.join('/')}>{route.breadcrumbName}</Link>
-  );
+  return last ? <span>{route.title}</span> : <Link to={paths.join('/')}>{route.title}</Link>;
 }
 
 return <Breadcrumb itemRender={itemRender} routes={routes} />;

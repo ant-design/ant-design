@@ -33,16 +33,31 @@ describe('Breadcrumb', () => {
     );
   });
 
+  it('warns on breadcrumbName', () => {
+    render(
+      <Breadcrumb
+        routes={[
+          {
+            breadcrumbName: 'yyy',
+          },
+        ]}
+      />,
+    );
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Breadcrumb] `breadcrumbName` is deprecated. Please use `title` instead.',
+    );
+  });
+
   it('should render correct', () => {
     const { asFragment } = render(
       <Breadcrumb
         routes={[
           {
             path: '',
-            breadcrumbName: <span>xxx</span>,
+            title: <span>xxx</span>,
           },
           {
-            breadcrumbName: 'yyy',
+            title: 'yyy',
           },
         ]}
       />,
@@ -56,7 +71,7 @@ describe('Breadcrumb', () => {
         routes={[
           {
             overlay: <div>menu</div>,
-            breadcrumbName: <a href="">General</a>,
+            title: <a href="">General</a>,
           },
         ]}
       />,
@@ -105,7 +120,7 @@ describe('Breadcrumb', () => {
         routes={[
           {
             menu: { items: menuItems },
-            breadcrumbName: <a href="">General</a>,
+            title: <a href="">General</a>,
           },
         ]}
       />,
@@ -134,10 +149,10 @@ describe('Breadcrumb', () => {
         routes={[
           {},
           {
-            breadcrumbName: 'xxx',
+            title: 'xxx',
           },
           {
-            breadcrumbName: 'yyy',
+            title: 'yyy',
           },
         ]}
       />,
@@ -164,33 +179,33 @@ describe('Breadcrumb', () => {
     const routes: RouteItemType[] = [
       {
         path: 'index',
-        breadcrumbName: 'home',
+        title: 'home',
       },
       {
         path: 'first',
-        breadcrumbName: 'first',
+        title: 'first',
         children: [
           {
             path: '/general',
-            breadcrumbName: 'General',
+            title: 'General',
           },
           {
             path: '/layout',
-            breadcrumbName: 'Layout',
+            title: 'Layout',
           },
           {
             path: '/navigation',
-            breadcrumbName: 'Navigation',
+            title: 'Navigation',
           },
         ],
       },
       {
         path: 'second',
-        breadcrumbName: 'second',
+        title: 'second',
       },
       {
         path: 'third',
-        breadcrumbName: '',
+        title: '',
       },
     ];
     const { asFragment } = render(<Breadcrumb routes={routes} />);
@@ -208,12 +223,12 @@ describe('Breadcrumb', () => {
         <Breadcrumb
           routes={[
             {
-              breadcrumbName: 'xxx',
+              title: 'xxx',
               // @ts-ignore
               'data-custom': 'custom-item',
             },
             {
-              breadcrumbName: 'yyy',
+              title: 'yyy',
             },
           ]}
           data-custom="custom"
@@ -261,10 +276,10 @@ describe('Breadcrumb', () => {
       <Breadcrumb
         routes={[
           {
-            breadcrumbName: 0,
+            title: 0,
           },
           {
-            breadcrumbName: '0',
+            title: '0',
           },
         ]}
       />,
@@ -293,7 +308,7 @@ describe('Breadcrumb', () => {
 
   it('should not console Error when `overlay` not in props', () => {
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    render(<Breadcrumb routes={[{ path: '/', breadcrumbName: 'Test' }]} />);
+    render(<Breadcrumb routes={[{ path: '/', title: 'Test' }]} />);
     expect(errSpy).not.toHaveBeenCalled();
     errSpy.mockRestore();
   });
