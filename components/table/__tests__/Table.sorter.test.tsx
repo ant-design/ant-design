@@ -81,7 +81,7 @@ describe('Table.sorter', () => {
     expect(getNameColumn()?.getAttribute('aria-sort')).toEqual(null);
   });
 
-  it('should have aria-lable if the column is sortable and is not sorted', () => {
+  it('should have aria-label if the column is sortable and is not sorted', () => {
     const { container } = render(
       createTable(
         {
@@ -778,7 +778,7 @@ describe('Table.sorter', () => {
   });
 
   // https://github.com/ant-design/ant-design/issues/19443
-  it('should not being inifinite loop when using Table.Column with sortOrder', () => {
+  it('should not being infinite loop when using Table.Column with sortOrder', () => {
     const Demo: React.FC = () => (
       <Table dataSource={[]}>
         <Table.Column title="Age" dataIndex="age" sorter sortOrder="ascend" key="age" />

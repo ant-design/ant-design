@@ -61,7 +61,7 @@ function highlightKeyword(str: string, lowerKeyword: string, prefixCls?: string)
     if (index % 2 === 1) {
       originWorld = (
         // eslint-disable-next-line react/no-array-index-key
-        <span className={`${prefixCls}-menu-item-keyword`} key={`seperator-${index}`}>
+        <span className={`${prefixCls}-menu-item-keyword`} key={`separator-${index}`}>
           {originWorld}
         </span>
       );
@@ -104,7 +104,7 @@ type MultipleCascaderProps = Omit<RcMultipleCascaderProps, 'checkable' | 'option
 
 type UnionCascaderProps = SingleCascaderProps | MultipleCascaderProps;
 
-export type CascaderProps<DataNodeType> = UnionCascaderProps & {
+export type CascaderProps<DataNodeType = any> = UnionCascaderProps & {
   multiple?: boolean;
   size?: SizeType;
   disabled?: boolean;
@@ -175,12 +175,6 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
 
   // =================== Warning =====================
   if (process.env.NODE_ENV !== 'production') {
-    warning(
-      !multiple || !props.displayRender,
-      'Cascader',
-      '`displayRender` not work on `multiple`. Please use `tagRender` instead.',
-    );
-
     warning(
       !dropdownClassName,
       'Cascader',

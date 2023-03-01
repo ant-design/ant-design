@@ -72,3 +72,7 @@ demo:
 | size | 按钮大小，和 [Button](/components/button-cn#api) 一致 | string | `default` |  |
 | type | 按钮类型，和 [Button](/components/button-cn#api) 一致 | string | `default` |  |
 | onClick | 点击左侧按钮的回调，和 [Button](/components/button-cn#api) 一致 | (event) => void | - |  |
+
+## 注意
+
+请确保 `Dropdown` 的子元素能接受 `onMouseEnter`、`onMouseLeave`、`onFocus`、`onClick` 事件。

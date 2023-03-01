@@ -374,10 +374,10 @@ describe('Anchor Render', () => {
 
   it('handles invalid hash correctly', () => {
     const { container } = render(
-      <Anchor items={[{ key: 'title', href: 'notexsited', title: 'title' }]} />,
+      <Anchor items={[{ key: 'title', href: 'nonexistent', title: 'title' }]} />,
     );
 
-    const link = container.querySelector(`a[href="notexsited"]`)!;
+    const link = container.querySelector(`a[href="nonexistent"]`)!;
     fireEvent.click(link);
     expect(container.querySelector(`.ant-anchor-link-title-active`)?.textContent).toBe('title');
   });
@@ -791,11 +791,11 @@ describe('Anchor Render', () => {
     it('handles invalid hash correctly', () => {
       const { container } = render(
         <Anchor>
-          <Link href="notexsited" title="title" />
+          <Link href="nonexistent" title="title" />
         </Anchor>,
       );
 
-      const link = container.querySelector(`a[href="notexsited"]`)!;
+      const link = container.querySelector(`a[href="nonexistent"]`)!;
       fireEvent.click(link);
       expect(container.querySelector(`.ant-anchor-link-title-active`)?.textContent).toBe('title');
     });

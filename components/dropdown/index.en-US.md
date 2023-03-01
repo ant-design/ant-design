@@ -68,3 +68,7 @@ Same props from Dropdown. And includes additional props:
 | size | Size of the button, the same as [Button](/components/button/#api) | string | `default` |  |
 | type | Type of the button, the same as [Button](/components/button/#api) | string | `default` |  |
 | onClick | The same as [Button](/components/button/#api): called when you click the button on the left | (event) => void | - |  |
+
+## Note
+
+Please ensure that the child node of `Dropdown` accepts `onMouseEnter`, `onMouseLeave`, `onFocus`, `onClick` events.

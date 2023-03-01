@@ -344,7 +344,7 @@ You can set `hideOnSinglePage` with `pagination` prop.
 
 ### Table will return to first page when filter data.
 
-Table total page count usually reduce after filter data, we defaultly return to first page in case of current page is out of filtered results.
+Table total page count usually reduce after filter data, we by default return to first page in case of current page is out of filtered results.
 
 You may need to keep current page after filtering when fetch data from remote service, please check [this demo](https://codesandbox.io/s/yuanchengjiazaishuju-ant-design-demo-7y2uf) as workaround.
 

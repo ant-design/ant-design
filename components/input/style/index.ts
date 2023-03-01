@@ -175,7 +175,7 @@ export const genBasicInputStyle = (token: InputToken): CSSObject => ({
 
   // Reset height for `textarea`s
   'textarea&': {
-    maxWidth: '100%', // prevent textearea resize from coming out of its container
+    maxWidth: '100%', // prevent textarea resize from coming out of its container
     height: 'auto',
     minHeight: token.controlHeight,
     lineHeight: token.lineHeight,

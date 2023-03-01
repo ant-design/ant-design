@@ -27,7 +27,7 @@ demo:
 <code src="./demo/vertical.tsx">垂直</code>
 <code src="./demo/show-tooltip.tsx">控制 ToolTip 的显示</code>
 <code src="./demo/reverse.tsx">反向</code>
-<code src="./demo/dragableTrack.tsx">范围可拖拽</code>
+<code src="./demo/draggableTrack.tsx">范围可拖拽</code>
 
 ## API
 
