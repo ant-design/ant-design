@@ -477,7 +477,7 @@ validator(rule, value, callback) => {
 
 当你为 Form.Item 设置 `name` 属性后，子组件会转为受控模式。因而 `defaultValue` 不会生效。你需要在 Form 上通过 `initialValues` 设置默认值。
 
-### 为什么第一次调用 `ref` 的 From 为空？
+### 为什么第一次调用 `ref` 的 Form 为空？
 
 `ref` 仅在节点被加载时才会被赋值，请参考 React 官方文档：<https://reactjs.org/docs/refs-and-the-dom.html#accessing-refs>
 
