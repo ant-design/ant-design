@@ -231,12 +231,43 @@ describe('Progress', () => {
       'Warning: [antd: Progress] `success.progress` is deprecated. Please use `success.percent` instead.',
     );
   });
+  it('should warnning if use `width` prop', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(<Progress percent={60} width={100} />);
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Progress] `width` is deprecated. Please use `size` instead.',
+    );
+  });
+
+  it('should warnning if use `strokeWidth` prop in type Line', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(<Progress percent={60} strokeWidth={10} />);
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Progress] `strokeWidth` is deprecated. Please use `size` instead.',
+    );
+  });
 
   it('should warnning if use `progress` in success in type Circle', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(<Progress percent={60} success={{ progress: 30 }} type="circle" />);
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Progress] `success.progress` is deprecated. Please use `success.percent` instead.',
+    );
+  });
+
+  it('should warnning if pass number[] into `size` in type Circle', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(<Progress size={[60, 20]} type="circle" />);
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Progress] Type "circle" and "dashbord" do not accept array as `size`, please use number or preset size instead.',
+    );
+  });
+
+  it('should warnning if pass number[] into `size` in type dashboard', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(<Progress size={[60, 20]} type="dashboard" />);
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Progress] Type "circle" and "dashbord" do not accept array as `size`, please use number or preset size instead.',
     );
   });
 
@@ -256,6 +287,53 @@ describe('Progress', () => {
       expect(() => {
         render(<Progress percent={null as unknown as number} />);
       }).not.toThrow();
+    });
+  });
+
+  describe('progress size', () => {
+    const App = (props: { size: ProgressProps['size'] }) => (
+      <>
+        <Progress size={props.size} />
+        <Progress size={props.size} steps={3} />
+        <Progress type="circle" size={props.size} />
+        <Progress type="dashboard" size={props.size} />
+      </>
+    );
+
+    const { container, rerender } = render(<App size={30} />);
+    expect(container.querySelector('.ant-progress-line .ant-progress-outer')).toHaveStyle({
+      width: '30px',
+    });
+    expect(container.querySelector('.ant-progress-steps .ant-progress-steps-item')).toHaveStyle({
+      width: '30px',
+      height: '30px',
+    });
+    expect(container.querySelectorAll('.ant-progress-circle .ant-progress-inner')[0]).toHaveStyle({
+      width: '30px',
+      height: '30px',
+    });
+    expect(container.querySelectorAll('.ant-progress-circle .ant-progress-inner')[1]).toHaveStyle({
+      width: '30px',
+      height: '30px',
+    });
+
+    rerender(<App size={[60, 20]} />);
+
+    expect(container.querySelector('.ant-progress-line .ant-progress-outer')).toHaveStyle({
+      width: '60px',
+      height: '20px',
+    });
+    expect(container.querySelector('.ant-progress-steps .ant-progress-steps-item')).toHaveStyle({
+      width: '60px',
+      height: '20px',
+    });
+    expect(container.querySelectorAll('.ant-progress-circle .ant-progress-inner')[0]).toHaveStyle({
+      width: '60px',
+      height: '60px',
+    });
+    expect(container.querySelectorAll('.ant-progress-circle .ant-progress-inner')[1]).toHaveStyle({
+      width: '60px',
+      height: '60px',
     });
   });
 });

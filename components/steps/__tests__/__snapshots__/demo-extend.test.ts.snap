@@ -1895,7 +1895,7 @@ Array [
             class="ant-steps-progress-icon"
           >
             <div
-              class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+              class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info"
               role="progressbar"
             >
               <div
@@ -2661,7 +2661,7 @@ exports[`renders ./components/steps/demo/progress.tsx extend context correctly 1
           class="ant-steps-progress-icon"
         >
           <div
-            class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+            class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info"
             role="progressbar"
           >
             <div
@@ -2908,7 +2908,7 @@ Array [
             class="ant-steps-progress-icon"
           >
             <div
-              class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+              class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info"
               role="progressbar"
             >
               <div
@@ -3090,7 +3090,7 @@ Array [
             class="ant-steps-progress-icon"
           >
             <div
-              class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+              class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info"
               role="progressbar"
             >
               <div
@@ -3272,7 +3272,7 @@ Array [
             class="ant-steps-progress-icon"
           >
             <div
-              class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+              class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info"
               role="progressbar"
             >
               <div
@@ -3454,7 +3454,7 @@ Array [
             class="ant-steps-progress-icon"
           >
             <div
-              class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+              class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info"
               role="progressbar"
             >
               <div
