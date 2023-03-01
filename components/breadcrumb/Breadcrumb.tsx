@@ -41,10 +41,9 @@ export interface BreadcrumbProps {
 }
 
 function getBreadcrumbName(route: RouteItemType, params: any) {
-  if (!route.title && !route.breadcrumbName) {
+  if (!route.title) {
     return null;
   }
-  if (!route.title) route.title = route.breadcrumbName;
   const paramsKeys = Object.keys(params).join('|');
   return typeof route.title === 'object'
     ? route.title
@@ -137,12 +136,16 @@ const Breadcrumb: CompoundedComponent = ({
       }
 
       const itemProps: BreadcrumbItemProps = { separator };
+      const isLastItem = index === routes.length - 1;
+      const { title, breadcrumbName, ...otherRoute } = route;
 
       if (overlay) {
         itemProps.overlay = overlay;
       }
 
-      const isLastItem = index === routes.length - 1;
+      if (route.title === undefined) {
+        route.title = route.breadcrumbName;
+      }
 
       if (hasPath && !hasHref) {
         return (
@@ -151,7 +154,6 @@ const Breadcrumb: CompoundedComponent = ({
           </BreadcrumbItem>
         );
       }
-      const { title, breadcrumbName, ...otherRoute } = route;
 
       // =================== Warning =====================
       if (process.env.NODE_ENV !== 'production') {
@@ -164,9 +166,9 @@ const Breadcrumb: CompoundedComponent = ({
 
       return (
         <React.Fragment key={route?.key ?? index}>
-          {(title !== undefined || breadcrumbName !== undefined || !route.menu || !overlay) && (
+          {(title !== undefined || !route.menu || !overlay) && (
             <BreadcrumbItem {...otherRoute} separator={isLastItem ? '' : separator}>
-              {title || breadcrumbName}
+              {title}
             </BreadcrumbItem>
           )}
           {route.separator && <BreadcrumbSeparator>{route.separator}</BreadcrumbSeparator>}
