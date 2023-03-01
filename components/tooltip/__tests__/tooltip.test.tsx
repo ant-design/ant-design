@@ -203,7 +203,7 @@ describe('Tooltip', () => {
     expect(containerBlock.getElementsByTagName('span')[0].style.display).toBe('block');
   });
 
-  it('should works for arrowPointAtCenter', () => {
+  it.only('should works for arrowPointAtCenter', () => {
     const arrowWidth = 5;
     const horizontalArrowShift = 16;
     const triggerWidth = 200;
@@ -250,6 +250,9 @@ describe('Tooltip', () => {
         container2.querySelector<HTMLDivElement>('.point-center-element')?.style?.left!,
         10,
       );
+      expect(warnSpy).toHaveBeenLastCalledWith(
+        expect.stringContaining('`arrowPointAtCenter` is deprecated'),
+      );
 
       expect(popupLeftArrowPointAtCenter - popupLeftDefault).toBe(
         triggerWidth / 2 - horizontalArrowShift - arrowWidth,
@@ -279,7 +282,35 @@ describe('Tooltip', () => {
       expect(popupLeftArrowPointAtCenter2 - popupLeftDefault).toBe(
         triggerWidth / 2 - horizontalArrowShift - arrowWidth,
       );
-      expect(warnSpy).toHaveBeenCalledTimes(1);
+      expect(warnSpy).toHaveBeenLastCalledWith(
+        expect.stringContaining('`arrowPointAtCenter` in `arrow` is deprecated'),
+      );
+
+      const { container: container4 } = render(
+        <Tooltip
+          title="xxxxx"
+          trigger="click"
+          mouseEnterDelay={0}
+          mouseLeaveDelay={0}
+          placement="bottomLeft"
+          arrow={{ pointAtCenter: true }}
+          overlayClassName="point-center-element"
+        >
+          <button type="button" style={{ width: triggerWidth }}>
+            Hello world!
+          </button>
+        </Tooltip>,
+      );
+      fireEvent.click(container4.getElementsByTagName('button')[0]);
+      const popupLeftArrowPointAtCenter3 = parseInt(
+        container4.querySelector<HTMLDivElement>('.point-center-element')?.style?.left!,
+        10,
+      );
+
+      expect(popupLeftArrowPointAtCenter3 - popupLeftDefault).toBe(
+        triggerWidth / 2 - horizontalArrowShift - arrowWidth,
+      );
+      expect(warnSpy).toHaveBeenCalledTimes(2);
     };
 
     (jest.dontMock as any)('rc-trigger', suit);
