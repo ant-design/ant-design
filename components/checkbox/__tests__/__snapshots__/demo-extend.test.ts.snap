@@ -163,6 +163,23 @@ exports[`renders ./components/checkbox/demo/debug-disable-popover.tsx extend con
 <div
   style="padding:56px"
 >
+  <label
+    class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-disabled"
+  >
+    <span
+      class="ant-checkbox ant-checkbox-checked ant-checkbox-disabled"
+    >
+      <input
+        checked=""
+        class="ant-checkbox-input"
+        disabled=""
+        type="checkbox"
+      />
+      <span
+        class="ant-checkbox-inner"
+      />
+    </span>
+  </label>
   <div
     class="ant-popover ant-popover-placement-top"
     style="left:-1000vw;top:-1000vh;box-sizing:border-box"
@@ -186,23 +203,6 @@ exports[`renders ./components/checkbox/demo/debug-disable-popover.tsx extend con
       </div>
     </div>
   </div>
-  <label
-    class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-disabled"
-  >
-    <span
-      class="ant-checkbox ant-checkbox-checked ant-checkbox-disabled"
-    >
-      <input
-        checked=""
-        class="ant-checkbox-input"
-        disabled=""
-        type="checkbox"
-      />
-      <span
-        class="ant-checkbox-inner"
-      />
-    </span>
-  </label>
 </div>
 `;
 

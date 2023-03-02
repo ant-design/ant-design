@@ -433,25 +433,6 @@ Array [
         </span>
       </span>
     </a>
-    <div
-      class="ant-tooltip ant-tooltip-placement-top"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-    >
-      <div
-        class="ant-tooltip-arrow"
-        style="position:absolute;bottom:0;left:0"
-      />
-      <div
-        class="ant-tooltip-content"
-      >
-        <div
-          class="ant-tooltip-inner"
-          role="tooltip"
-        >
-          Ant User
-        </div>
-      </div>
-    </div>
     <span
       class="ant-avatar ant-avatar-circle ant-avatar-icon"
       style="background-color:#87d068"
@@ -476,6 +457,25 @@ Array [
         </svg>
       </span>
     </span>
+    <div
+      class="ant-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
+      <div
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          Ant User
+        </div>
+      </div>
+    </div>
     <span
       class="ant-avatar ant-avatar-circle ant-avatar-icon"
       style="background-color:#1890ff"
@@ -526,6 +526,17 @@ Array [
         K
       </span>
     </span>
+    <span
+      class="ant-avatar ant-avatar-circle"
+      style="color:#f56a00;background-color:#fde3cf"
+    >
+      <span
+        class="ant-avatar-string"
+        style="opacity:0"
+      >
+        +2
+      </span>
+    </span>
     <div
       class="ant-popover ant-avatar-group-popover ant-popover-placement-top"
       style="left:-1000vw;top:-1000vh;box-sizing:border-box"
@@ -544,25 +555,6 @@ Array [
           <div
             class="ant-popover-inner-content"
           >
-            <div
-              class="ant-tooltip ant-tooltip-placement-top"
-              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-            >
-              <div
-                class="ant-tooltip-arrow"
-                style="position:absolute;bottom:0;left:0"
-              />
-              <div
-                class="ant-tooltip-content"
-              >
-                <div
-                  class="ant-tooltip-inner"
-                  role="tooltip"
-                >
-                  Ant User
-                </div>
-              </div>
-            </div>
             <span
               class="ant-avatar ant-avatar-circle ant-avatar-icon"
               style="background-color:#87d068"
@@ -587,6 +579,25 @@ Array [
                 </svg>
               </span>
             </span>
+            <div
+              class="ant-tooltip ant-tooltip-placement-top"
+              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+            >
+              <div
+                class="ant-tooltip-arrow"
+                style="position:absolute;bottom:0;left:0"
+              />
+              <div
+                class="ant-tooltip-content"
+              >
+                <div
+                  class="ant-tooltip-inner"
+                  role="tooltip"
+                >
+                  Ant User
+                </div>
+              </div>
+            </div>
             <span
               class="ant-avatar ant-avatar-circle ant-avatar-icon"
               style="background-color:#1890ff"
@@ -615,17 +626,6 @@ Array [
         </div>
       </div>
     </div>
-    <span
-      class="ant-avatar ant-avatar-circle"
-      style="color:#f56a00;background-color:#fde3cf"
-    >
-      <span
-        class="ant-avatar-string"
-        style="opacity:0"
-      >
-        +2
-      </span>
-    </span>
   </div>,
   <div
     class="ant-divider ant-divider-horizontal"
@@ -652,6 +652,17 @@ Array [
         K
       </span>
     </span>
+    <span
+      class="ant-avatar ant-avatar-lg ant-avatar-circle"
+      style="color:#f56a00;background-color:#fde3cf"
+    >
+      <span
+        class="ant-avatar-string"
+        style="opacity:0"
+      >
+        +2
+      </span>
+    </span>
     <div
       class="ant-popover ant-avatar-group-popover ant-popover-placement-top"
       style="left:-1000vw;top:-1000vh;box-sizing:border-box"
@@ -670,25 +681,6 @@ Array [
           <div
             class="ant-popover-inner-content"
           >
-            <div
-              class="ant-tooltip ant-tooltip-placement-top"
-              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-            >
-              <div
-                class="ant-tooltip-arrow"
-                style="position:absolute;bottom:0;left:0"
-              />
-              <div
-                class="ant-tooltip-content"
-              >
-                <div
-                  class="ant-tooltip-inner"
-                  role="tooltip"
-                >
-                  Ant User
-                </div>
-              </div>
-            </div>
             <span
               class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-icon"
               style="background-color:#87d068"
@@ -713,6 +705,25 @@ Array [
                 </svg>
               </span>
             </span>
+            <div
+              class="ant-tooltip ant-tooltip-placement-top"
+              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+            >
+              <div
+                class="ant-tooltip-arrow"
+                style="position:absolute;bottom:0;left:0"
+              />
+              <div
+                class="ant-tooltip-content"
+              >
+                <div
+                  class="ant-tooltip-inner"
+                  role="tooltip"
+                >
+                  Ant User
+                </div>
+              </div>
+            </div>
             <span
               class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-icon"
               style="background-color:#1890ff"
@@ -741,17 +752,6 @@ Array [
         </div>
       </div>
     </div>
-    <span
-      class="ant-avatar ant-avatar-lg ant-avatar-circle"
-      style="color:#f56a00;background-color:#fde3cf"
-    >
-      <span
-        class="ant-avatar-string"
-        style="opacity:0"
-      >
-        +2
-      </span>
-    </span>
   </div>,
   <div
     class="ant-divider ant-divider-horizontal"
@@ -778,6 +778,17 @@ Array [
         K
       </span>
     </span>
+    <span
+      class="ant-avatar ant-avatar-lg ant-avatar-circle"
+      style="color:#f56a00;background-color:#fde3cf;cursor:pointer"
+    >
+      <span
+        class="ant-avatar-string"
+        style="opacity:0"
+      >
+        +2
+      </span>
+    </span>
     <div
       class="ant-popover ant-avatar-group-popover ant-popover-placement-top"
       style="left:-1000vw;top:-1000vh;box-sizing:border-box"
@@ -796,25 +807,6 @@ Array [
           <div
             class="ant-popover-inner-content"
           >
-            <div
-              class="ant-tooltip ant-tooltip-placement-top"
-              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-            >
-              <div
-                class="ant-tooltip-arrow"
-                style="position:absolute;bottom:0;left:0"
-              />
-              <div
-                class="ant-tooltip-content"
-              >
-                <div
-                  class="ant-tooltip-inner"
-                  role="tooltip"
-                >
-                  Ant User
-                </div>
-              </div>
-            </div>
             <span
               class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-icon"
               style="background-color:#87d068"
@@ -839,6 +831,25 @@ Array [
                 </svg>
               </span>
             </span>
+            <div
+              class="ant-tooltip ant-tooltip-placement-top"
+              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+            >
+              <div
+                class="ant-tooltip-arrow"
+                style="position:absolute;bottom:0;left:0"
+              />
+              <div
+                class="ant-tooltip-content"
+              >
+                <div
+                  class="ant-tooltip-inner"
+                  role="tooltip"
+                >
+                  Ant User
+                </div>
+              </div>
+            </div>
             <span
               class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-icon"
               style="background-color:#1890ff"
@@ -867,17 +878,6 @@ Array [
         </div>
       </div>
     </div>
-    <span
-      class="ant-avatar ant-avatar-lg ant-avatar-circle"
-      style="color:#f56a00;background-color:#fde3cf;cursor:pointer"
-    >
-      <span
-        class="ant-avatar-string"
-        style="opacity:0"
-      >
-        +2
-      </span>
-    </span>
   </div>,
 ]
 `;
