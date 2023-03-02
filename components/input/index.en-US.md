@@ -131,7 +131,7 @@ Supports all props of `Input`.
 
 #### Input Ref
 
-In the Input component, the object obtained by 'ref' is not the dom object of the original input, but rather a composite wrapper object. You can obtain the dom object of the original input by using 'ref.input'. More about `ref` see: [rc-input](https://github.com/react-component/input#readme)
+In the Input component, the object obtained by 'ref' is not the dom object of the original input, but rather a composite wrapper object. You can obtain the dom object of the original input by using 'ref.input'. More about `ref` see: [rc-input](https://github.com/react-component/input#readme).
 
 ## FAQ
 

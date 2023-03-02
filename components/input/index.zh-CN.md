@@ -132,7 +132,7 @@ Input 的其他属性和 React 自带的 [input](https://reactjs.org/docs/dom-el
 
 #### Input Ref
 
-在`Input`组件当中，`ref`获得的对象并不是原始的`input`的 dom 对象，而是一个复合包装对象，你可以通过`ref.input`获得原始的`input`的 dom 对象，更多关于 `ref` 的介绍详见：[rc-input](https://github.com/react-component/input#readme)
+在`Input`组件当中，`ref`获得的对象并不是原始的`input`的 dom 对象，而是一个复合包装对象，你可以通过`ref.input`获得原始的`input`的 dom 对象，更多关于 `ref` 的介绍详见：[rc-input](https://github.com/react-component/input#readme)。
 
 ## FAQ
 
