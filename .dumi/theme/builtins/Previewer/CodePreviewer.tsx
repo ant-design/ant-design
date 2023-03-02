@@ -209,19 +209,17 @@ const CodePreviewer: React.FC<IPreviewerProps> = (props) => {
       </html>
     `;
 
-  const tsconfig = `
-  {
-    "compilerOptions": {
-      "target": "esnext",
-      "module": "esnext",
-      "esModuleInterop": true,
-      "moduleResolution": "node",
-      "jsx": "react",
-      "jsxFactory": "React.createElement",
-      "jsxFragmentFactory": "React.Fragment"
-    }
-  }
-`;
+  const tsconfig = {
+    compilerOptions: {
+      target: 'esnext',
+      module: 'esnext',
+      esModuleInterop: true,
+      moduleResolution: 'node',
+      jsx: 'react',
+      jsxFactory: 'React.createElement',
+      jsxFragmentFactory: 'React.Fragment',
+    },
+  };
 
   const suffix = codeType === 'tsx' ? 'tsx' : 'js';
 
@@ -369,8 +367,9 @@ createRoot(document.getElementById('container')).render(<Demo />);
       'index.html': html,
     },
   };
+
   if (suffix === 'tsx') {
-    stackblitzPrefillConfig.files['tsconfig.json'] = tsconfig;
+    stackblitzPrefillConfig.files['tsconfig.json'] = JSON.stringify(tsconfig, null, 2);
   }
 
   const backgroundGrey = theme.includes('dark') ? '#303030' : '#f0f2f5';
