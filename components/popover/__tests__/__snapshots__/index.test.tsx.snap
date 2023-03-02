@@ -2,6 +2,11 @@
 
 exports[`Popover should be rendered correctly in RTL direction 1`] = `
 Array [
+  <span
+    class="ant-popover-open"
+  >
+    show me your Rtl demo
+  </span>,
   <div
     class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-rtl ant-popover-placement-top"
     style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
@@ -28,11 +33,6 @@ Array [
       </div>
     </div>
   </div>,
-  <span
-    class="ant-popover-open"
-  >
-    show me your Rtl demo
-  </span>,
 ]
 `;
 
