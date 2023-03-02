@@ -14,7 +14,10 @@ const genBorderedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
     [`&${componentCls}-${size}`]: {
       [`> ${componentCls}-container`]: {
         [`> ${componentCls}-content, > ${componentCls}-body`]: {
-          '> table > tbody > tr > td': {
+          [`
+            > table > tbody > tr > th,
+            > table > tbody > tr > td
+          `]: {
             [`> ${componentCls}-expanded-row-fixed`]: {
               margin: `-${paddingVertical}px -${paddingHorizontal + token.lineWidth}px`,
             },
@@ -47,6 +50,7 @@ const genBorderedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
               // ============================= Cell =============================
               [`
                 > thead > tr > th,
+                > tbody > tr > th,
                 > tbody > tr > td,
                 > tfoot > tr > th,
                 > tfoot > tr > td
@@ -77,7 +81,10 @@ const genBorderedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
               },
 
               // ========================== Expandable ==========================
-              '> tbody > tr > td': {
+              [`
+                > tbody > tr > th,
+                > tbody > tr > td
+              `]: {
                 [`> ${componentCls}-expanded-row-fixed`]: {
                   margin: `-${token.tablePaddingVertical}px -${
                     token.tablePaddingHorizontal + token.lineWidth
@@ -114,7 +121,7 @@ const genBorderedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
                 > tr${componentCls}-expanded-row,
                 > tr${componentCls}-placeholder
               `]: {
-                '> td': {
+                [`> th, > td`]: {
                   borderInlineEnd: 0,
                 },
               },
