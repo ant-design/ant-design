@@ -44,8 +44,6 @@ const Popover = React.forwardRef<unknown, PopoverProps>((props, ref) => {
     mouseEnterDelay = 0.1,
     mouseLeaveDelay = 0.1,
     overlayStyle = {},
-    arrowPointAtCenter,
-    arrow,
     ...otherProps
   } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
@@ -56,17 +54,9 @@ const Popover = React.forwardRef<unknown, PopoverProps>((props, ref) => {
 
   const overlayCls = classNames(overlayClassName, hashId);
 
-  let mergedArrowPointAtCenter = arrowPointAtCenter ?? false;
-  if (typeof arrow === 'object') {
-    mergedArrowPointAtCenter =
-      arrow.pointAtCenter ?? arrow.arrowPointAtCenter ?? mergedArrowPointAtCenter;
-  }
-  const mergedArrow = arrow ?? { pointAtCenter: mergedArrowPointAtCenter };
-
   return wrapSSR(
     <Tooltip
       placement={placement}
-      arrow={mergedArrow}
       trigger={trigger}
       mouseEnterDelay={mouseEnterDelay}
       mouseLeaveDelay={mouseLeaveDelay}
