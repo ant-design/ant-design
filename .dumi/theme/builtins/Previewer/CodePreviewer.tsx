@@ -8,26 +8,26 @@ import type { Project } from '@stackblitz/sdk';
 import stackblitzSdk from '@stackblitz/sdk';
 import { Alert, Badge, Space, Tooltip } from 'antd';
 import classNames from 'classnames';
-import LZString from 'lz-string';
-import React, { useContext, useEffect, useRef, useState } from 'react';
-import CopyToClipboard from 'react-copy-to-clipboard';
 import type { IPreviewerProps } from 'dumi';
 import { FormattedMessage, useSiteData } from 'dumi';
-import Prism from 'prismjs';
-import JsonML from 'jsonml.js/lib/utils';
 import toReactElement from 'jsonml-to-react-element';
-import { ping } from '../../utils';
-import ClientOnly from '../../common/ClientOnly';
+import JsonML from 'jsonml.js/lib/utils';
+import LZString from 'lz-string';
+import Prism from 'prismjs';
+import React, { useContext, useEffect, useRef, useState } from 'react';
+import CopyToClipboard from 'react-copy-to-clipboard';
+import useLocation from '../../../hooks/useLocation';
 import BrowserFrame from '../../common/BrowserFrame';
-import EditButton from '../../common/EditButton';
+import ClientOnly from '../../common/ClientOnly';
 import CodePenIcon from '../../common/CodePenIcon';
 import CodePreview from '../../common/CodePreview';
 import CodeSandboxIcon from '../../common/CodeSandboxIcon';
-import RiddleIcon from '../../common/RiddleIcon';
+import EditButton from '../../common/EditButton';
 import ExternalLinkIcon from '../../common/ExternalLinkIcon';
+import RiddleIcon from '../../common/RiddleIcon';
 import type { SiteContextProps } from '../../slots/SiteContext';
 import SiteContext from '../../slots/SiteContext';
-import useLocation from '../../../hooks/useLocation';
+import { ping } from '../../utils';
 
 const { ErrorBoundary } = Alert;
 
@@ -210,16 +210,18 @@ const CodePreviewer: React.FC<IPreviewerProps> = (props) => {
     `;
 
   const tsconfig = `
-    {
-      "compilerOptions": {
-        "jsx": "react-jsx",
-        "target": "esnext",
-        "module": "esnext",
-        "esModuleInterop": true,
-        "moduleResolution": "node",
-      }
+  {
+    "compilerOptions": {
+      "target": "esnext",
+      "module": "esnext",
+      "esModuleInterop": true,
+      "moduleResolution": "node",
+      "jsx": "react",
+      "jsxFactory": "React.createElement",
+      "jsxFragmentFactory": "React.Fragment"
     }
-  `;
+  }
+`;
 
   const suffix = codeType === 'tsx' ? 'tsx' : 'js';
 
