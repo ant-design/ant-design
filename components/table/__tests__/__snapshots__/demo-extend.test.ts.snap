@@ -1152,25 +1152,6 @@ exports[`renders ./components/table/demo/custom-filter-panel.tsx extend context 
                         class="ant-table-column-title"
                       >
                         <div
-                          class="ant-tooltip ant-tooltip-placement-top"
-                          style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-                        >
-                          <div
-                            class="ant-tooltip-arrow"
-                            style="position:absolute;bottom:0;left:0"
-                          />
-                          <div
-                            class="ant-tooltip-content"
-                          >
-                            <div
-                              class="ant-tooltip-inner"
-                              role="tooltip"
-                            >
-                              Click to sort descending
-                            </div>
-                          </div>
-                        </div>
-                        <div
                           class="ant-table-column-sorters"
                         >
                           <span
@@ -1225,6 +1206,25 @@ exports[`renders ./components/table/demo/custom-filter-panel.tsx extend context 
                               </span>
                             </span>
                           </span>
+                        </div>
+                        <div
+                          class="ant-tooltip ant-tooltip-placement-top"
+                          style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                        >
+                          <div
+                            class="ant-tooltip-arrow"
+                            style="position:absolute;bottom:0;left:0"
+                          />
+                          <div
+                            class="ant-tooltip-content"
+                          >
+                            <div
+                              class="ant-tooltip-inner"
+                              role="tooltip"
+                            >
+                              Click to sort descending
+                            </div>
+                          </div>
                         </div>
                       </span>
                       <span
@@ -3090,25 +3090,6 @@ Array [
                       tabindex="0"
                     >
                       <div
-                        class="ant-tooltip ant-tooltip-placement-top"
-                        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-                      >
-                        <div
-                          class="ant-tooltip-arrow"
-                          style="position:absolute;bottom:0;left:0"
-                        />
-                        <div
-                          class="ant-tooltip-content"
-                        >
-                          <div
-                            class="ant-tooltip-inner"
-                            role="tooltip"
-                          >
-                            Click to sort ascending
-                          </div>
-                        </div>
-                      </div>
-                      <div
                         class="ant-table-column-sorters"
                       >
                         <span
@@ -3164,6 +3145,25 @@ Array [
                           </span>
                         </span>
                       </div>
+                      <div
+                        class="ant-tooltip ant-tooltip-placement-top"
+                        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                      >
+                        <div
+                          class="ant-tooltip-arrow"
+                          style="position:absolute;bottom:0;left:0"
+                        />
+                        <div
+                          class="ant-tooltip-content"
+                        >
+                          <div
+                            class="ant-tooltip-inner"
+                            role="tooltip"
+                          >
+                            Click to sort ascending
+                          </div>
+                        </div>
+                      </div>
                     </th>
                     <th
                       class="ant-table-cell"
@@ -3216,23 +3216,6 @@ Array [
                                 role="menu"
                                 tabindex="0"
                               >
-                                <div
-                                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                  style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-                                >
-                                  <div
-                                    class="ant-tooltip-arrow"
-                                    style="position:absolute;top:0;left:0"
-                                  />
-                                  <div
-                                    class="ant-tooltip-content"
-                                  >
-                                    <div
-                                      class="ant-tooltip-inner"
-                                      role="tooltip"
-                                    />
-                                  </div>
-                                </div>
                                 <li
                                   class="ant-dropdown-menu-item"
                                   role="menuitem"
@@ -3306,6 +3289,23 @@ Array [
                                     </span>
                                   </span>
                                 </li>
+                                <div
+                                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                                  style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                                >
+                                  <div
+                                    class="ant-tooltip-arrow"
+                                    style="position:absolute;top:0;left:0"
+                                  />
+                                  <div
+                                    class="ant-tooltip-content"
+                                  >
+                                    <div
+                                      class="ant-tooltip-inner"
+                                      role="tooltip"
+                                    />
+                                  </div>
+                                </div>
                               </ul>
                               <div
                                 aria-hidden="true"
@@ -3379,25 +3379,6 @@ Array [
                       tabindex="0"
                     >
                       <div
-                        class="ant-tooltip ant-tooltip-placement-top"
-                        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-                      >
-                        <div
-                          class="ant-tooltip-arrow"
-                          style="position:absolute;bottom:0;left:0"
-                        />
-                        <div
-                          class="ant-tooltip-content"
-                        >
-                          <div
-                            class="ant-tooltip-inner"
-                            role="tooltip"
-                          >
-                            Click to sort ascending
-                          </div>
-                        </div>
-                      </div>
-                      <div
                         class="ant-table-column-sorters"
                       >
                         <span
@@ -3452,6 +3433,25 @@ Array [
                             </span>
                           </span>
                         </span>
+                      </div>
+                      <div
+                        class="ant-tooltip ant-tooltip-placement-top"
+                        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                      >
+                        <div
+                          class="ant-tooltip-arrow"
+                          style="position:absolute;bottom:0;left:0"
+                        />
+                        <div
+                          class="ant-tooltip-content"
+                        >
+                          <div
+                            class="ant-tooltip-inner"
+                            role="tooltip"
+                          >
+                            Click to sort ascending
+                          </div>
+                        </div>
                       </div>
                     </th>
                   </tr>
@@ -4691,6 +4691,9 @@ exports[`renders ./components/table/demo/edit-cell.tsx extend context correctly 
                     <td
                       class="ant-table-cell"
                     >
+                      <a>
+                        Delete
+                      </a>
                       <div
                         class="ant-popover ant-popconfirm ant-popover-placement-top"
                         style="left:-1000vw;top:-1000vh;box-sizing:border-box"
@@ -4769,9 +4772,6 @@ exports[`renders ./components/table/demo/edit-cell.tsx extend context correctly 
                           </div>
                         </div>
                       </div>
-                      <a>
-                        Delete
-                      </a>
                     </td>
                   </tr>
                   <tr
@@ -4801,6 +4801,9 @@ exports[`renders ./components/table/demo/edit-cell.tsx extend context correctly 
                     <td
                       class="ant-table-cell"
                     >
+                      <a>
+                        Delete
+                      </a>
                       <div
                         class="ant-popover ant-popconfirm ant-popover-placement-top"
                         style="left:-1000vw;top:-1000vh;box-sizing:border-box"
@@ -4879,9 +4882,6 @@ exports[`renders ./components/table/demo/edit-cell.tsx extend context correctly 
                           </div>
                         </div>
                       </div>
-                      <a>
-                        Delete
-                      </a>
                     </td>
                   </tr>
                 </tbody>
@@ -5544,110 +5544,6 @@ exports[`renders ./components/table/demo/edit-row.tsx extend context correctly 1
                 10 / page
               </span>
             </div>
-            <div>
-              <div
-                class="ant-select-dropdown"
-                style="opacity:0"
-              >
-                <div>
-                  <div
-                    class="rc-virtual-list"
-                    style="position:relative"
-                  >
-                    <div
-                      class="rc-virtual-list-holder"
-                      style="max-height:256px;overflow-y:auto;overflow-anchor:none"
-                    >
-                      <div>
-                        <div
-                          class="rc-virtual-list-holder-inner"
-                          id="undefined_list"
-                          role="listbox"
-                          style="display:flex;flex-direction:column"
-                        >
-                          <div
-                            aria-selected="true"
-                            class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                            id="undefined_list_0"
-                            role="option"
-                            title="10 / page"
-                          >
-                            <div
-                              class="ant-select-item-option-content"
-                            >
-                              10 / page
-                            </div>
-                            <span
-                              aria-hidden="true"
-                              class="ant-select-item-option-state"
-                              style="user-select:none;-webkit-user-select:none"
-                              unselectable="on"
-                            />
-                          </div>
-                          <div
-                            aria-selected="false"
-                            class="ant-select-item ant-select-item-option"
-                            id="undefined_list_1"
-                            role="option"
-                            title="20 / page"
-                          >
-                            <div
-                              class="ant-select-item-option-content"
-                            >
-                              20 / page
-                            </div>
-                            <span
-                              aria-hidden="true"
-                              class="ant-select-item-option-state"
-                              style="user-select:none;-webkit-user-select:none"
-                              unselectable="on"
-                            />
-                          </div>
-                          <div
-                            aria-selected="false"
-                            class="ant-select-item ant-select-item-option"
-                            id="undefined_list_2"
-                            role="option"
-                            title="50 / page"
-                          >
-                            <div
-                              class="ant-select-item-option-content"
-                            >
-                              50 / page
-                            </div>
-                            <span
-                              aria-hidden="true"
-                              class="ant-select-item-option-state"
-                              style="user-select:none;-webkit-user-select:none"
-                              unselectable="on"
-                            />
-                          </div>
-                          <div
-                            aria-selected="false"
-                            class="ant-select-item ant-select-item-option"
-                            id="undefined_list_3"
-                            role="option"
-                            title="100 / page"
-                          >
-                            <div
-                              class="ant-select-item-option-content"
-                            >
-                              100 / page
-                            </div>
-                            <span
-                              aria-hidden="true"
-                              class="ant-select-item-option-state"
-                              style="user-select:none;-webkit-user-select:none"
-                              unselectable="on"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
             <span
               aria-hidden="true"
               class="ant-select-arrow"
@@ -6071,6 +5967,9 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.tsx extend cont
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
+                    <span>
+                      New York No. 1 Lake Park, New York No. 1 Lake Park
+                    </span>
                     <div
                       class="ant-tooltip ant-tooltip-placement-topLeft"
                       style="left:-1000vw;top:-1000vh;box-sizing:border-box"
@@ -6090,13 +5989,13 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.tsx extend cont
                         </div>
                       </div>
                     </div>
-                    <span>
-                      New York No. 1 Lake Park, New York No. 1 Lake Park
-                    </span>
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
+                    <span>
+                      New York No. 1 Lake Park, New York No. 1 Lake Park
+                    </span>
                     <div
                       class="ant-tooltip ant-tooltip-placement-topLeft"
                       style="left:-1000vw;top:-1000vh;box-sizing:border-box"
@@ -6116,13 +6015,13 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.tsx extend cont
                         </div>
                       </div>
                     </div>
-                    <span>
-                      New York No. 1 Lake Park, New York No. 1 Lake Park
-                    </span>
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
+                    <span>
+                      New York No. 1 Lake Park, New York No. 1 Lake Park
+                    </span>
                     <div
                       class="ant-tooltip ant-tooltip-placement-topLeft"
                       style="left:-1000vw;top:-1000vh;box-sizing:border-box"
@@ -6142,13 +6041,13 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.tsx extend cont
                         </div>
                       </div>
                     </div>
-                    <span>
-                      New York No. 1 Lake Park, New York No. 1 Lake Park
-                    </span>
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
+                    <span>
+                      New York No. 1 Lake Park, New York No. 1 Lake Park
+                    </span>
                     <div
                       class="ant-tooltip ant-tooltip-placement-topLeft"
                       style="left:-1000vw;top:-1000vh;box-sizing:border-box"
@@ -6168,9 +6067,6 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.tsx extend cont
                         </div>
                       </div>
                     </div>
-                    <span>
-                      New York No. 1 Lake Park, New York No. 1 Lake Park
-                    </span>
                   </td>
                 </tr>
                 <tr
@@ -6192,6 +6088,9 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.tsx extend cont
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
+                    <span>
+                      London No. 2 Lake Park, London No. 2 Lake Park
+                    </span>
                     <div
                       class="ant-tooltip ant-tooltip-placement-topLeft"
                       style="left:-1000vw;top:-1000vh;box-sizing:border-box"
@@ -6211,13 +6110,13 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.tsx extend cont
                         </div>
                       </div>
                     </div>
-                    <span>
-                      London No. 2 Lake Park, London No. 2 Lake Park
-                    </span>
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
+                    <span>
+                      London No. 2 Lake Park, London No. 2 Lake Park
+                    </span>
                     <div
                       class="ant-tooltip ant-tooltip-placement-topLeft"
                       style="left:-1000vw;top:-1000vh;box-sizing:border-box"
@@ -6237,13 +6136,13 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.tsx extend cont
                         </div>
                       </div>
                     </div>
-                    <span>
-                      London No. 2 Lake Park, London No. 2 Lake Park
-                    </span>
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
+                    <span>
+                      London No. 2 Lake Park, London No. 2 Lake Park
+                    </span>
                     <div
                       class="ant-tooltip ant-tooltip-placement-topLeft"
                       style="left:-1000vw;top:-1000vh;box-sizing:border-box"
@@ -6263,13 +6162,13 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.tsx extend cont
                         </div>
                       </div>
                     </div>
-                    <span>
-                      London No. 2 Lake Park, London No. 2 Lake Park
-                    </span>
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
+                    <span>
+                      London No. 2 Lake Park, London No. 2 Lake Park
+                    </span>
                     <div
                       class="ant-tooltip ant-tooltip-placement-topLeft"
                       style="left:-1000vw;top:-1000vh;box-sizing:border-box"
@@ -6289,9 +6188,6 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.tsx extend cont
                         </div>
                       </div>
                     </div>
-                    <span>
-                      London No. 2 Lake Park, London No. 2 Lake Park
-                    </span>
                   </td>
                 </tr>
                 <tr
@@ -6313,6 +6209,9 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.tsx extend cont
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
+                    <span>
+                      Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
+                    </span>
                     <div
                       class="ant-tooltip ant-tooltip-placement-topLeft"
                       style="left:-1000vw;top:-1000vh;box-sizing:border-box"
@@ -6332,13 +6231,13 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.tsx extend cont
                         </div>
                       </div>
                     </div>
-                    <span>
-                      Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
-                    </span>
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
+                    <span>
+                      Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
+                    </span>
                     <div
                       class="ant-tooltip ant-tooltip-placement-topLeft"
                       style="left:-1000vw;top:-1000vh;box-sizing:border-box"
@@ -6358,13 +6257,13 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.tsx extend cont
                         </div>
                       </div>
                     </div>
-                    <span>
-                      Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
-                    </span>
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
+                    <span>
+                      Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
+                    </span>
                     <div
                       class="ant-tooltip ant-tooltip-placement-topLeft"
                       style="left:-1000vw;top:-1000vh;box-sizing:border-box"
@@ -6384,13 +6283,13 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.tsx extend cont
                         </div>
                       </div>
                     </div>
-                    <span>
-                      Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
-                    </span>
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
+                    <span>
+                      Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
+                    </span>
                     <div
                       class="ant-tooltip ant-tooltip-placement-topLeft"
                       style="left:-1000vw;top:-1000vh;box-sizing:border-box"
@@ -6410,9 +6309,6 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.tsx extend cont
                         </div>
                       </div>
                     </div>
-                    <span>
-                      Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
-                    </span>
                   </td>
                 </tr>
               </tbody>
@@ -7285,25 +7181,6 @@ exports[`renders ./components/table/demo/filter-in-tree.tsx extend context corre
                     tabindex="0"
                   >
                     <div
-                      class="ant-tooltip ant-tooltip-placement-top"
-                      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-                    >
-                      <div
-                        class="ant-tooltip-arrow"
-                        style="position:absolute;bottom:0;left:0"
-                      />
-                      <div
-                        class="ant-tooltip-content"
-                      >
-                        <div
-                          class="ant-tooltip-inner"
-                          role="tooltip"
-                        >
-                          Click to sort ascending
-                        </div>
-                      </div>
-                    </div>
-                    <div
                       class="ant-table-column-sorters"
                     >
                       <span
@@ -7358,6 +7235,25 @@ exports[`renders ./components/table/demo/filter-in-tree.tsx extend context corre
                           </span>
                         </span>
                       </span>
+                    </div>
+                    <div
+                      class="ant-tooltip ant-tooltip-placement-top"
+                      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                    >
+                      <div
+                        class="ant-tooltip-arrow"
+                        style="position:absolute;bottom:0;left:0"
+                      />
+                      <div
+                        class="ant-tooltip-content"
+                      >
+                        <div
+                          class="ant-tooltip-inner"
+                          role="tooltip"
+                        >
+                          Click to sort ascending
+                        </div>
+                      </div>
                     </div>
                   </th>
                   <th
@@ -7449,23 +7345,6 @@ exports[`renders ./components/table/demo/filter-in-tree.tsx extend context corre
                               role="menu"
                               tabindex="0"
                             >
-                              <div
-                                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-                              >
-                                <div
-                                  class="ant-tooltip-arrow"
-                                  style="position:absolute;top:0;left:0"
-                                />
-                                <div
-                                  class="ant-tooltip-content"
-                                >
-                                  <div
-                                    class="ant-tooltip-inner"
-                                    role="tooltip"
-                                  />
-                                </div>
-                              </div>
                               <li
                                 class="ant-dropdown-menu-item"
                                 role="menuitem"
@@ -7539,6 +7418,23 @@ exports[`renders ./components/table/demo/filter-in-tree.tsx extend context corre
                                   </span>
                                 </span>
                               </li>
+                              <div
+                                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                                style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                              >
+                                <div
+                                  class="ant-tooltip-arrow"
+                                  style="position:absolute;top:0;left:0"
+                                />
+                                <div
+                                  class="ant-tooltip-content"
+                                >
+                                  <div
+                                    class="ant-tooltip-inner"
+                                    role="tooltip"
+                                  />
+                                </div>
+                              </div>
                             </ul>
                             <div
                               aria-hidden="true"
@@ -8084,25 +7980,6 @@ exports[`renders ./components/table/demo/filter-search.tsx extend context correc
                     tabindex="0"
                   >
                     <div
-                      class="ant-tooltip ant-tooltip-placement-top"
-                      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-                    >
-                      <div
-                        class="ant-tooltip-arrow"
-                        style="position:absolute;bottom:0;left:0"
-                      />
-                      <div
-                        class="ant-tooltip-content"
-                      >
-                        <div
-                          class="ant-tooltip-inner"
-                          role="tooltip"
-                        >
-                          Click to sort ascending
-                        </div>
-                      </div>
-                    </div>
-                    <div
                       class="ant-table-column-sorters"
                     >
                       <span
@@ -8157,6 +8034,25 @@ exports[`renders ./components/table/demo/filter-search.tsx extend context correc
                           </span>
                         </span>
                       </span>
+                    </div>
+                    <div
+                      class="ant-tooltip ant-tooltip-placement-top"
+                      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                    >
+                      <div
+                        class="ant-tooltip-arrow"
+                        style="position:absolute;bottom:0;left:0"
+                      />
+                      <div
+                        class="ant-tooltip-content"
+                      >
+                        <div
+                          class="ant-tooltip-inner"
+                          role="tooltip"
+                        >
+                          Click to sort ascending
+                        </div>
+                      </div>
                     </div>
                   </th>
                   <th
@@ -8248,23 +8144,6 @@ exports[`renders ./components/table/demo/filter-search.tsx extend context correc
                               role="menu"
                               tabindex="0"
                             >
-                              <div
-                                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-                              >
-                                <div
-                                  class="ant-tooltip-arrow"
-                                  style="position:absolute;top:0;left:0"
-                                />
-                                <div
-                                  class="ant-tooltip-content"
-                                >
-                                  <div
-                                    class="ant-tooltip-inner"
-                                    role="tooltip"
-                                  />
-                                </div>
-                              </div>
                               <li
                                 class="ant-dropdown-menu-item"
                                 role="menuitem"
@@ -8338,6 +8217,23 @@ exports[`renders ./components/table/demo/filter-search.tsx extend context correc
                                   </span>
                                 </span>
                               </li>
+                              <div
+                                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                                style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                              >
+                                <div
+                                  class="ant-tooltip-arrow"
+                                  style="position:absolute;top:0;left:0"
+                                />
+                                <div
+                                  class="ant-tooltip-content"
+                                >
+                                  <div
+                                    class="ant-tooltip-inner"
+                                    role="tooltip"
+                                  />
+                                </div>
+                              </div>
                             </ul>
                             <div
                               aria-hidden="true"
@@ -8639,25 +8535,6 @@ exports[`renders ./components/table/demo/fixed-columns.tsx extend context correc
                     tabindex="0"
                   >
                     <div
-                      class="ant-tooltip ant-tooltip-placement-top"
-                      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-                    >
-                      <div
-                        class="ant-tooltip-arrow"
-                        style="position:absolute;bottom:0;left:0"
-                      />
-                      <div
-                        class="ant-tooltip-content"
-                      >
-                        <div
-                          class="ant-tooltip-inner"
-                          role="tooltip"
-                        >
-                          Click to sort ascending
-                        </div>
-                      </div>
-                    </div>
-                    <div
                       class="ant-table-column-sorters"
                     >
                       <span
@@ -8712,6 +8589,25 @@ exports[`renders ./components/table/demo/fixed-columns.tsx extend context correc
                           </span>
                         </span>
                       </span>
+                    </div>
+                    <div
+                      class="ant-tooltip ant-tooltip-placement-top"
+                      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                    >
+                      <div
+                        class="ant-tooltip-arrow"
+                        style="position:absolute;bottom:0;left:0"
+                      />
+                      <div
+                        class="ant-tooltip-content"
+                      >
+                        <div
+                          class="ant-tooltip-inner"
+                          role="tooltip"
+                        >
+                          Click to sort ascending
+                        </div>
+                      </div>
                     </div>
                   </th>
                   <th
@@ -10189,110 +10085,6 @@ exports[`renders ./components/table/demo/fixed-columns-header.tsx extend context
                 10 / page
               </span>
             </div>
-            <div>
-              <div
-                class="ant-select-dropdown"
-                style="opacity:0"
-              >
-                <div>
-                  <div
-                    class="rc-virtual-list"
-                    style="position:relative"
-                  >
-                    <div
-                      class="rc-virtual-list-holder"
-                      style="max-height:256px;overflow-y:auto;overflow-anchor:none"
-                    >
-                      <div>
-                        <div
-                          class="rc-virtual-list-holder-inner"
-                          id="undefined_list"
-                          role="listbox"
-                          style="display:flex;flex-direction:column"
-                        >
-                          <div
-                            aria-selected="true"
-                            class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                            id="undefined_list_0"
-                            role="option"
-                            title="10 / page"
-                          >
-                            <div
-                              class="ant-select-item-option-content"
-                            >
-                              10 / page
-                            </div>
-                            <span
-                              aria-hidden="true"
-                              class="ant-select-item-option-state"
-                              style="user-select:none;-webkit-user-select:none"
-                              unselectable="on"
-                            />
-                          </div>
-                          <div
-                            aria-selected="false"
-                            class="ant-select-item ant-select-item-option"
-                            id="undefined_list_1"
-                            role="option"
-                            title="20 / page"
-                          >
-                            <div
-                              class="ant-select-item-option-content"
-                            >
-                              20 / page
-                            </div>
-                            <span
-                              aria-hidden="true"
-                              class="ant-select-item-option-state"
-                              style="user-select:none;-webkit-user-select:none"
-                              unselectable="on"
-                            />
-                          </div>
-                          <div
-                            aria-selected="false"
-                            class="ant-select-item ant-select-item-option"
-                            id="undefined_list_2"
-                            role="option"
-                            title="50 / page"
-                          >
-                            <div
-                              class="ant-select-item-option-content"
-                            >
-                              50 / page
-                            </div>
-                            <span
-                              aria-hidden="true"
-                              class="ant-select-item-option-state"
-                              style="user-select:none;-webkit-user-select:none"
-                              unselectable="on"
-                            />
-                          </div>
-                          <div
-                            aria-selected="false"
-                            class="ant-select-item ant-select-item-option"
-                            id="undefined_list_3"
-                            role="option"
-                            title="100 / page"
-                          >
-                            <div
-                              class="ant-select-item-option-content"
-                            >
-                              100 / page
-                            </div>
-                            <span
-                              aria-hidden="true"
-                              class="ant-select-item-option-state"
-                              style="user-select:none;-webkit-user-select:none"
-                              unselectable="on"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
             <span
               aria-hidden="true"
               class="ant-select-arrow"
@@ -11557,110 +11349,6 @@ exports[`renders ./components/table/demo/fixed-header.tsx extend context correct
                 50 / page
               </span>
             </div>
-            <div>
-              <div
-                class="ant-select-dropdown"
-                style="opacity:0"
-              >
-                <div>
-                  <div
-                    class="rc-virtual-list"
-                    style="position:relative"
-                  >
-                    <div
-                      class="rc-virtual-list-holder"
-                      style="max-height:256px;overflow-y:auto;overflow-anchor:none"
-                    >
-                      <div>
-                        <div
-                          class="rc-virtual-list-holder-inner"
-                          id="undefined_list"
-                          role="listbox"
-                          style="display:flex;flex-direction:column"
-                        >
-                          <div
-                            aria-selected="false"
-                            class="ant-select-item ant-select-item-option ant-select-item-option-active"
-                            id="undefined_list_0"
-                            role="option"
-                            title="10 / page"
-                          >
-                            <div
-                              class="ant-select-item-option-content"
-                            >
-                              10 / page
-                            </div>
-                            <span
-                              aria-hidden="true"
-                              class="ant-select-item-option-state"
-                              style="user-select:none;-webkit-user-select:none"
-                              unselectable="on"
-                            />
-                          </div>
-                          <div
-                            aria-selected="false"
-                            class="ant-select-item ant-select-item-option"
-                            id="undefined_list_1"
-                            role="option"
-                            title="20 / page"
-                          >
-                            <div
-                              class="ant-select-item-option-content"
-                            >
-                              20 / page
-                            </div>
-                            <span
-                              aria-hidden="true"
-                              class="ant-select-item-option-state"
-                              style="user-select:none;-webkit-user-select:none"
-                              unselectable="on"
-                            />
-                          </div>
-                          <div
-                            aria-selected="true"
-                            class="ant-select-item ant-select-item-option ant-select-item-option-selected"
-                            id="undefined_list_2"
-                            role="option"
-                            title="50 / page"
-                          >
-                            <div
-                              class="ant-select-item-option-content"
-                            >
-                              50 / page
-                            </div>
-                            <span
-                              aria-hidden="true"
-                              class="ant-select-item-option-state"
-                              style="user-select:none;-webkit-user-select:none"
-                              unselectable="on"
-                            />
-                          </div>
-                          <div
-                            aria-selected="false"
-                            class="ant-select-item ant-select-item-option"
-                            id="undefined_list_3"
-                            role="option"
-                            title="100 / page"
-                          >
-                            <div
-                              class="ant-select-item-option-content"
-                            >
-                              100 / page
-                            </div>
-                            <span
-                              aria-hidden="true"
-                              class="ant-select-item-option-state"
-                              style="user-select:none;-webkit-user-select:none"
-                              unselectable="on"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
             <span
               aria-hidden="true"
               class="ant-select-arrow"
@@ -11776,23 +11464,6 @@ exports[`renders ./components/table/demo/grouping-columns.tsx extend context cor
                               role="menu"
                               tabindex="0"
                             >
-                              <div
-                                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-                              >
-                                <div
-                                  class="ant-tooltip-arrow"
-                                  style="position:absolute;top:0;left:0"
-                                />
-                                <div
-                                  class="ant-tooltip-content"
-                                >
-                                  <div
-                                    class="ant-tooltip-inner"
-                                    role="tooltip"
-                                  />
-                                </div>
-                              </div>
                               <li
                                 class="ant-dropdown-menu-item"
                                 role="menuitem"
@@ -11866,6 +11537,23 @@ exports[`renders ./components/table/demo/grouping-columns.tsx extend context cor
                                   </span>
                                 </span>
                               </li>
+                              <div
+                                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                                style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                              >
+                                <div
+                                  class="ant-tooltip-arrow"
+                                  style="position:absolute;top:0;left:0"
+                                />
+                                <div
+                                  class="ant-tooltip-content"
+                                >
+                                  <div
+                                    class="ant-tooltip-inner"
+                                    role="tooltip"
+                                  />
+                                </div>
+                              </div>
                             </ul>
                             <div
                               aria-hidden="true"
@@ -11964,25 +11652,6 @@ exports[`renders ./components/table/demo/grouping-columns.tsx extend context cor
                     tabindex="0"
                   >
                     <div
-                      class="ant-tooltip ant-tooltip-placement-top"
-                      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-                    >
-                      <div
-                        class="ant-tooltip-arrow"
-                        style="position:absolute;bottom:0;left:0"
-                      />
-                      <div
-                        class="ant-tooltip-content"
-                      >
-                        <div
-                          class="ant-tooltip-inner"
-                          role="tooltip"
-                        >
-                          Click to sort ascending
-                        </div>
-                      </div>
-                    </div>
-                    <div
                       class="ant-table-column-sorters"
                     >
                       <span
@@ -12037,6 +11706,25 @@ exports[`renders ./components/table/demo/grouping-columns.tsx extend context cor
                           </span>
                         </span>
                       </span>
+                    </div>
+                    <div
+                      class="ant-tooltip ant-tooltip-placement-top"
+                      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                    >
+                      <div
+                        class="ant-tooltip-arrow"
+                        style="position:absolute;bottom:0;left:0"
+                      />
+                      <div
+                        class="ant-tooltip-content"
+                      >
+                        <div
+                          class="ant-tooltip-inner"
+                          role="tooltip"
+                        >
+                          Click to sort ascending
+                        </div>
+                      </div>
                     </div>
                   </th>
                   <th
@@ -12882,110 +12570,6 @@ exports[`renders ./components/table/demo/grouping-columns.tsx extend context cor
                 10 / page
               </span>
             </div>
-            <div>
-              <div
-                class="ant-select-dropdown"
-                style="opacity:0"
-              >
-                <div>
-                  <div
-                    class="rc-virtual-list"
-                    style="position:relative"
-                  >
-                    <div
-                      class="rc-virtual-list-holder"
-                      style="max-height:256px;overflow-y:auto;overflow-anchor:none"
-                    >
-                      <div>
-                        <div
-                          class="rc-virtual-list-holder-inner"
-                          id="undefined_list"
-                          role="listbox"
-                          style="display:flex;flex-direction:column"
-                        >
-                          <div
-                            aria-selected="true"
-                            class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                            id="undefined_list_0"
-                            role="option"
-                            title="10 / page"
-                          >
-                            <div
-                              class="ant-select-item-option-content"
-                            >
-                              10 / page
-                            </div>
-                            <span
-                              aria-hidden="true"
-                              class="ant-select-item-option-state"
-                              style="user-select:none;-webkit-user-select:none"
-                              unselectable="on"
-                            />
-                          </div>
-                          <div
-                            aria-selected="false"
-                            class="ant-select-item ant-select-item-option"
-                            id="undefined_list_1"
-                            role="option"
-                            title="20 / page"
-                          >
-                            <div
-                              class="ant-select-item-option-content"
-                            >
-                              20 / page
-                            </div>
-                            <span
-                              aria-hidden="true"
-                              class="ant-select-item-option-state"
-                              style="user-select:none;-webkit-user-select:none"
-                              unselectable="on"
-                            />
-                          </div>
-                          <div
-                            aria-selected="false"
-                            class="ant-select-item ant-select-item-option"
-                            id="undefined_list_2"
-                            role="option"
-                            title="50 / page"
-                          >
-                            <div
-                              class="ant-select-item-option-content"
-                            >
-                              50 / page
-                            </div>
-                            <span
-                              aria-hidden="true"
-                              class="ant-select-item-option-state"
-                              style="user-select:none;-webkit-user-select:none"
-                              unselectable="on"
-                            />
-                          </div>
-                          <div
-                            aria-selected="false"
-                            class="ant-select-item ant-select-item-option"
-                            id="undefined_list_3"
-                            role="option"
-                            title="100 / page"
-                          >
-                            <div
-                              class="ant-select-item-option-content"
-                            >
-                              100 / page
-                            </div>
-                            <span
-                              aria-hidden="true"
-                              class="ant-select-item-option-state"
-                              style="user-select:none;-webkit-user-select:none"
-                              unselectable="on"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
             <span
               aria-hidden="true"
               class="ant-select-arrow"
@@ -13060,25 +12644,6 @@ exports[`renders ./components/table/demo/head.tsx extend context correctly 1`] =
                         class="ant-table-column-title"
                       >
                         <div
-                          class="ant-tooltip ant-tooltip-placement-top"
-                          style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-                        >
-                          <div
-                            class="ant-tooltip-arrow"
-                            style="position:absolute;bottom:0;left:0"
-                          />
-                          <div
-                            class="ant-tooltip-content"
-                          >
-                            <div
-                              class="ant-tooltip-inner"
-                              role="tooltip"
-                            >
-                              Click to sort descending
-                            </div>
-                          </div>
-                        </div>
-                        <div
                           class="ant-table-column-sorters"
                         >
                           <span
@@ -13114,6 +12679,25 @@ exports[`renders ./components/table/demo/head.tsx extend context correctly 1`] =
                               </span>
                             </span>
                           </span>
+                        </div>
+                        <div
+                          class="ant-tooltip ant-tooltip-placement-top"
+                          style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                        >
+                          <div
+                            class="ant-tooltip-arrow"
+                            style="position:absolute;bottom:0;left:0"
+                          />
+                          <div
+                            class="ant-tooltip-content"
+                          >
+                            <div
+                              class="ant-tooltip-inner"
+                              role="tooltip"
+                            >
+                              Click to sort descending
+                            </div>
+                          </div>
                         </div>
                       </span>
                       <span
@@ -13155,23 +12739,6 @@ exports[`renders ./components/table/demo/head.tsx extend context correctly 1`] =
                               role="menu"
                               tabindex="0"
                             >
-                              <div
-                                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-                              >
-                                <div
-                                  class="ant-tooltip-arrow"
-                                  style="position:absolute;top:0;left:0"
-                                />
-                                <div
-                                  class="ant-tooltip-content"
-                                >
-                                  <div
-                                    class="ant-tooltip-inner"
-                                    role="tooltip"
-                                  />
-                                </div>
-                              </div>
                               <li
                                 class="ant-dropdown-menu-item"
                                 role="menuitem"
@@ -13245,6 +12812,23 @@ exports[`renders ./components/table/demo/head.tsx extend context correctly 1`] =
                                   </span>
                                 </span>
                               </li>
+                              <div
+                                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                                style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                              >
+                                <div
+                                  class="ant-tooltip-arrow"
+                                  style="position:absolute;top:0;left:0"
+                                />
+                                <div
+                                  class="ant-tooltip-content"
+                                >
+                                  <div
+                                    class="ant-tooltip-inner"
+                                    role="tooltip"
+                                  />
+                                </div>
+                              </div>
                               <li
                                 class="ant-dropdown-menu-submenu ant-dropdown-menu-submenu-vertical"
                                 role="none"
@@ -13295,23 +12879,6 @@ exports[`renders ./components/table/demo/head.tsx extend context correctly 1`] =
                                       data-menu-list="true"
                                       role="menu"
                                     >
-                                      <div
-                                        class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-                                      >
-                                        <div
-                                          class="ant-tooltip-arrow"
-                                          style="position:absolute;top:0;left:0"
-                                        />
-                                        <div
-                                          class="ant-tooltip-content"
-                                        >
-                                          <div
-                                            class="ant-tooltip-inner"
-                                            role="tooltip"
-                                          />
-                                        </div>
-                                      </div>
                                       <li
                                         class="ant-dropdown-menu-item"
                                         role="menuitem"
@@ -13385,6 +12952,23 @@ exports[`renders ./components/table/demo/head.tsx extend context correctly 1`] =
                                           </span>
                                         </span>
                                       </li>
+                                      <div
+                                        class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                                        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                                      >
+                                        <div
+                                          class="ant-tooltip-arrow"
+                                          style="position:absolute;top:0;left:0"
+                                        />
+                                        <div
+                                          class="ant-tooltip-content"
+                                        >
+                                          <div
+                                            class="ant-tooltip-inner"
+                                            role="tooltip"
+                                          />
+                                        </div>
+                                      </div>
                                     </ul>
                                   </div>
                                 </div>
@@ -13496,25 +13080,6 @@ exports[`renders ./components/table/demo/head.tsx extend context correctly 1`] =
                     tabindex="0"
                   >
                     <div
-                      class="ant-tooltip ant-tooltip-placement-top"
-                      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-                    >
-                      <div
-                        class="ant-tooltip-arrow"
-                        style="position:absolute;bottom:0;left:0"
-                      />
-                      <div
-                        class="ant-tooltip-content"
-                      >
-                        <div
-                          class="ant-tooltip-inner"
-                          role="tooltip"
-                        >
-                          Click to cancel sorting
-                        </div>
-                      </div>
-                    </div>
-                    <div
                       class="ant-table-column-sorters"
                     >
                       <span
@@ -13570,6 +13135,25 @@ exports[`renders ./components/table/demo/head.tsx extend context correctly 1`] =
                         </span>
                       </span>
                     </div>
+                    <div
+                      class="ant-tooltip ant-tooltip-placement-top"
+                      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                    >
+                      <div
+                        class="ant-tooltip-arrow"
+                        style="position:absolute;bottom:0;left:0"
+                      />
+                      <div
+                        class="ant-tooltip-content"
+                      >
+                        <div
+                          class="ant-tooltip-inner"
+                          role="tooltip"
+                        >
+                          Click to cancel sorting
+                        </div>
+                      </div>
+                    </div>
                   </th>
                   <th
                     class="ant-table-cell"
@@ -13622,23 +13206,6 @@ exports[`renders ./components/table/demo/head.tsx extend context correctly 1`] =
                               role="menu"
                               tabindex="0"
                             >
-                              <div
-                                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-                              >
-                                <div
-                                  class="ant-tooltip-arrow"
-                                  style="position:absolute;top:0;left:0"
-                                />
-                                <div
-                                  class="ant-tooltip-content"
-                                >
-                                  <div
-                                    class="ant-tooltip-inner"
-                                    role="tooltip"
-                                  />
-                                </div>
-                              </div>
                               <li
                                 class="ant-dropdown-menu-item"
                                 role="menuitem"
@@ -13712,6 +13279,23 @@ exports[`renders ./components/table/demo/head.tsx extend context correctly 1`] =
                                   </span>
                                 </span>
                               </li>
+                              <div
+                                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                                style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                              >
+                                <div
+                                  class="ant-tooltip-arrow"
+                                  style="position:absolute;top:0;left:0"
+                                />
+                                <div
+                                  class="ant-tooltip-content"
+                                >
+                                  <div
+                                    class="ant-tooltip-inner"
+                                    role="tooltip"
+                                  />
+                                </div>
+                              </div>
                             </ul>
                             <div
                               aria-hidden="true"
@@ -14349,25 +13933,6 @@ exports[`renders ./components/table/demo/multiple-sorter.tsx extend context corr
                     tabindex="0"
                   >
                     <div
-                      class="ant-tooltip ant-tooltip-placement-top"
-                      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-                    >
-                      <div
-                        class="ant-tooltip-arrow"
-                        style="position:absolute;bottom:0;left:0"
-                      />
-                      <div
-                        class="ant-tooltip-content"
-                      >
-                        <div
-                          class="ant-tooltip-inner"
-                          role="tooltip"
-                        >
-                          Click to sort ascending
-                        </div>
-                      </div>
-                    </div>
-                    <div
                       class="ant-table-column-sorters"
                     >
                       <span
@@ -14423,13 +13988,6 @@ exports[`renders ./components/table/demo/multiple-sorter.tsx extend context corr
                         </span>
                       </span>
                     </div>
-                  </th>
-                  <th
-                    aria-label="Math Score"
-                    class="ant-table-cell ant-table-column-has-sorters"
-                    scope="col"
-                    tabindex="0"
-                  >
                     <div
                       class="ant-tooltip ant-tooltip-placement-top"
                       style="left:-1000vw;top:-1000vh;box-sizing:border-box"
@@ -14449,6 +14007,13 @@ exports[`renders ./components/table/demo/multiple-sorter.tsx extend context corr
                         </div>
                       </div>
                     </div>
+                  </th>
+                  <th
+                    aria-label="Math Score"
+                    class="ant-table-cell ant-table-column-has-sorters"
+                    scope="col"
+                    tabindex="0"
+                  >
                     <div
                       class="ant-table-column-sorters"
                     >
@@ -14505,13 +14070,6 @@ exports[`renders ./components/table/demo/multiple-sorter.tsx extend context corr
                         </span>
                       </span>
                     </div>
-                  </th>
-                  <th
-                    aria-label="English Score"
-                    class="ant-table-cell ant-table-column-has-sorters"
-                    scope="col"
-                    tabindex="0"
-                  >
                     <div
                       class="ant-tooltip ant-tooltip-placement-top"
                       style="left:-1000vw;top:-1000vh;box-sizing:border-box"
@@ -14531,6 +14089,13 @@ exports[`renders ./components/table/demo/multiple-sorter.tsx extend context corr
                         </div>
                       </div>
                     </div>
+                  </th>
+                  <th
+                    aria-label="English Score"
+                    class="ant-table-cell ant-table-column-has-sorters"
+                    scope="col"
+                    tabindex="0"
+                  >
                     <div
                       class="ant-table-column-sorters"
                     >
@@ -14586,6 +14151,25 @@ exports[`renders ./components/table/demo/multiple-sorter.tsx extend context corr
                           </span>
                         </span>
                       </span>
+                    </div>
+                    <div
+                      class="ant-tooltip ant-tooltip-placement-top"
+                      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                    >
+                      <div
+                        class="ant-tooltip-arrow"
+                        style="position:absolute;bottom:0;left:0"
+                      />
+                      <div
+                        class="ant-tooltip-content"
+                      >
+                        <div
+                          class="ant-tooltip-inner"
+                          role="tooltip"
+                        >
+                          Click to sort ascending
+                        </div>
+                      </div>
                     </div>
                   </th>
                 </tr>
@@ -15297,110 +14881,6 @@ exports[`renders ./components/table/demo/narrow.tsx extend context correctly 1`]
                 >
                   10 / page
                 </span>
-              </div>
-              <div>
-                <div
-                  class="ant-select-dropdown"
-                  style="opacity:0"
-                >
-                  <div>
-                    <div
-                      class="rc-virtual-list"
-                      style="position:relative"
-                    >
-                      <div
-                        class="rc-virtual-list-holder"
-                        style="max-height:256px;overflow-y:auto;overflow-anchor:none"
-                      >
-                        <div>
-                          <div
-                            class="rc-virtual-list-holder-inner"
-                            id="undefined_list"
-                            role="listbox"
-                            style="display:flex;flex-direction:column"
-                          >
-                            <div
-                              aria-selected="true"
-                              class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                              id="undefined_list_0"
-                              role="option"
-                              title="10 / page"
-                            >
-                              <div
-                                class="ant-select-item-option-content"
-                              >
-                                10 / page
-                              </div>
-                              <span
-                                aria-hidden="true"
-                                class="ant-select-item-option-state"
-                                style="user-select:none;-webkit-user-select:none"
-                                unselectable="on"
-                              />
-                            </div>
-                            <div
-                              aria-selected="false"
-                              class="ant-select-item ant-select-item-option"
-                              id="undefined_list_1"
-                              role="option"
-                              title="20 / page"
-                            >
-                              <div
-                                class="ant-select-item-option-content"
-                              >
-                                20 / page
-                              </div>
-                              <span
-                                aria-hidden="true"
-                                class="ant-select-item-option-state"
-                                style="user-select:none;-webkit-user-select:none"
-                                unselectable="on"
-                              />
-                            </div>
-                            <div
-                              aria-selected="false"
-                              class="ant-select-item ant-select-item-option"
-                              id="undefined_list_2"
-                              role="option"
-                              title="50 / page"
-                            >
-                              <div
-                                class="ant-select-item-option-content"
-                              >
-                                50 / page
-                              </div>
-                              <span
-                                aria-hidden="true"
-                                class="ant-select-item-option-state"
-                                style="user-select:none;-webkit-user-select:none"
-                                unselectable="on"
-                              />
-                            </div>
-                            <div
-                              aria-selected="false"
-                              class="ant-select-item ant-select-item-option"
-                              id="undefined_list_3"
-                              role="option"
-                              title="100 / page"
-                            >
-                              <div
-                                class="ant-select-item-option-content"
-                              >
-                                100 / page
-                              </div>
-                              <span
-                                aria-hidden="true"
-                                class="ant-select-item-option-state"
-                                style="user-select:none;-webkit-user-select:none"
-                                unselectable="on"
-                              />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </div>
               <span
                 aria-hidden="true"
@@ -16177,23 +15657,6 @@ Array [
                                                     role="menu"
                                                     tabindex="0"
                                                   >
-                                                    <div
-                                                      class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-                                                    >
-                                                      <div
-                                                        class="ant-tooltip-arrow"
-                                                        style="position:absolute;top:0;left:0"
-                                                      />
-                                                      <div
-                                                        class="ant-tooltip-content"
-                                                      >
-                                                        <div
-                                                          class="ant-tooltip-inner"
-                                                          role="tooltip"
-                                                        />
-                                                      </div>
-                                                    </div>
                                                     <li
                                                       class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                                                       role="menuitem"
@@ -16233,6 +15696,23 @@ Array [
                                                         Action 2
                                                       </span>
                                                     </li>
+                                                    <div
+                                                      class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                                                      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                                                    >
+                                                      <div
+                                                        class="ant-tooltip-arrow"
+                                                        style="position:absolute;top:0;left:0"
+                                                      />
+                                                      <div
+                                                        class="ant-tooltip-content"
+                                                      >
+                                                        <div
+                                                          class="ant-tooltip-inner"
+                                                          role="tooltip"
+                                                        />
+                                                      </div>
+                                                    </div>
                                                   </ul>
                                                   <div
                                                     aria-hidden="true"
@@ -16374,23 +15854,6 @@ Array [
                                                     role="menu"
                                                     tabindex="0"
                                                   >
-                                                    <div
-                                                      class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-                                                    >
-                                                      <div
-                                                        class="ant-tooltip-arrow"
-                                                        style="position:absolute;top:0;left:0"
-                                                      />
-                                                      <div
-                                                        class="ant-tooltip-content"
-                                                      >
-                                                        <div
-                                                          class="ant-tooltip-inner"
-                                                          role="tooltip"
-                                                        />
-                                                      </div>
-                                                    </div>
                                                     <li
                                                       class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                                                       role="menuitem"
@@ -16430,6 +15893,23 @@ Array [
                                                         Action 2
                                                       </span>
                                                     </li>
+                                                    <div
+                                                      class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                                                      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                                                    >
+                                                      <div
+                                                        class="ant-tooltip-arrow"
+                                                        style="position:absolute;top:0;left:0"
+                                                      />
+                                                      <div
+                                                        class="ant-tooltip-content"
+                                                      >
+                                                        <div
+                                                          class="ant-tooltip-inner"
+                                                          role="tooltip"
+                                                        />
+                                                      </div>
+                                                    </div>
                                                   </ul>
                                                   <div
                                                     aria-hidden="true"
@@ -16571,23 +16051,6 @@ Array [
                                                     role="menu"
                                                     tabindex="0"
                                                   >
-                                                    <div
-                                                      class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-                                                    >
-                                                      <div
-                                                        class="ant-tooltip-arrow"
-                                                        style="position:absolute;top:0;left:0"
-                                                      />
-                                                      <div
-                                                        class="ant-tooltip-content"
-                                                      >
-                                                        <div
-                                                          class="ant-tooltip-inner"
-                                                          role="tooltip"
-                                                        />
-                                                      </div>
-                                                    </div>
                                                     <li
                                                       class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                                                       role="menuitem"
@@ -16627,6 +16090,23 @@ Array [
                                                         Action 2
                                                       </span>
                                                     </li>
+                                                    <div
+                                                      class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                                                      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                                                    >
+                                                      <div
+                                                        class="ant-tooltip-arrow"
+                                                        style="position:absolute;top:0;left:0"
+                                                      />
+                                                      <div
+                                                        class="ant-tooltip-content"
+                                                      >
+                                                        <div
+                                                          class="ant-tooltip-inner"
+                                                          role="tooltip"
+                                                        />
+                                                      </div>
+                                                    </div>
                                                   </ul>
                                                   <div
                                                     aria-hidden="true"
@@ -17169,23 +16649,6 @@ Array [
                                                     role="menu"
                                                     tabindex="0"
                                                   >
-                                                    <div
-                                                      class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-                                                    >
-                                                      <div
-                                                        class="ant-tooltip-arrow"
-                                                        style="position:absolute;top:0;left:0"
-                                                      />
-                                                      <div
-                                                        class="ant-tooltip-content"
-                                                      >
-                                                        <div
-                                                          class="ant-tooltip-inner"
-                                                          role="tooltip"
-                                                        />
-                                                      </div>
-                                                    </div>
                                                     <li
                                                       class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                                                       role="menuitem"
@@ -17225,6 +16688,23 @@ Array [
                                                         Action 2
                                                       </span>
                                                     </li>
+                                                    <div
+                                                      class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                                                      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                                                    >
+                                                      <div
+                                                        class="ant-tooltip-arrow"
+                                                        style="position:absolute;top:0;left:0"
+                                                      />
+                                                      <div
+                                                        class="ant-tooltip-content"
+                                                      >
+                                                        <div
+                                                          class="ant-tooltip-inner"
+                                                          role="tooltip"
+                                                        />
+                                                      </div>
+                                                    </div>
                                                   </ul>
                                                   <div
                                                     aria-hidden="true"
@@ -17366,23 +16846,6 @@ Array [
                                                     role="menu"
                                                     tabindex="0"
                                                   >
-                                                    <div
-                                                      class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-                                                    >
-                                                      <div
-                                                        class="ant-tooltip-arrow"
-                                                        style="position:absolute;top:0;left:0"
-                                                      />
-                                                      <div
-                                                        class="ant-tooltip-content"
-                                                      >
-                                                        <div
-                                                          class="ant-tooltip-inner"
-                                                          role="tooltip"
-                                                        />
-                                                      </div>
-                                                    </div>
                                                     <li
                                                       class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                                                       role="menuitem"
@@ -17422,6 +16885,23 @@ Array [
                                                         Action 2
                                                       </span>
                                                     </li>
+                                                    <div
+                                                      class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                                                      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                                                    >
+                                                      <div
+                                                        class="ant-tooltip-arrow"
+                                                        style="position:absolute;top:0;left:0"
+                                                      />
+                                                      <div
+                                                        class="ant-tooltip-content"
+                                                      >
+                                                        <div
+                                                          class="ant-tooltip-inner"
+                                                          role="tooltip"
+                                                        />
+                                                      </div>
+                                                    </div>
                                                   </ul>
                                                   <div
                                                     aria-hidden="true"
@@ -17563,23 +17043,6 @@ Array [
                                                     role="menu"
                                                     tabindex="0"
                                                   >
-                                                    <div
-                                                      class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-                                                    >
-                                                      <div
-                                                        class="ant-tooltip-arrow"
-                                                        style="position:absolute;top:0;left:0"
-                                                      />
-                                                      <div
-                                                        class="ant-tooltip-content"
-                                                      >
-                                                        <div
-                                                          class="ant-tooltip-inner"
-                                                          role="tooltip"
-                                                        />
-                                                      </div>
-                                                    </div>
                                                     <li
                                                       class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                                                       role="menuitem"
@@ -17619,6 +17082,23 @@ Array [
                                                         Action 2
                                                       </span>
                                                     </li>
+                                                    <div
+                                                      class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                                                      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                                                    >
+                                                      <div
+                                                        class="ant-tooltip-arrow"
+                                                        style="position:absolute;top:0;left:0"
+                                                      />
+                                                      <div
+                                                        class="ant-tooltip-content"
+                                                      >
+                                                        <div
+                                                          class="ant-tooltip-inner"
+                                                          role="tooltip"
+                                                        />
+                                                      </div>
+                                                    </div>
                                                   </ul>
                                                   <div
                                                     aria-hidden="true"
@@ -18161,23 +17641,6 @@ Array [
                                                     role="menu"
                                                     tabindex="0"
                                                   >
-                                                    <div
-                                                      class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-                                                    >
-                                                      <div
-                                                        class="ant-tooltip-arrow"
-                                                        style="position:absolute;top:0;left:0"
-                                                      />
-                                                      <div
-                                                        class="ant-tooltip-content"
-                                                      >
-                                                        <div
-                                                          class="ant-tooltip-inner"
-                                                          role="tooltip"
-                                                        />
-                                                      </div>
-                                                    </div>
                                                     <li
                                                       class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                                                       role="menuitem"
@@ -18217,6 +17680,23 @@ Array [
                                                         Action 2
                                                       </span>
                                                     </li>
+                                                    <div
+                                                      class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                                                      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                                                    >
+                                                      <div
+                                                        class="ant-tooltip-arrow"
+                                                        style="position:absolute;top:0;left:0"
+                                                      />
+                                                      <div
+                                                        class="ant-tooltip-content"
+                                                      >
+                                                        <div
+                                                          class="ant-tooltip-inner"
+                                                          role="tooltip"
+                                                        />
+                                                      </div>
+                                                    </div>
                                                   </ul>
                                                   <div
                                                     aria-hidden="true"
@@ -18358,23 +17838,6 @@ Array [
                                                     role="menu"
                                                     tabindex="0"
                                                   >
-                                                    <div
-                                                      class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-                                                    >
-                                                      <div
-                                                        class="ant-tooltip-arrow"
-                                                        style="position:absolute;top:0;left:0"
-                                                      />
-                                                      <div
-                                                        class="ant-tooltip-content"
-                                                      >
-                                                        <div
-                                                          class="ant-tooltip-inner"
-                                                          role="tooltip"
-                                                        />
-                                                      </div>
-                                                    </div>
                                                     <li
                                                       class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                                                       role="menuitem"
@@ -18414,6 +17877,23 @@ Array [
                                                         Action 2
                                                       </span>
                                                     </li>
+                                                    <div
+                                                      class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                                                      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                                                    >
+                                                      <div
+                                                        class="ant-tooltip-arrow"
+                                                        style="position:absolute;top:0;left:0"
+                                                      />
+                                                      <div
+                                                        class="ant-tooltip-content"
+                                                      >
+                                                        <div
+                                                          class="ant-tooltip-inner"
+                                                          role="tooltip"
+                                                        />
+                                                      </div>
+                                                    </div>
                                                   </ul>
                                                   <div
                                                     aria-hidden="true"
@@ -18555,23 +18035,6 @@ Array [
                                                     role="menu"
                                                     tabindex="0"
                                                   >
-                                                    <div
-                                                      class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                                      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-                                                    >
-                                                      <div
-                                                        class="ant-tooltip-arrow"
-                                                        style="position:absolute;top:0;left:0"
-                                                      />
-                                                      <div
-                                                        class="ant-tooltip-content"
-                                                      >
-                                                        <div
-                                                          class="ant-tooltip-inner"
-                                                          role="tooltip"
-                                                        />
-                                                      </div>
-                                                    </div>
                                                     <li
                                                       class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                                                       role="menuitem"
@@ -18611,6 +18074,23 @@ Array [
                                                         Action 2
                                                       </span>
                                                     </li>
+                                                    <div
+                                                      class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                                                      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                                                    >
+                                                      <div
+                                                        class="ant-tooltip-arrow"
+                                                        style="position:absolute;top:0;left:0"
+                                                      />
+                                                      <div
+                                                        class="ant-tooltip-content"
+                                                      >
+                                                        <div
+                                                          class="ant-tooltip-inner"
+                                                          role="tooltip"
+                                                        />
+                                                      </div>
+                                                    </div>
                                                   </ul>
                                                   <div
                                                     aria-hidden="true"
@@ -19900,25 +19380,6 @@ Array [
                           class="ant-table-column-title"
                         >
                           <div
-                            class="ant-tooltip ant-tooltip-placement-top"
-                            style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-                          >
-                            <div
-                              class="ant-tooltip-arrow"
-                              style="position:absolute;bottom:0;left:0"
-                            />
-                            <div
-                              class="ant-tooltip-content"
-                            >
-                              <div
-                                class="ant-tooltip-inner"
-                                role="tooltip"
-                              >
-                                Click to sort ascending
-                              </div>
-                            </div>
-                          </div>
-                          <div
                             class="ant-table-column-sorters"
                           >
                             <span
@@ -19974,6 +19435,25 @@ Array [
                               </span>
                             </span>
                           </div>
+                          <div
+                            class="ant-tooltip ant-tooltip-placement-top"
+                            style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                          >
+                            <div
+                              class="ant-tooltip-arrow"
+                              style="position:absolute;bottom:0;left:0"
+                            />
+                            <div
+                              class="ant-tooltip-content"
+                            >
+                              <div
+                                class="ant-tooltip-inner"
+                                role="tooltip"
+                              >
+                                Click to sort ascending
+                              </div>
+                            </div>
+                          </div>
                         </span>
                         <span
                           class="ant-dropdown-trigger ant-table-filter-trigger"
@@ -20014,23 +19494,6 @@ Array [
                                 role="menu"
                                 tabindex="0"
                               >
-                                <div
-                                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                  style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-                                >
-                                  <div
-                                    class="ant-tooltip-arrow"
-                                    style="position:absolute;top:0;left:0"
-                                  />
-                                  <div
-                                    class="ant-tooltip-content"
-                                  >
-                                    <div
-                                      class="ant-tooltip-inner"
-                                      role="tooltip"
-                                    />
-                                  </div>
-                                </div>
                                 <li
                                   class="ant-dropdown-menu-item"
                                   role="menuitem"
@@ -20104,6 +19567,23 @@ Array [
                                     </span>
                                   </span>
                                 </li>
+                                <div
+                                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                                  style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                                >
+                                  <div
+                                    class="ant-tooltip-arrow"
+                                    style="position:absolute;top:0;left:0"
+                                  />
+                                  <div
+                                    class="ant-tooltip-content"
+                                  >
+                                    <div
+                                      class="ant-tooltip-inner"
+                                      role="tooltip"
+                                    />
+                                  </div>
+                                </div>
                               </ul>
                               <div
                                 aria-hidden="true"
@@ -20178,25 +19658,6 @@ Array [
                       title="Age"
                     >
                       <div
-                        class="ant-tooltip ant-tooltip-placement-top"
-                        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-                      >
-                        <div
-                          class="ant-tooltip-arrow"
-                          style="position:absolute;bottom:0;left:0"
-                        />
-                        <div
-                          class="ant-tooltip-content"
-                        >
-                          <div
-                            class="ant-tooltip-inner"
-                            role="tooltip"
-                          >
-                            Click to sort ascending
-                          </div>
-                        </div>
-                      </div>
-                      <div
                         class="ant-table-column-sorters"
                       >
                         <span
@@ -20252,6 +19713,25 @@ Array [
                           </span>
                         </span>
                       </div>
+                      <div
+                        class="ant-tooltip ant-tooltip-placement-top"
+                        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                      >
+                        <div
+                          class="ant-tooltip-arrow"
+                          style="position:absolute;bottom:0;left:0"
+                        />
+                        <div
+                          class="ant-tooltip-content"
+                        >
+                          <div
+                            class="ant-tooltip-inner"
+                            role="tooltip"
+                          >
+                            Click to sort ascending
+                          </div>
+                        </div>
+                      </div>
                     </th>
                     <th
                       aria-label="Address"
@@ -20266,25 +19746,6 @@ Array [
                         <span
                           class="ant-table-column-title"
                         >
-                          <div
-                            class="ant-tooltip ant-tooltip-placement-top"
-                            style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-                          >
-                            <div
-                              class="ant-tooltip-arrow"
-                              style="position:absolute;bottom:0;left:0"
-                            />
-                            <div
-                              class="ant-tooltip-content"
-                            >
-                              <div
-                                class="ant-tooltip-inner"
-                                role="tooltip"
-                              >
-                                Click to sort ascending
-                              </div>
-                            </div>
-                          </div>
                           <div
                             class="ant-table-column-sorters"
                           >
@@ -20341,6 +19802,25 @@ Array [
                               </span>
                             </span>
                           </div>
+                          <div
+                            class="ant-tooltip ant-tooltip-placement-top"
+                            style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                          >
+                            <div
+                              class="ant-tooltip-arrow"
+                              style="position:absolute;bottom:0;left:0"
+                            />
+                            <div
+                              class="ant-tooltip-content"
+                            >
+                              <div
+                                class="ant-tooltip-inner"
+                                role="tooltip"
+                              >
+                                Click to sort ascending
+                              </div>
+                            </div>
+                          </div>
                         </span>
                         <span
                           class="ant-dropdown-trigger ant-table-filter-trigger"
@@ -20381,23 +19861,6 @@ Array [
                                 role="menu"
                                 tabindex="0"
                               >
-                                <div
-                                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                  style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-                                >
-                                  <div
-                                    class="ant-tooltip-arrow"
-                                    style="position:absolute;top:0;left:0"
-                                  />
-                                  <div
-                                    class="ant-tooltip-content"
-                                  >
-                                    <div
-                                      class="ant-tooltip-inner"
-                                      role="tooltip"
-                                    />
-                                  </div>
-                                </div>
                                 <li
                                   class="ant-dropdown-menu-item"
                                   role="menuitem"
@@ -20471,6 +19934,23 @@ Array [
                                     </span>
                                   </span>
                                 </li>
+                                <div
+                                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                                  style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                                >
+                                  <div
+                                    class="ant-tooltip-arrow"
+                                    style="position:absolute;top:0;left:0"
+                                  />
+                                  <div
+                                    class="ant-tooltip-content"
+                                  >
+                                    <div
+                                      class="ant-tooltip-inner"
+                                      role="tooltip"
+                                    />
+                                  </div>
+                                </div>
                               </ul>
                               <div
                                 aria-hidden="true"
@@ -20780,25 +20260,6 @@ exports[`renders ./components/table/demo/resizable-column.tsx extend context cor
                     tabindex="0"
                   >
                     <div
-                      class="ant-tooltip ant-tooltip-placement-top"
-                      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-                    >
-                      <div
-                        class="ant-tooltip-arrow"
-                        style="position:absolute;bottom:0;left:0"
-                      />
-                      <div
-                        class="ant-tooltip-content"
-                      >
-                        <div
-                          class="ant-tooltip-inner"
-                          role="tooltip"
-                        >
-                          Click to sort ascending
-                        </div>
-                      </div>
-                    </div>
-                    <div
                       class="ant-table-column-sorters"
                     >
                       <span
@@ -20853,6 +20314,25 @@ exports[`renders ./components/table/demo/resizable-column.tsx extend context cor
                           </span>
                         </span>
                       </span>
+                    </div>
+                    <div
+                      class="ant-tooltip ant-tooltip-placement-top"
+                      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                    >
+                      <div
+                        class="ant-tooltip-arrow"
+                        style="position:absolute;bottom:0;left:0"
+                      />
+                      <div
+                        class="ant-tooltip-content"
+                      >
+                        <div
+                          class="ant-tooltip-inner"
+                          role="tooltip"
+                        >
+                          Click to sort ascending
+                        </div>
+                      </div>
                     </div>
                     <span
                       class="react-resizable-handle"
@@ -22308,23 +21788,6 @@ exports[`renders ./components/table/demo/row-selection-custom.tsx extend context
                               role="menu"
                               tabindex="0"
                             >
-                              <div
-                                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-                              >
-                                <div
-                                  class="ant-tooltip-arrow"
-                                  style="position:absolute;top:0;left:0"
-                                />
-                                <div
-                                  class="ant-tooltip-content"
-                                >
-                                  <div
-                                    class="ant-tooltip-inner"
-                                    role="tooltip"
-                                  />
-                                </div>
-                              </div>
                               <li
                                 class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                                 role="menuitem"
@@ -22448,6 +21911,23 @@ exports[`renders ./components/table/demo/row-selection-custom.tsx extend context
                                   Select Even Row
                                 </span>
                               </li>
+                              <div
+                                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                                style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                              >
+                                <div
+                                  class="ant-tooltip-arrow"
+                                  style="position:absolute;top:0;left:0"
+                                />
+                                <div
+                                  class="ant-tooltip-content"
+                                >
+                                  <div
+                                    class="ant-tooltip-inner"
+                                    role="tooltip"
+                                  />
+                                </div>
+                              </div>
                             </ul>
                             <div
                               aria-hidden="true"
@@ -27346,110 +26826,6 @@ exports[`renders ./components/table/demo/sticky.tsx extend context correctly 1`]
               >
                 10 / page
               </span>
-            </div>
-            <div>
-              <div
-                class="ant-select-dropdown"
-                style="opacity:0"
-              >
-                <div>
-                  <div
-                    class="rc-virtual-list"
-                    style="position:relative"
-                  >
-                    <div
-                      class="rc-virtual-list-holder"
-                      style="max-height:256px;overflow-y:auto;overflow-anchor:none"
-                    >
-                      <div>
-                        <div
-                          class="rc-virtual-list-holder-inner"
-                          id="undefined_list"
-                          role="listbox"
-                          style="display:flex;flex-direction:column"
-                        >
-                          <div
-                            aria-selected="true"
-                            class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                            id="undefined_list_0"
-                            role="option"
-                            title="10 / page"
-                          >
-                            <div
-                              class="ant-select-item-option-content"
-                            >
-                              10 / page
-                            </div>
-                            <span
-                              aria-hidden="true"
-                              class="ant-select-item-option-state"
-                              style="user-select:none;-webkit-user-select:none"
-                              unselectable="on"
-                            />
-                          </div>
-                          <div
-                            aria-selected="false"
-                            class="ant-select-item ant-select-item-option"
-                            id="undefined_list_1"
-                            role="option"
-                            title="20 / page"
-                          >
-                            <div
-                              class="ant-select-item-option-content"
-                            >
-                              20 / page
-                            </div>
-                            <span
-                              aria-hidden="true"
-                              class="ant-select-item-option-state"
-                              style="user-select:none;-webkit-user-select:none"
-                              unselectable="on"
-                            />
-                          </div>
-                          <div
-                            aria-selected="false"
-                            class="ant-select-item ant-select-item-option"
-                            id="undefined_list_2"
-                            role="option"
-                            title="50 / page"
-                          >
-                            <div
-                              class="ant-select-item-option-content"
-                            >
-                              50 / page
-                            </div>
-                            <span
-                              aria-hidden="true"
-                              class="ant-select-item-option-state"
-                              style="user-select:none;-webkit-user-select:none"
-                              unselectable="on"
-                            />
-                          </div>
-                          <div
-                            aria-selected="false"
-                            class="ant-select-item ant-select-item-option"
-                            id="undefined_list_3"
-                            role="option"
-                            title="100 / page"
-                          >
-                            <div
-                              class="ant-select-item-option-content"
-                            >
-                              100 / page
-                            </div>
-                            <span
-                              aria-hidden="true"
-                              class="ant-select-item-option-state"
-                              style="user-select:none;-webkit-user-select:none"
-                              unselectable="on"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
             <span
               aria-hidden="true"

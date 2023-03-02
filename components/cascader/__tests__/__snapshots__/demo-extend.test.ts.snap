@@ -31,93 +31,91 @@ exports[`renders ./components/cascader/demo/basic.tsx extend context correctly 1
       Please select
     </span>
   </div>
-  <div>
-    <div
-      class="ant-select-dropdown ant-cascader-dropdown"
-      style="opacity:0;min-width:auto"
-    >
-      <div>
-        <div
-          class="ant-cascader-menus"
+  <div
+    class="ant-select-dropdown ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
+    style="left:-1000vw;top:-1000vh;box-sizing:border-box;min-width:auto"
+  >
+    <div>
+      <div
+        class="ant-cascader-menus"
+      >
+        <ul
+          class="ant-cascader-menu"
+          role="menu"
         >
-          <ul
-            class="ant-cascader-menu"
-            role="menu"
+          <li
+            aria-checked="false"
+            class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+            data-path-key="zhejiang"
+            role="menuitemcheckbox"
+            title="Zhejiang"
           >
-            <li
-              aria-checked="false"
-              class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-              data-path-key="zhejiang"
-              role="menuitemcheckbox"
-              title="Zhejiang"
+            <div
+              class="ant-cascader-menu-item-content"
             >
-              <div
-                class="ant-cascader-menu-item-content"
-              >
-                Zhejiang
-              </div>
-              <div
-                class="ant-cascader-menu-item-expand-icon"
-              >
-                <span
-                  aria-label="right"
-                  class="anticon anticon-right"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="right"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                    />
-                  </svg>
-                </span>
-              </div>
-            </li>
-            <li
-              aria-checked="false"
-              class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-              data-path-key="jiangsu"
-              role="menuitemcheckbox"
-              title="Jiangsu"
+              Zhejiang
+            </div>
+            <div
+              class="ant-cascader-menu-item-expand-icon"
             >
-              <div
-                class="ant-cascader-menu-item-content"
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
               >
-                Jiangsu
-              </div>
-              <div
-                class="ant-cascader-menu-item-expand-icon"
-              >
-                <span
-                  aria-label="right"
-                  class="anticon anticon-right"
-                  role="img"
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="right"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                    />
-                  </svg>
-                </span>
-              </div>
-            </li>
-          </ul>
-        </div>
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </li>
+          <li
+            aria-checked="false"
+            class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+            data-path-key="jiangsu"
+            role="menuitemcheckbox"
+            title="Jiangsu"
+          >
+            <div
+              class="ant-cascader-menu-item-content"
+            >
+              Jiangsu
+            </div>
+            <div
+              class="ant-cascader-menu-item-expand-icon"
+            >
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -179,93 +177,91 @@ exports[`renders ./components/cascader/demo/change-on-select.tsx extend context 
       class="ant-select-selection-placeholder"
     />
   </div>
-  <div>
-    <div
-      class="ant-select-dropdown ant-cascader-dropdown"
-      style="opacity:0;min-width:auto"
-    >
-      <div>
-        <div
-          class="ant-cascader-menus"
+  <div
+    class="ant-select-dropdown ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
+    style="left:-1000vw;top:-1000vh;box-sizing:border-box;min-width:auto"
+  >
+    <div>
+      <div
+        class="ant-cascader-menus"
+      >
+        <ul
+          class="ant-cascader-menu"
+          role="menu"
         >
-          <ul
-            class="ant-cascader-menu"
-            role="menu"
+          <li
+            aria-checked="false"
+            class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+            data-path-key="zhejiang"
+            role="menuitemcheckbox"
+            title="Zhejiang"
           >
-            <li
-              aria-checked="false"
-              class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-              data-path-key="zhejiang"
-              role="menuitemcheckbox"
-              title="Zhejiang"
+            <div
+              class="ant-cascader-menu-item-content"
             >
-              <div
-                class="ant-cascader-menu-item-content"
-              >
-                Zhejiang
-              </div>
-              <div
-                class="ant-cascader-menu-item-expand-icon"
-              >
-                <span
-                  aria-label="right"
-                  class="anticon anticon-right"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="right"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                    />
-                  </svg>
-                </span>
-              </div>
-            </li>
-            <li
-              aria-checked="false"
-              class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-              data-path-key="jiangsu"
-              role="menuitemcheckbox"
-              title="Jiangsu"
+              Zhejiang
+            </div>
+            <div
+              class="ant-cascader-menu-item-expand-icon"
             >
-              <div
-                class="ant-cascader-menu-item-content"
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
               >
-                Jiangsu
-              </div>
-              <div
-                class="ant-cascader-menu-item-expand-icon"
-              >
-                <span
-                  aria-label="right"
-                  class="anticon anticon-right"
-                  role="img"
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="right"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                    />
-                  </svg>
-                </span>
-              </div>
-            </li>
-          </ul>
-        </div>
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </li>
+          <li
+            aria-checked="false"
+            class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+            data-path-key="jiangsu"
+            role="menuitemcheckbox"
+            title="Jiangsu"
+          >
+            <div
+              class="ant-cascader-menu-item-content"
+            >
+              Jiangsu
+            </div>
+            <div
+              class="ant-cascader-menu-item-expand-icon"
+            >
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -329,104 +325,102 @@ exports[`renders ./components/cascader/demo/custom-dropdown.tsx extend context c
       Please select
     </span>
   </div>
-  <div>
-    <div
-      class="ant-select-dropdown ant-cascader-dropdown"
-      style="opacity:0;min-width:auto"
-    >
+  <div
+    class="ant-select-dropdown ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
+    style="left:-1000vw;top:-1000vh;box-sizing:border-box;min-width:auto"
+  >
+    <div>
       <div>
-        <div>
-          <div
-            class="ant-cascader-menus"
+        <div
+          class="ant-cascader-menus"
+        >
+          <ul
+            class="ant-cascader-menu"
+            role="menu"
           >
-            <ul
-              class="ant-cascader-menu"
-              role="menu"
+            <li
+              aria-checked="false"
+              class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+              data-path-key="zhejiang"
+              role="menuitemcheckbox"
+              title="Zhejiang"
             >
-              <li
-                aria-checked="false"
-                class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-                data-path-key="zhejiang"
-                role="menuitemcheckbox"
-                title="Zhejiang"
+              <div
+                class="ant-cascader-menu-item-content"
               >
-                <div
-                  class="ant-cascader-menu-item-content"
-                >
-                  Zhejiang
-                </div>
-                <div
-                  class="ant-cascader-menu-item-expand-icon"
-                >
-                  <span
-                    aria-label="right"
-                    class="anticon anticon-right"
-                    role="img"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="right"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                      />
-                    </svg>
-                  </span>
-                </div>
-              </li>
-              <li
-                aria-checked="false"
-                class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-                data-path-key="jiangsu"
-                role="menuitemcheckbox"
-                title="Jiangsu"
+                Zhejiang
+              </div>
+              <div
+                class="ant-cascader-menu-item-expand-icon"
               >
-                <div
-                  class="ant-cascader-menu-item-content"
+                <span
+                  aria-label="right"
+                  class="anticon anticon-right"
+                  role="img"
                 >
-                  Jiangsu
-                </div>
-                <div
-                  class="ant-cascader-menu-item-expand-icon"
-                >
-                  <span
-                    aria-label="right"
-                    class="anticon anticon-right"
-                    role="img"
+                  <svg
+                    aria-hidden="true"
+                    data-icon="right"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
                   >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="right"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                      />
-                    </svg>
-                  </span>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <div
-            class="ant-divider ant-divider-horizontal"
-            role="separator"
-            style="margin:0"
-          />
-          <div
-            style="padding:8px"
-          >
-            The footer is not very short.
-          </div>
+                    <path
+                      d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </li>
+            <li
+              aria-checked="false"
+              class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+              data-path-key="jiangsu"
+              role="menuitemcheckbox"
+              title="Jiangsu"
+            >
+              <div
+                class="ant-cascader-menu-item-content"
+              >
+                Jiangsu
+              </div>
+              <div
+                class="ant-cascader-menu-item-expand-icon"
+              >
+                <span
+                  aria-label="right"
+                  class="anticon anticon-right"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="right"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div
+          class="ant-divider ant-divider-horizontal"
+          role="separator"
+          style="margin:0"
+        />
+        <div
+          style="padding:8px"
+        >
+          The footer is not very short.
         </div>
       </div>
     </div>
@@ -510,93 +504,91 @@ exports[`renders ./components/cascader/demo/custom-render.tsx extend context cor
       </span>
     </span>
   </div>
-  <div>
-    <div
-      class="ant-select-dropdown ant-cascader-dropdown"
-      style="opacity:0;min-width:auto"
-    >
-      <div>
-        <div
-          class="ant-cascader-menus"
+  <div
+    class="ant-select-dropdown ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
+    style="left:-1000vw;top:-1000vh;box-sizing:border-box;min-width:auto"
+  >
+    <div>
+      <div
+        class="ant-cascader-menus"
+      >
+        <ul
+          class="ant-cascader-menu"
+          role="menu"
         >
-          <ul
-            class="ant-cascader-menu"
-            role="menu"
+          <li
+            aria-checked="false"
+            class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+            data-path-key="zhejiang"
+            role="menuitemcheckbox"
+            title="Zhejiang"
           >
-            <li
-              aria-checked="false"
-              class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-              data-path-key="zhejiang"
-              role="menuitemcheckbox"
-              title="Zhejiang"
+            <div
+              class="ant-cascader-menu-item-content"
             >
-              <div
-                class="ant-cascader-menu-item-content"
-              >
-                Zhejiang
-              </div>
-              <div
-                class="ant-cascader-menu-item-expand-icon"
-              >
-                <span
-                  aria-label="right"
-                  class="anticon anticon-right"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="right"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                    />
-                  </svg>
-                </span>
-              </div>
-            </li>
-            <li
-              aria-checked="false"
-              class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-              data-path-key="jiangsu"
-              role="menuitemcheckbox"
-              title="Jiangsu"
+              Zhejiang
+            </div>
+            <div
+              class="ant-cascader-menu-item-expand-icon"
             >
-              <div
-                class="ant-cascader-menu-item-content"
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
               >
-                Jiangsu
-              </div>
-              <div
-                class="ant-cascader-menu-item-expand-icon"
-              >
-                <span
-                  aria-label="right"
-                  class="anticon anticon-right"
-                  role="img"
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="right"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                    />
-                  </svg>
-                </span>
-              </div>
-            </li>
-          </ul>
-        </div>
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </li>
+          <li
+            aria-checked="false"
+            class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+            data-path-key="jiangsu"
+            role="menuitemcheckbox"
+            title="Jiangsu"
+          >
+            <div
+              class="ant-cascader-menu-item-content"
+            >
+              Jiangsu
+            </div>
+            <div
+              class="ant-cascader-menu-item-expand-icon"
+            >
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -664,93 +656,91 @@ exports[`renders ./components/cascader/demo/custom-trigger.tsx extend context co
   >
     Change city
   </a>
-  <div>
-    <div
-      class="ant-select-dropdown ant-cascader-dropdown"
-      style="opacity:0;min-width:auto"
-    >
-      <div>
-        <div
-          class="ant-cascader-menus"
+  <div
+    class="ant-select-dropdown ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
+    style="left:-1000vw;top:-1000vh;box-sizing:border-box;min-width:auto"
+  >
+    <div>
+      <div
+        class="ant-cascader-menus"
+      >
+        <ul
+          class="ant-cascader-menu"
+          role="menu"
         >
-          <ul
-            class="ant-cascader-menu"
-            role="menu"
+          <li
+            aria-checked="false"
+            class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+            data-path-key="zhejiang"
+            role="menuitemcheckbox"
+            title="Zhejiang"
           >
-            <li
-              aria-checked="false"
-              class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-              data-path-key="zhejiang"
-              role="menuitemcheckbox"
-              title="Zhejiang"
+            <div
+              class="ant-cascader-menu-item-content"
             >
-              <div
-                class="ant-cascader-menu-item-content"
-              >
-                Zhejiang
-              </div>
-              <div
-                class="ant-cascader-menu-item-expand-icon"
-              >
-                <span
-                  aria-label="right"
-                  class="anticon anticon-right"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="right"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                    />
-                  </svg>
-                </span>
-              </div>
-            </li>
-            <li
-              aria-checked="false"
-              class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-              data-path-key="jiangsu"
-              role="menuitemcheckbox"
-              title="Jiangsu"
+              Zhejiang
+            </div>
+            <div
+              class="ant-cascader-menu-item-expand-icon"
             >
-              <div
-                class="ant-cascader-menu-item-content"
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
               >
-                Jiangsu
-              </div>
-              <div
-                class="ant-cascader-menu-item-expand-icon"
-              >
-                <span
-                  aria-label="right"
-                  class="anticon anticon-right"
-                  role="img"
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="right"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                    />
-                  </svg>
-                </span>
-              </div>
-            </li>
-          </ul>
-        </div>
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </li>
+          <li
+            aria-checked="false"
+            class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+            data-path-key="jiangsu"
+            role="menuitemcheckbox"
+            title="Jiangsu"
+          >
+            <div
+              class="ant-cascader-menu-item-content"
+            >
+              Jiangsu
+            </div>
+            <div
+              class="ant-cascader-menu-item-expand-icon"
+            >
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -789,93 +779,91 @@ exports[`renders ./components/cascader/demo/default-value.tsx extend context cor
       Zhejiang / Hangzhou / West Lake
     </span>
   </div>
-  <div>
-    <div
-      class="ant-select-dropdown ant-cascader-dropdown"
-      style="opacity:0;min-width:auto"
-    >
-      <div>
-        <div
-          class="ant-cascader-menus"
+  <div
+    class="ant-select-dropdown ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
+    style="left:-1000vw;top:-1000vh;box-sizing:border-box;min-width:auto"
+  >
+    <div>
+      <div
+        class="ant-cascader-menus"
+      >
+        <ul
+          class="ant-cascader-menu"
+          role="menu"
         >
-          <ul
-            class="ant-cascader-menu"
-            role="menu"
+          <li
+            aria-checked="false"
+            class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+            data-path-key="zhejiang"
+            role="menuitemcheckbox"
+            title="Zhejiang"
           >
-            <li
-              aria-checked="false"
-              class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-              data-path-key="zhejiang"
-              role="menuitemcheckbox"
-              title="Zhejiang"
+            <div
+              class="ant-cascader-menu-item-content"
             >
-              <div
-                class="ant-cascader-menu-item-content"
-              >
-                Zhejiang
-              </div>
-              <div
-                class="ant-cascader-menu-item-expand-icon"
-              >
-                <span
-                  aria-label="right"
-                  class="anticon anticon-right"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="right"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                    />
-                  </svg>
-                </span>
-              </div>
-            </li>
-            <li
-              aria-checked="false"
-              class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-              data-path-key="jiangsu"
-              role="menuitemcheckbox"
-              title="Jiangsu"
+              Zhejiang
+            </div>
+            <div
+              class="ant-cascader-menu-item-expand-icon"
             >
-              <div
-                class="ant-cascader-menu-item-content"
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
               >
-                Jiangsu
-              </div>
-              <div
-                class="ant-cascader-menu-item-expand-icon"
-              >
-                <span
-                  aria-label="right"
-                  class="anticon anticon-right"
-                  role="img"
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="right"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                    />
-                  </svg>
-                </span>
-              </div>
-            </li>
-          </ul>
-        </div>
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </li>
+          <li
+            aria-checked="false"
+            class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+            data-path-key="jiangsu"
+            role="menuitemcheckbox"
+            title="Jiangsu"
+          >
+            <div
+              class="ant-cascader-menu-item-content"
+            >
+              Jiangsu
+            </div>
+            <div
+              class="ant-cascader-menu-item-expand-icon"
+            >
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -963,93 +951,91 @@ exports[`renders ./components/cascader/demo/disabled-option.tsx extend context c
       class="ant-select-selection-placeholder"
     />
   </div>
-  <div>
-    <div
-      class="ant-select-dropdown ant-cascader-dropdown"
-      style="opacity:0;min-width:auto"
-    >
-      <div>
-        <div
-          class="ant-cascader-menus"
+  <div
+    class="ant-select-dropdown ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
+    style="left:-1000vw;top:-1000vh;box-sizing:border-box;min-width:auto"
+  >
+    <div>
+      <div
+        class="ant-cascader-menus"
+      >
+        <ul
+          class="ant-cascader-menu"
+          role="menu"
         >
-          <ul
-            class="ant-cascader-menu"
-            role="menu"
+          <li
+            aria-checked="false"
+            class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+            data-path-key="zhejiang"
+            role="menuitemcheckbox"
+            title="Zhejiang"
           >
-            <li
-              aria-checked="false"
-              class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-              data-path-key="zhejiang"
-              role="menuitemcheckbox"
-              title="Zhejiang"
+            <div
+              class="ant-cascader-menu-item-content"
             >
-              <div
-                class="ant-cascader-menu-item-content"
-              >
-                Zhejiang
-              </div>
-              <div
-                class="ant-cascader-menu-item-expand-icon"
-              >
-                <span
-                  aria-label="right"
-                  class="anticon anticon-right"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="right"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                    />
-                  </svg>
-                </span>
-              </div>
-            </li>
-            <li
-              aria-checked="false"
-              class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-disabled"
-              data-path-key="jiangsu"
-              role="menuitemcheckbox"
-              title="Jiangsu"
+              Zhejiang
+            </div>
+            <div
+              class="ant-cascader-menu-item-expand-icon"
             >
-              <div
-                class="ant-cascader-menu-item-content"
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
               >
-                Jiangsu
-              </div>
-              <div
-                class="ant-cascader-menu-item-expand-icon"
-              >
-                <span
-                  aria-label="right"
-                  class="anticon anticon-right"
-                  role="img"
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="right"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                    />
-                  </svg>
-                </span>
-              </div>
-            </li>
-          </ul>
-        </div>
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </li>
+          <li
+            aria-checked="false"
+            class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-disabled"
+            data-path-key="jiangsu"
+            role="menuitemcheckbox"
+            title="Jiangsu"
+          >
+            <div
+              class="ant-cascader-menu-item-content"
+            >
+              Jiangsu
+            </div>
+            <div
+              class="ant-cascader-menu-item-expand-icon"
+            >
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -1113,93 +1099,91 @@ exports[`renders ./components/cascader/demo/fields-name.tsx extend context corre
       Please select
     </span>
   </div>
-  <div>
-    <div
-      class="ant-select-dropdown ant-cascader-dropdown"
-      style="opacity:0;min-width:auto"
-    >
-      <div>
-        <div
-          class="ant-cascader-menus"
+  <div
+    class="ant-select-dropdown ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
+    style="left:-1000vw;top:-1000vh;box-sizing:border-box;min-width:auto"
+  >
+    <div>
+      <div
+        class="ant-cascader-menus"
+      >
+        <ul
+          class="ant-cascader-menu"
+          role="menu"
         >
-          <ul
-            class="ant-cascader-menu"
-            role="menu"
+          <li
+            aria-checked="false"
+            class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+            data-path-key="zhejiang"
+            role="menuitemcheckbox"
+            title="Zhejiang"
           >
-            <li
-              aria-checked="false"
-              class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-              data-path-key="zhejiang"
-              role="menuitemcheckbox"
-              title="Zhejiang"
+            <div
+              class="ant-cascader-menu-item-content"
             >
-              <div
-                class="ant-cascader-menu-item-content"
-              >
-                Zhejiang
-              </div>
-              <div
-                class="ant-cascader-menu-item-expand-icon"
-              >
-                <span
-                  aria-label="right"
-                  class="anticon anticon-right"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="right"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                    />
-                  </svg>
-                </span>
-              </div>
-            </li>
-            <li
-              aria-checked="false"
-              class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-              data-path-key="jiangsu"
-              role="menuitemcheckbox"
-              title="Jiangsu"
+              Zhejiang
+            </div>
+            <div
+              class="ant-cascader-menu-item-expand-icon"
             >
-              <div
-                class="ant-cascader-menu-item-content"
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
               >
-                Jiangsu
-              </div>
-              <div
-                class="ant-cascader-menu-item-expand-icon"
-              >
-                <span
-                  aria-label="right"
-                  class="anticon anticon-right"
-                  role="img"
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="right"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                    />
-                  </svg>
-                </span>
-              </div>
-            </li>
-          </ul>
-        </div>
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </li>
+          <li
+            aria-checked="false"
+            class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+            data-path-key="jiangsu"
+            role="menuitemcheckbox"
+            title="Jiangsu"
+          >
+            <div
+              class="ant-cascader-menu-item-content"
+            >
+              Jiangsu
+            </div>
+            <div
+              class="ant-cascader-menu-item-expand-icon"
+            >
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -1261,93 +1245,91 @@ exports[`renders ./components/cascader/demo/hover.tsx extend context correctly 1
       class="ant-select-selection-placeholder"
     />
   </div>
-  <div>
-    <div
-      class="ant-select-dropdown ant-cascader-dropdown"
-      style="opacity:0;min-width:auto"
-    >
-      <div>
-        <div
-          class="ant-cascader-menus"
+  <div
+    class="ant-select-dropdown ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
+    style="left:-1000vw;top:-1000vh;box-sizing:border-box;min-width:auto"
+  >
+    <div>
+      <div
+        class="ant-cascader-menus"
+      >
+        <ul
+          class="ant-cascader-menu"
+          role="menu"
         >
-          <ul
-            class="ant-cascader-menu"
-            role="menu"
+          <li
+            aria-checked="false"
+            class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+            data-path-key="zhejiang"
+            role="menuitemcheckbox"
+            title="Zhejiang"
           >
-            <li
-              aria-checked="false"
-              class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-              data-path-key="zhejiang"
-              role="menuitemcheckbox"
-              title="Zhejiang"
+            <div
+              class="ant-cascader-menu-item-content"
             >
-              <div
-                class="ant-cascader-menu-item-content"
-              >
-                Zhejiang
-              </div>
-              <div
-                class="ant-cascader-menu-item-expand-icon"
-              >
-                <span
-                  aria-label="right"
-                  class="anticon anticon-right"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="right"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                    />
-                  </svg>
-                </span>
-              </div>
-            </li>
-            <li
-              aria-checked="false"
-              class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-              data-path-key="jiangsu"
-              role="menuitemcheckbox"
-              title="Jiangsu"
+              Zhejiang
+            </div>
+            <div
+              class="ant-cascader-menu-item-expand-icon"
             >
-              <div
-                class="ant-cascader-menu-item-content"
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
               >
-                Jiangsu
-              </div>
-              <div
-                class="ant-cascader-menu-item-expand-icon"
-              >
-                <span
-                  aria-label="right"
-                  class="anticon anticon-right"
-                  role="img"
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="right"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                    />
-                  </svg>
-                </span>
-              </div>
-            </li>
-          </ul>
-        </div>
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </li>
+          <li
+            aria-checked="false"
+            class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+            data-path-key="jiangsu"
+            role="menuitemcheckbox"
+            title="Jiangsu"
+          >
+            <div
+              class="ant-cascader-menu-item-content"
+            >
+              Jiangsu
+            </div>
+            <div
+              class="ant-cascader-menu-item-expand-icon"
+            >
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -1409,93 +1391,91 @@ exports[`renders ./components/cascader/demo/lazy.tsx extend context correctly 1`
       class="ant-select-selection-placeholder"
     />
   </div>
-  <div>
-    <div
-      class="ant-select-dropdown ant-cascader-dropdown"
-      style="opacity:0;min-width:auto"
-    >
-      <div>
-        <div
-          class="ant-cascader-menus"
+  <div
+    class="ant-select-dropdown ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
+    style="left:-1000vw;top:-1000vh;box-sizing:border-box;min-width:auto"
+  >
+    <div>
+      <div
+        class="ant-cascader-menus"
+      >
+        <ul
+          class="ant-cascader-menu"
+          role="menu"
         >
-          <ul
-            class="ant-cascader-menu"
-            role="menu"
+          <li
+            aria-checked="false"
+            class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+            data-path-key="zhejiang"
+            role="menuitemcheckbox"
+            title="Zhejiang"
           >
-            <li
-              aria-checked="false"
-              class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-              data-path-key="zhejiang"
-              role="menuitemcheckbox"
-              title="Zhejiang"
+            <div
+              class="ant-cascader-menu-item-content"
             >
-              <div
-                class="ant-cascader-menu-item-content"
-              >
-                Zhejiang
-              </div>
-              <div
-                class="ant-cascader-menu-item-expand-icon"
-              >
-                <span
-                  aria-label="right"
-                  class="anticon anticon-right"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="right"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                    />
-                  </svg>
-                </span>
-              </div>
-            </li>
-            <li
-              aria-checked="false"
-              class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-              data-path-key="jiangsu"
-              role="menuitemcheckbox"
-              title="Jiangsu"
+              Zhejiang
+            </div>
+            <div
+              class="ant-cascader-menu-item-expand-icon"
             >
-              <div
-                class="ant-cascader-menu-item-content"
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
               >
-                Jiangsu
-              </div>
-              <div
-                class="ant-cascader-menu-item-expand-icon"
-              >
-                <span
-                  aria-label="right"
-                  class="anticon anticon-right"
-                  role="img"
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="right"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                    />
-                  </svg>
-                </span>
-              </div>
-            </li>
-          </ul>
-        </div>
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </li>
+          <li
+            aria-checked="false"
+            class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+            data-path-key="jiangsu"
+            role="menuitemcheckbox"
+            title="Jiangsu"
+          >
+            <div
+              class="ant-cascader-menu-item-content"
+            >
+              Jiangsu
+            </div>
+            <div
+              class="ant-cascader-menu-item-expand-icon"
+            >
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -1573,107 +1553,105 @@ exports[`renders ./components/cascader/demo/multiple.tsx extend context correctl
       class="ant-select-selection-placeholder"
     />
   </div>
-  <div>
-    <div
-      class="ant-select-dropdown ant-cascader-dropdown"
-      style="opacity:0;min-width:auto"
-    >
-      <div>
-        <div
-          class="ant-cascader-menus"
+  <div
+    class="ant-select-dropdown ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
+    style="left:-1000vw;top:-1000vh;box-sizing:border-box;min-width:auto"
+  >
+    <div>
+      <div
+        class="ant-cascader-menus"
+      >
+        <ul
+          class="ant-cascader-menu"
+          role="menu"
         >
-          <ul
-            class="ant-cascader-menu"
-            role="menu"
+          <li
+            aria-checked="false"
+            class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+            data-path-key="light"
+            role="menuitemcheckbox"
+            title="Light"
           >
-            <li
-              aria-checked="false"
-              class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-              data-path-key="light"
-              role="menuitemcheckbox"
-              title="Light"
+            <span
+              class="ant-cascader-checkbox"
             >
               <span
-                class="ant-cascader-checkbox"
-              >
-                <span
-                  class="ant-cascader-checkbox-inner"
-                />
-              </span>
-              <div
-                class="ant-cascader-menu-item-content"
-              >
-                Light
-              </div>
-              <div
-                class="ant-cascader-menu-item-expand-icon"
-              >
-                <span
-                  aria-label="right"
-                  class="anticon anticon-right"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="right"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                    />
-                  </svg>
-                </span>
-              </div>
-            </li>
-            <li
-              aria-checked="false"
-              class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-              data-path-key="bamboo"
-              role="menuitemcheckbox"
-              title="Bamboo"
+                class="ant-cascader-checkbox-inner"
+              />
+            </span>
+            <div
+              class="ant-cascader-menu-item-content"
+            >
+              Light
+            </div>
+            <div
+              class="ant-cascader-menu-item-expand-icon"
             >
               <span
-                class="ant-cascader-checkbox"
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
               >
-                <span
-                  class="ant-cascader-checkbox-inner"
-                />
-              </span>
-              <div
-                class="ant-cascader-menu-item-content"
-              >
-                Bamboo
-              </div>
-              <div
-                class="ant-cascader-menu-item-expand-icon"
-              >
-                <span
-                  aria-label="right"
-                  class="anticon anticon-right"
-                  role="img"
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="right"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                    />
-                  </svg>
-                </span>
-              </div>
-            </li>
-          </ul>
-        </div>
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </li>
+          <li
+            aria-checked="false"
+            class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+            data-path-key="bamboo"
+            role="menuitemcheckbox"
+            title="Bamboo"
+          >
+            <span
+              class="ant-cascader-checkbox"
+            >
+              <span
+                class="ant-cascader-checkbox-inner"
+              />
+            </span>
+            <div
+              class="ant-cascader-menu-item-content"
+            >
+              Bamboo
+            </div>
+            <div
+              class="ant-cascader-menu-item-expand-icon"
+            >
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -1795,314 +1773,9 @@ Array [
         Please select
       </span>
     </div>
-    <div>
-      <div
-        class="ant-select-dropdown ant-cascader-dropdown"
-        style="opacity:0;min-width:auto"
-      >
-        <div>
-          <div
-            class="ant-cascader-menus"
-          >
-            <ul
-              class="ant-cascader-menu"
-              role="menu"
-            >
-              <li
-                aria-checked="false"
-                class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-                data-path-key="zhejiang"
-                role="menuitemcheckbox"
-                title="Zhejiang"
-              >
-                <div
-                  class="ant-cascader-menu-item-content"
-                >
-                  Zhejiang
-                </div>
-                <div
-                  class="ant-cascader-menu-item-expand-icon"
-                >
-                  <span
-                    aria-label="right"
-                    class="anticon anticon-right"
-                    role="img"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="right"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                      />
-                    </svg>
-                  </span>
-                </div>
-              </li>
-              <li
-                aria-checked="false"
-                class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-                data-path-key="jiangsu"
-                role="menuitemcheckbox"
-                title="Jiangsu"
-              >
-                <div
-                  class="ant-cascader-menu-item-content"
-                >
-                  Jiangsu
-                </div>
-                <div
-                  class="ant-cascader-menu-item-expand-icon"
-                >
-                  <span
-                    aria-label="right"
-                    class="anticon anticon-right"
-                    role="img"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="right"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                      />
-                    </svg>
-                  </span>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <span
-      aria-hidden="true"
-      class="ant-select-arrow"
-      style="user-select:none;-webkit-user-select:none"
-      unselectable="on"
-    >
-      <span
-        aria-label="down"
-        class="anticon anticon-down ant-select-suffix"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="down"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-          />
-        </svg>
-      </span>
-    </span>
-  </div>,
-]
-`;
-
-exports[`renders ./components/cascader/demo/render-panel.tsx extend context correctly 1`] = `
-<div
-  style="padding-bottom:0;position:relative;width:fit-content;min-width:0"
->
-  <div
-    class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
-    style="margin:0"
-  >
     <div
-      class="ant-select-selector"
-    >
-      <span
-        class="ant-select-selection-search"
-      >
-        <input
-          aria-autocomplete="list"
-          aria-controls="undefined_list"
-          aria-expanded="false"
-          aria-haspopup="listbox"
-          aria-owns="undefined_list"
-          autocomplete="off"
-          class="ant-select-selection-search-input"
-          readonly=""
-          role="combobox"
-          style="opacity:0"
-          type="search"
-          unselectable="on"
-          value=""
-        />
-      </span>
-      <span
-        class="ant-select-selection-placeholder"
-      >
-        Please select
-      </span>
-    </div>
-    <div>
-      <div
-        class="ant-select-dropdown ant-cascader-dropdown"
-        style="opacity:0;min-width:auto"
-      >
-        <div>
-          <div
-            class="ant-cascader-menus"
-          >
-            <ul
-              class="ant-cascader-menu"
-              role="menu"
-            >
-              <li
-                aria-checked="false"
-                class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-                data-path-key="zhejiang"
-                role="menuitemcheckbox"
-                title="Zhejiang"
-              >
-                <div
-                  class="ant-cascader-menu-item-content"
-                >
-                  Zhejiang
-                </div>
-                <div
-                  class="ant-cascader-menu-item-expand-icon"
-                >
-                  <span
-                    aria-label="right"
-                    class="anticon anticon-right"
-                    role="img"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="right"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                      />
-                    </svg>
-                  </span>
-                </div>
-              </li>
-              <li
-                aria-checked="false"
-                class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-                data-path-key="jiangsu"
-                role="menuitemcheckbox"
-                title="Jiangsu"
-              >
-                <div
-                  class="ant-cascader-menu-item-content"
-                >
-                  Jiangsu
-                </div>
-                <div
-                  class="ant-cascader-menu-item-expand-icon"
-                >
-                  <span
-                    aria-label="right"
-                    class="anticon anticon-right"
-                    role="img"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="right"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                      />
-                    </svg>
-                  </span>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <span
-      aria-hidden="true"
-      class="ant-select-arrow"
-      style="user-select:none;-webkit-user-select:none"
-      unselectable="on"
-    >
-      <span
-        aria-label="down"
-        class="anticon anticon-down ant-select-suffix"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="down"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-          />
-        </svg>
-      </span>
-    </span>
-  </div>
-</div>
-`;
-
-exports[`renders ./components/cascader/demo/search.tsx extend context correctly 1`] = `
-<div
-  class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
->
-  <div
-    class="ant-select-selector"
-  >
-    <span
-      class="ant-select-selection-search"
-    >
-      <input
-        aria-autocomplete="list"
-        aria-controls="undefined_list"
-        aria-haspopup="listbox"
-        aria-owns="undefined_list"
-        autocomplete="off"
-        class="ant-select-selection-search-input"
-        role="combobox"
-        type="search"
-        value=""
-      />
-    </span>
-    <span
-      class="ant-select-selection-placeholder"
-    >
-      Please select
-    </span>
-  </div>
-  <div>
-    <div
-      class="ant-select-dropdown ant-cascader-dropdown"
-      style="opacity:0;min-width:auto"
+      class="ant-select-dropdown ant-cascader-dropdown ant-select-dropdown-placement-topLeft"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box;min-width:auto"
     >
       <div>
         <div
@@ -2186,6 +1859,305 @@ exports[`renders ./components/cascader/demo/search.tsx extend context correctly 
             </li>
           </ul>
         </div>
+      </div>
+    </div>
+    <span
+      aria-hidden="true"
+      class="ant-select-arrow"
+      style="user-select:none;-webkit-user-select:none"
+      unselectable="on"
+    >
+      <span
+        aria-label="down"
+        class="anticon anticon-down ant-select-suffix"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+    </span>
+  </div>,
+]
+`;
+
+exports[`renders ./components/cascader/demo/render-panel.tsx extend context correctly 1`] = `
+<div
+  style="padding-bottom:0;position:relative;width:fit-content;min-width:0"
+>
+  <div
+    class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
+    style="margin:0"
+  >
+    <div
+      class="ant-select-selector"
+    >
+      <span
+        class="ant-select-selection-search"
+      >
+        <input
+          aria-autocomplete="list"
+          aria-controls="undefined_list"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-owns="undefined_list"
+          autocomplete="off"
+          class="ant-select-selection-search-input"
+          readonly=""
+          role="combobox"
+          style="opacity:0"
+          type="search"
+          unselectable="on"
+          value=""
+        />
+      </span>
+      <span
+        class="ant-select-selection-placeholder"
+      >
+        Please select
+      </span>
+    </div>
+    <div
+      class="ant-select-dropdown ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box;min-width:auto"
+    >
+      <div>
+        <div
+          class="ant-cascader-menus"
+        >
+          <ul
+            class="ant-cascader-menu"
+            role="menu"
+          >
+            <li
+              aria-checked="false"
+              class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+              data-path-key="zhejiang"
+              role="menuitemcheckbox"
+              title="Zhejiang"
+            >
+              <div
+                class="ant-cascader-menu-item-content"
+              >
+                Zhejiang
+              </div>
+              <div
+                class="ant-cascader-menu-item-expand-icon"
+              >
+                <span
+                  aria-label="right"
+                  class="anticon anticon-right"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="right"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </li>
+            <li
+              aria-checked="false"
+              class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+              data-path-key="jiangsu"
+              role="menuitemcheckbox"
+              title="Jiangsu"
+            >
+              <div
+                class="ant-cascader-menu-item-content"
+              >
+                Jiangsu
+              </div>
+              <div
+                class="ant-cascader-menu-item-expand-icon"
+              >
+                <span
+                  aria-label="right"
+                  class="anticon anticon-right"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="right"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <span
+      aria-hidden="true"
+      class="ant-select-arrow"
+      style="user-select:none;-webkit-user-select:none"
+      unselectable="on"
+    >
+      <span
+        aria-label="down"
+        class="anticon anticon-down ant-select-suffix"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/cascader/demo/search.tsx extend context correctly 1`] = `
+<div
+  class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+>
+  <div
+    class="ant-select-selector"
+  >
+    <span
+      class="ant-select-selection-search"
+    >
+      <input
+        aria-autocomplete="list"
+        aria-controls="undefined_list"
+        aria-haspopup="listbox"
+        aria-owns="undefined_list"
+        autocomplete="off"
+        class="ant-select-selection-search-input"
+        role="combobox"
+        type="search"
+        value=""
+      />
+    </span>
+    <span
+      class="ant-select-selection-placeholder"
+    >
+      Please select
+    </span>
+  </div>
+  <div
+    class="ant-select-dropdown ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
+    style="left:-1000vw;top:-1000vh;box-sizing:border-box;min-width:auto"
+  >
+    <div>
+      <div
+        class="ant-cascader-menus"
+      >
+        <ul
+          class="ant-cascader-menu"
+          role="menu"
+        >
+          <li
+            aria-checked="false"
+            class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+            data-path-key="zhejiang"
+            role="menuitemcheckbox"
+            title="Zhejiang"
+          >
+            <div
+              class="ant-cascader-menu-item-content"
+            >
+              Zhejiang
+            </div>
+            <div
+              class="ant-cascader-menu-item-expand-icon"
+            >
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </li>
+          <li
+            aria-checked="false"
+            class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+            data-path-key="jiangsu"
+            role="menuitemcheckbox"
+            title="Jiangsu"
+          >
+            <div
+              class="ant-cascader-menu-item-content"
+            >
+              Jiangsu
+            </div>
+            <div
+              class="ant-cascader-menu-item-expand-icon"
+            >
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -2277,107 +2249,105 @@ Array [
         </div>
       </div>
     </div>
-    <div>
-      <div
-        class="ant-select-dropdown ant-cascader-dropdown"
-        style="opacity:0;min-width:auto"
-      >
-        <div>
-          <div
-            class="ant-cascader-menus"
+    <div
+      class="ant-select-dropdown ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box;min-width:auto"
+    >
+      <div>
+        <div
+          class="ant-cascader-menus"
+        >
+          <ul
+            class="ant-cascader-menu"
+            role="menu"
           >
-            <ul
-              class="ant-cascader-menu"
-              role="menu"
+            <li
+              aria-checked="false"
+              class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+              data-path-key="light"
+              role="menuitemcheckbox"
+              title="Light"
             >
-              <li
-                aria-checked="false"
-                class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-                data-path-key="light"
-                role="menuitemcheckbox"
-                title="Light"
+              <span
+                class="ant-cascader-checkbox"
               >
                 <span
-                  class="ant-cascader-checkbox"
-                >
-                  <span
-                    class="ant-cascader-checkbox-inner"
-                  />
-                </span>
-                <div
-                  class="ant-cascader-menu-item-content"
-                >
-                  Light
-                </div>
-                <div
-                  class="ant-cascader-menu-item-expand-icon"
-                >
-                  <span
-                    aria-label="right"
-                    class="anticon anticon-right"
-                    role="img"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="right"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                      />
-                    </svg>
-                  </span>
-                </div>
-              </li>
-              <li
-                aria-checked="true"
-                class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-                data-path-key="bamboo"
-                role="menuitemcheckbox"
-                title="Bamboo"
+                  class="ant-cascader-checkbox-inner"
+                />
+              </span>
+              <div
+                class="ant-cascader-menu-item-content"
+              >
+                Light
+              </div>
+              <div
+                class="ant-cascader-menu-item-expand-icon"
               >
                 <span
-                  class="ant-cascader-checkbox ant-cascader-checkbox-checked"
+                  aria-label="right"
+                  class="anticon anticon-right"
+                  role="img"
                 >
-                  <span
-                    class="ant-cascader-checkbox-inner"
-                  />
-                </span>
-                <div
-                  class="ant-cascader-menu-item-content"
-                >
-                  Bamboo
-                </div>
-                <div
-                  class="ant-cascader-menu-item-expand-icon"
-                >
-                  <span
-                    aria-label="right"
-                    class="anticon anticon-right"
-                    role="img"
+                  <svg
+                    aria-hidden="true"
+                    data-icon="right"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
                   >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="right"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                      />
-                    </svg>
-                  </span>
-                </div>
-              </li>
-            </ul>
-          </div>
+                    <path
+                      d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </li>
+            <li
+              aria-checked="true"
+              class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+              data-path-key="bamboo"
+              role="menuitemcheckbox"
+              title="Bamboo"
+            >
+              <span
+                class="ant-cascader-checkbox ant-cascader-checkbox-checked"
+              >
+                <span
+                  class="ant-cascader-checkbox-inner"
+                />
+              </span>
+              <div
+                class="ant-cascader-menu-item-content"
+              >
+                Bamboo
+              </div>
+              <div
+                class="ant-cascader-menu-item-expand-icon"
+              >
+                <span
+                  aria-label="right"
+                  class="anticon anticon-right"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="right"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -2467,107 +2437,105 @@ Array [
         </div>
       </div>
     </div>
-    <div>
-      <div
-        class="ant-select-dropdown ant-cascader-dropdown"
-        style="opacity:0;min-width:auto"
-      >
-        <div>
-          <div
-            class="ant-cascader-menus"
+    <div
+      class="ant-select-dropdown ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box;min-width:auto"
+    >
+      <div>
+        <div
+          class="ant-cascader-menus"
+        >
+          <ul
+            class="ant-cascader-menu"
+            role="menu"
           >
-            <ul
-              class="ant-cascader-menu"
-              role="menu"
+            <li
+              aria-checked="false"
+              class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+              data-path-key="light"
+              role="menuitemcheckbox"
+              title="Light"
             >
-              <li
-                aria-checked="false"
-                class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-                data-path-key="light"
-                role="menuitemcheckbox"
-                title="Light"
+              <span
+                class="ant-cascader-checkbox"
               >
                 <span
-                  class="ant-cascader-checkbox"
-                >
-                  <span
-                    class="ant-cascader-checkbox-inner"
-                  />
-                </span>
-                <div
-                  class="ant-cascader-menu-item-content"
-                >
-                  Light
-                </div>
-                <div
-                  class="ant-cascader-menu-item-expand-icon"
-                >
-                  <span
-                    aria-label="right"
-                    class="anticon anticon-right"
-                    role="img"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="right"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                      />
-                    </svg>
-                  </span>
-                </div>
-              </li>
-              <li
-                aria-checked="true"
-                class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-                data-path-key="bamboo"
-                role="menuitemcheckbox"
-                title="Bamboo"
+                  class="ant-cascader-checkbox-inner"
+                />
+              </span>
+              <div
+                class="ant-cascader-menu-item-content"
+              >
+                Light
+              </div>
+              <div
+                class="ant-cascader-menu-item-expand-icon"
               >
                 <span
-                  class="ant-cascader-checkbox ant-cascader-checkbox-checked"
+                  aria-label="right"
+                  class="anticon anticon-right"
+                  role="img"
                 >
-                  <span
-                    class="ant-cascader-checkbox-inner"
-                  />
-                </span>
-                <div
-                  class="ant-cascader-menu-item-content"
-                >
-                  Bamboo
-                </div>
-                <div
-                  class="ant-cascader-menu-item-expand-icon"
-                >
-                  <span
-                    aria-label="right"
-                    class="anticon anticon-right"
-                    role="img"
+                  <svg
+                    aria-hidden="true"
+                    data-icon="right"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
                   >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="right"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                      />
-                    </svg>
-                  </span>
-                </div>
-              </li>
-            </ul>
-          </div>
+                    <path
+                      d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </li>
+            <li
+              aria-checked="true"
+              class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+              data-path-key="bamboo"
+              role="menuitemcheckbox"
+              title="Bamboo"
+            >
+              <span
+                class="ant-cascader-checkbox ant-cascader-checkbox-checked"
+              >
+                <span
+                  class="ant-cascader-checkbox-inner"
+                />
+              </span>
+              <div
+                class="ant-cascader-menu-item-content"
+              >
+                Bamboo
+              </div>
+              <div
+                class="ant-cascader-menu-item-expand-icon"
+              >
+                <span
+                  aria-label="right"
+                  class="anticon anticon-right"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="right"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -2631,93 +2599,91 @@ Array [
         class="ant-select-selection-placeholder"
       />
     </div>
-    <div>
-      <div
-        class="ant-select-dropdown ant-cascader-dropdown"
-        style="opacity:0;min-width:auto"
-      >
-        <div>
-          <div
-            class="ant-cascader-menus"
+    <div
+      class="ant-select-dropdown ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box;min-width:auto"
+    >
+      <div>
+        <div
+          class="ant-cascader-menus"
+        >
+          <ul
+            class="ant-cascader-menu"
+            role="menu"
           >
-            <ul
-              class="ant-cascader-menu"
-              role="menu"
+            <li
+              aria-checked="false"
+              class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+              data-path-key="zhejiang"
+              role="menuitemcheckbox"
+              title="Zhejiang"
             >
-              <li
-                aria-checked="false"
-                class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-                data-path-key="zhejiang"
-                role="menuitemcheckbox"
-                title="Zhejiang"
+              <div
+                class="ant-cascader-menu-item-content"
               >
-                <div
-                  class="ant-cascader-menu-item-content"
-                >
-                  Zhejiang
-                </div>
-                <div
-                  class="ant-cascader-menu-item-expand-icon"
-                >
-                  <span
-                    aria-label="right"
-                    class="anticon anticon-right"
-                    role="img"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="right"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                      />
-                    </svg>
-                  </span>
-                </div>
-              </li>
-              <li
-                aria-checked="false"
-                class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-                data-path-key="jiangsu"
-                role="menuitemcheckbox"
-                title="Jiangsu"
+                Zhejiang
+              </div>
+              <div
+                class="ant-cascader-menu-item-expand-icon"
               >
-                <div
-                  class="ant-cascader-menu-item-content"
+                <span
+                  aria-label="right"
+                  class="anticon anticon-right"
+                  role="img"
                 >
-                  Jiangsu
-                </div>
-                <div
-                  class="ant-cascader-menu-item-expand-icon"
-                >
-                  <span
-                    aria-label="right"
-                    class="anticon anticon-right"
-                    role="img"
+                  <svg
+                    aria-hidden="true"
+                    data-icon="right"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
                   >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="right"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                      />
-                    </svg>
-                  </span>
-                </div>
-              </li>
-            </ul>
-          </div>
+                    <path
+                      d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </li>
+            <li
+              aria-checked="false"
+              class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+              data-path-key="jiangsu"
+              role="menuitemcheckbox"
+              title="Jiangsu"
+            >
+              <div
+                class="ant-cascader-menu-item-content"
+              >
+                Jiangsu
+              </div>
+              <div
+                class="ant-cascader-menu-item-expand-icon"
+              >
+                <span
+                  aria-label="right"
+                  class="anticon anticon-right"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="right"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -2778,93 +2744,91 @@ Array [
         class="ant-select-selection-placeholder"
       />
     </div>
-    <div>
-      <div
-        class="ant-select-dropdown ant-cascader-dropdown"
-        style="opacity:0;min-width:auto"
-      >
-        <div>
-          <div
-            class="ant-cascader-menus"
+    <div
+      class="ant-select-dropdown ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box;min-width:auto"
+    >
+      <div>
+        <div
+          class="ant-cascader-menus"
+        >
+          <ul
+            class="ant-cascader-menu"
+            role="menu"
           >
-            <ul
-              class="ant-cascader-menu"
-              role="menu"
+            <li
+              aria-checked="false"
+              class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+              data-path-key="zhejiang"
+              role="menuitemcheckbox"
+              title="Zhejiang"
             >
-              <li
-                aria-checked="false"
-                class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-                data-path-key="zhejiang"
-                role="menuitemcheckbox"
-                title="Zhejiang"
+              <div
+                class="ant-cascader-menu-item-content"
               >
-                <div
-                  class="ant-cascader-menu-item-content"
-                >
-                  Zhejiang
-                </div>
-                <div
-                  class="ant-cascader-menu-item-expand-icon"
-                >
-                  <span
-                    aria-label="right"
-                    class="anticon anticon-right"
-                    role="img"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="right"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                      />
-                    </svg>
-                  </span>
-                </div>
-              </li>
-              <li
-                aria-checked="false"
-                class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-                data-path-key="jiangsu"
-                role="menuitemcheckbox"
-                title="Jiangsu"
+                Zhejiang
+              </div>
+              <div
+                class="ant-cascader-menu-item-expand-icon"
               >
-                <div
-                  class="ant-cascader-menu-item-content"
+                <span
+                  aria-label="right"
+                  class="anticon anticon-right"
+                  role="img"
                 >
-                  Jiangsu
-                </div>
-                <div
-                  class="ant-cascader-menu-item-expand-icon"
-                >
-                  <span
-                    aria-label="right"
-                    class="anticon anticon-right"
-                    role="img"
+                  <svg
+                    aria-hidden="true"
+                    data-icon="right"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
                   >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="right"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                      />
-                    </svg>
-                  </span>
-                </div>
-              </li>
-            </ul>
-          </div>
+                    <path
+                      d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </li>
+            <li
+              aria-checked="false"
+              class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+              data-path-key="jiangsu"
+              role="menuitemcheckbox"
+              title="Jiangsu"
+            >
+              <div
+                class="ant-cascader-menu-item-content"
+              >
+                Jiangsu
+              </div>
+              <div
+                class="ant-cascader-menu-item-expand-icon"
+              >
+                <span
+                  aria-label="right"
+                  class="anticon anticon-right"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="right"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -2925,93 +2889,91 @@ Array [
         class="ant-select-selection-placeholder"
       />
     </div>
-    <div>
-      <div
-        class="ant-select-dropdown ant-cascader-dropdown"
-        style="opacity:0;min-width:auto"
-      >
-        <div>
-          <div
-            class="ant-cascader-menus"
+    <div
+      class="ant-select-dropdown ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box;min-width:auto"
+    >
+      <div>
+        <div
+          class="ant-cascader-menus"
+        >
+          <ul
+            class="ant-cascader-menu"
+            role="menu"
           >
-            <ul
-              class="ant-cascader-menu"
-              role="menu"
+            <li
+              aria-checked="false"
+              class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+              data-path-key="zhejiang"
+              role="menuitemcheckbox"
+              title="Zhejiang"
             >
-              <li
-                aria-checked="false"
-                class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-                data-path-key="zhejiang"
-                role="menuitemcheckbox"
-                title="Zhejiang"
+              <div
+                class="ant-cascader-menu-item-content"
               >
-                <div
-                  class="ant-cascader-menu-item-content"
-                >
-                  Zhejiang
-                </div>
-                <div
-                  class="ant-cascader-menu-item-expand-icon"
-                >
-                  <span
-                    aria-label="right"
-                    class="anticon anticon-right"
-                    role="img"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="right"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                      />
-                    </svg>
-                  </span>
-                </div>
-              </li>
-              <li
-                aria-checked="false"
-                class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-                data-path-key="jiangsu"
-                role="menuitemcheckbox"
-                title="Jiangsu"
+                Zhejiang
+              </div>
+              <div
+                class="ant-cascader-menu-item-expand-icon"
               >
-                <div
-                  class="ant-cascader-menu-item-content"
+                <span
+                  aria-label="right"
+                  class="anticon anticon-right"
+                  role="img"
                 >
-                  Jiangsu
-                </div>
-                <div
-                  class="ant-cascader-menu-item-expand-icon"
-                >
-                  <span
-                    aria-label="right"
-                    class="anticon anticon-right"
-                    role="img"
+                  <svg
+                    aria-hidden="true"
+                    data-icon="right"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
                   >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="right"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                      />
-                    </svg>
-                  </span>
-                </div>
-              </li>
-            </ul>
-          </div>
+                    <path
+                      d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </li>
+            <li
+              aria-checked="false"
+              class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+              data-path-key="jiangsu"
+              role="menuitemcheckbox"
+              title="Jiangsu"
+            >
+              <div
+                class="ant-cascader-menu-item-content"
+              >
+                Jiangsu
+              </div>
+              <div
+                class="ant-cascader-menu-item-expand-icon"
+              >
+                <span
+                  aria-label="right"
+                  class="anticon anticon-right"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="right"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -3085,77 +3047,75 @@ exports[`renders ./components/cascader/demo/status.tsx extend context correctly 
           Error
         </span>
       </div>
-      <div>
-        <div
-          class="ant-select-dropdown ant-cascader-dropdown ant-select-dropdown-empty"
-          style="opacity:0"
-        >
-          <div>
-            <div
-              class="ant-cascader-menus ant-cascader-menu-empty"
+      <div
+        class="ant-select-dropdown ant-cascader-dropdown ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      >
+        <div>
+          <div
+            class="ant-cascader-menus ant-cascader-menu-empty"
+          >
+            <ul
+              class="ant-cascader-menu"
+              role="menu"
             >
-              <ul
-                class="ant-cascader-menu"
-                role="menu"
+              <li
+                aria-checked="false"
+                class="ant-cascader-menu-item ant-cascader-menu-item-disabled"
+                data-path-key="__EMPTY__"
+                role="menuitemcheckbox"
               >
-                <li
-                  aria-checked="false"
-                  class="ant-cascader-menu-item ant-cascader-menu-item-disabled"
-                  data-path-key="__EMPTY__"
-                  role="menuitemcheckbox"
+                <div
+                  class="ant-cascader-menu-item-content"
                 >
                   <div
-                    class="ant-cascader-menu-item-content"
+                    class="ant-empty ant-empty-normal ant-empty-small"
                   >
                     <div
-                      class="ant-empty ant-empty-normal ant-empty-small"
+                      class="ant-empty-image"
                     >
-                      <div
-                        class="ant-empty-image"
+                      <svg
+                        height="41"
+                        viewBox="0 0 64 41"
+                        width="64"
+                        xmlns="http://www.w3.org/2000/svg"
                       >
-                        <svg
-                          height="41"
-                          viewBox="0 0 64 41"
-                          width="64"
-                          xmlns="http://www.w3.org/2000/svg"
+                        <g
+                          fill="none"
+                          fill-rule="evenodd"
+                          transform="translate(0 1)"
                         >
+                          <ellipse
+                            cx="32"
+                            cy="33"
+                            fill="#f5f5f5"
+                            rx="32"
+                            ry="7"
+                          />
                           <g
-                            fill="none"
-                            fill-rule="evenodd"
-                            transform="translate(0 1)"
+                            fill-rule="nonzero"
+                            stroke="#d9d9d9"
                           >
-                            <ellipse
-                              cx="32"
-                              cy="33"
-                              fill="#f5f5f5"
-                              rx="32"
-                              ry="7"
+                            <path
+                              d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
                             />
-                            <g
-                              fill-rule="nonzero"
-                              stroke="#d9d9d9"
-                            >
-                              <path
-                                d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
-                              />
-                              <path
-                                d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
-                                fill="#fafafa"
-                              />
-                            </g>
+                            <path
+                              d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                              fill="#fafafa"
+                            />
                           </g>
-                        </svg>
-                      </div>
-                      <div
-                        class="ant-empty-description"
-                      >
-                        No data
-                      </div>
+                        </g>
+                      </svg>
+                    </div>
+                    <div
+                      class="ant-empty-description"
+                    >
+                      No data
                     </div>
                   </div>
-                </li>
-              </ul>
-            </div>
+                </div>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
@@ -3235,77 +3195,75 @@ exports[`renders ./components/cascader/demo/status.tsx extend context correctly 
           Warning multiple
         </span>
       </div>
-      <div>
-        <div
-          class="ant-select-dropdown ant-cascader-dropdown ant-select-dropdown-empty"
-          style="opacity:0"
-        >
-          <div>
-            <div
-              class="ant-cascader-menus ant-cascader-menu-empty"
+      <div
+        class="ant-select-dropdown ant-cascader-dropdown ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      >
+        <div>
+          <div
+            class="ant-cascader-menus ant-cascader-menu-empty"
+          >
+            <ul
+              class="ant-cascader-menu"
+              role="menu"
             >
-              <ul
-                class="ant-cascader-menu"
-                role="menu"
+              <li
+                aria-checked="false"
+                class="ant-cascader-menu-item ant-cascader-menu-item-disabled"
+                data-path-key="__EMPTY__"
+                role="menuitemcheckbox"
               >
-                <li
-                  aria-checked="false"
-                  class="ant-cascader-menu-item ant-cascader-menu-item-disabled"
-                  data-path-key="__EMPTY__"
-                  role="menuitemcheckbox"
+                <div
+                  class="ant-cascader-menu-item-content"
                 >
                   <div
-                    class="ant-cascader-menu-item-content"
+                    class="ant-empty ant-empty-normal ant-empty-small"
                   >
                     <div
-                      class="ant-empty ant-empty-normal ant-empty-small"
+                      class="ant-empty-image"
                     >
-                      <div
-                        class="ant-empty-image"
+                      <svg
+                        height="41"
+                        viewBox="0 0 64 41"
+                        width="64"
+                        xmlns="http://www.w3.org/2000/svg"
                       >
-                        <svg
-                          height="41"
-                          viewBox="0 0 64 41"
-                          width="64"
-                          xmlns="http://www.w3.org/2000/svg"
+                        <g
+                          fill="none"
+                          fill-rule="evenodd"
+                          transform="translate(0 1)"
                         >
+                          <ellipse
+                            cx="32"
+                            cy="33"
+                            fill="#f5f5f5"
+                            rx="32"
+                            ry="7"
+                          />
                           <g
-                            fill="none"
-                            fill-rule="evenodd"
-                            transform="translate(0 1)"
+                            fill-rule="nonzero"
+                            stroke="#d9d9d9"
                           >
-                            <ellipse
-                              cx="32"
-                              cy="33"
-                              fill="#f5f5f5"
-                              rx="32"
-                              ry="7"
+                            <path
+                              d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
                             />
-                            <g
-                              fill-rule="nonzero"
-                              stroke="#d9d9d9"
-                            >
-                              <path
-                                d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
-                              />
-                              <path
-                                d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
-                                fill="#fafafa"
-                              />
-                            </g>
+                            <path
+                              d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                              fill="#fafafa"
+                            />
                           </g>
-                        </svg>
-                      </div>
-                      <div
-                        class="ant-empty-description"
-                      >
-                        No data
-                      </div>
+                        </g>
+                      </svg>
+                    </div>
+                    <div
+                      class="ant-empty-description"
+                    >
+                      No data
                     </div>
                   </div>
-                </li>
-              </ul>
-            </div>
+                </div>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
@@ -3346,93 +3304,91 @@ Array [
         Please select
       </span>
     </div>
-    <div>
-      <div
-        class="ant-select-dropdown ant-cascader-dropdown"
-        style="opacity:0;min-width:auto"
-      >
-        <div>
-          <div
-            class="ant-cascader-menus"
+    <div
+      class="ant-select-dropdown ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box;min-width:auto"
+    >
+      <div>
+        <div
+          class="ant-cascader-menus"
+        >
+          <ul
+            class="ant-cascader-menu"
+            role="menu"
           >
-            <ul
-              class="ant-cascader-menu"
-              role="menu"
+            <li
+              aria-checked="false"
+              class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+              data-path-key="zhejiang"
+              role="menuitemcheckbox"
+              title="Zhejiang"
             >
-              <li
-                aria-checked="false"
-                class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-                data-path-key="zhejiang"
-                role="menuitemcheckbox"
-                title="Zhejiang"
+              <div
+                class="ant-cascader-menu-item-content"
               >
-                <div
-                  class="ant-cascader-menu-item-content"
-                >
-                  Zhejiang
-                </div>
-                <div
-                  class="ant-cascader-menu-item-expand-icon"
-                >
-                  <span
-                    aria-label="right"
-                    class="anticon anticon-right"
-                    role="img"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="right"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                      />
-                    </svg>
-                  </span>
-                </div>
-              </li>
-              <li
-                aria-checked="false"
-                class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-                data-path-key="jiangsu"
-                role="menuitemcheckbox"
-                title="Jiangsu"
+                Zhejiang
+              </div>
+              <div
+                class="ant-cascader-menu-item-expand-icon"
               >
-                <div
-                  class="ant-cascader-menu-item-content"
+                <span
+                  aria-label="right"
+                  class="anticon anticon-right"
+                  role="img"
                 >
-                  Jiangsu
-                </div>
-                <div
-                  class="ant-cascader-menu-item-expand-icon"
-                >
-                  <span
-                    aria-label="right"
-                    class="anticon anticon-right"
-                    role="img"
+                  <svg
+                    aria-hidden="true"
+                    data-icon="right"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
                   >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="right"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                      />
-                    </svg>
-                  </span>
-                </div>
-              </li>
-            </ul>
-          </div>
+                    <path
+                      d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </li>
+            <li
+              aria-checked="false"
+              class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+              data-path-key="jiangsu"
+              role="menuitemcheckbox"
+              title="Jiangsu"
+            >
+              <div
+                class="ant-cascader-menu-item-content"
+              >
+                Jiangsu
+              </div>
+              <div
+                class="ant-cascader-menu-item-expand-icon"
+              >
+                <span
+                  aria-label="right"
+                  class="anticon anticon-right"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="right"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -3495,93 +3451,91 @@ Array [
         Please select
       </span>
     </div>
-    <div>
-      <div
-        class="ant-select-dropdown ant-cascader-dropdown"
-        style="opacity:0;min-width:auto"
-      >
-        <div>
-          <div
-            class="ant-cascader-menus"
+    <div
+      class="ant-select-dropdown ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box;min-width:auto"
+    >
+      <div>
+        <div
+          class="ant-cascader-menus"
+        >
+          <ul
+            class="ant-cascader-menu"
+            role="menu"
           >
-            <ul
-              class="ant-cascader-menu"
-              role="menu"
+            <li
+              aria-checked="false"
+              class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+              data-path-key="zhejiang"
+              role="menuitemcheckbox"
+              title="Zhejiang"
             >
-              <li
-                aria-checked="false"
-                class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-                data-path-key="zhejiang"
-                role="menuitemcheckbox"
-                title="Zhejiang"
+              <div
+                class="ant-cascader-menu-item-content"
               >
-                <div
-                  class="ant-cascader-menu-item-content"
-                >
-                  Zhejiang
-                </div>
-                <div
-                  class="ant-cascader-menu-item-expand-icon"
-                >
-                  <span
-                    aria-label="right"
-                    class="anticon anticon-right"
-                    role="img"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="right"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                      />
-                    </svg>
-                  </span>
-                </div>
-              </li>
-              <li
-                aria-checked="false"
-                class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-                data-path-key="jiangsu"
-                role="menuitemcheckbox"
-                title="Jiangsu"
+                Zhejiang
+              </div>
+              <div
+                class="ant-cascader-menu-item-expand-icon"
               >
-                <div
-                  class="ant-cascader-menu-item-content"
+                <span
+                  aria-label="right"
+                  class="anticon anticon-right"
+                  role="img"
                 >
-                  Jiangsu
-                </div>
-                <div
-                  class="ant-cascader-menu-item-expand-icon"
-                >
-                  <span
-                    aria-label="right"
-                    class="anticon anticon-right"
-                    role="img"
+                  <svg
+                    aria-hidden="true"
+                    data-icon="right"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
                   >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="right"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                      />
-                    </svg>
-                  </span>
-                </div>
-              </li>
-            </ul>
-          </div>
+                    <path
+                      d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </li>
+            <li
+              aria-checked="false"
+              class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+              data-path-key="jiangsu"
+              role="menuitemcheckbox"
+              title="Jiangsu"
+            >
+              <div
+                class="ant-cascader-menu-item-content"
+              >
+                Jiangsu
+              </div>
+              <div
+                class="ant-cascader-menu-item-expand-icon"
+              >
+                <span
+                  aria-label="right"
+                  class="anticon anticon-right"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="right"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -3626,93 +3580,91 @@ Array [
         Please select
       </span>
     </div>
-    <div>
-      <div
-        class="ant-select-dropdown ant-cascader-dropdown"
-        style="opacity:0;min-width:auto"
-      >
-        <div>
-          <div
-            class="ant-cascader-menus"
+    <div
+      class="ant-select-dropdown ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box;min-width:auto"
+    >
+      <div>
+        <div
+          class="ant-cascader-menus"
+        >
+          <ul
+            class="ant-cascader-menu"
+            role="menu"
           >
-            <ul
-              class="ant-cascader-menu"
-              role="menu"
+            <li
+              aria-checked="false"
+              class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+              data-path-key="zhejiang"
+              role="menuitemcheckbox"
+              title="Zhejiang"
             >
-              <li
-                aria-checked="false"
-                class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-                data-path-key="zhejiang"
-                role="menuitemcheckbox"
-                title="Zhejiang"
+              <div
+                class="ant-cascader-menu-item-content"
               >
-                <div
-                  class="ant-cascader-menu-item-content"
-                >
-                  Zhejiang
-                </div>
-                <div
-                  class="ant-cascader-menu-item-expand-icon"
-                >
-                  <span
-                    aria-label="smile"
-                    class="anticon anticon-smile"
-                    role="img"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="smile"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm352 0a48 48 0 1096 0 48 48 0 10-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 01248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 01249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 01775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 01775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 00-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 00-8-8.4z"
-                      />
-                    </svg>
-                  </span>
-                </div>
-              </li>
-              <li
-                aria-checked="false"
-                class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-                data-path-key="jiangsu"
-                role="menuitemcheckbox"
-                title="Jiangsu"
+                Zhejiang
+              </div>
+              <div
+                class="ant-cascader-menu-item-expand-icon"
               >
-                <div
-                  class="ant-cascader-menu-item-content"
+                <span
+                  aria-label="smile"
+                  class="anticon anticon-smile"
+                  role="img"
                 >
-                  Jiangsu
-                </div>
-                <div
-                  class="ant-cascader-menu-item-expand-icon"
-                >
-                  <span
-                    aria-label="smile"
-                    class="anticon anticon-smile"
-                    role="img"
+                  <svg
+                    aria-hidden="true"
+                    data-icon="smile"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
                   >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="smile"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm352 0a48 48 0 1096 0 48 48 0 10-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 01248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 01249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 01775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 01775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 00-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 00-8-8.4z"
-                      />
-                    </svg>
-                  </span>
-                </div>
-              </li>
-            </ul>
-          </div>
+                    <path
+                      d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm352 0a48 48 0 1096 0 48 48 0 10-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 01248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 01249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 01775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 01775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 00-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 00-8-8.4z"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </li>
+            <li
+              aria-checked="false"
+              class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+              data-path-key="jiangsu"
+              role="menuitemcheckbox"
+              title="Jiangsu"
+            >
+              <div
+                class="ant-cascader-menu-item-content"
+              >
+                Jiangsu
+              </div>
+              <div
+                class="ant-cascader-menu-item-expand-icon"
+              >
+                <span
+                  aria-label="smile"
+                  class="anticon anticon-smile"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="smile"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm352 0a48 48 0 1096 0 48 48 0 10-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 01248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 01249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 01775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 01775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 00-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 00-8-8.4z"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -3775,57 +3727,55 @@ Array [
         Please select
       </span>
     </div>
-    <div>
-      <div
-        class="ant-select-dropdown ant-cascader-dropdown"
-        style="opacity:0;min-width:auto"
-      >
-        <div>
-          <div
-            class="ant-cascader-menus"
+    <div
+      class="ant-select-dropdown ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box;min-width:auto"
+    >
+      <div>
+        <div
+          class="ant-cascader-menus"
+        >
+          <ul
+            class="ant-cascader-menu"
+            role="menu"
           >
-            <ul
-              class="ant-cascader-menu"
-              role="menu"
+            <li
+              aria-checked="false"
+              class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+              data-path-key="zhejiang"
+              role="menuitemcheckbox"
+              title="Zhejiang"
             >
-              <li
-                aria-checked="false"
-                class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-                data-path-key="zhejiang"
-                role="menuitemcheckbox"
-                title="Zhejiang"
+              <div
+                class="ant-cascader-menu-item-content"
               >
-                <div
-                  class="ant-cascader-menu-item-content"
-                >
-                  Zhejiang
-                </div>
-                <div
-                  class="ant-cascader-menu-item-expand-icon"
-                >
-                  ab
-                </div>
-              </li>
-              <li
-                aria-checked="false"
-                class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-                data-path-key="jiangsu"
-                role="menuitemcheckbox"
-                title="Jiangsu"
+                Zhejiang
+              </div>
+              <div
+                class="ant-cascader-menu-item-expand-icon"
               >
-                <div
-                  class="ant-cascader-menu-item-content"
-                >
-                  Jiangsu
-                </div>
-                <div
-                  class="ant-cascader-menu-item-expand-icon"
-                >
-                  ab
-                </div>
-              </li>
-            </ul>
-          </div>
+                ab
+              </div>
+            </li>
+            <li
+              aria-checked="false"
+              class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+              data-path-key="jiangsu"
+              role="menuitemcheckbox"
+              title="Jiangsu"
+            >
+              <div
+                class="ant-cascader-menu-item-content"
+              >
+                Jiangsu
+              </div>
+              <div
+                class="ant-cascader-menu-item-expand-icon"
+              >
+                ab
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
     </div>

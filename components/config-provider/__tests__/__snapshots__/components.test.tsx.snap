@@ -20907,6 +20907,11 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
 
 exports[`ConfigProvider components Popconfirm configProvider 1`] = `
 <div>
+  <span
+    class="config-popover-open"
+  >
+    Bamboo
+  </span>
   <div
     class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big config-popconfirm config-popover-placement-top"
     style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
@@ -20983,16 +20988,16 @@ exports[`ConfigProvider components Popconfirm configProvider 1`] = `
       </div>
     </div>
   </div>
-  <span
-    class="config-popover-open"
-  >
-    Bamboo
-  </span>
 </div>
 `;
 
 exports[`ConfigProvider components Popconfirm configProvider componentDisabled 1`] = `
 <div>
+  <span
+    class="config-popover-open"
+  >
+    Bamboo
+  </span>
   <div
     class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big config-popconfirm config-popover-placement-top"
     style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
@@ -21071,16 +21076,16 @@ exports[`ConfigProvider components Popconfirm configProvider componentDisabled 1
       </div>
     </div>
   </div>
-  <span
-    class="config-popover-open"
-  >
-    Bamboo
-  </span>
 </div>
 `;
 
 exports[`ConfigProvider components Popconfirm configProvider componentSize large 1`] = `
 <div>
+  <span
+    class="config-popover-open"
+  >
+    Bamboo
+  </span>
   <div
     class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big config-popconfirm config-popover-placement-top"
     style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
@@ -21157,16 +21162,16 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize large
       </div>
     </div>
   </div>
-  <span
-    class="config-popover-open"
-  >
-    Bamboo
-  </span>
 </div>
 `;
 
 exports[`ConfigProvider components Popconfirm configProvider componentSize middle 1`] = `
 <div>
+  <span
+    class="config-popover-open"
+  >
+    Bamboo
+  </span>
   <div
     class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big config-popconfirm config-popover-placement-top"
     style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
@@ -21243,16 +21248,16 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize middl
       </div>
     </div>
   </div>
-  <span
-    class="config-popover-open"
-  >
-    Bamboo
-  </span>
 </div>
 `;
 
 exports[`ConfigProvider components Popconfirm configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div>
+  <span
+    class="ant-popover-open"
+  >
+    Bamboo
+  </span>
   <div
     class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popconfirm ant-popover-placement-top"
     style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
@@ -21329,16 +21334,16 @@ exports[`ConfigProvider components Popconfirm configProvider virtual and dropdow
       </div>
     </div>
   </div>
-  <span
-    class="ant-popover-open"
-  >
-    Bamboo
-  </span>
 </div>
 `;
 
 exports[`ConfigProvider components Popconfirm normal 1`] = `
 <div>
+  <span
+    class="ant-popover-open"
+  >
+    Bamboo
+  </span>
   <div
     class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popconfirm ant-popover-placement-top"
     style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
@@ -21415,16 +21420,16 @@ exports[`ConfigProvider components Popconfirm normal 1`] = `
       </div>
     </div>
   </div>
-  <span
-    class="ant-popover-open"
-  >
-    Bamboo
-  </span>
 </div>
 `;
 
 exports[`ConfigProvider components Popconfirm prefixCls 1`] = `
 <div>
+  <span
+    class="ant-popover-open"
+  >
+    Bamboo
+  </span>
   <div
     class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big prefix-Popconfirm ant-popover-placement-top"
     style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
@@ -21501,16 +21506,16 @@ exports[`ConfigProvider components Popconfirm prefixCls 1`] = `
       </div>
     </div>
   </div>
-  <span
-    class="ant-popover-open"
-  >
-    Bamboo
-  </span>
 </div>
 `;
 
 exports[`ConfigProvider components Popover configProvider 1`] = `
 <div>
+  <span
+    class="config-popover-open"
+  >
+    Light
+  </span>
   <div
     class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big config-popover-placement-top"
     style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
@@ -21528,16 +21533,16 @@ exports[`ConfigProvider components Popover configProvider 1`] = `
       />
     </div>
   </div>
-  <span
-    class="config-popover-open"
-  >
-    Light
-  </span>
 </div>
 `;
 
 exports[`ConfigProvider components Popover configProvider componentDisabled 1`] = `
 <div>
+  <span
+    class="config-popover-open"
+  >
+    Light
+  </span>
   <div
     class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big config-popover-placement-top"
     style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
@@ -21555,16 +21560,16 @@ exports[`ConfigProvider components Popover configProvider componentDisabled 1`] 
       />
     </div>
   </div>
-  <span
-    class="config-popover-open"
-  >
-    Light
-  </span>
 </div>
 `;
 
 exports[`ConfigProvider components Popover configProvider componentSize large 1`] = `
 <div>
+  <span
+    class="config-popover-open"
+  >
+    Light
+  </span>
   <div
     class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big config-popover-placement-top"
     style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
@@ -21582,16 +21587,16 @@ exports[`ConfigProvider components Popover configProvider componentSize large 1`
       />
     </div>
   </div>
-  <span
-    class="config-popover-open"
-  >
-    Light
-  </span>
 </div>
 `;
 
 exports[`ConfigProvider components Popover configProvider componentSize middle 1`] = `
 <div>
+  <span
+    class="config-popover-open"
+  >
+    Light
+  </span>
   <div
     class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big config-popover-placement-top"
     style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
@@ -21609,16 +21614,16 @@ exports[`ConfigProvider components Popover configProvider componentSize middle 1
       />
     </div>
   </div>
-  <span
-    class="config-popover-open"
-  >
-    Light
-  </span>
 </div>
 `;
 
 exports[`ConfigProvider components Popover configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div>
+  <span
+    class="ant-popover-open"
+  >
+    Light
+  </span>
   <div
     class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-top"
     style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
@@ -21636,16 +21641,16 @@ exports[`ConfigProvider components Popover configProvider virtual and dropdownMa
       />
     </div>
   </div>
-  <span
-    class="ant-popover-open"
-  >
-    Light
-  </span>
 </div>
 `;
 
 exports[`ConfigProvider components Popover normal 1`] = `
 <div>
+  <span
+    class="ant-popover-open"
+  >
+    Light
+  </span>
   <div
     class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-top"
     style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
@@ -21663,16 +21668,16 @@ exports[`ConfigProvider components Popover normal 1`] = `
       />
     </div>
   </div>
-  <span
-    class="ant-popover-open"
-  >
-    Light
-  </span>
 </div>
 `;
 
 exports[`ConfigProvider components Popover prefixCls 1`] = `
 <div>
+  <span
+    class="prefix-Popover-open"
+  >
+    Light
+  </span>
   <div
     class="prefix-Popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big prefix-Popover-placement-top"
     style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
@@ -21690,11 +21695,6 @@ exports[`ConfigProvider components Popover prefixCls 1`] = `
       />
     </div>
   </div>
-  <span
-    class="prefix-Popover-open"
-  >
-    Light
-  </span>
 </div>
 `;
 
@@ -24385,67 +24385,65 @@ exports[`ConfigProvider components Select configProvider 1`] = `
       class="config-select-selection-placeholder"
     />
   </div>
-  <div>
-    <div
-      class="config-select-dropdown config-slide-up-appear config-slide-up-appear-prepare config-slide-up"
-      style="opacity: 0; min-width: 0; width: 0px;"
-    >
-      <div>
+  <div
+    class="config-select-dropdown config-slide-up-appear config-slide-up-appear-prepare config-slide-up config-select-dropdown-placement-bottomLeft"
+    style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 0; width: 0px;"
+  >
+    <div>
+      <div
+        id="rc_select_TEST_OR_SSR_list"
+        role="listbox"
+        style="height: 0px; width: 0px; overflow: hidden;"
+      >
         <div
-          id="rc_select_TEST_OR_SSR_list"
-          role="listbox"
-          style="height: 0px; width: 0px; overflow: hidden;"
+          aria-selected="false"
+          id="rc_select_TEST_OR_SSR_list_0"
+          role="presentation"
+        />
+        <div
+          aria-label="Light"
+          aria-selected="false"
+          id="rc_select_TEST_OR_SSR_list_1"
+          role="option"
         >
-          <div
-            aria-selected="false"
-            id="rc_select_TEST_OR_SSR_list_0"
-            role="presentation"
-          />
-          <div
-            aria-label="Light"
-            aria-selected="false"
-            id="rc_select_TEST_OR_SSR_list_1"
-            role="option"
-          >
-            Bamboo
-          </div>
+          Bamboo
         </div>
+      </div>
+      <div
+        class="rc-virtual-list"
+        style="position: relative;"
+      >
         <div
-          class="rc-virtual-list"
-          style="position: relative;"
+          class="rc-virtual-list-holder"
+          style="max-height: 256px; overflow-y: auto;"
         >
-          <div
-            class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: auto;"
-          >
-            <div>
+          <div>
+            <div
+              class="rc-virtual-list-holder-inner"
+              style="display: flex; flex-direction: column;"
+            >
               <div
-                class="rc-virtual-list-holder-inner"
-                style="display: flex; flex-direction: column;"
+                class="config-select-item config-select-item-group"
+                title="grp"
+              >
+                grp
+              </div>
+              <div
+                aria-selected="false"
+                class="config-select-item config-select-item-option config-select-item-option-grouped config-select-item-option-active"
+                title="Light"
               >
                 <div
-                  class="config-select-item config-select-item-group"
-                  title="grp"
+                  class="config-select-item-option-content"
                 >
-                  grp
+                  Light
                 </div>
-                <div
-                  aria-selected="false"
-                  class="config-select-item config-select-item-option config-select-item-option-grouped config-select-item-option-active"
-                  title="Light"
-                >
-                  <div
-                    class="config-select-item-option-content"
-                  >
-                    Light
-                  </div>
-                  <span
-                    aria-hidden="true"
-                    class="config-select-item-option-state"
-                    style="user-select: none;"
-                    unselectable="on"
-                  />
-                </div>
+                <span
+                  aria-hidden="true"
+                  class="config-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
               </div>
             </div>
           </div>
@@ -24576,67 +24574,65 @@ exports[`ConfigProvider components Select configProvider componentSize large 1`]
       class="config-select-selection-placeholder"
     />
   </div>
-  <div>
-    <div
-      class="config-select-dropdown config-slide-up-appear config-slide-up-appear-prepare config-slide-up"
-      style="opacity: 0; min-width: 0; width: 0px;"
-    >
-      <div>
+  <div
+    class="config-select-dropdown config-slide-up-appear config-slide-up-appear-prepare config-slide-up config-select-dropdown-placement-bottomLeft"
+    style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 0; width: 0px;"
+  >
+    <div>
+      <div
+        id="rc_select_TEST_OR_SSR_list"
+        role="listbox"
+        style="height: 0px; width: 0px; overflow: hidden;"
+      >
         <div
-          id="rc_select_TEST_OR_SSR_list"
-          role="listbox"
-          style="height: 0px; width: 0px; overflow: hidden;"
+          aria-selected="false"
+          id="rc_select_TEST_OR_SSR_list_0"
+          role="presentation"
+        />
+        <div
+          aria-label="Light"
+          aria-selected="false"
+          id="rc_select_TEST_OR_SSR_list_1"
+          role="option"
         >
-          <div
-            aria-selected="false"
-            id="rc_select_TEST_OR_SSR_list_0"
-            role="presentation"
-          />
-          <div
-            aria-label="Light"
-            aria-selected="false"
-            id="rc_select_TEST_OR_SSR_list_1"
-            role="option"
-          >
-            Bamboo
-          </div>
+          Bamboo
         </div>
+      </div>
+      <div
+        class="rc-virtual-list"
+        style="position: relative;"
+      >
         <div
-          class="rc-virtual-list"
-          style="position: relative;"
+          class="rc-virtual-list-holder"
+          style="max-height: 256px; overflow-y: auto;"
         >
-          <div
-            class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: auto;"
-          >
-            <div>
+          <div>
+            <div
+              class="rc-virtual-list-holder-inner"
+              style="display: flex; flex-direction: column;"
+            >
               <div
-                class="rc-virtual-list-holder-inner"
-                style="display: flex; flex-direction: column;"
+                class="config-select-item config-select-item-group"
+                title="grp"
+              >
+                grp
+              </div>
+              <div
+                aria-selected="false"
+                class="config-select-item config-select-item-option config-select-item-option-grouped config-select-item-option-active"
+                title="Light"
               >
                 <div
-                  class="config-select-item config-select-item-group"
-                  title="grp"
+                  class="config-select-item-option-content"
                 >
-                  grp
+                  Light
                 </div>
-                <div
-                  aria-selected="false"
-                  class="config-select-item config-select-item-option config-select-item-option-grouped config-select-item-option-active"
-                  title="Light"
-                >
-                  <div
-                    class="config-select-item-option-content"
-                  >
-                    Light
-                  </div>
-                  <span
-                    aria-hidden="true"
-                    class="config-select-item-option-state"
-                    style="user-select: none;"
-                    unselectable="on"
-                  />
-                </div>
+                <span
+                  aria-hidden="true"
+                  class="config-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
               </div>
             </div>
           </div>
@@ -24705,67 +24701,65 @@ exports[`ConfigProvider components Select configProvider componentSize middle 1`
       class="config-select-selection-placeholder"
     />
   </div>
-  <div>
-    <div
-      class="config-select-dropdown config-slide-up-appear config-slide-up-appear-prepare config-slide-up"
-      style="opacity: 0; min-width: 0; width: 0px;"
-    >
-      <div>
+  <div
+    class="config-select-dropdown config-slide-up-appear config-slide-up-appear-prepare config-slide-up config-select-dropdown-placement-bottomLeft"
+    style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 0; width: 0px;"
+  >
+    <div>
+      <div
+        id="rc_select_TEST_OR_SSR_list"
+        role="listbox"
+        style="height: 0px; width: 0px; overflow: hidden;"
+      >
         <div
-          id="rc_select_TEST_OR_SSR_list"
-          role="listbox"
-          style="height: 0px; width: 0px; overflow: hidden;"
+          aria-selected="false"
+          id="rc_select_TEST_OR_SSR_list_0"
+          role="presentation"
+        />
+        <div
+          aria-label="Light"
+          aria-selected="false"
+          id="rc_select_TEST_OR_SSR_list_1"
+          role="option"
         >
-          <div
-            aria-selected="false"
-            id="rc_select_TEST_OR_SSR_list_0"
-            role="presentation"
-          />
-          <div
-            aria-label="Light"
-            aria-selected="false"
-            id="rc_select_TEST_OR_SSR_list_1"
-            role="option"
-          >
-            Bamboo
-          </div>
+          Bamboo
         </div>
+      </div>
+      <div
+        class="rc-virtual-list"
+        style="position: relative;"
+      >
         <div
-          class="rc-virtual-list"
-          style="position: relative;"
+          class="rc-virtual-list-holder"
+          style="max-height: 256px; overflow-y: auto;"
         >
-          <div
-            class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: auto;"
-          >
-            <div>
+          <div>
+            <div
+              class="rc-virtual-list-holder-inner"
+              style="display: flex; flex-direction: column;"
+            >
               <div
-                class="rc-virtual-list-holder-inner"
-                style="display: flex; flex-direction: column;"
+                class="config-select-item config-select-item-group"
+                title="grp"
+              >
+                grp
+              </div>
+              <div
+                aria-selected="false"
+                class="config-select-item config-select-item-option config-select-item-option-grouped config-select-item-option-active"
+                title="Light"
               >
                 <div
-                  class="config-select-item config-select-item-group"
-                  title="grp"
+                  class="config-select-item-option-content"
                 >
-                  grp
+                  Light
                 </div>
-                <div
-                  aria-selected="false"
-                  class="config-select-item config-select-item-option config-select-item-option-grouped config-select-item-option-active"
-                  title="Light"
-                >
-                  <div
-                    class="config-select-item-option-content"
-                  >
-                    Light
-                  </div>
-                  <span
-                    aria-hidden="true"
-                    class="config-select-item-option-state"
-                    style="user-select: none;"
-                    unselectable="on"
-                  />
-                </div>
+                <span
+                  aria-hidden="true"
+                  class="config-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
               </div>
             </div>
           </div>
@@ -24834,52 +24828,50 @@ exports[`ConfigProvider components Select configProvider virtual and dropdownMat
       class="ant-select-selection-placeholder"
     />
   </div>
-  <div>
-    <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-      style="opacity: 0; min-width: 0;"
-    >
-      <div>
+  <div
+    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+    style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 0;"
+  >
+    <div>
+      <div
+        class="rc-virtual-list"
+        style="position: relative;"
+      >
         <div
-          class="rc-virtual-list"
-          style="position: relative;"
+          class="rc-virtual-list-holder"
+          style="max-height: 256px; overflow-y: auto;"
         >
-          <div
-            class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: auto;"
-          >
-            <div>
+          <div>
+            <div
+              class="rc-virtual-list-holder-inner"
+              id="rc_select_TEST_OR_SSR_list"
+              role="listbox"
+              style="display: flex; flex-direction: column;"
+            >
               <div
-                class="rc-virtual-list-holder-inner"
-                id="rc_select_TEST_OR_SSR_list"
-                role="listbox"
-                style="display: flex; flex-direction: column;"
+                class="ant-select-item ant-select-item-group"
+                title="grp"
+              >
+                grp
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option ant-select-item-option-grouped ant-select-item-option-active"
+                id="rc_select_TEST_OR_SSR_list_1"
+                role="option"
+                title="Light"
               >
                 <div
-                  class="ant-select-item ant-select-item-group"
-                  title="grp"
+                  class="ant-select-item-option-content"
                 >
-                  grp
+                  Light
                 </div>
-                <div
-                  aria-selected="false"
-                  class="ant-select-item ant-select-item-option ant-select-item-option-grouped ant-select-item-option-active"
-                  id="rc_select_TEST_OR_SSR_list_1"
-                  role="option"
-                  title="Light"
-                >
-                  <div
-                    class="ant-select-item-option-content"
-                  >
-                    Light
-                  </div>
-                  <span
-                    aria-hidden="true"
-                    class="ant-select-item-option-state"
-                    style="user-select: none;"
-                    unselectable="on"
-                  />
-                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
               </div>
             </div>
           </div>
@@ -24948,67 +24940,65 @@ exports[`ConfigProvider components Select normal 1`] = `
       class="ant-select-selection-placeholder"
     />
   </div>
-  <div>
-    <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-      style="opacity: 0; min-width: 0; width: 0px;"
-    >
-      <div>
+  <div
+    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+    style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 0; width: 0px;"
+  >
+    <div>
+      <div
+        id="rc_select_TEST_OR_SSR_list"
+        role="listbox"
+        style="height: 0px; width: 0px; overflow: hidden;"
+      >
         <div
-          id="rc_select_TEST_OR_SSR_list"
-          role="listbox"
-          style="height: 0px; width: 0px; overflow: hidden;"
+          aria-selected="false"
+          id="rc_select_TEST_OR_SSR_list_0"
+          role="presentation"
+        />
+        <div
+          aria-label="Light"
+          aria-selected="false"
+          id="rc_select_TEST_OR_SSR_list_1"
+          role="option"
         >
-          <div
-            aria-selected="false"
-            id="rc_select_TEST_OR_SSR_list_0"
-            role="presentation"
-          />
-          <div
-            aria-label="Light"
-            aria-selected="false"
-            id="rc_select_TEST_OR_SSR_list_1"
-            role="option"
-          >
-            Bamboo
-          </div>
+          Bamboo
         </div>
+      </div>
+      <div
+        class="rc-virtual-list"
+        style="position: relative;"
+      >
         <div
-          class="rc-virtual-list"
-          style="position: relative;"
+          class="rc-virtual-list-holder"
+          style="max-height: 256px; overflow-y: auto;"
         >
-          <div
-            class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: auto;"
-          >
-            <div>
+          <div>
+            <div
+              class="rc-virtual-list-holder-inner"
+              style="display: flex; flex-direction: column;"
+            >
               <div
-                class="rc-virtual-list-holder-inner"
-                style="display: flex; flex-direction: column;"
+                class="ant-select-item ant-select-item-group"
+                title="grp"
+              >
+                grp
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option ant-select-item-option-grouped ant-select-item-option-active"
+                title="Light"
               >
                 <div
-                  class="ant-select-item ant-select-item-group"
-                  title="grp"
+                  class="ant-select-item-option-content"
                 >
-                  grp
+                  Light
                 </div>
-                <div
-                  aria-selected="false"
-                  class="ant-select-item ant-select-item-option ant-select-item-option-grouped ant-select-item-option-active"
-                  title="Light"
-                >
-                  <div
-                    class="ant-select-item-option-content"
-                  >
-                    Light
-                  </div>
-                  <span
-                    aria-hidden="true"
-                    class="ant-select-item-option-state"
-                    style="user-select: none;"
-                    unselectable="on"
-                  />
-                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
               </div>
             </div>
           </div>
@@ -25077,67 +25067,65 @@ exports[`ConfigProvider components Select prefixCls 1`] = `
       class="prefix-Select-selection-placeholder"
     />
   </div>
-  <div>
-    <div
-      class="prefix-Select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-      style="opacity: 0; min-width: 0; width: 0px;"
-    >
-      <div>
+  <div
+    class="prefix-Select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up prefix-Select-dropdown-placement-bottomLeft"
+    style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 0; width: 0px;"
+  >
+    <div>
+      <div
+        id="rc_select_TEST_OR_SSR_list"
+        role="listbox"
+        style="height: 0px; width: 0px; overflow: hidden;"
+      >
         <div
-          id="rc_select_TEST_OR_SSR_list"
-          role="listbox"
-          style="height: 0px; width: 0px; overflow: hidden;"
+          aria-selected="false"
+          id="rc_select_TEST_OR_SSR_list_0"
+          role="presentation"
+        />
+        <div
+          aria-label="Light"
+          aria-selected="false"
+          id="rc_select_TEST_OR_SSR_list_1"
+          role="option"
         >
-          <div
-            aria-selected="false"
-            id="rc_select_TEST_OR_SSR_list_0"
-            role="presentation"
-          />
-          <div
-            aria-label="Light"
-            aria-selected="false"
-            id="rc_select_TEST_OR_SSR_list_1"
-            role="option"
-          >
-            Bamboo
-          </div>
+          Bamboo
         </div>
+      </div>
+      <div
+        class="rc-virtual-list"
+        style="position: relative;"
+      >
         <div
-          class="rc-virtual-list"
-          style="position: relative;"
+          class="rc-virtual-list-holder"
+          style="max-height: 256px; overflow-y: auto;"
         >
-          <div
-            class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: auto;"
-          >
-            <div>
+          <div>
+            <div
+              class="rc-virtual-list-holder-inner"
+              style="display: flex; flex-direction: column;"
+            >
               <div
-                class="rc-virtual-list-holder-inner"
-                style="display: flex; flex-direction: column;"
+                class="prefix-Select-item prefix-Select-item-group"
+                title="grp"
+              >
+                grp
+              </div>
+              <div
+                aria-selected="false"
+                class="prefix-Select-item prefix-Select-item-option prefix-Select-item-option-grouped prefix-Select-item-option-active"
+                title="Light"
               >
                 <div
-                  class="prefix-Select-item prefix-Select-item-group"
-                  title="grp"
+                  class="prefix-Select-item-option-content"
                 >
-                  grp
+                  Light
                 </div>
-                <div
-                  aria-selected="false"
-                  class="prefix-Select-item prefix-Select-item-option prefix-Select-item-option-grouped prefix-Select-item-option-active"
-                  title="Light"
-                >
-                  <div
-                    class="prefix-Select-item-option-content"
-                  >
-                    Light
-                  </div>
-                  <span
-                    aria-hidden="true"
-                    class="prefix-Select-item-option-state"
-                    style="user-select: none;"
-                    unselectable="on"
-                  />
-                </div>
+                <span
+                  aria-hidden="true"
+                  class="prefix-Select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
               </div>
             </div>
           </div>
@@ -25385,6 +25373,16 @@ exports[`ConfigProvider components Slider configProvider 1`] = `
     class="config-slider-step"
   />
   <div
+    aria-disabled="false"
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="0"
+    class="config-slider-handle config-tooltip-open"
+    role="slider"
+    style="left: 0%; transform: translateX(-50%);"
+    tabindex="0"
+  />
+  <div
     class="config-tooltip config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast config-slider-tooltip config-tooltip-placement-top"
     style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
@@ -25403,16 +25401,6 @@ exports[`ConfigProvider components Slider configProvider 1`] = `
       </div>
     </div>
   </div>
-  <div
-    aria-disabled="false"
-    aria-valuemax="100"
-    aria-valuemin="0"
-    aria-valuenow="0"
-    class="config-slider-handle config-tooltip-open"
-    role="slider"
-    style="left: 0%; transform: translateX(-50%);"
-    tabindex="0"
-  />
 </div>
 `;
 
@@ -25431,6 +25419,16 @@ exports[`ConfigProvider components Slider configProvider componentDisabled 1`] =
     class="config-slider-step"
   />
   <div
+    aria-disabled="false"
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="0"
+    class="config-slider-handle config-tooltip-open"
+    role="slider"
+    style="left: 0%; transform: translateX(-50%);"
+    tabindex="0"
+  />
+  <div
     class="config-tooltip config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast config-slider-tooltip config-tooltip-placement-top"
     style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
@@ -25449,16 +25447,6 @@ exports[`ConfigProvider components Slider configProvider componentDisabled 1`] =
       </div>
     </div>
   </div>
-  <div
-    aria-disabled="false"
-    aria-valuemax="100"
-    aria-valuemin="0"
-    aria-valuenow="0"
-    class="config-slider-handle config-tooltip-open"
-    role="slider"
-    style="left: 0%; transform: translateX(-50%);"
-    tabindex="0"
-  />
 </div>
 `;
 
@@ -25477,6 +25465,16 @@ exports[`ConfigProvider components Slider configProvider componentSize large 1`]
     class="config-slider-step"
   />
   <div
+    aria-disabled="false"
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="0"
+    class="config-slider-handle config-tooltip-open"
+    role="slider"
+    style="left: 0%; transform: translateX(-50%);"
+    tabindex="0"
+  />
+  <div
     class="config-tooltip config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast config-slider-tooltip config-tooltip-placement-top"
     style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
@@ -25495,16 +25493,6 @@ exports[`ConfigProvider components Slider configProvider componentSize large 1`]
       </div>
     </div>
   </div>
-  <div
-    aria-disabled="false"
-    aria-valuemax="100"
-    aria-valuemin="0"
-    aria-valuenow="0"
-    class="config-slider-handle config-tooltip-open"
-    role="slider"
-    style="left: 0%; transform: translateX(-50%);"
-    tabindex="0"
-  />
 </div>
 `;
 
@@ -25523,6 +25511,16 @@ exports[`ConfigProvider components Slider configProvider componentSize middle 1`
     class="config-slider-step"
   />
   <div
+    aria-disabled="false"
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="0"
+    class="config-slider-handle config-tooltip-open"
+    role="slider"
+    style="left: 0%; transform: translateX(-50%);"
+    tabindex="0"
+  />
+  <div
     class="config-tooltip config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast config-slider-tooltip config-tooltip-placement-top"
     style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
@@ -25541,16 +25539,6 @@ exports[`ConfigProvider components Slider configProvider componentSize middle 1`
       </div>
     </div>
   </div>
-  <div
-    aria-disabled="false"
-    aria-valuemax="100"
-    aria-valuemin="0"
-    aria-valuenow="0"
-    class="config-slider-handle config-tooltip-open"
-    role="slider"
-    style="left: 0%; transform: translateX(-50%);"
-    tabindex="0"
-  />
 </div>
 `;
 
@@ -25569,6 +25557,16 @@ exports[`ConfigProvider components Slider configProvider virtual and dropdownMat
     class="ant-slider-step"
   />
   <div
+    aria-disabled="false"
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="0"
+    class="ant-slider-handle ant-tooltip-open"
+    role="slider"
+    style="left: 0%; transform: translateX(-50%);"
+    tabindex="0"
+  />
+  <div
     class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
     style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
@@ -25587,16 +25585,6 @@ exports[`ConfigProvider components Slider configProvider virtual and dropdownMat
       </div>
     </div>
   </div>
-  <div
-    aria-disabled="false"
-    aria-valuemax="100"
-    aria-valuemin="0"
-    aria-valuenow="0"
-    class="ant-slider-handle ant-tooltip-open"
-    role="slider"
-    style="left: 0%; transform: translateX(-50%);"
-    tabindex="0"
-  />
 </div>
 `;
 
@@ -25615,6 +25603,16 @@ exports[`ConfigProvider components Slider normal 1`] = `
     class="ant-slider-step"
   />
   <div
+    aria-disabled="false"
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="0"
+    class="ant-slider-handle ant-tooltip-open"
+    role="slider"
+    style="left: 0%; transform: translateX(-50%);"
+    tabindex="0"
+  />
+  <div
     class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
     style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
@@ -25633,16 +25631,6 @@ exports[`ConfigProvider components Slider normal 1`] = `
       </div>
     </div>
   </div>
-  <div
-    aria-disabled="false"
-    aria-valuemax="100"
-    aria-valuemin="0"
-    aria-valuenow="0"
-    class="ant-slider-handle ant-tooltip-open"
-    role="slider"
-    style="left: 0%; transform: translateX(-50%);"
-    tabindex="0"
-  />
 </div>
 `;
 
@@ -25659,6 +25647,16 @@ exports[`ConfigProvider components Slider prefixCls 1`] = `
   />
   <div
     class="prefix-Slider-step"
+  />
+  <div
+    aria-disabled="false"
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="0"
+    class="prefix-Slider-handle prefix-Slider-tooltip-open"
+    role="slider"
+    style="left: 0%; transform: translateX(-50%);"
+    tabindex="0"
   />
   <div
     class="prefix-Slider-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast prefix-Slider-tooltip prefix-Slider-tooltip-placement-top"
@@ -25679,16 +25677,6 @@ exports[`ConfigProvider components Slider prefixCls 1`] = `
       </div>
     </div>
   </div>
-  <div
-    aria-disabled="false"
-    aria-valuemax="100"
-    aria-valuemin="0"
-    aria-valuenow="0"
-    class="prefix-Slider-handle prefix-Slider-tooltip-open"
-    role="slider"
-    style="left: 0%; transform: translateX(-50%);"
-    tabindex="0"
-  />
 </div>
 `;
 
@@ -38036,6 +38024,11 @@ exports[`ConfigProvider components Timeline prefixCls 1`] = `
 
 exports[`ConfigProvider components Tooltip configProvider 1`] = `
 HTMLCollection [
+  <span
+    class="config-tooltip-open"
+  >
+    Light
+  </span>,
   <div
     class="config-tooltip config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast config-tooltip-placement-top"
     style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
@@ -38055,16 +38048,16 @@ HTMLCollection [
       </div>
     </div>
   </div>,
-  <span
-    class="config-tooltip-open"
-  >
-    Light
-  </span>,
 ]
 `;
 
 exports[`ConfigProvider components Tooltip configProvider componentDisabled 1`] = `
 HTMLCollection [
+  <span
+    class="config-tooltip-open"
+  >
+    Light
+  </span>,
   <div
     class="config-tooltip config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast config-tooltip-placement-top"
     style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
@@ -38084,16 +38077,16 @@ HTMLCollection [
       </div>
     </div>
   </div>,
-  <span
-    class="config-tooltip-open"
-  >
-    Light
-  </span>,
 ]
 `;
 
 exports[`ConfigProvider components Tooltip configProvider componentSize large 1`] = `
 HTMLCollection [
+  <span
+    class="config-tooltip-open"
+  >
+    Light
+  </span>,
   <div
     class="config-tooltip config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast config-tooltip-placement-top"
     style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
@@ -38113,16 +38106,16 @@ HTMLCollection [
       </div>
     </div>
   </div>,
-  <span
-    class="config-tooltip-open"
-  >
-    Light
-  </span>,
 ]
 `;
 
 exports[`ConfigProvider components Tooltip configProvider componentSize middle 1`] = `
 HTMLCollection [
+  <span
+    class="config-tooltip-open"
+  >
+    Light
+  </span>,
   <div
     class="config-tooltip config-zoom-big-fast-appear config-zoom-big-fast-appear-prepare config-zoom-big-fast config-tooltip-placement-top"
     style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
@@ -38142,16 +38135,16 @@ HTMLCollection [
       </div>
     </div>
   </div>,
-  <span
-    class="config-tooltip-open"
-  >
-    Light
-  </span>,
 ]
 `;
 
 exports[`ConfigProvider components Tooltip configProvider virtual and dropdownMatchSelectWidth 1`] = `
 HTMLCollection [
+  <span
+    class="ant-tooltip-open"
+  >
+    Light
+  </span>,
   <div
     class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
     style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
@@ -38171,16 +38164,16 @@ HTMLCollection [
       </div>
     </div>
   </div>,
-  <span
-    class="ant-tooltip-open"
-  >
-    Light
-  </span>,
 ]
 `;
 
 exports[`ConfigProvider components Tooltip normal 1`] = `
 HTMLCollection [
+  <span
+    class="ant-tooltip-open"
+  >
+    Light
+  </span>,
   <div
     class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
     style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
@@ -38200,16 +38193,16 @@ HTMLCollection [
       </div>
     </div>
   </div>,
-  <span
-    class="ant-tooltip-open"
-  >
-    Light
-  </span>,
 ]
 `;
 
 exports[`ConfigProvider components Tooltip prefixCls 1`] = `
 HTMLCollection [
+  <span
+    class="prefix-Tooltip-open"
+  >
+    Light
+  </span>,
   <div
     class="prefix-Tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast prefix-Tooltip-placement-top"
     style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
@@ -38229,11 +38222,6 @@ HTMLCollection [
       </div>
     </div>
   </div>,
-  <span
-    class="prefix-Tooltip-open"
-  >
-    Light
-  </span>,
 ]
 `;
 
@@ -41285,74 +41273,72 @@ exports[`ConfigProvider components TreeSelect configProvider 1`] = `
       class="config-select-selection-placeholder"
     />
   </div>
-  <div>
-    <div
-      class="config-select-dropdown config-tree-select-dropdown config-slide-up-appear config-slide-up-appear-prepare config-slide-up"
-      style="opacity: 0; min-width: 0; width: 0px;"
-    >
+  <div
+    class="config-select-dropdown config-slide-up-appear config-slide-up-appear-prepare config-slide-up config-tree-select-dropdown config-select-dropdown-placement-bottomLeft"
+    style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 0; width: 0px;"
+  >
+    <div>
       <div>
-        <div>
+        <div
+          class="config-select-tree"
+          role="tree"
+        >
+          <div>
+            <input
+              aria-label="for screen reader"
+              disabled=""
+              style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+              value=""
+            />
+          </div>
           <div
-            class="config-select-tree"
-            role="tree"
+            aria-hidden="true"
+            class="config-select-tree-treenode"
+            style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
           >
-            <div>
-              <input
-                aria-label="for screen reader"
-                disabled=""
-                style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
-                value=""
+            <div
+              class="config-select-tree-indent"
+            >
+              <div
+                class="config-select-tree-indent-unit"
               />
             </div>
+          </div>
+          <div
+            class="config-select-tree-list"
+            style="position: relative;"
+          >
             <div
-              aria-hidden="true"
-              class="config-select-tree-treenode"
-              style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+              class="config-select-tree-list-holder"
+              style="max-height: 256px; overflow-y: auto;"
             >
-              <div
-                class="config-select-tree-indent"
-              >
+              <div>
                 <div
-                  class="config-select-tree-indent-unit"
-                />
-              </div>
-            </div>
-            <div
-              class="config-select-tree-list"
-              style="position: relative;"
-            >
-              <div
-                class="config-select-tree-list-holder"
-                style="max-height: 256px; overflow-y: auto;"
-              >
-                <div>
+                  class="config-select-tree-list-holder-inner"
+                  style="display: flex; flex-direction: column;"
+                >
                   <div
-                    class="config-select-tree-list-holder-inner"
-                    style="display: flex; flex-direction: column;"
+                    aria-grabbed="false"
+                    class="config-select-tree-treenode config-select-tree-treenode-switcher-close config-select-tree-treenode-leaf-last"
+                    draggable="false"
                   >
-                    <div
-                      aria-grabbed="false"
-                      class="config-select-tree-treenode config-select-tree-treenode-switcher-close config-select-tree-treenode-leaf-last"
-                      draggable="false"
+                    <span
+                      aria-hidden="true"
+                      class="config-select-tree-indent"
+                    />
+                    <span
+                      class="config-select-tree-switcher config-select-tree-switcher-noop"
+                    />
+                    <span
+                      class="config-select-tree-node-content-wrapper config-select-tree-node-content-wrapper-normal"
+                      title="bamboo"
                     >
                       <span
-                        aria-hidden="true"
-                        class="config-select-tree-indent"
-                      />
-                      <span
-                        class="config-select-tree-switcher config-select-tree-switcher-noop"
-                      />
-                      <span
-                        class="config-select-tree-node-content-wrapper config-select-tree-node-content-wrapper-normal"
-                        title="bamboo"
+                        class="config-select-tree-title"
                       >
-                        <span
-                          class="config-select-tree-title"
-                        >
-                          bamboo
-                        </span>
+                        bamboo
                       </span>
-                    </div>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -41483,74 +41469,72 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize large
       class="config-select-selection-placeholder"
     />
   </div>
-  <div>
-    <div
-      class="config-select-dropdown config-tree-select-dropdown config-slide-up-appear config-slide-up-appear-prepare config-slide-up"
-      style="opacity: 0; min-width: 0; width: 0px;"
-    >
+  <div
+    class="config-select-dropdown config-slide-up-appear config-slide-up-appear-prepare config-slide-up config-tree-select-dropdown config-select-dropdown-placement-bottomLeft"
+    style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 0; width: 0px;"
+  >
+    <div>
       <div>
-        <div>
+        <div
+          class="config-select-tree"
+          role="tree"
+        >
+          <div>
+            <input
+              aria-label="for screen reader"
+              disabled=""
+              style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+              value=""
+            />
+          </div>
           <div
-            class="config-select-tree"
-            role="tree"
+            aria-hidden="true"
+            class="config-select-tree-treenode"
+            style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
           >
-            <div>
-              <input
-                aria-label="for screen reader"
-                disabled=""
-                style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
-                value=""
+            <div
+              class="config-select-tree-indent"
+            >
+              <div
+                class="config-select-tree-indent-unit"
               />
             </div>
+          </div>
+          <div
+            class="config-select-tree-list"
+            style="position: relative;"
+          >
             <div
-              aria-hidden="true"
-              class="config-select-tree-treenode"
-              style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+              class="config-select-tree-list-holder"
+              style="max-height: 256px; overflow-y: auto;"
             >
-              <div
-                class="config-select-tree-indent"
-              >
+              <div>
                 <div
-                  class="config-select-tree-indent-unit"
-                />
-              </div>
-            </div>
-            <div
-              class="config-select-tree-list"
-              style="position: relative;"
-            >
-              <div
-                class="config-select-tree-list-holder"
-                style="max-height: 256px; overflow-y: auto;"
-              >
-                <div>
+                  class="config-select-tree-list-holder-inner"
+                  style="display: flex; flex-direction: column;"
+                >
                   <div
-                    class="config-select-tree-list-holder-inner"
-                    style="display: flex; flex-direction: column;"
+                    aria-grabbed="false"
+                    class="config-select-tree-treenode config-select-tree-treenode-switcher-close config-select-tree-treenode-leaf-last"
+                    draggable="false"
                   >
-                    <div
-                      aria-grabbed="false"
-                      class="config-select-tree-treenode config-select-tree-treenode-switcher-close config-select-tree-treenode-leaf-last"
-                      draggable="false"
+                    <span
+                      aria-hidden="true"
+                      class="config-select-tree-indent"
+                    />
+                    <span
+                      class="config-select-tree-switcher config-select-tree-switcher-noop"
+                    />
+                    <span
+                      class="config-select-tree-node-content-wrapper config-select-tree-node-content-wrapper-normal"
+                      title="bamboo"
                     >
                       <span
-                        aria-hidden="true"
-                        class="config-select-tree-indent"
-                      />
-                      <span
-                        class="config-select-tree-switcher config-select-tree-switcher-noop"
-                      />
-                      <span
-                        class="config-select-tree-node-content-wrapper config-select-tree-node-content-wrapper-normal"
-                        title="bamboo"
+                        class="config-select-tree-title"
                       >
-                        <span
-                          class="config-select-tree-title"
-                        >
-                          bamboo
-                        </span>
+                        bamboo
                       </span>
-                    </div>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -41620,74 +41604,72 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize middl
       class="config-select-selection-placeholder"
     />
   </div>
-  <div>
-    <div
-      class="config-select-dropdown config-tree-select-dropdown config-slide-up-appear config-slide-up-appear-prepare config-slide-up"
-      style="opacity: 0; min-width: 0; width: 0px;"
-    >
+  <div
+    class="config-select-dropdown config-slide-up-appear config-slide-up-appear-prepare config-slide-up config-tree-select-dropdown config-select-dropdown-placement-bottomLeft"
+    style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 0; width: 0px;"
+  >
+    <div>
       <div>
-        <div>
+        <div
+          class="config-select-tree"
+          role="tree"
+        >
+          <div>
+            <input
+              aria-label="for screen reader"
+              disabled=""
+              style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+              value=""
+            />
+          </div>
           <div
-            class="config-select-tree"
-            role="tree"
+            aria-hidden="true"
+            class="config-select-tree-treenode"
+            style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
           >
-            <div>
-              <input
-                aria-label="for screen reader"
-                disabled=""
-                style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
-                value=""
+            <div
+              class="config-select-tree-indent"
+            >
+              <div
+                class="config-select-tree-indent-unit"
               />
             </div>
+          </div>
+          <div
+            class="config-select-tree-list"
+            style="position: relative;"
+          >
             <div
-              aria-hidden="true"
-              class="config-select-tree-treenode"
-              style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+              class="config-select-tree-list-holder"
+              style="max-height: 256px; overflow-y: auto;"
             >
-              <div
-                class="config-select-tree-indent"
-              >
+              <div>
                 <div
-                  class="config-select-tree-indent-unit"
-                />
-              </div>
-            </div>
-            <div
-              class="config-select-tree-list"
-              style="position: relative;"
-            >
-              <div
-                class="config-select-tree-list-holder"
-                style="max-height: 256px; overflow-y: auto;"
-              >
-                <div>
+                  class="config-select-tree-list-holder-inner"
+                  style="display: flex; flex-direction: column;"
+                >
                   <div
-                    class="config-select-tree-list-holder-inner"
-                    style="display: flex; flex-direction: column;"
+                    aria-grabbed="false"
+                    class="config-select-tree-treenode config-select-tree-treenode-switcher-close config-select-tree-treenode-leaf-last"
+                    draggable="false"
                   >
-                    <div
-                      aria-grabbed="false"
-                      class="config-select-tree-treenode config-select-tree-treenode-switcher-close config-select-tree-treenode-leaf-last"
-                      draggable="false"
+                    <span
+                      aria-hidden="true"
+                      class="config-select-tree-indent"
+                    />
+                    <span
+                      class="config-select-tree-switcher config-select-tree-switcher-noop"
+                    />
+                    <span
+                      class="config-select-tree-node-content-wrapper config-select-tree-node-content-wrapper-normal"
+                      title="bamboo"
                     >
                       <span
-                        aria-hidden="true"
-                        class="config-select-tree-indent"
-                      />
-                      <span
-                        class="config-select-tree-switcher config-select-tree-switcher-noop"
-                      />
-                      <span
-                        class="config-select-tree-node-content-wrapper config-select-tree-node-content-wrapper-normal"
-                        title="bamboo"
+                        class="config-select-tree-title"
                       >
-                        <span
-                          class="config-select-tree-title"
-                        >
-                          bamboo
-                        </span>
+                        bamboo
                       </span>
-                    </div>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -41757,74 +41739,72 @@ exports[`ConfigProvider components TreeSelect configProvider virtual and dropdow
       class="ant-select-selection-placeholder"
     />
   </div>
-  <div>
-    <div
-      class="ant-select-dropdown ant-tree-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-      style="opacity: 0; min-width: 0;"
-    >
+  <div
+    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-dropdown-placement-bottomLeft"
+    style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 0;"
+  >
+    <div>
       <div>
-        <div>
+        <div
+          class="ant-select-tree"
+          role="tree"
+        >
+          <div>
+            <input
+              aria-label="for screen reader"
+              disabled=""
+              style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+              value=""
+            />
+          </div>
           <div
-            class="ant-select-tree"
-            role="tree"
+            aria-hidden="true"
+            class="ant-select-tree-treenode"
+            style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
           >
-            <div>
-              <input
-                aria-label="for screen reader"
-                disabled=""
-                style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
-                value=""
+            <div
+              class="ant-select-tree-indent"
+            >
+              <div
+                class="ant-select-tree-indent-unit"
               />
             </div>
+          </div>
+          <div
+            class="ant-select-tree-list"
+            style="position: relative;"
+          >
             <div
-              aria-hidden="true"
-              class="ant-select-tree-treenode"
-              style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+              class="ant-select-tree-list-holder"
+              style="max-height: 256px; overflow-y: auto;"
             >
-              <div
-                class="ant-select-tree-indent"
-              >
+              <div>
                 <div
-                  class="ant-select-tree-indent-unit"
-                />
-              </div>
-            </div>
-            <div
-              class="ant-select-tree-list"
-              style="position: relative;"
-            >
-              <div
-                class="ant-select-tree-list-holder"
-                style="max-height: 256px; overflow-y: auto;"
-              >
-                <div>
+                  class="ant-select-tree-list-holder-inner"
+                  style="display: flex; flex-direction: column;"
+                >
                   <div
-                    class="ant-select-tree-list-holder-inner"
-                    style="display: flex; flex-direction: column;"
+                    aria-grabbed="false"
+                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
+                    draggable="false"
                   >
-                    <div
-                      aria-grabbed="false"
-                      class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
-                      draggable="false"
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-tree-indent"
+                    />
+                    <span
+                      class="ant-select-tree-switcher ant-select-tree-switcher-noop"
+                    />
+                    <span
+                      class="ant-select-tree-node-content-wrapper ant-select-tree-node-content-wrapper-normal"
+                      title="bamboo"
                     >
                       <span
-                        aria-hidden="true"
-                        class="ant-select-tree-indent"
-                      />
-                      <span
-                        class="ant-select-tree-switcher ant-select-tree-switcher-noop"
-                      />
-                      <span
-                        class="ant-select-tree-node-content-wrapper ant-select-tree-node-content-wrapper-normal"
-                        title="bamboo"
+                        class="ant-select-tree-title"
                       >
-                        <span
-                          class="ant-select-tree-title"
-                        >
-                          bamboo
-                        </span>
+                        bamboo
                       </span>
-                    </div>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -41894,74 +41874,72 @@ exports[`ConfigProvider components TreeSelect normal 1`] = `
       class="ant-select-selection-placeholder"
     />
   </div>
-  <div>
-    <div
-      class="ant-select-dropdown ant-tree-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-      style="opacity: 0; min-width: 0; width: 0px;"
-    >
+  <div
+    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-dropdown-placement-bottomLeft"
+    style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 0; width: 0px;"
+  >
+    <div>
       <div>
-        <div>
+        <div
+          class="ant-select-tree"
+          role="tree"
+        >
+          <div>
+            <input
+              aria-label="for screen reader"
+              disabled=""
+              style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+              value=""
+            />
+          </div>
           <div
-            class="ant-select-tree"
-            role="tree"
+            aria-hidden="true"
+            class="ant-select-tree-treenode"
+            style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
           >
-            <div>
-              <input
-                aria-label="for screen reader"
-                disabled=""
-                style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
-                value=""
+            <div
+              class="ant-select-tree-indent"
+            >
+              <div
+                class="ant-select-tree-indent-unit"
               />
             </div>
+          </div>
+          <div
+            class="ant-select-tree-list"
+            style="position: relative;"
+          >
             <div
-              aria-hidden="true"
-              class="ant-select-tree-treenode"
-              style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+              class="ant-select-tree-list-holder"
+              style="max-height: 256px; overflow-y: auto;"
             >
-              <div
-                class="ant-select-tree-indent"
-              >
+              <div>
                 <div
-                  class="ant-select-tree-indent-unit"
-                />
-              </div>
-            </div>
-            <div
-              class="ant-select-tree-list"
-              style="position: relative;"
-            >
-              <div
-                class="ant-select-tree-list-holder"
-                style="max-height: 256px; overflow-y: auto;"
-              >
-                <div>
+                  class="ant-select-tree-list-holder-inner"
+                  style="display: flex; flex-direction: column;"
+                >
                   <div
-                    class="ant-select-tree-list-holder-inner"
-                    style="display: flex; flex-direction: column;"
+                    aria-grabbed="false"
+                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
+                    draggable="false"
                   >
-                    <div
-                      aria-grabbed="false"
-                      class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
-                      draggable="false"
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-tree-indent"
+                    />
+                    <span
+                      class="ant-select-tree-switcher ant-select-tree-switcher-noop"
+                    />
+                    <span
+                      class="ant-select-tree-node-content-wrapper ant-select-tree-node-content-wrapper-normal"
+                      title="bamboo"
                     >
                       <span
-                        aria-hidden="true"
-                        class="ant-select-tree-indent"
-                      />
-                      <span
-                        class="ant-select-tree-switcher ant-select-tree-switcher-noop"
-                      />
-                      <span
-                        class="ant-select-tree-node-content-wrapper ant-select-tree-node-content-wrapper-normal"
-                        title="bamboo"
+                        class="ant-select-tree-title"
                       >
-                        <span
-                          class="ant-select-tree-title"
-                        >
-                          bamboo
-                        </span>
+                        bamboo
                       </span>
-                    </div>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -42031,74 +42009,72 @@ exports[`ConfigProvider components TreeSelect prefixCls 1`] = `
       class="prefix-TreeSelect-selection-placeholder"
     />
   </div>
-  <div>
-    <div
-      class="prefix-TreeSelect-dropdown prefix-TreeSelect-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-      style="opacity: 0; min-width: 0; width: 0px;"
-    >
+  <div
+    class="prefix-TreeSelect-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up prefix-TreeSelect-dropdown prefix-TreeSelect-dropdown-placement-bottomLeft"
+    style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 0; width: 0px;"
+  >
+    <div>
       <div>
-        <div>
+        <div
+          class="prefix-TreeSelect-tree"
+          role="tree"
+        >
+          <div>
+            <input
+              aria-label="for screen reader"
+              disabled=""
+              style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+              value=""
+            />
+          </div>
           <div
-            class="prefix-TreeSelect-tree"
-            role="tree"
+            aria-hidden="true"
+            class="prefix-TreeSelect-tree-treenode"
+            style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
           >
-            <div>
-              <input
-                aria-label="for screen reader"
-                disabled=""
-                style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
-                value=""
+            <div
+              class="prefix-TreeSelect-tree-indent"
+            >
+              <div
+                class="prefix-TreeSelect-tree-indent-unit"
               />
             </div>
+          </div>
+          <div
+            class="prefix-TreeSelect-tree-list"
+            style="position: relative;"
+          >
             <div
-              aria-hidden="true"
-              class="prefix-TreeSelect-tree-treenode"
-              style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+              class="prefix-TreeSelect-tree-list-holder"
+              style="max-height: 256px; overflow-y: auto;"
             >
-              <div
-                class="prefix-TreeSelect-tree-indent"
-              >
+              <div>
                 <div
-                  class="prefix-TreeSelect-tree-indent-unit"
-                />
-              </div>
-            </div>
-            <div
-              class="prefix-TreeSelect-tree-list"
-              style="position: relative;"
-            >
-              <div
-                class="prefix-TreeSelect-tree-list-holder"
-                style="max-height: 256px; overflow-y: auto;"
-              >
-                <div>
+                  class="prefix-TreeSelect-tree-list-holder-inner"
+                  style="display: flex; flex-direction: column;"
+                >
                   <div
-                    class="prefix-TreeSelect-tree-list-holder-inner"
-                    style="display: flex; flex-direction: column;"
+                    aria-grabbed="false"
+                    class="prefix-TreeSelect-tree-treenode prefix-TreeSelect-tree-treenode-switcher-close prefix-TreeSelect-tree-treenode-leaf-last"
+                    draggable="false"
                   >
-                    <div
-                      aria-grabbed="false"
-                      class="prefix-TreeSelect-tree-treenode prefix-TreeSelect-tree-treenode-switcher-close prefix-TreeSelect-tree-treenode-leaf-last"
-                      draggable="false"
+                    <span
+                      aria-hidden="true"
+                      class="prefix-TreeSelect-tree-indent"
+                    />
+                    <span
+                      class="prefix-TreeSelect-tree-switcher prefix-TreeSelect-tree-switcher-noop"
+                    />
+                    <span
+                      class="prefix-TreeSelect-tree-node-content-wrapper prefix-TreeSelect-tree-node-content-wrapper-normal"
+                      title="bamboo"
                     >
                       <span
-                        aria-hidden="true"
-                        class="prefix-TreeSelect-tree-indent"
-                      />
-                      <span
-                        class="prefix-TreeSelect-tree-switcher prefix-TreeSelect-tree-switcher-noop"
-                      />
-                      <span
-                        class="prefix-TreeSelect-tree-node-content-wrapper prefix-TreeSelect-tree-node-content-wrapper-normal"
-                        title="bamboo"
+                        class="prefix-TreeSelect-tree-title"
                       >
-                        <span
-                          class="prefix-TreeSelect-tree-title"
-                        >
-                          bamboo
-                        </span>
+                        bamboo
                       </span>
-                    </div>
+                    </span>
                   </div>
                 </div>
               </div>

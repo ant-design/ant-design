@@ -3303,98 +3303,96 @@ exports[`renders ./components/tree/demo/line.tsx extend context correctly 1`] = 
           True
         </span>
       </div>
-      <div>
-        <div
-          class="ant-select-dropdown"
-          style="opacity:0"
-        >
-          <div>
+      <div
+        class="ant-select-dropdown ant-select-dropdown-placement-bottomLeft"
+        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      >
+        <div>
+          <div
+            id="undefined_list"
+            role="listbox"
+            style="height:0;width:0;overflow:hidden"
+          >
             <div
-              id="undefined_list"
-              role="listbox"
-              style="height:0;width:0;overflow:hidden"
+              aria-label="True"
+              aria-selected="true"
+              id="undefined_list_0"
+              role="option"
             >
-              <div
-                aria-label="True"
-                aria-selected="true"
-                id="undefined_list_0"
-                role="option"
-              >
-                true
-              </div>
-              <div
-                aria-label="False"
-                aria-selected="false"
-                id="undefined_list_1"
-                role="option"
-              >
-                false
-              </div>
+              true
             </div>
             <div
-              class="rc-virtual-list"
-              style="position:relative"
+              aria-label="False"
+              aria-selected="false"
+              id="undefined_list_1"
+              role="option"
             >
-              <div
-                class="rc-virtual-list-holder"
-                style="max-height:256px;overflow-y:auto;overflow-anchor:none"
-              >
-                <div>
+              false
+            </div>
+          </div>
+          <div
+            class="rc-virtual-list"
+            style="position:relative"
+          >
+            <div
+              class="rc-virtual-list-holder"
+              style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+            >
+              <div>
+                <div
+                  class="rc-virtual-list-holder-inner"
+                  style="display:flex;flex-direction:column"
+                >
                   <div
-                    class="rc-virtual-list-holder-inner"
-                    style="display:flex;flex-direction:column"
+                    aria-selected="true"
+                    class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
+                    title="True"
                   >
                     <div
-                      aria-selected="true"
-                      class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                      title="True"
+                      class="ant-select-item-option-content"
                     >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        True
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
-                        unselectable="on"
-                      />
+                      True
                     </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select:none;-webkit-user-select:none"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    title="False"
+                  >
                     <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      title="False"
+                      class="ant-select-item-option-content"
                     >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        False
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
-                        unselectable="on"
-                      />
+                      False
                     </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select:none;-webkit-user-select:none"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    title="Custom icon"
+                  >
                     <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      title="Custom icon"
+                      class="ant-select-item-option-content"
                     >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        Custom icon
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
-                        unselectable="on"
-                      />
+                      Custom icon
                     </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select:none;-webkit-user-select:none"
+                      unselectable="on"
+                    />
                   </div>
                 </div>
               </div>

@@ -981,81 +981,79 @@ Array [
         start
       </span>
     </div>
-    <div>
-      <div
-        class="ant-select-dropdown"
-        style="opacity:0"
-      >
-        <div>
+    <div
+      class="ant-select-dropdown ant-select-dropdown-placement-bottomLeft"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
+      <div>
+        <div
+          id="undefined_list"
+          role="listbox"
+          style="height:0;width:0;overflow:hidden"
+        >
           <div
-            id="undefined_list"
-            role="listbox"
-            style="height:0;width:0;overflow:hidden"
+            aria-label="start"
+            aria-selected="true"
+            id="undefined_list_0"
+            role="option"
           >
-            <div
-              aria-label="start"
-              aria-selected="true"
-              id="undefined_list_0"
-              role="option"
-            >
-              start
-            </div>
-            <div
-              aria-label="end"
-              aria-selected="false"
-              id="undefined_list_1"
-              role="option"
-            >
-              end
-            </div>
+            start
           </div>
           <div
-            class="rc-virtual-list"
-            style="position:relative"
+            aria-label="end"
+            aria-selected="false"
+            id="undefined_list_1"
+            role="option"
           >
-            <div
-              class="rc-virtual-list-holder"
-              style="max-height:256px;overflow-y:auto;overflow-anchor:none"
-            >
-              <div>
+            end
+          </div>
+        </div>
+        <div
+          class="rc-virtual-list"
+          style="position:relative"
+        >
+          <div
+            class="rc-virtual-list-holder"
+            style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+          >
+            <div>
+              <div
+                class="rc-virtual-list-holder-inner"
+                style="display:flex;flex-direction:column"
+              >
                 <div
-                  class="rc-virtual-list-holder-inner"
-                  style="display:flex;flex-direction:column"
+                  aria-selected="true"
+                  class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
+                  title="start"
                 >
                   <div
-                    aria-selected="true"
-                    class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                    title="start"
+                    class="ant-select-item-option-content"
                   >
-                    <div
-                      class="ant-select-item-option-content"
-                    >
-                      start
-                    </div>
-                    <span
-                      aria-hidden="true"
-                      class="ant-select-item-option-state"
-                      style="user-select:none;-webkit-user-select:none"
-                      unselectable="on"
-                    />
+                    start
                   </div>
+                  <span
+                    aria-hidden="true"
+                    class="ant-select-item-option-state"
+                    style="user-select:none;-webkit-user-select:none"
+                    unselectable="on"
+                  />
+                </div>
+                <div
+                  aria-selected="false"
+                  class="ant-select-item ant-select-item-option"
+                  title="end"
+                >
                   <div
-                    aria-selected="false"
-                    class="ant-select-item ant-select-item-option"
-                    title="end"
+                    class="ant-select-item-option-content"
                   >
-                    <div
-                      class="ant-select-item-option-content"
-                    >
-                      end
-                    </div>
-                    <span
-                      aria-hidden="true"
-                      class="ant-select-item-option-state"
-                      style="user-select:none;-webkit-user-select:none"
-                      unselectable="on"
-                    />
+                    end
                   </div>
+                  <span
+                    aria-hidden="true"
+                    class="ant-select-item-option-state"
+                    style="user-select:none;-webkit-user-select:none"
+                    unselectable="on"
+                  />
                 </div>
               </div>
             </div>
