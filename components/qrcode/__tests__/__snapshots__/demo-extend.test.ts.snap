@@ -2,6 +2,12 @@
 
 exports[`renders ./components/qrcode/demo/Popover.tsx extend context correctly 1`] = `
 Array [
+  <img
+    alt="icon"
+    height="100"
+    src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+    width="100"
+  />,
   <div
     class="ant-popover ant-popover-placement-top"
     style="left:-1000vw;top:-1000vh;box-sizing:border-box"
@@ -35,12 +41,6 @@ Array [
       </div>
     </div>
   </div>,
-  <img
-    alt="icon"
-    height="100"
-    src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
-    width="100"
-  />,
 ]
 `;
 

@@ -24,23 +24,6 @@ Array [
         role="menu"
         tabindex="0"
       >
-        <div
-          class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position:absolute;top:0;left:0"
-          />
-          <div
-            class="ant-tooltip-content"
-          >
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            />
-          </div>
-        </div>
         <li
           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
           role="menuitem"
@@ -126,6 +109,23 @@ Array [
             </a>
           </span>
         </li>
+        <div
+          class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+        >
+          <div
+            class="ant-tooltip-arrow"
+            style="position:absolute;top:0;left:0"
+          />
+          <div
+            class="ant-tooltip-content"
+          >
+            <div
+              class="ant-tooltip-inner"
+              role="tooltip"
+            />
+          </div>
+        </div>
       </ul>
       <div
         aria-hidden="true"
@@ -207,23 +207,6 @@ Array [
         role="menu"
         tabindex="0"
       >
-        <div
-          class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position:absolute;top:0;left:0"
-          />
-          <div
-            class="ant-tooltip-content"
-          >
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            />
-          </div>
-        </div>
         <li
           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
           role="menuitem"
@@ -309,6 +292,23 @@ Array [
             </a>
           </span>
         </li>
+        <div
+          class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+        >
+          <div
+            class="ant-tooltip-arrow"
+            style="position:absolute;top:0;left:0"
+          />
+          <div
+            class="ant-tooltip-content"
+          >
+            <div
+              class="ant-tooltip-inner"
+              role="tooltip"
+            />
+          </div>
+        </div>
       </ul>
       <div
         aria-hidden="true"
@@ -390,23 +390,6 @@ Array [
         role="menu"
         tabindex="0"
       >
-        <div
-          class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position:absolute;top:0;left:0"
-          />
-          <div
-            class="ant-tooltip-content"
-          >
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            />
-          </div>
-        </div>
         <li
           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
           role="menuitem"
@@ -492,6 +475,23 @@ Array [
             </a>
           </span>
         </li>
+        <div
+          class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+        >
+          <div
+            class="ant-tooltip-arrow"
+            style="position:absolute;top:0;left:0"
+          />
+          <div
+            class="ant-tooltip-content"
+          >
+            <div
+              class="ant-tooltip-inner"
+              role="tooltip"
+            />
+          </div>
+        </div>
       </ul>
       <div
         aria-hidden="true"
@@ -574,23 +574,6 @@ Array [
         role="menu"
         tabindex="0"
       >
-        <div
-          class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position:absolute;top:0;left:0"
-          />
-          <div
-            class="ant-tooltip-content"
-          >
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            />
-          </div>
-        </div>
         <li
           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
           role="menuitem"
@@ -676,6 +659,23 @@ Array [
             </a>
           </span>
         </li>
+        <div
+          class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+        >
+          <div
+            class="ant-tooltip-arrow"
+            style="position:absolute;top:0;left:0"
+          />
+          <div
+            class="ant-tooltip-content"
+          >
+            <div
+              class="ant-tooltip-inner"
+              role="tooltip"
+            />
+          </div>
+        </div>
       </ul>
       <div
         aria-hidden="true"
@@ -757,23 +757,6 @@ Array [
         role="menu"
         tabindex="0"
       >
-        <div
-          class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position:absolute;top:0;left:0"
-          />
-          <div
-            class="ant-tooltip-content"
-          >
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            />
-          </div>
-        </div>
         <li
           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
           role="menuitem"
@@ -859,6 +842,23 @@ Array [
             </a>
           </span>
         </li>
+        <div
+          class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+        >
+          <div
+            class="ant-tooltip-arrow"
+            style="position:absolute;top:0;left:0"
+          />
+          <div
+            class="ant-tooltip-content"
+          >
+            <div
+              class="ant-tooltip-inner"
+              role="tooltip"
+            />
+          </div>
+        </div>
       </ul>
       <div
         aria-hidden="true"
@@ -940,23 +940,6 @@ Array [
         role="menu"
         tabindex="0"
       >
-        <div
-          class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position:absolute;top:0;left:0"
-          />
-          <div
-            class="ant-tooltip-content"
-          >
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            />
-          </div>
-        </div>
         <li
           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
           role="menuitem"
@@ -1042,6 +1025,23 @@ Array [
             </a>
           </span>
         </li>
+        <div
+          class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+        >
+          <div
+            class="ant-tooltip-arrow"
+            style="position:absolute;top:0;left:0"
+          />
+          <div
+            class="ant-tooltip-content"
+          >
+            <div
+              class="ant-tooltip-inner"
+              role="tooltip"
+            />
+          </div>
+        </div>
       </ul>
       <div
         aria-hidden="true"
@@ -1128,23 +1128,6 @@ Array [
         role="menu"
         tabindex="0"
       >
-        <div
-          class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position:absolute;top:0;left:0"
-          />
-          <div
-            class="ant-tooltip-content"
-          >
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            />
-          </div>
-        </div>
         <li
           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
           role="menuitem"
@@ -1230,6 +1213,23 @@ Array [
             </a>
           </span>
         </li>
+        <div
+          class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+        >
+          <div
+            class="ant-tooltip-arrow"
+            style="position:absolute;top:0;left:0"
+          />
+          <div
+            class="ant-tooltip-content"
+          >
+            <div
+              class="ant-tooltip-inner"
+              role="tooltip"
+            />
+          </div>
+        </div>
       </ul>
       <div
         aria-hidden="true"
@@ -1311,23 +1311,6 @@ Array [
         role="menu"
         tabindex="0"
       >
-        <div
-          class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position:absolute;top:0;left:0"
-          />
-          <div
-            class="ant-tooltip-content"
-          >
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            />
-          </div>
-        </div>
         <li
           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
           role="menuitem"
@@ -1413,6 +1396,23 @@ Array [
             </a>
           </span>
         </li>
+        <div
+          class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+        >
+          <div
+            class="ant-tooltip-arrow"
+            style="position:absolute;top:0;left:0"
+          />
+          <div
+            class="ant-tooltip-content"
+          >
+            <div
+              class="ant-tooltip-inner"
+              role="tooltip"
+            />
+          </div>
+        </div>
       </ul>
       <div
         aria-hidden="true"
@@ -1494,23 +1494,6 @@ Array [
         role="menu"
         tabindex="0"
       >
-        <div
-          class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position:absolute;top:0;left:0"
-          />
-          <div
-            class="ant-tooltip-content"
-          >
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            />
-          </div>
-        </div>
         <li
           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
           role="menuitem"
@@ -1596,6 +1579,23 @@ Array [
             </a>
           </span>
         </li>
+        <div
+          class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+        >
+          <div
+            class="ant-tooltip-arrow"
+            style="position:absolute;top:0;left:0"
+          />
+          <div
+            class="ant-tooltip-content"
+          >
+            <div
+              class="ant-tooltip-inner"
+              role="tooltip"
+            />
+          </div>
+        </div>
       </ul>
       <div
         aria-hidden="true"
@@ -1678,23 +1678,6 @@ Array [
         role="menu"
         tabindex="0"
       >
-        <div
-          class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position:absolute;top:0;left:0"
-          />
-          <div
-            class="ant-tooltip-content"
-          >
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            />
-          </div>
-        </div>
         <li
           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
           role="menuitem"
@@ -1780,6 +1763,23 @@ Array [
             </a>
           </span>
         </li>
+        <div
+          class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+        >
+          <div
+            class="ant-tooltip-arrow"
+            style="position:absolute;top:0;left:0"
+          />
+          <div
+            class="ant-tooltip-content"
+          >
+            <div
+              class="ant-tooltip-inner"
+              role="tooltip"
+            />
+          </div>
+        </div>
       </ul>
       <div
         aria-hidden="true"
@@ -1861,23 +1861,6 @@ Array [
         role="menu"
         tabindex="0"
       >
-        <div
-          class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position:absolute;top:0;left:0"
-          />
-          <div
-            class="ant-tooltip-content"
-          >
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            />
-          </div>
-        </div>
         <li
           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
           role="menuitem"
@@ -1963,6 +1946,23 @@ Array [
             </a>
           </span>
         </li>
+        <div
+          class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+        >
+          <div
+            class="ant-tooltip-arrow"
+            style="position:absolute;top:0;left:0"
+          />
+          <div
+            class="ant-tooltip-content"
+          >
+            <div
+              class="ant-tooltip-inner"
+              role="tooltip"
+            />
+          </div>
+        </div>
       </ul>
       <div
         aria-hidden="true"
@@ -2044,23 +2044,6 @@ Array [
         role="menu"
         tabindex="0"
       >
-        <div
-          class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position:absolute;top:0;left:0"
-          />
-          <div
-            class="ant-tooltip-content"
-          >
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            />
-          </div>
-        </div>
         <li
           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
           role="menuitem"
@@ -2146,6 +2129,23 @@ Array [
             </a>
           </span>
         </li>
+        <div
+          class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+        >
+          <div
+            class="ant-tooltip-arrow"
+            style="position:absolute;top:0;left:0"
+          />
+          <div
+            class="ant-tooltip-content"
+          >
+            <div
+              class="ant-tooltip-inner"
+              role="tooltip"
+            />
+          </div>
+        </div>
       </ul>
       <div
         aria-hidden="true"
@@ -2258,23 +2258,6 @@ Array [
         role="menu"
         tabindex="0"
       >
-        <div
-          class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position:absolute;top:0;left:0"
-          />
-          <div
-            class="ant-tooltip-content"
-          >
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            />
-          </div>
-        </div>
         <li
           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
           role="menuitem"
@@ -2407,6 +2390,23 @@ Array [
             a danger item
           </span>
         </li>
+        <div
+          class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+        >
+          <div
+            class="ant-tooltip-arrow"
+            style="position:absolute;top:0;left:0"
+          />
+          <div
+            class="ant-tooltip-content"
+          >
+            <div
+              class="ant-tooltip-inner"
+              role="tooltip"
+            />
+          </div>
+        </div>
       </ul>
       <div
         aria-hidden="true"
@@ -2505,23 +2505,6 @@ Array [
         role="menu"
         tabindex="0"
       >
-        <div
-          class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position:absolute;top:0;left:0"
-          />
-          <div
-            class="ant-tooltip-content"
-          >
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            />
-          </div>
-        </div>
         <li
           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
           role="menuitem"
@@ -2589,6 +2572,23 @@ Array [
             3rd menu item
           </span>
         </li>
+        <div
+          class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+        >
+          <div
+            class="ant-tooltip-arrow"
+            style="position:absolute;top:0;left:0"
+          />
+          <div
+            class="ant-tooltip-content"
+          >
+            <div
+              class="ant-tooltip-inner"
+              role="tooltip"
+            />
+          </div>
+        </div>
       </ul>
       <div
         aria-hidden="true"
@@ -2707,23 +2707,6 @@ Array [
           style="box-shadow:none"
           tabindex="0"
         >
-          <div
-            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-            style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-          >
-            <div
-              class="ant-tooltip-arrow"
-              style="position:absolute;top:0;left:0"
-            />
-            <div
-              class="ant-tooltip-content"
-            >
-              <div
-                class="ant-tooltip-inner"
-                role="tooltip"
-              />
-            </div>
-          </div>
           <li
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             role="menuitem"
@@ -2809,6 +2792,23 @@ Array [
               </a>
             </span>
           </li>
+          <div
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+            style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+          >
+            <div
+              class="ant-tooltip-arrow"
+              style="position:absolute;top:0;left:0"
+            />
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
         </ul>
         <div
           aria-hidden="true"
@@ -2949,23 +2949,6 @@ exports[`renders ./components/dropdown/demo/dropdown-button.tsx extend context c
             role="menu"
             tabindex="0"
           >
-            <div
-              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-            >
-              <div
-                class="ant-tooltip-arrow"
-                style="position:absolute;top:0;left:0"
-              />
-              <div
-                class="ant-tooltip-content"
-              >
-                <div
-                  class="ant-tooltip-inner"
-                  role="tooltip"
-                />
-              </div>
-            </div>
             <li
               class="ant-dropdown-menu-item"
               role="menuitem"
@@ -3137,6 +3120,23 @@ exports[`renders ./components/dropdown/demo/dropdown-button.tsx extend context c
                 4rd menu item
               </span>
             </li>
+            <div
+              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+            >
+              <div
+                class="ant-tooltip-arrow"
+                style="position:absolute;top:0;left:0"
+              />
+              <div
+                class="ant-tooltip-content"
+              >
+                <div
+                  class="ant-tooltip-inner"
+                  role="tooltip"
+                />
+              </div>
+            </div>
           </ul>
           <div
             aria-hidden="true"
@@ -3265,23 +3265,6 @@ exports[`renders ./components/dropdown/demo/dropdown-button.tsx extend context c
             role="menu"
             tabindex="0"
           >
-            <div
-              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-            >
-              <div
-                class="ant-tooltip-arrow"
-                style="position:absolute;top:0;left:0"
-              />
-              <div
-                class="ant-tooltip-content"
-              >
-                <div
-                  class="ant-tooltip-inner"
-                  role="tooltip"
-                />
-              </div>
-            </div>
             <li
               class="ant-dropdown-menu-item"
               role="menuitem"
@@ -3453,6 +3436,23 @@ exports[`renders ./components/dropdown/demo/dropdown-button.tsx extend context c
                 4rd menu item
               </span>
             </li>
+            <div
+              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+            >
+              <div
+                class="ant-tooltip-arrow"
+                style="position:absolute;top:0;left:0"
+              />
+              <div
+                class="ant-tooltip-content"
+              >
+                <div
+                  class="ant-tooltip-inner"
+                  role="tooltip"
+                />
+              </div>
+            </div>
           </ul>
           <div
             aria-hidden="true"
@@ -3583,23 +3583,6 @@ exports[`renders ./components/dropdown/demo/dropdown-button.tsx extend context c
             role="menu"
             tabindex="0"
           >
-            <div
-              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-            >
-              <div
-                class="ant-tooltip-arrow"
-                style="position:absolute;top:0;left:0"
-              />
-              <div
-                class="ant-tooltip-content"
-              >
-                <div
-                  class="ant-tooltip-inner"
-                  role="tooltip"
-                />
-              </div>
-            </div>
             <li
               class="ant-dropdown-menu-item"
               role="menuitem"
@@ -3771,6 +3754,23 @@ exports[`renders ./components/dropdown/demo/dropdown-button.tsx extend context c
                 4rd menu item
               </span>
             </li>
+            <div
+              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+            >
+              <div
+                class="ant-tooltip-arrow"
+                style="position:absolute;top:0;left:0"
+              />
+              <div
+                class="ant-tooltip-content"
+              >
+                <div
+                  class="ant-tooltip-inner"
+                  role="tooltip"
+                />
+              </div>
+            </div>
           </ul>
           <div
             aria-hidden="true"
@@ -3856,6 +3856,14 @@ exports[`renders ./components/dropdown/demo/dropdown-button.tsx extend context c
     <div
       class="ant-space-compact ant-space-compact-block ant-dropdown-button"
     >
+      <button
+        class="ant-btn ant-btn-default ant-btn-compact-item ant-btn-compact-first-item"
+        type="button"
+      >
+        <span>
+          With Tooltip
+        </span>
+      </button>
       <div
         class="ant-tooltip ant-tooltip-placement-top"
         style="left:-1000vw;top:-1000vh;box-sizing:border-box"
@@ -3875,14 +3883,6 @@ exports[`renders ./components/dropdown/demo/dropdown-button.tsx extend context c
           </div>
         </div>
       </div>
-      <button
-        class="ant-btn ant-btn-default ant-btn-compact-item ant-btn-compact-first-item"
-        type="button"
-      >
-        <span>
-          With Tooltip
-        </span>
-      </button>
       <button
         class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-loading ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
         type="button"
@@ -3922,23 +3922,6 @@ exports[`renders ./components/dropdown/demo/dropdown-button.tsx extend context c
             role="menu"
             tabindex="0"
           >
-            <div
-              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-            >
-              <div
-                class="ant-tooltip-arrow"
-                style="position:absolute;top:0;left:0"
-              />
-              <div
-                class="ant-tooltip-content"
-              >
-                <div
-                  class="ant-tooltip-inner"
-                  role="tooltip"
-                />
-              </div>
-            </div>
             <li
               class="ant-dropdown-menu-item"
               role="menuitem"
@@ -4110,6 +4093,23 @@ exports[`renders ./components/dropdown/demo/dropdown-button.tsx extend context c
                 4rd menu item
               </span>
             </li>
+            <div
+              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+            >
+              <div
+                class="ant-tooltip-arrow"
+                style="position:absolute;top:0;left:0"
+              />
+              <div
+                class="ant-tooltip-content"
+              >
+                <div
+                  class="ant-tooltip-inner"
+                  role="tooltip"
+                />
+              </div>
+            </div>
           </ul>
           <div
             aria-hidden="true"
@@ -4241,23 +4241,6 @@ exports[`renders ./components/dropdown/demo/dropdown-button.tsx extend context c
           role="menu"
           tabindex="0"
         >
-          <div
-            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-            style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-          >
-            <div
-              class="ant-tooltip-arrow"
-              style="position:absolute;top:0;left:0"
-            />
-            <div
-              class="ant-tooltip-content"
-            >
-              <div
-                class="ant-tooltip-inner"
-                role="tooltip"
-              />
-            </div>
-          </div>
           <li
             class="ant-dropdown-menu-item"
             role="menuitem"
@@ -4429,6 +4412,23 @@ exports[`renders ./components/dropdown/demo/dropdown-button.tsx extend context c
               4rd menu item
             </span>
           </li>
+          <div
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+            style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+          >
+            <div
+              class="ant-tooltip-arrow"
+              style="position:absolute;top:0;left:0"
+            />
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
         </ul>
         <div
           aria-hidden="true"
@@ -4556,23 +4556,6 @@ exports[`renders ./components/dropdown/demo/dropdown-button.tsx extend context c
             role="menu"
             tabindex="0"
           >
-            <div
-              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-            >
-              <div
-                class="ant-tooltip-arrow"
-                style="position:absolute;top:0;left:0"
-              />
-              <div
-                class="ant-tooltip-content"
-              >
-                <div
-                  class="ant-tooltip-inner"
-                  role="tooltip"
-                />
-              </div>
-            </div>
             <li
               class="ant-dropdown-menu-item"
               role="menuitem"
@@ -4744,6 +4727,23 @@ exports[`renders ./components/dropdown/demo/dropdown-button.tsx extend context c
                 4rd menu item
               </span>
             </li>
+            <div
+              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+            >
+              <div
+                class="ant-tooltip-arrow"
+                style="position:absolute;top:0;left:0"
+              />
+              <div
+                class="ant-tooltip-content"
+              >
+                <div
+                  class="ant-tooltip-inner"
+                  role="tooltip"
+                />
+              </div>
+            </div>
           </ul>
           <div
             aria-hidden="true"
@@ -4875,23 +4875,6 @@ Array [
         role="menu"
         tabindex="0"
       >
-        <div
-          class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position:absolute;top:0;left:0"
-          />
-          <div
-            class="ant-tooltip-content"
-          >
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            />
-          </div>
-        </div>
         <li
           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
           role="menuitem"
@@ -4959,6 +4942,23 @@ Array [
             3rd menu item
           </span>
         </li>
+        <div
+          class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+        >
+          <div
+            class="ant-tooltip-arrow"
+            style="position:absolute;top:0;left:0"
+          />
+          <div
+            class="ant-tooltip-content"
+          >
+            <div
+              class="ant-tooltip-inner"
+              role="tooltip"
+            />
+          </div>
+        </div>
       </ul>
       <div
         aria-hidden="true"
@@ -5071,23 +5071,6 @@ Array [
         role="menu"
         tabindex="0"
       >
-        <div
-          class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position:absolute;top:0;left:0"
-          />
-          <div
-            class="ant-tooltip-content"
-          >
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            />
-          </div>
-        </div>
         <li
           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
           role="menuitem"
@@ -5139,9 +5122,6 @@ Array [
             </a>
           </span>
         </li>
-        <li
-          class="ant-dropdown-menu-item-divider"
-        />
         <div
           class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
           style="left:-1000vw;top:-1000vh;box-sizing:border-box"
@@ -5160,6 +5140,9 @@ Array [
           </div>
         </div>
         <li
+          class="ant-dropdown-menu-item-divider"
+        />
+        <li
           aria-disabled="true"
           class="ant-dropdown-menu-item ant-dropdown-menu-item-disabled ant-dropdown-menu-item-only-child"
           role="menuitem"
@@ -5170,6 +5153,23 @@ Array [
             3rd menu item（disabled）
           </span>
         </li>
+        <div
+          class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+        >
+          <div
+            class="ant-tooltip-arrow"
+            style="position:absolute;top:0;left:0"
+          />
+          <div
+            class="ant-tooltip-content"
+          >
+            <div
+              class="ant-tooltip-inner"
+              role="tooltip"
+            />
+          </div>
+        </div>
       </ul>
       <div
         aria-hidden="true"
@@ -5309,6 +5309,17 @@ exports[`renders ./components/dropdown/demo/loading.tsx extend context correctly
             role="menu"
             tabindex="0"
           >
+            <li
+              class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+              role="menuitem"
+              tabindex="-1"
+            >
+              <span
+                class="ant-dropdown-menu-title-content"
+              >
+                Submit and continue
+              </span>
+            </li>
             <div
               class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
               style="left:-1000vw;top:-1000vh;box-sizing:border-box"
@@ -5326,17 +5337,6 @@ exports[`renders ./components/dropdown/demo/loading.tsx extend context correctly
                 />
               </div>
             </div>
-            <li
-              class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-              role="menuitem"
-              tabindex="-1"
-            >
-              <span
-                class="ant-dropdown-menu-title-content"
-              >
-                Submit and continue
-              </span>
-            </li>
           </ul>
           <div
             aria-hidden="true"
@@ -5437,6 +5437,17 @@ exports[`renders ./components/dropdown/demo/loading.tsx extend context correctly
             role="menu"
             tabindex="0"
           >
+            <li
+              class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+              role="menuitem"
+              tabindex="-1"
+            >
+              <span
+                class="ant-dropdown-menu-title-content"
+              >
+                Submit and continue
+              </span>
+            </li>
             <div
               class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
               style="left:-1000vw;top:-1000vh;box-sizing:border-box"
@@ -5454,17 +5465,6 @@ exports[`renders ./components/dropdown/demo/loading.tsx extend context correctly
                 />
               </div>
             </div>
-            <li
-              class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-              role="menuitem"
-              tabindex="-1"
-            >
-              <span
-                class="ant-dropdown-menu-title-content"
-              >
-                Submit and continue
-              </span>
-            </li>
           </ul>
           <div
             aria-hidden="true"
@@ -5542,6 +5542,17 @@ exports[`renders ./components/dropdown/demo/loading.tsx extend context correctly
             role="menu"
             tabindex="0"
           >
+            <li
+              class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+              role="menuitem"
+              tabindex="-1"
+            >
+              <span
+                class="ant-dropdown-menu-title-content"
+              >
+                Submit and continue
+              </span>
+            </li>
             <div
               class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
               style="left:-1000vw;top:-1000vh;box-sizing:border-box"
@@ -5559,17 +5570,6 @@ exports[`renders ./components/dropdown/demo/loading.tsx extend context correctly
                 />
               </div>
             </div>
-            <li
-              class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-              role="menuitem"
-              tabindex="-1"
-            >
-              <span
-                class="ant-dropdown-menu-title-content"
-              >
-                Submit and continue
-              </span>
-            </li>
           </ul>
           <div
             aria-hidden="true"
@@ -5646,6 +5646,17 @@ exports[`renders ./components/dropdown/demo/loading.tsx extend context correctly
             role="menu"
             tabindex="0"
           >
+            <li
+              class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+              role="menuitem"
+              tabindex="-1"
+            >
+              <span
+                class="ant-dropdown-menu-title-content"
+              >
+                Submit and continue
+              </span>
+            </li>
             <div
               class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
               style="left:-1000vw;top:-1000vh;box-sizing:border-box"
@@ -5663,17 +5674,6 @@ exports[`renders ./components/dropdown/demo/loading.tsx extend context correctly
                 />
               </div>
             </div>
-            <li
-              class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-              role="menuitem"
-              tabindex="-1"
-            >
-              <span
-                class="ant-dropdown-menu-title-content"
-              >
-                Submit and continue
-              </span>
-            </li>
           </ul>
           <div
             aria-hidden="true"
@@ -5769,23 +5769,6 @@ Array [
             class="ant-dropdown-menu-item-group-list"
             role="group"
           >
-            <div
-              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-            >
-              <div
-                class="ant-tooltip-arrow"
-                style="position:absolute;top:0;left:0"
-              />
-              <div
-                class="ant-tooltip-content"
-              >
-                <div
-                  class="ant-tooltip-inner"
-                  role="tooltip"
-                />
-              </div>
-            </div>
             <li
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               role="menuitem"
@@ -5825,6 +5808,23 @@ Array [
                 Option 0
               </span>
             </li>
+            <div
+              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+            >
+              <div
+                class="ant-tooltip-arrow"
+                style="position:absolute;top:0;left:0"
+              />
+              <div
+                class="ant-tooltip-content"
+              >
+                <div
+                  class="ant-tooltip-inner"
+                  role="tooltip"
+                />
+              </div>
+            </div>
           </ul>
         </li>
         <li
@@ -5911,23 +5911,6 @@ Array [
                     class="ant-dropdown-menu-item-group-list"
                     role="group"
                   >
-                    <div
-                      class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-                    >
-                      <div
-                        class="ant-tooltip-arrow"
-                        style="position:absolute;top:0;left:0"
-                      />
-                      <div
-                        class="ant-tooltip-content"
-                      >
-                        <div
-                          class="ant-tooltip-inner"
-                          role="tooltip"
-                        />
-                      </div>
-                    </div>
                     <li
                       class="ant-dropdown-menu-item ant-dropdown-menu-item-selected ant-dropdown-menu-item-only-child"
                       role="menuitem"
@@ -5967,23 +5950,6 @@ Array [
                         Option 2
                       </span>
                     </li>
-                  </ul>
-                </li>
-                <li
-                  class="ant-dropdown-menu-item-group"
-                  role="presentation"
-                >
-                  <div
-                    class="ant-dropdown-menu-item-group-title"
-                    role="presentation"
-                    title="Item 2"
-                  >
-                    Item 2
-                  </div>
-                  <ul
-                    class="ant-dropdown-menu-item-group-list"
-                    role="group"
-                  >
                     <div
                       class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                       style="left:-1000vw;top:-1000vh;box-sizing:border-box"
@@ -6001,6 +5967,23 @@ Array [
                         />
                       </div>
                     </div>
+                  </ul>
+                </li>
+                <li
+                  class="ant-dropdown-menu-item-group"
+                  role="presentation"
+                >
+                  <div
+                    class="ant-dropdown-menu-item-group-title"
+                    role="presentation"
+                    title="Item 2"
+                  >
+                    Item 2
+                  </div>
+                  <ul
+                    class="ant-dropdown-menu-item-group-list"
+                    role="group"
+                  >
                     <li
                       class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                       role="menuitem"
@@ -6040,6 +6023,23 @@ Array [
                         Option 4
                       </span>
                     </li>
+                    <div
+                      class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                    >
+                      <div
+                        class="ant-tooltip-arrow"
+                        style="position:absolute;top:0;left:0"
+                      />
+                      <div
+                        class="ant-tooltip-content"
+                      >
+                        <div
+                          class="ant-tooltip-inner"
+                          role="tooltip"
+                        />
+                      </div>
+                    </div>
                   </ul>
                 </li>
               </ul>
@@ -6115,23 +6115,6 @@ Array [
                 data-menu-list="true"
                 role="menu"
               >
-                <div
-                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                  style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-                >
-                  <div
-                    class="ant-tooltip-arrow"
-                    style="position:absolute;top:0;left:0"
-                  />
-                  <div
-                    class="ant-tooltip-content"
-                  >
-                    <div
-                      class="ant-tooltip-inner"
-                      role="tooltip"
-                    />
-                  </div>
-                </div>
                 <li
                   class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                   role="menuitem"
@@ -6171,6 +6154,23 @@ Array [
                     Option 6
                   </span>
                 </li>
+                <div
+                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                    style="position:absolute;top:0;left:0"
+                  />
+                  <div
+                    class="ant-tooltip-content"
+                  >
+                    <div
+                      class="ant-tooltip-inner"
+                      role="tooltip"
+                    />
+                  </div>
+                </div>
                 <li
                   class="ant-dropdown-menu-submenu ant-dropdown-menu-submenu-vertical"
                   role="none"
@@ -6221,23 +6221,6 @@ Array [
                         data-menu-list="true"
                         role="menu"
                       >
-                        <div
-                          class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                          style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-                        >
-                          <div
-                            class="ant-tooltip-arrow"
-                            style="position:absolute;top:0;left:0"
-                          />
-                          <div
-                            class="ant-tooltip-content"
-                          >
-                            <div
-                              class="ant-tooltip-inner"
-                              role="tooltip"
-                            />
-                          </div>
-                        </div>
                         <li
                           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                           role="menuitem"
@@ -6277,6 +6260,23 @@ Array [
                             Option 8
                           </span>
                         </li>
+                        <div
+                          class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                          style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                        >
+                          <div
+                            class="ant-tooltip-arrow"
+                            style="position:absolute;top:0;left:0"
+                          />
+                          <div
+                            class="ant-tooltip-content"
+                          >
+                            <div
+                              class="ant-tooltip-inner"
+                              role="tooltip"
+                            />
+                          </div>
+                        </div>
                       </ul>
                     </div>
                   </div>
@@ -6354,23 +6354,6 @@ Array [
                 data-menu-list="true"
                 role="menu"
               >
-                <div
-                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                  style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-                >
-                  <div
-                    class="ant-tooltip-arrow"
-                    style="position:absolute;top:0;left:0"
-                  />
-                  <div
-                    class="ant-tooltip-content"
-                  >
-                    <div
-                      class="ant-tooltip-inner"
-                      role="tooltip"
-                    />
-                  </div>
-                </div>
                 <li
                   class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                   role="menuitem"
@@ -6466,6 +6449,23 @@ Array [
                     Option 12
                   </span>
                 </li>
+                <div
+                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                    style="position:absolute;top:0;left:0"
+                  />
+                  <div
+                    class="ant-tooltip-content"
+                  >
+                    <div
+                      class="ant-tooltip-inner"
+                      role="tooltip"
+                    />
+                  </div>
+                </div>
               </ul>
             </div>
           </div>
@@ -6769,23 +6769,6 @@ Array [
         role="menu"
         tabindex="0"
       >
-        <div
-          class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position:absolute;top:0;left:0"
-          />
-          <div
-            class="ant-tooltip-content"
-          >
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            />
-          </div>
-        </div>
         <li
           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
           role="menuitem"
@@ -6853,6 +6836,23 @@ Array [
             Clicking me will close the menu.
           </span>
         </li>
+        <div
+          class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+        >
+          <div
+            class="ant-tooltip-arrow"
+            style="position:absolute;top:0;left:0"
+          />
+          <div
+            class="ant-tooltip-content"
+          >
+            <div
+              class="ant-tooltip-inner"
+              role="tooltip"
+            />
+          </div>
+        </div>
       </ul>
       <div
         aria-hidden="true"
@@ -6950,23 +6950,6 @@ exports[`renders ./components/dropdown/demo/placement.tsx extend context correct
               role="menu"
               tabindex="0"
             >
-              <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-              >
-                <div
-                  class="ant-tooltip-arrow"
-                  style="position:absolute;top:0;left:0"
-                />
-                <div
-                  class="ant-tooltip-content"
-                >
-                  <div
-                    class="ant-tooltip-inner"
-                    role="tooltip"
-                  />
-                </div>
-              </div>
               <li
                 class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                 role="menuitem"
@@ -7052,6 +7035,23 @@ exports[`renders ./components/dropdown/demo/placement.tsx extend context correct
                   </a>
                 </span>
               </li>
+              <div
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+              >
+                <div
+                  class="ant-tooltip-arrow"
+                  style="position:absolute;top:0;left:0"
+                />
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
             </ul>
             <div
               aria-hidden="true"
@@ -7135,23 +7135,6 @@ exports[`renders ./components/dropdown/demo/placement.tsx extend context correct
               role="menu"
               tabindex="0"
             >
-              <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-              >
-                <div
-                  class="ant-tooltip-arrow"
-                  style="position:absolute;top:0;left:0"
-                />
-                <div
-                  class="ant-tooltip-content"
-                >
-                  <div
-                    class="ant-tooltip-inner"
-                    role="tooltip"
-                  />
-                </div>
-              </div>
               <li
                 class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                 role="menuitem"
@@ -7237,6 +7220,23 @@ exports[`renders ./components/dropdown/demo/placement.tsx extend context correct
                   </a>
                 </span>
               </li>
+              <div
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+              >
+                <div
+                  class="ant-tooltip-arrow"
+                  style="position:absolute;top:0;left:0"
+                />
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
             </ul>
             <div
               aria-hidden="true"
@@ -7320,23 +7320,6 @@ exports[`renders ./components/dropdown/demo/placement.tsx extend context correct
               role="menu"
               tabindex="0"
             >
-              <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-              >
-                <div
-                  class="ant-tooltip-arrow"
-                  style="position:absolute;top:0;left:0"
-                />
-                <div
-                  class="ant-tooltip-content"
-                >
-                  <div
-                    class="ant-tooltip-inner"
-                    role="tooltip"
-                  />
-                </div>
-              </div>
               <li
                 class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                 role="menuitem"
@@ -7422,6 +7405,23 @@ exports[`renders ./components/dropdown/demo/placement.tsx extend context correct
                   </a>
                 </span>
               </li>
+              <div
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+              >
+                <div
+                  class="ant-tooltip-arrow"
+                  style="position:absolute;top:0;left:0"
+                />
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
             </ul>
             <div
               aria-hidden="true"
@@ -7514,23 +7514,6 @@ exports[`renders ./components/dropdown/demo/placement.tsx extend context correct
               role="menu"
               tabindex="0"
             >
-              <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-              >
-                <div
-                  class="ant-tooltip-arrow"
-                  style="position:absolute;top:0;left:0"
-                />
-                <div
-                  class="ant-tooltip-content"
-                >
-                  <div
-                    class="ant-tooltip-inner"
-                    role="tooltip"
-                  />
-                </div>
-              </div>
               <li
                 class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                 role="menuitem"
@@ -7616,6 +7599,23 @@ exports[`renders ./components/dropdown/demo/placement.tsx extend context correct
                   </a>
                 </span>
               </li>
+              <div
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+              >
+                <div
+                  class="ant-tooltip-arrow"
+                  style="position:absolute;top:0;left:0"
+                />
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
             </ul>
             <div
               aria-hidden="true"
@@ -7699,23 +7699,6 @@ exports[`renders ./components/dropdown/demo/placement.tsx extend context correct
               role="menu"
               tabindex="0"
             >
-              <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-              >
-                <div
-                  class="ant-tooltip-arrow"
-                  style="position:absolute;top:0;left:0"
-                />
-                <div
-                  class="ant-tooltip-content"
-                >
-                  <div
-                    class="ant-tooltip-inner"
-                    role="tooltip"
-                  />
-                </div>
-              </div>
               <li
                 class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                 role="menuitem"
@@ -7801,6 +7784,23 @@ exports[`renders ./components/dropdown/demo/placement.tsx extend context correct
                   </a>
                 </span>
               </li>
+              <div
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+              >
+                <div
+                  class="ant-tooltip-arrow"
+                  style="position:absolute;top:0;left:0"
+                />
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
             </ul>
             <div
               aria-hidden="true"
@@ -7884,23 +7884,6 @@ exports[`renders ./components/dropdown/demo/placement.tsx extend context correct
               role="menu"
               tabindex="0"
             >
-              <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-              >
-                <div
-                  class="ant-tooltip-arrow"
-                  style="position:absolute;top:0;left:0"
-                />
-                <div
-                  class="ant-tooltip-content"
-                >
-                  <div
-                    class="ant-tooltip-inner"
-                    role="tooltip"
-                  />
-                </div>
-              </div>
               <li
                 class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                 role="menuitem"
@@ -7986,6 +7969,23 @@ exports[`renders ./components/dropdown/demo/placement.tsx extend context correct
                   </a>
                 </span>
               </li>
+              <div
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+              >
+                <div
+                  class="ant-tooltip-arrow"
+                  style="position:absolute;top:0;left:0"
+                />
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
             </ul>
             <div
               aria-hidden="true"
@@ -8069,23 +8069,6 @@ exports[`renders ./components/dropdown/demo/render-panel.tsx extend context corr
         role="menu"
         tabindex="0"
       >
-        <div
-          class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position:absolute;top:0;left:0"
-          />
-          <div
-            class="ant-tooltip-content"
-          >
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            />
-          </div>
-        </div>
         <li
           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
           role="menuitem"
@@ -8218,6 +8201,23 @@ exports[`renders ./components/dropdown/demo/render-panel.tsx extend context corr
             a danger item
           </span>
         </li>
+        <div
+          class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+        >
+          <div
+            class="ant-tooltip-arrow"
+            style="position:absolute;top:0;left:0"
+          />
+          <div
+            class="ant-tooltip-content"
+          >
+            <div
+              class="ant-tooltip-inner"
+              role="tooltip"
+            />
+          </div>
+        </div>
       </ul>
       <div
         aria-hidden="true"
@@ -8347,23 +8347,6 @@ Array [
         role="menu"
         tabindex="0"
       >
-        <div
-          class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position:absolute;top:0;left:0"
-          />
-          <div
-            class="ant-tooltip-content"
-          >
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            />
-          </div>
-        </div>
         <li
           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
           role="menuitem"
@@ -8431,6 +8414,23 @@ Array [
             Item 3
           </span>
         </li>
+        <div
+          class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+        >
+          <div
+            class="ant-tooltip-arrow"
+            style="position:absolute;top:0;left:0"
+          />
+          <div
+            class="ant-tooltip-content"
+          >
+            <div
+              class="ant-tooltip-inner"
+              role="tooltip"
+            />
+          </div>
+        </div>
       </ul>
       <div
         aria-hidden="true"
@@ -8558,23 +8558,6 @@ Array [
             class="ant-dropdown-menu-item-group-list"
             role="group"
           >
-            <div
-              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-            >
-              <div
-                class="ant-tooltip-arrow"
-                style="position:absolute;top:0;left:0"
-              />
-              <div
-                class="ant-tooltip-content"
-              >
-                <div
-                  class="ant-tooltip-inner"
-                  role="tooltip"
-                />
-              </div>
-            </div>
             <li
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               role="menuitem"
@@ -8614,6 +8597,23 @@ Array [
                 2nd menu item
               </span>
             </li>
+            <div
+              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+            >
+              <div
+                class="ant-tooltip-arrow"
+                style="position:absolute;top:0;left:0"
+              />
+              <div
+                class="ant-tooltip-content"
+              >
+                <div
+                  class="ant-tooltip-inner"
+                  role="tooltip"
+                />
+              </div>
+            </div>
           </ul>
         </li>
         <li
@@ -8666,23 +8666,6 @@ Array [
                 data-menu-list="true"
                 role="menu"
               >
-                <div
-                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                  style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-                >
-                  <div
-                    class="ant-tooltip-arrow"
-                    style="position:absolute;top:0;left:0"
-                  />
-                  <div
-                    class="ant-tooltip-content"
-                  >
-                    <div
-                      class="ant-tooltip-inner"
-                      role="tooltip"
-                    />
-                  </div>
-                </div>
                 <li
                   class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                   role="menuitem"
@@ -8722,6 +8705,23 @@ Array [
                     4th menu item
                   </span>
                 </li>
+                <div
+                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                    style="position:absolute;top:0;left:0"
+                  />
+                  <div
+                    class="ant-tooltip-content"
+                  >
+                    <div
+                      class="ant-tooltip-inner"
+                      role="tooltip"
+                    />
+                  </div>
+                </div>
               </ul>
             </div>
           </div>
@@ -8776,23 +8776,6 @@ Array [
                 data-menu-list="true"
                 role="menu"
               >
-                <div
-                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                  style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-                >
-                  <div
-                    class="ant-tooltip-arrow"
-                    style="position:absolute;top:0;left:0"
-                  />
-                  <div
-                    class="ant-tooltip-content"
-                  >
-                    <div
-                      class="ant-tooltip-inner"
-                      role="tooltip"
-                    />
-                  </div>
-                </div>
                 <li
                   class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                   role="menuitem"
@@ -8832,6 +8815,23 @@ Array [
                     6th menu item
                   </span>
                 </li>
+                <div
+                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                    style="position:absolute;top:0;left:0"
+                  />
+                  <div
+                    class="ant-tooltip-content"
+                  >
+                    <div
+                      class="ant-tooltip-inner"
+                      role="tooltip"
+                    />
+                  </div>
+                </div>
               </ul>
             </div>
           </div>
@@ -8999,23 +8999,6 @@ Array [
         role="menu"
         tabindex="0"
       >
-        <div
-          class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position:absolute;top:0;left:0"
-          />
-          <div
-            class="ant-tooltip-content"
-          >
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            />
-          </div>
-        </div>
         <li
           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
           role="menuitem"
@@ -9063,9 +9046,6 @@ Array [
             </a>
           </span>
         </li>
-        <li
-          class="ant-dropdown-menu-item-divider"
-        />
         <div
           class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
           style="left:-1000vw;top:-1000vh;box-sizing:border-box"
@@ -9084,6 +9064,9 @@ Array [
           </div>
         </div>
         <li
+          class="ant-dropdown-menu-item-divider"
+        />
+        <li
           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
           role="menuitem"
           tabindex="-1"
@@ -9094,6 +9077,23 @@ Array [
             3rd menu item
           </span>
         </li>
+        <div
+          class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+        >
+          <div
+            class="ant-tooltip-arrow"
+            style="position:absolute;top:0;left:0"
+          />
+          <div
+            class="ant-tooltip-content"
+          >
+            <div
+              class="ant-tooltip-inner"
+              role="tooltip"
+            />
+          </div>
+        </div>
       </ul>
       <div
         aria-hidden="true"
