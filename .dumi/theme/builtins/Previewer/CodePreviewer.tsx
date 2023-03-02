@@ -103,6 +103,7 @@ const CodePreviewer: React.FC<IPreviewerProps> = (props) => {
     compact,
     background,
     filePath,
+    version,
   } = props;
 
   const { pkg } = useSiteData();
@@ -542,9 +543,9 @@ createRoot(document.getElementById('container')).render(<Demo />);
     </section>
   );
 
-  if (pkg.version) {
+  if (version) {
     return (
-      <Badge.Ribbon text={pkg.version} color={pkg.version.includes('<') ? 'red' : null}>
+      <Badge.Ribbon text={version} color={version.includes('<') ? 'red' : null}>
         {codeBox}
       </Badge.Ribbon>
     );
