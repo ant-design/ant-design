@@ -130,6 +130,10 @@ Input 的其他属性和 React 自带的 [input](https://reactjs.org/docs/dom-el
 | blur | 取消焦点 | - |  |
 | focus | 获取焦点 | (option?: { preventScroll?: boolean, cursor?: 'start' \| 'end' \| 'all' }) | option - 4.10.0 |
 
+#### Input Ref
+
+在`Input`组件当中，`ref`获得的对象并不是原始的`input`的 dom 对象，而是一个复合包装对象，你可以通过`ref.input`获得原始的`input`的 dom 对象，更多关于 `ref` 的介绍详见：[rc-input](https://github.com/react-component/input#readme)
+
 ## FAQ
 
 ### 为什么我动态改变 `prefix/suffix/showCount` 时，Input 会失去焦点？

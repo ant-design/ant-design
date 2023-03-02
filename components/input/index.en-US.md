@@ -129,6 +129,10 @@ Supports all props of `Input`.
 | blur | Remove focus | - |  |
 | focus | Get focus | (option?: { preventScroll?: boolean, cursor?: 'start' \| 'end' \| 'all' }) | option - 4.10.0 |
 
+#### Input Ref
+
+In the Input component, the object obtained by 'ref' is not the dom object of the original input, but rather a composite wrapper object. You can obtain the dom object of the original input by using 'ref.input'. More about `ref` see: [rc-input](https://github.com/react-component/input#readme)
+
 ## FAQ
 
 ### Why Input lose focus when change `prefix/suffix/showCount`
