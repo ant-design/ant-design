@@ -70,13 +70,15 @@ return (
 
 ```ts
 const router = {
-  separator: '/', // Must have
+  type: 'separator', // Must have
+  separator: '/',
 };
 ```
 
-| 参数      | 说明           | 类型      | 默认值 | 版本 |
-| --------- | -------------- | --------- | ------ | ---- |
-| separator | 要显示的分隔符 | ReactNode | `/`    |      |
+| 参数      | 说明           | 类型        | 默认值 | 版本  |
+| --------- | -------------- | ----------- | ------ | ----- |
+| type      | 标记为分隔符   | `separator` |        | 5.3.0 |
+| separator | 要显示的分隔符 | ReactNode   | `/`    | 5.3.0 |
 
 ### routes
 

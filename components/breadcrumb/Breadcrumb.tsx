@@ -12,7 +12,7 @@ import BreadcrumbSeparator from './BreadcrumbSeparator';
 
 import useStyle from './style';
 
-export interface RouteItemType extends Omit<BreadcrumbItemProps, 'children'> {
+export interface RouteItemType extends Omit<BreadcrumbItemProps, 'children' | 'separator'> {
   key?: React.Key;
   path?: string;
   /** @deprecated Please use `title` instead */
@@ -21,26 +21,34 @@ export interface RouteItemType extends Omit<BreadcrumbItemProps, 'children'> {
   children?: Omit<RouteItemType, 'children'>[];
 }
 
-export type Routes = RouteItemType[];
+export interface SeparatorType {
+  type: 'separator';
+  separator?: React.ReactNode;
+}
+
+export type RouteType = RouteItemType | SeparatorType;
+
+type InternalRouteType = Partial<RouteItemType & SeparatorType>;
+
+export type Routes = RouteType[];
 
 export interface BreadcrumbProps {
   prefixCls?: string;
   routes?: Routes;
   params?: any;
   separator?: React.ReactNode;
-  itemRender?: (
-    route: RouteItemType,
-    params: any,
-    routes: Routes,
-    paths: string[],
-  ) => React.ReactNode;
+  itemRender?: (route: RouteType, params: any, routes: Routes, paths: string[]) => React.ReactNode;
   style?: React.CSSProperties;
   className?: string;
   rootClassName?: string;
   children?: React.ReactNode;
 }
 
-function getBreadcrumbName(route: RouteItemType, params: any) {
+interface InternalBreadcrumbProps extends Omit<BreadcrumbProps, 'routes'> {
+  routes?: InternalRouteType[];
+}
+
+function getBreadcrumbName(route: InternalRouteType, params: any) {
   if (!route.title) {
     return null;
   }
@@ -53,12 +61,7 @@ function getBreadcrumbName(route: RouteItemType, params: any) {
       );
 }
 
-function defaultItemRender(
-  route: RouteItemType,
-  params: any,
-  routes: RouteItemType[],
-  paths: string[],
-) {
+function defaultItemRender(route: RouteType, params: any, routes: RouteType[], paths: string[]) {
   const isLastItem = routes.indexOf(route) === routes.length - 1;
   const name = getBreadcrumbName(route, params);
   return isLastItem ? <span>{name}</span> : <a href={`#/${paths.join('/')}`}>{name}</a>;
@@ -86,18 +89,20 @@ type CompoundedComponent = React.FC<BreadcrumbProps> & {
   Separator: typeof BreadcrumbSeparator;
 };
 
-const Breadcrumb: CompoundedComponent = ({
-  prefixCls: customizePrefixCls,
-  separator = '/',
-  style,
-  className,
-  rootClassName,
-  routes,
-  children,
-  itemRender = defaultItemRender,
-  params = {},
-  ...restProps
-}) => {
+const Breadcrumb: CompoundedComponent = (props) => {
+  const {
+    prefixCls: customizePrefixCls,
+    separator = '/',
+    style,
+    className,
+    rootClassName,
+    routes,
+    children,
+    itemRender = defaultItemRender,
+    params = {},
+    ...restProps
+  } = props as InternalBreadcrumbProps;
+
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
 
   let crumbs: React.ReactNode;
@@ -171,7 +176,9 @@ const Breadcrumb: CompoundedComponent = ({
               {title}
             </BreadcrumbItem>
           )}
-          {route.separator && <BreadcrumbSeparator>{route.separator}</BreadcrumbSeparator>}
+          {route.type === 'separator' && (
+            <BreadcrumbSeparator>{route.separator}</BreadcrumbSeparator>
+          )}
         </React.Fragment>
       );
     });

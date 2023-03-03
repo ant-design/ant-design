@@ -1,5 +1,5 @@
-import React from 'react';
 import { Breadcrumb } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <Breadcrumb
@@ -9,6 +9,7 @@ const App: React.FC = () => (
         title: 'Location',
       },
       {
+        type: 'separator',
         separator: ':',
       },
       {
@@ -16,14 +17,14 @@ const App: React.FC = () => (
         title: 'Application Center',
       },
       {
-        separator: '/',
+        type: 'separator',
       },
       {
         href: '',
         title: 'Application List',
       },
       {
-        separator: '/',
+        type: 'separator',
       },
       {
         title: 'An Application',

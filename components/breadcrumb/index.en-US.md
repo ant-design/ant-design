@@ -69,13 +69,15 @@ return (
 
 ```ts
 const router = {
-  separator: '/', // Must have
+  type: 'separator', // Must have
+  separator: '/',
 };
 ```
 
-| Property  | Description      | Type      | Default | Version |
-| --------- | ---------------- | --------- | ------- | ------- |
-| separator | Custom separator | ReactNode | `/`     |         |
+| Property  | Description       | Type        | Default | Version |
+| --------- | ----------------- | ----------- | ------- | ------- |
+| type      | Mark as separator | `separator` |         | 5.3.0   |
+| separator | Custom separator  | ReactNode   | `/`     | 5.3.0   |
 
 ### routes
 
