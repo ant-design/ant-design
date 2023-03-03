@@ -32,6 +32,8 @@ export interface BreadcrumbItemType {
   path?: string;
   title: React.ReactNode;
   menu?: BreadcrumbItemProps['menu'];
+  /** @deprecated Please use `menu` instead */
+  overlay?: React.ReactNode;
 }
 export interface BreadcrumbSeparatorType {
   type: 'separator';

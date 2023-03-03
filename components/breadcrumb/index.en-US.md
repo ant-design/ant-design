@@ -16,6 +16,22 @@ A breadcrumb displays the current location within a hierarchy. It allows going b
 - When you need to inform the user of where they are.
 - When the user may need to navigate back to a higher level.
 
+```jsx
+// works when >=5.3.0, recommended ✅
+return <Breadcrumb items={[{ title: 'sample' }]} />;
+
+// works when <5.3.0, deprecated when >=5.3.0 🙅🏻‍♀️
+return (
+  <Breadcrumb>
+    <Breadcrumb.Item>sample</Breadcrumb.Item>
+  </Breadcrumb>
+);
+
+// or
+
+return <Breadcrumb routes={[{ breadcrumbName: 'sample' }]} />;
+```
+
 ## Examples
 
 <!-- prettier-ignore -->
@@ -26,19 +42,6 @@ A breadcrumb displays the current location within a hierarchy. It allows going b
 <code src="./demo/overlay.tsx">Bread crumbs with drop down menu</code>
 <code src="./demo/separator-component.tsx">Configuring the Separator</code>
 
-```jsx
-// works when >=5.3.0, recommended ✅
-const routes = [{ title: 'sample' }];
-return <Breadcrumb routes={routes} />;
-
-// works when <5.3.0, deprecated when >=5.3.0 🙅🏻‍♀️
-return (
-  <Breadcrumb>
-    <Breadcrumb.Item>sample</Breadcrumb.Item>
-  </Breadcrumb>
-);
-```
-
 ## API
 
 ### Breadcrumb
@@ -47,12 +50,12 @@ return (
 | --- | --- | --- | --- | --- |
 | itemRender | Custom item renderer | (route, params, routes, paths) => ReactNode | - |  |
 | params | Routing parameters | object | - |  |
-| routes | The routing stack information of router | [routes\[\]](#routes) | - |  |
+| items | The routing stack information of router | [items\[\]](#ItemType) | - | 5.3.0 |
 | separator | Custom separator | ReactNode | `/` |  |
 
-### RouteType
+### ItemType
 
-> type RouteType = [RouteItemType](#RouteItemType) | [SeparatorType](#SeparatorType)
+> type ItemType = [RouteItemType](#RouteItemType) | [SeparatorType](#SeparatorType)
 
 ### RouteItemType
 
@@ -68,7 +71,7 @@ return (
 ### SeparatorType
 
 ```ts
-const router = {
+const item = {
   type: 'separator', // Must have
   separator: '/',
 };
@@ -79,19 +82,6 @@ const router = {
 | type      | Mark as separator | `separator` |         | 5.3.0   |
 | separator | Custom separator  | ReactNode   | `/`     | 5.3.0   |
 
-### routes
-
-```ts
-interface Route {
-  path: string;
-  title: string;
-  children: Array<{
-    path: string;
-    title: string;
-  }>;
-}
-```
-
 ### Use with browserHistory
 
 The link of Breadcrumb item targets `#` by default, you can use `itemRender` to make a `browserHistory` Link.
@@ -99,7 +89,7 @@ The link of Breadcrumb item targets `#` by default, you can use `itemRender` to 
 ```jsx
 import { Link } from 'react-router';
 
-const routes = [
+const items = [
   {
     path: 'index',
     title: 'home',
@@ -127,10 +117,10 @@ const routes = [
     title: 'second',
   },
 ];
-function itemRender(route, params, routes, paths) {
-  const last = routes.indexOf(route) === routes.length - 1;
-  return last ? <span>{route.title}</span> : <Link to={paths.join('/')}>{route.title}</Link>;
+function itemRender(route, params, items, paths) {
+  const last = items.indexOf(item) === items.length - 1;
+  return last ? <span>{item.title}</span> : <Link to={paths.join('/')}>{item.title}</Link>;
 }
 
-return <Breadcrumb itemRender={itemRender} routes={routes} />;
+return <Breadcrumb itemRender={itemRender} items={items} />;
 ```

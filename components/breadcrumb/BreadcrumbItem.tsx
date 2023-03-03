@@ -11,10 +11,20 @@ export interface SeparatorType {
   key?: React.Key;
 }
 
+type MenuType = DropdownProps['menu'];
+interface MenuItem {
+  title?: React.ReactNode;
+  label?: React.ReactNode;
+  path?: string;
+  href?: string;
+}
+
 export interface BreadcrumbItemProps extends SeparatorType {
   prefixCls?: string;
   href?: string;
-  menu?: DropdownProps['menu'];
+  menu?: Omit<MenuType, 'items'> & {
+    items?: MenuItem[];
+  };
   dropdownProps?: DropdownProps;
   onClick?: React.MouseEventHandler<HTMLAnchorElement | HTMLSpanElement>;
   className?: string;
@@ -59,8 +69,30 @@ const BreadcrumbItem: CompoundedComponent = (props: BreadcrumbItemProps) => {
       if ('overlay' in props) {
         mergeDropDownProps.overlay = overlay;
       }
+
+      const { items, ...menuProps } = menu!;
+
       return (
-        <Dropdown menu={menu} placement="bottom" {...mergeDropDownProps}>
+        <Dropdown
+          menu={{
+            ...menuProps,
+            items: items?.map(({ title, label, path, ...itemProps }, index) => {
+              let mergedLabel: React.ReactNode = title ?? label;
+
+              if (path) {
+                mergedLabel = <a href={`${href}${path}`}>{mergedLabel}</a>;
+              }
+
+              return {
+                ...itemProps,
+                key: index,
+                title: mergedLabel as string,
+              };
+            }),
+          }}
+          placement="bottom"
+          {...mergeDropDownProps}
+        >
           <span className={`${prefixCls}-overlay-link`}>
             {breadcrumbItem}
             <DownOutlined />
