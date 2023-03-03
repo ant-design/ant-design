@@ -130,7 +130,7 @@ const Page: React.FC = () => {
         </Select>
         <DatePicker />
         <TimePicker />
-        <RangePicker style={{ width: 200 }} />
+        <RangePicker style={{ width: 220 }} />
       </Space>
       <Space wrap>
         <Button type="primary" onClick={showModal}>
