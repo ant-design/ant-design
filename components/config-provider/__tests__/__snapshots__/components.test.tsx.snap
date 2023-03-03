@@ -352,7 +352,7 @@ exports[`ConfigProvider components Anchor prefixCls 1`] = `
 
 exports[`ConfigProvider components AutoComplete configProvider 1`] = `
 <div
-  class="config-select config-select-auto-complete config-select-single config-select-show-search"
+  class="config-select config-select-auto-complete config-select-single config-select-show-arrow config-select-show-search"
 >
   <div
     class="config-select-selector"
@@ -378,12 +378,38 @@ exports[`ConfigProvider components AutoComplete configProvider 1`] = `
       class="config-select-selection-placeholder"
     />
   </div>
+  <span
+    aria-hidden="true"
+    class="config-select-arrow"
+    style="user-select: none;"
+    unselectable="on"
+  >
+    <span
+      aria-label="down"
+      class="anticon anticon-down config-select-suffix"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        data-icon="down"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+        />
+      </svg>
+    </span>
+  </span>
 </div>
 `;
 
 exports[`ConfigProvider components AutoComplete configProvider componentDisabled 1`] = `
 <div
-  class="config-select config-select-auto-complete config-select-single config-select-disabled config-select-show-search"
+  class="config-select config-select-auto-complete config-select-single config-select-show-arrow config-select-disabled config-select-show-search"
 >
   <div
     class="config-select-selector"
@@ -411,12 +437,38 @@ exports[`ConfigProvider components AutoComplete configProvider componentDisabled
       class="config-select-selection-placeholder"
     />
   </div>
+  <span
+    aria-hidden="true"
+    class="config-select-arrow"
+    style="user-select: none;"
+    unselectable="on"
+  >
+    <span
+      aria-label="down"
+      class="anticon anticon-down config-select-suffix"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        data-icon="down"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+        />
+      </svg>
+    </span>
+  </span>
 </div>
 `;
 
 exports[`ConfigProvider components AutoComplete configProvider componentSize large 1`] = `
 <div
-  class="config-select config-select-lg config-select-auto-complete config-select-single config-select-show-search"
+  class="config-select config-select-lg config-select-auto-complete config-select-single config-select-show-arrow config-select-show-search"
 >
   <div
     class="config-select-selector"
@@ -442,12 +494,38 @@ exports[`ConfigProvider components AutoComplete configProvider componentSize lar
       class="config-select-selection-placeholder"
     />
   </div>
+  <span
+    aria-hidden="true"
+    class="config-select-arrow"
+    style="user-select: none;"
+    unselectable="on"
+  >
+    <span
+      aria-label="down"
+      class="anticon anticon-down config-select-suffix"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        data-icon="down"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+        />
+      </svg>
+    </span>
+  </span>
 </div>
 `;
 
 exports[`ConfigProvider components AutoComplete configProvider componentSize middle 1`] = `
 <div
-  class="config-select config-select-auto-complete config-select-single config-select-show-search"
+  class="config-select config-select-auto-complete config-select-single config-select-show-arrow config-select-show-search"
 >
   <div
     class="config-select-selector"
@@ -473,12 +551,38 @@ exports[`ConfigProvider components AutoComplete configProvider componentSize mid
       class="config-select-selection-placeholder"
     />
   </div>
+  <span
+    aria-hidden="true"
+    class="config-select-arrow"
+    style="user-select: none;"
+    unselectable="on"
+  >
+    <span
+      aria-label="down"
+      class="anticon anticon-down config-select-suffix"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        data-icon="down"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+        />
+      </svg>
+    </span>
+  </span>
 </div>
 `;
 
 exports[`ConfigProvider components AutoComplete configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div
-  class="ant-select ant-select-auto-complete ant-select-single ant-select-show-search"
+  class="ant-select ant-select-auto-complete ant-select-single ant-select-show-arrow ant-select-show-search"
 >
   <div
     class="ant-select-selector"
@@ -504,12 +608,38 @@ exports[`ConfigProvider components AutoComplete configProvider virtual and dropd
       class="ant-select-selection-placeholder"
     />
   </div>
+  <span
+    aria-hidden="true"
+    class="ant-select-arrow"
+    style="user-select: none;"
+    unselectable="on"
+  >
+    <span
+      aria-label="down"
+      class="anticon anticon-down ant-select-suffix"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        data-icon="down"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+        />
+      </svg>
+    </span>
+  </span>
 </div>
 `;
 
 exports[`ConfigProvider components AutoComplete normal 1`] = `
 <div
-  class="ant-select ant-select-auto-complete ant-select-single ant-select-show-search"
+  class="ant-select ant-select-auto-complete ant-select-single ant-select-show-arrow ant-select-show-search"
 >
   <div
     class="ant-select-selector"
@@ -535,12 +665,38 @@ exports[`ConfigProvider components AutoComplete normal 1`] = `
       class="ant-select-selection-placeholder"
     />
   </div>
+  <span
+    aria-hidden="true"
+    class="ant-select-arrow"
+    style="user-select: none;"
+    unselectable="on"
+  >
+    <span
+      aria-label="down"
+      class="anticon anticon-down ant-select-suffix"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        data-icon="down"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+        />
+      </svg>
+    </span>
+  </span>
 </div>
 `;
 
 exports[`ConfigProvider components AutoComplete prefixCls 1`] = `
 <div
-  class="prefix-AutoComplete prefix-AutoComplete-auto-complete prefix-AutoComplete-single prefix-AutoComplete-show-search"
+  class="prefix-AutoComplete prefix-AutoComplete-auto-complete prefix-AutoComplete-single prefix-AutoComplete-show-arrow prefix-AutoComplete-show-search"
 >
   <div
     class="prefix-AutoComplete-selector"
@@ -566,6 +722,32 @@ exports[`ConfigProvider components AutoComplete prefixCls 1`] = `
       class="prefix-AutoComplete-selection-placeholder"
     />
   </div>
+  <span
+    aria-hidden="true"
+    class="prefix-AutoComplete-arrow"
+    style="user-select: none;"
+    unselectable="on"
+  >
+    <span
+      aria-label="down"
+      class="anticon anticon-down prefix-AutoComplete-suffix"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        data-icon="down"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+        />
+      </svg>
+    </span>
+  </span>
 </div>
 `;
 
