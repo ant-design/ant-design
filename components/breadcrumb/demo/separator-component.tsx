@@ -4,7 +4,7 @@ import React from 'react';
 const App: React.FC = () => (
   <Breadcrumb
     separator=""
-    routes={[
+    items={[
       {
         title: 'Location',
       },

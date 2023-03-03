@@ -4,7 +4,7 @@ import { Breadcrumb } from 'antd';
 const App: React.FC = () => (
   <Breadcrumb
     separator=">"
-    routes={[
+    items={[
       {
         title: 'Home',
       },

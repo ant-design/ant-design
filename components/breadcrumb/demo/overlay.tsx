@@ -30,7 +30,7 @@ const menuItems = [
 
 const App: React.FC = () => (
   <Breadcrumb
-    routes={[
+    items={[
       {
         title: 'Ant Design',
       },

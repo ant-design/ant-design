@@ -1,9 +1,9 @@
-import * as React from 'react';
 import DownOutlined from '@ant-design/icons/DownOutlined';
-import warning from '../_util/warning';
+import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import type { DropdownProps } from '../dropdown/dropdown';
 import Dropdown from '../dropdown/dropdown';
+import warning from '../_util/warning';
 import BreadcrumbSeparator from './BreadcrumbSeparator';
 
 export interface SeparatorType {
@@ -34,6 +34,7 @@ const BreadcrumbItem: CompoundedComponent = (props: BreadcrumbItemProps) => {
     menu,
     overlay,
     dropdownProps,
+    href,
     ...restProps
   } = props;
 
@@ -71,9 +72,9 @@ const BreadcrumbItem: CompoundedComponent = (props: BreadcrumbItemProps) => {
   };
 
   let link: React.ReactNode;
-  if ('href' in restProps) {
+  if (href !== undefined) {
     link = (
-      <a className={`${prefixCls}-link`} {...restProps}>
+      <a className={`${prefixCls}-link`} href={href} {...restProps}>
         {children}
       </a>
     );

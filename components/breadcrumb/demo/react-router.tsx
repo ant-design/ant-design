@@ -51,7 +51,7 @@ const Home = () => {
         <Route path="*" element={<span>Home Page</span>} />
       </Routes>
       <Alert style={{ margin: '16px 0' }} message="Click the navigation above to switch:" />
-      <Breadcrumb routes={breadcrumbItems} />
+      <Breadcrumb items={breadcrumbItems} />
     </div>
   );
 };
