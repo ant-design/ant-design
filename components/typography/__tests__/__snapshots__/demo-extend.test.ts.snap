@@ -37,7 +37,7 @@ exports[`renders components/typography/demo/basic.tsx extend context correctly 1
   >
     We supply a series of design principles, practical patterns and high quality design resources (
     <span
-      class="ant-typography"
+      class="ant-typography ant-typography-code"
     >
       <code>
         Sketch
@@ -45,7 +45,7 @@ exports[`renders components/typography/demo/basic.tsx extend context correctly 1
     </span>
      and
     <span
-      class="ant-typography"
+      class="ant-typography ant-typography-code"
     >
       <code>
         Axure
@@ -141,7 +141,7 @@ exports[`renders components/typography/demo/basic.tsx extend context correctly 1
   >
     我们提供完善的设计原则、最佳实践和设计资源文件（
     <span
-      class="ant-typography"
+      class="ant-typography ant-typography-code"
     >
       <code>
         Sketch
@@ -149,7 +149,7 @@ exports[`renders components/typography/demo/basic.tsx extend context correctly 1
     </span>
      和
     <span
-      class="ant-typography"
+      class="ant-typography ant-typography-code"
     >
       <code>
         Axure
@@ -270,6 +270,15 @@ Array [
       </a>
     </span>
   </div>,
+  <span
+    class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line ant-typography-code"
+  >
+    <code>
+      Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team.
+    </code>
+  </span>,
+  <br />,
+  <br />,
   <span
     class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
     style="width: 100px;"
@@ -430,7 +439,7 @@ Array [
   >
     Ant Design, a design language for background applications, is refined by Ant UED Team. This is a nest sample
     <span
-      class="ant-typography"
+      class="ant-typography ant-typography-code"
     >
       <code>
         <del>
@@ -2012,7 +2021,7 @@ Array [
   >
     We supply a series of design principles, practical patterns and high quality design resources (
     <span
-      class="ant-typography"
+      class="ant-typography ant-typography-code"
     >
       <code>
         Sketch
@@ -2020,7 +2029,7 @@ Array [
     </span>
      and
     <span
-      class="ant-typography"
+      class="ant-typography ant-typography-code"
     >
       <code>
         Axure
@@ -2097,7 +2106,7 @@ Array [
   >
     我们提供完善的设计原则、最佳实践和设计资源文件（
     <span
-      class="ant-typography"
+      class="ant-typography ant-typography-code"
     >
       <code>
         Sketch
@@ -2105,7 +2114,7 @@ Array [
     </span>
      和
     <span
-      class="ant-typography"
+      class="ant-typography ant-typography-code"
     >
       <code>
         Axure
@@ -2337,7 +2346,7 @@ exports[`renders components/typography/demo/text.tsx extend context correctly 1`
     style="margin-bottom: 8px;"
   >
     <span
-      class="ant-typography"
+      class="ant-typography ant-typography-code"
     >
       <code>
         Ant Design (code)
