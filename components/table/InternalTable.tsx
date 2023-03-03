@@ -359,8 +359,8 @@ function InternalTable<RecordType extends object = any>(
 
   const [mergedPagination, resetPagination] = usePagination(
     mergedData.length,
-    pagination,
     onPaginationChange,
+    pagination,
   );
 
   changeEventInfo.pagination =
