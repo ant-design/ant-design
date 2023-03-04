@@ -98,15 +98,6 @@ const getPath = (params: any, path?: string) => {
   return mergedPath;
 };
 
-// const addChildPath = (paths: string[], childPath: string, params: any) => {
-//   const originalPaths = [...paths];
-//   const path = getPath(params, childPath);
-//   if (path !== undefined) {
-//     originalPaths.push(path);
-//   }
-//   return originalPaths;
-// };
-
 type CompoundedComponent = React.FC<BreadcrumbProps> & {
   Item: typeof BreadcrumbItem;
   Separator: typeof BreadcrumbSeparator;
