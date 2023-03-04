@@ -106,7 +106,7 @@ describe('Breadcrumb', () => {
       </Breadcrumb>,
     );
     expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Breadcrumb] `Breadcrumb.Item and Breadcrumb.Separator` is deprecated. Please use `routes` instead.',
+      'Warning: [antd: Breadcrumb] `Breadcrumb.Item and Breadcrumb.Separator` is deprecated. Please use `items` instead.',
     );
   });
 
@@ -117,7 +117,7 @@ describe('Breadcrumb', () => {
       </Breadcrumb>,
     );
     expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Breadcrumb] `Breadcrumb.Item and Breadcrumb.Separator` is deprecated. Please use `routes` instead.',
+      'Warning: [antd: Breadcrumb] `Breadcrumb.Item and Breadcrumb.Separator` is deprecated. Please use `items` instead.',
     );
   });
 

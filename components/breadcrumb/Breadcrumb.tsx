@@ -198,7 +198,7 @@ const Breadcrumb: CompoundedComponent = (props) => {
         warning(
           !element,
           'Breadcrumb',
-          '`Breadcrumb.Item and Breadcrumb.Separator` is deprecated. Please use `routes` instead.',
+          '`Breadcrumb.Item and Breadcrumb.Separator` is deprecated. Please use `items` instead.',
         );
       }
       warning(
