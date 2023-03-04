@@ -3,6 +3,7 @@ import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render } from '../../../tests/utils';
+import { resetWarned } from '../../_util/warning';
 import type { ItemType } from '../Breadcrumb';
 import Breadcrumb from '../index';
 
@@ -65,20 +66,37 @@ describe('Breadcrumb', () => {
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
-  it('overlay deprecation warning', () => {
-    render(
-      <Breadcrumb
-        items={[
-          {
-            overlay: <div>menu</div>,
-            title: <a href="">General</a>,
-          },
-        ]}
-      />,
-    );
-    expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Breadcrumb.Item] `overlay` is deprecated. Please use `menu` instead.',
-    );
+  describe('overlay deprecation warning set', () => {
+    it('legacy jsx', () => {
+      resetWarned();
+      render(
+        <Breadcrumb>
+          <Breadcrumb.Item overlay={<div>menu</div>}>
+            <a href="">General</a>
+          </Breadcrumb.Item>
+        </Breadcrumb>,
+      );
+      expect(errorSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Breadcrumb.Item] `overlay` is deprecated. Please use `menu` instead.',
+      );
+    });
+
+    it('items123', () => {
+      resetWarned();
+      render(
+        <Breadcrumb
+          items={[
+            {
+              overlay: <div>menu</div>,
+              title: 'General',
+            },
+          ]}
+        />,
+      );
+      expect(errorSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Breadcrumb.Item] `overlay` is deprecated. Please use `menu` instead.',
+      );
+    });
   });
 
   it('Breadcrumb.Item deprecation warning', () => {
@@ -286,21 +304,19 @@ describe('Breadcrumb', () => {
         ]}
       />,
     );
+    console.log(container.innerHTML);
     expect(container.querySelectorAll('.ant-breadcrumb-link')[0].textContent).toBe('0');
     expect(container.querySelectorAll('.ant-breadcrumb-link')[1].textContent).toBe('0');
     expect(container.firstChild).toMatchSnapshot();
   });
 
   it('should console Error when `overlay` in props', () => {
+    resetWarned();
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(
-      <Breadcrumb
-        items={[
-          {
-            overlay: <div>test</div>,
-          } as any,
-        ]}
-      />,
+      <Breadcrumb>
+        <Breadcrumb.Item overlay={<div>test</div>} />
+      </Breadcrumb>,
     );
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: Breadcrumb.Item] `overlay` is deprecated. Please use `menu` instead.',

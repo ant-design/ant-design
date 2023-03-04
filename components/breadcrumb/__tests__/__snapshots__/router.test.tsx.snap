@@ -6,15 +6,12 @@ exports[`react router react router 3 1`] = `
 >
   <ol>
     <li>
-      <span
+      <a
         class="ant-breadcrumb-link"
+        href="#/"
       >
-        <a
-          href="#/"
-        >
-          Home
-        </a>
-      </span>
+        Home
+      </a>
     </li>
     <li
       aria-hidden="true"
@@ -23,15 +20,12 @@ exports[`react router react router 3 1`] = `
       /
     </li>
     <li>
-      <span
+      <a
         class="ant-breadcrumb-link"
+        href="#//apps"
       >
-        <a
-          href="#/apps"
-        >
-          Application List
-        </a>
-      </span>
+        Application List
+      </a>
     </li>
     <li
       aria-hidden="true"
@@ -40,15 +34,12 @@ exports[`react router react router 3 1`] = `
       /
     </li>
     <li>
-      <span
+      <a
         class="ant-breadcrumb-link"
+        href="#//apps/1"
       >
-        <a
-          href="#/apps/1"
-        >
-          Application1
-        </a>
-      </span>
+        Application1
+      </a>
     </li>
     <li
       aria-hidden="true"
@@ -57,19 +48,12 @@ exports[`react router react router 3 1`] = `
       /
     </li>
     <li>
-      <span
+      <a
         class="ant-breadcrumb-link"
+        href="#//apps/1/detail"
       >
-        <span>
-          Detail
-        </span>
-      </span>
-    </li>
-    <li
-      aria-hidden="true"
-      class="ant-breadcrumb-separator"
-    >
-      /
+        Detail
+      </a>
     </li>
   </ol>
 </nav>

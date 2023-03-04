@@ -2,8 +2,6 @@ import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
-import type { DropdownProps } from '../dropdown';
-import Menu from '../menu';
 import { cloneElement } from '../_util/reactNode';
 import warning from '../_util/warning';
 import type { BreadcrumbItemProps } from './BreadcrumbItem';
@@ -75,7 +73,7 @@ export interface NewBreadcrumbProps extends BaseBreadcrumbProps {
 export type BreadcrumbProps = BaseBreadcrumbProps | LegacyBreadcrumbProps | NewBreadcrumbProps;
 
 function getBreadcrumbName(route: InternalRouteType, params: any) {
-  if (!route.title) {
+  if (route.title === undefined) {
     return null;
   }
   const paramsKeys = Object.keys(params).join('|');
@@ -87,22 +85,26 @@ function getBreadcrumbName(route: InternalRouteType, params: any) {
       );
 }
 
-const getPath = (path: string, params: any) => {
-  path = (path || '').replace(/^\//, '');
+const getPath = (params: any, path?: string) => {
+  if (path === undefined) {
+    return path;
+  }
+
+  let mergedPath = (path || '').replace(/^\//, '');
   Object.keys(params).forEach((key) => {
-    path = path.replace(`:${key}`, params[key]!);
+    mergedPath = mergedPath.replace(`:${key}`, params[key]!);
   });
-  return path;
+  return mergedPath;
 };
 
-const addChildPath = (paths: string[], childPath: string, params: any) => {
-  const originalPaths = [...paths];
-  const path = getPath(childPath || '', params);
-  if (path) {
-    originalPaths.push(path);
-  }
-  return originalPaths;
-};
+// const addChildPath = (paths: string[], childPath: string, params: any) => {
+//   const originalPaths = [...paths];
+//   const path = getPath(params, childPath);
+//   if (path !== undefined) {
+//     originalPaths.push(path);
+//   }
+//   return originalPaths;
+// };
 
 type CompoundedComponent = React.FC<BreadcrumbProps> & {
   Item: typeof BreadcrumbItem;
@@ -151,28 +153,28 @@ const Breadcrumb: CompoundedComponent = (props) => {
     const itemRenderRoutes: any = items || legacyRoutes;
 
     crumbs = mergedItems.map((item, index) => {
-      const path = getPath(item?.path || '', params);
+      const path = getPath(params, item?.path);
 
-      if (path) {
+      if (path !== undefined) {
         paths.push(path);
       }
       // generated overlay by route.children
-      let overlay: DropdownProps['overlay'];
-      if (item?.children && item?.children?.length) {
-        overlay = (
-          <Menu
-            items={item.children.map((child, childIndex) => ({
-              key: child.path || childIndex,
-              label: mergedItemRender(
-                child as any,
-                params,
-                itemRenderRoutes,
-                addChildPath(paths, child.path || '', params),
-              ),
-            }))}
-          />
-        );
-      }
+      // let overlay: DropdownProps['overlay'];
+      // if (item?.children && item?.children?.length) {
+      //   overlay = (
+      //     <Menu
+      //       items={item.children.map((child, childIndex) => ({
+      //         key: child.path || childIndex,
+      //         label: mergedItemRender(
+      //           child as any,
+      //           params,
+      //           itemRenderRoutes,
+      //           addChildPath(paths, child.path, params),
+      //         ),
+      //       }))}
+      //     />
+      //   );
+      // }
 
       const key = item?.key ?? index;
 
@@ -185,12 +187,12 @@ const Breadcrumb: CompoundedComponent = (props) => {
 
       if (item.menu) {
         itemProps.menu = item.menu;
-      } else if (overlay) {
-        itemProps.overlay = overlay;
+      } else if (item.overlay) {
+        itemProps.overlay = item.overlay as any;
       }
 
       let { href } = item;
-      if (paths.length) {
+      if (paths.length && path !== undefined) {
         href = `#/${paths.join('/')}`;
       }
 

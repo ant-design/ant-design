@@ -103,15 +103,12 @@ exports[`Breadcrumb should render a menu 1`] = `
 >
   <ol>
     <li>
-      <span
+      <a
         class="ant-breadcrumb-link"
+        href="#/index"
       >
-        <a
-          href="#/index"
-        >
-          home
-        </a>
-      </span>
+        home
+      </a>
     </li>
     <li
       aria-hidden="true"
@@ -123,15 +120,12 @@ exports[`Breadcrumb should render a menu 1`] = `
       <span
         class="ant-dropdown-trigger ant-breadcrumb-overlay-link"
       >
-        <span
+        <a
           class="ant-breadcrumb-link"
+          href="#/index/first"
         >
-          <a
-            href="#/index/first"
-          >
-            first
-          </a>
-        </span>
+          first
+        </a>
         <span
           aria-label="down"
           class="anticon anticon-down"
@@ -160,15 +154,12 @@ exports[`Breadcrumb should render a menu 1`] = `
       /
     </li>
     <li>
-      <span
+      <a
         class="ant-breadcrumb-link"
+        href="#/index/first/second"
       >
-        <a
-          href="#/index/first/second"
-        >
-          second
-        </a>
-      </span>
+        second
+      </a>
     </li>
     <li
       aria-hidden="true"
@@ -177,17 +168,10 @@ exports[`Breadcrumb should render a menu 1`] = `
       /
     </li>
     <li>
-      <span
+      <a
         class="ant-breadcrumb-link"
-      >
-        <span />
-      </span>
-    </li>
-    <li
-      aria-hidden="true"
-      class="ant-breadcrumb-separator"
-    >
-      /
+        href="#/index/first/second/third"
+      />
     </li>
   </ol>
 </nav>
@@ -199,17 +183,14 @@ exports[`Breadcrumb should render correct 1`] = `
 >
   <ol>
     <li>
-      <span
+      <a
         class="ant-breadcrumb-link"
+        href="#/"
       >
-        <a
-          href="#/"
-        >
-          <span>
-            xxx
-          </span>
-        </a>
-      </span>
+        <span>
+          xxx
+        </span>
+      </a>
     </li>
     <li
       aria-hidden="true"
@@ -221,16 +202,8 @@ exports[`Breadcrumb should render correct 1`] = `
       <span
         class="ant-breadcrumb-link"
       >
-        <span>
-          yyy
-        </span>
+        yyy
       </span>
-    </li>
-    <li
-      aria-hidden="true"
-      class="ant-breadcrumb-separator"
-    >
-      /
     </li>
   </ol>
 </nav>
@@ -338,7 +311,6 @@ exports[`Breadcrumb should support custom attribute 1`] = `
     <li>
       <span
         class="ant-breadcrumb-link"
-        data-custom="custom-item"
       >
         xxx
       </span>

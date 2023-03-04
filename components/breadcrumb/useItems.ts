@@ -14,7 +14,12 @@ function route2item(route: Route): MergedType {
   };
 
   if (children) {
-    clone.children = children;
+    clone.menu = {
+      items: children.map(({ breadcrumbName: itemBreadcrumbName, ...itemProps }) => ({
+        ...itemProps,
+        title: itemBreadcrumbName,
+      })),
+    };
   }
 
   return clone;

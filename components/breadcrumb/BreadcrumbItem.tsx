@@ -66,33 +66,31 @@ const BreadcrumbItem: CompoundedComponent = (props: BreadcrumbItemProps) => {
       const mergeDropDownProps: DropdownProps = {
         ...dropdownProps,
       };
-      if ('overlay' in props) {
+
+      if (menu) {
+        const { items, ...menuProps } = menu! || {};
+        mergeDropDownProps.menu = {
+          ...menuProps,
+          items: items?.map(({ title, label, path, ...itemProps }, index) => {
+            let mergedLabel: React.ReactNode = label ?? title;
+
+            if (path) {
+              mergedLabel = <a href={`${href}${path}`}>{mergedLabel}</a>;
+            }
+
+            return {
+              ...itemProps,
+              key: index,
+              label: mergedLabel as string,
+            };
+          }),
+        };
+      } else if (overlay) {
         mergeDropDownProps.overlay = overlay;
       }
 
-      const { items, ...menuProps } = menu!;
-
       return (
-        <Dropdown
-          menu={{
-            ...menuProps,
-            items: items?.map(({ title, label, path, ...itemProps }, index) => {
-              let mergedLabel: React.ReactNode = title ?? label;
-
-              if (path) {
-                mergedLabel = <a href={`${href}${path}`}>{mergedLabel}</a>;
-              }
-
-              return {
-                ...itemProps,
-                key: index,
-                title: mergedLabel as string,
-              };
-            }),
-          }}
-          placement="bottom"
-          {...mergeDropDownProps}
-        >
+        <Dropdown placement="bottom" {...mergeDropDownProps}>
           <span className={`${prefixCls}-overlay-link`}>
             {breadcrumbItem}
             <DownOutlined />
