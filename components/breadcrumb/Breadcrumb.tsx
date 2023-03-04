@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
+import pickAttrs from 'rc-util/lib/pickAttrs';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import { cloneElement } from '../_util/reactNode';
@@ -153,53 +154,41 @@ const Breadcrumb: CompoundedComponent = (props) => {
     const itemRenderRoutes: any = items || legacyRoutes;
 
     crumbs = mergedItems.map((item, index) => {
-      const path = getPath(params, item?.path);
+      const { path, key, type, menu, overlay, separator: itemSeparator } = item;
+      const mergedPath = getPath(params, path);
 
-      if (path !== undefined) {
-        paths.push(path);
-      }
-      // generated overlay by route.children
-      // let overlay: DropdownProps['overlay'];
-      // if (item?.children && item?.children?.length) {
-      //   overlay = (
-      //     <Menu
-      //       items={item.children.map((child, childIndex) => ({
-      //         key: child.path || childIndex,
-      //         label: mergedItemRender(
-      //           child as any,
-      //           params,
-      //           itemRenderRoutes,
-      //           addChildPath(paths, child.path, params),
-      //         ),
-      //       }))}
-      //     />
-      //   );
-      // }
-
-      const key = item?.key ?? index;
-
-      if (item.type === 'separator') {
-        return <BreadcrumbSeparator key={key}>{item.separator}</BreadcrumbSeparator>;
+      if (mergedPath !== undefined) {
+        paths.push(mergedPath);
       }
 
-      const itemProps: BreadcrumbItemProps = { separator };
+      const mergedKey = key ?? index;
+
+      if (type === 'separator') {
+        return <BreadcrumbSeparator key={mergedKey}>{itemSeparator}</BreadcrumbSeparator>;
+      }
+
+      const itemProps: BreadcrumbItemProps = {};
       const isLastItem = index === mergedItems.length - 1;
 
-      if (item.menu) {
-        itemProps.menu = item.menu;
-      } else if (item.overlay) {
-        itemProps.overlay = item.overlay as any;
+      if (menu) {
+        itemProps.menu = menu;
+      } else if (overlay) {
+        itemProps.overlay = overlay as any;
       }
 
       let { href } = item;
-      if (paths.length && path !== undefined) {
+      if (paths.length && mergedPath !== undefined) {
         href = `#/${paths.join('/')}`;
       }
 
       return (
         <BreadcrumbItem
-          key={key}
+          key={mergedKey}
           {...itemProps}
+          {...pickAttrs(item, {
+            data: true,
+            aria: true,
+          })}
           href={href}
           separator={isLastItem ? '' : separator}
         >

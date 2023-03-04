@@ -81,7 +81,7 @@ describe('Breadcrumb', () => {
       );
     });
 
-    it('items123', () => {
+    it('items', () => {
       resetWarned();
       render(
         <Breadcrumb
