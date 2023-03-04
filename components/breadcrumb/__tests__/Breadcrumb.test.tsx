@@ -232,7 +232,7 @@ describe('Breadcrumb', () => {
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
-  it('should accept undefined routes', () => {
+  it('should accept undefined items', () => {
     const { asFragment } = render(<Breadcrumb items={undefined!} />);
     expect(asFragment().firstChild).toMatchSnapshot();
   });
