@@ -144,6 +144,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
   return (
     <Select
       ref={ref}
+      showArrow={false}
       {...omit(props, ['dataSource', 'dropdownClassName'])}
       prefixCls={prefixCls}
       popupClassName={popupClassName || dropdownClassName}
