@@ -39,7 +39,7 @@ timeline: true
 - 🐞 修复部分组件箭头形状问题。[#40971](https://github.com/ant-design/ant-design/pull/40971) [@MadCcc](https://github.com/MadCcc)
 - 🐞 修复 Layout 报错 `React does not recognize the `suffixCls` prop on a DOM element` 的问题。[#40969](https://github.com/ant-design/ant-design/pull/40969)
 - 🐞 修复 Watermark 组件图片加载异常时的问题，默认展示文字。[#40770](https://github.com/ant-design/ant-design/pull/40770) [@OriginRing](https://github.com/OriginRing)
-- 🐞 Image 预览新增图片翻转功能。<br>修复 Image `fallback` 在 ssr 下失效的问题。[#40660](https://github.com/ant-design/ant-design/pull/40660)
+- 🐞 Image 预览新增图片翻转功能。并修复 Image `fallback` 在 ssr 下失效的问题。[#40660](https://github.com/ant-design/ant-design/pull/40660)
 - 🌐 完善 Form 的 `vi_VN` 语言包。[#40992](https://github.com/ant-design/ant-design/pull/40992) [@lamvananh](https://github.com/lamvananh)
 - RTL
   - 💄 修复 FloatButton 不支持 `rtl` 模式的问题。[#40990](https://github.com/ant-design/ant-design/pull/40990) [@li-jia-nan](https://github.com/li-jia-nan)
