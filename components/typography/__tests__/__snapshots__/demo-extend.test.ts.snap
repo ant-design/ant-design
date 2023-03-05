@@ -311,27 +311,22 @@ Array [
       </span>
     </span>
   </span>,
-  <div>
+  <div
+    class="ant-tooltip ant-tooltip-placement-top"
+    style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+  >
     <div
-      class="ant-tooltip"
-      style="opacity:0"
+      class="ant-tooltip-arrow"
+      style="position:absolute;bottom:0;left:0"
+    />
+    <div
+      class="ant-tooltip-content"
     >
       <div
-        class="ant-tooltip-content"
+        class="ant-tooltip-inner"
+        role="tooltip"
       >
-        <div
-          class="ant-tooltip-arrow"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-tooltip-inner"
-          role="tooltip"
-        >
-          I am ellipsis now!
-        </div>
+        I am ellipsis now!
       </div>
     </div>
   </div>,
@@ -445,27 +440,22 @@ Array [
       style="left:0%;transform:translateX(-50%)"
       tabindex="0"
     />
-    <div>
+    <div
+      class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-tooltip ant-slider-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            1
-          </div>
+          1
         </div>
       </div>
     </div>
@@ -538,27 +528,22 @@ Array [
         </svg>
       </span>
     </div>
-    <div>
+    <div
+      class="ant-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            Copy
-          </div>
+          Copy
         </div>
       </div>
     </div>
@@ -604,27 +589,22 @@ Array [
           </svg>
         </span>
       </div>
-      <div>
+      <div
+        class="ant-tooltip ant-tooltip-placement-top"
+        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      >
         <div
-          class="ant-tooltip"
-          style="opacity:0"
+          class="ant-tooltip-arrow"
+          style="position:absolute;bottom:0;left:0"
+        />
+        <div
+          class="ant-tooltip-content"
         >
           <div
-            class="ant-tooltip-content"
+            class="ant-tooltip-inner"
+            role="tooltip"
           >
-            <div
-              class="ant-tooltip-arrow"
-            >
-              <span
-                class="ant-tooltip-arrow-content"
-              />
-            </div>
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            >
-              Copy
-            </div>
+            Copy
           </div>
         </div>
       </div>
@@ -664,27 +644,22 @@ Array [
         </svg>
       </span>
     </div>
-    <div>
+    <div
+      class="ant-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            Copy
-          </div>
+          Copy
         </div>
       </div>
     </div>
@@ -730,27 +705,22 @@ Array [
           </svg>
         </span>
       </div>
-      <div>
+      <div
+        class="ant-tooltip ant-tooltip-placement-top"
+        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      >
         <div
-          class="ant-tooltip"
-          style="opacity:0"
+          class="ant-tooltip-arrow"
+          style="position:absolute;bottom:0;left:0"
+        />
+        <div
+          class="ant-tooltip-content"
         >
           <div
-            class="ant-tooltip-content"
+            class="ant-tooltip-inner"
+            role="tooltip"
           >
-            <div
-              class="ant-tooltip-arrow"
-            >
-              <span
-                class="ant-tooltip-arrow-content"
-              />
-            </div>
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            >
-              Copy
-            </div>
+            Copy
           </div>
         </div>
       </div>
@@ -790,27 +760,22 @@ Array [
         </svg>
       </span>
     </div>
-    <div>
+    <div
+      class="ant-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            Copy
-          </div>
+          Copy
         </div>
       </div>
     </div>
@@ -856,27 +821,22 @@ Array [
           </svg>
         </span>
       </div>
-      <div>
+      <div
+        class="ant-tooltip ant-tooltip-placement-top"
+        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      >
         <div
-          class="ant-tooltip"
-          style="opacity:0"
+          class="ant-tooltip-arrow"
+          style="position:absolute;bottom:0;left:0"
+        />
+        <div
+          class="ant-tooltip-content"
         >
           <div
-            class="ant-tooltip-content"
+            class="ant-tooltip-inner"
+            role="tooltip"
           >
-            <div
-              class="ant-tooltip-arrow"
-            >
-              <span
-                class="ant-tooltip-arrow-content"
-              />
-            </div>
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            >
-              Copy
-            </div>
+            Copy
           </div>
         </div>
       </div>
@@ -916,27 +876,22 @@ Array [
         </svg>
       </span>
     </div>
-    <div>
+    <div
+      class="ant-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            Copy
-          </div>
+          Copy
         </div>
       </div>
     </div>
@@ -982,27 +937,22 @@ Array [
           </svg>
         </span>
       </div>
-      <div>
+      <div
+        class="ant-tooltip ant-tooltip-placement-top"
+        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      >
         <div
-          class="ant-tooltip"
-          style="opacity:0"
+          class="ant-tooltip-arrow"
+          style="position:absolute;bottom:0;left:0"
+        />
+        <div
+          class="ant-tooltip-content"
         >
           <div
-            class="ant-tooltip-content"
+            class="ant-tooltip-inner"
+            role="tooltip"
           >
-            <div
-              class="ant-tooltip-arrow"
-            >
-              <span
-                class="ant-tooltip-arrow-content"
-              />
-            </div>
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            >
-              Copy
-            </div>
+            Copy
           </div>
         </div>
       </div>
@@ -1060,27 +1010,22 @@ Array [
         </span>
       </span>
     </span>
-    <div>
+    <div
+      class="ant-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            I am ellipsis now!
-          </div>
+          I am ellipsis now!
         </div>
       </div>
     </div>
@@ -1150,27 +1095,22 @@ Array [
         </svg>
       </span>
     </div>
-    <div>
+    <div
+      class="ant-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            Edit
-          </div>
+          Edit
         </div>
       </div>
     </div>
@@ -1209,27 +1149,22 @@ Array [
         </svg>
       </span>
     </div>
-    <div>
+    <div
+      class="ant-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            Edit
-          </div>
+          Edit
         </div>
       </div>
     </div>
@@ -1276,27 +1211,22 @@ Array [
           </svg>
         </span>
       </div>
-      <div>
+      <div
+        class="ant-tooltip ant-tooltip-placement-top"
+        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      >
         <div
-          class="ant-tooltip"
-          style="opacity:0"
+          class="ant-tooltip-arrow"
+          style="position:absolute;bottom:0;left:0"
+        />
+        <div
+          class="ant-tooltip-content"
         >
           <div
-            class="ant-tooltip-content"
+            class="ant-tooltip-inner"
+            role="tooltip"
           >
-            <div
-              class="ant-tooltip-arrow"
-            >
-              <span
-                class="ant-tooltip-arrow-content"
-              />
-            </div>
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            >
-              Edit
-            </div>
+            Edit
           </div>
         </div>
       </div>
@@ -1333,27 +1263,22 @@ Array [
         </svg>
       </span>
     </div>
-    <div>
+    <div
+      class="ant-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            click to edit text
-          </div>
+          click to edit text
         </div>
       </div>
     </div>
@@ -1454,27 +1379,22 @@ Array [
         </svg>
       </span>
     </div>
-    <div>
+    <div
+      class="ant-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            click to edit text
-          </div>
+          click to edit text
         </div>
       </div>
     </div>
@@ -1510,27 +1430,22 @@ Array [
         </svg>
       </span>
     </div>
-    <div>
+    <div
+      class="ant-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            click to edit text
-          </div>
+          click to edit text
         </div>
       </div>
     </div>
@@ -1566,27 +1481,22 @@ Array [
         </svg>
       </span>
     </div>
-    <div>
+    <div
+      class="ant-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            click to edit text
-          </div>
+          click to edit text
         </div>
       </div>
     </div>
@@ -1622,26 +1532,21 @@ Array [
         </svg>
       </span>
     </div>
-    <div>
+    <div
+      class="ant-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
-        >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          />
-        </div>
+          class="ant-tooltip-inner"
+          role="tooltip"
+        />
       </div>
     </div>
   </div>,
@@ -1676,27 +1581,22 @@ Array [
         </svg>
       </span>
     </div>
-    <div>
+    <div
+      class="ant-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            Edit
-          </div>
+          Edit
         </div>
       </div>
     </div>
@@ -1733,27 +1633,22 @@ Array [
         </svg>
       </span>
     </div>
-    <div>
+    <div
+      class="ant-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            Edit
-          </div>
+          Edit
         </div>
       </div>
     </div>
@@ -1790,27 +1685,22 @@ Array [
         </svg>
       </span>
     </div>
-    <div>
+    <div
+      class="ant-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            Edit
-          </div>
+          Edit
         </div>
       </div>
     </div>
@@ -1847,27 +1737,22 @@ Array [
         </svg>
       </span>
     </div>
-    <div>
+    <div
+      class="ant-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            Edit
-          </div>
+          Edit
         </div>
       </div>
     </div>
@@ -1904,27 +1789,22 @@ Array [
         </svg>
       </span>
     </div>
-    <div>
+    <div
+      class="ant-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            Edit
-          </div>
+          Edit
         </div>
       </div>
     </div>
@@ -1961,27 +1841,22 @@ Array [
         </svg>
       </span>
     </div>
-    <div>
+    <div
+      class="ant-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            Edit
-          </div>
+          Edit
         </div>
       </div>
     </div>
@@ -2021,27 +1896,22 @@ Array [
         </svg>
       </span>
     </div>
-    <div>
+    <div
+      class="ant-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            Copy
-          </div>
+          Copy
         </div>
       </div>
     </div>
@@ -2077,27 +1947,22 @@ Array [
         </svg>
       </span>
     </div>
-    <div>
+    <div
+      class="ant-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            Copy
-          </div>
+          Copy
         </div>
       </div>
     </div>
@@ -2133,27 +1998,22 @@ Array [
         </svg>
       </span>
     </div>
-    <div>
+    <div
+      class="ant-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            click here
-          </div>
+          click here
         </div>
       </div>
     </div>
@@ -2189,26 +2049,21 @@ Array [
         </svg>
       </span>
     </div>
-    <div>
+    <div
+      class="ant-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
-        >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          />
-        </div>
+          class="ant-tooltip-inner"
+          role="tooltip"
+        />
       </div>
     </div>
   </div>,
@@ -2441,27 +2296,22 @@ Array [
       style="left:0%;transform:translateX(-50%)"
       tabindex="0"
     />
-    <div>
+    <div
+      class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-tooltip ant-slider-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            1
-          </div>
+          1
         </div>
       </div>
     </div>

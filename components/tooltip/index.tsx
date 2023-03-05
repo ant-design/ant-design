@@ -1,12 +1,16 @@
 import classNames from 'classnames';
 import RcTooltip from 'rc-tooltip';
 import type { placements as Placements } from 'rc-tooltip/lib/placements';
-import type { TooltipProps as RcTooltipProps } from 'rc-tooltip/lib/Tooltip';
+import type {
+  TooltipProps as RcTooltipProps,
+  TooltipRef as RcTooltipRef,
+} from 'rc-tooltip/lib/Tooltip';
 import type { AlignType } from 'rc-trigger/lib/interface';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { CSSProperties } from 'react';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
+import theme from '../theme';
 import type { PresetColorType } from '../_util/colors';
 import { getTransitionName } from '../_util/motion';
 import type { AdjustOverflow, PlacementsConfig } from '../_util/placements';
@@ -17,11 +21,16 @@ import warning from '../_util/warning';
 import PurePanel from './PurePanel';
 import useStyle from './style';
 import { parseColor } from './util';
-import theme from '../theme';
 
 const { useToken } = theme;
 
 export type { AdjustOverflow, PlacementsConfig };
+
+export interface TooltipRef {
+  /** @deprecated Please use `forceAlign` instead */
+  forcePopupAlign: VoidFunction;
+  forceAlign: VoidFunction;
+}
 
 export type TooltipPlacement =
   | 'top'
@@ -53,7 +62,12 @@ interface LegacyTooltipProps
   extends Partial<
     Omit<
       RcTooltipProps,
-      'children' | 'visible' | 'defaultVisible' | 'onVisibleChange' | 'afterVisibleChange'
+      | 'children'
+      | 'visible'
+      | 'defaultVisible'
+      | 'onVisibleChange'
+      | 'afterVisibleChange'
+      | 'destroyTooltipOnHide'
     >
   > {
   open?: RcTooltipProps['visible'];
@@ -82,10 +96,17 @@ export interface AbstractTooltipProps extends LegacyTooltipProps {
   openClassName?: string;
   /** @deprecated Please use `arrow` instead. */
   arrowPointAtCenter?: boolean;
-  arrow?: boolean | { arrowPointAtCenter: boolean };
+  arrow?:
+    | boolean
+    | {
+        /** @deprecated Please use `pointAtCenter` instead. */
+        arrowPointAtCenter?: boolean;
+        pointAtCenter?: boolean;
+      };
   autoAdjustOverflow?: boolean | AdjustOverflow;
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   children?: React.ReactNode;
+  destroyTooltipOnHide?: boolean | { keepParent?: boolean };
 }
 
 export type RenderFunction = () => React.ReactNode;
@@ -165,7 +186,7 @@ function getDisabledCompatibleChildren(element: React.ReactElement<any>, prefixC
   return element;
 }
 
-const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
+const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     openClassName,
@@ -176,6 +197,7 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
     children,
     afterOpenChange,
     afterVisibleChange,
+    destroyTooltipOnHide,
     arrow = true,
   } = props;
 
@@ -189,6 +211,22 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
     direction,
   } = React.useContext(ConfigContext);
 
+  // ============================== Ref ===============================
+  const tooltipRef = React.useRef<RcTooltipRef>(null);
+
+  const forceAlign = () => {
+    tooltipRef.current?.forceAlign();
+  };
+
+  React.useImperativeHandle(ref, () => ({
+    forceAlign,
+    forcePopupAlign: () => {
+      warning(false, 'Tooltip', '`forcePopupAlign` is align to `forceAlign` instead.');
+      forceAlign();
+    },
+  }));
+
+  // ============================== Warn ==============================
   if (process.env.NODE_ENV !== 'production') {
     [
       ['visible', 'open'],
@@ -203,8 +241,21 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
         `\`${deprecatedName}\` is deprecated, please use \`${newName}\` instead.`,
       );
     });
+
+    warning(
+      !destroyTooltipOnHide || typeof destroyTooltipOnHide === 'boolean',
+      'Tooltip',
+      '`destroyTooltipOnHide` no need config `keepParent` anymore. Please use `boolean` value directly.',
+    );
+
+    warning(
+      !arrow || typeof arrow === 'boolean' || !('arrowPointAtCenter' in arrow),
+      'Tooltip',
+      '`arrowPointAtCenter` in `arrow` is deprecated, please use `pointAtCenter` instead.',
+    );
   }
 
+  // ============================== Open ==============================
   const [open, setOpen] = useMergedState(false, {
     value: props.open ?? props.visible,
     defaultValue: props.defaultOpen ?? props.defaultVisible,
@@ -227,8 +278,11 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
   const getTooltipPlacements = () => {
     const { builtinPlacements, arrowPointAtCenter = false, autoAdjustOverflow = true } = props;
 
-    const mergedArrowPointAtCenter =
-      (typeof arrow !== 'boolean' && arrow?.arrowPointAtCenter) ?? arrowPointAtCenter;
+    let mergedArrowPointAtCenter = arrowPointAtCenter;
+    if (typeof arrow === 'object') {
+      mergedArrowPointAtCenter =
+        arrow.pointAtCenter ?? arrow.arrowPointAtCenter ?? arrowPointAtCenter;
+    }
 
     return (
       builtinPlacements ||
@@ -236,6 +290,7 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
         arrowPointAtCenter: mergedArrowPointAtCenter,
         autoAdjustOverflow,
         arrowWidth: mergedShowArrow ? token.sizePopupArrow : 0,
+        borderRadius: token.borderRadius,
         offset: token.marginXXS,
       })
     );
@@ -300,6 +355,7 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
     tempOpen = false;
   }
 
+  // ============================= Render =============================
   const child = getDisabledCompatibleChildren(
     isValidElement(children) && !isFragment(children) ? children : <span>{children}</span>,
     prefixCls,
@@ -344,7 +400,7 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
         ...overlayStyle,
       }}
       getTooltipContainer={getPopupContainer || getTooltipContainer || getContextPopupContainer}
-      ref={ref}
+      ref={tooltipRef}
       builtinPlacements={getTooltipPlacements()}
       overlay={getOverlay()}
       visible={tempOpen}
@@ -357,6 +413,7 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
         motionName: getTransitionName(rootPrefixCls, 'zoom-big-fast', props.transitionName),
         motionDeadline: 1000,
       }}
+      destroyTooltipOnHide={!!destroyTooltipOnHide}
     >
       {tempOpen ? cloneElement(child, { className: childCls }) : child}
     </RcTooltip>,

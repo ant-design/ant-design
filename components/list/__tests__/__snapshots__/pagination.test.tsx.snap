@@ -483,103 +483,101 @@ exports[`List.pagination should change page size work 2`] = `
           50 / page
         </span>
       </div>
-      <div>
-        <div
-          class="ant-select-dropdown ant-slide-up-enter ant-slide-up-enter-prepare ant-slide-up"
-          style="min-width: 0; opacity: 0;"
-        >
-          <div>
+      <div
+        class="ant-select-dropdown ant-slide-up-enter ant-slide-up-enter-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+        style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 0;"
+      >
+        <div>
+          <div
+            class="rc-virtual-list"
+            style="position: relative;"
+          >
             <div
-              class="rc-virtual-list"
-              style="position: relative;"
+              class="rc-virtual-list-holder"
+              style="max-height: 256px; overflow-y: auto;"
             >
-              <div
-                class="rc-virtual-list-holder"
-                style="max-height: 256px; overflow-y: auto;"
-              >
-                <div>
+              <div>
+                <div
+                  class="rc-virtual-list-holder-inner"
+                  id="rc_select_TEST_OR_SSR_list"
+                  role="listbox"
+                  style="display: flex; flex-direction: column;"
+                >
                   <div
-                    class="rc-virtual-list-holder-inner"
-                    id="rc_select_TEST_OR_SSR_list"
-                    role="listbox"
-                    style="display: flex; flex-direction: column;"
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option ant-select-item-option-active"
+                    id="rc_select_TEST_OR_SSR_list_0"
+                    role="option"
+                    title="10 / page"
                   >
                     <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option ant-select-item-option-active"
-                      id="rc_select_TEST_OR_SSR_list_0"
-                      role="option"
-                      title="10 / page"
+                      class="ant-select-item-option-content"
                     >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        10 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
+                      10 / page
                     </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    id="rc_select_TEST_OR_SSR_list_1"
+                    role="option"
+                    title="20 / page"
+                  >
                     <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      id="rc_select_TEST_OR_SSR_list_1"
-                      role="option"
-                      title="20 / page"
+                      class="ant-select-item-option-content"
                     >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        20 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
+                      20 / page
                     </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="true"
+                    class="ant-select-item ant-select-item-option ant-select-item-option-selected"
+                    id="rc_select_TEST_OR_SSR_list_2"
+                    role="option"
+                    title="50 / page"
+                  >
                     <div
-                      aria-selected="true"
-                      class="ant-select-item ant-select-item-option ant-select-item-option-selected"
-                      id="rc_select_TEST_OR_SSR_list_2"
-                      role="option"
-                      title="50 / page"
+                      class="ant-select-item-option-content"
                     >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        50 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
+                      50 / page
                     </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    id="rc_select_TEST_OR_SSR_list_3"
+                    role="option"
+                    title="100 / page"
+                  >
                     <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      id="rc_select_TEST_OR_SSR_list_3"
-                      role="option"
-                      title="100 / page"
+                      class="ant-select-item-option-content"
                     >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        100 / page
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
+                      100 / page
                     </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
                   </div>
                 </div>
               </div>
@@ -613,9 +611,6 @@ exports[`List.pagination should change page size work 2`] = `
           </svg>
         </span>
       </span>
-      <div
-        style="position: absolute; top: 0px; left: 0px; width: 100%;"
-      />
     </div>
   </li>
 </ul>

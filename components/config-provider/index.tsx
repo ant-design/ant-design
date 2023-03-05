@@ -15,11 +15,13 @@ import LocaleContext from '../locale/context';
 import defaultLocale from '../locale/en_US';
 import { DesignTokenContext } from '../theme/internal';
 import defaultSeedToken from '../theme/themes/seed';
+import warning from '../_util/warning';
 import type { ConfigConsumerProps, CSPConfig, DirectionType, Theme, ThemeConfig } from './context';
 import { ConfigConsumer, ConfigContext, defaultIconPrefixCls } from './context';
 import { registerTheme } from './cssVariables';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
 import { DisabledContextProvider } from './DisabledContext';
+import useConfig from './hooks/useConfig';
 import useTheme from './hooks/useTheme';
 import type { SizeType } from './SizeContext';
 import SizeContext, { SizeContextProvider } from './SizeContext';
@@ -314,8 +316,10 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
 const ConfigProvider: React.FC<ConfigProviderProps> & {
   /** @private internal Usage. do not use in your production */
   ConfigContext: typeof ConfigContext;
+  /** @deprecated Please use `ConfigProvider.useConfig().componentSize` instead */
   SizeContext: typeof SizeContext;
   config: typeof setGlobalConfig;
+  useConfig: typeof useConfig;
 } = (props) => {
   const context = React.useContext<ConfigConsumerProps>(ConfigContext);
   const antLocale = React.useContext<LocaleContextProps | undefined>(LocaleContext);
@@ -325,6 +329,18 @@ const ConfigProvider: React.FC<ConfigProviderProps> & {
 ConfigProvider.ConfigContext = ConfigContext;
 ConfigProvider.SizeContext = SizeContext;
 ConfigProvider.config = setGlobalConfig;
+ConfigProvider.useConfig = useConfig;
+
+Object.defineProperty(ConfigProvider, 'SizeContext', {
+  get: () => {
+    warning(
+      false,
+      'ConfigProvider',
+      'ConfigProvider.SizeContext is deprecated. Please use `ConfigProvider.useConfig().componentSize` instead.',
+    );
+    return SizeContext;
+  },
+});
 
 if (process.env.NODE_ENV !== 'production') {
   ConfigProvider.displayName = 'ConfigProvider';

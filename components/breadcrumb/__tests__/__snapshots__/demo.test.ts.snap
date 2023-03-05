@@ -11,11 +11,12 @@ exports[`renders ./components/breadcrumb/demo/basic.tsx correctly 1`] = `
       >
         Home
       </span>
-      <span
-        class="ant-breadcrumb-separator"
-      >
-        /
-      </span>
+    </li>
+    <li
+      aria-hidden="true"
+      class="ant-breadcrumb-separator"
+    >
+      /
     </li>
     <li>
       <span
@@ -27,11 +28,12 @@ exports[`renders ./components/breadcrumb/demo/basic.tsx correctly 1`] = `
           Application Center
         </a>
       </span>
-      <span
-        class="ant-breadcrumb-separator"
-      >
-        /
-      </span>
+    </li>
+    <li
+      aria-hidden="true"
+      class="ant-breadcrumb-separator"
+    >
+      /
     </li>
     <li>
       <span
@@ -43,22 +45,18 @@ exports[`renders ./components/breadcrumb/demo/basic.tsx correctly 1`] = `
           Application List
         </a>
       </span>
-      <span
-        class="ant-breadcrumb-separator"
-      >
-        /
-      </span>
+    </li>
+    <li
+      aria-hidden="true"
+      class="ant-breadcrumb-separator"
+    >
+      /
     </li>
     <li>
       <span
         class="ant-breadcrumb-link"
       >
         An Application
-      </span>
-      <span
-        class="ant-breadcrumb-separator"
-      >
-        /
       </span>
     </li>
   </ol>
@@ -76,11 +74,12 @@ exports[`renders ./components/breadcrumb/demo/overlay.tsx correctly 1`] = `
       >
         Ant Design
       </span>
-      <span
-        class="ant-breadcrumb-separator"
-      >
-        /
-      </span>
+    </li>
+    <li
+      aria-hidden="true"
+      class="ant-breadcrumb-separator"
+    >
+      /
     </li>
     <li>
       <span
@@ -92,11 +91,12 @@ exports[`renders ./components/breadcrumb/demo/overlay.tsx correctly 1`] = `
           Component
         </a>
       </span>
-      <span
-        class="ant-breadcrumb-separator"
-      >
-        /
-      </span>
+    </li>
+    <li
+      aria-hidden="true"
+      class="ant-breadcrumb-separator"
+    >
+      /
     </li>
     <li>
       <span
@@ -131,22 +131,18 @@ exports[`renders ./components/breadcrumb/demo/overlay.tsx correctly 1`] = `
           </svg>
         </span>
       </span>
-      <span
-        class="ant-breadcrumb-separator"
-      >
-        /
-      </span>
+    </li>
+    <li
+      aria-hidden="true"
+      class="ant-breadcrumb-separator"
+    >
+      /
     </li>
     <li>
       <span
         class="ant-breadcrumb-link"
       >
         Button
-      </span>
-      <span
-        class="ant-breadcrumb-separator"
-      >
-        /
       </span>
     </li>
   </ol>
@@ -164,11 +160,12 @@ exports[`renders ./components/breadcrumb/demo/separator.tsx correctly 1`] = `
       >
         Home
       </span>
-      <span
-        class="ant-breadcrumb-separator"
-      >
-        &gt;
-      </span>
+    </li>
+    <li
+      aria-hidden="true"
+      class="ant-breadcrumb-separator"
+    >
+      &gt;
     </li>
     <li>
       <a
@@ -177,11 +174,12 @@ exports[`renders ./components/breadcrumb/demo/separator.tsx correctly 1`] = `
       >
         Application Center
       </a>
-      <span
-        class="ant-breadcrumb-separator"
-      >
-        &gt;
-      </span>
+    </li>
+    <li
+      aria-hidden="true"
+      class="ant-breadcrumb-separator"
+    >
+      &gt;
     </li>
     <li>
       <a
@@ -190,22 +188,18 @@ exports[`renders ./components/breadcrumb/demo/separator.tsx correctly 1`] = `
       >
         Application List
       </a>
-      <span
-        class="ant-breadcrumb-separator"
-      >
-        &gt;
-      </span>
+    </li>
+    <li
+      aria-hidden="true"
+      class="ant-breadcrumb-separator"
+    >
+      &gt;
     </li>
     <li>
       <span
         class="ant-breadcrumb-link"
       >
         An Application
-      </span>
-      <span
-        class="ant-breadcrumb-separator"
-      >
-        &gt;
       </span>
     </li>
   </ol>
@@ -299,11 +293,12 @@ exports[`renders ./components/breadcrumb/demo/withIcon.tsx correctly 1`] = `
           </svg>
         </span>
       </a>
-      <span
-        class="ant-breadcrumb-separator"
-      >
-        /
-      </span>
+    </li>
+    <li
+      aria-hidden="true"
+      class="ant-breadcrumb-separator"
+    >
+      /
     </li>
     <li>
       <a
@@ -333,22 +328,18 @@ exports[`renders ./components/breadcrumb/demo/withIcon.tsx correctly 1`] = `
           Application List
         </span>
       </a>
-      <span
-        class="ant-breadcrumb-separator"
-      >
-        /
-      </span>
+    </li>
+    <li
+      aria-hidden="true"
+      class="ant-breadcrumb-separator"
+    >
+      /
     </li>
     <li>
       <span
         class="ant-breadcrumb-link"
       >
         Application
-      </span>
-      <span
-        class="ant-breadcrumb-separator"
-      >
-        /
       </span>
     </li>
   </ol>

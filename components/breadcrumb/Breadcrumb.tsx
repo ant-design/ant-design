@@ -128,6 +128,7 @@ const Breadcrumb: CompoundedComponent = ({
       );
     });
   } else if (children) {
+    const childrenLength = toArray(children).length;
     crumbs = toArray(children).map((element: any, index) => {
       if (!element) {
         return element;
@@ -140,9 +141,9 @@ const Breadcrumb: CompoundedComponent = ({
         'Breadcrumb',
         "Only accepts Breadcrumb.Item and Breadcrumb.Separator as it's children",
       );
-
+      const isLastItem = index === childrenLength - 1;
       return cloneElement(element, {
-        separator,
+        separator: isLastItem ? '' : separator,
         key: index,
       });
     });

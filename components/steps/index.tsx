@@ -106,7 +106,7 @@ const Steps: CompoundedComponent = (props) => {
           <Progress
             type="circle"
             percent={mergedPercent}
-            width={progressWidth}
+            size={progressWidth}
             strokeWidth={4}
             format={() => null}
           />

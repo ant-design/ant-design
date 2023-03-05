@@ -65,11 +65,15 @@ The properties of config are as follows:
 
 `notification` also provides a global `config()` method that can be used for specifying the default options. Once this method is used, all the notification boxes will take into account these globally defined options when displaying.
 
-- `notification.config(options)`
+### Global configuration
 
-  > When you use `ConfigProvider` for global configuration, the system will automatically start RTL mode by default.(4.3.0+)
-  >
-  > When you want to use it alone, you can start the RTL mode through the following settings.
+`notification.config(options)`
+
+> When you use `ConfigProvider` for global configuration, the system will automatically start RTL mode by default.(4.3.0+)
+>
+> When you want to use it alone, you can start the RTL mode through the following settings.
+
+#### notification.config
 
 ```js
 notification.config({
