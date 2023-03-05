@@ -17,6 +17,22 @@ demo:
 - 当需要告知用户『你在哪里』时；
 - 当需要向上导航的功能时。
 
+```jsx
+// >=5.3.0 可用，推荐的写法 ✅
+return <Breadcrumb items={[{ title: 'sample' }]} />;
+
+// <5.3.0 可用，>=5.3.0 时不推荐 🙅🏻‍♀️
+return (
+  <Breadcrumb>
+    <Breadcrumb.Item>sample</Breadcrumb.Item>
+  </Breadcrumb>
+);
+
+// 或
+
+return <Breadcrumb routes={[{ breadcrumbName: 'sample' }]} />;
+```
+
 ## 代码演示
 
 <!-- prettier-ignore -->
@@ -26,6 +42,7 @@ demo:
 <code src="./demo/separator.tsx">分隔符</code>
 <code src="./demo/overlay.tsx">带下拉菜单的面包屑</code>
 <code src="./demo/separator-component.tsx">分隔符</code>
+<code src="./demo/debug-routes.tsx">Debug Routes</code>
 
 ## API
 
@@ -35,10 +52,14 @@ demo:
 | --- | --- | --- | --- | --- |
 | itemRender | 自定义链接函数，和 react-router 配置使用 | (route, params, routes, paths) => ReactNode | - |  |
 | params | 路由的参数 | object | - |  |
-| routes | router 的路由栈信息 | [routes\[\]](#routes) | - |  |
+| items | 路由栈信息 | [items\[\]](#ItemType) | - | 5.3.0 |
 | separator | 分隔符自定义 | ReactNode | `/` |  |
 
-### Breadcrumb.Item
+### ItemType
+
+> type ItemType = [RouteItemType](#RouteItemType) | [SeparatorType](#SeparatorType)
+
+### RouteItemType
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
@@ -47,27 +68,21 @@ demo:
 | href | 链接的目的地 | string | - |  |
 | menu | 菜单配置项 | [MenuProps](/components/menu-cn/#api) | - | 4.24.0 |
 | onClick | 单击事件 | (e:MouseEvent) => void | - |  |
+| title | 名称 | ReactNode | - | 5.3.0 |
 
-### Breadcrumb.Separator
-
-| 参数     | 说明           | 类型      | 默认值 | 版本 |
-| -------- | -------------- | --------- | ------ | ---- |
-| children | 要显示的分隔符 | ReactNode | `/`    |      |
-
-> 注意：在使用 `Breadcrumb.Separator` 时，其父组件的分隔符必须设置为 `separator=""`，否则会出现父组件默认的分隔符。
-
-### routes
+### SeparatorType
 
 ```ts
-interface Route {
-  path: string;
-  breadcrumbName: string;
-  children: Array<{
-    path: string;
-    breadcrumbName: string;
-  }>;
-}
+const item = {
+  type: 'separator', // Must have
+  separator: '/',
+};
 ```
+
+| 参数      | 说明           | 类型        | 默认值 | 版本  |
+| --------- | -------------- | ----------- | ------ | ----- |
+| type      | 标记为分隔符   | `separator` |        | 5.3.0 |
+| separator | 要显示的分隔符 | ReactNode   | `/`    | 5.3.0 |
 
 ### 和 browserHistory 配合
 
@@ -76,43 +91,38 @@ interface Route {
 ```jsx
 import { Link } from 'react-router';
 
-const routes = [
+const items = [
   {
     path: 'index',
-    breadcrumbName: 'home',
+    title: 'home',
   },
   {
     path: 'first',
-    breadcrumbName: 'first',
+    title: 'first',
     children: [
       {
         path: '/general',
-        breadcrumbName: 'General',
+        title: 'General',
       },
       {
         path: '/layout',
-        breadcrumbName: 'Layout',
+        title: 'Layout',
       },
       {
         path: '/navigation',
-        breadcrumbName: 'Navigation',
+        title: 'Navigation',
       },
     ],
   },
   {
     path: 'second',
-    breadcrumbName: 'second',
+    title: 'second',
   },
 ];
-
-function itemRender(route, params, routes, paths) {
-  const last = routes.indexOf(route) === routes.length - 1;
-  return last ? (
-    <span>{route.breadcrumbName}</span>
-  ) : (
-    <Link to={paths.join('/')}>{route.breadcrumbName}</Link>
-  );
+function itemRender(item, params, items, paths) {
+  const last = items.indexOf(item) === items.length - 1;
+  return last ? <span>{item.title}</span> : <Link to={paths.join('/')}>{item.title}</Link>;
 }
 
-return <Breadcrumb itemRender={itemRender} routes={routes} />;
+return <Breadcrumb itemRender={itemRender} items={items} />;
 ```
