@@ -2,7 +2,7 @@
 
 exports[`renders ./components/select/demo/automatic-tokenization.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-select-multiple ant-select-show-search"
+  class="ant-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
   style="width:100%"
 >
   <div
@@ -375,6 +375,32 @@ exports[`renders ./components/select/demo/automatic-tokenization.tsx extend cont
       </div>
     </div>
   </div>
+  <span
+    aria-hidden="true"
+    class="ant-select-arrow"
+    style="user-select:none;-webkit-user-select:none"
+    unselectable="on"
+  >
+    <span
+      aria-label="down"
+      class="anticon anticon-down ant-select-suffix"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        data-icon="down"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+        />
+      </svg>
+    </span>
+  </span>
 </div>
 `;
 
@@ -2251,7 +2277,7 @@ exports[`renders ./components/select/demo/debug.tsx extend context correctly 1`]
     style="margin-right:8px;padding-bottom:8px"
   >
     <div
-      class="ant-select ant-select-multiple ant-select-show-search"
+      class="ant-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
       style="width:120px"
     >
       <div
@@ -2460,6 +2486,32 @@ exports[`renders ./components/select/demo/debug.tsx extend context correctly 1`]
           </div>
         </div>
       </div>
+      <span
+        aria-hidden="true"
+        class="ant-select-arrow"
+        style="user-select:none;-webkit-user-select:none"
+        unselectable="on"
+      >
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-select-suffix"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+      </span>
     </div>
   </div>
   <div
@@ -2490,7 +2542,7 @@ exports[`renders ./components/select/demo/debug.tsx extend context correctly 1`]
 
 exports[`renders ./components/select/demo/hide-selected.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-select-multiple ant-select-show-search"
+  class="ant-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
   style="width:100%"
 >
   <div
@@ -2626,6 +2678,32 @@ exports[`renders ./components/select/demo/hide-selected.tsx extend context corre
       </div>
     </div>
   </div>
+  <span
+    aria-hidden="true"
+    class="ant-select-arrow"
+    style="user-select:none;-webkit-user-select:none"
+    unselectable="on"
+  >
+    <span
+      aria-label="down"
+      class="anticon anticon-down ant-select-suffix"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        data-icon="down"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+        />
+      </svg>
+    </span>
+  </span>
 </div>
 `;
 
@@ -2782,7 +2860,7 @@ exports[`renders ./components/select/demo/multiple.tsx extend context correctly 
     style="margin-bottom:8px"
   >
     <div
-      class="ant-select ant-select-multiple ant-select-allow-clear ant-select-show-search"
+      class="ant-select ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
       style="width:100%"
     >
       <div
@@ -3291,6 +3369,32 @@ exports[`renders ./components/select/demo/multiple.tsx extend context correctly 
       </div>
       <span
         aria-hidden="true"
+        class="ant-select-arrow"
+        style="user-select:none;-webkit-user-select:none"
+        unselectable="on"
+      >
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-select-suffix"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+      </span>
+      <span
+        aria-hidden="true"
         class="ant-select-clear"
         style="user-select:none;-webkit-user-select:none"
         unselectable="on"
@@ -3321,7 +3425,7 @@ exports[`renders ./components/select/demo/multiple.tsx extend context correctly 
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-select-multiple ant-select-disabled ant-select-show-search"
+      class="ant-select ant-select-multiple ant-select-show-arrow ant-select-disabled ant-select-show-search"
       style="width:100%"
     >
       <div
@@ -3778,6 +3882,32 @@ exports[`renders ./components/select/demo/multiple.tsx extend context correctly 
           </div>
         </div>
       </div>
+      <span
+        aria-hidden="true"
+        class="ant-select-arrow"
+        style="user-select:none;-webkit-user-select:none"
+        unselectable="on"
+      >
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-select-suffix"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+      </span>
     </div>
   </div>
 </div>
@@ -4145,7 +4275,7 @@ exports[`renders ./components/select/demo/option-label-center.tsx extend context
 
 exports[`renders ./components/select/demo/option-label-prop.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-select-multiple ant-select-show-search"
+  class="ant-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
   style="width:100%"
 >
   <div
@@ -4417,6 +4547,32 @@ exports[`renders ./components/select/demo/option-label-prop.tsx extend context c
       </div>
     </div>
   </div>
+  <span
+    aria-hidden="true"
+    class="ant-select-arrow"
+    style="user-select:none;-webkit-user-select:none"
+    unselectable="on"
+  >
+    <span
+      aria-label="down"
+      class="anticon anticon-down ant-select-suffix"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        data-icon="down"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+        />
+      </svg>
+    </span>
+  </span>
 </div>
 `;
 
@@ -4661,7 +4817,7 @@ exports[`renders ./components/select/demo/responsive.tsx extend context correctl
     style="margin-bottom:8px"
   >
     <div
-      class="ant-select ant-select-multiple ant-select-show-search"
+      class="ant-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
       style="width:100%"
     >
       <div
@@ -5180,13 +5336,39 @@ exports[`renders ./components/select/demo/responsive.tsx extend context correctl
           </div>
         </div>
       </div>
+      <span
+        aria-hidden="true"
+        class="ant-select-arrow"
+        style="user-select:none;-webkit-user-select:none"
+        unselectable="on"
+      >
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-select-suffix"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+      </span>
     </div>
   </div>
   <div
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-select-multiple ant-select-disabled ant-select-show-search"
+      class="ant-select ant-select-multiple ant-select-show-arrow ant-select-disabled ant-select-show-search"
       style="width:100%"
     >
       <div
@@ -5707,6 +5889,32 @@ exports[`renders ./components/select/demo/responsive.tsx extend context correctl
           </div>
         </div>
       </div>
+      <span
+        aria-hidden="true"
+        class="ant-select-arrow"
+        style="user-select:none;-webkit-user-select:none"
+        unselectable="on"
+      >
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-select-suffix"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+      </span>
     </div>
   </div>
 </div>
@@ -6121,7 +6329,7 @@ exports[`renders ./components/select/demo/search-sort.tsx extend context correct
 
 exports[`renders ./components/select/demo/select-users.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-select-multiple ant-select-show-search"
+  class="ant-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
   style="width:100%"
 >
   <div
@@ -6179,6 +6387,32 @@ exports[`renders ./components/select/demo/select-users.tsx extend context correc
       />
     </div>
   </div>
+  <span
+    aria-hidden="true"
+    class="ant-select-arrow"
+    style="user-select:none;-webkit-user-select:none"
+    unselectable="on"
+  >
+    <span
+      aria-label="down"
+      class="anticon anticon-down ant-select-suffix"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        data-icon="down"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+        />
+      </svg>
+    </span>
+  </span>
 </div>
 `;
 
@@ -6810,7 +7044,7 @@ Array [
       style="margin-bottom:8px"
     >
       <div
-        class="ant-select ant-select-multiple ant-select-show-search"
+        class="ant-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
         style="width:100%"
       >
         <div
@@ -7317,13 +7551,39 @@ Array [
             </div>
           </div>
         </div>
+        <span
+          aria-hidden="true"
+          class="ant-select-arrow"
+          style="user-select:none;-webkit-user-select:none"
+          unselectable="on"
+        >
+          <span
+            aria-label="down"
+            class="anticon anticon-down ant-select-suffix"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="down"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+              />
+            </svg>
+          </span>
+        </span>
       </div>
     </div>
     <div
       class="ant-space-item"
     >
       <div
-        class="ant-select ant-select-multiple ant-select-show-search"
+        class="ant-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
         style="width:100%"
       >
         <div
@@ -7827,6 +8087,32 @@ Array [
             </div>
           </div>
         </div>
+        <span
+          aria-hidden="true"
+          class="ant-select-arrow"
+          style="user-select:none;-webkit-user-select:none"
+          unselectable="on"
+        >
+          <span
+            aria-label="down"
+            class="anticon anticon-down ant-select-suffix"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="down"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+              />
+            </svg>
+          </span>
+        </span>
       </div>
     </div>
   </div>,
@@ -8391,7 +8677,7 @@ exports[`renders ./components/select/demo/suffix.tsx extend context correctly 1`
 
 exports[`renders ./components/select/demo/tags.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-select-multiple ant-select-show-search"
+  class="ant-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
   style="width:100%"
 >
   <div
@@ -8766,5 +9052,31 @@ exports[`renders ./components/select/demo/tags.tsx extend context correctly 1`] 
       </div>
     </div>
   </div>
+  <span
+    aria-hidden="true"
+    class="ant-select-arrow"
+    style="user-select:none;-webkit-user-select:none"
+    unselectable="on"
+  >
+    <span
+      aria-label="down"
+      class="anticon anticon-down ant-select-suffix"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        data-icon="down"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+        />
+      </svg>
+    </span>
+  </span>
 </div>
 `;
