@@ -26,6 +26,7 @@ A simple text popup tip.
 <code src="./demo/destroy-tooltip-on-hide.tsx" debug>Destroy tooltip when hidden</code>
 <code src="./demo/colorful.tsx">Colorful Tooltip</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/debug.tsx" debug>Debug</code>
 
 ## API
 

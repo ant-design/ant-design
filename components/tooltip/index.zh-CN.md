@@ -28,6 +28,7 @@ demo:
 <code src="./demo/destroy-tooltip-on-hide.tsx" debug>隐藏后销毁</code>
 <code src="./demo/colorful.tsx">多彩文字提示</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/debug.tsx" debug>Debug</code>
 
 ## API
 
