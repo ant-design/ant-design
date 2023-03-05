@@ -26,7 +26,7 @@ const App: React.FC = () => {
     }
 
     return {
-      arrowPointAtCenter: true,
+      pointAtCenter: true,
     };
   }, [arrow]);
 
