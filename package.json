@@ -119,6 +119,8 @@
     "classnames": "^2.2.6",
     "copy-to-clipboard": "^3.2.0",
     "dayjs": "^1.11.1",
+    "dnd-core": "^16.0.1",
+    "immutability-helper": "^3.1.1",
     "qrcode.react": "^3.1.0",
     "rc-cascader": "~3.9.0",
     "rc-checkbox": "~2.3.0",
@@ -153,6 +155,8 @@
     "rc-trigger": "^5.3.4",
     "rc-upload": "~4.3.0",
     "rc-util": "^5.27.0",
+    "react-dnd": "^16.0.1",
+    "react-dnd-html5-backend": "^16.0.1",
     "scroll-into-view-if-needed": "^3.0.3",
     "throttle-debounce": "^5.0.0"
   },
