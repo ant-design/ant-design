@@ -109,7 +109,7 @@ const genColorStyle: GenerateStyle<PopoverToken> = (token) => {
 
   return {
     [componentCls]: PresetColors.map((colorKey: keyof PresetColorType) => {
-      const lightColor = token[`${colorKey}-6`];
+      const lightColor = token[`${colorKey}6`];
       return {
         [`&${componentCls}-${colorKey}`]: {
           '--antd-arrow-background-color': lightColor,
