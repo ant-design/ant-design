@@ -359,8 +359,8 @@ function InternalTable<RecordType extends object = any>(
 
   const [mergedPagination, resetPagination] = usePagination(
     mergedData.length,
-    pagination,
     onPaginationChange,
+    pagination,
   );
 
   changeEventInfo.pagination =
@@ -400,17 +400,20 @@ function InternalTable<RecordType extends object = any>(
   ]);
 
   // ========================== Selections ==========================
-  const [transformSelectionColumns, selectedKeySet] = useSelection<RecordType>(rowSelection, {
-    prefixCls,
-    data: mergedData,
-    pageData,
-    getRowKey,
-    getRecordByKey,
-    expandType,
-    childrenColumnName,
-    locale: tableLocale,
-    getPopupContainer: getPopupContainer || getContextPopupContainer,
-  });
+  const [transformSelectionColumns, selectedKeySet] = useSelection<RecordType>(
+    {
+      prefixCls,
+      data: mergedData,
+      pageData,
+      getRowKey,
+      getRecordByKey,
+      expandType,
+      childrenColumnName,
+      locale: tableLocale,
+      getPopupContainer: getPopupContainer || getContextPopupContainer,
+    },
+    rowSelection,
+  );
 
   const internalRowClassName = (record: RecordType, index: number, indent: number) => {
     let mergedRowClassName: string;
