@@ -223,7 +223,7 @@ export const getEditableStyles: GenerateStyle<TypographyToken, CSSObject> = (tok
   };
 };
 
-export const getCopiableStyles: GenerateStyle<TypographyToken, CSSObject> = (token) => ({
+export const getCopyableStyles: GenerateStyle<TypographyToken, CSSObject> = (token) => ({
   '&-copy-success': {
     [`
     &,

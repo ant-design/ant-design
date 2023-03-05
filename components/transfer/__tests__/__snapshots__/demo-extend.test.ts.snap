@@ -57,23 +57,6 @@ exports[`renders ./components/transfer/demo/advanced.tsx extend context correctl
             role="menu"
             tabindex="0"
           >
-            <div
-              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-            >
-              <div
-                class="ant-tooltip-arrow"
-                style="position:absolute;top:0;left:0"
-              />
-              <div
-                class="ant-tooltip-content"
-              >
-                <div
-                  class="ant-tooltip-inner"
-                  role="tooltip"
-                />
-              </div>
-            </div>
             <li
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               role="menuitem"
@@ -113,6 +96,23 @@ exports[`renders ./components/transfer/demo/advanced.tsx extend context correctl
                 Invert current page
               </span>
             </li>
+            <div
+              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+            >
+              <div
+                class="ant-tooltip-arrow"
+                style="position:absolute;top:0;left:0"
+              />
+              <div
+                class="ant-tooltip-content"
+              >
+                <div
+                  class="ant-tooltip-inner"
+                  role="tooltip"
+                />
+              </div>
+            </div>
           </ul>
           <div
             aria-hidden="true"
@@ -413,23 +413,6 @@ exports[`renders ./components/transfer/demo/advanced.tsx extend context correctl
             role="menu"
             tabindex="0"
           >
-            <div
-              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-            >
-              <div
-                class="ant-tooltip-arrow"
-                style="position:absolute;top:0;left:0"
-              />
-              <div
-                class="ant-tooltip-content"
-              >
-                <div
-                  class="ant-tooltip-inner"
-                  role="tooltip"
-                />
-              </div>
-            </div>
             <li
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               role="menuitem"
@@ -469,6 +452,23 @@ exports[`renders ./components/transfer/demo/advanced.tsx extend context correctl
                 Invert current page
               </span>
             </li>
+            <div
+              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+            >
+              <div
+                class="ant-tooltip-arrow"
+                style="position:absolute;top:0;left:0"
+              />
+              <div
+                class="ant-tooltip-content"
+              >
+                <div
+                  class="ant-tooltip-inner"
+                  role="tooltip"
+                />
+              </div>
+            </div>
           </ul>
           <div
             aria-hidden="true"
@@ -714,23 +714,6 @@ exports[`renders ./components/transfer/demo/basic.tsx extend context correctly 1
             role="menu"
             tabindex="0"
           >
-            <div
-              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-            >
-              <div
-                class="ant-tooltip-arrow"
-                style="position:absolute;top:0;left:0"
-              />
-              <div
-                class="ant-tooltip-content"
-              >
-                <div
-                  class="ant-tooltip-inner"
-                  role="tooltip"
-                />
-              </div>
-            </div>
             <li
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               role="menuitem"
@@ -770,6 +753,23 @@ exports[`renders ./components/transfer/demo/basic.tsx extend context correctly 1
                 Invert current page
               </span>
             </li>
+            <div
+              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+            >
+              <div
+                class="ant-tooltip-arrow"
+                style="position:absolute;top:0;left:0"
+              />
+              <div
+                class="ant-tooltip-content"
+              >
+                <div
+                  class="ant-tooltip-inner"
+                  role="tooltip"
+                />
+              </div>
+            </div>
           </ul>
           <div
             aria-hidden="true"
@@ -1215,23 +1215,6 @@ exports[`renders ./components/transfer/demo/basic.tsx extend context correctly 1
             role="menu"
             tabindex="0"
           >
-            <div
-              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-            >
-              <div
-                class="ant-tooltip-arrow"
-                style="position:absolute;top:0;left:0"
-              />
-              <div
-                class="ant-tooltip-content"
-              >
-                <div
-                  class="ant-tooltip-inner"
-                  role="tooltip"
-                />
-              </div>
-            </div>
             <li
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               role="menuitem"
@@ -1271,6 +1254,23 @@ exports[`renders ./components/transfer/demo/basic.tsx extend context correctly 1
                 Invert current page
               </span>
             </li>
+            <div
+              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+            >
+              <div
+                class="ant-tooltip-arrow"
+                style="position:absolute;top:0;left:0"
+              />
+              <div
+                class="ant-tooltip-content"
+              >
+                <div
+                  class="ant-tooltip-inner"
+                  role="tooltip"
+                />
+              </div>
+            </div>
           </ul>
           <div
             aria-hidden="true"
@@ -1621,23 +1621,6 @@ exports[`renders ./components/transfer/demo/custom-item.tsx extend context corre
             role="menu"
             tabindex="0"
           >
-            <div
-              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-            >
-              <div
-                class="ant-tooltip-arrow"
-                style="position:absolute;top:0;left:0"
-              />
-              <div
-                class="ant-tooltip-content"
-              >
-                <div
-                  class="ant-tooltip-inner"
-                  role="tooltip"
-                />
-              </div>
-            </div>
             <li
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               role="menuitem"
@@ -1677,6 +1660,23 @@ exports[`renders ./components/transfer/demo/custom-item.tsx extend context corre
                 Invert current page
               </span>
             </li>
+            <div
+              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+            >
+              <div
+                class="ant-tooltip-arrow"
+                style="position:absolute;top:0;left:0"
+              />
+              <div
+                class="ant-tooltip-content"
+              >
+                <div
+                  class="ant-tooltip-inner"
+                  role="tooltip"
+                />
+              </div>
+            </div>
           </ul>
           <div
             aria-hidden="true"
@@ -1892,23 +1892,6 @@ exports[`renders ./components/transfer/demo/custom-item.tsx extend context corre
             role="menu"
             tabindex="0"
           >
-            <div
-              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-            >
-              <div
-                class="ant-tooltip-arrow"
-                style="position:absolute;top:0;left:0"
-              />
-              <div
-                class="ant-tooltip-content"
-              >
-                <div
-                  class="ant-tooltip-inner"
-                  role="tooltip"
-                />
-              </div>
-            </div>
             <li
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               role="menuitem"
@@ -1948,6 +1931,23 @@ exports[`renders ./components/transfer/demo/custom-item.tsx extend context corre
                 Invert current page
               </span>
             </li>
+            <div
+              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+            >
+              <div
+                class="ant-tooltip-arrow"
+                style="position:absolute;top:0;left:0"
+              />
+              <div
+                class="ant-tooltip-content"
+              >
+                <div
+                  class="ant-tooltip-inner"
+                  role="tooltip"
+                />
+              </div>
+            </div>
           </ul>
           <div
             aria-hidden="true"
@@ -2114,23 +2114,6 @@ exports[`renders ./components/transfer/demo/custom-select-all-labels.tsx extend 
             role="menu"
             tabindex="0"
           >
-            <div
-              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-            >
-              <div
-                class="ant-tooltip-arrow"
-                style="position:absolute;top:0;left:0"
-              />
-              <div
-                class="ant-tooltip-content"
-              >
-                <div
-                  class="ant-tooltip-inner"
-                  role="tooltip"
-                />
-              </div>
-            </div>
             <li
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               role="menuitem"
@@ -2170,6 +2153,23 @@ exports[`renders ./components/transfer/demo/custom-select-all-labels.tsx extend 
                 Invert current page
               </span>
             </li>
+            <div
+              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+            >
+              <div
+                class="ant-tooltip-arrow"
+                style="position:absolute;top:0;left:0"
+              />
+              <div
+                class="ant-tooltip-content"
+              >
+                <div
+                  class="ant-tooltip-inner"
+                  role="tooltip"
+                />
+              </div>
+            </div>
           </ul>
           <div
             aria-hidden="true"
@@ -2510,23 +2510,6 @@ exports[`renders ./components/transfer/demo/custom-select-all-labels.tsx extend 
             role="menu"
             tabindex="0"
           >
-            <div
-              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-            >
-              <div
-                class="ant-tooltip-arrow"
-                style="position:absolute;top:0;left:0"
-              />
-              <div
-                class="ant-tooltip-content"
-              >
-                <div
-                  class="ant-tooltip-inner"
-                  role="tooltip"
-                />
-              </div>
-            </div>
             <li
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               role="menuitem"
@@ -2566,6 +2549,23 @@ exports[`renders ./components/transfer/demo/custom-select-all-labels.tsx extend 
                 Invert current page
               </span>
             </li>
+            <div
+              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+            >
+              <div
+                class="ant-tooltip-arrow"
+                style="position:absolute;top:0;left:0"
+              />
+              <div
+                class="ant-tooltip-content"
+              >
+                <div
+                  class="ant-tooltip-inner"
+                  role="tooltip"
+                />
+              </div>
+            </div>
           </ul>
           <div
             aria-hidden="true"
@@ -2745,23 +2745,6 @@ Array [
               role="menu"
               tabindex="0"
             >
-              <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-              >
-                <div
-                  class="ant-tooltip-arrow"
-                  style="position:absolute;top:0;left:0"
-                />
-                <div
-                  class="ant-tooltip-content"
-                >
-                  <div
-                    class="ant-tooltip-inner"
-                    role="tooltip"
-                  />
-                </div>
-              </div>
               <li
                 class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                 role="menuitem"
@@ -2829,6 +2812,23 @@ Array [
                   Invert current page
                 </span>
               </li>
+              <div
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+              >
+                <div
+                  class="ant-tooltip-arrow"
+                  style="position:absolute;top:0;left:0"
+                />
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
             </ul>
             <div
               aria-hidden="true"
@@ -3044,23 +3044,6 @@ Array [
               role="menu"
               tabindex="0"
             >
-              <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-              >
-                <div
-                  class="ant-tooltip-arrow"
-                  style="position:absolute;top:0;left:0"
-                />
-                <div
-                  class="ant-tooltip-content"
-                >
-                  <div
-                    class="ant-tooltip-inner"
-                    role="tooltip"
-                  />
-                </div>
-              </div>
               <li
                 class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                 role="menuitem"
@@ -3128,6 +3111,23 @@ Array [
                   Invert current page
                 </span>
               </li>
+              <div
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+              >
+                <div
+                  class="ant-tooltip-arrow"
+                  style="position:absolute;top:0;left:0"
+                />
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
             </ul>
             <div
               aria-hidden="true"
@@ -3339,23 +3339,6 @@ Array [
               role="menu"
               tabindex="0"
             >
-              <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-              >
-                <div
-                  class="ant-tooltip-arrow"
-                  style="position:absolute;top:0;left:0"
-                />
-                <div
-                  class="ant-tooltip-content"
-                >
-                  <div
-                    class="ant-tooltip-inner"
-                    role="tooltip"
-                  />
-                </div>
-              </div>
               <li
                 class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                 role="menuitem"
@@ -3395,6 +3378,23 @@ Array [
                   Invert current page
                 </span>
               </li>
+              <div
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+              >
+                <div
+                  class="ant-tooltip-arrow"
+                  style="position:absolute;top:0;left:0"
+                />
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
             </ul>
             <div
               aria-hidden="true"
@@ -3882,6 +3882,17 @@ Array [
               role="menu"
               tabindex="0"
             >
+              <li
+                class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+                role="menuitem"
+                tabindex="-1"
+              >
+                <span
+                  class="ant-dropdown-menu-title-content"
+                >
+                  Remove all data
+                </span>
+              </li>
               <div
                 class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
                 style="left:-1000vw;top:-1000vh;box-sizing:border-box"
@@ -3899,17 +3910,6 @@ Array [
                   />
                 </div>
               </div>
-              <li
-                class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                role="menuitem"
-                tabindex="-1"
-              >
-                <span
-                  class="ant-dropdown-menu-title-content"
-                >
-                  Remove all data
-                </span>
-              </li>
             </ul>
             <div
               aria-hidden="true"
@@ -4264,23 +4264,6 @@ exports[`renders ./components/transfer/demo/search.tsx extend context correctly 
             role="menu"
             tabindex="0"
           >
-            <div
-              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-            >
-              <div
-                class="ant-tooltip-arrow"
-                style="position:absolute;top:0;left:0"
-              />
-              <div
-                class="ant-tooltip-content"
-              >
-                <div
-                  class="ant-tooltip-inner"
-                  role="tooltip"
-                />
-              </div>
-            </div>
             <li
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               role="menuitem"
@@ -4320,6 +4303,23 @@ exports[`renders ./components/transfer/demo/search.tsx extend context correctly 
                 Invert current page
               </span>
             </li>
+            <div
+              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+            >
+              <div
+                class="ant-tooltip-arrow"
+                style="position:absolute;top:0;left:0"
+              />
+              <div
+                class="ant-tooltip-content"
+              >
+                <div
+                  class="ant-tooltip-inner"
+                  role="tooltip"
+                />
+              </div>
+            </div>
           </ul>
           <div
             aria-hidden="true"
@@ -4600,23 +4600,6 @@ exports[`renders ./components/transfer/demo/search.tsx extend context correctly 
             role="menu"
             tabindex="0"
           >
-            <div
-              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-            >
-              <div
-                class="ant-tooltip-arrow"
-                style="position:absolute;top:0;left:0"
-              />
-              <div
-                class="ant-tooltip-content"
-              >
-                <div
-                  class="ant-tooltip-inner"
-                  role="tooltip"
-                />
-              </div>
-            </div>
             <li
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               role="menuitem"
@@ -4656,6 +4639,23 @@ exports[`renders ./components/transfer/demo/search.tsx extend context correctly 
                 Invert current page
               </span>
             </li>
+            <div
+              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+            >
+              <div
+                class="ant-tooltip-arrow"
+                style="position:absolute;top:0;left:0"
+              />
+              <div
+                class="ant-tooltip-content"
+              >
+                <div
+                  class="ant-tooltip-inner"
+                  role="tooltip"
+                />
+              </div>
+            </div>
           </ul>
           <div
             aria-hidden="true"
@@ -4896,23 +4896,6 @@ exports[`renders ./components/transfer/demo/status.tsx extend context correctly 
                 role="menu"
                 tabindex="0"
               >
-                <div
-                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                  style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-                >
-                  <div
-                    class="ant-tooltip-arrow"
-                    style="position:absolute;top:0;left:0"
-                  />
-                  <div
-                    class="ant-tooltip-content"
-                  >
-                    <div
-                      class="ant-tooltip-inner"
-                      role="tooltip"
-                    />
-                  </div>
-                </div>
                 <li
                   class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                   role="menuitem"
@@ -4952,6 +4935,23 @@ exports[`renders ./components/transfer/demo/status.tsx extend context correctly 
                     Invert current page
                   </span>
                 </li>
+                <div
+                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                    style="position:absolute;top:0;left:0"
+                  />
+                  <div
+                    class="ant-tooltip-content"
+                  >
+                    <div
+                      class="ant-tooltip-inner"
+                      role="tooltip"
+                    />
+                  </div>
+                </div>
               </ul>
               <div
                 aria-hidden="true"
@@ -5166,23 +5166,6 @@ exports[`renders ./components/transfer/demo/status.tsx extend context correctly 
                 role="menu"
                 tabindex="0"
               >
-                <div
-                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                  style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-                >
-                  <div
-                    class="ant-tooltip-arrow"
-                    style="position:absolute;top:0;left:0"
-                  />
-                  <div
-                    class="ant-tooltip-content"
-                  >
-                    <div
-                      class="ant-tooltip-inner"
-                      role="tooltip"
-                    />
-                  </div>
-                </div>
                 <li
                   class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                   role="menuitem"
@@ -5222,6 +5205,23 @@ exports[`renders ./components/transfer/demo/status.tsx extend context correctly 
                     Invert current page
                   </span>
                 </li>
+                <div
+                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                    style="position:absolute;top:0;left:0"
+                  />
+                  <div
+                    class="ant-tooltip-content"
+                  >
+                    <div
+                      class="ant-tooltip-inner"
+                      role="tooltip"
+                    />
+                  </div>
+                </div>
               </ul>
               <div
                 aria-hidden="true"
@@ -5390,23 +5390,6 @@ exports[`renders ./components/transfer/demo/status.tsx extend context correctly 
                 role="menu"
                 tabindex="0"
               >
-                <div
-                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                  style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-                >
-                  <div
-                    class="ant-tooltip-arrow"
-                    style="position:absolute;top:0;left:0"
-                  />
-                  <div
-                    class="ant-tooltip-content"
-                  >
-                    <div
-                      class="ant-tooltip-inner"
-                      role="tooltip"
-                    />
-                  </div>
-                </div>
                 <li
                   class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                   role="menuitem"
@@ -5446,6 +5429,23 @@ exports[`renders ./components/transfer/demo/status.tsx extend context correctly 
                     Invert current page
                   </span>
                 </li>
+                <div
+                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                    style="position:absolute;top:0;left:0"
+                  />
+                  <div
+                    class="ant-tooltip-content"
+                  >
+                    <div
+                      class="ant-tooltip-inner"
+                      role="tooltip"
+                    />
+                  </div>
+                </div>
               </ul>
               <div
                 aria-hidden="true"
@@ -5726,23 +5726,6 @@ exports[`renders ./components/transfer/demo/status.tsx extend context correctly 
                 role="menu"
                 tabindex="0"
               >
-                <div
-                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                  style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-                >
-                  <div
-                    class="ant-tooltip-arrow"
-                    style="position:absolute;top:0;left:0"
-                  />
-                  <div
-                    class="ant-tooltip-content"
-                  >
-                    <div
-                      class="ant-tooltip-inner"
-                      role="tooltip"
-                    />
-                  </div>
-                </div>
                 <li
                   class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                   role="menuitem"
@@ -5782,6 +5765,23 @@ exports[`renders ./components/transfer/demo/status.tsx extend context correctly 
                     Invert current page
                   </span>
                 </li>
+                <div
+                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                    style="position:absolute;top:0;left:0"
+                  />
+                  <div
+                    class="ant-tooltip-content"
+                  >
+                    <div
+                      class="ant-tooltip-inner"
+                      role="tooltip"
+                    />
+                  </div>
+                </div>
               </ul>
               <div
                 aria-hidden="true"
@@ -6017,23 +6017,6 @@ Array [
               role="menu"
               tabindex="0"
             >
-              <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-              >
-                <div
-                  class="ant-tooltip-arrow"
-                  style="position:absolute;top:0;left:0"
-                />
-                <div
-                  class="ant-tooltip-content"
-                >
-                  <div
-                    class="ant-tooltip-inner"
-                    role="tooltip"
-                  />
-                </div>
-              </div>
               <li
                 class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                 role="menuitem"
@@ -6073,6 +6056,23 @@ Array [
                   Invert current page
                 </span>
               </li>
+              <div
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+              >
+                <div
+                  class="ant-tooltip-arrow"
+                  style="position:absolute;top:0;left:0"
+                />
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
             </ul>
             <div
               aria-hidden="true"
@@ -6850,23 +6850,6 @@ Array [
               role="menu"
               tabindex="0"
             >
-              <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-              >
-                <div
-                  class="ant-tooltip-arrow"
-                  style="position:absolute;top:0;left:0"
-                />
-                <div
-                  class="ant-tooltip-content"
-                >
-                  <div
-                    class="ant-tooltip-inner"
-                    role="tooltip"
-                  />
-                </div>
-              </div>
               <li
                 class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                 role="menuitem"
@@ -6906,6 +6889,23 @@ Array [
                   Invert current page
                 </span>
               </li>
+              <div
+                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+              >
+                <div
+                  class="ant-tooltip-arrow"
+                  style="position:absolute;top:0;left:0"
+                />
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
             </ul>
             <div
               aria-hidden="true"

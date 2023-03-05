@@ -348,6 +348,11 @@ exports[`Table.filter renders custom filter icon with right Tooltip title 1`] = 
                         role="button"
                         tabindex="-1"
                       >
+                        <span
+                          class="ant-tooltip-open"
+                        >
+                          Tooltip
+                        </span>
                         <div
                           class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
                           style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
@@ -367,11 +372,6 @@ exports[`Table.filter renders custom filter icon with right Tooltip title 1`] = 
                             </div>
                           </div>
                         </div>
-                        <span
-                          class="ant-tooltip-open"
-                        >
-                          Tooltip
-                        </span>
                       </span>
                     </div>
                   </th>

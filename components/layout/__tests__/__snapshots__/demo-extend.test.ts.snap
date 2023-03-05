@@ -177,23 +177,6 @@ exports[`renders ./components/layout/demo/custom-trigger.tsx extend context corr
         role="menu"
         tabindex="0"
       >
-        <div
-          class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position:absolute;top:0;left:0"
-          />
-          <div
-            class="ant-tooltip-content"
-          >
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            />
-          </div>
-        </div>
         <li
           class="ant-menu-item ant-menu-item-selected"
           role="menuitem"
@@ -321,6 +304,23 @@ exports[`renders ./components/layout/demo/custom-trigger.tsx extend context corr
             nav 3
           </span>
         </li>
+        <div
+          class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+        >
+          <div
+            class="ant-tooltip-arrow"
+            style="position:absolute;top:0;left:0"
+          />
+          <div
+            class="ant-tooltip-content"
+          >
+            <div
+              class="ant-tooltip-inner"
+              role="tooltip"
+            />
+          </div>
+        </div>
       </ul>
       <div
         aria-hidden="true"
@@ -435,23 +435,6 @@ exports[`renders ./components/layout/demo/fixed.tsx extend context correctly 1`]
       role="menu"
       tabindex="0"
     >
-      <div
-        class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-      >
-        <div
-          class="ant-tooltip-arrow"
-          style="position:absolute;top:0;left:0"
-        />
-        <div
-          class="ant-tooltip-content"
-        >
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          />
-        </div>
-      </div>
       <li
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         role="menuitem"
@@ -522,6 +505,23 @@ exports[`renders ./components/layout/demo/fixed.tsx extend context correctly 1`]
           nav 3
         </span>
       </li>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      >
+        <div
+          class="ant-tooltip-arrow"
+          style="position:absolute;top:0;left:0"
+        />
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
       <li
         aria-hidden="true"
         class="ant-menu-overflow-item ant-menu-overflow-item-rest ant-menu-submenu ant-menu-submenu-horizontal"
@@ -708,23 +708,6 @@ exports[`renders ./components/layout/demo/fixed-sider.tsx extend context correct
         role="menu"
         tabindex="0"
       >
-        <div
-          class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position:absolute;top:0;left:0"
-          />
-          <div
-            class="ant-tooltip-content"
-          >
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            />
-          </div>
-        </div>
         <li
           class="ant-menu-item"
           role="menuitem"
@@ -1092,6 +1075,23 @@ exports[`renders ./components/layout/demo/fixed-sider.tsx extend context correct
             nav 8
           </span>
         </li>
+        <div
+          class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+        >
+          <div
+            class="ant-tooltip-arrow"
+            style="position:absolute;top:0;left:0"
+          />
+          <div
+            class="ant-tooltip-content"
+          >
+            <div
+              class="ant-tooltip-inner"
+              role="tooltip"
+            />
+          </div>
+        </div>
       </ul>
       <div
         aria-hidden="true"
@@ -1486,23 +1486,6 @@ exports[`renders ./components/layout/demo/responsive.tsx extend context correctl
         role="menu"
         tabindex="0"
       >
-        <div
-          class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position:absolute;top:0;left:0"
-          />
-          <div
-            class="ant-tooltip-content"
-          >
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            />
-          </div>
-        </div>
         <li
           class="ant-menu-item"
           role="menuitem"
@@ -1678,6 +1661,23 @@ exports[`renders ./components/layout/demo/responsive.tsx extend context correctl
             nav 4
           </span>
         </li>
+        <div
+          class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+        >
+          <div
+            class="ant-tooltip-arrow"
+            style="position:absolute;top:0;left:0"
+          />
+          <div
+            class="ant-tooltip-content"
+          >
+            <div
+              class="ant-tooltip-inner"
+              role="tooltip"
+            />
+          </div>
+        </div>
       </ul>
       <div
         aria-hidden="true"
@@ -1802,23 +1802,6 @@ exports[`renders ./components/layout/demo/side.tsx extend context correctly 1`] 
         role="menu"
         tabindex="0"
       >
-        <div
-          class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position:absolute;top:0;left:0"
-          />
-          <div
-            class="ant-tooltip-content"
-          >
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            />
-          </div>
-        </div>
         <li
           class="ant-menu-item ant-menu-item-selected"
           role="menuitem"
@@ -1898,6 +1881,23 @@ exports[`renders ./components/layout/demo/side.tsx extend context correctly 1`] 
             Option 2
           </span>
         </li>
+        <div
+          class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+        >
+          <div
+            class="ant-tooltip-arrow"
+            style="position:absolute;top:0;left:0"
+          />
+          <div
+            class="ant-tooltip-content"
+          >
+            <div
+              class="ant-tooltip-inner"
+              role="tooltip"
+            />
+          </div>
+        </div>
         <li
           class="ant-menu-submenu ant-menu-submenu-inline"
           role="none"
@@ -1948,23 +1948,6 @@ exports[`renders ./components/layout/demo/side.tsx extend context correctly 1`] 
                 data-menu-list="true"
                 role="menu"
               >
-                <div
-                  class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                  style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-                >
-                  <div
-                    class="ant-tooltip-arrow"
-                    style="position:absolute;top:0;left:0"
-                  />
-                  <div
-                    class="ant-tooltip-content"
-                  >
-                    <div
-                      class="ant-tooltip-inner"
-                      role="tooltip"
-                    />
-                  </div>
-                </div>
                 <li
                   class="ant-menu-item ant-menu-item-only-child"
                   role="menuitem"
@@ -2035,6 +2018,23 @@ exports[`renders ./components/layout/demo/side.tsx extend context correctly 1`] 
                     Alex
                   </span>
                 </li>
+                <div
+                  class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                    style="position:absolute;top:0;left:0"
+                  />
+                  <div
+                    class="ant-tooltip-content"
+                  >
+                    <div
+                      class="ant-tooltip-inner"
+                      role="tooltip"
+                    />
+                  </div>
+                </div>
               </ul>
             </div>
           </div>
@@ -2089,23 +2089,6 @@ exports[`renders ./components/layout/demo/side.tsx extend context correctly 1`] 
                 data-menu-list="true"
                 role="menu"
               >
-                <div
-                  class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                  style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-                >
-                  <div
-                    class="ant-tooltip-arrow"
-                    style="position:absolute;top:0;left:0"
-                  />
-                  <div
-                    class="ant-tooltip-content"
-                  >
-                    <div
-                      class="ant-tooltip-inner"
-                      role="tooltip"
-                    />
-                  </div>
-                </div>
                 <li
                   class="ant-menu-item ant-menu-item-only-child"
                   role="menuitem"
@@ -2147,27 +2130,27 @@ exports[`renders ./components/layout/demo/side.tsx extend context correctly 1`] 
                     Team 2
                   </span>
                 </li>
+                <div
+                  class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                    style="position:absolute;top:0;left:0"
+                  />
+                  <div
+                    class="ant-tooltip-content"
+                  >
+                    <div
+                      class="ant-tooltip-inner"
+                      role="tooltip"
+                    />
+                  </div>
+                </div>
               </ul>
             </div>
           </div>
         </li>
-        <div
-          class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position:absolute;top:0;left:0"
-          />
-          <div
-            class="ant-tooltip-content"
-          >
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            />
-          </div>
-        </div>
         <li
           class="ant-menu-item"
           role="menuitem"
@@ -2199,6 +2182,23 @@ exports[`renders ./components/layout/demo/side.tsx extend context correctly 1`] 
             Files
           </span>
         </li>
+        <div
+          class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+          style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+        >
+          <div
+            class="ant-tooltip-arrow"
+            style="position:absolute;top:0;left:0"
+          />
+          <div
+            class="ant-tooltip-content"
+          >
+            <div
+              class="ant-tooltip-inner"
+              role="tooltip"
+            />
+          </div>
+        </div>
       </ul>
       <div
         aria-hidden="true"
@@ -2437,23 +2437,6 @@ exports[`renders ./components/layout/demo/top.tsx extend context correctly 1`] =
       role="menu"
       tabindex="0"
     >
-      <div
-        class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-      >
-        <div
-          class="ant-tooltip-arrow"
-          style="position:absolute;top:0;left:0"
-        />
-        <div
-          class="ant-tooltip-content"
-        >
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          />
-        </div>
-      </div>
       <li
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         role="menuitem"
@@ -2872,6 +2855,23 @@ exports[`renders ./components/layout/demo/top.tsx extend context correctly 1`] =
           nav 15
         </span>
       </li>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      >
+        <div
+          class="ant-tooltip-arrow"
+          style="position:absolute;top:0;left:0"
+        />
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
       <li
         aria-hidden="true"
         class="ant-menu-overflow-item ant-menu-overflow-item-rest ant-menu-submenu ant-menu-submenu-horizontal"
@@ -3259,23 +3259,6 @@ exports[`renders ./components/layout/demo/top-side.tsx extend context correctly 
       role="menu"
       tabindex="0"
     >
-      <div
-        class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-      >
-        <div
-          class="ant-tooltip-arrow"
-          style="position:absolute;top:0;left:0"
-        />
-        <div
-          class="ant-tooltip-content"
-        >
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          />
-        </div>
-      </div>
       <li
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         role="menuitem"
@@ -3346,6 +3329,23 @@ exports[`renders ./components/layout/demo/top-side.tsx extend context correctly 
           nav 3
         </span>
       </li>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      >
+        <div
+          class="ant-tooltip-arrow"
+          style="position:absolute;top:0;left:0"
+        />
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
       <li
         aria-hidden="true"
         class="ant-menu-overflow-item ant-menu-overflow-item-rest ant-menu-submenu ant-menu-submenu-horizontal"
@@ -3565,23 +3565,6 @@ exports[`renders ./components/layout/demo/top-side.tsx extend context correctly 
                     data-menu-list="true"
                     role="menu"
                   >
-                    <div
-                      class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-                    >
-                      <div
-                        class="ant-tooltip-arrow"
-                        style="position:absolute;top:0;left:0"
-                      />
-                      <div
-                        class="ant-tooltip-content"
-                      >
-                        <div
-                          class="ant-tooltip-inner"
-                          role="tooltip"
-                        />
-                      </div>
-                    </div>
                     <li
                       class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
                       role="menuitem"
@@ -3681,6 +3664,23 @@ exports[`renders ./components/layout/demo/top-side.tsx extend context correctly 
                         option4
                       </span>
                     </li>
+                    <div
+                      class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                    >
+                      <div
+                        class="ant-tooltip-arrow"
+                        style="position:absolute;top:0;left:0"
+                      />
+                      <div
+                        class="ant-tooltip-content"
+                      >
+                        <div
+                          class="ant-tooltip-inner"
+                          role="tooltip"
+                        />
+                      </div>
+                    </div>
                   </ul>
                 </div>
               </div>
@@ -3689,23 +3689,6 @@ exports[`renders ./components/layout/demo/top-side.tsx extend context correctly 
                 data-menu-list="true"
                 role="menu"
               >
-                <div
-                  class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                  style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-                >
-                  <div
-                    class="ant-tooltip-arrow"
-                    style="position:absolute;top:0;left:0"
-                  />
-                  <div
-                    class="ant-tooltip-content"
-                  >
-                    <div
-                      class="ant-tooltip-inner"
-                      role="tooltip"
-                    />
-                  </div>
-                </div>
                 <li
                   class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
                   role="menuitem"
@@ -3805,6 +3788,23 @@ exports[`renders ./components/layout/demo/top-side.tsx extend context correctly 
                     option4
                   </span>
                 </li>
+                <div
+                  class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                    style="position:absolute;top:0;left:0"
+                  />
+                  <div
+                    class="ant-tooltip-content"
+                  >
+                    <div
+                      class="ant-tooltip-inner"
+                      role="tooltip"
+                    />
+                  </div>
+                </div>
               </ul>
             </li>
             <li
@@ -3857,23 +3857,6 @@ exports[`renders ./components/layout/demo/top-side.tsx extend context correctly 
                     data-menu-list="true"
                     role="menu"
                   >
-                    <div
-                      class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-                    >
-                      <div
-                        class="ant-tooltip-arrow"
-                        style="position:absolute;top:0;left:0"
-                      />
-                      <div
-                        class="ant-tooltip-content"
-                      >
-                        <div
-                          class="ant-tooltip-inner"
-                          role="tooltip"
-                        />
-                      </div>
-                    </div>
                     <li
                       class="ant-menu-item ant-menu-item-only-child"
                       role="menuitem"
@@ -3973,6 +3956,23 @@ exports[`renders ./components/layout/demo/top-side.tsx extend context correctly 
                         option8
                       </span>
                     </li>
+                    <div
+                      class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                    >
+                      <div
+                        class="ant-tooltip-arrow"
+                        style="position:absolute;top:0;left:0"
+                      />
+                      <div
+                        class="ant-tooltip-content"
+                      >
+                        <div
+                          class="ant-tooltip-inner"
+                          role="tooltip"
+                        />
+                      </div>
+                    </div>
                   </ul>
                 </div>
               </div>
@@ -4027,23 +4027,6 @@ exports[`renders ./components/layout/demo/top-side.tsx extend context correctly 
                     data-menu-list="true"
                     role="menu"
                   >
-                    <div
-                      class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-                    >
-                      <div
-                        class="ant-tooltip-arrow"
-                        style="position:absolute;top:0;left:0"
-                      />
-                      <div
-                        class="ant-tooltip-content"
-                      >
-                        <div
-                          class="ant-tooltip-inner"
-                          role="tooltip"
-                        />
-                      </div>
-                    </div>
                     <li
                       class="ant-menu-item ant-menu-item-only-child"
                       role="menuitem"
@@ -4143,6 +4126,23 @@ exports[`renders ./components/layout/demo/top-side.tsx extend context correctly 
                         option12
                       </span>
                     </li>
+                    <div
+                      class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                    >
+                      <div
+                        class="ant-tooltip-arrow"
+                        style="position:absolute;top:0;left:0"
+                      />
+                      <div
+                        class="ant-tooltip-content"
+                      >
+                        <div
+                          class="ant-tooltip-inner"
+                          role="tooltip"
+                        />
+                      </div>
+                    </div>
                   </ul>
                 </div>
               </div>
@@ -4392,23 +4392,6 @@ exports[`renders ./components/layout/demo/top-side-2.tsx extend context correctl
       role="menu"
       tabindex="0"
     >
-      <div
-        class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-      >
-        <div
-          class="ant-tooltip-arrow"
-          style="position:absolute;top:0;left:0"
-        />
-        <div
-          class="ant-tooltip-content"
-        >
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          />
-        </div>
-      </div>
       <li
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         role="menuitem"
@@ -4479,6 +4462,23 @@ exports[`renders ./components/layout/demo/top-side-2.tsx extend context correctl
           nav 3
         </span>
       </li>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      >
+        <div
+          class="ant-tooltip-arrow"
+          style="position:absolute;top:0;left:0"
+        />
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
       <li
         aria-hidden="true"
         class="ant-menu-overflow-item ant-menu-overflow-item-rest ant-menu-submenu ant-menu-submenu-horizontal"
@@ -4653,23 +4653,6 @@ exports[`renders ./components/layout/demo/top-side-2.tsx extend context correctl
                   data-menu-list="true"
                   role="menu"
                 >
-                  <div
-                    class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                    style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-                  >
-                    <div
-                      class="ant-tooltip-arrow"
-                      style="position:absolute;top:0;left:0"
-                    />
-                    <div
-                      class="ant-tooltip-content"
-                    >
-                      <div
-                        class="ant-tooltip-inner"
-                        role="tooltip"
-                      />
-                    </div>
-                  </div>
                   <li
                     class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
                     role="menuitem"
@@ -4769,6 +4752,23 @@ exports[`renders ./components/layout/demo/top-side-2.tsx extend context correctl
                       option4
                     </span>
                   </li>
+                  <div
+                    class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                    style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                  >
+                    <div
+                      class="ant-tooltip-arrow"
+                      style="position:absolute;top:0;left:0"
+                    />
+                    <div
+                      class="ant-tooltip-content"
+                    >
+                      <div
+                        class="ant-tooltip-inner"
+                        role="tooltip"
+                      />
+                    </div>
+                  </div>
                 </ul>
               </div>
             </div>
@@ -4777,23 +4777,6 @@ exports[`renders ./components/layout/demo/top-side-2.tsx extend context correctl
               data-menu-list="true"
               role="menu"
             >
-              <div
-                class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-              >
-                <div
-                  class="ant-tooltip-arrow"
-                  style="position:absolute;top:0;left:0"
-                />
-                <div
-                  class="ant-tooltip-content"
-                >
-                  <div
-                    class="ant-tooltip-inner"
-                    role="tooltip"
-                  />
-                </div>
-              </div>
               <li
                 class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
                 role="menuitem"
@@ -4893,6 +4876,23 @@ exports[`renders ./components/layout/demo/top-side-2.tsx extend context correctl
                   option4
                 </span>
               </li>
+              <div
+                class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+              >
+                <div
+                  class="ant-tooltip-arrow"
+                  style="position:absolute;top:0;left:0"
+                />
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
             </ul>
           </li>
           <li
@@ -4945,23 +4945,6 @@ exports[`renders ./components/layout/demo/top-side-2.tsx extend context correctl
                   data-menu-list="true"
                   role="menu"
                 >
-                  <div
-                    class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                    style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-                  >
-                    <div
-                      class="ant-tooltip-arrow"
-                      style="position:absolute;top:0;left:0"
-                    />
-                    <div
-                      class="ant-tooltip-content"
-                    >
-                      <div
-                        class="ant-tooltip-inner"
-                        role="tooltip"
-                      />
-                    </div>
-                  </div>
                   <li
                     class="ant-menu-item ant-menu-item-only-child"
                     role="menuitem"
@@ -5061,6 +5044,23 @@ exports[`renders ./components/layout/demo/top-side-2.tsx extend context correctl
                       option8
                     </span>
                   </li>
+                  <div
+                    class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                    style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                  >
+                    <div
+                      class="ant-tooltip-arrow"
+                      style="position:absolute;top:0;left:0"
+                    />
+                    <div
+                      class="ant-tooltip-content"
+                    >
+                      <div
+                        class="ant-tooltip-inner"
+                        role="tooltip"
+                      />
+                    </div>
+                  </div>
                 </ul>
               </div>
             </div>
@@ -5115,23 +5115,6 @@ exports[`renders ./components/layout/demo/top-side-2.tsx extend context correctl
                   data-menu-list="true"
                   role="menu"
                 >
-                  <div
-                    class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                    style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-                  >
-                    <div
-                      class="ant-tooltip-arrow"
-                      style="position:absolute;top:0;left:0"
-                    />
-                    <div
-                      class="ant-tooltip-content"
-                    >
-                      <div
-                        class="ant-tooltip-inner"
-                        role="tooltip"
-                      />
-                    </div>
-                  </div>
                   <li
                     class="ant-menu-item ant-menu-item-only-child"
                     role="menuitem"
@@ -5231,6 +5214,23 @@ exports[`renders ./components/layout/demo/top-side-2.tsx extend context correctl
                       option12
                     </span>
                   </li>
+                  <div
+                    class="ant-tooltip ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                    style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                  >
+                    <div
+                      class="ant-tooltip-arrow"
+                      style="position:absolute;top:0;left:0"
+                    />
+                    <div
+                      class="ant-tooltip-content"
+                    >
+                      <div
+                        class="ant-tooltip-inner"
+                        role="tooltip"
+                      />
+                    </div>
+                  </div>
                 </ul>
               </div>
             </div>

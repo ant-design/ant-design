@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import type { ProgressProps } from '..';
 import Progress from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render } from '../../../tests/utils';
+import { fireEvent, render } from '../../../tests/utils';
 import { handleGradient, sortGradient } from '../Line';
+import { ProgressTypes } from '../progress';
 import ProgressSteps from '../Steps';
 
 describe('Progress', () => {
@@ -180,14 +181,14 @@ describe('Progress', () => {
     expect(wrapper.firstChild).toMatchSnapshot();
   });
 
-  it('steps should be changable', () => {
+  it('steps should be changeable', () => {
     const { container: wrapper, rerender } = render(<Progress steps={5} percent={60} />);
     expect(wrapper.querySelectorAll('.ant-progress-steps-item-active').length).toBe(3);
     rerender(<Progress steps={5} percent={40} />);
     expect(wrapper.querySelectorAll('.ant-progress-steps-item-active').length).toBe(2);
   });
 
-  it('steps should be changable when has strokeColor', () => {
+  it('steps should be changeable when has strokeColor', () => {
     const { container: wrapper, rerender } = render(
       <Progress steps={5} percent={60} strokeColor="#1890ff" />,
     );
@@ -224,7 +225,7 @@ describe('Progress', () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it('should warnning if use `progress` in success', () => {
+  it('should warning if use `progress` in success', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(<Progress percent={60} success={{ progress: 30 }} />);
     expect(errorSpy).toHaveBeenCalledWith(
@@ -247,7 +248,7 @@ describe('Progress', () => {
     );
   });
 
-  it('should warnning if use `progress` in success in type Circle', () => {
+  it('should warning if use `progress` in success in type Circle', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(<Progress percent={60} success={{ progress: 30 }} type="circle" />);
     expect(errorSpy).toHaveBeenCalledWith(
@@ -269,6 +270,29 @@ describe('Progress', () => {
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Progress] Type "circle" and "dashbord" do not accept array as `size`, please use number or preset size instead.',
     );
+  });
+
+  it('should update the percentage based on the value of percent', () => {
+    const Content: React.FC = () => {
+      const [percent, setPercent] = useState(0);
+
+      return (
+        <>
+          {ProgressTypes.map((type) => (
+            <Progress key={type} type={type} percent={percent} success={{ percent: 30 }} />
+          ))}
+          <button type="button" onClick={() => setPercent(10)}>
+            Change Percent
+          </button>
+        </>
+      );
+    };
+
+    const { container } = render(<Content />);
+    expect(container.querySelectorAll('[title="0%"]')).toHaveLength(ProgressTypes.length);
+    // Change Percent
+    fireEvent.click(container.querySelectorAll('button')[0]);
+    expect(container.querySelectorAll('[title="10%"]')).toHaveLength(ProgressTypes.length);
   });
 
   describe('github issues', () => {

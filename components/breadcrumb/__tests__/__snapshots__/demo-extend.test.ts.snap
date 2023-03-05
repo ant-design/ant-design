@@ -142,23 +142,6 @@ exports[`renders ./components/breadcrumb/demo/overlay.tsx extend context correct
             role="menu"
             tabindex="0"
           >
-            <div
-              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-            >
-              <div
-                class="ant-tooltip-arrow"
-                style="position:absolute;top:0;left:0"
-              />
-              <div
-                class="ant-tooltip-content"
-              >
-                <div
-                  class="ant-tooltip-inner"
-                  role="tooltip"
-                />
-              </div>
-            </div>
             <li
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               role="menuitem"
@@ -244,6 +227,23 @@ exports[`renders ./components/breadcrumb/demo/overlay.tsx extend context correct
                 </a>
               </span>
             </li>
+            <div
+              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+            >
+              <div
+                class="ant-tooltip-arrow"
+                style="position:absolute;top:0;left:0"
+              />
+              <div
+                class="ant-tooltip-content"
+              >
+                <div
+                  class="ant-tooltip-inner"
+                  role="tooltip"
+                />
+              </div>
+            </div>
           </ul>
           <div
             aria-hidden="true"

@@ -44,7 +44,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*WM86SrBC8TsAAA
 | hideOnSinglePage | 只有一页时是否隐藏分页器 | boolean | false |  |
 | itemRender | 用于自定义页码的结构，可用于优化 SEO | (page, type: 'page' \| 'prev' \| 'next', originalElement) => React.ReactNode | - |  |
 | pageSize | 每页条数 | number | - |  |
-| pageSizeOptions | 指定每页可以显示多少条 | string\[] | \[`10`, `20`, `50`, `100`] |  |
+| pageSizeOptions | 指定每页可以显示多少条 | string\[] \| number\[] | \[`10`, `20`, `50`, `100`] |  |
 | responsive | 当 size 未指定时，根据屏幕宽度自动调整尺寸 | boolean | - |  |
 | showLessItems | 是否显示较少页面内容 | boolean | false |  |
 | showQuickJumper | 是否可以快速跳转至某页 | boolean \| { goButton: ReactNode } | false |  |

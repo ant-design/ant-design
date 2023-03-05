@@ -2466,25 +2466,6 @@ exports[`renders ./components/rate/demo/text.tsx extend context correctly 1`] = 
     role="radiogroup"
     tabindex="0"
   >
-    <div
-      class="ant-tooltip ant-tooltip-placement-top"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-    >
-      <div
-        class="ant-tooltip-arrow"
-        style="position:absolute;bottom:0;left:0"
-      />
-      <div
-        class="ant-tooltip-content"
-      >
-        <div
-          class="ant-tooltip-inner"
-          role="tooltip"
-        >
-          terrible
-        </div>
-      </div>
-    </div>
     <li
       class="ant-rate-star ant-rate-star-full"
     >
@@ -2558,7 +2539,7 @@ exports[`renders ./components/rate/demo/text.tsx extend context correctly 1`] = 
           class="ant-tooltip-inner"
           role="tooltip"
         >
-          bad
+          terrible
         </div>
       </div>
     </div>
@@ -2635,7 +2616,7 @@ exports[`renders ./components/rate/demo/text.tsx extend context correctly 1`] = 
           class="ant-tooltip-inner"
           role="tooltip"
         >
-          normal
+          bad
         </div>
       </div>
     </div>
@@ -2712,7 +2693,7 @@ exports[`renders ./components/rate/demo/text.tsx extend context correctly 1`] = 
           class="ant-tooltip-inner"
           role="tooltip"
         >
-          good
+          normal
         </div>
       </div>
     </div>
@@ -2789,7 +2770,7 @@ exports[`renders ./components/rate/demo/text.tsx extend context correctly 1`] = 
           class="ant-tooltip-inner"
           role="tooltip"
         >
-          wonderful
+          good
         </div>
       </div>
     </div>
@@ -2851,6 +2832,25 @@ exports[`renders ./components/rate/demo/text.tsx extend context correctly 1`] = 
         </div>
       </div>
     </li>
+    <div
+      class="ant-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
+      <div
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          wonderful
+        </div>
+      </div>
+    </div>
   </ul>
   <span
     class="ant-rate-text"

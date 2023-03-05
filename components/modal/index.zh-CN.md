@@ -104,7 +104,7 @@ demo:
 | content | 内容 | ReactNode | - |  |
 | footer | 底部内容，当不需要默认底部按钮时，可以设为 `footer: null` | ReactNode | - | 5.1.0 |
 | getContainer | 指定 Modal 挂载的 HTML 节点, false 为挂载在当前 dom | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
-| icon | 自定义图标 | ReactNode | &lt;QuestionCircle /> |  |
+| icon | 自定义图标 | ReactNode | &lt;ExclamationCircleFilled /> |  |
 | keyboard | 是否支持键盘 esc 关闭 | boolean | true |  |
 | mask | 是否展示遮罩 | boolean | true |  |
 | maskClosable | 点击蒙层是否允许关闭 | boolean | false |  |

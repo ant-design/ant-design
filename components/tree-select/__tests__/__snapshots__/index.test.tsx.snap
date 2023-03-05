@@ -31,81 +31,79 @@ exports[`TreeSelect TreeSelect Custom Icons should \`treeIcon\` work 1`] = `
       class="ant-select-selection-placeholder"
     />
   </div>
-  <div>
-    <div
-      class="ant-select-dropdown ant-tree-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-      style="opacity: 0; min-width: 0; width: 0px;"
-    >
+  <div
+    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-dropdown-placement-bottomLeft"
+    style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 0; width: 0px;"
+  >
+    <div>
       <div>
-        <div>
+        <div
+          class="ant-select-tree"
+          role="tree"
+        >
+          <div>
+            <input
+              aria-label="for screen reader"
+              disabled=""
+              style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+              value=""
+            />
+          </div>
           <div
-            class="ant-select-tree"
-            role="tree"
+            aria-hidden="true"
+            class="ant-select-tree-treenode"
+            style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
           >
-            <div>
-              <input
-                aria-label="for screen reader"
-                disabled=""
-                style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
-                value=""
+            <div
+              class="ant-select-tree-indent"
+            >
+              <div
+                class="ant-select-tree-indent-unit"
               />
             </div>
+          </div>
+          <div
+            class="ant-select-tree-list"
+            style="position: relative;"
+          >
             <div
-              aria-hidden="true"
-              class="ant-select-tree-treenode"
-              style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+              class="ant-select-tree-list-holder"
+              style="max-height: 256px; overflow-y: auto;"
             >
-              <div
-                class="ant-select-tree-indent"
-              >
+              <div>
                 <div
-                  class="ant-select-tree-indent-unit"
-                />
-              </div>
-            </div>
-            <div
-              class="ant-select-tree-list"
-              style="position: relative;"
-            >
-              <div
-                class="ant-select-tree-list-holder"
-                style="max-height: 256px; overflow-y: auto;"
-              >
-                <div>
+                  class="ant-select-tree-list-holder-inner"
+                  style="display: flex; flex-direction: column;"
+                >
                   <div
-                    class="ant-select-tree-list-holder-inner"
-                    style="display: flex; flex-direction: column;"
+                    aria-grabbed="false"
+                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
+                    draggable="false"
                   >
-                    <div
-                      aria-grabbed="false"
-                      class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
-                      draggable="false"
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-tree-indent"
+                    />
+                    <span
+                      class="ant-select-tree-switcher ant-select-tree-switcher-noop"
+                    />
+                    <span
+                      class="ant-select-tree-node-content-wrapper ant-select-tree-node-content-wrapper-normal"
+                      title="parent 1"
                     >
                       <span
-                        aria-hidden="true"
-                        class="ant-select-tree-indent"
-                      />
-                      <span
-                        class="ant-select-tree-switcher ant-select-tree-switcher-noop"
-                      />
-                      <span
-                        class="ant-select-tree-node-content-wrapper ant-select-tree-node-content-wrapper-normal"
-                        title="parent 1"
+                        class="ant-select-tree-iconEle ant-select-tree-icon__customize"
                       >
-                        <span
-                          class="ant-select-tree-iconEle ant-select-tree-icon__customize"
-                        >
-                          <span>
-                            Bamboo
-                          </span>
-                        </span>
-                        <span
-                          class="ant-select-tree-title"
-                        >
-                          parent 1
+                        <span>
+                          Bamboo
                         </span>
                       </span>
-                    </div>
+                      <span
+                        class="ant-select-tree-title"
+                      >
+                        parent 1
+                      </span>
+                    </span>
                   </div>
                 </div>
               </div>

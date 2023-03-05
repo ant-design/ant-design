@@ -31,18 +31,16 @@ Array [
         input here
       </span>
     </div>
-    <div>
-      <div
-        class="ant-select-dropdown ant-select-dropdown-empty"
-        style="opacity:0"
-      >
-        <div>
-          <div
-            class="ant-select-item-empty"
-            id="undefined_list"
-            role="listbox"
-          />
-        </div>
+    <div
+      class="ant-select-dropdown ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
+      <div>
+        <div
+          class="ant-select-item-empty"
+          id="undefined_list"
+          role="listbox"
+        />
       </div>
     </div>
   </div>,
@@ -77,18 +75,16 @@ Array [
         control mode
       </span>
     </div>
-    <div>
-      <div
-        class="ant-select-dropdown ant-select-dropdown-empty"
-        style="opacity:0"
-      >
-        <div>
-          <div
-            class="ant-select-item-empty"
-            id="undefined_list"
-            role="listbox"
-          />
-        </div>
+    <div
+      class="ant-select-dropdown ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
+      <div>
+        <div
+          class="ant-select-item-empty"
+          id="undefined_list"
+          role="listbox"
+        />
       </div>
     </div>
   </div>,
@@ -160,310 +156,308 @@ exports[`renders ./components/auto-complete/demo/certain-category.tsx extend con
       class="ant-select-selection-placeholder"
     />
   </div>
-  <div>
-    <div
-      class="ant-select-dropdown certain-category-search-dropdown"
-      style="opacity:0;width:500px"
-    >
-      <div>
+  <div
+    class="ant-select-dropdown certain-category-search-dropdown ant-select-dropdown-placement-bottomLeft"
+    style="left:-1000vw;top:-1000vh;box-sizing:border-box;width:500px"
+  >
+    <div>
+      <div
+        id="undefined_list"
+        role="listbox"
+        style="height:0;width:0;overflow:hidden"
+      >
         <div
-          id="undefined_list"
-          role="listbox"
-          style="height:0;width:0;overflow:hidden"
+          aria-selected="false"
+          id="undefined_list_0"
+          role="presentation"
+        />
+        <div
+          aria-selected="false"
+          id="undefined_list_1"
+          role="option"
         >
-          <div
-            aria-selected="false"
-            id="undefined_list_0"
-            role="presentation"
-          />
-          <div
-            aria-selected="false"
-            id="undefined_list_1"
-            role="option"
-          >
-            AntDesign
-          </div>
-          <div
-            aria-selected="false"
-            id="undefined_list_2"
-            role="option"
-          >
-            AntDesign UI
-          </div>
+          AntDesign
         </div>
         <div
-          class="rc-virtual-list"
-          style="position:relative"
+          aria-selected="false"
+          id="undefined_list_2"
+          role="option"
         >
-          <div
-            class="rc-virtual-list-holder"
-            style="max-height:256px;overflow-y:auto;overflow-anchor:none"
-          >
-            <div>
+          AntDesign UI
+        </div>
+      </div>
+      <div
+        class="rc-virtual-list"
+        style="position:relative"
+      >
+        <div
+          class="rc-virtual-list-holder"
+          style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+        >
+          <div>
+            <div
+              class="rc-virtual-list-holder-inner"
+              style="display:flex;flex-direction:column"
+            >
               <div
-                class="rc-virtual-list-holder-inner"
-                style="display:flex;flex-direction:column"
+                class="ant-select-item ant-select-item-group"
+              >
+                <span>
+                  Libraries
+                  <a
+                    href="https://www.google.com/search?q=antd"
+                    rel="noopener noreferrer"
+                    style="float:right"
+                    target="_blank"
+                  >
+                    more
+                  </a>
+                </span>
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option ant-select-item-option-grouped ant-select-item-option-active"
               >
                 <div
-                  class="ant-select-item ant-select-item-group"
-                >
-                  <span>
-                    Libraries
-                    <a
-                      href="https://www.google.com/search?q=antd"
-                      rel="noopener noreferrer"
-                      style="float:right"
-                      target="_blank"
-                    >
-                      more
-                    </a>
-                  </span>
-                </div>
-                <div
-                  aria-selected="false"
-                  class="ant-select-item ant-select-item-option ant-select-item-option-grouped ant-select-item-option-active"
+                  class="ant-select-item-option-content"
                 >
                   <div
-                    class="ant-select-item-option-content"
+                    style="display:flex;justify-content:space-between"
                   >
-                    <div
-                      style="display:flex;justify-content:space-between"
-                    >
-                      AntDesign
-                      <span>
-                        <span
-                          aria-label="user"
-                          class="anticon anticon-user"
-                          role="img"
+                    AntDesign
+                    <span>
+                      <span
+                        aria-label="user"
+                        class="anticon anticon-user"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="user"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
                         >
-                          <svg
-                            aria-hidden="true"
-                            data-icon="user"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M858.5 763.6a374 374 0 00-80.6-119.5 375.63 375.63 0 00-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-.4.2-.8.3-1.2.5-44.8 18.9-85 46-119.5 80.6a375.63 375.63 0 00-80.6 119.5A371.7 371.7 0 00136 901.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60a8 8 0 008-8.2c-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z"
-                            />
-                          </svg>
-                        </span>
-                        <!-- -->
-                        10000
+                          <path
+                            d="M858.5 763.6a374 374 0 00-80.6-119.5 375.63 375.63 0 00-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-.4.2-.8.3-1.2.5-44.8 18.9-85 46-119.5 80.6a375.63 375.63 0 00-80.6 119.5A371.7 371.7 0 00136 901.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60a8 8 0 008-8.2c-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z"
+                          />
+                        </svg>
                       </span>
-                    </div>
+                      <!-- -->
+                      10000
+                    </span>
                   </div>
-                  <span
-                    aria-hidden="true"
-                    class="ant-select-item-option-state"
-                    style="user-select:none;-webkit-user-select:none"
-                    unselectable="on"
-                  />
                 </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select:none;-webkit-user-select:none"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option ant-select-item-option-grouped"
+              >
                 <div
-                  aria-selected="false"
-                  class="ant-select-item ant-select-item-option ant-select-item-option-grouped"
+                  class="ant-select-item-option-content"
                 >
                   <div
-                    class="ant-select-item-option-content"
+                    style="display:flex;justify-content:space-between"
                   >
-                    <div
-                      style="display:flex;justify-content:space-between"
-                    >
-                      AntDesign UI
-                      <span>
-                        <span
-                          aria-label="user"
-                          class="anticon anticon-user"
-                          role="img"
+                    AntDesign UI
+                    <span>
+                      <span
+                        aria-label="user"
+                        class="anticon anticon-user"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="user"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
                         >
-                          <svg
-                            aria-hidden="true"
-                            data-icon="user"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M858.5 763.6a374 374 0 00-80.6-119.5 375.63 375.63 0 00-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-.4.2-.8.3-1.2.5-44.8 18.9-85 46-119.5 80.6a375.63 375.63 0 00-80.6 119.5A371.7 371.7 0 00136 901.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60a8 8 0 008-8.2c-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z"
-                            />
-                          </svg>
-                        </span>
-                        <!-- -->
-                        10600
+                          <path
+                            d="M858.5 763.6a374 374 0 00-80.6-119.5 375.63 375.63 0 00-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-.4.2-.8.3-1.2.5-44.8 18.9-85 46-119.5 80.6a375.63 375.63 0 00-80.6 119.5A371.7 371.7 0 00136 901.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60a8 8 0 008-8.2c-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z"
+                          />
+                        </svg>
                       </span>
-                    </div>
+                      <!-- -->
+                      10600
+                    </span>
                   </div>
-                  <span
-                    aria-hidden="true"
-                    class="ant-select-item-option-state"
-                    style="user-select:none;-webkit-user-select:none"
-                    unselectable="on"
-                  />
                 </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select:none;-webkit-user-select:none"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-group"
+              >
+                <span>
+                  Solutions
+                  <a
+                    href="https://www.google.com/search?q=antd"
+                    rel="noopener noreferrer"
+                    style="float:right"
+                    target="_blank"
+                  >
+                    more
+                  </a>
+                </span>
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option ant-select-item-option-grouped"
+              >
                 <div
-                  class="ant-select-item ant-select-item-group"
-                >
-                  <span>
-                    Solutions
-                    <a
-                      href="https://www.google.com/search?q=antd"
-                      rel="noopener noreferrer"
-                      style="float:right"
-                      target="_blank"
-                    >
-                      more
-                    </a>
-                  </span>
-                </div>
-                <div
-                  aria-selected="false"
-                  class="ant-select-item ant-select-item-option ant-select-item-option-grouped"
+                  class="ant-select-item-option-content"
                 >
                   <div
-                    class="ant-select-item-option-content"
+                    style="display:flex;justify-content:space-between"
                   >
-                    <div
-                      style="display:flex;justify-content:space-between"
-                    >
-                      AntDesign UI FAQ
-                      <span>
-                        <span
-                          aria-label="user"
-                          class="anticon anticon-user"
-                          role="img"
+                    AntDesign UI FAQ
+                    <span>
+                      <span
+                        aria-label="user"
+                        class="anticon anticon-user"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="user"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
                         >
-                          <svg
-                            aria-hidden="true"
-                            data-icon="user"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M858.5 763.6a374 374 0 00-80.6-119.5 375.63 375.63 0 00-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-.4.2-.8.3-1.2.5-44.8 18.9-85 46-119.5 80.6a375.63 375.63 0 00-80.6 119.5A371.7 371.7 0 00136 901.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60a8 8 0 008-8.2c-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z"
-                            />
-                          </svg>
-                        </span>
-                        <!-- -->
-                        60100
+                          <path
+                            d="M858.5 763.6a374 374 0 00-80.6-119.5 375.63 375.63 0 00-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-.4.2-.8.3-1.2.5-44.8 18.9-85 46-119.5 80.6a375.63 375.63 0 00-80.6 119.5A371.7 371.7 0 00136 901.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60a8 8 0 008-8.2c-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z"
+                          />
+                        </svg>
                       </span>
-                    </div>
+                      <!-- -->
+                      60100
+                    </span>
                   </div>
-                  <span
-                    aria-hidden="true"
-                    class="ant-select-item-option-state"
-                    style="user-select:none;-webkit-user-select:none"
-                    unselectable="on"
-                  />
                 </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select:none;-webkit-user-select:none"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option ant-select-item-option-grouped"
+              >
                 <div
-                  aria-selected="false"
-                  class="ant-select-item ant-select-item-option ant-select-item-option-grouped"
+                  class="ant-select-item-option-content"
                 >
                   <div
-                    class="ant-select-item-option-content"
+                    style="display:flex;justify-content:space-between"
                   >
-                    <div
-                      style="display:flex;justify-content:space-between"
-                    >
-                      AntDesign FAQ
-                      <span>
-                        <span
-                          aria-label="user"
-                          class="anticon anticon-user"
-                          role="img"
+                    AntDesign FAQ
+                    <span>
+                      <span
+                        aria-label="user"
+                        class="anticon anticon-user"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="user"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
                         >
-                          <svg
-                            aria-hidden="true"
-                            data-icon="user"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M858.5 763.6a374 374 0 00-80.6-119.5 375.63 375.63 0 00-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-.4.2-.8.3-1.2.5-44.8 18.9-85 46-119.5 80.6a375.63 375.63 0 00-80.6 119.5A371.7 371.7 0 00136 901.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60a8 8 0 008-8.2c-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z"
-                            />
-                          </svg>
-                        </span>
-                        <!-- -->
-                        30010
+                          <path
+                            d="M858.5 763.6a374 374 0 00-80.6-119.5 375.63 375.63 0 00-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-.4.2-.8.3-1.2.5-44.8 18.9-85 46-119.5 80.6a375.63 375.63 0 00-80.6 119.5A371.7 371.7 0 00136 901.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60a8 8 0 008-8.2c-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z"
+                          />
+                        </svg>
                       </span>
-                    </div>
+                      <!-- -->
+                      30010
+                    </span>
                   </div>
-                  <span
-                    aria-hidden="true"
-                    class="ant-select-item-option-state"
-                    style="user-select:none;-webkit-user-select:none"
-                    unselectable="on"
-                  />
                 </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select:none;-webkit-user-select:none"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                class="ant-select-item ant-select-item-group"
+              >
+                <span>
+                  Articles
+                  <a
+                    href="https://www.google.com/search?q=antd"
+                    rel="noopener noreferrer"
+                    style="float:right"
+                    target="_blank"
+                  >
+                    more
+                  </a>
+                </span>
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option ant-select-item-option-grouped"
+              >
                 <div
-                  class="ant-select-item ant-select-item-group"
-                >
-                  <span>
-                    Articles
-                    <a
-                      href="https://www.google.com/search?q=antd"
-                      rel="noopener noreferrer"
-                      style="float:right"
-                      target="_blank"
-                    >
-                      more
-                    </a>
-                  </span>
-                </div>
-                <div
-                  aria-selected="false"
-                  class="ant-select-item ant-select-item-option ant-select-item-option-grouped"
+                  class="ant-select-item-option-content"
                 >
                   <div
-                    class="ant-select-item-option-content"
+                    style="display:flex;justify-content:space-between"
                   >
-                    <div
-                      style="display:flex;justify-content:space-between"
-                    >
-                      AntDesign design language
-                      <span>
-                        <span
-                          aria-label="user"
-                          class="anticon anticon-user"
-                          role="img"
+                    AntDesign design language
+                    <span>
+                      <span
+                        aria-label="user"
+                        class="anticon anticon-user"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="user"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
                         >
-                          <svg
-                            aria-hidden="true"
-                            data-icon="user"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M858.5 763.6a374 374 0 00-80.6-119.5 375.63 375.63 0 00-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-.4.2-.8.3-1.2.5-44.8 18.9-85 46-119.5 80.6a375.63 375.63 0 00-80.6 119.5A371.7 371.7 0 00136 901.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60a8 8 0 008-8.2c-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z"
-                            />
-                          </svg>
-                        </span>
-                        <!-- -->
-                        100000
+                          <path
+                            d="M858.5 763.6a374 374 0 00-80.6-119.5 375.63 375.63 0 00-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-.4.2-.8.3-1.2.5-44.8 18.9-85 46-119.5 80.6a375.63 375.63 0 00-80.6 119.5A371.7 371.7 0 00136 901.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60a8 8 0 008-8.2c-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z"
+                          />
+                        </svg>
                       </span>
-                    </div>
+                      <!-- -->
+                      100000
+                    </span>
                   </div>
-                  <span
-                    aria-hidden="true"
-                    class="ant-select-item-option-state"
-                    style="user-select:none;-webkit-user-select:none"
-                    unselectable="on"
-                  />
                 </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select:none;-webkit-user-select:none"
+                  unselectable="on"
+                />
               </div>
             </div>
           </div>
@@ -503,18 +497,16 @@ exports[`renders ./components/auto-complete/demo/custom.tsx extend context corre
       class="ant-select-selection-placeholder"
     />
   </div>
-  <div>
-    <div
-      class="ant-select-dropdown ant-select-dropdown-empty"
-      style="opacity:0"
-    >
-      <div>
-        <div
-          class="ant-select-item-empty"
-          id="undefined_list"
-          role="listbox"
-        />
-      </div>
+  <div
+    class="ant-select-dropdown ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+    style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+  >
+    <div>
+      <div
+        class="ant-select-item-empty"
+        id="undefined_list"
+        role="listbox"
+      />
     </div>
   </div>
 </div>
@@ -576,18 +568,16 @@ exports[`renders ./components/auto-complete/demo/form-debug.tsx extend context c
                   class="ant-select-selection-placeholder"
                 />
               </div>
-              <div>
-                <div
-                  class="ant-select-dropdown ant-select-dropdown-empty"
-                  style="opacity:0"
-                >
-                  <div>
-                    <div
-                      class="ant-select-item-empty"
-                      id="undefined_list"
-                      role="listbox"
-                    />
-                  </div>
+              <div
+                class="ant-select-dropdown ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+                style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+              >
+                <div>
+                  <div
+                    class="ant-select-item-empty"
+                    id="undefined_list"
+                    role="listbox"
+                  />
                 </div>
               </div>
             </div>
@@ -649,60 +639,58 @@ exports[`renders ./components/auto-complete/demo/form-debug.tsx extend context c
                   class="ant-select-selection-placeholder"
                 />
               </div>
-              <div>
-                <div
-                  class="ant-select-dropdown ant-tree-select-dropdown ant-select-dropdown-empty"
-                  style="opacity:0"
-                >
-                  <div>
+              <div
+                class="ant-select-dropdown ant-tree-select-dropdown ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+                style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+              >
+                <div>
+                  <div
+                    class="ant-select-empty"
+                    role="listbox"
+                  >
                     <div
-                      class="ant-select-empty"
-                      role="listbox"
+                      class="ant-empty ant-empty-normal ant-empty-small"
                     >
                       <div
-                        class="ant-empty ant-empty-normal ant-empty-small"
+                        class="ant-empty-image"
                       >
-                        <div
-                          class="ant-empty-image"
+                        <svg
+                          height="41"
+                          viewBox="0 0 64 41"
+                          width="64"
+                          xmlns="http://www.w3.org/2000/svg"
                         >
-                          <svg
-                            height="41"
-                            viewBox="0 0 64 41"
-                            width="64"
-                            xmlns="http://www.w3.org/2000/svg"
+                          <g
+                            fill="none"
+                            fill-rule="evenodd"
+                            transform="translate(0 1)"
                           >
+                            <ellipse
+                              cx="32"
+                              cy="33"
+                              fill="#f5f5f5"
+                              rx="32"
+                              ry="7"
+                            />
                             <g
-                              fill="none"
-                              fill-rule="evenodd"
-                              transform="translate(0 1)"
+                              fill-rule="nonzero"
+                              stroke="#d9d9d9"
                             >
-                              <ellipse
-                                cx="32"
-                                cy="33"
-                                fill="#f5f5f5"
-                                rx="32"
-                                ry="7"
+                              <path
+                                d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
                               />
-                              <g
-                                fill-rule="nonzero"
-                                stroke="#d9d9d9"
-                              >
-                                <path
-                                  d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
-                                />
-                                <path
-                                  d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
-                                  fill="#fafafa"
-                                />
-                              </g>
+                              <path
+                                d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                                fill="#fafafa"
+                              />
                             </g>
-                          </svg>
-                        </div>
-                        <div
-                          class="ant-empty-description"
-                        >
-                          No data
-                        </div>
+                          </g>
+                        </svg>
+                      </div>
+                      <div
+                        class="ant-empty-description"
+                      >
+                        No data
                       </div>
                     </div>
                   </div>
@@ -797,60 +785,58 @@ exports[`renders ./components/auto-complete/demo/form-debug.tsx extend context c
                     class="ant-select-selection-placeholder"
                   />
                 </div>
-                <div>
-                  <div
-                    class="ant-select-dropdown ant-tree-select-dropdown ant-select-dropdown-empty"
-                    style="opacity:0"
-                  >
-                    <div>
+                <div
+                  class="ant-select-dropdown ant-tree-select-dropdown ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+                  style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                >
+                  <div>
+                    <div
+                      class="ant-select-empty"
+                      role="listbox"
+                    >
                       <div
-                        class="ant-select-empty"
-                        role="listbox"
+                        class="ant-empty ant-empty-normal ant-empty-small"
                       >
                         <div
-                          class="ant-empty ant-empty-normal ant-empty-small"
+                          class="ant-empty-image"
                         >
-                          <div
-                            class="ant-empty-image"
+                          <svg
+                            height="41"
+                            viewBox="0 0 64 41"
+                            width="64"
+                            xmlns="http://www.w3.org/2000/svg"
                           >
-                            <svg
-                              height="41"
-                              viewBox="0 0 64 41"
-                              width="64"
-                              xmlns="http://www.w3.org/2000/svg"
+                            <g
+                              fill="none"
+                              fill-rule="evenodd"
+                              transform="translate(0 1)"
                             >
+                              <ellipse
+                                cx="32"
+                                cy="33"
+                                fill="#f5f5f5"
+                                rx="32"
+                                ry="7"
+                              />
                               <g
-                                fill="none"
-                                fill-rule="evenodd"
-                                transform="translate(0 1)"
+                                fill-rule="nonzero"
+                                stroke="#d9d9d9"
                               >
-                                <ellipse
-                                  cx="32"
-                                  cy="33"
-                                  fill="#f5f5f5"
-                                  rx="32"
-                                  ry="7"
+                                <path
+                                  d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
                                 />
-                                <g
-                                  fill-rule="nonzero"
-                                  stroke="#d9d9d9"
-                                >
-                                  <path
-                                    d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
-                                  />
-                                  <path
-                                    d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
-                                    fill="#fafafa"
-                                  />
-                                </g>
+                                <path
+                                  d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                                  fill="#fafafa"
+                                />
                               </g>
-                            </svg>
-                          </div>
-                          <div
-                            class="ant-empty-description"
-                          >
-                            No data
-                          </div>
+                            </g>
+                          </svg>
+                        </div>
+                        <div
+                          class="ant-empty-description"
+                        >
+                          No data
                         </div>
                       </div>
                     </div>
@@ -909,18 +895,16 @@ exports[`renders ./components/auto-complete/demo/form-debug.tsx extend context c
                     class="ant-select-selection-placeholder"
                   />
                 </div>
-                <div>
-                  <div
-                    class="ant-select-dropdown ant-select-dropdown-empty"
-                    style="opacity:0"
-                  >
-                    <div>
-                      <div
-                        class="ant-select-item-empty"
-                        id="undefined_list"
-                        role="listbox"
-                      />
-                    </div>
+                <div
+                  class="ant-select-dropdown ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+                  style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                >
+                  <div>
+                    <div
+                      class="ant-select-item-empty"
+                      id="undefined_list"
+                      role="listbox"
+                    />
                   </div>
                 </div>
               </div>
@@ -1008,18 +992,16 @@ exports[`renders ./components/auto-complete/demo/form-debug.tsx extend context c
                   class="ant-select-selection-placeholder"
                 />
               </div>
-              <div>
-                <div
-                  class="ant-select-dropdown ant-select-dropdown-empty"
-                  style="opacity:0"
-                >
-                  <div>
-                    <div
-                      class="ant-select-item-empty"
-                      id="undefined_list"
-                      role="listbox"
-                    />
-                  </div>
+              <div
+                class="ant-select-dropdown ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+                style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+              >
+                <div>
+                  <div
+                    class="ant-select-item-empty"
+                    id="undefined_list"
+                    role="listbox"
+                  />
                 </div>
               </div>
             </div>
@@ -1085,60 +1067,58 @@ exports[`renders ./components/auto-complete/demo/form-debug.tsx extend context c
                     class="ant-select-selection-placeholder"
                   />
                 </div>
-                <div>
-                  <div
-                    class="ant-select-dropdown ant-tree-select-dropdown ant-select-dropdown-empty"
-                    style="opacity:0"
-                  >
-                    <div>
+                <div
+                  class="ant-select-dropdown ant-tree-select-dropdown ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+                  style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                >
+                  <div>
+                    <div
+                      class="ant-select-empty"
+                      role="listbox"
+                    >
                       <div
-                        class="ant-select-empty"
-                        role="listbox"
+                        class="ant-empty ant-empty-normal ant-empty-small"
                       >
                         <div
-                          class="ant-empty ant-empty-normal ant-empty-small"
+                          class="ant-empty-image"
                         >
-                          <div
-                            class="ant-empty-image"
+                          <svg
+                            height="41"
+                            viewBox="0 0 64 41"
+                            width="64"
+                            xmlns="http://www.w3.org/2000/svg"
                           >
-                            <svg
-                              height="41"
-                              viewBox="0 0 64 41"
-                              width="64"
-                              xmlns="http://www.w3.org/2000/svg"
+                            <g
+                              fill="none"
+                              fill-rule="evenodd"
+                              transform="translate(0 1)"
                             >
+                              <ellipse
+                                cx="32"
+                                cy="33"
+                                fill="#f5f5f5"
+                                rx="32"
+                                ry="7"
+                              />
                               <g
-                                fill="none"
-                                fill-rule="evenodd"
-                                transform="translate(0 1)"
+                                fill-rule="nonzero"
+                                stroke="#d9d9d9"
                               >
-                                <ellipse
-                                  cx="32"
-                                  cy="33"
-                                  fill="#f5f5f5"
-                                  rx="32"
-                                  ry="7"
+                                <path
+                                  d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
                                 />
-                                <g
-                                  fill-rule="nonzero"
-                                  stroke="#d9d9d9"
-                                >
-                                  <path
-                                    d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
-                                  />
-                                  <path
-                                    d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
-                                    fill="#fafafa"
-                                  />
-                                </g>
+                                <path
+                                  d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                                  fill="#fafafa"
+                                />
                               </g>
-                            </svg>
-                          </div>
-                          <div
-                            class="ant-empty-description"
-                          >
-                            No data
-                          </div>
+                            </g>
+                          </svg>
+                        </div>
+                        <div
+                          class="ant-empty-description"
+                        >
+                          No data
                         </div>
                       </div>
                     </div>
@@ -1224,18 +1204,16 @@ exports[`renders ./components/auto-complete/demo/form-debug.tsx extend context c
                     class="ant-select-selection-placeholder"
                   />
                 </div>
-                <div>
-                  <div
-                    class="ant-select-dropdown ant-select-dropdown-empty"
-                    style="opacity:0"
-                  >
-                    <div>
-                      <div
-                        class="ant-select-item-empty"
-                        id="undefined_list"
-                        role="listbox"
-                      />
-                    </div>
+                <div
+                  class="ant-select-dropdown ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+                  style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                >
+                  <div>
+                    <div
+                      class="ant-select-item-empty"
+                      id="undefined_list"
+                      role="listbox"
+                    />
                   </div>
                 </div>
               </div>
@@ -1302,60 +1280,58 @@ exports[`renders ./components/auto-complete/demo/form-debug.tsx extend context c
                     class="ant-select-selection-placeholder"
                   />
                 </div>
-                <div>
-                  <div
-                    class="ant-select-dropdown ant-tree-select-dropdown ant-select-dropdown-empty"
-                    style="opacity:0"
-                  >
-                    <div>
+                <div
+                  class="ant-select-dropdown ant-tree-select-dropdown ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+                  style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                >
+                  <div>
+                    <div
+                      class="ant-select-empty"
+                      role="listbox"
+                    >
                       <div
-                        class="ant-select-empty"
-                        role="listbox"
+                        class="ant-empty ant-empty-normal ant-empty-small"
                       >
                         <div
-                          class="ant-empty ant-empty-normal ant-empty-small"
+                          class="ant-empty-image"
                         >
-                          <div
-                            class="ant-empty-image"
+                          <svg
+                            height="41"
+                            viewBox="0 0 64 41"
+                            width="64"
+                            xmlns="http://www.w3.org/2000/svg"
                           >
-                            <svg
-                              height="41"
-                              viewBox="0 0 64 41"
-                              width="64"
-                              xmlns="http://www.w3.org/2000/svg"
+                            <g
+                              fill="none"
+                              fill-rule="evenodd"
+                              transform="translate(0 1)"
                             >
+                              <ellipse
+                                cx="32"
+                                cy="33"
+                                fill="#f5f5f5"
+                                rx="32"
+                                ry="7"
+                              />
                               <g
-                                fill="none"
-                                fill-rule="evenodd"
-                                transform="translate(0 1)"
+                                fill-rule="nonzero"
+                                stroke="#d9d9d9"
                               >
-                                <ellipse
-                                  cx="32"
-                                  cy="33"
-                                  fill="#f5f5f5"
-                                  rx="32"
-                                  ry="7"
+                                <path
+                                  d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
                                 />
-                                <g
-                                  fill-rule="nonzero"
-                                  stroke="#d9d9d9"
-                                >
-                                  <path
-                                    d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
-                                  />
-                                  <path
-                                    d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
-                                    fill="#fafafa"
-                                  />
-                                </g>
+                                <path
+                                  d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                                  fill="#fafafa"
+                                />
                               </g>
-                            </svg>
-                          </div>
-                          <div
-                            class="ant-empty-description"
-                          >
-                            No data
-                          </div>
+                            </g>
+                          </svg>
+                        </div>
+                        <div
+                          class="ant-empty-description"
+                        >
+                          No data
                         </div>
                       </div>
                     </div>
@@ -1450,18 +1426,16 @@ exports[`renders ./components/auto-complete/demo/form-debug.tsx extend context c
                     class="ant-select-selection-placeholder"
                   />
                 </div>
-                <div>
-                  <div
-                    class="ant-select-dropdown ant-select-dropdown-empty"
-                    style="opacity:0"
-                  >
-                    <div>
-                      <div
-                        class="ant-select-item-empty"
-                        id="undefined_list"
-                        role="listbox"
-                      />
-                    </div>
+                <div
+                  class="ant-select-dropdown ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+                  style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                >
+                  <div>
+                    <div
+                      class="ant-select-item-empty"
+                      id="undefined_list"
+                      role="listbox"
+                    />
                   </div>
                 </div>
               </div>
@@ -1528,60 +1502,58 @@ exports[`renders ./components/auto-complete/demo/form-debug.tsx extend context c
                     class="ant-select-selection-placeholder"
                   />
                 </div>
-                <div>
-                  <div
-                    class="ant-select-dropdown ant-tree-select-dropdown ant-select-dropdown-empty"
-                    style="opacity:0"
-                  >
-                    <div>
+                <div
+                  class="ant-select-dropdown ant-tree-select-dropdown ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+                  style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                >
+                  <div>
+                    <div
+                      class="ant-select-empty"
+                      role="listbox"
+                    >
                       <div
-                        class="ant-select-empty"
-                        role="listbox"
+                        class="ant-empty ant-empty-normal ant-empty-small"
                       >
                         <div
-                          class="ant-empty ant-empty-normal ant-empty-small"
+                          class="ant-empty-image"
                         >
-                          <div
-                            class="ant-empty-image"
+                          <svg
+                            height="41"
+                            viewBox="0 0 64 41"
+                            width="64"
+                            xmlns="http://www.w3.org/2000/svg"
                           >
-                            <svg
-                              height="41"
-                              viewBox="0 0 64 41"
-                              width="64"
-                              xmlns="http://www.w3.org/2000/svg"
+                            <g
+                              fill="none"
+                              fill-rule="evenodd"
+                              transform="translate(0 1)"
                             >
+                              <ellipse
+                                cx="32"
+                                cy="33"
+                                fill="#f5f5f5"
+                                rx="32"
+                                ry="7"
+                              />
                               <g
-                                fill="none"
-                                fill-rule="evenodd"
-                                transform="translate(0 1)"
+                                fill-rule="nonzero"
+                                stroke="#d9d9d9"
                               >
-                                <ellipse
-                                  cx="32"
-                                  cy="33"
-                                  fill="#f5f5f5"
-                                  rx="32"
-                                  ry="7"
+                                <path
+                                  d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
                                 />
-                                <g
-                                  fill-rule="nonzero"
-                                  stroke="#d9d9d9"
-                                >
-                                  <path
-                                    d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
-                                  />
-                                  <path
-                                    d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
-                                    fill="#fafafa"
-                                  />
-                                </g>
+                                <path
+                                  d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                                  fill="#fafafa"
+                                />
                               </g>
-                            </svg>
-                          </div>
-                          <div
-                            class="ant-empty-description"
-                          >
-                            No data
-                          </div>
+                            </g>
+                          </svg>
+                        </div>
+                        <div
+                          class="ant-empty-description"
+                        >
+                          No data
                         </div>
                       </div>
                     </div>
@@ -1676,18 +1648,16 @@ exports[`renders ./components/auto-complete/demo/form-debug.tsx extend context c
                     class="ant-select-selection-placeholder"
                   />
                 </div>
-                <div>
-                  <div
-                    class="ant-select-dropdown ant-select-dropdown-empty"
-                    style="opacity:0"
-                  >
-                    <div>
-                      <div
-                        class="ant-select-item-empty"
-                        id="undefined_list"
-                        role="listbox"
-                      />
-                    </div>
+                <div
+                  class="ant-select-dropdown ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+                  style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                >
+                  <div>
+                    <div
+                      class="ant-select-item-empty"
+                      id="undefined_list"
+                      role="listbox"
+                    />
                   </div>
                 </div>
               </div>
@@ -1757,96 +1727,94 @@ exports[`renders ./components/auto-complete/demo/non-case-sensitive.tsx extend c
       try to type \`b\`
     </span>
   </div>
-  <div>
-    <div
-      class="ant-select-dropdown"
-      style="opacity:0"
-    >
-      <div>
+  <div
+    class="ant-select-dropdown ant-select-dropdown-placement-bottomLeft"
+    style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+  >
+    <div>
+      <div
+        id="undefined_list"
+        role="listbox"
+        style="height:0;width:0;overflow:hidden"
+      >
         <div
-          id="undefined_list"
-          role="listbox"
-          style="height:0;width:0;overflow:hidden"
+          aria-selected="false"
+          id="undefined_list_0"
+          role="option"
         >
-          <div
-            aria-selected="false"
-            id="undefined_list_0"
-            role="option"
-          >
-            Burns Bay Road
-          </div>
-          <div
-            aria-selected="false"
-            id="undefined_list_1"
-            role="option"
-          >
-            Downing Street
-          </div>
+          Burns Bay Road
         </div>
         <div
-          class="rc-virtual-list"
-          style="position:relative"
+          aria-selected="false"
+          id="undefined_list_1"
+          role="option"
         >
-          <div
-            class="rc-virtual-list-holder"
-            style="max-height:256px;overflow-y:auto;overflow-anchor:none"
-          >
-            <div>
+          Downing Street
+        </div>
+      </div>
+      <div
+        class="rc-virtual-list"
+        style="position:relative"
+      >
+        <div
+          class="rc-virtual-list-holder"
+          style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+        >
+          <div>
+            <div
+              class="rc-virtual-list-holder-inner"
+              style="display:flex;flex-direction:column"
+            >
               <div
-                class="rc-virtual-list-holder-inner"
-                style="display:flex;flex-direction:column"
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option ant-select-item-option-active"
+                title="Burns Bay Road"
               >
                 <div
-                  aria-selected="false"
-                  class="ant-select-item ant-select-item-option ant-select-item-option-active"
-                  title="Burns Bay Road"
+                  class="ant-select-item-option-content"
                 >
-                  <div
-                    class="ant-select-item-option-content"
-                  >
-                    Burns Bay Road
-                  </div>
-                  <span
-                    aria-hidden="true"
-                    class="ant-select-item-option-state"
-                    style="user-select:none;-webkit-user-select:none"
-                    unselectable="on"
-                  />
+                  Burns Bay Road
                 </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select:none;-webkit-user-select:none"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="Downing Street"
+              >
                 <div
-                  aria-selected="false"
-                  class="ant-select-item ant-select-item-option"
-                  title="Downing Street"
+                  class="ant-select-item-option-content"
                 >
-                  <div
-                    class="ant-select-item-option-content"
-                  >
-                    Downing Street
-                  </div>
-                  <span
-                    aria-hidden="true"
-                    class="ant-select-item-option-state"
-                    style="user-select:none;-webkit-user-select:none"
-                    unselectable="on"
-                  />
+                  Downing Street
                 </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select:none;-webkit-user-select:none"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="Wall Street"
+              >
                 <div
-                  aria-selected="false"
-                  class="ant-select-item ant-select-item-option"
-                  title="Wall Street"
+                  class="ant-select-item-option-content"
                 >
-                  <div
-                    class="ant-select-item-option-content"
-                  >
-                    Wall Street
-                  </div>
-                  <span
-                    aria-hidden="true"
-                    class="ant-select-item-option-state"
-                    style="user-select:none;-webkit-user-select:none"
-                    unselectable="on"
-                  />
+                  Wall Street
                 </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select:none;-webkit-user-select:none"
+                  unselectable="on"
+                />
               </div>
             </div>
           </div>
@@ -1887,18 +1855,16 @@ exports[`renders ./components/auto-complete/demo/options.tsx extend context corr
       input here
     </span>
   </div>
-  <div>
-    <div
-      class="ant-select-dropdown ant-select-dropdown-empty"
-      style="opacity:0"
-    >
-      <div>
-        <div
-          class="ant-select-item-empty"
-          id="undefined_list"
-          role="listbox"
-        />
-      </div>
+  <div
+    class="ant-select-dropdown ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+    style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+  >
+    <div>
+      <div
+        class="ant-select-item-empty"
+        id="undefined_list"
+        role="listbox"
+      />
     </div>
   </div>
 </div>
@@ -1965,115 +1931,113 @@ exports[`renders ./components/auto-complete/demo/render-panel.tsx extend context
             />
           </span>
         </div>
-        <div>
-          <div
-            class="ant-select-dropdown"
-            style="opacity:0"
-          >
-            <div>
+        <div
+          class="ant-select-dropdown ant-select-dropdown-placement-bottomLeft"
+          style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+        >
+          <div>
+            <div
+              id="undefined_list"
+              role="listbox"
+              style="height:0;width:0;overflow:hidden"
+            >
               <div
-                id="undefined_list"
-                role="listbox"
-                style="height:0;width:0;overflow:hidden"
+                aria-label="Jack"
+                aria-selected="false"
+                id="undefined_list_0"
+                role="option"
               >
-                <div
-                  aria-label="Jack"
-                  aria-selected="false"
-                  id="undefined_list_0"
-                  role="option"
-                >
-                  jack
-                </div>
-                <div
-                  aria-label="Lucy"
-                  aria-selected="false"
-                  id="undefined_list_1"
-                  role="option"
-                >
-                  lucy
-                </div>
+                jack
               </div>
               <div
-                class="rc-virtual-list"
-                style="position:relative"
+                aria-label="Lucy"
+                aria-selected="false"
+                id="undefined_list_1"
+                role="option"
               >
-                <div
-                  class="rc-virtual-list-holder"
-                  style="max-height:256px;overflow-y:auto;overflow-anchor:none"
-                >
-                  <div>
+                lucy
+              </div>
+            </div>
+            <div
+              class="rc-virtual-list"
+              style="position:relative"
+            >
+              <div
+                class="rc-virtual-list-holder"
+                style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+              >
+                <div>
+                  <div
+                    class="rc-virtual-list-holder-inner"
+                    style="display:flex;flex-direction:column"
+                  >
                     <div
-                      class="rc-virtual-list-holder-inner"
-                      style="display:flex;flex-direction:column"
+                      aria-selected="false"
+                      class="ant-select-item ant-select-item-option ant-select-item-option-active"
+                      title="Jack"
                     >
                       <div
-                        aria-selected="false"
-                        class="ant-select-item ant-select-item-option ant-select-item-option-active"
-                        title="Jack"
+                        class="ant-select-item-option-content"
                       >
-                        <div
-                          class="ant-select-item-option-content"
-                        >
-                          Jack
-                        </div>
-                        <span
-                          aria-hidden="true"
-                          class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
-                          unselectable="on"
-                        />
+                        Jack
                       </div>
+                      <span
+                        aria-hidden="true"
+                        class="ant-select-item-option-state"
+                        style="user-select:none;-webkit-user-select:none"
+                        unselectable="on"
+                      />
+                    </div>
+                    <div
+                      aria-selected="false"
+                      class="ant-select-item ant-select-item-option"
+                      title="Lucy"
+                    >
                       <div
-                        aria-selected="false"
-                        class="ant-select-item ant-select-item-option"
-                        title="Lucy"
+                        class="ant-select-item-option-content"
                       >
-                        <div
-                          class="ant-select-item-option-content"
-                        >
-                          Lucy
-                        </div>
-                        <span
-                          aria-hidden="true"
-                          class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
-                          unselectable="on"
-                        />
+                        Lucy
                       </div>
+                      <span
+                        aria-hidden="true"
+                        class="ant-select-item-option-state"
+                        style="user-select:none;-webkit-user-select:none"
+                        unselectable="on"
+                      />
+                    </div>
+                    <div
+                      aria-selected="false"
+                      class="ant-select-item ant-select-item-option"
+                      title="Disabled"
+                    >
                       <div
-                        aria-selected="false"
-                        class="ant-select-item ant-select-item-option"
-                        title="Disabled"
+                        class="ant-select-item-option-content"
                       >
-                        <div
-                          class="ant-select-item-option-content"
-                        >
-                          Disabled
-                        </div>
-                        <span
-                          aria-hidden="true"
-                          class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
-                          unselectable="on"
-                        />
+                        Disabled
                       </div>
+                      <span
+                        aria-hidden="true"
+                        class="ant-select-item-option-state"
+                        style="user-select:none;-webkit-user-select:none"
+                        unselectable="on"
+                      />
+                    </div>
+                    <div
+                      aria-selected="false"
+                      class="ant-select-item ant-select-item-option"
+                      title="Bamboo"
+                    >
                       <div
-                        aria-selected="false"
-                        class="ant-select-item ant-select-item-option"
-                        title="Bamboo"
+                        class="ant-select-item-option-content"
                       >
-                        <div
-                          class="ant-select-item-option-content"
-                        >
-                          Bamboo
-                        </div>
-                        <span
-                          aria-hidden="true"
-                          class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
-                          unselectable="on"
-                        />
+                        Bamboo
                       </div>
+                      <span
+                        aria-hidden="true"
+                        class="ant-select-item-option-state"
+                        style="user-select:none;-webkit-user-select:none"
+                        unselectable="on"
+                      />
                     </div>
                   </div>
                 </div>
@@ -2123,18 +2087,16 @@ exports[`renders ./components/auto-complete/demo/status.tsx extend context corre
           class="ant-select-selection-placeholder"
         />
       </div>
-      <div>
-        <div
-          class="ant-select-dropdown ant-select-dropdown-empty"
-          style="opacity:0"
-        >
-          <div>
-            <div
-              class="ant-select-item-empty"
-              id="undefined_list"
-              role="listbox"
-            />
-          </div>
+      <div
+        class="ant-select-dropdown ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      >
+        <div>
+          <div
+            class="ant-select-item-empty"
+            id="undefined_list"
+            role="listbox"
+          />
         </div>
       </div>
     </div>
@@ -2169,18 +2131,16 @@ exports[`renders ./components/auto-complete/demo/status.tsx extend context corre
           class="ant-select-selection-placeholder"
         />
       </div>
-      <div>
-        <div
-          class="ant-select-dropdown ant-select-dropdown-empty"
-          style="opacity:0"
-        >
-          <div>
-            <div
-              class="ant-select-item-empty"
-              id="undefined_list"
-              role="listbox"
-            />
-          </div>
+      <div
+        class="ant-select-dropdown ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      >
+        <div>
+          <div
+            class="ant-select-item-empty"
+            id="undefined_list"
+            role="listbox"
+          />
         </div>
       </div>
     </div>
@@ -2253,18 +2213,16 @@ exports[`renders ./components/auto-complete/demo/uncertain-category.tsx extend c
       class="ant-select-selection-placeholder"
     />
   </div>
-  <div>
-    <div
-      class="ant-select-dropdown ant-select-dropdown-empty"
-      style="opacity:0;width:252px"
-    >
-      <div>
-        <div
-          class="ant-select-item-empty"
-          id="undefined_list"
-          role="listbox"
-        />
-      </div>
+  <div
+    class="ant-select-dropdown ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+    style="left:-1000vw;top:-1000vh;box-sizing:border-box;width:252px"
+  >
+    <div>
+      <div
+        class="ant-select-item-empty"
+        id="undefined_list"
+        role="listbox"
+      />
     </div>
   </div>
 </div>

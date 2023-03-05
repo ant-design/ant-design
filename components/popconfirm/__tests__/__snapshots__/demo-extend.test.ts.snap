@@ -2,6 +2,14 @@
 
 exports[`renders ./components/popconfirm/demo/async.tsx extend context correctly 1`] = `
 Array [
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Open Popconfirm with async logic
+    </span>
+  </button>,
   <div
     class="ant-popover ant-popconfirm ant-popover-placement-top"
     style="left:-1000vw;top:-1000vh;box-sizing:border-box"
@@ -85,19 +93,16 @@ Array [
       </div>
     </div>
   </div>,
-  <button
-    class="ant-btn ant-btn-primary"
-    type="button"
-  >
-    <span>
-      Open Popconfirm with async logic
-    </span>
-  </button>,
 ]
 `;
 
 exports[`renders ./components/popconfirm/demo/basic.tsx extend context correctly 1`] = `
 Array [
+  <a
+    href="#"
+  >
+    Delete
+  </a>,
   <div
     class="ant-popover ant-popconfirm ant-popover-placement-top"
     style="left:-1000vw;top:-1000vh;box-sizing:border-box"
@@ -181,16 +186,16 @@ Array [
       </div>
     </div>
   </div>,
-  <a
-    href="#"
-  >
-    Delete
-  </a>,
 ]
 `;
 
 exports[`renders ./components/popconfirm/demo/dynamic-trigger.tsx extend context correctly 1`] = `
 <div>
+  <a
+    href="#"
+  >
+    Delete a task
+  </a>
   <div
     class="ant-popover ant-popconfirm ant-popover-placement-top"
     style="left:-1000vw;top:-1000vh;box-sizing:border-box"
@@ -274,11 +279,6 @@ exports[`renders ./components/popconfirm/demo/dynamic-trigger.tsx extend context
       </div>
     </div>
   </div>
-  <a
-    href="#"
-  >
-    Delete a task
-  </a>
   <br />
   <br />
   Whether directly execute：
@@ -307,6 +307,11 @@ exports[`renders ./components/popconfirm/demo/dynamic-trigger.tsx extend context
 
 exports[`renders ./components/popconfirm/demo/icon.tsx extend context correctly 1`] = `
 Array [
+  <a
+    href="#"
+  >
+    Delete
+  </a>,
   <div
     class="ant-popover ant-popconfirm ant-popover-placement-top"
     style="left:-1000vw;top:-1000vh;box-sizing:border-box"
@@ -394,16 +399,16 @@ Array [
       </div>
     </div>
   </div>,
-  <a
-    href="#"
-  >
-    Delete
-  </a>,
 ]
 `;
 
 exports[`renders ./components/popconfirm/demo/locale.tsx extend context correctly 1`] = `
 Array [
+  <a
+    href="#"
+  >
+    Delete
+  </a>,
   <div
     class="ant-popover ant-popconfirm ant-popover-placement-top"
     style="left:-1000vw;top:-1000vh;box-sizing:border-box"
@@ -487,11 +492,6 @@ Array [
       </div>
     </div>
   </div>,
-  <a
-    href="#"
-  >
-    Delete
-  </a>,
 ]
 `;
 
@@ -500,6 +500,14 @@ Array [
   <div
     style="margin-left:70px;white-space:nowrap"
   >
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        TL
+      </span>
+    </button>
     <div
       class="ant-popover ant-popconfirm ant-popover-placement-topLeft"
       style="left:-1000vw;top:-1000vh;box-sizing:border-box"
@@ -588,7 +596,7 @@ Array [
       type="button"
     >
       <span>
-        TL
+        Top
       </span>
     </button>
     <div
@@ -679,7 +687,7 @@ Array [
       type="button"
     >
       <span>
-        Top
+        TR
       </span>
     </button>
     <div
@@ -765,18 +773,18 @@ Array [
         </div>
       </div>
     </div>
+  </div>,
+  <div
+    style="width:70px;float:left"
+  >
     <button
       class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
-        TR
+        LT
       </span>
     </button>
-  </div>,
-  <div
-    style="width:70px;float:left"
-  >
     <div
       class="ant-popover ant-popconfirm ant-popover-placement-leftTop"
       style="left:-1000vw;top:-1000vh;box-sizing:border-box"
@@ -865,7 +873,7 @@ Array [
       type="button"
     >
       <span>
-        LT
+        Left
       </span>
     </button>
     <div
@@ -956,7 +964,7 @@ Array [
       type="button"
     >
       <span>
-        Left
+        LB
       </span>
     </button>
     <div
@@ -1042,18 +1050,18 @@ Array [
         </div>
       </div>
     </div>
+  </div>,
+  <div
+    style="width:70px;margin-left:304px"
+  >
     <button
       class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
-        LB
+        RT
       </span>
     </button>
-  </div>,
-  <div
-    style="width:70px;margin-left:304px"
-  >
     <div
       class="ant-popover ant-popconfirm ant-popover-placement-rightTop"
       style="left:-1000vw;top:-1000vh;box-sizing:border-box"
@@ -1142,7 +1150,7 @@ Array [
       type="button"
     >
       <span>
-        RT
+        Right
       </span>
     </button>
     <div
@@ -1233,7 +1241,7 @@ Array [
       type="button"
     >
       <span>
-        Right
+        RB
       </span>
     </button>
     <div
@@ -1319,18 +1327,18 @@ Array [
         </div>
       </div>
     </div>
+  </div>,
+  <div
+    style="margin-left:70px;clear:both;white-space:nowrap"
+  >
     <button
       class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
-        RB
+        BL
       </span>
     </button>
-  </div>,
-  <div
-    style="margin-left:70px;clear:both;white-space:nowrap"
-  >
     <div
       class="ant-popover ant-popconfirm ant-popover-placement-bottomLeft"
       style="left:-1000vw;top:-1000vh;box-sizing:border-box"
@@ -1419,7 +1427,7 @@ Array [
       type="button"
     >
       <span>
-        BL
+        Bottom
       </span>
     </button>
     <div
@@ -1510,7 +1518,7 @@ Array [
       type="button"
     >
       <span>
-        Bottom
+        BR
       </span>
     </button>
     <div
@@ -1596,20 +1604,20 @@ Array [
         </div>
       </div>
     </div>
-    <button
-      class="ant-btn ant-btn-default"
-      type="button"
-    >
-      <span>
-        BR
-      </span>
-    </button>
   </div>,
 ]
 `;
 
 exports[`renders ./components/popconfirm/demo/promise.tsx extend context correctly 1`] = `
 Array [
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Open Popconfirm with Promise
+    </span>
+  </button>,
   <div
     class="ant-popover ant-popconfirm ant-popover-placement-top"
     style="left:-1000vw;top:-1000vh;box-sizing:border-box"
@@ -1693,14 +1701,6 @@ Array [
       </div>
     </div>
   </div>,
-  <button
-    class="ant-btn ant-btn-primary"
-    type="button"
-  >
-    <span>
-      Open Popconfirm with Promise
-    </span>
-  </button>,
 ]
 `;
 
