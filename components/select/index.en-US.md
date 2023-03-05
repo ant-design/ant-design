@@ -42,6 +42,7 @@ Select component to select value from options.
 <code src="./demo/placement.tsx">Placement</code>
 <code src="./demo/debug.tsx" debug>4.0 Debug</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/option-label-center.tsx" debug>Options label Centered</code>
 
 ## API
 
