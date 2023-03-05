@@ -126,7 +126,7 @@ export default genComponentStyleHook('Rate', (token) => {
   const { colorFillContent } = token;
 
   const rateToken = mergeToken<RateToken>(token, {
-    rateStarColor: token['yellow-6'],
+    rateStarColor: token.yellow6,
     rateStarSize: token.controlHeightLG * 0.5,
     rateStarHoverScale: 'scale(1.1)',
     defaultColor: colorFillContent,
