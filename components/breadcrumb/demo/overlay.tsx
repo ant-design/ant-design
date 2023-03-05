@@ -1,7 +1,7 @@
 import React from 'react';
 import { Breadcrumb } from 'antd';
 
-const items = [
+const menuItems = [
   {
     key: '1',
     label: (
@@ -29,16 +29,23 @@ const items = [
 ];
 
 const App: React.FC = () => (
-  <Breadcrumb>
-    <Breadcrumb.Item>Ant Design</Breadcrumb.Item>
-    <Breadcrumb.Item>
-      <a href="">Component</a>
-    </Breadcrumb.Item>
-    <Breadcrumb.Item menu={{ items }}>
-      <a href="">General</a>
-    </Breadcrumb.Item>
-    <Breadcrumb.Item>Button</Breadcrumb.Item>
-  </Breadcrumb>
+  <Breadcrumb
+    items={[
+      {
+        title: 'Ant Design',
+      },
+      {
+        title: <a href="">Component</a>,
+      },
+      {
+        title: <a href="">General</a>,
+        menu: { items: menuItems },
+      },
+      {
+        title: 'Button',
+      },
+    ]}
+  />
 );
 
 export default App;
