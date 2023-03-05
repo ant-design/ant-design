@@ -10,13 +10,13 @@ group:
   order: 5
 ---
 
-Components that can convert links into QR codes, and support custom color and logo. Available since `antd@5.1.0`.
+Components that can convert text into QR codes, and support custom color and logo. Available since `antd@5.1.0`.
 
 <Alert message="If the QR code cannot be scanned for identification, it may be because the link address is too long, which leads to too dense pixels. You can configure the QR code to be larger through `size`, or shorten the link through short link services."></Alert>
 
 ## When To Use
 
-Used when the link needs to be converted into a QR Code.
+Used when the text needs to be converted into a QR Code.
 
 ## Examples
 
@@ -36,7 +36,7 @@ Used when the link needs to be converted into a QR Code.
 
 | Property | Description | Type | Default |
 | :-- | :-- | :-- | :-- |
-| value | scanned link | string | - |
+| value | scanned text | string | - |
 | icon | include image url (only image link are supported) | string | - |
 | size | QRCode size | number | 128 |
 | iconSize | include image size | number | 32 |
