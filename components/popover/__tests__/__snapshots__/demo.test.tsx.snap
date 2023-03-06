@@ -236,6 +236,17 @@ exports[`renders ./components/popover/demo/control.tsx correctly 1`] = `
 </button>
 `;
 
+exports[`renders ./components/popover/demo/custom-Popconfirm.tsx correctly 1`] = `
+<button
+  class="ant-btn ant-btn-primary"
+  type="button"
+>
+  <span>
+    Click me
+  </span>
+</button>
+`;
+
 exports[`renders ./components/popover/demo/hover-with-click.tsx correctly 1`] = `
 <button
   class="ant-btn ant-btn-default"
