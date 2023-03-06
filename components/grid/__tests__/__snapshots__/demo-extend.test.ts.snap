@@ -919,27 +919,22 @@ Array [
         style="left:20%;transform:translateX(-50%)"
         tabindex="0"
       />
-      <div>
+      <div
+        class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
+        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      >
         <div
-          class="ant-tooltip ant-slider-tooltip"
-          style="opacity:0"
+          class="ant-tooltip-arrow"
+          style="position:absolute;bottom:0;left:0"
+        />
+        <div
+          class="ant-tooltip-content"
         >
           <div
-            class="ant-tooltip-content"
+            class="ant-tooltip-inner"
+            role="tooltip"
           >
-            <div
-              class="ant-tooltip-arrow"
-            >
-              <span
-                class="ant-tooltip-arrow-content"
-              />
-            </div>
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            >
-              16
-            </div>
+            16
           </div>
         </div>
       </div>
@@ -1039,27 +1034,22 @@ Array [
         style="left:20%;transform:translateX(-50%)"
         tabindex="0"
       />
-      <div>
+      <div
+        class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
+        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      >
         <div
-          class="ant-tooltip ant-slider-tooltip"
-          style="opacity:0"
+          class="ant-tooltip-arrow"
+          style="position:absolute;bottom:0;left:0"
+        />
+        <div
+          class="ant-tooltip-content"
         >
           <div
-            class="ant-tooltip-content"
+            class="ant-tooltip-inner"
+            role="tooltip"
           >
-            <div
-              class="ant-tooltip-arrow"
-            >
-              <span
-                class="ant-tooltip-arrow-content"
-              />
-            </div>
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            >
-              16
-            </div>
+            16
           </div>
         </div>
       </div>
@@ -1159,27 +1149,22 @@ Array [
         style="left:40%;transform:translateX(-50%)"
         tabindex="0"
       />
-      <div>
+      <div
+        class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
+        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      >
         <div
-          class="ant-tooltip ant-slider-tooltip"
-          style="opacity:0"
+          class="ant-tooltip-arrow"
+          style="position:absolute;bottom:0;left:0"
+        />
+        <div
+          class="ant-tooltip-content"
         >
           <div
-            class="ant-tooltip-content"
+            class="ant-tooltip-inner"
+            role="tooltip"
           >
-            <div
-              class="ant-tooltip-arrow"
-            >
-              <span
-                class="ant-tooltip-arrow-content"
-              />
-            </div>
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            >
-              4
-            </div>
+            4
           </div>
         </div>
       </div>

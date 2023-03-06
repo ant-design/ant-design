@@ -319,11 +319,11 @@ exports[`renders ./components/tour/demo/render-panel.tsx correctly 1`] = `
     class="ant-tour ant-tour-pure ant-tour-placement-top ant-tour-pure"
   >
     <div
+      class="ant-tour-arrow"
+    />
+    <div
       class="ant-tour-content"
     >
-      <div
-        class="ant-tour-arrow"
-      />
       <div
         class="ant-tour-inner"
         role="tooltip"
@@ -414,11 +414,11 @@ exports[`renders ./components/tour/demo/render-panel.tsx correctly 1`] = `
     class="ant-tour ant-tour-pure ant-tour-placement-top ant-tour-pure"
   >
     <div
+      class="ant-tour-arrow"
+    />
+    <div
       class="ant-tour-content"
     >
-      <div
-        class="ant-tour-arrow"
-      />
       <div
         class="ant-tour-inner"
         role="tooltip"
@@ -528,11 +528,11 @@ exports[`renders ./components/tour/demo/render-panel.tsx correctly 1`] = `
     class="ant-tour ant-tour-pure ant-tour-placement-top ant-tour-pure ant-tour-primary"
   >
     <div
+      class="ant-tour-arrow"
+    />
+    <div
       class="ant-tour-content"
     >
-      <div
-        class="ant-tour-arrow"
-      />
       <div
         class="ant-tour-inner"
         role="tooltip"

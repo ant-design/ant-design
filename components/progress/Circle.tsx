@@ -4,7 +4,7 @@ import { Circle as RCCircle } from 'rc-progress';
 import * as React from 'react';
 import Tooltip from '../tooltip';
 import type { ProgressGradient, ProgressProps } from './progress';
-import { getPercentage, getStrokeColor } from './utils';
+import { getPercentage, getSize, getStrokeColor } from './utils';
 
 const CIRCLE_MIN_STROKE_WIDTH = 3;
 
@@ -20,18 +20,27 @@ export interface CircleProps extends ProgressProps {
 const Circle: React.FC<CircleProps> = (props) => {
   const {
     prefixCls,
-    width = 120,
-    strokeWidth = Math.max(getMinPercent(width), 6),
     trailColor = null as unknown as string,
     strokeLinecap = 'round',
     gapPosition,
     gapDegree,
+    width: originWidth = 120,
     type,
     children,
     success,
+    size,
   } = props;
 
-  const circleStyle: React.CSSProperties = { width, height: width, fontSize: width * 0.15 + 6 };
+  const mergedSize = size ?? [originWidth, originWidth];
+
+  const [width, height] = getSize(mergedSize, 'circle');
+
+  let { strokeWidth } = props;
+  if (strokeWidth === undefined) {
+    strokeWidth = Math.max(getMinPercent(width), 6);
+  }
+
+  const circleStyle: React.CSSProperties = { width, height, fontSize: width * 0.15 + 6 };
 
   const realGapDegree = React.useMemo<RcProgressProps['gapDegree']>(() => {
     // Support gapDeg = 0 when type = 'dashboard'
@@ -71,7 +80,9 @@ const Circle: React.FC<CircleProps> = (props) => {
   return (
     <div className={wrapperClassName} style={circleStyle}>
       {width <= 20 ? (
-        <Tooltip title={children}>{circleContent}</Tooltip>
+        <Tooltip title={children}>
+          <span>{circleContent}</span>
+        </Tooltip>
       ) : (
         <>
           {circleContent}

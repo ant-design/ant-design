@@ -229,6 +229,7 @@ const Dropdown: CompoundedComponent = (props) => {
     autoAdjustOverflow,
     offset: token.marginXXS,
     arrowWidth: arrow ? token.sizePopupArrow : 0,
+    borderRadius: token.borderRadius,
   });
 
   const onMenuClick = React.useCallback(() => {

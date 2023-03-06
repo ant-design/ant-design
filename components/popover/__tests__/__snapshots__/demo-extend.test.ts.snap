@@ -76,43 +76,38 @@ exports[`renders ./components/popover/demo/arrow.tsx extend context correctly 1`
         TL
       </span>
     </button>
-    <div>
+    <div
+      class="ant-popover ant-popover-placement-topLeft"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-popover"
-        style="opacity:0"
+        class="ant-popover-arrow"
+        style="position:absolute"
+      />
+      <div
+        class="ant-popover-content"
       >
         <div
-          class="ant-popover-content"
+          class="ant-popover-inner"
+          role="tooltip"
         >
           <div
-            class="ant-popover-arrow"
+            class="ant-popover-title"
           >
-            <span
-              class="ant-popover-arrow-content"
-            />
+            <span>
+              Title
+            </span>
           </div>
           <div
-            class="ant-popover-inner"
-            role="tooltip"
+            class="ant-popover-inner-content"
           >
-            <div
-              class="ant-popover-title"
-            >
-              <span>
-                Title
-              </span>
-            </div>
-            <div
-              class="ant-popover-inner-content"
-            >
-              <div>
-                <p>
-                  Content
-                </p>
-                <p>
-                  Content
-                </p>
-              </div>
+            <div>
+              <p>
+                Content
+              </p>
+              <p>
+                Content
+              </p>
             </div>
           </div>
         </div>
@@ -126,43 +121,38 @@ exports[`renders ./components/popover/demo/arrow.tsx extend context correctly 1`
         Top
       </span>
     </button>
-    <div>
+    <div
+      class="ant-popover ant-popover-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-popover"
-        style="opacity:0"
+        class="ant-popover-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-popover-content"
       >
         <div
-          class="ant-popover-content"
+          class="ant-popover-inner"
+          role="tooltip"
         >
           <div
-            class="ant-popover-arrow"
+            class="ant-popover-title"
           >
-            <span
-              class="ant-popover-arrow-content"
-            />
+            <span>
+              Title
+            </span>
           </div>
           <div
-            class="ant-popover-inner"
-            role="tooltip"
+            class="ant-popover-inner-content"
           >
-            <div
-              class="ant-popover-title"
-            >
-              <span>
-                Title
-              </span>
-            </div>
-            <div
-              class="ant-popover-inner-content"
-            >
-              <div>
-                <p>
-                  Content
-                </p>
-                <p>
-                  Content
-                </p>
-              </div>
+            <div>
+              <p>
+                Content
+              </p>
+              <p>
+                Content
+              </p>
             </div>
           </div>
         </div>
@@ -176,43 +166,38 @@ exports[`renders ./components/popover/demo/arrow.tsx extend context correctly 1`
         TR
       </span>
     </button>
-    <div>
+    <div
+      class="ant-popover ant-popover-placement-topRight"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-popover"
-        style="opacity:0"
+        class="ant-popover-arrow"
+        style="position:absolute"
+      />
+      <div
+        class="ant-popover-content"
       >
         <div
-          class="ant-popover-content"
+          class="ant-popover-inner"
+          role="tooltip"
         >
           <div
-            class="ant-popover-arrow"
+            class="ant-popover-title"
           >
-            <span
-              class="ant-popover-arrow-content"
-            />
+            <span>
+              Title
+            </span>
           </div>
           <div
-            class="ant-popover-inner"
-            role="tooltip"
+            class="ant-popover-inner-content"
           >
-            <div
-              class="ant-popover-title"
-            >
-              <span>
-                Title
-              </span>
-            </div>
-            <div
-              class="ant-popover-inner-content"
-            >
-              <div>
-                <p>
-                  Content
-                </p>
-                <p>
-                  Content
-                </p>
-              </div>
+            <div>
+              <p>
+                Content
+              </p>
+              <p>
+                Content
+              </p>
             </div>
           </div>
         </div>
@@ -230,43 +215,38 @@ exports[`renders ./components/popover/demo/arrow.tsx extend context correctly 1`
         LT
       </span>
     </button>
-    <div>
+    <div
+      class="ant-popover ant-popover-placement-leftTop"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-popover"
-        style="opacity:0"
+        class="ant-popover-arrow"
+        style="position:absolute"
+      />
+      <div
+        class="ant-popover-content"
       >
         <div
-          class="ant-popover-content"
+          class="ant-popover-inner"
+          role="tooltip"
         >
           <div
-            class="ant-popover-arrow"
+            class="ant-popover-title"
           >
-            <span
-              class="ant-popover-arrow-content"
-            />
+            <span>
+              Title
+            </span>
           </div>
           <div
-            class="ant-popover-inner"
-            role="tooltip"
+            class="ant-popover-inner-content"
           >
-            <div
-              class="ant-popover-title"
-            >
-              <span>
-                Title
-              </span>
-            </div>
-            <div
-              class="ant-popover-inner-content"
-            >
-              <div>
-                <p>
-                  Content
-                </p>
-                <p>
-                  Content
-                </p>
-              </div>
+            <div>
+              <p>
+                Content
+              </p>
+              <p>
+                Content
+              </p>
             </div>
           </div>
         </div>
@@ -280,43 +260,38 @@ exports[`renders ./components/popover/demo/arrow.tsx extend context correctly 1`
         Left
       </span>
     </button>
-    <div>
+    <div
+      class="ant-popover ant-popover-placement-left"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-popover"
-        style="opacity:0"
+        class="ant-popover-arrow"
+        style="position:absolute;top:0;right:0"
+      />
+      <div
+        class="ant-popover-content"
       >
         <div
-          class="ant-popover-content"
+          class="ant-popover-inner"
+          role="tooltip"
         >
           <div
-            class="ant-popover-arrow"
+            class="ant-popover-title"
           >
-            <span
-              class="ant-popover-arrow-content"
-            />
+            <span>
+              Title
+            </span>
           </div>
           <div
-            class="ant-popover-inner"
-            role="tooltip"
+            class="ant-popover-inner-content"
           >
-            <div
-              class="ant-popover-title"
-            >
-              <span>
-                Title
-              </span>
-            </div>
-            <div
-              class="ant-popover-inner-content"
-            >
-              <div>
-                <p>
-                  Content
-                </p>
-                <p>
-                  Content
-                </p>
-              </div>
+            <div>
+              <p>
+                Content
+              </p>
+              <p>
+                Content
+              </p>
             </div>
           </div>
         </div>
@@ -330,43 +305,38 @@ exports[`renders ./components/popover/demo/arrow.tsx extend context correctly 1`
         LB
       </span>
     </button>
-    <div>
+    <div
+      class="ant-popover ant-popover-placement-leftBottom"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-popover"
-        style="opacity:0"
+        class="ant-popover-arrow"
+        style="position:absolute"
+      />
+      <div
+        class="ant-popover-content"
       >
         <div
-          class="ant-popover-content"
+          class="ant-popover-inner"
+          role="tooltip"
         >
           <div
-            class="ant-popover-arrow"
+            class="ant-popover-title"
           >
-            <span
-              class="ant-popover-arrow-content"
-            />
+            <span>
+              Title
+            </span>
           </div>
           <div
-            class="ant-popover-inner"
-            role="tooltip"
+            class="ant-popover-inner-content"
           >
-            <div
-              class="ant-popover-title"
-            >
-              <span>
-                Title
-              </span>
-            </div>
-            <div
-              class="ant-popover-inner-content"
-            >
-              <div>
-                <p>
-                  Content
-                </p>
-                <p>
-                  Content
-                </p>
-              </div>
+            <div>
+              <p>
+                Content
+              </p>
+              <p>
+                Content
+              </p>
             </div>
           </div>
         </div>
@@ -384,43 +354,38 @@ exports[`renders ./components/popover/demo/arrow.tsx extend context correctly 1`
         RT
       </span>
     </button>
-    <div>
+    <div
+      class="ant-popover ant-popover-placement-rightTop"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-popover"
-        style="opacity:0"
+        class="ant-popover-arrow"
+        style="position:absolute"
+      />
+      <div
+        class="ant-popover-content"
       >
         <div
-          class="ant-popover-content"
+          class="ant-popover-inner"
+          role="tooltip"
         >
           <div
-            class="ant-popover-arrow"
+            class="ant-popover-title"
           >
-            <span
-              class="ant-popover-arrow-content"
-            />
+            <span>
+              Title
+            </span>
           </div>
           <div
-            class="ant-popover-inner"
-            role="tooltip"
+            class="ant-popover-inner-content"
           >
-            <div
-              class="ant-popover-title"
-            >
-              <span>
-                Title
-              </span>
-            </div>
-            <div
-              class="ant-popover-inner-content"
-            >
-              <div>
-                <p>
-                  Content
-                </p>
-                <p>
-                  Content
-                </p>
-              </div>
+            <div>
+              <p>
+                Content
+              </p>
+              <p>
+                Content
+              </p>
             </div>
           </div>
         </div>
@@ -434,43 +399,38 @@ exports[`renders ./components/popover/demo/arrow.tsx extend context correctly 1`
         Right
       </span>
     </button>
-    <div>
+    <div
+      class="ant-popover ant-popover-placement-right"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-popover"
-        style="opacity:0"
+        class="ant-popover-arrow"
+        style="position:absolute;top:0;left:0"
+      />
+      <div
+        class="ant-popover-content"
       >
         <div
-          class="ant-popover-content"
+          class="ant-popover-inner"
+          role="tooltip"
         >
           <div
-            class="ant-popover-arrow"
+            class="ant-popover-title"
           >
-            <span
-              class="ant-popover-arrow-content"
-            />
+            <span>
+              Title
+            </span>
           </div>
           <div
-            class="ant-popover-inner"
-            role="tooltip"
+            class="ant-popover-inner-content"
           >
-            <div
-              class="ant-popover-title"
-            >
-              <span>
-                Title
-              </span>
-            </div>
-            <div
-              class="ant-popover-inner-content"
-            >
-              <div>
-                <p>
-                  Content
-                </p>
-                <p>
-                  Content
-                </p>
-              </div>
+            <div>
+              <p>
+                Content
+              </p>
+              <p>
+                Content
+              </p>
             </div>
           </div>
         </div>
@@ -484,43 +444,38 @@ exports[`renders ./components/popover/demo/arrow.tsx extend context correctly 1`
         RB
       </span>
     </button>
-    <div>
+    <div
+      class="ant-popover ant-popover-placement-rightBottom"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-popover"
-        style="opacity:0"
+        class="ant-popover-arrow"
+        style="position:absolute"
+      />
+      <div
+        class="ant-popover-content"
       >
         <div
-          class="ant-popover-content"
+          class="ant-popover-inner"
+          role="tooltip"
         >
           <div
-            class="ant-popover-arrow"
+            class="ant-popover-title"
           >
-            <span
-              class="ant-popover-arrow-content"
-            />
+            <span>
+              Title
+            </span>
           </div>
           <div
-            class="ant-popover-inner"
-            role="tooltip"
+            class="ant-popover-inner-content"
           >
-            <div
-              class="ant-popover-title"
-            >
-              <span>
-                Title
-              </span>
-            </div>
-            <div
-              class="ant-popover-inner-content"
-            >
-              <div>
-                <p>
-                  Content
-                </p>
-                <p>
-                  Content
-                </p>
-              </div>
+            <div>
+              <p>
+                Content
+              </p>
+              <p>
+                Content
+              </p>
             </div>
           </div>
         </div>
@@ -538,43 +493,38 @@ exports[`renders ./components/popover/demo/arrow.tsx extend context correctly 1`
         BL
       </span>
     </button>
-    <div>
+    <div
+      class="ant-popover ant-popover-placement-bottomLeft"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-popover"
-        style="opacity:0"
+        class="ant-popover-arrow"
+        style="position:absolute"
+      />
+      <div
+        class="ant-popover-content"
       >
         <div
-          class="ant-popover-content"
+          class="ant-popover-inner"
+          role="tooltip"
         >
           <div
-            class="ant-popover-arrow"
+            class="ant-popover-title"
           >
-            <span
-              class="ant-popover-arrow-content"
-            />
+            <span>
+              Title
+            </span>
           </div>
           <div
-            class="ant-popover-inner"
-            role="tooltip"
+            class="ant-popover-inner-content"
           >
-            <div
-              class="ant-popover-title"
-            >
-              <span>
-                Title
-              </span>
-            </div>
-            <div
-              class="ant-popover-inner-content"
-            >
-              <div>
-                <p>
-                  Content
-                </p>
-                <p>
-                  Content
-                </p>
-              </div>
+            <div>
+              <p>
+                Content
+              </p>
+              <p>
+                Content
+              </p>
             </div>
           </div>
         </div>
@@ -588,43 +538,38 @@ exports[`renders ./components/popover/demo/arrow.tsx extend context correctly 1`
         Bottom
       </span>
     </button>
-    <div>
+    <div
+      class="ant-popover ant-popover-placement-bottom"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-popover"
-        style="opacity:0"
+        class="ant-popover-arrow"
+        style="position:absolute;top:0;left:0"
+      />
+      <div
+        class="ant-popover-content"
       >
         <div
-          class="ant-popover-content"
+          class="ant-popover-inner"
+          role="tooltip"
         >
           <div
-            class="ant-popover-arrow"
+            class="ant-popover-title"
           >
-            <span
-              class="ant-popover-arrow-content"
-            />
+            <span>
+              Title
+            </span>
           </div>
           <div
-            class="ant-popover-inner"
-            role="tooltip"
+            class="ant-popover-inner-content"
           >
-            <div
-              class="ant-popover-title"
-            >
-              <span>
-                Title
-              </span>
-            </div>
-            <div
-              class="ant-popover-inner-content"
-            >
-              <div>
-                <p>
-                  Content
-                </p>
-                <p>
-                  Content
-                </p>
-              </div>
+            <div>
+              <p>
+                Content
+              </p>
+              <p>
+                Content
+              </p>
             </div>
           </div>
         </div>
@@ -638,43 +583,38 @@ exports[`renders ./components/popover/demo/arrow.tsx extend context correctly 1`
         BR
       </span>
     </button>
-    <div>
+    <div
+      class="ant-popover ant-popover-placement-bottomRight"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-popover"
-        style="opacity:0"
+        class="ant-popover-arrow"
+        style="position:absolute"
+      />
+      <div
+        class="ant-popover-content"
       >
         <div
-          class="ant-popover-content"
+          class="ant-popover-inner"
+          role="tooltip"
         >
           <div
-            class="ant-popover-arrow"
+            class="ant-popover-title"
           >
-            <span
-              class="ant-popover-arrow-content"
-            />
+            <span>
+              Title
+            </span>
           </div>
           <div
-            class="ant-popover-inner"
-            role="tooltip"
+            class="ant-popover-inner-content"
           >
-            <div
-              class="ant-popover-title"
-            >
-              <span>
-                Title
-              </span>
-            </div>
-            <div
-              class="ant-popover-inner-content"
-            >
-              <div>
-                <p>
-                  Content
-                </p>
-                <p>
-                  Content
-                </p>
-              </div>
+            <div>
+              <p>
+                Content
+              </p>
+              <p>
+                Content
+              </p>
             </div>
           </div>
         </div>
@@ -701,40 +641,35 @@ exports[`renders ./components/popover/demo/arrow-point-at-center.tsx extend cont
         Align edge / 边缘对齐
       </span>
     </button>
-    <div>
+    <div
+      class="ant-popover ant-popover-placement-topLeft"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-popover"
-        style="opacity:0"
+        class="ant-popover-arrow"
+        style="position:absolute"
+      />
+      <div
+        class="ant-popover-content"
       >
         <div
-          class="ant-popover-content"
+          class="ant-popover-inner"
+          role="tooltip"
         >
           <div
-            class="ant-popover-arrow"
+            class="ant-popover-title"
           >
-            <span
-              class="ant-popover-arrow-content"
-            />
+            Title
           </div>
           <div
-            class="ant-popover-inner"
-            role="tooltip"
+            class="ant-popover-inner-content"
           >
-            <div
-              class="ant-popover-title"
-            >
-              Title
-            </div>
-            <div
-              class="ant-popover-inner-content"
-            >
-              <p>
-                Content
-              </p>
-              <p>
-                Content
-              </p>
-            </div>
+            <p>
+              Content
+            </p>
+            <p>
+              Content
+            </p>
           </div>
         </div>
       </div>
@@ -752,40 +687,35 @@ exports[`renders ./components/popover/demo/arrow-point-at-center.tsx extend cont
         Arrow points to center / 箭头指向中心
       </span>
     </button>
-    <div>
+    <div
+      class="ant-popover ant-popover-placement-topLeft"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-popover"
-        style="opacity:0"
+        class="ant-popover-arrow"
+        style="position:absolute"
+      />
+      <div
+        class="ant-popover-content"
       >
         <div
-          class="ant-popover-content"
+          class="ant-popover-inner"
+          role="tooltip"
         >
           <div
-            class="ant-popover-arrow"
+            class="ant-popover-title"
           >
-            <span
-              class="ant-popover-arrow-content"
-            />
+            Title
           </div>
           <div
-            class="ant-popover-inner"
-            role="tooltip"
+            class="ant-popover-inner-content"
           >
-            <div
-              class="ant-popover-title"
-            >
-              Title
-            </div>
-            <div
-              class="ant-popover-inner-content"
-            >
-              <p>
-                Content
-              </p>
-              <p>
-                Content
-              </p>
-            </div>
+            <p>
+              Content
+            </p>
+            <p>
+              Content
+            </p>
           </div>
         </div>
       </div>
@@ -804,41 +734,36 @@ Array [
       Hover me
     </span>
   </button>,
-  <div>
+  <div
+    class="ant-popover ant-popover-placement-top"
+    style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+  >
     <div
-      class="ant-popover"
-      style="opacity:0"
+      class="ant-popover-arrow"
+      style="position:absolute;bottom:0;left:0"
+    />
+    <div
+      class="ant-popover-content"
     >
       <div
-        class="ant-popover-content"
+        class="ant-popover-inner"
+        role="tooltip"
       >
         <div
-          class="ant-popover-arrow"
+          class="ant-popover-title"
         >
-          <span
-            class="ant-popover-arrow-content"
-          />
+          Title
         </div>
         <div
-          class="ant-popover-inner"
-          role="tooltip"
+          class="ant-popover-inner-content"
         >
-          <div
-            class="ant-popover-title"
-          >
-            Title
-          </div>
-          <div
-            class="ant-popover-inner-content"
-          >
-            <div>
-              <p>
-                Content
-              </p>
-              <p>
-                Content
-              </p>
-            </div>
+          <div>
+            <p>
+              Content
+            </p>
+            <p>
+              Content
+            </p>
           </div>
         </div>
       </div>
@@ -857,37 +782,32 @@ Array [
       Click me
     </span>
   </button>,
-  <div>
+  <div
+    class="ant-popover ant-popover-placement-top"
+    style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+  >
     <div
-      class="ant-popover"
-      style="opacity:0"
+      class="ant-popover-arrow"
+      style="position:absolute;bottom:0;left:0"
+    />
+    <div
+      class="ant-popover-content"
     >
       <div
-        class="ant-popover-content"
+        class="ant-popover-inner"
+        role="tooltip"
       >
         <div
-          class="ant-popover-arrow"
+          class="ant-popover-title"
         >
-          <span
-            class="ant-popover-arrow-content"
-          />
+          Title
         </div>
         <div
-          class="ant-popover-inner"
-          role="tooltip"
+          class="ant-popover-inner-content"
         >
-          <div
-            class="ant-popover-title"
-          >
-            Title
-          </div>
-          <div
-            class="ant-popover-inner-content"
-          >
-            <a>
-              Close
-            </a>
-          </div>
+          <a>
+            Close
+          </a>
         </div>
       </div>
     </div>
@@ -905,76 +825,66 @@ Array [
       Hover and click / 悬停并单击
     </span>
   </button>,
-  <div>
+  <div
+    class="ant-popover ant-popover-placement-top"
+    style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+  >
     <div
-      class="ant-popover"
-      style="opacity:0"
+      class="ant-popover-arrow"
+      style="position:absolute;bottom:0;left:0"
+    />
+    <div
+      class="ant-popover-content"
     >
       <div
-        class="ant-popover-content"
+        class="ant-popover-inner"
+        role="tooltip"
       >
         <div
-          class="ant-popover-arrow"
+          class="ant-popover-title"
         >
-          <span
-            class="ant-popover-arrow-content"
-          />
+          Click title
         </div>
         <div
-          class="ant-popover-inner"
-          role="tooltip"
+          class="ant-popover-inner-content"
         >
-          <div
-            class="ant-popover-title"
-          >
-            Click title
-          </div>
-          <div
-            class="ant-popover-inner-content"
-          >
+          <div>
             <div>
-              <div>
-                This is click content.
-              </div>
-              <a>
-                Close
-              </a>
+              This is click content.
             </div>
+            <a>
+              Close
+            </a>
           </div>
         </div>
       </div>
     </div>
   </div>,
-  <div>
+  <div
+    class="ant-popover ant-popover-placement-top"
+    style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+  >
     <div
-      class="ant-popover"
-      style="opacity:0"
+      class="ant-popover-arrow"
+      style="position:absolute;bottom:0;left:0"
+    />
+    <div
+      class="ant-popover-content"
     >
       <div
-        class="ant-popover-content"
+        class="ant-popover-inner"
+        role="tooltip"
       >
         <div
-          class="ant-popover-arrow"
+          class="ant-popover-title"
         >
-          <span
-            class="ant-popover-arrow-content"
-          />
+          Hover title
         </div>
         <div
-          class="ant-popover-inner"
-          role="tooltip"
+          class="ant-popover-inner-content"
         >
-          <div
-            class="ant-popover-title"
-          >
-            Hover title
-          </div>
-          <div
-            class="ant-popover-inner-content"
-          >
-            <div>
-              This is hover content.
-            </div>
+          <div>
+            This is hover content.
           </div>
         </div>
       </div>
@@ -996,43 +906,38 @@ exports[`renders ./components/popover/demo/placement.tsx extend context correctl
         TL
       </span>
     </button>
-    <div>
+    <div
+      class="ant-popover ant-popover-placement-topLeft"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-popover"
-        style="opacity:0"
+        class="ant-popover-arrow"
+        style="position:absolute"
+      />
+      <div
+        class="ant-popover-content"
       >
         <div
-          class="ant-popover-content"
+          class="ant-popover-inner"
+          role="tooltip"
         >
           <div
-            class="ant-popover-arrow"
+            class="ant-popover-title"
           >
-            <span
-              class="ant-popover-arrow-content"
-            />
+            <span>
+              Title
+            </span>
           </div>
           <div
-            class="ant-popover-inner"
-            role="tooltip"
+            class="ant-popover-inner-content"
           >
-            <div
-              class="ant-popover-title"
-            >
-              <span>
-                Title
-              </span>
-            </div>
-            <div
-              class="ant-popover-inner-content"
-            >
-              <div>
-                <p>
-                  Content
-                </p>
-                <p>
-                  Content
-                </p>
-              </div>
+            <div>
+              <p>
+                Content
+              </p>
+              <p>
+                Content
+              </p>
             </div>
           </div>
         </div>
@@ -1046,43 +951,38 @@ exports[`renders ./components/popover/demo/placement.tsx extend context correctl
         Top
       </span>
     </button>
-    <div>
+    <div
+      class="ant-popover ant-popover-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-popover"
-        style="opacity:0"
+        class="ant-popover-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-popover-content"
       >
         <div
-          class="ant-popover-content"
+          class="ant-popover-inner"
+          role="tooltip"
         >
           <div
-            class="ant-popover-arrow"
+            class="ant-popover-title"
           >
-            <span
-              class="ant-popover-arrow-content"
-            />
+            <span>
+              Title
+            </span>
           </div>
           <div
-            class="ant-popover-inner"
-            role="tooltip"
+            class="ant-popover-inner-content"
           >
-            <div
-              class="ant-popover-title"
-            >
-              <span>
-                Title
-              </span>
-            </div>
-            <div
-              class="ant-popover-inner-content"
-            >
-              <div>
-                <p>
-                  Content
-                </p>
-                <p>
-                  Content
-                </p>
-              </div>
+            <div>
+              <p>
+                Content
+              </p>
+              <p>
+                Content
+              </p>
             </div>
           </div>
         </div>
@@ -1096,43 +996,38 @@ exports[`renders ./components/popover/demo/placement.tsx extend context correctl
         TR
       </span>
     </button>
-    <div>
+    <div
+      class="ant-popover ant-popover-placement-topRight"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-popover"
-        style="opacity:0"
+        class="ant-popover-arrow"
+        style="position:absolute"
+      />
+      <div
+        class="ant-popover-content"
       >
         <div
-          class="ant-popover-content"
+          class="ant-popover-inner"
+          role="tooltip"
         >
           <div
-            class="ant-popover-arrow"
+            class="ant-popover-title"
           >
-            <span
-              class="ant-popover-arrow-content"
-            />
+            <span>
+              Title
+            </span>
           </div>
           <div
-            class="ant-popover-inner"
-            role="tooltip"
+            class="ant-popover-inner-content"
           >
-            <div
-              class="ant-popover-title"
-            >
-              <span>
-                Title
-              </span>
-            </div>
-            <div
-              class="ant-popover-inner-content"
-            >
-              <div>
-                <p>
-                  Content
-                </p>
-                <p>
-                  Content
-                </p>
-              </div>
+            <div>
+              <p>
+                Content
+              </p>
+              <p>
+                Content
+              </p>
             </div>
           </div>
         </div>
@@ -1150,43 +1045,38 @@ exports[`renders ./components/popover/demo/placement.tsx extend context correctl
         LT
       </span>
     </button>
-    <div>
+    <div
+      class="ant-popover ant-popover-placement-leftTop"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-popover"
-        style="opacity:0"
+        class="ant-popover-arrow"
+        style="position:absolute"
+      />
+      <div
+        class="ant-popover-content"
       >
         <div
-          class="ant-popover-content"
+          class="ant-popover-inner"
+          role="tooltip"
         >
           <div
-            class="ant-popover-arrow"
+            class="ant-popover-title"
           >
-            <span
-              class="ant-popover-arrow-content"
-            />
+            <span>
+              Title
+            </span>
           </div>
           <div
-            class="ant-popover-inner"
-            role="tooltip"
+            class="ant-popover-inner-content"
           >
-            <div
-              class="ant-popover-title"
-            >
-              <span>
-                Title
-              </span>
-            </div>
-            <div
-              class="ant-popover-inner-content"
-            >
-              <div>
-                <p>
-                  Content
-                </p>
-                <p>
-                  Content
-                </p>
-              </div>
+            <div>
+              <p>
+                Content
+              </p>
+              <p>
+                Content
+              </p>
             </div>
           </div>
         </div>
@@ -1200,43 +1090,38 @@ exports[`renders ./components/popover/demo/placement.tsx extend context correctl
         Left
       </span>
     </button>
-    <div>
+    <div
+      class="ant-popover ant-popover-placement-left"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-popover"
-        style="opacity:0"
+        class="ant-popover-arrow"
+        style="position:absolute;top:0;right:0"
+      />
+      <div
+        class="ant-popover-content"
       >
         <div
-          class="ant-popover-content"
+          class="ant-popover-inner"
+          role="tooltip"
         >
           <div
-            class="ant-popover-arrow"
+            class="ant-popover-title"
           >
-            <span
-              class="ant-popover-arrow-content"
-            />
+            <span>
+              Title
+            </span>
           </div>
           <div
-            class="ant-popover-inner"
-            role="tooltip"
+            class="ant-popover-inner-content"
           >
-            <div
-              class="ant-popover-title"
-            >
-              <span>
-                Title
-              </span>
-            </div>
-            <div
-              class="ant-popover-inner-content"
-            >
-              <div>
-                <p>
-                  Content
-                </p>
-                <p>
-                  Content
-                </p>
-              </div>
+            <div>
+              <p>
+                Content
+              </p>
+              <p>
+                Content
+              </p>
             </div>
           </div>
         </div>
@@ -1250,43 +1135,38 @@ exports[`renders ./components/popover/demo/placement.tsx extend context correctl
         LB
       </span>
     </button>
-    <div>
+    <div
+      class="ant-popover ant-popover-placement-leftBottom"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-popover"
-        style="opacity:0"
+        class="ant-popover-arrow"
+        style="position:absolute"
+      />
+      <div
+        class="ant-popover-content"
       >
         <div
-          class="ant-popover-content"
+          class="ant-popover-inner"
+          role="tooltip"
         >
           <div
-            class="ant-popover-arrow"
+            class="ant-popover-title"
           >
-            <span
-              class="ant-popover-arrow-content"
-            />
+            <span>
+              Title
+            </span>
           </div>
           <div
-            class="ant-popover-inner"
-            role="tooltip"
+            class="ant-popover-inner-content"
           >
-            <div
-              class="ant-popover-title"
-            >
-              <span>
-                Title
-              </span>
-            </div>
-            <div
-              class="ant-popover-inner-content"
-            >
-              <div>
-                <p>
-                  Content
-                </p>
-                <p>
-                  Content
-                </p>
-              </div>
+            <div>
+              <p>
+                Content
+              </p>
+              <p>
+                Content
+              </p>
             </div>
           </div>
         </div>
@@ -1304,43 +1184,38 @@ exports[`renders ./components/popover/demo/placement.tsx extend context correctl
         RT
       </span>
     </button>
-    <div>
+    <div
+      class="ant-popover ant-popover-placement-rightTop"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-popover"
-        style="opacity:0"
+        class="ant-popover-arrow"
+        style="position:absolute"
+      />
+      <div
+        class="ant-popover-content"
       >
         <div
-          class="ant-popover-content"
+          class="ant-popover-inner"
+          role="tooltip"
         >
           <div
-            class="ant-popover-arrow"
+            class="ant-popover-title"
           >
-            <span
-              class="ant-popover-arrow-content"
-            />
+            <span>
+              Title
+            </span>
           </div>
           <div
-            class="ant-popover-inner"
-            role="tooltip"
+            class="ant-popover-inner-content"
           >
-            <div
-              class="ant-popover-title"
-            >
-              <span>
-                Title
-              </span>
-            </div>
-            <div
-              class="ant-popover-inner-content"
-            >
-              <div>
-                <p>
-                  Content
-                </p>
-                <p>
-                  Content
-                </p>
-              </div>
+            <div>
+              <p>
+                Content
+              </p>
+              <p>
+                Content
+              </p>
             </div>
           </div>
         </div>
@@ -1354,43 +1229,38 @@ exports[`renders ./components/popover/demo/placement.tsx extend context correctl
         Right
       </span>
     </button>
-    <div>
+    <div
+      class="ant-popover ant-popover-placement-right"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-popover"
-        style="opacity:0"
+        class="ant-popover-arrow"
+        style="position:absolute;top:0;left:0"
+      />
+      <div
+        class="ant-popover-content"
       >
         <div
-          class="ant-popover-content"
+          class="ant-popover-inner"
+          role="tooltip"
         >
           <div
-            class="ant-popover-arrow"
+            class="ant-popover-title"
           >
-            <span
-              class="ant-popover-arrow-content"
-            />
+            <span>
+              Title
+            </span>
           </div>
           <div
-            class="ant-popover-inner"
-            role="tooltip"
+            class="ant-popover-inner-content"
           >
-            <div
-              class="ant-popover-title"
-            >
-              <span>
-                Title
-              </span>
-            </div>
-            <div
-              class="ant-popover-inner-content"
-            >
-              <div>
-                <p>
-                  Content
-                </p>
-                <p>
-                  Content
-                </p>
-              </div>
+            <div>
+              <p>
+                Content
+              </p>
+              <p>
+                Content
+              </p>
             </div>
           </div>
         </div>
@@ -1404,43 +1274,38 @@ exports[`renders ./components/popover/demo/placement.tsx extend context correctl
         RB
       </span>
     </button>
-    <div>
+    <div
+      class="ant-popover ant-popover-placement-rightBottom"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-popover"
-        style="opacity:0"
+        class="ant-popover-arrow"
+        style="position:absolute"
+      />
+      <div
+        class="ant-popover-content"
       >
         <div
-          class="ant-popover-content"
+          class="ant-popover-inner"
+          role="tooltip"
         >
           <div
-            class="ant-popover-arrow"
+            class="ant-popover-title"
           >
-            <span
-              class="ant-popover-arrow-content"
-            />
+            <span>
+              Title
+            </span>
           </div>
           <div
-            class="ant-popover-inner"
-            role="tooltip"
+            class="ant-popover-inner-content"
           >
-            <div
-              class="ant-popover-title"
-            >
-              <span>
-                Title
-              </span>
-            </div>
-            <div
-              class="ant-popover-inner-content"
-            >
-              <div>
-                <p>
-                  Content
-                </p>
-                <p>
-                  Content
-                </p>
-              </div>
+            <div>
+              <p>
+                Content
+              </p>
+              <p>
+                Content
+              </p>
             </div>
           </div>
         </div>
@@ -1458,43 +1323,38 @@ exports[`renders ./components/popover/demo/placement.tsx extend context correctl
         BL
       </span>
     </button>
-    <div>
+    <div
+      class="ant-popover ant-popover-placement-bottomLeft"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-popover"
-        style="opacity:0"
+        class="ant-popover-arrow"
+        style="position:absolute"
+      />
+      <div
+        class="ant-popover-content"
       >
         <div
-          class="ant-popover-content"
+          class="ant-popover-inner"
+          role="tooltip"
         >
           <div
-            class="ant-popover-arrow"
+            class="ant-popover-title"
           >
-            <span
-              class="ant-popover-arrow-content"
-            />
+            <span>
+              Title
+            </span>
           </div>
           <div
-            class="ant-popover-inner"
-            role="tooltip"
+            class="ant-popover-inner-content"
           >
-            <div
-              class="ant-popover-title"
-            >
-              <span>
-                Title
-              </span>
-            </div>
-            <div
-              class="ant-popover-inner-content"
-            >
-              <div>
-                <p>
-                  Content
-                </p>
-                <p>
-                  Content
-                </p>
-              </div>
+            <div>
+              <p>
+                Content
+              </p>
+              <p>
+                Content
+              </p>
             </div>
           </div>
         </div>
@@ -1508,43 +1368,38 @@ exports[`renders ./components/popover/demo/placement.tsx extend context correctl
         Bottom
       </span>
     </button>
-    <div>
+    <div
+      class="ant-popover ant-popover-placement-bottom"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-popover"
-        style="opacity:0"
+        class="ant-popover-arrow"
+        style="position:absolute;top:0;left:0"
+      />
+      <div
+        class="ant-popover-content"
       >
         <div
-          class="ant-popover-content"
+          class="ant-popover-inner"
+          role="tooltip"
         >
           <div
-            class="ant-popover-arrow"
+            class="ant-popover-title"
           >
-            <span
-              class="ant-popover-arrow-content"
-            />
+            <span>
+              Title
+            </span>
           </div>
           <div
-            class="ant-popover-inner"
-            role="tooltip"
+            class="ant-popover-inner-content"
           >
-            <div
-              class="ant-popover-title"
-            >
-              <span>
-                Title
-              </span>
-            </div>
-            <div
-              class="ant-popover-inner-content"
-            >
-              <div>
-                <p>
-                  Content
-                </p>
-                <p>
-                  Content
-                </p>
-              </div>
+            <div>
+              <p>
+                Content
+              </p>
+              <p>
+                Content
+              </p>
             </div>
           </div>
         </div>
@@ -1558,43 +1413,38 @@ exports[`renders ./components/popover/demo/placement.tsx extend context correctl
         BR
       </span>
     </button>
-    <div>
+    <div
+      class="ant-popover ant-popover-placement-bottomRight"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-popover"
-        style="opacity:0"
+        class="ant-popover-arrow"
+        style="position:absolute"
+      />
+      <div
+        class="ant-popover-content"
       >
         <div
-          class="ant-popover-content"
+          class="ant-popover-inner"
+          role="tooltip"
         >
           <div
-            class="ant-popover-arrow"
+            class="ant-popover-title"
           >
-            <span
-              class="ant-popover-arrow-content"
-            />
+            <span>
+              Title
+            </span>
           </div>
           <div
-            class="ant-popover-inner"
-            role="tooltip"
+            class="ant-popover-inner-content"
           >
-            <div
-              class="ant-popover-title"
-            >
-              <span>
-                Title
-              </span>
-            </div>
-            <div
-              class="ant-popover-inner-content"
-            >
-              <div>
-                <p>
-                  Content
-                </p>
-                <p>
-                  Content
-                </p>
-              </div>
+            <div>
+              <p>
+                Content
+              </p>
+              <p>
+                Content
+              </p>
             </div>
           </div>
         </div>
@@ -1610,11 +1460,11 @@ Array [
     class="ant-popover ant-popover-pure ant-popover-placement-top"
   >
     <div
+      class="ant-popover-arrow"
+    />
+    <div
       class="ant-popover-content"
     >
-      <div
-        class="ant-popover-arrow"
-      />
       <div
         class="ant-popover-inner"
         role="tooltip"
@@ -1644,12 +1494,12 @@ Array [
     style="width:250px"
   >
     <div
+      class="ant-popover-arrow"
+    />
+    <div
       class="ant-popover-content"
       style="width:250px"
     >
-      <div
-        class="ant-popover-arrow"
-      />
       <div
         class="ant-popover-inner"
         role="tooltip"
@@ -1694,41 +1544,36 @@ exports[`renders ./components/popover/demo/triggerType.tsx extend context correc
         Hover me
       </span>
     </button>
-    <div>
+    <div
+      class="ant-popover ant-popover-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-popover"
-        style="opacity:0"
+        class="ant-popover-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-popover-content"
       >
         <div
-          class="ant-popover-content"
+          class="ant-popover-inner"
+          role="tooltip"
         >
           <div
-            class="ant-popover-arrow"
+            class="ant-popover-title"
           >
-            <span
-              class="ant-popover-arrow-content"
-            />
+            Title
           </div>
           <div
-            class="ant-popover-inner"
-            role="tooltip"
+            class="ant-popover-inner-content"
           >
-            <div
-              class="ant-popover-title"
-            >
-              Title
-            </div>
-            <div
-              class="ant-popover-inner-content"
-            >
-              <div>
-                <p>
-                  Content
-                </p>
-                <p>
-                  Content
-                </p>
-              </div>
+            <div>
+              <p>
+                Content
+              </p>
+              <p>
+                Content
+              </p>
             </div>
           </div>
         </div>
@@ -1747,41 +1592,36 @@ exports[`renders ./components/popover/demo/triggerType.tsx extend context correc
         Focus me
       </span>
     </button>
-    <div>
+    <div
+      class="ant-popover ant-popover-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-popover"
-        style="opacity:0"
+        class="ant-popover-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-popover-content"
       >
         <div
-          class="ant-popover-content"
+          class="ant-popover-inner"
+          role="tooltip"
         >
           <div
-            class="ant-popover-arrow"
+            class="ant-popover-title"
           >
-            <span
-              class="ant-popover-arrow-content"
-            />
+            Title
           </div>
           <div
-            class="ant-popover-inner"
-            role="tooltip"
+            class="ant-popover-inner-content"
           >
-            <div
-              class="ant-popover-title"
-            >
-              Title
-            </div>
-            <div
-              class="ant-popover-inner-content"
-            >
-              <div>
-                <p>
-                  Content
-                </p>
-                <p>
-                  Content
-                </p>
-              </div>
+            <div>
+              <p>
+                Content
+              </p>
+              <p>
+                Content
+              </p>
             </div>
           </div>
         </div>
@@ -1800,41 +1640,36 @@ exports[`renders ./components/popover/demo/triggerType.tsx extend context correc
         Click me
       </span>
     </button>
-    <div>
+    <div
+      class="ant-popover ant-popover-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-popover"
-        style="opacity:0"
+        class="ant-popover-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-popover-content"
       >
         <div
-          class="ant-popover-content"
+          class="ant-popover-inner"
+          role="tooltip"
         >
           <div
-            class="ant-popover-arrow"
+            class="ant-popover-title"
           >
-            <span
-              class="ant-popover-arrow-content"
-            />
+            Title
           </div>
           <div
-            class="ant-popover-inner"
-            role="tooltip"
+            class="ant-popover-inner-content"
           >
-            <div
-              class="ant-popover-title"
-            >
-              Title
-            </div>
-            <div
-              class="ant-popover-inner-content"
-            >
-              <div>
-                <p>
-                  Content
-                </p>
-                <p>
-                  Content
-                </p>
-              </div>
+            <div>
+              <p>
+                Content
+              </p>
+              <p>
+                Content
+              </p>
             </div>
           </div>
         </div>
@@ -1850,11 +1685,11 @@ Array [
     class="ant-popover ant-popover-pure ant-popover-placement-top"
   >
     <div
+      class="ant-popover-arrow"
+    />
+    <div
       class="ant-popover-content"
     >
-      <div
-        class="ant-popover-arrow"
-      />
       <div
         class="ant-popover-inner"
         role="tooltip"
@@ -1884,12 +1719,12 @@ Array [
     style="width:250px"
   >
     <div
+      class="ant-popover-arrow"
+    />
+    <div
       class="ant-popover-content"
       style="width:250px"
     >
-      <div
-        class="ant-popover-arrow"
-      />
       <div
         class="ant-popover-inner"
         role="tooltip"

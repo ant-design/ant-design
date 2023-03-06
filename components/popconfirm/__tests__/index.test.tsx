@@ -57,7 +57,7 @@ describe('Popconfirm', () => {
 
   it('should show overlay when trigger is clicked', async () => {
     const popconfirm = render(
-      <Popconfirm title="code">
+      <Popconfirm title="code" autoAdjustOverflow={false}>
         <span>show me your code</span>
       </Popconfirm>,
     );

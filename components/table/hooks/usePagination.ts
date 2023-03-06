@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import type { PaginationProps } from '../../pagination';
-import type { TablePaginationConfig } from '../interface';
 import extendsObject from '../../_util/extendsObject';
+import type { TablePaginationConfig } from '../interface';
 
 export const DEFAULT_PAGE_SIZE = 10;
 
@@ -13,10 +13,11 @@ export function getPaginationParam(
     current: mergedPagination.current,
     pageSize: mergedPagination.pageSize,
   };
+
   const paginationObj = pagination && typeof pagination === 'object' ? pagination : {};
 
-  Object.keys(paginationObj).forEach((pageProp) => {
-    const value = (mergedPagination as any)[pageProp];
+  Object.keys(paginationObj).forEach((pageProp: keyof typeof paginationObj) => {
+    const value = mergedPagination[pageProp];
 
     if (typeof value !== 'function') {
       param[pageProp] = value;
@@ -26,22 +27,21 @@ export function getPaginationParam(
   return param;
 }
 
-export default function usePagination(
+function usePagination(
   total: number,
-  pagination: TablePaginationConfig | false | undefined,
   onChange: (current: number, pageSize: number) => void,
-): [TablePaginationConfig, () => void] {
+  pagination?: TablePaginationConfig | false,
+): readonly [TablePaginationConfig, () => void] {
   const { total: paginationTotal = 0, ...paginationObj } =
     pagination && typeof pagination === 'object' ? pagination : {};
 
-  const [innerPagination, setInnerPagination] = useState<{
-    current?: number;
-    pageSize?: number;
-  }>(() => ({
-    current: 'defaultCurrent' in paginationObj ? paginationObj.defaultCurrent : 1,
-    pageSize:
-      'defaultPageSize' in paginationObj ? paginationObj.defaultPageSize : DEFAULT_PAGE_SIZE,
-  }));
+  const [innerPagination, setInnerPagination] = useState<{ current?: number; pageSize?: number }>(
+    () => ({
+      current: 'defaultCurrent' in paginationObj ? paginationObj.defaultCurrent : 1,
+      pageSize:
+        'defaultPageSize' in paginationObj ? paginationObj.defaultPageSize : DEFAULT_PAGE_SIZE,
+    }),
+  );
 
   // ============ Basic Pagination Config ============
   const mergedPagination = extendsObject<Partial<TablePaginationConfig>>(
@@ -75,7 +75,7 @@ export default function usePagination(
   };
 
   if (pagination === false) {
-    return [{}, () => {}];
+    return [{}, () => {}] as const;
   }
 
   return [
@@ -84,5 +84,7 @@ export default function usePagination(
       onChange: onInternalChange,
     },
     refreshPagination,
-  ];
+  ] as const;
 }
+
+export default usePagination;
