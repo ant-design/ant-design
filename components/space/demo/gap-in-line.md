@@ -1,7 +1,7 @@
 ## zh-CN
 
-Debug usage
+Flex gap 样式
 
 ## en-US
 
-Debug usage
+Flex gap style
