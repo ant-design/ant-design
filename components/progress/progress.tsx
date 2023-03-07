@@ -48,7 +48,7 @@ export interface ProgressProps {
   style?: React.CSSProperties;
   gapDegree?: number;
   gapPosition?: 'top' | 'bottom' | 'left' | 'right';
-  size?: number | [number, number] | ProgressSize;
+  size?: number | string | [number | string, number | string] | ProgressSize;
   steps?: number;
   /** @deprecated Use `success` instead */
   successPercent?: number;
