@@ -1,8 +1,7 @@
-import type { FC } from 'react';
-import React, { useEffect, useRef } from 'react';
 import G6 from '@antv/g6';
 import { createStyles, css } from 'antd-style';
 import { useRouteMeta } from 'dumi';
+import React, { useEffect, useRef } from 'react';
 
 G6.registerNode('behavior-start-node', {
   draw: (cfg, group) => {
@@ -242,26 +241,26 @@ const useStyle = createStyles(() => ({
     display: flex;
     align-items: center;
     &::before {
-      content: '';
       display: block;
       width: 8px;
       height: 8px;
+      margin-right: 8px;
       background-color: #1677ff;
       border-radius: 50%;
-      margin-right: 8px;
+      content: '';
     }
   `,
   extension: css`
     display: flex;
     align-items: center;
     &::before {
-      content: '';
       display: block;
       width: 8px;
       height: 8px;
-      background-color: #A0A0A0;
-      border-radius: 50%;
       margin-right: 8px;
+      background-color: #a0a0a0;
+      border-radius: 50%;
+      content: '';
     }
   `,
 }));
@@ -270,7 +269,7 @@ export type BehaviorMapProps = {
   data: BehaviorMapItem;
 };
 
-const BehaviorMap: FC<BehaviorMapProps> = ({ data }) => {
+const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
   const ref = useRef<HTMLDivElement>(null);
   const { styles } = useStyle();
   const meta = useRouteMeta();
