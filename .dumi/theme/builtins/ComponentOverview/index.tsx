@@ -99,7 +99,13 @@ const Overview: React.FC = () => {
   const { search: urlSearch } = useLocation();
   const { locale, formatMessage } = useIntl();
 
-  const [search, setSearch] = useState<string>('');
+  const [search, setSearch] = useState<string>(() => {
+    const params = new URLSearchParams(urlSearch);
+    if (params.has('s')) {
+      return params.get('s');
+    }
+    return '';
+  });
 
   const sectionRef = useRef<HTMLElement>(null);
 
