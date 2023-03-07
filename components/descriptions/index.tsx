@@ -12,6 +12,8 @@ import Row from './Row';
 
 import useStyle from './style';
 
+export type { DescriptionsItemProps } from './Item';
+
 export interface DescriptionsContextProps {
   labelStyle?: React.CSSProperties;
   contentStyle?: React.CSSProperties;
