@@ -1,8 +1,7 @@
-import type { FC } from 'react';
-import React, { useEffect } from 'react';
-import { message } from 'antd';
-import CopyToClipboard from 'react-copy-to-clipboard';
 import { presetDarkPalettes } from '@ant-design/colors';
+import { message } from 'antd';
+import React, { useEffect } from 'react';
+import CopyToClipboard from 'react-copy-to-clipboard';
 
 const rgbToHex = (rgbString: string): string => {
   const rgb = rgbString.match(/\d+/g);
@@ -21,22 +20,20 @@ interface PaletteProps {
   dark?: boolean;
   color?: {
     name: string;
-    count: number;
+    count?: number;
     description?: string;
     english?: string;
     chinese?: string;
   };
 }
 
-const Palette: FC<PaletteProps> = ({
-  showTitle,
-  direction,
-  dark,
-  color: { name, count = 10, description, english, chinese } = {
-    name: 'gray',
-    count: 13,
-  },
-}) => {
+const Palette: React.FC<PaletteProps> = (props) => {
+  const {
+    showTitle,
+    direction,
+    dark,
+    color: { name, count, description, english, chinese } = { name: 'gray', count: 13 },
+  } = props;
   const [hexColors, setHexColors] = React.useState<Record<PropertyKey, string>>({});
   const colorNodesRef = React.useRef<Record<PropertyKey, HTMLDivElement>>({});
 
