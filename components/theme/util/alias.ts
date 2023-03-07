@@ -75,6 +75,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     // Checkbox size and expand icon size
     controlInteractiveSize: mergedToken.controlHeight / 2,
 
+    controlItemTextActive: mergedToken.colorText,
     controlItemBgHover: mergedToken.colorFillTertiary,
     controlItemBgActive: mergedToken.colorPrimaryBg,
     controlItemBgActiveHover: mergedToken.colorPrimaryBgHover,

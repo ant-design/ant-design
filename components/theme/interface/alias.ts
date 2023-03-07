@@ -56,6 +56,7 @@ export interface AliasToken extends MapToken {
 
   // Control
   controlOutlineWidth: number;
+  controlItemTextActive: string; // Note. It also is a color
   controlItemBgHover: string; // Note. It also is a color
   controlItemBgActive: string; // Note. It also is a color
   controlItemBgActiveHover: string; // Note. It also is a color
