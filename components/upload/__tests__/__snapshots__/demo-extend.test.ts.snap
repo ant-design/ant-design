@@ -580,7 +580,7 @@ exports[`renders ./components/upload/demo/drag.tsx extend context correctly 1`] 
         <p
           class="ant-upload-hint"
         >
-          Support for a single or bulk upload. Strictly prohibit from uploading company data or other band files
+          Support for a single or bulk upload. Strictly prohibited from uploading company data or other banned files.
         </p>
       </div>
     </span>
