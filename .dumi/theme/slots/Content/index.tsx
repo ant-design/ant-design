@@ -57,10 +57,10 @@ const useStyle = () => {
       box-sizing: border-box;
 
       .toc-debug {
-        color: ${token['purple-6']};
+        color: ${token.purple6};
 
         &:hover {
-          color: ${token['purple-5']};
+          color: ${token.purple5};
         }
       }
 
