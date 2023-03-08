@@ -28,6 +28,22 @@ const formItemLayout = {
 const App: React.FC = () => (
   <Form {...formItemLayout} style={{ maxWidth: 600 }}>
     <Form.Item
+      label="Success"
+      hasFeedback
+      rules={[
+        {
+          type: 'email',
+          message: 'Please input your e-mail',
+        },
+        {
+          required: true,
+          message: 'Please input your value',
+        },
+      ]}
+    >
+      <Input placeholder="unavailable choice" value="test@qq.com" />
+    </Form.Item>
+    <Form.Item
       label="Fail"
       validateStatus="error"
       help="Should be combination of numbers & alphabets"

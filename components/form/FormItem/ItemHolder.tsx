@@ -90,7 +90,7 @@ export default function ItemHolder(props: ItemHolderProps) {
     mergedValidateStatus = 'error';
   } else if (debounceWarnings.length) {
     mergedValidateStatus = 'warning';
-  } else if (meta.touched) {
+  } else {
     mergedValidateStatus = 'success';
   }
 

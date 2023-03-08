@@ -1473,13 +1473,13 @@ describe('Form', () => {
 
     const { container } = render(<Demo />);
 
-    expect(container.querySelector('.custom-input-required')?.classList).toContain(
+    expect(container.querySelector('.custom-input-required')?.className).toContain(
       'custom-input-status-',
     );
     expect(container.querySelector('.custom-input-warning')?.classList).toContain(
       'custom-input-status-warning',
     );
-    expect(container.querySelector('.custom-input')?.classList).toContain('custom-input-status-');
+    expect(container.querySelector('.custom-input')?.className).toContain('custom-input-status-');
     expect(container.querySelector('.custom-input-wrong')?.classList).toContain(
       'custom-input-status-undefined',
     );

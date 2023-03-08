@@ -16,7 +16,7 @@ exports[`renders ./components/form/demo/advanced-search.tsx correctly 1`] = `
         style="padding-left:12px;padding-right:12px"
       >
         <div
-          class="ant-form-item"
+          class="ant-form-item ant-form-item-has-success"
         >
           <div
             class="ant-row ant-form-item-row"
@@ -43,7 +43,7 @@ exports[`renders ./components/form/demo/advanced-search.tsx correctly 1`] = `
                 >
                   <input
                     aria-required="true"
-                    class="ant-input"
+                    class="ant-input ant-input-status-success"
                     id="advanced_search_field-0"
                     placeholder="placeholder"
                     type="text"
@@ -60,7 +60,7 @@ exports[`renders ./components/form/demo/advanced-search.tsx correctly 1`] = `
         style="padding-left:12px;padding-right:12px"
       >
         <div
-          class="ant-form-item"
+          class="ant-form-item ant-form-item-has-success"
         >
           <div
             class="ant-row ant-form-item-row"
@@ -87,7 +87,7 @@ exports[`renders ./components/form/demo/advanced-search.tsx correctly 1`] = `
                 >
                   <div
                     aria-required="true"
-                    class="ant-select ant-select-in-form-item ant-select-single ant-select-show-arrow"
+                    class="ant-select ant-select-in-form-item ant-select-status-success ant-select-single ant-select-show-arrow"
                   >
                     <div
                       class="ant-select-selector"
@@ -158,7 +158,7 @@ exports[`renders ./components/form/demo/advanced-search.tsx correctly 1`] = `
         style="padding-left:12px;padding-right:12px"
       >
         <div
-          class="ant-form-item"
+          class="ant-form-item ant-form-item-has-success"
         >
           <div
             class="ant-row ant-form-item-row"
@@ -185,7 +185,7 @@ exports[`renders ./components/form/demo/advanced-search.tsx correctly 1`] = `
                 >
                   <input
                     aria-required="true"
-                    class="ant-input"
+                    class="ant-input ant-input-status-success"
                     id="advanced_search_field-2"
                     placeholder="placeholder"
                     type="text"
@@ -202,7 +202,7 @@ exports[`renders ./components/form/demo/advanced-search.tsx correctly 1`] = `
         style="padding-left:12px;padding-right:12px"
       >
         <div
-          class="ant-form-item"
+          class="ant-form-item ant-form-item-has-success"
         >
           <div
             class="ant-row ant-form-item-row"
@@ -229,7 +229,7 @@ exports[`renders ./components/form/demo/advanced-search.tsx correctly 1`] = `
                 >
                   <input
                     aria-required="true"
-                    class="ant-input"
+                    class="ant-input ant-input-status-success"
                     id="advanced_search_field-3"
                     placeholder="placeholder"
                     type="text"
@@ -246,7 +246,7 @@ exports[`renders ./components/form/demo/advanced-search.tsx correctly 1`] = `
         style="padding-left:12px;padding-right:12px"
       >
         <div
-          class="ant-form-item"
+          class="ant-form-item ant-form-item-has-success"
         >
           <div
             class="ant-row ant-form-item-row"
@@ -273,7 +273,7 @@ exports[`renders ./components/form/demo/advanced-search.tsx correctly 1`] = `
                 >
                   <div
                     aria-required="true"
-                    class="ant-select ant-select-in-form-item ant-select-single ant-select-show-arrow"
+                    class="ant-select ant-select-in-form-item ant-select-status-success ant-select-single ant-select-show-arrow"
                   >
                     <div
                       class="ant-select-selector"
@@ -344,7 +344,7 @@ exports[`renders ./components/form/demo/advanced-search.tsx correctly 1`] = `
         style="padding-left:12px;padding-right:12px"
       >
         <div
-          class="ant-form-item"
+          class="ant-form-item ant-form-item-has-success"
         >
           <div
             class="ant-row ant-form-item-row"
@@ -371,7 +371,7 @@ exports[`renders ./components/form/demo/advanced-search.tsx correctly 1`] = `
                 >
                   <input
                     aria-required="true"
-                    class="ant-input"
+                    class="ant-input ant-input-status-success"
                     id="advanced_search_field-5"
                     placeholder="placeholder"
                     type="text"
@@ -451,7 +451,7 @@ exports[`renders ./components/form/demo/basic.tsx correctly 1`] = `
   style="max-width:600px"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -478,7 +478,7 @@ exports[`renders ./components/form/demo/basic.tsx correctly 1`] = `
           >
             <input
               aria-required="true"
-              class="ant-input"
+              class="ant-input ant-input-status-success"
               id="basic_username"
               type="text"
               value=""
@@ -489,7 +489,7 @@ exports[`renders ./components/form/demo/basic.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -515,7 +515,7 @@ exports[`renders ./components/form/demo/basic.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-password"
+              class="ant-input-affix-wrapper ant-input-password ant-input-affix-wrapper-status-success"
             >
               <input
                 aria-required="true"
@@ -558,7 +558,7 @@ exports[`renders ./components/form/demo/basic.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -598,7 +598,7 @@ exports[`renders ./components/form/demo/basic.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -637,7 +637,7 @@ Array [
     style="max-width:600px"
   >
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-has-success"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -664,7 +664,7 @@ Array [
             >
               <input
                 aria-required="true"
-                class="ant-input"
+                class="ant-input ant-input-status-success"
                 id="basic_username"
                 type="text"
                 value=""
@@ -675,7 +675,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-has-success"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -701,7 +701,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <span
-                class="ant-input-affix-wrapper ant-input-password"
+                class="ant-input-affix-wrapper ant-input-password ant-input-affix-wrapper-status-success"
               >
                 <input
                   aria-required="true"
@@ -744,7 +744,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-has-success"
       style="box-shadow:0 0 3px red"
     >
       <div
@@ -775,7 +775,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-select ant-select-in-form-item ant-select-multiple ant-select-show-arrow ant-select-show-search"
+                class="ant-select ant-select-in-form-item ant-select-status-success ant-select-multiple ant-select-show-arrow ant-select-show-search"
                 style="width:70%"
               >
                 <div
@@ -891,7 +891,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-has-success"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -925,7 +925,7 @@ Array [
     id="responsive"
   >
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-has-success"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -952,7 +952,7 @@ Array [
             >
               <input
                 aria-required="true"
-                class="ant-input"
+                class="ant-input ant-input-status-success"
                 id="responsive_username"
                 type="text"
                 value=""
@@ -963,7 +963,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-has-success"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -989,7 +989,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <span
-                class="ant-input-affix-wrapper ant-input-password"
+                class="ant-input-affix-wrapper ant-input-password ant-input-affix-wrapper-status-success"
               >
                 <input
                   aria-required="true"
@@ -1032,7 +1032,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-has-success"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -1068,7 +1068,7 @@ Array [
     class="ant-form ant-form-vertical"
   >
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-has-success"
       style="box-shadow:0 0 3px red"
     >
       <div
@@ -1099,7 +1099,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-select ant-select-in-form-item ant-select-multiple ant-select-show-arrow ant-select-show-search"
+                class="ant-select ant-select-in-form-item ant-select-status-success ant-select-multiple ant-select-show-arrow ant-select-show-search"
                 style="width:70%"
               >
                 <div
@@ -1215,7 +1215,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-has-success"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -1241,7 +1241,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <input
-                class="ant-input"
+                class="ant-input ant-input-status-success"
                 id="col12"
                 type="text"
                 value=""
@@ -1262,7 +1262,7 @@ exports[`renders ./components/form/demo/control-hooks.tsx correctly 1`] = `
   style="max-width:600px"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -1289,7 +1289,7 @@ exports[`renders ./components/form/demo/control-hooks.tsx correctly 1`] = `
           >
             <input
               aria-required="true"
-              class="ant-input"
+              class="ant-input ant-input-status-success"
               id="control-hooks_note"
               type="text"
               value=""
@@ -1300,7 +1300,7 @@ exports[`renders ./components/form/demo/control-hooks.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -1327,7 +1327,7 @@ exports[`renders ./components/form/demo/control-hooks.tsx correctly 1`] = `
           >
             <div
               aria-required="true"
-              class="ant-select ant-select-in-form-item ant-select-single ant-select-allow-clear ant-select-show-arrow"
+              class="ant-select ant-select-in-form-item ant-select-status-success ant-select-single ant-select-allow-clear ant-select-show-arrow"
             >
               <div
                 class="ant-select-selector"
@@ -1392,7 +1392,7 @@ exports[`renders ./components/form/demo/control-hooks.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -1445,7 +1445,7 @@ exports[`renders ./components/form/demo/control-ref.tsx correctly 1`] = `
   style="max-width:600px"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -1472,7 +1472,7 @@ exports[`renders ./components/form/demo/control-ref.tsx correctly 1`] = `
           >
             <input
               aria-required="true"
-              class="ant-input"
+              class="ant-input ant-input-status-success"
               id="control-ref_note"
               type="text"
               value=""
@@ -1483,7 +1483,7 @@ exports[`renders ./components/form/demo/control-ref.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -1510,7 +1510,7 @@ exports[`renders ./components/form/demo/control-ref.tsx correctly 1`] = `
           >
             <div
               aria-required="true"
-              class="ant-select ant-select-in-form-item ant-select-single ant-select-allow-clear ant-select-show-arrow"
+              class="ant-select ant-select-in-form-item ant-select-status-success ant-select-single ant-select-allow-clear ant-select-show-arrow"
             >
               <div
                 class="ant-select-selector"
@@ -1575,7 +1575,7 @@ exports[`renders ./components/form/demo/control-ref.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -1627,7 +1627,7 @@ exports[`renders ./components/form/demo/customized-form-controls.tsx correctly 1
   id="customized_form_controls"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -1654,13 +1654,13 @@ exports[`renders ./components/form/demo/customized-form-controls.tsx correctly 1
           >
             <span>
               <input
-                class="ant-input"
+                class="ant-input ant-input-status-success"
                 style="width:100px"
                 type="text"
                 value="0"
               />
               <div
-                class="ant-select ant-select-in-form-item ant-select-single ant-select-show-arrow"
+                class="ant-select ant-select-in-form-item ant-select-status-success ant-select-single ant-select-show-arrow"
                 style="width:80px;margin:0 8px"
               >
                 <div
@@ -1726,7 +1726,7 @@ exports[`renders ./components/form/demo/customized-form-controls.tsx correctly 1
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -1782,7 +1782,7 @@ Array [
     style="max-width:600px"
   >
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-has-success"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -1833,7 +1833,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-has-success"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -1907,7 +1907,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-has-success"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -1932,7 +1932,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <input
-                class="ant-input ant-input-disabled"
+                class="ant-input ant-input-disabled ant-input-status-success"
                 disabled=""
                 type="text"
                 value=""
@@ -1943,7 +1943,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-has-success"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -1968,7 +1968,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-select ant-select-in-form-item ant-select-single ant-select-show-arrow ant-select-disabled"
+                class="ant-select ant-select-in-form-item ant-select-status-success ant-select-single ant-select-show-arrow ant-select-disabled"
               >
                 <div
                   class="ant-select-selector"
@@ -2031,7 +2031,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-has-success"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -2056,7 +2056,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-select ant-tree-select ant-select-in-form-item ant-select-single ant-select-show-arrow ant-select-disabled"
+                class="ant-select ant-tree-select ant-select-in-form-item ant-select-status-success ant-select-single ant-select-show-arrow ant-select-disabled"
               >
                 <div
                   class="ant-select-selector"
@@ -2118,7 +2118,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-has-success"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -2143,7 +2143,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-select ant-cascader ant-select-in-form-item ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-disabled"
+                class="ant-select ant-cascader ant-select-in-form-item ant-select-status-success ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-disabled"
               >
                 <div
                   class="ant-select-selector"
@@ -2205,7 +2205,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-has-success"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -2230,7 +2230,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-picker ant-picker-disabled"
+                class="ant-picker ant-picker-status-success ant-picker-disabled"
               >
                 <div
                   class="ant-picker-input"
@@ -2275,7 +2275,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-has-success"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -2300,7 +2300,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-picker ant-picker-range ant-picker-disabled"
+                class="ant-picker ant-picker-range ant-picker-status-success ant-picker-disabled"
               >
                 <div
                   class="ant-picker-input ant-picker-input-active"
@@ -2388,7 +2388,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-has-success"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -2413,7 +2413,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-input-number ant-input-number-in-form-item ant-input-number-disabled"
+                class="ant-input-number ant-input-number-in-form-item ant-input-number-status-success ant-input-number-disabled"
               >
                 <div
                   class="ant-input-number-handler-wrap"
@@ -2492,7 +2492,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-has-success"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -2517,7 +2517,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <textarea
-                class="ant-input ant-input-disabled"
+                class="ant-input ant-input-status-success ant-input-disabled"
                 disabled=""
                 rows="4"
               />
@@ -2527,7 +2527,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-has-success"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -2578,7 +2578,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-has-success"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -2662,7 +2662,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-has-success"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -2710,7 +2710,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.tsx correctly 1`] =
   style="max-width:600px"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -2735,7 +2735,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.tsx correctly 1`] =
             class="ant-form-item-control-input-content"
           >
             <input
-              class="ant-input"
+              class="ant-input ant-input-status-success"
               placeholder="unavailable choice"
               type="text"
               value="Buggy!"
@@ -2819,7 +2819,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.tsx correctly 1`] =
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -2844,7 +2844,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.tsx correctly 1`] =
             class="ant-form-item-control-input-content"
           >
             <input
-              class="ant-input"
+              class="ant-input ant-input-status-success"
               placeholder="unavailable choice"
               type="text"
               value="Buggy!"
@@ -2928,7 +2928,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.tsx correctly 1`] =
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -2953,7 +2953,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.tsx correctly 1`] =
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-group-wrapper"
+              class="ant-input-group-wrapper ant-input-group-wrapper-status-success"
             >
               <span
                 class="ant-input-wrapper ant-input-group"
@@ -2964,7 +2964,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.tsx correctly 1`] =
                   Buggy!
                 </span>
                 <input
-                  class="ant-input"
+                  class="ant-input ant-input-status-success"
                   placeholder="unavailable choice"
                   type="text"
                   value=""
@@ -3076,7 +3076,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.tsx correctly 1`] =
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -3101,7 +3101,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.tsx correctly 1`] =
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper"
+              class="ant-input-affix-wrapper ant-input-affix-wrapper-status-success"
             >
               <span
                 class="ant-input-prefix"
@@ -3221,7 +3221,7 @@ exports[`renders ./components/form/demo/dynamic-form-item.tsx correctly 1`] = `
   style="max-width:600px"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -3309,7 +3309,7 @@ exports[`renders ./components/form/demo/dynamic-form-item.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -3347,7 +3347,7 @@ exports[`renders ./components/form/demo/dynamic-form-items.tsx correctly 1`] = `
   style="max-width:600px"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -3400,7 +3400,7 @@ exports[`renders ./components/form/demo/dynamic-form-items.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -3438,7 +3438,7 @@ exports[`renders ./components/form/demo/dynamic-form-items-complex.tsx correctly
   style="max-width:600px"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -3465,7 +3465,7 @@ exports[`renders ./components/form/demo/dynamic-form-items-complex.tsx correctly
           >
             <div
               aria-required="true"
-              class="ant-select ant-select-in-form-item ant-select-single ant-select-show-arrow"
+              class="ant-select ant-select-in-form-item ant-select-status-success ant-select-single ant-select-show-arrow"
             >
               <div
                 class="ant-select-selector"
@@ -3528,7 +3528,7 @@ exports[`renders ./components/form/demo/dynamic-form-items-complex.tsx correctly
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -3581,7 +3581,7 @@ exports[`renders ./components/form/demo/dynamic-form-items-complex.tsx correctly
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -3619,7 +3619,7 @@ exports[`renders ./components/form/demo/dynamic-form-items-no-style.tsx correctl
   style="max-width:600px"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -3644,7 +3644,7 @@ exports[`renders ./components/form/demo/dynamic-form-items-no-style.tsx correctl
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-form-item"
+              class="ant-form-item ant-form-item-has-success"
             >
               <div
                 class="ant-row ant-form-item-row"
@@ -3702,7 +3702,7 @@ exports[`renders ./components/form/demo/dynamic-form-items-no-style.tsx correctl
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -3739,7 +3739,7 @@ exports[`renders ./components/form/demo/dynamic-rule.tsx correctly 1`] = `
   style="max-width:600px"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -3766,7 +3766,7 @@ exports[`renders ./components/form/demo/dynamic-rule.tsx correctly 1`] = `
           >
             <input
               aria-required="true"
-              class="ant-input"
+              class="ant-input ant-input-status-success"
               id="dynamic_rule_username"
               placeholder="Please input your name"
               type="text"
@@ -3778,7 +3778,7 @@ exports[`renders ./components/form/demo/dynamic-rule.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -3804,7 +3804,7 @@ exports[`renders ./components/form/demo/dynamic-rule.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
-              class="ant-input"
+              class="ant-input ant-input-status-success"
               id="dynamic_rule_nickname"
               placeholder="Please input your nickname"
               type="text"
@@ -3816,7 +3816,7 @@ exports[`renders ./components/form/demo/dynamic-rule.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -3854,7 +3854,7 @@ exports[`renders ./components/form/demo/dynamic-rule.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -3891,7 +3891,7 @@ exports[`renders ./components/form/demo/form-context.tsx correctly 1`] = `
   style="max-width:600px"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -3918,7 +3918,7 @@ exports[`renders ./components/form/demo/form-context.tsx correctly 1`] = `
           >
             <input
               aria-required="true"
-              class="ant-input"
+              class="ant-input ant-input-status-success"
               id="basicForm_group"
               type="text"
               value=""
@@ -3929,7 +3929,7 @@ exports[`renders ./components/form/demo/form-context.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -3984,7 +3984,7 @@ exports[`renders ./components/form/demo/form-context.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -4042,7 +4042,7 @@ exports[`renders ./components/form/demo/form-item-path.tsx correctly 1`] = `
   id="form_item_path"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -4068,7 +4068,7 @@ exports[`renders ./components/form/demo/form-item-path.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
-              class="ant-input"
+              class="ant-input ant-input-status-success"
               id="form_item_path_user_name_firstName"
               type="text"
               value=""
@@ -4079,7 +4079,7 @@ exports[`renders ./components/form/demo/form-item-path.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -4105,7 +4105,7 @@ exports[`renders ./components/form/demo/form-item-path.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
-              class="ant-input"
+              class="ant-input ant-input-status-success"
               id="form_item_path_user_name_lastName"
               type="text"
               value=""
@@ -4116,7 +4116,7 @@ exports[`renders ./components/form/demo/form-item-path.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -4142,7 +4142,7 @@ exports[`renders ./components/form/demo/form-item-path.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
-              class="ant-input"
+              class="ant-input ant-input-status-success"
               id="form_item_path_user_age"
               type="text"
               value=""
@@ -4170,7 +4170,7 @@ Array [
     id="global_state"
   >
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-has-success"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -4197,7 +4197,7 @@ Array [
             >
               <input
                 aria-required="true"
-                class="ant-input"
+                class="ant-input ant-input-status-success"
                 id="global_state_username"
                 type="text"
                 value=""
@@ -4234,7 +4234,7 @@ exports[`renders ./components/form/demo/inline-login.tsx correctly 1`] = `
   id="horizontal_login"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -4249,7 +4249,7 @@ exports[`renders ./components/form/demo/inline-login.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper"
+              class="ant-input-affix-wrapper ant-input-affix-wrapper-status-success"
             >
               <span
                 class="ant-input-prefix"
@@ -4289,7 +4289,7 @@ exports[`renders ./components/form/demo/inline-login.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -4304,7 +4304,7 @@ exports[`renders ./components/form/demo/inline-login.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper"
+              class="ant-input-affix-wrapper ant-input-affix-wrapper-status-success"
             >
               <span
                 class="ant-input-prefix"
@@ -4344,7 +4344,7 @@ exports[`renders ./components/form/demo/inline-login.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -4381,7 +4381,7 @@ exports[`renders ./components/form/demo/label-debug.tsx correctly 1`] = `
   style="max-width:600px"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -4428,7 +4428,7 @@ exports[`renders ./components/form/demo/label-debug.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
-              class="ant-input"
+              class="ant-input ant-input-status-success"
               id="label-ellipsis_username"
               type="text"
               value=""
@@ -4439,7 +4439,7 @@ exports[`renders ./components/form/demo/label-debug.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -4486,7 +4486,7 @@ exports[`renders ./components/form/demo/label-debug.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-password"
+              class="ant-input-affix-wrapper ant-input-password ant-input-affix-wrapper-status-success"
             >
               <input
                 class="ant-input"
@@ -4536,7 +4536,7 @@ exports[`renders ./components/form/demo/layout.tsx correctly 1`] = `
   style="max-width:600px"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -4630,7 +4630,7 @@ exports[`renders ./components/form/demo/layout.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -4655,7 +4655,7 @@ exports[`renders ./components/form/demo/layout.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
-              class="ant-input"
+              class="ant-input ant-input-status-success"
               placeholder="input placeholder"
               type="text"
               value=""
@@ -4666,7 +4666,7 @@ exports[`renders ./components/form/demo/layout.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -4691,7 +4691,7 @@ exports[`renders ./components/form/demo/layout.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
-              class="ant-input"
+              class="ant-input ant-input-status-success"
               placeholder="input placeholder"
               type="text"
               value=""
@@ -4702,7 +4702,7 @@ exports[`renders ./components/form/demo/layout.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -4739,7 +4739,7 @@ exports[`renders ./components/form/demo/layout-can-wrap.tsx correctly 1`] = `
   style="max-width:600px"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -4768,7 +4768,7 @@ exports[`renders ./components/form/demo/layout-can-wrap.tsx correctly 1`] = `
           >
             <input
               aria-required="true"
-              class="ant-input"
+              class="ant-input ant-input-status-success"
               id="wrap_username"
               type="text"
               value=""
@@ -4779,7 +4779,7 @@ exports[`renders ./components/form/demo/layout-can-wrap.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -4808,7 +4808,7 @@ exports[`renders ./components/form/demo/layout-can-wrap.tsx correctly 1`] = `
           >
             <input
               aria-required="true"
-              class="ant-input"
+              class="ant-input ant-input-status-success"
               id="wrap_password"
               type="text"
               value=""
@@ -4819,7 +4819,7 @@ exports[`renders ./components/form/demo/layout-can-wrap.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -4867,7 +4867,7 @@ exports[`renders ./components/form/demo/nest-messages.tsx correctly 1`] = `
   style="max-width:600px"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -4894,7 +4894,7 @@ exports[`renders ./components/form/demo/nest-messages.tsx correctly 1`] = `
           >
             <input
               aria-required="true"
-              class="ant-input"
+              class="ant-input ant-input-status-success"
               id="nest-messages_user_name"
               type="text"
               value=""
@@ -4905,7 +4905,7 @@ exports[`renders ./components/form/demo/nest-messages.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -4931,7 +4931,7 @@ exports[`renders ./components/form/demo/nest-messages.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
-              class="ant-input"
+              class="ant-input ant-input-status-success"
               id="nest-messages_user_email"
               type="text"
               value=""
@@ -4942,7 +4942,7 @@ exports[`renders ./components/form/demo/nest-messages.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -4968,7 +4968,7 @@ exports[`renders ./components/form/demo/nest-messages.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-input-number ant-input-number-in-form-item"
+              class="ant-input-number ant-input-number-in-form-item ant-input-number-status-success"
             >
               <div
                 class="ant-input-number-handler-wrap"
@@ -5047,7 +5047,7 @@ exports[`renders ./components/form/demo/nest-messages.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -5073,7 +5073,7 @@ exports[`renders ./components/form/demo/nest-messages.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
-              class="ant-input"
+              class="ant-input ant-input-status-success"
               id="nest-messages_user_website"
               type="text"
               value=""
@@ -5084,7 +5084,7 @@ exports[`renders ./components/form/demo/nest-messages.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -5110,7 +5110,7 @@ exports[`renders ./components/form/demo/nest-messages.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <textarea
-              class="ant-input"
+              class="ant-input ant-input-status-success"
               id="nest-messages_user_introduction"
             />
           </div>
@@ -5119,7 +5119,7 @@ exports[`renders ./components/form/demo/nest-messages.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -5155,7 +5155,7 @@ exports[`renders ./components/form/demo/normal-login.tsx correctly 1`] = `
   id="normal_login"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -5170,7 +5170,7 @@ exports[`renders ./components/form/demo/normal-login.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper"
+              class="ant-input-affix-wrapper ant-input-affix-wrapper-status-success"
             >
               <span
                 class="ant-input-prefix"
@@ -5210,7 +5210,7 @@ exports[`renders ./components/form/demo/normal-login.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -5225,7 +5225,7 @@ exports[`renders ./components/form/demo/normal-login.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper"
+              class="ant-input-affix-wrapper ant-input-affix-wrapper-status-success"
             >
               <span
                 class="ant-input-prefix"
@@ -5265,7 +5265,7 @@ exports[`renders ./components/form/demo/normal-login.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -5311,7 +5311,7 @@ exports[`renders ./components/form/demo/normal-login.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -5353,7 +5353,7 @@ exports[`renders ./components/form/demo/ref-item.tsx correctly 1`] = `
   style="max-width:600px"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -5379,7 +5379,7 @@ exports[`renders ./components/form/demo/ref-item.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
-              class="ant-input"
+              class="ant-input ant-input-status-success"
               id="test"
               type="text"
               value=""
@@ -5390,7 +5390,7 @@ exports[`renders ./components/form/demo/ref-item.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -5405,7 +5405,7 @@ exports[`renders ./components/form/demo/ref-item.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
-              class="ant-input"
+              class="ant-input ant-input-status-success"
               id="list_0"
               type="text"
               value="light"
@@ -5441,7 +5441,7 @@ exports[`renders ./components/form/demo/register.tsx correctly 1`] = `
   style="max-width:600px"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -5468,7 +5468,7 @@ exports[`renders ./components/form/demo/register.tsx correctly 1`] = `
           >
             <input
               aria-required="true"
-              class="ant-input"
+              class="ant-input ant-input-status-success"
               id="register_email"
               type="text"
               value=""
@@ -5479,7 +5479,7 @@ exports[`renders ./components/form/demo/register.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-feedback ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -5505,7 +5505,7 @@ exports[`renders ./components/form/demo/register.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-password ant-input-affix-wrapper-has-feedback"
+              class="ant-input-affix-wrapper ant-input-password ant-input-affix-wrapper-status-success ant-input-affix-wrapper-has-feedback"
             >
               <input
                 aria-required="true"
@@ -5540,6 +5540,29 @@ exports[`renders ./components/form/demo/register.tsx correctly 1`] = `
                     />
                   </svg>
                 </span>
+                <span
+                  class="ant-form-item-feedback-icon ant-form-item-feedback-icon-success"
+                >
+                  <span
+                    aria-label="check-circle"
+                    class="anticon anticon-check-circle"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="check-circle"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"
+                      />
+                    </svg>
+                  </span>
+                </span>
               </span>
             </span>
           </div>
@@ -5548,7 +5571,7 @@ exports[`renders ./components/form/demo/register.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-feedback ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -5574,7 +5597,7 @@ exports[`renders ./components/form/demo/register.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-password ant-input-affix-wrapper-has-feedback"
+              class="ant-input-affix-wrapper ant-input-password ant-input-affix-wrapper-status-success ant-input-affix-wrapper-has-feedback"
             >
               <input
                 aria-required="true"
@@ -5609,6 +5632,29 @@ exports[`renders ./components/form/demo/register.tsx correctly 1`] = `
                     />
                   </svg>
                 </span>
+                <span
+                  class="ant-form-item-feedback-icon ant-form-item-feedback-icon-success"
+                >
+                  <span
+                    aria-label="check-circle"
+                    class="anticon anticon-check-circle"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="check-circle"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"
+                      />
+                    </svg>
+                  </span>
+                </span>
               </span>
             </span>
           </div>
@@ -5617,7 +5663,7 @@ exports[`renders ./components/form/demo/register.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -5667,7 +5713,7 @@ exports[`renders ./components/form/demo/register.tsx correctly 1`] = `
           >
             <input
               aria-required="true"
-              class="ant-input"
+              class="ant-input ant-input-status-success"
               id="register_nickname"
               type="text"
               value=""
@@ -5678,7 +5724,7 @@ exports[`renders ./components/form/demo/register.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -5705,7 +5751,7 @@ exports[`renders ./components/form/demo/register.tsx correctly 1`] = `
           >
             <div
               aria-required="true"
-              class="ant-select ant-cascader ant-select-in-form-item ant-select-single ant-select-allow-clear ant-select-show-arrow"
+              class="ant-select ant-cascader ant-select-in-form-item ant-select-status-success ant-select-single ant-select-allow-clear ant-select-show-arrow"
             >
               <div
                 class="ant-select-selector"
@@ -5796,7 +5842,7 @@ exports[`renders ./components/form/demo/register.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -5822,7 +5868,7 @@ exports[`renders ./components/form/demo/register.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-group-wrapper"
+              class="ant-input-group-wrapper ant-input-group-wrapper-status-success"
               style="width:100%"
             >
               <span
@@ -5895,7 +5941,7 @@ exports[`renders ./components/form/demo/register.tsx correctly 1`] = `
                 </span>
                 <input
                   aria-required="true"
-                  class="ant-input"
+                  class="ant-input ant-input-status-success"
                   id="register_phone"
                   type="text"
                   value=""
@@ -5908,7 +5954,7 @@ exports[`renders ./components/form/demo/register.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -5934,14 +5980,14 @@ exports[`renders ./components/form/demo/register.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-input-number-group-wrapper"
+              class="ant-input-number-group-wrapper ant-input-number-group-wrapper-status-success"
               style="width:100%"
             >
               <div
                 class="ant-input-number-wrapper ant-input-number-group"
               >
                 <div
-                  class="ant-input-number ant-input-number-in-form-item"
+                  class="ant-input-number ant-input-number-in-form-item ant-input-number-status-success"
                 >
                   <div
                     class="ant-input-number-handler-wrap"
@@ -6085,7 +6131,7 @@ exports[`renders ./components/form/demo/register.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -6112,7 +6158,7 @@ exports[`renders ./components/form/demo/register.tsx correctly 1`] = `
           >
             <div
               aria-required="true"
-              class="ant-select ant-select-in-form-item ant-select-auto-complete ant-select-single ant-select-customize-input ant-select-show-search"
+              class="ant-select ant-select-in-form-item ant-select-status-success ant-select-auto-complete ant-select-single ant-select-customize-input ant-select-show-search"
             >
               <div
                 class="ant-select-selector"
@@ -6128,7 +6174,7 @@ exports[`renders ./components/form/demo/register.tsx correctly 1`] = `
                     aria-owns="register_website_list"
                     aria-required="true"
                     autocomplete="off"
-                    class="ant-input ant-select-selection-search-input"
+                    class="ant-input ant-input-status-success ant-select-selection-search-input"
                     id="register_website"
                     role="combobox"
                     type="search"
@@ -6148,7 +6194,7 @@ exports[`renders ./components/form/demo/register.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -6179,7 +6225,7 @@ exports[`renders ./components/form/demo/register.tsx correctly 1`] = `
             >
               <textarea
                 aria-required="true"
-                class="ant-input"
+                class="ant-input ant-input-status-success"
                 id="register_intro"
               />
               <span
@@ -6194,7 +6240,7 @@ exports[`renders ./components/form/demo/register.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -6221,7 +6267,7 @@ exports[`renders ./components/form/demo/register.tsx correctly 1`] = `
           >
             <div
               aria-required="true"
-              class="ant-select ant-select-in-form-item ant-select-single ant-select-show-arrow"
+              class="ant-select ant-select-in-form-item ant-select-status-success ant-select-single ant-select-show-arrow"
             >
               <div
                 class="ant-select-selector"
@@ -6286,7 +6332,7 @@ exports[`renders ./components/form/demo/register.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -6320,7 +6366,7 @@ exports[`renders ./components/form/demo/register.tsx correctly 1`] = `
               >
                 <input
                   aria-required="true"
-                  class="ant-input"
+                  class="ant-input ant-input-status-success"
                   id="register_captcha"
                   type="text"
                   value=""
@@ -6351,7 +6397,7 @@ exports[`renders ./components/form/demo/register.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -6395,7 +6441,7 @@ exports[`renders ./components/form/demo/register.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -6430,7 +6476,7 @@ exports[`renders ./components/form/demo/required-mark.tsx correctly 1`] = `
   class="ant-form ant-form-vertical"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -6530,7 +6576,7 @@ exports[`renders ./components/form/demo/required-mark.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -6578,7 +6624,7 @@ exports[`renders ./components/form/demo/required-mark.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
-              class="ant-input"
+              class="ant-input ant-input-status-success"
               placeholder="input placeholder"
               type="text"
               value=""
@@ -6589,7 +6635,7 @@ exports[`renders ./components/form/demo/required-mark.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -6643,7 +6689,7 @@ exports[`renders ./components/form/demo/required-mark.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
-              class="ant-input"
+              class="ant-input ant-input-status-success"
               placeholder="input placeholder"
               type="text"
               value=""
@@ -6654,7 +6700,7 @@ exports[`renders ./components/form/demo/required-mark.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -6690,7 +6736,7 @@ exports[`renders ./components/form/demo/size.tsx correctly 1`] = `
   style="max-width:600px"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -6784,7 +6830,7 @@ exports[`renders ./components/form/demo/size.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -6809,7 +6855,7 @@ exports[`renders ./components/form/demo/size.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
-              class="ant-input"
+              class="ant-input ant-input-status-success"
               type="text"
               value=""
             />
@@ -6819,7 +6865,7 @@ exports[`renders ./components/form/demo/size.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -6844,7 +6890,7 @@ exports[`renders ./components/form/demo/size.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select ant-select-in-form-item ant-select-single ant-select-show-arrow"
+              class="ant-select ant-select-in-form-item ant-select-status-success ant-select-single ant-select-show-arrow"
             >
               <div
                 class="ant-select-selector"
@@ -6905,7 +6951,7 @@ exports[`renders ./components/form/demo/size.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -6930,7 +6976,7 @@ exports[`renders ./components/form/demo/size.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select ant-tree-select ant-select-in-form-item ant-select-single ant-select-show-arrow"
+              class="ant-select ant-tree-select ant-select-in-form-item ant-select-status-success ant-select-single ant-select-show-arrow"
             >
               <div
                 class="ant-select-selector"
@@ -6990,7 +7036,7 @@ exports[`renders ./components/form/demo/size.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -7015,7 +7061,7 @@ exports[`renders ./components/form/demo/size.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select ant-cascader ant-select-in-form-item ant-select-single ant-select-allow-clear ant-select-show-arrow"
+              class="ant-select ant-cascader ant-select-in-form-item ant-select-status-success ant-select-single ant-select-allow-clear ant-select-show-arrow"
             >
               <div
                 class="ant-select-selector"
@@ -7075,7 +7121,7 @@ exports[`renders ./components/form/demo/size.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -7100,7 +7146,7 @@ exports[`renders ./components/form/demo/size.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-picker ant-picker-default"
+              class="ant-picker ant-picker-default ant-picker-status-success"
             >
               <div
                 class="ant-picker-input"
@@ -7144,7 +7190,7 @@ exports[`renders ./components/form/demo/size.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -7169,7 +7215,7 @@ exports[`renders ./components/form/demo/size.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-input-number ant-input-number-in-form-item"
+              class="ant-input-number ant-input-number-in-form-item ant-input-number-status-success"
             >
               <div
                 class="ant-input-number-handler-wrap"
@@ -7247,7 +7293,7 @@ exports[`renders ./components/form/demo/size.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -7297,7 +7343,7 @@ exports[`renders ./components/form/demo/size.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -7344,7 +7390,7 @@ exports[`renders ./components/form/demo/time-related-controls.tsx correctly 1`] 
   style="max-width:600px"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -7370,7 +7416,7 @@ exports[`renders ./components/form/demo/time-related-controls.tsx correctly 1`] 
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-picker"
+              class="ant-picker ant-picker-status-success"
             >
               <div
                 class="ant-picker-input"
@@ -7416,7 +7462,7 @@ exports[`renders ./components/form/demo/time-related-controls.tsx correctly 1`] 
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -7442,7 +7488,7 @@ exports[`renders ./components/form/demo/time-related-controls.tsx correctly 1`] 
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-picker"
+              class="ant-picker ant-picker-status-success"
             >
               <div
                 class="ant-picker-input"
@@ -7488,7 +7534,7 @@ exports[`renders ./components/form/demo/time-related-controls.tsx correctly 1`] 
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -7514,7 +7560,7 @@ exports[`renders ./components/form/demo/time-related-controls.tsx correctly 1`] 
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-picker"
+              class="ant-picker ant-picker-status-success"
             >
               <div
                 class="ant-picker-input"
@@ -7560,7 +7606,7 @@ exports[`renders ./components/form/demo/time-related-controls.tsx correctly 1`] 
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -7587,7 +7633,7 @@ exports[`renders ./components/form/demo/time-related-controls.tsx correctly 1`] 
           >
             <div
               aria-required="true"
-              class="ant-picker ant-picker-range"
+              class="ant-picker ant-picker-range ant-picker-status-success"
             >
               <div
                 class="ant-picker-input ant-picker-input-active"
@@ -7674,7 +7720,7 @@ exports[`renders ./components/form/demo/time-related-controls.tsx correctly 1`] 
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -7701,7 +7747,7 @@ exports[`renders ./components/form/demo/time-related-controls.tsx correctly 1`] 
           >
             <div
               aria-required="true"
-              class="ant-picker ant-picker-range"
+              class="ant-picker ant-picker-range ant-picker-status-success"
             >
               <div
                 class="ant-picker-input ant-picker-input-active"
@@ -7788,7 +7834,7 @@ exports[`renders ./components/form/demo/time-related-controls.tsx correctly 1`] 
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -7814,7 +7860,7 @@ exports[`renders ./components/form/demo/time-related-controls.tsx correctly 1`] 
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-picker"
+              class="ant-picker ant-picker-status-success"
             >
               <div
                 class="ant-picker-input"
@@ -7863,7 +7909,7 @@ exports[`renders ./components/form/demo/time-related-controls.tsx correctly 1`] 
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -7900,7 +7946,7 @@ Array [
     class="ant-form ant-form-vertical"
   >
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-has-success"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -7926,7 +7972,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <input
-                class="ant-input"
+                class="ant-input ant-input-status-success"
                 id="name"
                 type="text"
                 value=""
@@ -7937,7 +7983,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-has-success"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -7963,7 +8009,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-input-number ant-input-number-in-form-item"
+                class="ant-input-number ant-input-number-in-form-item ant-input-number-status-success"
               >
                 <div
                   class="ant-input-number-handler-wrap"
@@ -8059,7 +8105,7 @@ exports[`renders ./components/form/demo/validate-other.tsx correctly 1`] = `
   style="max-width:600px"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -8094,7 +8140,7 @@ exports[`renders ./components/form/demo/validate-other.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-feedback ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -8121,7 +8167,7 @@ exports[`renders ./components/form/demo/validate-other.tsx correctly 1`] = `
           >
             <div
               aria-required="true"
-              class="ant-select ant-select-in-form-item ant-select-has-feedback ant-select-single ant-select-show-arrow"
+              class="ant-select ant-select-in-form-item ant-select-status-success ant-select-has-feedback ant-select-single ant-select-show-arrow"
             >
               <div
                 class="ant-select-selector"
@@ -8178,6 +8224,29 @@ exports[`renders ./components/form/demo/validate-other.tsx correctly 1`] = `
                     />
                   </svg>
                 </span>
+                <span
+                  class="ant-form-item-feedback-icon ant-form-item-feedback-icon-success"
+                >
+                  <span
+                    aria-label="check-circle"
+                    class="anticon anticon-check-circle"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="check-circle"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"
+                      />
+                    </svg>
+                  </span>
+                </span>
               </span>
             </div>
           </div>
@@ -8186,7 +8255,7 @@ exports[`renders ./components/form/demo/validate-other.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -8213,7 +8282,7 @@ exports[`renders ./components/form/demo/validate-other.tsx correctly 1`] = `
           >
             <div
               aria-required="true"
-              class="ant-select ant-select-in-form-item ant-select-multiple ant-select-show-arrow ant-select-show-search"
+              class="ant-select ant-select-in-form-item ant-select-status-success ant-select-multiple ant-select-show-arrow ant-select-show-search"
             >
               <div
                 class="ant-select-selector"
@@ -8293,7 +8362,7 @@ exports[`renders ./components/form/demo/validate-other.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -8318,7 +8387,7 @@ exports[`renders ./components/form/demo/validate-other.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-input-number ant-input-number-in-form-item"
+              class="ant-input-number ant-input-number-in-form-item ant-input-number-status-success"
             >
               <div
                 class="ant-input-number-handler-wrap"
@@ -8406,7 +8475,7 @@ exports[`renders ./components/form/demo/validate-other.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -8458,7 +8527,7 @@ exports[`renders ./components/form/demo/validate-other.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -8578,7 +8647,7 @@ exports[`renders ./components/form/demo/validate-other.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -8671,7 +8740,7 @@ exports[`renders ./components/form/demo/validate-other.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -8765,7 +8834,7 @@ exports[`renders ./components/form/demo/validate-other.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -8952,7 +9021,7 @@ exports[`renders ./components/form/demo/validate-other.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -9279,7 +9348,7 @@ exports[`renders ./components/form/demo/validate-other.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -9367,7 +9436,7 @@ exports[`renders ./components/form/demo/validate-other.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -9457,7 +9526,7 @@ exports[`renders ./components/form/demo/validate-other.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -9492,6 +9561,73 @@ exports[`renders ./components/form/demo/validate-static.tsx correctly 1`] = `
   class="ant-form ant-form-horizontal"
   style="max-width:600px"
 >
+  <div
+    class="ant-form-item ant-form-item-has-feedback ant-form-item-has-success"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
+      >
+        <label
+          class=""
+          title="Success"
+        >
+          Success
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-14"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <span
+              class="ant-input-affix-wrapper ant-input-affix-wrapper-status-success ant-input-affix-wrapper-has-feedback"
+            >
+              <input
+                class="ant-input"
+                placeholder="unavailable choice"
+                type="text"
+                value="test@qq.com"
+              />
+              <span
+                class="ant-input-suffix"
+              >
+                <span
+                  class="ant-form-item-feedback-icon ant-form-item-feedback-icon-success"
+                >
+                  <span
+                    aria-label="check-circle"
+                    class="anticon anticon-check-circle"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="check-circle"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div
     class="ant-form-item ant-form-item-with-help ant-form-item-has-error"
   >
@@ -10521,7 +10657,7 @@ exports[`renders ./components/form/demo/validate-static.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
     style="margin-bottom:0"
   >
     <div
@@ -10612,7 +10748,7 @@ exports[`renders ./components/form/demo/validate-static.tsx correctly 1`] = `
               -
             </span>
             <div
-              class="ant-form-item"
+              class="ant-form-item ant-form-item-has-success"
               style="display:inline-block;width:calc(50% - 12px)"
             >
               <div
@@ -10628,7 +10764,7 @@ exports[`renders ./components/form/demo/validate-static.tsx correctly 1`] = `
                       class="ant-form-item-control-input-content"
                     >
                       <div
-                        class="ant-picker"
+                        class="ant-picker ant-picker-status-success"
                       >
                         <div
                           class="ant-picker-input"
@@ -11289,7 +11425,7 @@ exports[`renders ./components/form/demo/warning-only.tsx correctly 1`] = `
   class="ant-form ant-form-vertical"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -11316,7 +11452,7 @@ exports[`renders ./components/form/demo/warning-only.tsx correctly 1`] = `
           >
             <input
               aria-required="true"
-              class="ant-input"
+              class="ant-input ant-input-status-success"
               id="url"
               placeholder="input placeholder"
               type="text"
@@ -11328,7 +11464,7 @@ exports[`renders ./components/form/demo/warning-only.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -11385,7 +11521,7 @@ exports[`renders ./components/form/demo/without-form-create.tsx correctly 1`] = 
   style="max-width:600px"
 >
   <div
-    class="ant-form-item ant-form-item-with-help"
+    class="ant-form-item ant-form-item-with-help ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -11410,7 +11546,7 @@ exports[`renders ./components/form/demo/without-form-create.tsx correctly 1`] = 
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-input-number ant-input-number-in-form-item"
+              class="ant-input-number ant-input-number-in-form-item ant-input-number-status-success"
             >
               <div
                 class="ant-input-number-handler-wrap"

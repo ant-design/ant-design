@@ -5,7 +5,7 @@ exports[`Form Form item hidden noStyle should not work when hidden 1`] = `
   class="ant-form ant-form-horizontal"
 >
   <div
-    class="ant-form-item ant-form-item-hidden"
+    class="ant-form-item ant-form-item-has-success ant-form-item-hidden"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -20,7 +20,7 @@ exports[`Form Form item hidden noStyle should not work when hidden 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
-              class="ant-input"
+              class="ant-input ant-input-status-success"
               id="light"
               type="text"
               value=""
@@ -38,7 +38,7 @@ exports[`Form Form item hidden should work 1`] = `
   class="ant-form ant-form-horizontal"
 >
   <div
-    class="ant-form-item ant-form-item-hidden"
+    class="ant-form-item ant-form-item-has-success ant-form-item-hidden"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -53,7 +53,7 @@ exports[`Form Form item hidden should work 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
-              class="ant-input"
+              class="ant-input ant-input-status-success"
               id="light"
               type="text"
               value=""
@@ -71,7 +71,7 @@ exports[`Form Form.Item should support data-*、aria-* and custom attribute 1`] 
   class="ant-form ant-form-horizontal"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       aria-hidden="true"
@@ -102,7 +102,7 @@ exports[`Form form should support disabled 1`] = `
   class="ant-form ant-form-horizontal"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -154,7 +154,7 @@ exports[`Form form should support disabled 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -228,7 +228,7 @@ exports[`Form form should support disabled 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -253,7 +253,7 @@ exports[`Form form should support disabled 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
-              class="ant-input ant-input-disabled"
+              class="ant-input ant-input-disabled ant-input-status-success"
               disabled=""
               type="text"
               value=""
@@ -264,7 +264,7 @@ exports[`Form form should support disabled 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -289,7 +289,7 @@ exports[`Form form should support disabled 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select ant-select-in-form-item ant-select-single ant-select-show-arrow ant-select-disabled"
+              class="ant-select ant-select-in-form-item ant-select-status-success ant-select-single ant-select-show-arrow ant-select-disabled"
             >
               <div
                 class="ant-select-selector"
@@ -353,7 +353,7 @@ exports[`Form form should support disabled 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -378,7 +378,7 @@ exports[`Form form should support disabled 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select ant-tree-select ant-select-in-form-item ant-select-single ant-select-show-arrow ant-select-disabled"
+              class="ant-select ant-tree-select ant-select-in-form-item ant-select-status-success ant-select-single ant-select-show-arrow ant-select-disabled"
             >
               <div
                 class="ant-select-selector"
@@ -441,7 +441,7 @@ exports[`Form form should support disabled 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -466,7 +466,7 @@ exports[`Form form should support disabled 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select ant-cascader ant-select-in-form-item ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-disabled"
+              class="ant-select ant-cascader ant-select-in-form-item ant-select-status-success ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-disabled"
             >
               <div
                 class="ant-select-selector"
@@ -529,7 +529,7 @@ exports[`Form form should support disabled 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -554,7 +554,7 @@ exports[`Form form should support disabled 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-picker ant-picker-disabled"
+              class="ant-picker ant-picker-status-success ant-picker-disabled"
             >
               <div
                 class="ant-picker-input"
@@ -599,7 +599,7 @@ exports[`Form form should support disabled 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -624,7 +624,7 @@ exports[`Form form should support disabled 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-picker ant-picker-range ant-picker-disabled"
+              class="ant-picker ant-picker-range ant-picker-status-success ant-picker-disabled"
             >
               <div
                 class="ant-picker-input ant-picker-input-active"
@@ -712,7 +712,7 @@ exports[`Form form should support disabled 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -737,7 +737,7 @@ exports[`Form form should support disabled 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-input-number ant-input-number-in-form-item ant-input-number-disabled"
+              class="ant-input-number ant-input-number-in-form-item ant-input-number-status-success ant-input-number-disabled"
             >
               <div
                 class="ant-input-number-handler-wrap"
@@ -816,7 +816,7 @@ exports[`Form form should support disabled 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -841,7 +841,7 @@ exports[`Form form should support disabled 1`] = `
             class="ant-form-item-control-input-content"
           >
             <textarea
-              class="ant-input ant-input-disabled"
+              class="ant-input ant-input-status-success ant-input-disabled"
               disabled=""
               rows="4"
             />
@@ -851,7 +851,7 @@ exports[`Form form should support disabled 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -902,7 +902,7 @@ exports[`Form form should support disabled 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -954,7 +954,7 @@ exports[`Form form should support disabled 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-has-success"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -1003,7 +1003,7 @@ exports[`Form rtl render component should be rendered correctly in RTL direction
 
 exports[`Form rtl render component should be rendered correctly in RTL direction 2`] = `
 <div
-  class="ant-form-item"
+  class="ant-form-item ant-form-item-has-success"
 >
   <div
     class="ant-row ant-row-rtl ant-form-item-row"
