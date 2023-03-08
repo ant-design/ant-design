@@ -18,7 +18,7 @@ export type Options = {
 };
 
 function baseText(doInject: boolean, component: string, options: Options = {}) {
-  const files = glob.sync(`./components/${component}/demo/*.tsx`);
+  const files = glob.globSync(`./components/${component}/demo/*.tsx`);
 
   files.forEach((file) => {
     const testMethod =
