@@ -28,7 +28,8 @@ const formItemLayout = {
 const App: React.FC = () => (
   <Form {...formItemLayout} style={{ maxWidth: 600 }}>
     <Form.Item
-      label="Success"
+      label="Email"
+      name="email"
       hasFeedback
       rules={[
         {
@@ -41,7 +42,7 @@ const App: React.FC = () => (
         },
       ]}
     >
-      <Input placeholder="unavailable choice" value="test@qq.com" />
+      <Input placeholder="unavailable choice" id="Email" defaultValue="test@qq.com" />
     </Form.Item>
     <Form.Item
       label="Fail"
