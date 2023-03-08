@@ -38,7 +38,7 @@ demo:
 | mask | 是否启用蒙层，也可传入配置改变蒙层样式和填充色 | `boolean \| { style?: React.CSSProperties; color?: string; }` | `true` |  |
 | type | 类型，影响底色与文字颜色 | `default` \| `primary` | `default` |  |
 | open | 打开引导 | `boolean` | - |  |
-| onChange | 步骤改变时的回调，current 为当前前的步骤 | `(current: number) => void` | - |  |
+| onChange | 步骤改变时的回调，current 为当前的步骤 | `(current: number) => void` | - |  |
 | current | 当前处于哪一步 | `number` | - |  |
 | scrollIntoViewOptions | 是否支持当前元素滚动到视窗内，也可传入配置指定滚动视窗的相关参数 | `boolean \| ScrollIntoViewOptions` | `true` | 5.2.0 |
 | indicatorsRender | 自定义指示器 | `(current: number, total: number) => ReactNode` | - | 5.2.0 |
