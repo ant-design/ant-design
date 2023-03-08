@@ -121,7 +121,7 @@
     "dayjs": "^1.11.1",
     "qrcode.react": "^3.1.0",
     "rc-cascader": "~3.9.0",
-    "rc-checkbox": "~2.3.0",
+    "rc-checkbox": "~3.0.0",
     "rc-collapse": "~3.5.2",
     "rc-dialog": "~9.0.2",
     "rc-drawer": "~6.1.1",
