@@ -96,7 +96,13 @@ export interface AbstractTooltipProps extends LegacyTooltipProps {
   openClassName?: string;
   /** @deprecated Please use `arrow` instead. */
   arrowPointAtCenter?: boolean;
-  arrow?: boolean | { arrowPointAtCenter: boolean };
+  arrow?:
+    | boolean
+    | {
+        /** @deprecated Please use `pointAtCenter` instead. */
+        arrowPointAtCenter?: boolean;
+        pointAtCenter?: boolean;
+      };
   autoAdjustOverflow?: boolean | AdjustOverflow;
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   children?: React.ReactNode;
@@ -241,6 +247,12 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
       'Tooltip',
       '`destroyTooltipOnHide` no need config `keepParent` anymore. Please use `boolean` value directly.',
     );
+
+    warning(
+      !arrow || typeof arrow === 'boolean' || !('arrowPointAtCenter' in arrow),
+      'Tooltip',
+      '`arrowPointAtCenter` in `arrow` is deprecated, please use `pointAtCenter` instead.',
+    );
   }
 
   // ============================== Open ==============================
@@ -266,8 +278,11 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
   const getTooltipPlacements = () => {
     const { builtinPlacements, arrowPointAtCenter = false, autoAdjustOverflow = true } = props;
 
-    const mergedArrowPointAtCenter =
-      (typeof arrow !== 'boolean' && arrow?.arrowPointAtCenter) ?? arrowPointAtCenter;
+    let mergedArrowPointAtCenter = arrowPointAtCenter;
+    if (typeof arrow === 'object') {
+      mergedArrowPointAtCenter =
+        arrow.pointAtCenter ?? arrow.arrowPointAtCenter ?? arrowPointAtCenter;
+    }
 
     return (
       builtinPlacements ||

@@ -14,8 +14,8 @@ dayjs.extend(customParseFormat);
 
 let triggerProps: TriggerProps;
 
-jest.mock('rc-trigger', () => {
-  let Trigger = jest.requireActual('rc-trigger/lib/mock');
+jest.mock('@rc-component/trigger', () => {
+  let Trigger = jest.requireActual('@rc-component/trigger/lib/mock');
   Trigger = Trigger.default || Trigger;
   const h: typeof React = jest.requireActual('react');
 

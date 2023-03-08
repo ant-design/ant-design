@@ -63,6 +63,177 @@ exports[`renders ./components/breadcrumb/demo/basic.tsx extend context correctly
 </nav>
 `;
 
+exports[`renders ./components/breadcrumb/demo/debug-routes.tsx extend context correctly 1`] = `
+<nav
+  class="ant-breadcrumb"
+>
+  <ol>
+    <li>
+      <a
+        class="ant-breadcrumb-link"
+        href="#/home"
+      >
+        Home
+      </a>
+    </li>
+    <li
+      aria-hidden="true"
+      class="ant-breadcrumb-separator"
+    >
+      /
+    </li>
+    <li>
+      <span
+        class="ant-dropdown-trigger ant-breadcrumb-overlay-link"
+      >
+        <a
+          class="ant-breadcrumb-link"
+          href="#/home/user"
+        >
+          User
+        </a>
+        <span
+          aria-label="down"
+          class="anticon anticon-down"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+      </span>
+      <div>
+        <div
+          class="ant-dropdown"
+          style="opacity:0"
+        >
+          <ul
+            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+            data-menu-list="true"
+            role="menu"
+            tabindex="0"
+          >
+            <li
+              class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+              role="menuitem"
+              tabindex="-1"
+            >
+              <span
+                class="ant-dropdown-menu-title-content"
+              >
+                <a
+                  href="#/home/user/user1"
+                >
+                  User1
+                </a>
+              </span>
+            </li>
+            <div
+              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+            >
+              <div
+                class="ant-tooltip-arrow"
+                style="position:absolute;top:0;left:0"
+              />
+              <div
+                class="ant-tooltip-content"
+              >
+                <div
+                  class="ant-tooltip-inner"
+                  role="tooltip"
+                />
+              </div>
+            </div>
+            <li
+              class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+              role="menuitem"
+              tabindex="-1"
+            >
+              <span
+                class="ant-dropdown-menu-title-content"
+              >
+                <a
+                  href="#/home/user/user2"
+                >
+                  User2
+                </a>
+              </span>
+            </li>
+            <div
+              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+            >
+              <div
+                class="ant-tooltip-arrow"
+                style="position:absolute;top:0;left:0"
+              />
+              <div
+                class="ant-tooltip-content"
+              >
+                <div
+                  class="ant-tooltip-inner"
+                  role="tooltip"
+                />
+              </div>
+            </div>
+          </ul>
+          <div
+            aria-hidden="true"
+            style="display:none"
+          >
+            <div
+              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+            >
+              <div
+                class="ant-tooltip-arrow"
+                style="position:absolute;top:0;left:0"
+              />
+              <div
+                class="ant-tooltip-content"
+              >
+                <div
+                  class="ant-tooltip-inner"
+                  role="tooltip"
+                />
+              </div>
+            </div>
+            <div
+              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+            >
+              <div
+                class="ant-tooltip-arrow"
+                style="position:absolute;top:0;left:0"
+              />
+              <div
+                class="ant-tooltip-content"
+              >
+                <div
+                  class="ant-tooltip-inner"
+                  role="tooltip"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ol>
+</nav>
+`;
+
 exports[`renders ./components/breadcrumb/demo/overlay.tsx extend context correctly 1`] = `
 <nav
   class="ant-breadcrumb"

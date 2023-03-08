@@ -57,10 +57,10 @@ const useStyle = () => {
       box-sizing: border-box;
 
       .toc-debug {
-        color: ${token['purple-6']};
+        color: ${token.purple6};
 
         &:hover {
-          color: ${token['purple-5']};
+          color: ${token.purple5};
         }
       }
 
@@ -220,7 +220,9 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
               </Space>
             </Typography.Paragraph>
           ) : null}
-          {meta.frontmatter.description !== meta.texts[0]?.value && meta.frontmatter.description}
+          {pathname.startsWith('/components') &&
+            meta.frontmatter.description !== meta.texts[0]?.value &&
+            meta.frontmatter.description}
           {children}
           {meta.frontmatter.filename && (
             <ContributorsList

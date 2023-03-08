@@ -3,7 +3,8 @@ import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render } from '../../../tests/utils';
-import type { Route } from '../Breadcrumb';
+import { resetWarned } from '../../_util/warning';
+import type { ItemType } from '../Breadcrumb';
 import Breadcrumb from '../index';
 
 describe('Breadcrumb', () => {
@@ -33,22 +34,96 @@ describe('Breadcrumb', () => {
     );
   });
 
-  it('overlay deprecation warning', () => {
+  it('warns on routes', () => {
+    render(
+      <Breadcrumb
+        routes={[
+          {
+            breadcrumbName: 'yyy',
+          } as any,
+        ]}
+      />,
+    );
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Breadcrumb] `routes` is deprecated. Please use `items` instead.',
+    );
+  });
+
+  it('should render correct', () => {
+    const { asFragment } = render(
+      <Breadcrumb
+        items={[
+          {
+            path: '',
+            title: <span>xxx</span>,
+          },
+          {
+            title: 'yyy',
+          },
+        ]}
+      />,
+    );
+    expect(asFragment().firstChild).toMatchSnapshot();
+  });
+
+  describe('overlay deprecation warning set', () => {
+    it('legacy jsx', () => {
+      resetWarned();
+      render(
+        <Breadcrumb>
+          <Breadcrumb.Item overlay={<div>menu</div>}>
+            <a href="">General</a>
+          </Breadcrumb.Item>
+        </Breadcrumb>,
+      );
+      expect(errorSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Breadcrumb.Item] `overlay` is deprecated. Please use `menu` instead.',
+      );
+    });
+
+    it('items', () => {
+      resetWarned();
+      render(
+        <Breadcrumb
+          items={[
+            {
+              overlay: <div>menu</div>,
+              title: 'General',
+            },
+          ]}
+        />,
+      );
+      expect(errorSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Breadcrumb.Item] `overlay` is deprecated. Please use `menu` instead.',
+      );
+    });
+  });
+
+  it('Breadcrumb.Item deprecation warning', () => {
     render(
       <Breadcrumb>
-        <Breadcrumb.Item overlay={<div>menu</div>}>
-          <a href="">General</a>
-        </Breadcrumb.Item>
+        <Breadcrumb.Item>Location</Breadcrumb.Item>
       </Breadcrumb>,
     );
     expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Breadcrumb.Item] `overlay` is deprecated. Please use `menu` instead.',
+      'Warning: [antd: Breadcrumb] `Breadcrumb.Item and Breadcrumb.Separator` is deprecated. Please use `items` instead.',
+    );
+  });
+
+  it('Breadcrumb.separator deprecation warning', () => {
+    render(
+      <Breadcrumb>
+        <Breadcrumb.Separator>:</Breadcrumb.Separator>
+      </Breadcrumb>,
+    );
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Breadcrumb] `Breadcrumb.Item and Breadcrumb.Separator` is deprecated. Please use `items` instead.',
     );
   });
 
   // https://github.com/ant-design/ant-design/issues/40204
   it('wrong overlay deprecation warning in Dropdown', () => {
-    const items = [
+    const menuItems = [
       {
         key: '1',
         label: (
@@ -59,11 +134,14 @@ describe('Breadcrumb', () => {
       },
     ];
     render(
-      <Breadcrumb>
-        <Breadcrumb.Item menu={{ items }}>
-          <a href="">General</a>
-        </Breadcrumb.Item>
-      </Breadcrumb>,
+      <Breadcrumb
+        items={[
+          {
+            menu: { items: menuItems },
+            title: <a href="">General</a>,
+          },
+        ]}
+      />,
     );
     expect(errorSpy).not.toHaveBeenCalledWith(
       'Warning: [antd: Dropdown] `overlay` is deprecated. Please use `menu` instead.',
@@ -79,18 +157,23 @@ describe('Breadcrumb', () => {
         {undefined}
       </Breadcrumb>,
     );
-    expect(errorSpy).not.toHaveBeenCalled();
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
   // https://github.com/ant-design/ant-design/issues/5542
   it('should not display Breadcrumb Item when its children is falsy', () => {
     const { asFragment } = render(
-      <Breadcrumb>
-        <Breadcrumb.Item />
-        <Breadcrumb.Item>xxx</Breadcrumb.Item>
-        <Breadcrumb.Item>yyy</Breadcrumb.Item>
-      </Breadcrumb>,
+      <Breadcrumb
+        items={[
+          {} as any,
+          {
+            title: 'xxx',
+          },
+          {
+            title: 'yyy',
+          },
+        ]}
+      />,
     );
     expect(asFragment().firstChild).toMatchSnapshot();
   });
@@ -111,53 +194,66 @@ describe('Breadcrumb', () => {
   });
 
   it('should render a menu', () => {
-    const routes: Route[] = [
+    const items: ItemType[] = [
       {
         path: 'index',
-        breadcrumbName: 'home',
+        title: 'home',
       },
       {
         path: 'first',
-        breadcrumbName: 'first',
-        children: [
-          {
-            path: '/general',
-            breadcrumbName: 'General',
-          },
-          {
-            path: '/layout',
-            breadcrumbName: 'Layout',
-          },
-          {
-            path: '/navigation',
-            breadcrumbName: 'Navigation',
-          },
-        ],
+        title: 'first',
+        menu: {
+          items: [
+            {
+              path: '/general',
+              title: 'General',
+            },
+            {
+              path: '/layout',
+              title: 'Layout',
+            },
+            {
+              path: '/navigation',
+              title: 'Navigation',
+            },
+          ],
+        },
       },
       {
         path: 'second',
-        breadcrumbName: 'second',
+        title: 'second',
       },
       {
         path: 'third',
-        breadcrumbName: '',
+        title: '',
       },
     ];
-    const { asFragment } = render(<Breadcrumb routes={routes} />);
+    const { asFragment } = render(<Breadcrumb items={items} />);
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
-  it('should accept undefined routes', () => {
-    const { asFragment } = render(<Breadcrumb routes={undefined} />);
+  it('should accept undefined items', () => {
+    const { asFragment } = render(<Breadcrumb items={undefined!} />);
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
   it('should support custom attribute', () => {
     const { asFragment } = render(
-      <Breadcrumb data-custom="custom">
-        <Breadcrumb.Item data-custom="custom-item">xxx</Breadcrumb.Item>
-        <Breadcrumb.Item>yyy</Breadcrumb.Item>
-      </Breadcrumb>,
+      (
+        <Breadcrumb
+          items={[
+            {
+              title: 'xxx',
+              // @ts-ignore
+              'data-custom': 'custom-item',
+            },
+            {
+              title: 'yyy',
+            },
+          ]}
+          data-custom="custom"
+        />
+      ) as React.ReactElement<any, string | React.JSXElementConstructor<any>>,
     );
     expect(asFragment().firstChild).toMatchSnapshot();
   });
@@ -194,12 +290,19 @@ describe('Breadcrumb', () => {
     );
     expect(asFragment().firstChild).toMatchSnapshot();
   });
+
   it('should support string `0` and number `0`', () => {
     const { container } = render(
-      <Breadcrumb>
-        <Breadcrumb.Item>{0}</Breadcrumb.Item>
-        <Breadcrumb.Item>0</Breadcrumb.Item>
-      </Breadcrumb>,
+      <Breadcrumb
+        items={[
+          {
+            title: 0,
+          },
+          {
+            title: '0',
+          },
+        ]}
+      />,
     );
     expect(container.querySelectorAll('.ant-breadcrumb-link')[0].textContent).toBe('0');
     expect(container.querySelectorAll('.ant-breadcrumb-link')[1].textContent).toBe('0');
@@ -207,6 +310,7 @@ describe('Breadcrumb', () => {
   });
 
   it('should console Error when `overlay` in props', () => {
+    resetWarned();
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(
       <Breadcrumb>
@@ -221,7 +325,7 @@ describe('Breadcrumb', () => {
 
   it('should not console Error when `overlay` not in props', () => {
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    render(<Breadcrumb routes={[{ path: '/', breadcrumbName: 'Test' }]} />);
+    render(<Breadcrumb items={[{ path: '/', title: 'Test' }]} />);
     expect(errSpy).not.toHaveBeenCalled();
     errSpy.mockRestore();
   });

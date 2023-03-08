@@ -203,86 +203,42 @@ describe('Tooltip', () => {
     expect(containerBlock.getElementsByTagName('span')[0].style.display).toBe('block');
   });
 
-  it('should works for arrowPointAtCenter', () => {
-    const arrowWidth = 5;
-    const horizontalArrowShift = 16;
-    const triggerWidth = 200;
+  it('should warn for arrowPointAtCenter', async () => {
     const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
-    const suit = () => {
-      const { container } = render(
-        <Tooltip
-          title="xxxxx"
-          trigger="click"
-          mouseEnterDelay={0}
-          mouseLeaveDelay={0}
-          placement="bottomLeft"
-          overlayClassName="default-element"
-        >
-          <button type="button" style={{ width: triggerWidth }}>
-            Hello world!
-          </button>
-        </Tooltip>,
-      );
-      fireEvent.click(container.getElementsByTagName('button')[0]);
-      const popupLeftDefault = parseInt(
-        container.querySelector<HTMLDivElement>('.default-element')?.style?.left!,
-        10,
-      );
+    render(
+      <Tooltip
+        title="xxxxx"
+        trigger="click"
+        mouseEnterDelay={0}
+        mouseLeaveDelay={0}
+        placement="bottomLeft"
+        arrowPointAtCenter
+        overlayClassName="point-center-element"
+      >
+        <button type="button">Hello world!</button>
+      </Tooltip>,
+    );
+    expect(warnSpy).toHaveBeenLastCalledWith(
+      expect.stringContaining('`arrowPointAtCenter` is deprecated'),
+    );
 
-      const { container: container2 } = render(
-        <Tooltip
-          title="xxxxx"
-          trigger="click"
-          mouseEnterDelay={0}
-          mouseLeaveDelay={0}
-          placement="bottomLeft"
-          arrowPointAtCenter
-          overlayClassName="point-center-element"
-        >
-          <button type="button" style={{ width: triggerWidth }}>
-            Hello world!
-          </button>
-        </Tooltip>,
-      );
-      fireEvent.click(container2.getElementsByTagName('button')[0]);
-      const popupLeftArrowPointAtCenter = parseInt(
-        container2.querySelector<HTMLDivElement>('.point-center-element')?.style?.left!,
-        10,
-      );
-
-      expect(popupLeftArrowPointAtCenter - popupLeftDefault).toBe(
-        triggerWidth / 2 - horizontalArrowShift - arrowWidth,
-      );
-
-      const { container: container3 } = render(
-        <Tooltip
-          title="xxxxx"
-          trigger="click"
-          mouseEnterDelay={0}
-          mouseLeaveDelay={0}
-          placement="bottomLeft"
-          arrow={{ arrowPointAtCenter: true }}
-          overlayClassName="point-center-element"
-        >
-          <button type="button" style={{ width: triggerWidth }}>
-            Hello world!
-          </button>
-        </Tooltip>,
-      );
-      fireEvent.click(container3.getElementsByTagName('button')[0]);
-      const popupLeftArrowPointAtCenter2 = parseInt(
-        container3.querySelector<HTMLDivElement>('.point-center-element')?.style?.left!,
-        10,
-      );
-
-      expect(popupLeftArrowPointAtCenter2 - popupLeftDefault).toBe(
-        triggerWidth / 2 - horizontalArrowShift - arrowWidth,
-      );
-      expect(warnSpy).toHaveBeenCalledTimes(1);
-    };
-
-    (jest.dontMock as any)('rc-trigger', suit);
+    render(
+      <Tooltip
+        title="xxxxx"
+        trigger="click"
+        mouseEnterDelay={0}
+        mouseLeaveDelay={0}
+        placement="bottomLeft"
+        arrow={{ arrowPointAtCenter: true }}
+        overlayClassName="point-center-element"
+      >
+        <button type="button">Hello world!</button>
+      </Tooltip>,
+    );
+    expect(warnSpy).toHaveBeenCalledWith(
+      expect.stringContaining('`arrowPointAtCenter` in `arrow` is deprecated'),
+    );
   });
 
   it('should works for date picker', async () => {

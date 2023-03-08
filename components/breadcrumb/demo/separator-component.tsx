@@ -1,16 +1,36 @@
-import React from 'react';
 import { Breadcrumb } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
-  <Breadcrumb separator="">
-    <Breadcrumb.Item>Location</Breadcrumb.Item>
-    <Breadcrumb.Separator>:</Breadcrumb.Separator>
-    <Breadcrumb.Item href="">Application Center</Breadcrumb.Item>
-    <Breadcrumb.Separator />
-    <Breadcrumb.Item href="">Application List</Breadcrumb.Item>
-    <Breadcrumb.Separator />
-    <Breadcrumb.Item>An Application</Breadcrumb.Item>
-  </Breadcrumb>
+  <Breadcrumb
+    separator=""
+    items={[
+      {
+        title: 'Location',
+      },
+      {
+        type: 'separator',
+        separator: ':',
+      },
+      {
+        href: '',
+        title: 'Application Center',
+      },
+      {
+        type: 'separator',
+      },
+      {
+        href: '',
+        title: 'Application List',
+      },
+      {
+        type: 'separator',
+      },
+      {
+        title: 'An Application',
+      },
+    ]}
+  />
 );
 
 export default App;
