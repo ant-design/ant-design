@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import type { CheckboxRef } from 'rc-checkbox';
 import RcCheckbox from 'rc-checkbox';
 import { composeRef } from 'rc-util/lib/ref';
 import * as React from 'react';
@@ -11,12 +12,12 @@ import type { RadioChangeEvent, RadioProps } from './interface';
 
 import useStyle from './style';
 
-const InternalRadio: React.ForwardRefRenderFunction<HTMLElement, RadioProps> = (props, ref) => {
+const InternalRadio: React.ForwardRefRenderFunction<CheckboxRef, RadioProps> = (props, ref) => {
   const groupContext = React.useContext(RadioGroupContext);
   const radioOptionTypeContext = React.useContext(RadioOptionTypeContext);
 
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
-  const innerRef = React.useRef<HTMLElement>();
+  const innerRef = React.useRef<CheckboxRef>(null);
   const mergedRef = composeRef(ref, innerRef);
   const { isFormItemInput } = React.useContext(FormItemInputContext);
 

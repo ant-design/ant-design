@@ -12,8 +12,6 @@ declare module 'rc-pagination/*';
 
 declare module 'rc-util*';
 
-declare module 'rc-rate';
-
 declare module 'jsonml.js/*';
 
 declare module '*.json' {
