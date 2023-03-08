@@ -90,7 +90,8 @@ export default function ItemHolder(props: ItemHolderProps) {
     mergedValidateStatus = 'error';
   } else if (debounceWarnings.length) {
     mergedValidateStatus = 'warning';
-  } else {
+  } else if (meta.touched || hasFeedback) {
+    // success feedback should display when pass hasFeedback prop and current value is valid value
     mergedValidateStatus = 'success';
   }
 
