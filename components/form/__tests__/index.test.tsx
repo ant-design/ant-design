@@ -1583,4 +1583,45 @@ describe('Form', () => {
 
     expect(wrapper5.container.querySelectorAll('[disabled]').length).toBe(0);
   });
+
+  it('success feedback should display when pass hasFeedback prop and current value is valid value', async () => {
+    const { container } = render(
+      <Form>
+        <Form.Item
+          label="Success"
+          hasFeedback
+          rules={[
+            {
+              type: 'email',
+              message: 'Please input your e-mail',
+            },
+            {
+              required: true,
+              message: 'Please input your value',
+            },
+          ]}
+        >
+          <Input placeholder="unavailable choice" value="test@qq.com" />
+        </Form.Item>
+        <Form.Item
+          label="Success"
+          rules={[
+            {
+              type: 'email',
+              message: 'Please input your e-mail',
+            },
+            {
+              required: true,
+              message: 'Please input your value',
+            },
+          ]}
+        >
+          <Input placeholder="unavailable choice" value="test@qq.com" />
+        </Form.Item>
+      </Form>,
+    );
+
+    expect(container.querySelectorAll('.ant-form-item-has-feedback').length).toBe(1);
+    expect(container.querySelectorAll('.ant-form-item-has-success').length).toBe(1);
+  });
 });
