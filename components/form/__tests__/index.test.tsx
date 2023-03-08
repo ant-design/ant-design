@@ -1590,6 +1590,7 @@ describe('Form', () => {
         <Form.Item
           label="Success"
           hasFeedback
+          name="success1"
           rules={[
             {
               type: 'email',
@@ -1605,6 +1606,7 @@ describe('Form', () => {
         </Form.Item>
         <Form.Item
           label="Success"
+          name="success2"
           rules={[
             {
               type: 'email',
