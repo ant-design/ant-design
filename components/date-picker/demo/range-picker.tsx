@@ -4,13 +4,13 @@ import { DatePicker, Space } from 'antd';
 const { RangePicker } = DatePicker;
 
 const App: React.FC = () => (
-  <Space direction="vertical" size={12} style={{ marginLeft: 500 }}>
-    {/* <RangePicker /> */}
-    <RangePicker showTime open />
-    {/* <RangePicker picker="week" />
+  <Space direction="vertical" size={12}>
+    <RangePicker />
+    <RangePicker showTime />
+    <RangePicker picker="week" />
     <RangePicker picker="month" />
     <RangePicker picker="quarter" />
-    <RangePicker picker="year" /> */}
+    <RangePicker picker="year" />
   </Space>
 );
 
