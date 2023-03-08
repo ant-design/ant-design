@@ -36,33 +36,26 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
         Date.now = jest.fn(() => new Date('2016-11-22').getTime());
         jest.useFakeTimers().setSystemTime(new Date('2016-11-22'));
 
-        let Demo = require(`../.${file}`).default; // eslint-disable-line global-require, import/no-dynamic-require
-        // Inject Trigger status unless skipped
-        Demo = typeof Demo === 'function' ? <Demo /> : Demo;
-        if (doInject) {
-          Demo = (
-            <TriggerMockContext.Provider
-              value={{
-                popupVisible: true,
-              }}
-            >
-              {Demo}
-            </TriggerMockContext.Provider>
-          );
-        }
+        import(`../.${file}`).then((res) => {
+          let Demo = res.default;
+          Demo = typeof Demo === 'function' ? <Demo /> : Demo;
+          if (doInject) {
+            Demo = (
+              <TriggerMockContext.Provider value={{ popupVisible: true }}>
+                {Demo}
+              </TriggerMockContext.Provider>
+            );
+          }
 
-        // Inject cssinjs cache to avoid create <style /> element
-        Demo = <StyleProvider cache={createCache()}>{Demo}</StyleProvider>;
+          // Inject cssinjs cache to avoid create <style /> element
+          Demo = <StyleProvider cache={createCache()}>{Demo}</StyleProvider>;
 
-        // Demo Test also include `dist` test which is already uglified.
-        // We need test this as SSR instead.
-        const html = renderToString(Demo);
-        expect({
-          type: 'demo',
-          html,
-        }).toMatchSnapshot();
-
-        errSpy.mockRestore();
+          // Demo Test also include `dist` test which is already uglified.
+          // We need test this as SSR instead.
+          const html = renderToString(Demo);
+          expect({ type: 'demo', html }).toMatchSnapshot();
+          errSpy.mockRestore();
+        });
       },
     );
     jest.useRealTimers();
