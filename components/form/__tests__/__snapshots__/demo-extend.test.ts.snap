@@ -20483,51 +20483,6 @@ exports[`renders ./components/form/demo/validate-static.tsx extend context corre
   style="max-width:600px"
 >
   <div
-    class="ant-form-item"
-  >
-    <div
-      class="ant-row ant-form-item-row"
-    >
-      <div
-        class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
-      >
-        <label
-          class="ant-form-item-required"
-          for="email"
-          title="Email"
-        >
-          Email
-        </label>
-      </div>
-      <div
-        class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-14"
-      >
-        <div
-          class="ant-form-item-control-input"
-        >
-          <div
-            class="ant-form-item-control-input-content"
-          >
-            <span
-              class="ant-input-affix-wrapper ant-input-affix-wrapper-has-feedback"
-            >
-              <input
-                aria-required="true"
-                class="ant-input"
-                id="Email"
-                type="text"
-                value="test@qq.com"
-              />
-              <span
-                class="ant-input-suffix"
-              />
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
     class="ant-form-item ant-form-item-with-help ant-form-item-has-error"
   >
     <div
