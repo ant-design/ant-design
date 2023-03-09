@@ -1623,7 +1623,6 @@ describe('Form', () => {
     rerender(<App trigger />);
     await waitFakeTimer();
 
-    console.log(container.innerHTML);
     expect(container.querySelectorAll('.ant-form-item-has-feedback').length).toBe(1);
     expect(container.querySelectorAll('.ant-form-item-has-success').length).toBe(1);
   });
