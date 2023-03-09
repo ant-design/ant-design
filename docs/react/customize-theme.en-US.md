@@ -246,22 +246,16 @@ Please ref to [CSS Compatible](/docs/react/compatible-style).
 
 Since ant-design from 5.0 fully uses css-in-js to replace less, but the existing scheme in SSR scenario can only directly write the relevant style files into HTML, resulting in HTML files abnormally large, related problems are discussed for details: [#39891](https://github.com/ant-design/ant-design/issues/39891), affecting the rendering speed of the first screen. Based on the above purpose, we provide '@ant-design/static-style-extract' to support full component style extraction (except component styles displayed in non-SSR scenarios such as interactive components, such as Modal, for the specific blacklist list, see: [static-style-extract](https://github.com/ant-design/static-style-extract/blob/610aae06c609ed366525d92199b8c56553a1e08f/ src/index.tsx#L10)). Using '@ant-design/static-style-extract' gives us a css string that we expect, and in the project we can write this style string to a file reference in our own way.
 
-```tsx
-import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
+#### Inject interline styles
+
+```tsx | pure
+import { extractStyle } from '@ant-design/static-style-extract';
 import { renderToString } from 'react-dom/server';
 
 export default () => {
-  // SSR Render
-  const cache = createCache();
+  const html = renderToString(<MyApp />);
 
-  const html = renderToString(
-    <StyleProvider cache={cache}>
-      <MyApp />
-    </StyleProvider>,
-  );
-
-  // Grab style from cache
-  const styleText = extractStyle(cache);
+  const styleText = extractStyle();
 
   // Mix with style
   return `
@@ -276,6 +270,58 @@ export default () => {
 </html>
 `;
 };
+```
+
+#### Pull away to style file dynamic import
+
+If you want to detach a style file into a css file, try using the following script:
+
+```javascript
+// scripts/genAntdCss.mjs
+import fs from 'fs';
+import { extractStyle } from '@ant-design/static-style-extract';
+
+const outputPath = './public/antd.min.css';
+
+const css = extractStyle();
+fs.writeFileSync(outputPath, css);
+
+console.log(`🎉 Antd CSS generated at ${outputPath}`);
+```
+
+You can choose to execute this script before starting the development command or before compiling. Running this script will generate a full antd.min.css file directly in the specified directory of the current project (e.g. 'public').
+
+Take 'Next.js' for example（[example](https://github.com/ant-design/create-next-app-antd)）：
+
+```json
+// package.json
+{
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "predev": "node ./scripts/genAntdCss.mjs",
+    "prebuild": "node ./scripts/genAntdCss.mjs"
+  }
+}
+```
+
+Then, you just need to import this file into the 'pages/\_app.tsx' file:
+
+```tsx
+import { StyleProvider } from '@ant-design/cssinjs';
+import type { AppProps } from 'next/app';
+import '../public/antd.min.css';
+import '../styles/globals.css'; // add this line
+
+export default function App({ Component, pageProps }: AppProps) {
+  return (
+    <StyleProvider hashPriority="high">
+      <Component {...pageProps} />
+    </StyleProvider>
+  );
+}
 ```
 
 ### Shadow DOM Usage
