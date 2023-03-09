@@ -240,24 +240,18 @@ const theme = {
 
 ### 服务端渲染
 
-使用 `@ant-design/cssinjs` 将所需样式抽离：
+由于`ant-design`从 `5.0`起全面使用`css-in-js`的方式替代了`less`，但现有方案在`SSR`场景下只能将相关样式直接写入`HTML`的行间样式当中，导致`HTML`文件异常庞大，相关问题讨论详见：[#39891](https://github.com/ant-design/ant-design/issues/39891)，影响首屏渲染的速度。基于上述目的，我们提供了`@ant-design/static-style-extract`支持全量组件样式抽离（交互组件等非 SSR 场景显示的组件样式除外，如`Modal`，具体的黑名单列表详见：[static-style-extract](https://github.com/ant-design/static-style-extract/blob/610aae06c609ed366525d92199b8c56553a1e08f/src/index.tsx#L10)）。使用 `@ant-design/static-style-extract` 将得到我们预期的一个`css`字符串，在项目中，我们可以通过自己的方法将这个样式字符串写入到文件中引用。
 
-```tsx
-import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
+#### 直接注入行间样式
+
+```tsx | pure
+import { extractStyle } from '@ant-design/static-style-extract';
 import { renderToString } from 'react-dom/server';
 
 export default () => {
-  // SSR Render
-  const cache = createCache();
+  const html = renderToString(<MyApp />);
 
-  const html = renderToString(
-    <StyleProvider cache={cache}>
-      <MyApp />
-    </StyleProvider>,
-  );
-
-  // Grab style from cache
-  const styleText = extractStyle(cache);
+  const styleText = extractStyle();
 
   // Mix with style
   return `
@@ -272,6 +266,58 @@ export default () => {
 </html>
 `;
 };
+```
+
+#### 抽离至样式文件动态引入
+
+如果你想要将样式文件抽离到 css 文件中，可以尝试使用以下脚本：
+
+```javascript
+// scripts/genAntdCss.mjs
+import fs from 'fs';
+import { extractStyle } from '@ant-design/static-style-extract';
+
+const outputPath = './public/antd.min.css';
+
+const css = extractStyle();
+fs.writeFileSync(outputPath, css);
+
+console.log(`🎉 Antd CSS generated at ${outputPath}`);
+```
+
+你可以选择在启动开发命令或编译前执行这个脚本，运行上述脚本将会在当前项目的指定（如：`public`目录）目录下直接生成一个全量的`antd.min.css`文件。
+
+以`Next.js`为例（[参考示例](https://github.com/ant-design/create-next-app-antd)）：
+
+```json
+// package.json
+{
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "predev": "node ./scripts/genAntdCss.mjs",
+    "prebuild": "node ./scripts/genAntdCss.mjs"
+  }
+}
+```
+
+然后，你只需要在`pages/_app.tsx`文件中引入这个文件即可：
+
+```tsx
+import { StyleProvider } from '@ant-design/cssinjs';
+import type { AppProps } from 'next/app';
+import '../public/antd.min.css';
+import '../styles/globals.css'; // 添加这行
+
+export default function App({ Component, pageProps }: AppProps) {
+  return (
+    <StyleProvider hashPriority="high">
+      <Component {...pageProps} />
+    </StyleProvider>
+  );
+}
 ```
 
 ### 兼容旧版浏览器
