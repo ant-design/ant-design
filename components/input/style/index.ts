@@ -941,6 +941,11 @@ const genTextAreaStyle: GenerateStyle<InputToken> = (token) => {
             pointerEvents: 'none',
           },
         },
+
+        [`${componentCls}-show-allow-clear`]: {
+          paddingInlineEnd: paddingLG,
+          overflow: 'overlay',
+        },
       },
     },
   };

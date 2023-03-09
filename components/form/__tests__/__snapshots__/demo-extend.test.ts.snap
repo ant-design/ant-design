@@ -26516,7 +26516,7 @@ exports[`renders ./components/form/demo/validate-static.tsx extend context corre
               data-count="0"
             >
               <span
-                class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-affix-wrapper-status-error"
+                class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-allowClear ant-input-affix-wrapper-status-error"
               >
                 <textarea
                   class="ant-input ant-input-status-error"
