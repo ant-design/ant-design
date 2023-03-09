@@ -3,7 +3,7 @@
 exports[`Badge render Badge status/color when contains children 1`] = `
 <div>
   <span
-    class="ant-badge ant-badge-status"
+    class="ant-badge"
   >
     <a />
     <sup
@@ -24,11 +24,11 @@ exports[`Badge render Badge status/color when contains children 1`] = `
     </sup>
   </span>
   <span
-    class="ant-badge ant-badge-status"
+    class="ant-badge"
   >
     <a />
     <sup
-      class="ant-scroll-number ant-badge-count ant-badge-status-blue"
+      class="ant-scroll-number ant-badge-count ant-badge-color-blue"
       data-show="true"
       title="5"
     >
@@ -45,7 +45,7 @@ exports[`Badge render Badge status/color when contains children 1`] = `
     </sup>
   </span>
   <span
-    class="ant-badge ant-badge-status"
+    class="ant-badge"
   >
     <a />
     <sup
@@ -212,6 +212,57 @@ exports[`Badge should be compatible with borderColor style 1`] = `
     </span>
   </sup>
 </span>
+`;
+
+exports[`Badge should display custom color and number is 0 1`] = `
+<div>
+  <span
+    class="ant-badge ant-badge-not-a-wrapper"
+  >
+    <sup
+      class="ant-scroll-number ant-badge-count"
+      data-show="true"
+      style="background: rgb(255, 255, 0);"
+      title="0"
+    >
+      0
+    </sup>
+  </span>
+  <span
+    class="ant-badge ant-badge-not-a-wrapper"
+  >
+    <sup
+      class="ant-scroll-number ant-badge-count ant-badge-color-blue"
+      data-show="true"
+      title="0"
+    >
+      0
+    </sup>
+  </span>
+  <span
+    class="ant-badge ant-badge-not-a-wrapper"
+  >
+    <sup
+      class="ant-scroll-number ant-badge-count"
+      data-show="true"
+      title="0"
+    >
+      0
+    </sup>
+  </span>
+  <span
+    class="ant-badge"
+  >
+    <div />
+    <sup
+      class="ant-scroll-number ant-badge-count ant-badge-color-green"
+      data-show="true"
+      title="0"
+    >
+      0
+    </sup>
+  </span>
+</div>
 `;
 
 exports[`Badge should render when count is changed 1`] = `

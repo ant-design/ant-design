@@ -3,6 +3,7 @@ import SlickCarousel from '@ant-design/react-slick';
 import classNames from 'classnames';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
+import useStyle from './style';
 
 export type CarouselEffect = 'scrollx' | 'fade';
 export type DotPosition = 'top' | 'bottom' | 'left' | 'right';
@@ -12,14 +13,11 @@ export interface CarouselProps extends Omit<Settings, 'dots' | 'dotsClass'> {
   effect?: CarouselEffect;
   style?: React.CSSProperties;
   prefixCls?: string;
+  rootClassName?: string;
   slickGoTo?: number;
   dotPosition?: DotPosition;
   children?: React.ReactNode;
-  dots?:
-    | boolean
-    | {
-        className?: string;
-      };
+  dots?: boolean | { className?: string };
 }
 
 export interface CarouselRef {
@@ -38,6 +36,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>(
       draggable = false,
       dotPosition = 'bottom',
       vertical = dotPosition === 'left' || dotPosition === 'right',
+      rootClassName,
       ...props
     },
     ref,
@@ -89,12 +88,19 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>(
       typeof dots === 'boolean' ? false : dots?.className,
     );
 
-    const className = classNames(prefixCls, {
-      [`${prefixCls}-rtl`]: direction === 'rtl',
-      [`${prefixCls}-vertical`]: dotPosition === 'left' || dotPosition === 'right',
-    });
+    const [wrapSSR, hashId] = useStyle(prefixCls);
 
-    return (
+    const className = classNames(
+      prefixCls,
+      {
+        [`${prefixCls}-rtl`]: direction === 'rtl',
+        [`${prefixCls}-vertical`]: newProps.vertical,
+      },
+      hashId,
+      rootClassName,
+    );
+
+    return wrapSSR(
       <div className={className}>
         <SlickCarousel
           ref={slickRef}
@@ -104,9 +110,13 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>(
           arrows={arrows}
           draggable={draggable}
         />
-      </div>
+      </div>,
     );
   },
 );
+
+if (process.env.NODE_ENV !== 'production') {
+  Carousel.displayName = 'Carousel';
+}
 
 export default Carousel;

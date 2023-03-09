@@ -1,23 +1,21 @@
-/* eslint-disable react/jsx-key */
-
-import { mount } from 'enzyme';
 import React from 'react';
+import { render, fireEvent } from '../../../tests/utils';
 import Form from '..';
-import Button from '../../button';
 import Input from '../../input';
+import Button from '../../button';
+import type { InputRef } from '../../input';
+
+interface TestProps {
+  show?: boolean;
+  onRef: (node: React.ReactNode, originRef: InputRef) => void;
+}
 
 describe('Form.Ref', () => {
-  const Test = ({
-    onRef,
-    show,
-  }: {
-    onRef: (node: React.ReactElement, originRef: React.RefObject<any>) => void;
-    show?: boolean;
-  }) => {
+  const Test: React.FC<TestProps> = ({ show, onRef }) => {
     const [form] = Form.useForm();
-    const removeRef = React.useRef<any>();
-    const testRef = React.useRef<any>();
-    const listRef = React.useRef<any>();
+    const removeRef = React.useRef<InputRef>(null);
+    const testRef = React.useRef<InputRef>(null);
+    const listRef = React.useRef<InputRef>(null);
 
     return (
       <Form form={form} initialValues={{ list: ['light'] }}>
@@ -32,9 +30,9 @@ describe('Form.Ref', () => {
         </Form.Item>
 
         <Form.List name="list">
-          {fields =>
-            fields.map(field => (
-              <Form.Item {...field}>
+          {(fields) =>
+            fields.map((field) => (
+              <Form.Item {...field} key={field.key}>
                 <Input ref={listRef} />
               </Form.Item>
             ))
@@ -44,7 +42,7 @@ describe('Form.Ref', () => {
         <Button
           className="ref-item"
           onClick={() => {
-            onRef(form.getFieldInstance('test'), testRef.current);
+            onRef(form.getFieldInstance('test'), testRef.current!);
           }}
         >
           Form.Item
@@ -52,7 +50,7 @@ describe('Form.Ref', () => {
         <Button
           className="ref-list"
           onClick={() => {
-            onRef(form.getFieldInstance(['list', 0]), listRef.current);
+            onRef(form.getFieldInstance(['list', 0]), listRef.current!);
           }}
         >
           Form.List
@@ -60,7 +58,7 @@ describe('Form.Ref', () => {
         <Button
           className="ref-remove"
           onClick={() => {
-            onRef(form.getFieldInstance('remove'), removeRef.current);
+            onRef(form.getFieldInstance('remove'), removeRef.current!);
           }}
         >
           Removed
@@ -71,21 +69,20 @@ describe('Form.Ref', () => {
 
   it('should ref work', () => {
     const onRef = jest.fn();
-    const wrapper = mount(<Test onRef={onRef} show />);
+    const { container, rerender } = render(<Test onRef={onRef} show />);
 
-    wrapper.find('.ref-item').last().simulate('click');
+    fireEvent.click(container.querySelector('.ref-item')!);
     expect(onRef).toHaveBeenCalled();
     expect(onRef.mock.calls[0][0]).toBe(onRef.mock.calls[0][1]);
 
     onRef.mockReset();
-    wrapper.find('.ref-list').last().simulate('click');
+    fireEvent.click(container.querySelector('.ref-list')!);
     expect(onRef).toHaveBeenCalled();
     expect(onRef.mock.calls[0][0]).toBe(onRef.mock.calls[0][1]);
 
     onRef.mockReset();
-    wrapper.setProps({ show: false });
-    wrapper.update();
-    wrapper.find('.ref-remove').last().simulate('click');
+    rerender(<Test onRef={onRef} show={false} />);
+    fireEvent.click(container.querySelector('.ref-remove')!);
     expect(onRef).toHaveBeenCalledWith(undefined, null);
   });
 });

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/slider/demo/basic.md extend context correctly 1`] = `
+exports[`renders ./components/slider/demo/basic.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-slider ant-slider-horizontal"
@@ -25,27 +25,22 @@ Array [
       style="left:30%;transform:translateX(-50%)"
       tabindex="0"
     />
-    <div>
+    <div
+      class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-tooltip ant-slider-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            30
-          </div>
+          30
         </div>
       </div>
     </div>
@@ -73,27 +68,22 @@ Array [
       style="left:20%;transform:translateX(-50%)"
       tabindex="0"
     />
-    <div>
+    <div
+      class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-tooltip ant-slider-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            20
-          </div>
+          20
         </div>
       </div>
     </div>
@@ -107,32 +97,27 @@ Array [
       style="left:50%;transform:translateX(-50%)"
       tabindex="0"
     />
-    <div>
+    <div
+      class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-tooltip ant-slider-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            50
-          </div>
+          50
         </div>
       </div>
     </div>
   </div>,
-  "Disabled: ",
+  Disabled: ,
   <button
     aria-checked="false"
     class="ant-switch ant-switch-small"
@@ -144,12 +129,19 @@ Array [
     />
     <span
       class="ant-switch-inner"
-    />
+    >
+      <span
+        class="ant-switch-inner-checked"
+      />
+      <span
+        class="ant-switch-inner-unchecked"
+      />
+    </span>
   </button>,
 ]
 `;
 
-exports[`renders ./components/slider/demo/dragableTrack.md extend context correctly 1`] = `
+exports[`renders ./components/slider/demo/draggableTrack.tsx extend context correctly 1`] = `
 <div
   class="ant-slider ant-slider-horizontal"
 >
@@ -173,27 +165,22 @@ exports[`renders ./components/slider/demo/dragableTrack.md extend context correc
     style="left:20%;transform:translateX(-50%)"
     tabindex="0"
   />
-  <div>
+  <div
+    class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
+    style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+  >
     <div
-      class="ant-tooltip ant-slider-tooltip"
-      style="opacity:0"
+      class="ant-tooltip-arrow"
+      style="position:absolute;bottom:0;left:0"
+    />
+    <div
+      class="ant-tooltip-content"
     >
       <div
-        class="ant-tooltip-content"
+        class="ant-tooltip-inner"
+        role="tooltip"
       >
-        <div
-          class="ant-tooltip-arrow"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-tooltip-inner"
-          role="tooltip"
-        >
-          20
-        </div>
+        20
       </div>
     </div>
   </div>
@@ -207,34 +194,29 @@ exports[`renders ./components/slider/demo/dragableTrack.md extend context correc
     style="left:50%;transform:translateX(-50%)"
     tabindex="0"
   />
-  <div>
+  <div
+    class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
+    style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+  >
     <div
-      class="ant-tooltip ant-slider-tooltip"
-      style="opacity:0"
+      class="ant-tooltip-arrow"
+      style="position:absolute;bottom:0;left:0"
+    />
+    <div
+      class="ant-tooltip-content"
     >
       <div
-        class="ant-tooltip-content"
+        class="ant-tooltip-inner"
+        role="tooltip"
       >
-        <div
-          class="ant-tooltip-arrow"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-tooltip-inner"
-          role="tooltip"
-        >
-          50
-        </div>
+        50
       </div>
     </div>
   </div>
 </div>
 `;
 
-exports[`renders ./components/slider/demo/event.md extend context correctly 1`] = `
+exports[`renders ./components/slider/demo/event.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-slider ant-slider-horizontal"
@@ -259,27 +241,22 @@ Array [
       style="left:30%;transform:translateX(-50%)"
       tabindex="0"
     />
-    <div>
+    <div
+      class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-tooltip ant-slider-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            30
-          </div>
+          30
         </div>
       </div>
     </div>
@@ -307,27 +284,22 @@ Array [
       style="left:20%;transform:translateX(-50%)"
       tabindex="0"
     />
-    <div>
+    <div
+      class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-tooltip ant-slider-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            20
-          </div>
+          20
         </div>
       </div>
     </div>
@@ -341,27 +313,22 @@ Array [
       style="left:50%;transform:translateX(-50%)"
       tabindex="0"
     />
-    <div>
+    <div
+      class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-tooltip ant-slider-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            50
-          </div>
+          50
         </div>
       </div>
     </div>
@@ -369,7 +336,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/slider/demo/icon-slider.md extend context correctly 1`] = `
+exports[`renders ./components/slider/demo/icon-slider.tsx extend context correctly 1`] = `
 <div
   class="icon-wrapper"
 >
@@ -415,27 +382,22 @@ exports[`renders ./components/slider/demo/icon-slider.md extend context correctl
       style="left:0%;transform:translateX(-50%)"
       tabindex="0"
     />
-    <div>
+    <div
+      class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-tooltip ant-slider-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            0
-          </div>
+          0
         </div>
       </div>
     </div>
@@ -462,52 +424,55 @@ exports[`renders ./components/slider/demo/icon-slider.md extend context correctl
 </div>
 `;
 
-exports[`renders ./components/slider/demo/input-number.md extend context correctly 1`] = `
-<div>
+exports[`renders ./components/slider/demo/input-number.tsx extend context correctly 1`] = `
+<div
+  class="ant-space ant-space-vertical"
+  style="width:100%"
+>
   <div
-    class="ant-row"
+    class="ant-space-item"
+    style="margin-bottom:8px"
   >
     <div
-      class="ant-col ant-col-12"
+      class="ant-row"
     >
       <div
-        class="ant-slider ant-slider-horizontal"
+        class="ant-col ant-col-12"
       >
         <div
-          class="ant-slider-rail"
-        />
-        <div
-          class="ant-slider-track"
-          style="left:0%;width:0%"
-        />
-        <div
-          class="ant-slider-step"
-        />
-        <div
-          aria-disabled="false"
-          aria-valuemax="20"
-          aria-valuemin="1"
-          aria-valuenow="1"
-          class="ant-slider-handle"
-          role="slider"
-          style="left:0%;transform:translateX(-50%)"
-          tabindex="0"
-        />
-        <div>
+          class="ant-slider ant-slider-horizontal"
+        >
           <div
-            class="ant-tooltip ant-slider-tooltip"
-            style="opacity:0"
+            class="ant-slider-rail"
+          />
+          <div
+            class="ant-slider-track"
+            style="left:0%;width:0%"
+          />
+          <div
+            class="ant-slider-step"
+          />
+          <div
+            aria-disabled="false"
+            aria-valuemax="20"
+            aria-valuemin="1"
+            aria-valuenow="1"
+            class="ant-slider-handle"
+            role="slider"
+            style="left:0%;transform:translateX(-50%)"
+            tabindex="0"
+          />
+          <div
+            class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
+            style="left:-1000vw;top:-1000vh;box-sizing:border-box"
           >
+            <div
+              class="ant-tooltip-arrow"
+              style="position:absolute;bottom:0;left:0"
+            />
             <div
               class="ant-tooltip-content"
             >
-              <div
-                class="ant-tooltip-arrow"
-              >
-                <span
-                  class="ant-tooltip-arrow-content"
-                />
-              </div>
               <div
                 class="ant-tooltip-inner"
                 role="tooltip"
@@ -518,133 +483,132 @@ exports[`renders ./components/slider/demo/input-number.md extend context correct
           </div>
         </div>
       </div>
-    </div>
-    <div
-      class="ant-col ant-col-4"
-    >
       <div
-        class="ant-input-number"
-        style="margin:0 16px"
+        class="ant-col ant-col-4"
       >
         <div
-          class="ant-input-number-handler-wrap"
+          class="ant-input-number"
+          style="margin:0 16px"
         >
-          <span
-            aria-disabled="false"
-            aria-label="Increase Value"
-            class="ant-input-number-handler ant-input-number-handler-up"
-            role="button"
-            unselectable="on"
+          <div
+            class="ant-input-number-handler-wrap"
           >
             <span
-              aria-label="up"
-              class="anticon anticon-up ant-input-number-handler-up-inner"
-              role="img"
+              aria-disabled="false"
+              aria-label="Increase Value"
+              class="ant-input-number-handler ant-input-number-handler-up"
+              role="button"
+              unselectable="on"
             >
-              <svg
-                aria-hidden="true"
-                data-icon="up"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
+              <span
+                aria-label="up"
+                class="anticon anticon-up ant-input-number-handler-up-inner"
+                role="img"
               >
-                <path
-                  d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
-                />
-              </svg>
+                <svg
+                  aria-hidden="true"
+                  data-icon="up"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+                  />
+                </svg>
+              </span>
             </span>
-          </span>
-          <span
-            aria-disabled="true"
-            aria-label="Decrease Value"
-            class="ant-input-number-handler ant-input-number-handler-down ant-input-number-handler-down-disabled"
-            role="button"
-            unselectable="on"
-          >
             <span
-              aria-label="down"
-              class="anticon anticon-down ant-input-number-handler-down-inner"
-              role="img"
+              aria-disabled="true"
+              aria-label="Decrease Value"
+              class="ant-input-number-handler ant-input-number-handler-down ant-input-number-handler-down-disabled"
+              role="button"
+              unselectable="on"
             >
-              <svg
-                aria-hidden="true"
-                data-icon="down"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
+              <span
+                aria-label="down"
+                class="anticon anticon-down ant-input-number-handler-down-inner"
+                role="img"
               >
-                <path
-                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                />
-              </svg>
+                <svg
+                  aria-hidden="true"
+                  data-icon="down"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                  />
+                </svg>
+              </span>
             </span>
-          </span>
-        </div>
-        <div
-          class="ant-input-number-input-wrap"
-        >
-          <input
-            aria-valuemax="20"
-            aria-valuemin="1"
-            aria-valuenow="1"
-            autocomplete="off"
-            class="ant-input-number-input"
-            role="spinbutton"
-            step="1"
-            value="1"
-          />
+          </div>
+          <div
+            class="ant-input-number-input-wrap"
+          >
+            <input
+              aria-valuemax="20"
+              aria-valuemin="1"
+              aria-valuenow="1"
+              autocomplete="off"
+              class="ant-input-number-input"
+              role="spinbutton"
+              step="1"
+              value="1"
+            />
+          </div>
         </div>
       </div>
     </div>
   </div>
   <div
-    class="ant-row"
+    class="ant-space-item"
   >
     <div
-      class="ant-col ant-col-12"
+      class="ant-row"
     >
       <div
-        class="ant-slider ant-slider-horizontal"
+        class="ant-col ant-col-12"
       >
         <div
-          class="ant-slider-rail"
-        />
-        <div
-          class="ant-slider-track"
-          style="left:0%;width:0%"
-        />
-        <div
-          class="ant-slider-step"
-        />
-        <div
-          aria-disabled="false"
-          aria-valuemax="1"
-          aria-valuemin="0"
-          aria-valuenow="0"
-          class="ant-slider-handle"
-          role="slider"
-          style="left:0%;transform:translateX(-50%)"
-          tabindex="0"
-        />
-        <div>
+          class="ant-slider ant-slider-horizontal"
+        >
           <div
-            class="ant-tooltip ant-slider-tooltip"
-            style="opacity:0"
+            class="ant-slider-rail"
+          />
+          <div
+            class="ant-slider-track"
+            style="left:0%;width:0%"
+          />
+          <div
+            class="ant-slider-step"
+          />
+          <div
+            aria-disabled="false"
+            aria-valuemax="1"
+            aria-valuemin="0"
+            aria-valuenow="0"
+            class="ant-slider-handle"
+            role="slider"
+            style="left:0%;transform:translateX(-50%)"
+            tabindex="0"
+          />
+          <div
+            class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
+            style="left:-1000vw;top:-1000vh;box-sizing:border-box"
           >
+            <div
+              class="ant-tooltip-arrow"
+              style="position:absolute;bottom:0;left:0"
+            />
             <div
               class="ant-tooltip-content"
             >
-              <div
-                class="ant-tooltip-arrow"
-              >
-                <span
-                  class="ant-tooltip-arrow-content"
-                />
-              </div>
               <div
                 class="ant-tooltip-inner"
                 role="tooltip"
@@ -655,85 +619,85 @@ exports[`renders ./components/slider/demo/input-number.md extend context correct
           </div>
         </div>
       </div>
-    </div>
-    <div
-      class="ant-col ant-col-4"
-    >
       <div
-        class="ant-input-number"
-        style="margin:0 16px"
+        class="ant-col ant-col-4"
       >
         <div
-          class="ant-input-number-handler-wrap"
+          class="ant-input-number"
+          style="margin:0 16px"
         >
-          <span
-            aria-disabled="false"
-            aria-label="Increase Value"
-            class="ant-input-number-handler ant-input-number-handler-up"
-            role="button"
-            unselectable="on"
+          <div
+            class="ant-input-number-handler-wrap"
           >
             <span
-              aria-label="up"
-              class="anticon anticon-up ant-input-number-handler-up-inner"
-              role="img"
+              aria-disabled="false"
+              aria-label="Increase Value"
+              class="ant-input-number-handler ant-input-number-handler-up"
+              role="button"
+              unselectable="on"
             >
-              <svg
-                aria-hidden="true"
-                data-icon="up"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
+              <span
+                aria-label="up"
+                class="anticon anticon-up ant-input-number-handler-up-inner"
+                role="img"
               >
-                <path
-                  d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
-                />
-              </svg>
+                <svg
+                  aria-hidden="true"
+                  data-icon="up"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+                  />
+                </svg>
+              </span>
             </span>
-          </span>
-          <span
-            aria-disabled="true"
-            aria-label="Decrease Value"
-            class="ant-input-number-handler ant-input-number-handler-down ant-input-number-handler-down-disabled"
-            role="button"
-            unselectable="on"
-          >
             <span
-              aria-label="down"
-              class="anticon anticon-down ant-input-number-handler-down-inner"
-              role="img"
+              aria-disabled="true"
+              aria-label="Decrease Value"
+              class="ant-input-number-handler ant-input-number-handler-down ant-input-number-handler-down-disabled"
+              role="button"
+              unselectable="on"
             >
-              <svg
-                aria-hidden="true"
-                data-icon="down"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
+              <span
+                aria-label="down"
+                class="anticon anticon-down ant-input-number-handler-down-inner"
+                role="img"
               >
-                <path
-                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                />
-              </svg>
+                <svg
+                  aria-hidden="true"
+                  data-icon="down"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                  />
+                </svg>
+              </span>
             </span>
-          </span>
-        </div>
-        <div
-          class="ant-input-number-input-wrap"
-        >
-          <input
-            aria-valuemax="1"
-            aria-valuemin="0"
-            aria-valuenow="0"
-            autocomplete="off"
-            class="ant-input-number-input"
-            role="spinbutton"
-            step="0.01"
-            value="0.00"
-          />
+          </div>
+          <div
+            class="ant-input-number-input-wrap"
+          >
+            <input
+              aria-valuemax="1"
+              aria-valuemin="0"
+              aria-valuenow="0"
+              autocomplete="off"
+              class="ant-input-number-input"
+              role="spinbutton"
+              step="0.01"
+              value="0.00"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -741,7 +705,7 @@ exports[`renders ./components/slider/demo/input-number.md extend context correct
 </div>
 `;
 
-exports[`renders ./components/slider/demo/mark.md extend context correctly 1`] = `
+exports[`renders ./components/slider/demo/mark.tsx extend context correctly 1`] = `
 Array [
   <h4>
     included=true
@@ -786,27 +750,22 @@ Array [
       style="left:37%;transform:translateX(-50%)"
       tabindex="0"
     />
-    <div>
+    <div
+      class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-tooltip ant-slider-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            37
-          </div>
+          37
         </div>
       </div>
     </div>
@@ -881,27 +840,22 @@ Array [
       style="left:26%;transform:translateX(-50%)"
       tabindex="0"
     />
-    <div>
+    <div
+      class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-tooltip ant-slider-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            26
-          </div>
+          26
         </div>
       </div>
     </div>
@@ -915,27 +869,22 @@ Array [
       style="left:37%;transform:translateX(-50%)"
       tabindex="0"
     />
-    <div>
+    <div
+      class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-tooltip ant-slider-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            37
-          </div>
+          37
         </div>
       </div>
     </div>
@@ -1009,27 +958,22 @@ Array [
       style="left:37%;transform:translateX(-50%)"
       tabindex="0"
     />
-    <div>
+    <div
+      class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-tooltip ant-slider-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            37
-          </div>
+          37
         </div>
       </div>
     </div>
@@ -1107,27 +1051,22 @@ Array [
       style="left:37%;transform:translateX(-50%)"
       tabindex="0"
     />
-    <div>
+    <div
+      class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-tooltip ant-slider-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            37
-          </div>
+          37
         </div>
       </div>
     </div>
@@ -1205,27 +1144,22 @@ Array [
       style="left:37%;transform:translateX(-50%)"
       tabindex="0"
     />
-    <div>
+    <div
+      class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-tooltip ant-slider-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            37
-          </div>
+          37
         </div>
       </div>
     </div>
@@ -1263,7 +1197,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/slider/demo/reverse.md extend context correctly 1`] = `
+exports[`renders ./components/slider/demo/reverse.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-slider ant-slider-horizontal"
@@ -1288,27 +1222,22 @@ Array [
       style="right:30%;transform:translateX(50%)"
       tabindex="0"
     />
-    <div>
+    <div
+      class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-tooltip ant-slider-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            30
-          </div>
+          30
         </div>
       </div>
     </div>
@@ -1336,27 +1265,22 @@ Array [
       style="right:20%;transform:translateX(50%)"
       tabindex="0"
     />
-    <div>
+    <div
+      class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-tooltip ant-slider-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            20
-          </div>
+          20
         </div>
       </div>
     </div>
@@ -1370,32 +1294,27 @@ Array [
       style="right:50%;transform:translateX(50%)"
       tabindex="0"
     />
-    <div>
+    <div
+      class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-tooltip ant-slider-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            50
-          </div>
+          50
         </div>
       </div>
     </div>
   </div>,
-  "Reversed: ",
+  Reversed: ,
   <button
     aria-checked="true"
     class="ant-switch ant-switch-small ant-switch-checked"
@@ -1407,12 +1326,19 @@ Array [
     />
     <span
       class="ant-switch-inner"
-    />
+    >
+      <span
+        class="ant-switch-inner-checked"
+      />
+      <span
+        class="ant-switch-inner-unchecked"
+      />
+    </span>
   </button>,
 ]
 `;
 
-exports[`renders ./components/slider/demo/show-tooltip.md extend context correctly 1`] = `
+exports[`renders ./components/slider/demo/show-tooltip.tsx extend context correctly 1`] = `
 <div
   class="ant-slider ant-slider-horizontal"
 >
@@ -1436,34 +1362,29 @@ exports[`renders ./components/slider/demo/show-tooltip.md extend context correct
     style="left:30%;transform:translateX(-50%)"
     tabindex="0"
   />
-  <div>
+  <div
+    class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
+    style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+  >
     <div
-      class="ant-tooltip ant-slider-tooltip"
-      style="opacity:0"
+      class="ant-tooltip-arrow"
+      style="position:absolute;bottom:0;left:0"
+    />
+    <div
+      class="ant-tooltip-content"
     >
       <div
-        class="ant-tooltip-content"
+        class="ant-tooltip-inner"
+        role="tooltip"
       >
-        <div
-          class="ant-tooltip-arrow"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-tooltip-inner"
-          role="tooltip"
-        >
-          30
-        </div>
+        30
       </div>
     </div>
   </div>
 </div>
 `;
 
-exports[`renders ./components/slider/demo/tip-formatter.md extend context correctly 1`] = `
+exports[`renders ./components/slider/demo/tip-formatter.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-slider ant-slider-horizontal"
@@ -1488,27 +1409,22 @@ Array [
       style="left:0%;transform:translateX(-50%)"
       tabindex="0"
     />
-    <div>
+    <div
+      class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-tooltip ant-slider-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            0%
-          </div>
+          0%
         </div>
       </div>
     </div>
@@ -1536,33 +1452,28 @@ Array [
       style="left:0%;transform:translateX(-50%)"
       tabindex="0"
     />
-    <div>
+    <div
+      class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
       <div
-        class="ant-tooltip ant-slider-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
-        >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          />
-        </div>
+          class="ant-tooltip-inner"
+          role="tooltip"
+        />
       </div>
     </div>
   </div>,
 ]
 `;
 
-exports[`renders ./components/slider/demo/vertical.md extend context correctly 1`] = `
+exports[`renders ./components/slider/demo/vertical.tsx extend context correctly 1`] = `
 Array [
   <div
     style="display:inline-block;height:300px;margin-left:70px"
@@ -1590,27 +1501,22 @@ Array [
         style="bottom:30%;transform:translateY(50%)"
         tabindex="0"
       />
-      <div>
+      <div
+        class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-right"
+        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      >
         <div
-          class="ant-tooltip ant-slider-tooltip"
-          style="opacity:0"
+          class="ant-tooltip-arrow"
+          style="position:absolute;top:0;left:0"
+        />
+        <div
+          class="ant-tooltip-content"
         >
           <div
-            class="ant-tooltip-content"
+            class="ant-tooltip-inner"
+            role="tooltip"
           >
-            <div
-              class="ant-tooltip-arrow"
-            >
-              <span
-                class="ant-tooltip-arrow-content"
-              />
-            </div>
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            >
-              30
-            </div>
+            30
           </div>
         </div>
       </div>
@@ -1642,27 +1548,22 @@ Array [
         style="bottom:20%;transform:translateY(50%)"
         tabindex="0"
       />
-      <div>
+      <div
+        class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-right"
+        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      >
         <div
-          class="ant-tooltip ant-slider-tooltip"
-          style="opacity:0"
+          class="ant-tooltip-arrow"
+          style="position:absolute;top:0;left:0"
+        />
+        <div
+          class="ant-tooltip-content"
         >
           <div
-            class="ant-tooltip-content"
+            class="ant-tooltip-inner"
+            role="tooltip"
           >
-            <div
-              class="ant-tooltip-arrow"
-            >
-              <span
-                class="ant-tooltip-arrow-content"
-              />
-            </div>
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            >
-              20
-            </div>
+            20
           </div>
         </div>
       </div>
@@ -1676,27 +1577,22 @@ Array [
         style="bottom:50%;transform:translateY(50%)"
         tabindex="0"
       />
-      <div>
+      <div
+        class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-right"
+        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      >
         <div
-          class="ant-tooltip ant-slider-tooltip"
-          style="opacity:0"
+          class="ant-tooltip-arrow"
+          style="position:absolute;top:0;left:0"
+        />
+        <div
+          class="ant-tooltip-content"
         >
           <div
-            class="ant-tooltip-content"
+            class="ant-tooltip-inner"
+            role="tooltip"
           >
-            <div
-              class="ant-tooltip-arrow"
-            >
-              <span
-                class="ant-tooltip-arrow-content"
-              />
-            </div>
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            >
-              50
-            </div>
+            50
           </div>
         </div>
       </div>
@@ -1745,27 +1641,22 @@ Array [
         style="bottom:26%;transform:translateY(50%)"
         tabindex="0"
       />
-      <div>
+      <div
+        class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-right"
+        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      >
         <div
-          class="ant-tooltip ant-slider-tooltip"
-          style="opacity:0"
+          class="ant-tooltip-arrow"
+          style="position:absolute;top:0;left:0"
+        />
+        <div
+          class="ant-tooltip-content"
         >
           <div
-            class="ant-tooltip-content"
+            class="ant-tooltip-inner"
+            role="tooltip"
           >
-            <div
-              class="ant-tooltip-arrow"
-            >
-              <span
-                class="ant-tooltip-arrow-content"
-              />
-            </div>
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            >
-              26
-            </div>
+            26
           </div>
         </div>
       </div>
@@ -1779,27 +1670,22 @@ Array [
         style="bottom:37%;transform:translateY(50%)"
         tabindex="0"
       />
-      <div>
+      <div
+        class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-right"
+        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      >
         <div
-          class="ant-tooltip ant-slider-tooltip"
-          style="opacity:0"
+          class="ant-tooltip-arrow"
+          style="position:absolute;top:0;left:0"
+        />
+        <div
+          class="ant-tooltip-content"
         >
           <div
-            class="ant-tooltip-content"
+            class="ant-tooltip-inner"
+            role="tooltip"
           >
-            <div
-              class="ant-tooltip-arrow"
-            >
-              <span
-                class="ant-tooltip-arrow-content"
-              />
-            </div>
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            >
-              37
-            </div>
+            37
           </div>
         </div>
       </div>

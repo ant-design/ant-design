@@ -1,5 +1,5 @@
 ---
-category: Design Patterns
+group: Design Patterns
 type: Principles
 order: 8
 title: Provide an Invitation
@@ -21,17 +21,25 @@ By providing cues for interaction directly on the page we can statically indicat
 
 <br>
 
-<img class="preview-img" align="right" alt="example of Text Invitation" src="https://gw.alipayobjects.com/zos/rmsportal/ZeMSbCHmvWETbssJHRvo.png">
+<ImagePreview>
+<img class="preview-img" alt="example of Text Invitation" src="https://gw.alipayobjects.com/zos/rmsportal/ZeMSbCHmvWETbssJHRvo.png">
+</ImagePreview>
 
-<img class="preview-img" align="right" alt="example of Blank Slate Invitation" src="https://gw.alipayobjects.com/zos/rmsportal/PHxVAFKncyXDCFUJInbB.png">
+<ImagePreview>
+<img class="preview-img" alt="example of Blank Slate Invitation" src="https://gw.alipayobjects.com/zos/rmsportal/PHxVAFKncyXDCFUJInbB.png">
+</ImagePreview>
 
-<img class="preview-img" align="right" alt="example of Unfinished Invitation" src="https://gw.alipayobjects.com/zos/rmsportal/ChvxJAQTwWbqzBnUBLec.png">
+<ImagePreview>
+<img class="preview-img" alt="example of Unfinished Invitation" src="https://gw.alipayobjects.com/zos/rmsportal/ChvxJAQTwWbqzBnUBLec.png">
+</ImagePreview>
 
 Call to Action Invitations are generally provided as static instructions on the page. But visually they can be provided in many different ways such as Text Invitation, Blank Slate Invitation and Unfinished Invitation.
 
 <br>
 
-<img class="preview-img" align="right" alt="example 1 of Tour Invitation" description="A few of tour points are provided when the user first logs in. Clicking the 'Got It' button leads the user to the next tour step." src="https://gw.alipayobjects.com/zos/rmsportal/dMrVeJJiaCLzoYfJrJKe.png">
+<ImagePreview>
+<img class="preview-img" alt="example 1 of Tour Invitation" description="A few of tour points are provided when the user first logs in. Clicking the 'Got It' button leads the user to the next tour step." src="https://gw.alipayobjects.com/zos/rmsportal/dMrVeJJiaCLzoYfJrJKe.png">
+</ImagePreview>
 
 Tour invitation can be a nice way to explain design changes to a web application, especially for a well-designed interface. But providing tours will not solve the real problems an interface may have during interaction.
 
@@ -47,21 +55,29 @@ Dynamic Invitations engage users at the point of the interaction and guide them 
 
 <br>
 
-<img class="preview-img" align="right" alt="example 1 of Hover Invitation" description="During mouse hover on the whole card, the clickable parts turn to blue hypertext." src="https://gw.alipayobjects.com/zos/rmsportal/ejvYAogJXLPqoMUqyvIV.png">
+<ImagePreview>
+<img class="preview-img" alt="example 1 of Hover Invitation" description="During mouse hover on the whole card, the clickable parts turn to blue hypertext." src="https://gw.alipayobjects.com/zos/rmsportal/ejvYAogJXLPqoMUqyvIV.png">
+</ImagePreview>
 
-<img class="preview-img" align="right" alt="example 2 of Hover Invitation" description="During mouse hover, the button of &quot;Select this Template&quot; appears." src="https://gw.alipayobjects.com/zos/rmsportal/umGVwLlIJSmxaQXcjlbh.png">
+<ImagePreview>
+<img class="preview-img" alt="example 2 of Hover Invitation" description="During mouse hover, the button of &quot;Select this Template&quot; appears." src="https://gw.alipayobjects.com/zos/rmsportal/umGVwLlIJSmxaQXcjlbh.png">
+</ImagePreview>
 
 Hover Invitation: Provide an invitation during mouse hover.
 
 <br>
 
-<img class="preview-img" align="right" alt="example of Inference Invitation" description="The system predicts that the user's interest in an article extends to a type of articles, and it provides an invitation after the user click &quot;like&quot;." src="https://gw.alipayobjects.com/zos/rmsportal/iuLdCuNQWCvYuTxxQUuL.png">
+<ImagePreview>
+<img class="preview-img" alt="example of Inference Invitation" description="The system predicts that the user's interest in an article extends to a type of articles, and it provides an invitation after the user click &quot;like&quot;." src="https://gw.alipayobjects.com/zos/rmsportal/iuLdCuNQWCvYuTxxQUuL.png">
+</ImagePreview>
 
 Inference Invitation: Use visual inferences during interaction to cue users as to what the system has inferred about their intent.
 
 <br>
 
-<img class="preview-img" align="right" alt="example of More Content Invitation" description="Use the left or right arrows to switch more content around Modal." src="https://os.alipayobjects.com/rmsportal/sOqYOydwQjLHqph.png">
+<ImagePreview>
+<img class="preview-img" alt="example of More Content Invitation" description="Use the left or right arrows to switch more content around Modal." src="https://os.alipayobjects.com/rmsportal/sOqYOydwQjLHqph.png">
+</ImagePreview>
 
 More Content Invitation: Indicate that there is more content on the page.
 

@@ -11,7 +11,6 @@ import { useCallback, useMemo, useState } from 'react';
 import type { CheckboxProps } from '../../checkbox';
 import Checkbox from '../../checkbox';
 import Dropdown from '../../dropdown';
-import Menu from '../../menu';
 import Radio from '../../radio';
 import warning from '../../_util/warning';
 import type {
@@ -55,29 +54,24 @@ export type INTERNAL_SELECTION_ITEM =
   | typeof SELECTION_INVERT
   | typeof SELECTION_NONE;
 
-function flattenData<RecordType>(
-  data: RecordType[] | undefined,
-  childrenColumnName: string,
-): RecordType[] {
+function flattenData<RecordType>(childrenColumnName: string, data?: RecordType[]): RecordType[] {
   let list: RecordType[] = [];
-  (data || []).forEach(record => {
+  (data || []).forEach((record) => {
     list.push(record);
-
     if (record && typeof record === 'object' && childrenColumnName in record) {
       list = [
         ...list,
-        ...flattenData<RecordType>((record as any)[childrenColumnName], childrenColumnName),
+        ...flattenData<RecordType>(childrenColumnName, (record as any)[childrenColumnName]),
       ];
     }
   });
-
   return list;
 }
 
-export default function useSelection<RecordType>(
-  rowSelection: TableRowSelection<RecordType> | undefined,
+function useSelection<RecordType>(
   config: UseSelectionConfig<RecordType>,
-): [TransformColumns<RecordType>, Set<Key>] {
+  rowSelection?: TableRowSelection<RecordType>,
+): readonly [TransformColumns<RecordType>, Set<Key>] {
   const {
     preserveSelectedRowKeys,
     selectedRowKeys,
@@ -126,7 +120,7 @@ export default function useSelection<RecordType>(
       if (preserveSelectedRowKeys) {
         const newCache = new Map<Key, RecordType>();
         // Keep key if mark as preserveSelectedRowKeys
-        keys.forEach(key => {
+        keys.forEach((key) => {
           let record = getRecordByKey(key);
 
           if (!record && preserveRecordsRef.current.has(key)) {
@@ -160,7 +154,7 @@ export default function useSelection<RecordType>(
 
   // Get flatten data
   const flattedData = useMemo(
-    () => flattenData(pageData, childrenColumnName),
+    () => flattenData(childrenColumnName, pageData),
     [pageData, childrenColumnName],
   );
 
@@ -227,13 +221,13 @@ export default function useSelection<RecordType>(
 
       if (preserveSelectedRowKeys) {
         availableKeys = keys;
-        records = keys.map(key => preserveRecordsRef.current.get(key)!);
+        records = keys.map((key) => preserveRecordsRef.current.get(key)!);
       } else {
         // Filter key which not exist in the `dataSource`
         availableKeys = [];
         records = [];
 
-        keys.forEach(key => {
+        keys.forEach((key) => {
           const record = getRecordByKey(key);
           if (record !== undefined) {
             availableKeys.push(key);
@@ -254,7 +248,7 @@ export default function useSelection<RecordType>(
   const triggerSingleSelection = useCallback(
     (key: Key, selected: boolean, keys: Key[], event: Event) => {
       if (onSelect) {
-        const rows = keys.map(k => getRecordByKey(k));
+        const rows = keys.map((k) => getRecordByKey(k));
         onSelect(getRecordByKey(key), selected, rows, event);
       }
 
@@ -281,7 +275,7 @@ export default function useSelection<RecordType>(
               setSelectedKeys(
                 data
                   .map((record, index) => getRowKey(record, index))
-                  .filter(key => {
+                  .filter((key) => {
                     const checkProps = checkboxPropsMap.get(key);
                     return !checkProps?.disabled || derivedSelectedKeySet.has(key);
                   }),
@@ -330,7 +324,7 @@ export default function useSelection<RecordType>(
             onSelect() {
               onSelectNone?.();
               setSelectedKeys(
-                Array.from(derivedSelectedKeySet).filter(key => {
+                Array.from(derivedSelectedKeySet).filter((key) => {
                   const checkProps = checkboxPropsMap.get(key);
                   return checkProps?.disabled;
                 }),
@@ -341,7 +335,7 @@ export default function useSelection<RecordType>(
         }
         return selection as SelectionItem;
       })
-      .map(selection => ({
+      .map((selection) => ({
         ...selection,
         onSelect: (...rest) => {
           selection.onSelect?.(...rest);
@@ -361,7 +355,7 @@ export default function useSelection<RecordType>(
           '`rowSelection` is not config but `SELECTION_COLUMN` exists in the `columns`.',
         );
 
-        return columns.filter(col => col !== SELECTION_COLUMN);
+        return columns.filter((col) => col !== SELECTION_COLUMN);
       }
 
       // >>>>>>>>>>> Support selection
@@ -371,20 +365,20 @@ export default function useSelection<RecordType>(
       // Record key only need check with enabled
       const recordKeys = flattedData
         .map(getRowKey)
-        .filter(key => !checkboxPropsMap.get(key)!.disabled);
-      const checkedCurrentAll = recordKeys.every(key => keySet.has(key));
-      const checkedCurrentSome = recordKeys.some(key => keySet.has(key));
+        .filter((key) => !checkboxPropsMap.get(key)!.disabled);
+      const checkedCurrentAll = recordKeys.every((key) => keySet.has(key));
+      const checkedCurrentSome = recordKeys.some((key) => keySet.has(key));
 
       const onSelectAllChange = () => {
         const changeKeys: Key[] = [];
 
         if (checkedCurrentAll) {
-          recordKeys.forEach(key => {
+          recordKeys.forEach((key) => {
             keySet.delete(key);
             changeKeys.push(key);
           });
         } else {
-          recordKeys.forEach(key => {
+          recordKeys.forEach((key) => {
             if (!keySet.has(key)) {
               keySet.add(key);
               changeKeys.push(key);
@@ -396,8 +390,8 @@ export default function useSelection<RecordType>(
 
         onSelectAll?.(
           !checkedCurrentAll,
-          keys.map(k => getRecordByKey(k)),
-          changeKeys.map(k => getRecordByKey(k)),
+          keys.map((k) => getRecordByKey(k)),
+          changeKeys.map((k) => getRecordByKey(k)),
         );
 
         setSelectedKeys(keys, 'all');
@@ -410,25 +404,23 @@ export default function useSelection<RecordType>(
       if (selectionType !== 'radio') {
         let customizeSelections: React.ReactNode;
         if (mergedSelections) {
-          const menu = (
-            <Menu
-              getPopupContainer={getPopupContainer}
-              items={mergedSelections.map((selection, index) => {
-                const { key, text, onSelect: onSelectionClick } = selection;
+          const menu = {
+            getPopupContainer,
+            items: mergedSelections.map((selection, index) => {
+              const { key, text, onSelect: onSelectionClick } = selection;
 
-                return {
-                  key: key || index,
-                  onClick: () => {
-                    onSelectionClick?.(recordKeys);
-                  },
-                  label: text,
-                };
-              })}
-            />
-          );
+              return {
+                key: key || index,
+                onClick: () => {
+                  onSelectionClick?.(recordKeys);
+                },
+                label: text,
+              };
+            }),
+          };
           customizeSelections = (
             <div className={`${prefixCls}-selection-extra`}>
-              <Dropdown overlay={menu} getPopupContainer={getPopupContainer}>
+              <Dropdown menu={menu} getPopupContainer={getPopupContainer}>
                 <span>
                   <DownOutlined />
                 </span>
@@ -466,6 +458,7 @@ export default function useSelection<RecordType>(
               }
               onChange={onSelectAllChange}
               disabled={flattedData.length === 0 || allDisabled}
+              aria-label={customizeSelections ? 'Custom selection' : 'Select all'}
               skipGroup
             />
             {customizeSelections}
@@ -489,8 +482,8 @@ export default function useSelection<RecordType>(
               <Radio
                 {...checkboxPropsMap.get(key)}
                 checked={checked}
-                onClick={e => e.stopPropagation()}
-                onChange={event => {
+                onClick={(e) => e.stopPropagation()}
+                onChange={(event) => {
                   if (!keySet.has(key)) {
                     triggerSingleSelection(key, true, [key], event.nativeEvent);
                   }
@@ -525,7 +518,7 @@ export default function useSelection<RecordType>(
                 indeterminate={mergedIndeterminate}
                 checked={checked}
                 skipGroup
-                onClick={e => e.stopPropagation()}
+                onClick={(e) => e.stopPropagation()}
                 onChange={({ nativeEvent }) => {
                   const { shiftKey } = nativeEvent;
 
@@ -556,14 +549,14 @@ export default function useSelection<RecordType>(
                     const changedKeys: Key[] = [];
 
                     if (checked) {
-                      rangeKeys.forEach(recordKey => {
+                      rangeKeys.forEach((recordKey) => {
                         if (keySet.has(recordKey)) {
                           changedKeys.push(recordKey);
                           keySet.delete(recordKey);
                         }
                       });
                     } else {
-                      rangeKeys.forEach(recordKey => {
+                      rangeKeys.forEach((recordKey) => {
                         if (!keySet.has(recordKey)) {
                           changedKeys.push(recordKey);
                           keySet.add(recordKey);
@@ -574,8 +567,8 @@ export default function useSelection<RecordType>(
                     const keys = Array.from(keySet);
                     onSelectMultiple?.(
                       !checked,
-                      keys.map(recordKey => getRecordByKey(recordKey)),
-                      changedKeys.map(recordKey => getRecordByKey(recordKey)),
+                      keys.map((recordKey) => getRecordByKey(recordKey)),
+                      changedKeys.map((recordKey) => getRecordByKey(recordKey)),
                     );
 
                     setSelectedKeys(keys, 'multiple');
@@ -657,7 +650,7 @@ export default function useSelection<RecordType>(
       const selectionColumnIndex = cloneColumns.indexOf(SELECTION_COLUMN);
 
       warning(
-        cloneColumns.filter(col => col === SELECTION_COLUMN).length <= 1,
+        cloneColumns.filter((col) => col === SELECTION_COLUMN).length <= 1,
         'Table',
         'Multiple `SELECTION_COLUMN` exist in `columns`.',
       );
@@ -703,7 +696,7 @@ export default function useSelection<RecordType>(
         },
       };
 
-      return cloneColumns.map(col => (col === SELECTION_COLUMN ? selectionColumn : col));
+      return cloneColumns.map((col) => (col === SELECTION_COLUMN ? selectionColumn : col));
     },
     [
       getRowKey,
@@ -723,5 +716,7 @@ export default function useSelection<RecordType>(
     ],
   );
 
-  return [transformColumns, derivedSelectedKeySet];
+  return [transformColumns, derivedSelectedKeySet] as const;
 }
+
+export default useSelection;

@@ -1,9 +1,11 @@
 import React from 'react';
+import userEvent from '@testing-library/user-event';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render } from '../../../tests/utils';
+import { screen, render } from '../../../tests/utils';
 import Button from '../../button/index';
 import Card from '../index';
+import '@testing-library/jest-dom';
 
 describe('Card', () => {
   mountTest(Card);
@@ -35,7 +37,7 @@ describe('Card', () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it('onTabChange should work', () => {
+  it('onTabChange should work', async () => {
     const tabList = [
       {
         key: 'tab1',
@@ -47,23 +49,24 @@ describe('Card', () => {
       },
     ];
     const onTabChange = jest.fn();
-    const { container } = render(
+    render(
       <Card onTabChange={onTabChange} tabList={tabList}>
         xxx
       </Card>,
     );
-    fireEvent.click(container.querySelectorAll('.ant-tabs-tab')[1]);
+    await userEvent.setup({ delay: null }).click(screen.getByRole('tab', { name: /tab2/i }));
     expect(onTabChange).toHaveBeenCalledWith('tab2');
   });
 
   it('should not render when actions is number', () => {
-    const { container } = render(
-      // @ts-ignore ingnore for the wrong action value
-      <Card title="Card title" actions={11}>
+    const numberStub = 11;
+    render(
+      // @ts-ignore ignore for the wrong action value
+      <Card title="Card title" actions={numberStub}>
         <p>Card content</p>
       </Card>,
     );
-    expect(container.querySelectorAll('.ant-card-actions').length).toBe(0);
+    expect(screen.queryByText(numberStub)).not.toBeInTheDocument();
   });
 
   it('with tab props', () => {

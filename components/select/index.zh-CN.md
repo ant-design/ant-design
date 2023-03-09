@@ -1,9 +1,12 @@
 ---
 category: Components
 subtitle: 选择器
-type: 数据录入
+group: 数据录入
 title: Select
-cover: https://gw.alipayobjects.com/zos/alicdn/_0XzgOis7/Select.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*zo76T7KQx2UAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*5oPiTqPxGAUAAAAAAAAAAAAADrJ8AQ/original
+demo:
+  cols: 2
 ---
 
 下拉选择器。
@@ -11,11 +14,40 @@ cover: https://gw.alipayobjects.com/zos/alicdn/_0XzgOis7/Select.svg
 ## 何时使用
 
 - 弹出一个下拉菜单给用户选择操作，用于代替原生的选择器，或者需要一个更优雅的多选器时。
-- 当选项少时（少于 5 项），建议直接将选项平铺，使用 [Radio](/components/radio/) 是更好的选择。
+- 当选项少时（少于 5 项），建议直接将选项平铺，使用 [Radio](/components/radio-cn/) 是更好的选择。
+
+## 代码演示
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">基本使用</code>
+<code src="./demo/search.tsx">带搜索框</code>
+<code src="./demo/multiple.tsx">多选</code>
+<code src="./demo/size.tsx">三种大小</code>
+<code src="./demo/option-label-prop.tsx">定制回填内容</code>
+<code src="./demo/search-sort.tsx">带排序的搜索</code>
+<code src="./demo/tags.tsx">标签</code>
+<code src="./demo/optgroup.tsx">分组</code>
+<code src="./demo/coordinate.tsx">联动</code>
+<code src="./demo/search-box.tsx">搜索框</code>
+<code src="./demo/label-in-value.tsx">获得选项的文本</code>
+<code src="./demo/automatic-tokenization.tsx">自动分词</code>
+<code src="./demo/select-users.tsx">搜索用户</code>
+<code src="./demo/suffix.tsx" debug>后缀图标</code>
+<code src="./demo/custom-dropdown-menu.tsx">扩展菜单</code>
+<code src="./demo/hide-selected.tsx">隐藏已选择选项</code>
+<code src="./demo/bordered.tsx">无边框</code>
+<code src="./demo/custom-tag-render.tsx">自定义选择标签</code>
+<code src="./demo/responsive.tsx">响应式 maxTagCount</code>
+<code src="./demo/big-data.tsx">大数据</code>
+<code src="./demo/status.tsx">自定义状态</code>
+<code src="./demo/placement.tsx">弹出位置</code>
+<code src="./demo/debug.tsx" debug>4.0 Debug</code>
+<code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/option-label-center.tsx" debug>选项文本居中</code>
 
 ## API
 
-```jsx
+```tsx
 <Select>
   <Option value="lucy">lucy</Option>
 </Select>
@@ -32,9 +64,9 @@ cover: https://gw.alipayobjects.com/zos/alicdn/_0XzgOis7/Select.svg
 | clearIcon | 自定义的多选框清空图标 | ReactNode | - |  |
 | defaultActiveFirstOption | 是否默认高亮第一个选项 | boolean | true |  |
 | defaultOpen | 是否默认展开下拉菜单 | boolean | - |  |
-| defaultValue | 指定默认选中的条目 | string \| string\[]<br />number \| number\[]<br />LabeledValue \| LabeledValue\[] | - |  |
+| defaultValue | 指定默认选中的条目 | string \| string\[] \|<br />number \| number\[] \| <br />LabeledValue \| LabeledValue\[] | - |  |
 | disabled | 是否禁用 | boolean | false |  |
-| dropdownClassName | 下拉菜单的 className 属性 | string | - |  |
+| popupClassName | 下拉菜单的 className 属性 | string | - | 4.23.0 |
 | dropdownMatchSelectWidth | 下拉菜单和选择器同宽。默认将设置 `min-width`，当值小于选择框宽度时会被忽略。false 时会关闭虚拟滚动 | boolean \| number | true |  |
 | dropdownRender | 自定义下拉框内容 | (originNode: ReactNode) => ReactNode | - |  |
 | dropdownStyle | 下拉菜单的 style 属性 | CSSProperties | - |  |
@@ -66,12 +98,12 @@ cover: https://gw.alipayobjects.com/zos/alicdn/_0XzgOis7/Select.svg
 | suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |  |
 | tagRender | 自定义 tag 内容 render，仅在 `mode` 为 `multiple` 或 `tags` 时生效 | (props) => ReactNode | - |  |
 | tokenSeparators | 自动分词的分隔符，仅在 `mode="tags"` 时生效 | string\[] | - |  |
-| value | 指定当前选中的条目，多选时为一个数组。（value 数组引用未变化时，Select 不会更新） | string \| string\[]<br />number \| number\[]<br />LabeledValue \| LabeledValue\[] | - |  |
+| value | 指定当前选中的条目，多选时为一个数组。（value 数组引用未变化时，Select 不会更新） | string \| string\[] \| <br />number \| number\[] \| <br />LabeledValue \| LabeledValue\[] | - |  |
 | virtual | 设置 false 时关闭虚拟滚动 | boolean | true | 4.1.0 |
 | onBlur | 失去焦点时回调 | function | - |  |
 | onChange | 选中 option，或 input 的 value 变化时，调用此函数 | function(value, option:Option \| Array&lt;Option>) | - |  |
 | onClear | 清除内容时回调 | function | - | 4.6.0 |
-| onDeselect | 取消选中时调用，参数为选中项的 value (或 key) 值，仅在 `multiple` 或 `tags` 模式下生效 | function(string \| number \| LabeledValue) | - |  |
+| onDeselect | 取消选中时调用，参数为选中项的 value (或 key) 值，仅在 `multiple` 或 `tags` 模式下生效 | function(value: string \| number \| LabeledValue) | - |  |
 | onDropdownVisibleChange | 展开下拉菜单的回调 | function(open) | - |  |
 | onFocus | 获得焦点时回调 | function | - |  |
 | onInputKeyDown | 按键按下时回调 | function | - |  |
@@ -79,7 +111,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/_0XzgOis7/Select.svg
 | onMouseLeave | 鼠标移出时回调 | function | - |  |
 | onPopupScroll | 下拉列表滚动时的回调 | function | - |  |
 | onSearch | 文本框值变化时回调 | function(value: string) | - |  |
-| onSelect | 被选中时调用，参数为选中项的 value (或 key) 值 | function(string \| number \| LabeledValue, option: Option) | - |  |
+| onSelect | 被选中时调用，参数为选中项的 value (或 key) 值 | function(value: string \| number \| LabeledValue, option: Option) | - |  |
 
 > 注意，如果发现下拉菜单跟随页面滚动，或者需要在其他弹层中触发 Select，请尝试使用 `getPopupContainer={triggerNode => triggerNode.parentElement}` 将下拉弹层渲染节点固定在触发器的父元素中。
 
@@ -116,9 +148,28 @@ cover: https://gw.alipayobjects.com/zos/alicdn/_0XzgOis7/Select.svg
 
 你可以使用受控模式，手动设置 `open` 属性：[codesandbox](https://codesandbox.io/s/ji-ben-shi-yong-antd-4-21-7-forked-gnp4cy?file=/demo.js)。
 
+### 反过来希望点击 `dropdownRender` 里元素不消失该怎么办？
+
+Select 当失去焦点时会关闭下拉框，如果你可以通过阻止默认行为避免丢失焦点导致的关闭：
+
+```tsx
+<Select
+  dropdownRender={() => (
+    <div
+      onMouseDown={(e) => {
+        e.preventDefault();
+        e.stopPropagation();
+      }}
+    >
+      Some Content
+    </div>
+  )}
+/>
+```
+
 ### 自定义 Option 样式导致滚动异常怎么办？
 
-这是由于虚拟滚动默认选项高度为 `32px`，如果你的选项高度小于该值则需要通过 `listItemHeight` 属性调整，而 `listHeight` 用于设置滚动容器高度：
+这是由于虚拟滚动默认选项高度为 `24px`，如果你的选项高度小于该值则需要通过 `listItemHeight` 属性调整，而 `listHeight` 用于设置滚动容器高度：
 
 ```tsx
 <Select listItemHeight={10} listHeight={250} />
@@ -129,3 +180,5 @@ cover: https://gw.alipayobjects.com/zos/alicdn/_0XzgOis7/Select.svg
 ### 为何无障碍测试会报缺失 `aria-` 属性？
 
 Select 无障碍辅助元素仅在弹窗展开时创建，因而当你在进行无障碍检测时请先打开下拉后再进行测试。对于 `aria-label` 与 `aria-labelledby` 属性缺失警告，请自行为 Select 组件添加相应无障碍属性。
+
+Select 虚拟滚动会模拟无障碍绑定元素。如果需要读屏器完整获取全部列表，你可以设置 `virtual={false}` 关闭虚拟滚动，无障碍选项将会绑定到真实元素上。

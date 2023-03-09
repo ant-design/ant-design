@@ -1,5 +1,7 @@
 ---
-category: Ant Design
+group:
+  title: Ant Design
+  order: 0
 order: 0
 title: 介绍
 ---
@@ -23,71 +25,30 @@ title: 介绍
 - [可视化](/docs/spec/visual)
 - [插画](/docs/spec/illustration)
 - [设计资源](/docs/resources)
-- [Sketch 工具集](http://kitchen.alipay.com/)
+- [Sketch 工具集](https://kitchen.alipay.com/)
 - [文章](/docs/resources#%E6%96%87%E7%AB%A0)
 
 ## 前端实现
 
-我们采用 [React](http://facebook.github.io/react/) 封装了一套 Ant Design 的组件库，也欢迎社区其他框架的实现版本。
+我们采用 [React](https://reactjs.org) 封装了一套 Ant Design 的组件库，也欢迎社区其他框架的实现版本。
 
-```__react
-import {
-  ExportOutlined,
-} from '@ant-design/icons';
-
-const LinkIcon = () => (
-  <ExportOutlined className="outside-link-icon" />
-);
-
-const LinksList = () => (
-  <ul>
-    <li>
-      <a href="/docs/react/introduce" target="_blank">Ant Design of React</a>
-      （官方实现）
-    </li>
-    <li>
-      <a href="http://ng.ant.design" target="_blank">
-        NG-ZORRO - Ant Design of Angular
-      </a>
-    </li>
-    <li>
-      <a href="http://ng.mobile.ant.design" target="_blank">
-        NG-ZORRO-MOBILE - Ant Design Mobile of Angular
-      </a>
-    </li>
-    <li>
-      <a href="http://antdv.com" target="_blank">Ant Design of Vue</a>
-    </li>
-    <li>
-      <a href="https://ant-design-blazor.github.io/" target="_blank">
-        Ant Design Blazor
-      </a>
-    </li>
-    <li>
-      <a href="https://ecomfe.github.io/santd" target="_blank">
-        San UI Toolkit for Ant Design
-      </a>
-    </li>
-    <li>
-      <a href="https://github.com/priornix/antizer" target="_blank">
-        antizer (ClojureScript)
-      </a>
-    </li>
-  </ul>
-);
-
-ReactDOM.render(<LinksList />, mountNode);
-```
+- [Ant Design of React](/docs/react/introduce)（官方实现）
+- [NG-ZORRO - Ant Design of Angular](http://ng.ant.design)（社区实现）
+- [NG-ZORRO-MOBILE - Ant Design Mobile of Angular](http://ng.mobile.ant.design)（社区实现）
+- [Ant Design of Vue](http://antdv.com)（社区实现）
+- [Ant Design Blazor](https://ant-design-blazor.github.io/)（社区实现）
+- [San UI Toolkit for Ant Design](https://ecomfe.github.io/santd)（社区实现）
+- [antizer (ClojureScript)](https://github.com/priornix/antizer)（社区实现）
 
 ## 谁在使用
 
-- [蚂蚁集团](http://www.antgroup.com/)
-- [阿里巴巴](http://www.alibaba.com/)
-- [腾讯](http://www.tencent.com)
-- [百度](http://www.baidu.com)
-- [口碑](http://www.koubei.com/)
-- [美团](http://www.meituan.com)
-- [滴滴](http://www.xiaojukeji.com/)
+- [蚂蚁集团](https://www.antgroup.com/)
+- [阿里巴巴](https://www.alibaba.com/)
+- [腾讯](https://www.tencent.com)
+- [百度](https://www.baidu.com)
+- [口碑](https://www.koubei.com/)
+- [美团](https://www.meituan.com)
+- [滴滴](https://www.xiaojukeji.com/)
 - [饿了么](https://www.ele.me/)
 - [其他用户](https://github.com/ant-design/ant-design/issues/477)
 
@@ -105,4 +66,4 @@ ReactDOM.render(<LinksList />, mountNode);
 
 ## 如何贡献
 
-我们欢迎任何形式的贡献，有任何建议或意见，请给我们 [提问](https://github.com/ant-design/ant-design/issues)。
+我们欢迎任何形式的贡献，有任何建议或意见，请给我们 [提问](https://github.com/ant-design/ant-design/discussions)。

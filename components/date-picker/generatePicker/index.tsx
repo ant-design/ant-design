@@ -14,13 +14,11 @@ import type {
 import type { SizeType } from '../../config-provider/SizeContext';
 import type { TimePickerLocale } from '../../time-picker';
 import type { InputStatus } from '../../_util/statusUtils';
-import { tuple } from '../../_util/type';
 import PickerButton from '../PickerButton';
-import PickerTag from '../PickerTag';
 import generateRangePicker from './generateRangePicker';
 import generateSinglePicker from './generateSinglePicker';
 
-export const Components = { button: PickerButton, rangeItem: PickerTag };
+export const Components = { button: PickerButton };
 
 function toArray<T>(list: T | T[]): T[] {
   if (!list) {
@@ -71,18 +69,22 @@ export function getTimeProps<DateType, DisabledTime>(
     showTime: showTimeObj,
   };
 }
-const DataPickerPlacements = tuple('bottomLeft', 'bottomRight', 'topLeft', 'topRight');
+const DataPickerPlacements = ['bottomLeft', 'bottomRight', 'topLeft', 'topRight'] as const;
 type DataPickerPlacement = typeof DataPickerPlacements[number];
+
+const HourStep = [0.5, 1, 1.5, 2, 3, 4, 6, 8, 12] as const;
+type THourStep = typeof HourStep[number];
 
 type InjectDefaultProps<Props> = Omit<
   Props,
-  'locale' | 'generateConfig' | 'hideHeader' | 'components'
+  'locale' | 'generateConfig' | 'hideHeader' | 'components' | 'hourStep'
 > & {
   locale?: PickerLocale;
   size?: SizeType;
   placement?: DataPickerPlacement;
   bordered?: boolean;
   status?: InputStatus;
+  hourStep?: THourStep;
 };
 
 export type PickerLocale = {

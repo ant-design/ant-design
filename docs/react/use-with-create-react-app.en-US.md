@@ -61,6 +61,7 @@ Modify `src/App.js`, import Button component from `antd`.
 ```jsx
 import React from 'react';
 import { Button } from 'antd';
+import 'antd/dist/reset.css';
 import './App.css';
 
 const App = () => (
@@ -70,12 +71,6 @@ const App = () => (
 );
 
 export default App;
-```
-
-Add `antd/dist/antd.css` at the top of `src/App.css`.
-
-```css
-@import '~antd/dist/antd.css';
 ```
 
 OK, you should now see a blue primary button displayed on the page. Next you can choose any components of `antd` to develop your application. Visit other workflows of `create-react-app` at its [User Guide](https://create-react-app.dev/docs/getting-started).
@@ -127,53 +122,24 @@ module.exports = {
 
 ### Customize Theme
 
-According to the [Customize Theme documentation](/docs/react/customize-theme), we need to modify less variables via loader like [less-loader](https://github.com/webpack/less-loader). We can use [craco-less](https://github.com/DocSpring/craco-less) to achieve that,
+Ref to the [Customize Theme documentation](/docs/react/customize-theme). Modify theme with ConfigProvider:
 
-First we should modify `src/App.css` to `src/App.less`, then import less file instead.
+```tsx
+import React from 'react';
+import { ConfigProvider } from 'antd';
 
-```diff
-/* src/App.js */
-- import './App.css';
-+ import './App.less';
-```
-
-```diff
-/* src/App.less */
-- @import '~antd/dist/antd.css';
-+ @import '~antd/dist/antd.less';
-```
-
-Then install `craco-less` and modify `craco.config.js` like below.
-
-```bash
-$ yarn add craco-less
-```
-
-```js
-const CracoLessPlugin = require('craco-less');
-
-module.exports = {
-  plugins: [
-    {
-      plugin: CracoLessPlugin,
-      options: {
-        lessLoaderOptions: {
-          lessOptions: {
-            modifyVars: { '@primary-color': '#1DA57A' },
-            javascriptEnabled: true,
-          },
-        },
+export default () => (
+  <ConfigProvider
+    theme={{
+      token: {
+        colorPrimary: '#00b96b',
       },
-    },
-  ],
-};
+    }}
+  >
+    <MyApp />
+  </ConfigProvider>
+);
 ```
-
-By adding `modifyVars` option of [less-loader](https://github.com/webpack/less-loader#less-options) here, we should see a green button rendered on the page after rebooting the server now.
-
-We provide built-in dark theme and compact theme in antd, you can reference to [Use dark or compact theme](/docs/react/customize-theme#Use-dark-or-compact-theme).
-
-> You could also try [react-app-rewired](https://github.com/timarney/react-app-rewired) and [customize-cra](https://github.com/arackaf/customize-cra) to customize create-react-app webpack config like craco did.
 
 ## eject
 

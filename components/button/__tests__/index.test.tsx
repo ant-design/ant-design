@@ -1,14 +1,13 @@
 import { SearchOutlined } from '@ant-design/icons';
-import { mount } from 'enzyme';
 import { resetWarned } from 'rc-util/lib/warning';
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { act } from 'react-dom/test-utils';
 import Button from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, sleep } from '../../../tests/utils';
+import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
-import type { SizeType } from '../../config-provider/SizeContext';
+import type { BaseButtonProps } from '../button';
 
 describe('Button', () => {
   mountTest(Button);
@@ -39,7 +38,8 @@ describe('Button', () => {
   it('warns if size is wrong', () => {
     resetWarned();
     const mockWarn = jest.spyOn(console, 'error').mockImplementation(() => {});
-    const size = 'who am I' as any as SizeType;
+    const size = 'who am I';
+    // @ts-expect-error: Type '"who am I"' is not assignable to type 'SizeType'.ts(2322)
     render(<Button.Group size={size} />);
     expect(mockWarn).toHaveBeenCalledWith('Warning: [antd: Button.Group] Invalid prop `size`.');
 
@@ -130,53 +130,32 @@ describe('Button', () => {
   });
 
   it('have static property for type detecting', () => {
-    const wrapper = mount(<Button>Button Text</Button>);
-    expect((wrapper.find(Button).type() as any).__ANT_BUTTON).toBe(true);
+    expect(Button.__ANT_BUTTON).toBe(true);
   });
 
   it('should change loading state instantly by default', () => {
-    class DefaultButton extends Component {
-      state = {
-        loading: false,
-      };
-
-      enterLoading = () => {
-        this.setState({ loading: true });
-      };
-
-      render() {
-        const { loading } = this.state;
-        return (
-          <Button loading={loading} onClick={this.enterLoading}>
-            Button
-          </Button>
-        );
-      }
-    }
+    const DefaultButton: React.FC = () => {
+      const [loading, setLoading] = useState<BaseButtonProps['loading']>(false);
+      return (
+        <Button loading={loading} onClick={() => setLoading(true)}>
+          Button
+        </Button>
+      );
+    };
     const wrapper = render(<DefaultButton />);
     fireEvent.click(wrapper.container.firstChild!);
     expect(wrapper.container.querySelectorAll('.ant-btn-loading').length).toBe(1);
   });
 
   it('should change loading state with delay', () => {
-    class DefaultButton extends Component {
-      state = {
-        loading: false,
-      };
-
-      enterLoading = () => {
-        this.setState({ loading: { delay: 1000 } });
-      };
-
-      render() {
-        const { loading } = this.state;
-        return (
-          <Button loading={loading} onClick={this.enterLoading}>
-            Button
-          </Button>
-        );
-      }
-    }
+    const DefaultButton: React.FC = () => {
+      const [loading, setLoading] = useState<BaseButtonProps['loading']>(false);
+      return (
+        <Button loading={loading} onClick={() => setLoading({ delay: 1000 })}>
+          Button
+        </Button>
+      );
+    };
     const wrapper = render(<DefaultButton />);
     fireEvent.click(wrapper.container.firstChild!);
     expect(wrapper.container.firstChild).not.toHaveClass('ant-btn-loading');
@@ -244,21 +223,21 @@ describe('Button', () => {
   });
 
   it('should support to change loading', async () => {
-    const { rerender, container, unmount } = render(<Button>Button</Button>);
+    jest.useFakeTimers();
+    const { container, rerender, unmount } = render(<Button>Button</Button>);
     rerender(<Button loading />);
     expect(container.querySelectorAll('.ant-btn-loading').length).toBe(1);
     rerender(<Button loading={false} />);
     expect(container.querySelectorAll('.ant-btn-loading').length).toBe(0);
     rerender(<Button loading={{ delay: 50 }} />);
     expect(container.querySelectorAll('.ant-btn-loading').length).toBe(0);
-    await sleep(50);
+    await waitFakeTimer();
     expect(container.querySelectorAll('.ant-btn-loading').length).toBe(1);
     rerender(<Button loading={false} />);
-    await sleep(50);
+    await waitFakeTimer();
     expect(container.querySelectorAll('.ant-btn-loading').length).toBe(0);
-    expect(() => {
-      unmount();
-    }).not.toThrow();
+    expect(unmount).not.toThrow();
+    jest.useRealTimers();
   });
 
   it('should warning when pass a string as icon props', () => {
@@ -297,20 +276,13 @@ describe('Button', () => {
   });
 
   it('skip check 2 words when ConfigProvider disable this', () => {
-    let buttonInstance: any;
+    const buttonInstance = React.createRef<HTMLElement>();
     render(
       <ConfigProvider autoInsertSpaceInButton={false}>
-        <Button
-          ref={node => {
-            buttonInstance = node;
-          }}
-        >
-          test
-        </Button>
+        <Button ref={buttonInstance}>test</Button>
       </ConfigProvider>,
     );
-
-    Object.defineProperty(buttonInstance, 'textContent', {
+    Object.defineProperty(buttonInstance.current, 'textContent', {
       get() {
         throw new Error('Should not called!!!');
       },

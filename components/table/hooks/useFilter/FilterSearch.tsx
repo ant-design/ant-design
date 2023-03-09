@@ -3,21 +3,21 @@ import * as React from 'react';
 import Input from '../../../input';
 import type { FilterSearchType, TableLocale } from '../../interface';
 
-interface FilterSearchProps {
+interface FilterSearchProps<RecordType = any> {
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  filterSearch: FilterSearchType;
+  filterSearch: FilterSearchType<RecordType>;
   tablePrefixCls: string;
   locale: TableLocale;
 }
 
-const FilterSearch: React.FC<FilterSearchProps> = ({
+function FilterSearch<RecordType>({
   value,
   onChange,
   filterSearch,
   tablePrefixCls,
   locale,
-}) => {
+}: FilterSearchProps<RecordType>) {
   if (!filterSearch) {
     return null;
   }
@@ -34,6 +34,6 @@ const FilterSearch: React.FC<FilterSearchProps> = ({
       />
     </div>
   );
-};
+}
 
 export default FilterSearch;

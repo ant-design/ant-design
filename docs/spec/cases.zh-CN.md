@@ -1,5 +1,5 @@
 ---
-category: Ant Design
+group: Ant Design
 order: 2
 title: 实践案例
 ---
@@ -9,14 +9,6 @@ title: 实践案例
 Ant Design 目前在外部也有许多产品实践，如果你的公司和产品从中受益，[欢迎留言](https://github.com/ant-design/ant-design/issues/477)。
 
 ## 最佳实践
-
-### Umi UI
-
-umi 项目的本地研发工作台，本地研发工作台。以代码为基础、可视化功能作为辅助，进一步提升项目研发效率。
-
-[了解更多](https://umijs.org/zh/guide/umi-ui.html#%E2%9C%A8-%E7%89%B9%E6%80%A7)
-
-![Umi UI](https://gw.alipayobjects.com/zos/antfincdn/Xyns37N5nY/6591859e-7c16-48f5-852f-7817803425e9.png)
 
 ### 蚂蚁金融科技
 
@@ -30,7 +22,7 @@ umi 项目的本地研发工作台，本地研发工作台。以代码为基础�
 
 OceanBase 是一款真正意义上的云端分布式关系型数据库，而 OceanBase Cloud Platform（云平台）是以 OceanBase 数据库为基础的云服务，可以帮助用户快速创建、使用 OB 服务。
 
-[立即访问](http://oceanbase.alipay.com)
+[立即访问](https://www.oceanbase.com/docs/)
 
 ![OceanBase 云平台](https://gw.alipayobjects.com/zos/rmsportal/OYGCAlMwSWkdaKfxIDtz.png)
 
@@ -38,7 +30,7 @@ OceanBase 是一款真正意义上的云端分布式关系型数据库，而 Oce
 
 与团队一起编写文档，极致体验，高效协同。在微笑中构建专属知识库。
 
-[立即访问](http://yuque.com/)
+[立即访问](https://yuque.com/)
 
 ![语雀](https://gw.alipayobjects.com/zos/rmsportal/doPiJWqbRNWCrHPBOcuo.png)
 

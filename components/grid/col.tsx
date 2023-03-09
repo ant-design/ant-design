@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import RowContext from './RowContext';
+import { useColStyle } from './style';
 
 // https://github.com/ant-design/ant-design/issues/14324
 type ColSpanType = number | string;
@@ -64,9 +65,10 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
   } = props;
 
   const prefixCls = getPrefixCls('col', customizePrefixCls);
+  const [wrapSSR, hashId] = useColStyle(prefixCls);
 
   let sizeClassObj = {};
-  sizes.forEach(size => {
+  sizes.forEach((size) => {
     let sizeProps: ColSize = {};
     const propSize = props[size];
     if (typeof propSize === 'number') {
@@ -100,6 +102,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
     },
     className,
     sizeClassObj,
+    hashId,
   );
 
   const mergedStyle: React.CSSProperties = {};
@@ -127,10 +130,10 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
     }
   }
 
-  return (
+  return wrapSSR(
     <div {...others} style={{ ...mergedStyle, ...style }} className={classes} ref={ref}>
       {children}
-    </div>
+    </div>,
   );
 });
 

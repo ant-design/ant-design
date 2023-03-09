@@ -1,8 +1,7 @@
 import { LikeOutlined, SmileOutlined } from '@ant-design/icons';
-import { act } from '@testing-library/react';
 import * as copyObj from 'copy-to-clipboard';
 import React from 'react';
-import { fireEvent, render, waitFor } from '../../../tests/utils';
+import { fireEvent, render, waitFor, act } from '../../../tests/utils';
 
 import Base from '../Base';
 
@@ -90,7 +89,9 @@ describe('Typography copy', () => {
 
           jest.useFakeTimers();
           fireEvent.click(wrapper.querySelectorAll('.ant-typography-copy')[0]);
-          jest.runAllTimers();
+          act(() => {
+            jest.runAllTimers();
+          });
 
           unmount();
           jest.useRealTimers();
@@ -218,7 +219,7 @@ describe('Typography copy', () => {
         </div>,
       );
       fireEvent.click(wrapper.querySelectorAll('.ant-typography-copy')[0]);
-      expect(onDivClick).not.toBeCalled();
+      expect(onDivClick).not.toHaveBeenCalled();
     });
 
     it('the first parameter of onCopy is the click event', () => {

@@ -1,5 +1,5 @@
 ---
-category: Ant Design
+group: Ant Design
 order: 2
 title: Cases
 ---
@@ -12,14 +12,6 @@ Currently, there are many products and sites using Ant Design. If your solutions
 
 ---
 
-### Umi UI
-
-The local R&D workbench for Umi projects, code based, visualization function as an aid, further improve project development efficiency.
-
-[More](https://umijs.org/guide/umi-ui.html#%E2%9C%A8-%E7%89%B9%E6%80%A7)
-
-![Umi UI](https://gw.alipayobjects.com/zos/antfincdn/Xyns37N5nY/6591859e-7c16-48f5-852f-7817803425e9.png)
-
 ### Ant Financial Technology
 
 Cloud-oriented financial services, used by financial institutions that benefit from customized business cloud computing services. It assists financial institutions to upgrade to a new financial restructuring, promotion of capacity platforms, data and technology.
@@ -28,17 +20,13 @@ Cloud-oriented financial services, used by financial institutions that benefit f
 
 ![Ant Financial Technology](https://gw.alipayobjects.com/zos/rmsportal/zQMWTCnhWwYNzEURbDUn.png)
 
----
-
 ### OceanBase Cloud Platform
 
 OceanBase Cloud is a distributed relational database in a real sense, and OceanBase Cloud Platform is the OceanBase cloud-based database service that can help users quickly create and use OceanBase service.
 
-[Visit](http://oceanbase.alipay.com)
+[Visit](https://en.oceanbase.com/docs/)
 
 ![OceanBase Cloud Platform](https://gw.alipayobjects.com/zos/rmsportal/OYGCAlMwSWkdaKfxIDtz.png)
-
----
 
 ### Ant Design Pro
 

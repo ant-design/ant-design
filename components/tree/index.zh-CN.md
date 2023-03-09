@@ -1,9 +1,12 @@
 ---
 category: Components
-type: 数据展示
+group: 数据展示
 title: Tree
 subtitle: 树形控件
-cover: https://gw.alipayobjects.com/zos/alicdn/Xh-oWqg9k/Tree.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Ag9_Q6ArswEAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*1GeUQJPTGUYAAAAAAAAAAAAADrJ8AQ/original
+demo:
+  cols: 2
 ---
 
 多层次的结构列表。
@@ -12,10 +15,28 @@ cover: https://gw.alipayobjects.com/zos/alicdn/Xh-oWqg9k/Tree.svg
 
 文件夹、组织架构、生物分类、国家地区等等，世间万物的大多数结构都是树形结构。使用 `树控件` 可以完整展现其中的层级关系，并具有展开收起选择等交互功能。
 
+## 代码演示
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">基本</code>
+<code src="./demo/basic-controlled.tsx">受控操作示例</code>
+<code src="./demo/draggable.tsx">拖动示例</code>
+<code src="./demo/dynamic.tsx">异步数据加载</code>
+<code src="./demo/search.tsx">可搜索</code>
+<code src="./demo/line.tsx">连接线</code>
+<code src="./demo/customized-icon.tsx">自定义图标</code>
+<code src="./demo/directory.tsx">目录</code>
+<code src="./demo/switcher-icon.tsx">自定义展开/折叠图标</code>
+<code src="./demo/virtual-scroll.tsx">虚拟滚动</code>
+<code src="./demo/drag-debug.tsx" debug>Drag Debug</code>
+<code src="./demo/big-data.tsx" debug>大数据</code>
+<code src="./demo/block-node.tsx">占据整行</code>
+
 ## API
 
 ### Tree props
 
+<!-- prettier-ignore -->
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | allowDrop | 是否允许拖拽时放置在该节点 | ({ dropNode, dropPosition }) => boolean | - |  |
@@ -44,7 +65,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/Xh-oWqg9k/Tree.svg
 | selectable | 是否可选中 | boolean | true |  |
 | selectedKeys | （受控）设置选中的树节点 | string\[] | - |  |
 | showIcon | 是否展示 TreeNode title 前的图标，没有默认样式，如设置为 true，需要自行定义图标相关样式 | boolean | false |  |
-| showLine | 是否展示连接线 | boolean \| {showLeafIcon: boolean} | false |  |
+| showLine | 是否展示连接线 | boolean \| {showLeafIcon: boolean \| ReactNode | ((props: AntTreeNodeProps) => ReactNode)} | false |  |
 | switcherIcon | 自定义树节点的展开/折叠图标 | ReactNode \| ((props: AntTreeNodeProps) => ReactNode) | - | renderProps: 4.20.0 |
 | titleRender | 自定义渲染节点 | (nodeData) => ReactNode | - | 4.5.0 |
 | treeData | treeNodes 数据，如果设置则不需要手动构造 TreeNode 节点（key 在整个树范围内唯一） | array&lt;{key, title, children, \[disabled, selectable]}> | - |  |
@@ -88,7 +109,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/Xh-oWqg9k/Tree.svg
 {
   this.state.treeData.length ? (
     <Tree>
-      {this.state.treeData.map(data => (
+      {this.state.treeData.map((data) => (
         <TreeNode />
       ))}
     </Tree>
@@ -110,9 +131,9 @@ cover: https://gw.alipayobjects.com/zos/alicdn/Xh-oWqg9k/Tree.svg
 
 文件图标通过 switcherIcon 来实现，如果不需要你可以覆盖对应的样式：<https://codesandbox.io/s/883vo47xp8>
 
-### defaultExpandedAll 在异步加载数据时为何不生效？
+### defaultExpandAll 在异步加载数据时为何不生效？
 
-`default` 前缀属性只有在初始化时生效，因而异步加载数据时 `defaultExpandedAll` 已经执行完成。你可以通过受控 `expandedKeys` 或者在数据加载完成后渲染 Tree 来实现全部展开。
+`default` 前缀属性只有在初始化时生效，因而异步加载数据时 `defaultExpandAll` 已经执行完成。你可以通过受控 `expandedKeys` 或者在数据加载完成后渲染 Tree 来实现全部展开。
 
 ### 虚拟滚动的限制
 

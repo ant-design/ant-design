@@ -8,7 +8,9 @@ on:
       - feature
       - 2.x-stable
       - 3.x-stable
+      - 4.x-stable
   create:
+  workflow_dispatch:
 
 permissions:
   contents: read

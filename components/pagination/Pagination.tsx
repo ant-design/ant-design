@@ -3,14 +3,15 @@ import DoubleRightOutlined from '@ant-design/icons/DoubleRightOutlined';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
 import classNames from 'classnames';
-import type { PaginationProps as RcPaginationProps } from 'rc-pagination';
-import RcPagination, { PaginationLocale } from 'rc-pagination';
+import type { PaginationLocale, PaginationProps as RcPaginationProps } from 'rc-pagination';
+import RcPagination from 'rc-pagination';
 import enUS from 'rc-pagination/lib/locale/en_US';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
-import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import useLocale from '../locale/useLocale';
 import { MiddleSelect, MiniSelect } from './Select';
+import useStyle from './style';
 
 export interface PaginationProps extends RcPaginationProps {
   showQuickJumper?: boolean | { goButton?: React.ReactNode };
@@ -18,20 +19,25 @@ export interface PaginationProps extends RcPaginationProps {
   responsive?: boolean;
   role?: string;
   totalBoundaryShowSizeChanger?: number;
+  rootClassName?: string;
 }
 
 export type PaginationPosition = 'top' | 'bottom' | 'both';
 
-export interface PaginationConfig extends PaginationProps {
+export type PaginationAlign = 'start' | 'center' | 'end';
+
+export interface PaginationConfig extends Omit<PaginationProps, 'rootClassName'> {
   position?: PaginationPosition;
+  align?: PaginationAlign;
 }
 
-export { PaginationLocale };
+export type { PaginationLocale };
 
 const Pagination: React.FC<PaginationProps> = ({
   prefixCls: customizePrefixCls,
   selectPrefixCls: customizeSelectPrefixCls,
   className,
+  rootClassName,
   size,
   locale: customLocale,
   selectComponentClass,
@@ -43,6 +49,9 @@ const Pagination: React.FC<PaginationProps> = ({
 
   const { getPrefixCls, direction, pagination = {} } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('pagination', customizePrefixCls);
+
+  // Style
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const mergedShowSizeChanger = showSizeChanger ?? pagination.showSizeChanger;
 
@@ -81,45 +90,41 @@ const Pagination: React.FC<PaginationProps> = ({
       [prevIcon, nextIcon] = [nextIcon, prevIcon];
       [jumpPrevIcon, jumpNextIcon] = [jumpNextIcon, jumpPrevIcon];
     }
-    return {
-      prevIcon,
-      nextIcon,
-      jumpPrevIcon,
-      jumpNextIcon,
-    };
+    return { prevIcon, nextIcon, jumpPrevIcon, jumpNextIcon };
   };
 
-  const renderPagination = (contextLocale: PaginationLocale) => {
-    const locale = { ...contextLocale, ...customLocale };
-    const isSmall = size === 'small' || !!(xs && !size && responsive);
-    const selectPrefixCls = getPrefixCls('select', customizeSelectPrefixCls);
-    const extendedClassName = classNames(
-      {
-        [`${prefixCls}-mini`]: isSmall,
-        [`${prefixCls}-rtl`]: direction === 'rtl',
-      },
-      className,
-    );
+  const [contextLocale] = useLocale('Pagination', enUS);
 
-    return (
-      <RcPagination
-        {...getIconsProps()}
-        {...restProps}
-        prefixCls={prefixCls}
-        selectPrefixCls={selectPrefixCls}
-        className={extendedClassName}
-        selectComponentClass={selectComponentClass || (isSmall ? MiniSelect : MiddleSelect)}
-        locale={locale}
-        showSizeChanger={mergedShowSizeChanger}
-      />
-    );
-  };
+  const locale = { ...contextLocale, ...customLocale };
 
-  return (
-    <LocaleReceiver componentName="Pagination" defaultLocale={enUS}>
-      {renderPagination}
-    </LocaleReceiver>
+  const isSmall = size === 'small' || !!(xs && !size && responsive);
+  const selectPrefixCls = getPrefixCls('select', customizeSelectPrefixCls);
+  const extendedClassName = classNames(
+    {
+      [`${prefixCls}-mini`]: isSmall,
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+    },
+    className,
+    rootClassName,
+    hashId,
+  );
+
+  return wrapSSR(
+    <RcPagination
+      {...getIconsProps()}
+      {...restProps}
+      prefixCls={prefixCls}
+      selectPrefixCls={selectPrefixCls}
+      className={extendedClassName}
+      selectComponentClass={selectComponentClass || (isSmall ? MiniSelect : MiddleSelect)}
+      locale={locale}
+      showSizeChanger={mergedShowSizeChanger}
+    />,
   );
 };
+
+if (process.env.NODE_ENV !== 'production') {
+  Pagination.displayName = 'Pagination';
+}
 
 export default Pagination;

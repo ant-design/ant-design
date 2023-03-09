@@ -1,8 +1,7 @@
-import { mount } from 'enzyme';
 import React from 'react';
 import { act } from 'react-dom/test-utils';
 import Form from '..';
-import { sleep } from '../../../tests/utils';
+import { render, fireEvent, waitFakeTimer } from '../../../tests/utils';
 import Input from '../../input';
 import type { FormListOperation } from '../FormList';
 
@@ -12,13 +11,12 @@ describe('Form.List.NoStyle', () => {
 
     let operation: FormListOperation;
 
-    const wrapper = mount(
+    const { container } = render(
       <Form>
         <Form.List name="users">
           {(fields, op) => {
             operation = op;
-
-            return fields.map(field => (
+            return fields.map((field) => (
               <Form.Item key={field.key}>
                 <Form.Item
                   {...field}
@@ -36,39 +34,33 @@ describe('Form.List.NoStyle', () => {
     );
 
     // Add two
-    async function addItem() {
+    const addItem = async () => {
       await act(async () => {
-        operation!.add();
-        await sleep(100);
-        jest.runAllTimers();
-        wrapper.update();
+        operation?.add();
       });
-    }
 
-    addItem();
-    addItem();
+      await waitFakeTimer();
+    };
+
+    await addItem();
+    await addItem();
 
     // Submit
-    await act(async () => {
-      wrapper.find('form').simulate('submit');
-      await sleep(100);
-      jest.runAllTimers();
-      wrapper.update();
-    });
+    fireEvent.submit(container.querySelector('form')!);
+    await waitFakeTimer();
 
     // Remove first field
     await act(async () => {
-      operation!.remove(0);
-      await sleep(100);
-      jest.runAllTimers();
-      wrapper.update();
+      operation?.remove(0);
     });
+    await waitFakeTimer();
 
     // Match error message
-    expect(wrapper.find('.ant-form-item-explain-error').text()).toEqual(
+    expect(container.querySelector('.ant-form-item-explain-error')?.textContent).toBe(
       "'users.1.first' is required",
     );
 
+    jest.clearAllTimers();
     jest.useRealTimers();
   });
 });

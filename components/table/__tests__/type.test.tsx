@@ -1,6 +1,7 @@
 import * as React from 'react';
 import type { ColumnProps } from '..';
-import Table from '../Table';
+import type { TreeColumnFilterItem } from '../hooks/useFilter/FilterDropdown';
+import Table from '..';
 
 const { Column, ColumnGroup } = Table;
 
@@ -48,6 +49,8 @@ describe('Table.typescript types', () => {
       {
         title: 'Name',
         dataIndex: 'name',
+        filterSearch: (input: any, record: TreeColumnFilterItem) =>
+          (record.title as string).includes(input),
       },
     ];
 

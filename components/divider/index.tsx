@@ -1,6 +1,9 @@
 import classNames from 'classnames';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
+import warning from '../_util/warning';
+
+import useStyle from './style';
 
 export interface DividerProps {
   prefixCls?: string;
@@ -8,13 +11,14 @@ export interface DividerProps {
   orientation?: 'left' | 'right' | 'center';
   orientationMargin?: string | number;
   className?: string;
+  rootClassName?: string;
   children?: React.ReactNode;
   dashed?: boolean;
   style?: React.CSSProperties;
   plain?: boolean;
 }
 
-const Divider: React.FC<DividerProps> = props => {
+const Divider: React.FC<DividerProps> = (props) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
 
   const {
@@ -23,18 +27,22 @@ const Divider: React.FC<DividerProps> = props => {
     orientation = 'center',
     orientationMargin,
     className,
+    rootClassName,
     children,
     dashed,
     plain,
     ...restProps
   } = props;
   const prefixCls = getPrefixCls('divider', customizePrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
   const orientationPrefix = orientation.length > 0 ? `-${orientation}` : orientation;
   const hasChildren = !!children;
   const hasCustomMarginLeft = orientation === 'left' && orientationMargin != null;
   const hasCustomMarginRight = orientation === 'right' && orientationMargin != null;
   const classString = classNames(
     prefixCls,
+    hashId,
     `${prefixCls}-${type}`,
     {
       [`${prefixCls}-with-text`]: hasChildren,
@@ -46,6 +54,7 @@ const Divider: React.FC<DividerProps> = props => {
       [`${prefixCls}-no-default-orientation-margin-right`]: hasCustomMarginRight,
     },
     className,
+    rootClassName,
   );
 
   const innerStyle = {
@@ -53,15 +62,28 @@ const Divider: React.FC<DividerProps> = props => {
     ...(hasCustomMarginRight && { marginRight: orientationMargin }),
   };
 
-  return (
+  // Warning children not work in vertical mode
+  if (process.env.NODE_ENV !== 'production') {
+    warning(
+      !children || type !== 'vertical',
+      'Divider',
+      '`children` not working in `vertical` mode.',
+    );
+  }
+
+  return wrapSSR(
     <div className={classString} {...restProps} role="separator">
-      {children && (
+      {children && type !== 'vertical' && (
         <span className={`${prefixCls}-inner-text`} style={innerStyle}>
           {children}
         </span>
       )}
-    </div>
+    </div>,
   );
 };
+
+if (process.env.NODE_ENV !== 'production') {
+  Divider.displayName = 'Divider';
+}
 
 export default Divider;

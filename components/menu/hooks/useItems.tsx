@@ -10,24 +10,24 @@ import MenuDivider from '../MenuDivider';
 import MenuItem from '../MenuItem';
 import SubMenu from '../SubMenu';
 
-interface MenuItemType extends RcMenuItemType {
+export interface MenuItemType extends RcMenuItemType {
   danger?: boolean;
   icon?: React.ReactNode;
   title?: string;
 }
 
-interface SubMenuType extends Omit<RcSubMenuType, 'children'> {
+export interface SubMenuType extends Omit<RcSubMenuType, 'children'> {
   icon?: React.ReactNode;
   theme?: 'dark' | 'light';
   children: ItemType[];
 }
 
-interface MenuItemGroupType extends Omit<RcMenuItemGroupType, 'children'> {
+export interface MenuItemGroupType extends Omit<RcMenuItemGroupType, 'children'> {
   children?: ItemType[];
   key?: React.Key;
 }
 
-interface MenuDividerType extends RcMenuDividerType {
+export interface MenuDividerType extends RcMenuDividerType {
   dashed?: boolean;
   key?: React.Key;
 }
@@ -74,7 +74,7 @@ function convertItemsToNodes(list: ItemType[]) {
 
       return null;
     })
-    .filter(opt => opt);
+    .filter((opt) => opt);
 }
 
 // FIXME: Move logic here in v5
