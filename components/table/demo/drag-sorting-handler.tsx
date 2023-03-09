@@ -56,7 +56,7 @@ const Row = ({ children, ...props }: RowProps) => {
 
   const style: React.CSSProperties = {
     ...props.style,
-    transform: CSS.Transform.toString(transform && { ...transform, scaleY: 1 }).replace(
+    transform: CSS.Transform.toString(transform && { ...transform, scaleY: 1 })?.replace(
       /translate3d\(([^,]+),/,
       'translate3d(0,',
     ),
