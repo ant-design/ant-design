@@ -240,18 +240,29 @@ const theme = {
 
 ### 服务端渲染
 
-由于`ant-design`从 `5.0`起全面使用`css-in-js`的方式替代了`less`，但现有方案在`SSR`场景下只能将相关样式直接写入`HTML`的行间样式当中，导致`HTML`文件异常庞大，相关问题讨论详见：[#39891](https://github.com/ant-design/ant-design/issues/39891)，影响首屏渲染的速度。基于上述目的，我们提供了`@ant-design/static-style-extract`支持全量组件样式抽离（交互组件等非 SSR 场景显示的组件样式除外，如`Modal`，具体的黑名单列表详见：[static-style-extract](https://github.com/ant-design/static-style-extract/blob/610aae06c609ed366525d92199b8c56553a1e08f/src/index.tsx#L10)）。使用 `@ant-design/static-style-extract` 将得到我们预期的一个`css`字符串，在项目中，我们可以通过自己的方法将这个样式字符串写入到文件中引用。
+服务端渲染样式有两种方案，它们各有优缺点：
 
-#### 直接注入行间样式
+- **内联方式**：在渲染时无需额外请求样式文件，好处是减少额外的网络请求，缺点则是会使得 HTML 体积增大，影响首屏渲染速度，相关讨论参考：[#39891](https://github.com/ant-design/ant-design/issues/39891)
+- **整体导出**：提前烘焙 antd 组件样式为 css 文件，在页面中时引入。好处是打开任意页面时如传统 css 方案一样都会复用同一套 css 文件以命中缓存，缺点是如果页面中存在多主题，则需要额外进行烘焙
 
-```tsx | pure
-import { extractStyle } from '@ant-design/static-style-extract';
+#### 内联方式
+
+```tsx
+import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
 import { renderToString } from 'react-dom/server';
 
 export default () => {
-  const html = renderToString(<MyApp />);
+  // SSR Render
+  const cache = createCache();
 
-  const styleText = extractStyle();
+  const html = renderToString(
+    <StyleProvider cache={cache}>
+      <MyApp />
+    </StyleProvider>,
+  );
+
+  // Grab style from cache
+  const styleText = extractStyle(cache);
 
   // Mix with style
   return `
@@ -268,7 +279,7 @@ export default () => {
 };
 ```
 
-#### 抽离至样式文件动态引入
+#### 整体导出
 
 如果你想要将样式文件抽离到 css 文件中，可以尝试使用以下脚本：
 
@@ -319,6 +330,8 @@ export default function App({ Component, pageProps }: AppProps) {
   );
 }
 ```
+
+更多`static-style-extract`的实现细节请看：[static-style-extract](https://github.com/ant-design/static-style-extract)。
 
 ### 兼容旧版浏览器
 
