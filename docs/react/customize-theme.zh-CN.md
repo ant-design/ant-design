@@ -247,6 +247,8 @@ const theme = {
 
 #### 内联方式
 
+使用 `@ant-design/cssinjs` 将所需样式抽离：
+
 ```tsx
 import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
 import { renderToString } from 'react-dom/server';

@@ -251,6 +251,8 @@ There are two options for server-side rendering styles, each with advantages and
 
 #### Inline mode
 
+Use `@ant-design/cssinjs` to extract style:
+
 ```tsx
 import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
 import { renderToString } from 'react-dom/server';
