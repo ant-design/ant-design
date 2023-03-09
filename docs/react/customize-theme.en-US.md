@@ -244,7 +244,7 @@ Please ref to [CSS Compatible](/docs/react/compatible-style).
 
 ### Server Side Render (SSR)
 
-Use `@ant-design/cssinjs` to extract style:
+Since ant-design from 5.0 fully uses css-in-js to replace less, but the existing scheme in SSR scenario can only directly write the relevant style files into HTML, resulting in HTML files abnormally large, related problems are discussed for details: [#39891](https://github.com/ant-design/ant-design/issues/39891), affecting the rendering speed of the first screen. Based on the above purpose, we provide '@ant-design/static-style-extract' to support full component style extraction (except component styles displayed in non-SSR scenarios such as interactive components, such as Modal, for the specific blacklist list, see: [static-style-extract](https://github.com/ant-design/static-style-extract/blob/610aae06c609ed366525d92199b8c56553a1e08f/ src/index.tsx#L10)). Using '@ant-design/static-style-extract' gives us a css string that we expect, and in the project we can write this style string to a file reference in our own way.
 
 ```tsx
 import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
