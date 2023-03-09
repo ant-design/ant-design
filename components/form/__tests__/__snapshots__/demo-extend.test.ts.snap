@@ -20515,7 +20515,6 @@ exports[`renders ./components/form/demo/validate-static.tsx extend context corre
                 aria-required="true"
                 class="ant-input"
                 id="Email"
-                placeholder="unavailable choice"
                 type="text"
                 value="test@qq.com"
               />

@@ -49,7 +49,7 @@ const App: React.FC = () => {
           },
         ]}
       >
-        <Input placeholder="unavailable choice" id="Email" />
+        <Input id="Email" />
       </Form.Item>
       <Form.Item
         label="Fail"
