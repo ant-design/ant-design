@@ -1,7 +1,6 @@
 import { render } from 'rc-util/lib/React/render';
 import * as React from 'react';
-import ConfigProvider, { existTheme, globalConfig } from '../config-provider';
-import warning from '../_util/warning';
+import ConfigProvider, { globalConfig, warnContext } from '../config-provider';
 import type {
   ArgsProps,
   ConfigOptions,
@@ -265,11 +264,7 @@ function open(config: ArgsProps): MessageType {
 function typeOpen(type: NoticeType, args: Parameters<TypeOpen>): MessageType {
   // Warning if exist theme
   if (process.env.NODE_ENV !== 'production') {
-    warning(
-      !existTheme(),
-      'message',
-      `Static function can not consume context like dynamic theme. Please use 'App' component instead.`,
-    );
+    warnContext('message');
   }
 
   const result = wrapPromiseFn((resolve) => {

@@ -32,8 +32,17 @@ import useStyle from './style';
  * we record the theme register info here to help developer get warning info.
  */
 let existThemeConfig = false;
-export const existTheme: () => boolean =
-  process.env.NODE_ENV !== 'production' ? () => existThemeConfig : null!;
+
+export const warnContext: (componentName: string) => void =
+  process.env.NODE_ENV !== 'production'
+    ? (componentName: string) => {
+        warning(
+          !existThemeConfig,
+          componentName,
+          `Static function can not consume context like dynamic theme. Please use 'App' component instead.`,
+        );
+      }
+    : null!;
 
 export {
   type RenderEmptyHandler,
