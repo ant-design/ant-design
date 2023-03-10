@@ -1,5 +1,7 @@
-import React from 'react';
+import { renderHook } from '@testing-library/react';
+import useEvent from 'rc-util/lib/hooks/useEvent';
 import { resetWarned } from 'rc-util/lib/warning';
+import React from 'react';
 import scrollIntoView from 'scroll-into-view-if-needed';
 
 import Anchor from '..';
@@ -885,6 +887,27 @@ describe('Anchor Render', () => {
       expect(errSpy).toHaveBeenCalledWith(
         'Warning: [antd: Anchor.Link] `Anchor.Link children` is not supported when `Anchor` direction is horizontal',
       );
+    });
+
+    it('useEvent should work with basic variable', () => {
+      const setTestCount = (val?: number) => renderHook(useEvent, { initialProps: () => val });
+      const { result, rerender } = setTestCount(0);
+      expect(result.current()).toBe(0);
+      rerender(() => 1);
+      expect(result.current()).toBe(1);
+      rerender(() => 2);
+      expect(result.current()).toBe(2);
+      rerender(() => 3);
+      expect(result.current()).toBe(3);
+    });
+
+    it('useEvent should work with reference variable', async () => {
+      const setTestCount = (val?: any) => renderHook(useEvent, { initialProps: () => val });
+      const { result, rerender } = setTestCount();
+      rerender(() => []);
+      expect(result.current()).toEqual([]);
+      rerender(() => ({}));
+      expect(result.current()).toEqual({});
     });
   });
 });
