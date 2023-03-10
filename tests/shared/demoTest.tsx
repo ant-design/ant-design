@@ -53,10 +53,7 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
         // Demo Test also include `dist` test which is already uglified.
         // We need test this as SSR instead.
         const html = renderToString(Demo);
-        expect({
-          type: 'demo',
-          html,
-        }).toMatchSnapshot();
+        expect({ type: 'demo', html }).toMatchSnapshot();
 
         errSpy.mockRestore();
       },
