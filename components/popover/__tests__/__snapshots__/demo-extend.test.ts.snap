@@ -815,6 +815,105 @@ Array [
 ]
 `;
 
+exports[`renders components/popover/demo/custom-Popconfirm.tsx extend context correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center"
+>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn ant-btn-primary"
+      type="button"
+    >
+      <span>
+        Click me
+      </span>
+    </button>
+    <div
+      class="ant-popover ant-popover-placement-top"
+      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    >
+      <div
+        class="ant-popover-arrow"
+        style="position:absolute;bottom:0;left:0"
+      />
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-inner"
+          role="tooltip"
+        >
+          <div
+            class="ant-popover-title"
+          />
+          <div
+            class="ant-popover-inner-content"
+          >
+            <div>
+              <div
+                class="content"
+                style="padding-bottom:15px"
+              >
+                Are you sure to examine and verify this task?
+              </div>
+              <div
+                class="footer"
+                style="text-align:right"
+              >
+                <div
+                  class="ant-space ant-space-horizontal ant-space-align-center"
+                >
+                  <div
+                    class="ant-space-item"
+                    style="margin-right:8px"
+                  >
+                    <button
+                      class="ant-btn ant-btn-primary"
+                      type="button"
+                    >
+                      <span>
+                        Success
+                      </span>
+                    </button>
+                  </div>
+                  <div
+                    class="ant-space-item"
+                    style="margin-right:8px"
+                  >
+                    <button
+                      class="ant-btn ant-btn-primary ant-btn-dangerous"
+                      type="button"
+                    >
+                      <span>
+                        Fail
+                      </span>
+                    </button>
+                  </div>
+                  <div
+                    class="ant-space-item"
+                  >
+                    <button
+                      class="ant-btn ant-btn-default"
+                      type="button"
+                    >
+                      <span>
+                        Cancel
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders components/popover/demo/hover-with-click.tsx extend context correctly 1`] = `
 Array [
   <button

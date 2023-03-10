@@ -1,7 +1,7 @@
 ## zh-CN
 
-Debug usage
+多样的 Child
 
 ## en-US
 
-Debug usage
+Diverse Child
