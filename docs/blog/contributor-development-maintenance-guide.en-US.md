@@ -12,7 +12,7 @@ During the journey from user to contributor, and then from contributor to collab
 
 ### About dependent version
 
-Popular package managers, whether `npm`, `yarn`, or `pnpm`, offer version-locking solutions that, most of the time, help us avoid version-inconsistencies in packages.However, in **ant-design** projects, many functions depend on the original components in the **react-component** repository. We expect that when we encounter some bugs, after the **react-component** fixes and releases the patch version, Instead of manually upgrading the version in the **ant-design** project, we can install the latest patch installation package only by reinstalling the dependencies.At this point, the version-lock file provided by the package manager is the main obstacle to automatic updates, because once the version-lock file is available, reinstalling the dependency will also install the version specified by the lock file and cannot be upgraded to the patch version.
+Popular package managers, whether npm, yarn, or pnpm, offer version-locking solutions that, most of the time, help us avoid version-inconsistencies in packages.However, in **ant-design** projects, many functions depend on the original components in the **react-component** repository. We expect that when we encounter some bugs, after the **react-component** fixes and releases the patch version, Instead of manually upgrading the version in the **ant-design** project, we can install the latest patch installation package only by reinstalling the dependencies.At this point, the version-lock file provided by the package manager is the main obstacle to automatic updates, because once the version-lock file is available, reinstalling the dependency will also install the version specified by the lock file and cannot be upgraded to the patch version.
 
 Based on the above reasons, we adopt the following methods:
 
@@ -64,9 +64,9 @@ Going back to the original question, what should we do if we change a demo and f
 
    - You may have locally changed the core code in addition to the demo, causing the logic to change. You need to go over this change carefully.
 
-### rc-\*Library dependencies
+### rc-x Library dependencies
 
-In **ant-design**, most components are an upper encapsulation of a component based on **react-component**. Therefore, if a user reports a bug, when we troubleshoot the problem, if we find the problem is in the **@react-component/\*\*\*** or **rc-\*\*\*** component, Then we need to put pr on those components to fix it.After the fix, we need to verify the fix results in the **ant-design** project, then we can link the project to the **ant-design** project for verification.For example:
+In **ant-design**, most components are an upper encapsulation of a component based on **react-component**. Therefore, if a user reports a bug, when we troubleshoot the problem, if we find the problem is in the **@react-component/xxx** or **rc-xxx** component, Then we need to put pr on those components to fix it.After the fix, we need to verify the fix results in the **ant-design** project, then we can link the project to the **ant-design** project for verification.For example:
 
 Run `yarn link` under the rc project.
 
@@ -126,7 +126,6 @@ After contributing for some time, I believe you have gained a deeper understandi
 After you become a newly appointed AntDesign collaborator, you will be assigned some additional rights, such as:
 
 - Tag the issue
-
 - Close the issue
 - Free to create branches under the AntDesign project
 - Free to merge approved PR
