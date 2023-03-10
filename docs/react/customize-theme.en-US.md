@@ -298,13 +298,11 @@ const outputPath = './public/antd.min.css';
 
 const css = extractStyle();
 fs.writeFileSync(outputPath, css);
-
-console.log(`🎉 Antd CSS generated at ${outputPath}`);
 ```
 
-You can choose to execute this script before starting the development command or before compiling. Running this script will generate a full antd.min.css file directly in the specified directory of the current project (e.g. 'public').
+You can choose to execute this script before starting the development command or before compiling. Running this script will generate a full antd.min.css file directly in the specified directory of the current project (e.g. public).
 
-Take 'Next.js' for example（[example](https://github.com/ant-design/create-next-app-antd)）：
+Take Next.js for example（[example](https://github.com/ant-design/create-next-app-antd)）：
 
 ```json
 // package.json
@@ -337,7 +335,28 @@ export default function App({ Component, pageProps }: AppProps) {
 }
 ```
 
-More about 'static-style-extract', see [static-style-extract](https://github.com/ant-design/static-style-extract).
+#### Mixed theme
+
+If you're using a mixed theme for your project, try baking in the following ways:
+
+```tsx
+import { extractStyle } from '@ant-design/static-style-extract';
+import { ConfigProvider } from 'antd';
+
+const cssText = extractStyle((node) => (
+  <ConfigProvider
+    theme={{
+      token: {
+        colorPrimary: 'red',
+      },
+    }}
+  >
+    {node}
+  </ConfigProvider>
+));
+```
+
+More about static-style-extract, see [static-style-extract](https://github.com/ant-design/static-style-extract).
 
 ### Shadow DOM Usage
 

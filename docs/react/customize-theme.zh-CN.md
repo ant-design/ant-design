@@ -294,13 +294,11 @@ const outputPath = './public/antd.min.css';
 
 const css = extractStyle();
 fs.writeFileSync(outputPath, css);
-
-console.log(`🎉 Antd CSS generated at ${outputPath}`);
 ```
 
-你可以选择在启动开发命令或编译前执行这个脚本，运行上述脚本将会在当前项目的指定（如：`public`目录）目录下直接生成一个全量的`antd.min.css`文件。
+你可以选择在启动开发命令或编译前执行这个脚本，运行上述脚本将会在当前项目的指定（如： public 目录）目录下直接生成一个全量的 antd.min.css 文件。
 
-以`Next.js`为例（[参考示例](https://github.com/ant-design/create-next-app-antd)）：
+以 Next.js 为例（[参考示例](https://github.com/ant-design/create-next-app-antd)）：
 
 ```json
 // package.json
@@ -331,6 +329,27 @@ export default function App({ Component, pageProps }: AppProps) {
     </StyleProvider>
   );
 }
+```
+
+#### 混合主题
+
+如果你的项目中使用了混合主题，可以尝试通过以下方式进行烘焙：
+
+```tsx
+import { extractStyle } from '@ant-design/static-style-extract';
+import { ConfigProvider } from 'antd';
+
+const cssText = extractStyle((node) => (
+  <ConfigProvider
+    theme={{
+      token: {
+        colorPrimary: 'red',
+      },
+    }}
+  >
+    {node}
+  </ConfigProvider>
+));
 ```
 
 更多`static-style-extract`的实现细节请看：[static-style-extract](https://github.com/ant-design/static-style-extract)。
