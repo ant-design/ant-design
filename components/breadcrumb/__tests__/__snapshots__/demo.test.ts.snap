@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/breadcrumb/demo/basic.tsx correctly 1`] = `
+exports[`renders components/breadcrumb/demo/basic.tsx correctly 1`] = `
 <nav
   class="ant-breadcrumb"
 >
@@ -63,7 +63,7 @@ exports[`renders ./components/breadcrumb/demo/basic.tsx correctly 1`] = `
 </nav>
 `;
 
-exports[`renders ./components/breadcrumb/demo/debug-routes.tsx correctly 1`] = `
+exports[`renders components/breadcrumb/demo/debug-routes.tsx correctly 1`] = `
 <nav
   class="ant-breadcrumb"
 >
@@ -117,7 +117,7 @@ exports[`renders ./components/breadcrumb/demo/debug-routes.tsx correctly 1`] = `
 </nav>
 `;
 
-exports[`renders ./components/breadcrumb/demo/overlay.tsx correctly 1`] = `
+exports[`renders components/breadcrumb/demo/overlay.tsx correctly 1`] = `
 <nav
   class="ant-breadcrumb"
 >
@@ -203,7 +203,7 @@ exports[`renders ./components/breadcrumb/demo/overlay.tsx correctly 1`] = `
 </nav>
 `;
 
-exports[`renders ./components/breadcrumb/demo/separator.tsx correctly 1`] = `
+exports[`renders components/breadcrumb/demo/separator.tsx correctly 1`] = `
 <nav
   class="ant-breadcrumb"
 >
@@ -260,7 +260,7 @@ exports[`renders ./components/breadcrumb/demo/separator.tsx correctly 1`] = `
 </nav>
 `;
 
-exports[`renders ./components/breadcrumb/demo/separator-component.tsx correctly 1`] = `
+exports[`renders components/breadcrumb/demo/separator-component.tsx correctly 1`] = `
 <nav
   class="ant-breadcrumb"
 >
@@ -317,7 +317,7 @@ exports[`renders ./components/breadcrumb/demo/separator-component.tsx correctly 
 </nav>
 `;
 
-exports[`renders ./components/breadcrumb/demo/withIcon.tsx correctly 1`] = `
+exports[`renders components/breadcrumb/demo/withIcon.tsx correctly 1`] = `
 <nav
   class="ant-breadcrumb"
 >

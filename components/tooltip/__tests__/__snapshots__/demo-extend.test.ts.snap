@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/tooltip/demo/arrow.tsx extend context correctly 1`] = `
+exports[`renders components/tooltip/demo/arrow.tsx extend context correctly 1`] = `
 <div
   class="demo"
 >
@@ -438,7 +438,7 @@ exports[`renders ./components/tooltip/demo/arrow.tsx extend context correctly 1`
 </div>
 `;
 
-exports[`renders ./components/tooltip/demo/arrow-point-at-center.tsx extend context correctly 1`] = `
+exports[`renders components/tooltip/demo/arrow-point-at-center.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -508,7 +508,7 @@ exports[`renders ./components/tooltip/demo/arrow-point-at-center.tsx extend cont
 </div>
 `;
 
-exports[`renders ./components/tooltip/demo/auto-adjust-overflow.tsx extend context correctly 1`] = `
+exports[`renders components/tooltip/demo/auto-adjust-overflow.tsx extend context correctly 1`] = `
 <div
   style="display:flex;flex-direction:column;row-gap:16px"
 >
@@ -611,7 +611,7 @@ exports[`renders ./components/tooltip/demo/auto-adjust-overflow.tsx extend conte
 </div>
 `;
 
-exports[`renders ./components/tooltip/demo/basic.tsx extend context correctly 1`] = `
+exports[`renders components/tooltip/demo/basic.tsx extend context correctly 1`] = `
 Array [
   <span>
     Tooltip will show on mouse enter.
@@ -638,7 +638,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/tooltip/demo/colorful.tsx extend context correctly 1`] = `
+exports[`renders components/tooltip/demo/colorful.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
@@ -1221,39 +1221,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/tooltip/demo/debug.tsx extend context correctly 1`] = `
-Array [
-  <div
-    class="ant-tooltip ant-tooltip-placement-topLeft"
-    style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-  >
-    <div
-      class="ant-tooltip-arrow"
-      style="position:absolute"
-    />
-    <div
-      class="ant-tooltip-content"
-    >
-      <div
-        class="ant-tooltip-inner"
-        role="tooltip"
-      >
-        Thanks for using antd. Have a nice day!
-      </div>
-    </div>
-  </div>,
-  <button
-    class="ant-btn ant-btn-default ant-tooltip-open"
-    type="button"
-  >
-    <span>
-      Point at center
-    </span>
-  </button>,
-]
-`;
-
-exports[`renders ./components/tooltip/demo/destroy-tooltip-on-hide.tsx extend context correctly 1`] = `
+exports[`renders components/tooltip/demo/destroy-tooltip-on-hide.tsx extend context correctly 1`] = `
 Array [
   <span>
     Tooltip will destroy when hidden.
@@ -1280,7 +1248,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/tooltip/demo/placement.tsx extend context correctly 1`] = `
+exports[`renders components/tooltip/demo/placement.tsx extend context correctly 1`] = `
 <div>
   <div
     style="margin-left:70px;white-space:nowrap"
@@ -1649,7 +1617,7 @@ exports[`renders ./components/tooltip/demo/placement.tsx extend context correctl
 </div>
 `;
 
-exports[`renders ./components/tooltip/demo/render-panel.tsx extend context correctly 1`] = `
+exports[`renders components/tooltip/demo/render-panel.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-tooltip ant-tooltip-pure ant-tooltip-placement-top ant-tooltip-pink"
@@ -1706,40 +1674,4 @@ Array [
     </div>
   </div>,
 ]
-`;
-
-exports[`renders ./components/tooltip/demo/shift.tsx extend context correctly 1`] = `
-<div>
-  <div
-    style="width:300vw;height:300vh;display:flex;align-items:center;justify-content:center"
-  >
-    <div
-      class="ant-tooltip ant-tooltip-placement-top"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
-    >
-      <div
-        class="ant-tooltip-arrow"
-        style="position:absolute;bottom:0;left:0"
-      />
-      <div
-        class="ant-tooltip-content"
-      >
-        <div
-          class="ant-tooltip-inner"
-          role="tooltip"
-        >
-          Thanks for using antd. Have a nice day!
-        </div>
-      </div>
-    </div>
-    <button
-      class="ant-btn ant-btn-default ant-tooltip-open"
-      type="button"
-    >
-      <span>
-        Scroll The Window
-      </span>
-    </button>
-  </div>
-</div>
 `;

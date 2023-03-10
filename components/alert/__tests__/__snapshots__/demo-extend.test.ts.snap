@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/alert/demo/action.tsx extend context correctly 1`] = `
+exports[`renders components/alert/demo/action.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
   style="width:100%"
@@ -287,7 +287,7 @@ exports[`renders ./components/alert/demo/action.tsx extend context correctly 1`]
 </div>
 `;
 
-exports[`renders ./components/alert/demo/banner.tsx extend context correctly 1`] = `
+exports[`renders components/alert/demo/banner.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
   style="width:100%"
@@ -456,7 +456,7 @@ exports[`renders ./components/alert/demo/banner.tsx extend context correctly 1`]
 </div>
 `;
 
-exports[`renders ./components/alert/demo/basic.tsx extend context correctly 1`] = `
+exports[`renders components/alert/demo/basic.tsx extend context correctly 1`] = `
 <div
   class="ant-alert ant-alert-success ant-alert-no-icon"
   data-show="true"
@@ -474,7 +474,7 @@ exports[`renders ./components/alert/demo/basic.tsx extend context correctly 1`] 
 </div>
 `;
 
-exports[`renders ./components/alert/demo/closable.tsx extend context correctly 1`] = `
+exports[`renders components/alert/demo/closable.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
   style="width:100%"
@@ -576,7 +576,7 @@ exports[`renders ./components/alert/demo/closable.tsx extend context correctly 1
 </div>
 `;
 
-exports[`renders ./components/alert/demo/close-text.tsx extend context correctly 1`] = `
+exports[`renders components/alert/demo/close-text.tsx extend context correctly 1`] = `
 <div
   class="ant-alert ant-alert-info ant-alert-no-icon"
   data-show="true"
@@ -605,7 +605,7 @@ exports[`renders ./components/alert/demo/close-text.tsx extend context correctly
 </div>
 `;
 
-exports[`renders ./components/alert/demo/custom-icon.tsx extend context correctly 1`] = `
+exports[`renders components/alert/demo/custom-icon.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
   style="width:100%"
@@ -964,7 +964,7 @@ exports[`renders ./components/alert/demo/custom-icon.tsx extend context correctl
 </div>
 `;
 
-exports[`renders ./components/alert/demo/description.tsx extend context correctly 1`] = `
+exports[`renders components/alert/demo/description.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
   style="width:100%"
@@ -1071,7 +1071,7 @@ exports[`renders ./components/alert/demo/description.tsx extend context correctl
 </div>
 `;
 
-exports[`renders ./components/alert/demo/error-boundary.tsx extend context correctly 1`] = `
+exports[`renders components/alert/demo/error-boundary.tsx extend context correctly 1`] = `
 <button
   class="ant-btn ant-btn-default ant-btn-dangerous"
   type="button"
@@ -1082,7 +1082,7 @@ exports[`renders ./components/alert/demo/error-boundary.tsx extend context corre
 </button>
 `;
 
-exports[`renders ./components/alert/demo/icon.tsx extend context correctly 1`] = `
+exports[`renders components/alert/demo/icon.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
   style="width:100%"
@@ -1471,7 +1471,7 @@ exports[`renders ./components/alert/demo/icon.tsx extend context correctly 1`] =
 </div>
 `;
 
-exports[`renders ./components/alert/demo/smooth-closed.tsx extend context correctly 1`] = `
+exports[`renders components/alert/demo/smooth-closed.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
   style="width:100%"
@@ -1557,7 +1557,7 @@ exports[`renders ./components/alert/demo/smooth-closed.tsx extend context correc
 </div>
 `;
 
-exports[`renders ./components/alert/demo/style.tsx extend context correctly 1`] = `
+exports[`renders components/alert/demo/style.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
   style="width:100%"

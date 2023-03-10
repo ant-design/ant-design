@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/anchor/demo/basic.tsx extend context correctly 1`] = `
+exports[`renders components/anchor/demo/basic.tsx extend context correctly 1`] = `
 <div
   class="ant-row"
 >
@@ -78,7 +78,7 @@ exports[`renders ./components/anchor/demo/basic.tsx extend context correctly 1`]
 </div>
 `;
 
-exports[`renders ./components/anchor/demo/customizeHighlight.tsx extend context correctly 1`] = `
+exports[`renders components/anchor/demo/customizeHighlight.tsx extend context correctly 1`] = `
 <div
   class="ant-anchor-wrapper"
   style="max-height:100vh"
@@ -148,7 +148,7 @@ exports[`renders ./components/anchor/demo/customizeHighlight.tsx extend context 
 </div>
 `;
 
-exports[`renders ./components/anchor/demo/horizontal.tsx extend context correctly 1`] = `
+exports[`renders components/anchor/demo/horizontal.tsx extend context correctly 1`] = `
 Array [
   <div
     style="padding:20px"
@@ -267,7 +267,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/anchor/demo/legacy-anchor.tsx extend context correctly 1`] = `
+exports[`renders components/anchor/demo/legacy-anchor.tsx extend context correctly 1`] = `
 <div
   class="ant-anchor-wrapper"
   style="max-height:100vh"
@@ -337,7 +337,7 @@ exports[`renders ./components/anchor/demo/legacy-anchor.tsx extend context corre
 </div>
 `;
 
-exports[`renders ./components/anchor/demo/onChange.tsx extend context correctly 1`] = `
+exports[`renders components/anchor/demo/onChange.tsx extend context correctly 1`] = `
 <div
   class="ant-anchor-wrapper"
   style="max-height:100vh"
@@ -407,7 +407,7 @@ exports[`renders ./components/anchor/demo/onChange.tsx extend context correctly 
 </div>
 `;
 
-exports[`renders ./components/anchor/demo/onClick.tsx extend context correctly 1`] = `
+exports[`renders components/anchor/demo/onClick.tsx extend context correctly 1`] = `
 <div
   class="ant-anchor-wrapper"
   style="max-height:100vh"
@@ -477,7 +477,7 @@ exports[`renders ./components/anchor/demo/onClick.tsx extend context correctly 1
 </div>
 `;
 
-exports[`renders ./components/anchor/demo/static.tsx extend context correctly 1`] = `
+exports[`renders components/anchor/demo/static.tsx extend context correctly 1`] = `
 <div
   class="ant-anchor-wrapper"
   style="max-height:100vh"
@@ -547,7 +547,7 @@ exports[`renders ./components/anchor/demo/static.tsx extend context correctly 1`
 </div>
 `;
 
-exports[`renders ./components/anchor/demo/targetOffset.tsx extend context correctly 1`] = `
+exports[`renders components/anchor/demo/targetOffset.tsx extend context correctly 1`] = `
 <div>
   <div
     class="ant-row"

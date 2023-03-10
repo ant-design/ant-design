@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/time-picker/demo/12hours.tsx extend context correctly 1`] = `
+exports[`renders components/time-picker/demo/12hours.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
   style="flex-wrap:wrap;margin-bottom:-8px"
@@ -3456,7 +3456,7 @@ exports[`renders ./components/time-picker/demo/12hours.tsx extend context correc
 </div>
 `;
 
-exports[`renders ./components/time-picker/demo/addon.tsx extend context correctly 1`] = `
+exports[`renders components/time-picker/demo/addon.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-picker"
@@ -4884,7 +4884,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/time-picker/demo/basic.tsx extend context correctly 1`] = `
+exports[`renders components/time-picker/demo/basic.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-picker"
@@ -6299,7 +6299,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/time-picker/demo/bordered.tsx extend context correctly 1`] = `
+exports[`renders components/time-picker/demo/bordered.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-picker ant-picker-borderless"
@@ -9175,7 +9175,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/time-picker/demo/colored-popup.tsx extend context correctly 1`] = `
+exports[`renders components/time-picker/demo/colored-popup.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-picker"
@@ -10590,7 +10590,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/time-picker/demo/disabled.tsx extend context correctly 1`] = `
+exports[`renders components/time-picker/demo/disabled.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-picker ant-picker-disabled"
@@ -12006,7 +12006,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/time-picker/demo/hide-column.tsx extend context correctly 1`] = `
+exports[`renders components/time-picker/demo/hide-column.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-picker"
@@ -12900,7 +12900,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/time-picker/demo/interval-options.tsx extend context correctly 1`] = `
+exports[`renders components/time-picker/demo/interval-options.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-picker"
@@ -13326,7 +13326,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/time-picker/demo/range-picker.tsx extend context correctly 1`] = `
+exports[`renders components/time-picker/demo/range-picker.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-picker ant-picker-range"
@@ -14791,7 +14791,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/time-picker/demo/render-panel.tsx extend context correctly 1`] = `
+exports[`renders components/time-picker/demo/render-panel.tsx extend context correctly 1`] = `
 <div
   style="padding-bottom:0;position:relative;width:fit-content;min-width:0"
 >
@@ -16210,7 +16210,7 @@ exports[`renders ./components/time-picker/demo/render-panel.tsx extend context c
 </div>
 `;
 
-exports[`renders ./components/time-picker/demo/size.tsx extend context correctly 1`] = `
+exports[`renders components/time-picker/demo/size.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
   style="flex-wrap:wrap;margin-bottom:-8px"
@@ -20535,7 +20535,7 @@ exports[`renders ./components/time-picker/demo/size.tsx extend context correctly
 </div>
 `;
 
-exports[`renders ./components/time-picker/demo/status.tsx extend context correctly 1`] = `
+exports[`renders components/time-picker/demo/status.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -26303,7 +26303,7 @@ exports[`renders ./components/time-picker/demo/status.tsx extend context correct
 </div>
 `;
 
-exports[`renders ./components/time-picker/demo/suffix.tsx extend context correctly 1`] = `
+exports[`renders components/time-picker/demo/suffix.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-picker"
@@ -27715,7 +27715,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/time-picker/demo/value.tsx extend context correctly 1`] = `
+exports[`renders components/time-picker/demo/value.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-picker"

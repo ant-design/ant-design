@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/avatar/demo/badge.tsx extend context correctly 1`] = `
+exports[`renders components/avatar/demo/badge.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
 >
@@ -90,7 +90,7 @@ exports[`renders ./components/avatar/demo/badge.tsx extend context correctly 1`]
 </div>
 `;
 
-exports[`renders ./components/avatar/demo/basic.tsx extend context correctly 1`] = `
+exports[`renders components/avatar/demo/basic.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -342,7 +342,7 @@ exports[`renders ./components/avatar/demo/basic.tsx extend context correctly 1`]
 </div>
 `;
 
-exports[`renders ./components/avatar/demo/dynamic.tsx extend context correctly 1`] = `
+exports[`renders components/avatar/demo/dynamic.tsx extend context correctly 1`] = `
 Array [
   <span
     class="ant-avatar ant-avatar-lg ant-avatar-circle"
@@ -376,7 +376,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/avatar/demo/fallback.tsx extend context correctly 1`] = `
+exports[`renders components/avatar/demo/fallback.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
 >
@@ -406,7 +406,7 @@ exports[`renders ./components/avatar/demo/fallback.tsx extend context correctly 
 </div>
 `;
 
-exports[`renders ./components/avatar/demo/group.tsx extend context correctly 1`] = `
+exports[`renders components/avatar/demo/group.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-avatar-group"
@@ -882,7 +882,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/avatar/demo/responsive.tsx extend context correctly 1`] = `
+exports[`renders components/avatar/demo/responsive.tsx extend context correctly 1`] = `
 <span
   class="ant-avatar ant-avatar-circle ant-avatar-icon"
 >
@@ -908,7 +908,7 @@ exports[`renders ./components/avatar/demo/responsive.tsx extend context correctl
 </span>
 `;
 
-exports[`renders ./components/avatar/demo/toggle-debug.tsx extend context correctly 1`] = `
+exports[`renders components/avatar/demo/toggle-debug.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
@@ -1003,7 +1003,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/avatar/demo/type.tsx extend context correctly 1`] = `
+exports[`renders components/avatar/demo/type.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
   style="flex-wrap:wrap;margin-bottom:-16px"

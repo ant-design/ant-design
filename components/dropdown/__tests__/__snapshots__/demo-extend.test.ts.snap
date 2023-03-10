@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/dropdown/demo/arrow.tsx extend context correctly 1`] = `
+exports[`renders components/dropdown/demo/arrow.tsx extend context correctly 1`] = `
 Array [
   <button
     class="ant-btn ant-btn-default ant-dropdown-trigger"
@@ -1104,7 +1104,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/dropdown/demo/arrow-center.tsx extend context correctly 1`] = `
+exports[`renders components/dropdown/demo/arrow-center.tsx extend context correctly 1`] = `
 Array [
   <button
     class="ant-btn ant-btn-default ant-dropdown-trigger"
@@ -2208,7 +2208,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/dropdown/demo/basic.tsx extend context correctly 1`] = `
+exports[`renders components/dropdown/demo/basic.tsx extend context correctly 1`] = `
 Array [
   <a
     class="ant-dropdown-trigger"
@@ -2486,7 +2486,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/dropdown/demo/context-menu.tsx extend context correctly 1`] = `
+exports[`renders components/dropdown/demo/context-menu.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-dropdown-trigger"
@@ -2651,7 +2651,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/dropdown/demo/custom-dropdown.tsx extend context correctly 1`] = `
+exports[`renders components/dropdown/demo/custom-dropdown.tsx extend context correctly 1`] = `
 Array [
   <a
     class="ant-dropdown-trigger"
@@ -2894,7 +2894,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/dropdown/demo/dropdown-button.tsx extend context correctly 1`] = `
+exports[`renders components/dropdown/demo/dropdown-button.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
   style="flex-wrap:wrap;margin-bottom:-8px"
@@ -4825,7 +4825,7 @@ exports[`renders ./components/dropdown/demo/dropdown-button.tsx extend context c
 </div>
 `;
 
-exports[`renders ./components/dropdown/demo/event.tsx extend context correctly 1`] = `
+exports[`renders components/dropdown/demo/event.tsx extend context correctly 1`] = `
 Array [
   <a
     class="ant-dropdown-trigger"
@@ -5021,7 +5021,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/dropdown/demo/item.tsx extend context correctly 1`] = `
+exports[`renders components/dropdown/demo/item.tsx extend context correctly 1`] = `
 Array [
   <a
     class="ant-dropdown-trigger"
@@ -5232,7 +5232,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/dropdown/demo/loading.tsx extend context correctly 1`] = `
+exports[`renders components/dropdown/demo/loading.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -5704,7 +5704,7 @@ exports[`renders ./components/dropdown/demo/loading.tsx extend context correctly
 </div>
 `;
 
-exports[`renders ./components/dropdown/demo/menu-full.tsx extend context correctly 1`] = `
+exports[`renders components/dropdown/demo/menu-full.tsx extend context correctly 1`] = `
 Array [
   <a
     class="ant-dropdown-trigger"
@@ -6719,7 +6719,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/dropdown/demo/overlay-open.tsx extend context correctly 1`] = `
+exports[`renders components/dropdown/demo/overlay-open.tsx extend context correctly 1`] = `
 Array [
   <a
     class="ant-dropdown-trigger"
@@ -6915,7 +6915,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/dropdown/demo/placement.tsx extend context correctly 1`] = `
+exports[`renders components/dropdown/demo/placement.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -8051,7 +8051,7 @@ exports[`renders ./components/dropdown/demo/placement.tsx extend context correct
 </div>
 `;
 
-exports[`renders ./components/dropdown/demo/render-panel.tsx extend context correctly 1`] = `
+exports[`renders components/dropdown/demo/render-panel.tsx extend context correctly 1`] = `
 <div
   style="padding-bottom:0;position:relative;width:fit-content;min-width:0"
 >
@@ -8297,7 +8297,7 @@ exports[`renders ./components/dropdown/demo/render-panel.tsx extend context corr
 </div>
 `;
 
-exports[`renders ./components/dropdown/demo/selectable.tsx extend context correctly 1`] = `
+exports[`renders components/dropdown/demo/selectable.tsx extend context correctly 1`] = `
 Array [
   <a
     class="ant-typography ant-dropdown-trigger"
@@ -8493,7 +8493,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/dropdown/demo/sub-menu.tsx extend context correctly 1`] = `
+exports[`renders components/dropdown/demo/sub-menu.tsx extend context correctly 1`] = `
 Array [
   <a
     class="ant-dropdown-trigger"
@@ -8949,7 +8949,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/dropdown/demo/trigger.tsx extend context correctly 1`] = `
+exports[`renders components/dropdown/demo/trigger.tsx extend context correctly 1`] = `
 Array [
   <a
     class="ant-dropdown-trigger"

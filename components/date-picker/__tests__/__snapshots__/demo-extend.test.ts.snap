@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/date-picker/demo/basic.tsx extend context correctly 1`] = `
+exports[`renders components/date-picker/demo/basic.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -1902,7 +1902,7 @@ exports[`renders ./components/date-picker/demo/basic.tsx extend context correctl
 </div>
 `;
 
-exports[`renders ./components/date-picker/demo/bordered.tsx extend context correctly 1`] = `
+exports[`renders components/date-picker/demo/bordered.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -7130,7 +7130,7 @@ exports[`renders ./components/date-picker/demo/bordered.tsx extend context corre
 </div>
 `;
 
-exports[`renders ./components/date-picker/demo/date-render.tsx extend context correctly 1`] = `
+exports[`renders components/date-picker/demo/date-render.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -8933,7 +8933,7 @@ exports[`renders ./components/date-picker/demo/date-render.tsx extend context co
 </div>
 `;
 
-exports[`renders ./components/date-picker/demo/disabled.tsx extend context correctly 1`] = `
+exports[`renders components/date-picker/demo/disabled.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -12185,7 +12185,7 @@ exports[`renders ./components/date-picker/demo/disabled.tsx extend context corre
 </div>
 `;
 
-exports[`renders ./components/date-picker/demo/disabled-date.tsx extend context correctly 1`] = `
+exports[`renders components/date-picker/demo/disabled-date.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -17107,7 +17107,7 @@ exports[`renders ./components/date-picker/demo/disabled-date.tsx extend context 
 </div>
 `;
 
-exports[`renders ./components/date-picker/demo/extra-footer.tsx extend context correctly 1`] = `
+exports[`renders components/date-picker/demo/extra-footer.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -23132,7 +23132,7 @@ exports[`renders ./components/date-picker/demo/extra-footer.tsx extend context c
 </div>
 `;
 
-exports[`renders ./components/date-picker/demo/format.tsx extend context correctly 1`] = `
+exports[`renders components/date-picker/demo/format.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -27176,7 +27176,7 @@ exports[`renders ./components/date-picker/demo/format.tsx extend context correct
 </div>
 `;
 
-exports[`renders ./components/date-picker/demo/mode.tsx extend context correctly 1`] = `
+exports[`renders components/date-picker/demo/mode.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -28899,7 +28899,7 @@ exports[`renders ./components/date-picker/demo/mode.tsx extend context correctly
 </div>
 `;
 
-exports[`renders ./components/date-picker/demo/placement.tsx extend context correctly 1`] = `
+exports[`renders components/date-picker/demo/placement.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-radio-group ant-radio-group-outline"
@@ -30770,7 +30770,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/date-picker/demo/preset-ranges.tsx extend context correctly 1`] = `
+exports[`renders components/date-picker/demo/preset-ranges.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -34621,7 +34621,7 @@ exports[`renders ./components/date-picker/demo/preset-ranges.tsx extend context 
 </div>
 `;
 
-exports[`renders ./components/date-picker/demo/range-picker.tsx extend context correctly 1`] = `
+exports[`renders components/date-picker/demo/range-picker.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -40413,7 +40413,7 @@ exports[`renders ./components/date-picker/demo/range-picker.tsx extend context c
 </div>
 `;
 
-exports[`renders ./components/date-picker/demo/render-panel.tsx extend context correctly 1`] = `
+exports[`renders components/date-picker/demo/render-panel.tsx extend context correctly 1`] = `
 <div
   style="padding-bottom:0;position:relative;width:fit-content;min-width:0"
 >
@@ -41018,7 +41018,7 @@ exports[`renders ./components/date-picker/demo/render-panel.tsx extend context c
 </div>
 `;
 
-exports[`renders ./components/date-picker/demo/select-in-range.tsx extend context correctly 1`] = `
+exports[`renders components/date-picker/demo/select-in-range.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-picker ant-picker-range"
@@ -42207,7 +42207,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/date-picker/demo/size.tsx extend context correctly 1`] = `
+exports[`renders components/date-picker/demo/size.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -44971,7 +44971,7 @@ exports[`renders ./components/date-picker/demo/size.tsx extend context correctly
 </div>
 `;
 
-exports[`renders ./components/date-picker/demo/start-end.tsx extend context correctly 1`] = `
+exports[`renders components/date-picker/demo/start-end.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
 >
@@ -48885,7 +48885,7 @@ exports[`renders ./components/date-picker/demo/start-end.tsx extend context corr
 </div>
 `;
 
-exports[`renders ./components/date-picker/demo/status.tsx extend context correctly 1`] = `
+exports[`renders components/date-picker/demo/status.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
   style="width:100%"
@@ -52478,7 +52478,7 @@ exports[`renders ./components/date-picker/demo/status.tsx extend context correct
 </div>
 `;
 
-exports[`renders ./components/date-picker/demo/suffix.tsx extend context correctly 1`] = `
+exports[`renders components/date-picker/demo/suffix.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -57794,7 +57794,7 @@ exports[`renders ./components/date-picker/demo/suffix.tsx extend context correct
 </div>
 `;
 
-exports[`renders ./components/date-picker/demo/switchable.tsx extend context correctly 1`] = `
+exports[`renders components/date-picker/demo/switchable.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
 >
@@ -59428,7 +59428,7 @@ exports[`renders ./components/date-picker/demo/switchable.tsx extend context cor
 </div>
 `;
 
-exports[`renders ./components/date-picker/demo/time.tsx extend context correctly 1`] = `
+exports[`renders components/date-picker/demo/time.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >

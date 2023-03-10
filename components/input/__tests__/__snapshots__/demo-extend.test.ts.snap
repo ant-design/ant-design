@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/input/demo/addon.tsx extend context correctly 1`] = `
+exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -597,7 +597,7 @@ exports[`renders ./components/input/demo/addon.tsx extend context correctly 1`] 
 </div>
 `;
 
-exports[`renders ./components/input/demo/align.tsx extend context correctly 1`] = `
+exports[`renders components/input/demo/align.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-mentions"
@@ -4839,7 +4839,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/input/demo/allowClear.tsx extend context correctly 1`] = `
+exports[`renders components/input/demo/allowClear.tsx extend context correctly 1`] = `
 Array [
   <span
     class="ant-input-affix-wrapper"
@@ -4922,7 +4922,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/input/demo/autosize-textarea.tsx extend context correctly 1`] = `
+exports[`renders components/input/demo/autosize-textarea.tsx extend context correctly 1`] = `
 Array [
   <textarea
     class="ant-input"
@@ -4945,7 +4945,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/input/demo/basic.tsx extend context correctly 1`] = `
+exports[`renders components/input/demo/basic.tsx extend context correctly 1`] = `
 <input
   class="ant-input"
   placeholder="Basic usage"
@@ -4954,7 +4954,7 @@ exports[`renders ./components/input/demo/basic.tsx extend context correctly 1`] 
 />
 `;
 
-exports[`renders ./components/input/demo/borderless.tsx extend context correctly 1`] = `
+exports[`renders components/input/demo/borderless.tsx extend context correctly 1`] = `
 <input
   class="ant-input ant-input-borderless"
   placeholder="Borderless"
@@ -4963,7 +4963,7 @@ exports[`renders ./components/input/demo/borderless.tsx extend context correctly
 />
 `;
 
-exports[`renders ./components/input/demo/borderless-debug.tsx extend context correctly 1`] = `
+exports[`renders components/input/demo/borderless-debug.tsx extend context correctly 1`] = `
 <div
   style="background-color:rgba(0, 0, 128, .2)"
 >
@@ -5138,7 +5138,7 @@ exports[`renders ./components/input/demo/borderless-debug.tsx extend context cor
 </div>
 `;
 
-exports[`renders ./components/input/demo/debug-addon.tsx extend context correctly 1`] = `
+exports[`renders components/input/demo/debug-addon.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -5274,7 +5274,7 @@ exports[`renders ./components/input/demo/debug-addon.tsx extend context correctl
 </div>
 `;
 
-exports[`renders ./components/input/demo/focus.tsx extend context correctly 1`] = `
+exports[`renders components/input/demo/focus.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
   style="width:100%"
@@ -5389,7 +5389,7 @@ exports[`renders ./components/input/demo/focus.tsx extend context correctly 1`] 
 </div>
 `;
 
-exports[`renders ./components/input/demo/group.tsx extend context correctly 1`] = `
+exports[`renders components/input/demo/group.tsx extend context correctly 1`] = `
 <div
   class="site-input-group-wrapper"
 >
@@ -8841,7 +8841,7 @@ exports[`renders ./components/input/demo/group.tsx extend context correctly 1`] 
 </div>
 `;
 
-exports[`renders ./components/input/demo/password-input.tsx extend context correctly 1`] = `
+exports[`renders components/input/demo/password-input.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -8995,7 +8995,7 @@ exports[`renders ./components/input/demo/password-input.tsx extend context corre
 </div>
 `;
 
-exports[`renders ./components/input/demo/presuffix.tsx extend context correctly 1`] = `
+exports[`renders components/input/demo/presuffix.tsx extend context correctly 1`] = `
 Array [
   <span
     class="ant-input-affix-wrapper"
@@ -9122,7 +9122,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/input/demo/search-input.tsx extend context correctly 1`] = `
+exports[`renders components/input/demo/search-input.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -9513,7 +9513,7 @@ exports[`renders ./components/input/demo/search-input.tsx extend context correct
 </div>
 `;
 
-exports[`renders ./components/input/demo/search-input-loading.tsx extend context correctly 1`] = `
+exports[`renders components/input/demo/search-input-loading.tsx extend context correctly 1`] = `
 Array [
   <span
     class="ant-input-group-wrapper ant-input-search"
@@ -9663,7 +9663,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/input/demo/show-count.tsx extend context correctly 1`] = `
+exports[`renders components/input/demo/show-count.tsx extend context correctly 1`] = `
 Array [
   <span
     class="ant-input-affix-wrapper"
@@ -9702,7 +9702,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/input/demo/size.tsx extend context correctly 1`] = `
+exports[`renders components/input/demo/size.tsx extend context correctly 1`] = `
 Array [
   <span
     class="ant-input-affix-wrapper ant-input-affix-wrapper-lg"
@@ -9810,7 +9810,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/input/demo/status.tsx extend context correctly 1`] = `
+exports[`renders components/input/demo/status.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
   style="width:100%"
@@ -9921,7 +9921,7 @@ exports[`renders ./components/input/demo/status.tsx extend context correctly 1`]
 </div>
 `;
 
-exports[`renders ./components/input/demo/textarea.tsx extend context correctly 1`] = `
+exports[`renders components/input/demo/textarea.tsx extend context correctly 1`] = `
 Array [
   <textarea
     class="ant-input"
@@ -9937,7 +9937,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/input/demo/textarea-resize.tsx extend context correctly 1`] = `
+exports[`renders components/input/demo/textarea-resize.tsx extend context correctly 1`] = `
 Array [
   <button
     class="ant-btn ant-btn-default"
@@ -9994,7 +9994,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/input/demo/textarea-show-count.tsx extend context correctly 1`] = `
+exports[`renders components/input/demo/textarea-show-count.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-input-show-count ant-input-textarea ant-input-textarea-show-count"
@@ -10030,7 +10030,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/input/demo/tooltip.tsx extend context correctly 1`] = `
+exports[`renders components/input/demo/tooltip.tsx extend context correctly 1`] = `
 Array [
   <input
     class="ant-input"
