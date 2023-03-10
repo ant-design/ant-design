@@ -36,7 +36,7 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
         Date.now = jest.fn(() => new Date('2016-11-22').getTime());
         jest.useFakeTimers().setSystemTime(new Date('2016-11-22'));
 
-        let Demo = require(`../.${file}`).default; // eslint-disable-line global-require, import/no-dynamic-require
+        let Demo = require(`../../${file}`).default; // eslint-disable-line global-require, import/no-dynamic-require
         // Inject Trigger status unless skipped
         Demo = typeof Demo === 'function' ? <Demo /> : Demo;
         if (doInject) {
