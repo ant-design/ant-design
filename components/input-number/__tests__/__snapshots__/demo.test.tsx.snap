@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/input-number/demo/addon.tsx correctly 1`] = `
+exports[`renders components/input-number/demo/addon.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -577,7 +577,7 @@ exports[`renders ./components/input-number/demo/addon.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/input-number/demo/basic.tsx correctly 1`] = `
+exports[`renders components/input-number/demo/basic.tsx correctly 1`] = `
 <div
   class="ant-input-number"
 >
@@ -656,7 +656,7 @@ exports[`renders ./components/input-number/demo/basic.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/input-number/demo/borderless.tsx correctly 1`] = `
+exports[`renders components/input-number/demo/borderless.tsx correctly 1`] = `
 <div
   class="ant-input-number ant-input-number-borderless"
 >
@@ -735,7 +735,7 @@ exports[`renders ./components/input-number/demo/borderless.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/input-number/demo/controls.tsx correctly 1`] = `
+exports[`renders components/input-number/demo/controls.tsx correctly 1`] = `
 <div
   class="ant-input-number"
 >
@@ -819,7 +819,7 @@ exports[`renders ./components/input-number/demo/controls.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/input-number/demo/debug-token.tsx correctly 1`] = `
+exports[`renders components/input-number/demo/debug-token.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
 >
@@ -981,7 +981,7 @@ exports[`renders ./components/input-number/demo/debug-token.tsx correctly 1`] = 
 </div>
 `;
 
-exports[`renders ./components/input-number/demo/digit.tsx correctly 1`] = `
+exports[`renders components/input-number/demo/digit.tsx correctly 1`] = `
 <div
   class="ant-input-number"
   style="width:200px"
@@ -1061,7 +1061,7 @@ exports[`renders ./components/input-number/demo/digit.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/input-number/demo/disabled.tsx correctly 1`] = `
+exports[`renders components/input-number/demo/disabled.tsx correctly 1`] = `
 Array [
   <div
     class="ant-input-number ant-input-number-disabled"
@@ -1155,7 +1155,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/input-number/demo/formatter.tsx correctly 1`] = `
+exports[`renders components/input-number/demo/formatter.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
 >
@@ -1321,7 +1321,7 @@ exports[`renders ./components/input-number/demo/formatter.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/input-number/demo/keyboard.tsx correctly 1`] = `
+exports[`renders components/input-number/demo/keyboard.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
 >
@@ -1432,7 +1432,7 @@ exports[`renders ./components/input-number/demo/keyboard.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/input-number/demo/out-of-range.tsx correctly 1`] = `
+exports[`renders components/input-number/demo/out-of-range.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
 >
@@ -1532,7 +1532,7 @@ exports[`renders ./components/input-number/demo/out-of-range.tsx correctly 1`] =
 </div>
 `;
 
-exports[`renders ./components/input-number/demo/prefix.tsx correctly 1`] = `
+exports[`renders components/input-number/demo/prefix.tsx correctly 1`] = `
 Array [
   <div
     class="ant-input-number-affix-wrapper"
@@ -1822,7 +1822,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/input-number/demo/render-panel.tsx correctly 1`] = `
+exports[`renders components/input-number/demo/render-panel.tsx correctly 1`] = `
 <div
   style="display:flex;flex-direction:column;row-gap:16px"
 >
@@ -1903,7 +1903,7 @@ exports[`renders ./components/input-number/demo/render-panel.tsx correctly 1`] =
 </div>
 `;
 
-exports[`renders ./components/input-number/demo/size.tsx correctly 1`] = `
+exports[`renders components/input-number/demo/size.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
 >
@@ -2152,7 +2152,7 @@ exports[`renders ./components/input-number/demo/size.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/input-number/demo/status.tsx correctly 1`] = `
+exports[`renders components/input-number/demo/status.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
   style="width:100%"

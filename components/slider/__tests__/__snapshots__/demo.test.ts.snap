@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/slider/demo/basic.tsx correctly 1`] = `
+exports[`renders components/slider/demo/basic.tsx correctly 1`] = `
 Array [
   <div
     class="ant-slider ant-slider-horizontal"
@@ -84,7 +84,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/slider/demo/draggableTrack.tsx correctly 1`] = `
+exports[`renders components/slider/demo/draggableTrack.tsx correctly 1`] = `
 <div
   class="ant-slider ant-slider-horizontal"
 >
@@ -121,7 +121,7 @@ exports[`renders ./components/slider/demo/draggableTrack.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/slider/demo/event.tsx correctly 1`] = `
+exports[`renders components/slider/demo/event.tsx correctly 1`] = `
 Array [
   <div
     class="ant-slider ant-slider-horizontal"
@@ -184,7 +184,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/slider/demo/icon-slider.tsx correctly 1`] = `
+exports[`renders components/slider/demo/icon-slider.tsx correctly 1`] = `
 <div
   class="icon-wrapper"
 >
@@ -253,7 +253,7 @@ exports[`renders ./components/slider/demo/icon-slider.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/slider/demo/input-number.tsx correctly 1`] = `
+exports[`renders components/slider/demo/input-number.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
   style="width:100%"
@@ -496,7 +496,7 @@ exports[`renders ./components/slider/demo/input-number.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/slider/demo/mark.tsx correctly 1`] = `
+exports[`renders components/slider/demo/mark.tsx correctly 1`] = `
 Array [
   <h4>
     included=true
@@ -874,7 +874,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/slider/demo/reverse.tsx correctly 1`] = `
+exports[`renders components/slider/demo/reverse.tsx correctly 1`] = `
 Array [
   <div
     class="ant-slider ant-slider-horizontal"
@@ -958,7 +958,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/slider/demo/tip-formatter.tsx correctly 1`] = `
+exports[`renders components/slider/demo/tip-formatter.tsx correctly 1`] = `
 Array [
   <div
     class="ant-slider ant-slider-horizontal"
@@ -1011,7 +1011,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/slider/demo/vertical.tsx correctly 1`] = `
+exports[`renders components/slider/demo/vertical.tsx correctly 1`] = `
 Array [
   <div
     style="display:inline-block;height:300px;margin-left:70px"

@@ -30,7 +30,7 @@ const AnchorLink: React.FC<AnchorLinkProps> = (props) => {
     return () => {
       unregisterLink?.(href);
     };
-  }, [href, registerLink, unregisterLink]);
+  }, [href]);
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     onClick?.(e, { title, href });

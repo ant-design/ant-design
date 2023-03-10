@@ -1,8 +1,9 @@
 import type { ChangeEventHandler } from 'react';
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import scrollIntoView from 'scroll-into-view-if-needed';
 import classNames from 'classnames';
 import type { ColProps } from 'antd/es/grid';
+import type { FormInstance } from '..';
 import Form from '..';
 import * as Util from '../util';
 import Button from '../../button';
@@ -40,25 +41,6 @@ describe('Form', () => {
   (scrollIntoView as any).mockImplementation(() => {});
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
   const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
-
-  // const change = async (
-  //   container: ReturnType<typeof render>['container'],
-  //   index: number,
-  //   value: string,
-  //   executeMockTimer: boolean,
-  // ) => {
-  //   fireEvent.change(container.querySelectorAll('input')?.[index], { target: { value } });
-  //   await sleep(200);
-
-  //   if (executeMockTimer) {
-  //     for (let i = 0; i < 10; i += 1) {
-  //       act(() => {
-  //         jest.runAllTimers();
-  //       });
-  //     }
-  //     await sleep(1);
-  //   }
-  // };
 
   const changeValue = async (
     input: HTMLElement | null | number,
@@ -1473,13 +1455,13 @@ describe('Form', () => {
 
     const { container } = render(<Demo />);
 
-    expect(container.querySelector('.custom-input-required')?.classList).toContain(
+    expect(container.querySelector('.custom-input-required')?.className).toContain(
       'custom-input-status-',
     );
     expect(container.querySelector('.custom-input-warning')?.classList).toContain(
       'custom-input-status-warning',
     );
-    expect(container.querySelector('.custom-input')?.classList).toContain('custom-input-status-');
+    expect(container.querySelector('.custom-input')?.className).toContain('custom-input-status-');
     expect(container.querySelector('.custom-input-wrong')?.classList).toContain(
       'custom-input-status-undefined',
     );
@@ -1582,5 +1564,66 @@ describe('Form', () => {
     const wrapper5 = render(<App5 />);
 
     expect(wrapper5.container.querySelectorAll('[disabled]').length).toBe(0);
+  });
+
+  it('success feedback should display when pass hasFeedback prop and current value is valid value', async () => {
+    const App = ({ trigger = false }: { trigger?: boolean }) => {
+      const form = useRef<FormInstance<any>>(null);
+
+      useEffect(() => {
+        if (!trigger) return;
+        form.current?.validateFields();
+      }, [trigger]);
+
+      return (
+        <Form ref={form}>
+          <Form.Item
+            label="Success"
+            name="name1"
+            hasFeedback
+            initialValue="test@qq.com"
+            rules={[
+              {
+                type: 'email',
+                message: 'Please input your e-mail',
+              },
+              {
+                required: true,
+                message: 'Please input your value',
+              },
+            ]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            label="Success"
+            name="name2"
+            initialValue="test@qq.com"
+            rules={[
+              {
+                type: 'email',
+                message: 'Please input your e-mail',
+              },
+              {
+                required: true,
+                message: 'Please input your value',
+              },
+            ]}
+          >
+            <Input />
+          </Form.Item>
+        </Form>
+      );
+    };
+    const { container, rerender } = render(<App />);
+
+    expect(container.querySelectorAll('.ant-form-item-has-feedback').length).toBe(0);
+    expect(container.querySelectorAll('.ant-form-item-has-success').length).toBe(0);
+
+    rerender(<App trigger />);
+    await waitFakeTimer();
+
+    expect(container.querySelectorAll('.ant-form-item-has-feedback').length).toBe(1);
+    expect(container.querySelectorAll('.ant-form-item-has-success').length).toBe(1);
   });
 });

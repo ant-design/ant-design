@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import useEvent from 'rc-util/lib/hooks/useEvent';
 import * as React from 'react';
 import scrollIntoView from 'scroll-into-view-if-needed';
 
@@ -155,23 +156,17 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
 
   const dependencyListItem: React.DependencyList[number] = JSON.stringify(links);
 
-  const registerLink = React.useCallback<AntAnchor['registerLink']>(
-    (link) => {
-      if (!links.includes(link)) {
-        setLinks((prev) => [...prev, link]);
-      }
-    },
-    [dependencyListItem],
-  );
+  const registerLink = useEvent<AntAnchor['registerLink']>((link) => {
+    if (!links.includes(link)) {
+      setLinks((prev) => [...prev, link]);
+    }
+  });
 
-  const unregisterLink = React.useCallback<AntAnchor['unregisterLink']>(
-    (link) => {
-      if (links.includes(link)) {
-        setLinks((prev) => prev.filter((i) => i !== link));
-      }
-    },
-    [dependencyListItem],
-  );
+  const unregisterLink = useEvent<AntAnchor['unregisterLink']>((link) => {
+    if (links.includes(link)) {
+      setLinks((prev) => prev.filter((i) => i !== link));
+    }
+  });
 
   const updateInk = () => {
     const linkNode = wrapperRef.current?.querySelector<HTMLElement>(

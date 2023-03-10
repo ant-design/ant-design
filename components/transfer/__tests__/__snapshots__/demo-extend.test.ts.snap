@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/transfer/demo/advanced.tsx extend context correctly 1`] = `
+exports[`renders components/transfer/demo/advanced.tsx extend context correctly 1`] = `
 <div
   class="ant-transfer"
 >
@@ -659,7 +659,7 @@ exports[`renders ./components/transfer/demo/advanced.tsx extend context correctl
 </div>
 `;
 
-exports[`renders ./components/transfer/demo/basic.tsx extend context correctly 1`] = `
+exports[`renders components/transfer/demo/basic.tsx extend context correctly 1`] = `
 <div
   class="ant-transfer"
 >
@@ -1564,7 +1564,7 @@ exports[`renders ./components/transfer/demo/basic.tsx extend context correctly 1
 </div>
 `;
 
-exports[`renders ./components/transfer/demo/custom-item.tsx extend context correctly 1`] = `
+exports[`renders components/transfer/demo/custom-item.tsx extend context correctly 1`] = `
 <div
   class="ant-transfer"
 >
@@ -2059,7 +2059,7 @@ exports[`renders ./components/transfer/demo/custom-item.tsx extend context corre
 </div>
 `;
 
-exports[`renders ./components/transfer/demo/custom-select-all-labels.tsx extend context correctly 1`] = `
+exports[`renders components/transfer/demo/custom-select-all-labels.tsx extend context correctly 1`] = `
 <div
   class="ant-transfer"
 >
@@ -2704,7 +2704,7 @@ exports[`renders ./components/transfer/demo/custom-select-all-labels.tsx extend 
 </div>
 `;
 
-exports[`renders ./components/transfer/demo/large-data.tsx extend context correctly 1`] = `
+exports[`renders components/transfer/demo/large-data.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-transfer"
@@ -3282,7 +3282,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/transfer/demo/oneWay.tsx extend context correctly 1`] = `
+exports[`renders components/transfer/demo/oneWay.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-transfer"
@@ -4208,7 +4208,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/transfer/demo/search.tsx extend context correctly 1`] = `
+exports[`renders components/transfer/demo/search.tsx extend context correctly 1`] = `
 <div
   class="ant-transfer"
 >
@@ -4833,7 +4833,7 @@ exports[`renders ./components/transfer/demo/search.tsx extend context correctly 
 </div>
 `;
 
-exports[`renders ./components/transfer/demo/status.tsx extend context correctly 1`] = `
+exports[`renders components/transfer/demo/status.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -5961,7 +5961,7 @@ exports[`renders ./components/transfer/demo/status.tsx extend context correctly 
 </div>
 `;
 
-exports[`renders ./components/transfer/demo/table-transfer.tsx extend context correctly 1`] = `
+exports[`renders components/transfer/demo/table-transfer.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-transfer ant-transfer-customize-list"
@@ -7363,7 +7363,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/transfer/demo/tree-transfer.tsx extend context correctly 1`] = `
+exports[`renders components/transfer/demo/tree-transfer.tsx extend context correctly 1`] = `
 <div
   class="ant-transfer ant-transfer-customize-list tree-transfer"
 >

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/progress/demo/circle.tsx correctly 1`] = `
+exports[`renders components/progress/demo/circle.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
   style="flex-wrap:wrap;margin-bottom:-8px"
@@ -210,7 +210,7 @@ exports[`renders ./components/progress/demo/circle.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/progress/demo/circle-dynamic.tsx correctly 1`] = `
+exports[`renders components/progress/demo/circle-dynamic.tsx correctly 1`] = `
 Array [
   <div
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
@@ -325,7 +325,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/progress/demo/circle-micro.tsx correctly 1`] = `
+exports[`renders components/progress/demo/circle-micro.tsx correctly 1`] = `
 Array [
   <div
     class="ant-progress ant-progress-inline-circle ant-progress-circle ant-progress-status-normal ant-progress-show-info"
@@ -383,7 +383,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/progress/demo/circle-mini.tsx correctly 1`] = `
+exports[`renders components/progress/demo/circle-mini.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
   style="flex-wrap:wrap;margin-bottom:-8px"
@@ -593,7 +593,7 @@ exports[`renders ./components/progress/demo/circle-mini.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/progress/demo/dashboard.tsx correctly 1`] = `
+exports[`renders components/progress/demo/dashboard.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
   style="flex-wrap:wrap;margin-bottom:-8px"
@@ -713,7 +713,7 @@ exports[`renders ./components/progress/demo/dashboard.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/progress/demo/dynamic.tsx correctly 1`] = `
+exports[`renders components/progress/demo/dynamic.tsx correctly 1`] = `
 Array [
   <div
     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
@@ -800,7 +800,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/progress/demo/format.tsx correctly 1`] = `
+exports[`renders components/progress/demo/format.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
   style="flex-wrap:wrap;margin-bottom:-8px"
@@ -920,7 +920,7 @@ exports[`renders ./components/progress/demo/format.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/progress/demo/gradient-line.tsx correctly 1`] = `
+exports[`renders components/progress/demo/gradient-line.tsx correctly 1`] = `
 Array [
   <div
     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
@@ -1145,7 +1145,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/progress/demo/line.tsx correctly 1`] = `
+exports[`renders components/progress/demo/line.tsx correctly 1`] = `
 Array [
   <div
     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
@@ -1298,7 +1298,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/progress/demo/line-mini.tsx correctly 1`] = `
+exports[`renders components/progress/demo/line-mini.tsx correctly 1`] = `
 <div
   style="width:170px"
 >
@@ -1435,7 +1435,7 @@ exports[`renders ./components/progress/demo/line-mini.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/progress/demo/linecap.tsx correctly 1`] = `
+exports[`renders components/progress/demo/linecap.tsx correctly 1`] = `
 Array [
   <div
     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
@@ -1582,7 +1582,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/progress/demo/segment.tsx correctly 1`] = `
+exports[`renders components/progress/demo/segment.tsx correctly 1`] = `
 Array [
   <div
     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
@@ -1732,7 +1732,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/progress/demo/size.tsx correctly 1`] = `
+exports[`renders components/progress/demo/size.tsx correctly 1`] = `
 Array [
   <div
     class="ant-space ant-space-vertical"
@@ -2300,7 +2300,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/progress/demo/steps.tsx correctly 1`] = `
+exports[`renders components/progress/demo/steps.tsx correctly 1`] = `
 Array [
   <div
     class="ant-progress ant-progress-steps ant-progress-status-normal ant-progress-show-info ant-progress-default"
