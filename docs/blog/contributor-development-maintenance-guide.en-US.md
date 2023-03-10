@@ -70,11 +70,11 @@ In **ant-design**, most components are an upper encapsulation of a component bas
 
 Run `yarn link` under the rc project.
 
-![image-20230309111624677](https://ydschool-video.nosdn.127.net/1678331787691image-20230309111624677.png)
+![001](https://user-images.githubusercontent.com/10286961/224358206-828e2baf-d76d-46e6-ac02-25609963a003.png)
 
 Run `yarn link "Project name"` in **ant-design**
 
-![image-20230309111739390](https://ydschool-video.nosdn.127.net/1678331862430image-20230309111739390.png)
+![002](https://user-images.githubusercontent.com/10286961/224358294-219a47b0-4621-4732-85ff-3f350ea1f72e.png)
 
 Once we have verified, we can mention pr to the rc component.It should be noted that link may cause an exception when running the test command. Therefore, after local verification, we need to run the following
 
@@ -95,21 +95,25 @@ In **ant-design**, we adopt a **five-step strategic** obsolescence property or m
 
 1. **Add an expiration mark to the property**
 
-   ![image-20230309113010917](https://ydschool-video.nosdn.127.net/1678332614196image-20230309113010917.png)
+   ![003](https://user-images.githubusercontent.com/10286961/224358324-8f72f2c0-d5bb-4281-9b29-7e2428353449.png)
 
    When we add the above expired tag, we can see later using this variable:
 
-   ![image-20230309113806878](https://ydschool-video.nosdn.127.net/1678333090633image-20230309113806878.png)
+   ![004](https://user-images.githubusercontent.com/10286961/224358351-958a168d-41de-44b0-8244-2f8d67c4d13a.png)
 
 2. **Add console warnings**
 
+![005](https://user-images.githubusercontent.com/10286961/224358371-09f08f79-8c95-4126-b382-59311bb702d6.png)
+
 It is important to note that after adding console warnings, we need to add a test case to the test case to test whether the warnings will be displayed if the expired properties are used, so as to ensure that the warnings can be displayed normally.
+
+![006](https://user-images.githubusercontent.com/10286961/224358407-3d89d2f5-b4aa-48b4-aab8-1331a0f620fa.png)
 
 3. **Update document**: The above two steps are mainly to warn developers in the editor and browser preview. Next, we need to update the relevant software documentation. Generally speaking, if we need an expired property, it means that it is not recommended for users to use. And add the description of the new property simultaneously.(PS: If it cannot be deleted due to special circumstances, please specify the version supported by this property and the alternative scheme in the remarks column)
 
 4. **Compatibility between old and new**: Now that we're done with the early tips, it's important to make sure that the new property and the old one live in harmony for a while until the old one dies. That is to say, currently we use expired property to work normally, in addition to the warning, can not have any changes.
 
-   ![image-20230309115413789](https://ydschool-video.nosdn.127.net/1678334056442image-20230309115413789.png)
+   ![007](https://user-images.githubusercontent.com/10286961/224358439-76c42c78-e244-42bd-8935-b08f536931a2.png)
 
    We can do something like this, making sure that the new property takes precedence over the old one, and only trying to use the old one if no new one exists.At this point, our property expiration work is done.
 
@@ -135,7 +139,9 @@ There are some caveats to this.
 
 At this point, you can merge the approved PR, but merging code is tricky, knowing when to use squash and when not to.
 
-- **Merge pull Request**: Normally merge the current PR into the target branch (usually when branch to branch merge each other, do not merge the commit record, do not merge PR, or you will forget to add the target branch too many redundant commit records.
+![008](https://user-images.githubusercontent.com/10286961/224358476-2332e36f-0adf-486f-8b17-1b2ad34926aa.jpg)
+
+- **Merge pull Request**: Normally merge the current PR into the target branch usually when branch to branch merge each other, do not merge the commit record, do not merge PR, or you will forget to add the target branch too many redundant commit records.
 - **Squash and merge**: Merge commit records into a squash and merge into the target branch(this is usually used for merging PR).
 - **Rebase and merge**：When you want to adjust the baseline
 

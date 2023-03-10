@@ -63,11 +63,11 @@ yarn add rc-cascader
 
 在 rc 项目下执行`yarn link`
 
-![image-20230309111624677](https://ydschool-video.nosdn.127.net/1678331787691image-20230309111624677.png)
+![001](https://user-images.githubusercontent.com/10286961/224358206-828e2baf-d76d-46e6-ac02-25609963a003.png)
 
 在`ant-design`当中执行`yarn link "项目名称"`
 
-![image-20230309111739390](https://ydschool-video.nosdn.127.net/1678331862430image-20230309111739390.png)
+![002](https://user-images.githubusercontent.com/10286961/224358294-219a47b0-4621-4732-85ff-3f350ea1f72e.png)
 
 当我们验证通过后，就可以向 rc 组件提 pr 了。
 
@@ -88,25 +88,25 @@ yarn install --force
 
 1. **为属性添加过期标记**
 
-   ![image-20230309113010917](https://ydschool-video.nosdn.127.net/1678332614196image-20230309113010917.png)
+   ![003](https://user-images.githubusercontent.com/10286961/224358324-8f72f2c0-d5bb-4281-9b29-7e2428353449.png)
 
    当添加了上述过期标记，我们在后续使用这个变量是就可以看到：
 
-   ![image-20230309113806878](https://ydschool-video.nosdn.127.net/1678333090633image-20230309113806878.png)
+   ![004](https://user-images.githubusercontent.com/10286961/224358351-958a168d-41de-44b0-8244-2f8d67c4d13a.png)
 
 2. **添加控制台警告**
 
-   ![image-20230309113902413](https://ydschool-video.nosdn.127.net/1678333145486image-20230309113902413.png)
+   ![005](https://user-images.githubusercontent.com/10286961/224358371-09f08f79-8c95-4126-b382-59311bb702d6.png)
 
    需要注意的是，我们添加了控制台警告后，需要在测试用例当中添加测试用例用于测试使用了过期属性是否会如期展示警告，以确保警告能够正常展示。
 
-   ![image-20230309114038475](https://ydschool-video.nosdn.127.net/1678333241733image-20230309114038475.png)
+   ![006](https://user-images.githubusercontent.com/10286961/224358407-3d89d2f5-b4aa-48b4-aab8-1331a0f620fa.png)
 
 3. **文档更新**：上面两步主要是给开发者在编辑器和浏览器预览时的警告提示，接下来，我们还需要更新一下相关的软件文档，通常来说，我们需要过期的属性，就代表不推荐用户使用了，如无特殊情况，我们可以将该属性的描述直接从文档中删除，并同步增加上新的属性的描述。（PS: 如因特殊情况不能删除，可在备注栏说明该属性支持的版本以及替代方案）
 
 4. **新旧兼容**：至此，我们前期的提示工作就算是完成了，接下来还有一件很重要的事情，那就是确保新属性与旧属性和谐相处一段时间，直到旧属性寿终正寝。也就是说，目前我们使用过期的属性也要正常工作，除了警告之外，不能有任何的变化
 
-   ![image-20230309115413789](https://ydschool-video.nosdn.127.net/1678334056442image-20230309115413789.png)
+   ![007](https://user-images.githubusercontent.com/10286961/224358439-76c42c78-e244-42bd-8935-b08f536931a2.png)
 
    我们可以类似这样处理，确保新属性的优先级高于旧属性，如果不存在新属性，才尝试使用旧属性。至此，我们的属性过期工作就算已经完成了。
 
@@ -130,7 +130,7 @@ yarn install --force
 
 现在，你已经可以对已经`Approve`的`PR`进行合并了，但是，合并代码也是有讲究的，我们要明白，什么时候该使用`squash`，什么时候不能使用。
 
-![img](https://upload-images.jianshu.io/upload_images/1879951-5838e32cb9f493b3.png?imageMogr2/auto-orient/strip|imageView2/2/w/881/format/webp)
+![008](https://user-images.githubusercontent.com/10286961/224358476-2332e36f-0adf-486f-8b17-1b2ad34926aa.jpg)
 
 - **Merge pull Request**：正常讲当前 PR 合并到目标分支（通常是分支与分支之间相互合并时使用，不会合并提交记录，合并 PR 时不要用这个，不然会忘目标分支添加太多冗余的提交记录）
 - **Squash and merge**：将提交记录合并成一条后合并到目标分支（合并 PR 通常都用这个）
