@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/popover/demo/arrow.tsx extend context correctly 1`] = `
+exports[`renders components/popover/demo/arrow.tsx extend context correctly 1`] = `
 <div
   class="demo"
 >
@@ -624,7 +624,7 @@ exports[`renders ./components/popover/demo/arrow.tsx extend context correctly 1`
 </div>
 `;
 
-exports[`renders ./components/popover/demo/arrow-point-at-center.tsx extend context correctly 1`] = `
+exports[`renders components/popover/demo/arrow-point-at-center.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
   style="flex-wrap:wrap;margin-bottom:-8px"
@@ -724,7 +724,7 @@ exports[`renders ./components/popover/demo/arrow-point-at-center.tsx extend cont
 </div>
 `;
 
-exports[`renders ./components/popover/demo/basic.tsx extend context correctly 1`] = `
+exports[`renders components/popover/demo/basic.tsx extend context correctly 1`] = `
 Array [
   <button
     class="ant-btn ant-btn-primary"
@@ -772,7 +772,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/popover/demo/control.tsx extend context correctly 1`] = `
+exports[`renders components/popover/demo/control.tsx extend context correctly 1`] = `
 Array [
   <button
     class="ant-btn ant-btn-primary"
@@ -815,7 +815,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/popover/demo/hover-with-click.tsx extend context correctly 1`] = `
+exports[`renders components/popover/demo/hover-with-click.tsx extend context correctly 1`] = `
 Array [
   <button
     class="ant-btn ant-btn-default"
@@ -893,7 +893,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/popover/demo/placement.tsx extend context correctly 1`] = `
+exports[`renders components/popover/demo/placement.tsx extend context correctly 1`] = `
 <div>
   <div
     style="margin-left:70px;white-space:nowrap"
@@ -1454,7 +1454,7 @@ exports[`renders ./components/popover/demo/placement.tsx extend context correctl
 </div>
 `;
 
-exports[`renders ./components/popover/demo/render-panel.tsx extend context correctly 1`] = `
+exports[`renders components/popover/demo/render-panel.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-popover ant-popover-pure ant-popover-placement-top"
@@ -1527,7 +1527,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/popover/demo/triggerType.tsx extend context correctly 1`] = `
+exports[`renders components/popover/demo/triggerType.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
   style="flex-wrap:wrap;margin-bottom:-8px"
@@ -1679,7 +1679,7 @@ exports[`renders ./components/popover/demo/triggerType.tsx extend context correc
 </div>
 `;
 
-exports[`renders ./components/popover/demo/wireframe.tsx extend context correctly 1`] = `
+exports[`renders components/popover/demo/wireframe.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-popover ant-popover-pure ant-popover-placement-top"

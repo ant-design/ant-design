@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/form/demo/advanced-search.tsx correctly 1`] = `
+exports[`renders components/form/demo/advanced-search.tsx correctly 1`] = `
 <div>
   <form
     class="ant-form ant-form-horizontal"
@@ -443,7 +443,7 @@ exports[`renders ./components/form/demo/advanced-search.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/form/demo/basic.tsx correctly 1`] = `
+exports[`renders components/form/demo/basic.tsx correctly 1`] = `
 <form
   autocomplete="off"
   class="ant-form ant-form-horizontal"
@@ -628,7 +628,7 @@ exports[`renders ./components/form/demo/basic.tsx correctly 1`] = `
 </form>
 `;
 
-exports[`renders ./components/form/demo/col-24-debug.tsx correctly 1`] = `
+exports[`renders components/form/demo/col-24-debug.tsx correctly 1`] = `
 Array [
   <form
     autocomplete="off"
@@ -1255,7 +1255,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/form/demo/control-hooks.tsx correctly 1`] = `
+exports[`renders components/form/demo/control-hooks.tsx correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
   id="control-hooks"
@@ -1438,7 +1438,7 @@ exports[`renders ./components/form/demo/control-hooks.tsx correctly 1`] = `
 </form>
 `;
 
-exports[`renders ./components/form/demo/control-ref.tsx correctly 1`] = `
+exports[`renders components/form/demo/control-ref.tsx correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
   id="control-ref"
@@ -1621,7 +1621,7 @@ exports[`renders ./components/form/demo/control-ref.tsx correctly 1`] = `
 </form>
 `;
 
-exports[`renders ./components/form/demo/customized-form-controls.tsx correctly 1`] = `
+exports[`renders components/form/demo/customized-form-controls.tsx correctly 1`] = `
 <form
   class="ant-form ant-form-inline"
   id="customized_form_controls"
@@ -1756,7 +1756,7 @@ exports[`renders ./components/form/demo/customized-form-controls.tsx correctly 1
 </form>
 `;
 
-exports[`renders ./components/form/demo/disabled.tsx correctly 1`] = `
+exports[`renders components/form/demo/disabled.tsx correctly 1`] = `
 Array [
   <label
     class="ant-checkbox-wrapper ant-checkbox-wrapper-checked"
@@ -2704,7 +2704,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/form/demo/disabled-input-debug.tsx correctly 1`] = `
+exports[`renders components/form/demo/disabled-input-debug.tsx correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
   style="max-width:600px"
@@ -3214,7 +3214,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.tsx correctly 1`] =
 </form>
 `;
 
-exports[`renders ./components/form/demo/dynamic-form-item.tsx correctly 1`] = `
+exports[`renders components/form/demo/dynamic-form-item.tsx correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
   id="dynamic_form_item"
@@ -3339,7 +3339,7 @@ exports[`renders ./components/form/demo/dynamic-form-item.tsx correctly 1`] = `
 </form>
 `;
 
-exports[`renders ./components/form/demo/dynamic-form-items.tsx correctly 1`] = `
+exports[`renders components/form/demo/dynamic-form-items.tsx correctly 1`] = `
 <form
   autocomplete="off"
   class="ant-form ant-form-horizontal"
@@ -3430,7 +3430,7 @@ exports[`renders ./components/form/demo/dynamic-form-items.tsx correctly 1`] = `
 </form>
 `;
 
-exports[`renders ./components/form/demo/dynamic-form-items-complex.tsx correctly 1`] = `
+exports[`renders components/form/demo/dynamic-form-items-complex.tsx correctly 1`] = `
 <form
   autocomplete="off"
   class="ant-form ant-form-horizontal"
@@ -3611,7 +3611,7 @@ exports[`renders ./components/form/demo/dynamic-form-items-complex.tsx correctly
 </form>
 `;
 
-exports[`renders ./components/form/demo/dynamic-form-items-no-style.tsx correctly 1`] = `
+exports[`renders components/form/demo/dynamic-form-items-no-style.tsx correctly 1`] = `
 <form
   autocomplete="off"
   class="ant-form ant-form-horizontal"
@@ -3732,7 +3732,7 @@ exports[`renders ./components/form/demo/dynamic-form-items-no-style.tsx correctl
 </form>
 `;
 
-exports[`renders ./components/form/demo/dynamic-rule.tsx correctly 1`] = `
+exports[`renders components/form/demo/dynamic-rule.tsx correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
   id="dynamic_rule"
@@ -3884,7 +3884,7 @@ exports[`renders ./components/form/demo/dynamic-rule.tsx correctly 1`] = `
 </form>
 `;
 
-exports[`renders ./components/form/demo/form-context.tsx correctly 1`] = `
+exports[`renders components/form/demo/form-context.tsx correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
   id="basicForm"
@@ -4023,7 +4023,7 @@ exports[`renders ./components/form/demo/form-context.tsx correctly 1`] = `
 </form>
 `;
 
-exports[`renders ./components/form/demo/form-in-modal.tsx correctly 1`] = `
+exports[`renders components/form/demo/form-in-modal.tsx correctly 1`] = `
 <div>
   <button
     class="ant-btn ant-btn-primary"
@@ -4036,7 +4036,7 @@ exports[`renders ./components/form/demo/form-in-modal.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/form/demo/form-item-path.tsx correctly 1`] = `
+exports[`renders components/form/demo/form-item-path.tsx correctly 1`] = `
 <form
   class="ant-form ant-form-vertical"
   id="form_item_path"
@@ -4163,7 +4163,7 @@ exports[`renders ./components/form/demo/form-item-path.tsx correctly 1`] = `
 </form>
 `;
 
-exports[`renders ./components/form/demo/global-state.tsx correctly 1`] = `
+exports[`renders components/form/demo/global-state.tsx correctly 1`] = `
 Array [
   <form
     class="ant-form ant-form-inline"
@@ -4228,7 +4228,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/form/demo/inline-login.tsx correctly 1`] = `
+exports[`renders components/form/demo/inline-login.tsx correctly 1`] = `
 <form
   class="ant-form ant-form-inline"
   id="horizontal_login"
@@ -4374,7 +4374,7 @@ exports[`renders ./components/form/demo/inline-login.tsx correctly 1`] = `
 </form>
 `;
 
-exports[`renders ./components/form/demo/label-debug.tsx correctly 1`] = `
+exports[`renders components/form/demo/label-debug.tsx correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
   id="label-ellipsis"
@@ -4530,7 +4530,7 @@ exports[`renders ./components/form/demo/label-debug.tsx correctly 1`] = `
 </form>
 `;
 
-exports[`renders ./components/form/demo/layout.tsx correctly 1`] = `
+exports[`renders components/form/demo/layout.tsx correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
   style="max-width:600px"
@@ -4732,7 +4732,7 @@ exports[`renders ./components/form/demo/layout.tsx correctly 1`] = `
 </form>
 `;
 
-exports[`renders ./components/form/demo/layout-can-wrap.tsx correctly 1`] = `
+exports[`renders components/form/demo/layout-can-wrap.tsx correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
   id="wrap"
@@ -4860,7 +4860,7 @@ exports[`renders ./components/form/demo/layout-can-wrap.tsx correctly 1`] = `
 </form>
 `;
 
-exports[`renders ./components/form/demo/nest-messages.tsx correctly 1`] = `
+exports[`renders components/form/demo/nest-messages.tsx correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
   id="nest-messages"
@@ -5149,7 +5149,7 @@ exports[`renders ./components/form/demo/nest-messages.tsx correctly 1`] = `
 </form>
 `;
 
-exports[`renders ./components/form/demo/normal-login.tsx correctly 1`] = `
+exports[`renders components/form/demo/normal-login.tsx correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal login-form"
   id="normal_login"
@@ -5347,7 +5347,7 @@ exports[`renders ./components/form/demo/normal-login.tsx correctly 1`] = `
 </form>
 `;
 
-exports[`renders ./components/form/demo/ref-item.tsx correctly 1`] = `
+exports[`renders components/form/demo/ref-item.tsx correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
   style="max-width:600px"
@@ -5434,7 +5434,7 @@ exports[`renders ./components/form/demo/ref-item.tsx correctly 1`] = `
 </form>
 `;
 
-exports[`renders ./components/form/demo/register.tsx correctly 1`] = `
+exports[`renders components/form/demo/register.tsx correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
   id="register"
@@ -6425,7 +6425,7 @@ exports[`renders ./components/form/demo/register.tsx correctly 1`] = `
 </form>
 `;
 
-exports[`renders ./components/form/demo/required-mark.tsx correctly 1`] = `
+exports[`renders components/form/demo/required-mark.tsx correctly 1`] = `
 <form
   class="ant-form ant-form-vertical"
 >
@@ -6684,7 +6684,7 @@ exports[`renders ./components/form/demo/required-mark.tsx correctly 1`] = `
 </form>
 `;
 
-exports[`renders ./components/form/demo/size.tsx correctly 1`] = `
+exports[`renders components/form/demo/size.tsx correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal ant-form-default"
   style="max-width:600px"
@@ -7337,7 +7337,7 @@ exports[`renders ./components/form/demo/size.tsx correctly 1`] = `
 </form>
 `;
 
-exports[`renders ./components/form/demo/time-related-controls.tsx correctly 1`] = `
+exports[`renders components/form/demo/time-related-controls.tsx correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
   id="time_related_controls"
@@ -7893,7 +7893,7 @@ exports[`renders ./components/form/demo/time-related-controls.tsx correctly 1`] 
 </form>
 `;
 
-exports[`renders ./components/form/demo/useWatch.tsx correctly 1`] = `
+exports[`renders components/form/demo/useWatch.tsx correctly 1`] = `
 Array [
   <form
     autocomplete="off"
@@ -8052,7 +8052,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/form/demo/validate-other.tsx correctly 1`] = `
+exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
   id="validate_other"
@@ -9487,7 +9487,7 @@ exports[`renders ./components/form/demo/validate-other.tsx correctly 1`] = `
 </form>
 `;
 
-exports[`renders ./components/form/demo/validate-static.tsx correctly 1`] = `
+exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
   style="max-width:600px"
@@ -11283,7 +11283,7 @@ exports[`renders ./components/form/demo/validate-static.tsx correctly 1`] = `
 </form>
 `;
 
-exports[`renders ./components/form/demo/warning-only.tsx correctly 1`] = `
+exports[`renders components/form/demo/warning-only.tsx correctly 1`] = `
 <form
   autocomplete="off"
   class="ant-form ant-form-vertical"
@@ -11379,7 +11379,7 @@ exports[`renders ./components/form/demo/warning-only.tsx correctly 1`] = `
 </form>
 `;
 
-exports[`renders ./components/form/demo/without-form-create.tsx correctly 1`] = `
+exports[`renders components/form/demo/without-form-create.tsx correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
   style="max-width:600px"

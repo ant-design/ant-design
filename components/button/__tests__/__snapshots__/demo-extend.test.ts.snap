@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/button/demo/basic.tsx extend context correctly 1`] = `
+exports[`renders components/button/demo/basic.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
   style="flex-wrap:wrap;margin-bottom:-8px"
@@ -73,7 +73,7 @@ exports[`renders ./components/button/demo/basic.tsx extend context correctly 1`]
 </div>
 `;
 
-exports[`renders ./components/button/demo/block.tsx extend context correctly 1`] = `
+exports[`renders components/button/demo/block.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
   style="width:100%"
@@ -159,7 +159,7 @@ exports[`renders ./components/button/demo/block.tsx extend context correctly 1`]
 </div>
 `;
 
-exports[`renders ./components/button/demo/chinese-chars-loading.tsx extend context correctly 1`] = `
+exports[`renders components/button/demo/chinese-chars-loading.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
   style="flex-wrap:wrap;margin-bottom:-8px"
@@ -377,7 +377,7 @@ exports[`renders ./components/button/demo/chinese-chars-loading.tsx extend conte
 </div>
 `;
 
-exports[`renders ./components/button/demo/danger.tsx extend context correctly 1`] = `
+exports[`renders components/button/demo/danger.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
   style="flex-wrap:wrap;margin-bottom:-8px"
@@ -450,7 +450,7 @@ exports[`renders ./components/button/demo/danger.tsx extend context correctly 1`
 </div>
 `;
 
-exports[`renders ./components/button/demo/debug-block.tsx extend context correctly 1`] = `
+exports[`renders components/button/demo/debug-block.tsx extend context correctly 1`] = `
 <div
   class="ant-form-item"
 >
@@ -506,7 +506,7 @@ exports[`renders ./components/button/demo/debug-block.tsx extend context correct
 </div>
 `;
 
-exports[`renders ./components/button/demo/debug-icon.tsx extend context correctly 1`] = `
+exports[`renders components/button/demo/debug-icon.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-radio-group ant-radio-group-outline"
@@ -968,7 +968,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/button/demo/disabled.tsx extend context correctly 1`] = `
+exports[`renders components/button/demo/disabled.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -1323,7 +1323,7 @@ exports[`renders ./components/button/demo/disabled.tsx extend context correctly 
 </div>
 `;
 
-exports[`renders ./components/button/demo/ghost.tsx extend context correctly 1`] = `
+exports[`renders components/button/demo/ghost.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center site-button-ghost-wrapper"
   style="flex-wrap:wrap;margin-bottom:-8px"
@@ -1383,7 +1383,7 @@ exports[`renders ./components/button/demo/ghost.tsx extend context correctly 1`]
 </div>
 `;
 
-exports[`renders ./components/button/demo/icon.tsx extend context correctly 1`] = `
+exports[`renders components/button/demo/icon.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -1771,7 +1771,7 @@ exports[`renders ./components/button/demo/icon.tsx extend context correctly 1`] 
 </div>
 `;
 
-exports[`renders ./components/button/demo/legacy-group.tsx extend context correctly 1`] = `
+exports[`renders components/button/demo/legacy-group.tsx extend context correctly 1`] = `
 Array [
   <div>
     <div
@@ -2123,7 +2123,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/button/demo/loading.tsx extend context correctly 1`] = `
+exports[`renders components/button/demo/loading.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -2328,7 +2328,7 @@ exports[`renders ./components/button/demo/loading.tsx extend context correctly 1
 </div>
 `;
 
-exports[`renders ./components/button/demo/multiple.tsx extend context correctly 1`] = `
+exports[`renders components/button/demo/multiple.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -2555,7 +2555,7 @@ exports[`renders ./components/button/demo/multiple.tsx extend context correctly 
 </div>
 `;
 
-exports[`renders ./components/button/demo/size.tsx extend context correctly 1`] = `
+exports[`renders components/button/demo/size.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-radio-group ant-radio-group-outline"

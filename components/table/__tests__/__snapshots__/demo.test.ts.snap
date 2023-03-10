@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/table/demo/basic.tsx correctly 1`] = `
+exports[`renders components/table/demo/basic.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -329,7 +329,7 @@ exports[`renders ./components/table/demo/basic.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/table/demo/bordered.tsx correctly 1`] = `
+exports[`renders components/table/demo/bordered.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -548,7 +548,7 @@ exports[`renders ./components/table/demo/bordered.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/table/demo/colspan-rowspan.tsx correctly 1`] = `
+exports[`renders components/table/demo/colspan-rowspan.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -867,7 +867,7 @@ exports[`renders ./components/table/demo/colspan-rowspan.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/table/demo/custom-filter-panel.tsx correctly 1`] = `
+exports[`renders components/table/demo/custom-filter-panel.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -1249,7 +1249,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.tsx correctly 1`] =
 </div>
 `;
 
-exports[`renders ./components/table/demo/drag-sorting.tsx correctly 1`] = `
+exports[`renders components/table/demo/drag-sorting.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -1300,7 +1300,7 @@ exports[`renders ./components/table/demo/drag-sorting.tsx correctly 1`] = `
                 class="ant-table-tbody"
               >
                 <tr
-                  aria-describedby="DndDescribedBy-1"
+                  aria-describedby="DndDescribedBy-0"
                   aria-disabled="false"
                   aria-roledescription="sortable"
                   class="ant-table-row ant-table-row-level-0"
@@ -1326,7 +1326,7 @@ exports[`renders ./components/table/demo/drag-sorting.tsx correctly 1`] = `
                   </td>
                 </tr>
                 <tr
-                  aria-describedby="DndDescribedBy-1"
+                  aria-describedby="DndDescribedBy-0"
                   aria-disabled="false"
                   aria-roledescription="sortable"
                   class="ant-table-row ant-table-row-level-0"
@@ -1352,7 +1352,7 @@ exports[`renders ./components/table/demo/drag-sorting.tsx correctly 1`] = `
                   </td>
                 </tr>
                 <tr
-                  aria-describedby="DndDescribedBy-1"
+                  aria-describedby="DndDescribedBy-0"
                   aria-disabled="false"
                   aria-roledescription="sortable"
                   class="ant-table-row ant-table-row-level-0"
@@ -1466,7 +1466,7 @@ exports[`renders ./components/table/demo/drag-sorting.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/table/demo/drag-sorting-handler.tsx correctly 1`] = `
+exports[`renders components/table/demo/drag-sorting-handler.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -1520,7 +1520,7 @@ exports[`renders ./components/table/demo/drag-sorting-handler.tsx correctly 1`] 
                 class="ant-table-tbody"
               >
                 <tr
-                  aria-describedby="DndDescribedBy-0"
+                  aria-describedby="DndDescribedBy-1"
                   aria-disabled="false"
                   aria-roledescription="sortable"
                   class="ant-table-row ant-table-row-level-0"
@@ -1569,7 +1569,7 @@ exports[`renders ./components/table/demo/drag-sorting-handler.tsx correctly 1`] 
                   </td>
                 </tr>
                 <tr
-                  aria-describedby="DndDescribedBy-0"
+                  aria-describedby="DndDescribedBy-1"
                   aria-disabled="false"
                   aria-roledescription="sortable"
                   class="ant-table-row ant-table-row-level-0"
@@ -1618,7 +1618,7 @@ exports[`renders ./components/table/demo/drag-sorting-handler.tsx correctly 1`] 
                   </td>
                 </tr>
                 <tr
-                  aria-describedby="DndDescribedBy-0"
+                  aria-describedby="DndDescribedBy-1"
                   aria-disabled="false"
                   aria-roledescription="sortable"
                   class="ant-table-row ant-table-row-level-0"
@@ -1755,7 +1755,7 @@ exports[`renders ./components/table/demo/drag-sorting-handler.tsx correctly 1`] 
 </div>
 `;
 
-exports[`renders ./components/table/demo/dynamic-settings.tsx correctly 1`] = `
+exports[`renders components/table/demo/dynamic-settings.tsx correctly 1`] = `
 Array [
   <form
     class="ant-form ant-form-inline components-table-demo-control-bar"
@@ -4111,7 +4111,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/table/demo/edit-cell.tsx correctly 1`] = `
+exports[`renders components/table/demo/edit-cell.tsx correctly 1`] = `
 <div>
   <button
     class="ant-btn ant-btn-primary"
@@ -4335,7 +4335,7 @@ exports[`renders ./components/table/demo/edit-cell.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/table/demo/edit-row.tsx correctly 1`] = `
+exports[`renders components/table/demo/edit-row.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -4939,7 +4939,7 @@ exports[`renders ./components/table/demo/edit-row.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/table/demo/ellipsis.tsx correctly 1`] = `
+exports[`renders components/table/demo/ellipsis.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -5230,7 +5230,7 @@ exports[`renders ./components/table/demo/ellipsis.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/table/demo/ellipsis-custom-tooltip.tsx correctly 1`] = `
+exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -5533,7 +5533,7 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.tsx correctly 1
 </div>
 `;
 
-exports[`renders ./components/table/demo/expand.tsx correctly 1`] = `
+exports[`renders components/table/demo/expand.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -5833,7 +5833,7 @@ exports[`renders ./components/table/demo/expand.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/table/demo/filter-in-tree.tsx correctly 1`] = `
+exports[`renders components/table/demo/filter-in-tree.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -6183,7 +6183,7 @@ exports[`renders ./components/table/demo/filter-in-tree.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/table/demo/filter-search.tsx correctly 1`] = `
+exports[`renders components/table/demo/filter-search.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -6533,7 +6533,7 @@ exports[`renders ./components/table/demo/filter-search.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/table/demo/fixed-columns.tsx correctly 1`] = `
+exports[`renders components/table/demo/fixed-columns.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -7023,7 +7023,7 @@ exports[`renders ./components/table/demo/fixed-columns.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/table/demo/fixed-columns-header.tsx correctly 1`] = `
+exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -8159,7 +8159,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.tsx correctly 1`] 
 </div>
 `;
 
-exports[`renders ./components/table/demo/fixed-header.tsx correctly 1`] = `
+exports[`renders components/table/demo/fixed-header.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -9423,7 +9423,7 @@ exports[`renders ./components/table/demo/fixed-header.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/table/demo/grouping-columns.tsx correctly 1`] = `
+exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -10457,7 +10457,7 @@ exports[`renders ./components/table/demo/grouping-columns.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/table/demo/head.tsx correctly 1`] = `
+exports[`renders components/table/demo/head.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -10837,7 +10837,7 @@ exports[`renders ./components/table/demo/head.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/table/demo/jsx.tsx correctly 1`] = `
+exports[`renders components/table/demo/jsx.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -11194,7 +11194,7 @@ exports[`renders ./components/table/demo/jsx.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/table/demo/multiple-sorter.tsx correctly 1`] = `
+exports[`renders components/table/demo/multiple-sorter.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -11610,7 +11610,7 @@ exports[`renders ./components/table/demo/multiple-sorter.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/table/demo/narrow.tsx correctly 1`] = `
+exports[`renders components/table/demo/narrow.tsx correctly 1`] = `
 <div
   style="width:300px"
 >
@@ -12161,7 +12161,7 @@ exports[`renders ./components/table/demo/narrow.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/table/demo/nest-table-border-debug.tsx correctly 1`] = `
+exports[`renders components/table/demo/nest-table-border-debug.tsx correctly 1`] = `
 Array [
   <form
     class="ant-form ant-form-inline components-table-demo-control-bar"
@@ -12604,7 +12604,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/table/demo/nested-table.tsx correctly 1`] = `
+exports[`renders components/table/demo/nested-table.tsx correctly 1`] = `
 Array [
   <div
     class="ant-table-wrapper"
@@ -14604,7 +14604,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/table/demo/order-column.tsx correctly 1`] = `
+exports[`renders components/table/demo/order-column.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -14976,7 +14976,7 @@ exports[`renders ./components/table/demo/order-column.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/table/demo/pagination.tsx correctly 1`] = `
+exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
 <div>
   <div>
     <div
@@ -15558,7 +15558,7 @@ exports[`renders ./components/table/demo/pagination.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/table/demo/reset-filter.tsx correctly 1`] = `
+exports[`renders components/table/demo/reset-filter.tsx correctly 1`] = `
 Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
@@ -16074,7 +16074,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/table/demo/resizable-column.tsx correctly 1`] = `
+exports[`renders components/table/demo/resizable-column.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -16403,7 +16403,7 @@ exports[`renders ./components/table/demo/resizable-column.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/table/demo/responsive.tsx correctly 1`] = `
+exports[`renders components/table/demo/responsive.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -16542,7 +16542,7 @@ exports[`renders ./components/table/demo/responsive.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/table/demo/row-selection.tsx correctly 1`] = `
+exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
 <div>
   <div
     class="ant-radio-group ant-radio-group-outline"
@@ -16928,7 +16928,7 @@ exports[`renders ./components/table/demo/row-selection.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/table/demo/row-selection-and-operation.tsx correctly 1`] = `
+exports[`renders components/table/demo/row-selection-and-operation.tsx correctly 1`] = `
 <div>
   <div
     style="margin-bottom:16px"
@@ -17548,7 +17548,7 @@ exports[`renders ./components/table/demo/row-selection-and-operation.tsx correct
 </div>
 `;
 
-exports[`renders ./components/table/demo/row-selection-custom.tsx correctly 1`] = `
+exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -18177,7 +18177,7 @@ exports[`renders ./components/table/demo/row-selection-custom.tsx correctly 1`] 
 </div>
 `;
 
-exports[`renders ./components/table/demo/row-selection-custom-debug.tsx correctly 1`] = `
+exports[`renders components/table/demo/row-selection-custom-debug.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -18592,7 +18592,7 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.tsx correctl
 </div>
 `;
 
-exports[`renders ./components/table/demo/row-selection-debug.tsx correctly 1`] = `
+exports[`renders components/table/demo/row-selection-debug.tsx correctly 1`] = `
 Array [
   <div
     class="ant-input-number"
@@ -20857,7 +20857,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/table/demo/size.tsx correctly 1`] = `
+exports[`renders components/table/demo/size.tsx correctly 1`] = `
 Array [
   <div
     class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center"
@@ -21274,7 +21274,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/table/demo/sticky.tsx correctly 1`] = `
+exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -22468,7 +22468,7 @@ exports[`renders ./components/table/demo/sticky.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/table/demo/summary.tsx correctly 1`] = `
+exports[`renders components/table/demo/summary.tsx correctly 1`] = `
 Array [
   <div
     class="ant-table-wrapper"
@@ -23093,7 +23093,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/table/demo/tree-data.tsx correctly 1`] = `
+exports[`renders components/table/demo/tree-data.tsx correctly 1`] = `
 Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
@@ -23403,7 +23403,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/table/demo/tree-table-ellipsis.tsx correctly 1`] = `
+exports[`renders components/table/demo/tree-table-ellipsis.tsx correctly 1`] = `
 Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
@@ -24126,7 +24126,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/table/demo/virtual-list.tsx correctly 1`] = `
+exports[`renders components/table/demo/virtual-list.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper virtual-table"
 >

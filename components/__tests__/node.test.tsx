@@ -21,14 +21,14 @@ describe('node', () => {
   });
 
   // Find the component exist demo test file
-  const files = glob.sync(`./components/*/__tests__/demo.test.@(j|t)s?(x)`);
+  const files = glob.globSync(`./components/*/__tests__/demo.test.@(j|t)s?(x)`);
 
   files.forEach((componentTestFile) => {
     const componentName = componentTestFile.match(/components\/([^/]*)\//)![1];
 
     // Test for ssr
     describe(componentName, () => {
-      const demoList = glob.sync(`./components/${componentName}/demo/*.tsx`);
+      const demoList = glob.globSync(`./components/${componentName}/demo/*.tsx`);
 
       // Use mock to get config
       require(`../../${componentTestFile}`); // eslint-disable-line global-require, import/no-dynamic-require

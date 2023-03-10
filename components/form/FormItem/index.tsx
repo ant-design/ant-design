@@ -86,6 +86,7 @@ function genEmptyMeta(): Meta {
     touched: false,
     validating: false,
     name: [],
+    validated: false,
   };
 }
 

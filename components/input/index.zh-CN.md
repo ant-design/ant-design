@@ -22,7 +22,8 @@ demo:
 <code src="./demo/basic.tsx">基本使用</code>
 <code src="./demo/size.tsx">三种大小</code>
 <code src="./demo/addon.tsx">前置/后置标签</code>
-<code src="./demo/group.tsx">输入框组合</code>
+<code src="./demo/compact-style.tsx">紧凑模式</code>
+<code src="./demo/group.tsx" debug>输入框组合</code>
 <code src="./demo/search-input.tsx">搜索框</code>
 <code src="./demo/search-input-loading.tsx">搜索框 loading</code>
 <code src="./demo/textarea.tsx">文本域</code>
@@ -94,20 +95,6 @@ Input 的其他属性和 React 自带的 [input](https://reactjs.org/docs/dom-el
 | onSearch | 点击搜索图标、清除图标，或按下回车键时的回调 | function(value, event) | - |
 
 其余属性和 Input 一致。
-
-#### Input.Group
-
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| compact | 是否用紧凑模式 | boolean | false |
-| size | `Input.Group` 中所有的 `Input` 的大小，可选 `large` `default` `small` | string | `default` |
-
-```jsx
-<Input.Group>
-  <input />
-  <input />
-</Input.Group>
-```
 
 #### Input.Password
 
