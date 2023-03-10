@@ -15,7 +15,7 @@ exports[`Modal.confirm triggers callbacks correctly footer confirm should render
       >
         <span
           aria-label="exclamation-circle"
-          class="anticon anticon-exclamation-circle"
+          class="bamboo bamboo-exclamation-circle"
           role="img"
         >
           <svg
