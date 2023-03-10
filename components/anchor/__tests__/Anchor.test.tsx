@@ -901,7 +901,7 @@ describe('Anchor Render', () => {
       expect(result.current()).toBe(3);
     });
 
-    it('useEvent should work with reference variable', async () => {
+    it('useEvent should work with reference variable', () => {
       const setTestCount = (val?: any) => renderHook(useEvent, { initialProps: () => val });
       const { result, rerender } = setTestCount();
       rerender(() => []);
