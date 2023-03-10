@@ -42,7 +42,8 @@ export const warnContext: (componentName: string) => void =
           `Static function can not consume context like dynamic theme. Please use 'App' component instead.`,
         );
       }
-    : null!;
+    : /* istanbul ignore next */
+      null!;
 
 export {
   type RenderEmptyHandler,
