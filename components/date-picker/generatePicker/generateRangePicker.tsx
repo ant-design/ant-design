@@ -66,7 +66,7 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
     additionalOverrideProps = {
       ...additionalOverrideProps,
       ...(showTime ? getTimeProps({ format, picker, ...showTime }) : {}),
-      ...(picker === 'time' ? getTimeProps({ format, ...props, picker }) : {}),
+      ...(picker === 'time' ? getTimeProps({ format, ...(props as any), picker }) : {}),
     };
 
     // =================== Warning =====================

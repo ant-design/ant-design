@@ -83,7 +83,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
           ...additionalOverrideProps,
           ...(showTime ? getTimeProps({ format, picker: mergedPicker, ...showTime }) : {}),
           ...(mergedPicker === 'time'
-            ? getTimeProps({ format, ...props, picker: mergedPicker })
+            ? getTimeProps({ format, ...(props as any), picker: mergedPicker })
             : {}),
         };
         const rootPrefixCls = getPrefixCls();
