@@ -335,9 +335,9 @@ export default function App({ Component, pageProps }: AppProps) {
 }
 ```
 
-#### Mixed theme
+#### Custom theme
 
-If you're using a mixed theme for your project, try baking in the following ways:
+If you're using a custom theme for your project, try baking in the following ways:
 
 ```tsx
 import { extractStyle } from '@ant-design/static-style-extract';
@@ -352,6 +352,35 @@ const cssText = extractStyle((node) => (
     }}
   >
     {node}
+  </ConfigProvider>
+));
+```
+
+#### Mixed theme
+
+If you're using a mixed theme for your project, try baking in the following ways:
+
+```tsx
+import { extractStyle } from '@ant-design/static-style-extract';
+import { ConfigProvider } from 'antd';
+
+const cssText = extractStyle((node) => (
+  <ConfigProvider
+    theme={{
+      token: {
+        colorPrimary: 'blue',
+      },
+    }}
+  >
+    <ConfigProvider
+      theme={{
+        token: {
+          colorBgBase: 'red ',
+        },
+      }}
+    >
+      {node}
+    </ConfigProvider>
   </ConfigProvider>
 ));
 ```

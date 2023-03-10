@@ -331,9 +331,9 @@ export default function App({ Component, pageProps }: AppProps) {
 }
 ```
 
-#### 混合主题
+#### 自定义主题
 
-如果你的项目中使用了混合主题，可以尝试通过以下方式进行烘焙：
+如果你的项目中使用了自定义主题，可以尝试通过以下方式进行烘焙：
 
 ```tsx
 import { extractStyle } from '@ant-design/static-style-extract';
@@ -348,6 +348,35 @@ const cssText = extractStyle((node) => (
     }}
   >
     {node}
+  </ConfigProvider>
+));
+```
+
+#### 混合主题
+
+如果你的项目中使用了混合主题，可以尝试通过以下方式进行烘焙：
+
+```tsx
+import { extractStyle } from '@ant-design/static-style-extract';
+import { ConfigProvider } from 'antd';
+
+const cssText = extractStyle((node) => (
+  <ConfigProvider
+    theme={{
+      token: {
+        colorPrimary: 'blue',
+      },
+    }}
+  >
+    <ConfigProvider
+      theme={{
+        token: {
+          colorBgBase: 'red ',
+        },
+      }}
+    >
+      {node}
+    </ConfigProvider>
   </ConfigProvider>
 ));
 ```
