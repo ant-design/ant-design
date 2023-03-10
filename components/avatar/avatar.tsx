@@ -24,7 +24,7 @@ export interface AvatarProps {
   src?: React.ReactNode;
   /** Srcset of image avatar */
   srcSet?: string;
-  draggable?: boolean;
+  draggable?: boolean | 'true' | 'false';
   /** Icon to be used in avatar */
   icon?: React.ReactNode;
   style?: React.CSSProperties;
