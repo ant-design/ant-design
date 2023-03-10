@@ -1,6 +1,7 @@
 import { render } from 'rc-util/lib/React/render';
 import * as React from 'react';
-import ConfigProvider, { globalConfig } from '../config-provider';
+import ConfigProvider, { existTheme, globalConfig } from '../config-provider';
+import warning from '../_util/warning';
 import type { ArgsProps, GlobalConfigProps, NotificationInstance } from './interface';
 import PurePanel from './PurePanel';
 import useNotification, { useInternalNotification } from './useNotification';
@@ -201,6 +202,15 @@ function setNotificationGlobalConfig(config: GlobalConfigProps) {
 }
 
 function open(config: ArgsProps) {
+  // Warning if exist theme
+  if (process.env.NODE_ENV !== 'production') {
+    warning(
+      !existTheme(),
+      'notification',
+      `Static function can not consume context like dynamic theme. Please use 'App' component instead.`,
+    );
+  }
+
   taskQueue.push({
     type: 'open',
     config,

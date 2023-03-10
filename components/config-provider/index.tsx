@@ -27,6 +27,14 @@ import type { SizeType } from './SizeContext';
 import SizeContext, { SizeContextProvider } from './SizeContext';
 import useStyle from './style';
 
+/**
+ * Since too many feedback using static method like `Modal.confirm` not getting theme,
+ * we record the theme register info here to help developer get warning info.
+ */
+let existThemeConfig = false;
+export const existTheme: () => boolean =
+  process.env.NODE_ENV !== 'production' ? () => existThemeConfig : null!;
+
 export {
   type RenderEmptyHandler,
   ConfigContext,
@@ -191,6 +199,10 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
   const wrapSSR = useStyle(iconPrefixCls);
 
   const mergedTheme = useTheme(theme, parentContext.theme);
+
+  if (process.env.NODE_ENV !== 'production') {
+    existThemeConfig = existThemeConfig || !!mergedTheme;
+  }
 
   const baseConfig = {
     csp,

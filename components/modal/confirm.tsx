@@ -1,6 +1,6 @@
 import { render as reactRender, unmount as reactUnmount } from 'rc-util/lib/React/render';
 import * as React from 'react';
-import { globalConfig } from '../config-provider';
+import { existTheme, globalConfig } from '../config-provider';
 import warning from '../_util/warning';
 import ConfirmDialog from './ConfirmDialog';
 import destroyFns from './destroyFns';
@@ -23,6 +23,15 @@ export type ModalFunc = (props: ModalFuncProps) => {
 export type ModalStaticFunctions = Record<NonNullable<ModalFuncProps['type']>, ModalFunc>;
 
 export default function confirm(config: ModalFuncProps) {
+  // Warning if exist theme
+  if (process.env.NODE_ENV !== 'production') {
+    warning(
+      !existTheme(),
+      'Modal',
+      `Static function can not consume context like dynamic theme. Please use 'App' component instead.`,
+    );
+  }
+
   const container = document.createDocumentFragment();
   // eslint-disable-next-line @typescript-eslint/no-use-before-define
   let currentConfig = { ...config, close, open: true } as any;
