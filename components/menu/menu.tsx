@@ -18,7 +18,7 @@ import type { ItemType } from './hooks/useItems';
 import MenuContext from './MenuContext';
 import type { MenuTheme, MenuContextProps } from './MenuContext';
 
-export interface MenuProps extends Omit<RcMenuProps, 'items'> {
+export interface MenuProps<T = {}> extends Omit<RcMenuProps, 'items'> {
   theme?: MenuTheme;
   inlineIndent?: number;
 
@@ -29,148 +29,150 @@ export interface MenuProps extends Omit<RcMenuProps, 'items'> {
    */
   _internalDisableMenuItemTitleTooltip?: boolean;
 
-  items?: ItemType[];
+  items?: ItemType<T>[];
 }
 
-type InternalMenuProps = MenuProps &
+type InternalMenuProps<T = {}> = MenuProps<T> &
   SiderContextProps & {
     collapsedWidth?: string | number;
   };
 
-const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
-  const override = React.useContext(OverrideContext);
-  const overrideObj = override || {};
+const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>(
+  <T = {}>(props: InternalMenuProps<T>, ref: React.Ref<RcMenuRef>) => {
+    const override = React.useContext(OverrideContext);
+    const overrideObj = override || {};
 
-  const { getPrefixCls, getPopupContainer, direction } = React.useContext(ConfigContext);
+    const { getPrefixCls, getPopupContainer, direction } = React.useContext(ConfigContext);
 
-  const rootPrefixCls = getPrefixCls();
+    const rootPrefixCls = getPrefixCls();
 
-  const {
-    prefixCls: customizePrefixCls,
-    className,
-    theme = 'light',
-    expandIcon,
-    _internalDisableMenuItemTitleTooltip,
-    inlineCollapsed,
-    siderCollapsed,
-    items,
-    children,
-    rootClassName,
-    mode,
-    selectable,
-    onClick,
-    ...restProps
-  } = props;
+    const {
+      prefixCls: customizePrefixCls,
+      className,
+      theme = 'light',
+      expandIcon,
+      _internalDisableMenuItemTitleTooltip,
+      inlineCollapsed,
+      siderCollapsed,
+      items,
+      children,
+      rootClassName,
+      mode,
+      selectable,
+      onClick,
+      ...restProps
+    } = props;
 
-  const passedProps = omit(restProps, ['collapsedWidth']);
+    const passedProps = omit(restProps, ['collapsedWidth']);
 
-  // ========================= Items ===========================
-  const mergedChildren = useItems(items) || children;
+    // ========================= Items ===========================
+    const mergedChildren = useItems(items) || children;
 
-  // ======================== Warning ==========================
-  warning(
-    !('inlineCollapsed' in props && mode !== 'inline'),
-    'Menu',
-    '`inlineCollapsed` should only be used when `mode` is inline.',
-  );
+    // ======================== Warning ==========================
+    warning(
+      !('inlineCollapsed' in props && mode !== 'inline'),
+      'Menu',
+      '`inlineCollapsed` should only be used when `mode` is inline.',
+    );
 
-  warning(
-    !(props.siderCollapsed !== undefined && 'inlineCollapsed' in props),
-    'Menu',
-    '`inlineCollapsed` not control Menu under Sider. Should set `collapsed` on Sider instead.',
-  );
+    warning(
+      !(props.siderCollapsed !== undefined && 'inlineCollapsed' in props),
+      'Menu',
+      '`inlineCollapsed` not control Menu under Sider. Should set `collapsed` on Sider instead.',
+    );
 
-  warning(
-    'items' in props && !children,
-    'Menu',
-    '`children` will be removed in next major version. Please use `items` instead.',
-  );
+    warning(
+      'items' in props && !children,
+      'Menu',
+      '`children` will be removed in next major version. Please use `items` instead.',
+    );
 
-  overrideObj.validator?.({ mode });
+    overrideObj.validator?.({ mode });
 
-  // ========================== Click ==========================
-  // Tell dropdown that item clicked
-  const onItemClick = useEvent<Required<MenuProps>['onClick']>((...args) => {
-    onClick?.(...args);
-    overrideObj.onClick?.();
-  });
-
-  // ========================== Mode ===========================
-  const mergedMode = overrideObj.mode || mode;
-
-  // ======================= Selectable ========================
-  const mergedSelectable = selectable ?? overrideObj.selectable;
-
-  // ======================== Collapsed ========================
-  // Inline Collapsed
-  const mergedInlineCollapsed = React.useMemo(() => {
-    if (siderCollapsed !== undefined) {
-      return siderCollapsed;
-    }
-    return inlineCollapsed;
-  }, [inlineCollapsed, siderCollapsed]);
-
-  const defaultMotions = {
-    horizontal: { motionName: `${rootPrefixCls}-slide-up` },
-    inline: initCollapseMotion(rootPrefixCls),
-    other: { motionName: `${rootPrefixCls}-zoom-big` },
-  };
-
-  const prefixCls = getPrefixCls('menu', customizePrefixCls || overrideObj.prefixCls);
-  const [wrapSSR, hashId] = useStyle(prefixCls, !override);
-  const menuClassName = classNames(`${prefixCls}-${theme}`, className);
-
-  // ====================== Expand Icon ========================
-  let mergedExpandIcon: MenuProps[`expandIcon`];
-  if (typeof expandIcon === 'function') {
-    mergedExpandIcon = expandIcon;
-  } else {
-    const beClone: any = expandIcon || overrideObj.expandIcon;
-    mergedExpandIcon = cloneElement(beClone, {
-      className: classNames(`${prefixCls}-submenu-expand-icon`, beClone?.props?.className),
+    // ========================== Click ==========================
+    // Tell dropdown that item clicked
+    const onItemClick = useEvent<Required<MenuProps>['onClick']>((...args) => {
+      onClick?.(...args);
+      overrideObj.onClick?.();
     });
-  }
 
-  // ======================== Context ==========================
-  const contextValue = React.useMemo<MenuContextProps>(
-    () => ({
-      prefixCls,
-      inlineCollapsed: mergedInlineCollapsed || false,
-      direction,
-      firstLevel: true,
-      theme,
-      mode: mergedMode,
-      disableMenuItemTitleTooltip: _internalDisableMenuItemTitleTooltip,
-    }),
-    [prefixCls, mergedInlineCollapsed, direction, _internalDisableMenuItemTitleTooltip, theme],
-  );
+    // ========================== Mode ===========================
+    const mergedMode = overrideObj.mode || mode;
 
-  // ========================= Render ==========================
-  return wrapSSR(
-    <OverrideContext.Provider value={null}>
-      <MenuContext.Provider value={contextValue}>
-        <RcMenu
-          getPopupContainer={getPopupContainer}
-          overflowedIndicator={<EllipsisOutlined />}
-          overflowedIndicatorPopupClassName={`${prefixCls}-${theme}`}
-          mode={mergedMode}
-          selectable={mergedSelectable}
-          onClick={onItemClick}
-          {...passedProps}
-          inlineCollapsed={mergedInlineCollapsed}
-          className={menuClassName}
-          prefixCls={prefixCls}
-          direction={direction}
-          defaultMotions={defaultMotions}
-          expandIcon={mergedExpandIcon}
-          ref={ref}
-          rootClassName={classNames(rootClassName, hashId)}
-        >
-          {mergedChildren}
-        </RcMenu>
-      </MenuContext.Provider>
-    </OverrideContext.Provider>,
-  );
-});
+    // ======================= Selectable ========================
+    const mergedSelectable = selectable ?? overrideObj.selectable;
+
+    // ======================== Collapsed ========================
+    // Inline Collapsed
+    const mergedInlineCollapsed = React.useMemo(() => {
+      if (siderCollapsed !== undefined) {
+        return siderCollapsed;
+      }
+      return inlineCollapsed;
+    }, [inlineCollapsed, siderCollapsed]);
+
+    const defaultMotions = {
+      horizontal: { motionName: `${rootPrefixCls}-slide-up` },
+      inline: initCollapseMotion(rootPrefixCls),
+      other: { motionName: `${rootPrefixCls}-zoom-big` },
+    };
+
+    const prefixCls = getPrefixCls('menu', customizePrefixCls || overrideObj.prefixCls);
+    const [wrapSSR, hashId] = useStyle(prefixCls, !override);
+    const menuClassName = classNames(`${prefixCls}-${theme}`, className);
+
+    // ====================== Expand Icon ========================
+    let mergedExpandIcon: MenuProps[`expandIcon`];
+    if (typeof expandIcon === 'function') {
+      mergedExpandIcon = expandIcon;
+    } else {
+      const beClone: any = expandIcon || overrideObj.expandIcon;
+      mergedExpandIcon = cloneElement(beClone, {
+        className: classNames(`${prefixCls}-submenu-expand-icon`, beClone?.props?.className),
+      });
+    }
+
+    // ======================== Context ==========================
+    const contextValue = React.useMemo<MenuContextProps>(
+      () => ({
+        prefixCls,
+        inlineCollapsed: mergedInlineCollapsed || false,
+        direction,
+        firstLevel: true,
+        theme,
+        mode: mergedMode,
+        disableMenuItemTitleTooltip: _internalDisableMenuItemTitleTooltip,
+      }),
+      [prefixCls, mergedInlineCollapsed, direction, _internalDisableMenuItemTitleTooltip, theme],
+    );
+
+    // ========================= Render ==========================
+    return wrapSSR(
+      <OverrideContext.Provider value={null}>
+        <MenuContext.Provider value={contextValue}>
+          <RcMenu
+            getPopupContainer={getPopupContainer}
+            overflowedIndicator={<EllipsisOutlined />}
+            overflowedIndicatorPopupClassName={`${prefixCls}-${theme}`}
+            mode={mergedMode}
+            selectable={mergedSelectable}
+            onClick={onItemClick}
+            {...passedProps}
+            inlineCollapsed={mergedInlineCollapsed}
+            className={menuClassName}
+            prefixCls={prefixCls}
+            direction={direction}
+            defaultMotions={defaultMotions}
+            expandIcon={mergedExpandIcon}
+            ref={ref}
+            rootClassName={classNames(rootClassName, hashId)}
+          >
+            {mergedChildren}
+          </RcMenu>
+        </MenuContext.Provider>
+      </OverrideContext.Provider>,
+    );
+  },
+);
 
 export default InternalMenu;
