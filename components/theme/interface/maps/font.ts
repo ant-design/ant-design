@@ -1,8 +1,24 @@
 export interface FontMapToken {
   // Font Size
+  /**
+   * @desc 小号字体大小
+   * @descEN Small font size
+   */
   fontSizeSM: number;
+  /**
+   * @desc 标准字体大小
+   * @descEN Standard font size
+   */
   fontSize: number;
+  /**
+   * @desc 大号字体大小
+   * @descEN Large font size
+   */
   fontSizeLG: number;
+  /**
+   * @desc 超大号字体大小
+   * @descEN Super large font size
+   */
   fontSizeXL: number;
 
   /**

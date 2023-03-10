@@ -83,6 +83,7 @@ export interface SeedToken extends PresetColorType {
    * @nameZH 默认字号
    * @nameEN Default Font Size
    * @desc 设计系统中使用最广泛的字体大小，文本梯度也将基于该字号进行派生。
+   * @descEN The most widely used font size in the design system, from which the text gradient will be derived.
    * @default 14
    */
   fontSize: number;

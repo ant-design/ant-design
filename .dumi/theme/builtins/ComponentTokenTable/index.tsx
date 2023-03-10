@@ -26,11 +26,12 @@ const locales = {
 };
 
 interface SubTokenTableProps {
+  defaultOpen?: boolean;
   title: string;
   tokens: string[];
 }
 
-function SubTokenTable({ tokens, title }: SubTokenTableProps) {
+function SubTokenTable({ defaultOpen, tokens, title }: SubTokenTableProps) {
   const [, lang] = useLocale(locales);
   const { token } = useSiteToken();
   const columns = useColumns();
@@ -52,8 +53,10 @@ function SubTokenTable({ tokens, title }: SubTokenTableProps) {
 
   return (
     // Reuse `.markdown` style
-    <div className="markdown">
-      <h3>{title}</h3>
+    <details className="markdown" open={defaultOpen}>
+      <summary>
+        <h3 style={{ display: 'inline' }}>{title}</h3>
+      </summary>
       <ConfigProvider
         theme={{
           token: {
@@ -67,9 +70,10 @@ function SubTokenTable({ tokens, title }: SubTokenTableProps) {
           bordered
           dataSource={data}
           style={{ marginBottom: token.margin }}
+          pagination={false}
         />
       </ConfigProvider>
-    </div>
+    </details>
   );
 }
 
@@ -82,7 +86,7 @@ function ComponentTokenTable({ component }: ComponentTokenTableProps) {
 
   return (
     <>
-      <SubTokenTable title="Component Token" tokens={componentTokens} />
+      <SubTokenTable title="Component Token" tokens={componentTokens} defaultOpen />
       <SubTokenTable title="Global Token" tokens={globalTokens} />
     </>
   );
