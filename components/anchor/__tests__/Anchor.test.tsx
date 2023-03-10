@@ -890,7 +890,8 @@ describe('Anchor Render', () => {
     });
 
     it('useEvent should work with basic variable', () => {
-      const setTestCount = (val?: number) => renderHook(useEvent, { initialProps: () => val });
+      const setTestCount = (val?: number) =>
+        renderHook((initial) => useEvent(initial), { initialProps: () => val });
       const { result, rerender } = setTestCount(0);
       expect(result.current()).toBe(0);
       rerender(() => 1);
@@ -902,7 +903,8 @@ describe('Anchor Render', () => {
     });
 
     it('useEvent should work with reference variable', () => {
-      const setTestCount = (val?: any) => renderHook(useEvent, { initialProps: () => val });
+      const setTestCount = (val?: any) =>
+        renderHook((initial) => useEvent(initial), { initialProps: () => val });
       const { result, rerender } = setTestCount();
       rerender(() => []);
       expect(result.current()).toEqual([]);
