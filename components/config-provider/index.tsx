@@ -27,6 +27,24 @@ import type { SizeType } from './SizeContext';
 import SizeContext, { SizeContextProvider } from './SizeContext';
 import useStyle from './style';
 
+/**
+ * Since too many feedback using static method like `Modal.confirm` not getting theme,
+ * we record the theme register info here to help developer get warning info.
+ */
+let existThemeConfig = false;
+
+export const warnContext: (componentName: string) => void =
+  process.env.NODE_ENV !== 'production'
+    ? (componentName: string) => {
+        warning(
+          !existThemeConfig,
+          componentName,
+          `Static function can not consume context like dynamic theme. Please use 'App' component instead.`,
+        );
+      }
+    : /* istanbul ignore next */
+      null!;
+
 export {
   type RenderEmptyHandler,
   ConfigContext,
@@ -191,6 +209,10 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
   const wrapSSR = useStyle(iconPrefixCls);
 
   const mergedTheme = useTheme(theme, parentContext.theme);
+
+  if (process.env.NODE_ENV !== 'production') {
+    existThemeConfig = existThemeConfig || !!mergedTheme;
+  }
 
   const baseConfig = {
     csp,
