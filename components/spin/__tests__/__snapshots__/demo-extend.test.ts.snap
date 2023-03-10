@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/spin/demo/basic.tsx extend context correctly 1`] = `
+exports[`renders components/spin/demo/basic.tsx extend context correctly 1`] = `
 <div
   aria-busy="true"
   aria-live="polite"
@@ -25,7 +25,7 @@ exports[`renders ./components/spin/demo/basic.tsx extend context correctly 1`] =
 </div>
 `;
 
-exports[`renders ./components/spin/demo/custom-indicator.tsx extend context correctly 1`] = `
+exports[`renders components/spin/demo/custom-indicator.tsx extend context correctly 1`] = `
 <div
   aria-busy="true"
   aria-live="polite"
@@ -54,7 +54,7 @@ exports[`renders ./components/spin/demo/custom-indicator.tsx extend context corr
 </div>
 `;
 
-exports[`renders ./components/spin/demo/delayAndDebounce.tsx extend context correctly 1`] = `
+exports[`renders components/spin/demo/delayAndDebounce.tsx extend context correctly 1`] = `
 <div>
   <div
     class="ant-spin-nested-loading"
@@ -112,7 +112,7 @@ exports[`renders ./components/spin/demo/delayAndDebounce.tsx extend context corr
 </div>
 `;
 
-exports[`renders ./components/spin/demo/inside.tsx extend context correctly 1`] = `
+exports[`renders components/spin/demo/inside.tsx extend context correctly 1`] = `
 <div
   class="example"
 >
@@ -141,7 +141,7 @@ exports[`renders ./components/spin/demo/inside.tsx extend context correctly 1`] 
 </div>
 `;
 
-exports[`renders ./components/spin/demo/nested.tsx extend context correctly 1`] = `
+exports[`renders components/spin/demo/nested.tsx extend context correctly 1`] = `
 <div>
   <div
     class="ant-spin-nested-loading"
@@ -199,7 +199,7 @@ exports[`renders ./components/spin/demo/nested.tsx extend context correctly 1`] 
 </div>
 `;
 
-exports[`renders ./components/spin/demo/size.tsx extend context correctly 1`] = `
+exports[`renders components/spin/demo/size.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
 >
@@ -286,7 +286,7 @@ exports[`renders ./components/spin/demo/size.tsx extend context correctly 1`] = 
 </div>
 `;
 
-exports[`renders ./components/spin/demo/tip.tsx extend context correctly 1`] = `
+exports[`renders components/spin/demo/tip.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
   style="width:100%"

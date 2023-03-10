@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/popconfirm/demo/async.tsx extend context correctly 1`] = `
+exports[`renders components/popconfirm/demo/async.tsx extend context correctly 1`] = `
 Array [
   <button
     class="ant-btn ant-btn-primary"
@@ -96,7 +96,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/popconfirm/demo/basic.tsx extend context correctly 1`] = `
+exports[`renders components/popconfirm/demo/basic.tsx extend context correctly 1`] = `
 Array [
   <a
     href="#"
@@ -189,7 +189,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/popconfirm/demo/dynamic-trigger.tsx extend context correctly 1`] = `
+exports[`renders components/popconfirm/demo/dynamic-trigger.tsx extend context correctly 1`] = `
 <div>
   <a
     href="#"
@@ -305,7 +305,7 @@ exports[`renders ./components/popconfirm/demo/dynamic-trigger.tsx extend context
 </div>
 `;
 
-exports[`renders ./components/popconfirm/demo/icon.tsx extend context correctly 1`] = `
+exports[`renders components/popconfirm/demo/icon.tsx extend context correctly 1`] = `
 Array [
   <a
     href="#"
@@ -402,7 +402,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/popconfirm/demo/locale.tsx extend context correctly 1`] = `
+exports[`renders components/popconfirm/demo/locale.tsx extend context correctly 1`] = `
 Array [
   <a
     href="#"
@@ -495,7 +495,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/popconfirm/demo/placement.tsx extend context correctly 1`] = `
+exports[`renders components/popconfirm/demo/placement.tsx extend context correctly 1`] = `
 Array [
   <div
     style="margin-left:70px;white-space:nowrap"
@@ -1608,7 +1608,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/popconfirm/demo/promise.tsx extend context correctly 1`] = `
+exports[`renders components/popconfirm/demo/promise.tsx extend context correctly 1`] = `
 Array [
   <button
     class="ant-btn ant-btn-primary"
@@ -1704,7 +1704,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/popconfirm/demo/render-panel.tsx extend context correctly 1`] = `
+exports[`renders components/popconfirm/demo/render-panel.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-popover ant-popover-pure ant-popover-placement-top ant-popconfirm"
@@ -1873,7 +1873,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/popconfirm/demo/wireframe.tsx extend context correctly 1`] = `
+exports[`renders components/popconfirm/demo/wireframe.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-popover ant-popover-pure ant-popover-placement-top ant-popconfirm"

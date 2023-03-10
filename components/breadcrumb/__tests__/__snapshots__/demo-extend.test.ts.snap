@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/breadcrumb/demo/basic.tsx extend context correctly 1`] = `
+exports[`renders components/breadcrumb/demo/basic.tsx extend context correctly 1`] = `
 <nav
   class="ant-breadcrumb"
 >
@@ -63,7 +63,7 @@ exports[`renders ./components/breadcrumb/demo/basic.tsx extend context correctly
 </nav>
 `;
 
-exports[`renders ./components/breadcrumb/demo/debug-routes.tsx extend context correctly 1`] = `
+exports[`renders components/breadcrumb/demo/debug-routes.tsx extend context correctly 1`] = `
 <nav
   class="ant-breadcrumb"
 >
@@ -234,7 +234,7 @@ exports[`renders ./components/breadcrumb/demo/debug-routes.tsx extend context co
 </nav>
 `;
 
-exports[`renders ./components/breadcrumb/demo/overlay.tsx extend context correctly 1`] = `
+exports[`renders components/breadcrumb/demo/overlay.tsx extend context correctly 1`] = `
 <nav
   class="ant-breadcrumb"
 >
@@ -492,7 +492,7 @@ exports[`renders ./components/breadcrumb/demo/overlay.tsx extend context correct
 </nav>
 `;
 
-exports[`renders ./components/breadcrumb/demo/separator.tsx extend context correctly 1`] = `
+exports[`renders components/breadcrumb/demo/separator.tsx extend context correctly 1`] = `
 <nav
   class="ant-breadcrumb"
 >
@@ -549,7 +549,7 @@ exports[`renders ./components/breadcrumb/demo/separator.tsx extend context corre
 </nav>
 `;
 
-exports[`renders ./components/breadcrumb/demo/separator-component.tsx extend context correctly 1`] = `
+exports[`renders components/breadcrumb/demo/separator-component.tsx extend context correctly 1`] = `
 <nav
   class="ant-breadcrumb"
 >
@@ -606,7 +606,7 @@ exports[`renders ./components/breadcrumb/demo/separator-component.tsx extend con
 </nav>
 `;
 
-exports[`renders ./components/breadcrumb/demo/withIcon.tsx extend context correctly 1`] = `
+exports[`renders components/breadcrumb/demo/withIcon.tsx extend context correctly 1`] = `
 <nav
   class="ant-breadcrumb"
 >

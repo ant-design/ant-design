@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/upload/demo/avatar.tsx extend context correctly 1`] = `
+exports[`renders components/upload/demo/avatar.tsx extend context correctly 1`] = `
 Array [
   <span
     class="ant-upload-wrapper ant-upload-picture-card-wrapper avatar-uploader"
@@ -107,7 +107,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/upload/demo/basic.tsx extend context correctly 1`] = `
+exports[`renders components/upload/demo/basic.tsx extend context correctly 1`] = `
 <span
   class="ant-upload-wrapper"
 >
@@ -159,7 +159,7 @@ exports[`renders ./components/upload/demo/basic.tsx extend context correctly 1`]
 </span>
 `;
 
-exports[`renders ./components/upload/demo/customize-progress-bar.tsx extend context correctly 1`] = `
+exports[`renders components/upload/demo/customize-progress-bar.tsx extend context correctly 1`] = `
 <span
   class="ant-upload-wrapper"
 >
@@ -211,7 +211,7 @@ exports[`renders ./components/upload/demo/customize-progress-bar.tsx extend cont
 </span>
 `;
 
-exports[`renders ./components/upload/demo/defaultFileList.tsx extend context correctly 1`] = `
+exports[`renders components/upload/demo/defaultFileList.tsx extend context correctly 1`] = `
 <span
   class="ant-upload-wrapper"
 >
@@ -474,7 +474,7 @@ exports[`renders ./components/upload/demo/defaultFileList.tsx extend context cor
 </span>
 `;
 
-exports[`renders ./components/upload/demo/directory.tsx extend context correctly 1`] = `
+exports[`renders components/upload/demo/directory.tsx extend context correctly 1`] = `
 <span
   class="ant-upload-wrapper"
 >
@@ -528,7 +528,7 @@ exports[`renders ./components/upload/demo/directory.tsx extend context correctly
 </span>
 `;
 
-exports[`renders ./components/upload/demo/drag.tsx extend context correctly 1`] = `
+exports[`renders components/upload/demo/drag.tsx extend context correctly 1`] = `
 <span
   class="ant-upload-wrapper"
 >
@@ -591,7 +591,7 @@ exports[`renders ./components/upload/demo/drag.tsx extend context correctly 1`] 
 </span>
 `;
 
-exports[`renders ./components/upload/demo/drag-sorting.tsx extend context correctly 1`] = `
+exports[`renders components/upload/demo/drag-sorting.tsx extend context correctly 1`] = `
 <span
   class="ant-upload-wrapper"
 >
@@ -1041,7 +1041,7 @@ exports[`renders ./components/upload/demo/drag-sorting.tsx extend context correc
 </span>
 `;
 
-exports[`renders ./components/upload/demo/file-type.tsx extend context correctly 1`] = `
+exports[`renders components/upload/demo/file-type.tsx extend context correctly 1`] = `
 <span
   class="ant-upload-wrapper ant-upload-picture-card-wrapper"
 >
@@ -1645,7 +1645,7 @@ exports[`renders ./components/upload/demo/file-type.tsx extend context correctly
 </span>
 `;
 
-exports[`renders ./components/upload/demo/fileList.tsx extend context correctly 1`] = `
+exports[`renders components/upload/demo/fileList.tsx extend context correctly 1`] = `
 <span
   class="ant-upload-wrapper"
 >
@@ -1769,7 +1769,7 @@ exports[`renders ./components/upload/demo/fileList.tsx extend context correctly 
 </span>
 `;
 
-exports[`renders ./components/upload/demo/max-count.tsx extend context correctly 1`] = `
+exports[`renders components/upload/demo/max-count.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
   style="width:100%"
@@ -1885,7 +1885,7 @@ exports[`renders ./components/upload/demo/max-count.tsx extend context correctly
 </div>
 `;
 
-exports[`renders ./components/upload/demo/picture-card.tsx extend context correctly 1`] = `
+exports[`renders components/upload/demo/picture-card.tsx extend context correctly 1`] = `
 <span
   class="ant-upload-wrapper ant-upload-picture-card-wrapper"
 >
@@ -2415,7 +2415,7 @@ exports[`renders ./components/upload/demo/picture-card.tsx extend context correc
 </span>
 `;
 
-exports[`renders ./components/upload/demo/picture-circle.tsx extend context correctly 1`] = `
+exports[`renders components/upload/demo/picture-circle.tsx extend context correctly 1`] = `
 <span
   class="ant-upload-wrapper ant-upload-picture-circle-wrapper"
 >
@@ -2690,7 +2690,7 @@ exports[`renders ./components/upload/demo/picture-circle.tsx extend context corr
 </span>
 `;
 
-exports[`renders ./components/upload/demo/picture-style.tsx extend context correctly 1`] = `
+exports[`renders components/upload/demo/picture-style.tsx extend context correctly 1`] = `
 Array [
   <span
     class="ant-upload-wrapper"
@@ -3217,7 +3217,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/upload/demo/preview-file.tsx extend context correctly 1`] = `
+exports[`renders components/upload/demo/preview-file.tsx extend context correctly 1`] = `
 <span
   class="ant-upload-wrapper"
 >
@@ -3269,7 +3269,7 @@ exports[`renders ./components/upload/demo/preview-file.tsx extend context correc
 </span>
 `;
 
-exports[`renders ./components/upload/demo/transform-file.tsx extend context correctly 1`] = `
+exports[`renders components/upload/demo/transform-file.tsx extend context correctly 1`] = `
 <span
   class="ant-upload-wrapper"
 >
@@ -3321,7 +3321,7 @@ exports[`renders ./components/upload/demo/transform-file.tsx extend context corr
 </span>
 `;
 
-exports[`renders ./components/upload/demo/upload-custom-action-icon.tsx extend context correctly 1`] = `
+exports[`renders components/upload/demo/upload-custom-action-icon.tsx extend context correctly 1`] = `
 <span
   class="ant-upload-wrapper"
 >
@@ -3602,7 +3602,7 @@ exports[`renders ./components/upload/demo/upload-custom-action-icon.tsx extend c
 </span>
 `;
 
-exports[`renders ./components/upload/demo/upload-manually.tsx extend context correctly 1`] = `
+exports[`renders components/upload/demo/upload-manually.tsx extend context correctly 1`] = `
 Array [
   <span
     class="ant-upload-wrapper"
@@ -3666,7 +3666,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/upload/demo/upload-png-only.tsx extend context correctly 1`] = `
+exports[`renders components/upload/demo/upload-png-only.tsx extend context correctly 1`] = `
 <span
   class="ant-upload-wrapper"
 >
@@ -3718,7 +3718,7 @@ exports[`renders ./components/upload/demo/upload-png-only.tsx extend context cor
 </span>
 `;
 
-exports[`renders ./components/upload/demo/upload-with-aliyun-oss.tsx extend context correctly 1`] = `
+exports[`renders components/upload/demo/upload-with-aliyun-oss.tsx extend context correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
 >

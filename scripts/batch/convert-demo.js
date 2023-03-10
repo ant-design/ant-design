@@ -13,7 +13,7 @@ const chalk = require('chalk');
 (async () => {
   console.time('Execution...');
 
-  const demoFiles = glob.sync(path.join(process.cwd(), 'components/*/demo/*.md'));
+  const demoFiles = glob.globSync(path.join(process.cwd(), 'components/*/demo/*.md'));
 
   const tmpFolder = path.resolve('components', '~tmp');
   await fs.remove(tmpFolder);
