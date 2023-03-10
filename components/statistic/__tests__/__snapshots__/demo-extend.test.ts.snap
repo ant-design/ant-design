@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/statistic/demo/animated.tsx extend context correctly 1`] = `
+exports[`renders components/statistic/demo/animated.tsx extend context correctly 1`] = `
 <div
   class="ant-row"
   style="margin-left:-8px;margin-right:-8px"
@@ -54,7 +54,7 @@ exports[`renders ./components/statistic/demo/animated.tsx extend context correct
 </div>
 `;
 
-exports[`renders ./components/statistic/demo/basic.tsx extend context correctly 1`] = `
+exports[`renders components/statistic/demo/basic.tsx extend context correctly 1`] = `
 <div
   class="ant-row"
   style="margin-left:-8px;margin-right:-8px"
@@ -155,7 +155,7 @@ exports[`renders ./components/statistic/demo/basic.tsx extend context correctly 
 </div>
 `;
 
-exports[`renders ./components/statistic/demo/card.tsx extend context correctly 1`] = `
+exports[`renders components/statistic/demo/card.tsx extend context correctly 1`] = `
 <div
   class="ant-row"
   style="margin-left:-8px;margin-right:-8px"
@@ -301,7 +301,7 @@ exports[`renders ./components/statistic/demo/card.tsx extend context correctly 1
 </div>
 `;
 
-exports[`renders ./components/statistic/demo/countdown.tsx extend context correctly 1`] = `
+exports[`renders components/statistic/demo/countdown.tsx extend context correctly 1`] = `
 <div
   class="ant-row"
   style="margin-left:-8px;margin-right:-8px"
@@ -401,7 +401,7 @@ exports[`renders ./components/statistic/demo/countdown.tsx extend context correc
 </div>
 `;
 
-exports[`renders ./components/statistic/demo/unit.tsx extend context correctly 1`] = `
+exports[`renders components/statistic/demo/unit.tsx extend context correctly 1`] = `
 <div
   class="ant-row"
   style="margin-left:-8px;margin-right:-8px"

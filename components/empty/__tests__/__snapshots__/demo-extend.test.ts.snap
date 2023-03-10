@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/empty/demo/basic.tsx extend context correctly 1`] = `
+exports[`renders components/empty/demo/basic.tsx extend context correctly 1`] = `
 <div
   class="ant-empty"
 >
@@ -75,7 +75,7 @@ exports[`renders ./components/empty/demo/basic.tsx extend context correctly 1`] 
 </div>
 `;
 
-exports[`renders ./components/empty/demo/config-provider.tsx extend context correctly 1`] = `
+exports[`renders components/empty/demo/config-provider.tsx extend context correctly 1`] = `
 Array [
   <button
     aria-checked="false"
@@ -1200,7 +1200,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/empty/demo/customize.tsx extend context correctly 1`] = `
+exports[`renders components/empty/demo/customize.tsx extend context correctly 1`] = `
 <div
   class="ant-empty"
 >
@@ -1240,7 +1240,7 @@ exports[`renders ./components/empty/demo/customize.tsx extend context correctly 
 </div>
 `;
 
-exports[`renders ./components/empty/demo/description.tsx extend context correctly 1`] = `
+exports[`renders components/empty/demo/description.tsx extend context correctly 1`] = `
 <div
   class="ant-empty"
 >
@@ -1310,7 +1310,7 @@ exports[`renders ./components/empty/demo/description.tsx extend context correctl
 </div>
 `;
 
-exports[`renders ./components/empty/demo/simple.tsx extend context correctly 1`] = `
+exports[`renders components/empty/demo/simple.tsx extend context correctly 1`] = `
 <div
   class="ant-empty ant-empty-normal"
 >
