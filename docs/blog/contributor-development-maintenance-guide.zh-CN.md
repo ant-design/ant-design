@@ -1,5 +1,5 @@
 ---
-title: AntDesign 贡献者开发维护指南
+title: 贡献者开发维护指南
 date: 2023-03-10
 author: kiner-tang
 ---
