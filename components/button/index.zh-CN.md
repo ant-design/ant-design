@@ -75,6 +75,10 @@ group:
 
 支持原生 button 的其他所有属性。
 
+## Design Token
+
+<ComponentTokenTable component="Button"></ComponentTokenTable>
+
 ## FAQ
 
 ### 如何移除两个汉字之间的空格？

@@ -63,6 +63,10 @@ export interface AliasToken extends MapToken {
   controlItemBgActiveDisabled: string; // Note. It also is a color
 
   // Line
+  /**
+   * @desc 聚焦时 Outline 尺寸
+   * @descEN
+   */
   lineWidthFocus: number;
 
   // Padding
@@ -75,21 +79,89 @@ export interface AliasToken extends MapToken {
   paddingXL: number;
 
   // Padding Content
+  /**
+   * @nameZH 内容水平内间距
+   * @nameEN Content horizontal padding
+   * @desc 控制内容元素水平内间距
+   * @descEN Control the horizontal padding of content element.
+   */
   paddingContentHorizontalLG: number;
+  /**
+   * @nameZH 内容水平内间距
+   * @nameEN Content horizontal padding
+   * @desc 控制内容元素水平内间距
+   * @descEN Control the horizontal padding of content element.
+   */
   paddingContentHorizontal: number;
+  /**
+   * @nameZH 内容水平内间距
+   * @nameEN Content horizontal padding
+   * @desc 控制内容元素水平内间距
+   * @descEN Control the horizontal padding of content element.
+   */
   paddingContentHorizontalSM: number;
+  /**
+   * @nameZH 内容垂直内间距
+   * @nameEN Content vertical padding
+   * @desc 控制内容元素垂直内间距。
+   * @descEN Control the vertical padding of content element.
+   */
   paddingContentVerticalLG: number;
+  /**
+   * @nameZH 内容垂直内间距
+   * @nameEN Content vertical padding
+   * @desc 控制内容元素垂直内间距。
+   * @descEN Control the vertical padding of content element.
+   */
   paddingContentVertical: number;
+  /**
+   * @nameZH 内容垂直内间距
+   * @nameEN Content vertical padding
+   * @desc 控制内容元素垂直内间距。
+   * @descEN Control the vertical padding of content element.
+   */
   paddingContentVerticalSM: number;
 
   // Margin
+  /**
+   * @desc 外间距
+   * @descEN Margin size.
+   */
   marginXXS: number;
+  /**
+   * @desc 外间距
+   * @descEN Margin size.
+   */
   marginXS: number;
+  /**
+   * @desc 外间距
+   * @descEN Margin size.
+   */
   marginSM: number;
+  /**
+   * @desc 外间距
+   * @descEN Margin size.
+   */
   margin: number;
+  /**
+   * @desc 外间距
+   * @descEN Margin size.
+   */
   marginMD: number;
+  /**
+   * @desc 外间距
+   * @descEN Margin size.
+   */
   marginLG: number;
+  /**
+   * @desc 外间距
+   * @descEN Margin size.
+   */
   marginXL: number;
+  /**
+   * @desc 外间距
+   * @descEN Margin size.
+   */
   marginXXL: number;
 
   // =============== Legacy: should be remove ===============

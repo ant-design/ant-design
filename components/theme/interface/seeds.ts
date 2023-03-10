@@ -191,24 +191,57 @@ export interface SeedToken extends PresetColorType {
   motionUnit: number;
 
   /**
-   * @nameZH 动画基础时长
+   * @nameZH 动画基础时长。
+   * @nameEN Animation Base Duration.
    */
   motionBase: number;
 
+  /**
+   * @desc 预设动效曲率
+   * @descEN Preset motion curve.
+   */
   motionEaseOutCirc: string;
 
+  /**
+   * @desc 预设动效曲率
+   * @descEN Preset motion curve.
+   */
   motionEaseInOutCirc: string;
 
+  /**
+   * @desc 预设动效曲率
+   * @descEN Preset motion curve.
+   */
   motionEaseInOut: string;
 
+  /**
+   * @desc 预设动效曲率
+   * @descEN Preset motion curve.
+   */
   motionEaseOutBack: string;
 
+  /**
+   * @desc 预设动效曲率
+   * @descEN Preset motion curve.
+   */
   motionEaseInBack: string;
 
+  /**
+   * @desc 预设动效曲率
+   * @descEN Preset motion curve.
+   */
   motionEaseInQuint: string;
 
+  /**
+   * @desc 预设动效曲率
+   * @descEN Preset motion curve.
+   */
   motionEaseOutQuint: string;
 
+  /**
+   * @desc 预设动效曲率
+   * @descEN Preset motion curve.
+   */
   motionEaseOut: string;
 
   //  ----------   Style   ---------- //
