@@ -114,7 +114,7 @@ yarn install --force
 
 ## 新晋 Collaborator
 
-经过一段时间贡献，相信你已经对 AntDesign 的整体开发流程和项目架构有了更加深入的了解，此时，或许你希望承担更多的任务，为开源社区贡献跟多的力量。那么，你可以通过以下链接评论申请成为 AntDesign 的 Collaborator ，获得更多的权限[Add Collaborator permission for some active contributors](https://github.com/ant-design/ant-design/issues/3222)，**Collaborator**们会启动投票流程，投票通过后会邀请你正式成为**AntDesign**的**Collaborator**。
+经过一段时间贡献，相信你已经对 AntDesign 的整体开发流程和项目架构有了更加深入的了解，此时，或许你希望承担更多的任务，为开源社区贡献更多的力量。那么，你可以通过以下链接评论申请成为 AntDesign 的 Collaborator ，获得更多的权限[Add Collaborator permission for some active contributors](https://github.com/ant-design/ant-design/issues/3222)，Collaborator 们会启动投票流程，投票通过后会邀请你正式成为 AntDesign 的 Collaborator。
 
 当你成为了 AntDesign 新晋的合作者后，你将会被分配一些额外的权限，如：
 
@@ -136,7 +136,7 @@ yarn install --force
 - **Squash and merge**：将提交记录合并成一条后合并到目标分支（合并 PR 通常都用这个）
 - **Rebase and merge**：调整基线合并
 
-我们在合并分支之前，最好与作者确认是否已经完全修改完毕，并确认一下是否经过仔细的 Review.并至少有一个维护人员 **Approve** 这一次的 PR 后。确定这次 PR 到底是上述哪一种情况，然后选择相应的方式进行合并。
+我们在合并分支之前，最好与作者确认是否已经完全修改完毕，并确认一下是否经过仔细的 Review.并至少有一个维护人员 Approve 这一次的 PR 后。确定这次 PR 到底是上述哪一种情况，然后选择相应的方式进行合并。
 
 ### 识别 XY 问题
 
