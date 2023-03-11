@@ -59,7 +59,7 @@ yarn add rc-cascader
 
 ### rc-x 库依赖
 
-在 ant-design 中，大部分的组件都是基于`react-component`的组件的一个上层封装，因此，如果有用户报障，我们在排查问题时，如果发现问题出在了 '@rc-component/xxx' 或 'rc-xxx' 组件当中，那么我们就需要往这些组件提 pr 进行修复。在修复之后，我们需要在 ant-design 项目当中验证修复的结果，那么，我们就可以将该项目 link 到 ant-design 项目当中去验证。如：
+在 ant-design 中，大部分的组件都是基于 react-component 的组件的一个上层封装，因此，如果有用户报障，我们在排查问题时，如果发现问题出在了 '@rc-component/xxx' 或 'rc-xxx' 组件当中，那么我们就需要往这些组件提 pr 进行修复。在修复之后，我们需要在 ant-design 项目当中验证修复的结果，那么，我们就可以将该项目 link 到 ant-design 项目当中去验证。如：
 
 在 rc 项目下执行`yarn link`
 
@@ -90,7 +90,7 @@ yarn install --force
 
    ![003](https://user-images.githubusercontent.com/10286961/224358324-8f72f2c0-d5bb-4281-9b29-7e2428353449.png)
 
-   当添加了上述过期标记，我们在后续使用这个变量是就可以看到：
+   当添加了上述过期标记，我们在后续使用这个变量时就可以看到：
 
    ![004](https://user-images.githubusercontent.com/10286961/224358351-958a168d-41de-44b0-8244-2f8d67c4d13a.png)
 
@@ -114,7 +114,7 @@ yarn install --force
 
 ## 新晋 Collaborator
 
-经过一段时间贡献，相信你已经对 AntDesign 的整体开发流程和项目架构有了更加深入的了解，此时，或许你希望承担更多的任务，为开源社区贡献更多的力量。那么，你可以通过以下链接评论申请成为 AntDesign 的 Collaborator ，获得更多的权限[Add Collaborator permission for some active contributors](https://github.com/ant-design/ant-design/issues/3222)，Collaborator 们会启动投票流程，投票通过后会邀请你正式成为 AntDesign 的 Collaborator。
+经过一段时间贡献，相信你已经对 AntDesign 的整体开发流程和项目架构有了更加深入的了解，此时，或许你希望承担更多的任务，为开源社区贡献更多的力量。那么，你可以通过以下链接评论申请成为 AntDesign 的 Collaborator ，获得更多的权限 [Add Collaborator permission for some active contributors](https://github.com/ant-design/ant-design/issues/3222)，Collaborator 们会启动投票流程，投票通过后会邀请你正式成为 AntDesign 的 Collaborator。
 
 当你成为了 AntDesign 新晋的合作者后，你将会被分配一些额外的权限，如：
 
@@ -132,7 +132,7 @@ yarn install --force
 
 ![008](https://user-images.githubusercontent.com/10286961/224358476-2332e36f-0adf-486f-8b17-1b2ad34926aa.jpg)
 
-- **Merge pull Request**：正常讲当前 PR 合并到目标分支（通常是分支与分支之间相互合并时使用，不会合并提交记录，合并 PR 时不要用这个，不然会忘目标分支添加太多冗余的提交记录）
+- **Merge pull Request**：正常将当前 PR 合并到目标分支（通常是分支与分支之间相互合并时使用，不会合并提交记录。合并 PR 时不要用这个，不然会往目标分支添加太多冗余的提交记录）
 - **Squash and merge**：将提交记录合并成一条后合并到目标分支（合并 PR 通常都用这个）
 - **Rebase and merge**：调整基线合并
 
