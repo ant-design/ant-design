@@ -4,7 +4,7 @@ date: 2023-03-10
 author: kiner-tang
 ---
 
-Hi, my name is [kiner-tang（文辉）](https://github.com/kiner-tang). My personal work is closely related to **AntDesign**, so I can be considered a heavy user of **AntDesign**.It is for this reason that I am slowly working my way up from a user to a Contributor, contributing some of the problems I encountered and the new features I concluded to the community, and finally being honored to become a member of **AntDesign Collaborator**.
+Hi, my name is [kiner-tang(文辉)](https://github.com/kiner-tang). My personal work is closely related to **AntDesign**, so I can be considered a heavy user of **AntDesign**.It is for this reason that I am slowly working my way up from a user to a Contributor, contributing some of the problems I encountered and the new features I concluded to the community, and finally being honored to become a member of **AntDesign Collaborator**.
 
 During the journey from user to contributor, and then from contributor to collaborator, I also encountered many problems. I would like to take this opportunity to sort out and summarize these problems, hoping to be helpful to new contributors and collaborators joining **AntDesign** community.
 
