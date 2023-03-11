@@ -4,15 +4,15 @@ date: 2023-03-10
 author: kiner-tang
 ---
 
-Hi, my name is [kiner-tang(文辉)](https://github.com/kiner-tang). My personal work is closely related to **AntDesign**, so I can be considered a heavy user of **AntDesign**.It is for this reason that I am slowly working my way up from a user to a Contributor, contributing some of the problems I encountered and the new features I concluded to the community, and finally being honored to become a member of **AntDesign Collaborator**.
+Hi, my name is [kiner-tang(文辉)](https://github.com/kiner-tang). My personal work is closely related to AntDesign, so I can be considered a heavy user of AntDesign.It is for this reason that I am slowly working my way up from a user to a Contributor, contributing some of the problems I encountered and the new features I concluded to the community, and finally being honored to become a member of AntDesign Collaborator.
 
-During the journey from user to contributor, and then from contributor to collaborator, I also encountered many problems. I would like to take this opportunity to sort out and summarize these problems, hoping to be helpful to new contributors and collaborators joining **AntDesign** community.
+During the journey from user to contributor, and then from contributor to collaborator, I also encountered many problems. I would like to take this opportunity to sort out and summarize these problems, hoping to be helpful to new contributors and collaborators joining AntDesign community.
 
 ## Regular Contributor
 
 ### About dependent version
 
-Popular package managers, whether npm, yarn, or pnpm, offer version-locking solutions that, most of the time, help us avoid version-inconsistencies in packages.However, in **ant-design** projects, many functions depend on the original components in the **react-component** repository. We expect that when we encounter some bugs, after the **react-component** fixes and releases the patch version, Instead of manually upgrading the version in the **ant-design** project, we can install the latest patch installation package only by reinstalling the dependencies.At this point, the version-lock file provided by the package manager is the main obstacle to automatic updates, because once the version-lock file is available, reinstalling the dependency will also install the version specified by the lock file and cannot be upgraded to the patch version.
+Popular package managers, whether npm, yarn, or pnpm, offer version-locking solutions that, most of the time, help us avoid version-inconsistencies in packages.However, in ant-design projects, many functions depend on the original components in the react-component repository. We expect that when we encounter some bugs, after the react-component fixes and releases the patch version, Instead of manually upgrading the version in the ant-design project, we can install the latest patch installation package only by reinstalling the dependencies.At this point, the version-lock file provided by the package manager is the main obstacle to automatic updates, because once the version-lock file is available, reinstalling the dependency will also install the version specified by the lock file and cannot be upgraded to the patch version.
 
 Based on the above reasons, we adopt the following methods:
 
@@ -41,9 +41,9 @@ yarn add rc-cascader
 
 ### Snapshot update problem
 
-In **ant-design**, we use jest for unit testing and coverage testing, with many first-time references Students of **ant-design** project development may often find that they just modify the text in a demo. Why does the CI test task fail as soon as they push it? This starts with ant-design's snapshot detection.
+In ant-design, we use jest for unit testing and coverage testing, with many first-time references Students of ant-design project development may often find that they just modify the text in a demo. Why does the CI test task fail as soon as they push it? This starts with ant-design's snapshot detection.
 
-In most libraries, the concept of idempotence is emphasized, meaning that the same method, no matter how many times I execute the line, as long as the input parameters are the same, then the result will be the same.In **ant-design**, I think the biggest use of snapshot detection is to verify the idempotence of our demo, so as to ensure the stability and certainty of component output.In fact, the principle of snapshot detection is very simple, is to save our demo generated html string, the next time in the running of the test task for comparison, if there is a difference that indicates that the snapshot detection failed.
+In most libraries, the concept of idempotence is emphasized, meaning that the same method, no matter how many times I execute the line, as long as the input parameters are the same, then the result will be the same.In ant-design, I think the biggest use of snapshot detection is to verify the idempotence of our demo, so as to ensure the stability and certainty of component output.In fact, the principle of snapshot detection is very simple, is to save our demo generated html string, the next time in the running of the test task for comparison, if there is a difference that indicates that the snapshot detection failed.
 
 Going back to the original question, what should we do if we change a demo and find that the snapshot detection fails?
 
@@ -66,13 +66,13 @@ Going back to the original question, what should we do if we change a demo and f
 
 ### rc-x Library dependencies
 
-In **ant-design**, most components are an upper encapsulation of a component based on **react-component**. Therefore, if a user reports a bug, when we troubleshoot the problem, if we find the problem is in the **@react-component/xxx** or **rc-xxx** component, Then we need to put pr on those components to fix it.After the fix, we need to verify the fix results in the **ant-design** project, then we can link the project to the **ant-design** project for verification.For example:
+In ant-design, most components are an upper encapsulation of a component based on **react-component**. Therefore, if a user reports a bug, when we troubleshoot the problem, if we find the problem is in the **@react-component/xxx** or **rc-xxx** component, Then we need to put pr on those components to fix it.After the fix, we need to verify the fix results in the ant-design project, then we can link the project to the ant-design project for verification.For example:
 
 Run `yarn link` under the rc project.
 
 ![001](https://user-images.githubusercontent.com/10286961/224358206-828e2baf-d76d-46e6-ac02-25609963a003.png)
 
-Run `yarn link "Project name"` in **ant-design**
+Run `yarn link "Project name"` in ant-design
 
 ![002](https://user-images.githubusercontent.com/10286961/224358294-219a47b0-4621-4732-85ff-3f350ea1f72e.png)
 
@@ -85,13 +85,13 @@ yarn unlink "rc-field-form"
 yarn install --force
 ```
 
-When the pr is finally merged, usually the maintainer will release a version. If the patch version is released, then you only need to install and verify it in the **ant-design** project, but if the minor version is released, Then we also need to take the initiative to upgrade the version in the ant-design project, and after passing the local verification, a separate pr to ant-design for upgrade repair.
+When the pr is finally merged, usually the maintainer will release a version. If the patch version is released, then you only need to install and verify it in the ant-design project, but if the minor version is released, Then we also need to take the initiative to upgrade the version in the ant-design project, and after passing the local verification, a separate pr to ant-design for upgrade repair.
 
 ### Property expiration
 
 In a large project, if you want to scrap an property or method, it is actually very troublesome, because your project may already have a lot of items in use, if you kill it, then others upgrade the console screen will be red, or even can't run.But in the process of project iteration, we will encounter more and more scenes and problems, a long time ago solution may no longer fit, really need to scrap, then, we need to adopt a soft, less radical way to scrap, leave enough time for users to modify.
 
-In **ant-design**, we adopt a **five-step strategic** obsolescence property or method:
+In ant-design, we adopt a **five-step strategic** obsolescence property or method:
 
 1. **Add an expiration mark to the property**
 
