@@ -209,13 +209,7 @@ const Modal: React.FC<ModalProps> = (props) => {
           prefixCls={prefixCls}
           rootClassName={classNames(hashId, rootClassName)}
           wrapClassName={wrapClassNameExtended}
-          footer={
-            props.footer === null ? (
-              props.footer
-            ) : (
-              <Footer {...props} onOk={handleOk} onCancel={handleCancel} />
-            )
-          }
+          footer={<Footer {...props} onOk={handleOk} onCancel={handleCancel} />}
           visible={open ?? visible}
           mousePosition={restProps.mousePosition ?? mousePosition}
           onClose={handleCancel}

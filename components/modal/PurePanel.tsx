@@ -60,9 +60,7 @@ export const Footer: React.FC<
 
   const [locale] = useLocale('Modal', getConfirmLocale());
 
-  return footer === null ? (
-    footer
-  ) : (
+  return footer === undefined ? (
     <>
       <Button onClick={onCancel} {...cancelButtonProps}>
         {cancelText || locale?.cancelText}
@@ -76,6 +74,8 @@ export const Footer: React.FC<
         {okText || locale?.okText}
       </Button>
     </>
+  ) : (
+    (footer as React.ReactElement)
   );
 };
 
@@ -119,7 +119,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
     additionalProps = {
       closable: closable ?? true,
       title,
-      footer: props.footer === null ? props.footer : <Footer {...props} />,
+      footer: <Footer {...props} />,
       children,
     };
   }
