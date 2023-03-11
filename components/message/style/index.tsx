@@ -21,6 +21,7 @@ const genMessageStyle: GenerateStyle<MessageToken> = (token) => {
     componentCls,
     iconCls,
     boxShadow,
+    colorText,
     colorBgElevated,
     colorSuccess,
     colorError,
@@ -69,6 +70,7 @@ const genMessageStyle: GenerateStyle<MessageToken> = (token) => {
     {
       [componentCls]: {
         ...resetComponent(token),
+        color: colorText,
         position: 'fixed',
         top: marginXS,
         width: '100%',

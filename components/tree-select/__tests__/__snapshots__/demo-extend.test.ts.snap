@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/tree-select/demo/async.tsx extend context correctly 1`] = `
+exports[`renders components/tree-select/demo/async.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-tree-select ant-select-single ant-select-show-arrow"
   style="width:100%"
@@ -222,7 +222,7 @@ exports[`renders ./components/tree-select/demo/async.tsx extend context correctl
 </div>
 `;
 
-exports[`renders ./components/tree-select/demo/basic.tsx extend context correctly 1`] = `
+exports[`renders components/tree-select/demo/basic.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-tree-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
   style="width:100%"
@@ -563,9 +563,9 @@ exports[`renders ./components/tree-select/demo/basic.tsx extend context correctl
 </div>
 `;
 
-exports[`renders ./components/tree-select/demo/checkable.tsx extend context correctly 1`] = `
+exports[`renders components/tree-select/demo/checkable.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-tree-select ant-select-multiple ant-select-show-search"
+  class="ant-select ant-tree-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
   style="width:100%"
 >
   <div
@@ -798,12 +798,38 @@ exports[`renders ./components/tree-select/demo/checkable.tsx extend context corr
       </div>
     </div>
   </div>
+  <span
+    aria-hidden="true"
+    class="ant-select-arrow"
+    style="user-select:none;-webkit-user-select:none"
+    unselectable="on"
+  >
+    <span
+      aria-label="down"
+      class="anticon anticon-down ant-select-suffix"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        data-icon="down"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+        />
+      </svg>
+    </span>
+  </span>
 </div>
 `;
 
-exports[`renders ./components/tree-select/demo/multiple.tsx extend context correctly 1`] = `
+exports[`renders components/tree-select/demo/multiple.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-tree-select ant-select-multiple ant-select-allow-clear ant-select-show-search"
+  class="ant-select ant-tree-select ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
   style="width:100%"
 >
   <div
@@ -1131,10 +1157,36 @@ exports[`renders ./components/tree-select/demo/multiple.tsx extend context corre
       </div>
     </div>
   </div>
+  <span
+    aria-hidden="true"
+    class="ant-select-arrow"
+    style="user-select:none;-webkit-user-select:none"
+    unselectable="on"
+  >
+    <span
+      aria-label="down"
+      class="anticon anticon-down ant-select-suffix"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        data-icon="down"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+        />
+      </svg>
+    </span>
+  </span>
 </div>
 `;
 
-exports[`renders ./components/tree-select/demo/placement.tsx extend context correctly 1`] = `
+exports[`renders components/tree-select/demo/placement.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-radio-group ant-radio-group-outline"
@@ -1559,7 +1611,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/tree-select/demo/render-panel.tsx extend context correctly 1`] = `
+exports[`renders components/tree-select/demo/render-panel.tsx extend context correctly 1`] = `
 <div
   style="padding-bottom:0;position:relative;width:fit-content;min-width:0"
 >
@@ -1744,7 +1796,7 @@ exports[`renders ./components/tree-select/demo/render-panel.tsx extend context c
 </div>
 `;
 
-exports[`renders ./components/tree-select/demo/status.tsx extend context correctly 1`] = `
+exports[`renders components/tree-select/demo/status.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
   style="width:100%"
@@ -1873,7 +1925,7 @@ exports[`renders ./components/tree-select/demo/status.tsx extend context correct
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-tree-select ant-select-status-warning ant-select-multiple ant-select-show-search"
+      class="ant-select ant-tree-select ant-select-status-warning ant-select-multiple ant-select-show-arrow ant-select-show-search"
       style="width:100%"
     >
       <div
@@ -1975,12 +2027,38 @@ exports[`renders ./components/tree-select/demo/status.tsx extend context correct
           </div>
         </div>
       </div>
+      <span
+        aria-hidden="true"
+        class="ant-select-arrow"
+        style="user-select:none;-webkit-user-select:none"
+        unselectable="on"
+      >
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-select-suffix"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+      </span>
     </div>
   </div>
 </div>
 `;
 
-exports[`renders ./components/tree-select/demo/suffix.tsx extend context correctly 1`] = `
+exports[`renders components/tree-select/demo/suffix.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-tree-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
   style="width:100%"
@@ -2321,7 +2399,7 @@ exports[`renders ./components/tree-select/demo/suffix.tsx extend context correct
 </div>
 `;
 
-exports[`renders ./components/tree-select/demo/treeData.tsx extend context correctly 1`] = `
+exports[`renders components/tree-select/demo/treeData.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-tree-select ant-select-single ant-select-show-arrow"
   style="width:100%"
@@ -2554,7 +2632,7 @@ exports[`renders ./components/tree-select/demo/treeData.tsx extend context corre
 </div>
 `;
 
-exports[`renders ./components/tree-select/demo/treeLine.tsx extend context correctly 1`] = `
+exports[`renders components/tree-select/demo/treeLine.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >

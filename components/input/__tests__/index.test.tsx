@@ -7,6 +7,7 @@ import Input from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import Form from '../../form';
+import { resetWarned } from '../../_util/warning';
 import { triggerFocus } from '../Input';
 
 describe('Input', () => {
@@ -116,6 +117,15 @@ describe('Input', () => {
     ref.current?.setSelectionRange(valLength, valLength);
     expect(container.querySelector('input')?.selectionStart).toEqual(5);
     expect(container.querySelector('input')?.selectionEnd).toEqual(5);
+  });
+
+  it('warning for Input.Group', () => {
+    resetWarned();
+    render(<Input.Group />);
+
+    expect(errorSpy).toHaveBeenCalledWith(
+      "Warning: [antd: Input.Group] 'Input.Group' is deprecated. Please use 'Space.Compact' instead.",
+    );
   });
 });
 

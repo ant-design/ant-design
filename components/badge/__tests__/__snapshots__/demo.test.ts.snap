@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/badge/demo/basic.tsx correctly 1`] = `
+exports[`renders components/badge/demo/basic.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
 >
@@ -103,7 +103,7 @@ exports[`renders ./components/badge/demo/basic.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/badge/demo/change.tsx correctly 1`] = `
+exports[`renders components/badge/demo/change.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -291,7 +291,7 @@ exports[`renders ./components/badge/demo/change.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/badge/demo/colorful.tsx correctly 1`] = `
+exports[`renders components/badge/demo/colorful.tsx correctly 1`] = `
 Array [
   <div
     class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
@@ -615,7 +615,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/badge/demo/colorful-with-count-debug.tsx correctly 1`] = `
+exports[`renders components/badge/demo/colorful-with-count-debug.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
   style="flex-wrap:wrap;margin-bottom:-16px"
@@ -1143,7 +1143,7 @@ exports[`renders ./components/badge/demo/colorful-with-count-debug.tsx correctly
 </div>
 `;
 
-exports[`renders ./components/badge/demo/dot.tsx correctly 1`] = `
+exports[`renders components/badge/demo/dot.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
 >
@@ -1200,7 +1200,7 @@ exports[`renders ./components/badge/demo/dot.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/badge/demo/link.tsx correctly 1`] = `
+exports[`renders components/badge/demo/link.tsx correctly 1`] = `
 <a
   href="#"
 >
@@ -1235,7 +1235,7 @@ exports[`renders ./components/badge/demo/link.tsx correctly 1`] = `
 </a>
 `;
 
-exports[`renders ./components/badge/demo/mix.tsx correctly 1`] = `
+exports[`renders components/badge/demo/mix.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
   style="flex-wrap:wrap;margin-bottom:-16px"
@@ -1578,7 +1578,7 @@ exports[`renders ./components/badge/demo/mix.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/badge/demo/no-wrapper.tsx correctly 1`] = `
+exports[`renders components/badge/demo/no-wrapper.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
 >
@@ -1729,7 +1729,7 @@ exports[`renders ./components/badge/demo/no-wrapper.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/badge/demo/offset.tsx correctly 1`] = `
+exports[`renders components/badge/demo/offset.tsx correctly 1`] = `
 <span
   class="ant-badge"
 >
@@ -1761,7 +1761,7 @@ exports[`renders ./components/badge/demo/offset.tsx correctly 1`] = `
 </span>
 `;
 
-exports[`renders ./components/badge/demo/overflow.tsx correctly 1`] = `
+exports[`renders components/badge/demo/overflow.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
 >
@@ -1882,7 +1882,7 @@ exports[`renders ./components/badge/demo/overflow.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/badge/demo/ribbon.tsx correctly 1`] = `
+exports[`renders components/badge/demo/ribbon.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
   style="width:100%"
@@ -2233,7 +2233,7 @@ exports[`renders ./components/badge/demo/ribbon.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/badge/demo/ribbon-debug.tsx correctly 1`] = `
+exports[`renders components/badge/demo/ribbon-debug.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
   style="width:100%"
@@ -2396,7 +2396,7 @@ exports[`renders ./components/badge/demo/ribbon-debug.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/badge/demo/size.tsx correctly 1`] = `
+exports[`renders components/badge/demo/size.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
 >
@@ -2468,7 +2468,7 @@ exports[`renders ./components/badge/demo/size.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/badge/demo/status.tsx correctly 1`] = `
+exports[`renders components/badge/demo/status.tsx correctly 1`] = `
 Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
@@ -2625,7 +2625,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/badge/demo/title.tsx correctly 1`] = `
+exports[`renders components/badge/demo/title.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
 >

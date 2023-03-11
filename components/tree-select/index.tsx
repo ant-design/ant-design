@@ -26,6 +26,7 @@ import { useCompactItemContext } from '../space/Compact';
 import warning from '../_util/warning';
 
 import useStyle from './style';
+import useShowArrow from '../select/useShowArrow';
 
 type RawValue = string | number;
 
@@ -138,7 +139,7 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
   );
 
   const isMultiple = !!(treeCheckable || multiple);
-  const mergedShowArrow = showArrow !== undefined ? showArrow : props.loading || !isMultiple;
+  const mergedShowArrow = useShowArrow(showArrow);
 
   // ===================== Form =====================
   const {
@@ -239,7 +240,7 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
         getTransitionDirection(placement),
         transitionName,
       )}
-      showArrow={hasFeedback || showArrow}
+      showArrow={hasFeedback || mergedShowArrow}
       treeExpandAction={treeExpandAction}
     />
   );

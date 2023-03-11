@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/table/demo/basic.tsx extend context correctly 1`] = `
+exports[`renders components/table/demo/basic.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -329,7 +329,7 @@ exports[`renders ./components/table/demo/basic.tsx extend context correctly 1`] 
 </div>
 `;
 
-exports[`renders ./components/table/demo/bordered.tsx extend context correctly 1`] = `
+exports[`renders components/table/demo/bordered.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -548,7 +548,7 @@ exports[`renders ./components/table/demo/bordered.tsx extend context correctly 1
 </div>
 `;
 
-exports[`renders ./components/table/demo/colspan-rowspan.tsx extend context correctly 1`] = `
+exports[`renders components/table/demo/colspan-rowspan.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -575,6 +575,12 @@ exports[`renders ./components/table/demo/colspan-rowspan.tsx extend context corr
                 class="ant-table-thead"
               >
                 <tr>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    RowHead
+                  </th>
                   <th
                     class="ant-table-cell"
                     scope="col"
@@ -609,6 +615,12 @@ exports[`renders ./components/table/demo/colspan-rowspan.tsx extend context corr
                   class="ant-table-row ant-table-row-level-0"
                   data-row-key="1"
                 >
+                  <th
+                    class="ant-table-cell"
+                    scope="row"
+                  >
+                    1
+                  </th>
                   <td
                     class="ant-table-cell"
                   >
@@ -641,6 +653,12 @@ exports[`renders ./components/table/demo/colspan-rowspan.tsx extend context corr
                   class="ant-table-row ant-table-row-level-0"
                   data-row-key="2"
                 >
+                  <th
+                    class="ant-table-cell"
+                    scope="row"
+                  >
+                    2
+                  </th>
                   <td
                     class="ant-table-cell"
                     colspan="5"
@@ -654,6 +672,12 @@ exports[`renders ./components/table/demo/colspan-rowspan.tsx extend context corr
                   class="ant-table-row ant-table-row-level-0"
                   data-row-key="3"
                 >
+                  <th
+                    class="ant-table-cell"
+                    scope="row"
+                  >
+                    3
+                  </th>
                   <td
                     class="ant-table-cell"
                   >
@@ -686,6 +710,12 @@ exports[`renders ./components/table/demo/colspan-rowspan.tsx extend context corr
                   class="ant-table-row ant-table-row-level-0"
                   data-row-key="4"
                 >
+                  <th
+                    class="ant-table-cell"
+                    scope="row"
+                  >
+                    4
+                  </th>
                   <td
                     class="ant-table-cell"
                   >
@@ -719,6 +749,12 @@ exports[`renders ./components/table/demo/colspan-rowspan.tsx extend context corr
                   class="ant-table-row ant-table-row-level-0"
                   data-row-key="5"
                 >
+                  <th
+                    class="ant-table-cell"
+                    scope="row"
+                  >
+                    5
+                  </th>
                   <td
                     class="ant-table-cell"
                   >
@@ -831,7 +867,7 @@ exports[`renders ./components/table/demo/colspan-rowspan.tsx extend context corr
 </div>
 `;
 
-exports[`renders ./components/table/demo/custom-filter-panel.tsx extend context correctly 1`] = `
+exports[`renders components/table/demo/custom-filter-panel.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -1526,7 +1562,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.tsx extend context 
 </div>
 `;
 
-exports[`renders ./components/table/demo/drag-sorting.tsx extend context correctly 1`] = `
+exports[`renders components/table/demo/drag-sorting.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -1577,7 +1613,7 @@ exports[`renders ./components/table/demo/drag-sorting.tsx extend context correct
                 class="ant-table-tbody"
               >
                 <tr
-                  aria-describedby="DndDescribedBy-1"
+                  aria-describedby="DndDescribedBy-0"
                   aria-disabled="false"
                   aria-roledescription="sortable"
                   class="ant-table-row ant-table-row-level-0"
@@ -1603,7 +1639,7 @@ exports[`renders ./components/table/demo/drag-sorting.tsx extend context correct
                   </td>
                 </tr>
                 <tr
-                  aria-describedby="DndDescribedBy-1"
+                  aria-describedby="DndDescribedBy-0"
                   aria-disabled="false"
                   aria-roledescription="sortable"
                   class="ant-table-row ant-table-row-level-0"
@@ -1629,7 +1665,7 @@ exports[`renders ./components/table/demo/drag-sorting.tsx extend context correct
                   </td>
                 </tr>
                 <tr
-                  aria-describedby="DndDescribedBy-1"
+                  aria-describedby="DndDescribedBy-0"
                   aria-disabled="false"
                   aria-roledescription="sortable"
                   class="ant-table-row ant-table-row-level-0"
@@ -1743,7 +1779,7 @@ exports[`renders ./components/table/demo/drag-sorting.tsx extend context correct
 </div>
 `;
 
-exports[`renders ./components/table/demo/drag-sorting-handler.tsx extend context correctly 1`] = `
+exports[`renders components/table/demo/drag-sorting-handler.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -1797,7 +1833,7 @@ exports[`renders ./components/table/demo/drag-sorting-handler.tsx extend context
                 class="ant-table-tbody"
               >
                 <tr
-                  aria-describedby="DndDescribedBy-0"
+                  aria-describedby="DndDescribedBy-1"
                   aria-disabled="false"
                   aria-roledescription="sortable"
                   class="ant-table-row ant-table-row-level-0"
@@ -1846,7 +1882,7 @@ exports[`renders ./components/table/demo/drag-sorting-handler.tsx extend context
                   </td>
                 </tr>
                 <tr
-                  aria-describedby="DndDescribedBy-0"
+                  aria-describedby="DndDescribedBy-1"
                   aria-disabled="false"
                   aria-roledescription="sortable"
                   class="ant-table-row ant-table-row-level-0"
@@ -1895,7 +1931,7 @@ exports[`renders ./components/table/demo/drag-sorting-handler.tsx extend context
                   </td>
                 </tr>
                 <tr
-                  aria-describedby="DndDescribedBy-0"
+                  aria-describedby="DndDescribedBy-1"
                   aria-disabled="false"
                   aria-roledescription="sortable"
                   class="ant-table-row ant-table-row-level-0"
@@ -2032,7 +2068,7 @@ exports[`renders ./components/table/demo/drag-sorting-handler.tsx extend context
 </div>
 `;
 
-exports[`renders ./components/table/demo/dynamic-settings.tsx extend context correctly 1`] = `
+exports[`renders components/table/demo/dynamic-settings.tsx extend context correctly 1`] = `
 Array [
   <form
     class="ant-form ant-form-inline components-table-demo-control-bar"
@@ -4594,7 +4630,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/table/demo/edit-cell.tsx extend context correctly 1`] = `
+exports[`renders components/table/demo/edit-cell.tsx extend context correctly 1`] = `
 <div>
   <button
     class="ant-btn ant-btn-primary"
@@ -4974,7 +5010,7 @@ exports[`renders ./components/table/demo/edit-cell.tsx extend context correctly 
 </div>
 `;
 
-exports[`renders ./components/table/demo/edit-row.tsx extend context correctly 1`] = `
+exports[`renders components/table/demo/edit-row.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -5578,7 +5614,7 @@ exports[`renders ./components/table/demo/edit-row.tsx extend context correctly 1
 </div>
 `;
 
-exports[`renders ./components/table/demo/ellipsis.tsx extend context correctly 1`] = `
+exports[`renders components/table/demo/ellipsis.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -5869,7 +5905,7 @@ exports[`renders ./components/table/demo/ellipsis.tsx extend context correctly 1
 </div>
 `;
 
-exports[`renders ./components/table/demo/ellipsis-custom-tooltip.tsx extend context correctly 1`] = `
+exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -6400,7 +6436,7 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.tsx extend cont
 </div>
 `;
 
-exports[`renders ./components/table/demo/expand.tsx extend context correctly 1`] = `
+exports[`renders components/table/demo/expand.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -6700,7 +6736,7 @@ exports[`renders ./components/table/demo/expand.tsx extend context correctly 1`]
 </div>
 `;
 
-exports[`renders ./components/table/demo/filter-in-tree.tsx extend context correctly 1`] = `
+exports[`renders components/table/demo/filter-in-tree.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -7675,7 +7711,7 @@ exports[`renders ./components/table/demo/filter-in-tree.tsx extend context corre
 </div>
 `;
 
-exports[`renders ./components/table/demo/filter-search.tsx extend context correctly 1`] = `
+exports[`renders components/table/demo/filter-search.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -8474,7 +8510,7 @@ exports[`renders ./components/table/demo/filter-search.tsx extend context correc
 </div>
 `;
 
-exports[`renders ./components/table/demo/fixed-columns.tsx extend context correctly 1`] = `
+exports[`renders components/table/demo/fixed-columns.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -8983,7 +9019,7 @@ exports[`renders ./components/table/demo/fixed-columns.tsx extend context correc
 </div>
 `;
 
-exports[`renders ./components/table/demo/fixed-columns-header.tsx extend context correctly 1`] = `
+exports[`renders components/table/demo/fixed-columns-header.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -10119,7 +10155,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.tsx extend context
 </div>
 `;
 
-exports[`renders ./components/table/demo/fixed-header.tsx extend context correctly 1`] = `
+exports[`renders components/table/demo/fixed-header.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -11383,7 +11419,7 @@ exports[`renders ./components/table/demo/fixed-header.tsx extend context correct
 </div>
 `;
 
-exports[`renders ./components/table/demo/grouping-columns.tsx extend context correctly 1`] = `
+exports[`renders components/table/demo/grouping-columns.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -12604,7 +12640,7 @@ exports[`renders ./components/table/demo/grouping-columns.tsx extend context cor
 </div>
 `;
 
-exports[`renders ./components/table/demo/head.tsx extend context correctly 1`] = `
+exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -13536,7 +13572,7 @@ exports[`renders ./components/table/demo/head.tsx extend context correctly 1`] =
 </div>
 `;
 
-exports[`renders ./components/table/demo/jsx.tsx extend context correctly 1`] = `
+exports[`renders components/table/demo/jsx.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -13893,7 +13929,7 @@ exports[`renders ./components/table/demo/jsx.tsx extend context correctly 1`] = 
 </div>
 `;
 
-exports[`renders ./components/table/demo/multiple-sorter.tsx extend context correctly 1`] = `
+exports[`renders components/table/demo/multiple-sorter.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -14366,7 +14402,7 @@ exports[`renders ./components/table/demo/multiple-sorter.tsx extend context corr
 </div>
 `;
 
-exports[`renders ./components/table/demo/narrow.tsx extend context correctly 1`] = `
+exports[`renders components/table/demo/narrow.tsx extend context correctly 1`] = `
 <div
   style="width:300px"
 >
@@ -14917,7 +14953,7 @@ exports[`renders ./components/table/demo/narrow.tsx extend context correctly 1`]
 </div>
 `;
 
-exports[`renders ./components/table/demo/nest-table-border-debug.tsx extend context correctly 1`] = `
+exports[`renders components/table/demo/nest-table-border-debug.tsx extend context correctly 1`] = `
 Array [
   <form
     class="ant-form ant-form-inline components-table-demo-control-bar"
@@ -15360,7 +15396,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/table/demo/nested-table.tsx extend context correctly 1`] = `
+exports[`renders components/table/demo/nested-table.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-table-wrapper"
@@ -18341,7 +18377,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/table/demo/order-column.tsx extend context correctly 1`] = `
+exports[`renders components/table/demo/order-column.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -18713,7 +18749,7 @@ exports[`renders ./components/table/demo/order-column.tsx extend context correct
 </div>
 `;
 
-exports[`renders ./components/table/demo/pagination.tsx extend context correctly 1`] = `
+exports[`renders components/table/demo/pagination.tsx extend context correctly 1`] = `
 <div>
   <div>
     <div
@@ -19295,7 +19331,7 @@ exports[`renders ./components/table/demo/pagination.tsx extend context correctly
 </div>
 `;
 
-exports[`renders ./components/table/demo/reset-filter.tsx extend context correctly 1`] = `
+exports[`renders components/table/demo/reset-filter.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
@@ -20204,7 +20240,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/table/demo/resizable-column.tsx extend context correctly 1`] = `
+exports[`renders components/table/demo/resizable-column.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -20552,7 +20588,7 @@ exports[`renders ./components/table/demo/resizable-column.tsx extend context cor
 </div>
 `;
 
-exports[`renders ./components/table/demo/responsive.tsx extend context correctly 1`] = `
+exports[`renders components/table/demo/responsive.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -20691,7 +20727,7 @@ exports[`renders ./components/table/demo/responsive.tsx extend context correctly
 </div>
 `;
 
-exports[`renders ./components/table/demo/row-selection.tsx extend context correctly 1`] = `
+exports[`renders components/table/demo/row-selection.tsx extend context correctly 1`] = `
 <div>
   <div
     class="ant-radio-group ant-radio-group-outline"
@@ -21077,7 +21113,7 @@ exports[`renders ./components/table/demo/row-selection.tsx extend context correc
 </div>
 `;
 
-exports[`renders ./components/table/demo/row-selection-and-operation.tsx extend context correctly 1`] = `
+exports[`renders components/table/demo/row-selection-and-operation.tsx extend context correctly 1`] = `
 <div>
   <div
     style="margin-bottom:16px"
@@ -21697,7 +21733,7 @@ exports[`renders ./components/table/demo/row-selection-and-operation.tsx extend 
 </div>
 `;
 
-exports[`renders ./components/table/demo/row-selection-custom.tsx extend context correctly 1`] = `
+exports[`renders components/table/demo/row-selection-custom.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -22570,7 +22606,7 @@ exports[`renders ./components/table/demo/row-selection-custom.tsx extend context
 </div>
 `;
 
-exports[`renders ./components/table/demo/row-selection-custom-debug.tsx extend context correctly 1`] = `
+exports[`renders components/table/demo/row-selection-custom-debug.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -22985,7 +23021,7 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.tsx extend c
 </div>
 `;
 
-exports[`renders ./components/table/demo/row-selection-debug.tsx extend context correctly 1`] = `
+exports[`renders components/table/demo/row-selection-debug.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-input-number"
@@ -25250,7 +25286,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/table/demo/size.tsx extend context correctly 1`] = `
+exports[`renders components/table/demo/size.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center"
@@ -25667,7 +25703,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/table/demo/sticky.tsx extend context correctly 1`] = `
+exports[`renders components/table/demo/sticky.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -26861,7 +26897,7 @@ exports[`renders ./components/table/demo/sticky.tsx extend context correctly 1`]
 </div>
 `;
 
-exports[`renders ./components/table/demo/summary.tsx extend context correctly 1`] = `
+exports[`renders components/table/demo/summary.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-table-wrapper"
@@ -27486,7 +27522,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/table/demo/tree-data.tsx extend context correctly 1`] = `
+exports[`renders components/table/demo/tree-data.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
@@ -27796,7 +27832,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/table/demo/tree-table-ellipsis.tsx extend context correctly 1`] = `
+exports[`renders components/table/demo/tree-table-ellipsis.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
@@ -28519,7 +28555,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/table/demo/virtual-list.tsx extend context correctly 1`] = `
+exports[`renders components/table/demo/virtual-list.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper virtual-table"
 >

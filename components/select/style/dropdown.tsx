@@ -114,6 +114,10 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token) => {
             '&-content': {
               flex: 'auto',
               ...textEllipsis,
+
+              '> *': {
+                ...textEllipsis,
+              },
             },
 
             '&-state': {

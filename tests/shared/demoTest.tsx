@@ -18,7 +18,7 @@ export type Options = {
 };
 
 function baseText(doInject: boolean, component: string, options: Options = {}) {
-  const files = glob.sync(`./components/${component}/demo/*.tsx`);
+  const files = glob.globSync(`./components/${component}/demo/*.tsx`);
 
   files.forEach((file) => {
     const testMethod =
@@ -36,16 +36,12 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
         Date.now = jest.fn(() => new Date('2016-11-22').getTime());
         jest.useFakeTimers().setSystemTime(new Date('2016-11-22'));
 
-        let Demo = require(`../.${file}`).default; // eslint-disable-line global-require, import/no-dynamic-require
+        let Demo = require(`../../${file}`).default; // eslint-disable-line global-require, import/no-dynamic-require
         // Inject Trigger status unless skipped
         Demo = typeof Demo === 'function' ? <Demo /> : Demo;
         if (doInject) {
           Demo = (
-            <TriggerMockContext.Provider
-              value={{
-                popupVisible: true,
-              }}
-            >
+            <TriggerMockContext.Provider value={{ popupVisible: true }}>
               {Demo}
             </TriggerMockContext.Provider>
           );
@@ -57,10 +53,7 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
         // Demo Test also include `dist` test which is already uglified.
         // We need test this as SSR instead.
         const html = renderToString(Demo);
-        expect({
-          type: 'demo',
-          html,
-        }).toMatchSnapshot();
+        expect({ type: 'demo', html }).toMatchSnapshot();
 
         errSpy.mockRestore();
       },

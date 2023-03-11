@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/timeline/demo/alternate.tsx extend context correctly 1`] = `
+exports[`renders components/timeline/demo/alternate.tsx extend context correctly 1`] = `
 <ul
   class="ant-timeline ant-timeline-alternate"
 >
@@ -145,7 +145,7 @@ exports[`renders ./components/timeline/demo/alternate.tsx extend context correct
 </ul>
 `;
 
-exports[`renders ./components/timeline/demo/basic.tsx extend context correctly 1`] = `
+exports[`renders components/timeline/demo/basic.tsx extend context correctly 1`] = `
 <ul
   class="ant-timeline"
 >
@@ -212,7 +212,7 @@ exports[`renders ./components/timeline/demo/basic.tsx extend context correctly 1
 </ul>
 `;
 
-exports[`renders ./components/timeline/demo/color.tsx extend context correctly 1`] = `
+exports[`renders components/timeline/demo/color.tsx extend context correctly 1`] = `
 <ul
   class="ant-timeline"
 >
@@ -379,7 +379,7 @@ exports[`renders ./components/timeline/demo/color.tsx extend context correctly 1
 </ul>
 `;
 
-exports[`renders ./components/timeline/demo/custom.tsx extend context correctly 1`] = `
+exports[`renders components/timeline/demo/custom.tsx extend context correctly 1`] = `
 <ul
   class="ant-timeline"
 >
@@ -469,7 +469,7 @@ exports[`renders ./components/timeline/demo/custom.tsx extend context correctly 
 </ul>
 `;
 
-exports[`renders ./components/timeline/demo/label.tsx extend context correctly 1`] = `
+exports[`renders components/timeline/demo/label.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-radio-group ant-radio-group-outline"
@@ -616,7 +616,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/timeline/demo/pending.tsx extend context correctly 1`] = `
+exports[`renders components/timeline/demo/pending.tsx extend context correctly 1`] = `
 <div>
   <ul
     class="ant-timeline ant-timeline-pending"
@@ -714,7 +714,7 @@ exports[`renders ./components/timeline/demo/pending.tsx extend context correctly
 </div>
 `;
 
-exports[`renders ./components/timeline/demo/right.tsx extend context correctly 1`] = `
+exports[`renders components/timeline/demo/right.tsx extend context correctly 1`] = `
 <ul
   class="ant-timeline ant-timeline-right"
 >
@@ -805,7 +805,7 @@ exports[`renders ./components/timeline/demo/right.tsx extend context correctly 1
 </ul>
 `;
 
-exports[`renders ./components/timeline/demo/wireframe.tsx extend context correctly 1`] = `
+exports[`renders components/timeline/demo/wireframe.tsx extend context correctly 1`] = `
 <ul
   class="ant-timeline"
 >

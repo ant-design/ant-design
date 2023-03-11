@@ -22,6 +22,7 @@ import { useCompactItemContext } from '../space/Compact';
 import genPurePanel from '../_util/PurePanel';
 import warning from '../_util/warning';
 import useStyle from './style';
+import useShowArrow from './useShowArrow';
 
 type RawValue = string | number;
 
@@ -117,8 +118,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
   }, [props.mode]);
 
   const isMultiple = mode === 'multiple' || mode === 'tags';
-  const mergedShowArrow =
-    showArrow !== undefined ? showArrow : props.loading || !(isMultiple || mode === 'combobox');
+  const mergedShowArrow = useShowArrow(showArrow);
 
   // ===================== Form Status =====================
   const {
@@ -225,7 +225,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
       className={mergedClassName}
       getPopupContainer={getPopupContainer || getContextPopupContainer}
       dropdownClassName={rcSelectRtlDropdownClassName}
-      showArrow={hasFeedback || showArrow}
+      showArrow={hasFeedback || mergedShowArrow}
       disabled={mergedDisabled}
     />,
   );

@@ -1,6 +1,6 @@
 import { render } from 'rc-util/lib/React/render';
 import * as React from 'react';
-import ConfigProvider, { globalConfig } from '../config-provider';
+import ConfigProvider, { globalConfig, warnContext } from '../config-provider';
 import type {
   ArgsProps,
   ConfigOptions,
@@ -262,6 +262,11 @@ function open(config: ArgsProps): MessageType {
 }
 
 function typeOpen(type: NoticeType, args: Parameters<TypeOpen>): MessageType {
+  // Warning if exist theme
+  if (process.env.NODE_ENV !== 'production') {
+    warnContext('message');
+  }
+
   const result = wrapPromiseFn((resolve) => {
     let closeFn: VoidFunction;
 

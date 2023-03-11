@@ -68,10 +68,10 @@ function flattenData<RecordType>(childrenColumnName: string, data?: RecordType[]
   return list;
 }
 
-export default function useSelection<RecordType>(
-  rowSelection: TableRowSelection<RecordType> | undefined,
+function useSelection<RecordType>(
   config: UseSelectionConfig<RecordType>,
-): [TransformColumns<RecordType>, Set<Key>] {
+  rowSelection?: TableRowSelection<RecordType>,
+): readonly [TransformColumns<RecordType>, Set<Key>] {
   const {
     preserveSelectedRowKeys,
     selectedRowKeys,
@@ -716,5 +716,7 @@ export default function useSelection<RecordType>(
     ],
   );
 
-  return [transformColumns, derivedSelectedKeySet];
+  return [transformColumns, derivedSelectedKeySet] as const;
 }
+
+export default useSelection;
