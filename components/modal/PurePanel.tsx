@@ -60,7 +60,9 @@ export const Footer: React.FC<
 
   const [locale] = useLocale('Modal', getConfirmLocale());
 
-  return footer === undefined ? (
+  return footer === null ? (
+    footer
+  ) : (
     <>
       <Button onClick={onCancel} {...cancelButtonProps}>
         {cancelText || locale?.cancelText}
@@ -74,8 +76,6 @@ export const Footer: React.FC<
         {okText || locale?.okText}
       </Button>
     </>
-  ) : (
-    (footer as React.ReactElement)
   );
 };
 
