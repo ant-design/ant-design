@@ -61,7 +61,7 @@ const Segmented = React.forwardRef<HTMLDivElement, SegmentedProps>((props, ref) 
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
   // ===================== Size =====================
-  const size = React.useContext(SizeContext);
+  const size = React.useContext<SizeType>(SizeContext);
   const mergedSize = customSize || size;
 
   // syntactic sugar to support `icon` for Segmented Item
