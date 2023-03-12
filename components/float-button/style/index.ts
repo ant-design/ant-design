@@ -18,6 +18,7 @@ type FloatButtonToken = FullToken<'FloatButton'> & {
   floatButtonFontSize: number;
   floatButtonSize: number;
   floatButtonIconSize: number;
+  floatButtonContentMinHeight: number;
 
   // Position
   floatButtonInsetBlockEnd: number;
@@ -183,7 +184,13 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
 
 // ============================== Shared ==============================
 const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) => {
-  const { componentCls, floatButtonIconSize, floatButtonSize, borderRadiusLG } = token;
+  const {
+    componentCls,
+    floatButtonIconSize,
+    floatButtonSize,
+    borderRadiusLG,
+    floatButtonContentMinHeight,
+  } = token;
   return {
     [componentCls]: {
       ...resetComponent(token),
@@ -220,7 +227,7 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
         [`${componentCls}-content`]: {
           overflow: 'hidden',
           textAlign: 'center',
-          minHeight: floatButtonSize,
+          minHeight: floatButtonContentMinHeight,
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
@@ -322,7 +329,7 @@ export default genComponentStyleHook<'FloatButton'>('FloatButton', (token) => {
     floatButtonFontSize: fontSize,
     floatButtonIconSize: fontSizeIcon * 1.5,
     floatButtonSize: controlHeightLG,
-
+    floatButtonContentMinHeight: controlHeightLG - 8,
     floatButtonInsetBlockEnd: marginXXL,
     floatButtonInsetInlineEnd: marginLG,
   });
