@@ -4,7 +4,7 @@ date: 2023-03-10
 author: kiner-tang
 ---
 
-Hi, my name is [kiner-tang(文辉)](https://github.com/kiner-tang). My personal work is closely related to AntDesign, so I can be considered a heavy user of AntDesign.It is for this reason that I am slowly working my way up from a user to a Contributor, contributing some of the problems I encountered and the new features I concluded to the community, and finally being honored to become a member of AntDesign Collaborator.
+Hi, my name is [kiner-tang](https://github.com/kiner-tang). My personal work is closely related to AntDesign, so I can be considered a heavy user of AntDesign.It is for this reason that I am slowly working my way up from a user to a Contributor, contributing some of the problems I encountered and the new features I concluded to the community, and finally being honored to become a member of AntDesign Collaborator.
 
 During the journey from user to contributor, and then from contributor to collaborator, I also encountered many problems. I would like to take this opportunity to sort out and summarize these problems, hoping to be helpful to new contributors and collaborators joining AntDesign community.
 
@@ -28,7 +28,7 @@ Based on the above reasons, we adopt the following methods:
 }
 ```
 
-For the difference between `^` and `~` in the version description of package.json, see [package.json 文件^和~区别](https://blog.csdn.net/shan1991fei/article/details/125430971).
+For the difference between `^` and `~` in the version description of package.json, see [What's the difference between tilde(~) and caret(^) in package.json](https://stackoverflow.com/questions/22343224/whats-the-difference-between-tilde-and-caret-in-package-json).
 
 Thus, when our dependency such as rc-cascader fixes a bug and releases a patch version such as: `3.9.1`, then the user's latest installed version is `3.9.1`. For the maintainer of ant-design, we only need to execute the following command:
 
@@ -36,7 +36,7 @@ Thus, when our dependency such as rc-cascader fixes a bug and releases a patch v
 # Clean up the local lockfile, although this file will not be included in the version tracking, it will still be generated when running yarn installation dependencies, so it is still necessary to clean it, or you can use: yarn --no-lockfile during installation, so that no lockfile will be generated
 yarn clean-lockfiles
 # Reinstall dependencies
-yarn add rc-cascader
+yarn add rc-cascader -T
 ```
 
 ### Snapshot update problem
@@ -150,8 +150,7 @@ Before merging branches, it is a good idea to check with the author that they ha
 
 As a collaborator, you may often communicate with users, so you are very likely to encounter XY problems, XY problems seriously affect our troubleshooting efficiency, therefore, we need to have a basic cognition and discrimination of XY problems, and learn how to avoid falling into the trap of XY problems.
 
-- [高效沟通的拦路虎——XY 问题](https://zhuanlan.zhihu.com/p/612569093)
-- [X-Y PROBLEM](https://coolshell.cn/articles/10804.html)
+- [X-Y PROBLEM](https://xyproblem.info/)
 
 ## Epilogue
 

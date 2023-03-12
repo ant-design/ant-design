@@ -26,7 +26,7 @@ author: kiner-tang
    }
    ```
 
-   关于`package.json`当中版本描述中的`^`和`~`的区别，可参考：[package.json 文件^和~区别](https://blog.csdn.net/shan1991fei/article/details/125430971)
+   关于`package.json`当中版本描述中的`^`和`~`的区别，可参考：[What's the difference between tilde(~) and caret(^) in package.json](https://stackoverflow.com/questions/22343224/whats-the-difference-between-tilde-and-caret-in-package-json)
 
 这样，当我们的依赖，如`rc-cascader`修复了一个 bug 并发布了一个 patch 版本，如：`3.9.1`，那么，用户最新安装的版本就是`3.9.1`，而针对 ant-design 的维护者，我们只需要执行如下命令：
 
@@ -34,7 +34,7 @@ author: kiner-tang
 # 清理本地 lock 文件，虽然这个文件不会被纳入到版本跟踪，但运行 yarn 安装依赖时还是会生成，所以还是要清理一下,或者可以在安装时使用：yarn --no-lockfile,这样就不会生成锁定文件了
 yarn clean-lockfiles
 # 重新安装依赖
-yarn add rc-cascader
+yarn add rc-cascader -T
 ```
 
 ### 快照更新问题
