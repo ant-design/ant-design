@@ -1,11 +1,11 @@
 import type { FC } from 'react';
-import React, { useMemo } from 'react';
+import * as React from 'react';
 /* eslint import/no-unresolved: 0 */
-import tokenMeta from 'antd/es/version/token-meta.json';
-import { getDesignToken } from 'antd-token-previewer';
-import { Table } from 'antd';
-import type { TableProps } from 'antd';
 import { css } from '@emotion/react';
+import type { TableProps } from 'antd';
+import { Table } from 'antd';
+import { getDesignToken } from 'antd-token-previewer';
+import tokenMeta from 'antd/es/version/token-meta.json';
 import useLocale from '../../../hooks/useLocale';
 import useSiteToken from '../../../hooks/useSiteToken';
 import ColorChunk from '../ColorChunk';
@@ -55,10 +55,11 @@ const useStyle = () => {
   };
 };
 
-const TokenTable: FC<TokenTableProps> = ({ type }) => {
+export function useColumns(): Exclude<TableProps<TokenData>['columns'], undefined> {
+  const [locale] = useLocale(locales);
   const styles = useStyle();
-  const [locale, lang] = useLocale(locales);
-  const columns: Exclude<TableProps<TokenData>['columns'], undefined> = [
+
+  return [
     {
       title: locale.token,
       key: 'name',
@@ -89,8 +90,13 @@ const TokenTable: FC<TokenTableProps> = ({ type }) => {
       },
     },
   ];
+}
 
-  const data = useMemo<TokenData[]>(
+const TokenTable: FC<TokenTableProps> = ({ type }) => {
+  const [, lang] = useLocale(locales);
+  const columns = useColumns();
+
+  const data = React.useMemo<TokenData[]>(
     () =>
       Object.entries(tokenMeta)
         .filter(([, meta]) => meta.source === type)
