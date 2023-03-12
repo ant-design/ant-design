@@ -365,7 +365,7 @@ const cssText = extractStyle((node) => (
     <ConfigProvider
       theme={{
         token: {
-          colorBgBase: 'red ',
+          colorBgBase: 'green ',
         },
       }}
     >
