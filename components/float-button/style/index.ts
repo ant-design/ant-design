@@ -243,6 +243,9 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
         },
       },
     },
+    // [`${componentCls} ant-badge-count`]: {
+    //   transform: 'translate(0, 4px)',
+    // },
     [`${componentCls}-rtl`]: {
       direction: 'rtl',
     },
@@ -259,7 +262,7 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
       borderRadius: borderRadiusLG,
       [`${componentCls}-body`]: {
         height: 'auto',
-        borderRadius: token.borderRadiusSM,
+        borderRadius: borderRadiusLG,
       },
     },
     [`${componentCls}-default`]: {
@@ -329,7 +332,7 @@ export default genComponentStyleHook<'FloatButton'>('FloatButton', (token) => {
     floatButtonFontSize: fontSize,
     floatButtonIconSize: fontSizeIcon * 1.5,
     floatButtonSize: controlHeightLG,
-    floatButtonContentMinHeight: controlHeightLG - 8,
+    floatButtonContentMinHeight: controlHeightLG,
     floatButtonInsetBlockEnd: marginXXL,
     floatButtonInsetInlineEnd: marginLG,
   });
