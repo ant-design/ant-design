@@ -26,6 +26,7 @@ FloatButton. Available since `5.0.0`.
 <code src="./demo/group.tsx" iframe="360">FloatButton Group</code>
 <code src="./demo/group-menu.tsx" iframe="360">Menu mode</code>
 <code src="./demo/back-top.tsx" iframe="360">BackTop</code>
+<code src="./demo/badge.tsx" iframe="360">badge</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API

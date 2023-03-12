@@ -27,6 +27,7 @@ demo:
 <code src="./demo/group.tsx" iframe="360">浮动按钮组</code>
 <code src="./demo/group-menu.tsx" iframe="360">菜单模式</code>
 <code src="./demo/back-top.tsx" iframe="360">回到顶部</code>
+<code src="./demo/badge.tsx" iframe="360">徽标数</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
