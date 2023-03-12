@@ -365,13 +365,7 @@ import { extractStyle } from '@ant-design/static-style-extract';
 import { ConfigProvider } from 'antd';
 
 const cssText = extractStyle((node) => (
-  <ConfigProvider
-    theme={{
-      token: {
-        colorPrimary: 'blue',
-      },
-    }}
-  >
+  <>
     <ConfigProvider
       theme={{
         token: {
@@ -381,7 +375,24 @@ const cssText = extractStyle((node) => (
     >
       {node}
     </ConfigProvider>
-  </ConfigProvider>
+    <ConfigProvider
+      theme={{
+        token: {
+          colorPrimary: 'blue',
+        },
+      }}
+    >
+      <ConfigProvider
+        theme={{
+          token: {
+            colorBgBase: 'red ',
+          },
+        }}
+      >
+        {node}
+      </ConfigProvider>
+    </ConfigProvider>
+  </>
 ));
 ```
 
