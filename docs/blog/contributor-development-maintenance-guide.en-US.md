@@ -56,7 +56,7 @@ Back to the topic, what should we do if we find snapshot test failed after chang
 
    The common causes are as follows:
 
-   - Local dependency is too old, it is possible to pull the latest code, but did not update the local dependency, resulting in the dependency package version is too low and the output results are inconsistent.The
+   - Local dependency is out of date. This may happen when you pull the latest code, but did not update the local dependency. Deleting `lock` file, `node_modules`, and then reinstalling dependencies could solve this problem.
 
      solution is as simple as deleting the lock file、node_modules and reinstall dependencies.
 
