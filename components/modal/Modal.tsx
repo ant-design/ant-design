@@ -182,6 +182,7 @@ const Modal: React.FC<ModalProps> = (props) => {
     visible,
 
     width = 520,
+    footer,
     ...restProps
   } = props;
 
@@ -209,7 +210,9 @@ const Modal: React.FC<ModalProps> = (props) => {
           prefixCls={prefixCls}
           rootClassName={classNames(hashId, rootClassName)}
           wrapClassName={wrapClassNameExtended}
-          footer={<Footer {...props} onOk={handleOk} onCancel={handleCancel} />}
+          footer={
+            footer === null ? footer : <Footer {...props} onOk={handleOk} onCancel={handleCancel} />
+          }
           visible={open ?? visible}
           mousePosition={restProps.mousePosition ?? mousePosition}
           onClose={handleCancel}
