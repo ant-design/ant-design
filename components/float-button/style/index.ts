@@ -217,7 +217,6 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
       '&:empty': {
         display: 'none',
       },
-
       [`${componentCls}-body`]: {
         width: '100%',
         height: '100%',
@@ -225,9 +224,6 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
         justifyContent: 'center',
         alignItems: 'center',
         transition: `all ${token.motionDurationMid}`,
-        [`${antCls}-badge-count`]: {
-          top: floatButtonBadgeOffset,
-        },
         [`${componentCls}-content`]: {
           overflow: 'hidden',
           textAlign: 'center',
@@ -243,6 +239,14 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
             width: floatButtonIconSize,
             fontSize: floatButtonIconSize,
             lineHeight: 1,
+          },
+        },
+        [`${componentCls}-badge`]: {
+          [`${antCls}-badge-count`]: {
+            top: floatButtonBadgeOffset,
+          },
+          [`${antCls}-badge-dot`]: {
+            top: 0,
           },
         },
       },

@@ -11,6 +11,11 @@ export type FloatButtonShape = 'circle' | 'square';
 
 export type FloatButtonGroupTrigger = 'click' | 'hover';
 
+export type FloatButtonBadgeProps = Omit<
+  BadgeProps,
+  'status' | 'text' | 'size' | 'title' | 'children'
+>;
+
 export interface FloatButtonProps {
   prefixCls?: string;
   className?: string;
@@ -23,7 +28,7 @@ export interface FloatButtonProps {
   tooltip?: TooltipProps['title'];
   href?: string;
   target?: React.HTMLAttributeAnchorTarget;
-  badge?: Omit<BadgeProps, 'status' | 'text' | 'size' | 'title' | 'children'>;
+  badge?: FloatButtonBadgeProps;
   onClick?: React.MouseEventHandler<HTMLElement>;
 }
 

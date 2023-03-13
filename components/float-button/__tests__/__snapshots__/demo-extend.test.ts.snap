@@ -48,7 +48,7 @@ Array [
       class="ant-float-btn-body"
     >
       <span
-        class="ant-badge"
+        class="ant-badge ant-float-btn-badge"
       >
         <div
           class="ant-float-btn-content"
@@ -78,21 +78,10 @@ Array [
           </div>
         </div>
         <sup
-          class="ant-scroll-number ant-badge-count"
+          class="ant-scroll-number ant-badge-dot"
           data-show="true"
           title="5"
-        >
-          <span
-            class="ant-scroll-number-only"
-            style="transition:none"
-          >
-            <span
-              class="ant-scroll-number-only-unit current"
-            >
-              5
-            </span>
-          </span>
-        </sup>
+        />
       </span>
     </div>
     <div
@@ -122,7 +111,7 @@ Array [
       class="ant-float-btn-body"
     >
       <span
-        class="ant-badge"
+        class="ant-badge ant-float-btn-badge"
       >
         <div
           class="ant-float-btn-content"
@@ -152,21 +141,10 @@ Array [
           </div>
         </div>
         <sup
-          class="ant-scroll-number ant-badge-count"
+          class="ant-scroll-number ant-badge-dot"
           data-show="true"
           title="5"
-        >
-          <span
-            class="ant-scroll-number-only"
-            style="transition:none"
-          >
-            <span
-              class="ant-scroll-number-only-unit current"
-            >
-              5
-            </span>
-          </span>
-        </sup>
+        />
       </span>
     </div>
     <div
@@ -199,7 +177,7 @@ Array [
         class="ant-float-btn-body"
       >
         <span
-          class="ant-badge"
+          class="ant-badge ant-float-btn-badge"
         >
           <div
             class="ant-float-btn-content"
@@ -275,7 +253,7 @@ Array [
         class="ant-float-btn-body"
       >
         <span
-          class="ant-badge"
+          class="ant-badge ant-float-btn-badge"
         >
           <div
             class="ant-float-btn-content"
@@ -348,7 +326,7 @@ Array [
         class="ant-float-btn-body"
       >
         <span
-          class="ant-badge"
+          class="ant-badge ant-float-btn-badge"
         >
           <div
             class="ant-float-btn-content"
@@ -426,7 +404,7 @@ Array [
         class="ant-float-btn-body"
       >
         <span
-          class="ant-badge"
+          class="ant-badge ant-float-btn-badge"
         >
           <div
             class="ant-float-btn-content"
@@ -502,7 +480,7 @@ Array [
         class="ant-float-btn-body"
       >
         <span
-          class="ant-badge"
+          class="ant-badge ant-float-btn-badge"
         >
           <div
             class="ant-float-btn-content"
@@ -575,7 +553,7 @@ Array [
         class="ant-float-btn-body"
       >
         <span
-          class="ant-badge"
+          class="ant-badge ant-float-btn-badge"
         >
           <div
             class="ant-float-btn-content"
@@ -648,7 +626,7 @@ Array [
         class="ant-float-btn-body"
       >
         <span
-          class="ant-badge"
+          class="ant-badge ant-float-btn-badge"
         >
           <div
             class="ant-float-btn-content"
@@ -726,7 +704,7 @@ exports[`renders components/float-button/demo/basic.tsx extend context correctly
     class="ant-float-btn-body"
   >
     <span
-      class="ant-badge"
+      class="ant-badge ant-float-btn-badge"
     >
       <div
         class="ant-float-btn-content"
@@ -788,7 +766,7 @@ Array [
       class="ant-float-btn-body"
     >
       <span
-        class="ant-badge"
+        class="ant-badge ant-float-btn-badge"
       >
         <div
           class="ant-float-btn-content"
@@ -851,7 +829,7 @@ Array [
       class="ant-float-btn-body"
     >
       <span
-        class="ant-badge"
+        class="ant-badge ant-float-btn-badge"
       >
         <div
           class="ant-float-btn-content"
@@ -891,7 +869,7 @@ Array [
       class="ant-float-btn-body"
     >
       <span
-        class="ant-badge"
+        class="ant-badge ant-float-btn-badge"
       >
         <div
           class="ant-float-btn-content"
@@ -962,7 +940,7 @@ Array [
         class="ant-float-btn-body"
       >
         <span
-          class="ant-badge"
+          class="ant-badge ant-float-btn-badge"
         >
           <div
             class="ant-float-btn-content"
@@ -1022,7 +1000,7 @@ Array [
         class="ant-float-btn-body"
       >
         <span
-          class="ant-badge"
+          class="ant-badge ant-float-btn-badge"
         >
           <div
             class="ant-float-btn-content"
@@ -1079,7 +1057,7 @@ Array [
         class="ant-float-btn-body"
       >
         <span
-          class="ant-badge"
+          class="ant-badge ant-float-btn-badge"
         >
           <div
             class="ant-float-btn-content"
@@ -1141,7 +1119,7 @@ Array [
         class="ant-float-btn-body"
       >
         <span
-          class="ant-badge"
+          class="ant-badge ant-float-btn-badge"
         >
           <div
             class="ant-float-btn-content"
@@ -1201,7 +1179,7 @@ Array [
         class="ant-float-btn-body"
       >
         <span
-          class="ant-badge"
+          class="ant-badge ant-float-btn-badge"
         >
           <div
             class="ant-float-btn-content"
@@ -1258,7 +1236,7 @@ Array [
         class="ant-float-btn-body"
       >
         <span
-          class="ant-badge"
+          class="ant-badge ant-float-btn-badge"
         >
           <div
             class="ant-float-btn-content"
@@ -1315,7 +1293,7 @@ Array [
         class="ant-float-btn-body"
       >
         <span
-          class="ant-badge"
+          class="ant-badge ant-float-btn-badge"
         >
           <div
             class="ant-float-btn-content"
@@ -1382,7 +1360,7 @@ Array [
         class="ant-float-btn-body"
       >
         <span
-          class="ant-badge"
+          class="ant-badge ant-float-btn-badge"
         >
           <div
             class="ant-float-btn-content"
@@ -1444,7 +1422,7 @@ Array [
         class="ant-float-btn-body"
       >
         <span
-          class="ant-badge"
+          class="ant-badge ant-float-btn-badge"
         >
           <div
             class="ant-float-btn-content"
@@ -1509,7 +1487,7 @@ exports[`renders components/float-button/demo/render-panel.tsx extend context co
       class="ant-float-btn-body"
     >
       <span
-        class="ant-badge"
+        class="ant-badge ant-float-btn-badge"
       >
         <div
           class="ant-float-btn-content"
@@ -1566,7 +1544,7 @@ exports[`renders components/float-button/demo/render-panel.tsx extend context co
       class="ant-float-btn-body"
     >
       <span
-        class="ant-badge"
+        class="ant-badge ant-float-btn-badge"
       >
         <div
           class="ant-float-btn-content"
@@ -1623,7 +1601,7 @@ exports[`renders components/float-button/demo/render-panel.tsx extend context co
       class="ant-float-btn-body"
     >
       <span
-        class="ant-badge"
+        class="ant-badge ant-float-btn-badge"
       >
         <div
           class="ant-float-btn-content"
@@ -1691,7 +1669,7 @@ exports[`renders components/float-button/demo/render-panel.tsx extend context co
         class="ant-float-btn-body"
       >
         <span
-          class="ant-badge"
+          class="ant-badge ant-float-btn-badge"
         >
           <div
             class="ant-float-btn-content"
@@ -1751,7 +1729,7 @@ exports[`renders components/float-button/demo/render-panel.tsx extend context co
         class="ant-float-btn-body"
       >
         <span
-          class="ant-badge"
+          class="ant-badge ant-float-btn-badge"
         >
           <div
             class="ant-float-btn-content"
@@ -1808,7 +1786,7 @@ exports[`renders components/float-button/demo/render-panel.tsx extend context co
         class="ant-float-btn-body"
       >
         <span
-          class="ant-badge"
+          class="ant-badge ant-float-btn-badge"
         >
           <div
             class="ant-float-btn-content"
@@ -1872,7 +1850,7 @@ exports[`renders components/float-button/demo/render-panel.tsx extend context co
           class="ant-float-btn-body"
         >
           <span
-            class="ant-badge"
+            class="ant-badge ant-float-btn-badge"
           >
             <div
               class="ant-float-btn-content"
@@ -1932,7 +1910,7 @@ exports[`renders components/float-button/demo/render-panel.tsx extend context co
           class="ant-float-btn-body"
         >
           <span
-            class="ant-badge"
+            class="ant-badge ant-float-btn-badge"
           >
             <div
               class="ant-float-btn-content"
@@ -1989,7 +1967,7 @@ exports[`renders components/float-button/demo/render-panel.tsx extend context co
           class="ant-float-btn-body"
         >
           <span
-            class="ant-badge"
+            class="ant-badge ant-float-btn-badge"
           >
             <div
               class="ant-float-btn-content"
@@ -2047,7 +2025,7 @@ exports[`renders components/float-button/demo/render-panel.tsx extend context co
         class="ant-float-btn-body"
       >
         <span
-          class="ant-badge"
+          class="ant-badge ant-float-btn-badge"
         >
           <div
             class="ant-float-btn-content"
@@ -2111,7 +2089,7 @@ Array [
       class="ant-float-btn-body"
     >
       <span
-        class="ant-badge"
+        class="ant-badge ant-float-btn-badge"
       >
         <div
           class="ant-float-btn-content"
@@ -2169,7 +2147,7 @@ Array [
       class="ant-float-btn-body"
     >
       <span
-        class="ant-badge"
+        class="ant-badge ant-float-btn-badge"
       >
         <div
           class="ant-float-btn-content"
@@ -2230,7 +2208,7 @@ exports[`renders components/float-button/demo/tooltip.tsx extend context correct
     class="ant-float-btn-body"
   >
     <span
-      class="ant-badge"
+      class="ant-badge ant-float-btn-badge"
     >
       <div
         class="ant-float-btn-content"
@@ -2296,7 +2274,7 @@ Array [
       class="ant-float-btn-body"
     >
       <span
-        class="ant-badge"
+        class="ant-badge ant-float-btn-badge"
       >
         <div
           class="ant-float-btn-content"
@@ -2357,7 +2335,7 @@ Array [
       class="ant-float-btn-body"
     >
       <span
-        class="ant-badge"
+        class="ant-badge ant-float-btn-badge"
       >
         <div
           class="ant-float-btn-content"

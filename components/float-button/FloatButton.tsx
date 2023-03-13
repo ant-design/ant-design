@@ -10,6 +10,7 @@ import FloatButtonGroupContext from './context';
 import Content from './FloatButtonContent';
 import type {
   CompoundedComponent,
+  FloatButtonBadgeProps,
   FloatButtonContentProps,
   FloatButtonProps,
   FloatButtonShape,
@@ -59,12 +60,18 @@ const FloatButton: React.ForwardRefRenderFunction<
   );
 
   // 虽然在 ts 中已经 omit 过了，但是为了防止多余的属性被透传进来，这里再 omit 一遍，以防万一
-  const badgeProps = omit(badge, ['title', 'children', 'status', 'text', 'size'] as any[]);
+  const badgeProps: FloatButtonBadgeProps = omit(badge, [
+    'title',
+    'children',
+    'status',
+    'text',
+    'size',
+  ] as any[]);
 
   const buttonNode: React.ReactNode = (
     <Tooltip title={tooltip} placement={direction === 'rtl' ? 'right' : 'left'}>
       <div className={`${prefixCls}-body`}>
-        <Badge {...badgeProps}>
+        <Badge className={`${prefixCls}-badge`} {...badgeProps}>
           <Content {...contentProps} />
         </Badge>
       </div>

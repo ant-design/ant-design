@@ -9,7 +9,7 @@ exports[`FloatButton rtl render component should be rendered correctly in RTL di
     class="ant-float-btn-body"
   >
     <span
-      class="ant-badge ant-badge-rtl"
+      class="ant-badge ant-badge-rtl ant-float-btn-badge"
     >
       <div
         class="ant-float-btn-content"
@@ -52,7 +52,7 @@ exports[`FloatButton should correct render 1`] = `
     class="ant-float-btn-body"
   >
     <span
-      class="ant-badge"
+      class="ant-badge ant-float-btn-badge"
     >
       <div
         class="ant-float-btn-content"
