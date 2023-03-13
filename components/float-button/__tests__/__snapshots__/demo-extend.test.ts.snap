@@ -31,6 +31,15 @@ exports[`renders components/float-button/demo/back-top.tsx extend context correc
 exports[`renders components/float-button/demo/badge.tsx extend context correctly 1`] = `
 Array [
   <button
+    class="ant-btn ant-btn-primary"
+    style="margin:16px"
+    type="button"
+  >
+    <span>
+      change value
+    </span>
+  </button>,
+  <button
     class="ant-float-btn ant-float-btn-default ant-float-btn-square"
     style="right:234px"
     type="button"
@@ -69,9 +78,9 @@ Array [
           </div>
         </div>
         <sup
-          class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
+          class="ant-scroll-number ant-badge-count"
           data-show="true"
-          title="10"
+          title="6"
         >
           <span
             class="ant-scroll-number-only"
@@ -80,17 +89,7 @@ Array [
             <span
               class="ant-scroll-number-only-unit current"
             >
-              1
-            </span>
-          </span>
-          <span
-            class="ant-scroll-number-only"
-            style="transition:none"
-          >
-            <span
-              class="ant-scroll-number-only-unit current"
-            >
-              0
+              6
             </span>
           </span>
         </sup>
@@ -153,9 +152,9 @@ Array [
           </div>
         </div>
         <sup
-          class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
+          class="ant-scroll-number ant-badge-count"
           data-show="true"
-          title="10"
+          title="6"
         >
           <span
             class="ant-scroll-number-only"
@@ -164,17 +163,7 @@ Array [
             <span
               class="ant-scroll-number-only-unit current"
             >
-              1
-            </span>
-          </span>
-          <span
-            class="ant-scroll-number-only"
-            style="transition:none"
-          >
-            <span
-              class="ant-scroll-number-only-unit current"
-            >
-              0
+              6
             </span>
           </span>
         </sup>
@@ -243,9 +232,9 @@ Array [
             </div>
           </div>
           <sup
-            class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
+            class="ant-scroll-number ant-badge-count"
             data-show="true"
-            title="10"
+            title="6"
           >
             <span
               class="ant-scroll-number-only"
@@ -254,17 +243,7 @@ Array [
               <span
                 class="ant-scroll-number-only-unit current"
               >
-                1
-              </span>
-            </span>
-            <span
-              class="ant-scroll-number-only"
-              style="transition:none"
-            >
-              <span
-                class="ant-scroll-number-only-unit current"
-              >
-                0
+                6
               </span>
             </span>
           </sup>
@@ -326,9 +305,9 @@ Array [
             </div>
           </div>
           <sup
-            class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
+            class="ant-scroll-number ant-badge-count"
             data-show="true"
-            title="10"
+            title="6"
           >
             <span
               class="ant-scroll-number-only"
@@ -337,17 +316,7 @@ Array [
               <span
                 class="ant-scroll-number-only-unit current"
               >
-                1
-              </span>
-            </span>
-            <span
-              class="ant-scroll-number-only"
-              style="transition:none"
-            >
-              <span
-                class="ant-scroll-number-only-unit current"
-              >
-                0
+                6
               </span>
             </span>
           </sup>
@@ -409,9 +378,9 @@ Array [
             </div>
           </div>
           <sup
-            class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
+            class="ant-scroll-number ant-badge-count"
             data-show="true"
-            title="10"
+            title="6"
           >
             <span
               class="ant-scroll-number-only"
@@ -420,17 +389,7 @@ Array [
               <span
                 class="ant-scroll-number-only-unit current"
               >
-                1
-              </span>
-            </span>
-            <span
-              class="ant-scroll-number-only"
-              style="transition:none"
-            >
-              <span
-                class="ant-scroll-number-only-unit current"
-              >
-                0
+                6
               </span>
             </span>
           </sup>
@@ -500,9 +459,9 @@ Array [
             </div>
           </div>
           <sup
-            class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
+            class="ant-scroll-number ant-badge-count"
             data-show="true"
-            title="10"
+            title="6"
           >
             <span
               class="ant-scroll-number-only"
@@ -511,17 +470,7 @@ Array [
               <span
                 class="ant-scroll-number-only-unit current"
               >
-                1
-              </span>
-            </span>
-            <span
-              class="ant-scroll-number-only"
-              style="transition:none"
-            >
-              <span
-                class="ant-scroll-number-only-unit current"
-              >
-                0
+                6
               </span>
             </span>
           </sup>
@@ -583,9 +532,9 @@ Array [
             </div>
           </div>
           <sup
-            class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
+            class="ant-scroll-number ant-badge-count"
             data-show="true"
-            title="10"
+            title="6"
           >
             <span
               class="ant-scroll-number-only"
@@ -594,17 +543,7 @@ Array [
               <span
                 class="ant-scroll-number-only-unit current"
               >
-                1
-              </span>
-            </span>
-            <span
-              class="ant-scroll-number-only"
-              style="transition:none"
-            >
-              <span
-                class="ant-scroll-number-only-unit current"
-              >
-                0
+                6
               </span>
             </span>
           </sup>
@@ -666,9 +605,9 @@ Array [
             </div>
           </div>
           <sup
-            class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
+            class="ant-scroll-number ant-badge-count"
             data-show="true"
-            title="10"
+            title="6"
           >
             <span
               class="ant-scroll-number-only"
@@ -677,17 +616,7 @@ Array [
               <span
                 class="ant-scroll-number-only-unit current"
               >
-                1
-              </span>
-            </span>
-            <span
-              class="ant-scroll-number-only"
-              style="transition:none"
-            >
-              <span
-                class="ant-scroll-number-only-unit current"
-              >
-                0
+                6
               </span>
             </span>
           </sup>
@@ -749,9 +678,9 @@ Array [
             </div>
           </div>
           <sup
-            class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
+            class="ant-scroll-number ant-badge-count"
             data-show="true"
-            title="10"
+            title="6"
           >
             <span
               class="ant-scroll-number-only"
@@ -760,17 +689,7 @@ Array [
               <span
                 class="ant-scroll-number-only-unit current"
               >
-                1
-              </span>
-            </span>
-            <span
-              class="ant-scroll-number-only"
-              style="transition:none"
-            >
-              <span
-                class="ant-scroll-number-only-unit current"
-              >
-                0
+                6
               </span>
             </span>
           </sup>
