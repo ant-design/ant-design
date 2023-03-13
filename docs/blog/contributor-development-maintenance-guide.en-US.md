@@ -49,7 +49,7 @@ Going back to the original question, what should we do if we change a demo and f
 
    ```bash
    # Run the test command to update snapshot
-   yarn test -u
+   npm run test -u
    ```
 
 2. However, if the changes during snapshot comparison exceed the scope of your modification this time, for example, you only changed the text, but found that classnames in snapshots have changed, which obviously does not meet expectations, we need to rectify the causes.
@@ -66,21 +66,21 @@ Going back to the original question, what should we do if we change a demo and f
 
 In Ant Design, most components are an upper encapsulation of a component based on `react-component`. Therefore, if a user reports a bug, when we troubleshoot the problem, if we find the problem is in the `@rc-component/xxx` or `rc-xxx` component, Then we need to put pr on those components to fix it.After the fix, we need to verify the fix results in the Ant Design project, then we can link the project to the Ant Design project for verification.For example:
 
-Run `yarn link` under the rc project.
+Run `npm link` under the rc project.
 
-![001](https://user-images.githubusercontent.com/10286961/224358206-828e2baf-d76d-46e6-ac02-25609963a003.png)
+![image](https://user-images.githubusercontent.com/10286961/224603053-98488c2d-f33c-4c25-8c09-6c790cfcdbf6.png)
 
-Run `yarn link "Project name"` in Ant Design
+Run `npm link "Project name"` in Ant Design
 
-![002](https://user-images.githubusercontent.com/10286961/224358294-219a47b0-4621-4732-85ff-3f350ea1f72e.png)
+![image](https://user-images.githubusercontent.com/10286961/224603065-95715727-83d0-4ef9-81e4-3b7065aaf73e.png)
 
 Once we have verified, we can mention pr to the rc component.It should be noted that link may cause an exception when running the test command. Therefore, after local verification, we need to run the following
 
 command locally to delete the package from link:
 
 ```bash
-yarn unlink "rc-field-form"
-yarn install --force
+npm unlink "rc-field-form" --no-save
+npm i
 ```
 
 When the pr is finally merged, usually the maintainer will release a version. If the patch version is released, then you only need to install and verify it in the Ant Design project, but if the minor version is released, Then we also need to take the initiative to upgrade the version in the Ant Design project, and after passing the local verification, a separate pr to Ant Design for upgrade repair.
@@ -138,7 +138,7 @@ At this point, you can merge the approved PR, but merging code is tricky, knowin
 
 ![008](https://user-images.githubusercontent.com/10286961/224358476-2332e36f-0adf-486f-8b17-1b2ad34926aa.jpg)
 
-- **Merge pull Request**: Normally merge the current PR into the target branch usually when branch to branch merge each other, do not merge the commit record, do not merge PR, or you will forget to add the target branch too many redundant commit records.
+- **Merge pull request**: Normally merge the current PR into the target branch usually when branch to branch merge each other, do not merge the commit record, do not merge PR, or you will forget to add the target branch too many redundant commit records.
 - **Squash and merge**: Merge commit records into a squash and merge into the target branch(this is usually used for merging PR).
 - **Rebase and merge**：When you want to adjust the baseline
 

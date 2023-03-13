@@ -47,7 +47,7 @@ npm i
 
    ```bash
    # 运行测试命令，同时更新快照
-   yarn test -u
+   npm run test -u
    ```
 
 2. 但如果发现快照对比时，发生改变的地方超过了你本次修改的范围，比如你只是更改了文字，但发现快照中的 className 都变了，这明显是不符合预期的，我们就需要排查原因，以下是常见的原因：
@@ -59,21 +59,21 @@ npm i
 
 在 Ant Design 中，大部分的组件都是基于 `react-component` 的组件的一个上层封装，因此，如果有用户报障，我们在排查问题时，如果发现问题出在了 `@rc-component/xxx` 或 `rc-xxx` 组件当中，那么我们就需要往这些组件提 pr 进行修复。在修复之后，我们需要在 Ant Design 项目当中验证修复的结果，那么，我们就可以将该项目 link 到 Ant Design 项目当中去验证。如：
 
-在 rc 项目下执行`yarn link`
+在 rc 项目下执行`npm link`
 
-![001](https://user-images.githubusercontent.com/10286961/224358206-828e2baf-d76d-46e6-ac02-25609963a003.png)
+![image](https://user-images.githubusercontent.com/10286961/224603053-98488c2d-f33c-4c25-8c09-6c790cfcdbf6.png)
 
-在 Ant Design 当中执行`yarn link "项目名称"`
+在 Ant Design 当中执行`npm link "项目名称"`
 
-![002](https://user-images.githubusercontent.com/10286961/224358294-219a47b0-4621-4732-85ff-3f350ea1f72e.png)
+![image](https://user-images.githubusercontent.com/10286961/224603065-95715727-83d0-4ef9-81e4-3b7065aaf73e.png)
 
 当我们验证通过后，就可以向 rc 组件提 pr 了。
 
 需要注意的是，link 可能会导致运行 test 命令时产生异常，因此，我们在本地验证完毕后，需要本地运行以下命令删除 link 过来的包：
 
 ```bash
-yarn unlink "rc-field-form"
-yarn install --force
+npm unlink "rc-field-form" --no-save
+npm i
 ```
 
 当最终该 pr 被合并过去之后，通常维护者会发布一个版本，如果发布的是 patch 版本，那么你只需要在 Ant Design 项目当中安装验证一下就好了，但如果发布的是`minor`版本，那么我们还需要在 Ant Design 项目中主动升级一下版本，并在本地验证通过后，单独向 Ant Design 提一个 pr 进行升级修复。
@@ -130,7 +130,7 @@ yarn install --force
 
 ![008](https://user-images.githubusercontent.com/10286961/224358476-2332e36f-0adf-486f-8b17-1b2ad34926aa.jpg)
 
-- **Merge pull Request**：正常将当前 PR 合并到目标分支（通常是分支与分支之间相互合并时使用，不会合并提交记录。合并 PR 时不要用这个，不然会往目标分支添加太多冗余的提交记录）
+- **Merge pull request**：正常将当前 PR 合并到目标分支（通常是分支与分支之间相互合并时使用，不会合并提交记录。合并 PR 时不要用这个，不然会往目标分支添加太多冗余的提交记录）
 - **Squash and merge**：将提交记录合并成一条后合并到目标分支（合并 PR 通常都用这个）
 - **Rebase and merge**：调整基线合并
 
