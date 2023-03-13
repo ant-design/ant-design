@@ -6,11 +6,11 @@ author: kiner-tang
 
 大家好，我是[kiner-tang(文辉)](https://github.com/kiner-tang)，我个人的工作内容可以说与 AntDesign 密切相关，可以算是 AntDesign 的重度用户了。也正因如此，让我由一个使用者慢慢地向着贡献者 Contributor 迈进，将自己在工作过程中遇到的一些问题和总结出的新特性回馈于社区，并最终很荣幸地成为了 AntDesign 的 Collaborator 中的一员。在从使用者到贡献者，再从贡献者到合作者的旅途中，也遇到了不少的问题，借此机会梳理总结一下，希望能对新加入 AntDesign 社区的贡献者和合作者们有所帮助。
 
-## 普通 Contributor
+## 普通常见问题
 
 ### 依赖版本问题
 
-当前流行的包管理器，无论是 npm、yarn 还是 pnpm，都会提供版本锁定的解决方案，在绝大多数时候，这可以帮我们避免包的版本不一致而导致的一些问题。但在 ant-design 项目当中，很多功能依赖于 react-component 仓库中的原始组件，我们期望当遇到一些 bug 时，在 react-component 修复并发布 patch 版本之后，无需在 ant-design 项目当中手动升级版本，只需重新安装依赖即可安装最新的 patch 版本的安装包。此时，包管理器提供的版本锁定文件就成了阻碍自动更新的元凶，因为一旦有了版本锁定文件，那么，重新安装依赖也会安装锁定文件指定的版本，而无法升级到 patch 版本。
+当前流行的包管理器，无论是 npm、yarn 还是 pnpm，都会提供版本锁定的解决方案，在绝大多数时候，这可以帮我们避免包的版本不一致而导致的一些问题。但在 Ant Design 项目当中，很多功能依赖于 `react-component` 仓库中的原始组件，我们期望当遇到一些 bug 时，在 `react-component` 修复并发布 patch 版本之后，无需在 Ant Design 项目当中手动升级版本，只需重新安装依赖即可安装最新的 patch 版本的安装包。此时，包管理器提供的版本锁定文件就成了阻碍自动更新的元凶，因为一旦有了版本锁定文件，那么，重新安装依赖也会安装锁定文件指定的版本，而无法升级到 patch 版本。
 
 基于上述原因，我们采用以下方式处理：
 
@@ -28,20 +28,18 @@ author: kiner-tang
 
    关于`package.json`当中版本描述中的`^`和`~`的区别，可参考：[What's the difference between tilde(~) and caret(^) in package.json](https://stackoverflow.com/questions/22343224/whats-the-difference-between-tilde-and-caret-in-package-json)
 
-这样，当我们的依赖，如`rc-cascader`修复了一个 bug 并发布了一个 patch 版本，如：`3.9.1`，那么，用户最新安装的版本就是`3.9.1`，而针对 ant-design 的维护者，我们只需要执行如下命令：
+这样，当我们的依赖，如`rc-cascader`修复了一个 bug 并发布了一个 patch 版本，如：`3.9.1`，那么，用户最新安装的版本就是`3.9.1`，而针对 Ant Design 的维护者，我们只需要执行如下命令：
 
 ```bash
-# 清理本地 lock 文件，虽然这个文件不会被纳入到版本跟踪，但运行 yarn 安装依赖时还是会生成，所以还是要清理一下,或者可以在安装时使用：yarn --no-lockfile,这样就不会生成锁定文件了
-yarn clean-lockfiles
-# 重新安装依赖
-yarn add rc-cascader -T
+git clean -fdx
+npm i
 ```
 
 ### 快照更新问题
 
-在 ant-design 当中，我们使用 jest 进行单元测试和覆盖率测试，而很多第一次参与 ant-design 项目开发的同学可能经常会发现，自己只是修改了某个 demo 中的文字，为啥一推送上去，CI 中的测试任务就失败了呢？这就要从 ant-design 的**快照检测**说起了。
+在 Ant Design 当中，我们使用 jest 进行单元测试和覆盖率测试，而很多第一次参与 Ant Design 项目开发的同学可能经常会发现，自己只是修改了某个 demo 中的文字，为啥一推送上去，CI 中的测试任务就失败了呢？这就要从 Ant Design 的**快照检测**说起了。
 
-在绝大部分工具库中，都是比较强调**幂等性**的概念，意思就是同一个方法，无论执行多少次，只要输入参数是一样的，那么得到的结果也就是一样的。而在 ant-design 当中，个人认为使用快照检测最大的作用也正是校验我们的 demo 的幂等性，以此确保组件输出的稳定性和确定性。其实快照检测的原理很简单，就是将我们的 demo 生成 html 字符串保存下来，下次在运行测试任务时进行对比，如果发现有差异就说明快照检测失败了。
+在绝大部分工具库中，都是比较强调**幂等性**的概念，意思就是同一个方法，无论执行多少次，只要输入参数是一样的，那么得到的结果也就是一样的。而在 Ant Design 当中，个人认为使用快照检测最大的作用也正是校验我们的 demo 的幂等性，以此确保组件输出的稳定性和确定性。其实快照检测的原理很简单，就是将我们的 demo 生成 html 字符串保存下来，下次在运行测试任务时进行对比，如果发现有差异就说明快照检测失败了。
 
 回到最初的问题，如果我们改了某个 demo 后发现快照检测失败了，应该如何处理呢？
 
@@ -59,13 +57,13 @@ yarn add rc-cascader -T
 
 ### rc-x 库依赖
 
-在 ant-design 中，大部分的组件都是基于 react-component 的组件的一个上层封装，因此，如果有用户报障，我们在排查问题时，如果发现问题出在了 '@rc-component/xxx' 或 'rc-xxx' 组件当中，那么我们就需要往这些组件提 pr 进行修复。在修复之后，我们需要在 ant-design 项目当中验证修复的结果，那么，我们就可以将该项目 link 到 ant-design 项目当中去验证。如：
+在 Ant Design 中，大部分的组件都是基于 `react-component` 的组件的一个上层封装，因此，如果有用户报障，我们在排查问题时，如果发现问题出在了 `@rc-component/xxx` 或 `rc-xxx` 组件当中，那么我们就需要往这些组件提 pr 进行修复。在修复之后，我们需要在 Ant Design 项目当中验证修复的结果，那么，我们就可以将该项目 link 到 Ant Design 项目当中去验证。如：
 
 在 rc 项目下执行`yarn link`
 
 ![001](https://user-images.githubusercontent.com/10286961/224358206-828e2baf-d76d-46e6-ac02-25609963a003.png)
 
-在 ant-design 当中执行`yarn link "项目名称"`
+在 Ant Design 当中执行`yarn link "项目名称"`
 
 ![002](https://user-images.githubusercontent.com/10286961/224358294-219a47b0-4621-4732-85ff-3f350ea1f72e.png)
 
@@ -78,13 +76,13 @@ yarn unlink "rc-field-form"
 yarn install --force
 ```
 
-当最终该 pr 被合并过去之后，通常维护者会发布一个版本，如果发布的是 patch 版本，那么你只需要在 ant-design 项目当中安装验证一下就好了，但如果发布的是`minor`版本，那么我们还需要在 ant-design 项目中主动升级一下版本，并在本地验证通过后，单独向 ant-design 提一个 pr 进行升级修复。
+当最终该 pr 被合并过去之后，通常维护者会发布一个版本，如果发布的是 patch 版本，那么你只需要在 Ant Design 项目当中安装验证一下就好了，但如果发布的是`minor`版本，那么我们还需要在 Ant Design 项目中主动升级一下版本，并在本地验证通过后，单独向 Ant Design 提一个 pr 进行升级修复。
 
 ### 属性过期
 
 在一个大型项目当中，如果你想要将一个属性或方法废弃掉，其实是非常麻烦的一件事，因为你的项目可能已经有很多项目在使用了，如果直接干掉，那么别人一升级就会控制台满屏飘红，甚至直接跑不起来。但在项目迭代的过程中，我们遇到的场景和问题会越来越多，很久以前的方案可能不再适合了，确实需要废弃掉，那么，我们就需要采用一个柔和的，没那么激进的方式进行废弃，留给用户足够的时间修改。
 
-在 ant-design 当中，我们采用**五步走战略**废弃属性或方法：
+在 Ant Design 当中，我们采用**五步走战略**废弃属性或方法：
 
 1. **为属性添加过期标记**
 
@@ -112,7 +110,7 @@ yarn install --force
 
 5. **彻底删除**：在我们的属性过期一段时间后，通常是主版本号的升级时，我们就可以删除掉废弃的属性，同时也需要删除之前为了废弃该属性添加的注释、警告、测试用例、文档等等。到此我们的属性废弃工作就算是大功告成了 🍻。
 
-## 新晋 Collaborator
+## 更上一层楼
 
 经过一段时间贡献，相信你已经对 AntDesign 的整体开发流程和项目架构有了更加深入的了解，此时，或许你希望承担更多的任务，为开源社区贡献更多的力量。那么，你可以通过以下链接评论申请成为 AntDesign 的 Collaborator ，获得更多的权限 [Add Collaborator permission for some active contributors](https://github.com/ant-design/ant-design/issues/3222)，Collaborator 们会启动投票流程，投票通过后会邀请你正式成为 AntDesign 的 Collaborator。
 
@@ -136,7 +134,7 @@ yarn install --force
 - **Squash and merge**：将提交记录合并成一条后合并到目标分支（合并 PR 通常都用这个）
 - **Rebase and merge**：调整基线合并
 
-我们在合并分支之前，最好与作者确认是否已经完全修改完毕，并确认一下是否经过仔细的 Review.并至少有一个维护人员 Approve 这一次的 PR 后。确定这次 PR 到底是上述哪一种情况，然后选择相应的方式进行合并。
+我们在合并分支之前，最好与作者确认是否已经完全修改完毕，并确认一下是否经过仔细的审查。并至少有一个维护人员接受（Approve）这一次的 PR 后。确定这次 PR 到底是上述哪一种情况，然后选择相应的方式进行合并。
 
 ### 识别 XY 问题
 
