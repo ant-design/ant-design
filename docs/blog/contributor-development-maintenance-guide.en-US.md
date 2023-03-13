@@ -111,7 +111,7 @@ It is important to note that after adding console warnings, we need to add a tes
 
 3. **Update document**: The above two steps are mainly to warn developers in the editor and browser. Next, we need to update the related document. Generally speaking, if we have a property deprecated, it means that it is not recommended for users to use. So we need to remove the related document and add the description of the new property at the mean time. If it cannot be deleted due to special circumstances, please specify the version this property is supported and the alternative scheme in the remarks column.
 
-4. **Compatibility between old and new**: Now that we're done with the early tips, it's important to make sure that the new property and the old one live in harmony for a while until the old one dies. That is to say, currently we use expired property to work normally, in addition to the warning, can not have any changes.
+4. **Compatibility between old and new**: Now that we're done with the above tips, it's important to make sure that the new property and the deprecated one both works until the deprecated one is removed. That is to say, we must have the deprecated property work normally. We should not apply any changes in addition to the warning.
 
    ![007](https://user-images.githubusercontent.com/10286961/224358439-76c42c78-e244-42bd-8935-b08f536931a2.png)
 
