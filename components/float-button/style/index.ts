@@ -246,10 +246,6 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
           [`${antCls}-badge-count`]: {
             top: floatButtonBadgeOffset,
           },
-          [`${antCls}-badge-dot`]: {
-            top: 0,
-            insetInlineEnd: -((floatButtonSize - (floatButtonIconSize + paddingXXS * 2)) / 2),
-          },
         },
       },
     },
@@ -262,8 +258,15 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
       borderRadius: '50%',
       [`${componentCls}-body`]: {
         borderRadius: '50%',
+        [`${componentCls}-badge`]: {
+          [`${antCls}-badge-dot`]: {
+            top: Math.cos(floatButtonBadgeOffset),
+            insetInlineEnd: -((floatButtonSize - (floatButtonIconSize + paddingXXS * 2)) / 2),
+          },
+        },
       },
     },
+
     [`${componentCls}-square`]: {
       height: 'auto',
       minHeight: floatButtonSize,
@@ -271,6 +274,12 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
       [`${componentCls}-body`]: {
         height: 'auto',
         borderRadius: borderRadiusLG,
+        [`${componentCls}-badge`]: {
+          [`${antCls}-badge-dot`]: {
+            top: 0,
+            insetInlineEnd: -((floatButtonSize - (floatButtonIconSize + paddingXXS * 2)) / 2),
+          },
+        },
       },
     },
     [`${componentCls}-default`]: {
