@@ -4,6 +4,10 @@ import { useStyleRegister } from '@ant-design/cssinjs';
 import { warning } from 'rc-util';
 import { useContext } from 'react';
 import { ConfigContext } from '../../config-provider/context';
+import { useResetIconStyle } from '../../config-provider/style';
+import type { ComponentTokenMap, GlobalToken } from '../interface';
+import type { UseComponentStyleResult } from '../internal';
+import { mergeToken, statisticToken, useToken } from '../internal';
 import { genCommonStyle, genLinkStyle } from '../../style';
 import type {
   ComponentTokenMap,
@@ -91,6 +95,9 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
         },
       ],
     );
+
+    // Generate style for icons
+    useResetIconStyle(iconPrefixCls);
 
     return [
       useStyleRegister({ ...sharedConfig, path: [component, prefixCls, iconPrefixCls] }, () => {
