@@ -62,8 +62,6 @@ Back to the topic, what should we do if we find snapshot test failed after chang
 
    - Your code not synchronizing baseline code can also result in inconsistent snapshot comparisons. The solution is as simple as pulling the baseline code locally and then rebase your code to the baseline code.
 
-   - You may have locally changed the core code in addition to the demo, causing the logic to change. You need to go over this change carefully.
-
 ### rc-x Library dependencies
 
 In Ant Design, most components are an upper encapsulation of a component based on `react-component`. Therefore, if a user reports a bug, when we troubleshoot the problem, if we find the problem is in the `@rc-component/xxx` or `rc-xxx` component, Then we need to put pr on those components to fix it. After the fix, we need to verify the fix results in the Ant Design project, then we can link the project to the Ant Design project for verification.For example:
