@@ -342,6 +342,7 @@ export default genComponentStyleHook<'FloatButton'>('FloatButton', (token) => {
     floatButtonInsetInlineEnd: marginLG,
     floatButtonBodySize: controlHeightLG - paddingXXS * 2,
     floatButtonBadgeOffset: paddingXXS,
+    // 这里的 paddingXXS 是简写，完整逻辑是 (controlHeightLG - (controlHeightLG - paddingXXS * 2)) / 2,
   });
 
   return [
