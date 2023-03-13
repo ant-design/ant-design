@@ -140,7 +140,6 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
         display: 'block',
         borderRadius: borderRadiusLG,
         boxShadow: token.boxShadowSecondary,
-        overflow: 'hidden',
         [`${componentCls}-square`]: {
           boxShadow: 'none',
           marginTop: 0,
