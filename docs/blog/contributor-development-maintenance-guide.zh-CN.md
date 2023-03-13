@@ -59,7 +59,7 @@ npm i
 
 在 Ant Design 中，大部分的组件都是基于 `react-component` 的组件的一个上层封装，因此，如果有用户报障，我们在排查问题时，如果发现问题出在了 `@rc-component/xxx` 或 `rc-xxx` 组件当中，那么我们就需要往这些组件提 pr 进行修复。在修复之后，我们需要在 Ant Design 项目当中验证修复的结果，那么，我们就可以将该项目 link 到 Ant Design 项目当中去验证。如：
 
-在 rc 项目下执行`npm link`
+在 rc 项目下执行 `npm link`
 
 ![image](https://user-images.githubusercontent.com/10286961/224603053-98488c2d-f33c-4c25-8c09-6c790cfcdbf6.png)
 
