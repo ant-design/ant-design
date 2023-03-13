@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/qrcode/demo/Popover.tsx extend context correctly 1`] = `
+exports[`renders components/qrcode/demo/Popover.tsx extend context correctly 1`] = `
 Array [
   <img
     alt="icon"
@@ -44,7 +44,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/qrcode/demo/base.tsx extend context correctly 1`] = `
+exports[`renders components/qrcode/demo/base.tsx extend context correctly 1`] = `
 <div
   class="ant-qrcode"
   style="width:160px;height:160px"
@@ -57,7 +57,7 @@ exports[`renders ./components/qrcode/demo/base.tsx extend context correctly 1`] 
 </div>
 `;
 
-exports[`renders ./components/qrcode/demo/customColor.tsx extend context correctly 1`] = `
+exports[`renders components/qrcode/demo/customColor.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
 >
@@ -93,7 +93,7 @@ exports[`renders ./components/qrcode/demo/customColor.tsx extend context correct
 </div>
 `;
 
-exports[`renders ./components/qrcode/demo/customSize.tsx extend context correctly 1`] = `
+exports[`renders components/qrcode/demo/customSize.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-btn-group"
@@ -177,7 +177,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/qrcode/demo/download.tsx extend context correctly 1`] = `
+exports[`renders components/qrcode/demo/download.tsx extend context correctly 1`] = `
 <div
   id="myqrcode"
 >
@@ -202,7 +202,7 @@ exports[`renders ./components/qrcode/demo/download.tsx extend context correctly 
 </div>
 `;
 
-exports[`renders ./components/qrcode/demo/errorlevel.tsx extend context correctly 1`] = `
+exports[`renders components/qrcode/demo/errorlevel.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-qrcode"
@@ -282,7 +282,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/qrcode/demo/icon.tsx extend context correctly 1`] = `
+exports[`renders components/qrcode/demo/icon.tsx extend context correctly 1`] = `
 <div
   class="ant-qrcode"
   style="width:160px;height:160px"
@@ -299,7 +299,7 @@ exports[`renders ./components/qrcode/demo/icon.tsx extend context correctly 1`] 
 </div>
 `;
 
-exports[`renders ./components/qrcode/demo/status.tsx extend context correctly 1`] = `
+exports[`renders components/qrcode/demo/status.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
   style="flex-wrap:wrap;margin-bottom:-8px"

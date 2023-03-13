@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/app/demo/basic.tsx extend context correctly 1`] = `
+exports[`renders components/app/demo/basic.tsx extend context correctly 1`] = `
 <div
   class="ant-app"
 >

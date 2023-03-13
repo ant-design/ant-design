@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/tabs/demo/animated.tsx extend context correctly 1`] = `
+exports[`renders components/tabs/demo/animated.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
@@ -197,7 +197,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/tabs/demo/basic.tsx extend context correctly 1`] = `
+exports[`renders components/tabs/demo/basic.tsx extend context correctly 1`] = `
 <div
   class="ant-tabs ant-tabs-top"
 >
@@ -330,7 +330,7 @@ exports[`renders ./components/tabs/demo/basic.tsx extend context correctly 1`] =
 </div>
 `;
 
-exports[`renders ./components/tabs/demo/card.tsx extend context correctly 1`] = `
+exports[`renders components/tabs/demo/card.tsx extend context correctly 1`] = `
 <div
   class="ant-tabs ant-tabs-top ant-tabs-card"
 >
@@ -463,7 +463,7 @@ exports[`renders ./components/tabs/demo/card.tsx extend context correctly 1`] = 
 </div>
 `;
 
-exports[`renders ./components/tabs/demo/card-top.tsx extend context correctly 1`] = `
+exports[`renders components/tabs/demo/card-top.tsx extend context correctly 1`] = `
 <div
   class="css-1g7foe3"
 >
@@ -614,7 +614,7 @@ exports[`renders ./components/tabs/demo/card-top.tsx extend context correctly 1`
 </div>
 `;
 
-exports[`renders ./components/tabs/demo/centered.tsx extend context correctly 1`] = `
+exports[`renders components/tabs/demo/centered.tsx extend context correctly 1`] = `
 <div
   class="ant-tabs ant-tabs-top ant-tabs-centered"
 >
@@ -747,7 +747,7 @@ exports[`renders ./components/tabs/demo/centered.tsx extend context correctly 1`
 </div>
 `;
 
-exports[`renders ./components/tabs/demo/custom-add-trigger.tsx extend context correctly 1`] = `
+exports[`renders components/tabs/demo/custom-add-trigger.tsx extend context correctly 1`] = `
 <div>
   <div
     style="margin-bottom:16px"
@@ -933,7 +933,7 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.tsx extend context co
 </div>
 `;
 
-exports[`renders ./components/tabs/demo/custom-tab-bar.tsx extend context correctly 1`] = `
+exports[`renders components/tabs/demo/custom-tab-bar.tsx extend context correctly 1`] = `
 <div
   class="ant-tabs ant-tabs-top"
 >
@@ -1073,7 +1073,7 @@ exports[`renders ./components/tabs/demo/custom-tab-bar.tsx extend context correc
 </div>
 `;
 
-exports[`renders ./components/tabs/demo/custom-tab-bar-node.tsx extend context correctly 1`] = `
+exports[`renders components/tabs/demo/custom-tab-bar-node.tsx extend context correctly 1`] = `
 <div
   class="ant-tabs ant-tabs-top"
 >
@@ -1224,7 +1224,7 @@ exports[`renders ./components/tabs/demo/custom-tab-bar-node.tsx extend context c
 </div>
 `;
 
-exports[`renders ./components/tabs/demo/disabled.tsx extend context correctly 1`] = `
+exports[`renders components/tabs/demo/disabled.tsx extend context correctly 1`] = `
 <div
   class="ant-tabs ant-tabs-top"
 >
@@ -1357,7 +1357,7 @@ exports[`renders ./components/tabs/demo/disabled.tsx extend context correctly 1`
 </div>
 `;
 
-exports[`renders ./components/tabs/demo/editable-card.tsx extend context correctly 1`] = `
+exports[`renders components/tabs/demo/editable-card.tsx extend context correctly 1`] = `
 <div
   class="ant-tabs ant-tabs-top ant-tabs-editable ant-tabs-card ant-tabs-editable-card"
 >
@@ -1604,7 +1604,7 @@ exports[`renders ./components/tabs/demo/editable-card.tsx extend context correct
 </div>
 `;
 
-exports[`renders ./components/tabs/demo/extra.tsx extend context correctly 1`] = `
+exports[`renders components/tabs/demo/extra.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-tabs ant-tabs-top"
@@ -1961,7 +1961,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/tabs/demo/icon.tsx extend context correctly 1`] = `
+exports[`renders components/tabs/demo/icon.tsx extend context correctly 1`] = `
 <div
   class="ant-tabs ant-tabs-top"
 >
@@ -2127,7 +2127,7 @@ exports[`renders ./components/tabs/demo/icon.tsx extend context correctly 1`] = 
 </div>
 `;
 
-exports[`renders ./components/tabs/demo/nest.tsx extend context correctly 1`] = `
+exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
 <div>
   <div
     class="ant-select ant-select-single ant-select-show-arrow"
@@ -3254,7 +3254,7 @@ exports[`renders ./components/tabs/demo/nest.tsx extend context correctly 1`] = 
 </div>
 `;
 
-exports[`renders ./components/tabs/demo/position.tsx extend context correctly 1`] = `
+exports[`renders components/tabs/demo/position.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
@@ -3485,7 +3485,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/tabs/demo/size.tsx extend context correctly 1`] = `
+exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
 <div>
   <div
     class="ant-radio-group ant-radio-group-outline"
@@ -3814,7 +3814,7 @@ exports[`renders ./components/tabs/demo/size.tsx extend context correctly 1`] = 
 </div>
 `;
 
-exports[`renders ./components/tabs/demo/slide.tsx extend context correctly 1`] = `
+exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
 <div>
   <div
     class="ant-radio-group ant-radio-group-outline"
