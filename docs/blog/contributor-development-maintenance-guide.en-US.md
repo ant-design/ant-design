@@ -117,7 +117,7 @@ It is important to note that after adding console warnings, we need to add a tes
 
    We can do something like this, making sure that the new property takes precedence over the old one, and only trying to use the old one if no new one exists.At this point, our property expiration work is done.
 
-5. **Wipe out**: After our properties have expired for a certain period of time, usually when the major version number is upgraded, we can remove the obsolescence. We also need to delete comments, warnings, test cases, and documents that were added to obsolete the property etc. At this point our property abandonment work is done.
+5. **Remove**: After our properties have been deprecated for a certain period of time, usually when the major version is released, we can remove the them. We also need to delete comments, warnings, test cases, and documents that were related the property. At this point our property removal work is done.
 
 ## Take it to the next level
 
