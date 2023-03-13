@@ -63,7 +63,7 @@ npm i
 
 ![image](https://user-images.githubusercontent.com/10286961/224603053-98488c2d-f33c-4c25-8c09-6c790cfcdbf6.png)
 
-在 Ant Design 当中执行`npm link "项目名称"`
+在 Ant Design 当中执行 `npm link "项目名称"`
 
 ![image](https://user-images.githubusercontent.com/10286961/224603065-95715727-83d0-4ef9-81e4-3b7065aaf73e.png)
 
