@@ -45,7 +45,7 @@ In most libraries, idempotence is emphasized. With one method and same parameter
 
 Back to the topic, what should we do if we find snapshot test failed after changing a demo?
 
-1. First of all, we need to check the inconsistency of snapshot comparison to see if it is the expected change. If only the text is changed, and only the text is different from the snapshot comparison result, we just need to run the following command to update the snapshot:
+1. First, we need to check the snapshot diff to see whether it is the expected change. If there is only the text you modified in demo differs from the origin one, we just need to run the following command to update the snapshot:
 
    ```bash
    # Run the test command to update snapshot
