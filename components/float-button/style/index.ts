@@ -185,6 +185,7 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
 // ============================== Shared ==============================
 const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) => {
   const {
+    antCls,
     componentCls,
     floatButtonIconSize,
     floatButtonSize,
@@ -224,6 +225,9 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
         justifyContent: 'center',
         alignItems: 'center',
         transition: `all ${token.motionDurationMid}`,
+        [`${antCls}-badge-count`]: {
+          top: 4,
+        },
         [`${componentCls}-content`]: {
           overflow: 'hidden',
           textAlign: 'center',
@@ -243,9 +247,7 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
         },
       },
     },
-    // [`${componentCls} ant-badge-count`]: {
-    //   transform: 'translate(0, 4px)',
-    // },
+
     [`${componentCls}-rtl`]: {
       direction: 'rtl',
     },
