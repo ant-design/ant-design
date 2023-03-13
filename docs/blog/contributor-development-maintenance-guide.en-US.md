@@ -4,15 +4,15 @@ date: 2023-03-10
 author: kiner-tang
 ---
 
-Hi, my name is [kiner-tang](https://github.com/kiner-tang). My personal work is closely related to Ant Design, so I can be considered a heavy user of Ant Design.It is for this reason that I am slowly working my way up from a user to a Contributor, contributing some of the problems I encountered and the new features I concluded to the community, and finally being honored to become a member of Ant Design Collaborator.
+Hi, I'm [kiner-tang](https://github.com/kiner-tang) who is a heavy user of Ant Design. As the same reason, I come up to be a contributor for fixing bug and some features. Finally, it's my honer to become a member of Ant Design Collaborator.
 
-During the journey from user to contributor, and then from contributor to collaborator, I also encountered many problems. I would like to take this opportunity to sort out and summarize these problems, hoping to be helpful to new contributors and collaborators joining Ant Design community.
+During the journey from user to contributor, and then from contributor to collaborator, I also encountered many problems. I would like to share my experience with the problem I meet. Hope it can help you to join the Ant Design community.
 
 ## Some frequently asked Questions
 
 ### About dependent version
 
-Popular package managers, whether npm, yarn, or pnpm, offer version-locking solutions that, most of the time, help us avoid version-inconsistencies in packages.However, in Ant Design projects, many functions depend on the original components in the `react-component` repository. We expect that when we encounter some bugs, after the `react-component` fixes and releases the patch version, Instead of manually upgrading the version in the Ant Design project, we can install the latest patch installation package only by reinstalling the dependencies.At this point, the version-lock file provided by the package manager is the main obstacle to automatic updates, because once the version-lock file is available, reinstalling the dependency will also install the version specified by the lock file and cannot be upgraded to the patch version.
+There are various of package mangers, such as npm, yarn, or pnpm, providing version-locking solutions to avoid version-inconsistencies issue.However, in Ant Design projects, many functions depend on the original components in the `react-component` repository. We expect that when we encounter some bugs, after the `react-component` fixes and releases the patch version, Instead of manually upgrading the version in the Ant Design project, we can install the latest patch installation package only by reinstalling the dependencies. At this point, the version-lock file provided by the package manager is the main obstacle to automatic updates, because once the version-lock file is available, reinstalling the dependency will also install the version specified by the lock file and cannot be upgraded to the patch version.
 
 Based on the above reasons, we adopt the following methods:
 
@@ -41,7 +41,7 @@ npm i
 
 In Ant Design, we use Jest for unit test. Many first-time contributors of Ant Design may be confused that CI failed after opening a pull request in which they just modify the text in a demo. This starts with Ant Design's snapshot test.
 
-In most libraries, the concept of idempotence is emphasized, meaning that the same method, no matter how many times I execute the line, as long as the input parameters are the same, then the result will be the same.In Ant Design, I think the biggest use of snapshot detection is to verify the idempotence of our demo, so as to ensure the stability and certainty of component output.In fact, the principle of snapshot detection is very simple, is to save our demo generated html string, the next time in the running of the test task for comparison, if there is a difference that indicates that the snapshot detection failed.
+In most libraries, the concept of idempotence is emphasized, meaning that the same method, no matter how many times I execute the line, as long as the input parameters are the same, then the result will be the same. In Ant Design, I think the biggest use of snapshot detection is to verify the idempotence of our demo, so as to ensure the stability and certainty of component output. In fact, the principle of snapshot detection is very simple, is to save our demo generated html string, the next time in the running of the test task for comparison, if there is a difference that indicates that the snapshot detection failed.
 
 Going back to the original question, what should we do if we change a demo and find that the snapshot detection fails?
 
@@ -58,13 +58,15 @@ Going back to the original question, what should we do if we change a demo and f
 
    - Local dependency is too old, it is possible to pull the latest code, but did not update the local dependency, resulting in the dependency package version is too low and the output results are inconsistent.The
 
-     solution is as simple as deleting the lock file、node_modules，and reinstall dependencies.
+     solution is as simple as deleting the lock file、node_modules and reinstall dependencies.
+
+   - Your code not synchronizing baseline code can also result in inconsistent snapshot comparisons. The solution is as simple as pulling the baseline code locally and then rebase your code to the baseline code.
 
    - You may have locally changed the core code in addition to the demo, causing the logic to change. You need to go over this change carefully.
 
 ### rc-x Library dependencies
 
-In Ant Design, most components are an upper encapsulation of a component based on `react-component`. Therefore, if a user reports a bug, when we troubleshoot the problem, if we find the problem is in the `@rc-component/xxx` or `rc-xxx` component, Then we need to put pr on those components to fix it.After the fix, we need to verify the fix results in the Ant Design project, then we can link the project to the Ant Design project for verification.For example:
+In Ant Design, most components are an upper encapsulation of a component based on `react-component`. Therefore, if a user reports a bug, when we troubleshoot the problem, if we find the problem is in the `@rc-component/xxx` or `rc-xxx` component, Then we need to put pr on those components to fix it. After the fix, we need to verify the fix results in the Ant Design project, then we can link the project to the Ant Design project for verification.For example:
 
 Run `npm link` under the rc project.
 
@@ -74,7 +76,7 @@ Run `npm link "Project name"` in Ant Design
 
 ![image](https://user-images.githubusercontent.com/10286961/224603065-95715727-83d0-4ef9-81e4-3b7065aaf73e.png)
 
-Once we have verified, we can mention pr to the rc component.It should be noted that link may cause an exception when running the test command. Therefore, after local verification, we need to run the following
+Once we have verified, we can mention pr to the rc component. It should be noted that link may cause an exception when running the test command. Therefore, after local verification, we need to run the following
 
 command locally to delete the package from link:
 
@@ -87,7 +89,7 @@ When the pr is finally merged, usually the maintainer will release a version. If
 
 ### Property expiration
 
-In a large project, if you want to scrap an property or method, it is actually very troublesome, because your project may already have a lot of items in use, if you kill it, then others upgrade the console screen will be red, or even can't run.But in the process of project iteration, we will encounter more and more scenes and problems, a long time ago solution may no longer fit, really need to scrap, then, we need to adopt a soft, less radical way to scrap, leave enough time for users to modify.
+In a large project, if you want to scrap an property or method, it is actually very troublesome, because your project may already have a lot of items in use, if you kill it, then others upgrade the console screen will be red, or even can't run. But in the process of project iteration, we will encounter more and more scenes and problems, a long time ago solution may no longer fit, really need to scrap, then, we need to adopt a soft, less radical way to scrap, leave enough time for users to modify.
 
 In Ant Design, we adopt a **five-step strategic** obsolescence property or method:
 
@@ -107,7 +109,7 @@ It is important to note that after adding console warnings, we need to add a tes
 
 ![006](https://user-images.githubusercontent.com/10286961/224358407-3d89d2f5-b4aa-48b4-aab8-1331a0f620fa.png)
 
-3. **Update document**: The above two steps are mainly to warn developers in the editor and browser preview. Next, we need to update the relevant software documentation. Generally speaking, if we need an expired property, it means that it is not recommended for users to use. And add the description of the new property simultaneously.(PS: If it cannot be deleted due to special circumstances, please specify the version supported by this property and the alternative scheme in the remarks column)
+3. **Update document**: The above two steps are mainly to warn developers in the editor and browser preview. Next, we need to update the relevant software documentation. Generally speaking, if we need an expired property, it means that it is not recommended for users to use. And add the description of the new property simultaneously. (PS: If it cannot be deleted due to special circumstances, please specify the version supported by this property and the alternative scheme in the remarks column)
 
 4. **Compatibility between old and new**: Now that we're done with the early tips, it's important to make sure that the new property and the old one live in harmony for a while until the old one dies. That is to say, currently we use expired property to work normally, in addition to the warning, can not have any changes.
 
@@ -119,7 +121,7 @@ It is important to note that after adding console warnings, we need to add a tes
 
 ## Take it to the next level
 
-After contributing for some time, I believe you have gained a deeper understanding of Ant Design's overall development process and project architecture. At this point, you may want to take on more tasks and contribute more to the open source community.Then, you can apply to be a Collaborator at Ant Design by commenting on the link below for more active contributors. [Add Collaborator permission for some active contributors](https://github.com/ant-design/ant-design/issues/3222), The Collaborators will then start the voting process, and after passing the voting, they will invite you to officially become a Collaborator at Ant Design.
+After contributing for some time, I believe you have gained a deeper understanding of Ant Design's overall development process and project architecture. At this point, you may want to take on more tasks and contribute more to the open source community. Then, you can apply to be a Collaborator at Ant Design by commenting on the link below for more active contributors. [Add Collaborator permission for some active contributors](https://github.com/ant-design/ant-design/issues/3222), The Collaborators will then start the voting process, and after passing the voting, they will invite you to officially become a Collaborator at Ant Design.
 
 After you become a newly appointed Ant Design collaborator, you will be assigned some additional rights, such as:
 
