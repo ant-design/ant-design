@@ -186,6 +186,7 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
   const {
     antCls,
     componentCls,
+    paddingXXS,
     floatButtonIconSize,
     floatButtonSize,
     borderRadiusLG,
@@ -232,7 +233,7 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
-          padding: `2px 4px`,
+          padding: `${paddingXXS / 2}px ${paddingXXS}px`,
           [`${componentCls}-icon`]: {
             textAlign: 'center',
             margin: 'auto',
@@ -247,6 +248,7 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
           },
           [`${antCls}-badge-dot`]: {
             top: 0,
+            insetInlineEnd: -((floatButtonSize - (floatButtonIconSize + paddingXXS * 2)) / 2),
           },
         },
       },
