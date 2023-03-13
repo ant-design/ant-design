@@ -85,7 +85,7 @@ const InternalRadio: React.ForwardRefRenderFunction<CheckboxRef, RadioProps> = (
   );
 };
 
-const Radio = React.forwardRef<unknown, RadioProps>(InternalRadio);
+const Radio = React.forwardRef<CheckboxRef, RadioProps>(InternalRadio);
 
 if (process.env.NODE_ENV !== 'production') {
   Radio.displayName = 'Radio';
