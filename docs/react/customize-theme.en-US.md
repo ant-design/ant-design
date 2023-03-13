@@ -318,7 +318,7 @@ Take Next.js for example（[example](https://github.com/ant-design/create-next-a
 }
 ```
 
-Then, you just need to import this file into the 'pages/\_app.tsx' file:
+Then, you just need to import this file into the `pages/_app.tsx` file:
 
 ```tsx
 import { StyleProvider } from '@ant-design/cssinjs';
