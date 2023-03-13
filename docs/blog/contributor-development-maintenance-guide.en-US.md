@@ -4,9 +4,9 @@ date: 2023-03-10
 author: kiner-tang
 ---
 
-Hi, my name is [kiner-tang](https://github.com/kiner-tang). My personal work is closely related to AntDesign, so I can be considered a heavy user of AntDesign.It is for this reason that I am slowly working my way up from a user to a Contributor, contributing some of the problems I encountered and the new features I concluded to the community, and finally being honored to become a member of AntDesign Collaborator.
+Hi, my name is [kiner-tang](https://github.com/kiner-tang). My personal work is closely related to Ant Design, so I can be considered a heavy user of Ant Design.It is for this reason that I am slowly working my way up from a user to a Contributor, contributing some of the problems I encountered and the new features I concluded to the community, and finally being honored to become a member of Ant Design Collaborator.
 
-During the journey from user to contributor, and then from contributor to collaborator, I also encountered many problems. I would like to take this opportunity to sort out and summarize these problems, hoping to be helpful to new contributors and collaborators joining AntDesign community.
+During the journey from user to contributor, and then from contributor to collaborator, I also encountered many problems. I would like to take this opportunity to sort out and summarize these problems, hoping to be helpful to new contributors and collaborators joining Ant Design community.
 
 ## Some frequently asked Questions
 
@@ -119,13 +119,13 @@ It is important to note that after adding console warnings, we need to add a tes
 
 ## Take it to the next level
 
-After contributing for some time, I believe you have gained a deeper understanding of AntDesign's overall development process and project architecture. At this point, you may want to take on more tasks and contribute more to the open source community.Then, you can apply to be a Collaborator at AntDesign by commenting on the link below for more active contributors. [Add Collaborator permission for some active contributors](https://github.com/ant-design/ant-design/issues/3222), The Collaborators will then start the voting process, and after passing the voting, they will invite you to officially become a Collaborator at AntDesign.
+After contributing for some time, I believe you have gained a deeper understanding of Ant Design's overall development process and project architecture. At this point, you may want to take on more tasks and contribute more to the open source community.Then, you can apply to be a Collaborator at Ant Design by commenting on the link below for more active contributors. [Add Collaborator permission for some active contributors](https://github.com/ant-design/ant-design/issues/3222), The Collaborators will then start the voting process, and after passing the voting, they will invite you to officially become a Collaborator at Ant Design.
 
-After you become a newly appointed AntDesign collaborator, you will be assigned some additional rights, such as:
+After you become a newly appointed Ant Design collaborator, you will be assigned some additional rights, such as:
 
 - Tag the issue
 - Close the issue
-- Free to create branches under the AntDesign project
+- Free to create branches under the Ant Design project
 - Free to merge approved PR
 
 - ...
@@ -152,4 +152,4 @@ As a collaborator, you may often communicate with users, so you are very likely 
 
 ## Epilogue
 
-Finally, we sincerely hope that more and more contributors and collaborators can join us to build a more efficient and elegant AntDesign.
+Finally, we sincerely hope that more and more contributors and collaborators can join us to build a more efficient and elegant Ant Design.

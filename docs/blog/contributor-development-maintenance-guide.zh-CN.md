@@ -4,7 +4,7 @@ date: 2023-03-10
 author: kiner-tang
 ---
 
-大家好，我是[kiner-tang(文辉)](https://github.com/kiner-tang)，我个人的工作内容可以说与 AntDesign 密切相关，可以算是 AntDesign 的重度用户了。也正因如此，让我由一个使用者慢慢地向着贡献者 Contributor 迈进，将自己在工作过程中遇到的一些问题和总结出的新特性回馈于社区，并最终很荣幸地成为了 AntDesign 的 Collaborator 中的一员。在从使用者到贡献者，再从贡献者到合作者的旅途中，也遇到了不少的问题，借此机会梳理总结一下，希望能对新加入 AntDesign 社区的贡献者和合作者们有所帮助。
+大家好，我是[kiner-tang(文辉)](https://github.com/kiner-tang)，我个人的工作内容可以说与 Ant Design 密切相关，可以算是 Ant Design 的重度用户了。也正因如此，让我由一个使用者慢慢地向着贡献者 Contributor 迈进，将自己在工作过程中遇到的一些问题和总结出的新特性回馈于社区，并最终很荣幸地成为了 Ant Design 的 Collaborator 中的一员。在从使用者到贡献者，再从贡献者到合作者的旅途中，也遇到了不少的问题，借此机会梳理总结一下，希望能对新加入 Ant Design 社区的贡献者和合作者们有所帮助。
 
 ## 普通常见问题
 
@@ -112,13 +112,13 @@ yarn install --force
 
 ## 更上一层楼
 
-经过一段时间贡献，相信你已经对 AntDesign 的整体开发流程和项目架构有了更加深入的了解，此时，或许你希望承担更多的任务，为开源社区贡献更多的力量。那么，你可以通过以下链接评论申请成为 AntDesign 的 Collaborator ，获得更多的权限 [Add Collaborator permission for some active contributors](https://github.com/ant-design/ant-design/issues/3222)，Collaborator 们会启动投票流程，投票通过后会邀请你正式成为 AntDesign 的 Collaborator。
+经过一段时间贡献，相信你已经对 Ant Design 的整体开发流程和项目架构有了更加深入的了解，此时，或许你希望承担更多的任务，为开源社区贡献更多的力量。那么，你可以通过以下链接评论申请成为 Ant Design 的 Collaborator ，获得更多的权限 [Add Collaborator permission for some active contributors](https://github.com/ant-design/ant-design/issues/3222)，Collaborator 们会启动投票流程，投票通过后会邀请你正式成为 Ant Design 的 Collaborator。
 
-当你成为了 AntDesign 新晋的合作者后，你将会被分配一些额外的权限，如：
+当你成为了 Ant Design 新晋的合作者后，你将会被分配一些额外的权限，如：
 
 - 为 issue 打标签
 - 自由的关闭 issue
-- 可以在 AntDesign 项目下面自由创建分支
+- 可以在 Ant Design 项目下面自由创建分支
 - 可以自由的合并已经 Approve 的 PR
 - ...
 
