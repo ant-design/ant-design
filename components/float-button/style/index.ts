@@ -21,7 +21,8 @@ type FloatButtonToken = FullToken<'FloatButton'> & {
   floatButtonBodySize: number;
   floatButtonContentMinHeight: number;
   floatButtonBadgeOffset: number;
-  floatButtonBadgeDotOffset: number;
+  floatButtonDotOffsetInCircle: number;
+  floatButtonDotOffsetInSquare: number;
 
   // Position
   floatButtonInsetBlockEnd: number;
@@ -193,7 +194,8 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
     borderRadiusLG,
     floatButtonContentMinHeight,
     floatButtonBadgeOffset,
-    floatButtonBadgeDotOffset,
+    floatButtonDotOffsetInCircle,
+    floatButtonDotOffsetInSquare,
   } = token;
   return {
     [componentCls]: {
@@ -262,9 +264,9 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
         borderRadius: '50%',
         [`${componentCls}-badge`]: {
           [`${antCls}-badge-dot`]: {
-            top: floatButtonBadgeDotOffset,
+            top: floatButtonDotOffsetInCircle,
             insetInlineEnd:
-              floatButtonBadgeDotOffset -
+              floatButtonDotOffsetInCircle -
               (floatButtonSize - (floatButtonIconSize + paddingXXS * 2)) / 2,
           },
         },
@@ -279,8 +281,10 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
         borderRadius: borderRadiusLG,
         [`${componentCls}-badge`]: {
           [`${antCls}-badge-dot`]: {
-            top: 0,
-            insetInlineEnd: -((floatButtonSize - (floatButtonIconSize + paddingXXS * 2)) / 2),
+            top: floatButtonDotOffsetInSquare,
+            insetInlineEnd:
+              floatButtonDotOffsetInSquare -
+              (floatButtonSize - (floatButtonIconSize + paddingXXS * 2)) / 2,
           },
         },
       },
@@ -345,6 +349,7 @@ export default genComponentStyleHook<'FloatButton'>('FloatButton', (token) => {
     fontSizeIcon,
     controlItemBgHover,
     paddingXXS,
+    borderRadiusLG,
   } = token;
 
   const floatButtonToken = mergeToken<FloatButtonToken>(token, {
@@ -359,7 +364,8 @@ export default genComponentStyleHook<'FloatButton'>('FloatButton', (token) => {
     floatButtonInsetInlineEnd: marginLG,
     floatButtonBodySize: controlHeightLG - paddingXXS * 2,
     floatButtonBadgeOffset: paddingXXS, // 这里的 paddingXXS 是简写，完整逻辑是 (controlHeightLG - (controlHeightLG - paddingXXS * 2)) / 2,
-    floatButtonBadgeDotOffset: controlHeightLG / 2 - Math.sqrt((controlHeightLG / 2) ** 2 / 2),
+    floatButtonDotOffsetInCircle: controlHeightLG / 2 - Math.sqrt((controlHeightLG / 2) ** 2 / 2),
+    floatButtonDotOffsetInSquare: borderRadiusLG - Math.sqrt(borderRadiusLG ** 2 / 2),
   });
 
   return [
