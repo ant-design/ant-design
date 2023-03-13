@@ -15,6 +15,23 @@ timeline: true
 
 ---
 
+## 5.3.1
+
+`2023-03-13`
+
+- 🐞 Update DatePicker deps to fix laggy in Safari and support align with `transform scale`. [#41090](https://github.com/ant-design/ant-design/pull/41090)
+- 🐞 Fix Menu collapse, Tooltip sometime show with unexpected. [#41081](https://github.com/ant-design/ant-design/issues/41081)
+- 🐞 Fix Modal.confirm has additional node which makes height not correct. [#41173](https://github.com/ant-design/ant-design/pull/41173) [@Svudec](https://github.com/Svudec)
+- 🐞 Fixed InputNumber `disabled` text color not correct. [#41167](https://github.com/ant-design/ant-design/pull/41167) [@Yuiai01](https://github.com/Yuiai01)
+- 🐞 Fix Anchor highlighting not working when dynamically updating `items`. [#40743](https://github.com/ant-design/ant-design/pull/40743) [@zqran](https://github.com/zqran)
+- 🛠 Update Mentions deps to support align with `transform scale`. [#41160](https://github.com/ant-design/ant-design/pull/41160) [@MuxinFeng](https://github.com/MuxinFeng)
+- 🐞 Fix Form with manually called `validateFields` not show success status when `hasFeedback` is on. [#41116](https://github.com/ant-design/ant-design/pull/41116) [@kiner-tang](https://github.com/kiner-tang)
+- 🐞 Fix Cascader sub panel not close when hover to leaf node. [#41134](https://github.com/ant-design/ant-design/issues/41134)
+- 🐞 Fix Popconfirm using `Promise` to close will not exist `loading` state even when open again. [#41121](https://github.com/ant-design/ant-design/pull/41121)
+- 🐞 Fix Upload `onChange` sometime not sync when in React 18. [#41082](https://github.com/ant-design/ant-design/pull/41082) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🛎 Update demo with Space.Compact instead of legacy one and patch warning info. [#41080](https://github.com/ant-design/ant-design/pull/41080) [@Yuiai01](https://github.com/Yuiai01)
+- 🌐 Update ko_KR、Added Amharic Language. [#41103](https://github.com/ant-design/ant-design/pull/41103) [@li-jia-nan](https://github.com/li-jia-nan)
+
 ## 5.3.0
 
 `2023-03-06`
