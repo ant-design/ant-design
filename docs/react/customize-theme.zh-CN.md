@@ -240,6 +240,13 @@ const theme = {
 
 ### 服务端渲染
 
+服务端渲染样式有两种方案，它们各有优缺点：
+
+- **内联方式**：在渲染时无需额外请求样式文件，好处是减少额外的网络请求，缺点则是会使得 HTML 体积增大，影响首屏渲染速度，相关讨论参考：[#39891](https://github.com/ant-design/ant-design/issues/39891)
+- **整体导出**：提前烘焙 antd 组件样式为 css 文件，在页面中时引入。好处是打开任意页面时如传统 css 方案一样都会复用同一套 css 文件以命中缓存，缺点是如果页面中存在多主题，则需要额外进行烘焙
+
+#### 内联方式
+
 使用 `@ant-design/cssinjs` 将所需样式抽离：
 
 ```tsx
@@ -273,6 +280,119 @@ export default () => {
 `;
 };
 ```
+
+#### 整体导出
+
+如果你想要将样式文件抽离到 css 文件中，可以尝试使用以下脚本：
+
+```javascript
+// scripts/genAntdCss.mjs
+import fs from 'fs';
+import { extractStyle } from '@ant-design/static-style-extract';
+
+const outputPath = './public/antd.min.css';
+
+const css = extractStyle();
+fs.writeFileSync(outputPath, css);
+```
+
+你可以选择在启动开发命令或编译前执行这个脚本，运行上述脚本将会在当前项目的指定（如： public 目录）目录下直接生成一个全量的 antd.min.css 文件。
+
+以 Next.js 为例（[参考示例](https://github.com/ant-design/create-next-app-antd)）：
+
+```json
+// package.json
+{
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "predev": "node ./scripts/genAntdCss.mjs",
+    "prebuild": "node ./scripts/genAntdCss.mjs"
+  }
+}
+```
+
+然后，你只需要在`pages/_app.tsx`文件中引入这个文件即可：
+
+```tsx
+import { StyleProvider } from '@ant-design/cssinjs';
+import type { AppProps } from 'next/app';
+import '../public/antd.min.css';
+import '../styles/globals.css'; // 添加这行
+
+export default function App({ Component, pageProps }: AppProps) {
+  return (
+    <StyleProvider hashPriority="high">
+      <Component {...pageProps} />
+    </StyleProvider>
+  );
+}
+```
+
+#### 自定义主题
+
+如果你的项目中使用了自定义主题，可以尝试通过以下方式进行烘焙：
+
+```tsx
+import { extractStyle } from '@ant-design/static-style-extract';
+import { ConfigProvider } from 'antd';
+
+const cssText = extractStyle((node) => (
+  <ConfigProvider
+    theme={{
+      token: {
+        colorPrimary: 'red',
+      },
+    }}
+  >
+    {node}
+  </ConfigProvider>
+));
+```
+
+#### 混合主题
+
+如果你的项目中使用了混合主题，可以尝试通过以下方式进行烘焙：
+
+```tsx
+import { extractStyle } from '@ant-design/static-style-extract';
+import { ConfigProvider } from 'antd';
+
+const cssText = extractStyle((node) => (
+  <>
+    <ConfigProvider
+      theme={{
+        token: {
+          colorBgBase: 'green ',
+        },
+      }}
+    >
+      {node}
+    </ConfigProvider>
+    <ConfigProvider
+      theme={{
+        token: {
+          colorPrimary: 'blue',
+        },
+      }}
+    >
+      <ConfigProvider
+        theme={{
+          token: {
+            colorBgBase: 'red ',
+          },
+        }}
+      >
+        {node}
+      </ConfigProvider>
+    </ConfigProvider>
+  </>
+));
+```
+
+更多`static-style-extract`的实现细节请看：[static-style-extract](https://github.com/ant-design/static-style-extract)。
 
 ### 兼容旧版浏览器
 
