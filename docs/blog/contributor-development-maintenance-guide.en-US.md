@@ -136,19 +136,19 @@ There are some caveats to this.
 
 ### Merge PR
 
-At this point, you can merge the approved PR, but merging code is tricky, knowing when to use squash and when not to.
+It's time to merge PR! Ant Design use both squash merge and commit merge in different case which requires attention. Follow is some introduce about difference:
 
 ![008](https://user-images.githubusercontent.com/10286961/224358476-2332e36f-0adf-486f-8b17-1b2ad34926aa.jpg)
 
-- **Merge pull request**: Normally merge the current PR into the target branch usually when branch to branch merge each other, do not merge the commit record, do not merge PR, or you will forget to add the target branch too many redundant commit records.
-- **Squash and merge**: Merge commit records into a squash and merge into the target branch(this is usually used for merging PR).
+- **Merge pull request**: Merge the current PR into the target branch normally (usually used when branches merge with each other, and commit records will not be merged. Do not use this when merging PRs, otherwise too many redundant commit records will be added to the target branch).
+- **Squash and merge**: Merge the commit record into one and merge it into the target branch (this is usually used for merging PRs).
 - **Rebase and merge**：When you want to adjust the baseline
 
-Before merging branches, it is a good idea to check with the author that they have been fully modified and that they have been carefully reviewed. And at least one maintainer approves this PR. Determine which of the above scenarios this PR is, and then choose the appropriate way to merge.
+Merge in Ant Design requires at least one collaborator's approve. Collaborator who approved should ensure PR are fully reviewed and confirm.
 
 ### Identify XY Problems
 
-As a collaborator, you may often communicate with users, so you are very likely to encounter XY problems, XY problems seriously affect our troubleshooting efficiency, therefore, we need to have a basic cognition and discrimination of XY problems, and learn how to avoid falling into the trap of XY problems.
+During routine maintenance, some issues can easily reproduce but some others are not. Report sometime get stuck in XY problem which makes requirement or bug question strange to understand. Thus, before resolving the superficial problems, we should dig into the real question.
 
 - [X-Y PROBLEM](https://xyproblem.info/)
 
