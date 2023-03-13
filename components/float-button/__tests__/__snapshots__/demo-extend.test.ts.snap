@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders components\\float-button\\demo\\back-top.tsx extend context correctly 1`] = `
+exports[`renders components/float-button/demo/back-top.tsx extend context correctly 1`] = `
 <div
   style="height:500vh;padding:10px"
 >
@@ -28,7 +28,7 @@ exports[`renders components\\float-button\\demo\\back-top.tsx extend context cor
 </div>
 `;
 
-exports[`renders components\\float-button\\demo\\badge.tsx extend context correctly 1`] = `
+exports[`renders components/float-button/demo/badge.tsx extend context correctly 1`] = `
 Array [
   <button
     class="ant-float-btn ant-float-btn-default ant-float-btn-square"
@@ -798,7 +798,7 @@ Array [
 ]
 `;
 
-exports[`renders components\\float-button\\demo\\basic.tsx extend context correctly 1`] = `
+exports[`renders components/float-button/demo/basic.tsx extend context correctly 1`] = `
 <button
   class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
   type="button"
@@ -858,7 +858,7 @@ exports[`renders components\\float-button\\demo\\basic.tsx extend context correc
 </button>
 `;
 
-exports[`renders components\\float-button\\demo\\description.tsx extend context correctly 1`] = `
+exports[`renders components/float-button/demo/description.tsx extend context correctly 1`] = `
 Array [
   <button
     class="ant-float-btn ant-float-btn-default ant-float-btn-square"
@@ -1029,7 +1029,7 @@ Array [
 ]
 `;
 
-exports[`renders components\\float-button\\demo\\group.tsx extend context correctly 1`] = `
+exports[`renders components/float-button/demo/group.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-float-btn-group ant-float-btn-group-circle ant-float-btn-group-circle-shadow"
@@ -1449,7 +1449,7 @@ Array [
 ]
 `;
 
-exports[`renders components\\float-button\\demo\\group-menu.tsx extend context correctly 1`] = `
+exports[`renders components/float-button/demo/group-menu.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-float-btn-group ant-float-btn-group-circle"
@@ -1578,7 +1578,7 @@ Array [
 ]
 `;
 
-exports[`renders components\\float-button\\demo\\render-panel.tsx extend context correctly 1`] = `
+exports[`renders components/float-button/demo/render-panel.tsx extend context correctly 1`] = `
 <div
   style="display:flex;column-gap:16px;align-items:center"
 >
@@ -2181,7 +2181,7 @@ exports[`renders components\\float-button\\demo\\render-panel.tsx extend context
 </div>
 `;
 
-exports[`renders components\\float-button\\demo\\shape.tsx extend context correctly 1`] = `
+exports[`renders components/float-button/demo/shape.tsx extend context correctly 1`] = `
 Array [
   <button
     class="ant-float-btn ant-float-btn-primary ant-float-btn-circle"
@@ -2302,7 +2302,7 @@ Array [
 ]
 `;
 
-exports[`renders components\\float-button\\demo\\tooltip.tsx extend context correctly 1`] = `
+exports[`renders components/float-button/demo/tooltip.tsx extend context correctly 1`] = `
 <button
   class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
   type="button"
@@ -2366,7 +2366,7 @@ exports[`renders components\\float-button\\demo\\tooltip.tsx extend context corr
 </button>
 `;
 
-exports[`renders components\\float-button\\demo\\type.tsx extend context correctly 1`] = `
+exports[`renders components/float-button/demo/type.tsx extend context correctly 1`] = `
 Array [
   <button
     class="ant-float-btn ant-float-btn-primary ant-float-btn-circle"
