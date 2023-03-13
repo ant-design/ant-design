@@ -121,7 +121,7 @@ It is important to note that after adding console warnings, we need to add a tes
 
 ## Take it to the next level
 
-After contributing for some time, I believe you have gained a deeper understanding of Ant Design's overall development process and project architecture. At this point, you may want to take on more tasks and contribute more to the open source community. Then, you can apply to be a Collaborator at Ant Design by commenting on the link below for more active contributors. [Add Collaborator permission for some active contributors](https://github.com/ant-design/ant-design/issues/3222), The Collaborators will then start the voting process, and after passing the voting, they will invite you to officially become a Collaborator at Ant Design.
+After contributing for some time, we believe you have gained a deeper understanding of Ant Design's overall development process and project architecture. At this point, you may want to take on more tasks and contribute more to the open source community. Then, you can apply to be a Collaborator at Ant Design by commenting on the link below for more active contributors. [Add Collaborator permission for some active contributors](https://github.com/ant-design/ant-design/issues/3222), The Collaborators will then start the voting process, and after passing the voting, they will invite you to officially become a Collaborator at Ant Design.
 
 After you become a newly appointed Ant Design collaborator, you will be assigned some additional rights, such as:
 
