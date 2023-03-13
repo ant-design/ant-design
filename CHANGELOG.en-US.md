@@ -20,6 +20,7 @@ timeline: true
 `2023-03-13`
 
 - 🐞 Update DatePicker deps to fix laggy in Safari and support align with `transform scale`. [#41090](https://github.com/ant-design/ant-design/pull/41090)
+- 🐞 Fix Menu collapse, Tooltip sometime show with unexpected. [#41081](https://github.com/ant-design/ant-design/issues/41081)
 - 🐞 Fix Modal.confirm has additional node which makes height not correct. [#41173](https://github.com/ant-design/ant-design/pull/41173) [@Svudec](https://github.com/Svudec)
 - 🐞 Fixed InputNumber `disabled` text color not correct. [#41167](https://github.com/ant-design/ant-design/pull/41167) [@Yuiai01](https://github.com/Yuiai01)
 - 🐞 Fix Anchor highlighting not working when dynamically updating `items`. [#40743](https://github.com/ant-design/ant-design/pull/40743) [@zqran](https://github.com/zqran)
