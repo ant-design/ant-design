@@ -4,7 +4,7 @@ import { random } from 'lodash';
 import React, { useState } from 'react';
 
 const App: React.FC = () => {
-  const [number, setNumber] = useState<number>(random(0, 100));
+  const [number, setNumber] = useState<number>(5);
   return (
     <>
       <Button type="primary" style={{ margin: 16 }} onClick={() => setNumber(random(0, 100))}>
