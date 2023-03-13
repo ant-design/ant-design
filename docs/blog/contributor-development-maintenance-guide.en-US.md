@@ -154,4 +154,4 @@ During routine maintenance, some issues can easily reproduce but some others are
 
 ## Epilogue
 
-Finally, we sincerely hope that more and more contributors and collaborators can join us to build a more efficient and elegant Ant Design.
+Hoping that more and more contributors and collaborators will join us to build a more efficient and elegant Ant Design.
