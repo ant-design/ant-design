@@ -62,9 +62,11 @@ Back to the topic, what should we do if we find snapshot test failed after chang
 
    - Your code not synchronizing baseline code can also result in inconsistent snapshot comparisons. The solution is as simple as pulling the baseline code locally and then rebase your code to the baseline code.
 
+   - You may have locally changed the source code not only in demos, which would cause unexpected change. You need to go through your change carefully.
+
 ### rc-x Library dependencies
 
-In Ant Design, most components are an upper encapsulation of a component based on `react-component`. Therefore, if a user reports a bug, when we troubleshoot the problem, if we find the problem is in the `@rc-component/xxx` or `rc-xxx` component, Then we need to put pr on those components to fix it. After the fix, we need to verify the fix results in the Ant Design project, then we can link the project to the Ant Design project for verification.For example:
+In Ant Design, most components are an upper encapsulation of a component based on `react-component`. Therefore, if we find a problem of `@rc-component/xxx` or `rc-xxx` component when troubleshooting, we need to open PR on those repositories to fix it. After coding, we need to verify that the problem in Ant Design is resolved, in which case we can link the project to Ant Design for verification. For example:
 
 Run `npm link` in the repo you are working on. ![image](https://user-images.githubusercontent.com/10286961/224603053-98488c2d-f33c-4c25-8c09-6c790cfcdbf6.png)
 
@@ -72,28 +74,26 @@ Run `npm link "Project name"` in Ant Design
 
 ![image](https://user-images.githubusercontent.com/10286961/224603065-95715727-83d0-4ef9-81e4-3b7065aaf73e.png)
 
-Once we have verified, we can mention pr to the rc component. It should be noted that link may cause an exception when running the test command. Therefore, after local verification, we need to run the following
-
-command locally to delete the package from link:
+Once we have verified, we can open PR to the repo. Noted that link may cause exceptions when running the test command. Therefore, we need to run the following commands locally to delete the package from link.
 
 ```bash
 npm unlink "rc-field-form" --no-save
 npm i
 ```
 
-When the pr is finally merged, usually the maintainer will release a version. If the patch version is released, then you only need to install and verify it in the Ant Design project, but if the minor version is released, Then we also need to take the initiative to upgrade the version in the Ant Design project, and after passing the local verification, a separate pr to Ant Design for upgrade repair.
+When the PR is finally merged, usually the maintainers will release a version. If the patch version is released, you only need to install and verify it in Ant Design. But if the minor version is released, you need to upgrade it in Ant Design. After local verification, a separate PR to Ant Design could be opened for bugfix.
 
-### Property expiration
+### Deprecation
 
-In a large project, if you want to scrap an property or method, it is actually very troublesome, because your project may already have a lot of items in use, if you kill it, then others upgrade the console screen will be red, or even can't run. But in the process of project iteration, we will encounter more and more scenes and problems, a long time ago solution may no longer fit, really need to scrap, then, we need to adopt a soft, less radical way to scrap, leave enough time for users to modify.
+In a large project, if you want to remove an property or a method, it is actually very troublesome. Since your project may already have a lot of items in use, other projects depend on it may get broken. But as the project iterated, we will encounter more and more problems which solutions long time ago may no longer fit. Then, we need to adopt a soft, less radical way to remove it, leaving enough time for users to modify.
 
-In Ant Design, we adopt a **five-step strategic** obsolescence property or method:
+In Ant Design, we adopt a **five-step strategic** to deprecate property or method:
 
-1. **Add an expiration mark to the property**
+1. **Add deprecated tag to the property**
 
    ![003](https://user-images.githubusercontent.com/10286961/224358324-8f72f2c0-d5bb-4281-9b29-7e2428353449.png)
 
-   When we add the above expired tag, we can see later using this variable:
+   After adding the above deprecated tag, we can see warning when using this property:
 
    ![004](https://user-images.githubusercontent.com/10286961/224358351-958a168d-41de-44b0-8244-2f8d67c4d13a.png)
 
@@ -101,7 +101,7 @@ In Ant Design, we adopt a **five-step strategic** obsolescence property or metho
 
 ![005](https://user-images.githubusercontent.com/10286961/224358371-09f08f79-8c95-4126-b382-59311bb702d6.png)
 
-It is important to note that after adding console warnings, we need to add a test case to the test case to test whether the warnings will be displayed if the expired properties are used, so as to ensure that the warnings can be displayed normally.
+It is important that after adding console warnings, we need to add a test case to test whether the warnings will be displayed when the deprecated properties are used.
 
 ![006](https://user-images.githubusercontent.com/10286961/224358407-3d89d2f5-b4aa-48b4-aab8-1331a0f620fa.png)
 
