@@ -39,7 +39,7 @@ npm i
 
 ### Snapshot update problem
 
-In Ant Design, we use jest for unit testing and coverage testing, with many first-time references Students of Ant Design project development may often find that they just modify the text in a demo. Why does the CI test task fail as soon as they push it? This starts with Ant Design's snapshot detection.
+In Ant Design, we use Jest for unit test. Many first-time contributors of Ant Design may be confused that CI failed after opening a pull request in which they just modify the text in a demo. This starts with Ant Design's snapshot test.
 
 In most libraries, the concept of idempotence is emphasized, meaning that the same method, no matter how many times I execute the line, as long as the input parameters are the same, then the result will be the same.In Ant Design, I think the biggest use of snapshot detection is to verify the idempotence of our demo, so as to ensure the stability and certainty of component output.In fact, the principle of snapshot detection is very simple, is to save our demo generated html string, the next time in the running of the test task for comparison, if there is a difference that indicates that the snapshot detection failed.
 
