@@ -84,7 +84,7 @@ const InternalRadio: React.ForwardRefRenderFunction<HTMLElement, RadioProps> = (
   );
 };
 
-const Radio = React.forwardRef<unknown, RadioProps>(InternalRadio);
+const Radio = React.forwardRef<HTMLElement, RadioProps>(InternalRadio);
 
 if (process.env.NODE_ENV !== 'production') {
   Radio.displayName = 'Radio';
