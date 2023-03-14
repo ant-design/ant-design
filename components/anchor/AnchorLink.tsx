@@ -1,6 +1,5 @@
 import classNames from 'classnames';
 import * as React from 'react';
-import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import warning from '../_util/warning';
 import type { AntAnchor } from './Anchor';
@@ -46,16 +45,18 @@ const AnchorLink: React.FC<AnchorLinkProps> = (props) => {
     );
   }
 
-  const { getPrefixCls } = React.useContext<ConfigConsumerProps>(ConfigContext);
+  const { getPrefixCls } = React.useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('anchor', customizePrefixCls);
 
+  const active = activeLink === href;
+
   const wrapperClassName = classNames(`${prefixCls}-link`, className, {
-    [`${prefixCls}-link-active`]: activeLink === href,
+    [`${prefixCls}-link-active`]: active,
   });
 
   const titleClassName = classNames(`${prefixCls}-link-title`, {
-    [`${prefixCls}-link-title-active`]: activeLink === href,
+    [`${prefixCls}-link-title-active`]: active,
   });
 
   return (
