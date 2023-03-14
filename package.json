@@ -238,7 +238,6 @@
     "jest-image-snapshot": "^6.0.0",
     "jest-puppeteer": "^8.0.4",
     "jquery": "^3.4.1",
-    "js-yaml": "^4.1.0",
     "jsdom": "^21.0.0",
     "jsonml-to-react-element": "^1.1.11",
     "jsonml.js": "^0.1.0",
