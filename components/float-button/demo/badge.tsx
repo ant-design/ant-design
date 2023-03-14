@@ -10,8 +10,18 @@ const App: React.FC = () => {
       <Button type="primary" style={{ margin: 16 }} onClick={() => setNumber(random(0, 100))}>
         change value
       </Button>
-      <FloatButton shape="square" badge={{ count: number, dot: true }} style={{ right: 234 }} />
-      <FloatButton shape="circle" badge={{ count: number, dot: true }} style={{ right: 164 }} />
+      <FloatButton shape="square" badge={{ count: number }} style={{ right: 234 }} />
+      <FloatButton shape="circle" badge={{ count: number }} style={{ right: 164 }} />
+      <FloatButton
+        shape="square"
+        badge={{ count: number, dot: true }}
+        style={{ right: 234, bottom: 108 }}
+      />
+      <FloatButton
+        shape="circle"
+        badge={{ count: number, dot: true }}
+        style={{ right: 164, bottom: 108 }}
+      />
       <FloatButton.Group shape="circle" style={{ right: 24 }}>
         <FloatButton badge={{ count: number }} icon={<QuestionCircleOutlined />} />
         <FloatButton badge={{ count: number }} />
