@@ -157,3 +157,9 @@ After a period of continuous maintenance, Collaborators will start the invitatio
 ## Don't be afraid to make mistakes, do it bravely, everyone is welcome in the open source world.
 
 ![giphy](https://user-images.githubusercontent.com/10607168/208015974-04c3f09b-b5e8-4ef7-af00-0bb5652ec619.gif)
+
+## Related resources
+
+To learn more about Ant Design's development process and considerations, see:
+
+- [contributor development maintenance guide](/docs/blog/contributor-development-maintenance-guide)
