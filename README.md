@@ -54,7 +54,7 @@ English | [Português](./README-pt_BR.md) | [简体中文](./README-zh_CN.md) | 
 - 🛡 Written in TypeScript with predictable static types.
 - ⚙️ Whole package of design resources and development tools.
 - 🌍 Internationalization support for dozens of languages.
-- 🎨 Powerful theme customization in every detail.
+- 🎨 Powerful theme customization based on CSS-in-JS.
 
 ## 🖥 Environment Support
 
