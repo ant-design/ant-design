@@ -56,7 +56,10 @@ const Row = ({ children, ...props }: RowProps) => {
 
   const style: React.CSSProperties = {
     ...props.style,
-    transform: CSS.Transform.toString(transform && { ...transform, scaleY: 1 }),
+    transform: CSS.Transform.toString(transform && { ...transform, scaleY: 1 })?.replace(
+      /translate3d\(([^,]+),/,
+      'translate3d(0,',
+    ),
     transition,
     ...(isDragging ? { position: 'relative', zIndex: 9999 } : {}),
   };
