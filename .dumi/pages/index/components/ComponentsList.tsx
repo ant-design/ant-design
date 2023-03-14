@@ -147,15 +147,15 @@ export default function ComponentsList() {
         node: (
           <Space direction="vertical">
             <Space>
-              <Progress type="circle" trailColor="#e6f4ff" percent={60} width={14} />
+              <Progress type="circle" trailColor="#e6f4ff" percent={60} size={14} />
               {locale.inProgress}
             </Space>
             <Space>
-              <Progress type="circle" percent={100} width={14} />
+              <Progress type="circle" percent={100} size={14} />
               {locale.success}
             </Space>
             <Space>
-              <Progress type="circle" status="exception" percent={88} width={14} />
+              <Progress type="circle" status="exception" percent={88} size={14} />
               {locale.taskFailed}
             </Space>
           </Space>
