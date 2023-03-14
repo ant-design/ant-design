@@ -157,3 +157,9 @@ npm run test componet/XXX
 ## 不要怕犯错误，勇敢地去做，开源世界欢迎大家。
 
 ![giphy](https://user-images.githubusercontent.com/10607168/208015974-04c3f09b-b5e8-4ef7-af00-0bb5652ec619.gif)
+
+## 相关资源
+
+了解更多 Ant Design 的开发流程和和注意事项，可以参考：
+
+- [贡献者开发维护指南](https://ant-design.antgroup.com/docs/blog/contributor-development-maintenance-guide-cn)

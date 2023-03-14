@@ -51,18 +51,24 @@ export interface HeightMapToken {
   /**
    * @nameZH 更小的组件高度
    * @nameEN XS component height
+   * @desc 更小的组件高度
+   * @descEN XS component height
    */
   controlHeightXS: number;
 
   /**
    * @nameZH 较小的组件高度
    * @nameEN SM component height
+   * @desc 较小的组件高度
+   * @descEN SM component height
    */
   controlHeightSM: number;
 
   /**
    * @nameZH 较高的组件高度
    * @nameEN LG component height
+   * @desc 较高的组件高度
+   * @descEN LG component height
    */
   controlHeightLG: number;
 }

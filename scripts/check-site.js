@@ -9,7 +9,7 @@ const { createServer } = require('http-server');
 
 const components = uniq(
   glob
-    .sync('components/!(overview)/*.md', {
+    .globSync('components/!(overview)/*.md', {
       cwd: join(process.cwd()),
       dot: false,
     })
