@@ -84,6 +84,7 @@ const useStyle = () => {
     `,
     articleWrapper: css`
       padding: 0 170px 32px 64px;
+
       &.rtl {
         padding: 0 64px 144px 170px;
       }
