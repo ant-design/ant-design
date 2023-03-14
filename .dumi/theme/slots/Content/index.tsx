@@ -38,6 +38,10 @@ const useStyle = () => {
         }
       }
     `,
+    authorAvatar: css`
+      display: flex;
+      flex-wrap: wrap;
+    `,
     toc: css`
       ${antCls}-anchor {
         ${antCls}-anchor-link-title {
@@ -111,7 +115,7 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
   const { formatMessage } = useIntl();
   const styles = useStyle();
   const { token } = useSiteToken();
-  const { direction } = useContext(SiteContext);
+  const { direction, updateSiteConfig, contributorsCache } = useContext(SiteContext);
 
   const [showDebug, setShowDebug] = useState(false);
   const debugDemos = useMemo(
@@ -149,13 +153,15 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
 
   const isRTL = direction === 'rtl';
 
-  const avatarPlaceholder = (
+  const avatarPlaceholder = (num = 3) => (
     <>
-      <Skeleton.Avatar size="small" active />
-      <Skeleton.Avatar size="small" active style={{ marginLeft: -8 }} />
-      <Skeleton.Avatar size="small" active style={{ marginLeft: -8 }} />
+      {Array.from(num).map((_, i) => (
+        <Skeleton.Avatar size="small" active key={i} style={{ marginLeft: i === 0 ? 0 : -8 }} />
+      ))}
     </>
   );
+
+  const [authorInfoCache, setAuthorInfoCache] = useState<{ username: string; url: stirng }>();
 
   return (
     <DemoContext.Provider value={contextValue}>
@@ -214,9 +220,13 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
                   (meta.frontmatter.author as string)?.split(',')?.map((author) => (
                     <Typography.Link href={`https://github.com/${author}`} key={author}>
                       <Space size={3}>
-                        <Avatar size={20} src={`https://github.com/${author}.png`}>
-                          {author}
-                        </Avatar>
+                        {authorInfoCache ? (
+                          <Avatar size={20} src={authorInfoCache.url}>
+                            {authorInfoCache.username}
+                          </Avatar>
+                        ) : (
+                          avatarPlaceholder(1)
+                        )}
                         <span>@{author}</span>
                       </Space>
                     </Typography.Link>
@@ -234,9 +244,13 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
               owner="ant-design"
               css={styles.contributorsList}
               fileName={meta.frontmatter.filename}
-              renderItem={(item, loading) =>
-                loading || !item ? (
-                  avatarPlaceholder
+              renderItem={(item, loading) => {
+                const authors = (meta.frontmatter.author as string)?.split(',') || [];
+                if (authors.includes(item.username)) {
+                  setAuthorInfoCache(item);
+                }
+                return loading || !item ? (
+                  avatarPlaceholder()
                 ) : (
                   <Tooltip
                     mouseEnterDelay={0.3}
@@ -253,8 +267,8 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
                       </Avatar>
                     </a>
                   </Tooltip>
-                )
-              }
+                );
+              }}
             />
           )}
         </article>
