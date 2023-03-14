@@ -38,10 +38,6 @@ const useStyle = () => {
         }
       }
     `,
-    authorAvatar: css`
-      display: flex;
-      flex-wrap: wrap;
-    `,
     toc: css`
       ${antCls}-anchor {
         ${antCls}-anchor-link-title {
@@ -115,7 +111,7 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
   const { formatMessage } = useIntl();
   const styles = useStyle();
   const { token } = useSiteToken();
-  const { direction, updateSiteConfig, contributorsCache } = useContext(SiteContext);
+  const { direction } = useContext(SiteContext);
 
   const [showDebug, setShowDebug] = useState(false);
   const debugDemos = useMemo(
