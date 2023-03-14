@@ -8,9 +8,8 @@ export default function remarkMeta() {
       try {
         const frontmatter = yaml.load(node.value) as any;
         if (!('description' in frontmatter)) {
-          frontmatter.__autoDescription = true;
+          vFile.data.frontmatter.__autoDescription = true;
         }
-        Object.assign(vFile.data.frontmatter!, frontmatter);
       } catch {
         /* empty */
       }
