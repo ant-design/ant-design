@@ -84,7 +84,6 @@ const useStyle = () => {
     `,
     articleWrapper: css`
       padding: 0 170px 32px 64px;
-
       &.rtl {
         padding: 0 64px 144px 170px;
       }
@@ -214,7 +213,12 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
                 {meta.frontmatter.author &&
                   (meta.frontmatter.author as string)?.split(',')?.map((author) => (
                     <Typography.Link href={`https://github.com/${author}`} key={author}>
-                      @{author}
+                      <Space size={3}>
+                        <Avatar size={20} src={`https://github.com/${author}.png`}>
+                          {author}
+                        </Avatar>
+                        <span>@{author}</span>
+                      </Space>
                     </Typography.Link>
                   ))}
               </Space>
