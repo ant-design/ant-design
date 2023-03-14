@@ -162,4 +162,4 @@ After a period of continuous maintenance, Collaborators will start the invitatio
 
 To learn more about Ant Design's development process and considerations, see:
 
-- [contributor development maintenance guide](https://ant-design.antgroup.com/docs/blog/contributor-development-maintenance-guide)
+- [contributor development maintenance guide](https://ant.design/docs/blog/contributor-development-maintenance-guide)
