@@ -287,16 +287,86 @@ export default () => {
 
 #### Whole export
 
-If you want to detach a style file into a css file, try using the following script:
+If you want to detach a style file into a css file, try the following schemes:
 
-```javascript
-// scripts/genAntdCss.mjs
-import fs from 'fs';
+1. Installation dependency
+
+```bash
+npm install ts-node tslib --save-dev
+```
+
+2. Add `tsconfig.node.json`
+
+```json
+{
+  "compilerOptions": {
+    "strictNullChecks": true,
+    "module": "NodeNext",
+    "jsx": "react",
+    "esModuleInterop": true
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
+}
+```
+
+3. Add `scripts/genAntdCss.tsx`
+
+```tsx
+// scripts/genAntdCss.tsx
 import { extractStyle } from '@ant-design/static-style-extract';
+import fs from 'fs';
 
 const outputPath = './public/antd.min.css';
 
 const css = extractStyle();
+
+fs.writeFileSync(outputPath, css);
+```
+
+If you want to use mixed themes or custom themes, you can use the following script:
+
+```tsx
+import { extractStyle } from '@ant-design/static-style-extract';
+import { ConfigProvider } from 'antd';
+import fs from 'fs';
+import React from 'react';
+
+const outputPath = './public/antd.min.css';
+
+const testGreenColor = '#008000';
+const testRedColor = '#ff0000';
+
+const css = extractStyle((node) => (
+  <>
+    <ConfigProvider
+      theme={{
+        token: {
+          colorBgBase: testGreenColor,
+        },
+      }}
+    >
+      {node}
+    </ConfigProvider>
+    <ConfigProvider
+      theme={{
+        token: {
+          colorPrimary: testGreenColor,
+        },
+      }}
+    >
+      <ConfigProvider
+        theme={{
+          token: {
+            colorBgBase: testRedColor,
+          },
+        }}
+      >
+        {node}
+      </ConfigProvider>
+    </ConfigProvider>
+  </>
+));
+
 fs.writeFileSync(outputPath, css);
 ```
 
@@ -312,8 +382,8 @@ Take Next.js for example（[example](https://github.com/ant-design/create-next-a
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "predev": "node ./scripts/genAntdCss.mjs",
-    "prebuild": "node ./scripts/genAntdCss.mjs"
+    "predev": "ts-node --project ./tsconfig.node.json ./scripts/genAntdCss.tsx",
+    "prebuild": "ts-node --project ./tsconfig.node.json ./scripts/genAntdCss.tsx"
   }
 }
 ```
