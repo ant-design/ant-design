@@ -249,6 +249,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
       ellipsisConfig.onEllipsis ||
       // Can't use css ellipsis since we need to provide the place for button
       ellipsisConfig.expandable ||
+      ellipsisConfig.symbol ||
       enableEdit ||
       enableCopy,
     [mergedEnableEllipsis, ellipsisConfig, enableEdit, enableCopy],
@@ -280,7 +281,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
 
   // >>>>> Expand
   const onExpandClick: React.MouseEventHandler<HTMLElement> = (e) => {
-    setExpanded(true);
+    setExpanded(!!ellipsisConfig?.expandable);
     ellipsisConfig.onExpand?.(e);
   };
 
@@ -401,15 +402,9 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   // Expand
   const renderExpand = () => {
     const { expandable, symbol } = ellipsisConfig;
-
-    if (!expandable) return null;
-
-    let expandContent: React.ReactNode;
-    if (symbol) {
-      expandContent = symbol;
-    } else {
-      expandContent = textLocale?.expand;
-    }
+    // 不可展开且symbol为空时无展开按钮
+    if (!expandable && !symbol) return null;
+    const expandContent: React.ReactNode = symbol || textLocale?.expand;
 
     return (
       <a

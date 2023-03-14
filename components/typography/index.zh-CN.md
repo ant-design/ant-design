@@ -26,6 +26,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 <code src="./demo/ellipsis-middle.tsx">省略中间</code>
 <code src="./demo/ellipsis-debug.tsx" debug>省略号 Debug</code>
 <code src="./demo/suffix.tsx">后缀</code>
+<code src="./demo/expandable.tsx">可展开</code>
 
 ## API
 
@@ -148,7 +149,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 | expandable | 是否可展开 | boolean | - |  |
 | rows | 最多显示的行数 | number | - |  |
 | suffix | 自定义省略内容后缀 | string | - |  |
-| symbol | 自定义展开描述文案 | ReactNode | `展开` |  |
+| symbol | 自定义展开描述文案, expandable 为 false 时默认不展示 | ReactNode | `展开` |  |
 | tooltip | 省略时，展示提示信息 | boolean \| ReactNode \| [TooltipProps](/components/tooltip-cn/#api) | - | 4.11.0 |
 | onEllipsis | 触发省略时的回调 | function(ellipsis) | - | 4.2.0 |
 | onExpand | 点击展开时的回调 | function(event) | - |  |

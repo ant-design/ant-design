@@ -244,6 +244,25 @@ describe('Typography.Ellipsis', () => {
     expect(container.querySelector('.ant-typography-expand')?.textContent).toEqual('more');
   });
 
+  it('should disable expansion behavior', async () => {
+    const symbol = 'more';
+    const onExpand = jest.fn();
+    const ref = React.createRef<HTMLElement>();
+    const { container: wrapper, unmount } = render(
+      <Base ellipsis={{ expandable: false, symbol, onExpand }} component="p" ref={ref}>
+        {fullStr}
+      </Base>,
+    );
+
+    fireEvent.click(wrapper.querySelector('.ant-typography-expand')!);
+    expect(onExpand).toHaveBeenCalled();
+
+    triggerResize(ref.current!);
+    await waitFakeTimer();
+    expect(wrapper.querySelector('p')?.textContent).toEqual('Bamboo is Lit...more');
+    unmount();
+  });
+
   describe('native css ellipsis', () => {
     it('can use css ellipsis', () => {
       const { container } = render(<Base ellipsis component="p" />);
