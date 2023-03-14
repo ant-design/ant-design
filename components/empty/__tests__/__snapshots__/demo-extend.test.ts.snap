@@ -535,7 +535,6 @@ Array [
                   class="ant-checkbox-input"
                   disabled=""
                   type="checkbox"
-                  value=""
                 />
                 <span
                   class="ant-checkbox-inner"
@@ -805,7 +804,6 @@ Array [
                   class="ant-checkbox-input"
                   disabled=""
                   type="checkbox"
-                  value=""
                 />
                 <span
                   class="ant-checkbox-inner"
