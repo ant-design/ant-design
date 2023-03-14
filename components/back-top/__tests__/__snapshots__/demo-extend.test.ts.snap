@@ -17,7 +17,7 @@ Array [
 
 exports[`renders components/back-top/demo/custom.tsx extend context correctly 1`] = `
 <div
-  style="height:600vh;padding:8px"
+  style="height: 600vh; padding: 8px;"
 >
   <div>
     Scroll to bottom

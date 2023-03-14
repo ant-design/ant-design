@@ -10,7 +10,7 @@ Array [
     />
     <div
       class="ant-slider-track"
-      style="left:0%;width:30%"
+      style="left: 0%; width: 30%;"
     />
     <div
       class="ant-slider-step"
@@ -22,16 +22,16 @@ Array [
       aria-valuenow="30"
       class="ant-slider-handle"
       role="slider"
-      style="left:30%;transform:translateX(-50%)"
+      style="left: 30%; transform: translateX(-50%);"
       tabindex="0"
     />
     <div
-      class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
-        style="position:absolute;bottom:0;left:0"
+        style="position: absolute; bottom: 0px; left: 0px;"
       />
       <div
         class="ant-tooltip-content"
@@ -53,7 +53,7 @@ Array [
     />
     <div
       class="ant-slider-track ant-slider-track-1"
-      style="left:20%;width:30%"
+      style="left: 20%; width: 30%;"
     />
     <div
       class="ant-slider-step"
@@ -65,16 +65,16 @@ Array [
       aria-valuenow="20"
       class="ant-slider-handle ant-slider-handle-1"
       role="slider"
-      style="left:20%;transform:translateX(-50%)"
+      style="left: 20%; transform: translateX(-50%);"
       tabindex="0"
     />
     <div
-      class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
-        style="position:absolute;bottom:0;left:0"
+        style="position: absolute; bottom: 0px; left: 0px;"
       />
       <div
         class="ant-tooltip-content"
@@ -94,16 +94,16 @@ Array [
       aria-valuenow="50"
       class="ant-slider-handle ant-slider-handle-2"
       role="slider"
-      style="left:50%;transform:translateX(-50%)"
+      style="left: 50%; transform: translateX(-50%);"
       tabindex="0"
     />
     <div
-      class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
-        style="position:absolute;bottom:0;left:0"
+        style="position: absolute; bottom: 0px; left: 0px;"
       />
       <div
         class="ant-tooltip-content"
@@ -150,7 +150,7 @@ exports[`renders components/slider/demo/draggableTrack.tsx extend context correc
   />
   <div
     class="ant-slider-track ant-slider-track-1"
-    style="left:20%;width:30%"
+    style="left: 20%; width: 30%;"
   />
   <div
     class="ant-slider-step"
@@ -162,16 +162,16 @@ exports[`renders components/slider/demo/draggableTrack.tsx extend context correc
     aria-valuenow="20"
     class="ant-slider-handle ant-slider-handle-1"
     role="slider"
-    style="left:20%;transform:translateX(-50%)"
+    style="left: 20%; transform: translateX(-50%);"
     tabindex="0"
   />
   <div
-    class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
-    style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="ant-tooltip-arrow"
-      style="position:absolute;bottom:0;left:0"
+      style="position: absolute; bottom: 0px; left: 0px;"
     />
     <div
       class="ant-tooltip-content"
@@ -191,16 +191,16 @@ exports[`renders components/slider/demo/draggableTrack.tsx extend context correc
     aria-valuenow="50"
     class="ant-slider-handle ant-slider-handle-2"
     role="slider"
-    style="left:50%;transform:translateX(-50%)"
+    style="left: 50%; transform: translateX(-50%);"
     tabindex="0"
   />
   <div
-    class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
-    style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="ant-tooltip-arrow"
-      style="position:absolute;bottom:0;left:0"
+      style="position: absolute; bottom: 0px; left: 0px;"
     />
     <div
       class="ant-tooltip-content"
@@ -226,7 +226,7 @@ Array [
     />
     <div
       class="ant-slider-track"
-      style="left:0%;width:30%"
+      style="left: 0%; width: 30%;"
     />
     <div
       class="ant-slider-step"
@@ -238,16 +238,16 @@ Array [
       aria-valuenow="30"
       class="ant-slider-handle"
       role="slider"
-      style="left:30%;transform:translateX(-50%)"
+      style="left: 30%; transform: translateX(-50%);"
       tabindex="0"
     />
     <div
-      class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
-        style="position:absolute;bottom:0;left:0"
+        style="position: absolute; bottom: 0px; left: 0px;"
       />
       <div
         class="ant-tooltip-content"
@@ -269,7 +269,7 @@ Array [
     />
     <div
       class="ant-slider-track ant-slider-track-1"
-      style="left:20%;width:30%"
+      style="left: 20%; width: 30%;"
     />
     <div
       class="ant-slider-step"
@@ -281,16 +281,16 @@ Array [
       aria-valuenow="20"
       class="ant-slider-handle ant-slider-handle-1"
       role="slider"
-      style="left:20%;transform:translateX(-50%)"
+      style="left: 20%; transform: translateX(-50%);"
       tabindex="0"
     />
     <div
-      class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
-        style="position:absolute;bottom:0;left:0"
+        style="position: absolute; bottom: 0px; left: 0px;"
       />
       <div
         class="ant-tooltip-content"
@@ -310,16 +310,16 @@ Array [
       aria-valuenow="50"
       class="ant-slider-handle ant-slider-handle-2"
       role="slider"
-      style="left:50%;transform:translateX(-50%)"
+      style="left: 50%; transform: translateX(-50%);"
       tabindex="0"
     />
     <div
-      class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
-        style="position:absolute;bottom:0;left:0"
+        style="position: absolute; bottom: 0px; left: 0px;"
       />
       <div
         class="ant-tooltip-content"
@@ -367,7 +367,7 @@ exports[`renders components/slider/demo/icon-slider.tsx extend context correctly
     />
     <div
       class="ant-slider-track"
-      style="left:0%;width:0%"
+      style="left: 0%; width: 0%;"
     />
     <div
       class="ant-slider-step"
@@ -379,16 +379,16 @@ exports[`renders components/slider/demo/icon-slider.tsx extend context correctly
       aria-valuenow="0"
       class="ant-slider-handle"
       role="slider"
-      style="left:0%;transform:translateX(-50%)"
+      style="left: 0%; transform: translateX(-50%);"
       tabindex="0"
     />
     <div
-      class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
-        style="position:absolute;bottom:0;left:0"
+        style="position: absolute; bottom: 0px; left: 0px;"
       />
       <div
         class="ant-tooltip-content"
@@ -427,11 +427,11 @@ exports[`renders components/slider/demo/icon-slider.tsx extend context correctly
 exports[`renders components/slider/demo/input-number.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
-  style="width:100%"
+  style="width: 100%;"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-row"
@@ -447,7 +447,7 @@ exports[`renders components/slider/demo/input-number.tsx extend context correctl
           />
           <div
             class="ant-slider-track"
-            style="left:0%;width:0%"
+            style="left: 0%; width: 0%;"
           />
           <div
             class="ant-slider-step"
@@ -459,16 +459,16 @@ exports[`renders components/slider/demo/input-number.tsx extend context correctl
             aria-valuenow="1"
             class="ant-slider-handle"
             role="slider"
-            style="left:0%;transform:translateX(-50%)"
+            style="left: 0%; transform: translateX(-50%);"
             tabindex="0"
           />
           <div
-            class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
-            style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+            style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
-              style="position:absolute;bottom:0;left:0"
+              style="position: absolute; bottom: 0px; left: 0px;"
             />
             <div
               class="ant-tooltip-content"
@@ -488,7 +488,7 @@ exports[`renders components/slider/demo/input-number.tsx extend context correctl
       >
         <div
           class="ant-input-number"
-          style="margin:0 16px"
+          style="margin: 0px 16px;"
         >
           <div
             class="ant-input-number-handler-wrap"
@@ -583,7 +583,7 @@ exports[`renders components/slider/demo/input-number.tsx extend context correctl
           />
           <div
             class="ant-slider-track"
-            style="left:0%;width:0%"
+            style="left: 0%; width: 0%;"
           />
           <div
             class="ant-slider-step"
@@ -595,16 +595,16 @@ exports[`renders components/slider/demo/input-number.tsx extend context correctl
             aria-valuenow="0"
             class="ant-slider-handle"
             role="slider"
-            style="left:0%;transform:translateX(-50%)"
+            style="left: 0%; transform: translateX(-50%);"
             tabindex="0"
           />
           <div
-            class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
-            style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+            style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
-              style="position:absolute;bottom:0;left:0"
+              style="position: absolute; bottom: 0px; left: 0px;"
             />
             <div
               class="ant-tooltip-content"
@@ -624,7 +624,7 @@ exports[`renders components/slider/demo/input-number.tsx extend context correctl
       >
         <div
           class="ant-input-number"
-          style="margin:0 16px"
+          style="margin: 0px 16px;"
         >
           <div
             class="ant-input-number-handler-wrap"
@@ -718,26 +718,26 @@ Array [
     />
     <div
       class="ant-slider-track"
-      style="left:0%;width:37%"
+      style="left: 0%; width: 37%;"
     />
     <div
       class="ant-slider-step"
     >
       <span
         class="ant-slider-dot ant-slider-dot-active"
-        style="left:0%;transform:translateX(-50%)"
+        style="left: 0%; transform: translateX(-50%);"
       />
       <span
         class="ant-slider-dot ant-slider-dot-active"
-        style="left:26%;transform:translateX(-50%)"
+        style="left: 26%; transform: translateX(-50%);"
       />
       <span
         class="ant-slider-dot ant-slider-dot-active"
-        style="left:37%;transform:translateX(-50%)"
+        style="left: 37%; transform: translateX(-50%);"
       />
       <span
         class="ant-slider-dot"
-        style="left:100%;transform:translateX(-50%)"
+        style="left: 100%; transform: translateX(-50%);"
       />
     </div>
     <div
@@ -747,16 +747,16 @@ Array [
       aria-valuenow="37"
       class="ant-slider-handle"
       role="slider"
-      style="left:37%;transform:translateX(-50%)"
+      style="left: 37%; transform: translateX(-50%);"
       tabindex="0"
     />
     <div
-      class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
-        style="position:absolute;bottom:0;left:0"
+        style="position: absolute; bottom: 0px; left: 0px;"
       />
       <div
         class="ant-tooltip-content"
@@ -774,25 +774,25 @@ Array [
     >
       <span
         class="ant-slider-mark-text ant-slider-mark-text-active"
-        style="left:0%;transform:translateX(-50%)"
+        style="left: 0%; transform: translateX(-50%);"
       >
         0°C
       </span>
       <span
         class="ant-slider-mark-text ant-slider-mark-text-active"
-        style="left:26%;transform:translateX(-50%)"
+        style="left: 26%; transform: translateX(-50%);"
       >
         26°C
       </span>
       <span
         class="ant-slider-mark-text ant-slider-mark-text-active"
-        style="left:37%;transform:translateX(-50%)"
+        style="left: 37%; transform: translateX(-50%);"
       >
         37°C
       </span>
       <span
         class="ant-slider-mark-text"
-        style="left:100%;transform:translateX(-50%);color:#f50"
+        style="left: 100%; transform: translateX(-50%); color: rgb(255, 85, 0);"
       >
         <strong>
           100°C
@@ -808,26 +808,26 @@ Array [
     />
     <div
       class="ant-slider-track ant-slider-track-1"
-      style="left:26%;width:11%"
+      style="left: 26%; width: 11%;"
     />
     <div
       class="ant-slider-step"
     >
       <span
         class="ant-slider-dot"
-        style="left:0%;transform:translateX(-50%)"
+        style="left: 0%; transform: translateX(-50%);"
       />
       <span
         class="ant-slider-dot ant-slider-dot-active"
-        style="left:26%;transform:translateX(-50%)"
+        style="left: 26%; transform: translateX(-50%);"
       />
       <span
         class="ant-slider-dot ant-slider-dot-active"
-        style="left:37%;transform:translateX(-50%)"
+        style="left: 37%; transform: translateX(-50%);"
       />
       <span
         class="ant-slider-dot"
-        style="left:100%;transform:translateX(-50%)"
+        style="left: 100%; transform: translateX(-50%);"
       />
     </div>
     <div
@@ -837,16 +837,16 @@ Array [
       aria-valuenow="26"
       class="ant-slider-handle ant-slider-handle-1"
       role="slider"
-      style="left:26%;transform:translateX(-50%)"
+      style="left: 26%; transform: translateX(-50%);"
       tabindex="0"
     />
     <div
-      class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
-        style="position:absolute;bottom:0;left:0"
+        style="position: absolute; bottom: 0px; left: 0px;"
       />
       <div
         class="ant-tooltip-content"
@@ -866,16 +866,16 @@ Array [
       aria-valuenow="37"
       class="ant-slider-handle ant-slider-handle-2"
       role="slider"
-      style="left:37%;transform:translateX(-50%)"
+      style="left: 37%; transform: translateX(-50%);"
       tabindex="0"
     />
     <div
-      class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
-        style="position:absolute;bottom:0;left:0"
+        style="position: absolute; bottom: 0px; left: 0px;"
       />
       <div
         class="ant-tooltip-content"
@@ -893,25 +893,25 @@ Array [
     >
       <span
         class="ant-slider-mark-text"
-        style="left:0%;transform:translateX(-50%)"
+        style="left: 0%; transform: translateX(-50%);"
       >
         0°C
       </span>
       <span
         class="ant-slider-mark-text ant-slider-mark-text-active"
-        style="left:26%;transform:translateX(-50%)"
+        style="left: 26%; transform: translateX(-50%);"
       >
         26°C
       </span>
       <span
         class="ant-slider-mark-text ant-slider-mark-text-active"
-        style="left:37%;transform:translateX(-50%)"
+        style="left: 37%; transform: translateX(-50%);"
       >
         37°C
       </span>
       <span
         class="ant-slider-mark-text"
-        style="left:100%;transform:translateX(-50%);color:#f50"
+        style="left: 100%; transform: translateX(-50%); color: rgb(255, 85, 0);"
       >
         <strong>
           100°C
@@ -933,19 +933,19 @@ Array [
     >
       <span
         class="ant-slider-dot"
-        style="left:0%;transform:translateX(-50%)"
+        style="left: 0%; transform: translateX(-50%);"
       />
       <span
         class="ant-slider-dot"
-        style="left:26%;transform:translateX(-50%)"
+        style="left: 26%; transform: translateX(-50%);"
       />
       <span
         class="ant-slider-dot"
-        style="left:37%;transform:translateX(-50%)"
+        style="left: 37%; transform: translateX(-50%);"
       />
       <span
         class="ant-slider-dot"
-        style="left:100%;transform:translateX(-50%)"
+        style="left: 100%; transform: translateX(-50%);"
       />
     </div>
     <div
@@ -955,16 +955,16 @@ Array [
       aria-valuenow="37"
       class="ant-slider-handle"
       role="slider"
-      style="left:37%;transform:translateX(-50%)"
+      style="left: 37%; transform: translateX(-50%);"
       tabindex="0"
     />
     <div
-      class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
-        style="position:absolute;bottom:0;left:0"
+        style="position: absolute; bottom: 0px; left: 0px;"
       />
       <div
         class="ant-tooltip-content"
@@ -982,25 +982,25 @@ Array [
     >
       <span
         class="ant-slider-mark-text"
-        style="left:0%;transform:translateX(-50%)"
+        style="left: 0%; transform: translateX(-50%);"
       >
         0°C
       </span>
       <span
         class="ant-slider-mark-text"
-        style="left:26%;transform:translateX(-50%)"
+        style="left: 26%; transform: translateX(-50%);"
       >
         26°C
       </span>
       <span
         class="ant-slider-mark-text"
-        style="left:37%;transform:translateX(-50%)"
+        style="left: 37%; transform: translateX(-50%);"
       >
         37°C
       </span>
       <span
         class="ant-slider-mark-text"
-        style="left:100%;transform:translateX(-50%);color:#f50"
+        style="left: 100%; transform: translateX(-50%); color: rgb(255, 85, 0);"
       >
         <strong>
           100°C
@@ -1019,26 +1019,26 @@ Array [
     />
     <div
       class="ant-slider-track"
-      style="left:0%;width:37%"
+      style="left: 0%; width: 37%;"
     />
     <div
       class="ant-slider-step"
     >
       <span
         class="ant-slider-dot ant-slider-dot-active"
-        style="left:0%;transform:translateX(-50%)"
+        style="left: 0%; transform: translateX(-50%);"
       />
       <span
         class="ant-slider-dot ant-slider-dot-active"
-        style="left:26%;transform:translateX(-50%)"
+        style="left: 26%; transform: translateX(-50%);"
       />
       <span
         class="ant-slider-dot ant-slider-dot-active"
-        style="left:37%;transform:translateX(-50%)"
+        style="left: 37%; transform: translateX(-50%);"
       />
       <span
         class="ant-slider-dot"
-        style="left:100%;transform:translateX(-50%)"
+        style="left: 100%; transform: translateX(-50%);"
       />
     </div>
     <div
@@ -1048,16 +1048,16 @@ Array [
       aria-valuenow="37"
       class="ant-slider-handle"
       role="slider"
-      style="left:37%;transform:translateX(-50%)"
+      style="left: 37%; transform: translateX(-50%);"
       tabindex="0"
     />
     <div
-      class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
-        style="position:absolute;bottom:0;left:0"
+        style="position: absolute; bottom: 0px; left: 0px;"
       />
       <div
         class="ant-tooltip-content"
@@ -1075,25 +1075,25 @@ Array [
     >
       <span
         class="ant-slider-mark-text ant-slider-mark-text-active"
-        style="left:0%;transform:translateX(-50%)"
+        style="left: 0%; transform: translateX(-50%);"
       >
         0°C
       </span>
       <span
         class="ant-slider-mark-text ant-slider-mark-text-active"
-        style="left:26%;transform:translateX(-50%)"
+        style="left: 26%; transform: translateX(-50%);"
       >
         26°C
       </span>
       <span
         class="ant-slider-mark-text ant-slider-mark-text-active"
-        style="left:37%;transform:translateX(-50%)"
+        style="left: 37%; transform: translateX(-50%);"
       >
         37°C
       </span>
       <span
         class="ant-slider-mark-text"
-        style="left:100%;transform:translateX(-50%);color:#f50"
+        style="left: 100%; transform: translateX(-50%); color: rgb(255, 85, 0);"
       >
         <strong>
           100°C
@@ -1112,26 +1112,26 @@ Array [
     />
     <div
       class="ant-slider-track"
-      style="left:0%;width:37%"
+      style="left: 0%; width: 37%;"
     />
     <div
       class="ant-slider-step"
     >
       <span
         class="ant-slider-dot ant-slider-dot-active"
-        style="left:0%;transform:translateX(-50%)"
+        style="left: 0%; transform: translateX(-50%);"
       />
       <span
         class="ant-slider-dot ant-slider-dot-active"
-        style="left:26%;transform:translateX(-50%)"
+        style="left: 26%; transform: translateX(-50%);"
       />
       <span
         class="ant-slider-dot ant-slider-dot-active"
-        style="left:37%;transform:translateX(-50%)"
+        style="left: 37%; transform: translateX(-50%);"
       />
       <span
         class="ant-slider-dot"
-        style="left:100%;transform:translateX(-50%)"
+        style="left: 100%; transform: translateX(-50%);"
       />
     </div>
     <div
@@ -1141,16 +1141,16 @@ Array [
       aria-valuenow="37"
       class="ant-slider-handle"
       role="slider"
-      style="left:37%;transform:translateX(-50%)"
+      style="left: 37%; transform: translateX(-50%);"
       tabindex="0"
     />
     <div
-      class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
-        style="position:absolute;bottom:0;left:0"
+        style="position: absolute; bottom: 0px; left: 0px;"
       />
       <div
         class="ant-tooltip-content"
@@ -1168,25 +1168,25 @@ Array [
     >
       <span
         class="ant-slider-mark-text ant-slider-mark-text-active"
-        style="left:0%;transform:translateX(-50%)"
+        style="left: 0%; transform: translateX(-50%);"
       >
         0°C
       </span>
       <span
         class="ant-slider-mark-text ant-slider-mark-text-active"
-        style="left:26%;transform:translateX(-50%)"
+        style="left: 26%; transform: translateX(-50%);"
       >
         26°C
       </span>
       <span
         class="ant-slider-mark-text ant-slider-mark-text-active"
-        style="left:37%;transform:translateX(-50%)"
+        style="left: 37%; transform: translateX(-50%);"
       >
         37°C
       </span>
       <span
         class="ant-slider-mark-text"
-        style="left:100%;transform:translateX(-50%);color:#f50"
+        style="left: 100%; transform: translateX(-50%); color: rgb(255, 85, 0);"
       >
         <strong>
           100°C
@@ -1207,7 +1207,7 @@ Array [
     />
     <div
       class="ant-slider-track"
-      style="right:0%;width:30%"
+      style="right: 0%; width: 30%;"
     />
     <div
       class="ant-slider-step"
@@ -1219,16 +1219,16 @@ Array [
       aria-valuenow="30"
       class="ant-slider-handle"
       role="slider"
-      style="right:30%;transform:translateX(50%)"
+      style="right: 30%; transform: translateX(50%);"
       tabindex="0"
     />
     <div
-      class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
-        style="position:absolute;bottom:0;left:0"
+        style="position: absolute; bottom: 0px; left: 0px;"
       />
       <div
         class="ant-tooltip-content"
@@ -1250,7 +1250,7 @@ Array [
     />
     <div
       class="ant-slider-track ant-slider-track-1"
-      style="right:20%;width:30%"
+      style="right: 20%; width: 30%;"
     />
     <div
       class="ant-slider-step"
@@ -1262,16 +1262,16 @@ Array [
       aria-valuenow="20"
       class="ant-slider-handle ant-slider-handle-1"
       role="slider"
-      style="right:20%;transform:translateX(50%)"
+      style="right: 20%; transform: translateX(50%);"
       tabindex="0"
     />
     <div
-      class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
-        style="position:absolute;bottom:0;left:0"
+        style="position: absolute; bottom: 0px; left: 0px;"
       />
       <div
         class="ant-tooltip-content"
@@ -1291,16 +1291,16 @@ Array [
       aria-valuenow="50"
       class="ant-slider-handle ant-slider-handle-2"
       role="slider"
-      style="right:50%;transform:translateX(50%)"
+      style="right: 50%; transform: translateX(50%);"
       tabindex="0"
     />
     <div
-      class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
-        style="position:absolute;bottom:0;left:0"
+        style="position: absolute; bottom: 0px; left: 0px;"
       />
       <div
         class="ant-tooltip-content"
@@ -1347,7 +1347,7 @@ exports[`renders components/slider/demo/show-tooltip.tsx extend context correctl
   />
   <div
     class="ant-slider-track"
-    style="left:0%;width:30%"
+    style="left: 0%; width: 30%;"
   />
   <div
     class="ant-slider-step"
@@ -1359,16 +1359,16 @@ exports[`renders components/slider/demo/show-tooltip.tsx extend context correctl
     aria-valuenow="30"
     class="ant-slider-handle ant-tooltip-open"
     role="slider"
-    style="left:30%;transform:translateX(-50%)"
+    style="left: 30%; transform: translateX(-50%);"
     tabindex="0"
   />
   <div
-    class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
-    style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="ant-tooltip-arrow"
-      style="position:absolute;bottom:0;left:0"
+      style="position: absolute; bottom: 0px; left: 0px;"
     />
     <div
       class="ant-tooltip-content"
@@ -1394,7 +1394,7 @@ Array [
     />
     <div
       class="ant-slider-track"
-      style="left:0%;width:0%"
+      style="left: 0%; width: 0%;"
     />
     <div
       class="ant-slider-step"
@@ -1406,16 +1406,16 @@ Array [
       aria-valuenow="0"
       class="ant-slider-handle"
       role="slider"
-      style="left:0%;transform:translateX(-50%)"
+      style="left: 0%; transform: translateX(-50%);"
       tabindex="0"
     />
     <div
-      class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
-        style="position:absolute;bottom:0;left:0"
+        style="position: absolute; bottom: 0px; left: 0px;"
       />
       <div
         class="ant-tooltip-content"
@@ -1437,7 +1437,7 @@ Array [
     />
     <div
       class="ant-slider-track"
-      style="left:0%;width:0%"
+      style="left: 0%; width: 0%;"
     />
     <div
       class="ant-slider-step"
@@ -1449,16 +1449,16 @@ Array [
       aria-valuenow="0"
       class="ant-slider-handle"
       role="slider"
-      style="left:0%;transform:translateX(-50%)"
+      style="left: 0%; transform: translateX(-50%);"
       tabindex="0"
     />
     <div
-      class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
-        style="position:absolute;bottom:0;left:0"
+        style="position: absolute; bottom: 0px; left: 0px;"
       />
       <div
         class="ant-tooltip-content"
@@ -1476,7 +1476,7 @@ Array [
 exports[`renders components/slider/demo/vertical.tsx extend context correctly 1`] = `
 Array [
   <div
-    style="display:inline-block;height:300px;margin-left:70px"
+    style="display: inline-block; height: 300px; margin-left: 70px;"
   >
     <div
       class="ant-slider ant-slider-vertical"
@@ -1486,7 +1486,7 @@ Array [
       />
       <div
         class="ant-slider-track"
-        style="bottom:0%;height:30%"
+        style="bottom: 0%; height: 30%;"
       />
       <div
         class="ant-slider-step"
@@ -1498,16 +1498,16 @@ Array [
         aria-valuenow="30"
         class="ant-slider-handle"
         role="slider"
-        style="bottom:30%;transform:translateY(50%)"
+        style="bottom: 30%; transform: translateY(50%);"
         tabindex="0"
       />
       <div
-        class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-right"
-        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-right"
+        style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
-          style="position:absolute;top:0;left:0"
+          style="position: absolute; top: 0px; left: 0px;"
         />
         <div
           class="ant-tooltip-content"
@@ -1523,7 +1523,7 @@ Array [
     </div>
   </div>,
   <div
-    style="display:inline-block;height:300px;margin-left:70px"
+    style="display: inline-block; height: 300px; margin-left: 70px;"
   >
     <div
       class="ant-slider ant-slider-vertical"
@@ -1533,7 +1533,7 @@ Array [
       />
       <div
         class="ant-slider-track ant-slider-track-1"
-        style="bottom:20%;height:30%"
+        style="bottom: 20%; height: 30%;"
       />
       <div
         class="ant-slider-step"
@@ -1545,16 +1545,16 @@ Array [
         aria-valuenow="20"
         class="ant-slider-handle ant-slider-handle-1"
         role="slider"
-        style="bottom:20%;transform:translateY(50%)"
+        style="bottom: 20%; transform: translateY(50%);"
         tabindex="0"
       />
       <div
-        class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-right"
-        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-right"
+        style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
-          style="position:absolute;top:0;left:0"
+          style="position: absolute; top: 0px; left: 0px;"
         />
         <div
           class="ant-tooltip-content"
@@ -1574,16 +1574,16 @@ Array [
         aria-valuenow="50"
         class="ant-slider-handle ant-slider-handle-2"
         role="slider"
-        style="bottom:50%;transform:translateY(50%)"
+        style="bottom: 50%; transform: translateY(50%);"
         tabindex="0"
       />
       <div
-        class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-right"
-        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-right"
+        style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
-          style="position:absolute;top:0;left:0"
+          style="position: absolute; top: 0px; left: 0px;"
         />
         <div
           class="ant-tooltip-content"
@@ -1599,7 +1599,7 @@ Array [
     </div>
   </div>,
   <div
-    style="display:inline-block;height:300px;margin-left:70px"
+    style="display: inline-block; height: 300px; margin-left: 70px;"
   >
     <div
       class="ant-slider ant-slider-vertical ant-slider-with-marks"
@@ -1609,26 +1609,26 @@ Array [
       />
       <div
         class="ant-slider-track ant-slider-track-1"
-        style="bottom:26%;height:11%"
+        style="bottom: 26%; height: 11%;"
       />
       <div
         class="ant-slider-step"
       >
         <span
           class="ant-slider-dot"
-          style="bottom:0%;transform:translateY(50%)"
+          style="bottom: 0%; transform: translateY(50%);"
         />
         <span
           class="ant-slider-dot ant-slider-dot-active"
-          style="bottom:26%;transform:translateY(50%)"
+          style="bottom: 26%; transform: translateY(50%);"
         />
         <span
           class="ant-slider-dot ant-slider-dot-active"
-          style="bottom:37%;transform:translateY(50%)"
+          style="bottom: 37%; transform: translateY(50%);"
         />
         <span
           class="ant-slider-dot"
-          style="bottom:100%;transform:translateY(50%)"
+          style="bottom: 100%; transform: translateY(50%);"
         />
       </div>
       <div
@@ -1638,16 +1638,16 @@ Array [
         aria-valuenow="26"
         class="ant-slider-handle ant-slider-handle-1"
         role="slider"
-        style="bottom:26%;transform:translateY(50%)"
+        style="bottom: 26%; transform: translateY(50%);"
         tabindex="0"
       />
       <div
-        class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-right"
-        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-right"
+        style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
-          style="position:absolute;top:0;left:0"
+          style="position: absolute; top: 0px; left: 0px;"
         />
         <div
           class="ant-tooltip-content"
@@ -1667,16 +1667,16 @@ Array [
         aria-valuenow="37"
         class="ant-slider-handle ant-slider-handle-2"
         role="slider"
-        style="bottom:37%;transform:translateY(50%)"
+        style="bottom: 37%; transform: translateY(50%);"
         tabindex="0"
       />
       <div
-        class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-right"
-        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-right"
+        style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
-          style="position:absolute;top:0;left:0"
+          style="position: absolute; top: 0px; left: 0px;"
         />
         <div
           class="ant-tooltip-content"
@@ -1694,25 +1694,25 @@ Array [
       >
         <span
           class="ant-slider-mark-text"
-          style="bottom:0%;transform:translateY(50%)"
+          style="bottom: 0%; transform: translateY(50%);"
         >
           0°C
         </span>
         <span
           class="ant-slider-mark-text ant-slider-mark-text-active"
-          style="bottom:26%;transform:translateY(50%)"
+          style="bottom: 26%; transform: translateY(50%);"
         >
           26°C
         </span>
         <span
           class="ant-slider-mark-text ant-slider-mark-text-active"
-          style="bottom:37%;transform:translateY(50%)"
+          style="bottom: 37%; transform: translateY(50%);"
         >
           37°C
         </span>
         <span
           class="ant-slider-mark-text"
-          style="bottom:100%;transform:translateY(50%);color:#f50"
+          style="bottom: 100%; transform: translateY(50%); color: rgb(255, 85, 0);"
         >
           <strong>
             100°C

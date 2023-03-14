@@ -601,7 +601,7 @@ Array [
   <ul
     class="ant-rate"
     role="radiogroup"
-    style="font-size:36px"
+    style="font-size: 36px;"
     tabindex="0"
   >
     <li
@@ -2525,12 +2525,12 @@ exports[`renders components/rate/demo/text.tsx extend context correctly 1`] = `
       </div>
     </li>
     <div
-      class="ant-tooltip ant-tooltip-placement-top"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
-        style="position:absolute;bottom:0;left:0"
+        style="position: absolute; bottom: 0px; left: 0px;"
       />
       <div
         class="ant-tooltip-content"
@@ -2602,12 +2602,12 @@ exports[`renders components/rate/demo/text.tsx extend context correctly 1`] = `
       </div>
     </li>
     <div
-      class="ant-tooltip ant-tooltip-placement-top"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
-        style="position:absolute;bottom:0;left:0"
+        style="position: absolute; bottom: 0px; left: 0px;"
       />
       <div
         class="ant-tooltip-content"
@@ -2679,12 +2679,12 @@ exports[`renders components/rate/demo/text.tsx extend context correctly 1`] = `
       </div>
     </li>
     <div
-      class="ant-tooltip ant-tooltip-placement-top"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
-        style="position:absolute;bottom:0;left:0"
+        style="position: absolute; bottom: 0px; left: 0px;"
       />
       <div
         class="ant-tooltip-content"
@@ -2756,12 +2756,12 @@ exports[`renders components/rate/demo/text.tsx extend context correctly 1`] = `
       </div>
     </li>
     <div
-      class="ant-tooltip ant-tooltip-placement-top"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
-        style="position:absolute;bottom:0;left:0"
+        style="position: absolute; bottom: 0px; left: 0px;"
       />
       <div
         class="ant-tooltip-content"
@@ -2833,12 +2833,12 @@ exports[`renders components/rate/demo/text.tsx extend context correctly 1`] = `
       </div>
     </li>
     <div
-      class="ant-tooltip ant-tooltip-placement-top"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
-        style="position:absolute;bottom:0;left:0"
+        style="position: absolute; bottom: 0px; left: 0px;"
       />
       <div
         class="ant-tooltip-content"
