@@ -157,6 +157,8 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
     </>
   );
 
+  const authors = useMemo(() => (meta.frontmatter.author as string)?.split(',') || [], []);
+
   const [authorInfoCache, setAuthorInfoCache] = useState<{ username: string; url: stirng }>();
 
   return (
@@ -212,8 +214,8 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
                     <CalendarOutlined /> {DayJS(meta.frontmatter.date).format('YYYY-MM-DD')}
                   </span>
                 )}
-                {meta.frontmatter.author &&
-                  (meta.frontmatter.author as string)?.split(',')?.map((author) => (
+                {authors.length &&
+                  authors.map((author) => (
                     <Typography.Link href={`https://github.com/${author}`} key={author}>
                       <Space size={3}>
                         {authorInfoCache ? (
@@ -241,7 +243,6 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
               css={styles.contributorsList}
               fileName={meta.frontmatter.filename}
               renderItem={(item, loading) => {
-                const authors = (meta.frontmatter.author as string)?.split(',') || [];
                 if (authors.includes(item.username)) {
                   setAuthorInfoCache(item);
                 }
