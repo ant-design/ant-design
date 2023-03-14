@@ -66,11 +66,11 @@ exports[`renders components/tooltip/demo/arrow.tsx extend context correctly 1`] 
     </span>
   </div>
   <div
-    style="margin-left:70px;display:flex;flex-wrap:nowrap;column-gap:8px"
+    style="margin-left: 70px; display: flex; flex-wrap: nowrap; column-gap: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
-      style="width:70px"
+      style="width: 70px;"
       type="button"
     >
       <span>
@@ -78,12 +78,12 @@ exports[`renders components/tooltip/demo/arrow.tsx extend context correctly 1`] 
       </span>
     </button>
     <div
-      class="ant-tooltip ant-tooltip-placement-topLeft"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-topLeft"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
-        style="position:absolute"
+        style="position: absolute;"
       />
       <div
         class="ant-tooltip-content"
@@ -100,7 +100,7 @@ exports[`renders components/tooltip/demo/arrow.tsx extend context correctly 1`] 
     </div>
     <button
       class="ant-btn ant-btn-default"
-      style="width:70px"
+      style="width: 70px;"
       type="button"
     >
       <span>
@@ -108,12 +108,12 @@ exports[`renders components/tooltip/demo/arrow.tsx extend context correctly 1`] 
       </span>
     </button>
     <div
-      class="ant-tooltip ant-tooltip-placement-top"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
-        style="position:absolute;bottom:0;left:0"
+        style="position: absolute; bottom: 0px; left: 0px;"
       />
       <div
         class="ant-tooltip-content"
@@ -130,7 +130,7 @@ exports[`renders components/tooltip/demo/arrow.tsx extend context correctly 1`] 
     </div>
     <button
       class="ant-btn ant-btn-default"
-      style="width:70px"
+      style="width: 70px;"
       type="button"
     >
       <span>
@@ -138,12 +138,12 @@ exports[`renders components/tooltip/demo/arrow.tsx extend context correctly 1`] 
       </span>
     </button>
     <div
-      class="ant-tooltip ant-tooltip-placement-topRight"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-topRight"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
-        style="position:absolute"
+        style="position: absolute;"
       />
       <div
         class="ant-tooltip-content"
@@ -160,7 +160,7 @@ exports[`renders components/tooltip/demo/arrow.tsx extend context correctly 1`] 
     </div>
   </div>
   <div
-    style="width:70px;float:left;display:flex;flex-direction:column;row-gap:8px"
+    style="width: 70px; float: left; display: flex; flex-direction: column; row-gap: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -171,12 +171,12 @@ exports[`renders components/tooltip/demo/arrow.tsx extend context correctly 1`] 
       </span>
     </button>
     <div
-      class="ant-tooltip ant-tooltip-placement-leftTop"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-leftTop"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
-        style="position:absolute"
+        style="position: absolute;"
       />
       <div
         class="ant-tooltip-content"
@@ -200,12 +200,12 @@ exports[`renders components/tooltip/demo/arrow.tsx extend context correctly 1`] 
       </span>
     </button>
     <div
-      class="ant-tooltip ant-tooltip-placement-left"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-left"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
-        style="position:absolute;top:0;right:0"
+        style="position: absolute; top: 0px; right: 0px;"
       />
       <div
         class="ant-tooltip-content"
@@ -229,12 +229,12 @@ exports[`renders components/tooltip/demo/arrow.tsx extend context correctly 1`] 
       </span>
     </button>
     <div
-      class="ant-tooltip ant-tooltip-placement-leftBottom"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-leftBottom"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
-        style="position:absolute"
+        style="position: absolute;"
       />
       <div
         class="ant-tooltip-content"
@@ -251,7 +251,7 @@ exports[`renders components/tooltip/demo/arrow.tsx extend context correctly 1`] 
     </div>
   </div>
   <div
-    style="width:70px;margin-left:304px;display:flex;flex-direction:column;row-gap:8px"
+    style="width: 70px; margin-left: 304px; display: flex; flex-direction: column; row-gap: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -262,12 +262,12 @@ exports[`renders components/tooltip/demo/arrow.tsx extend context correctly 1`] 
       </span>
     </button>
     <div
-      class="ant-tooltip ant-tooltip-placement-rightTop"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-rightTop"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
-        style="position:absolute"
+        style="position: absolute;"
       />
       <div
         class="ant-tooltip-content"
@@ -291,12 +291,12 @@ exports[`renders components/tooltip/demo/arrow.tsx extend context correctly 1`] 
       </span>
     </button>
     <div
-      class="ant-tooltip ant-tooltip-placement-right"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-right"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
-        style="position:absolute;top:0;left:0"
+        style="position: absolute; top: 0px; left: 0px;"
       />
       <div
         class="ant-tooltip-content"
@@ -320,12 +320,12 @@ exports[`renders components/tooltip/demo/arrow.tsx extend context correctly 1`] 
       </span>
     </button>
     <div
-      class="ant-tooltip ant-tooltip-placement-rightBottom"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-rightBottom"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
-        style="position:absolute"
+        style="position: absolute;"
       />
       <div
         class="ant-tooltip-content"
@@ -342,11 +342,11 @@ exports[`renders components/tooltip/demo/arrow.tsx extend context correctly 1`] 
     </div>
   </div>
   <div
-    style="margin-left:70px;clear:both;display:flex;flex-wrap:nowrap;column-gap:8px"
+    style="margin-left: 70px; clear: both; display: flex; flex-wrap: nowrap; column-gap: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
-      style="width:70px"
+      style="width: 70px;"
       type="button"
     >
       <span>
@@ -354,12 +354,12 @@ exports[`renders components/tooltip/demo/arrow.tsx extend context correctly 1`] 
       </span>
     </button>
     <div
-      class="ant-tooltip ant-tooltip-placement-bottomLeft"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-bottomLeft"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
-        style="position:absolute"
+        style="position: absolute;"
       />
       <div
         class="ant-tooltip-content"
@@ -376,7 +376,7 @@ exports[`renders components/tooltip/demo/arrow.tsx extend context correctly 1`] 
     </div>
     <button
       class="ant-btn ant-btn-default"
-      style="width:70px"
+      style="width: 70px;"
       type="button"
     >
       <span>
@@ -384,12 +384,12 @@ exports[`renders components/tooltip/demo/arrow.tsx extend context correctly 1`] 
       </span>
     </button>
     <div
-      class="ant-tooltip ant-tooltip-placement-bottom"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-bottom"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
-        style="position:absolute;top:0;left:0"
+        style="position: absolute; top: 0px; left: 0px;"
       />
       <div
         class="ant-tooltip-content"
@@ -406,7 +406,7 @@ exports[`renders components/tooltip/demo/arrow.tsx extend context correctly 1`] 
     </div>
     <button
       class="ant-btn ant-btn-default"
-      style="width:70px"
+      style="width: 70px;"
       type="button"
     >
       <span>
@@ -414,12 +414,12 @@ exports[`renders components/tooltip/demo/arrow.tsx extend context correctly 1`] 
       </span>
     </button>
     <div
-      class="ant-tooltip ant-tooltip-placement-bottomRight"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-bottomRight"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
-        style="position:absolute"
+        style="position: absolute;"
       />
       <div
         class="ant-tooltip-content"
@@ -444,7 +444,7 @@ exports[`renders components/tooltip/demo/arrow-point-at-center.tsx extend contex
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -455,12 +455,12 @@ exports[`renders components/tooltip/demo/arrow-point-at-center.tsx extend contex
       </span>
     </button>
     <div
-      class="ant-tooltip ant-tooltip-placement-topLeft"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-topLeft"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
-        style="position:absolute"
+        style="position: absolute;"
       />
       <div
         class="ant-tooltip-content"
@@ -486,12 +486,12 @@ exports[`renders components/tooltip/demo/arrow-point-at-center.tsx extend contex
       </span>
     </button>
     <div
-      class="ant-tooltip ant-tooltip-placement-topLeft"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-topLeft"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
-        style="position:absolute"
+        style="position: absolute;"
       />
       <div
         class="ant-tooltip-content"
@@ -510,7 +510,7 @@ exports[`renders components/tooltip/demo/arrow-point-at-center.tsx extend contex
 
 exports[`renders components/tooltip/demo/auto-adjust-overflow.tsx extend context correctly 1`] = `
 <div
-  style="display:flex;flex-direction:column;row-gap:16px"
+  style="display: flex; flex-direction: column; row-gap: 16px;"
 >
   <h5
     class="ant-typography"
@@ -518,39 +518,10 @@ exports[`renders components/tooltip/demo/auto-adjust-overflow.tsx extend context
     With \`getPopupContainer\`
   </h5>
   <div
-    style="overflow:auto;position:relative;padding:24px;border:1px solid #e9e9e9"
+    style="overflow: auto; position: relative; padding: 24px; border: 1px solid #e9e9e9;"
   >
     <div
-      style="width:200%;display:flex;flex-direction:column;align-items:center;row-gap:16px"
-    >
-      <button
-        class="ant-btn ant-btn-default"
-        type="button"
-      >
-        <span>
-          Adjust automatically / 自动调整
-        </span>
-      </button>
-      <button
-        class="ant-btn ant-btn-default"
-        type="button"
-      >
-        <span>
-          Ignore / 不处理
-        </span>
-      </button>
-    </div>
-  </div>
-  <h5
-    class="ant-typography"
-  >
-    Without \`getPopupContainer\`
-  </h5>
-  <div
-    style="overflow:auto;position:relative;padding:24px;border:1px solid #e9e9e9"
-  >
-    <div
-      style="width:200%;display:flex;flex-direction:column;align-items:center;row-gap:16px"
+      style="width: 200%; display: flex; flex-direction: column; align-items: center; row-gap: 16px;"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -561,12 +532,12 @@ exports[`renders components/tooltip/demo/auto-adjust-overflow.tsx extend context
         </span>
       </button>
       <div
-        class="ant-tooltip ant-tooltip-placement-left"
-        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-left"
+        style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
-          style="position:absolute;top:0;right:0"
+          style="position: absolute; top: 0px; right: 0px;"
         />
         <div
           class="ant-tooltip-content"
@@ -588,12 +559,79 @@ exports[`renders components/tooltip/demo/auto-adjust-overflow.tsx extend context
         </span>
       </button>
       <div
-        class="ant-tooltip ant-tooltip-placement-left"
-        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-left"
+        style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
-          style="position:absolute;top:0;right:0"
+          style="position: absolute; top: 0px; right: 0px;"
+        />
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            Prompt Text
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h5
+    class="ant-typography"
+  >
+    Without \`getPopupContainer\`
+  </h5>
+  <div
+    style="overflow: auto; position: relative; padding: 24px; border: 1px solid #e9e9e9;"
+  >
+    <div
+      style="width: 200%; display: flex; flex-direction: column; align-items: center; row-gap: 16px;"
+    >
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
+      >
+        <span>
+          Adjust automatically / 自动调整
+        </span>
+      </button>
+      <div
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-left"
+        style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      >
+        <div
+          class="ant-tooltip-arrow"
+          style="position: absolute; top: 0px; right: 0px;"
+        />
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            Prompt Text
+          </div>
+        </div>
+      </div>
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
+      >
+        <span>
+          Ignore / 不处理
+        </span>
+      </button>
+      <div
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-left"
+        style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      >
+        <div
+          class="ant-tooltip-arrow"
+          style="position: absolute; top: 0px; right: 0px;"
         />
         <div
           class="ant-tooltip-content"
@@ -617,12 +655,12 @@ Array [
     Tooltip will show on mouse enter.
   </span>,
   <div
-    class="ant-tooltip ant-tooltip-placement-top"
-    style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="ant-tooltip-arrow"
-      style="position:absolute;bottom:0;left:0"
+      style="position: absolute; bottom: 0px; left: 0px;"
     />
     <div
       class="ant-tooltip-content"
@@ -652,11 +690,11 @@ Array [
   </div>,
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
-    style="flex-wrap:wrap;margin-bottom:-8px"
+    style="flex-wrap: wrap; margin-bottom: -8px;"
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
+      style="margin-right: 8px; padding-bottom: 8px;"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -667,12 +705,12 @@ Array [
         </span>
       </button>
       <div
-        class="ant-tooltip ant-tooltip-pink ant-tooltip-placement-top"
-        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-pink ant-tooltip-placement-top"
+        style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
-          style="position:absolute;bottom:0;left:0"
+          style="position: absolute; bottom: 0px; left: 0px;"
         />
         <div
           class="ant-tooltip-content"
@@ -688,7 +726,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
+      style="margin-right: 8px; padding-bottom: 8px;"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -699,12 +737,12 @@ Array [
         </span>
       </button>
       <div
-        class="ant-tooltip ant-tooltip-red ant-tooltip-placement-top"
-        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-red ant-tooltip-placement-top"
+        style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
-          style="position:absolute;bottom:0;left:0"
+          style="position: absolute; bottom: 0px; left: 0px;"
         />
         <div
           class="ant-tooltip-content"
@@ -720,7 +758,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
+      style="margin-right: 8px; padding-bottom: 8px;"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -731,12 +769,12 @@ Array [
         </span>
       </button>
       <div
-        class="ant-tooltip ant-tooltip-yellow ant-tooltip-placement-top"
-        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-yellow ant-tooltip-placement-top"
+        style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
-          style="position:absolute;bottom:0;left:0"
+          style="position: absolute; bottom: 0px; left: 0px;"
         />
         <div
           class="ant-tooltip-content"
@@ -752,7 +790,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
+      style="margin-right: 8px; padding-bottom: 8px;"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -763,12 +801,12 @@ Array [
         </span>
       </button>
       <div
-        class="ant-tooltip ant-tooltip-orange ant-tooltip-placement-top"
-        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-orange ant-tooltip-placement-top"
+        style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
-          style="position:absolute;bottom:0;left:0"
+          style="position: absolute; bottom: 0px; left: 0px;"
         />
         <div
           class="ant-tooltip-content"
@@ -784,7 +822,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
+      style="margin-right: 8px; padding-bottom: 8px;"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -795,12 +833,12 @@ Array [
         </span>
       </button>
       <div
-        class="ant-tooltip ant-tooltip-cyan ant-tooltip-placement-top"
-        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-cyan ant-tooltip-placement-top"
+        style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
-          style="position:absolute;bottom:0;left:0"
+          style="position: absolute; bottom: 0px; left: 0px;"
         />
         <div
           class="ant-tooltip-content"
@@ -816,7 +854,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
+      style="margin-right: 8px; padding-bottom: 8px;"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -827,12 +865,12 @@ Array [
         </span>
       </button>
       <div
-        class="ant-tooltip ant-tooltip-green ant-tooltip-placement-top"
-        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-green ant-tooltip-placement-top"
+        style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
-          style="position:absolute;bottom:0;left:0"
+          style="position: absolute; bottom: 0px; left: 0px;"
         />
         <div
           class="ant-tooltip-content"
@@ -848,7 +886,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
+      style="margin-right: 8px; padding-bottom: 8px;"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -859,12 +897,12 @@ Array [
         </span>
       </button>
       <div
-        class="ant-tooltip ant-tooltip-blue ant-tooltip-placement-top"
-        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-blue ant-tooltip-placement-top"
+        style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
-          style="position:absolute;bottom:0;left:0"
+          style="position: absolute; bottom: 0px; left: 0px;"
         />
         <div
           class="ant-tooltip-content"
@@ -880,7 +918,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
+      style="margin-right: 8px; padding-bottom: 8px;"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -891,12 +929,12 @@ Array [
         </span>
       </button>
       <div
-        class="ant-tooltip ant-tooltip-purple ant-tooltip-placement-top"
-        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-purple ant-tooltip-placement-top"
+        style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
-          style="position:absolute;bottom:0;left:0"
+          style="position: absolute; bottom: 0px; left: 0px;"
         />
         <div
           class="ant-tooltip-content"
@@ -912,7 +950,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
+      style="margin-right: 8px; padding-bottom: 8px;"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -923,12 +961,12 @@ Array [
         </span>
       </button>
       <div
-        class="ant-tooltip ant-tooltip-geekblue ant-tooltip-placement-top"
-        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-geekblue ant-tooltip-placement-top"
+        style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
-          style="position:absolute;bottom:0;left:0"
+          style="position: absolute; bottom: 0px; left: 0px;"
         />
         <div
           class="ant-tooltip-content"
@@ -944,7 +982,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
+      style="margin-right: 8px; padding-bottom: 8px;"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -955,12 +993,12 @@ Array [
         </span>
       </button>
       <div
-        class="ant-tooltip ant-tooltip-magenta ant-tooltip-placement-top"
-        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-magenta ant-tooltip-placement-top"
+        style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
-          style="position:absolute;bottom:0;left:0"
+          style="position: absolute; bottom: 0px; left: 0px;"
         />
         <div
           class="ant-tooltip-content"
@@ -976,7 +1014,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
+      style="margin-right: 8px; padding-bottom: 8px;"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -987,12 +1025,12 @@ Array [
         </span>
       </button>
       <div
-        class="ant-tooltip ant-tooltip-volcano ant-tooltip-placement-top"
-        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-volcano ant-tooltip-placement-top"
+        style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
-          style="position:absolute;bottom:0;left:0"
+          style="position: absolute; bottom: 0px; left: 0px;"
         />
         <div
           class="ant-tooltip-content"
@@ -1008,7 +1046,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
+      style="margin-right: 8px; padding-bottom: 8px;"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -1019,12 +1057,12 @@ Array [
         </span>
       </button>
       <div
-        class="ant-tooltip ant-tooltip-gold ant-tooltip-placement-top"
-        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-gold ant-tooltip-placement-top"
+        style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
-          style="position:absolute;bottom:0;left:0"
+          style="position: absolute; bottom: 0px; left: 0px;"
         />
         <div
           class="ant-tooltip-content"
@@ -1040,7 +1078,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="padding-bottom:8px"
+      style="padding-bottom: 8px;"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -1051,12 +1089,12 @@ Array [
         </span>
       </button>
       <div
-        class="ant-tooltip ant-tooltip-lime ant-tooltip-placement-top"
-        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-lime ant-tooltip-placement-top"
+        style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
-          style="position:absolute;bottom:0;left:0"
+          style="position: absolute; bottom: 0px; left: 0px;"
         />
         <div
           class="ant-tooltip-content"
@@ -1083,11 +1121,11 @@ Array [
   </div>,
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
-    style="flex-wrap:wrap;margin-bottom:-8px"
+    style="flex-wrap: wrap; margin-bottom: -8px;"
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
+      style="margin-right: 8px; padding-bottom: 8px;"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -1098,12 +1136,12 @@ Array [
         </span>
       </button>
       <div
-        class="ant-tooltip ant-tooltip-placement-top"
-        style="left:-1000vw;top:-1000vh;box-sizing:border-box;--antd-arrow-background-color:#f50"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+        style="left: -1000vw; top: -1000vh; box-sizing: border-box; --antd-arrow-background-color: #f50;"
       >
         <div
           class="ant-tooltip-arrow"
-          style="position:absolute;bottom:0;left:0"
+          style="position: absolute; bottom: 0px; left: 0px;"
         />
         <div
           class="ant-tooltip-content"
@@ -1111,7 +1149,7 @@ Array [
           <div
             class="ant-tooltip-inner"
             role="tooltip"
-            style="background:#f50"
+            style="background: rgb(255, 85, 0);"
           >
             prompt text
           </div>
@@ -1120,7 +1158,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
+      style="margin-right: 8px; padding-bottom: 8px;"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -1131,12 +1169,12 @@ Array [
         </span>
       </button>
       <div
-        class="ant-tooltip ant-tooltip-placement-top"
-        style="left:-1000vw;top:-1000vh;box-sizing:border-box;--antd-arrow-background-color:#2db7f5"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+        style="left: -1000vw; top: -1000vh; box-sizing: border-box; --antd-arrow-background-color: #2db7f5;"
       >
         <div
           class="ant-tooltip-arrow"
-          style="position:absolute;bottom:0;left:0"
+          style="position: absolute; bottom: 0px; left: 0px;"
         />
         <div
           class="ant-tooltip-content"
@@ -1144,7 +1182,7 @@ Array [
           <div
             class="ant-tooltip-inner"
             role="tooltip"
-            style="background:#2db7f5"
+            style="background: rgb(45, 183, 245);"
           >
             prompt text
           </div>
@@ -1153,7 +1191,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
+      style="margin-right: 8px; padding-bottom: 8px;"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -1164,12 +1202,12 @@ Array [
         </span>
       </button>
       <div
-        class="ant-tooltip ant-tooltip-placement-top"
-        style="left:-1000vw;top:-1000vh;box-sizing:border-box;--antd-arrow-background-color:#87d068"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+        style="left: -1000vw; top: -1000vh; box-sizing: border-box; --antd-arrow-background-color: #87d068;"
       >
         <div
           class="ant-tooltip-arrow"
-          style="position:absolute;bottom:0;left:0"
+          style="position: absolute; bottom: 0px; left: 0px;"
         />
         <div
           class="ant-tooltip-content"
@@ -1177,7 +1215,7 @@ Array [
           <div
             class="ant-tooltip-inner"
             role="tooltip"
-            style="background:#87d068"
+            style="background: rgb(135, 208, 104);"
           >
             prompt text
           </div>
@@ -1186,7 +1224,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="padding-bottom:8px"
+      style="padding-bottom: 8px;"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -1197,12 +1235,12 @@ Array [
         </span>
       </button>
       <div
-        class="ant-tooltip ant-tooltip-placement-top"
-        style="left:-1000vw;top:-1000vh;box-sizing:border-box;--antd-arrow-background-color:#108ee9"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+        style="left: -1000vw; top: -1000vh; box-sizing: border-box; --antd-arrow-background-color: #108ee9;"
       >
         <div
           class="ant-tooltip-arrow"
-          style="position:absolute;bottom:0;left:0"
+          style="position: absolute; bottom: 0px; left: 0px;"
         />
         <div
           class="ant-tooltip-content"
@@ -1210,7 +1248,7 @@ Array [
           <div
             class="ant-tooltip-inner"
             role="tooltip"
-            style="background:#108ee9"
+            style="background: rgb(16, 142, 233);"
           >
             prompt text
           </div>
@@ -1227,12 +1265,12 @@ Array [
     Tooltip will destroy when hidden.
   </span>,
   <div
-    class="ant-tooltip ant-tooltip-placement-top"
-    style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="ant-tooltip-arrow"
-      style="position:absolute;bottom:0;left:0"
+      style="position: absolute; bottom: 0px; left: 0px;"
     />
     <div
       class="ant-tooltip-content"
@@ -1251,7 +1289,7 @@ Array [
 exports[`renders components/tooltip/demo/placement.tsx extend context correctly 1`] = `
 <div>
   <div
-    style="margin-left:70px;white-space:nowrap"
+    style="margin-left: 70px; white-space: nowrap;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -1262,12 +1300,12 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
       </span>
     </button>
     <div
-      class="ant-tooltip ant-tooltip-placement-topLeft"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-topLeft"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
-        style="position:absolute"
+        style="position: absolute;"
       />
       <div
         class="ant-tooltip-content"
@@ -1291,12 +1329,12 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
       </span>
     </button>
     <div
-      class="ant-tooltip ant-tooltip-placement-top"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
-        style="position:absolute;bottom:0;left:0"
+        style="position: absolute; bottom: 0px; left: 0px;"
       />
       <div
         class="ant-tooltip-content"
@@ -1320,12 +1358,12 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
       </span>
     </button>
     <div
-      class="ant-tooltip ant-tooltip-placement-topRight"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-topRight"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
-        style="position:absolute"
+        style="position: absolute;"
       />
       <div
         class="ant-tooltip-content"
@@ -1342,7 +1380,7 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
     </div>
   </div>
   <div
-    style="width:70px;float:left"
+    style="width: 70px; float: left;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -1353,12 +1391,12 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
       </span>
     </button>
     <div
-      class="ant-tooltip ant-tooltip-placement-leftTop"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-leftTop"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
-        style="position:absolute"
+        style="position: absolute;"
       />
       <div
         class="ant-tooltip-content"
@@ -1382,12 +1420,12 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
       </span>
     </button>
     <div
-      class="ant-tooltip ant-tooltip-placement-left"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-left"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
-        style="position:absolute;top:0;right:0"
+        style="position: absolute; top: 0px; right: 0px;"
       />
       <div
         class="ant-tooltip-content"
@@ -1411,12 +1449,12 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
       </span>
     </button>
     <div
-      class="ant-tooltip ant-tooltip-placement-leftBottom"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-leftBottom"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
-        style="position:absolute"
+        style="position: absolute;"
       />
       <div
         class="ant-tooltip-content"
@@ -1433,7 +1471,7 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
     </div>
   </div>
   <div
-    style="width:70px;margin-left:304px"
+    style="width: 70px; margin-left: 304px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -1444,12 +1482,12 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
       </span>
     </button>
     <div
-      class="ant-tooltip ant-tooltip-placement-rightTop"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-rightTop"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
-        style="position:absolute"
+        style="position: absolute;"
       />
       <div
         class="ant-tooltip-content"
@@ -1473,12 +1511,12 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
       </span>
     </button>
     <div
-      class="ant-tooltip ant-tooltip-placement-right"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-right"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
-        style="position:absolute;top:0;left:0"
+        style="position: absolute; top: 0px; left: 0px;"
       />
       <div
         class="ant-tooltip-content"
@@ -1502,12 +1540,12 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
       </span>
     </button>
     <div
-      class="ant-tooltip ant-tooltip-placement-rightBottom"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-rightBottom"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
-        style="position:absolute"
+        style="position: absolute;"
       />
       <div
         class="ant-tooltip-content"
@@ -1524,7 +1562,7 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
     </div>
   </div>
   <div
-    style="margin-left:70px;clear:both;white-space:nowrap"
+    style="margin-left: 70px; clear: both; white-space: nowrap;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -1535,12 +1573,12 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
       </span>
     </button>
     <div
-      class="ant-tooltip ant-tooltip-placement-bottomLeft"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-bottomLeft"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
-        style="position:absolute"
+        style="position: absolute;"
       />
       <div
         class="ant-tooltip-content"
@@ -1564,12 +1602,12 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
       </span>
     </button>
     <div
-      class="ant-tooltip ant-tooltip-placement-bottom"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-bottom"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
-        style="position:absolute;top:0;left:0"
+        style="position: absolute; top: 0px; left: 0px;"
       />
       <div
         class="ant-tooltip-content"
@@ -1593,12 +1631,12 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
       </span>
     </button>
     <div
-      class="ant-tooltip ant-tooltip-placement-bottomRight"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-bottomRight"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
-        style="position:absolute"
+        style="position: absolute;"
       />
       <div
         class="ant-tooltip-content"
@@ -1638,7 +1676,7 @@ Array [
   </div>,
   <div
     class="ant-tooltip ant-tooltip-pure ant-tooltip-placement-top"
-    style="--antd-arrow-background-color:#f50"
+    style="--antd-arrow-background-color: #f50;"
   >
     <div
       class="ant-tooltip-arrow"
@@ -1649,7 +1687,7 @@ Array [
       <div
         class="ant-tooltip-inner"
         role="tooltip"
-        style="background:#f50"
+        style="background: rgb(255, 85, 0);"
       >
         Hello, Customize Color Pure Panel!
       </div>
@@ -1663,7 +1701,7 @@ Array [
     />
     <div
       class="ant-tooltip-content"
-      style="width:200px"
+      style="width: 200px;"
     >
       <div
         class="ant-tooltip-inner"

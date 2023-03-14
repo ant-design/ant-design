@@ -6,7 +6,7 @@ exports[`renders components/icon/demo/basic.tsx extend context correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-right:8px"
+    style="margin-right: 8px;"
   >
     <span
       aria-label="home"
@@ -30,7 +30,7 @@ exports[`renders components/icon/demo/basic.tsx extend context correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px"
+    style="margin-right: 8px;"
   >
     <span
       aria-label="setting"
@@ -54,7 +54,7 @@ exports[`renders components/icon/demo/basic.tsx extend context correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px"
+    style="margin-right: 8px;"
   >
     <span
       aria-label="smile"
@@ -78,7 +78,7 @@ exports[`renders components/icon/demo/basic.tsx extend context correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px"
+    style="margin-right: 8px;"
   >
     <span
       aria-label="sync"
@@ -102,7 +102,7 @@ exports[`renders components/icon/demo/basic.tsx extend context correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px"
+    style="margin-right: 8px;"
   >
     <span
       aria-label="smile"
@@ -115,7 +115,7 @@ exports[`renders components/icon/demo/basic.tsx extend context correctly 1`] = `
         fill="currentColor"
         focusable="false"
         height="1em"
-        style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
+        style="transform: rotate(180deg);"
         viewBox="64 64 896 896"
         width="1em"
       >
@@ -157,12 +157,12 @@ exports[`renders components/icon/demo/custom.tsx extend context correctly 1`] = 
 >
   <div
     class="ant-space-item"
-    style="margin-right:8px"
+    style="margin-right: 8px;"
   >
     <span
       class="anticon"
       role="img"
-      style="color:hotpink"
+      style="color: hotpink;"
     >
       <svg
         fill="currentColor"
@@ -178,12 +178,12 @@ exports[`renders components/icon/demo/custom.tsx extend context correctly 1`] = 
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px"
+    style="margin-right: 8px;"
   >
     <span
       class="anticon"
       role="img"
-      style="font-size:32px"
+      style="font-size: 32px;"
     >
       <svg
         fill="currentColor"
@@ -228,7 +228,7 @@ exports[`renders components/icon/demo/custom.tsx extend context correctly 1`] = 
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px"
+    style="margin-right: 8px;"
   >
     <span
       class="anticon"
@@ -292,7 +292,7 @@ exports[`renders components/icon/demo/iconfont.tsx extend context correctly 1`] 
 >
   <div
     class="ant-space-item"
-    style="margin-right:8px"
+    style="margin-right: 8px;"
   >
     <span
       class="anticon"
@@ -314,7 +314,7 @@ exports[`renders components/icon/demo/iconfont.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px"
+    style="margin-right: 8px;"
   >
     <span
       class="anticon"
@@ -364,7 +364,7 @@ exports[`renders components/icon/demo/scriptUrl.tsx extend context correctly 1`]
 >
   <div
     class="ant-space-item"
-    style="margin-right:8px"
+    style="margin-right: 8px;"
   >
     <span
       class="anticon"
@@ -386,7 +386,7 @@ exports[`renders components/icon/demo/scriptUrl.tsx extend context correctly 1`]
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px"
+    style="margin-right: 8px;"
   >
     <span
       class="anticon"
@@ -408,7 +408,7 @@ exports[`renders components/icon/demo/scriptUrl.tsx extend context correctly 1`]
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px"
+    style="margin-right: 8px;"
   >
     <span
       class="anticon"
@@ -458,7 +458,7 @@ exports[`renders components/icon/demo/two-tone.tsx extend context correctly 1`] 
 >
   <div
     class="ant-space-item"
-    style="margin-right:8px"
+    style="margin-right: 8px;"
   >
     <span
       aria-label="smile"
@@ -491,7 +491,7 @@ exports[`renders components/icon/demo/two-tone.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px"
+    style="margin-right: 8px;"
   >
     <span
       aria-label="heart"

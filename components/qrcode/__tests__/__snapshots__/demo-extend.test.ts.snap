@@ -9,12 +9,12 @@ Array [
     width="100"
   />,
   <div
-    class="ant-popover ant-popover-placement-top"
-    style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-top"
+    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="ant-popover-arrow"
-      style="position:absolute;bottom:0;left:0"
+      style="position: absolute; bottom: 0px; left: 0px;"
     />
     <div
       class="ant-popover-content"
@@ -22,18 +22,18 @@ Array [
       <div
         class="ant-popover-inner"
         role="tooltip"
-        style="padding:0"
+        style="padding: 0px;"
       >
         <div
           class="ant-popover-inner-content"
         >
           <div
             class="ant-qrcode ant-qrcode-borderless"
-            style="width:160px;height:160px"
+            style="width: 160px; height: 160px;"
           >
             <canvas
               height="134"
-              style="height:134px;width:134px"
+              style="height: 134px; width: 134px;"
               width="134"
             />
           </div>
@@ -47,11 +47,11 @@ Array [
 exports[`renders components/qrcode/demo/base.tsx extend context correctly 1`] = `
 <div
   class="ant-qrcode"
-  style="width:160px;height:160px"
+  style="width: 160px; height: 160px;"
 >
   <canvas
     height="134"
-    style="height:134px;width:134px"
+    style="height: 134px; width: 134px;"
     width="134"
   />
 </div>
@@ -63,15 +63,15 @@ exports[`renders components/qrcode/demo/customColor.tsx extend context correctly
 >
   <div
     class="ant-space-item"
-    style="margin-right:8px"
+    style="margin-right: 8px;"
   >
     <div
       class="ant-qrcode"
-      style="margin-bottom:16px;background-color:#f5f5f5;width:160px;height:160px"
+      style="margin-bottom: 16px; background-color: rgb(245, 245, 245); width: 160px; height: 160px;"
     >
       <canvas
         height="134"
-        style="height:134px;width:134px"
+        style="height: 134px; width: 134px;"
         width="134"
       />
     </div>
@@ -81,11 +81,11 @@ exports[`renders components/qrcode/demo/customColor.tsx extend context correctly
   >
     <div
       class="ant-qrcode"
-      style="margin-bottom:16px;background-color:#f5f5f5;width:160px;height:160px"
+      style="margin-bottom: 16px; background-color: rgb(245, 245, 245); width: 160px; height: 160px;"
     >
       <canvas
         height="134"
-        style="height:134px;width:134px"
+        style="height: 134px; width: 134px;"
         width="134"
       />
     </div>
@@ -97,7 +97,7 @@ exports[`renders components/qrcode/demo/customSize.tsx extend context correctly 
 Array [
   <div
     class="ant-btn-group"
-    style="margin-bottom:16px"
+    style="margin-bottom: 16px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -162,16 +162,16 @@ Array [
   </div>,
   <div
     class="ant-qrcode"
-    style="width:160px;height:160px"
+    style="width: 160px; height: 160px;"
   >
     <canvas
       height="134"
-      style="height:134px;width:134px"
+      style="height: 134px; width: 134px;"
       width="134"
     />
     <img
       src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
-      style="display:none"
+      style="display: none;"
     />
   </div>,
 ]
@@ -183,11 +183,11 @@ exports[`renders components/qrcode/demo/download.tsx extend context correctly 1`
 >
   <div
     class="ant-qrcode"
-    style="margin-bottom:16px;width:160px;height:160px"
+    style="margin-bottom: 16px; width: 160px; height: 160px;"
   >
     <canvas
       height="134"
-      style="height:134px;width:134px"
+      style="height: 134px; width: 134px;"
       width="134"
     />
   </div>
@@ -206,11 +206,11 @@ exports[`renders components/qrcode/demo/errorlevel.tsx extend context correctly 
 Array [
   <div
     class="ant-qrcode"
-    style="margin-bottom:16px;width:160px;height:160px"
+    style="margin-bottom: 16px; width: 160px; height: 160px;"
   >
     <canvas
       height="134"
-      style="height:134px;width:134px"
+      style="height: 134px; width: 134px;"
       width="134"
     />
   </div>,
@@ -285,16 +285,16 @@ Array [
 exports[`renders components/qrcode/demo/icon.tsx extend context correctly 1`] = `
 <div
   class="ant-qrcode"
-  style="width:160px;height:160px"
+  style="width: 160px; height: 160px;"
 >
   <canvas
     height="134"
-    style="height:134px;width:134px"
+    style="height: 134px; width: 134px;"
     width="134"
   />
   <img
     src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
-    style="display:none"
+    style="display: none;"
   />
 </div>
 `;
@@ -302,15 +302,15 @@ exports[`renders components/qrcode/demo/icon.tsx extend context correctly 1`] = 
 exports[`renders components/qrcode/demo/status.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap:wrap;margin-bottom:-8px"
+  style="flex-wrap: wrap; margin-bottom: -8px;"
 >
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:8px"
+    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <div
       class="ant-qrcode"
-      style="width:160px;height:160px"
+      style="width: 160px; height: 160px;"
     >
       <div
         class="ant-qrcode-mask"
@@ -340,18 +340,18 @@ exports[`renders components/qrcode/demo/status.tsx extend context correctly 1`] 
       </div>
       <canvas
         height="134"
-        style="height:134px;width:134px"
+        style="height: 134px; width: 134px;"
         width="134"
       />
     </div>
   </div>
   <div
     class="ant-space-item"
-    style="padding-bottom:8px"
+    style="padding-bottom: 8px;"
   >
     <div
       class="ant-qrcode"
-      style="width:160px;height:160px"
+      style="width: 160px; height: 160px;"
     >
       <div
         class="ant-qrcode-mask"
@@ -391,7 +391,7 @@ exports[`renders components/qrcode/demo/status.tsx extend context correctly 1`] 
       </div>
       <canvas
         height="134"
-        style="height:134px;width:134px"
+        style="height: 134px; width: 134px;"
         width="134"
       />
     </div>

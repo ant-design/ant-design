@@ -8,7 +8,7 @@ exports[`renders components/tree/demo/basic.tsx extend context correctly 1`] = `
   <div>
     <input
       aria-label="for screen reader"
-      style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
+      style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
       tabindex="0"
       value=""
     />
@@ -16,7 +16,7 @@ exports[`renders components/tree/demo/basic.tsx extend context correctly 1`] = `
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
-    style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden;border:0;padding:0"
+    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
   >
     <div
       class="ant-tree-indent"
@@ -28,7 +28,7 @@ exports[`renders components/tree/demo/basic.tsx extend context correctly 1`] = `
   </div>
   <div
     class="ant-tree-list"
-    style="position:relative"
+    style="position: relative;"
   >
     <div
       class="ant-tree-list-holder"
@@ -36,7 +36,7 @@ exports[`renders components/tree/demo/basic.tsx extend context correctly 1`] = `
       <div>
         <div
           class="ant-tree-list-holder-inner"
-          style="display:flex;flex-direction:column"
+          style="display: flex; flex-direction: column;"
         >
           <div
             aria-grabbed="false"
@@ -304,7 +304,7 @@ exports[`renders components/tree/demo/basic.tsx extend context correctly 1`] = `
                 class="ant-tree-title"
               >
                 <span
-                  style="color:#1890ff"
+                  style="color: rgb(24, 144, 255);"
                 >
                   sss
                 </span>
@@ -326,7 +326,7 @@ exports[`renders components/tree/demo/basic-controlled.tsx extend context correc
   <div>
     <input
       aria-label="for screen reader"
-      style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
+      style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
       tabindex="0"
       value=""
     />
@@ -334,7 +334,7 @@ exports[`renders components/tree/demo/basic-controlled.tsx extend context correc
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
-    style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden;border:0;padding:0"
+    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
   >
     <div
       class="ant-tree-indent"
@@ -346,7 +346,7 @@ exports[`renders components/tree/demo/basic-controlled.tsx extend context correc
   </div>
   <div
     class="ant-tree-list"
-    style="position:relative"
+    style="position: relative;"
   >
     <div
       class="ant-tree-list-holder"
@@ -354,7 +354,7 @@ exports[`renders components/tree/demo/basic-controlled.tsx extend context correc
       <div>
         <div
           class="ant-tree-list-holder-inner"
-          style="display:flex;flex-direction:column"
+          style="display: flex; flex-direction: column;"
         >
           <div
             aria-grabbed="false"
@@ -865,7 +865,7 @@ exports[`renders components/tree/demo/block-node.tsx extend context correctly 1`
   <div>
     <input
       aria-label="for screen reader"
-      style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
+      style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
       tabindex="0"
       value=""
     />
@@ -873,7 +873,7 @@ exports[`renders components/tree/demo/block-node.tsx extend context correctly 1`
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
-    style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden;border:0;padding:0"
+    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
   >
     <div
       class="ant-tree-indent"
@@ -885,7 +885,7 @@ exports[`renders components/tree/demo/block-node.tsx extend context correctly 1`
   </div>
   <div
     class="ant-tree-list"
-    style="position:relative"
+    style="position: relative;"
   >
     <div
       class="ant-tree-list-holder"
@@ -893,7 +893,7 @@ exports[`renders components/tree/demo/block-node.tsx extend context correctly 1`
       <div>
         <div
           class="ant-tree-list-holder-inner"
-          style="display:flex;flex-direction:column"
+          style="display: flex; flex-direction: column;"
         >
           <div
             aria-grabbed="false"
@@ -1028,7 +1028,7 @@ exports[`renders components/tree/demo/customized-icon.tsx extend context correct
   <div>
     <input
       aria-label="for screen reader"
-      style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
+      style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
       tabindex="0"
       value=""
     />
@@ -1036,7 +1036,7 @@ exports[`renders components/tree/demo/customized-icon.tsx extend context correct
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
-    style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden;border:0;padding:0"
+    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
   >
     <div
       class="ant-tree-indent"
@@ -1048,7 +1048,7 @@ exports[`renders components/tree/demo/customized-icon.tsx extend context correct
   </div>
   <div
     class="ant-tree-list"
-    style="position:relative"
+    style="position: relative;"
   >
     <div
       class="ant-tree-list-holder"
@@ -1056,7 +1056,7 @@ exports[`renders components/tree/demo/customized-icon.tsx extend context correct
       <div>
         <div
           class="ant-tree-list-holder-inner"
-          style="display:flex;flex-direction:column"
+          style="display: flex; flex-direction: column;"
         >
           <div
             aria-grabbed="false"
@@ -1239,7 +1239,7 @@ exports[`renders components/tree/demo/directory.tsx extend context correctly 1`]
   <div>
     <input
       aria-label="for screen reader"
-      style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
+      style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
       tabindex="0"
       value=""
     />
@@ -1247,7 +1247,7 @@ exports[`renders components/tree/demo/directory.tsx extend context correctly 1`]
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
-    style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden;border:0;padding:0"
+    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
   >
     <div
       class="ant-tree-indent"
@@ -1259,7 +1259,7 @@ exports[`renders components/tree/demo/directory.tsx extend context correctly 1`]
   </div>
   <div
     class="ant-tree-list"
-    style="position:relative"
+    style="position: relative;"
   >
     <div
       class="ant-tree-list-holder"
@@ -1267,7 +1267,7 @@ exports[`renders components/tree/demo/directory.tsx extend context correctly 1`]
       <div>
         <div
           class="ant-tree-list-holder-inner"
-          style="display:flex;flex-direction:column"
+          style="display: flex; flex-direction: column;"
         >
           <div
             aria-grabbed="false"
@@ -1611,7 +1611,7 @@ exports[`renders components/tree/demo/directory.tsx extend context correctly 1`]
 exports[`renders components/tree/demo/drag-debug.tsx extend context correctly 1`] = `
 Array [
   <div
-    style="margin-bottom:16px"
+    style="margin-bottom: 16px;"
   >
     showLine:
     <button
@@ -1688,7 +1688,7 @@ Array [
     <div>
       <input
         aria-label="for screen reader"
-        style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
+        style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
         tabindex="0"
         value=""
       />
@@ -1696,7 +1696,7 @@ Array [
     <div
       aria-hidden="true"
       class="ant-tree-treenode"
-      style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden;border:0;padding:0"
+      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
     >
       <div
         class="ant-tree-indent"
@@ -1708,7 +1708,7 @@ Array [
     </div>
     <div
       class="ant-tree-list"
-      style="position:relative"
+      style="position: relative;"
     >
       <div
         class="ant-tree-list-holder"
@@ -1716,7 +1716,7 @@ Array [
         <div>
           <div
             class="ant-tree-list-holder-inner"
-            style="display:flex;flex-direction:column"
+            style="display: flex; flex-direction: column;"
           >
             <div
               aria-grabbed="false"
@@ -2500,7 +2500,7 @@ exports[`renders components/tree/demo/draggable.tsx extend context correctly 1`]
   <div>
     <input
       aria-label="for screen reader"
-      style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
+      style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
       tabindex="0"
       value=""
     />
@@ -2508,7 +2508,7 @@ exports[`renders components/tree/demo/draggable.tsx extend context correctly 1`]
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
-    style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden;border:0;padding:0"
+    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
   >
     <div
       class="ant-tree-indent"
@@ -2520,7 +2520,7 @@ exports[`renders components/tree/demo/draggable.tsx extend context correctly 1`]
   </div>
   <div
     class="ant-tree-list"
-    style="position:relative"
+    style="position: relative;"
   >
     <div
       class="ant-tree-list-holder"
@@ -2528,7 +2528,7 @@ exports[`renders components/tree/demo/draggable.tsx extend context correctly 1`]
       <div>
         <div
           class="ant-tree-list-holder-inner"
-          style="display:flex;flex-direction:column"
+          style="display: flex; flex-direction: column;"
         >
           <div
             aria-grabbed="false"
@@ -3072,7 +3072,7 @@ exports[`renders components/tree/demo/dynamic.tsx extend context correctly 1`] =
   <div>
     <input
       aria-label="for screen reader"
-      style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
+      style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
       tabindex="0"
       value=""
     />
@@ -3080,7 +3080,7 @@ exports[`renders components/tree/demo/dynamic.tsx extend context correctly 1`] =
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
-    style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden;border:0;padding:0"
+    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
   >
     <div
       class="ant-tree-indent"
@@ -3092,7 +3092,7 @@ exports[`renders components/tree/demo/dynamic.tsx extend context correctly 1`] =
   </div>
   <div
     class="ant-tree-list"
-    style="position:relative"
+    style="position: relative;"
   >
     <div
       class="ant-tree-list-holder"
@@ -3100,7 +3100,7 @@ exports[`renders components/tree/demo/dynamic.tsx extend context correctly 1`] =
       <div>
         <div
           class="ant-tree-list-holder-inner"
-          style="display:flex;flex-direction:column"
+          style="display: flex; flex-direction: column;"
         >
           <div
             aria-grabbed="false"
@@ -3221,7 +3221,7 @@ exports[`renders components/tree/demo/dynamic.tsx extend context correctly 1`] =
 exports[`renders components/tree/demo/line.tsx extend context correctly 1`] = `
 <div>
   <div
-    style="margin-bottom:16px"
+    style="margin-bottom: 16px;"
   >
     showLine:
     <button
@@ -3270,7 +3270,6 @@ exports[`renders components/tree/demo/line.tsx extend context correctly 1`] = `
     <br />
     <br />
     showLeafIcon:
-    <!-- -->
     <div
       class="ant-select ant-select-single ant-select-show-arrow"
     >
@@ -3281,16 +3280,17 @@ exports[`renders components/tree/demo/line.tsx extend context correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
+            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
             aria-autocomplete="list"
-            aria-controls="undefined_list"
+            aria-controls="rc_select_TEST_OR_SSR_list"
             aria-haspopup="listbox"
-            aria-owns="undefined_list"
+            aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
+            id="rc_select_TEST_OR_SSR"
             readonly=""
             role="combobox"
-            style="opacity:0"
+            style="opacity: 0;"
             type="search"
             unselectable="on"
             value=""
@@ -3304,19 +3304,19 @@ exports[`renders components/tree/demo/line.tsx extend context correctly 1`] = `
         </span>
       </div>
       <div
-        class="ant-select-dropdown ant-select-dropdown-placement-bottomLeft"
-        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+        style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div>
           <div
-            id="undefined_list"
+            id="rc_select_TEST_OR_SSR_list"
             role="listbox"
-            style="height:0;width:0;overflow:hidden"
+            style="height: 0px; width: 0px; overflow: hidden;"
           >
             <div
               aria-label="True"
               aria-selected="true"
-              id="undefined_list_0"
+              id="rc_select_TEST_OR_SSR_list_0"
               role="option"
             >
               true
@@ -3324,7 +3324,7 @@ exports[`renders components/tree/demo/line.tsx extend context correctly 1`] = `
             <div
               aria-label="False"
               aria-selected="false"
-              id="undefined_list_1"
+              id="rc_select_TEST_OR_SSR_list_1"
               role="option"
             >
               false
@@ -3332,16 +3332,16 @@ exports[`renders components/tree/demo/line.tsx extend context correctly 1`] = `
           </div>
           <div
             class="rc-virtual-list"
-            style="position:relative"
+            style="position: relative;"
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+              style="max-height: 256px; overflow-y: auto;"
             >
               <div>
                 <div
                   class="rc-virtual-list-holder-inner"
-                  style="display:flex;flex-direction:column"
+                  style="display: flex; flex-direction: column;"
                 >
                   <div
                     aria-selected="true"
@@ -3356,7 +3356,7 @@ exports[`renders components/tree/demo/line.tsx extend context correctly 1`] = `
                     <span
                       aria-hidden="true"
                       class="ant-select-item-option-state"
-                      style="user-select:none;-webkit-user-select:none"
+                      style="user-select: none;"
                       unselectable="on"
                     />
                   </div>
@@ -3373,7 +3373,7 @@ exports[`renders components/tree/demo/line.tsx extend context correctly 1`] = `
                     <span
                       aria-hidden="true"
                       class="ant-select-item-option-state"
-                      style="user-select:none;-webkit-user-select:none"
+                      style="user-select: none;"
                       unselectable="on"
                     />
                   </div>
@@ -3390,7 +3390,7 @@ exports[`renders components/tree/demo/line.tsx extend context correctly 1`] = `
                     <span
                       aria-hidden="true"
                       class="ant-select-item-option-state"
-                      style="user-select:none;-webkit-user-select:none"
+                      style="user-select: none;"
                       unselectable="on"
                     />
                   </div>
@@ -3403,7 +3403,7 @@ exports[`renders components/tree/demo/line.tsx extend context correctly 1`] = `
       <span
         aria-hidden="true"
         class="ant-select-arrow"
-        style="user-select:none;-webkit-user-select:none"
+        style="user-select: none;"
         unselectable="on"
       >
         <span
@@ -3435,7 +3435,7 @@ exports[`renders components/tree/demo/line.tsx extend context correctly 1`] = `
     <div>
       <input
         aria-label="for screen reader"
-        style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
+        style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
         tabindex="0"
         value=""
       />
@@ -3443,7 +3443,7 @@ exports[`renders components/tree/demo/line.tsx extend context correctly 1`] = `
     <div
       aria-hidden="true"
       class="ant-tree-treenode"
-      style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden;border:0;padding:0"
+      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
     >
       <div
         class="ant-tree-indent"
@@ -3455,7 +3455,7 @@ exports[`renders components/tree/demo/line.tsx extend context correctly 1`] = `
     </div>
     <div
       class="ant-tree-list"
-      style="position:relative"
+      style="position: relative;"
     >
       <div
         class="ant-tree-list-holder"
@@ -3463,7 +3463,7 @@ exports[`renders components/tree/demo/line.tsx extend context correctly 1`] = `
         <div>
           <div
             class="ant-tree-list-holder-inner"
-            style="display:flex;flex-direction:column"
+            style="display: flex; flex-direction: column;"
           >
             <div
               aria-grabbed="false"
@@ -3874,7 +3874,7 @@ exports[`renders components/tree/demo/search.tsx extend context correctly 1`] = 
 <div>
   <span
     class="ant-input-group-wrapper ant-input-search"
-    style="margin-bottom:8px"
+    style="margin-bottom: 8px;"
   >
     <span
       class="ant-input-wrapper ant-input-group"
@@ -3922,7 +3922,7 @@ exports[`renders components/tree/demo/search.tsx extend context correctly 1`] = 
     <div>
       <input
         aria-label="for screen reader"
-        style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
+        style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
         tabindex="0"
         value=""
       />
@@ -3930,7 +3930,7 @@ exports[`renders components/tree/demo/search.tsx extend context correctly 1`] = 
     <div
       aria-hidden="true"
       class="ant-tree-treenode"
-      style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden;border:0;padding:0"
+      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
     >
       <div
         class="ant-tree-indent"
@@ -3942,7 +3942,7 @@ exports[`renders components/tree/demo/search.tsx extend context correctly 1`] = 
     </div>
     <div
       class="ant-tree-list"
-      style="position:relative"
+      style="position: relative;"
     >
       <div
         class="ant-tree-list-holder"
@@ -3950,7 +3950,7 @@ exports[`renders components/tree/demo/search.tsx extend context correctly 1`] = 
         <div>
           <div
             class="ant-tree-list-holder-inner"
-            style="display:flex;flex-direction:column"
+            style="display: flex; flex-direction: column;"
           >
             <div
               aria-grabbed="false"
@@ -4092,7 +4092,7 @@ exports[`renders components/tree/demo/switcher-icon.tsx extend context correctly
   <div>
     <input
       aria-label="for screen reader"
-      style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
+      style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
       tabindex="0"
       value=""
     />
@@ -4100,7 +4100,7 @@ exports[`renders components/tree/demo/switcher-icon.tsx extend context correctly
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
-    style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden;border:0;padding:0"
+    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
   >
     <div
       class="ant-tree-indent"
@@ -4112,7 +4112,7 @@ exports[`renders components/tree/demo/switcher-icon.tsx extend context correctly
   </div>
   <div
     class="ant-tree-list"
-    style="position:relative"
+    style="position: relative;"
   >
     <div
       class="ant-tree-list-holder"
@@ -4120,7 +4120,7 @@ exports[`renders components/tree/demo/switcher-icon.tsx extend context correctly
       <div>
         <div
           class="ant-tree-list-holder-inner"
-          style="display:flex;flex-direction:column"
+          style="display: flex; flex-direction: column;"
         >
           <div
             aria-grabbed="false"

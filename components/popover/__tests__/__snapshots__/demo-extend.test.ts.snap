@@ -66,7 +66,7 @@ exports[`renders components/popover/demo/arrow.tsx extend context correctly 1`] 
     </span>
   </div>
   <div
-    style="margin-left:70px;white-space:nowrap"
+    style="margin-left: 70px; white-space: nowrap;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -77,12 +77,12 @@ exports[`renders components/popover/demo/arrow.tsx extend context correctly 1`] 
       </span>
     </button>
     <div
-      class="ant-popover ant-popover-placement-topLeft"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-topLeft"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
-        style="position:absolute"
+        style="position: absolute;"
       />
       <div
         class="ant-popover-content"
@@ -122,12 +122,12 @@ exports[`renders components/popover/demo/arrow.tsx extend context correctly 1`] 
       </span>
     </button>
     <div
-      class="ant-popover ant-popover-placement-top"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-top"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
-        style="position:absolute;bottom:0;left:0"
+        style="position: absolute; bottom: 0px; left: 0px;"
       />
       <div
         class="ant-popover-content"
@@ -167,12 +167,12 @@ exports[`renders components/popover/demo/arrow.tsx extend context correctly 1`] 
       </span>
     </button>
     <div
-      class="ant-popover ant-popover-placement-topRight"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-topRight"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
-        style="position:absolute"
+        style="position: absolute;"
       />
       <div
         class="ant-popover-content"
@@ -205,7 +205,7 @@ exports[`renders components/popover/demo/arrow.tsx extend context correctly 1`] 
     </div>
   </div>
   <div
-    style="width:70px;float:left"
+    style="width: 70px; float: left;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -216,12 +216,12 @@ exports[`renders components/popover/demo/arrow.tsx extend context correctly 1`] 
       </span>
     </button>
     <div
-      class="ant-popover ant-popover-placement-leftTop"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-leftTop"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
-        style="position:absolute"
+        style="position: absolute;"
       />
       <div
         class="ant-popover-content"
@@ -261,12 +261,12 @@ exports[`renders components/popover/demo/arrow.tsx extend context correctly 1`] 
       </span>
     </button>
     <div
-      class="ant-popover ant-popover-placement-left"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-left"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
-        style="position:absolute;top:0;right:0"
+        style="position: absolute; top: 0px; right: 0px;"
       />
       <div
         class="ant-popover-content"
@@ -306,12 +306,12 @@ exports[`renders components/popover/demo/arrow.tsx extend context correctly 1`] 
       </span>
     </button>
     <div
-      class="ant-popover ant-popover-placement-leftBottom"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-leftBottom"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
-        style="position:absolute"
+        style="position: absolute;"
       />
       <div
         class="ant-popover-content"
@@ -344,7 +344,7 @@ exports[`renders components/popover/demo/arrow.tsx extend context correctly 1`] 
     </div>
   </div>
   <div
-    style="width:70px;margin-left:304px"
+    style="width: 70px; margin-left: 304px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -355,12 +355,12 @@ exports[`renders components/popover/demo/arrow.tsx extend context correctly 1`] 
       </span>
     </button>
     <div
-      class="ant-popover ant-popover-placement-rightTop"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-rightTop"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
-        style="position:absolute"
+        style="position: absolute;"
       />
       <div
         class="ant-popover-content"
@@ -400,12 +400,12 @@ exports[`renders components/popover/demo/arrow.tsx extend context correctly 1`] 
       </span>
     </button>
     <div
-      class="ant-popover ant-popover-placement-right"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-right"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
-        style="position:absolute;top:0;left:0"
+        style="position: absolute; top: 0px; left: 0px;"
       />
       <div
         class="ant-popover-content"
@@ -445,12 +445,12 @@ exports[`renders components/popover/demo/arrow.tsx extend context correctly 1`] 
       </span>
     </button>
     <div
-      class="ant-popover ant-popover-placement-rightBottom"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-rightBottom"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
-        style="position:absolute"
+        style="position: absolute;"
       />
       <div
         class="ant-popover-content"
@@ -483,7 +483,7 @@ exports[`renders components/popover/demo/arrow.tsx extend context correctly 1`] 
     </div>
   </div>
   <div
-    style="margin-left:70px;clear:both;white-space:nowrap"
+    style="margin-left: 70px; clear: both; white-space: nowrap;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -494,12 +494,12 @@ exports[`renders components/popover/demo/arrow.tsx extend context correctly 1`] 
       </span>
     </button>
     <div
-      class="ant-popover ant-popover-placement-bottomLeft"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-bottomLeft"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
-        style="position:absolute"
+        style="position: absolute;"
       />
       <div
         class="ant-popover-content"
@@ -539,12 +539,12 @@ exports[`renders components/popover/demo/arrow.tsx extend context correctly 1`] 
       </span>
     </button>
     <div
-      class="ant-popover ant-popover-placement-bottom"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-bottom"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
-        style="position:absolute;top:0;left:0"
+        style="position: absolute; top: 0px; left: 0px;"
       />
       <div
         class="ant-popover-content"
@@ -584,12 +584,12 @@ exports[`renders components/popover/demo/arrow.tsx extend context correctly 1`] 
       </span>
     </button>
     <div
-      class="ant-popover ant-popover-placement-bottomRight"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-bottomRight"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
-        style="position:absolute"
+        style="position: absolute;"
       />
       <div
         class="ant-popover-content"
@@ -627,11 +627,11 @@ exports[`renders components/popover/demo/arrow.tsx extend context correctly 1`] 
 exports[`renders components/popover/demo/arrow-point-at-center.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap:wrap;margin-bottom:-8px"
+  style="flex-wrap: wrap; margin-bottom: -8px;"
 >
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:8px"
+    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -642,12 +642,12 @@ exports[`renders components/popover/demo/arrow-point-at-center.tsx extend contex
       </span>
     </button>
     <div
-      class="ant-popover ant-popover-placement-topLeft"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-topLeft"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
-        style="position:absolute"
+        style="position: absolute;"
       />
       <div
         class="ant-popover-content"
@@ -677,7 +677,7 @@ exports[`renders components/popover/demo/arrow-point-at-center.tsx extend contex
   </div>
   <div
     class="ant-space-item"
-    style="padding-bottom:8px"
+    style="padding-bottom: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -688,12 +688,12 @@ exports[`renders components/popover/demo/arrow-point-at-center.tsx extend contex
       </span>
     </button>
     <div
-      class="ant-popover ant-popover-placement-topLeft"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-topLeft"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
-        style="position:absolute"
+        style="position: absolute;"
       />
       <div
         class="ant-popover-content"
@@ -735,12 +735,12 @@ Array [
     </span>
   </button>,
   <div
-    class="ant-popover ant-popover-placement-top"
-    style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-top"
+    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="ant-popover-arrow"
-      style="position:absolute;bottom:0;left:0"
+      style="position: absolute; bottom: 0px; left: 0px;"
     />
     <div
       class="ant-popover-content"
@@ -783,12 +783,12 @@ Array [
     </span>
   </button>,
   <div
-    class="ant-popover ant-popover-placement-top"
-    style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-top"
+    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="ant-popover-arrow"
-      style="position:absolute;bottom:0;left:0"
+      style="position: absolute; bottom: 0px; left: 0px;"
     />
     <div
       class="ant-popover-content"
@@ -826,12 +826,12 @@ Array [
     </span>
   </button>,
   <div
-    class="ant-popover ant-popover-placement-top"
-    style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-top"
+    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="ant-popover-arrow"
-      style="position:absolute;bottom:0;left:0"
+      style="position: absolute; bottom: 0px; left: 0px;"
     />
     <div
       class="ant-popover-content"
@@ -861,12 +861,12 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-popover ant-popover-placement-top"
-    style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-top"
+    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div
       class="ant-popover-arrow"
-      style="position:absolute;bottom:0;left:0"
+      style="position: absolute; bottom: 0px; left: 0px;"
     />
     <div
       class="ant-popover-content"
@@ -896,7 +896,7 @@ Array [
 exports[`renders components/popover/demo/placement.tsx extend context correctly 1`] = `
 <div>
   <div
-    style="margin-left:70px;white-space:nowrap"
+    style="margin-left: 70px; white-space: nowrap;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -907,12 +907,12 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
       </span>
     </button>
     <div
-      class="ant-popover ant-popover-placement-topLeft"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-topLeft"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
-        style="position:absolute"
+        style="position: absolute;"
       />
       <div
         class="ant-popover-content"
@@ -952,12 +952,12 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
       </span>
     </button>
     <div
-      class="ant-popover ant-popover-placement-top"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-top"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
-        style="position:absolute;bottom:0;left:0"
+        style="position: absolute; bottom: 0px; left: 0px;"
       />
       <div
         class="ant-popover-content"
@@ -997,12 +997,12 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
       </span>
     </button>
     <div
-      class="ant-popover ant-popover-placement-topRight"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-topRight"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
-        style="position:absolute"
+        style="position: absolute;"
       />
       <div
         class="ant-popover-content"
@@ -1035,7 +1035,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
     </div>
   </div>
   <div
-    style="width:70px;float:left"
+    style="width: 70px; float: left;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -1046,12 +1046,12 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
       </span>
     </button>
     <div
-      class="ant-popover ant-popover-placement-leftTop"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-leftTop"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
-        style="position:absolute"
+        style="position: absolute;"
       />
       <div
         class="ant-popover-content"
@@ -1091,12 +1091,12 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
       </span>
     </button>
     <div
-      class="ant-popover ant-popover-placement-left"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-left"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
-        style="position:absolute;top:0;right:0"
+        style="position: absolute; top: 0px; right: 0px;"
       />
       <div
         class="ant-popover-content"
@@ -1136,12 +1136,12 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
       </span>
     </button>
     <div
-      class="ant-popover ant-popover-placement-leftBottom"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-leftBottom"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
-        style="position:absolute"
+        style="position: absolute;"
       />
       <div
         class="ant-popover-content"
@@ -1174,7 +1174,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
     </div>
   </div>
   <div
-    style="width:70px;margin-left:304px"
+    style="width: 70px; margin-left: 304px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -1185,12 +1185,12 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
       </span>
     </button>
     <div
-      class="ant-popover ant-popover-placement-rightTop"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-rightTop"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
-        style="position:absolute"
+        style="position: absolute;"
       />
       <div
         class="ant-popover-content"
@@ -1230,12 +1230,12 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
       </span>
     </button>
     <div
-      class="ant-popover ant-popover-placement-right"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-right"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
-        style="position:absolute;top:0;left:0"
+        style="position: absolute; top: 0px; left: 0px;"
       />
       <div
         class="ant-popover-content"
@@ -1275,12 +1275,12 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
       </span>
     </button>
     <div
-      class="ant-popover ant-popover-placement-rightBottom"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-rightBottom"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
-        style="position:absolute"
+        style="position: absolute;"
       />
       <div
         class="ant-popover-content"
@@ -1313,7 +1313,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
     </div>
   </div>
   <div
-    style="margin-left:70px;clear:both;white-space:nowrap"
+    style="margin-left: 70px; clear: both; white-space: nowrap;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -1324,12 +1324,12 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
       </span>
     </button>
     <div
-      class="ant-popover ant-popover-placement-bottomLeft"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-bottomLeft"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
-        style="position:absolute"
+        style="position: absolute;"
       />
       <div
         class="ant-popover-content"
@@ -1369,12 +1369,12 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
       </span>
     </button>
     <div
-      class="ant-popover ant-popover-placement-bottom"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-bottom"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
-        style="position:absolute;top:0;left:0"
+        style="position: absolute; top: 0px; left: 0px;"
       />
       <div
         class="ant-popover-content"
@@ -1414,12 +1414,12 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
       </span>
     </button>
     <div
-      class="ant-popover ant-popover-placement-bottomRight"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-bottomRight"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
-        style="position:absolute"
+        style="position: absolute;"
       />
       <div
         class="ant-popover-content"
@@ -1491,14 +1491,14 @@ Array [
   </div>,
   <div
     class="ant-popover ant-popover-pure ant-popover-placement-bottomLeft"
-    style="width:250px"
+    style="width: 250px;"
   >
     <div
       class="ant-popover-arrow"
     />
     <div
       class="ant-popover-content"
-      style="width:250px"
+      style="width: 250px;"
     >
       <div
         class="ant-popover-inner"
@@ -1530,11 +1530,11 @@ Array [
 exports[`renders components/popover/demo/triggerType.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap:wrap;margin-bottom:-8px"
+  style="flex-wrap: wrap; margin-bottom: -8px;"
 >
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:8px"
+    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -1545,12 +1545,12 @@ exports[`renders components/popover/demo/triggerType.tsx extend context correctl
       </span>
     </button>
     <div
-      class="ant-popover ant-popover-placement-top"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-top"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
-        style="position:absolute;bottom:0;left:0"
+        style="position: absolute; bottom: 0px; left: 0px;"
       />
       <div
         class="ant-popover-content"
@@ -1582,7 +1582,7 @@ exports[`renders components/popover/demo/triggerType.tsx extend context correctl
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:8px"
+    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -1593,12 +1593,12 @@ exports[`renders components/popover/demo/triggerType.tsx extend context correctl
       </span>
     </button>
     <div
-      class="ant-popover ant-popover-placement-top"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-top"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
-        style="position:absolute;bottom:0;left:0"
+        style="position: absolute; bottom: 0px; left: 0px;"
       />
       <div
         class="ant-popover-content"
@@ -1630,7 +1630,7 @@ exports[`renders components/popover/demo/triggerType.tsx extend context correctl
   </div>
   <div
     class="ant-space-item"
-    style="padding-bottom:8px"
+    style="padding-bottom: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -1641,12 +1641,12 @@ exports[`renders components/popover/demo/triggerType.tsx extend context correctl
       </span>
     </button>
     <div
-      class="ant-popover ant-popover-placement-top"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-top"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
-        style="position:absolute;bottom:0;left:0"
+        style="position: absolute; bottom: 0px; left: 0px;"
       />
       <div
         class="ant-popover-content"
@@ -1716,14 +1716,14 @@ Array [
   </div>,
   <div
     class="ant-popover ant-popover-pure ant-popover-placement-bottomLeft"
-    style="width:250px"
+    style="width: 250px;"
   >
     <div
       class="ant-popover-arrow"
     />
     <div
       class="ant-popover-content"
-      style="width:250px"
+      style="width: 250px;"
     >
       <div
         class="ant-popover-inner"
