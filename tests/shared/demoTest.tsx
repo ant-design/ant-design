@@ -61,6 +61,7 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
           expect({ type: 'demo', html }).toMatchSnapshot();
         }
 
+        jest.clearAllTimers();
         errSpy.mockRestore();
       },
     );
