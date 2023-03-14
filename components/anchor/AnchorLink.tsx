@@ -1,7 +1,6 @@
 import classNames from 'classnames';
 import * as React from 'react';
-import type { ConfigConsumerProps } from '../config-provider';
-import { ConfigConsumer } from '../config-provider';
+import { ConfigContext } from '../config-provider';
 import warning from '../_util/warning';
 import type { AntAnchor } from './Anchor';
 import AnchorContext from './context';
@@ -46,33 +45,33 @@ const AnchorLink: React.FC<AnchorLinkProps> = (props) => {
     );
   }
 
+  const { getPrefixCls } = React.useContext(ConfigContext);
+
+  const prefixCls = getPrefixCls('anchor', customizePrefixCls);
+
+  const active = activeLink === href;
+
+  const wrapperClassName = classNames(`${prefixCls}-link`, className, {
+    [`${prefixCls}-link-active`]: active,
+  });
+
+  const titleClassName = classNames(`${prefixCls}-link-title`, {
+    [`${prefixCls}-link-title-active`]: active,
+  });
+
   return (
-    <ConfigConsumer>
-      {({ getPrefixCls }: ConfigConsumerProps) => {
-        const prefixCls = getPrefixCls('anchor', customizePrefixCls);
-        const active = activeLink === href;
-        const wrapperClassName = classNames(`${prefixCls}-link`, className, {
-          [`${prefixCls}-link-active`]: active,
-        });
-        const titleClassName = classNames(`${prefixCls}-link-title`, {
-          [`${prefixCls}-link-title-active`]: active,
-        });
-        return (
-          <div className={wrapperClassName}>
-            <a
-              className={titleClassName}
-              href={href}
-              title={typeof title === 'string' ? title : ''}
-              target={target}
-              onClick={handleClick}
-            >
-              {title}
-            </a>
-            {direction !== 'horizontal' ? children : null}
-          </div>
-        );
-      }}
-    </ConfigConsumer>
+    <div className={wrapperClassName}>
+      <a
+        className={titleClassName}
+        href={href}
+        title={typeof title === 'string' ? title : ''}
+        target={target}
+        onClick={handleClick}
+      >
+        {title}
+      </a>
+      {direction !== 'horizontal' ? children : null}
+    </div>
   );
 };
 

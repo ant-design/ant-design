@@ -21,7 +21,7 @@ export interface ScrollNumberState {
   count?: string | number | null;
 }
 
-const ScrollNumber = React.forwardRef<React.Ref<HTMLDivElement>, ScrollNumberProps>(
+const ScrollNumber = React.forwardRef<HTMLElement, ScrollNumberProps>(
   (
     {
       prefixCls: customizePrefixCls,

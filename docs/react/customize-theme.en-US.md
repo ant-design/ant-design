@@ -244,6 +244,13 @@ Please ref to [CSS Compatible](/docs/react/compatible-style).
 
 ### Server Side Render (SSR)
 
+There are two options for server-side rendering styles, each with advantages and disadvantages:
+
+- **Inline mode**: there is no need to request additional style files during rendering. The advantage is to reduce additional network requests. The disadvantage is that the HTML volume will increase and the speed of the first screen rendering will be affected. Relevant discussion: [#39891](https://github.com/ant-design/ant-design/issues/39891)
+- **Whole export**: The antd component is pre-baked and styled as a css file to be introduced in the page. The advantage is that when opening any page, the same set of css files will be reused just like the traditional css scheme to hit the cache. The disadvantage is that if there are multiple themes in the page, additional baking is required
+
+#### Inline mode
+
 Use `@ant-design/cssinjs` to extract style:
 
 ```tsx
@@ -277,6 +284,119 @@ export default () => {
 `;
 };
 ```
+
+#### Whole export
+
+If you want to detach a style file into a css file, try using the following script:
+
+```javascript
+// scripts/genAntdCss.mjs
+import fs from 'fs';
+import { extractStyle } from '@ant-design/static-style-extract';
+
+const outputPath = './public/antd.min.css';
+
+const css = extractStyle();
+fs.writeFileSync(outputPath, css);
+```
+
+You can choose to execute this script before starting the development command or before compiling. Running this script will generate a full antd.min.css file directly in the specified directory of the current project (e.g. public).
+
+Take Next.js for example（[example](https://github.com/ant-design/create-next-app-antd)）：
+
+```json
+// package.json
+{
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "predev": "node ./scripts/genAntdCss.mjs",
+    "prebuild": "node ./scripts/genAntdCss.mjs"
+  }
+}
+```
+
+Then, you just need to import this file into the `pages/_app.tsx` file:
+
+```tsx
+import { StyleProvider } from '@ant-design/cssinjs';
+import type { AppProps } from 'next/app';
+import '../public/antd.min.css';
+import '../styles/globals.css'; // add this line
+
+export default function App({ Component, pageProps }: AppProps) {
+  return (
+    <StyleProvider hashPriority="high">
+      <Component {...pageProps} />
+    </StyleProvider>
+  );
+}
+```
+
+#### Custom theme
+
+If you're using a custom theme for your project, try baking in the following ways:
+
+```tsx
+import { extractStyle } from '@ant-design/static-style-extract';
+import { ConfigProvider } from 'antd';
+
+const cssText = extractStyle((node) => (
+  <ConfigProvider
+    theme={{
+      token: {
+        colorPrimary: 'red',
+      },
+    }}
+  >
+    {node}
+  </ConfigProvider>
+));
+```
+
+#### Mixed theme
+
+If you're using a mixed theme for your project, try baking in the following ways:
+
+```tsx
+import { extractStyle } from '@ant-design/static-style-extract';
+import { ConfigProvider } from 'antd';
+
+const cssText = extractStyle((node) => (
+  <>
+    <ConfigProvider
+      theme={{
+        token: {
+          colorBgBase: 'green ',
+        },
+      }}
+    >
+      {node}
+    </ConfigProvider>
+    <ConfigProvider
+      theme={{
+        token: {
+          colorPrimary: 'blue',
+        },
+      }}
+    >
+      <ConfigProvider
+        theme={{
+          token: {
+            colorBgBase: 'red ',
+          },
+        }}
+      >
+        {node}
+      </ConfigProvider>
+    </ConfigProvider>
+  </>
+));
+```
+
+More about static-style-extract, see [static-style-extract](https://github.com/ant-design/static-style-extract).
 
 ### Shadow DOM Usage
 

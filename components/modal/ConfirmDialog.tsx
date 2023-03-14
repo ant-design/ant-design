@@ -106,9 +106,7 @@ export function ConfirmContent(
         )}
         <div className={`${confirmPrefixCls}-content`}>{props.content}</div>
       </div>
-      {footer !== undefined ? (
-        footer
-      ) : (
+      {footer === undefined ? (
         <div className={`${confirmPrefixCls}-btns`}>
           {cancelButton}
           <ActionButton
@@ -122,6 +120,8 @@ export function ConfirmContent(
             {okText || (mergedOkCancel ? mergedLocale?.okText : mergedLocale?.justOkText)}
           </ActionButton>
         </div>
+      ) : (
+        footer
       )}
     </div>
   );
@@ -185,7 +185,7 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
         onCancel={() => close?.({ triggerCancel: true })}
         open={open}
         title=""
-        footer=""
+        footer={null}
         transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}
         maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
         mask={mask}
