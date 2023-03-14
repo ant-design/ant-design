@@ -114,8 +114,8 @@ exports[`renders components/breadcrumb/demo/debug-routes.tsx extend context corr
       </span>
       <div>
         <div
-          class="ant-dropdown"
-          style="opacity:0"
+          class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+          style="opacity: 0;"
         >
           <ul
             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -125,6 +125,7 @@ exports[`renders components/breadcrumb/demo/debug-routes.tsx extend context corr
           >
             <li
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+              data-menu-id="rc-menu-uuid-test-0"
               role="menuitem"
               tabindex="-1"
             >
@@ -139,12 +140,12 @@ exports[`renders components/breadcrumb/demo/debug-routes.tsx extend context corr
               </span>
             </li>
             <div
-              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
-                style="position:absolute;top:0;left:0"
+                style="position: absolute; top: 0px; left: 0px;"
               />
               <div
                 class="ant-tooltip-content"
@@ -157,6 +158,7 @@ exports[`renders components/breadcrumb/demo/debug-routes.tsx extend context corr
             </div>
             <li
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+              data-menu-id="rc-menu-uuid-test-1"
               role="menuitem"
               tabindex="-1"
             >
@@ -171,12 +173,12 @@ exports[`renders components/breadcrumb/demo/debug-routes.tsx extend context corr
               </span>
             </li>
             <div
-              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
-                style="position:absolute;top:0;left:0"
+                style="position: absolute; top: 0px; left: 0px;"
               />
               <div
                 class="ant-tooltip-content"
@@ -190,15 +192,15 @@ exports[`renders components/breadcrumb/demo/debug-routes.tsx extend context corr
           </ul>
           <div
             aria-hidden="true"
-            style="display:none"
+            style="display: none;"
           >
             <div
-              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
-                style="position:absolute;top:0;left:0"
+                style="position: absolute; top: 0px; left: 0px;"
               />
               <div
                 class="ant-tooltip-content"
@@ -210,12 +212,12 @@ exports[`renders components/breadcrumb/demo/debug-routes.tsx extend context corr
               </div>
             </div>
             <div
-              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
-                style="position:absolute;top:0;left:0"
+                style="position: absolute; top: 0px; left: 0px;"
               />
               <div
                 class="ant-tooltip-content"
@@ -304,8 +306,8 @@ exports[`renders components/breadcrumb/demo/overlay.tsx extend context correctly
       </span>
       <div>
         <div
-          class="ant-dropdown"
-          style="opacity:0"
+          class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+          style="opacity: 0;"
         >
           <ul
             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -315,6 +317,7 @@ exports[`renders components/breadcrumb/demo/overlay.tsx extend context correctly
           >
             <li
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+              data-menu-id="rc-menu-uuid-test-0"
               role="menuitem"
               tabindex="-1"
             >
@@ -331,12 +334,12 @@ exports[`renders components/breadcrumb/demo/overlay.tsx extend context correctly
               </span>
             </li>
             <div
-              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
-                style="position:absolute;top:0;left:0"
+                style="position: absolute; top: 0px; left: 0px;"
               />
               <div
                 class="ant-tooltip-content"
@@ -349,6 +352,7 @@ exports[`renders components/breadcrumb/demo/overlay.tsx extend context correctly
             </div>
             <li
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+              data-menu-id="rc-menu-uuid-test-1"
               role="menuitem"
               tabindex="-1"
             >
@@ -365,12 +369,12 @@ exports[`renders components/breadcrumb/demo/overlay.tsx extend context correctly
               </span>
             </li>
             <div
-              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
-                style="position:absolute;top:0;left:0"
+                style="position: absolute; top: 0px; left: 0px;"
               />
               <div
                 class="ant-tooltip-content"
@@ -383,6 +387,7 @@ exports[`renders components/breadcrumb/demo/overlay.tsx extend context correctly
             </div>
             <li
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+              data-menu-id="rc-menu-uuid-test-2"
               role="menuitem"
               tabindex="-1"
             >
@@ -399,12 +404,12 @@ exports[`renders components/breadcrumb/demo/overlay.tsx extend context correctly
               </span>
             </li>
             <div
-              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
-                style="position:absolute;top:0;left:0"
+                style="position: absolute; top: 0px; left: 0px;"
               />
               <div
                 class="ant-tooltip-content"
@@ -418,15 +423,15 @@ exports[`renders components/breadcrumb/demo/overlay.tsx extend context correctly
           </ul>
           <div
             aria-hidden="true"
-            style="display:none"
+            style="display: none;"
           >
             <div
-              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
-                style="position:absolute;top:0;left:0"
+                style="position: absolute; top: 0px; left: 0px;"
               />
               <div
                 class="ant-tooltip-content"
@@ -438,12 +443,12 @@ exports[`renders components/breadcrumb/demo/overlay.tsx extend context correctly
               </div>
             </div>
             <div
-              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
-                style="position:absolute;top:0;left:0"
+                style="position: absolute; top: 0px; left: 0px;"
               />
               <div
                 class="ant-tooltip-content"
@@ -455,12 +460,12 @@ exports[`renders components/breadcrumb/demo/overlay.tsx extend context correctly
               </div>
             </div>
             <div
-              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
-                style="position:absolute;top:0;left:0"
+                style="position: absolute; top: 0px; left: 0px;"
               />
               <div
                 class="ant-tooltip-content"

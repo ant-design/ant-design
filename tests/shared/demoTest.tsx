@@ -3,6 +3,7 @@ import { createCache, StyleProvider } from '@ant-design/cssinjs';
 import glob from 'glob';
 import * as React from 'react';
 import { renderToString } from 'react-dom/server';
+import { render } from '../utils';
 import { TriggerMockContext } from './demoTestContext';
 import { excludeWarning } from './excludeWarning';
 import rootPropsTest from './rootPropsTest';
@@ -52,9 +53,15 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
 
         // Demo Test also include `dist` test which is already uglified.
         // We need test this as SSR instead.
-        const html = renderToString(Demo);
-        expect({ type: 'demo', html }).toMatchSnapshot();
+        if (doInject) {
+          const { container } = render(Demo);
+          expect({ type: 'demo', html: container.innerHTML }).toMatchSnapshot();
+        } else {
+          const html = renderToString(Demo);
+          expect({ type: 'demo', html }).toMatchSnapshot();
+        }
 
+        jest.clearAllTimers();
         errSpy.mockRestore();
       },
     );
