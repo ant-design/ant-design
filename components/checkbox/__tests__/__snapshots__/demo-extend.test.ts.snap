@@ -10,6 +10,7 @@ exports[`renders components/checkbox/demo/basic.tsx extend context correctly 1`]
     <input
       class="ant-checkbox-input"
       type="checkbox"
+      value=""
     />
     <span
       class="ant-checkbox-inner"
@@ -33,6 +34,7 @@ Array [
         aria-checked="mixed"
         class="ant-checkbox-input"
         type="checkbox"
+        value=""
       />
       <span
         class="ant-checkbox-inner"
@@ -127,6 +129,7 @@ Array [
           checked=""
           class="ant-checkbox-input"
           type="checkbox"
+          value=""
         />
         <span
           class="ant-checkbox-inner"
@@ -174,6 +177,7 @@ exports[`renders components/checkbox/demo/debug-disable-popover.tsx extend conte
         class="ant-checkbox-input"
         disabled=""
         type="checkbox"
+        value=""
       />
       <span
         class="ant-checkbox-inner"
@@ -421,6 +425,7 @@ Array [
         class="ant-checkbox-input"
         disabled=""
         type="checkbox"
+        value=""
       />
       <span
         class="ant-checkbox-inner"
@@ -439,6 +444,7 @@ Array [
         class="ant-checkbox-input"
         disabled=""
         type="checkbox"
+        value=""
       />
       <span
         class="ant-checkbox-inner"
@@ -457,6 +463,7 @@ Array [
         class="ant-checkbox-input"
         disabled=""
         type="checkbox"
+        value=""
       />
       <span
         class="ant-checkbox-inner"

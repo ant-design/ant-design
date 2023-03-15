@@ -95,6 +95,7 @@ exports[`renders components/radio/demo/basic.tsx extend context correctly 1`] = 
     <input
       class="ant-radio-input"
       type="radio"
+      value=""
     />
     <span
       class="ant-radio-inner"
@@ -118,6 +119,7 @@ Array [
         class="ant-radio-input"
         disabled=""
         type="radio"
+        value=""
       />
       <span
         class="ant-radio-inner"
@@ -138,6 +140,7 @@ Array [
         class="ant-radio-input"
         disabled=""
         type="radio"
+        value=""
       />
       <span
         class="ant-radio-inner"

@@ -743,6 +743,7 @@ exports[`renders components/form/demo/basic.tsx extend context correctly 1`] = `
                   class="ant-checkbox-input"
                   id="basic_remember"
                   type="checkbox"
+                  value=""
                 />
                 <span
                   class="ant-checkbox-inner"
@@ -2413,6 +2414,7 @@ Array [
         checked=""
         class="ant-checkbox-input"
         type="checkbox"
+        value=""
       />
       <span
         class="ant-checkbox-inner"
@@ -2463,6 +2465,7 @@ Array [
                     disabled=""
                     id="disabled"
                     type="checkbox"
+                    value=""
                   />
                   <span
                     class="ant-checkbox-inner"
@@ -6602,6 +6605,7 @@ exports[`renders components/form/demo/dynamic-rule.tsx extend context correctly 
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
+                  value=""
                 />
                 <span
                   class="ant-checkbox-inner"
@@ -8018,6 +8022,7 @@ exports[`renders components/form/demo/normal-login.tsx extend context correctly 
                   class="ant-checkbox-input"
                   id="normal_login_remember"
                   type="checkbox"
+                  value=""
                 />
                 <span
                   class="ant-checkbox-inner"
@@ -9479,6 +9484,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                   class="ant-checkbox-input"
                   id="register_agreement"
                   type="checkbox"
+                  value=""
                 />
                 <span
                   class="ant-checkbox-inner"

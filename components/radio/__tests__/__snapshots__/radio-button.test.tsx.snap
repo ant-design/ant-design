@@ -10,6 +10,7 @@ exports[`Radio Button rtl render component should be rendered correctly in RTL d
     <input
       class="ant-radio-button-input"
       type="radio"
+      value=""
     />
     <span
       class="ant-radio-button-inner"
@@ -28,6 +29,7 @@ exports[`Radio Button should render correctly 1`] = `
     <input
       class="ant-radio-button-input"
       type="radio"
+      value=""
     />
     <span
       class="ant-radio-button-inner"

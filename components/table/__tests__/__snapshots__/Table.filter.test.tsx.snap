@@ -579,6 +579,7 @@ exports[`Table.filter renders menu correctly 1`] = `
             <input
               class="ant-checkbox-input"
               type="checkbox"
+              value=""
             />
             <span
               class="ant-checkbox-inner"
@@ -608,6 +609,7 @@ exports[`Table.filter renders menu correctly 1`] = `
             <input
               class="ant-checkbox-input"
               type="checkbox"
+              value=""
             />
             <span
               class="ant-checkbox-inner"
@@ -719,6 +721,7 @@ exports[`Table.filter renders radio filter correctly 1`] = `
             <input
               class="ant-radio-input"
               type="radio"
+              value=""
             />
             <span
               class="ant-radio-inner"
@@ -748,6 +751,7 @@ exports[`Table.filter renders radio filter correctly 1`] = `
             <input
               class="ant-radio-input"
               type="radio"
+              value=""
             />
             <span
               class="ant-radio-inner"
