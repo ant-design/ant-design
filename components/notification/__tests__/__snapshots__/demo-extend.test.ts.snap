@@ -51,7 +51,7 @@ Array [
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px"
+      style="margin-right: 8px;"
     >
       <button
         class="ant-btn ant-btn-primary"
@@ -122,7 +122,7 @@ Array [
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px"
+      style="margin-right: 8px;"
     >
       <button
         class="ant-btn ant-btn-primary"
@@ -194,7 +194,7 @@ Array [
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px"
+      style="margin-right: 8px;"
     >
       <button
         class="ant-btn ant-btn-primary"
@@ -265,7 +265,7 @@ Array [
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px"
+      style="margin-right: 8px;"
     >
       <button
         class="ant-btn ant-btn-primary"
@@ -336,7 +336,7 @@ Array [
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px"
+      style="margin-right: 8px;"
     >
       <button
         class="ant-btn ant-btn-primary"
@@ -514,7 +514,7 @@ exports[`renders components/notification/demo/with-icon.tsx extend context corre
 >
   <div
     class="ant-space-item"
-    style="margin-right:8px"
+    style="margin-right: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -527,7 +527,7 @@ exports[`renders components/notification/demo/with-icon.tsx extend context corre
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px"
+    style="margin-right: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -540,7 +540,7 @@ exports[`renders components/notification/demo/with-icon.tsx extend context corre
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px"
+    style="margin-right: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"

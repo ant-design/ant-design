@@ -283,16 +283,86 @@ export default () => {
 
 #### 整体导出
 
-如果你想要将样式文件抽离到 css 文件中，可以尝试使用以下脚本：
+如果你想要将样式文件抽离到 css 文件中，可以尝试使用以下方案：
 
-```javascript
-// scripts/genAntdCss.mjs
-import fs from 'fs';
+1. 安装依赖
+
+```bash
+npm install ts-node tslib --save-dev
+```
+
+2. 新增 `tsconfig.node.json` 文件
+
+```json
+{
+  "compilerOptions": {
+    "strictNullChecks": true,
+    "module": "NodeNext",
+    "jsx": "react",
+    "esModuleInterop": true
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
+}
+```
+
+3. 新增 `scripts/genAntdCss.tsx` 文件
+
+```tsx
+// scripts/genAntdCss.tsx
 import { extractStyle } from '@ant-design/static-style-extract';
+import fs from 'fs';
 
 const outputPath = './public/antd.min.css';
 
 const css = extractStyle();
+
+fs.writeFileSync(outputPath, css);
+```
+
+若你想使用混合主题或自定义主题，可采用以下脚本：
+
+```tsx
+import { extractStyle } from '@ant-design/static-style-extract';
+import { ConfigProvider } from 'antd';
+import fs from 'fs';
+import React from 'react';
+
+const outputPath = './public/antd.min.css';
+
+const testGreenColor = '#008000';
+const testRedColor = '#ff0000';
+
+const css = extractStyle((node) => (
+  <>
+    <ConfigProvider
+      theme={{
+        token: {
+          colorBgBase: testGreenColor,
+        },
+      }}
+    >
+      {node}
+    </ConfigProvider>
+    <ConfigProvider
+      theme={{
+        token: {
+          colorPrimary: testGreenColor,
+        },
+      }}
+    >
+      <ConfigProvider
+        theme={{
+          token: {
+            colorBgBase: testRedColor,
+          },
+        }}
+      >
+        {node}
+      </ConfigProvider>
+    </ConfigProvider>
+  </>
+));
+
 fs.writeFileSync(outputPath, css);
 ```
 
@@ -308,8 +378,8 @@ fs.writeFileSync(outputPath, css);
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "predev": "node ./scripts/genAntdCss.mjs",
-    "prebuild": "node ./scripts/genAntdCss.mjs"
+    "predev": "ts-node --project ./tsconfig.node.json ./scripts/genAntdCss.tsx",
+    "prebuild": "ts-node --project ./tsconfig.node.json ./scripts/genAntdCss.tsx"
   }
 }
 ```
