@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders components/tooltip/demo/arrow.tsx correctly 1`] = `
+exports[`renders components\\tooltip\\demo\\arrow.tsx correctly 1`] = `
 <div
   class="demo"
 >
@@ -186,7 +186,7 @@ exports[`renders components/tooltip/demo/arrow.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/tooltip/demo/arrow-point-at-center.tsx correctly 1`] = `
+exports[`renders components\\tooltip\\demo\\arrow-point-at-center.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -218,7 +218,7 @@ exports[`renders components/tooltip/demo/arrow-point-at-center.tsx correctly 1`]
 </div>
 `;
 
-exports[`renders components/tooltip/demo/auto-adjust-overflow.tsx correctly 1`] = `
+exports[`renders components\\tooltip\\demo\\auto-adjust-overflow.tsx correctly 1`] = `
 <div
   style="display:flex;flex-direction:column;row-gap:16px"
 >
@@ -283,13 +283,13 @@ exports[`renders components/tooltip/demo/auto-adjust-overflow.tsx correctly 1`] 
 </div>
 `;
 
-exports[`renders components/tooltip/demo/basic.tsx correctly 1`] = `
+exports[`renders components\\tooltip\\demo\\basic.tsx correctly 1`] = `
 <span>
   Tooltip will show on mouse enter.
 </span>
 `;
 
-exports[`renders components/tooltip/demo/colorful.tsx correctly 1`] = `
+exports[`renders components\\tooltip\\demo\\colorful.tsx correctly 1`] = `
 Array [
   <div
     class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
@@ -545,13 +545,13 @@ Array [
 ]
 `;
 
-exports[`renders components/tooltip/demo/destroy-tooltip-on-hide.tsx correctly 1`] = `
+exports[`renders components\\tooltip\\demo\\destroy-tooltip-on-hide.tsx correctly 1`] = `
 <span>
   Tooltip will destroy when hidden.
 </span>
 `;
 
-exports[`renders components/tooltip/demo/placement.tsx correctly 1`] = `
+exports[`renders components\\tooltip\\demo\\placement.tsx correctly 1`] = `
 <div>
   <div
     style="margin-left:70px;white-space:nowrap"
@@ -668,7 +668,7 @@ exports[`renders components/tooltip/demo/placement.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/tooltip/demo/render-panel.tsx correctly 1`] = `
+exports[`renders components\\tooltip\\demo\\render-panel.tsx correctly 1`] = `
 Array [
   <div
     class="ant-tooltip ant-tooltip-pure ant-tooltip-placement-top ant-tooltip-pink"

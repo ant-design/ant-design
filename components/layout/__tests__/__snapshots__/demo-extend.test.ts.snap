@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders components/layout/demo/basic.tsx extend context correctly 1`] = `
+exports[`renders components\\layout\\demo\\basic.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
   style="width: 100%;"
@@ -157,7 +157,7 @@ exports[`renders components/layout/demo/basic.tsx extend context correctly 1`] =
 </div>
 `;
 
-exports[`renders components/layout/demo/custom-trigger.tsx extend context correctly 1`] = `
+exports[`renders components\\layout\\demo\\custom-trigger.tsx extend context correctly 1`] = `
 <section
   class="ant-layout ant-layout-has-sider"
 >
@@ -421,7 +421,7 @@ exports[`renders components/layout/demo/custom-trigger.tsx extend context correc
 </section>
 `;
 
-exports[`renders components/layout/demo/fixed.tsx extend context correctly 1`] = `
+exports[`renders components\\layout\\demo\\fixed.tsx extend context correctly 1`] = `
 <section
   class="ant-layout"
 >
@@ -695,7 +695,7 @@ exports[`renders components/layout/demo/fixed.tsx extend context correctly 1`] =
 </section>
 `;
 
-exports[`renders components/layout/demo/fixed-sider.tsx extend context correctly 1`] = `
+exports[`renders components\\layout\\demo\\fixed-sider.tsx extend context correctly 1`] = `
 <section
   class="ant-layout ant-layout-has-sider"
 >
@@ -1481,7 +1481,7 @@ exports[`renders components/layout/demo/fixed-sider.tsx extend context correctly
 </section>
 `;
 
-exports[`renders components/layout/demo/responsive.tsx extend context correctly 1`] = `
+exports[`renders components\\layout\\demo\\responsive.tsx extend context correctly 1`] = `
 <section
   class="ant-layout ant-layout-has-sider"
 >
@@ -1839,7 +1839,7 @@ exports[`renders components/layout/demo/responsive.tsx extend context correctly 
 </section>
 `;
 
-exports[`renders components/layout/demo/side.tsx extend context correctly 1`] = `
+exports[`renders components\\layout\\demo\\side.tsx extend context correctly 1`] = `
 <section
   class="ant-layout ant-layout-has-sider"
   style="min-height: 100vh;"
@@ -2493,7 +2493,7 @@ exports[`renders components/layout/demo/side.tsx extend context correctly 1`] = 
 </section>
 `;
 
-exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
+exports[`renders components\\layout\\demo\\top.tsx extend context correctly 1`] = `
 <section
   class="ant-layout layout"
 >
@@ -3319,7 +3319,7 @@ exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
 </section>
 `;
 
-exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`] = `
+exports[`renders components\\layout\\demo\\top-side.tsx extend context correctly 1`] = `
 <section
   class="ant-layout"
 >
@@ -4482,7 +4482,7 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
 </section>
 `;
 
-exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 1`] = `
+exports[`renders components\\layout\\demo\\top-side-2.tsx extend context correctly 1`] = `
 <section
   class="ant-layout"
 >

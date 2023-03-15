@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders components/cascader/demo/basic.tsx extend context correctly 1`] = `
+exports[`renders components\\cascader\\demo\\basic.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
 >
@@ -149,7 +149,7 @@ exports[`renders components/cascader/demo/basic.tsx extend context correctly 1`]
 </div>
 `;
 
-exports[`renders components/cascader/demo/change-on-select.tsx extend context correctly 1`] = `
+exports[`renders components\\cascader\\demo\\change-on-select.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
 >
@@ -296,7 +296,7 @@ exports[`renders components/cascader/demo/change-on-select.tsx extend context co
 </div>
 `;
 
-exports[`renders components/cascader/demo/custom-dropdown.tsx extend context correctly 1`] = `
+exports[`renders components\\cascader\\demo\\custom-dropdown.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
 >
@@ -457,7 +457,7 @@ exports[`renders components/cascader/demo/custom-dropdown.tsx extend context cor
 </div>
 `;
 
-exports[`renders components/cascader/demo/custom-render.tsx extend context correctly 1`] = `
+exports[`renders components\\cascader\\demo\\custom-render.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
   style="width: 100%;"
@@ -645,7 +645,7 @@ exports[`renders components/cascader/demo/custom-render.tsx extend context corre
 </div>
 `;
 
-exports[`renders components/cascader/demo/custom-trigger.tsx extend context correctly 1`] = `
+exports[`renders components\\cascader\\demo\\custom-trigger.tsx extend context correctly 1`] = `
 <span>
   Unselect
   <a
@@ -744,7 +744,7 @@ exports[`renders components/cascader/demo/custom-trigger.tsx extend context corr
 </span>
 `;
 
-exports[`renders components/cascader/demo/default-value.tsx extend context correctly 1`] = `
+exports[`renders components\\cascader\\demo\\default-value.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
 >
@@ -920,7 +920,7 @@ exports[`renders components/cascader/demo/default-value.tsx extend context corre
 </div>
 `;
 
-exports[`renders components/cascader/demo/disabled-option.tsx extend context correctly 1`] = `
+exports[`renders components\\cascader\\demo\\disabled-option.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
 >
@@ -1067,7 +1067,7 @@ exports[`renders components/cascader/demo/disabled-option.tsx extend context cor
 </div>
 `;
 
-exports[`renders components/cascader/demo/fields-name.tsx extend context correctly 1`] = `
+exports[`renders components\\cascader\\demo\\fields-name.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
 >
@@ -1216,7 +1216,7 @@ exports[`renders components/cascader/demo/fields-name.tsx extend context correct
 </div>
 `;
 
-exports[`renders components/cascader/demo/hover.tsx extend context correctly 1`] = `
+exports[`renders components\\cascader\\demo\\hover.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
 >
@@ -1363,7 +1363,7 @@ exports[`renders components/cascader/demo/hover.tsx extend context correctly 1`]
 </div>
 `;
 
-exports[`renders components/cascader/demo/lazy.tsx extend context correctly 1`] = `
+exports[`renders components\\cascader\\demo\\lazy.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
 >
@@ -1510,7 +1510,7 @@ exports[`renders components/cascader/demo/lazy.tsx extend context correctly 1`] 
 </div>
 `;
 
-exports[`renders components/cascader/demo/multiple.tsx extend context correctly 1`] = `
+exports[`renders components\\cascader\\demo\\multiple.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-cascader ant-select-multiple ant-select-allow-clear ant-select-show-arrow"
   style="width: 100%;"
@@ -1687,7 +1687,7 @@ exports[`renders components/cascader/demo/multiple.tsx extend context correctly 
 </div>
 `;
 
-exports[`renders components/cascader/demo/placement.tsx extend context correctly 1`] = `
+exports[`renders components\\cascader\\demo\\placement.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-radio-group ant-radio-group-outline"
@@ -1921,7 +1921,7 @@ Array [
 ]
 `;
 
-exports[`renders components/cascader/demo/render-panel.tsx extend context correctly 1`] = `
+exports[`renders components\\cascader\\demo\\render-panel.tsx extend context correctly 1`] = `
 <div
   style="padding-bottom: 0px; position: relative; min-width: 0;"
 >
@@ -2076,7 +2076,7 @@ exports[`renders components/cascader/demo/render-panel.tsx extend context correc
 </div>
 `;
 
-exports[`renders components/cascader/demo/search.tsx extend context correctly 1`] = `
+exports[`renders components\\cascader\\demo\\search.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
 >
@@ -2222,7 +2222,7 @@ exports[`renders components/cascader/demo/search.tsx extend context correctly 1`
 </div>
 `;
 
-exports[`renders components/cascader/demo/showCheckedStrategy.tsx extend context correctly 1`] = `
+exports[`renders components\\cascader\\demo\\showCheckedStrategy.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-select ant-cascader ant-select-multiple ant-select-allow-clear ant-select-show-arrow"
@@ -2655,7 +2655,7 @@ Array [
 ]
 `;
 
-exports[`renders components/cascader/demo/size.tsx extend context correctly 1`] = `
+exports[`renders components\\cascader\\demo\\size.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-select ant-cascader ant-select-lg ant-select-single ant-select-allow-clear ant-select-show-arrow"
@@ -3098,7 +3098,7 @@ Array [
 ]
 `;
 
-exports[`renders components/cascader/demo/status.tsx extend context correctly 1`] = `
+exports[`renders components\\cascader\\demo\\status.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -3389,7 +3389,7 @@ exports[`renders components/cascader/demo/status.tsx extend context correctly 1`
 </div>
 `;
 
-exports[`renders components/cascader/demo/suffix.tsx extend context correctly 1`] = `
+exports[`renders components\\cascader\\demo\\suffix.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders components/watermark/demo/basic.tsx extend context correctly 1`] = `
+exports[`renders components\\watermark\\demo\\basic.tsx extend context correctly 1`] = `
 <div
   class=""
   style="position: relative;"
@@ -14,7 +14,7 @@ exports[`renders components/watermark/demo/basic.tsx extend context correctly 1`
 </div>
 `;
 
-exports[`renders components/watermark/demo/custom.tsx extend context correctly 1`] = `
+exports[`renders components\\watermark\\demo\\custom.tsx extend context correctly 1`] = `
 <div
   style="display: flex;"
 >
@@ -1252,7 +1252,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
 </div>
 `;
 
-exports[`renders components/watermark/demo/image.tsx extend context correctly 1`] = `
+exports[`renders components\\watermark\\demo\\image.tsx extend context correctly 1`] = `
 <div
   class=""
   style="position: relative;"
@@ -1263,7 +1263,7 @@ exports[`renders components/watermark/demo/image.tsx extend context correctly 1`
 </div>
 `;
 
-exports[`renders components/watermark/demo/multi-line.tsx extend context correctly 1`] = `
+exports[`renders components\\watermark\\demo\\multi-line.tsx extend context correctly 1`] = `
 <div
   class=""
   style="position: relative;"
