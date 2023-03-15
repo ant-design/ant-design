@@ -26,6 +26,7 @@ export interface PopconfirmProps extends AbstractTooltipProps {
   cancelButtonProps?: ButtonProps;
   showCancel?: boolean;
   icon?: React.ReactNode;
+  footer?: React.ReactNode;
   onOpenChange?: (
     open: boolean,
     e?: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLDivElement>,

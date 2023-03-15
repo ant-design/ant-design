@@ -27,6 +27,7 @@ demo:
 <code src="./demo/icon.tsx">自定义 Icon 图标</code>
 <code src="./demo/async.tsx">异步关闭</code>
 <code src="./demo/promise.tsx">基于 Promise 的异步关闭</code>
+<code src="./demo/footer.tsx">自定义页脚</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/wireframe.tsx" debug>线框风格</code>
 
@@ -44,6 +45,7 @@ demo:
 | showCancel | 是否显示取消按钮 | boolean | true | 4.18.0 |
 | title | 确认框标题 | ReactNode \| () => ReactNode | - |  |
 | description | 确认内容的详细描述 | ReactNode \| () => ReactNode | - | 5.1.0 |
+| footer | 自定义底部 | ReactNode \| () => ReactNode | - | 5.3.0 |
 | onCancel | 点击取消的回调 | function(e) | - |  |
 | onConfirm | 点击确认的回调 | function(e) | - |  |
 

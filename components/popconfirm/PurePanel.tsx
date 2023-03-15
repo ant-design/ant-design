@@ -30,6 +30,7 @@ export interface OverlayProps
     | 'showCancel'
     | 'title'
     | 'description'
+    | 'footer'
   > {
   prefixCls: string;
   close?: Function;
@@ -50,6 +51,7 @@ export const Overlay: React.FC<OverlayProps> = (props) => {
     icon = <ExclamationCircleFilled />,
     showCancel = true,
     close,
+    footer,
     onConfirm,
     onCancel,
   } = props;
@@ -73,23 +75,26 @@ export const Overlay: React.FC<OverlayProps> = (props) => {
       {description && (
         <div className={`${prefixCls}-description`}>{getRenderPropValue(description)}</div>
       )}
-      <div className={`${prefixCls}-buttons`}>
-        {showCancel && (
-          <Button onClick={onCancel} size="small" {...cancelButtonProps}>
-            {cancelText ?? contextLocale?.cancelText}
-          </Button>
-        )}
-        <ActionButton
-          buttonProps={{ size: 'small', ...convertLegacyProps(okType), ...okButtonProps }}
-          actionFn={onConfirm}
-          close={close}
-          prefixCls={getPrefixCls('btn')}
-          quitOnNullishReturnValue
-          emitEvent
-        >
-          {okText ?? contextLocale?.okText}
-        </ActionButton>
-      </div>
+      {footer && <div className={`${prefixCls}-footer`}>{footer}</div>}
+      {footer !== null && !footer && (
+        <div className={`${prefixCls}-buttons`}>
+          {showCancel && (
+            <Button onClick={onCancel} size="small" {...cancelButtonProps}>
+              {cancelText ?? contextLocale?.cancelText}
+            </Button>
+          )}
+          <ActionButton
+            buttonProps={{ size: 'small', ...convertLegacyProps(okType), ...okButtonProps }}
+            actionFn={onConfirm}
+            close={close}
+            prefixCls={getPrefixCls('btn')}
+            quitOnNullishReturnValue
+            emitEvent
+          >
+            {okText ?? contextLocale?.okText}
+          </ActionButton>
+        </div>
+      )}
     </div>
   );
 };

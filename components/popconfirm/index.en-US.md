@@ -26,6 +26,7 @@ The difference with the `confirm` modal dialog is that it's more lightweight tha
 <code src="./demo/icon.tsx">Customize icon</code>
 <code src="./demo/async.tsx">Asynchronously close</code>
 <code src="./demo/promise.tsx">Asynchronously close on Promise</code>
+<code src="./demo/footer.tsx">Customize footer</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/wireframe.tsx" debug>Wireframe</code>
 
@@ -43,6 +44,7 @@ The difference with the `confirm` modal dialog is that it's more lightweight tha
 | showCancel | Show cancel button | boolean | true | 4.18.0 |
 | title | The title of the confirmation box | ReactNode \| () => ReactNode | - |  |
 | description | The description of the confirmation box title | ReactNode \| () => ReactNode | - | 5.1.0 |
+| footer | Customize footer | ReactNode \| () => ReactNode | - | 5.3.0 |
 | onCancel | A callback of cancel | function(e) | - |  |
 | onConfirm | A callback of confirmation | function(e) | - |  |
 

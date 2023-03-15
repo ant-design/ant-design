@@ -52,6 +52,17 @@ exports[`renders components/popconfirm/demo/dynamic-trigger.tsx correctly 1`] = 
 </div>
 `;
 
+exports[`renders components/popconfirm/demo/footer.tsx correctly 1`] = `
+<button
+  class="ant-btn ant-btn-primary"
+  type="button"
+>
+  <span>
+    Open Popconfirm with customized footer
+  </span>
+</button>
+`;
+
 exports[`renders components/popconfirm/demo/icon.tsx correctly 1`] = `
 <a
   href="#"
