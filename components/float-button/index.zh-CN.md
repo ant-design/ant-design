@@ -28,6 +28,7 @@ demo:
 <code src="./demo/group-menu.tsx" iframe="360">菜单模式</code>
 <code src="./demo/back-top.tsx" iframe="360">回到顶部</code>
 <code src="./demo/badge.tsx" iframe="360">徽标数</code>
+<code src="./demo/badge-debug.tsx" iframe="360" debug>调试小圆点使用</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
