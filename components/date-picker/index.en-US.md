@@ -84,6 +84,7 @@ The following APIs are shared by DatePicker, RangePicker.
 | dateRender | Custom rendering function for date cells | function(currentDate: dayjs, today: dayjs) => React.ReactNode | - |  |
 | disabled | Determine whether the DatePicker is disabled | boolean | false |  |
 | disabledDate | Specify the date that cannot be selected | (currentDate: dayjs) => boolean | - |  |
+| format | To set the date format, support multi-format matching when it is an array, display the first one shall prevail. refer to [dayjs#format](https://day.js.org/docs/en/display/format). for example: [Custom Format](#components-date-picker-demo-format) | [formatType](#formattype) | [rc-picker](https://github.com/react-component/picker/blob/f512f18ed59d6791280d1c3d7d37abbb9867eb0b/src/utils/uiUtil.ts#L155-L177) |  |
 | popupClassName | To customize the className of the popup calendar | string | - | 4.23.0 |
 | getPopupContainer | To set the container of the floating layer, while the default is to create a `div` element in `body` | function(trigger) | - |  |
 | inputReadOnly | Set the `readonly` attribute of the input tag (avoids virtual keyboard on touch devices) | boolean | false |  |
@@ -121,7 +122,7 @@ The following APIs are shared by DatePicker, RangePicker.
 | defaultPickerValue | To set default picker date | [dayjs](https://day.js.org/) | - |  |
 | defaultValue | To set default date, if start time or end time is null or undefined, the date range will be an open interval | [dayjs](https://day.js.org/) | - |  |
 | disabledTime | To specify the time that cannot be selected | function(date) | - |  |
-| format | To set the date format, refer to [dayjs](https://day.js.org/). When an array is provided, all values are used for parsing and first value is used for formatting, support [Custom Format](#components-date-picker-demo-format) | string \| (value: dayjs) => string \| (string \| (value: dayjs) => string)\[] | `YYYY-MM-DD` |  |
+| format | To set the date format. refer to [dayjs#format](https://day.js.org/docs/en/display/format) | [formatType](#formattype) | `YYYY-MM-DD` |  |
 | renderExtraFooter | Render extra footer in panel | (mode) => React.ReactNode | - |  |
 | showNow | Whether to show 'Now' button on panel when `showTime` is set | boolean | - | 4.4.0 |
 | showTime | To provide an additional time selection | object \| boolean | [TimePicker Options](/components/time-picker/#api) |  |
@@ -138,7 +139,7 @@ The following APIs are shared by DatePicker, RangePicker.
 | --- | --- | --- | --- | --- |
 | defaultPickerValue | To set default picker date | [dayjs](https://day.js.org/) | - |  |
 | defaultValue | To set default date | [dayjs](https://day.js.org/) | - |  |
-| format | To set the date format, refer to [dayjs](https://day.js.org/) | string | `YYYY` |  |
+| format | To set the date format. refer to [dayjs#format](https://day.js.org/docs/en/display/format) | [formatType](#formattype) | `YYYY` |  |
 | renderExtraFooter | Render extra footer in panel | () => React.ReactNode | - |  |
 | value | To set date | [dayjs](https://day.js.org/) | - |  |
 | onChange | Callback function, can be executed when the selected time is changing | function(date: dayjs, dateString: string) | - |  |
@@ -151,7 +152,7 @@ Added in `4.1.0`.
 | --- | --- | --- | --- | --- |
 | defaultPickerValue | To set default picker date | [dayjs](https://day.js.org/) | - |  |
 | defaultValue | To set default date | [dayjs](https://day.js.org/) | - |  |
-| format | To set the date format, refer to [dayjs](https://day.js.org/) | string | `YYYY-\QQ` |  |
+| format | To set the date format. refer to [dayjs#format](https://day.js.org/docs/en/display/format) | [formatType](#formattype) | `YYYY-\QQ` |  |
 | renderExtraFooter | Render extra footer in panel | () => React.ReactNode | - |  |
 | value | To set date | [dayjs](https://day.js.org/) | - |  |
 | onChange | Callback function, can be executed when the selected time is changing | function(date: dayjs, dateString: string) | - |  |
@@ -162,7 +163,7 @@ Added in `4.1.0`.
 | --- | --- | --- | --- | --- |
 | defaultPickerValue | To set default picker date | [dayjs](https://day.js.org/) | - |  |
 | defaultValue | To set default date | [dayjs](https://day.js.org/) | - |  |
-| format | To set the date format, refer to [dayjs](https://day.js.org/) | string | `YYYY-MM` |  |
+| format | To set the date format. refer to [dayjs#format](https://day.js.org/docs/en/display/format) | [formatType](#formattype) | `YYYY-MM` |  |
 | monthCellRender | Custom month cell content render method | function(date, locale): ReactNode | - |  |
 | renderExtraFooter | Render extra footer in panel | () => React.ReactNode | - |  |
 | value | To set date | [dayjs](https://day.js.org/) | - |  |
@@ -174,7 +175,7 @@ Added in `4.1.0`.
 | --- | --- | --- | --- | --- |
 | defaultPickerValue | To set default picker date | [dayjs](https://day.js.org/) | - |  |
 | defaultValue | To set default date | [dayjs](https://day.js.org/) | - |  |
-| format | To set the date format, refer to [dayjs](https://day.js.org/) | string | `YYYY-wo` |  |
+| format | To set the date format. refer to [dayjs#format](https://day.js.org/docs/en/display/format) | [formatType](#formattype) | `YYYY-wo` |  |
 | renderExtraFooter | Render extra footer in panel | (mode) => React.ReactNode | - |  |
 | value | To set date | [dayjs](https://day.js.org/) | - |  |
 | onChange | Callback function, can be executed when the selected time is changing | function(date: dayjs, dateString: string) | - |  |
@@ -189,7 +190,7 @@ Added in `4.1.0`.
 | defaultValue | To set default date | \[[dayjs](https://day.js.org/), [dayjs](https://day.js.org/)] | - |  |
 | disabled | If disable start or end | \[boolean, boolean] | - |  |
 | disabledTime | To specify the time that cannot be selected | function(date: dayjs, partial: `start` \| `end`) | - |  |
-| format | To set the date format, refer to [dayjs](https://day.js.org/). When an array is provided, all values are used for parsing and first value is used for formatting | string \| string\[] | `YYYY-MM-DD HH:mm:ss` |  |
+| format | To set the date format. refer to [dayjs#format](https://day.js.org/docs/en/display/format) | [formatType](#formattype) | `YYYY-MM-DD HH:mm:ss` |  |
 | presets | The preset ranges for quick selection | { label: React.ReactNode, value: [dayjs](https://day.js.org/)\[] }[] | - |  |
 | renderExtraFooter | Render extra footer in panel | () => React.ReactNode | - |  |
 | separator | Set separator between inputs | React.ReactNode | `<SwapRightOutlined />` |  |
@@ -198,6 +199,17 @@ Added in `4.1.0`.
 | value | To set date | \[[dayjs](https://day.js.org/), [dayjs](https://day.js.org/)] | - |  |
 | onCalendarChange | Callback function, can be executed when the start time or the end time of the range is changing. `info` argument is added in 4.4.0 | function(dates: \[dayjs, dayjs], dateStrings: \[string, string], info: { range:`start`\|`end` }) | - |  |
 | onChange | Callback function, can be executed when the selected time is changing | function(dates: \[dayjs, dayjs], dateStrings: \[string, string]) | - |  |
+
+#### formatType
+
+```typescript
+import type { Dayjs } from 'dayjs';
+
+type Generic = string;
+type GenericFn = (value: Dayjs) => string;
+
+export type FormatType = Generic | GenericFn | Array<Generic | GenericFn>;
+```
 
 ## FAQ
 
