@@ -32,7 +32,7 @@ exports[`renders components/float-button/demo/badge.tsx extend context correctly
 Array [
   <button
     class="ant-btn ant-btn-primary"
-    style="margin:16px"
+    style="margin: 16px;"
     type="button"
   >
     <span>
@@ -41,7 +41,7 @@ Array [
   </button>,
   <button
     class="ant-float-btn ant-float-btn-default ant-float-btn-square"
-    style="right:234px"
+    style="right: 234px;"
     type="button"
   >
     <div
@@ -84,7 +84,7 @@ Array [
         >
           <span
             class="ant-scroll-number-only"
-            style="transition:none"
+            style="transition: none;"
           >
             <span
               class="ant-scroll-number-only-unit current"
@@ -96,12 +96,12 @@ Array [
       </span>
     </div>
     <div
-      class="ant-tooltip ant-tooltip-placement-left"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-left"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
-        style="position:absolute;top:0;right:0"
+        style="position: absolute; top: 0px; right: 0px;"
       />
       <div
         class="ant-tooltip-content"
@@ -115,7 +115,7 @@ Array [
   </button>,
   <button
     class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
-    style="right:164px"
+    style="right: 164px;"
     type="button"
   >
     <div
@@ -158,7 +158,7 @@ Array [
         >
           <span
             class="ant-scroll-number-only"
-            style="transition:none"
+            style="transition: none;"
           >
             <span
               class="ant-scroll-number-only-unit current"
@@ -170,12 +170,12 @@ Array [
       </span>
     </div>
     <div
-      class="ant-tooltip ant-tooltip-placement-left"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-left"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
-        style="position:absolute;top:0;right:0"
+        style="position: absolute; top: 0px; right: 0px;"
       />
       <div
         class="ant-tooltip-content"
@@ -189,7 +189,7 @@ Array [
   </button>,
   <button
     class="ant-float-btn ant-float-btn-default ant-float-btn-square"
-    style="right:234px;bottom:108px"
+    style="right: 234px; bottom: 108px;"
     type="button"
   >
     <div
@@ -233,12 +233,12 @@ Array [
       </span>
     </div>
     <div
-      class="ant-tooltip ant-tooltip-placement-left"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-left"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
-        style="position:absolute;top:0;right:0"
+        style="position: absolute; top: 0px; right: 0px;"
       />
       <div
         class="ant-tooltip-content"
@@ -252,7 +252,7 @@ Array [
   </button>,
   <button
     class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
-    style="right:164px;bottom:108px"
+    style="right: 164px; bottom: 108px;"
     type="button"
   >
     <div
@@ -296,12 +296,12 @@ Array [
       </span>
     </div>
     <div
-      class="ant-tooltip ant-tooltip-placement-left"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-left"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
-        style="position:absolute;top:0;right:0"
+        style="position: absolute; top: 0px; right: 0px;"
       />
       <div
         class="ant-tooltip-content"
@@ -315,7 +315,7 @@ Array [
   </button>,
   <div
     class="ant-float-btn-group ant-float-btn-group-circle ant-float-btn-group-circle-shadow"
-    style="right:24px"
+    style="right: 24px;"
   >
     <button
       class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
@@ -364,7 +364,7 @@ Array [
           >
             <span
               class="ant-scroll-number-only"
-              style="transition:none"
+              style="transition: none;"
             >
               <span
                 class="ant-scroll-number-only-unit current"
@@ -376,12 +376,12 @@ Array [
         </span>
       </div>
       <div
-        class="ant-tooltip ant-tooltip-placement-left"
-        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-left"
+        style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
-          style="position:absolute;top:0;right:0"
+          style="position: absolute; top: 0px; right: 0px;"
         />
         <div
           class="ant-tooltip-content"
@@ -437,7 +437,7 @@ Array [
           >
             <span
               class="ant-scroll-number-only"
-              style="transition:none"
+              style="transition: none;"
             >
               <span
                 class="ant-scroll-number-only-unit current"
@@ -449,12 +449,12 @@ Array [
         </span>
       </div>
       <div
-        class="ant-tooltip ant-tooltip-placement-left"
-        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-left"
+        style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
-          style="position:absolute;top:0;right:0"
+          style="position: absolute; top: 0px; right: 0px;"
         />
         <div
           class="ant-tooltip-content"
@@ -467,7 +467,7 @@ Array [
       </div>
     </button>
     <button
-      class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
+      class="ant-float-btn ant-fade-appear ant-fade-appear-start ant-fade ant-float-btn-default ant-float-btn-circle"
       type="button"
     >
       <div
@@ -510,7 +510,7 @@ Array [
           >
             <span
               class="ant-scroll-number-only"
-              style="transition:none"
+              style="transition: none;"
             >
               <span
                 class="ant-scroll-number-only-unit current"
@@ -522,12 +522,12 @@ Array [
         </span>
       </div>
       <div
-        class="ant-tooltip ant-tooltip-placement-left"
-        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-left"
+        style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
-          style="position:absolute;top:0;right:0"
+          style="position: absolute; top: 0px; right: 0px;"
         />
         <div
           class="ant-tooltip-content"
@@ -542,7 +542,7 @@ Array [
   </div>,
   <div
     class="ant-float-btn-group ant-float-btn-group-square ant-float-btn-group-square-shadow"
-    style="right:94px"
+    style="right: 94px;"
   >
     <button
       class="ant-float-btn ant-float-btn-default ant-float-btn-square"
@@ -591,7 +591,7 @@ Array [
           >
             <span
               class="ant-scroll-number-only"
-              style="transition:none"
+              style="transition: none;"
             >
               <span
                 class="ant-scroll-number-only-unit current"
@@ -603,12 +603,12 @@ Array [
         </span>
       </div>
       <div
-        class="ant-tooltip ant-tooltip-placement-left"
-        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-left"
+        style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
-          style="position:absolute;top:0;right:0"
+          style="position: absolute; top: 0px; right: 0px;"
         />
         <div
           class="ant-tooltip-content"
@@ -664,7 +664,7 @@ Array [
           >
             <span
               class="ant-scroll-number-only"
-              style="transition:none"
+              style="transition: none;"
             >
               <span
                 class="ant-scroll-number-only-unit current"
@@ -676,12 +676,12 @@ Array [
         </span>
       </div>
       <div
-        class="ant-tooltip ant-tooltip-placement-left"
-        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-left"
+        style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
-          style="position:absolute;top:0;right:0"
+          style="position: absolute; top: 0px; right: 0px;"
         />
         <div
           class="ant-tooltip-content"
@@ -737,7 +737,7 @@ Array [
           >
             <span
               class="ant-scroll-number-only"
-              style="transition:none"
+              style="transition: none;"
             >
               <span
                 class="ant-scroll-number-only-unit current"
@@ -749,12 +749,12 @@ Array [
         </span>
       </div>
       <div
-        class="ant-tooltip ant-tooltip-placement-left"
-        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-left"
+        style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
-          style="position:absolute;top:0;right:0"
+          style="position: absolute; top: 0px; right: 0px;"
         />
         <div
           class="ant-tooltip-content"
@@ -767,7 +767,7 @@ Array [
       </div>
     </button>
     <button
-      class="ant-float-btn ant-float-btn-default ant-float-btn-square"
+      class="ant-float-btn ant-fade-appear ant-fade-appear-start ant-fade ant-float-btn-default ant-float-btn-square"
       type="button"
     >
       <div
@@ -810,7 +810,7 @@ Array [
           >
             <span
               class="ant-scroll-number-only"
-              style="transition:none"
+              style="transition: none;"
             >
               <span
                 class="ant-scroll-number-only-unit current"
@@ -822,12 +822,12 @@ Array [
         </span>
       </div>
       <div
-        class="ant-tooltip ant-tooltip-placement-left"
-        style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-left"
+        style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
-          style="position:absolute;top:0;right:0"
+          style="position: absolute; top: 0px; right: 0px;"
         />
         <div
           class="ant-tooltip-content"
@@ -1748,74 +1748,8 @@ exports[`renders components/float-button/demo/render-panel.tsx extend context co
     <div
       class="ant-float-btn-body"
     >
-<<<<<<< HEAD
       <span
         class="ant-badge ant-float-btn-badge"
-=======
-      <div
-        class="ant-float-btn-content"
-      >
-        <div
-          class="ant-float-btn-icon"
-        >
-          <span
-            aria-label="question-circle"
-            class="anticon anticon-question-circle"
-            role="img"
-          >
-            <svg
-              aria-hidden="true"
-              data-icon="question-circle"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-              />
-              <path
-                d="M623.6 316.7C593.6 290.4 554 276 512 276s-81.6 14.5-111.6 40.7C369.2 344 352 380.7 352 420v7.6c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V420c0-44.1 43.1-80 96-80s96 35.9 96 80c0 31.1-22 59.6-56.1 72.7-21.2 8.1-39.2 22.3-52.1 40.9-13.1 19-19.9 41.8-19.9 64.9V620c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-22.7a48.3 48.3 0 0130.9-44.8c59-22.7 97.1-74.7 97.1-132.5.1-39.3-17.1-76-48.3-103.3zM472 732a40 40 0 1080 0 40 40 0 10-80 0z"
-              />
-            </svg>
-          </span>
-        </div>
-        <div
-          class="ant-float-btn-description"
-        >
-          HELP
-        </div>
-      </div>
-    </div>
-    <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-left"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
-    >
-      <div
-        class="ant-tooltip-arrow"
-        style="position: absolute; top: 0px; right: 0px;"
-      />
-      <div
-        class="ant-tooltip-content"
-      >
-        <div
-          class="ant-tooltip-inner"
-          role="tooltip"
-        />
-      </div>
-    </div>
-  </button>
-  <div
-    class="ant-float-btn-group ant-float-btn-pure ant-float-btn-group-square ant-float-btn-group-square-shadow"
-  >
-    <button
-      class="ant-float-btn ant-float-btn-default ant-float-btn-square"
-      type="button"
-    >
-      <div
-        class="ant-float-btn-body"
->>>>>>> feature
       >
         <div
           class="ant-float-btn-content"
@@ -1855,12 +1789,12 @@ exports[`renders components/float-button/demo/render-panel.tsx extend context co
       </span>
     </div>
     <div
-      class="ant-tooltip ant-tooltip-placement-left"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-left"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
-        style="position:absolute;top:0;right:0"
+        style="position: absolute; top: 0px; right: 0px;"
       />
       <div
         class="ant-tooltip-content"
