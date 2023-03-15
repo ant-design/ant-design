@@ -4,4 +4,4 @@
 
 ## en-US
 
-FloatButton with a circular logo number.
+FloatButton with Badge.
