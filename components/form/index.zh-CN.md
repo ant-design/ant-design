@@ -353,9 +353,9 @@ export default () => {
 
 ### Form.useWatch
 
-`type Form.useWatch = (namePath: NamePath, formInstance?: FormInstance): Value`
+`type Form.useWatch = (namePath: NamePath, formInstance?: FormInstance | WatchOptions): Value`
 
-`4.20.0` 新增，用于直接获取 form 中字段对应的值。通过该 Hooks 可以与诸如 `useSWR` 进行联动从而降低维护成本：
+用于直接获取 form 中字段对应的值。通过该 Hooks 可以与诸如 `useSWR` 进行联动从而降低维护成本：
 
 ```tsx
 const Demo = () => {
@@ -370,6 +370,30 @@ const Demo = () => {
         <AutoComplete options={options} />
       </Form.Item>
     </Form>
+  );
+};
+```
+
+如果你的组件被包裹在 `Form.Item` 内部，你可以省略第二个参数，`Form.useWatch` 会自动找到上层最近的 `FormInstance`。
+
+`useWatch` 默认只监听在 Form 中注册的字段，如果需要监听非注册字段，可以通过配置 `preserve` 进行监听：
+
+```tsx
+const Demo = () => {
+  const [form] = Form.useForm();
+
+  const age = Form.useWatch('age', { form, preserve: true });
+  console.log(age);
+
+  return (
+    <div>
+      <Button onClick={() => form.setFieldValue('age', 2)}>Update</Button>
+      <Form form={form}>
+        <Form.Item name="name">
+          <Input />
+        </Form.Item>
+      </Form>
+    </div>
   );
 };
 ```
@@ -440,6 +464,13 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 | validator | 自定义校验，接收 Promise 作为返回值。[示例](#components-form-demo-register)参考 | ([rule](#rule), value) => Promise |  |
 | warningOnly | 仅警告，不阻塞表单提交 | boolean | 4.17.0 |
 | whitespace | 如果字段仅包含空格则校验不通过，只在 `type: 'string'` 时生效 | boolean |  |
+
+#### WatchOptions
+
+| 名称     | 说明                                  | 类型         | 默认值                 | 版本  |
+| -------- | ------------------------------------- | ------------ | ---------------------- | ----- |
+| form     | 指定 Form 实例                        | FormInstance | 当前 context 中的 Form | 5.4.0 |
+| preserve | 是否监视没有对应的 `Form.Item` 的字段 | boolean      | false                  | 5.4.0 |
 
 ## FAQ
 
