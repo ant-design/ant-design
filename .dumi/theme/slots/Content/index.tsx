@@ -209,10 +209,10 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
           ) : null}
           {/* 添加作者、时间等信息 */}
           {meta.frontmatter.date || meta.frontmatter.author ? (
-            <Typography.Paragraph style={{ opacity: 0.65 }}>
+            <Typography.Paragraph>
               <Space>
                 {meta.frontmatter.date && (
-                  <span>
+                  <span style={{ opacity: 0.65 }}>
                     <CalendarOutlined /> {DayJS(meta.frontmatter.date).format('YYYY-MM-DD')}
                   </span>
                 )}
@@ -230,6 +230,7 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
                           target="_blank"
                           rel="noopener noreferrer"
                           key={author}
+                          style={{ opacity: 0.65 }}
                         >
                           @{author}
                         </a>
@@ -256,7 +257,7 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
                             <Avatar size="small" src={item.url}>
                               {item.username}
                             </Avatar>
-                            <span>@{item.username}</span>
+                            <span style={{ opacity: 0.65 }}>@{item.username}</span>
                           </Space>
                         </a>
                       </Tooltip>
