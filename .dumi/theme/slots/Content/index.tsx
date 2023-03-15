@@ -238,24 +238,19 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
                   </span>
                 )}
                 {mergedAuthorInfos.map((info) => (
-                  <Tooltip
-                    mouseEnterDelay={0.3}
-                    title={`${formatMessage({ id: 'app.content.contributors' })}: ${info.name}`}
+                  <a
+                    href={`https://github.com/${info.name}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     key={info.name}
                   >
-                    <a
-                      href={`https://github.com/${info.name}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Space size={3}>
-                        <Avatar size="small" src={info.avatar}>
-                          {info.name}
-                        </Avatar>
-                        <span style={{ opacity: 0.65 }}>@{info.name}</span>
-                      </Space>
-                    </a>
-                  </Tooltip>
+                    <Space size={3}>
+                      <Avatar size="small" src={info.avatar}>
+                        {info.name}
+                      </Avatar>
+                      <span style={{ opacity: 0.65 }}>@{info.name}</span>
+                    </Space>
+                  </a>
                 ))}
               </Space>
             </Typography.Paragraph>
