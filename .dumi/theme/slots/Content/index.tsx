@@ -232,7 +232,12 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
                           key={author}
                           style={{ opacity: 0.65 }}
                         >
-                          @{author}
+                          <Space size={3}>
+                            <Avatar size="small" src={`https://github.com/${author}.png`}>
+                              {author}
+                            </Avatar>
+                            <span style={{ opacity: 0.65 }}>@{author}</span>
+                          </Space>
                         </a>
                       ))}
                     </>
