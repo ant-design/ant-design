@@ -16,11 +16,6 @@ import DemoContext from '../DemoContext';
 import Footer from '../Footer';
 import SiteContext from '../SiteContext';
 
-type AuthorInfoItem = {
-  name: string;
-  avatar: string;
-};
-
 const useStyle = () => {
   const { token } = useSiteToken();
 
@@ -166,25 +161,28 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
   // support custom author info in frontmatter
   // e.g.
   // ---
-  // authorInfos:
+  // author:
   //   - name: qixian
   //     avatar: https://avatars.githubusercontent.com/u/11746742?v=4
   //   - name: yutingzhao1991
   //     avatar: https://avatars.githubusercontent.com/u/5378891?v=4
   // ---
-  const authorInfos = meta.frontmatter.authorInfos as AuthorInfoItem[] | undefined;
-
-  const authors = (meta.frontmatter.author as string)?.split(',') || [];
-
-  const mergedAuthorInfos = useMemo(
-    () =>
-      authorInfos ||
-      authors.map((item) => ({
+  const mergedAuthorInfos = useMemo(() => {
+    const { author } = meta.frontmatter;
+    if (!author) {
+      return [];
+    }
+    if (typeof author === 'string') {
+      return author.split(',').map((item) => ({
         name: item,
         avatar: `https://github.com/${item}.png`,
-      })),
-    [authors, authorInfos],
-  );
+      }));
+    }
+    if (Array.isArray(author)) {
+      return author;
+    }
+    return [];
+  }, [meta.frontmatter.author]);
 
   return (
     <DemoContext.Provider value={contextValue}>
