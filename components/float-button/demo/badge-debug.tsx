@@ -6,8 +6,7 @@ const App: React.FC = () => {
   const [radius, setRadius] = useState<number>(0);
 
   const token: Partial<AliasToken> = {
-    borderRadiusLG: radius,
-    borderRadiusSM: radius,
+    borderRadius: radius,
   };
 
   return (
