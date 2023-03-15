@@ -1,0 +1,17 @@
+# Build a cron job to create a umi project which use antd and dumi, and then build it.
+name: Mock Project Build
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+
+jobs:
+  pr-check-ci:
+    runs-on: ubuntu-latest
+    name: Build Project
+    steps:
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Run Script
+        run: bash ./scripts/ci-mock-project-build.sh

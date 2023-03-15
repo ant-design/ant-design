@@ -78,8 +78,8 @@ exports[`renders components/empty/demo/basic.tsx extend context correctly 1`] = 
 exports[`renders components/empty/demo/config-provider.tsx extend context correctly 1`] = `
 Array [
   <button
-    aria-checked="false"
-    class="ant-switch"
+    aria-checked="true"
+    class="ant-switch ant-switch-checked"
     role="switch"
     type="button"
   >
@@ -163,49 +163,31 @@ Array [
               role="listbox"
             >
               <div
-                class="ant-empty ant-empty-normal ant-empty-small"
+                style="text-align: center;"
               >
-                <div
-                  class="ant-empty-image"
+                <span
+                  aria-label="smile"
+                  class="anticon anticon-smile"
+                  role="img"
+                  style="font-size: 20px;"
                 >
                   <svg
-                    height="41"
-                    viewBox="0 0 64 41"
-                    width="64"
-                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                    data-icon="smile"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
                   >
-                    <g
-                      fill="none"
-                      fill-rule="evenodd"
-                      transform="translate(0 1)"
-                    >
-                      <ellipse
-                        cx="32"
-                        cy="33"
-                        fill="#f5f5f5"
-                        rx="32"
-                        ry="7"
-                      />
-                      <g
-                        fill-rule="nonzero"
-                        stroke="#d9d9d9"
-                      >
-                        <path
-                          d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
-                        />
-                        <path
-                          d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
-                          fill="#fafafa"
-                        />
-                      </g>
-                    </g>
+                    <path
+                      d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm352 0a48 48 0 1096 0 48 48 0 10-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 01248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 01249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 01775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 01775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 00-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 00-8-8.4z"
+                    />
                   </svg>
-                </div>
-                <div
-                  class="ant-empty-description"
-                >
-                  No data
-                </div>
+                </span>
+                <p>
+                  Data Not Found
+                </p>
               </div>
             </div>
           </div>
@@ -290,49 +272,31 @@ Array [
               role="listbox"
             >
               <div
-                class="ant-empty ant-empty-normal ant-empty-small"
+                style="text-align: center;"
               >
-                <div
-                  class="ant-empty-image"
+                <span
+                  aria-label="smile"
+                  class="anticon anticon-smile"
+                  role="img"
+                  style="font-size: 20px;"
                 >
                   <svg
-                    height="41"
-                    viewBox="0 0 64 41"
-                    width="64"
-                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                    data-icon="smile"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
                   >
-                    <g
-                      fill="none"
-                      fill-rule="evenodd"
-                      transform="translate(0 1)"
-                    >
-                      <ellipse
-                        cx="32"
-                        cy="33"
-                        fill="#f5f5f5"
-                        rx="32"
-                        ry="7"
-                      />
-                      <g
-                        fill-rule="nonzero"
-                        stroke="#d9d9d9"
-                      >
-                        <path
-                          d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
-                        />
-                        <path
-                          d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
-                          fill="#fafafa"
-                        />
-                      </g>
-                    </g>
+                    <path
+                      d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm352 0a48 48 0 1096 0 48 48 0 10-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 01248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 01249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 01775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 01775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 00-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 00-8-8.4z"
+                    />
                   </svg>
-                </div>
-                <div
-                  class="ant-empty-description"
-                >
-                  No data
-                </div>
+                </span>
+                <p>
+                  Data Not Found
+                </p>
               </div>
             </div>
           </div>
@@ -426,49 +390,31 @@ Array [
                     class="ant-cascader-menu-item-content"
                   >
                     <div
-                      class="ant-empty ant-empty-normal ant-empty-small"
+                      style="text-align: center;"
                     >
-                      <div
-                        class="ant-empty-image"
+                      <span
+                        aria-label="smile"
+                        class="anticon anticon-smile"
+                        role="img"
+                        style="font-size: 20px;"
                       >
                         <svg
-                          height="41"
-                          viewBox="0 0 64 41"
-                          width="64"
-                          xmlns="http://www.w3.org/2000/svg"
+                          aria-hidden="true"
+                          data-icon="smile"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
                         >
-                          <g
-                            fill="none"
-                            fill-rule="evenodd"
-                            transform="translate(0 1)"
-                          >
-                            <ellipse
-                              cx="32"
-                              cy="33"
-                              fill="#f5f5f5"
-                              rx="32"
-                              ry="7"
-                            />
-                            <g
-                              fill-rule="nonzero"
-                              stroke="#d9d9d9"
-                            >
-                              <path
-                                d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
-                              />
-                              <path
-                                d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
-                                fill="#fafafa"
-                              />
-                            </g>
-                          </g>
+                          <path
+                            d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm352 0a48 48 0 1096 0 48 48 0 10-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 01248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 01249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 01775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 01775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 00-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 00-8-8.4z"
+                          />
                         </svg>
-                      </div>
-                      <div
-                        class="ant-empty-description"
-                      >
-                        No data
-                      </div>
+                      </span>
+                      <p>
+                        Data Not Found
+                      </p>
                     </div>
                   </div>
                 </li>
@@ -688,49 +634,31 @@ Array [
               class="ant-transfer-list-body-not-found"
             >
               <div
-                class="ant-empty ant-empty-normal ant-empty-small"
+                style="text-align: center;"
               >
-                <div
-                  class="ant-empty-image"
+                <span
+                  aria-label="smile"
+                  class="anticon anticon-smile"
+                  role="img"
+                  style="font-size: 20px;"
                 >
                   <svg
-                    height="41"
-                    viewBox="0 0 64 41"
-                    width="64"
-                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                    data-icon="smile"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
                   >
-                    <g
-                      fill="none"
-                      fill-rule="evenodd"
-                      transform="translate(0 1)"
-                    >
-                      <ellipse
-                        cx="32"
-                        cy="33"
-                        fill="#f5f5f5"
-                        rx="32"
-                        ry="7"
-                      />
-                      <g
-                        fill-rule="nonzero"
-                        stroke="#d9d9d9"
-                      >
-                        <path
-                          d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
-                        />
-                        <path
-                          d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
-                          fill="#fafafa"
-                        />
-                      </g>
-                    </g>
+                    <path
+                      d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm352 0a48 48 0 1096 0 48 48 0 10-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 01248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 01249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 01775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 01775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 00-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 00-8-8.4z"
+                    />
                   </svg>
-                </div>
-                <div
-                  class="ant-empty-description"
-                >
-                  No data
-                </div>
+                </span>
+                <p>
+                  Data Not Found
+                </p>
               </div>
             </div>
           </div>
@@ -958,49 +886,31 @@ Array [
               class="ant-transfer-list-body-not-found"
             >
               <div
-                class="ant-empty ant-empty-normal ant-empty-small"
+                style="text-align: center;"
               >
-                <div
-                  class="ant-empty-image"
+                <span
+                  aria-label="smile"
+                  class="anticon anticon-smile"
+                  role="img"
+                  style="font-size: 20px;"
                 >
                   <svg
-                    height="41"
-                    viewBox="0 0 64 41"
-                    width="64"
-                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                    data-icon="smile"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
                   >
-                    <g
-                      fill="none"
-                      fill-rule="evenodd"
-                      transform="translate(0 1)"
-                    >
-                      <ellipse
-                        cx="32"
-                        cy="33"
-                        fill="#f5f5f5"
-                        rx="32"
-                        ry="7"
-                      />
-                      <g
-                        fill-rule="nonzero"
-                        stroke="#d9d9d9"
-                      >
-                        <path
-                          d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
-                        />
-                        <path
-                          d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
-                          fill="#fafafa"
-                        />
-                      </g>
-                    </g>
+                    <path
+                      d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm352 0a48 48 0 1096 0 48 48 0 10-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 01248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 01249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 01775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 01775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 00-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 00-8-8.4z"
+                    />
                   </svg>
-                </div>
-                <div
-                  class="ant-empty-description"
-                >
-                  No data
-                </div>
+                </span>
+                <p>
+                  Data Not Found
+                </p>
               </div>
             </div>
           </div>
@@ -1071,49 +981,31 @@ Array [
                           colspan="2"
                         >
                           <div
-                            class="ant-empty ant-empty-normal"
+                            style="text-align: center;"
                           >
-                            <div
-                              class="ant-empty-image"
+                            <span
+                              aria-label="smile"
+                              class="anticon anticon-smile"
+                              role="img"
+                              style="font-size: 20px;"
                             >
                               <svg
-                                height="41"
-                                viewBox="0 0 64 41"
-                                width="64"
-                                xmlns="http://www.w3.org/2000/svg"
+                                aria-hidden="true"
+                                data-icon="smile"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
                               >
-                                <g
-                                  fill="none"
-                                  fill-rule="evenodd"
-                                  transform="translate(0 1)"
-                                >
-                                  <ellipse
-                                    cx="32"
-                                    cy="33"
-                                    fill="#f5f5f5"
-                                    rx="32"
-                                    ry="7"
-                                  />
-                                  <g
-                                    fill-rule="nonzero"
-                                    stroke="#d9d9d9"
-                                  >
-                                    <path
-                                      d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
-                                    />
-                                    <path
-                                      d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
-                                      fill="#fafafa"
-                                    />
-                                  </g>
-                                </g>
+                                <path
+                                  d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm352 0a48 48 0 1096 0 48 48 0 10-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 01248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 01249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 01775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 01775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 00-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 00-8-8.4z"
+                                />
                               </svg>
-                            </div>
-                            <div
-                              class="ant-empty-description"
-                            >
-                              No data
-                            </div>
+                            </span>
+                            <p>
+                              Data Not Found
+                            </p>
                           </div>
                         </td>
                       </tr>
@@ -1150,49 +1042,31 @@ Array [
               class="ant-list-empty-text"
             >
               <div
-                class="ant-empty ant-empty-normal"
+                style="text-align: center;"
               >
-                <div
-                  class="ant-empty-image"
+                <span
+                  aria-label="smile"
+                  class="anticon anticon-smile"
+                  role="img"
+                  style="font-size: 20px;"
                 >
                   <svg
-                    height="41"
-                    viewBox="0 0 64 41"
-                    width="64"
-                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                    data-icon="smile"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
                   >
-                    <g
-                      fill="none"
-                      fill-rule="evenodd"
-                      transform="translate(0 1)"
-                    >
-                      <ellipse
-                        cx="32"
-                        cy="33"
-                        fill="#f5f5f5"
-                        rx="32"
-                        ry="7"
-                      />
-                      <g
-                        fill-rule="nonzero"
-                        stroke="#d9d9d9"
-                      >
-                        <path
-                          d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
-                        />
-                        <path
-                          d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
-                          fill="#fafafa"
-                        />
-                      </g>
-                    </g>
+                    <path
+                      d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm352 0a48 48 0 1096 0 48 48 0 10-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 01248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 01249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 01775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 01775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 00-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 00-8-8.4z"
+                    />
                   </svg>
-                </div>
-                <div
-                  class="ant-empty-description"
-                >
-                  No data
-                </div>
+                </span>
+                <p>
+                  Data Not Found
+                </p>
               </div>
             </div>
           </div>
