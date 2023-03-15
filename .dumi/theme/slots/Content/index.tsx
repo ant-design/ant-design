@@ -163,6 +163,15 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
 
   const isRTL = direction === 'rtl';
 
+  // support custom author info in frontmatter
+  // e.g.
+  // ---
+  // authorInfos:
+  //   - name: qixian
+  //     avatar: https://avatars.githubusercontent.com/u/11746742?v=4
+  //   - name: yutingzhao1991
+  //     avatar: https://avatars.githubusercontent.com/u/5378891?v=4
+  // ---
   const authorInfos = meta.frontmatter.authorInfos as AuthorInfoItem[] | undefined;
 
   const authors = (meta.frontmatter.author as string)?.split(',') || [];
