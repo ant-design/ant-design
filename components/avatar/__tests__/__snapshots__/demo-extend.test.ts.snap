@@ -6,7 +6,7 @@ exports[`renders components/avatar/demo/badge.tsx extend context correctly 1`] =
 >
   <div
     class="ant-space-item"
-    style="margin-right:24px"
+    style="margin-right: 24px;"
   >
     <span
       class="ant-badge"
@@ -41,7 +41,7 @@ exports[`renders components/avatar/demo/badge.tsx extend context correctly 1`] =
       >
         <span
           class="ant-scroll-number-only"
-          style="transition:none"
+          style="transition: none;"
         >
           <span
             class="ant-scroll-number-only-unit current"
@@ -96,19 +96,19 @@ exports[`renders components/avatar/demo/basic.tsx extend context correctly 1`] =
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:16px"
+    style="margin-bottom: 16px;"
   >
     <div
       class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap:wrap;margin-bottom:-16px"
+      style="flex-wrap: wrap; margin-bottom: -16px;"
     >
       <div
         class="ant-space-item"
-        style="margin-right:16px;padding-bottom:16px"
+        style="margin-right: 16px; padding-bottom: 16px;"
       >
         <span
           class="ant-avatar ant-avatar-circle ant-avatar-icon"
-          style="width:64px;height:64px;line-height:64px;font-size:32px"
+          style="width: 64px; height: 64px; line-height: 64px; font-size: 32px;"
         >
           <span
             aria-label="user"
@@ -133,7 +133,7 @@ exports[`renders components/avatar/demo/basic.tsx extend context correctly 1`] =
       </div>
       <div
         class="ant-space-item"
-        style="margin-right:16px;padding-bottom:16px"
+        style="margin-right: 16px; padding-bottom: 16px;"
       >
         <span
           class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-icon"
@@ -161,7 +161,7 @@ exports[`renders components/avatar/demo/basic.tsx extend context correctly 1`] =
       </div>
       <div
         class="ant-space-item"
-        style="margin-right:16px;padding-bottom:16px"
+        style="margin-right: 16px; padding-bottom: 16px;"
       >
         <span
           class="ant-avatar ant-avatar-circle ant-avatar-icon"
@@ -189,7 +189,7 @@ exports[`renders components/avatar/demo/basic.tsx extend context correctly 1`] =
       </div>
       <div
         class="ant-space-item"
-        style="padding-bottom:16px"
+        style="padding-bottom: 16px;"
       >
         <span
           class="ant-avatar ant-avatar-sm ant-avatar-circle ant-avatar-icon"
@@ -222,15 +222,15 @@ exports[`renders components/avatar/demo/basic.tsx extend context correctly 1`] =
   >
     <div
       class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap:wrap;margin-bottom:-16px"
+      style="flex-wrap: wrap; margin-bottom: -16px;"
     >
       <div
         class="ant-space-item"
-        style="margin-right:16px;padding-bottom:16px"
+        style="margin-right: 16px; padding-bottom: 16px;"
       >
         <span
           class="ant-avatar ant-avatar-square ant-avatar-icon"
-          style="width:64px;height:64px;line-height:64px;font-size:32px"
+          style="width: 64px; height: 64px; line-height: 64px; font-size: 32px;"
         >
           <span
             aria-label="user"
@@ -255,7 +255,7 @@ exports[`renders components/avatar/demo/basic.tsx extend context correctly 1`] =
       </div>
       <div
         class="ant-space-item"
-        style="margin-right:16px;padding-bottom:16px"
+        style="margin-right: 16px; padding-bottom: 16px;"
       >
         <span
           class="ant-avatar ant-avatar-lg ant-avatar-square ant-avatar-icon"
@@ -283,7 +283,7 @@ exports[`renders components/avatar/demo/basic.tsx extend context correctly 1`] =
       </div>
       <div
         class="ant-space-item"
-        style="margin-right:16px;padding-bottom:16px"
+        style="margin-right: 16px; padding-bottom: 16px;"
       >
         <span
           class="ant-avatar ant-avatar-square ant-avatar-icon"
@@ -311,7 +311,7 @@ exports[`renders components/avatar/demo/basic.tsx extend context correctly 1`] =
       </div>
       <div
         class="ant-space-item"
-        style="padding-bottom:16px"
+        style="padding-bottom: 16px;"
       >
         <span
           class="ant-avatar ant-avatar-sm ant-avatar-square ant-avatar-icon"
@@ -346,18 +346,18 @@ exports[`renders components/avatar/demo/dynamic.tsx extend context correctly 1`]
 Array [
   <span
     class="ant-avatar ant-avatar-lg ant-avatar-circle"
-    style="background-color:#f56a00;vertical-align:middle"
+    style="background-color: rgb(245, 106, 0); vertical-align: middle;"
   >
     <span
       class="ant-avatar-string"
-      style="opacity:0"
+      style="transform: scale(1) translateX(-50%);"
     >
       U
     </span>
   </span>,
   <button
     class="ant-btn ant-btn-default ant-btn-sm"
-    style="margin:0 16px;vertical-align:middle"
+    style="margin: 0px 16px; vertical-align: middle;"
     type="button"
   >
     <span>
@@ -366,7 +366,7 @@ Array [
   </button>,
   <button
     class="ant-btn ant-btn-default ant-btn-sm"
-    style="vertical-align:middle"
+    style="vertical-align: middle;"
     type="button"
   >
     <span>
@@ -382,7 +382,7 @@ exports[`renders components/avatar/demo/fallback.tsx extend context correctly 1`
 >
   <div
     class="ant-space-item"
-    style="margin-right:8px"
+    style="margin-right: 8px;"
   >
     <span
       class="ant-avatar ant-avatar-circle ant-avatar-image"
@@ -423,11 +423,11 @@ Array [
     >
       <span
         class="ant-avatar ant-avatar-circle"
-        style="background-color:#f56a00"
+        style="background-color: rgb(245, 106, 0);"
       >
         <span
           class="ant-avatar-string"
-          style="opacity:0"
+          style="transform: scale(1) translateX(-50%);"
         >
           K
         </span>
@@ -435,7 +435,7 @@ Array [
     </a>
     <span
       class="ant-avatar ant-avatar-circle ant-avatar-icon"
-      style="background-color:#87d068"
+      style="background-color: rgb(135, 208, 104);"
     >
       <span
         aria-label="user"
@@ -458,12 +458,12 @@ Array [
       </span>
     </span>
     <div
-      class="ant-tooltip ant-tooltip-placement-top"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
-        style="position:absolute;bottom:0;left:0"
+        style="position: absolute; bottom: 0px; left: 0px;"
       />
       <div
         class="ant-tooltip-content"
@@ -478,7 +478,7 @@ Array [
     </div>
     <span
       class="ant-avatar ant-avatar-circle ant-avatar-icon"
-      style="background-color:#1890ff"
+      style="background-color: rgb(24, 144, 255);"
     >
       <span
         aria-label="ant-design"
@@ -517,33 +517,33 @@ Array [
     </span>
     <span
       class="ant-avatar ant-avatar-circle"
-      style="background-color:#f56a00"
+      style="background-color: rgb(245, 106, 0);"
     >
       <span
         class="ant-avatar-string"
-        style="opacity:0"
+        style="transform: scale(1) translateX(-50%);"
       >
         K
       </span>
     </span>
     <span
       class="ant-avatar ant-avatar-circle"
-      style="color:#f56a00;background-color:#fde3cf"
+      style="color: rgb(245, 106, 0); background-color: rgb(253, 227, 207);"
     >
       <span
         class="ant-avatar-string"
-        style="opacity:0"
+        style="transform: scale(1) translateX(-50%);"
       >
         +2
       </span>
     </span>
     <div
-      class="ant-popover ant-avatar-group-popover ant-popover-placement-top"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-avatar-group-popover ant-popover-placement-top"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
-        style="position:absolute;bottom:0;left:0"
+        style="position: absolute; bottom: 0px; left: 0px;"
       />
       <div
         class="ant-popover-content"
@@ -557,7 +557,7 @@ Array [
           >
             <span
               class="ant-avatar ant-avatar-circle ant-avatar-icon"
-              style="background-color:#87d068"
+              style="background-color: rgb(135, 208, 104);"
             >
               <span
                 aria-label="user"
@@ -580,12 +580,12 @@ Array [
               </span>
             </span>
             <div
-              class="ant-tooltip ant-tooltip-placement-top"
-              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+              style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
-                style="position:absolute;bottom:0;left:0"
+                style="position: absolute; bottom: 0px; left: 0px;"
               />
               <div
                 class="ant-tooltip-content"
@@ -600,7 +600,7 @@ Array [
             </div>
             <span
               class="ant-avatar ant-avatar-circle ant-avatar-icon"
-              style="background-color:#1890ff"
+              style="background-color: rgb(24, 144, 255);"
             >
               <span
                 aria-label="ant-design"
@@ -643,33 +643,33 @@ Array [
     </span>
     <span
       class="ant-avatar ant-avatar-lg ant-avatar-circle"
-      style="background-color:#f56a00"
+      style="background-color: rgb(245, 106, 0);"
     >
       <span
         class="ant-avatar-string"
-        style="opacity:0"
+        style="transform: scale(1) translateX(-50%);"
       >
         K
       </span>
     </span>
     <span
       class="ant-avatar ant-avatar-lg ant-avatar-circle"
-      style="color:#f56a00;background-color:#fde3cf"
+      style="color: rgb(245, 106, 0); background-color: rgb(253, 227, 207);"
     >
       <span
         class="ant-avatar-string"
-        style="opacity:0"
+        style="transform: scale(1) translateX(-50%);"
       >
         +2
       </span>
     </span>
     <div
-      class="ant-popover ant-avatar-group-popover ant-popover-placement-top"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-avatar-group-popover ant-popover-placement-top"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
-        style="position:absolute;bottom:0;left:0"
+        style="position: absolute; bottom: 0px; left: 0px;"
       />
       <div
         class="ant-popover-content"
@@ -683,7 +683,7 @@ Array [
           >
             <span
               class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-icon"
-              style="background-color:#87d068"
+              style="background-color: rgb(135, 208, 104);"
             >
               <span
                 aria-label="user"
@@ -706,12 +706,12 @@ Array [
               </span>
             </span>
             <div
-              class="ant-tooltip ant-tooltip-placement-top"
-              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+              style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
-                style="position:absolute;bottom:0;left:0"
+                style="position: absolute; bottom: 0px; left: 0px;"
               />
               <div
                 class="ant-tooltip-content"
@@ -726,7 +726,7 @@ Array [
             </div>
             <span
               class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-icon"
-              style="background-color:#1890ff"
+              style="background-color: rgb(24, 144, 255);"
             >
               <span
                 aria-label="ant-design"
@@ -769,33 +769,33 @@ Array [
     </span>
     <span
       class="ant-avatar ant-avatar-lg ant-avatar-circle"
-      style="background-color:#f56a00"
+      style="background-color: rgb(245, 106, 0);"
     >
       <span
         class="ant-avatar-string"
-        style="opacity:0"
+        style="transform: scale(1) translateX(-50%);"
       >
         K
       </span>
     </span>
     <span
       class="ant-avatar ant-avatar-lg ant-avatar-circle"
-      style="color:#f56a00;background-color:#fde3cf;cursor:pointer"
+      style="color: rgb(245, 106, 0); background-color: rgb(253, 227, 207); cursor: pointer;"
     >
       <span
         class="ant-avatar-string"
-        style="opacity:0"
+        style="transform: scale(1) translateX(-50%);"
       >
         +2
       </span>
     </span>
     <div
-      class="ant-popover ant-avatar-group-popover ant-popover-placement-top"
-      style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-avatar-group-popover ant-popover-placement-top"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
-        style="position:absolute;bottom:0;left:0"
+        style="position: absolute; bottom: 0px; left: 0px;"
       />
       <div
         class="ant-popover-content"
@@ -809,7 +809,7 @@ Array [
           >
             <span
               class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-icon"
-              style="background-color:#87d068"
+              style="background-color: rgb(135, 208, 104);"
             >
               <span
                 aria-label="user"
@@ -832,12 +832,12 @@ Array [
               </span>
             </span>
             <div
-              class="ant-tooltip ant-tooltip-placement-top"
-              style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+              style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
-                style="position:absolute;bottom:0;left:0"
+                style="position: absolute; bottom: 0px; left: 0px;"
               />
               <div
                 class="ant-tooltip-content"
@@ -852,7 +852,7 @@ Array [
             </div>
             <span
               class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-icon"
-              style="background-color:#1890ff"
+              style="background-color: rgb(24, 144, 255);"
             >
               <span
                 aria-label="ant-design"
@@ -885,6 +885,7 @@ Array [
 exports[`renders components/avatar/demo/responsive.tsx extend context correctly 1`] = `
 <span
   class="ant-avatar ant-avatar-circle ant-avatar-icon"
+  style="width: 24px; height: 24px; line-height: 24px; font-size: 12px;"
 >
   <span
     aria-label="ant-design"
@@ -912,11 +913,11 @@ exports[`renders components/avatar/demo/toggle-debug.tsx extend context correctl
 Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
-    style="flex-wrap:wrap;margin-bottom:-8px"
+    style="flex-wrap: wrap; margin-bottom: -8px;"
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
+      style="margin-right: 8px; padding-bottom: 8px;"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -929,7 +930,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
+      style="margin-right: 8px; padding-bottom: 8px;"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -942,7 +943,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="padding-bottom:8px"
+      style="padding-bottom: 8px;"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -955,44 +956,44 @@ Array [
     </div>
   </div>,
   <div
-    style="text-align:center;transform:scale(1);margin-top:24px"
+    style="text-align: center; transform: scale(1); margin-top: 24px;"
   >
     <span
       class="ant-avatar ant-avatar-lg ant-avatar-circle"
-      style="background:#7265e6;display:none"
+      style="background: rgb(114, 101, 230); display: none;"
     >
       <span
         class="ant-avatar-string"
-        style="opacity:0"
+        style="transform: scale(1) translateX(-50%);"
       >
         Avatar
       </span>
     </span>
     <span
       class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-image"
-      style="background:#00a2ae;display:none"
+      style="background: rgb(0, 162, 174); display: none;"
     >
       <img
         src="invalid"
       />
     </span>
     <div
-      style="display:none"
+      style="display: none;"
     >
       <span
         class="ant-avatar ant-avatar-lg ant-avatar-circle"
-        style="background:#7265e6"
+        style="background: rgb(114, 101, 230);"
       >
         <span
           class="ant-avatar-string"
-          style="opacity:0"
+          style="transform: scale(1) translateX(-50%);"
         >
           Avatar
         </span>
       </span>
       <span
         class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-image"
-        style="background:#00a2ae"
+        style="background: rgb(0, 162, 174);"
       >
         <img
           src="invalid"
@@ -1006,11 +1007,11 @@ Array [
 exports[`renders components/avatar/demo/type.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap:wrap;margin-bottom:-16px"
+  style="flex-wrap: wrap; margin-bottom: -16px;"
 >
   <div
     class="ant-space-item"
-    style="margin-right:16px;padding-bottom:16px"
+    style="margin-right: 16px; padding-bottom: 16px;"
   >
     <span
       class="ant-avatar ant-avatar-circle ant-avatar-icon"
@@ -1038,14 +1039,14 @@ exports[`renders components/avatar/demo/type.tsx extend context correctly 1`] = 
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:16px;padding-bottom:16px"
+    style="margin-right: 16px; padding-bottom: 16px;"
   >
     <span
       class="ant-avatar ant-avatar-circle"
     >
       <span
         class="ant-avatar-string"
-        style="opacity:0"
+        style="transform: scale(1) translateX(-50%);"
       >
         U
       </span>
@@ -1053,15 +1054,15 @@ exports[`renders components/avatar/demo/type.tsx extend context correctly 1`] = 
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:16px;padding-bottom:16px"
+    style="margin-right: 16px; padding-bottom: 16px;"
   >
     <span
       class="ant-avatar ant-avatar-circle"
-      style="width:40px;height:40px;line-height:40px;font-size:18px"
+      style="width: 40px; height: 40px; line-height: 40px; font-size: 18px;"
     >
       <span
         class="ant-avatar-string"
-        style="opacity:0"
+        style="line-height: 40px; transform: scale(1) translateX(-50%);"
       >
         USER
       </span>
@@ -1069,7 +1070,7 @@ exports[`renders components/avatar/demo/type.tsx extend context correctly 1`] = 
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:16px;padding-bottom:16px"
+    style="margin-right: 16px; padding-bottom: 16px;"
   >
     <span
       class="ant-avatar ant-avatar-circle ant-avatar-image"
@@ -1081,7 +1082,7 @@ exports[`renders components/avatar/demo/type.tsx extend context correctly 1`] = 
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:16px;padding-bottom:16px"
+    style="margin-right: 16px; padding-bottom: 16px;"
   >
     <span
       class="ant-avatar ant-avatar-circle ant-avatar-image"
@@ -1094,15 +1095,15 @@ exports[`renders components/avatar/demo/type.tsx extend context correctly 1`] = 
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:16px;padding-bottom:16px"
+    style="margin-right: 16px; padding-bottom: 16px;"
   >
     <span
       class="ant-avatar ant-avatar-circle"
-      style="background-color:#fde3cf;color:#f56a00"
+      style="background-color: rgb(253, 227, 207); color: rgb(245, 106, 0);"
     >
       <span
         class="ant-avatar-string"
-        style="opacity:0"
+        style="transform: scale(1) translateX(-50%);"
       >
         U
       </span>
@@ -1110,11 +1111,11 @@ exports[`renders components/avatar/demo/type.tsx extend context correctly 1`] = 
   </div>
   <div
     class="ant-space-item"
-    style="padding-bottom:16px"
+    style="padding-bottom: 16px;"
   >
     <span
       class="ant-avatar ant-avatar-circle ant-avatar-icon"
-      style="background-color:#87d068"
+      style="background-color: rgb(135, 208, 104);"
     >
       <span
         aria-label="user"

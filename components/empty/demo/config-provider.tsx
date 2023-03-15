@@ -23,7 +23,7 @@ const customizeRenderEmpty = () => (
 const style: React.CSSProperties = { width: 200 };
 
 const App: React.FC = () => {
-  const [customize, setCustomize] = useState(false);
+  const [customize, setCustomize] = useState(true);
   return (
     <>
       <Switch

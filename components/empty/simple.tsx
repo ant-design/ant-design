@@ -37,4 +37,8 @@ const Simple = () => {
   );
 };
 
+if (process.env.NODE_ENV !== 'production') {
+  Simple.displayName = 'SimpleImage';
+}
+
 export default Simple;
