@@ -16,6 +16,11 @@ import DemoContext from '../DemoContext';
 import Footer from '../Footer';
 import SiteContext from '../SiteContext';
 
+type AuthorInfoItem = {
+  name: string;
+  avatar: string;
+};
+
 const useStyle = () => {
   const { token } = useSiteToken();
 
@@ -158,9 +163,18 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
 
   const isRTL = direction === 'rtl';
 
-  const authors = useMemo(
-    () => (meta.frontmatter.author as string)?.split(',') || [],
-    [meta.frontmatter.author],
+  const authorInfos = meta.frontmatter.authorInfos as AuthorInfoItem[] | undefined;
+
+  const authors = (meta.frontmatter.author as string)?.split(',') || [];
+
+  const mergedAuthorInfos = useMemo(
+    () =>
+      authorInfos ||
+      authors.map((item) => ({
+        name: item,
+        avatar: `https://github.com/${item}.png`,
+      })),
+    [authors, authorInfos],
   );
 
   return (
@@ -216,59 +230,26 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
                     <CalendarOutlined /> {DayJS(meta.frontmatter.date).format('YYYY-MM-DD')}
                   </span>
                 )}
-                <ContributorsList
-                  repo="ant-design"
-                  owner="ant-design"
-                  filter={(item) => authors.includes(item.username)}
-                  fileName={meta.frontmatter.filename}
-                  cache
-                  emptyRender={() => (
-                    <>
-                      {authors.map((author) => (
-                        <a
-                          href={`https://github.com/${author}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          key={author}
-                          style={{ opacity: 0.65 }}
-                        >
-                          <Space size={3}>
-                            <Avatar size="small" src={`https://github.com/${author}.png`}>
-                              {author}
-                            </Avatar>
-                            <span style={{ opacity: 0.65 }}>@{author}</span>
-                          </Space>
-                        </a>
-                      ))}
-                    </>
-                  )}
-                  renderItem={(item, loading) =>
-                    loading || !item ? (
-                      <AvatarPlaceholder />
-                    ) : (
-                      <Tooltip
-                        mouseEnterDelay={0.3}
-                        title={`${formatMessage({ id: 'app.content.contributors' })}: ${
-                          item.username
-                        }`}
-                        key={item.username}
-                      >
-                        <a
-                          href={`https://github.com/${item.username}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <Space size={3}>
-                            <Avatar size="small" src={item.url}>
-                              {item.username}
-                            </Avatar>
-                            <span style={{ opacity: 0.65 }}>@{item.username}</span>
-                          </Space>
-                        </a>
-                      </Tooltip>
-                    )
-                  }
-                />
+                {mergedAuthorInfos.map((info) => (
+                  <Tooltip
+                    mouseEnterDelay={0.3}
+                    title={`${formatMessage({ id: 'app.content.contributors' })}: ${info.name}`}
+                    key={info.name}
+                  >
+                    <a
+                      href={`https://github.com/${info.name}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Space size={3}>
+                        <Avatar size="small" src={info.avatar}>
+                          {info.name}
+                        </Avatar>
+                        <span style={{ opacity: 0.65 }}>@{info.name}</span>
+                      </Space>
+                    </a>
+                  </Tooltip>
+                ))}
               </Space>
             </Typography.Paragraph>
           ) : null}
