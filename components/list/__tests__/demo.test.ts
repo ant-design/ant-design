@@ -1,3 +1,3 @@
 import demoTest from '../../../tests/shared/demoTest';
 
-demoTest('list', { skip: ['virtual-list.md'] });
+demoTest('list', { skip: ['virtual-list.tsx'] });

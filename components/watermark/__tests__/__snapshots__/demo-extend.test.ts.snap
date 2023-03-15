@@ -3,21 +3,24 @@
 exports[`renders components/watermark/demo/basic.tsx extend context correctly 1`] = `
 <div
   class=""
-  style="position:relative"
+  style="position: relative;"
 >
   <div
-    style="height:500px"
+    style="height: 500px;"
+  />
+  <div
+    style="z-index: 9; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); background-size: 220px;"
   />
 </div>
 `;
 
 exports[`renders components/watermark/demo/custom.tsx extend context correctly 1`] = `
 <div
-  style="display:flex"
+  style="display: flex;"
 >
   <div
     class=""
-    style="position:relative"
+    style="position: relative;"
   >
     <article
       class="ant-typography"
@@ -41,12 +44,15 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
     <img
       alt="示例图片"
       src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*zx7LTI_ECSAAAAAAAAAAAABkARQnAQ"
-      style="z-index:10;width:100%;max-width:800px;position:relative"
+      style="z-index: 10; width: 100%; max-width: 800px; position: relative;"
+    />
+    <div
+      style="z-index: 11; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); background-size: 220px;"
     />
   </div>
   <form
     class="ant-form ant-form-vertical"
-    style="width:280px;flex-shrink:0;border-left:1px solid #eee;padding-left:20px;margin-left:20px"
+    style="width: 280px; flex-shrink: 0; border-left: 1px solid #eee; padding-left: 20px; margin-left: 20px;"
   >
     <div
       class="ant-form-item"
@@ -113,19 +119,19 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
               class="ant-form-item-control-input-content"
             >
               <div
-                style="padding:4px;background:#fff;border-radius:2px;border:1px solid #dedede;display:inline-block;cursor:pointer"
+                style="padding: 4px; background: rgb(255, 255, 255); border-radius: 2px; border: 1px solid #dedede; display: inline-block; cursor: pointer;"
               >
                 <div
-                  style="width:36px;height:14px;border-radius:2px;background:rgba(0, 0, 0, 0.15)"
+                  style="width: 36px; height: 14px; border-radius: 2px; background: rgba(0, 0, 0, 0.15);"
                 />
               </div>
               <div
-                class="ant-popover ant-popover-placement-bottomLeft"
-                style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-bottomLeft"
+                style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
               >
                 <div
                   class="ant-popover-arrow"
-                  style="position:absolute"
+                  style="position: absolute;"
                 />
                 <div
                   class="ant-popover-content"
@@ -133,20 +139,20 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                   <div
                     class="ant-popover-inner"
                     role="tooltip"
-                    style="padding:0"
+                    style="padding: 0px;"
                   >
                     <div
                       class="ant-popover-inner-content"
                     >
                       <div
                         class="sketch-picker "
-                        style="width:200px;padding:10px 10px 0;box-sizing:initial;background:#fff;-ms-border-radius:4px;-moz-border-radius:4px;-o-border-radius:4px;-webkit-border-radius:4px;border-radius:4px;-ms-box-shadow:0 0 0 1px rgba(0,0,0,.15), 0 8px 16px rgba(0,0,0,.15);-moz-box-shadow:0 0 0 1px rgba(0,0,0,.15), 0 8px 16px rgba(0,0,0,.15);-o-box-shadow:0 0 0 1px rgba(0,0,0,.15), 0 8px 16px rgba(0,0,0,.15);-webkit-box-shadow:0 0 0 1px rgba(0,0,0,.15), 0 8px 16px rgba(0,0,0,.15);box-shadow:0 0 0 1px rgba(0,0,0,.15), 0 8px 16px rgba(0,0,0,.15)"
+                        style="width: 200px; padding: 10px 10px 0px; box-sizing: initial; background: rgb(255, 255, 255); border-radius: 4px; box-shadow: 0 0 0 1px rgba(0,0,0,.15), 0 8px 16px rgba(0,0,0,.15);"
                       >
                         <div
-                          style="width:100%;padding-bottom:75%;position:relative;overflow:hidden"
+                          style="width: 100%; padding-bottom: 75%; position: relative; overflow: hidden;"
                         >
                           <div
-                            style="position:absolute;top:0px;right:0px;bottom:0px;left:0px;background:hsl(0,100%, 50%)"
+                            style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; background: rgb(255, 0, 0);"
                           >
                             <style>
           .saturation-white {
@@ -160,22 +166,18 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                             </style>
                             <div
                               class="saturation-white"
-                              style="position:absolute;top:0px;right:0px;bottom:0px;left:0px"
+                              style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px;"
                             >
                               <div
                                 class="saturation-black"
-                                style="position:absolute;top:0px;right:0px;bottom:0px;left:0px"
+                                style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px;"
                               />
                               <div
-                                style="position:absolute;top:100%;left:0%;cursor:default"
+                                style="position: absolute; top: 100%; left: 0%; cursor: default;"
                               >
                                 <div
-                                  style="width:4px;height:4px;-ms-box-shadow:0 0 0 1.5px #fff, inset 0 0 1px 1px rgba(0,0,0,.3),
-            0 0 1px 2px rgba(0,0,0,.4);-moz-box-shadow:0 0 0 1.5px #fff, inset 0 0 1px 1px rgba(0,0,0,.3),
-            0 0 1px 2px rgba(0,0,0,.4);-o-box-shadow:0 0 0 1.5px #fff, inset 0 0 1px 1px rgba(0,0,0,.3),
-            0 0 1px 2px rgba(0,0,0,.4);-webkit-box-shadow:0 0 0 1.5px #fff, inset 0 0 1px 1px rgba(0,0,0,.3),
-            0 0 1px 2px rgba(0,0,0,.4);box-shadow:0 0 0 1.5px #fff, inset 0 0 1px 1px rgba(0,0,0,.3),
-            0 0 1px 2px rgba(0,0,0,.4);-ms-border-radius:50%;-moz-border-radius:50%;-o-border-radius:50%;-webkit-border-radius:50%;border-radius:50%;cursor:hand;-ms-transform:translate(-2px, -2px);-moz-transform:translate(-2px, -2px);-o-transform:translate(-2px, -2px);-webkit-transform:translate(-2px, -2px);transform:translate(-2px, -2px)"
+                                  style="width: 4px; height: 4px; box-shadow: 0 0 0 1.5px #fff, inset 0 0 1px 1px rgba(0,0,0,.3),
+            0 0 1px 2px rgba(0,0,0,.4); border-radius: 50%; cursor: hand; transform: translate(-2px, -2px);"
                                 />
                               </div>
                             </div>
@@ -183,20 +185,20 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                         </div>
                         <div
                           class="flexbox-fix"
-                          style="display:flex"
+                          style="display: flex;"
                         >
                           <div
-                            style="padding:4px 0;-webkit-box-flex:1;-moz-box-flex:1;-webkit-flex:1;-ms-flex:1;flex:1"
+                            style="padding: 4px 0px; flex: 1;"
                           >
                             <div
-                              style="position:relative;height:10px;overflow:hidden"
+                              style="position: relative; height: 10px; overflow: hidden;"
                             >
                               <div
-                                style="position:absolute;top:0px;right:0px;bottom:0px;left:0px"
+                                style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px;"
                               >
                                 <div
                                   class="hue-horizontal"
-                                  style="padding:0 2px;position:relative;height:100%"
+                                  style="padding: 0px 2px; position: relative; height: 100%;"
                                 >
                                   <style>
             .hue-horizontal {
@@ -213,40 +215,39 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
             }
                                   </style>
                                   <div
-                                    style="position:absolute;left:0%"
+                                    style="position: absolute; left: 0%;"
                                   >
                                     <div
-                                      style="margin-top:1px;width:4px;-ms-border-radius:1px;-moz-border-radius:1px;-o-border-radius:1px;-webkit-border-radius:1px;border-radius:1px;height:8px;-ms-box-shadow:0 0 2px rgba(0, 0, 0, .6);-moz-box-shadow:0 0 2px rgba(0, 0, 0, .6);-o-box-shadow:0 0 2px rgba(0, 0, 0, .6);-webkit-box-shadow:0 0 2px rgba(0, 0, 0, .6);box-shadow:0 0 2px rgba(0, 0, 0, .6);background:#fff;-ms-transform:translateX(-2px);-moz-transform:translateX(-2px);-o-transform:translateX(-2px);-webkit-transform:translateX(-2px);transform:translateX(-2px)"
+                                      style="margin-top: 1px; width: 4px; border-radius: 1px; height: 8px; box-shadow: 0 0 2px rgba(0, 0, 0, .6); background: rgb(255, 255, 255); transform: translateX(-2px);"
                                     />
                                   </div>
                                 </div>
                               </div>
                             </div>
                             <div
-                              style="position:relative;height:10px;margin-top:4px;overflow:hidden"
+                              style="position: relative; height: 10px; margin-top: 4px; overflow: hidden;"
                             >
                               <div
-                                style="position:absolute;top:0px;right:0px;bottom:0px;left:0px"
+                                style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px;"
                               >
                                 <div
-                                  style="position:absolute;top:0px;right:0px;bottom:0px;left:0px;overflow:hidden"
+                                  style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; overflow: hidden;"
                                 >
                                   <div
-                                    style="position:absolute;top:0px;right:0px;bottom:0px;left:0px;background:url(data:image/png;base64,00) center left"
+                                    style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; background: url(data:image/png;base64,00) left;"
                                   />
                                 </div>
                                 <div
-                                  style="position:absolute;top:0px;right:0px;bottom:0px;left:0px;background:linear-gradient(to right, rgba(0,0,0, 0) 0%,
-           rgba(0,0,0, 1) 100%)"
+                                  style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px;"
                                 />
                                 <div
-                                  style="position:relative;height:100%;margin:0 3px"
+                                  style="position: relative; height: 100%; margin: 0px 3px;"
                                 >
                                   <div
-                                    style="position:absolute;left:15%"
+                                    style="position: absolute; left: 15%;"
                                   >
                                     <div
-                                      style="width:4px;-ms-border-radius:1px;-moz-border-radius:1px;-o-border-radius:1px;-webkit-border-radius:1px;border-radius:1px;height:8px;-ms-box-shadow:0 0 2px rgba(0, 0, 0, .6);-moz-box-shadow:0 0 2px rgba(0, 0, 0, .6);-o-box-shadow:0 0 2px rgba(0, 0, 0, .6);-webkit-box-shadow:0 0 2px rgba(0, 0, 0, .6);box-shadow:0 0 2px rgba(0, 0, 0, .6);background:#fff;margin-top:1px;-ms-transform:translateX(-2px);-moz-transform:translateX(-2px);-o-transform:translateX(-2px);-webkit-transform:translateX(-2px);transform:translateX(-2px)"
+                                      style="width: 4px; border-radius: 1px; height: 8px; box-shadow: 0 0 2px rgba(0, 0, 0, .6); background: rgb(255, 255, 255); margin-top: 1px; transform: translateX(-2px);"
                                     />
                                   </div>
                                 </div>
@@ -254,115 +255,115 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                             </div>
                           </div>
                           <div
-                            style="width:24px;height:24px;position:relative;margin-top:4px;margin-left:4px;-ms-border-radius:3px;-moz-border-radius:3px;-o-border-radius:3px;-webkit-border-radius:3px;border-radius:3px"
+                            style="width: 24px; height: 24px; position: relative; margin-top: 4px; margin-left: 4px; border-radius: 3px;"
                           >
                             <div
-                              style="position:absolute;top:0px;right:0px;bottom:0px;left:0px;background:url(data:image/png;base64,00) center left"
+                              style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; background: url(data:image/png;base64,00) left;"
                             />
                             <div
-                              style="position:absolute;top:0px;right:0px;bottom:0px;left:0px;-ms-border-radius:2px;-moz-border-radius:2px;-o-border-radius:2px;-webkit-border-radius:2px;border-radius:2px;background:rgba(0,0,0,0.15);-ms-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25);-moz-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25);-o-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25);-webkit-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25)"
+                              style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; border-radius: 2px; background: rgba(0, 0, 0, 0.15); box-shadow: inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25);"
                             />
                           </div>
                         </div>
                         <div
                           class="flexbox-fix"
-                          style="display:flex;padding-top:4px"
+                          style="display: flex; padding-top: 4px;"
                         >
                           <div
-                            style="-webkit-box-flex:2;-moz-box-flex:2;-webkit-flex:2;-ms-flex:2;flex:2"
+                            style="flex: 2;"
                           >
                             <div
-                              style="position:relative"
+                              style="position: relative;"
                             >
                               <input
-                                id="rc-editable-input-1"
+                                id="rc-editable-input-2"
                                 spellcheck="false"
-                                style="width:80%;padding:4px 10% 3px;border:none;-ms-box-shadow:inset 0 0 0 1px #ccc;-moz-box-shadow:inset 0 0 0 1px #ccc;-o-box-shadow:inset 0 0 0 1px #ccc;-webkit-box-shadow:inset 0 0 0 1px #ccc;box-shadow:inset 0 0 0 1px #ccc;font-size:11px"
+                                style="width: 80%; padding: 4px 10% 3px; box-shadow: inset 0 0 0 1px #ccc; font-size: 11px;"
                                 value="000000"
                               />
                               <label
-                                for="rc-editable-input-1"
-                                style="display:block;text-align:center;font-size:11px;color:#222;padding-top:3px;padding-bottom:4px;text-transform:capitalize"
+                                for="rc-editable-input-2"
+                                style="display: block; text-align: center; font-size: 11px; color: rgb(34, 34, 34); padding-top: 3px; padding-bottom: 4px; text-transform: capitalize;"
                               >
                                 hex
                               </label>
                             </div>
                           </div>
                           <div
-                            style="-webkit-box-flex:1;-moz-box-flex:1;-webkit-flex:1;-ms-flex:1;flex:1;padding-left:6px"
+                            style="flex: 1; padding-left: 6px;"
                           >
                             <div
-                              style="position:relative"
+                              style="position: relative;"
                             >
                               <input
-                                id="rc-editable-input-2"
+                                id="rc-editable-input-4"
                                 spellcheck="false"
-                                style="width:80%;padding:4px 10% 3px;border:none;-ms-box-shadow:inset 0 0 0 1px #ccc;-moz-box-shadow:inset 0 0 0 1px #ccc;-o-box-shadow:inset 0 0 0 1px #ccc;-webkit-box-shadow:inset 0 0 0 1px #ccc;box-shadow:inset 0 0 0 1px #ccc;font-size:11px"
+                                style="width: 80%; padding: 4px 10% 3px; box-shadow: inset 0 0 0 1px #ccc; font-size: 11px;"
                                 value="0"
                               />
                               <label
-                                for="rc-editable-input-2"
-                                style="display:block;text-align:center;font-size:11px;color:#222;padding-top:3px;padding-bottom:4px;text-transform:capitalize;cursor:ew-resize"
+                                for="rc-editable-input-4"
+                                style="display: block; text-align: center; font-size: 11px; color: rgb(34, 34, 34); padding-top: 3px; padding-bottom: 4px; text-transform: capitalize; cursor: ew-resize;"
                               >
                                 r
                               </label>
                             </div>
                           </div>
                           <div
-                            style="-webkit-box-flex:1;-moz-box-flex:1;-webkit-flex:1;-ms-flex:1;flex:1;padding-left:6px"
+                            style="flex: 1; padding-left: 6px;"
                           >
                             <div
-                              style="position:relative"
+                              style="position: relative;"
                             >
                               <input
-                                id="rc-editable-input-3"
+                                id="rc-editable-input-6"
                                 spellcheck="false"
-                                style="width:80%;padding:4px 10% 3px;border:none;-ms-box-shadow:inset 0 0 0 1px #ccc;-moz-box-shadow:inset 0 0 0 1px #ccc;-o-box-shadow:inset 0 0 0 1px #ccc;-webkit-box-shadow:inset 0 0 0 1px #ccc;box-shadow:inset 0 0 0 1px #ccc;font-size:11px"
+                                style="width: 80%; padding: 4px 10% 3px; box-shadow: inset 0 0 0 1px #ccc; font-size: 11px;"
                                 value="0"
                               />
                               <label
-                                for="rc-editable-input-3"
-                                style="display:block;text-align:center;font-size:11px;color:#222;padding-top:3px;padding-bottom:4px;text-transform:capitalize;cursor:ew-resize"
+                                for="rc-editable-input-6"
+                                style="display: block; text-align: center; font-size: 11px; color: rgb(34, 34, 34); padding-top: 3px; padding-bottom: 4px; text-transform: capitalize; cursor: ew-resize;"
                               >
                                 g
                               </label>
                             </div>
                           </div>
                           <div
-                            style="-webkit-box-flex:1;-moz-box-flex:1;-webkit-flex:1;-ms-flex:1;flex:1;padding-left:6px"
+                            style="flex: 1; padding-left: 6px;"
                           >
                             <div
-                              style="position:relative"
+                              style="position: relative;"
                             >
                               <input
-                                id="rc-editable-input-4"
+                                id="rc-editable-input-8"
                                 spellcheck="false"
-                                style="width:80%;padding:4px 10% 3px;border:none;-ms-box-shadow:inset 0 0 0 1px #ccc;-moz-box-shadow:inset 0 0 0 1px #ccc;-o-box-shadow:inset 0 0 0 1px #ccc;-webkit-box-shadow:inset 0 0 0 1px #ccc;box-shadow:inset 0 0 0 1px #ccc;font-size:11px"
+                                style="width: 80%; padding: 4px 10% 3px; box-shadow: inset 0 0 0 1px #ccc; font-size: 11px;"
                                 value="0"
                               />
                               <label
-                                for="rc-editable-input-4"
-                                style="display:block;text-align:center;font-size:11px;color:#222;padding-top:3px;padding-bottom:4px;text-transform:capitalize;cursor:ew-resize"
+                                for="rc-editable-input-8"
+                                style="display: block; text-align: center; font-size: 11px; color: rgb(34, 34, 34); padding-top: 3px; padding-bottom: 4px; text-transform: capitalize; cursor: ew-resize;"
                               >
                                 b
                               </label>
                             </div>
                           </div>
                           <div
-                            style="-webkit-box-flex:1;-moz-box-flex:1;-webkit-flex:1;-ms-flex:1;flex:1;padding-left:6px"
+                            style="flex: 1; padding-left: 6px;"
                           >
                             <div
-                              style="position:relative"
+                              style="position: relative;"
                             >
                               <input
-                                id="rc-editable-input-5"
+                                id="rc-editable-input-10"
                                 spellcheck="false"
-                                style="width:80%;padding:4px 10% 3px;border:none;-ms-box-shadow:inset 0 0 0 1px #ccc;-moz-box-shadow:inset 0 0 0 1px #ccc;-o-box-shadow:inset 0 0 0 1px #ccc;-webkit-box-shadow:inset 0 0 0 1px #ccc;box-shadow:inset 0 0 0 1px #ccc;font-size:11px"
+                                style="width: 80%; padding: 4px 10% 3px; box-shadow: inset 0 0 0 1px #ccc; font-size: 11px;"
                                 value="15"
                               />
                               <label
-                                for="rc-editable-input-5"
-                                style="display:block;text-align:center;font-size:11px;color:#222;padding-top:3px;padding-bottom:4px;text-transform:capitalize;cursor:ew-resize"
+                                for="rc-editable-input-10"
+                                style="display: block; text-align: center; font-size: 11px; color: rgb(34, 34, 34); padding-top: 3px; padding-bottom: 4px; text-transform: capitalize; cursor: ew-resize;"
                               >
                                 a
                               </label>
@@ -371,168 +372,168 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                         </div>
                         <div
                           class="flexbox-fix"
-                          style="margin:0 -10px;padding:10px 0 0 10px;border-top:1px solid #eee;display:flex;flex-wrap:wrap;position:relative"
+                          style="margin: 0px -10px; padding: 10px 0px 0px 10px; border-top: 1px solid #eee; display: flex; flex-wrap: wrap; position: relative;"
                         >
                           <div
-                            style="width:16px;height:16px;margin:0 10px 10px 0"
+                            style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"
                           >
                             <span>
                               <div
-                                style="background:#D0021B;height:100%;width:100%;cursor:pointer;position:relative;outline:none;-ms-border-radius:3px;-moz-border-radius:3px;-o-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;-ms-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-moz-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-o-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-webkit-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)"
+                                style="background: rgb(208, 2, 27); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.15);"
                                 tabindex="0"
                                 title="#D0021B"
                               />
                             </span>
                           </div>
                           <div
-                            style="width:16px;height:16px;margin:0 10px 10px 0"
+                            style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"
                           >
                             <span>
                               <div
-                                style="background:#F5A623;height:100%;width:100%;cursor:pointer;position:relative;outline:none;-ms-border-radius:3px;-moz-border-radius:3px;-o-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;-ms-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-moz-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-o-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-webkit-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)"
+                                style="background: rgb(245, 166, 35); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.15);"
                                 tabindex="0"
                                 title="#F5A623"
                               />
                             </span>
                           </div>
                           <div
-                            style="width:16px;height:16px;margin:0 10px 10px 0"
+                            style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"
                           >
                             <span>
                               <div
-                                style="background:#F8E71C;height:100%;width:100%;cursor:pointer;position:relative;outline:none;-ms-border-radius:3px;-moz-border-radius:3px;-o-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;-ms-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-moz-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-o-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-webkit-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)"
+                                style="background: rgb(248, 231, 28); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.15);"
                                 tabindex="0"
                                 title="#F8E71C"
                               />
                             </span>
                           </div>
                           <div
-                            style="width:16px;height:16px;margin:0 10px 10px 0"
+                            style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"
                           >
                             <span>
                               <div
-                                style="background:#8B572A;height:100%;width:100%;cursor:pointer;position:relative;outline:none;-ms-border-radius:3px;-moz-border-radius:3px;-o-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;-ms-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-moz-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-o-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-webkit-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)"
+                                style="background: rgb(139, 87, 42); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.15);"
                                 tabindex="0"
                                 title="#8B572A"
                               />
                             </span>
                           </div>
                           <div
-                            style="width:16px;height:16px;margin:0 10px 10px 0"
+                            style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"
                           >
                             <span>
                               <div
-                                style="background:#7ED321;height:100%;width:100%;cursor:pointer;position:relative;outline:none;-ms-border-radius:3px;-moz-border-radius:3px;-o-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;-ms-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-moz-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-o-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-webkit-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)"
+                                style="background: rgb(126, 211, 33); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.15);"
                                 tabindex="0"
                                 title="#7ED321"
                               />
                             </span>
                           </div>
                           <div
-                            style="width:16px;height:16px;margin:0 10px 10px 0"
+                            style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"
                           >
                             <span>
                               <div
-                                style="background:#417505;height:100%;width:100%;cursor:pointer;position:relative;outline:none;-ms-border-radius:3px;-moz-border-radius:3px;-o-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;-ms-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-moz-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-o-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-webkit-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)"
+                                style="background: rgb(65, 117, 5); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.15);"
                                 tabindex="0"
                                 title="#417505"
                               />
                             </span>
                           </div>
                           <div
-                            style="width:16px;height:16px;margin:0 10px 10px 0"
+                            style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"
                           >
                             <span>
                               <div
-                                style="background:#BD10E0;height:100%;width:100%;cursor:pointer;position:relative;outline:none;-ms-border-radius:3px;-moz-border-radius:3px;-o-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;-ms-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-moz-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-o-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-webkit-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)"
+                                style="background: rgb(189, 16, 224); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.15);"
                                 tabindex="0"
                                 title="#BD10E0"
                               />
                             </span>
                           </div>
                           <div
-                            style="width:16px;height:16px;margin:0 10px 10px 0"
+                            style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"
                           >
                             <span>
                               <div
-                                style="background:#9013FE;height:100%;width:100%;cursor:pointer;position:relative;outline:none;-ms-border-radius:3px;-moz-border-radius:3px;-o-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;-ms-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-moz-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-o-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-webkit-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)"
+                                style="background: rgb(144, 19, 254); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.15);"
                                 tabindex="0"
                                 title="#9013FE"
                               />
                             </span>
                           </div>
                           <div
-                            style="width:16px;height:16px;margin:0 10px 10px 0"
+                            style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"
                           >
                             <span>
                               <div
-                                style="background:#4A90E2;height:100%;width:100%;cursor:pointer;position:relative;outline:none;-ms-border-radius:3px;-moz-border-radius:3px;-o-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;-ms-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-moz-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-o-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-webkit-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)"
+                                style="background: rgb(74, 144, 226); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.15);"
                                 tabindex="0"
                                 title="#4A90E2"
                               />
                             </span>
                           </div>
                           <div
-                            style="width:16px;height:16px;margin:0 10px 10px 0"
+                            style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"
                           >
                             <span>
                               <div
-                                style="background:#50E3C2;height:100%;width:100%;cursor:pointer;position:relative;outline:none;-ms-border-radius:3px;-moz-border-radius:3px;-o-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;-ms-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-moz-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-o-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-webkit-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)"
+                                style="background: rgb(80, 227, 194); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.15);"
                                 tabindex="0"
                                 title="#50E3C2"
                               />
                             </span>
                           </div>
                           <div
-                            style="width:16px;height:16px;margin:0 10px 10px 0"
+                            style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"
                           >
                             <span>
                               <div
-                                style="background:#B8E986;height:100%;width:100%;cursor:pointer;position:relative;outline:none;-ms-border-radius:3px;-moz-border-radius:3px;-o-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;-ms-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-moz-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-o-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-webkit-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)"
+                                style="background: rgb(184, 233, 134); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.15);"
                                 tabindex="0"
                                 title="#B8E986"
                               />
                             </span>
                           </div>
                           <div
-                            style="width:16px;height:16px;margin:0 10px 10px 0"
+                            style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"
                           >
                             <span>
                               <div
-                                style="background:#000000;height:100%;width:100%;cursor:pointer;position:relative;outline:none;-ms-border-radius:3px;-moz-border-radius:3px;-o-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;-ms-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-moz-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-o-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-webkit-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)"
+                                style="background: rgb(0, 0, 0); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.15);"
                                 tabindex="0"
                                 title="#000000"
                               />
                             </span>
                           </div>
                           <div
-                            style="width:16px;height:16px;margin:0 10px 10px 0"
+                            style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"
                           >
                             <span>
                               <div
-                                style="background:#4A4A4A;height:100%;width:100%;cursor:pointer;position:relative;outline:none;-ms-border-radius:3px;-moz-border-radius:3px;-o-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;-ms-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-moz-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-o-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-webkit-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)"
+                                style="background: rgb(74, 74, 74); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.15);"
                                 tabindex="0"
                                 title="#4A4A4A"
                               />
                             </span>
                           </div>
                           <div
-                            style="width:16px;height:16px;margin:0 10px 10px 0"
+                            style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"
                           >
                             <span>
                               <div
-                                style="background:#9B9B9B;height:100%;width:100%;cursor:pointer;position:relative;outline:none;-ms-border-radius:3px;-moz-border-radius:3px;-o-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;-ms-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-moz-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-o-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-webkit-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)"
+                                style="background: rgb(155, 155, 155); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.15);"
                                 tabindex="0"
                                 title="#9B9B9B"
                               />
                             </span>
                           </div>
                           <div
-                            style="width:16px;height:16px;margin:0 10px 10px 0"
+                            style="width: 16px; height: 16px; margin: 0px 10px 10px 0px;"
                           >
                             <span>
                               <div
-                                style="background:#FFFFFF;height:100%;width:100%;cursor:pointer;position:relative;outline:none;-ms-border-radius:3px;-moz-border-radius:3px;-o-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;-ms-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-moz-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-o-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);-webkit-box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)"
+                                style="background: rgb(255, 255, 255); height: 100%; width: 100%; cursor: pointer; position: relative; outline: none; border-radius: 3px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.15);"
                                 tabindex="0"
                                 title="#FFFFFF"
                               />
@@ -583,7 +584,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                 />
                 <div
                   class="ant-slider-track"
-                  style="left:0%;width:16%"
+                  style="left: 0%; width: 16%;"
                 />
                 <div
                   class="ant-slider-step"
@@ -595,16 +596,16 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                   aria-valuenow="16"
                   class="ant-slider-handle"
                   role="slider"
-                  style="left:16%;transform:translateX(-50%)"
+                  style="left: 16%; transform: translateX(-50%);"
                   tabindex="0"
                 />
                 <div
-                  class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
-                  style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+                  style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div
                     class="ant-tooltip-arrow"
-                    style="position:absolute;bottom:0;left:0"
+                    style="position: absolute; bottom: 0px; left: 0px;"
                   />
                   <div
                     class="ant-tooltip-content"
@@ -657,7 +658,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                 />
                 <div
                   class="ant-slider-track"
-                  style="left:0%;width:11%"
+                  style="left: 0%; width: 11%;"
                 />
                 <div
                   class="ant-slider-step"
@@ -669,16 +670,16 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                   aria-valuenow="11"
                   class="ant-slider-handle"
                   role="slider"
-                  style="left:11%;transform:translateX(-50%)"
+                  style="left: 11%; transform: translateX(-50%);"
                   tabindex="0"
                 />
                 <div
-                  class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
-                  style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+                  style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div
                     class="ant-tooltip-arrow"
-                    style="position:absolute;bottom:0;left:0"
+                    style="position: absolute; bottom: 0px; left: 0px;"
                   />
                   <div
                     class="ant-tooltip-content"
@@ -731,7 +732,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                 />
                 <div
                   class="ant-slider-track"
-                  style="left:0%;width:43.888888888888886%"
+                  style="left: 0%; width: 43.888888888888886%;"
                 />
                 <div
                   class="ant-slider-step"
@@ -743,16 +744,16 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                   aria-valuenow="-22"
                   class="ant-slider-handle"
                   role="slider"
-                  style="left:43.888888888888886%;transform:translateX(-50%)"
+                  style="left: 43.888888888888886%; transform: translateX(-50%);"
                   tabindex="0"
                 />
                 <div
-                  class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
-                  style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+                  style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div
                     class="ant-tooltip-arrow"
-                    style="position:absolute;bottom:0;left:0"
+                    style="position: absolute; bottom: 0px; left: 0px;"
                   />
                   <div
                     class="ant-tooltip-content"
@@ -773,7 +774,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
     </div>
     <div
       class="ant-form-item"
-      style="margin-bottom:0"
+      style="margin-bottom: 0px;"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -799,11 +800,11 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
             >
               <div
                 class="ant-space ant-space-horizontal ant-space-align-baseline"
-                style="display:flex"
+                style="display: flex;"
               >
                 <div
                   class="ant-space-item"
-                  style="margin-right:8px"
+                  style="margin-right: 8px;"
                 >
                   <div
                     class="ant-form-item"
@@ -822,7 +823,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                           >
                             <div
                               class="ant-input-number ant-input-number-in-form-item"
-                              style="width:100%"
+                              style="width: 100%;"
                             >
                               <div
                                 class="ant-input-number-handler-wrap"
@@ -923,7 +924,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                           >
                             <div
                               class="ant-input-number ant-input-number-in-form-item"
-                              style="width:100%"
+                              style="width: 100%;"
                             >
                               <div
                                 class="ant-input-number-handler-wrap"
@@ -1012,7 +1013,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
     </div>
     <div
       class="ant-form-item"
-      style="margin-bottom:0"
+      style="margin-bottom: 0px;"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -1038,11 +1039,11 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
             >
               <div
                 class="ant-space ant-space-horizontal ant-space-align-baseline"
-                style="display:flex"
+                style="display: flex;"
               >
                 <div
                   class="ant-space-item"
-                  style="margin-right:8px"
+                  style="margin-right: 8px;"
                 >
                   <div
                     class="ant-form-item"
@@ -1061,7 +1062,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                           >
                             <div
                               class="ant-input-number ant-input-number-in-form-item"
-                              style="width:100%"
+                              style="width: 100%;"
                             >
                               <div
                                 class="ant-input-number-handler-wrap"
@@ -1161,7 +1162,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                           >
                             <div
                               class="ant-input-number ant-input-number-in-form-item"
-                              style="width:100%"
+                              style="width: 100%;"
                             >
                               <div
                                 class="ant-input-number-handler-wrap"
@@ -1254,10 +1255,10 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
 exports[`renders components/watermark/demo/image.tsx extend context correctly 1`] = `
 <div
   class=""
-  style="position:relative"
+  style="position: relative;"
 >
   <div
-    style="height:500px"
+    style="height: 500px;"
   />
 </div>
 `;
@@ -1265,10 +1266,13 @@ exports[`renders components/watermark/demo/image.tsx extend context correctly 1`
 exports[`renders components/watermark/demo/multi-line.tsx extend context correctly 1`] = `
 <div
   class=""
-  style="position:relative"
+  style="position: relative;"
 >
   <div
-    style="height:500px"
+    style="height: 500px;"
+  />
+  <div
+    style="z-index: 9; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); background-size: 226px;"
   />
 </div>
 `;

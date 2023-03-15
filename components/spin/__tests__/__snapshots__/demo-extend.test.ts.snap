@@ -35,7 +35,7 @@ exports[`renders components/spin/demo/custom-indicator.tsx extend context correc
     aria-label="loading"
     class="anticon anticon-loading anticon-spin ant-spin-dot"
     role="img"
-    style="font-size:24px"
+    style="font-size: 24px;"
   >
     <svg
       aria-hidden="true"
@@ -85,7 +85,7 @@ exports[`renders components/spin/demo/delayAndDebounce.tsx extend context correc
     </div>
   </div>
   <div
-    style="margin-top:16px"
+    style="margin-top: 16px;"
   >
     Loading state：
     <button
@@ -172,7 +172,7 @@ exports[`renders components/spin/demo/nested.tsx extend context correctly 1`] = 
     </div>
   </div>
   <div
-    style="margin-top:16px"
+    style="margin-top: 16px;"
   >
     Loading state：
     <button
@@ -205,7 +205,7 @@ exports[`renders components/spin/demo/size.tsx extend context correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-right:16px"
+    style="margin-right: 16px;"
   >
     <div
       aria-busy="true"
@@ -232,7 +232,7 @@ exports[`renders components/spin/demo/size.tsx extend context correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:16px"
+    style="margin-right: 16px;"
   >
     <div
       aria-busy="true"
@@ -289,18 +289,18 @@ exports[`renders components/spin/demo/size.tsx extend context correctly 1`] = `
 exports[`renders components/spin/demo/tip.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
-  style="width:100%"
+  style="width: 100%;"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-space ant-space-horizontal ant-space-align-center"
     >
       <div
         class="ant-space-item"
-        style="margin-right:8px"
+        style="margin-right: 8px;"
       >
         <div
           class="ant-spin-nested-loading"
@@ -345,7 +345,7 @@ exports[`renders components/spin/demo/tip.tsx extend context correctly 1`] = `
       </div>
       <div
         class="ant-space-item"
-        style="margin-right:8px"
+        style="margin-right: 8px;"
       >
         <div
           class="ant-spin-nested-loading"

@@ -304,7 +304,7 @@ exports[`renders components/segmented/demo/custom.tsx extend context correctly 1
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-segmented"
@@ -324,7 +324,7 @@ exports[`renders components/segmented/demo/custom.tsx extend context correctly 1
             class="ant-segmented-item-label"
           >
             <div
-              style="padding:4px"
+              style="padding: 4px;"
             >
               <span
                 class="ant-avatar ant-avatar-circle ant-avatar-image"
@@ -350,15 +350,15 @@ exports[`renders components/segmented/demo/custom.tsx extend context correctly 1
             class="ant-segmented-item-label"
           >
             <div
-              style="padding:4px"
+              style="padding: 4px;"
             >
               <span
                 class="ant-avatar ant-avatar-circle"
-                style="background-color:#f56a00"
+                style="background-color: rgb(245, 106, 0);"
               >
                 <span
                   class="ant-avatar-string"
-                  style="opacity:0"
+                  style="transform: scale(1) translateX(-50%);"
                 >
                   K
                 </span>
@@ -380,11 +380,11 @@ exports[`renders components/segmented/demo/custom.tsx extend context correctly 1
             class="ant-segmented-item-label"
           >
             <div
-              style="padding:4px"
+              style="padding: 4px;"
             >
               <span
                 class="ant-avatar ant-avatar-circle ant-avatar-icon"
-                style="background-color:#87d068"
+                style="background-color: rgb(135, 208, 104);"
               >
                 <span
                   aria-label="user"
@@ -436,7 +436,7 @@ exports[`renders components/segmented/demo/custom.tsx extend context correctly 1
             class="ant-segmented-item-label"
           >
             <div
-              style="padding:4px"
+              style="padding: 4px;"
             >
               <div>
                 Spring
@@ -458,7 +458,7 @@ exports[`renders components/segmented/demo/custom.tsx extend context correctly 1
             class="ant-segmented-item-label"
           >
             <div
-              style="padding:4px"
+              style="padding: 4px;"
             >
               <div>
                 Summer
@@ -480,7 +480,7 @@ exports[`renders components/segmented/demo/custom.tsx extend context correctly 1
             class="ant-segmented-item-label"
           >
             <div
-              style="padding:4px"
+              style="padding: 4px;"
             >
               <div>
                 Autumn
@@ -502,7 +502,7 @@ exports[`renders components/segmented/demo/custom.tsx extend context correctly 1
             class="ant-segmented-item-label"
           >
             <div
-              style="padding:4px"
+              style="padding: 4px;"
             >
               <div>
                 Winter
@@ -525,7 +525,7 @@ exports[`renders components/segmented/demo/disabled.tsx extend context correctly
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-segmented ant-segmented-disabled"
@@ -676,7 +676,7 @@ exports[`renders components/segmented/demo/dynamic.tsx extend context correctly 
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-segmented"
@@ -833,7 +833,7 @@ exports[`renders components/segmented/demo/size.tsx extend context correctly 1`]
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-segmented ant-segmented-lg"
@@ -917,7 +917,7 @@ exports[`renders components/segmented/demo/size.tsx extend context correctly 1`]
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-segmented"
@@ -1091,12 +1091,12 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom: 8px;"
   >
     <div>
       <div
         class="ant-segmented ant-segmented-lg"
-        style="margin-right:6px"
+        style="margin-right: 6px;"
       >
         <div
           class="ant-segmented-group"
@@ -1158,12 +1158,12 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom: 8px;"
   >
     <div>
       <div
         class="ant-segmented"
-        style="margin-right:6px"
+        style="margin-right: 6px;"
       >
         <div
           class="ant-segmented-group"
@@ -1216,7 +1216,7 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
       <input
         class="ant-input"
         placeholder="default size"
-        style="width:150px"
+        style="width: 150px;"
         type="text"
         value=""
       />
@@ -1228,7 +1228,7 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
     <div>
       <div
         class="ant-segmented ant-segmented-sm"
-        style="margin-right:6px"
+        style="margin-right: 6px;"
       >
         <div
           class="ant-segmented-group"
@@ -1280,7 +1280,7 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
       </div>
       <div
         class="ant-select ant-select-sm ant-select-single ant-select-show-arrow"
-        style="width:150px"
+        style="width: 150px;"
       >
         <div
           class="ant-select-selector"
@@ -1289,16 +1289,17 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="undefined_list_0"
+              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
-              aria-controls="undefined_list"
+              aria-controls="rc_select_TEST_OR_SSR_list"
               aria-haspopup="listbox"
-              aria-owns="undefined_list"
+              aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
+              id="rc_select_TEST_OR_SSR"
               readonly=""
               role="combobox"
-              style="opacity:0"
+              style="opacity: 0;"
               type="search"
               unselectable="on"
               value=""
@@ -1312,19 +1313,19 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-select-dropdown-placement-bottomLeft"
-          style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+          style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
             <div
-              id="undefined_list"
+              id="rc_select_TEST_OR_SSR_list"
               role="listbox"
-              style="height:0;width:0;overflow:hidden"
+              style="height: 0px; width: 0px; overflow: hidden;"
             >
               <div
                 aria-label="Lucy"
                 aria-selected="true"
-                id="undefined_list_0"
+                id="rc_select_TEST_OR_SSR_list_0"
                 role="option"
               >
                 lucy
@@ -1332,16 +1333,16 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
             </div>
             <div
               class="rc-virtual-list"
-              style="position:relative"
+              style="position: relative;"
             >
               <div
                 class="rc-virtual-list-holder"
-                style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+                style="max-height: 256px; overflow-y: auto;"
               >
                 <div>
                   <div
                     class="rc-virtual-list-holder-inner"
-                    style="display:flex;flex-direction:column"
+                    style="display: flex; flex-direction: column;"
                   >
                     <div
                       aria-selected="true"
@@ -1356,7 +1357,7 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -1369,7 +1370,7 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
         <span
           aria-hidden="true"
           class="ant-select-arrow"
-          style="user-select:none;-webkit-user-select:none"
+          style="user-select: none;"
           unselectable="on"
         >
           <span
