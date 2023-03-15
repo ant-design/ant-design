@@ -5,7 +5,10 @@ const { Paragraph } = Typography;
 
 const App: React.FC = () => {
   const [expandable, setExpandable] = useState<boolean>(false);
-  const content ='Ant Design, a design language for background applications, is refined by Ant UED Team.'.repeat(5);
+  const content =
+    'Ant Design, a design language for background applications, is refined by Ant UED Team.'.repeat(
+      5,
+    );
   return (
     <>
       <Switch
@@ -21,7 +24,8 @@ const App: React.FC = () => {
           rows: 2,
           expandable,
           symbol: 'more',
-          onExpand: (_event) => {
+          onExpand: (event) => {
+            console.log('event---', event);
             Modal.info({
               title: 'this is my custom onExpand',
               content: `The Paragraph ${expandable ? 'can' : "can't"} expand.`,
