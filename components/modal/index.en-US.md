@@ -70,7 +70,7 @@ Additionally, if you need show a simple confirmation dialog, you can use [`App.u
 | zIndex | The `z-index` of the Modal | number | 1000 |  |
 | onCancel | Specify a function that will be called when a user clicks mask, close button on top right or Cancel button | function(e) | - |  |
 | onOk | Specify a function that will be called when a user clicks the OK button | function(e) | - |  |
-| afterOpenChange | Callback when the animation ends when Modal is turned on and off | (open: boolean) => void | - | 5.3.2 |
+| afterOpenChange | Callback when the animation ends when Modal is turned on and off | (open: boolean) => void | - | 5.4.0 |
 
 #### Note
 
