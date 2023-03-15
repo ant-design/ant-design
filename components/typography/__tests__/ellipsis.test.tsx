@@ -256,7 +256,6 @@ describe('Typography.Ellipsis', () => {
 
     fireEvent.click(wrapper.querySelector('.ant-typography-expand')!);
     expect(onExpand).toHaveBeenCalled();
-
     triggerResize(ref.current!);
     await waitFakeTimer();
     expect(wrapper.querySelector('p')?.textContent).toEqual('Bamboo is Lit...more');
