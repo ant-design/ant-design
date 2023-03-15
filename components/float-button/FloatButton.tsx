@@ -71,7 +71,7 @@ const FloatButton: React.ForwardRefRenderFunction<
   const buttonNode: React.ReactNode = (
     <Tooltip title={tooltip} placement={direction === 'rtl' ? 'right' : 'left'}>
       <div className={`${prefixCls}-body`}>
-        <Badge className={`${prefixCls}-badge`} {...badgeProps}>
+        <Badge {...badgeProps}>
           <Content {...contentProps} />
         </Badge>
       </div>

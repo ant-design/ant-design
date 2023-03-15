@@ -193,6 +193,7 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
     floatButtonIconSize,
     floatButtonSize,
     borderRadiusLG,
+    borderRadiusSM,
     floatButtonContentMinHeight,
     floatButtonBadgeOffset,
     dotOffsetInCircle,
@@ -247,10 +248,8 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
             lineHeight: 1,
           },
         },
-        [`${componentCls}-badge`]: {
-          [`${antCls}-badge-count`]: {
-            top: floatButtonBadgeOffset,
-          },
+        [`${antCls}-badge-count`]: {
+          top: floatButtonBadgeOffset,
         },
       },
     },
@@ -263,12 +262,10 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
       borderRadius: '50%',
       [`${componentCls}-body`]: {
         borderRadius: '50%',
-        [`${componentCls}-badge`]: {
-          [`${antCls}-badge-dot`]: {
-            top: dotOffsetInCircle,
-            insetInlineEnd:
-              dotOffsetInCircle - getOffset(floatButtonSize, floatButtonIconSize, paddingXXS),
-          },
+        [`${antCls}-badge-dot`]: {
+          top: dotOffsetInCircle,
+          insetInlineEnd:
+            dotOffsetInCircle - getOffset(floatButtonSize, floatButtonIconSize, paddingXXS),
         },
       },
     },
@@ -278,13 +275,11 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
       borderRadius: borderRadiusLG,
       [`${componentCls}-body`]: {
         height: 'auto',
-        borderRadius: borderRadiusLG,
-        [`${componentCls}-badge`]: {
-          [`${antCls}-badge-dot`]: {
-            top: dotOffsetInSquare,
-            insetInlineEnd:
-              dotOffsetInSquare - getOffset(floatButtonSize, floatButtonIconSize, paddingXXS),
-          },
+        borderRadius: borderRadiusSM,
+        [`${antCls}-badge-dot`]: {
+          top: dotOffsetInSquare,
+          insetInlineEnd:
+            dotOffsetInSquare - getOffset(floatButtonSize, floatButtonIconSize, paddingXXS),
         },
       },
     },
