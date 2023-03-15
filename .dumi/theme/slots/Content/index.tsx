@@ -105,6 +105,14 @@ type AnchorItem = {
   children?: AnchorItem[];
 };
 
+const AvatarPlaceholder = ({ num = 3 }: { num?: number }) => (
+  <>
+    {Array.from(num).map((_, i) => (
+      <Skeleton.Avatar size="small" active key={i} style={{ marginLeft: i === 0 ? 0 : -8 }} />
+    ))}
+  </>
+);
+
 const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
   const meta = useRouteMeta();
   const tab = useTabMeta();
@@ -150,17 +158,10 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
 
   const isRTL = direction === 'rtl';
 
-  const avatarPlaceholder = (num = 3) => (
-    <>
-      {Array.from(num).map((_, i) => (
-        <Skeleton.Avatar size="small" active key={i} style={{ marginLeft: i === 0 ? 0 : -8 }} />
-      ))}
-    </>
+  const authors = useMemo(
+    () => (meta.frontmatter.author as string)?.split(',') || [],
+    [meta.frontmatter.author],
   );
-
-  const authors = useMemo(() => (meta.frontmatter.author as string)?.split(',') || [], []);
-
-  const [authorInfoCache, setAuthorInfoCache] = useState<{ username: string; url: stirng }>();
 
   return (
     <DemoContext.Provider value={contextValue}>
@@ -215,21 +216,53 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
                     <CalendarOutlined /> {DayJS(meta.frontmatter.date).format('YYYY-MM-DD')}
                   </span>
                 )}
-                {authors.length &&
-                  authors.map((author) => (
-                    <Typography.Link href={`https://github.com/${author}`} key={author}>
-                      <Space size={3}>
-                        {authorInfoCache ? (
-                          <Avatar size={20} src={authorInfoCache.url}>
-                            {authorInfoCache.username}
-                          </Avatar>
-                        ) : (
-                          avatarPlaceholder(1)
-                        )}
-                        <span>@{author}</span>
-                      </Space>
-                    </Typography.Link>
-                  ))}
+                <ContributorsList
+                  repo="ant-design"
+                  owner="ant-design"
+                  filter={(item) => authors.includes(item.username)}
+                  fileName={meta.frontmatter.filename}
+                  cache
+                  emptyRender={() => (
+                    <>
+                      {authors.map((author) => (
+                        <a
+                          href={`https://github.com/${author}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          key={author}
+                        >
+                          @{author}
+                        </a>
+                      ))}
+                    </>
+                  )}
+                  renderItem={(item, loading) =>
+                    loading || !item ? (
+                      <AvatarPlaceholder />
+                    ) : (
+                      <Tooltip
+                        mouseEnterDelay={0.3}
+                        title={`${formatMessage({ id: 'app.content.contributors' })}: ${
+                          item.username
+                        }`}
+                        key={item.username}
+                      >
+                        <a
+                          href={`https://github.com/${item.username}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Space size={3}>
+                            <Avatar size="small" src={item.url}>
+                              {item.username}
+                            </Avatar>
+                            <span>@{item.username}</span>
+                          </Space>
+                        </a>
+                      </Tooltip>
+                    )
+                  }
+                />
               </Space>
             </Typography.Paragraph>
           ) : null}
@@ -240,13 +273,11 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
               repo="ant-design"
               owner="ant-design"
               css={styles.contributorsList}
+              cache
               fileName={meta.frontmatter.filename}
-              renderItem={(item, loading) => {
-                if (authors.includes(item.username)) {
-                  setAuthorInfoCache(item);
-                }
-                return loading || !item ? (
-                  avatarPlaceholder()
+              renderItem={(item, loading) =>
+                loading || !item ? (
+                  <AvatarPlaceholder />
                 ) : (
                   <Tooltip
                     mouseEnterDelay={0.3}
@@ -263,8 +294,8 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
                       </Avatar>
                     </a>
                   </Tooltip>
-                );
-              }}
+                )
+              }
             />
           )}
         </article>
