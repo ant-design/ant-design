@@ -26,4 +26,4 @@ jobs:
         with:
           notice-types: 'dingding'
           dingding-token: ${{ secrets.DINGDING_BOT_COLLABORATOR_TOKEN }}
-          notice-title: 'Mock Project Build Failed'
+          notice-title: 'CI Mock Project Build Failed'
