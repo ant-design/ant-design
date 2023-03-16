@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders components/steps/demo/clickable.tsx extend context correctly 1`] = `
+exports[`renders components\\steps\\demo\\clickable.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-steps ant-steps-vertical"
@@ -233,7 +233,7 @@ Array [
 ]
 `;
 
-exports[`renders components/steps/demo/customized-progress-dot.tsx extend context correctly 1`] = `
+exports[`renders components\\steps\\demo\\customized-progress-dot.tsx extend context correctly 1`] = `
 <div
   class="ant-steps ant-steps-vertical ant-steps-dot"
 >
@@ -484,7 +484,7 @@ exports[`renders components/steps/demo/customized-progress-dot.tsx extend contex
 </div>
 `;
 
-exports[`renders components/steps/demo/error.tsx extend context correctly 1`] = `
+exports[`renders components\\steps\\demo\\error.tsx extend context correctly 1`] = `
 <div
   class="ant-steps ant-steps-vertical"
 >
@@ -629,7 +629,7 @@ exports[`renders components/steps/demo/error.tsx extend context correctly 1`] = 
 </div>
 `;
 
-exports[`renders components/steps/demo/icon.tsx extend context correctly 1`] = `
+exports[`renders components\\steps\\demo\\icon.tsx extend context correctly 1`] = `
 <div
   class="ant-steps ant-steps-vertical"
 >
@@ -824,7 +824,7 @@ exports[`renders components/steps/demo/icon.tsx extend context correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] = `
+exports[`renders components\\steps\\demo\\inline.tsx extend context correctly 1`] = `
 <div>
   <div
     class="ant-list ant-list-split"
@@ -1673,7 +1673,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
 </div>
 `;
 
-exports[`renders components/steps/demo/label-placement.tsx extend context correctly 1`] = `
+exports[`renders components\\steps\\demo\\label-placement.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-steps ant-steps-vertical"
@@ -2104,7 +2104,7 @@ Array [
 ]
 `;
 
-exports[`renders components/steps/demo/nav.tsx extend context correctly 1`] = `
+exports[`renders components\\steps\\demo\\nav.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-steps ant-steps-vertical site-navigation-steps ant-steps-small ant-steps-navigation"
@@ -2565,7 +2565,7 @@ Array [
 ]
 `;
 
-exports[`renders components/steps/demo/progress.tsx extend context correctly 1`] = `
+exports[`renders components\\steps\\demo\\progress.tsx extend context correctly 1`] = `
 <div
   class="ant-steps ant-steps-vertical ant-steps-with-progress"
 >
@@ -2750,7 +2750,7 @@ exports[`renders components/steps/demo/progress.tsx extend context correctly 1`]
 </div>
 `;
 
-exports[`renders components/steps/demo/progress-debug.tsx extend context correctly 1`] = `
+exports[`renders components\\steps\\demo\\progress-debug.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-space-compact ant-space-compact-block"
@@ -3544,7 +3544,7 @@ Array [
 ]
 `;
 
-exports[`renders components/steps/demo/progress-dot.tsx extend context correctly 1`] = `
+exports[`renders components\\steps\\demo\\progress-dot.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-steps ant-steps-vertical ant-steps-dot"
@@ -3849,7 +3849,7 @@ Array [
 ]
 `;
 
-exports[`renders components/steps/demo/progress-dot-small.tsx extend context correctly 1`] = `
+exports[`renders components\\steps\\demo\\progress-dot-small.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-steps ant-steps-vertical ant-steps-small ant-steps-dot"
@@ -4154,7 +4154,7 @@ Array [
 ]
 `;
 
-exports[`renders components/steps/demo/simple.tsx extend context correctly 1`] = `
+exports[`renders components\\steps\\demo\\simple.tsx extend context correctly 1`] = `
 <div
   class="ant-steps ant-steps-vertical"
 >
@@ -4287,7 +4287,7 @@ exports[`renders components/steps/demo/simple.tsx extend context correctly 1`] =
 </div>
 `;
 
-exports[`renders components/steps/demo/small-size.tsx extend context correctly 1`] = `
+exports[`renders components\\steps\\demo\\small-size.tsx extend context correctly 1`] = `
 <div
   class="ant-steps ant-steps-vertical ant-steps-small"
 >
@@ -4399,7 +4399,7 @@ exports[`renders components/steps/demo/small-size.tsx extend context correctly 1
 </div>
 `;
 
-exports[`renders components/steps/demo/step-next.tsx extend context correctly 1`] = `
+exports[`renders components\\steps\\demo\\step-next.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-steps ant-steps-vertical"
@@ -4512,7 +4512,7 @@ Array [
 ]
 `;
 
-exports[`renders components/steps/demo/steps-in-steps.tsx extend context correctly 1`] = `
+exports[`renders components\\steps\\demo\\steps-in-steps.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-radio-group ant-radio-group-outline"
@@ -4780,7 +4780,7 @@ Array [
 ]
 `;
 
-exports[`renders components/steps/demo/vertical.tsx extend context correctly 1`] = `
+exports[`renders components\\steps\\demo\\vertical.tsx extend context correctly 1`] = `
 <div
   class="ant-steps ant-steps-vertical"
 >
@@ -4907,7 +4907,7 @@ exports[`renders components/steps/demo/vertical.tsx extend context correctly 1`]
 </div>
 `;
 
-exports[`renders components/steps/demo/vertical-small.tsx extend context correctly 1`] = `
+exports[`renders components\\steps\\demo\\vertical-small.tsx extend context correctly 1`] = `
 <div
   class="ant-steps ant-steps-vertical ant-steps-small"
 >
@@ -5034,7 +5034,7 @@ exports[`renders components/steps/demo/vertical-small.tsx extend context correct
 </div>
 `;
 
-exports[`renders components/steps/demo/wireframe.tsx extend context correctly 1`] = `
+exports[`renders components\\steps\\demo\\wireframe.tsx extend context correctly 1`] = `
 <div
   class="ant-steps ant-steps-vertical"
 >

@@ -169,6 +169,10 @@ const Breadcrumb: CompoundedComponent = (props) => {
         itemProps.overlay = overlay as any;
       }
 
+      if (item.className) {
+        itemProps.className = item.className;
+      }
+
       let { href } = item;
       if (paths.length && mergedPath !== undefined) {
         href = `#/${paths.join('/')}`;
@@ -184,7 +188,6 @@ const Breadcrumb: CompoundedComponent = (props) => {
           href={href}
           separator={isLastItem ? '' : separator}
           onClick={item.onClick ?? undefined}
-          className={item.className ?? undefined}
         >
           {mergedItemRender(item as BreadcrumbItemType, params, itemRenderRoutes, paths)}
         </BreadcrumbItem>

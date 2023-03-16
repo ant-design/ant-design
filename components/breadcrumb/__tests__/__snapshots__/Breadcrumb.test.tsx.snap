@@ -74,7 +74,9 @@ exports[`Breadcrumb should not display Breadcrumb Item when its children is fals
 >
   <ol>
     <li>
-      <span>
+      <span
+        class="ant-breadcrumb-link"
+      >
         xxx
       </span>
     </li>
@@ -85,7 +87,9 @@ exports[`Breadcrumb should not display Breadcrumb Item when its children is fals
       /
     </li>
     <li>
-      <span>
+      <span
+        class="ant-breadcrumb-link"
+      >
         yyy
       </span>
     </li>
@@ -100,6 +104,7 @@ exports[`Breadcrumb should render a menu 1`] = `
   <ol>
     <li>
       <a
+        class="ant-breadcrumb-link"
         href="#/index"
       >
         home
@@ -116,6 +121,7 @@ exports[`Breadcrumb should render a menu 1`] = `
         class="ant-dropdown-trigger ant-breadcrumb-overlay-link"
       >
         <a
+          class="ant-breadcrumb-link"
           href="#/index/first"
         >
           first
@@ -149,6 +155,7 @@ exports[`Breadcrumb should render a menu 1`] = `
     </li>
     <li>
       <a
+        class="ant-breadcrumb-link"
         href="#/index/first/second"
       >
         second
@@ -162,6 +169,7 @@ exports[`Breadcrumb should render a menu 1`] = `
     </li>
     <li>
       <a
+        class="ant-breadcrumb-link"
         href="#/index/first/second/third"
       />
     </li>
@@ -176,6 +184,7 @@ exports[`Breadcrumb should render correct 1`] = `
   <ol>
     <li>
       <a
+        class="ant-breadcrumb-link"
         href="#/"
       >
         <span>
@@ -190,7 +199,9 @@ exports[`Breadcrumb should render correct 1`] = `
       /
     </li>
     <li>
-      <span>
+      <span
+        class="ant-breadcrumb-link"
+      >
         yyy
       </span>
     </li>
@@ -204,7 +215,9 @@ exports[`Breadcrumb should support Breadcrumb Item onClick and className 1`] = `
 >
   <ol>
     <li>
-      <span>
+      <span
+        class="ant-breadcrumb-link"
+      >
         Home
       </span>
     </li>
@@ -245,7 +258,9 @@ exports[`Breadcrumb should support Breadcrumb Item onClick and className 1`] = `
       /
     </li>
     <li>
-      <span>
+      <span
+        class="ant-breadcrumb-link"
+      >
         An Application
       </span>
     </li>
@@ -354,6 +369,7 @@ exports[`Breadcrumb should support custom attribute 1`] = `
   <ol>
     <li>
       <span
+        class="ant-breadcrumb-link"
         data-custom="custom-item"
       >
         xxx
@@ -366,7 +382,9 @@ exports[`Breadcrumb should support custom attribute 1`] = `
       /
     </li>
     <li>
-      <span>
+      <span
+        class="ant-breadcrumb-link"
+      >
         yyy
       </span>
     </li>

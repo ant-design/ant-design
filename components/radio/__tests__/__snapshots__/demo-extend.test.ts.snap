@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders components/radio/demo/badge.tsx extend context correctly 1`] = `
+exports[`renders components\\radio\\demo\\badge.tsx extend context correctly 1`] = `
 <div
   class="ant-radio-group ant-radio-group-solid"
 >
@@ -85,7 +85,7 @@ exports[`renders components/radio/demo/badge.tsx extend context correctly 1`] = 
 </div>
 `;
 
-exports[`renders components/radio/demo/basic.tsx extend context correctly 1`] = `
+exports[`renders components\\radio\\demo\\basic.tsx extend context correctly 1`] = `
 <label
   class="ant-radio-wrapper"
 >
@@ -107,7 +107,7 @@ exports[`renders components/radio/demo/basic.tsx extend context correctly 1`] = 
 </label>
 `;
 
-exports[`renders components/radio/demo/disabled.tsx extend context correctly 1`] = `
+exports[`renders components\\radio\\demo\\disabled.tsx extend context correctly 1`] = `
 Array [
   <label
     class="ant-radio-wrapper ant-radio-wrapper-disabled"
@@ -163,7 +163,7 @@ Array [
 ]
 `;
 
-exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 1`] = `
+exports[`renders components\\radio\\demo\\radiobutton.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-radio-group ant-radio-group-outline"
@@ -418,7 +418,7 @@ Array [
 ]
 `;
 
-exports[`renders components/radio/demo/radiobutton-solid.tsx extend context correctly 1`] = `
+exports[`renders components\\radio\\demo\\radiobutton-solid.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-radio-group ant-radio-group-solid"
@@ -587,7 +587,7 @@ Array [
 ]
 `;
 
-exports[`renders components/radio/demo/radiogroup.tsx extend context correctly 1`] = `
+exports[`renders components\\radio\\demo\\radiogroup.tsx extend context correctly 1`] = `
 <div
   class="ant-radio-group ant-radio-group-outline"
 >
@@ -671,7 +671,7 @@ exports[`renders components/radio/demo/radiogroup.tsx extend context correctly 1
 </div>
 `;
 
-exports[`renders components/radio/demo/radiogroup-more.tsx extend context correctly 1`] = `
+exports[`renders components\\radio\\demo\\radiogroup-more.tsx extend context correctly 1`] = `
 <div
   class="ant-radio-group ant-radio-group-outline"
 >
@@ -778,7 +778,7 @@ exports[`renders components/radio/demo/radiogroup-more.tsx extend context correc
 </div>
 `;
 
-exports[`renders components/radio/demo/radiogroup-options.tsx extend context correctly 1`] = `
+exports[`renders components\\radio\\demo\\radiogroup-options.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-radio-group ant-radio-group-outline"
@@ -1038,7 +1038,7 @@ Array [
 ]
 `;
 
-exports[`renders components/radio/demo/radiogroup-with-name.tsx extend context correctly 1`] = `
+exports[`renders components\\radio\\demo\\radiogroup-with-name.tsx extend context correctly 1`] = `
 <div
   class="ant-radio-group ant-radio-group-outline"
 >
@@ -1126,7 +1126,7 @@ exports[`renders components/radio/demo/radiogroup-with-name.tsx extend context c
 </div>
 `;
 
-exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
+exports[`renders components\\radio\\demo\\size.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-radio-group ant-radio-group-outline ant-radio-group-large"
@@ -1376,7 +1376,7 @@ Array [
 ]
 `;
 
-exports[`renders components/radio/demo/wireframe.tsx extend context correctly 1`] = `
+exports[`renders components\\radio\\demo\\wireframe.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-radio-group ant-radio-group-outline"

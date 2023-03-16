@@ -1,12 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders components/breadcrumb/demo/basic.tsx extend context correctly 1`] = `
+exports[`renders components\\breadcrumb\\demo\\basic.tsx extend context correctly 1`] = `
 <nav
   class="ant-breadcrumb"
 >
   <ol>
     <li>
-      <span>
+      <span
+        class="ant-breadcrumb-link"
+      >
         Home
       </span>
     </li>
@@ -17,7 +19,9 @@ exports[`renders components/breadcrumb/demo/basic.tsx extend context correctly 1
       /
     </li>
     <li>
-      <span>
+      <span
+        class="ant-breadcrumb-link"
+      >
         <a
           href=""
         >
@@ -32,7 +36,9 @@ exports[`renders components/breadcrumb/demo/basic.tsx extend context correctly 1
       /
     </li>
     <li>
-      <span>
+      <span
+        class="ant-breadcrumb-link"
+      >
         <a
           href=""
         >
@@ -47,7 +53,9 @@ exports[`renders components/breadcrumb/demo/basic.tsx extend context correctly 1
       /
     </li>
     <li>
-      <span>
+      <span
+        class="ant-breadcrumb-link"
+      >
         An Application
       </span>
     </li>
@@ -55,13 +63,14 @@ exports[`renders components/breadcrumb/demo/basic.tsx extend context correctly 1
 </nav>
 `;
 
-exports[`renders components/breadcrumb/demo/debug-routes.tsx extend context correctly 1`] = `
+exports[`renders components\\breadcrumb\\demo\\debug-routes.tsx extend context correctly 1`] = `
 <nav
   class="ant-breadcrumb"
 >
   <ol>
     <li>
       <a
+        class="ant-breadcrumb-link"
         href="#/home"
       >
         Home
@@ -78,6 +87,7 @@ exports[`renders components/breadcrumb/demo/debug-routes.tsx extend context corr
         class="ant-dropdown-trigger ant-breadcrumb-overlay-link"
       >
         <a
+          class="ant-breadcrumb-link"
           href="#/home/user"
         >
           User
@@ -226,13 +236,15 @@ exports[`renders components/breadcrumb/demo/debug-routes.tsx extend context corr
 </nav>
 `;
 
-exports[`renders components/breadcrumb/demo/overlay.tsx extend context correctly 1`] = `
+exports[`renders components\\breadcrumb\\demo\\overlay.tsx extend context correctly 1`] = `
 <nav
   class="ant-breadcrumb"
 >
   <ol>
     <li>
-      <span>
+      <span
+        class="ant-breadcrumb-link"
+      >
         Ant Design
       </span>
     </li>
@@ -243,7 +255,9 @@ exports[`renders components/breadcrumb/demo/overlay.tsx extend context correctly
       /
     </li>
     <li>
-      <span>
+      <span
+        class="ant-breadcrumb-link"
+      >
         <a
           href=""
         >
@@ -261,7 +275,9 @@ exports[`renders components/breadcrumb/demo/overlay.tsx extend context correctly
       <span
         class="ant-dropdown-trigger ant-breadcrumb-overlay-link"
       >
-        <span>
+        <span
+          class="ant-breadcrumb-link"
+        >
           <a
             href=""
           >
@@ -471,7 +487,9 @@ exports[`renders components/breadcrumb/demo/overlay.tsx extend context correctly
       /
     </li>
     <li>
-      <span>
+      <span
+        class="ant-breadcrumb-link"
+      >
         Button
       </span>
     </li>
@@ -479,13 +497,15 @@ exports[`renders components/breadcrumb/demo/overlay.tsx extend context correctly
 </nav>
 `;
 
-exports[`renders components/breadcrumb/demo/separator.tsx extend context correctly 1`] = `
+exports[`renders components\\breadcrumb\\demo\\separator.tsx extend context correctly 1`] = `
 <nav
   class="ant-breadcrumb"
 >
   <ol>
     <li>
-      <span>
+      <span
+        class="ant-breadcrumb-link"
+      >
         Home
       </span>
     </li>
@@ -497,6 +517,7 @@ exports[`renders components/breadcrumb/demo/separator.tsx extend context correct
     </li>
     <li>
       <a
+        class="ant-breadcrumb-link"
         href=""
       >
         Application Center
@@ -510,6 +531,7 @@ exports[`renders components/breadcrumb/demo/separator.tsx extend context correct
     </li>
     <li>
       <a
+        class="ant-breadcrumb-link"
         href=""
       >
         Application List
@@ -522,7 +544,9 @@ exports[`renders components/breadcrumb/demo/separator.tsx extend context correct
       &gt;
     </li>
     <li>
-      <span>
+      <span
+        class="ant-breadcrumb-link"
+      >
         An Application
       </span>
     </li>
@@ -530,13 +554,15 @@ exports[`renders components/breadcrumb/demo/separator.tsx extend context correct
 </nav>
 `;
 
-exports[`renders components/breadcrumb/demo/separator-component.tsx extend context correctly 1`] = `
+exports[`renders components\\breadcrumb\\demo\\separator-component.tsx extend context correctly 1`] = `
 <nav
   class="ant-breadcrumb"
 >
   <ol>
     <li>
-      <span>
+      <span
+        class="ant-breadcrumb-link"
+      >
         Location
       </span>
     </li>
@@ -548,6 +574,7 @@ exports[`renders components/breadcrumb/demo/separator-component.tsx extend conte
     </li>
     <li>
       <a
+        class="ant-breadcrumb-link"
         href=""
       >
         Application Center
@@ -561,6 +588,7 @@ exports[`renders components/breadcrumb/demo/separator-component.tsx extend conte
     </li>
     <li>
       <a
+        class="ant-breadcrumb-link"
         href=""
       >
         Application List
@@ -573,7 +601,9 @@ exports[`renders components/breadcrumb/demo/separator-component.tsx extend conte
       /
     </li>
     <li>
-      <span>
+      <span
+        class="ant-breadcrumb-link"
+      >
         An Application
       </span>
     </li>
@@ -581,13 +611,14 @@ exports[`renders components/breadcrumb/demo/separator-component.tsx extend conte
 </nav>
 `;
 
-exports[`renders components/breadcrumb/demo/withIcon.tsx extend context correctly 1`] = `
+exports[`renders components\\breadcrumb\\demo\\withIcon.tsx extend context correctly 1`] = `
 <nav
   class="ant-breadcrumb"
 >
   <ol>
     <li>
       <a
+        class="ant-breadcrumb-link"
         href=""
       >
         <span
@@ -619,6 +650,7 @@ exports[`renders components/breadcrumb/demo/withIcon.tsx extend context correctl
     </li>
     <li>
       <a
+        class="ant-breadcrumb-link"
         href=""
       >
         <span
@@ -652,7 +684,9 @@ exports[`renders components/breadcrumb/demo/withIcon.tsx extend context correctl
       /
     </li>
     <li>
-      <span>
+      <span
+        class="ant-breadcrumb-link"
+      >
         Application
       </span>
     </li>

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders components/menu/demo/horizontal.tsx extend context correctly 1`] = `
+exports[`renders components\\menu\\demo\\horizontal.tsx extend context correctly 1`] = `
 Array [
   <ul
     class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light"
@@ -362,7 +362,7 @@ Array [
 ]
 `;
 
-exports[`renders components/menu/demo/horizontal-dark.tsx extend context correctly 1`] = `
+exports[`renders components\\menu\\demo\\horizontal-dark.tsx extend context correctly 1`] = `
 Array [
   <ul
     class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark"
@@ -724,7 +724,7 @@ Array [
 ]
 `;
 
-exports[`renders components/menu/demo/inline.tsx extend context correctly 1`] = `
+exports[`renders components\\menu\\demo\\inline.tsx extend context correctly 1`] = `
 Array [
   <ul
     class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
@@ -1824,7 +1824,7 @@ Array [
 ]
 `;
 
-exports[`renders components/menu/demo/inline-collapsed.tsx extend context correctly 1`] = `
+exports[`renders components\\menu\\demo\\inline-collapsed.tsx extend context correctly 1`] = `
 <div
   style="width: 256px;"
 >
@@ -2721,7 +2721,7 @@ exports[`renders components/menu/demo/inline-collapsed.tsx extend context correc
 </div>
 `;
 
-exports[`renders components/menu/demo/menu-v4.tsx extend context correctly 1`] = `
+exports[`renders components\\menu\\demo\\menu-v4.tsx extend context correctly 1`] = `
 Array [
   <button
     aria-checked="false"
@@ -3659,7 +3659,7 @@ Array [
 ]
 `;
 
-exports[`renders components/menu/demo/sider-current.tsx extend context correctly 1`] = `
+exports[`renders components\\menu\\demo\\sider-current.tsx extend context correctly 1`] = `
 Array [
   <ul
     class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
@@ -4577,7 +4577,7 @@ Array [
 ]
 `;
 
-exports[`renders components/menu/demo/style-debug.tsx extend context correctly 1`] = `
+exports[`renders components\\menu\\demo\\style-debug.tsx extend context correctly 1`] = `
 Array [
   <button
     aria-checked="true"
@@ -4901,7 +4901,7 @@ Array [
 ]
 `;
 
-exports[`renders components/menu/demo/submenu-theme.tsx extend context correctly 1`] = `
+exports[`renders components\\menu\\demo\\submenu-theme.tsx extend context correctly 1`] = `
 Array [
   <button
     aria-checked="false"
@@ -5232,7 +5232,7 @@ Array [
 ]
 `;
 
-exports[`renders components/menu/demo/switch-mode.tsx extend context correctly 1`] = `
+exports[`renders components\\menu\\demo\\switch-mode.tsx extend context correctly 1`] = `
 Array [
   <button
     aria-checked="false"
@@ -6195,7 +6195,7 @@ Array [
 ]
 `;
 
-exports[`renders components/menu/demo/theme.tsx extend context correctly 1`] = `
+exports[`renders components\\menu\\demo\\theme.tsx extend context correctly 1`] = `
 Array [
   <button
     aria-checked="true"
@@ -7139,7 +7139,7 @@ Array [
 ]
 `;
 
-exports[`renders components/menu/demo/vertical.tsx extend context correctly 1`] = `
+exports[`renders components\\menu\\demo\\vertical.tsx extend context correctly 1`] = `
 Array [
   <ul
     class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light"

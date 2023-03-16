@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders components/descriptions/demo/basic.tsx extend context correctly 1`] = `
+exports[`renders components\\descriptions\\demo\\basic.tsx extend context correctly 1`] = `
 <div
   class="ant-descriptions"
 >
@@ -139,7 +139,7 @@ exports[`renders components/descriptions/demo/basic.tsx extend context correctly
 </div>
 `;
 
-exports[`renders components/descriptions/demo/border.tsx extend context correctly 1`] = `
+exports[`renders components\\descriptions\\demo\\border.tsx extend context correctly 1`] = `
 <div
   class="ant-descriptions ant-descriptions-bordered"
 >
@@ -385,7 +385,7 @@ exports[`renders components/descriptions/demo/border.tsx extend context correctl
 </div>
 `;
 
-exports[`renders components/descriptions/demo/responsive.tsx extend context correctly 1`] = `
+exports[`renders components\\descriptions\\demo\\responsive.tsx extend context correctly 1`] = `
 <div>
   <div
     class="ant-descriptions ant-descriptions-bordered"
@@ -561,7 +561,7 @@ exports[`renders components/descriptions/demo/responsive.tsx extend context corr
 </div>
 `;
 
-exports[`renders components/descriptions/demo/size.tsx extend context correctly 1`] = `
+exports[`renders components\\descriptions\\demo\\size.tsx extend context correctly 1`] = `
 <div>
   <div
     class="ant-radio-group ant-radio-group-outline"
@@ -987,7 +987,7 @@ exports[`renders components/descriptions/demo/size.tsx extend context correctly 
 </div>
 `;
 
-exports[`renders components/descriptions/demo/style.tsx extend context correctly 1`] = `
+exports[`renders components\\descriptions\\demo\\style.tsx extend context correctly 1`] = `
 Array [
   <button
     aria-checked="true"
@@ -1241,7 +1241,7 @@ Array [
 ]
 `;
 
-exports[`renders components/descriptions/demo/text.tsx extend context correctly 1`] = `
+exports[`renders components\\descriptions\\demo\\text.tsx extend context correctly 1`] = `
 <div
   class="ant-descriptions"
 >
@@ -1643,7 +1643,7 @@ exports[`renders components/descriptions/demo/text.tsx extend context correctly 
 </div>
 `;
 
-exports[`renders components/descriptions/demo/vertical.tsx extend context correctly 1`] = `
+exports[`renders components\\descriptions\\demo\\vertical.tsx extend context correctly 1`] = `
 <div
   class="ant-descriptions"
 >
@@ -1847,7 +1847,7 @@ exports[`renders components/descriptions/demo/vertical.tsx extend context correc
 </div>
 `;
 
-exports[`renders components/descriptions/demo/vertical-border.tsx extend context correctly 1`] = `
+exports[`renders components\\descriptions\\demo\\vertical-border.tsx extend context correctly 1`] = `
 <div
   class="ant-descriptions ant-descriptions-bordered"
 >

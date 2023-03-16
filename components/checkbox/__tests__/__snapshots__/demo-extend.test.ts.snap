@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders components/checkbox/demo/basic.tsx extend context correctly 1`] = `
+exports[`renders components\\checkbox\\demo\\basic.tsx extend context correctly 1`] = `
 <label
   class="ant-checkbox-wrapper"
 >
@@ -22,7 +22,7 @@ exports[`renders components/checkbox/demo/basic.tsx extend context correctly 1`]
 </label>
 `;
 
-exports[`renders components/checkbox/demo/check-all.tsx extend context correctly 1`] = `
+exports[`renders components\\checkbox\\demo\\check-all.tsx extend context correctly 1`] = `
 Array [
   <label
     class="ant-checkbox-wrapper"
@@ -114,7 +114,7 @@ Array [
 ]
 `;
 
-exports[`renders components/checkbox/demo/controller.tsx extend context correctly 1`] = `
+exports[`renders components\\checkbox\\demo\\controller.tsx extend context correctly 1`] = `
 Array [
   <p
     style="margin-bottom: 20px;"
@@ -162,7 +162,7 @@ Array [
 ]
 `;
 
-exports[`renders components/checkbox/demo/debug-disable-popover.tsx extend context correctly 1`] = `
+exports[`renders components\\checkbox\\demo\\debug-disable-popover.tsx extend context correctly 1`] = `
 <div
   style="padding: 56px;"
 >
@@ -210,7 +210,7 @@ exports[`renders components/checkbox/demo/debug-disable-popover.tsx extend conte
 </div>
 `;
 
-exports[`renders components/checkbox/demo/debug-line.tsx extend context correctly 1`] = `
+exports[`renders components\\checkbox\\demo\\debug-line.tsx extend context correctly 1`] = `
 <div>
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
@@ -413,7 +413,7 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
 </div>
 `;
 
-exports[`renders components/checkbox/demo/disabled.tsx extend context correctly 1`] = `
+exports[`renders components\\checkbox\\demo\\disabled.tsx extend context correctly 1`] = `
 Array [
   <label
     class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
@@ -473,7 +473,7 @@ Array [
 ]
 `;
 
-exports[`renders components/checkbox/demo/group.tsx extend context correctly 1`] = `
+exports[`renders components\\checkbox\\demo\\group.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-checkbox-group"
@@ -671,7 +671,7 @@ Array [
 ]
 `;
 
-exports[`renders components/checkbox/demo/layout.tsx extend context correctly 1`] = `
+exports[`renders components\\checkbox\\demo\\layout.tsx extend context correctly 1`] = `
 <div
   class="ant-checkbox-group"
   style="width: 100%;"

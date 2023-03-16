@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`] = `
+exports[`renders components\\calendar\\demo\\basic.tsx extend context correctly 1`] = `
 <div
   class="ant-picker-calendar ant-picker-calendar-full"
 >
@@ -1580,7 +1580,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
 </div>
 `;
 
-exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] = `
+exports[`renders components\\calendar\\demo\\card.tsx extend context correctly 1`] = `
 <div
   style="width: 300px; border: 1px solid #f0f0f0; border-radius: 8px;"
 >
@@ -3164,7 +3164,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
 </div>
 `;
 
-exports[`renders components/calendar/demo/customize-header.tsx extend context correctly 1`] = `
+exports[`renders components\\calendar\\demo\\customize-header.tsx extend context correctly 1`] = `
 <div
   style="width: 300px; border: 1px solid #f0f0f0; border-radius: 8px;"
 >
@@ -4797,7 +4797,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
 </div>
 `;
 
-exports[`renders components/calendar/demo/notice-calendar.tsx extend context correctly 1`] = `
+exports[`renders components\\calendar\\demo\\notice-calendar.tsx extend context correctly 1`] = `
 <div
   class="ant-picker-calendar ant-picker-calendar-full"
 >
@@ -6774,7 +6774,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
 </div>
 `;
 
-exports[`renders components/calendar/demo/select.tsx extend context correctly 1`] = `
+exports[`renders components\\calendar\\demo\\select.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-alert ant-alert-info ant-alert-no-icon"

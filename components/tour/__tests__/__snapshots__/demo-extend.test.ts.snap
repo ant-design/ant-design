@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders components/tour/demo/basic.tsx extend context correctly 1`] = `
+exports[`renders components\\tour\\demo\\basic.tsx extend context correctly 1`] = `
 Array [
   <button
     class="ant-btn ant-btn-primary"
@@ -166,7 +166,7 @@ Array [
 ]
 `;
 
-exports[`renders components/tour/demo/indicator.tsx extend context correctly 1`] = `
+exports[`renders components\\tour\\demo\\indicator.tsx extend context correctly 1`] = `
 Array [
   <button
     class="ant-btn ant-btn-primary"
@@ -318,7 +318,7 @@ Array [
 ]
 `;
 
-exports[`renders components/tour/demo/mask.tsx extend context correctly 1`] = `
+exports[`renders components\\tour\\demo\\mask.tsx extend context correctly 1`] = `
 Array [
   <button
     class="ant-btn ant-btn-primary"
@@ -484,7 +484,7 @@ Array [
 ]
 `;
 
-exports[`renders components/tour/demo/non-modal.tsx extend context correctly 1`] = `
+exports[`renders components\\tour\\demo\\non-modal.tsx extend context correctly 1`] = `
 Array [
   <button
     class="ant-btn ant-btn-primary"
@@ -650,7 +650,7 @@ Array [
 ]
 `;
 
-exports[`renders components/tour/demo/placement.tsx extend context correctly 1`] = `
+exports[`renders components\\tour\\demo\\placement.tsx extend context correctly 1`] = `
 Array [
   <button
     class="ant-btn ant-btn-primary"
@@ -739,7 +739,7 @@ Array [
 ]
 `;
 
-exports[`renders components/tour/demo/render-panel.tsx extend context correctly 1`] = `
+exports[`renders components\\tour\\demo\\render-panel.tsx extend context correctly 1`] = `
 <div
   style="display: flex; flex-direction: column; row-gap: 16px; background: rgba(50, 0, 0, 0.65); padding: 8px;"
 >
