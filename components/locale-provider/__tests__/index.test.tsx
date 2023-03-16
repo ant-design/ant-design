@@ -150,7 +150,7 @@ import viVN from '../../locale/vi_VN';
 import zhCN from '../../locale/zh_CN';
 import zhHK from '../../locale/zh_HK';
 import zhTW from '../../locale/zh_TW';
-import mmMM from '../../locale/mm_MM';
+import myMM from '../../locale/my_MM';
 
 dayjs.extend(preParsePostFormat);
 
@@ -223,7 +223,7 @@ const locales = [
   zhHK,
   zhTW,
   urPK,
-  mmMM,
+  myMM,
 ];
 
 const { Option } = Select;
