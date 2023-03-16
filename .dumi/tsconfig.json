@@ -1,5 +1,4 @@
 {
-  "extends": "../.dumi/tmp/tsconfig.json",
   "compilerOptions": {
     "jsx": "react-jsx",
     "jsxImportSource": "@emotion/react",
