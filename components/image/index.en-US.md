@@ -51,6 +51,7 @@ Previewable image.
   src?: string; // v4.10.0
   mask?: ReactNode; // v4.9.0
   maskClassName?: string; // v4.11.0
+  rootClassName?: string; // only support after v5.4.0
   current?: number; // v4.12.0 Only support PreviewGroup
   countRender?: (current: number, total: number) => string  // v4.20.0 Only support PreviewGroup
   scaleStep?: number;
