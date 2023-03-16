@@ -40,7 +40,7 @@ export default function imageTest(component: React.ReactElement) {
 
         const element = (
           <ConfigProvider theme={{ algorithm }}>
-            <App>
+            <App style={{ background: algorithm === theme.darkAlgorithm ? '#000' : '' }}>
               <StyleProvider cache={cache}>{component}</StyleProvider>
             </App>
           </ConfigProvider>
