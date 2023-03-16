@@ -8,11 +8,11 @@ exports[`FloatButtonGroup should correct render 1`] = `
     class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
     type="button"
   >
-    <div
-      class="ant-float-btn-body"
+    <span
+      class="ant-badge"
     >
-      <span
-        class="ant-badge"
+      <div
+        class="ant-float-btn-body"
       >
         <div
           class="ant-float-btn-content"
@@ -41,18 +41,18 @@ exports[`FloatButtonGroup should correct render 1`] = `
             </span>
           </div>
         </div>
-      </span>
-    </div>
+      </div>
+    </span>
   </button>
   <button
     class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
     type="button"
   >
-    <div
-      class="ant-float-btn-body"
+    <span
+      class="ant-badge"
     >
-      <span
-        class="ant-badge"
+      <div
+        class="ant-float-btn-body"
       >
         <div
           class="ant-float-btn-content"
@@ -81,18 +81,18 @@ exports[`FloatButtonGroup should correct render 1`] = `
             </span>
           </div>
         </div>
-      </span>
-    </div>
+      </div>
+    </span>
   </button>
   <button
     class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
     type="button"
   >
-    <div
-      class="ant-float-btn-body"
+    <span
+      class="ant-badge"
     >
-      <span
-        class="ant-badge"
+      <div
+        class="ant-float-btn-body"
       >
         <div
           class="ant-float-btn-content"
@@ -121,8 +121,8 @@ exports[`FloatButtonGroup should correct render 1`] = `
             </span>
           </div>
         </div>
-      </span>
-    </div>
+      </div>
+    </span>
   </button>
 </div>
 `;

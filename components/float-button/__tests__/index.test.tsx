@@ -3,7 +3,7 @@ import FloatButton from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
-import { getAlignOffset } from '../util';
+import getAlignOffset from '../util';
 
 describe('FloatButton', () => {
   mountTest(FloatButton);

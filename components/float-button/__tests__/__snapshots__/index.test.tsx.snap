@@ -5,11 +5,11 @@ exports[`FloatButton rtl render component should be rendered correctly in RTL di
   class="ant-float-btn ant-float-btn-default ant-float-btn-circle ant-float-btn-rtl"
   type="button"
 >
-  <div
-    class="ant-float-btn-body"
+  <span
+    class="ant-badge ant-badge-rtl"
   >
-    <span
-      class="ant-badge ant-badge-rtl"
+    <div
+      class="ant-float-btn-body"
     >
       <div
         class="ant-float-btn-content"
@@ -38,8 +38,8 @@ exports[`FloatButton rtl render component should be rendered correctly in RTL di
           </span>
         </div>
       </div>
-    </span>
-  </div>
+    </div>
+  </span>
 </button>
 `;
 
@@ -48,11 +48,11 @@ exports[`FloatButton should correct render 1`] = `
   class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
   type="button"
 >
-  <div
-    class="ant-float-btn-body"
+  <span
+    class="ant-badge"
   >
-    <span
-      class="ant-badge"
+    <div
+      class="ant-float-btn-body"
     >
       <div
         class="ant-float-btn-content"
@@ -81,7 +81,7 @@ exports[`FloatButton should correct render 1`] = `
           </span>
         </div>
       </div>
-    </span>
-  </div>
+    </div>
+  </span>
 </button>
 `;

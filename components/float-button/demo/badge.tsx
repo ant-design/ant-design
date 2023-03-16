@@ -23,9 +23,9 @@ const App: React.FC = () => {
         style={{ right: 164, bottom: 108 }}
       />
       <FloatButton.Group shape="circle" style={{ right: 24 }}>
-        <FloatButton badge={{ count: number }} icon={<QuestionCircleOutlined />} />
-        <FloatButton badge={{ count: number }} />
-        <FloatButton.BackTop badge={{ count: number }} visibilityHeight={0} />
+        <FloatButton badge={{ count: 5, overflowCount: 99999 }} icon={<QuestionCircleOutlined />} />
+        <FloatButton badge={{ count: 555, overflowCount: 99999 }} />
+        <FloatButton.BackTop badge={{ count: 55555, overflowCount: 99999 }} visibilityHeight={0} />
       </FloatButton.Group>
       <FloatButton.Group shape="square" style={{ right: 94 }}>
         <FloatButton badge={{ count: number }} icon={<QuestionCircleOutlined />} />

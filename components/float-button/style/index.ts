@@ -5,7 +5,7 @@ import { initFadeMotion } from '../../style/motion/fade';
 import { initMotion } from '../../style/motion/motion';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import { getAlignOffset, getOffset } from '../util';
+import getAlignOffset from '../util';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -21,7 +21,6 @@ type FloatButtonToken = FullToken<'FloatButton'> & {
   floatButtonIconSize: number;
   floatButtonBodySize: number;
   floatButtonContentMinHeight: number;
-  floatButtonBadgeOffset: number;
   dotOffsetInCircle: number;
   dotOffsetInSquare: number;
 
@@ -195,9 +194,8 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
     floatButtonSize,
     borderRadiusLG,
     floatButtonContentMinHeight,
-    floatButtonBadgeOffset,
-    dotOffsetInCircle,
     dotOffsetInSquare,
+    dotOffsetInCircle,
   } = token;
   return {
     [componentCls]: {
@@ -214,15 +212,22 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
       insetInlineEnd: token.floatButtonInsetInlineEnd,
       insetBlockEnd: token.floatButtonInsetBlockEnd,
       boxShadow: token.boxShadowSecondary,
-
       // Pure Panel
       '&-pure': {
         position: 'relative',
         inset: 'auto',
       },
-
       '&:empty': {
         display: 'none',
+      },
+      [`${antCls}-badge`]: {
+        width: '100%',
+        height: '100%',
+        [`${antCls}-badge-count`]: {
+          // 重置 badge 默认偏移
+          transform: 'translate(0, 0)',
+          transformOrigin: 'center',
+        },
       },
       [`${componentCls}-body`]: {
         width: '100%',
@@ -248,9 +253,6 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
             lineHeight: 1,
           },
         },
-        [`${antCls}-badge-count`]: {
-          top: floatButtonBadgeOffset,
-        },
       },
     },
 
@@ -260,27 +262,37 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
     [`${componentCls}-circle`]: {
       height: floatButtonSize,
       borderRadius: '50%',
-      [`${componentCls}-body`]: {
-        borderRadius: '50%',
+      [`${antCls}-badge`]: {
+        [`${antCls}-badge-count`]: {
+          top: -6,
+          right: -6,
+        },
         [`${antCls}-badge-dot`]: {
           top: dotOffsetInCircle,
-          insetInlineEnd:
-            dotOffsetInCircle - getOffset(floatButtonSize, floatButtonIconSize, paddingXXS),
+          insetInlineEnd: dotOffsetInCircle,
         },
+      },
+      [`${componentCls}-body`]: {
+        borderRadius: '50%',
       },
     },
     [`${componentCls}-square`]: {
       height: 'auto',
       minHeight: floatButtonSize,
       borderRadius: borderRadiusLG,
+      [`${antCls}-badge`]: {
+        [`${antCls}-badge-count`]: {
+          top: -(paddingXXS + 6),
+          right: -(paddingXXS + 6),
+        },
+        [`${antCls}-badge-dot`]: {
+          top: dotOffsetInSquare,
+          insetInlineEnd: dotOffsetInSquare,
+        },
+      },
       [`${componentCls}-body`]: {
         height: 'auto',
         borderRadius: borderRadiusLG,
-        [`${antCls}-badge-dot`]: {
-          top: dotOffsetInSquare,
-          insetInlineEnd:
-            dotOffsetInSquare - getOffset(floatButtonSize, floatButtonIconSize, paddingXXS),
-        },
       },
     },
     [`${componentCls}-default`]: {
@@ -357,7 +369,6 @@ export default genComponentStyleHook<'FloatButton'>('FloatButton', (token) => {
     floatButtonInsetBlockEnd: marginXXL,
     floatButtonInsetInlineEnd: marginLG,
     floatButtonBodySize: controlHeightLG - paddingXXS * 2,
-    floatButtonBadgeOffset: paddingXXS,
     // 这里的 paddingXXS 是简写，完整逻辑是 (controlHeightLG - (controlHeightLG - paddingXXS * 2)) / 2,
     dotOffsetInCircle: getAlignOffset(controlHeightLG / 2),
     dotOffsetInSquare: getAlignOffset(borderRadiusLG),
