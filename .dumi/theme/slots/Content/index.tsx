@@ -107,11 +107,30 @@ type AnchorItem = {
 
 const AvatarPlaceholder = ({ num = 3 }: { num?: number }) => (
   <>
-    {Array.from(num).map((_, i) => (
+    {Array.from({ length: num }).map((_, i) => (
       <Skeleton.Avatar size="small" active key={i} style={{ marginLeft: i === 0 ? 0 : -8 }} />
     ))}
   </>
 );
+
+const AuthorAvatar = ({ name, avatar }: { name: string; avatar: string }) => {
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+  useLayoutEffect(() => {
+    const img = new Image();
+    img.src = avatar;
+    img.onload = () => setLoading(false);
+    img.onerror = () => setError(true);
+  }, []);
+
+  if (error) return null;
+  if (loading) return <Skeleton.Avatar size={20} active />;
+  return (
+    <Avatar size={20} src={avatar} alt={name}>
+      {name}
+    </Avatar>
+  );
+};
 
 const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
   const meta = useRouteMeta();
@@ -245,9 +264,7 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
                     key={info.name}
                   >
                     <Space size={3}>
-                      <Avatar size="small" src={info.avatar}>
-                        {info.name}
-                      </Avatar>
+                      <AuthorAvatar name={info.name} avatar={info.avatar} />
                       <span style={{ opacity: 0.65 }}>@{info.name}</span>
                     </Space>
                   </a>
