@@ -329,4 +329,32 @@ describe('Breadcrumb', () => {
     expect(errSpy).not.toHaveBeenCalled();
     errSpy.mockRestore();
   });
+
+  // https://github.com/ant-design/ant-design/issues/41274
+  it('should support Breadcrumb Item onClick and className', () => {
+    const onClick = jest.fn();
+    const { container } = render(
+      <Breadcrumb
+        items={[
+          {
+            title: 'Home',
+          },
+          {
+            title: 'Application Center',
+            onClick,
+            className: 'chinese',
+          },
+          {
+            title: <a href="#">Application List</a>,
+            onClick,
+            className: 'chinese',
+          },
+          {
+            title: 'An Application',
+          },
+        ]}
+      />,
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
 });

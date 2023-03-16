@@ -7,7 +7,6 @@ exports[`react router react router 3 1`] = `
   <ol>
     <li>
       <a
-        class="ant-breadcrumb-link"
         href="#/"
       >
         Home
@@ -21,7 +20,6 @@ exports[`react router react router 3 1`] = `
     </li>
     <li>
       <a
-        class="ant-breadcrumb-link"
         href="#//apps"
       >
         Application List
@@ -35,7 +33,6 @@ exports[`react router react router 3 1`] = `
     </li>
     <li>
       <a
-        class="ant-breadcrumb-link"
         href="#//apps/1"
       >
         Application1
@@ -49,7 +46,6 @@ exports[`react router react router 3 1`] = `
     </li>
     <li>
       <a
-        class="ant-breadcrumb-link"
         href="#//apps/1/detail"
       >
         Detail
