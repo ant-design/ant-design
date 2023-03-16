@@ -113,3 +113,24 @@ browserHistory.listen(() => {
   Modal.destroyAll();
 });
 ```
+
+## FAQ
+
+### 为什么 Modal 方法不能获取 context、redux、的内容和 ConfigProvider `locale/prefixCls` 配置？
+
+直接调用 Modal 方法，antd 会通过 `ReactDOM.render` 动态创建新的 React 实体。其 context 与当前代码所在 context 并不相同，因而无法获取 context 信息。
+
+你可以用以下的方法解决这个问题
+
+设置 [@ant-prefix](https://github.com/ant-design/ant-design/blob/2c6c789e3a9356f96c47aea0083f5a15538315cf/components/style/themes/default.less#L7)：`'ant-prefix': 'antd3'`
+
+```js
+import { Modal } from 'antd';
+
+// 使用
+Modal.confirm({
+  title: 'hello world',
+  // 必须带上 '-modal' 后缀
+  prefixCls: 'antd3-modal',
+});
+```
