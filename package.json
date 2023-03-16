@@ -115,7 +115,7 @@
     "@ctrl/tinycolor": "^3.6.0",
     "@rc-component/mutate-observer": "^1.0.0",
     "@rc-component/tour": "~1.8.0",
-    "@rc-component/trigger": "^1.5.5",
+    "@rc-component/trigger": "^1.5.9",
     "classnames": "^2.2.6",
     "copy-to-clipboard": "^3.2.0",
     "dayjs": "^1.11.1",
