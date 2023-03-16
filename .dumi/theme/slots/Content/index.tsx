@@ -124,9 +124,9 @@ const AuthorAvatar = ({ name, avatar }: { name: string; avatar: string }) => {
   }, []);
 
   if (error) return null;
-  if (loading) return <Skeleton.Avatar size={20} active />;
+  if (loading) return <Skeleton.Avatar size="small" active />;
   return (
-    <Avatar size={20} src={avatar} alt={name}>
+    <Avatar size="small" src={avatar} alt={name}>
       {name}
     </Avatar>
   );
