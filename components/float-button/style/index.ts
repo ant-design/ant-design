@@ -265,7 +265,7 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
       [`${antCls}-badge`]: {
         [`${antCls}-badge-count`]: {
           top: -6,
-          right: -6,
+          insetInlineEnd: -6,
         },
         [`${antCls}-badge-dot`]: {
           top: dotOffsetInCircle,
@@ -283,7 +283,7 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
       [`${antCls}-badge`]: {
         [`${antCls}-badge-count`]: {
           top: -(paddingXXS + 6),
-          right: -(paddingXXS + 6),
+          insetInlineEnd: -(paddingXXS + 6),
         },
         [`${antCls}-badge-dot`]: {
           top: dotOffsetInSquare,
