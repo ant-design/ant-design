@@ -105,6 +105,33 @@ type AnchorItem = {
   children?: AnchorItem[];
 };
 
+const AvatarPlaceholder = ({ num = 3 }: { num?: number }) => (
+  <>
+    {Array.from({ length: num }).map((_, i) => (
+      <Skeleton.Avatar size="small" active key={i} style={{ marginLeft: i === 0 ? 0 : -8 }} />
+    ))}
+  </>
+);
+
+const AuthorAvatar = ({ name, avatar }: { name: string; avatar: string }) => {
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+  useLayoutEffect(() => {
+    const img = new Image();
+    img.src = avatar;
+    img.onload = () => setLoading(false);
+    img.onerror = () => setError(true);
+  }, []);
+
+  if (error) return null;
+  if (loading) return <Skeleton.Avatar size="small" active />;
+  return (
+    <Avatar size="small" src={avatar} alt={name}>
+      {name}
+    </Avatar>
+  );
+};
+
 const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
   const meta = useRouteMeta();
   const tab = useTabMeta();
@@ -150,13 +177,31 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
 
   const isRTL = direction === 'rtl';
 
-  const avatarPlaceholder = (
-    <>
-      <Skeleton.Avatar size="small" active />
-      <Skeleton.Avatar size="small" active style={{ marginLeft: -8 }} />
-      <Skeleton.Avatar size="small" active style={{ marginLeft: -8 }} />
-    </>
-  );
+  // support custom author info in frontmatter
+  // e.g.
+  // ---
+  // author:
+  //   - name: qixian
+  //     avatar: https://avatars.githubusercontent.com/u/11746742?v=4
+  //   - name: yutingzhao1991
+  //     avatar: https://avatars.githubusercontent.com/u/5378891?v=4
+  // ---
+  const mergedAuthorInfos = useMemo(() => {
+    const { author } = meta.frontmatter;
+    if (!author) {
+      return [];
+    }
+    if (typeof author === 'string') {
+      return author.split(',').map((item) => ({
+        name: item,
+        avatar: `https://github.com/${item}.png`,
+      }));
+    }
+    if (Array.isArray(author)) {
+      return author;
+    }
+    return [];
+  }, [meta.frontmatter.author]);
 
   return (
     <DemoContext.Provider value={contextValue}>
@@ -204,19 +249,26 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
           ) : null}
           {/* 添加作者、时间等信息 */}
           {meta.frontmatter.date || meta.frontmatter.author ? (
-            <Typography.Paragraph style={{ opacity: 0.65 }}>
+            <Typography.Paragraph>
               <Space>
                 {meta.frontmatter.date && (
-                  <span>
+                  <span style={{ opacity: 0.65 }}>
                     <CalendarOutlined /> {DayJS(meta.frontmatter.date).format('YYYY-MM-DD')}
                   </span>
                 )}
-                {meta.frontmatter.author &&
-                  (meta.frontmatter.author as string)?.split(',')?.map((author) => (
-                    <Typography.Link href={`https://github.com/${author}`} key={author}>
-                      @{author}
-                    </Typography.Link>
-                  ))}
+                {mergedAuthorInfos.map((info) => (
+                  <a
+                    href={`https://github.com/${info.name}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    key={info.name}
+                  >
+                    <Space size={3}>
+                      <AuthorAvatar name={info.name} avatar={info.avatar} />
+                      <span style={{ opacity: 0.65 }}>@{info.name}</span>
+                    </Space>
+                  </a>
+                ))}
               </Space>
             </Typography.Paragraph>
           ) : null}
@@ -227,10 +279,11 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
               repo="ant-design"
               owner="ant-design"
               css={styles.contributorsList}
+              cache
               fileName={meta.frontmatter.filename}
               renderItem={(item, loading) =>
                 loading || !item ? (
-                  avatarPlaceholder
+                  <AvatarPlaceholder />
                 ) : (
                   <Tooltip
                     mouseEnterDelay={0.3}

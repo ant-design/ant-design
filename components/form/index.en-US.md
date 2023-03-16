@@ -435,6 +435,7 @@ Form only update the Field which changed to avoid full refresh perf issue. Thus 
 | Name       | Description              | Type                     |
 | ---------- | ------------------------ | ------------------------ |
 | errors     | Error messages           | string\[]                |
+| warnings   | Warning messages         | string\[]                |
 | name       | Field name path          | [NamePath](#namepath)\[] |
 | touched    | Whether is operated      | boolean                  |
 | validating | Whether is in validating | boolean                  |
