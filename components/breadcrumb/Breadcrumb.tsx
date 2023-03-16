@@ -33,6 +33,7 @@ export interface BreadcrumbItemType {
   menu?: BreadcrumbItemProps['menu'];
   /** @deprecated Please use `menu` instead */
   overlay?: React.ReactNode;
+  onClick?: React.MouseEventHandler<HTMLAnchorElement | HTMLSpanElement>;
 }
 export interface BreadcrumbSeparatorType {
   type: 'separator';
@@ -182,6 +183,7 @@ const Breadcrumb: CompoundedComponent = (props) => {
           })}
           href={href}
           separator={isLastItem ? '' : separator}
+          onClick={item.onClick}
         >
           {mergedItemRender(item as BreadcrumbItemType, params, itemRenderRoutes, paths)}
         </BreadcrumbItem>
