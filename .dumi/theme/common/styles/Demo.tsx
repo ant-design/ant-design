@@ -38,7 +38,7 @@ const GlobalDemoStyles: React.FC = () => {
           }
 
           .code-box-demo {
-            overflow: scroll;
+            overflow: auto;
             background-color: ${token.colorBgContainer};
             border-radius: ${token.borderRadius}px ${token.borderRadius}px 0 0;
           }
