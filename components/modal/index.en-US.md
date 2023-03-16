@@ -110,3 +110,24 @@ browserHistory.listen(() => {
   Modal.destroyAll();
 });
 ```
+
+## FAQ
+
+### Why I can not access context, redux, ConfigProvider `locale/prefixCls` in Modal.xxx?
+
+antd will dynamic create React instance by `ReactDOM.render` when call Modal methods. Whose context is different with origin code located context.
+
+You can try the following ways to solve the problem
+
+set [@ant-prefix](https://github.com/ant-design/ant-design/blob/2c6c789e3a9356f96c47aea0083f5a15538315cf/components/style/themes/default.less#L7)：`'ant-prefix': 'antd3'`
+
+```js
+import { Modal } from 'antd';
+
+// use
+Modal.confirm({
+  title: 'hello world',
+  // must use the '-modal' suffix
+  prefixCls: 'antd3-modal',
+});
+```
