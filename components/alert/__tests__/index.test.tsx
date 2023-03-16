@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event';
 import Alert from '..';
 import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render, act, screen } from '../../../tests/utils';
+import { render, act, screen, sleep } from '../../../tests/utils';
 import Button from '../../button';
 import Popconfirm from '../../popconfirm';
 import Tooltip from '../../tooltip';
@@ -104,7 +104,7 @@ describe('Alert', () => {
     );
 
     await userEvent.hover(screen.getByRole('alert'));
-
+    await sleep(100);
     expect(screen.getByRole('tooltip')).toBeInTheDocument();
   });
 
@@ -118,7 +118,7 @@ describe('Alert', () => {
       </Popconfirm>,
     );
     await userEvent.click(screen.getByRole('alert'));
-
+    await sleep(100);
     expect(screen.getByRole('tooltip')).toBeInTheDocument();
   });
 
