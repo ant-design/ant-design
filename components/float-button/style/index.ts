@@ -84,7 +84,7 @@ const initFloatButtonGroupMotion = (token: FloatButtonToken) => {
 
 // ============================== Group ==============================
 const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) => {
-  const { componentCls, floatButtonSize, margin, borderRadiusLG } = token;
+  const { componentCls, floatButtonSize, margin, borderRadiusLG, borderRadiusSM } = token;
   const groupPrefixCls = `${componentCls}-group`;
   return {
     [groupPrefixCls]: {
@@ -120,6 +120,7 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
         [`${componentCls}-body`]: {
           width: floatButtonSize,
           height: floatButtonSize,
+          borderRadius: '50%',
         },
       },
     },
@@ -166,7 +167,6 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
         },
       },
     },
-
     [`${groupPrefixCls}-circle-shadow`]: {
       boxShadow: 'none',
     },
@@ -178,6 +178,7 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
         [`${componentCls}-body`]: {
           width: token.floatButtonBodySize,
           height: token.floatButtonBodySize,
+          borderRadius: borderRadiusSM,
         },
       },
     },
@@ -193,7 +194,6 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
     floatButtonIconSize,
     floatButtonSize,
     borderRadiusLG,
-    borderRadiusSM,
     floatButtonContentMinHeight,
     floatButtonBadgeOffset,
     dotOffsetInCircle,
@@ -275,7 +275,7 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
       borderRadius: borderRadiusLG,
       [`${componentCls}-body`]: {
         height: 'auto',
-        borderRadius: borderRadiusSM,
+        borderRadius: borderRadiusLG,
         [`${antCls}-badge-dot`]: {
           top: dotOffsetInSquare,
           insetInlineEnd:
