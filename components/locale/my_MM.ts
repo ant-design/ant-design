@@ -1,15 +1,15 @@
 /* eslint-disable no-template-curly-in-string */
-import Pagination from 'rc-pagination/lib/locale/mm_MM';
-import Calendar from '../calendar/locale/mm_MM';
-import DatePicker from '../date-picker/locale/mm_MM';
+import Pagination from 'rc-pagination/lib/locale/my_MM';
+import Calendar from '../calendar/locale/my_MM';
+import DatePicker from '../date-picker/locale/my_MM';
 import type { Locale } from '.';
-import TimePicker from '../time-picker/locale/mm_MM';
+import TimePicker from '../time-picker/locale/my_MM';
 
 
 const typeTemplate = '${label} သည် တရားဝင် ${type} မဟုတ်ပါ';
 
 const localeValues: Locale = {
-  locale: 'mm-MM',
+  locale: 'my-MM',
   Pagination,
   DatePicker,
   TimePicker,
