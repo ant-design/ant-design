@@ -104,7 +104,7 @@ const genLoopGridColumnsStyle = (token: GridColToken, sizeCls: string): CSSObjec
         insetInlineEnd: 'auto',
       };
       gridColumnsStyle[`${componentCls}${sizeCls}-offset-${i}`] = {
-        marginInlineEnd: 0,
+        marginInlineStart: 0,
       };
       gridColumnsStyle[`${componentCls}${sizeCls}-order-${i}`] = {
         order: 0,
