@@ -772,6 +772,7 @@ const genTabsStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
           padding: tabsCardHorizontalPadding,
           background: 'transparent',
           border: 0,
+          color: token.colorText,
 
           '&::after': {
             position: 'absolute',
