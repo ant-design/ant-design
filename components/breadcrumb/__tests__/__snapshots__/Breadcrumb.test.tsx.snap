@@ -209,6 +209,65 @@ exports[`Breadcrumb should render correct 1`] = `
 </nav>
 `;
 
+exports[`Breadcrumb should support Breadcrumb Item onClick and className 1`] = `
+<nav
+  class="ant-breadcrumb"
+>
+  <ol>
+    <li>
+      <span
+        class="ant-breadcrumb-link"
+      >
+        Home
+      </span>
+    </li>
+    <li
+      aria-hidden="true"
+      class="ant-breadcrumb-separator"
+    >
+      /
+    </li>
+    <li>
+      <span
+        class="chinese"
+      >
+        Application Center
+      </span>
+    </li>
+    <li
+      aria-hidden="true"
+      class="ant-breadcrumb-separator"
+    >
+      /
+    </li>
+    <li>
+      <span
+        class="chinese"
+      >
+        <a
+          href="#"
+        >
+          Application List
+        </a>
+      </span>
+    </li>
+    <li
+      aria-hidden="true"
+      class="ant-breadcrumb-separator"
+    >
+      /
+    </li>
+    <li>
+      <span
+        class="ant-breadcrumb-link"
+      >
+        An Application
+      </span>
+    </li>
+  </ol>
+</nav>
+`;
+
 exports[`Breadcrumb should support Breadcrumb.Item default separator 1`] = `
 <nav
   class="ant-breadcrumb"
