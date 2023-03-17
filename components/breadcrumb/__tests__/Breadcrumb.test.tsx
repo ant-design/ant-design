@@ -329,4 +329,18 @@ describe('Breadcrumb', () => {
     expect(errSpy).not.toHaveBeenCalled();
     errSpy.mockRestore();
   });
+
+  it('should use `onClick`', async () => {
+    const onClick = jest.fn();
+    const wrapper = render(<Breadcrumb items={[{ title: 'test', onClick }]} />);
+    const item = await wrapper.findByText('test');
+    item.click();
+    expect(onClick).toHaveBeenCalledTimes(1);
+  });
+  it('should use `className`', async () => {
+    const testClassName = 'testClassName';
+    const wrapper = render(<Breadcrumb items={[{ title: 'test', className: testClassName }]} />);
+    const item = await wrapper.findByText('test');
+    expect(item).toHaveClass(testClassName);
+  });
 });

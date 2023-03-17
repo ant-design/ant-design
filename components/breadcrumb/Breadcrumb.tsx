@@ -33,6 +33,8 @@ export interface BreadcrumbItemType {
   menu?: BreadcrumbItemProps['menu'];
   /** @deprecated Please use `menu` instead */
   overlay?: React.ReactNode;
+  className?: string;
+  onClick?: React.MouseEventHandler<HTMLAnchorElement | HTMLSpanElement>;
 }
 export interface BreadcrumbSeparatorType {
   type: 'separator';
@@ -145,7 +147,16 @@ const Breadcrumb: CompoundedComponent = (props) => {
     const itemRenderRoutes: any = items || legacyRoutes;
 
     crumbs = mergedItems.map((item, index) => {
-      const { path, key, type, menu, overlay, separator: itemSeparator } = item;
+      const {
+        path,
+        key,
+        type,
+        menu,
+        overlay,
+        onClick,
+        className: itemClassName,
+        separator: itemSeparator,
+      } = item;
       const mergedPath = getPath(params, path);
 
       if (mergedPath !== undefined) {
@@ -167,6 +178,10 @@ const Breadcrumb: CompoundedComponent = (props) => {
         itemProps.overlay = overlay as any;
       }
 
+      if (itemClassName) {
+        itemProps.className = itemClassName;
+      }
+
       let { href } = item;
       if (paths.length && mergedPath !== undefined) {
         href = `#/${paths.join('/')}`;
@@ -182,6 +197,7 @@ const Breadcrumb: CompoundedComponent = (props) => {
           })}
           href={href}
           separator={isLastItem ? '' : separator}
+          onClick={onClick}
         >
           {mergedItemRender(item as BreadcrumbItemType, params, itemRenderRoutes, paths)}
         </BreadcrumbItem>
