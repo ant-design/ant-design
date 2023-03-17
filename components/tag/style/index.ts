@@ -1,9 +1,9 @@
 import type { CSSInterpolation } from '@ant-design/cssinjs';
 import type React from 'react';
-import type { FullToken } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import capitalize from '../../_util/capitalize';
 import { genPresetColor, resetComponent } from '../../style';
+import type { FullToken } from '../../theme/internal';
+import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {}
 
@@ -137,6 +137,9 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
       [`> ${token.iconCls} + span, > span + ${token.iconCls}`]: {
         marginInlineStart: paddingInline,
       },
+    },
+    [`${componentCls}-borderless`]: {
+      borderColor: 'transparent',
     },
   };
 };

@@ -26,6 +26,7 @@ demo:
 <code src="./demo/checkable.tsx">可选择标签</code>
 <code src="./demo/animation.tsx">添加动画</code>
 <code src="./demo/icon.tsx">图标按钮</code>
+<code src="./demo/borderless.tsx">无边框</code>
 <code src="./demo/status.tsx">预设状态的标签</code>
 <code src="./demo/customize.tsx" debug>自定义关闭按钮</code>
 
@@ -39,6 +40,7 @@ demo:
 | closeIcon | 自定义关闭按钮 | ReactNode | - | 4.4.0 |
 | color | 标签色 | string | - |  |
 | icon | 设置图标 | ReactNode | - |  |
+| bordered | 是否有边框 | boolean | true | 5.4.0 |
 | onClose | 关闭时的回调（可通过 `e.preventDefault()` 来阻止默认行为） | (e) => void | - |  |
 
 ### Tag.CheckableTag
