@@ -2,7 +2,7 @@ import React from 'react';
 import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render } from '../../../tests/utils';
+import { render, fireEvent } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
 import type { ItemType } from '../Breadcrumb';
 import Breadcrumb from '../index';
@@ -337,24 +337,16 @@ describe('Breadcrumb', () => {
       <Breadcrumb
         items={[
           {
-            title: 'Home',
-          },
-          {
             title: 'Application Center',
             onClick,
-            className: 'chinese',
-          },
-          {
-            title: <a href="#">Application List</a>,
-            onClick,
-            className: 'chinese',
-          },
-          {
-            title: 'An Application',
+            className: 'item-test-class',
           },
         ]}
       />,
     );
+    fireEvent.click(container.querySelector('.item-test-class')!);
+    expect(onClick).toHaveBeenCalled();
+    expect(container.querySelector('.item-test-class')).toBeTruthy();
     expect(container.firstChild).toMatchSnapshot();
   });
 });

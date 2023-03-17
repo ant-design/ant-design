@@ -216,52 +216,9 @@ exports[`Breadcrumb should support Breadcrumb Item onClick and className 1`] = `
   <ol>
     <li>
       <span
-        class="ant-breadcrumb-link"
-      >
-        Home
-      </span>
-    </li>
-    <li
-      aria-hidden="true"
-      class="ant-breadcrumb-separator"
-    >
-      /
-    </li>
-    <li>
-      <span
-        class="chinese"
+        class="item-test-class"
       >
         Application Center
-      </span>
-    </li>
-    <li
-      aria-hidden="true"
-      class="ant-breadcrumb-separator"
-    >
-      /
-    </li>
-    <li>
-      <span
-        class="chinese"
-      >
-        <a
-          href="#"
-        >
-          Application List
-        </a>
-      </span>
-    </li>
-    <li
-      aria-hidden="true"
-      class="ant-breadcrumb-separator"
-    >
-      /
-    </li>
-    <li>
-      <span
-        class="ant-breadcrumb-link"
-      >
-        An Application
       </span>
     </li>
   </ol>
