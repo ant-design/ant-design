@@ -5,7 +5,7 @@ import { initFadeMotion } from '../../style/motion/fade';
 import { initMotion } from '../../style/motion/motion';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import getAlignOffset from '../util';
+import getOffset from '../util';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -20,7 +20,6 @@ type FloatButtonToken = FullToken<'FloatButton'> & {
   floatButtonSize: number;
   floatButtonIconSize: number;
   floatButtonBodySize: number;
-  floatButtonContentMinHeight: number;
   dotOffsetInCircle: number;
   dotOffsetInSquare: number;
 
@@ -193,7 +192,6 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
     floatButtonIconSize,
     floatButtonSize,
     borderRadiusLG,
-    floatButtonContentMinHeight,
     dotOffsetInSquare,
     dotOffsetInCircle,
   } = token;
@@ -239,7 +237,7 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
         [`${componentCls}-content`]: {
           overflow: 'hidden',
           textAlign: 'center',
-          minHeight: floatButtonContentMinHeight,
+          minHeight: floatButtonSize,
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
@@ -365,13 +363,12 @@ export default genComponentStyleHook<'FloatButton'>('FloatButton', (token) => {
     floatButtonFontSize: fontSize,
     floatButtonIconSize: fontSizeIcon * 1.5,
     floatButtonSize: controlHeightLG,
-    floatButtonContentMinHeight: controlHeightLG,
     floatButtonInsetBlockEnd: marginXXL,
     floatButtonInsetInlineEnd: marginLG,
     floatButtonBodySize: controlHeightLG - paddingXXS * 2,
     // 这里的 paddingXXS 是简写，完整逻辑是 (controlHeightLG - (controlHeightLG - paddingXXS * 2)) / 2,
-    dotOffsetInCircle: getAlignOffset(controlHeightLG / 2),
-    dotOffsetInSquare: getAlignOffset(borderRadiusLG),
+    dotOffsetInCircle: getOffset(controlHeightLG / 2),
+    dotOffsetInSquare: getOffset(borderRadiusLG),
   });
 
   return [

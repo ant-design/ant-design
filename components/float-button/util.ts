@@ -1,4 +1,4 @@
-const getAlignOffset = (radius: number): number => {
+const getOffset = (radius: number): number => {
   if (radius === 0) {
     return 0;
   }
@@ -7,4 +7,4 @@ const getAlignOffset = (radius: number): number => {
   return radius - Math.sqrt(radius ** 2 / 2);
 };
 
-export default getAlignOffset;
+export default getOffset;
