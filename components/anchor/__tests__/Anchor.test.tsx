@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { resetWarned } from 'rc-util/lib/warning';
 import scrollIntoView from 'scroll-into-view-if-needed';
 
 import Anchor from '..';
-import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import type { AnchorDirection } from '../Anchor';
 
 const { Link } = Anchor;
 
@@ -885,6 +886,48 @@ describe('Anchor Render', () => {
       expect(errSpy).toHaveBeenCalledWith(
         'Warning: [antd: Anchor.Link] `Anchor.Link children` is not supported when `Anchor` direction is horizontal',
       );
+    });
+    it('switch direction', async () => {
+      let setDirection!: React.Dispatch<React.SetStateAction<AnchorDirection>>;
+      const Foo: React.FC = () => {
+        const [direction, _setDirection] = useState<AnchorDirection>('vertical');
+        setDirection = _setDirection;
+        return (
+          <Anchor
+            direction={direction}
+            items={[
+              {
+                title: 'part-1',
+                href: 'part-1',
+                key: 'part-1',
+              },
+              {
+                title: 'part-2',
+                href: 'part-2',
+                key: 'part-2',
+              },
+            ]}
+          />
+        );
+      };
+      const wrapper = await render(<Foo />);
+      (await wrapper.findByText('part-1')).click();
+      await waitFakeTimer();
+      const ink = wrapper.container.querySelector<HTMLSpanElement>('.ant-anchor-ink')!;
+
+      setDirection('horizontal');
+      await act(() => jest.runAllTimers());
+      expect(!!ink.style.left).toBe(true);
+      expect(!!ink.style.width).toBe(true);
+      expect(ink.style.top).toBe('');
+      expect(ink.style.height).toBe('');
+
+      setDirection('vertical');
+      await act(() => jest.runAllTimers());
+      expect(!!ink.style.top).toBe(true);
+      expect(!!ink.style.height).toBe(true);
+      expect(ink.style.left).toBe('');
+      expect(ink.style.width).toBe('');
     });
   });
 });
