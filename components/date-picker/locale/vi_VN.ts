@@ -6,7 +6,15 @@ import type { PickerLocale } from '../generatePicker';
 const locale: PickerLocale = {
   lang: {
     placeholder: 'Chọn thời điểm',
+    yearPlaceholder: 'Chọn năm',
+    quarterPlaceholder: 'Chọn quý',
+    monthPlaceholder: 'Chọn tháng',
+    weekPlaceholder: 'Chọn tuần',
     rangePlaceholder: ['Ngày bắt đầu', 'Ngày kết thúc'],
+    rangeYearPlaceholder: ['Năm bắt đầy', 'Năm kết thúc'],
+    rangeQuarterPlaceholder: ['Quý bắt đầu', 'Quý kết thúc'],
+    rangeMonthPlaceholder: ['Tháng bắt đầu', 'Tháng kết thúc'],
+    rangeWeekPlaceholder: ['Tuần bắt đầu', 'Tuần kết thúc'],
     ...CalendarLocale,
   },
   timePickerLocale: {
