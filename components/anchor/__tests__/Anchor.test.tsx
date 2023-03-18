@@ -916,6 +916,7 @@ describe('Anchor Render', () => {
       const ink = wrapper.container.querySelector<HTMLSpanElement>('.ant-anchor-ink')!;
 
       setDirection('horizontal');
+      await waitFakeTimer();
       await act(() => jest.runAllTimers());
       expect(!!ink.style.left).toBe(true);
       expect(!!ink.style.width).toBe(true);
@@ -923,6 +924,7 @@ describe('Anchor Render', () => {
       expect(ink.style.height).toBe('');
 
       setDirection('vertical');
+      await waitFakeTimer();
       await act(() => jest.runAllTimers());
       expect(!!ink.style.top).toBe(true);
       expect(!!ink.style.height).toBe(true);
