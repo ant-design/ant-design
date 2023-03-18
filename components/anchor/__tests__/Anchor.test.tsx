@@ -917,7 +917,7 @@ describe('Anchor Render', () => {
         );
       };
       const wrapper = await render(<Foo />);
-      (await wrapper.findByText('part-0')).click();
+      (await wrapper.findByText('part-1')).click();
       await waitFakeTimer();
       const ink = wrapper.container.querySelector<HTMLSpanElement>('.ant-anchor-ink')!;
       const toggleButton = wrapper.container.querySelector('button')!;
