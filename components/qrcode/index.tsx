@@ -2,13 +2,13 @@ import { ReloadOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import { QRCodeCanvas } from 'qrcode.react';
 import React, { useContext, useMemo } from 'react';
+import warning from '../_util/warning';
 import Button from '../button';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import useLocale from '../locale/useLocale';
 import Spin from '../spin';
 import theme from '../theme';
-import warning from '../_util/warning';
 import type { QRCodeProps, QRPropsCanvas } from './interface';
 import useStyle from './style/index';
 
@@ -82,7 +82,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
           {status === 'expired' && (
             <>
               <p className={`${prefixCls}-expired`}>{locale?.expired}</p>
-              {typeof onRefresh === 'function' && (
+              {onRefresh && (
                 <Button type="link" icon={<ReloadOutlined />} onClick={onRefresh}>
                   {locale?.refresh}
                 </Button>
