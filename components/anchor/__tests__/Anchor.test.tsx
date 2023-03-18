@@ -917,7 +917,7 @@ describe('Anchor Render', () => {
 
       setDirection('horizontal');
       await waitFakeTimer();
-      await act(() => jest.runAllTimers());
+      act(() => jest.runAllTimers());
       await waitFakeTimer();
       expect(!!ink.style.left).toBe(true);
       expect(!!ink.style.width).toBe(true);
@@ -926,7 +926,7 @@ describe('Anchor Render', () => {
 
       setDirection('vertical');
       await waitFakeTimer();
-      await act(() => jest.runAllTimers());
+      act(() => jest.runAllTimers());
       await waitFakeTimer();
       expect(!!ink.style.top).toBe(true);
       expect(!!ink.style.height).toBe(true);
