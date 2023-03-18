@@ -888,46 +888,49 @@ describe('Anchor Render', () => {
       );
     });
     it('switch direction', async () => {
-      let setDirection!: React.Dispatch<React.SetStateAction<AnchorDirection>>;
       const Foo: React.FC = () => {
-        const [direction, _setDirection] = useState<AnchorDirection>('vertical');
-        setDirection = _setDirection;
+        const [direction, setDirection] = useState<AnchorDirection>('vertical');
+        const toggle = () => {
+          setDirection(direction === 'vertical' ? 'horizontal' : 'vertical');
+        };
         return (
-          <Anchor
-            direction={direction}
-            items={[
-              {
-                title: 'part-1',
-                href: 'part-1',
-                key: 'part-1',
-              },
-              {
-                title: 'part-2',
-                href: 'part-2',
-                key: 'part-2',
-              },
-            ]}
-          />
+          <div>
+            <button onClick={toggle} type="button">
+              toggle
+            </button>
+            <Anchor
+              direction={direction}
+              items={[
+                {
+                  title: 'part-1',
+                  href: 'part-1',
+                  key: 'part-1',
+                },
+                {
+                  title: 'part-2',
+                  href: 'part-2',
+                  key: 'part-2',
+                },
+              ]}
+            />
+          </div>
         );
       };
       const wrapper = await render(<Foo />);
-      (await wrapper.findByText('part-1')).click();
+      (await wrapper.findByText('part-0')).click();
       await waitFakeTimer();
       const ink = wrapper.container.querySelector<HTMLSpanElement>('.ant-anchor-ink')!;
+      const toggleButton = wrapper.container.querySelector('button')!;
 
-      setDirection('horizontal');
-      await waitFakeTimer();
+      fireEvent.click(toggleButton);
       act(() => jest.runAllTimers());
-      await waitFakeTimer();
       expect(!!ink.style.left).toBe(true);
       expect(!!ink.style.width).toBe(true);
       expect(ink.style.top).toBe('');
       expect(ink.style.height).toBe('');
 
-      setDirection('vertical');
-      await waitFakeTimer();
+      fireEvent.click(toggleButton);
       act(() => jest.runAllTimers());
-      await waitFakeTimer();
       expect(!!ink.style.top).toBe(true);
       expect(!!ink.style.height).toBe(true);
       expect(ink.style.left).toBe('');
