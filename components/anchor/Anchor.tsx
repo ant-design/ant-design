@@ -173,12 +173,15 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
       `.${prefixCls}-link-title-active`,
     );
     if (linkNode && spanLinkNode.current) {
-      if (anchorDirection !== 'horizontal') {
-        spanLinkNode.current.style.top = `${linkNode.offsetTop + linkNode.clientHeight / 2}px`;
-        spanLinkNode.current.style.height = `${linkNode.clientHeight}px`;
-      } else {
-        spanLinkNode.current.style.left = `${linkNode.offsetLeft}px`;
-        spanLinkNode.current.style.width = `${linkNode.clientWidth}px`;
+      const { style: inkStyle } = spanLinkNode.current;
+      inkStyle.top =
+        anchorDirection !== 'horizontal'
+          ? `${linkNode.offsetTop + linkNode.clientHeight / 2}px`
+          : '';
+      inkStyle.height = anchorDirection !== 'horizontal' ? `${linkNode.clientHeight}px` : '';
+      inkStyle.left = anchorDirection === 'horizontal' ? `${linkNode.offsetLeft}px` : '';
+      inkStyle.width = anchorDirection === 'horizontal' ? `${linkNode.clientWidth}px` : '';
+      if (anchorDirection === 'horizontal') {
         scrollIntoView(linkNode, {
           scrollMode: 'if-needed',
           block: 'nearest',
