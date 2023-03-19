@@ -1,6 +1,10 @@
 import classNames from 'classnames';
 import type { ChangeEvent, CSSProperties } from 'react';
 import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import type { InputStatus } from '../_util/statusUtils';
+import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
+import { groupDisabledKeysMap, groupKeysMap } from '../_util/transKeys';
+import warning from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
@@ -8,10 +12,6 @@ import type { FormItemStatusContextProps } from '../form/context';
 import { FormItemInputContext } from '../form/context';
 import defaultLocale from '../locale/en_US';
 import useLocale from '../locale/useLocale';
-import type { InputStatus } from '../_util/statusUtils';
-import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
-import { groupDisabledKeysMap, groupKeysMap } from '../_util/transKeys';
-import warning from '../_util/warning';
 import type { PaginationType } from './interface';
 import type { TransferListProps } from './list';
 import List from './list';
@@ -103,24 +103,6 @@ export interface TransferProps<RecordType> {
   pagination?: PaginationType;
   status?: InputStatus;
 }
-
-// interface TransferFCProps {
-//   prefixCls: string;
-//   className?: string;
-//   rootClassName?: string;
-//   style?: React.CSSProperties;
-//   children: React.ReactNode;
-// }
-
-// const TransferFC: React.FC<TransferFCProps> = (props) => {
-//   const { prefixCls, className, rootClassName, style, children } = props;
-//   const [wrapSSR, hashId] = useStyle(prefixCls);
-//   return wrapSSR(
-//     <div className={classNames(className, rootClassName, hashId)} style={style}>
-//       {children}
-//     </div>,
-//   );
-// };
 
 const Transfer = <RecordType extends TransferItem = TransferItem>(
   props: TransferProps<RecordType>,
