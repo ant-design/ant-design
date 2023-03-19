@@ -10,8 +10,9 @@ export interface StyleMapToken {
 
   /**
    * @nameZH XS号圆角
+   * @nameEN XS Border Radius
    * @desc XS号圆角，用于组件中的一些小圆角，如 Segmented 、Arrow 等一些内部圆角的组件样式中。
-   * @descEN XS size border radius, used in some small border radius components, such as Segmented, Arrow and other components.
+   * @descEN XS size border radius, used in some small border radius components, such as Segmented, Arrow and other components with small border radius.
    * @default 2
    */
   borderRadiusXS: number;
@@ -32,6 +33,8 @@ export interface StyleMapToken {
    */
   borderRadiusLG: number;
   /**
+   * @nameZH 外部圆角
+   * @nameEN Outer Border Radius
    * @default 4
    */
   borderRadiusOuter: number;
