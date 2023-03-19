@@ -104,6 +104,7 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
           countWrapper: classNames(
             `${prefixCls}-textarea`,
             `${prefixCls}-textarea-show-count`,
+            { [`${prefixCls}-textarea-show-count-rtl`]: direction === 'rtl' },
             hashId,
           ),
           textarea: classNames(
