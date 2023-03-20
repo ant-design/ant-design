@@ -9,7 +9,7 @@ import TimePicker from '../time-picker/locale/my_MM';
 const typeTemplate = '${label} သည် တရားဝင် ${type} မဟုတ်ပါ';
 
 const localeValues: Locale = {
-  locale: 'my-MM',
+  locale: 'my',
   Pagination,
   DatePicker,
   TimePicker,
