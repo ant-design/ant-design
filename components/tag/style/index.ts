@@ -14,6 +14,7 @@ interface TagToken extends FullToken<'Tag'> {
   tagDefaultColor: string;
   tagIconSize: number;
   tagPaddingHorizontal: number;
+  tagBorderlessBg: string;
 }
 
 // ============================== Styles ==============================
@@ -140,6 +141,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
     },
     [`${componentCls}-borderless`]: {
       borderColor: 'transparent',
+      background: token.tagBorderlessBg,
     },
   };
 };
@@ -161,6 +163,7 @@ export default genComponentStyleHook('Tag', (token) => {
     tagDefaultColor,
     tagIconSize: fontSizeIcon - 2 * lineWidth, // Tag icon is much more smaller
     tagPaddingHorizontal: 8, // Fixed padding.
+    tagBorderlessBg: token.colorFillSecondary,
   });
 
   return [
