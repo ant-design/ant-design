@@ -115,7 +115,12 @@ export default function ColorPicker({ value, onChange }: RadiusPickerProps) {
                 }
               }}
             >
-              <input type="radio" name={picker ? 'picker' : 'color'} tabIndex={picker ? -1 : 0} />
+              <input
+                type="radio"
+                name={picker ? 'picker' : 'color'}
+                tabIndex={picker ? -1 : 0}
+                onClick={(e) => e.stopPropagation()}
+              />
             </label>
           );
 
@@ -128,7 +133,7 @@ export default function ColorPicker({ value, onChange }: RadiusPickerProps) {
                   <DebouncedColorPanel color={value || ''} onChange={(c) => onChange?.(c)} />
                 }
                 trigger="click"
-                showArrow={false}
+                arrow={false}
               >
                 {colorNode}
               </Popover>

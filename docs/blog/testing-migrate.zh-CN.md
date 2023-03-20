@@ -109,9 +109,9 @@ author: li-jia-nan,zombieJ
     });
 ```
 
-在转换过程中，发现了⼀个神奇的现象，有些情况下，同样的 case 生成的 DOM 快照会不一样，也因此开始探索 React 18 到底变化了什么：
-
 ## Diff 之谜
+
+在转换过程中，发现了⼀个神奇的现象，有些情况下，同样的 case 生成的 DOM 快照会不一样，也因此开始探索 React 18 到底变化了什么：
 
 过去 `enzyme` 的 `snapshot` 对⽐是通过 `enzyme-to-json` 插件将 `enzyme object` 转换成序列化对象：
 
@@ -214,7 +214,7 @@ exports[`debug exports modules correctly 1`] = `
 和设想的⼀致，那么就很简单了。那么⼤概率就是 `React 18` 的 `render` 会忽略空元素。我们做⼀个简单的实验：
 
 ```tsx
-import React, { version, useRef, useEffect } from 'react';
+import React, { useEffect, useRef, version } from 'react';
 
 const App: React.FC = () => {
   const holderRef = useRef<HTMLDivElement>(null);
@@ -251,7 +251,7 @@ export default App;
 
 - https://github.com/facebook/react/pull/22807
 
-![QQ20221206-204507](https://user-images.githubusercontent.com/49217418/205916780-1ef901df-f15d-453d-a3ce-54b87e045dad.png)
+![WX20230319-145539@2x](https://user-images.githubusercontent.com/49217418/226159376-497fd490-153e-4e88-92e2-29dda50b3426.png)
 
 ## ⼀个解法
 
