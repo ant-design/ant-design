@@ -21,15 +21,15 @@ timeline: true
 
 - Anchor
   - 💄 Fix Anchor redundant border style when it is set to horizontal direction. [#41336](https://github.com/ant-design/ant-design/pull/41336) [@gooyoung](https://github.com/gooyoung)
-  - 🐞 Fix Anchor ink square style in `vertical` mode. [#41317](https://github.com/ant-design/ant-design/pull/41317) [@acyza](https://github.com/acyza)
+  - 💄 Fix Anchor ink square style in `vertical` mode. [#41317](https://github.com/ant-design/ant-design/pull/41317) [@acyza](https://github.com/acyza)
 - 🐞 Fix Grid `offset` can not be overwritten problem under different device screen sizes. [#41309](https://github.com/ant-design/ant-design/pull/41309) [@Yuiai01](https://github.com/Yuiai01)
-- 🛠 Improve QRCode refresh button render logic. [#41323](https://github.com/ant-design/ant-design/pull/41323) [@li-jia-nan](https://github.com/li-jia-nan)
-- 🐞 Fix Tabs more icon color in dark mode. [#41313](https://github.com/ant-design/ant-design/pull/41313) [@PhosphorusP](https://github.com/PhosphorusP)
-- 🐞 Fix Button focus outline be covered problem in dropdown mode. [#41282](https://github.com/ant-design/ant-design/pull/41282) [@Yuiai01](https://github.com/Yuiai01)
 - 🐞 Fix Breadcrumb `onClick` not working bug. [#41283](https://github.com/ant-design/ant-design/pull/41283) [@acyza](https://github.com/acyza)
-- 💄 Fix Input.TextArea style problem when focusing. [#41228](https://github.com/ant-design/ant-design/pull/41228) [@MuxinFeng](https://github.com/MuxinFeng)
 - 🐞 Fix Upload trigger Progress warning after upload. [#41234](https://github.com/ant-design/ant-design/pull/41234) [@kiner-tang](https://github.com/kiner-tang)
 - 🐞 Fix Table unexpected layout problem when dragging element to the right. [#41139](https://github.com/ant-design/ant-design/pull/41139) [@hoho2017](https://github.com/hoho2017)
+- 💄 Fix Tabs more icon color in dark mode. [#41313](https://github.com/ant-design/ant-design/pull/41313) [@PhosphorusP](https://github.com/PhosphorusP)
+- 💄 Fix Button focus outline be covered problem in dropdown mode. [#41282](https://github.com/ant-design/ant-design/pull/41282) [@Yuiai01](https://github.com/Yuiai01)
+- 💄 Fix Input.TextArea style problem when focusing. [#41228](https://github.com/ant-design/ant-design/pull/41228) [@MuxinFeng](https://github.com/MuxinFeng)
+- 🛠 Improve QRCode refresh button render logic. [#41323](https://github.com/ant-design/ant-design/pull/41323) [@li-jia-nan](https://github.com/li-jia-nan)
 
 - RTL
   - 💄 Fix Input.TextArea RTL style when enable `showCount`. [#41319](https://github.com/ant-design/ant-design/pull/41319) [@ds1371dani](https://github.com/ds1371dani)
