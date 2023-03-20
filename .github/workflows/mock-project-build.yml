@@ -6,6 +6,11 @@ on:
   schedule:
     - cron: '*/30 * * * *'
 
+# Cancel prev CI if new commit come
+concurrency:
+  group: unique
+  cancel-in-progress: true
+
 jobs:
   pr-check-ci:
     runs-on: ubuntu-latest
@@ -21,9 +26,39 @@ jobs:
       - name: Run Script
         run: bash ./scripts/ci-mock-project-build.sh
 
+      ##################################################################
+      ##                        Diff Lock File                        ##
+      ##################################################################
+      - name: Rename failed lock file
+        if: ${{ failure() }}
+        run: mv ~tmpProj/yarn.lock ~tmpProj/yarn.lock.failed
+
+      - name: Download success lock file as `success.lock`
+        if: ${{ failure() }}
+        uses: actions/cache/restore@v3
+        with:
+          path: ~tmpProj/yarn.lock
+          key: lock-file
+
+      - name: ls tmpProj
+        if: ${{ failure() }}
+        run: ls ~tmpProj
+
+      - name: 🎨 Diff Report
+        if: ${{ failure() }}
+        run: npx diff-yarn-lock --source=~tmpProj/yarn.lock --target=~tmpProj/yarn.lock.failed
+
       - uses: actions-cool/ci-notice@v1
         if: ${{ failure() }}
         with:
           notice-types: 'dingding'
           dingding-token: ${{ secrets.DINGDING_BOT_COLLABORATOR_TOKEN }}
           notice-title: 'CI Mock Project Build Failed'
+
+      ##################################################################
+      ##                        Save Lock File                        ##
+      ##################################################################
+      - uses: actions/cache/save@v3
+        with:
+          path: ~tmpProj/yarn.lock
+          key: lock-file
