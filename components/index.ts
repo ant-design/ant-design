@@ -1,3 +1,4 @@
+export type { Breakpoint } from './_util/responsiveObserver';
 export { default as Affix } from './affix';
 export type { AffixProps } from './affix';
 export { default as Alert } from './alert';
@@ -44,10 +45,10 @@ export { default as Drawer } from './drawer';
 export type { DrawerProps } from './drawer';
 export { default as Dropdown } from './dropdown';
 export type {
-  DropdownProps,
   // typo, but we need to support it for backwards compatibility
   // https://github.com/ant-design/ant-design/pull/35161
   DropdownProps as DropDownProps,
+  DropdownProps,
 } from './dropdown';
 export { default as Empty } from './empty';
 export type { EmptyProps } from './empty';
@@ -113,7 +114,7 @@ export type { SpaceProps } from './space';
 export { default as Spin } from './spin';
 export type { SpinProps } from './spin';
 export { default as Statistic } from './statistic';
-export type { StatisticProps } from './statistic';
+export type { CountdownProps, StatisticProps } from './statistic';
 export { default as Steps } from './steps';
 export type { StepProps, StepsProps } from './steps';
 export { default as Switch } from './switch';
@@ -122,8 +123,8 @@ export { default as Table } from './table';
 export type {
   ColumnGroupType as TableColumnGroupType,
   ColumnProps as TableColumnProps,
-  ColumnsType as TableColumnsType,
   ColumnType as TableColumnType,
+  ColumnsType as TableColumnsType,
   TablePaginationConfig,
   TableProps,
 } from './table';
@@ -145,8 +146,8 @@ export { default as Transfer } from './transfer';
 export type { TransferProps } from './transfer';
 export { default as Tree } from './tree';
 export type {
-  AntTreeNodeProps as TreeNodeProps,
   DataNode as TreeDataNode,
+  AntTreeNodeProps as TreeNodeProps,
   TreeProps,
 } from './tree';
 export { default as TreeSelect } from './tree-select';
@@ -158,4 +159,3 @@ export type { UploadFile, UploadProps } from './upload';
 export { default as version } from './version';
 export { default as Watermark } from './watermark';
 export type { WatermarkProps } from './watermark';
-export type { Breakpoint } from './_util/responsiveObserver';
