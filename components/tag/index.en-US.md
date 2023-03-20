@@ -26,8 +26,9 @@ Tag for categorizing or markup.
 <code src="./demo/checkable.tsx">Checkable</code>
 <code src="./demo/animation.tsx">Animate</code>
 <code src="./demo/icon.tsx">Icon</code>
-<code src="./demo/borderless.tsx">borderless</code>
 <code src="./demo/status.tsx">Status Tag</code>
+<code src="./demo/borderless.tsx">borderless</code>
+<code src="./demo/borderlessLayout.tsx" debug>borderless in layout</code>
 <code src="./demo/customize.tsx" debug>Customize close</code>
 
 ## API

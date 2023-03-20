@@ -14,7 +14,7 @@ const App: React.FC = () => (
       </Tag>
     </Space>
     <Divider />
-    <Space size={[0, 8]} wrap>
+    <Space wrap>
       <Tag bordered={false} color="magenta">
         magenta
       </Tag>
