@@ -29,7 +29,6 @@ timeline: true
 - 💄 修复 Tabs 在深色模式下更多图标的色值。[#41313](https://github.com/ant-design/ant-design/pull/41313) [@PhosphorusP](https://github.com/PhosphorusP)
 - 💄 修复 Button 下拉时聚焦轮廓被其他元素遮挡的问题。[#41282](https://github.com/ant-design/ant-design/pull/41282) [@Yuiai01](https://github.com/Yuiai01)
 - 💄 修复 Input.TextArea 在 focus 状态下的样式问题。[#41228](https://github.com/ant-design/ant-design/pull/41228) [@MuxinFeng](https://github.com/MuxinFeng)
-- 🛠 优化 QRCode 刷新按钮显隐逻辑。[#41323](https://github.com/ant-design/ant-design/pull/41323) [@li-jia-nan](https://github.com/li-jia-nan)
 
 - RTL
   - 💄 修复 Input.TextArea 在启用 `showCount` 时 RTL 模式下位置不正确的问题。[#41319](https://github.com/ant-design/ant-design/pull/41319) [@ds1371dani](https://github.com/ds1371dani)
