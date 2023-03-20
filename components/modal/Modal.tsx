@@ -182,6 +182,7 @@ const Modal: React.FC<ModalProps> = (props) => {
     visible,
 
     width = 520,
+    footer,
     ...restProps
   } = props;
 
@@ -199,6 +200,9 @@ const Modal: React.FC<ModalProps> = (props) => {
     warning(!('visible' in props), 'Modal', '`visible` is deprecated, please use `open` instead.');
   }
 
+  const dialogFooter =
+    footer === undefined ? <Footer {...props} onOk={handleOk} onCancel={handleCancel} /> : footer;
+
   return wrapSSR(
     <NoCompactStyle>
       <NoFormStyle status override>
@@ -209,13 +213,7 @@ const Modal: React.FC<ModalProps> = (props) => {
           prefixCls={prefixCls}
           rootClassName={classNames(hashId, rootClassName)}
           wrapClassName={wrapClassNameExtended}
-          footer={
-            props.footer === null ? (
-              props.footer
-            ) : (
-              <Footer {...props} onOk={handleOk} onCancel={handleCancel} />
-            )
-          }
+          footer={dialogFooter}
           visible={open ?? visible}
           mousePosition={restProps.mousePosition ?? mousePosition}
           onClose={handleCancel}

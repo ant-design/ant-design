@@ -38,7 +38,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
     removeIcon,
     previewIcon,
     downloadIcon,
-    progress = { strokeWidth: 2, showInfo: false },
+    progress = { size: [-1, 2], showInfo: false },
     appendAction,
     appendActionVisible = true,
     itemRender,

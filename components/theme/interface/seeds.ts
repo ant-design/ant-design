@@ -83,6 +83,7 @@ export interface SeedToken extends PresetColorType {
    * @nameZH 默认字号
    * @nameEN Default Font Size
    * @desc 设计系统中使用最广泛的字体大小，文本梯度也将基于该字号进行派生。
+   * @descEN The most widely used font size in the design system, from which the text gradient will be derived.
    * @default 14
    */
   fontSize: number;
@@ -191,24 +192,57 @@ export interface SeedToken extends PresetColorType {
   motionUnit: number;
 
   /**
-   * @nameZH 动画基础时长
+   * @nameZH 动画基础时长。
+   * @nameEN Animation Base Duration.
    */
   motionBase: number;
 
+  /**
+   * @desc 预设动效曲率
+   * @descEN Preset motion curve.
+   */
   motionEaseOutCirc: string;
 
+  /**
+   * @desc 预设动效曲率
+   * @descEN Preset motion curve.
+   */
   motionEaseInOutCirc: string;
 
+  /**
+   * @desc 预设动效曲率
+   * @descEN Preset motion curve.
+   */
   motionEaseInOut: string;
 
+  /**
+   * @desc 预设动效曲率
+   * @descEN Preset motion curve.
+   */
   motionEaseOutBack: string;
 
+  /**
+   * @desc 预设动效曲率
+   * @descEN Preset motion curve.
+   */
   motionEaseInBack: string;
 
+  /**
+   * @desc 预设动效曲率
+   * @descEN Preset motion curve.
+   */
   motionEaseInQuint: string;
 
+  /**
+   * @desc 预设动效曲率
+   * @descEN Preset motion curve.
+   */
   motionEaseOutQuint: string;
 
+  /**
+   * @desc 预设动效曲率
+   * @descEN Preset motion curve.
+   */
   motionEaseOut: string;
 
   //  ----------   Style   ---------- //

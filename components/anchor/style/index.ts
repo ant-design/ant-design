@@ -69,7 +69,7 @@ const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
         },
       },
 
-      [`&:not(${componentCls}-horizontal)`]: {
+      [`&:not(${componentCls}-wrapper-horizontal)`]: {
         [componentCls]: {
           '&::before': {
             position: 'absolute',

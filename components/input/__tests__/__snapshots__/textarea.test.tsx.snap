@@ -43,7 +43,7 @@ exports[`TextArea allowClear should change type when click 1`] = `
 
 exports[`TextArea allowClear should change type when click 2`] = `
 <span
-  class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper"
+  class="ant-input-affix-wrapper ant-input-affix-wrapper-focused ant-input-textarea-affix-wrapper"
 >
   <textarea
     class="ant-input"

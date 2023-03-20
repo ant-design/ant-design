@@ -1,0 +1,29 @@
+# Build a cron job to create a umi project which use antd and dumi, and then build it.
+name: Mock Project Build
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '*/30 * * * *'
+
+jobs:
+  pr-check-ci:
+    runs-on: ubuntu-latest
+    name: Build Project
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Run Script
+        run: bash ./scripts/ci-mock-project-build.sh
+
+      - uses: actions-cool/ci-notice@v1
+        if: ${{ failure() }}
+        with:
+          notice-types: 'dingding'
+          dingding-token: ${{ secrets.DINGDING_BOT_COLLABORATOR_TOKEN }}
+          notice-title: 'CI Mock Project Build Failed'

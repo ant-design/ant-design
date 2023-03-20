@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/modal/demo/async.tsx extend context correctly 1`] = `
+exports[`renders components/modal/demo/async.tsx extend context correctly 1`] = `
 <button
   class="ant-btn ant-btn-primary"
   type="button"
@@ -11,7 +11,7 @@ exports[`renders ./components/modal/demo/async.tsx extend context correctly 1`] 
 </button>
 `;
 
-exports[`renders ./components/modal/demo/basic.tsx extend context correctly 1`] = `
+exports[`renders components/modal/demo/basic.tsx extend context correctly 1`] = `
 <button
   class="ant-btn ant-btn-primary"
   type="button"
@@ -22,7 +22,7 @@ exports[`renders ./components/modal/demo/basic.tsx extend context correctly 1`] 
 </button>
 `;
 
-exports[`renders ./components/modal/demo/button-props.tsx extend context correctly 1`] = `
+exports[`renders components/modal/demo/button-props.tsx extend context correctly 1`] = `
 <button
   class="ant-btn ant-btn-primary"
   type="button"
@@ -33,14 +33,14 @@ exports[`renders ./components/modal/demo/button-props.tsx extend context correct
 </button>
 `;
 
-exports[`renders ./components/modal/demo/confirm.tsx extend context correctly 1`] = `
+exports[`renders components/modal/demo/confirm.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap:wrap;margin-bottom:-8px"
+  style="flex-wrap: wrap; margin-bottom: -8px;"
 >
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:8px"
+    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -53,7 +53,7 @@ exports[`renders ./components/modal/demo/confirm.tsx extend context correctly 1`
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:8px"
+    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -66,7 +66,7 @@ exports[`renders ./components/modal/demo/confirm.tsx extend context correctly 1`
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:8px"
+    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <button
       class="ant-btn ant-btn-dashed"
@@ -79,7 +79,7 @@ exports[`renders ./components/modal/demo/confirm.tsx extend context correctly 1`
   </div>
   <div
     class="ant-space-item"
-    style="padding-bottom:8px"
+    style="padding-bottom: 8px;"
   >
     <button
       class="ant-btn ant-btn-dashed"
@@ -93,7 +93,7 @@ exports[`renders ./components/modal/demo/confirm.tsx extend context correctly 1`
 </div>
 `;
 
-exports[`renders ./components/modal/demo/confirm-router.tsx extend context correctly 1`] = `
+exports[`renders components/modal/demo/confirm-router.tsx extend context correctly 1`] = `
 <button
   class="ant-btn ant-btn-default"
   type="button"
@@ -104,7 +104,7 @@ exports[`renders ./components/modal/demo/confirm-router.tsx extend context corre
 </button>
 `;
 
-exports[`renders ./components/modal/demo/custom-mouse-position.tsx extend context correctly 1`] = `
+exports[`renders components/modal/demo/custom-mouse-position.tsx extend context correctly 1`] = `
 <button
   class="ant-btn ant-btn-primary"
   type="button"
@@ -115,7 +115,7 @@ exports[`renders ./components/modal/demo/custom-mouse-position.tsx extend contex
 </button>
 `;
 
-exports[`renders ./components/modal/demo/dark.tsx extend context correctly 1`] = `
+exports[`renders components/modal/demo/dark.tsx extend context correctly 1`] = `
 <button
   class="ant-btn ant-btn-primary"
   type="button"
@@ -126,7 +126,7 @@ exports[`renders ./components/modal/demo/dark.tsx extend context correctly 1`] =
 </button>
 `;
 
-exports[`renders ./components/modal/demo/footer.tsx extend context correctly 1`] = `
+exports[`renders components/modal/demo/footer.tsx extend context correctly 1`] = `
 <button
   class="ant-btn ant-btn-primary"
   type="button"
@@ -137,13 +137,13 @@ exports[`renders ./components/modal/demo/footer.tsx extend context correctly 1`]
 </button>
 `;
 
-exports[`renders ./components/modal/demo/hooks.tsx extend context correctly 1`] = `
+exports[`renders components/modal/demo/hooks.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
 >
   <div
     class="ant-space-item"
-    style="margin-right:8px"
+    style="margin-right: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -156,7 +156,7 @@ exports[`renders ./components/modal/demo/hooks.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px"
+    style="margin-right: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -169,7 +169,7 @@ exports[`renders ./components/modal/demo/hooks.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px"
+    style="margin-right: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -195,13 +195,13 @@ exports[`renders ./components/modal/demo/hooks.tsx extend context correctly 1`] 
 </div>
 `;
 
-exports[`renders ./components/modal/demo/locale.tsx extend context correctly 1`] = `
+exports[`renders components/modal/demo/locale.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
 >
   <div
     class="ant-space-item"
-    style="margin-right:8px"
+    style="margin-right: 8px;"
   >
     <button
       class="ant-btn ant-btn-primary"
@@ -227,7 +227,7 @@ exports[`renders ./components/modal/demo/locale.tsx extend context correctly 1`]
 </div>
 `;
 
-exports[`renders ./components/modal/demo/manual.tsx extend context correctly 1`] = `
+exports[`renders components/modal/demo/manual.tsx extend context correctly 1`] = `
 <button
   class="ant-btn ant-btn-default"
   type="button"
@@ -238,7 +238,7 @@ exports[`renders ./components/modal/demo/manual.tsx extend context correctly 1`]
 </button>
 `;
 
-exports[`renders ./components/modal/demo/modal-render.tsx extend context correctly 1`] = `
+exports[`renders components/modal/demo/modal-render.tsx extend context correctly 1`] = `
 <button
   class="ant-btn ant-btn-default"
   type="button"
@@ -249,7 +249,7 @@ exports[`renders ./components/modal/demo/modal-render.tsx extend context correct
 </button>
 `;
 
-exports[`renders ./components/modal/demo/position.tsx extend context correctly 1`] = `
+exports[`renders components/modal/demo/position.tsx extend context correctly 1`] = `
 Array [
   <button
     class="ant-btn ant-btn-primary"
@@ -272,19 +272,19 @@ Array [
 ]
 `;
 
-exports[`renders ./components/modal/demo/render-panel.tsx extend context correctly 1`] = `
+exports[`renders components/modal/demo/render-panel.tsx extend context correctly 1`] = `
 <div
-  style="display:flex;flex-direction:column;row-gap:16px"
+  style="display: flex; flex-direction: column; row-gap: 16px;"
 >
   <div
     aria-modal="true"
     class="ant-modal ant-modal-pure-panel"
     role="dialog"
-    style="width:100%;height:200px"
+    style="width: 100%; height: 200px;"
   >
     <div
       aria-hidden="true"
-      style="width:0;height:0;overflow:hidden;outline:none"
+      style="width: 0px; height: 0px; overflow: hidden; outline: none;"
       tabindex="0"
     />
     <div
@@ -356,7 +356,7 @@ exports[`renders ./components/modal/demo/render-panel.tsx extend context correct
     </div>
     <div
       aria-hidden="true"
-      style="width:0;height:0;overflow:hidden;outline:none"
+      style="width: 0px; height: 0px; overflow: hidden; outline: none;"
       tabindex="0"
     />
   </div>
@@ -364,11 +364,11 @@ exports[`renders ./components/modal/demo/render-panel.tsx extend context correct
     aria-modal="true"
     class="ant-modal ant-modal-pure-panel ant-modal-confirm ant-modal-confirm-success"
     role="dialog"
-    style="width:200px;height:150px"
+    style="width: 200px; height: 150px;"
   >
     <div
       aria-hidden="true"
-      style="width:0;height:0;overflow:hidden;outline:none"
+      style="width: 0px; height: 0px; overflow: hidden; outline: none;"
       tabindex="0"
     />
     <div
@@ -425,7 +425,7 @@ exports[`renders ./components/modal/demo/render-panel.tsx extend context correct
     </div>
     <div
       aria-hidden="true"
-      style="width:0;height:0;overflow:hidden;outline:none"
+      style="width: 0px; height: 0px; overflow: hidden; outline: none;"
       tabindex="0"
     />
   </div>
@@ -433,11 +433,11 @@ exports[`renders ./components/modal/demo/render-panel.tsx extend context correct
     aria-modal="true"
     class="ant-modal ant-modal-pure-panel ant-modal-confirm ant-modal-confirm-confirm"
     role="dialog"
-    style="width:300px;height:200px"
+    style="width: 300px; height: 200px;"
   >
     <div
       aria-hidden="true"
-      style="width:0;height:0;overflow:hidden;outline:none"
+      style="width: 0px; height: 0px; overflow: hidden; outline: none;"
       tabindex="0"
     />
     <div
@@ -507,21 +507,21 @@ exports[`renders ./components/modal/demo/render-panel.tsx extend context correct
     </div>
     <div
       aria-hidden="true"
-      style="width:0;height:0;overflow:hidden;outline:none"
+      style="width: 0px; height: 0px; overflow: hidden; outline: none;"
       tabindex="0"
     />
   </div>
 </div>
 `;
 
-exports[`renders ./components/modal/demo/static-info.tsx extend context correctly 1`] = `
+exports[`renders components/modal/demo/static-info.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap:wrap;margin-bottom:-8px"
+  style="flex-wrap: wrap; margin-bottom: -8px;"
 >
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:8px"
+    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -534,7 +534,7 @@ exports[`renders ./components/modal/demo/static-info.tsx extend context correctl
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:8px"
+    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -547,7 +547,7 @@ exports[`renders ./components/modal/demo/static-info.tsx extend context correctl
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:8px"
+    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -560,7 +560,7 @@ exports[`renders ./components/modal/demo/static-info.tsx extend context correctl
   </div>
   <div
     class="ant-space-item"
-    style="padding-bottom:8px"
+    style="padding-bottom: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -574,7 +574,7 @@ exports[`renders ./components/modal/demo/static-info.tsx extend context correctl
 </div>
 `;
 
-exports[`renders ./components/modal/demo/width.tsx extend context correctly 1`] = `
+exports[`renders components/modal/demo/width.tsx extend context correctly 1`] = `
 <button
   class="ant-btn ant-btn-primary"
   type="button"
@@ -585,19 +585,19 @@ exports[`renders ./components/modal/demo/width.tsx extend context correctly 1`] 
 </button>
 `;
 
-exports[`renders ./components/modal/demo/wireframe.tsx extend context correctly 1`] = `
+exports[`renders components/modal/demo/wireframe.tsx extend context correctly 1`] = `
 <div
-  style="display:flex;flex-direction:column;row-gap:16px"
+  style="display: flex; flex-direction: column; row-gap: 16px;"
 >
   <div
     aria-modal="true"
     class="ant-modal ant-modal-pure-panel"
     role="dialog"
-    style="width:100%;height:200px"
+    style="width: 100%; height: 200px;"
   >
     <div
       aria-hidden="true"
-      style="width:0;height:0;overflow:hidden;outline:none"
+      style="width: 0px; height: 0px; overflow: hidden; outline: none;"
       tabindex="0"
     />
     <div
@@ -669,7 +669,7 @@ exports[`renders ./components/modal/demo/wireframe.tsx extend context correctly 
     </div>
     <div
       aria-hidden="true"
-      style="width:0;height:0;overflow:hidden;outline:none"
+      style="width: 0px; height: 0px; overflow: hidden; outline: none;"
       tabindex="0"
     />
   </div>
@@ -677,11 +677,11 @@ exports[`renders ./components/modal/demo/wireframe.tsx extend context correctly 
     aria-modal="true"
     class="ant-modal ant-modal-pure-panel ant-modal-confirm ant-modal-confirm-success"
     role="dialog"
-    style="width:200px;height:150px"
+    style="width: 200px; height: 150px;"
   >
     <div
       aria-hidden="true"
-      style="width:0;height:0;overflow:hidden;outline:none"
+      style="width: 0px; height: 0px; overflow: hidden; outline: none;"
       tabindex="0"
     />
     <div
@@ -738,7 +738,7 @@ exports[`renders ./components/modal/demo/wireframe.tsx extend context correctly 
     </div>
     <div
       aria-hidden="true"
-      style="width:0;height:0;overflow:hidden;outline:none"
+      style="width: 0px; height: 0px; overflow: hidden; outline: none;"
       tabindex="0"
     />
   </div>
@@ -746,11 +746,11 @@ exports[`renders ./components/modal/demo/wireframe.tsx extend context correctly 
     aria-modal="true"
     class="ant-modal ant-modal-pure-panel ant-modal-confirm ant-modal-confirm-confirm"
     role="dialog"
-    style="width:300px;height:200px"
+    style="width: 300px; height: 200px;"
   >
     <div
       aria-hidden="true"
-      style="width:0;height:0;overflow:hidden;outline:none"
+      style="width: 0px; height: 0px; overflow: hidden; outline: none;"
       tabindex="0"
     />
     <div
@@ -820,7 +820,7 @@ exports[`renders ./components/modal/demo/wireframe.tsx extend context correctly 
     </div>
     <div
       aria-hidden="true"
-      style="width:0;height:0;overflow:hidden;outline:none"
+      style="width: 0px; height: 0px; overflow: hidden; outline: none;"
       tabindex="0"
     />
   </div>

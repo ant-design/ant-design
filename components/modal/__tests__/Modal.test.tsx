@@ -118,7 +118,12 @@ describe('Modal', () => {
   });
 
   it('should not render footer if null', () => {
-    const { container } = render(<Modal footer={null} />);
-    expect(container.querySelector('.ant-modal-footer')).toBeFalsy();
+    render(<Modal open footer={null} />);
+    expect(document.querySelector('.ant-modal-footer')).toBeFalsy();
+  });
+
+  it('should render custom footer', () => {
+    render(<Modal open footer={<div className="custom-footer">footer</div>} />);
+    expect(document.querySelector('.custom-footer')).toBeTruthy();
   });
 });

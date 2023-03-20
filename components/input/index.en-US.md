@@ -21,7 +21,8 @@ A basic widget for getting the user input is a text field. Keyboard and mouse ca
 <code src="./demo/basic.tsx">Basic usage</code>
 <code src="./demo/size.tsx">Three sizes of Input</code>
 <code src="./demo/addon.tsx">Pre / Post tab</code>
-<code src="./demo/group.tsx">Input Group</code>
+<code src="./demo/compact-style.tsx">Compact Style</code>
+<code src="./demo/group.tsx" debug>Input Group</code>
 <code src="./demo/search-input.tsx">Search box</code>
 <code src="./demo/search-input-loading.tsx">Search box with loading</code>
 <code src="./demo/textarea.tsx">TextArea</code>
@@ -93,20 +94,6 @@ The rest of the props of `Input.TextArea` are the same as the original [textarea
 | onSearch | The callback function triggered when you click on the search-icon, the clear-icon or press the Enter key | function(value, event) | - |
 
 Supports all props of `Input`.
-
-#### Input.Group
-
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| compact | Whether use compact style | boolean | false |
-| size | The size of `Input.Group` specifies the size of the included `Input` fields. Available: `large` `default` `small` | string | `default` |
-
-```jsx
-<Input.Group>
-  <input />
-  <input />
-</Input.Group>
-```
 
 #### Input.Password
 
