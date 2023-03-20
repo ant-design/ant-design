@@ -11,8 +11,7 @@ const App: React.FC = () => {
   };
 
   const onChange: StatisticProps['onChange'] = (val) => {
-    if (typeof val === 'number') {
-      if (4.95 * 1000 < val && val < 5 * 1000) {
+      if (typeof val === 'number' && 4.95 * 1000 < val && val < 5 * 1000) {
         console.log('changed!');
       }
     }
