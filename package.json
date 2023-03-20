@@ -245,7 +245,7 @@
     "lodash": "^4.17.21",
     "lz-string": "^1.4.4",
     "mockdate": "^3.0.0",
-    "open": "^8.0.1",
+    "open": "^9.0.0",
     "prettier": "^2.3.2",
     "prettier-plugin-jsdoc": "^0.4.2",
     "pretty-format": "^29.0.0",
