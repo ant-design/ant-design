@@ -1,4 +1,3 @@
-import React from 'react';
 import { CopyOutlined } from '@ant-design/icons';
 import {
   AutoComplete,
@@ -12,6 +11,7 @@ import {
   Select,
   Tooltip,
 } from 'antd';
+import React from 'react';
 
 const { Option } = Select;
 
@@ -53,7 +53,7 @@ const options = [
 const App: React.FC = () => (
   <div className="site-input-group-wrapper">
     <Input.Group size="large">
-      <Row gutter={8}>
+      <Row gutter={8} style={{ flexGrow: 1 }}>
         <Col span={5}>
           <Input defaultValue="0571" />
         </Col>

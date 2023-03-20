@@ -250,7 +250,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
     [`${componentCls}-group`]: {
       [`&-addon, &-wrap`]: {
         display: 'flex',
-        alignItems:'center',
+        alignItems: 'center',
         whiteSpace: 'nowrap',
 
         '&:not(:first-child):not(:last-child)': {
