@@ -1,8 +1,11 @@
 ---
 category: Components
-type: Data Display
+group: Data Display
 title: Tree
-cover: https://gw.alipayobjects.com/zos/alicdn/Xh-oWqg9k/Tree.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Ag9_Q6ArswEAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*1GeUQJPTGUYAAAAAAAAAAAAADrJ8AQ/original
+demo:
+  cols: 2
 ---
 
 A hierarchical list structure component.
@@ -10,6 +13,23 @@ A hierarchical list structure component.
 ## When To Use
 
 Almost anything can be represented in a tree structure. Examples include directories, organization hierarchies, biological classifications, countries, etc. The `Tree` component is a way of representing the hierarchical relationship between these things. You can also expand, collapse, and select a treeNode within a `Tree`.
+
+## Examples
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/basic-controlled.tsx">Controlled Tree</code>
+<code src="./demo/draggable.tsx">draggable</code>
+<code src="./demo/dynamic.tsx">load data asynchronously</code>
+<code src="./demo/search.tsx">Searchable</code>
+<code src="./demo/line.tsx">Tree with line</code>
+<code src="./demo/customized-icon.tsx">Customize Icon</code>
+<code src="./demo/directory.tsx">directory</code>
+<code src="./demo/switcher-icon.tsx">Customize collapse/expand icon</code>
+<code src="./demo/virtual-scroll.tsx">Virtual scroll</code>
+<code src="./demo/drag-debug.tsx" debug>Drag Debug</code>
+<code src="./demo/big-data.tsx" debug>Big data</code>
+<code src="./demo/block-node.tsx">Block Node</code>
 
 ## API
 
@@ -87,7 +107,7 @@ Before `3.4.0`: The number of treeNodes can be very large, but when `checkable=t
 {
   this.state.treeData.length ? (
     <Tree>
-      {this.state.treeData.map(data => (
+      {this.state.treeData.map((data) => (
         <TreeNode />
       ))}
     </Tree>
@@ -111,7 +131,7 @@ File icon realize by using switcherIcon. You can overwrite the style to hide it:
 
 ### Why defaultExpandAll not working on ajax data?
 
-`default` prefix prop only works when inited. So `defaultExpandAll` has already executed when ajax load data. You can control `expandedKeys` or render Tree when data loaded to realize expanded all.
+`default` prefix prop only works when initializing. So `defaultExpandAll` has already executed when ajax load data. You can control `expandedKeys` or render Tree when data loaded to realize expanded all.
 
 ### Virtual scroll limitation
 

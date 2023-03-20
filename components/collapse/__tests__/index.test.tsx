@@ -1,6 +1,6 @@
 import React from 'react';
 import { act } from 'react-dom/test-utils';
-import { sleep, render, fireEvent } from '../../../tests/utils';
+import { waitFakeTimer, render, fireEvent } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
 
 describe('Collapse', () => {
@@ -39,6 +39,14 @@ describe('Collapse', () => {
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
+  it('should be able to config size', () => {
+    const { container: small } = render(<Collapse size="small" />);
+    const { container: large } = render(<Collapse size="large" />);
+
+    expect(small.querySelector('.ant-collapse')).toHaveClass('ant-collapse-small');
+    expect(large.querySelector('.ant-collapse')).toHaveClass('ant-collapse-large');
+  });
+
   it('should keep the className of the expandIcon', () => {
     const { container } = render(
       <Collapse
@@ -66,6 +74,7 @@ describe('Collapse', () => {
   });
 
   it('could be expand and collapse', async () => {
+    jest.useFakeTimers();
     const { container } = render(
       <Collapse>
         <Collapse.Panel header="This is panel header 1" key="1">
@@ -77,10 +86,11 @@ describe('Collapse', () => {
       container.querySelector('.ant-collapse-item')?.classList.contains('ant-collapse-item-active'),
     ).toBe(false);
     fireEvent.click(container.querySelector('.ant-collapse-header')!);
-    await sleep(400);
+    await waitFakeTimer();
     expect(
       container.querySelector('.ant-collapse-item')?.classList.contains('ant-collapse-item-active'),
     ).toBe(true);
+    jest.useRealTimers();
   });
 
   it('could override default openMotion', () => {
@@ -118,11 +128,11 @@ describe('Collapse', () => {
     jest.useFakeTimers();
     const spiedRAF = jest
       .spyOn(window, 'requestAnimationFrame')
-      .mockImplementation(cb => setTimeout(cb, 16.66));
+      .mockImplementation((cb) => setTimeout(cb, 16.66));
 
-    let setActiveKeyOuter: React.Dispatch<React.SetStateAction<React.Key | undefined>>;
-    const Test = () => {
-      const [activeKey, setActiveKey] = React.useState();
+    let setActiveKeyOuter: React.Dispatch<React.SetStateAction<React.Key>>;
+    const Test: React.FC = () => {
+      const [activeKey, setActiveKey] = React.useState<React.Key>();
       setActiveKeyOuter = setActiveKey;
       return (
         <div hidden>
@@ -150,8 +160,32 @@ describe('Collapse', () => {
     jest.useRealTimers();
   });
 
+  it('ref should work', () => {
+    const ref = React.createRef<HTMLDivElement>();
+    const panelRef1 = React.createRef<HTMLDivElement>();
+    const panelRef2 = React.createRef<HTMLDivElement>();
+
+    const { container } = render(
+      <Collapse ref={ref}>
+        <Collapse.Panel ref={panelRef1} header="panel header 1" key="1">
+          1
+        </Collapse.Panel>
+        <Collapse.Panel ref={panelRef2} header="panel header 2" key="2">
+          2
+        </Collapse.Panel>
+        <Collapse.Panel header="panel header 3" key="3">
+          2
+        </Collapse.Panel>
+      </Collapse>,
+    );
+
+    expect(ref.current).toBe(container.firstChild);
+    expect(panelRef1.current).toBe(document.querySelectorAll('.ant-collapse-item')[0]);
+    expect(panelRef2.current).toBe(document.querySelectorAll('.ant-collapse-item')[1]);
+  });
+
   describe('expandIconPosition', () => {
-    ['left', 'right'].forEach(pos => {
+    ['left', 'right'].forEach((pos) => {
       it(`warning for legacy '${pos}'`, () => {
         render(
           <Collapse expandIconPosition={pos}>

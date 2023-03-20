@@ -6,6 +6,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
+import { resetWarned } from '../../_util/warning';
 
 const DrawerTest: React.FC<DrawerProps> = ({ getContainer }) => (
   <div>
@@ -73,7 +74,7 @@ describe('Drawer', () => {
 
   it('render top drawer', () => {
     const { container } = render(
-      <Drawer visible height={400} placement="top" getContainer={false}>
+      <Drawer open height={400} placement="top" getContainer={false}>
         Here is content of Drawer
       </Drawer>,
     );
@@ -117,7 +118,7 @@ describe('Drawer', () => {
 
   it('className is test_drawer', () => {
     const { container: wrapper } = render(
-      <Drawer destroyOnClose open className="test_drawer" getContainer={false}>
+      <Drawer destroyOnClose open rootClassName="test_drawer" getContainer={false}>
         Here is content of Drawer
       </Drawer>,
     );
@@ -133,7 +134,7 @@ describe('Drawer', () => {
     const { container: wrapper } = render(
       <Drawer
         open
-        style={style}
+        rootStyle={style}
         drawerStyle={style}
         headerStyle={style}
         bodyStyle={style}
@@ -208,17 +209,38 @@ describe('Drawer', () => {
       zIndex: 903,
     });
   });
-  it('deprecated warning', () => {
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
-    const { rerender } = render(<Drawer visible />);
-    expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Drawer] `visible` is deprecated which will be removed in next major version, please use `open` instead.',
-    );
-    rerender(<Drawer afterVisibleChange={() => {}} />);
-    expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Drawer] `afterVisibleChange` is deprecated which will be removed in next major version, please use `afterOpenChange` instead.',
-    );
-    errSpy.mockRestore();
+  describe('style migrate', () => {
+    it('not warning with getContainer', () => {
+      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      resetWarned();
+
+      render(<Drawer getContainer={() => document.body} />);
+      expect(errorSpy).not.toHaveBeenCalled();
+
+      errorSpy.mockRestore();
+    });
+
+    it('not warning with getContainer false', () => {
+      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      resetWarned();
+
+      render(<Drawer getContainer={false} />);
+      expect(errorSpy).not.toHaveBeenCalled();
+
+      errorSpy.mockRestore();
+    });
+
+    it('warning with getContainer & style', () => {
+      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      resetWarned();
+
+      render(<Drawer getContainer={false} style={{ position: 'absolute' }} />);
+      expect(errorSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Drawer] `style` is replaced by `rootStyle` in v5. Please check that `position: absolute` is necessary.',
+      );
+
+      errorSpy.mockRestore();
+    });
   });
 });

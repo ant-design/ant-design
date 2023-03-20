@@ -1,26 +1,48 @@
 ---
 category: Components
-type: Data Entry
+group: Data Entry
 title: TimePicker
-cover: https://gw.alipayobjects.com/zos/alicdn/h04Zsl98I/TimePicker.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*kGmGSLk_1fwAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*1hDmQJIDFJQAAAAAAAAAAAAADrJ8AQ/original
+demo:
+  cols: 2
 ---
 
 To select/input a time.
 
 ## When To Use
 
----
-
 By clicking the input box, you can select a time from a popup panel.
+
+## Examples
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/value.tsx">Under Control</code>
+<code src="./demo/size.tsx">Three Sizes</code>
+<code src="./demo/disabled.tsx">disabled</code>
+<code src="./demo/hide-column.tsx">Hour and minute</code>
+<code src="./demo/interval-options.tsx">interval option</code>
+<code src="./demo/addon.tsx">Addon</code>
+<code src="./demo/12hours.tsx">12 hours</code>
+<code src="./demo/colored-popup.tsx" debug>Colored Popup</code>
+<code src="./demo/range-picker.tsx">Time Range Picker</code>
+<code src="./demo/bordered.tsx">Bordered-less</code>
+<code src="./demo/status.tsx">Status</code>
+<code src="./demo/suffix.tsx" debug>Suffix</code>
+<code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
 
 ---
 
 ```jsx
-import moment from 'moment';
+import dayjs from 'dayjs';
+import customParseFormat from 'dayjs/plugin/customParseFormat'
 
-<TimePicker defaultValue={moment('13:30:56', 'HH:mm:ss')} />;
+dayjs.extend(customParseFormat)
+
+<TimePicker defaultValue={dayjs('13:30:56', 'HH:mm:ss')} />;
 ```
 
 | Property | Description | Type | Default | Version |
@@ -31,9 +53,9 @@ import moment from 'moment';
 | className | The className of picker | string | - |  |
 | clearIcon | The custom clear icon | ReactNode | - |  |
 | clearText | The clear tooltip of icon | string | clear |  |
-| defaultValue | To set default time | [moment](http://momentjs.com/) | - |  |
+| defaultValue | To set default time | [dayjs](http://day.js.org/) | - |  |
 | disabled | Determine whether the TimePicker is disabled | boolean | false |  |
-| disabledTime | To specify the time that cannot be selected | [DisabledTime](#DisabledTime) | - | 4.19.0 |
+| disabledTime | To specify the time that cannot be selected | [DisabledTime](#disabledtime) | - | 4.19.0 |
 | format | To set the time format | string | `HH:mm:ss` |  |
 | getPopupContainer | To set the container of the floating layer, while the default is to create a div element in body | function(trigger) | - |  |
 | hideDisabledOptions | Whether hide the options that can not be selected | boolean | false |  |
@@ -51,15 +73,15 @@ import moment from 'moment';
 | status | Set validation status | 'error' \| 'warning' \| 'success' \| 'validating' | - | 4.19.0 |
 | suffixIcon | The custom suffix icon | ReactNode | - |  |
 | use12Hours | Display as 12 hours format, with default format `h:mm:ss a` | boolean | false |  |
-| value | To set time | [moment](http://momentjs.com/) | - |  |
-| onChange | A callback function, can be executed when the selected time is changing | function(time: moment, timeString: string): void | - |  |
+| value | To set time | [dayjs](http://day.js.org/) | - |  |
+| onChange | A callback function, can be executed when the selected time is changing | function(time: dayjs, timeString: string): void | - |  |
 | onOpenChange | A callback function which will be called while panel opening/closing | (open: boolean) => void | - |  |
-| onSelect | A callback function, executes when a value is selected | function(time: moment): void | - |  |
+| onSelect | A callback function, executes when a value is selected | function(time: dayjs): void | - |  |
 
 #### DisabledTime
 
 ```typescript
-type DisabledTime = (now: Moment) => {
+type DisabledTime = (now: Dayjs) => {
   disabledHours?: () => number[];
   disabledMinutes?: (selectedHour: number) => number[];
   disabledSeconds?: (selectedHour: number, selectedMinute: number) => number[];
@@ -75,18 +97,18 @@ type DisabledTime = (now: Moment) => {
 
 ### RangePicker
 
-Same props from [RangePicker](/components/date-picker/#RangePicker) of DatePicker. And includes additional props:
+Same props from [RangePicker](/components/date-picker/#rangepicker) of DatePicker. And includes additional props:
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| disabledTime | To specify the time that cannot be selected | [RangeDisabledTime](#RangeDisabledTime) | - | 4.19.0 |
+| disabledTime | To specify the time that cannot be selected | [RangeDisabledTime](#rangedisabledtime) | - | 4.19.0 |
 | order | Order start and end time | boolean | true | 4.1.0 |
 
 ### RangeDisabledTime
 
 ```typescript
 type RangeDisabledTime = (
-  now: Moment,
+  now: Dayjs,
   type = 'start' | 'end',
 ) => {
   disabledHours?: () => number[];
@@ -95,11 +117,6 @@ type RangeDisabledTime = (
 };
 ```
 
-<style>
-.code-box-demo .ant-picker { margin: 0 8px 12px 0; }
-.ant-row-rtl .code-box-demo .ant-picker { margin: 0 0 12px 8px; }
-</style>
-
 ## FAQ
 
-- [How to use TimePicker with customize date library like dayjs](/docs/react/replace-moment#TimePicker)
+- [How to use TimePicker with customize date library like dayjs](/docs/react/use-custom-date-library#timepicker)

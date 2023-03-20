@@ -1,11 +1,8 @@
 ---
 order: 1
 title: 资源
+description: 这里汇总了与 Ant Design 相关的所有资源。
 toc: false
----
-
-这里汇总了与 Ant Design 相关的所有资源。
-
 ---
 
 ## 设计资源
@@ -14,15 +11,11 @@ toc: false
 
 <div class="next-block-use-cards"></div>
 
+<ResourceCards>
 - Sketch 组件包
   - https://gw.alipayobjects.com/zos/basement_prod/048ee28f-2c80-4d15-9aa3-4f5ddac50465.svg
   - 桌面组件 Sketch 模板包
-  - https://gw.alipayobjects.com/os/bmw-prod/82c08c51-9993-4568-90c1-249c8301c0af.sketch
-  - 官方
-- Sketch 组件包 (暗色)
-  - https://gw.alipayobjects.com/zos/basement_prod/048ee28f-2c80-4d15-9aa3-4f5ddac50465.svg
-  - 桌面组件 Sketch 模板包，内含暗色版本的 antd 组件
-  - https://gw.alipayobjects.com/os/bmw-prod/f002145c-33d9-408e-ba75-a1a68896dfa3.sketch
+  - https://gw.alipayobjects.com/os/hitu-asset/5217de80-7a3e-413f-809e-20ecede4f3f3/hitu-1669000735416-5000001.sketch
   - 官方
 - Mobile Components
   - https://gw.alipayobjects.com/zos/basement_prod/c0c3852c-d245-4330-886b-cb02ef49eb6d.svg
@@ -34,11 +27,6 @@ toc: false
   - 典型页面 + 通用业务模板
   - https://gw.alipayobjects.com/os/bmw-prod/22208f9d-f8c5-4d7c-b87a-fec290e96527.sketch
   - 官方
-- Ant Design Library
-  - https://gw.alipayobjects.com/zos/basement_prod/90740380-bbb7-4329-95e5-64533934c6cf.svg
-  - 一套强大的 Axure 部件库
-  - http://library.ant.design
-  - 官方
 - Kitchen
   - https://gw.alipayobjects.com/zos/basement_prod/d475d063-2754-4442-b9db-5d164e06acc9.svg
   - Sketch 工具集
@@ -48,11 +36,6 @@ toc: false
   - https://gw.alipayobjects.com/zos/basement_prod/b443f4be-5116-49b7-873f-a7c8502b8f0e.svg
   - 首页模板集
   - https://landing.ant.design/docs/download-cn
-  - 官方
-- Ant UX
-  - https://gw.alipayobjects.com/zos/basement_prod/51682163-e01a-46fe-810c-ac0062379717.svg
-  - 一套页面逻辑原型库
-  - http://ux.ant.design
   - 官方
 - Ant Design 原型 (xiaopiu)
   - https://gw.alipayobjects.com/zos/basement_prod/77e6a9ae-24a9-4be6-be42-f7fa8ee0eecf.svg
@@ -87,16 +70,13 @@ toc: false
   - https://gw.alipayobjects.com/zos/basement_prod/5edc7f4d-3302-4710-963b-7b6c77ea8d06.svg
   - mac 用户可使用 Raycast 快速打开 Ant Design 组件
   - https://www.raycast.com/crazyair/antd-open-browser
+</ResourceCards>
 
 ## 文章
 
 想要了解 Ant Design 设计体系背后的故事？如何才能更好的应用 Ant Design？你可以查阅下述我们为你精挑细选的文章。也欢迎关注 [Ant Design 官方专栏](https://www.zhihu.com/column/c_1310524851418480640)，这里常有关于 Ant Design 设计体系下相关话题内容的最新分享和讨论，如 Ant Design、AntV 可视化、Kitchen 设计插件、B 端产品设计、SaaS 产品设计、自然交互、增长设计、智能设计、设计工程化等。
 
-```__react
-import Articles from '../site/theme/template/Resources/Articles';
-
-ReactDOM.render(<Articles />, mountNode);
-```
+<ResourceArticles></ResourceArticles>
 
 ## 致敬
 
@@ -104,6 +84,7 @@ ReactDOM.render(<Articles />, mountNode);
 
 <div class="next-block-use-cards"></div>
 
+<ResourceCards>
 - About Face 4 #E1E8B7
   - https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*KKZWRozT8D8AAAAAAAAAAABkARQnAQ
   - 一本数字产品和系统的交互设计指南
@@ -132,6 +113,7 @@ ReactDOM.render(<Articles />, mountNode);
   - https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*vXfQS7sStNYAAAAAAAAAAABkARQnAQ
   - 表单设计的真谛
   - http://book.douban.com/subject/4886100/
+</ResourceCards>
 
 ## 加入我们
 

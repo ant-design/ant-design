@@ -1,43 +1,11 @@
----
-order: 0
-title:
-  zh-CN: 基本
-  en-US: Basic
----
-
 ## zh-CN
 
-最简单的用法。
+最简单的用法，支持确认标题和描述。
+
+> `description` 在 `5.1.0` 版本中支持。
 
 ## en-US
 
-The basic example.
+The basic example supports the title and description props of confirmation.
 
-```tsx
-import { message, Popconfirm } from 'antd';
-import React from 'react';
-
-const confirm = (e: React.MouseEvent<HTMLElement>) => {
-  console.log(e);
-  message.success('Click on Yes');
-};
-
-const cancel = (e: React.MouseEvent<HTMLElement>) => {
-  console.log(e);
-  message.error('Click on No');
-};
-
-const App: React.FC = () => (
-  <Popconfirm
-    title="Are you sure to delete this task?"
-    onConfirm={confirm}
-    onCancel={cancel}
-    okText="Yes"
-    cancelText="No"
-  >
-    <a href="#">Delete</a>
-  </Popconfirm>
-);
-
-export default App;
-```
+> `description` is supported in version `5.1.0`.

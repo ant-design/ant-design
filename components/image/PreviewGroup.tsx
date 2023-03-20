@@ -3,6 +3,7 @@ import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
 import RotateLeftOutlined from '@ant-design/icons/RotateLeftOutlined';
 import RotateRightOutlined from '@ant-design/icons/RotateRightOutlined';
+import SwapOutlined from '@ant-design/icons/SwapOutlined';
 import ZoomInOutlined from '@ant-design/icons/ZoomInOutlined';
 import ZoomOutOutlined from '@ant-design/icons/ZoomOutOutlined';
 import RcImage from 'rc-image';
@@ -10,6 +11,9 @@ import type { GroupConsumerProps } from 'rc-image/lib/PreviewGroup';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import { getTransitionName } from '../_util/motion';
+
+// CSSINJS
+import useStyle from './style';
 
 export const icons = {
   rotateLeft: <RotateLeftOutlined />,
@@ -19,6 +23,8 @@ export const icons = {
   close: <CloseOutlined />,
   left: <LeftOutlined />,
   right: <RightOutlined />,
+  flipX: <SwapOutlined />,
+  flipY: <SwapOutlined rotate={90} />,
 };
 
 const InternalPreviewGroup: React.FC<GroupConsumerProps> = ({
@@ -27,8 +33,11 @@ const InternalPreviewGroup: React.FC<GroupConsumerProps> = ({
   ...props
 }) => {
   const { getPrefixCls } = React.useContext(ConfigContext);
-  const prefixCls = getPrefixCls('image-preview', customizePrefixCls);
+  const prefixCls = getPrefixCls('image', customizePrefixCls);
+  const previewPrefixCls = `${prefixCls}-preview`;
   const rootPrefixCls = getPrefixCls();
+
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const mergedPreview = React.useMemo(() => {
     if (preview === false) {
@@ -40,16 +49,17 @@ const InternalPreviewGroup: React.FC<GroupConsumerProps> = ({
       ..._preview,
       transitionName: getTransitionName(rootPrefixCls, 'zoom', _preview.transitionName),
       maskTransitionName: getTransitionName(rootPrefixCls, 'fade', _preview.maskTransitionName),
+      rootClassName: hashId,
     };
   }, [preview]);
 
-  return (
+  return wrapSSR(
     <RcImage.PreviewGroup
       preview={mergedPreview}
-      previewPrefixCls={prefixCls}
+      previewPrefixCls={previewPrefixCls}
       icons={icons}
       {...props}
-    />
+    />,
   );
 };
 

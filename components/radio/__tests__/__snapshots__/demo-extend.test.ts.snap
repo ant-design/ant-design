@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/radio/demo/badge.md extend context correctly 1`] = `
+exports[`renders ./components/radio/demo/badge.tsx extend context correctly 1`] = `
 <div
   class="ant-radio-group ant-radio-group-solid"
 >
@@ -85,7 +85,7 @@ exports[`renders ./components/radio/demo/badge.md extend context correctly 1`] =
 </div>
 `;
 
-exports[`renders ./components/radio/demo/basic.md extend context correctly 1`] = `
+exports[`renders ./components/radio/demo/basic.tsx extend context correctly 1`] = `
 <label
   class="ant-radio-wrapper"
 >
@@ -106,7 +106,7 @@ exports[`renders ./components/radio/demo/basic.md extend context correctly 1`] =
 </label>
 `;
 
-exports[`renders ./components/radio/demo/disabled.md extend context correctly 1`] = `
+exports[`renders ./components/radio/demo/disabled.tsx extend context correctly 1`] = `
 Array [
   <label
     class="ant-radio-wrapper ant-radio-wrapper-disabled"
@@ -160,7 +160,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/radio/demo/radiobutton.md extend context correctly 1`] = `
+exports[`renders ./components/radio/demo/radiobutton.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-radio-group ant-radio-group-outline"
@@ -415,7 +415,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/radio/demo/radiobutton-solid.md extend context correctly 1`] = `
+exports[`renders ./components/radio/demo/radiobutton-solid.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-radio-group ant-radio-group-solid"
@@ -584,7 +584,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/radio/demo/radiogroup.md extend context correctly 1`] = `
+exports[`renders ./components/radio/demo/radiogroup.tsx extend context correctly 1`] = `
 <div
   class="ant-radio-group ant-radio-group-outline"
 >
@@ -668,7 +668,7 @@ exports[`renders ./components/radio/demo/radiogroup.md extend context correctly 
 </div>
 `;
 
-exports[`renders ./components/radio/demo/radiogroup-more.md extend context correctly 1`] = `
+exports[`renders ./components/radio/demo/radiogroup-more.tsx extend context correctly 1`] = `
 <div
   class="ant-radio-group ant-radio-group-outline"
 >
@@ -775,7 +775,7 @@ exports[`renders ./components/radio/demo/radiogroup-more.md extend context corre
 </div>
 `;
 
-exports[`renders ./components/radio/demo/radiogroup-options.md extend context correctly 1`] = `
+exports[`renders ./components/radio/demo/radiogroup-options.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-radio-group ant-radio-group-outline"
@@ -1035,7 +1035,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/radio/demo/radiogroup-with-name.md extend context correctly 1`] = `
+exports[`renders ./components/radio/demo/radiogroup-with-name.tsx extend context correctly 1`] = `
 <div
   class="ant-radio-group ant-radio-group-outline"
 >
@@ -1123,7 +1123,7 @@ exports[`renders ./components/radio/demo/radiogroup-with-name.md extend context 
 </div>
 `;
 
-exports[`renders ./components/radio/demo/size.md extend context correctly 1`] = `
+exports[`renders ./components/radio/demo/size.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-radio-group ant-radio-group-outline ant-radio-group-large"
@@ -1367,6 +1367,178 @@ Array [
       </span>
       <span>
         Chengdu
+      </span>
+    </label>
+  </div>,
+]
+`;
+
+exports[`renders ./components/radio/demo/wireframe.tsx extend context correctly 1`] = `
+Array [
+  <div
+    class="ant-radio-group ant-radio-group-outline"
+  >
+    <label
+      class="ant-radio-wrapper ant-radio-wrapper-checked"
+    >
+      <span
+        class="ant-radio ant-radio-checked"
+      >
+        <input
+          checked=""
+          class="ant-radio-input"
+          type="radio"
+          value="1"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span>
+        A
+      </span>
+    </label>
+    <label
+      class="ant-radio-wrapper"
+    >
+      <span
+        class="ant-radio"
+      >
+        <input
+          class="ant-radio-input"
+          type="radio"
+          value="2"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span>
+        B
+      </span>
+    </label>
+    <label
+      class="ant-radio-wrapper"
+    >
+      <span
+        class="ant-radio"
+      >
+        <input
+          class="ant-radio-input"
+          type="radio"
+          value="3"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span>
+        C
+      </span>
+    </label>
+    <label
+      class="ant-radio-wrapper"
+    >
+      <span
+        class="ant-radio"
+      >
+        <input
+          class="ant-radio-input"
+          type="radio"
+          value="4"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span>
+        D
+      </span>
+    </label>
+  </div>,
+  <br />,
+  <div
+    class="ant-radio-group ant-radio-group-outline"
+  >
+    <label
+      class="ant-radio-wrapper ant-radio-wrapper-checked ant-radio-wrapper-disabled"
+    >
+      <span
+        class="ant-radio ant-radio-checked ant-radio-disabled"
+      >
+        <input
+          checked=""
+          class="ant-radio-input"
+          disabled=""
+          type="radio"
+          value="1"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span>
+        A
+      </span>
+    </label>
+    <label
+      class="ant-radio-wrapper ant-radio-wrapper-disabled"
+    >
+      <span
+        class="ant-radio ant-radio-disabled"
+      >
+        <input
+          class="ant-radio-input"
+          disabled=""
+          type="radio"
+          value="2"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span>
+        B
+      </span>
+    </label>
+    <label
+      class="ant-radio-wrapper ant-radio-wrapper-disabled"
+    >
+      <span
+        class="ant-radio ant-radio-disabled"
+      >
+        <input
+          class="ant-radio-input"
+          disabled=""
+          type="radio"
+          value="3"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span>
+        C
+      </span>
+    </label>
+    <label
+      class="ant-radio-wrapper ant-radio-wrapper-disabled"
+    >
+      <span
+        class="ant-radio ant-radio-disabled"
+      >
+        <input
+          class="ant-radio-input"
+          disabled=""
+          type="radio"
+          value="4"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span>
+        D
       </span>
     </label>
   </div>,

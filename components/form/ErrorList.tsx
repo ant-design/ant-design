@@ -1,11 +1,13 @@
 import classNames from 'classnames';
 import CSSMotion, { CSSMotionList } from 'rc-motion';
 import * as React from 'react';
-import { ConfigContext } from '../config-provider';
-import collapseMotion from '../_util/motion';
+import { useMemo } from 'react';
+import initCollapseMotion from '../_util/motion';
 import { FormItemPrefixContext } from './context';
 import type { ValidateStatus } from './FormItem';
 import useDebounce from './hooks/useDebounce';
+
+import useStyle from './style';
 
 const EMPTY_LIST: React.ReactNode[] = [];
 
@@ -17,8 +19,8 @@ interface ErrorEntity {
 
 function toErrorEntity(
   error: React.ReactNode,
-  errorStatus: ValidateStatus | undefined,
   prefix: string,
+  errorStatus?: ValidateStatus,
   index: number = 0,
 ): ErrorEntity {
   return {
@@ -48,19 +50,21 @@ export default function ErrorList({
   onVisibleChanged,
 }: ErrorListProps) {
   const { prefixCls } = React.useContext(FormItemPrefixContext);
-  const { getPrefixCls } = React.useContext(ConfigContext);
 
   const baseClassName = `${prefixCls}-item-explain`;
-  const rootPrefixCls = getPrefixCls();
+
+  const [, hashId] = useStyle(prefixCls);
+
+  const collapseMotion = useMemo(() => initCollapseMotion(prefixCls), [prefixCls]);
 
   // We have to debounce here again since somewhere use ErrorList directly still need no shaking
   // ref: https://github.com/ant-design/ant-design/issues/36336
   const debounceErrors = useDebounce(errors);
   const debounceWarnings = useDebounce(warnings);
 
-  const fullKeyList = React.useMemo(() => {
+  const fullKeyList = React.useMemo<ErrorEntity[]>(() => {
     if (help !== undefined && help !== null) {
-      return [toErrorEntity(help, helpStatus, 'help')];
+      return [toErrorEntity(help, 'help', helpStatus)];
     }
 
     return [
@@ -80,27 +84,27 @@ export default function ErrorList({
   return (
     <CSSMotion
       motionDeadline={collapseMotion.motionDeadline}
-      motionName={`${rootPrefixCls}-show-help`}
+      motionName={`${prefixCls}-show-help`}
       visible={!!fullKeyList.length}
       onVisibleChanged={onVisibleChanged}
     >
-      {holderProps => {
+      {(holderProps) => {
         const { className: holderClassName, style: holderStyle } = holderProps;
 
         return (
           <div
             {...helpProps}
-            className={classNames(baseClassName, holderClassName, rootClassName)}
+            className={classNames(baseClassName, holderClassName, rootClassName, hashId)}
             style={holderStyle}
             role="alert"
           >
             <CSSMotionList
               keys={fullKeyList}
-              {...collapseMotion}
-              motionName={`${rootPrefixCls}-show-help-item`}
+              {...initCollapseMotion(prefixCls)}
+              motionName={`${prefixCls}-show-help-item`}
               component={false}
             >
-              {itemProps => {
+              {(itemProps) => {
                 const {
                   key,
                   error,

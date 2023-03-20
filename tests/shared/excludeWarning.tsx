@@ -10,16 +10,14 @@ export function excludeWarning() {
     originError(msg, ...rest);
   });
 
-  return () => {
-    errorSpy.mockRestore();
-  };
+  return errorSpy;
 }
 
 export default function excludeAllWarning() {
   let cleanUp: Function;
 
   beforeAll(() => {
-    cleanUp = excludeWarning();
+    cleanUp = excludeWarning().mockRestore;
   });
 
   afterAll(() => {

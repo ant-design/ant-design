@@ -25,7 +25,7 @@ describe('List.pagination', () => {
         itemLayout="vertical"
         pagination={pagination}
         dataSource={data}
-        renderItem={item => <List.Item key={item.key}>{item.name}</List.Item>}
+        renderItem={(item) => <List.Item key={item.key}>{item.name}</List.Item>}
         {...props}
       />
     );
@@ -201,5 +201,29 @@ describe('List.pagination', () => {
 
   it('should not crash when pagination is null', () => {
     render(createList({ pagination: null as unknown as ListProps<DataSourceItem>['pagination'] }));
+  });
+
+  // https://github.com/ant-design/ant-design/issues/39496
+  it('should not crash when pagination pageSize is not defined', () => {
+    expect(() => {
+      render(
+        createList({
+          pagination: {
+            pageSize: undefined,
+          },
+        }),
+      );
+    }).not.toThrow();
+  });
+
+  it('pagination button should be displayed normally, when the paginator total is not defined', () => {
+    const { container } = render(
+      createList({
+        pagination: { total: undefined },
+        dataSource: Array.from({ length: 11 }, (_, key) => ({ key, name: `name${key}` })),
+      }),
+    );
+
+    expect(container.querySelector('.ant-pagination')).toMatchSnapshot();
   });
 });

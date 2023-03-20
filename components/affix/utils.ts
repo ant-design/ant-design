@@ -1,4 +1,5 @@
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
+import type { InternalAffixClass } from '.';
 
 export type BindElement = HTMLElement | Window | null | undefined;
 
@@ -8,19 +9,19 @@ export function getTargetRect(target: BindElement): DOMRect {
     : ({ top: 0, bottom: window.innerHeight } as DOMRect);
 }
 
-export function getFixedTop(placeholderReact: DOMRect, targetRect: DOMRect, offsetTop?: number) {
-  if (offsetTop !== undefined && targetRect.top > placeholderReact.top - offsetTop) {
+export function getFixedTop(placeholderRect: DOMRect, targetRect: DOMRect, offsetTop?: number) {
+  if (offsetTop !== undefined && targetRect.top > placeholderRect.top - offsetTop) {
     return offsetTop + targetRect.top;
   }
   return undefined;
 }
 
 export function getFixedBottom(
-  placeholderReact: DOMRect,
+  placeholderRect: DOMRect,
   targetRect: DOMRect,
   offsetBottom?: number,
 ) {
-  if (offsetBottom !== undefined && targetRect.bottom < placeholderReact.bottom + offsetBottom) {
+  if (offsetBottom !== undefined && targetRect.bottom < placeholderRect.bottom + offsetBottom) {
     const targetBottomOffset = window.innerHeight - targetRect.bottom;
     return offsetBottom + targetBottomOffset;
   }
@@ -51,10 +52,15 @@ export function getObserverEntities() {
   return observerEntities;
 }
 
-export function addObserveTarget<T>(target: HTMLElement | Window | null, affix: T): void {
-  if (!target) return;
+export function addObserveTarget<T extends InternalAffixClass>(
+  target: HTMLElement | Window | null,
+  affix?: T,
+): void {
+  if (!target) {
+    return;
+  }
 
-  let entity: ObserverEntity | undefined = observerEntities.find(item => item.target === target);
+  let entity = observerEntities.find((item) => item.target === target);
 
   if (entity) {
     entity.affixList.push(affix);
@@ -67,9 +73,9 @@ export function addObserveTarget<T>(target: HTMLElement | Window | null, affix: 
     observerEntities.push(entity);
 
     // Add listener
-    TRIGGER_EVENTS.forEach(eventName => {
+    TRIGGER_EVENTS.forEach((eventName) => {
       entity!.eventHandlers[eventName] = addEventListener(target, eventName, () => {
-        entity!.affixList.forEach(targetAffix => {
+        entity!.affixList.forEach((targetAffix) => {
           targetAffix.lazyUpdatePosition();
         });
       });
@@ -77,20 +83,20 @@ export function addObserveTarget<T>(target: HTMLElement | Window | null, affix: 
   }
 }
 
-export function removeObserveTarget<T>(affix: T): void {
-  const observerEntity = observerEntities.find(oriObserverEntity => {
-    const hasAffix = oriObserverEntity.affixList.some(item => item === affix);
+export function removeObserveTarget<T extends InternalAffixClass>(affix: T): void {
+  const observerEntity = observerEntities.find((oriObserverEntity) => {
+    const hasAffix = oriObserverEntity.affixList.some((item) => item === affix);
     if (hasAffix) {
-      oriObserverEntity.affixList = oriObserverEntity.affixList.filter(item => item !== affix);
+      oriObserverEntity.affixList = oriObserverEntity.affixList.filter((item) => item !== affix);
     }
     return hasAffix;
   });
 
   if (observerEntity && observerEntity.affixList.length === 0) {
-    observerEntities = observerEntities.filter(item => item !== observerEntity);
+    observerEntities = observerEntities.filter((item) => item !== observerEntity);
 
     // Remove listener
-    TRIGGER_EVENTS.forEach(eventName => {
+    TRIGGER_EVENTS.forEach((eventName) => {
       const handler = observerEntity.eventHandlers[eventName];
       if (handler && handler.remove) {
         handler.remove();

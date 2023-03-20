@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import type { ModalProps } from '..';
 import Modal from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -8,29 +8,21 @@ import { resetWarned } from '../../_util/warning';
 
 jest.mock('rc-util/lib/Portal');
 
-class ModalTester extends React.Component<ModalProps, { open: boolean }> {
-  state = { open: false };
-
-  componentDidMount() {
-    this.setState({ open: true }); // eslint-disable-line react/no-did-mount-set-state
-  }
-
-  container = React.createRef<HTMLDivElement>();
-
-  getContainer = () => this.container?.current!;
-
-  render() {
-    const { open } = this.state;
-    return (
-      <div>
-        <div ref={this.container} />
-        <Modal {...this.props} open={open} getContainer={this.getContainer}>
-          Here is content of Modal
-        </Modal>
-      </div>
-    );
-  }
-}
+const ModalTester: React.FC<ModalProps> = (props) => {
+  const [open, setOpen] = React.useState(false);
+  const container = React.useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    setOpen(true);
+  }, []);
+  return (
+    <div>
+      <div ref={container} />
+      <Modal {...props} open={open} getContainer={container.current!}>
+        Here is content of Modal
+      </Modal>
+    </div>
+  );
+};
 
 describe('Modal', () => {
   mountTest(Modal);
@@ -92,17 +84,41 @@ describe('Modal', () => {
     ).toBeTruthy();
   });
 
+  it('custom mouse position', () => {
+    const Demo = () => {
+      const containerRef = React.useRef<HTMLDivElement>(null);
+      return (
+        <div ref={containerRef}>
+          <Modal
+            open
+            getContainer={() => containerRef.current!}
+            mousePosition={{ x: 100, y: 100 }}
+          />
+        </div>
+      );
+    };
+    const { container } = render(<Demo />);
+    expect(
+      (container.querySelectorAll('.ant-modal')[0] as HTMLDivElement).style.transformOrigin,
+    ).toBe('100px 100px');
+  });
+
   it('deprecated warning', () => {
     resetWarned();
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
     render(<Modal visible />);
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Modal] `visible` will be removed in next major version, please use `open` instead.',
+      'Warning: [antd: Modal] `visible` is deprecated, please use `open` instead.',
     );
 
     expect(document.querySelector('.ant-modal')).toBeTruthy();
 
     errSpy.mockRestore();
+  });
+
+  it('should not render footer if null', () => {
+    const { container } = render(<Modal footer={null} />);
+    expect(container.querySelector('.ant-modal-footer')).toBeFalsy();
   });
 });

@@ -22,14 +22,14 @@ const inlineStyle: React.CSSProperties = {
 };
 
 const TransButton = React.forwardRef<HTMLDivElement, TransButtonProps>((props, ref) => {
-  const onKeyDown: React.KeyboardEventHandler<HTMLDivElement> = event => {
+  const onKeyDown: React.KeyboardEventHandler<HTMLDivElement> = (event) => {
     const { keyCode } = event;
     if (keyCode === KeyCode.ENTER) {
       event.preventDefault();
     }
   };
 
-  const onKeyUp: React.KeyboardEventHandler<HTMLDivElement> = event => {
+  const onKeyUp: React.KeyboardEventHandler<HTMLDivElement> = (event) => {
     const { keyCode } = event;
     const { onClick } = props;
     if (keyCode === KeyCode.ENTER && onClick) {

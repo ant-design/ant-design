@@ -887,7 +887,14 @@ exports[`Form form should support disabled 1`] = `
               />
               <span
                 class="ant-switch-inner"
-              />
+              >
+                <span
+                  class="ant-switch-inner-checked"
+                />
+                <span
+                  class="ant-switch-inner-unchecked"
+                />
+              </span>
             </button>
           </div>
         </div>
@@ -919,9 +926,11 @@ exports[`Form form should support disabled 1`] = `
           <div
             class="ant-form-item-control-input-content"
           >
-            <span>
+            <span
+              class="ant-upload-wrapper"
+            >
               <div
-                class="ant-upload ant-upload-select ant-upload-select-text ant-upload-disabled"
+                class="ant-upload ant-upload-select ant-upload-disabled"
                 style="display: none;"
               >
                 <span

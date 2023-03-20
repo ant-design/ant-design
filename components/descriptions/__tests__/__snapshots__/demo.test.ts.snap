@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/descriptions/demo/basic.md correctly 1`] = `
+exports[`renders ./components/descriptions/demo/basic.tsx correctly 1`] = `
 <div
   class="ant-descriptions"
 >
@@ -127,7 +127,7 @@ exports[`renders ./components/descriptions/demo/basic.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/descriptions/demo/border.md correctly 1`] = `
+exports[`renders ./components/descriptions/demo/border.tsx correctly 1`] = `
 <div
   class="ant-descriptions ant-descriptions-bordered"
 >
@@ -353,7 +353,7 @@ exports[`renders ./components/descriptions/demo/border.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/descriptions/demo/responsive.md correctly 1`] = `
+exports[`renders ./components/descriptions/demo/responsive.tsx correctly 1`] = `
 <div>
   <div
     class="ant-descriptions ant-descriptions-bordered"
@@ -513,7 +513,7 @@ exports[`renders ./components/descriptions/demo/responsive.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/descriptions/demo/size.md correctly 1`] = `
+exports[`renders ./components/descriptions/demo/size.tsx correctly 1`] = `
 <div>
   <div
     class="ant-radio-group ant-radio-group-outline"
@@ -907,7 +907,7 @@ exports[`renders ./components/descriptions/demo/size.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/descriptions/demo/style.md correctly 1`] = `
+exports[`renders ./components/descriptions/demo/style.tsx correctly 1`] = `
 Array [
   <button
     aria-checked="true"
@@ -921,7 +921,16 @@ Array [
     <span
       class="ant-switch-inner"
     >
-      Border
+      <span
+        class="ant-switch-inner-checked"
+      >
+        Border
+      </span>
+      <span
+        class="ant-switch-inner-unchecked"
+      >
+        No Border
+      </span>
     </span>
   </button>,
   <div
@@ -1136,7 +1145,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/descriptions/demo/text.md correctly 1`] = `
+exports[`renders ./components/descriptions/demo/text.tsx correctly 1`] = `
 <div
   class="ant-descriptions"
 >
@@ -1459,16 +1468,19 @@ exports[`renders ./components/descriptions/demo/text.md correctly 1`] = `
                                 <tr>
                                   <th
                                     class="ant-table-cell"
+                                    scope="col"
                                   >
                                     姓名
                                   </th>
                                   <th
                                     class="ant-table-cell"
+                                    scope="col"
                                   >
                                     年龄
                                   </th>
                                   <th
                                     class="ant-table-cell"
+                                    scope="col"
                                   >
                                     住址
                                   </th>
@@ -1535,7 +1547,7 @@ exports[`renders ./components/descriptions/demo/text.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/descriptions/demo/vertical.md correctly 1`] = `
+exports[`renders ./components/descriptions/demo/vertical.tsx correctly 1`] = `
 <div
   class="ant-descriptions"
 >
@@ -1715,7 +1727,7 @@ exports[`renders ./components/descriptions/demo/vertical.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/descriptions/demo/vertical-border.md correctly 1`] = `
+exports[`renders ./components/descriptions/demo/vertical-border.tsx correctly 1`] = `
 <div
   class="ant-descriptions ant-descriptions-bordered"
 >

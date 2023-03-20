@@ -1,8 +1,24 @@
+/* eslint-disable no-console */
 const React = require('react');
 const util = require('util');
 
 // eslint-disable-next-line no-console
 console.log('Current React Version:', React.version);
+
+const originConsoleErr = console.error;
+
+// Hack off React warning to avoid too large log in CI.
+console.error = (...args) => {
+  const str = args.join('').replace(/\n/g, '');
+
+  if (
+    ['validateDOMNesting', 'on an unmounted component', 'not wrapped in act'].every(
+      (warn) => !str.includes(warn),
+    )
+  ) {
+    originConsoleErr(...args);
+  }
+};
 
 /* eslint-disable global-require */
 if (typeof window !== 'undefined') {
@@ -15,7 +31,9 @@ if (typeof window !== 'undefined') {
   // ref: https://github.com/ant-design/ant-design/issues/18774
   if (!window.matchMedia) {
     Object.defineProperty(global.window, 'matchMedia', {
-      value: jest.fn(query => ({
+      writable: true,
+      configurable: true,
+      value: jest.fn((query) => ({
         matches: query.includes('max-width'),
         addListener: jest.fn(),
         removeListener: jest.fn(),

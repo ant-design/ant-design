@@ -4,6 +4,7 @@ import { useContext, useMemo } from 'react';
 import { ConfigContext } from '../config-provider';
 import type { FormItemStatusContextProps } from '../form/context';
 import { FormItemInputContext } from '../form/context';
+import useStyle from './style';
 
 export interface GroupProps {
   className?: string;
@@ -18,10 +19,12 @@ export interface GroupProps {
   compact?: boolean;
 }
 
-const Group: React.FC<GroupProps> = props => {
+const Group: React.FC<GroupProps> = (props) => {
   const { getPrefixCls, direction } = useContext(ConfigContext);
   const { prefixCls: customizePrefixCls, className = '' } = props;
   const prefixCls = getPrefixCls('input-group', customizePrefixCls);
+  const inputPrefixCls = getPrefixCls('input');
+  const [wrapSSR, hashId] = useStyle(inputPrefixCls);
   const cls = classNames(
     prefixCls,
     {
@@ -30,6 +33,7 @@ const Group: React.FC<GroupProps> = props => {
       [`${prefixCls}-compact`]: props.compact,
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
+    hashId,
     className,
   );
 
@@ -43,7 +47,7 @@ const Group: React.FC<GroupProps> = props => {
     [formItemContext],
   );
 
-  return (
+  return wrapSSR(
     <span
       className={cls}
       style={props.style}
@@ -55,7 +59,7 @@ const Group: React.FC<GroupProps> = props => {
       <FormItemInputContext.Provider value={groupFormItemContext}>
         {props.children}
       </FormItemInputContext.Provider>
-    </span>
+    </span>,
   );
 };
 

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export type DisabledType = true | false | undefined;
+export type DisabledType = boolean | undefined;
 
 const DisabledContext = React.createContext<DisabledType>(false);
 
@@ -12,7 +12,7 @@ export interface DisabledContextProps {
 export const DisabledContextProvider: React.FC<DisabledContextProps> = ({ children, disabled }) => {
   const originDisabled = React.useContext(DisabledContext);
   return (
-    <DisabledContext.Provider value={disabled || originDisabled}>
+    <DisabledContext.Provider value={disabled ?? originDisabled}>
       {children}
     </DisabledContext.Provider>
   );

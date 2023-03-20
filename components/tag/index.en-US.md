@@ -1,8 +1,11 @@
 ---
 category: Components
-type: Data Display
+group: Data Display
 title: Tag
-cover: https://gw.alipayobjects.com/zos/alicdn/cH1BOLfxC/Tag.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*_SBsSrKLg00AAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*JPNAQYrVkYkAAAAAAAAAAAAADrJ8AQ/original
+demo:
+  cols: 2
 ---
 
 Tag for categorizing or markup.
@@ -12,6 +15,19 @@ Tag for categorizing or markup.
 - It can be used to tag by dimension or property.
 
 - When categorizing.
+
+## Examples
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/colorful.tsx">Colorful Tag</code>
+<code src="./demo/colorful-inverse.tsx" debug>Inverse Colorful Tag</code>
+<code src="./demo/control.tsx">Add & Remove Dynamically</code>
+<code src="./demo/checkable.tsx">Checkable</code>
+<code src="./demo/animation.tsx">Animate</code>
+<code src="./demo/icon.tsx">Icon</code>
+<code src="./demo/status.tsx">Status Tag</code>
+<code src="./demo/customize.tsx" debug>Customize close</code>
 
 ## API
 

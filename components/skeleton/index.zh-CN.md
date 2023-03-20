@@ -1,10 +1,10 @@
 ---
 category: Components
 subtitle: 骨架屏
-type: 反馈
+group: 反馈
 title: Skeleton
-cols: 1
-cover: https://gw.alipayobjects.com/zos/alicdn/KpcciCJgv/Skeleton.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*uae3QbkNCm8AAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*VcjGQLSrYdcAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 在需要等待加载内容的位置提供一个占位图形组合。
@@ -16,6 +16,16 @@ cover: https://gw.alipayobjects.com/zos/alicdn/KpcciCJgv/Skeleton.svg
 - 只在第一次加载数据的时候使用。
 - 可以被 Spin 完全代替，但是在可用的场景下可以比 Spin 提供更好的视觉效果和用户体验。
 
+## 代码演示
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">基本</code>
+<code src="./demo/complex.tsx">复杂的组合</code>
+<code src="./demo/active.tsx">动画效果</code>
+<code src="./demo/element.tsx">按钮/头像/输入框/图像/自定义节点</code>
+<code src="./demo/children.tsx">包含子组件</code>
+<code src="./demo/list.tsx">列表</code>
+
 ## API
 
 ### Skeleton
@@ -23,11 +33,11 @@ cover: https://gw.alipayobjects.com/zos/alicdn/KpcciCJgv/Skeleton.svg
 | 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | active | 是否展示动画效果 | boolean | false |
-| avatar | 是否显示头像占位图 | boolean \| [SkeletonAvatarProps](#SkeletonAvatarProps) | false |
+| avatar | 是否显示头像占位图 | boolean \| [SkeletonAvatarProps](#skeletonavatarprops) | false |
 | loading | 为 true 时，显示占位图。反之则直接展示子组件 | boolean | - |
-| paragraph | 是否显示段落占位图 | boolean \| [SkeletonParagraphProps](#SkeletonParagraphProps) | true |
+| paragraph | 是否显示段落占位图 | boolean \| [SkeletonParagraphProps](#skeletonparagraphprops) | true |
 | round | 为 true 时，段落和标题显示圆角 | boolean | false |
-| title | 是否显示标题占位图 | boolean \| [SkeletonTitleProps](#SkeletonTitleProps) | true |
+| title | 是否显示标题占位图 | boolean \| [SkeletonTitleProps](#skeletontitleprops) | true |
 
 ### SkeletonAvatarProps
 

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/checkbox/demo/basic.md extend context correctly 1`] = `
+exports[`renders ./components/checkbox/demo/basic.tsx extend context correctly 1`] = `
 <label
   class="ant-checkbox-wrapper"
 >
@@ -21,7 +21,7 @@ exports[`renders ./components/checkbox/demo/basic.md extend context correctly 1`
 </label>
 `;
 
-exports[`renders ./components/checkbox/demo/check-all.md extend context correctly 1`] = `
+exports[`renders ./components/checkbox/demo/check-all.tsx extend context correctly 1`] = `
 Array [
   <label
     class="ant-checkbox-wrapper"
@@ -112,7 +112,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/checkbox/demo/controller.md extend context correctly 1`] = `
+exports[`renders ./components/checkbox/demo/controller.tsx extend context correctly 1`] = `
 Array [
   <p
     style="margin-bottom:20px"
@@ -159,7 +159,54 @@ Array [
 ]
 `;
 
-exports[`renders ./components/checkbox/demo/debug-line.md extend context correctly 1`] = `
+exports[`renders ./components/checkbox/demo/debug-disable-popover.tsx extend context correctly 1`] = `
+<div
+  style="padding:56px"
+>
+  <label
+    class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-disabled"
+  >
+    <span
+      class="ant-checkbox ant-checkbox-checked ant-checkbox-disabled"
+    >
+      <input
+        checked=""
+        class="ant-checkbox-input"
+        disabled=""
+        type="checkbox"
+      />
+      <span
+        class="ant-checkbox-inner"
+      />
+    </span>
+  </label>
+  <div
+    class="ant-popover ant-popover-placement-top"
+    style="left:-1000vw;top:-1000vh;box-sizing:border-box"
+  >
+    <div
+      class="ant-popover-arrow"
+      style="position:absolute;bottom:0;left:0"
+    />
+    <div
+      class="ant-popover-content"
+    >
+      <div
+        class="ant-popover-inner"
+        role="tooltip"
+      >
+        <div
+          class="ant-popover-inner-content"
+        >
+          xxxx
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/checkbox/demo/debug-line.tsx extend context correctly 1`] = `
 <div>
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
@@ -362,7 +409,7 @@ exports[`renders ./components/checkbox/demo/debug-line.md extend context correct
 </div>
 `;
 
-exports[`renders ./components/checkbox/demo/disabled.md extend context correctly 1`] = `
+exports[`renders ./components/checkbox/demo/disabled.tsx extend context correctly 1`] = `
 Array [
   <label
     class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
@@ -371,6 +418,24 @@ Array [
       class="ant-checkbox ant-checkbox-disabled"
     >
       <input
+        class="ant-checkbox-input"
+        disabled=""
+        type="checkbox"
+      />
+      <span
+        class="ant-checkbox-inner"
+      />
+    </span>
+  </label>,
+  <br />,
+  <label
+    class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
+  >
+    <span
+      class="ant-checkbox ant-checkbox-indeterminate ant-checkbox-disabled"
+    >
+      <input
+        aria-checked="mixed"
         class="ant-checkbox-input"
         disabled=""
         type="checkbox"
@@ -401,7 +466,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/checkbox/demo/group.md extend context correctly 1`] = `
+exports[`renders ./components/checkbox/demo/group.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-checkbox-group"
@@ -599,7 +664,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/checkbox/demo/layout.md extend context correctly 1`] = `
+exports[`renders ./components/checkbox/demo/layout.tsx extend context correctly 1`] = `
 <div
   class="ant-checkbox-group"
   style="width:100%"

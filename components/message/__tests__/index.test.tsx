@@ -1,277 +1,237 @@
 import React from 'react';
 import { SmileOutlined } from '@ant-design/icons';
-import message, { getInstance, type MessageType } from '..';
-import { act, render, fireEvent } from '../../../tests/utils';
-
-Object.defineProperty(globalThis, 'IS_REACT_ACT_ENVIRONMENT', {
-  writable: true,
-  value: true,
-});
+import message, { actWrapper } from '..';
+import { act, fireEvent, waitFakeTimer } from '../../../tests/utils';
+import { awaitPromise, triggerMotionEnd } from './util';
 
 describe('message', () => {
+  beforeAll(() => {
+    actWrapper(act);
+  });
+
   beforeEach(() => {
     jest.useFakeTimers();
   });
 
-  afterEach(() => {
-    jest.useRealTimers();
+  afterEach(async () => {
+    // Clean up
+    message.destroy();
+    await triggerMotionEnd();
 
     act(() => {
-      message.destroy();
+      jest.runAllTimers();
     });
+
+    jest.useRealTimers();
+
+    await awaitPromise();
   });
 
   it('should be able to hide manually', async () => {
-    let hide1!: MessageType;
-    let hide2!: MessageType;
+    const hide1 = message.info('whatever', 0);
+    const hide2 = message.info('whatever', 0);
 
-    act(() => {
-      hide1 = message.info('whatever', 0);
-    });
-    act(() => {
-      hide2 = message.info('whatever', 0);
-    });
+    await awaitPromise();
 
-    expect(document.querySelectorAll('.ant-message-notice').length).toBe(2);
+    expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(2);
+
     hide1();
-    act(() => {
-      jest.runAllTimers();
-    });
-    expect(getInstance()!.component.state.notices).toHaveLength(1);
+    await triggerMotionEnd();
+    expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(1);
 
     hide2();
-    act(() => {
-      jest.runAllTimers();
-    });
-    expect(getInstance()!.component.state.notices).toHaveLength(0);
+    await triggerMotionEnd();
+    expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(0);
   });
 
-  it('should be able to remove manually with a unique key', () => {
+  it('should be able to remove manually with a unique key', async () => {
     const key1 = 'key1';
     const key2 = 'key2';
 
-    act(() => {
-      message.info({ content: 'Message1', key: 'key1', duration: 0 });
-    });
-    act(() => {
-      message.info({ content: 'Message2', key: 'key2', duration: 0 });
-    });
+    message.info({ content: 'Message1', key: 'key1', duration: 0 });
+    message.info({ content: 'Message2', key: 'key2', duration: 0 });
 
-    expect(document.querySelectorAll('.ant-message-notice').length).toBe(2);
+    await awaitPromise();
+
+    expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(2);
 
     message.destroy(key1);
-    act(() => {
-      jest.runAllTimers();
-    });
-    expect(getInstance()!.component.state.notices).toHaveLength(1);
+    await triggerMotionEnd();
+    expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(1);
 
     message.destroy(key2);
-    act(() => {
-      jest.runAllTimers();
-    });
-    expect(getInstance()!.component.state.notices).toHaveLength(0);
+    await triggerMotionEnd();
+    expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(0);
   });
 
-  it('should be able to destroy globally', () => {
-    act(() => {
-      message.info('whatever', 0);
-    });
-    act(() => {
-      message.info('whatever', 0);
-    });
+  it('should be able to destroy globally', async () => {
+    message.info('whatever', 0);
+    message.info('whatever', 0);
 
-    expect(document.querySelectorAll('.ant-message').length).toBe(1);
-    expect(document.querySelectorAll('.ant-message-notice').length).toBe(2);
+    await awaitPromise();
+
+    expect(document.querySelectorAll('.ant-message')).toHaveLength(1);
+    expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(2);
 
     message.destroy();
+    await triggerMotionEnd();
+
+    expect(document.querySelectorAll('.ant-message')).toHaveLength(0);
+    expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(0);
+  });
+
+  it('should not need to use duration argument when using the onClose arguments', async () => {
+    const onClose = jest.fn();
+    const close = message.info('whatever', onClose);
+
+    await awaitPromise();
+
+    close();
+    await triggerMotionEnd();
+
+    expect(onClose).toHaveBeenCalled();
+  });
+
+  it('should have the default duration when using the onClose arguments', async () => {
+    const onClose = jest.fn();
+
+    message.info('whatever', onClose);
+    await awaitPromise();
+
     act(() => {
-      jest.runAllTimers();
+      jest.advanceTimersByTime(2500);
     });
-    expect(document.querySelectorAll('.ant-message').length).toBe(0);
-    expect(document.querySelectorAll('.ant-message-notice').length).toBe(0);
-  });
 
-  it('should not need to use duration argument when using the onClose arguments', () => {
-    message.info('whatever', () => {});
-  });
+    expect(document.querySelector('.ant-message-move-up-leave')).toBeFalsy();
 
-  it('should have the default duration when using the onClose arguments', done => {
-    jest.useRealTimers();
-    const defaultDuration = 3;
-    const now = Date.now();
-    message.info('whatever', () => {
-      // calculate the approximately duration value
-      const aboutDuration = parseInt(String((Date.now() - now) / 1000), 10);
-      expect(aboutDuration).toBe(defaultDuration);
-      done();
+    act(() => {
+      jest.advanceTimersByTime(1000);
     });
+    expect(document.querySelector('.ant-message-move-up-leave')).toBeTruthy();
   });
 
-  it('trigger onClick method', () => {
+  it('trigger onClick method', async () => {
     const onClick = jest.fn();
-    class Test extends React.Component {
-      static isFirstRender = true;
+    message.info({
+      onClick,
+      duration: 0,
+      content: 'message info',
+    });
 
-      componentDidMount() {
-        if (Test.isFirstRender) {
-          Test.isFirstRender = false;
-          message.info({
-            onClick,
-            duration: 0,
-            content: 'message info',
-          });
-        }
-      }
+    await awaitPromise();
 
-      render() {
-        return <div>test message onClick method</div>;
-      }
-    }
-    render(<Test />);
-    expect(document.querySelectorAll('.ant-message-notice').length).toBe(1);
-    fireEvent.click(document.querySelectorAll('.ant-message-notice')[0]);
+    expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(1);
+    fireEvent.click(document.querySelector('.ant-message-notice')!);
+
     expect(onClick).toHaveBeenCalled();
   });
 
-  it('should be called like promise', done => {
-    jest.useRealTimers();
-    const defaultDuration = 3;
-    const now = Date.now();
-    message.info('whatever').then(() => {
-      // calculate the approximately duration value
-      const aboutDuration = parseInt(String((Date.now() - now) / 1000), 10);
-      expect(aboutDuration).toBe(defaultDuration);
-      done();
+  it('should be called like promise', async () => {
+    const onClose = jest.fn();
+    message.info('whatever').then(onClose);
+    await awaitPromise();
+
+    act(() => {
+      jest.advanceTimersByTime(2500);
     });
+    expect(onClose).not.toHaveBeenCalled();
+
+    act(() => {
+      jest.advanceTimersByTime(1000);
+    });
+    await waitFakeTimer(); // Wait to let event loop run
+    expect(onClose).toHaveBeenCalled();
   });
 
   // https://github.com/ant-design/ant-design/issues/8201
-  it('should hide message correctly', () => {
-    let hide!: MessageType;
-    class Test extends React.Component {
-      static isFirstRender = true;
+  it('should hide message correctly', async () => {
+    const hide = message.loading('Action in progress..', 0);
+    await awaitPromise();
 
-      componentDidMount() {
-        act(() => {
-          if (Test.isFirstRender) {
-            Test.isFirstRender = false;
-            hide = message.loading('Action in progress..', 0);
-          }
-        });
-      }
+    expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(1);
 
-      render() {
-        return <div>test</div>;
-      }
-    }
-    render(<Test />);
-    expect(document.querySelectorAll('.ant-message-notice').length).toBe(1);
-
-    act(() => {
-      hide();
-      jest.runAllTimers();
-    });
-    expect(getInstance()!.component.state.notices).toHaveLength(0);
+    hide!();
+    await triggerMotionEnd();
+    expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(0);
   });
 
-  it('should allow custom icon', () => {
-    act(() => {
-      message.open({ content: 'Message', icon: <SmileOutlined /> });
-    });
-    expect(document.querySelectorAll('.anticon-smile').length).toBe(1);
+  it('should allow custom icon', async () => {
+    message.open({ content: 'Message', icon: <SmileOutlined /> });
+
+    await awaitPromise();
+    expect(document.querySelector('.anticon-smile')).toBeTruthy();
   });
 
-  it('should have no icon', () => {
+  it('should have no icon', async () => {
     message.open({ content: 'Message', icon: <span /> });
-    expect(document.querySelectorAll('.ant-message-notice .anticon').length).toBe(0);
+
+    await awaitPromise();
+    expect(document.querySelector('.ant-message-notice .anticon')).toBeFalsy();
   });
-  it('should have no icon when not pass icon props', () => {
+
+  it('should have no icon when not pass icon props', async () => {
     message.open({ content: 'Message' });
-    expect(document.querySelectorAll('.ant-message-notice .anticon').length).toBe(0);
+
+    await awaitPromise();
+    expect(document.querySelector('.ant-message-notice .anticon')).toBeFalsy();
   });
 
   // https://github.com/ant-design/ant-design/issues/8201
-  it('should destroy messages correctly', () => {
-    class Test extends React.Component {
-      static isFirstRender = true;
+  it('should destroy messages correctly', async () => {
+    message.loading('Action in progress1..', 0);
+    message.loading('Action in progress2..', 0);
+    setTimeout(() => message.destroy(), 1000);
+    await awaitPromise();
 
-      componentDidMount() {
-        if (Test.isFirstRender) {
-          Test.isFirstRender = false;
-          message.loading('Action in progress1..', 0);
-          message.loading('Action in progress2..', 0);
-          setTimeout(() => message.destroy(), 1000);
-        }
-      }
+    expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(2);
 
-      render() {
-        return <div>test</div>;
-      }
-    }
-    render(<Test />);
-    expect(document.querySelectorAll('.ant-message-notice').length).toBe(2);
-    act(() => {
-      jest.runAllTimers();
-    });
-    expect(document.querySelectorAll('.ant-message-notice').length).toBe(0);
+    await triggerMotionEnd();
+    expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(0);
   });
 
-  it('should support update message content with a unique key', () => {
+  it('should support update message content with a unique key', async () => {
     const key = 'updatable';
-    class Test extends React.Component {
-      componentDidMount() {
-        message.loading({ content: 'Loading...', key });
-        // Testing that content of the message should be updated.
-        setTimeout(() => message.success({ content: 'Loaded', key }), 1000);
-        setTimeout(() => message.destroy(), 3000);
-      }
 
-      render() {
-        return <div>test</div>;
-      }
-    }
+    message.loading({ content: 'Loading...', key });
+    // Testing that content of the message should be updated.
+    setTimeout(() => message.success({ content: 'Loaded', key }), 1000);
+    setTimeout(() => message.destroy(), 3000);
+    await awaitPromise();
 
-    render(<Test />);
-    expect(document.querySelectorAll('.ant-message-notice').length).toBe(1);
+    expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(1);
     act(() => {
       jest.advanceTimersByTime(1500);
     });
-    expect(document.querySelectorAll('.ant-message-notice').length).toBe(1);
-    act(() => {
-      jest.runAllTimers();
-    });
-    expect(document.querySelectorAll('.ant-message-notice').length).toBe(0);
+
+    expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(1);
+    expect(document.querySelector('.ant-message-move-up-leave')).toBeFalsy();
+
+    await triggerMotionEnd();
+    expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(0);
   });
 
-  it('update message content with a unique key and cancel manually', () => {
+  it('update message content with a unique key and cancel manually', async () => {
     const key = 'updatable';
-    class Test extends React.Component {
-      componentDidMount() {
-        let hideLoading: MessageType;
-        act(() => {
-          hideLoading = message.loading({ content: 'Loading...', key, duration: 0 });
-        });
-        // Testing that content of the message should be cancel manually.
-        setTimeout(() => {
-          act(() => {
-            hideLoading();
-          });
-        }, 1000);
-      }
 
-      render() {
-        return <div>test</div>;
-      }
-    }
+    const hideLoading = message.loading({ content: 'Loading...', key, duration: 0 });
+    await awaitPromise();
 
-    render(<Test />);
-    expect(document.querySelectorAll('.ant-message-notice').length).toBe(1);
+    setTimeout(() => {
+      act(() => {
+        hideLoading();
+      });
+    }, 1000);
 
-    jest.advanceTimersByTime(1500);
-    expect(getInstance()!.component.state.notices).toHaveLength(0);
+    expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(1);
+
+    act(() => {
+      jest.advanceTimersByTime(1500);
+    });
+    expect(document.querySelectorAll('.ant-message-move-up-leave')).toHaveLength(1);
   });
 
-  it('should not throw error when pass null', () => {
+  it('should not throw error when pass null', async () => {
     message.error(null);
+    await awaitPromise();
   });
 });

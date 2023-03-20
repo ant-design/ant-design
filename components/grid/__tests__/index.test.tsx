@@ -1,10 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { act } from 'react-dom/test-utils';
 import { Col, Row } from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import ResponsiveObserve from '../../_util/responsiveObserve';
 import useBreakpoint from '../hooks/useBreakpoint';
-import { render, act } from '../../../tests/utils';
+import { render, fireEvent } from '../../../tests/utils';
+
+// Mock for `responsiveObserve` to test `unsubscribe` call
+jest.mock('../../_util/responsiveObserver', () => {
+  const modules = jest.requireActual('../../_util/responsiveObserver');
+  const originHook = modules.default;
+
+  const useMockResponsiveObserver = (...args: any[]) => {
+    const entity = originHook(...args);
+    if (!entity.unsubscribe.mocked) {
+      const originUnsubscribe = entity.unsubscribe;
+      entity.unsubscribe = (...uArgs: any[]) => {
+        const inst = global as any;
+        inst.unsubscribeCnt = (inst.unsubscribeCnt || 0) + 1;
+
+        originUnsubscribe.call(entity, ...uArgs);
+      };
+      entity.unsubscribe.mocked = true;
+    }
+
+    return entity;
+  };
+
+  return {
+    ...modules,
+    __esModule: true,
+    default: useMockResponsiveObserver,
+  };
+});
 
 describe('Grid', () => {
   mountTest(Row);
@@ -13,8 +41,8 @@ describe('Grid', () => {
   rtlTest(Row);
   rtlTest(Col);
 
-  afterEach(() => {
-    ResponsiveObserve.unregister();
+  beforeEach(() => {
+    (global as any).unsubscribeCnt = 0;
   });
 
   it('should render Col', () => {
@@ -48,14 +76,14 @@ describe('Grid', () => {
 
   it('when typeof gutter is object array in large screen', () => {
     jest.spyOn(window, 'matchMedia').mockImplementation(
-      query =>
+      (query) =>
         ({
           addListener: (cb: (e: { matches: boolean }) => void) => {
             cb({ matches: query === '(min-width: 1200px)' });
           },
           removeListener: jest.fn(),
           matches: query === '(min-width: 1200px)',
-        } as any),
+        }) as any,
     );
 
     const { container, asFragment } = render(
@@ -88,13 +116,12 @@ describe('Grid', () => {
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
-  it('ResponsiveObserve.unsubscribe should be called when unmounted', () => {
-    const Unmount = jest.spyOn(ResponsiveObserve, 'unsubscribe');
+  it('useResponsiveObserver.unsubscribe should be called when unmounted', () => {
     const { unmount } = render(<Row gutter={{ xs: 20 }} />);
-    act(() => {
-      unmount();
-    });
-    expect(Unmount).toHaveBeenCalled();
+    const called: number = (global as any).unsubscribeCnt;
+
+    unmount();
+    expect((global as any).unsubscribeCnt).toEqual(called + 1);
   });
 
   it('should work correct when gutter is object', () => {
@@ -116,14 +143,14 @@ describe('Grid', () => {
   it('should work with useBreakpoint', () => {
     const matchMediaSpy = jest.spyOn(window, 'matchMedia');
     matchMediaSpy.mockImplementation(
-      query =>
+      (query) =>
         ({
           addListener: (cb: (e: { matches: boolean }) => void) => {
             cb({ matches: query === '(max-width: 575px)' });
           },
           removeListener: jest.fn(),
           matches: query === '(max-width: 575px)',
-        } as any),
+        }) as any,
     );
 
     let screensVar;
@@ -142,5 +169,67 @@ describe('Grid', () => {
       xl: false,
       xxl: false,
     });
+  });
+
+  it('should align by responsive align prop', () => {
+    const matchMediaSpy = jest.spyOn(window, 'matchMedia');
+    matchMediaSpy.mockImplementation(
+      (query) =>
+        ({
+          addListener: (cb: (e: { matches: boolean }) => void) => {
+            cb({ matches: query === '(max-width: 575px)' });
+          },
+          removeListener: jest.fn(),
+          matches: query === '(max-width: 575px)',
+        }) as any,
+    );
+    const { container } = render(<Row align="middle" />);
+    expect(container.innerHTML).toContain('ant-row-middle');
+    const { container: container2 } = render(<Row align={{ xs: 'middle' }} />);
+    expect(container2.innerHTML).toContain('ant-row-middle');
+    const { container: container3 } = render(<Row align={{ lg: 'middle' }} />);
+    expect(container3.innerHTML).not.toContain('ant-row-middle');
+  });
+
+  it('should justify by responsive justify prop', () => {
+    const matchMediaSpy = jest.spyOn(window, 'matchMedia');
+    matchMediaSpy.mockImplementation(
+      (query) =>
+        ({
+          addListener: (cb: (e: { matches: boolean }) => void) => {
+            cb({ matches: query === '(max-width: 575px)' });
+          },
+          removeListener: jest.fn(),
+          matches: query === '(max-width: 575px)',
+        }) as any,
+    );
+    const { container } = render(<Row justify="center" />);
+    expect(container.innerHTML).toContain('ant-row-center');
+    const { container: container2 } = render(<Row justify={{ xs: 'center' }} />);
+    expect(container2.innerHTML).toContain('ant-row-center');
+    const { container: container3 } = render(<Row justify={{ lg: 'center' }} />);
+    expect(container3.innerHTML).not.toContain('ant-row-center');
+  });
+
+  // https://github.com/ant-design/ant-design/issues/39690
+  it('Justify and align properties should reactive for Row', () => {
+    const ReactiveTest = () => {
+      const [justify, setjustify] = useState<any>('start');
+      return (
+        <>
+          <Row justify={justify} align="bottom">
+            <div>button1</div>
+            <div>button</div>
+          </Row>
+          <span onClick={() => setjustify('end')} />
+        </>
+      );
+    };
+    const { container } = render(<ReactiveTest />);
+    expect(container.innerHTML).toContain('ant-row-start');
+    act(() => {
+      fireEvent.click(container.querySelector('span')!);
+    });
+    expect(container.innerHTML).toContain('ant-row-end');
   });
 });

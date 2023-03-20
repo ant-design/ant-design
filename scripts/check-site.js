@@ -9,19 +9,18 @@ const { createServer } = require('http-server');
 
 const components = uniq(
   glob
-    .sync('components/*/*.md', {
-      ignore: '**/{__tests__,_util,version,index.tsx}',
+    .sync('components/!(overview)/*.md', {
       cwd: join(process.cwd()),
       dot: false,
     })
-    .map(path => path.replace(/(\/index)?((\.zh-cn)|(\.en-us))?\.md$/i, '')),
+    .map((path) => path.replace(/(\/index)?((\.zh-cn)|(\.en-us))?\.md$/i, '')),
 );
 
 describe('site test', () => {
   let server;
   const port = 3000;
-  const render = async path => {
-    const resp = await fetch(`http://127.0.0.1:${port}${path}`).then(async res => {
+  const render = async (path) => {
+    const resp = await fetch(`http://127.0.0.1:${port}${path}`).then(async (res) => {
       const html = await res.text();
       const $ = cheerio.load(html, { decodeEntities: false, recognizeSelfClosing: true });
       return {
@@ -33,15 +32,15 @@ describe('site test', () => {
     return resp;
   };
 
-  const handleComponentName = name => {
+  const handleComponentName = (name) => {
     const componentName = name.split('/')[1];
-    return componentName.toLowerCase().replace('-', '');
+    return componentName.toLowerCase().replace('-cn', '').replace('-', '');
   };
 
-  const expectComponent = async component => {
+  const expectComponent = async (component) => {
     const { status, $ } = await render(`/${component}/`);
     expect(status).toBe(200);
-    expect($('.markdown > h1').text().toLowerCase()).toMatch(handleComponentName(component));
+    expect($('h1').text().toLowerCase()).toMatch(handleComponentName(component));
   };
 
   beforeAll(() => {
@@ -73,10 +72,22 @@ describe('site test', () => {
     expect(status).toBe(200);
   });
 
+  it('Overview en', async () => {
+    const { status, $ } = await render('/components/overview');
+    expect(status).toBe(200);
+    expect($('h1').text()).toMatch(`Overview`);
+  });
+
+  it('Overview zh', async () => {
+    const { status, $ } = await render('/components/overview-cn');
+    expect(status).toBe(200);
+    expect($('h1').text()).toMatch(`组件总览`);
+  });
+
   for (const component of components) {
     if (component.split('/').length < 3) {
       it(`Component ${component} zh Page`, async () => {
-        await expectComponent(component);
+        await expectComponent(`${component}-cn`);
       });
 
       it(`Component ${component} en Page`, async () => {

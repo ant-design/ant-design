@@ -1,5 +1,4 @@
 import classNames from 'classnames';
-import padStart from 'lodash/padStart';
 import { PickerPanel as RCPickerPanel } from 'rc-picker';
 import type { GenerateConfig } from 'rc-picker/lib/generate';
 import type { Locale } from 'rc-picker/lib/interface';
@@ -11,9 +10,11 @@ import type {
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
-import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import useLocale from '../locale/useLocale';
 import CalendarHeader from './Header';
 import enUS from './locale/en_US';
+
+import useStyle from './style';
 
 type InjectDefaultProps<Props> = Omit<
   Props,
@@ -44,6 +45,7 @@ export type HeaderRender<DateType> = (config: {
 export interface CalendarProps<DateType> {
   prefixCls?: string;
   className?: string;
+  rootClassName?: string;
   style?: React.CSSProperties;
   locale?: typeof enUS;
   validRange?: [DateType, DateType];
@@ -83,6 +85,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
     const {
       prefixCls: customizePrefixCls,
       className,
+      rootClassName,
       style,
       dateFullCellRender,
       dateCellRender,
@@ -102,6 +105,9 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
     const { getPrefixCls, direction } = React.useContext(ConfigContext);
     const prefixCls = getPrefixCls('picker', customizePrefixCls);
     const calendarPrefixCls = `${prefixCls}-calendar`;
+
+    const [wrapSSR, hashId] = useStyle(prefixCls);
+
     const today = generateConfig.getNow();
 
     // ====================== State =======================
@@ -193,7 +199,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
             })}
           >
             <div className={`${calendarPrefixCls}-date-value`}>
-              {padStart(String(generateConfig.getDate(date)), 2, '0')}
+              {String(generateConfig.getDate(date)).padStart(2, '0')}
             </div>
             <div className={`${calendarPrefixCls}-date-content`}>
               {dateCellRender && dateCellRender(date)}
@@ -230,60 +236,63 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
       [monthFullCellRender, monthCellRender],
     );
 
-    return (
-      <LocaleReceiver componentName="Calendar" defaultLocale={getDefaultLocale}>
-        {contextLocale => (
-          <div
-            className={classNames(
-              calendarPrefixCls,
-              {
-                [`${calendarPrefixCls}-full`]: fullscreen,
-                [`${calendarPrefixCls}-mini`]: !fullscreen,
-                [`${calendarPrefixCls}-rtl`]: direction === 'rtl',
-              },
-              className,
-            )}
-            style={style}
-          >
-            {headerRender ? (
-              headerRender({
-                value: mergedValue,
-                type: mergedMode,
-                onChange: onInternalSelect,
-                onTypeChange: triggerModeChange,
-              })
-            ) : (
-              <CalendarHeader
-                prefixCls={calendarPrefixCls}
-                value={mergedValue}
-                generateConfig={generateConfig}
-                mode={mergedMode}
-                fullscreen={fullscreen}
-                locale={contextLocale.lang}
-                validRange={validRange}
-                onChange={onInternalSelect}
-                onModeChange={triggerModeChange}
-              />
-            )}
+    const [contextLocale] = useLocale('Calendar', getDefaultLocale);
 
-            <RCPickerPanel
-              value={mergedValue}
-              prefixCls={prefixCls}
-              locale={contextLocale.lang}
-              generateConfig={generateConfig}
-              dateRender={dateRender}
-              monthCellRender={date => monthRender(date, contextLocale.lang)}
-              onSelect={onInternalSelect}
-              mode={panelMode}
-              picker={panelMode}
-              disabledDate={mergedDisabledDate}
-              hideHeader
-            />
-          </div>
+    return wrapSSR(
+      <div
+        className={classNames(
+          calendarPrefixCls,
+          {
+            [`${calendarPrefixCls}-full`]: fullscreen,
+            [`${calendarPrefixCls}-mini`]: !fullscreen,
+            [`${calendarPrefixCls}-rtl`]: direction === 'rtl',
+          },
+          className,
+          rootClassName,
+          hashId,
         )}
-      </LocaleReceiver>
+        style={style}
+      >
+        {headerRender ? (
+          headerRender({
+            value: mergedValue,
+            type: mergedMode,
+            onChange: onInternalSelect,
+            onTypeChange: triggerModeChange,
+          })
+        ) : (
+          <CalendarHeader
+            prefixCls={calendarPrefixCls}
+            value={mergedValue}
+            generateConfig={generateConfig}
+            mode={mergedMode}
+            fullscreen={fullscreen}
+            locale={contextLocale?.lang}
+            validRange={validRange}
+            onChange={onInternalSelect}
+            onModeChange={triggerModeChange}
+          />
+        )}
+        <RCPickerPanel
+          value={mergedValue}
+          prefixCls={prefixCls}
+          locale={contextLocale?.lang}
+          generateConfig={generateConfig}
+          dateRender={dateRender}
+          monthCellRender={(date) => monthRender(date, contextLocale?.lang)}
+          onSelect={onInternalSelect}
+          mode={panelMode}
+          picker={panelMode}
+          disabledDate={mergedDisabledDate}
+          hideHeader
+        />
+      </div>,
     );
   };
+
+  if (process.env.NODE_ENV !== 'production') {
+    Calendar.displayName = 'Calendar';
+  }
 
   return Calendar;
 }

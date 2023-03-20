@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/auto-complete/demo/basic.md correctly 1`] = `
+exports[`renders ./components/auto-complete/demo/basic.tsx correctly 1`] = `
 Array [
   <div
     class="ant-select ant-select-auto-complete ant-select-single ant-select-show-search"
@@ -67,7 +67,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/auto-complete/demo/certain-category.md correctly 1`] = `
+exports[`renders ./components/auto-complete/demo/certain-category.tsx correctly 1`] = `
 <div
   class="ant-select ant-select-auto-complete ant-select-single ant-select-customize-input ant-select-show-search"
   style="width:250px"
@@ -135,7 +135,7 @@ exports[`renders ./components/auto-complete/demo/certain-category.md correctly 1
 </div>
 `;
 
-exports[`renders ./components/auto-complete/demo/custom.md correctly 1`] = `
+exports[`renders ./components/auto-complete/demo/custom.tsx correctly 1`] = `
 <div
   class="ant-select ant-select-auto-complete ant-select-single ant-select-customize-input ant-select-show-search"
   style="width:200px"
@@ -167,7 +167,7 @@ exports[`renders ./components/auto-complete/demo/custom.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
+exports[`renders ./components/auto-complete/demo/form-debug.tsx correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
   style="margin:0 auto"
@@ -995,7 +995,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
 </form>
 `;
 
-exports[`renders ./components/auto-complete/demo/non-case-sensitive.md correctly 1`] = `
+exports[`renders ./components/auto-complete/demo/non-case-sensitive.tsx correctly 1`] = `
 <div
   class="ant-select ant-select-auto-complete ant-select-single ant-select-show-search"
   style="width:200px"
@@ -1028,7 +1028,7 @@ exports[`renders ./components/auto-complete/demo/non-case-sensitive.md correctly
 </div>
 `;
 
-exports[`renders ./components/auto-complete/demo/options.md correctly 1`] = `
+exports[`renders ./components/auto-complete/demo/options.tsx correctly 1`] = `
 <div
   class="ant-select ant-select-auto-complete ant-select-single ant-select-show-search"
   style="width:200px"
@@ -1061,7 +1061,74 @@ exports[`renders ./components/auto-complete/demo/options.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/auto-complete/demo/status.md correctly 1`] = `
+exports[`renders ./components/auto-complete/demo/render-panel.tsx correctly 1`] = `
+<div
+  class="ant-space ant-space-vertical"
+  style="display:flex"
+>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
+  >
+    <button
+      aria-checked="false"
+      class="ant-switch"
+      role="switch"
+      type="button"
+    >
+      <div
+        class="ant-switch-handle"
+      />
+      <span
+        class="ant-switch-inner"
+      >
+        <span
+          class="ant-switch-inner-checked"
+        />
+        <span
+          class="ant-switch-inner-unchecked"
+        />
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      style="padding-bottom:0;position:relative;width:fit-content;min-width:0"
+    >
+      <div
+        class="ant-select ant-select-auto-complete ant-select-single ant-select-show-search"
+        style="width:120px;margin:0"
+      >
+        <div
+          class="ant-select-selector"
+        >
+          <span
+            class="ant-select-selection-search"
+          >
+            <input
+              aria-activedescendant="undefined_list_0"
+              aria-autocomplete="list"
+              aria-controls="undefined_list"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="undefined_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              role="combobox"
+              type="search"
+              value="lucy"
+            />
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/auto-complete/demo/status.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
   style="width:100%"
@@ -1134,7 +1201,7 @@ exports[`renders ./components/auto-complete/demo/status.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/auto-complete/demo/uncertain-category.md correctly 1`] = `
+exports[`renders ./components/auto-complete/demo/uncertain-category.tsx correctly 1`] = `
 <div
   class="ant-select ant-select-auto-complete ant-select-single ant-select-customize-input ant-select-show-search"
   style="width:300px"

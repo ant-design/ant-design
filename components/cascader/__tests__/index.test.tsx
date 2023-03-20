@@ -8,6 +8,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import ConfigProvider from '../../config-provider';
 import { fireEvent, render } from '../../../tests/utils';
+import { resetWarned } from '../../_util/warning';
 
 const { SHOW_CHILD, SHOW_PARENT } = Cascader;
 
@@ -73,7 +74,7 @@ function filter<OptionType extends BaseOptionType = DefaultOptionType>(
   inputValue: string,
   path: OptionType[],
 ): boolean {
-  return path.some(option => option.label.toLowerCase().includes(inputValue.toLowerCase()));
+  return path.some((option) => option.label.toLowerCase().includes(inputValue.toLowerCase()));
 }
 
 describe('Cascader', () => {
@@ -188,7 +189,7 @@ describe('Cascader', () => {
       inputValue: string,
       path: OptionType[],
     ): boolean {
-      return path.some(option => option.name.toLowerCase().includes(inputValue.toLowerCase()));
+      return path.some((option) => option.name.toLowerCase().includes(inputValue.toLowerCase()));
     }
     const { container } = render(
       <Cascader
@@ -537,22 +538,23 @@ describe('Cascader', () => {
   });
 
   describe('legacy props', () => {
-    it('popupClassName', () => {
-      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-      const { container } = render(
-        <Cascader open popupPlacement="bottomLeft" dropdownClassName="mock-cls" />,
-      );
-
-      expect(container.querySelector('.mock-cls')).toBeTruthy();
-
+    it('popupPlacement', () => {
+      render(<Cascader open popupPlacement="bottomLeft" />);
       // Inject in tests/__mocks__/rc-trigger.js
       expect((global as any).triggerProps.popupPlacement).toEqual('bottomLeft');
+    });
 
-      expect(errorSpy).toHaveBeenCalledWith(
-        'Warning: [antd: Cascader] `dropdownClassName` is deprecated which will be removed in next major version. Please use `popupClassName` instead.',
+    it('legacy dropdownClassName', () => {
+      resetWarned();
+
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const { container } = render(<Cascader dropdownClassName="legacy" open />);
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Cascader] `dropdownClassName` is deprecated. Please use `popupClassName` instead.',
       );
+      expect(container.querySelector('.legacy')).toBeTruthy();
 
-      errorSpy.mockRestore();
+      errSpy.mockRestore();
     });
 
     it('should support showCheckedStrategy child', () => {

@@ -154,7 +154,7 @@ describe('Radio Group', () => {
     const GROUP_NAME = 'GROUP_NAME';
     const { container } = render(createRadioGroup({ name: GROUP_NAME }));
 
-    container.querySelectorAll<HTMLInputElement>('input[type="radio"]').forEach(el => {
+    container.querySelectorAll<HTMLInputElement>('input[type="radio"]').forEach((el) => {
       expect(el.name).toEqual(GROUP_NAME);
     });
   });
@@ -230,7 +230,7 @@ describe('Radio Group', () => {
       expect(container.querySelectorAll('.ant-radio-button-wrapper-checked').length).toBe(1);
     });
 
-    [undefined, null].forEach(newValue => {
+    [undefined, null].forEach((newValue) => {
       it(`should set value back when value change back to ${newValue}`, () => {
         const { container, rerender } = render(
           <Radio.Group value="bamboo">

@@ -5,6 +5,7 @@ import { withConfirm, withError, withInfo, withSuccess, withWarn } from '../conf
 import type { ModalFuncProps } from '../Modal';
 import type { HookModalRef } from './HookModal';
 import HookModal from './HookModal';
+import destroyFns from '../destroyFns';
 
 let uuid = 0;
 
@@ -27,8 +28,11 @@ const ElementsHolder = React.memo(
   }),
 );
 
-export default function useModal(): [Omit<ModalStaticFunctions, 'warn'>, React.ReactElement] {
-  const holderRef = React.useRef<ElementsHolderRef>(null as any);
+function useModal(): readonly [
+  instance: Omit<ModalStaticFunctions, 'warn'>,
+  contextHolder: React.ReactElement,
+] {
+  const holderRef = React.useRef<ElementsHolderRef>(null);
 
   // ========================== Effect ==========================
   const [actionQueue, setActionQueue] = React.useState<(() => void)[]>([]);
@@ -36,7 +40,7 @@ export default function useModal(): [Omit<ModalStaticFunctions, 'warn'>, React.R
   React.useEffect(() => {
     if (actionQueue.length) {
       const cloneQueue = [...actionQueue];
-      cloneQueue.forEach(action => {
+      cloneQueue.forEach((action) => {
         action();
       });
 
@@ -52,19 +56,23 @@ export default function useModal(): [Omit<ModalStaticFunctions, 'warn'>, React.R
 
         const modalRef = React.createRef<HookModalRef>();
 
-        let closeFunc: Function;
+        let closeFunc: Function | undefined;
         const modal = (
           <HookModal
             key={`modal-${uuid}`}
             config={withFunc(config)}
             ref={modalRef}
             afterClose={() => {
-              closeFunc();
+              closeFunc?.();
             }}
           />
         );
 
         closeFunc = holderRef.current?.patchElement(modal);
+
+        if (closeFunc) {
+          destroyFns.push(closeFunc);
+        }
 
         return {
           destroy: () => {
@@ -75,7 +83,7 @@ export default function useModal(): [Omit<ModalStaticFunctions, 'warn'>, React.R
             if (modalRef.current) {
               destroyAction();
             } else {
-              setActionQueue(prev => [...prev, destroyAction]);
+              setActionQueue((prev) => [...prev, destroyAction]);
             }
           },
           update: (newConfig: ModalFuncProps) => {
@@ -86,7 +94,7 @@ export default function useModal(): [Omit<ModalStaticFunctions, 'warn'>, React.R
             if (modalRef.current) {
               updateAction();
             } else {
-              setActionQueue(prev => [...prev, updateAction]);
+              setActionQueue((prev) => [...prev, updateAction]);
             }
           },
         };
@@ -94,7 +102,7 @@ export default function useModal(): [Omit<ModalStaticFunctions, 'warn'>, React.R
     [],
   );
 
-  const fns = React.useMemo(
+  const fns = React.useMemo<Omit<ModalStaticFunctions, 'warn'>>(
     () => ({
       info: getConfirmFunc(withInfo),
       success: getConfirmFunc(withSuccess),
@@ -105,6 +113,7 @@ export default function useModal(): [Omit<ModalStaticFunctions, 'warn'>, React.R
     [],
   );
 
-  // eslint-disable-next-line react/jsx-key
-  return [fns, <ElementsHolder ref={holderRef} />];
+  return [fns, <ElementsHolder key="modal-holder" ref={holderRef} />] as const;
 }
+
+export default useModal;

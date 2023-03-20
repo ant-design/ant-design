@@ -1,9 +1,9 @@
 ---
 category: Components
-type: General
+group: General
 title: Typography
-cols: 1
-cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*MLt3R6m9huoAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 Basic text writing, including headings, body text, lists, and more.
@@ -12,6 +12,19 @@ Basic text writing, including headings, body text, lists, and more.
 
 - When need to display a title or paragraph contents in Articles/Blogs/Notes.
 - When you need copyable/editable/ellipsis texts.
+
+## Examples
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/title.tsx">Title Component</code>
+<code src="./demo/paragraph-debug.tsx" debug>Title and Paragraph</code>
+<code src="./demo/text.tsx">Text and Link Component</code>
+<code src="./demo/interactive.tsx">Interactive</code>
+<code src="./demo/ellipsis.tsx">Ellipsis</code>
+<code src="./demo/ellipsis-middle.tsx">Ellipsis from middle</code>
+<code src="./demo/ellipsis-debug.tsx" debug>Ellipsis Debug</code>
+<code src="./demo/suffix.tsx">suffix</code>
 
 ## API
 
@@ -93,9 +106,10 @@ Basic text writing, including headings, body text, lists, and more.
       editing: boolean,
       maxLength: number,
       autoSize: boolean | { minRows: number, maxRows: number },
-      onStart: function,
+      text: string,
       onChange: function(string),
       onCancel: function,
+      onStart: function,
       onEnd: function,
       triggerType: ('icon' | 'text')[],
       enterIcon: ReactNode,
@@ -108,9 +122,10 @@ Basic text writing, including headings, body text, lists, and more.
 | icon | Custom editable icon | ReactNode | &lt;EditOutlined /> | 4.6.0 |
 | maxLength | `maxLength` attribute of textarea | number | - | 4.4.0 |
 | tooltip | Custom tooltip text, hide when it is false | boolean \| ReactNode | `Edit` | 4.6.0 |
-| onStart | Called when enter editable state | function | - |  |
+| text | Edit text, specify the editing content instead of using the children implicitly | string | - | 4.24.0 |
 | onChange | Called when input at textarea | function(value: string) | - |  |
 | onCancel | Called when type ESC to exit editable state | function | - |  |
+| onStart | Called when enter editable state | function | - |  |
 | onEnd | Called when type ENTER to exit editable state | function | - | 4.14.0 |
 | triggerType | Edit mode trigger - icon, text or both (not specifying icon as trigger hides it) | Array&lt;`icon`\|`text`> | \[`icon`] |  |
 | enterIcon | Custom "enter" icon in the edit field (passing `null` removes the icon) | ReactNode | `<EnterOutlined />` | 4.17.0 |
@@ -133,7 +148,7 @@ Basic text writing, including headings, body text, lists, and more.
 | rows | Max rows of content | number | - |  |
 | suffix | Suffix of ellipsis content | string | - |  |
 | symbol | Custom description of ellipsis | ReactNode | `Expand` |  |
-| tooltip | Show tooltip when ellipsis | boolean \| ReactNode \| [TooltipProps](/components/tooltip/#API) | - | 4.11.0 |
+| tooltip | Show tooltip when ellipsis | boolean \| ReactNode \| [TooltipProps](/components/tooltip/#api) | - | 4.11.0 |
 | onEllipsis | Called when enter or leave ellipsis state | function(ellipsis) | - | 4.2.0 |
 | onExpand | Called when expand content | function(event) | - |  |
 

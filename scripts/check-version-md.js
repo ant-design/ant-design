@@ -2,7 +2,7 @@
 const chalk = require('chalk');
 const fs = require('fs');
 const { join } = require('path');
-const moment = require('moment');
+const dayjs = require('dayjs');
 
 const getChangelogByVersion = (content, version) => {
   const lines = content.split('\n');
@@ -51,13 +51,12 @@ if (!changeLog) {
 if (changeLog) {
   const text = changeLog.split('\n')[0];
   if (text.trim().startsWith('`') && text.trim().endsWith('`')) {
-    const date = moment(text.trim().replace('`', '').replace('`', ''));
-    if (date.isBetween(moment().add(-2, 'day'), moment().add(2, 'day'))) {
+    const date = dayjs(text.trim().replace('`', '').replace('`', ''));
+    if (date.isBetween(dayjs().add(-2, 'day'), dayjs().add(2, 'day'))) {
       console.log('\n');
       console.log(chalk.blue('[check-version-md]: Check Passed'));
       console.log('\n');
       process.exit(0);
-      return;
     }
   }
   console.log('\n');

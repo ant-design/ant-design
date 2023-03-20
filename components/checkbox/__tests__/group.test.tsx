@@ -63,7 +63,7 @@ describe('CheckboxGroup', () => {
   it('all children should have a name property', () => {
     const { container } = render(<Checkbox.Group name="checkboxgroup" options={['Yes', 'No']} />);
     Array.from(container.querySelectorAll<HTMLInputElement>('input[type="checkbox"]')).forEach(
-      el => {
+      (el) => {
         expect(el.getAttribute('name')).toEqual('checkboxgroup');
       },
     );
@@ -214,17 +214,9 @@ describe('CheckboxGroup', () => {
   });
 
   it('should get div ref', () => {
-    const refCalls: HTMLDivElement[] = [];
-    render(
-      <Checkbox.Group
-        options={['Apple', 'Pear', 'Orange']}
-        ref={node => {
-          refCalls.push(node!);
-        }}
-      />,
-    );
-    const [mountCall] = refCalls;
-    expect(mountCall.nodeName).toBe('DIV');
+    const ref = React.createRef<HTMLDivElement>();
+    render(<Checkbox.Group options={['Apple', 'Pear', 'Orange']} ref={ref} />);
+    expect(ref.current?.nodeName).toBe('DIV');
   });
 
   it('should support number option', () => {
@@ -242,15 +234,15 @@ describe('CheckboxGroup', () => {
     const onChange = jest.fn();
 
     const Demo: React.FC = () => {
-      const [v, setV] = useState<string>('');
+      const [v, setV] = useState('');
 
       React.useEffect(() => {
-        setTimeout(setV('1') as unknown as TimerHandler, 1000);
+        setV('1');
       }, []);
 
       return (
         <div>
-          <Input className="my-input" value={v} onChange={e => setV(e.target.value)} />
+          <Input className="my-input" value={v} onChange={(e) => setV(e.target.value)} />
           <Checkbox.Group defaultValue={['length1']} style={{ width: '100%' }} onChange={onChange}>
             <Checkbox className="target-checkbox" value={v ? `length${v}` : 'A'}>
               A

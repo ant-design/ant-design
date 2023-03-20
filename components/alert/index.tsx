@@ -1,12 +1,8 @@
 import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
-import CheckCircleOutlined from '@ant-design/icons/CheckCircleOutlined';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
-import CloseCircleOutlined from '@ant-design/icons/CloseCircleOutlined';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
-import ExclamationCircleOutlined from '@ant-design/icons/ExclamationCircleOutlined';
 import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
-import InfoCircleOutlined from '@ant-design/icons/InfoCircleOutlined';
 import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
 import type { ReactElement } from 'react';
@@ -15,6 +11,9 @@ import { ConfigContext } from '../config-provider';
 import getDataOrAriaProps from '../_util/getDataOrAriaProps';
 import { replaceElement } from '../_util/reactNode';
 import ErrorBoundary from './ErrorBoundary';
+
+// CSSINJS
+import useStyle from './style';
 
 export interface AlertProps {
   /** Type of Alert styles, options:`success`, `info`, `warning`, `error` */
@@ -38,6 +37,7 @@ export interface AlertProps {
   style?: React.CSSProperties;
   prefixCls?: string;
   className?: string;
+  rootClassName?: string;
   banner?: boolean;
   icon?: React.ReactNode;
   /** Custom closeIcon */
@@ -55,13 +55,6 @@ const iconMapFilled = {
   warning: ExclamationCircleFilled,
 };
 
-const iconMapOutlined = {
-  success: CheckCircleOutlined,
-  info: InfoCircleOutlined,
-  error: CloseCircleOutlined,
-  warning: ExclamationCircleOutlined,
-};
-
 interface IconNodeProps {
   type: AlertProps['type'];
   icon: AlertProps['icon'];
@@ -69,9 +62,9 @@ interface IconNodeProps {
   description: AlertProps['description'];
 }
 
-const IconNode: React.FC<IconNodeProps> = props => {
-  const { description, icon, prefixCls, type } = props;
-  const iconType = (description ? iconMapOutlined : iconMapFilled)[type!] || null;
+const IconNode: React.FC<IconNodeProps> = (props) => {
+  const { icon, prefixCls, type } = props;
+  const iconType = iconMapFilled[type!] || null;
   if (icon) {
     return replaceElement(icon, <span className={`${prefixCls}-icon`}>{icon}</span>, () => ({
       className: classNames(`${prefixCls}-icon`, {
@@ -90,7 +83,7 @@ interface CloseIconProps {
   handleClose: AlertProps['onClose'];
 }
 
-const CloseIcon: React.FC<CloseIconProps> = props => {
+const CloseIcon: React.FC<CloseIconProps> = (props) => {
   const { isClosable, closeText, prefixCls, closeIcon, handleClose } = props;
   return isClosable ? (
     <button type="button" onClick={handleClose} className={`${prefixCls}-close-icon`} tabIndex={0}>
@@ -99,16 +92,17 @@ const CloseIcon: React.FC<CloseIconProps> = props => {
   ) : null;
 };
 
-interface AlertInterface extends React.FC<AlertProps> {
+type CompoundedComponent = React.FC<AlertProps> & {
   ErrorBoundary: typeof ErrorBoundary;
-}
+};
 
-const Alert: AlertInterface = ({
+const Alert: CompoundedComponent = ({
   description,
   prefixCls: customizePrefixCls,
   message,
   banner,
-  className = '',
+  className,
+  rootClassName,
   style,
   onMouseEnter,
   onMouseLeave,
@@ -126,6 +120,7 @@ const Alert: AlertInterface = ({
   const ref = React.useRef<HTMLElement>();
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('alert', customizePrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const handleClose = (e: React.MouseEvent<HTMLButtonElement>) => {
     setClosed(true);
@@ -158,17 +153,19 @@ const Alert: AlertInterface = ({
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
+    rootClassName,
+    hashId,
   );
 
   const dataOrAriaProps = getDataOrAriaProps(props);
 
-  return (
+  return wrapSSR(
     <CSSMotion
       visible={!closed}
       motionName={`${prefixCls}-motion`}
       motionAppear={false}
       motionEnter={false}
-      onLeaveStart={node => ({
+      onLeaveStart={(node) => ({
         maxHeight: node.offsetHeight,
       })}
       onLeaveEnd={afterClose}
@@ -207,10 +204,14 @@ const Alert: AlertInterface = ({
           />
         </div>
       )}
-    </CSSMotion>
+    </CSSMotion>,
   );
 };
 
 Alert.ErrorBoundary = ErrorBoundary;
+
+if (process.env.NODE_ENV !== 'production') {
+  Alert.displayName = 'Alert';
+}
 
 export default Alert;

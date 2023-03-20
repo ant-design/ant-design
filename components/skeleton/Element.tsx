@@ -4,13 +4,14 @@ import * as React from 'react';
 export interface SkeletonElementProps {
   prefixCls?: string;
   className?: string;
+  rootClassName?: string;
   style?: React.CSSProperties;
   size?: 'large' | 'small' | 'default' | number;
   shape?: 'circle' | 'square' | 'round' | 'default';
   active?: boolean;
 }
 
-const Element: React.FC<SkeletonElementProps> = props => {
+const Element: React.FC<SkeletonElementProps> = (props) => {
   const { prefixCls, className, style, size, shape } = props;
 
   const sizeCls = classNames({

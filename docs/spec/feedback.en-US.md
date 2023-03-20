@@ -1,5 +1,5 @@
 ---
-category: Design Patterns
+group: Design Patterns
 type: Global Rules
 order: 1
 title: Feedback
@@ -21,7 +21,9 @@ Any product can not be separated from user guidance and information prompts even
 
 #### Alert
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/eviVRYTdxOxOfVENLnxq.png">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/eviVRYTdxOxOfVENLnxq.png">
+</ImagePreview>
 
 It is a non-blocking information display. It does not interrupt the user's current operation. It usually stays at a certain position on the page (top preferentially). The static display form of the non-floating layer is always displayed and will not disappear automatically. The user can click shut down.
 
@@ -31,13 +33,17 @@ It is a non-blocking information display. It does not interrupt the user's curre
 
 #### Notification
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/nElczRfDzAXRZSkpiJBQ.png" description="Used when the notification content is complex">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/nElczRfDzAXRZSkpiJBQ.png" description="Used when the notification content is complex">
+</ImagePreview>
 
 The important global notification information actively pushed by the system is displayed in the upper right corner of the system.
 
 #### Badge
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/bVonmOmmkuvybQxTDGTC.png" description="When there is an icon, it is usually in the upper right corner of the icon; in the case of no icon, it is usually at the back of the title.">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/bVonmOmmkuvybQxTDGTC.png" description="When there is an icon, it is usually in the upper right corner of the icon; in the case of no icon, it is usually at the back of the title.">
+</ImagePreview>
 
 The message prompt for the aggregate type, generally appearing in the upper right corner of the notification icon or avatar, attracts the user's eye through a striking visual form.
 
@@ -47,7 +53,9 @@ The message prompt for the aggregate type, generally appearing in the upper righ
 
 #### Popover
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/zsPOjQqkiwMnMhIsbDHz.png">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/zsPOjQqkiwMnMhIsbDHz.png">
+</ImagePreview>
 
 When the target element has further description and related operations, it can be stored in the card and displayed according to the user's operation behavior.
 
@@ -55,7 +63,9 @@ When the target element has further description and related operations, it can b
 
 #### Tooltip
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/CKDiGEsluwkRRGqujpgv.png">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/CKDiGEsluwkRRGqujpgv.png">
+</ImagePreview>
 
 Used to accurately describe the pointed object, such as icons, graphics, links, etc. When the mouse is moved in, the prompt is displayed, when the mouse is moved out, the prompt is disappeared. And the complex text and operations are not carried.
 
@@ -67,19 +77,25 @@ Feedback of the status is given to the user as much as possible during the opera
 
 ### Loading status progress feedback
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/cHaaqZTvzgCZiYUnfNom.png" description="Used when users don't have to wait for a long time to load.">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/cHaaqZTvzgCZiYUnfNom.png" description="Used when users don't have to wait for a long time to load.">
+</ImagePreview>
 
 When the operation takes a while (usually more than 2 seconds) to complete, the system should immediately give a reminder, clearly inform the loading status or loading progress bar, and maintain communication with the user.
 
 <br />
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/antfincdn/j6XiEx6UUV/676a18a1-bf60-4d93-8f94-55f1882dd13e.png" description="Used when the operation takes a long time to complete, showing the current progress and status of the operation.">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/antfincdn/j6XiEx6UUV/676a18a1-bf60-4d93-8f94-55f1882dd13e.png" description="Used when the operation takes a long time to complete, showing the current progress and status of the operation.">
+</ImagePreview>
 
 > Note: If the loading time is long, a cancel operation should be provided.
 
 ### Input feedback
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/CCeqqndHQgWnqVqvRptA.png">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/CCeqqndHQgWnqVqvRptA.png">
+</ImagePreview>
 
 During the operation, different verification rules and forms can be used to allow users to find and correct errors in time.
 
@@ -87,7 +103,9 @@ During the operation, different verification rules and forms can be used to allo
 
 #### Popconfirm
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/lPZZxOAakfNhwfrpRPht.png" description="The interaction form is lighter than the full-screen centered mode dialog.">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/lPZZxOAakfNhwfrpRPht.png" description="The interaction form is lighter than the full-screen centered mode dialog.">
+</ImagePreview>
 
 When the operation of the target element requires further confirmation by the user, a floating layer prompt is ejected near the target element to inquire the user.
 
@@ -99,20 +117,26 @@ Feedback of the status is given to the user as much as possible during the opera
 
 ### Message
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/pqJMJfJGLkYTDbLyJwIg.png" description="When users don't have to wait for a long time to load.">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/pqJMJfJGLkYTDbLyJwIg.png" description="When users don't have to wait for a long time to load.">
+</ImagePreview>
 
 The feedback floating layer triggered by an operation is centered on the top and disappears automatically, which is a lightweight reminder that does not interrupt the user's operation.
 
 <br />
 
-<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/DrKzGoqfLRtrPuZaHUiq.png" alt="Correct Sample" description="Important failure messages suggest using dialog box prompts and telling the reason for the failure.">
-<img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/akPBJQUiUWNsULtGOnyx.png" alt="Incorrect Sample" description="Lightweight prompts are not recommended for important failure messages.">
+<ImagePreview>
+<img class="preview-img no-padding good" src="https://gw.alipayobjects.com/zos/rmsportal/DrKzGoqfLRtrPuZaHUiq.png" alt="Correct Sample" description="Important failure messages suggest using dialog box prompts and telling the reason for the failure.">
+<img class="preview-img no-padding bad" src="https://gw.alipayobjects.com/zos/rmsportal/akPBJQUiUWNsULtGOnyx.png" alt="Incorrect Sample" description="Lightweight prompts are not recommended for important failure messages.">
+</ImagePreview>
 
 Since the feedback floating layer has a short presentation time (default 3s), for more important failure notifications, it is recommended to use a dialog box to notify you to avoid missing information.
 
 ### Dialog feedback
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/OTzldmUjUgERMbUCHwzt.png">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/OTzldmUjUgERMbUCHwzt.png">
+</ImagePreview>
 
 The feedback floating layer triggered by an operation is located at the center of the page, and the feedback content can be closed by the confirmation or cancel button. The user cannot perform any operation when the feedback layer appears, it's for important feedback.
 

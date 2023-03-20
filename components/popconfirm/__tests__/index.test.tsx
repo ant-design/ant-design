@@ -57,7 +57,7 @@ describe('Popconfirm', () => {
 
   it('should show overlay when trigger is clicked', async () => {
     const popconfirm = render(
-      <Popconfirm title="code">
+      <Popconfirm title="code" autoAdjustOverflow={false}>
         <span>show me your code</span>
       </Popconfirm>,
     );
@@ -158,7 +158,7 @@ describe('Popconfirm', () => {
 
   it('should support onConfirm to return Promise', async () => {
     const confirm = () =>
-      new Promise(res => {
+      new Promise((res) => {
         setTimeout(res, 300);
       });
     const onOpenChange = jest.fn((_, e) => {
@@ -256,7 +256,7 @@ describe('Popconfirm', () => {
           <Popconfirm
             title="will unmount"
             onConfirm={() =>
-              new Promise(resolve => {
+              new Promise((resolve) => {
                 setTimeout(() => {
                   setShow(false);
                   resolve(true);

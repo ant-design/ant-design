@@ -1,5 +1,6 @@
 import React from 'react';
 import { render } from '../../../tests/utils';
+import type { TransferProps } from '../index';
 import Transfer from '../index';
 
 describe('Transfer.Customize', () => {
@@ -15,7 +16,7 @@ describe('Transfer.Customize', () => {
 
   it('props#body does not work anymore', () => {
     const body = jest.fn();
-    const props = { body };
+    const props = { body } as TransferProps<any>;
     render(<Transfer {...props} />);
     expect(errorSpy).not.toHaveBeenCalled();
     expect(body).not.toHaveBeenCalled();
@@ -35,7 +36,7 @@ describe('Transfer.Customize', () => {
     it('should not exist in render props', () => {
       render(
         <Transfer {...commonProps}>
-          {props => {
+          {(props) => {
             expect('handleFilter' in props).toBeFalsy();
             expect('handleSelect' in props).toBeFalsy();
             expect('handleSelectAll' in props).toBeFalsy();

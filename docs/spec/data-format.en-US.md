@@ -1,5 +1,5 @@
 ---
-category: Design Patterns
+group: Design Patterns
 type: Global Rules
 order: 5
 title: Data format
@@ -24,9 +24,10 @@ The numerical value is used to indicate the measurement size, it can be used alo
 
 <br />
 
-<img class="preview-img good" align="right" alt="Do" src="https://gw.alipayobjects.com/zos/antfincdn/8QPU0UKlAA/ebba34c8-c7c0-4dc7-a3a6-e486b118b5fd.png">
-
-<img class="preview-img bad" align="right" alt="Don't" src="https://gw.alipayobjects.com/zos/antfincdn/jvsJ7TbQM%26/8cb7388a-7224-48cd-9672-a1cd1882b060.png">
+<ImagePreview>
+<img class="preview-img good" alt="Do" src="https://gw.alipayobjects.com/zos/antfincdn/8QPU0UKlAA/ebba34c8-c7c0-4dc7-a3a6-e486b118b5fd.png">
+<img class="preview-img bad" alt="Don't" src="https://gw.alipayobjects.com/zos/antfincdn/jvsJ7TbQM%26/8cb7388a-7224-48cd-9672-a1cd1882b060.png">
+</ImagePreview>
 
 **Position**: To let users read the data intuitively and accurately, it is necessary to make it clear and concise. In a table with numerical values, "right-aligned" method is usually adopted, which not only facilitates the user to quickly read, but also allows the user to compare the longitudinal data.
 
@@ -84,8 +85,10 @@ Data redaction refers to representing truncated data to protect sensitive privac
 
 #### Complete Redaction
 
-<img class="preview-img good" align="right" alt="Do" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*NJs8QYejQyEAAAAAAAAAAABkARQnAQ">
-<img class="preview-img bad" align="right" alt="Don't" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*JvI4T5SXvIYAAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img good" alt="Do" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*NJs8QYejQyEAAAAAAAAAAABkARQnAQ">
+<img class="preview-img bad" alt="Don't" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*JvI4T5SXvIYAAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 Generally used for particularly important and sensitive information such as amount and time. All the numbers need to be hidden. And the data is replaced by `***`.
 
@@ -107,14 +110,18 @@ Generally used for situations that require partial information for identificatio
 
 #### Empty State
 
-<img class="preview-img good" align="right" alt="Do" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*o0duS6P8WUEAAAAAAAAAAABkARQnAQ">
-<img class="preview-img bad" align="right" alt="Don't" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*ssPWRaVkIy8AAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img good" alt="Do" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*o0duS6P8WUEAAAAAAAAAAABkARQnAQ">
+<img class="preview-img bad" alt="Don't" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*ssPWRaVkIy8AAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 Display `--` to express no-data status.
 
 #### Loading
 
-<img class="preview-img" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*E6pGTJYEh-gAAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*E6pGTJYEh-gAAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 Use Skeleton screen when loading data.
 

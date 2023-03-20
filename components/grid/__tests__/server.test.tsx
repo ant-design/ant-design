@@ -1,5 +1,4 @@
 import React from 'react';
-// eslint-disable-next-line no-unused-vars
 import { Col, Row } from '..';
 import { render } from '../../../tests/utils';
 

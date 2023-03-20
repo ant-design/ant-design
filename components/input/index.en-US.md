@@ -1,8 +1,11 @@
 ---
 category: Components
-type: Data Entry
+group: Data Entry
 title: Input
-cover: https://gw.alipayobjects.com/zos/alicdn/xS9YEJhfe/Input.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Y3R0RowXHlAAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*sBqqTatJ-AkAAAAAAAAAAAAADrJ8AQ/original
+demo:
+  cols: 2
 ---
 
 A basic widget for getting the user input is a text field. Keyboard and mouse can be used for providing or changing data.
@@ -11,6 +14,31 @@ A basic widget for getting the user input is a text field. Keyboard and mouse ca
 
 - A user input in a form field is needed.
 - A search input is required.
+
+## Examples
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">Basic usage</code>
+<code src="./demo/size.tsx">Three sizes of Input</code>
+<code src="./demo/addon.tsx">Pre / Post tab</code>
+<code src="./demo/group.tsx">Input Group</code>
+<code src="./demo/search-input.tsx">Search box</code>
+<code src="./demo/search-input-loading.tsx">Search box with loading</code>
+<code src="./demo/textarea.tsx">TextArea</code>
+<code src="./demo/autosize-textarea.tsx">Autosizing the height to fit the content</code>
+<code src="./demo/tooltip.tsx">Format Tooltip Input</code>
+<code src="./demo/presuffix.tsx">prefix and suffix</code>
+<code src="./demo/password-input.tsx">Password box</code>
+<code src="./demo/allowClear.tsx">With clear icon</code>
+<code src="./demo/show-count.tsx">With character counting</code>
+<code src="./demo/textarea-show-count.tsx">Textarea with character counting</code>
+<code src="./demo/status.tsx">Status</code>
+<code src="./demo/borderless.tsx">Borderless</code>
+<code src="./demo/focus.tsx">Focus</code>
+<code src="./demo/borderless-debug.tsx" debug>Style Debug</code>
+<code src="./demo/align.tsx" debug>Text Align</code>
+<code src="./demo/textarea-resize.tsx" debug>TextArea</code>
+<code src="./demo/debug-addon.tsx" debug>debug Pre / Post tab</code>
 
 ## API
 
@@ -85,7 +113,14 @@ Supports all props of `Input`.
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | iconRender | Custom toggle button | (visible) => ReactNode | (visible) => (visible ? &lt;EyeOutlined /> : &lt;EyeInvisibleOutlined />) | 4.3.0 |
-| visibilityToggle | Whether show toggle button | boolean | true |  |
+| visibilityToggle | Whether show toggle button or control password visible | boolean \| [VisibilityToggle](#visibilitytoggle) | true |  |
+
+#### VisibilityToggle
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| visible | Whether the password is show or hide | boolean | false | 4.24.0 |
+| onVisibleChange | Callback executed when visibility of the password is changed | boolean | - | 4.24.0 |
 
 #### Input Methods
 

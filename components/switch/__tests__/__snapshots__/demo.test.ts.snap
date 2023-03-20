@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/switch/demo/basic.md correctly 1`] = `
+exports[`renders ./components/switch/demo/basic.tsx correctly 1`] = `
 <button
   aria-checked="true"
   class="ant-switch ant-switch-checked"
@@ -12,39 +12,63 @@ exports[`renders ./components/switch/demo/basic.md correctly 1`] = `
   />
   <span
     class="ant-switch-inner"
-  />
+  >
+    <span
+      class="ant-switch-inner-checked"
+    />
+    <span
+      class="ant-switch-inner-unchecked"
+    />
+  </span>
 </button>
 `;
 
-exports[`renders ./components/switch/demo/disabled.md correctly 1`] = `
-Array [
-  <button
-    aria-checked="true"
-    class="ant-switch ant-switch-checked ant-switch-disabled"
-    disabled=""
-    role="switch"
-    type="button"
+exports[`renders ./components/switch/demo/disabled.tsx correctly 1`] = `
+<div
+  class="ant-space ant-space-vertical"
+>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
   >
-    <div
-      class="ant-switch-handle"
-    />
-    <span
-      class="ant-switch-inner"
-    />
-  </button>,
-  <br />,
-  <button
-    class="ant-btn ant-btn-primary"
-    type="button"
+    <button
+      aria-checked="true"
+      class="ant-switch ant-switch-checked ant-switch-disabled"
+      disabled=""
+      role="switch"
+      type="button"
+    >
+      <div
+        class="ant-switch-handle"
+      />
+      <span
+        class="ant-switch-inner"
+      >
+        <span
+          class="ant-switch-inner-checked"
+        />
+        <span
+          class="ant-switch-inner-unchecked"
+        />
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
   >
-    <span>
-      Toggle disabled
-    </span>
-  </button>,
-]
+    <button
+      class="ant-btn ant-btn-primary"
+      type="button"
+    >
+      <span>
+        Toggle disabled
+      </span>
+    </button>
+  </div>
+</div>
 `;
 
-exports[`renders ./components/switch/demo/loading.md correctly 1`] = `
+exports[`renders ./components/switch/demo/loading.tsx correctly 1`] = `
 Array [
   <button
     aria-checked="true"
@@ -78,7 +102,14 @@ Array [
     </div>
     <span
       class="ant-switch-inner"
-    />
+    >
+      <span
+        class="ant-switch-inner-checked"
+      />
+      <span
+        class="ant-switch-inner-unchecked"
+      />
+    </span>
   </button>,
   <br />,
   <button
@@ -113,77 +144,20 @@ Array [
     </div>
     <span
       class="ant-switch-inner"
-    />
+    >
+      <span
+        class="ant-switch-inner-checked"
+      />
+      <span
+        class="ant-switch-inner-unchecked"
+      />
+    </span>
   </button>,
 ]
 `;
 
-exports[`renders ./components/switch/demo/size.md correctly 1`] = `
+exports[`renders ./components/switch/demo/size.tsx correctly 1`] = `
 Array [
-  <button
-    aria-checked="true"
-    class="ant-switch ant-switch-checked"
-    role="switch"
-    type="button"
-  >
-    <div
-      class="ant-switch-handle"
-    />
-    <span
-      class="ant-switch-inner"
-    />
-  </button>,
-  <br />,
-  <button
-    aria-checked="true"
-    class="ant-switch ant-switch-small ant-switch-checked"
-    role="switch"
-    type="button"
-  >
-    <div
-      class="ant-switch-handle"
-    />
-    <span
-      class="ant-switch-inner"
-    />
-  </button>,
-]
-`;
-
-exports[`renders ./components/switch/demo/text.md correctly 1`] = `
-Array [
-  <button
-    aria-checked="true"
-    class="ant-switch ant-switch-checked"
-    role="switch"
-    type="button"
-  >
-    <div
-      class="ant-switch-handle"
-    />
-    <span
-      class="ant-switch-inner"
-    >
-      开启
-    </span>
-  </button>,
-  <br />,
-  <button
-    aria-checked="false"
-    class="ant-switch"
-    role="switch"
-    type="button"
-  >
-    <div
-      class="ant-switch-handle"
-    />
-    <span
-      class="ant-switch-inner"
-    >
-      0
-    </span>
-  </button>,
-  <br />,
   <button
     aria-checked="true"
     class="ant-switch ant-switch-checked"
@@ -197,25 +171,162 @@ Array [
       class="ant-switch-inner"
     >
       <span
-        aria-label="check"
-        class="anticon anticon-check"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="check"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
-          />
-        </svg>
-      </span>
+        class="ant-switch-inner-checked"
+      />
+      <span
+        class="ant-switch-inner-unchecked"
+      />
+    </span>
+  </button>,
+  <br />,
+  <button
+    aria-checked="true"
+    class="ant-switch ant-switch-small ant-switch-checked"
+    role="switch"
+    type="button"
+  >
+    <div
+      class="ant-switch-handle"
+    />
+    <span
+      class="ant-switch-inner"
+    >
+      <span
+        class="ant-switch-inner-checked"
+      />
+      <span
+        class="ant-switch-inner-unchecked"
+      />
     </span>
   </button>,
 ]
+`;
+
+exports[`renders ./components/switch/demo/text.tsx correctly 1`] = `
+<div
+  class="ant-space ant-space-vertical"
+>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
+  >
+    <button
+      aria-checked="true"
+      class="ant-switch ant-switch-checked"
+      role="switch"
+      type="button"
+    >
+      <div
+        class="ant-switch-handle"
+      />
+      <span
+        class="ant-switch-inner"
+      >
+        <span
+          class="ant-switch-inner-checked"
+        >
+          开启
+        </span>
+        <span
+          class="ant-switch-inner-unchecked"
+        >
+          关闭
+        </span>
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
+  >
+    <button
+      aria-checked="false"
+      class="ant-switch"
+      role="switch"
+      type="button"
+    >
+      <div
+        class="ant-switch-handle"
+      />
+      <span
+        class="ant-switch-inner"
+      >
+        <span
+          class="ant-switch-inner-checked"
+        >
+          1
+        </span>
+        <span
+          class="ant-switch-inner-unchecked"
+        >
+          0
+        </span>
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      aria-checked="true"
+      class="ant-switch ant-switch-checked"
+      role="switch"
+      type="button"
+    >
+      <div
+        class="ant-switch-handle"
+      />
+      <span
+        class="ant-switch-inner"
+      >
+        <span
+          class="ant-switch-inner-checked"
+        >
+          <span
+            aria-label="check"
+            class="anticon anticon-check"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="check"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
+              />
+            </svg>
+          </span>
+        </span>
+        <span
+          class="ant-switch-inner-unchecked"
+        >
+          <span
+            aria-label="close"
+            class="anticon anticon-close"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="close"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+              />
+            </svg>
+          </span>
+        </span>
+      </span>
+    </button>
+  </div>
+</div>
 `;

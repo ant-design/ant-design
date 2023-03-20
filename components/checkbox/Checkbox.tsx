@@ -1,16 +1,18 @@
 import classNames from 'classnames';
 import RcCheckbox from 'rc-checkbox';
 import * as React from 'react';
-import { useContext } from 'react';
 import { ConfigContext } from '../config-provider';
 import { FormItemInputContext } from '../form/context';
 import warning from '../_util/warning';
 import { GroupContext } from './Group';
 import DisabledContext from '../config-provider/DisabledContext';
 
+import useStyle from './style';
+
 export interface AbstractCheckboxProps<T> {
   prefixCls?: string;
   className?: string;
+  rootClassName?: string;
   defaultChecked?: boolean;
   checked?: boolean;
   style?: React.CSSProperties;
@@ -50,6 +52,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<HTMLInputElement, Checkbo
   {
     prefixCls: customizePrefixCls,
     className,
+    rootClassName,
     children,
     indeterminate = false,
     style,
@@ -63,9 +66,9 @@ const InternalCheckbox: React.ForwardRefRenderFunction<HTMLInputElement, Checkbo
 ) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const checkboxGroup = React.useContext(GroupContext);
-  const { isFormItemInput } = useContext(FormItemInputContext);
-  const contextDisabled = useContext(DisabledContext);
-  const mergedDisabled = disabled || checkboxGroup?.disabled || contextDisabled;
+  const { isFormItemInput } = React.useContext(FormItemInputContext);
+  const contextDisabled = React.useContext(DisabledContext);
+  const mergedDisabled = (checkboxGroup?.disabled || disabled) ?? contextDisabled;
 
   const prevValue = React.useRef(restProps.value);
 
@@ -91,6 +94,8 @@ const InternalCheckbox: React.ForwardRefRenderFunction<HTMLInputElement, Checkbo
   }, [restProps.value]);
 
   const prefixCls = getPrefixCls('checkbox', customizePrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
   const checkboxProps: CheckboxProps = { ...restProps };
   if (checkboxGroup && !skipGroup) {
     checkboxProps.onChange = (...args) => {
@@ -102,7 +107,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<HTMLInputElement, Checkbo
       }
     };
     checkboxProps.name = checkboxGroup.name;
-    checkboxProps.checked = checkboxGroup.value.indexOf(restProps.value) !== -1;
+    checkboxProps.checked = checkboxGroup.value.includes(restProps.value);
   }
   const classString = classNames(
     {
@@ -113,12 +118,17 @@ const InternalCheckbox: React.ForwardRefRenderFunction<HTMLInputElement, Checkbo
       [`${prefixCls}-wrapper-in-form-item`]: isFormItemInput,
     },
     className,
+    rootClassName,
+    hashId,
   );
-  const checkboxClass = classNames({
-    [`${prefixCls}-indeterminate`]: indeterminate,
-  });
+  const checkboxClass = classNames(
+    {
+      [`${prefixCls}-indeterminate`]: indeterminate,
+    },
+    hashId,
+  );
   const ariaChecked = indeterminate ? 'mixed' : undefined;
-  return (
+  return wrapSSR(
     // eslint-disable-next-line jsx-a11y/label-has-associated-control
     <label
       className={classString}
@@ -135,7 +145,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<HTMLInputElement, Checkbo
         ref={ref}
       />
       {children !== undefined && <span>{children}</span>}
-    </label>
+    </label>,
   );
 };
 

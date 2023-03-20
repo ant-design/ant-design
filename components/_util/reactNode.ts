@@ -2,8 +2,8 @@ import * as React from 'react';
 
 export const { isValidElement } = React;
 
-export function isFragment(child: React.ReactElement): boolean {
-  return child && child.type === React.Fragment;
+export function isFragment(child: any): boolean {
+  return child && isValidElement(child) && child.type === React.Fragment;
 }
 
 type AnyObject = Record<PropertyKey, any>;

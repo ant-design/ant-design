@@ -14,7 +14,9 @@ export function toArray<T>(candidate?: T | T[] | false): T[] {
 }
 
 export function getFieldId(namePath: InternalNamePath, formName?: string): string | undefined {
-  if (!namePath.length) return undefined;
+  if (!namePath.length) {
+    return undefined;
+  }
 
   const mergedId = namePath.join('_');
 
@@ -22,7 +24,7 @@ export function getFieldId(namePath: InternalNamePath, formName?: string): strin
     return `${formName}_${mergedId}`;
   }
 
-  const isIllegalName = formItemNameBlackList.indexOf(mergedId) >= 0;
+  const isIllegalName = formItemNameBlackList.includes(mergedId);
 
   return isIllegalName ? `${defaultItemNamePrefixCls}_${mergedId}` : mergedId;
 }

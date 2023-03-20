@@ -1,10 +1,14 @@
 ---
 category: Components
 subtitle: 自动完成
-type: 数据录入
-cols: 2
 title: AutoComplete
-cover: https://gw.alipayobjects.com/zos/alicdn/qtJm4yt45/AutoComplete.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*g8THS4NpV6sAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*WERTQ6qvgEYAAAAAAAAAAAAADrJ8AQ/original
+group:
+  title: 数据录入
+  order: 4
+demo:
+  cols: 2
 ---
 
 输入框自动完成功能。
@@ -18,6 +22,19 @@ cover: https://gw.alipayobjects.com/zos/alicdn/qtJm4yt45/AutoComplete.svg
 
 - AutoComplete 是一个带提示的文本输入框，用户可以自由输入，关键词是辅助**输入**。
 - Select 是在限定的可选项中进行选择，关键词是**选择**。
+
+## 代码演示
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">基本使用</code>
+<code src="./demo/options.tsx">自定义选项</code>
+<code src="./demo/custom.tsx">自定义输入组件</code>
+<code src="./demo/non-case-sensitive.tsx">不区分大小写</code>
+<code src="./demo/certain-category.tsx">查询模式 - 确定类目</code>
+<code src="./demo/uncertain-category.tsx">查询模式 - 不确定类目</code>
+<code src="./demo/status.tsx">自定义状态</code>
+<code src="./demo/form-debug.tsx" debug>在 Form 中 Debug</code>
+<code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
 
@@ -48,7 +65,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/qtJm4yt45/AutoComplete.svg
 | onFocus | 获得焦点时的回调 | function() | - |  |
 | onSearch | 搜索补全项的时候调用 | function(value) | - |  |
 | onSelect | 被选中时调用，参数为选中项的 value 值 | function(value, option) | - |  |
-| onClear | 清除内容时回调 | function | - | 4.6.0 |
+| onClear | 清除内容时的回调 | function | - | 4.6.0 |
 
 ## 方法
 
@@ -61,32 +78,6 @@ cover: https://gw.alipayobjects.com/zos/alicdn/qtJm4yt45/AutoComplete.svg
 
 ### 为何受控状态下使用 onSearch 无法输入中文？
 
-请使用 `onChange` 进行受控管理。`onSearch` 触发于搜索输入，与 `onChange` 时机不同。此外，点选选项时也不会触发 `onSearch` 事件。
+请使用 `onChange` 进行受控管理。`onSearch` 触发于搜索输入，与 `onChange` 时机不同。此外，点击选项时也不会触发 `onSearch` 事件。
 
 相关 issue：[#18230](https://github.com/ant-design/ant-design/issues/18230) [#17916](https://github.com/ant-design/ant-design/issues/17916)
-
-### v3 的部分属性为何在 v4 中没有了？
-
-AutoComplete 组件是一个支持自动提示的 Input 组件，因而其不具有 `labelInValue` 等影响 value 展示的属性。在 v3 版本，AutoComplete 实现存在输入值如果遇到 `value` 与 `label` 相同时无法映射的问题。 v4 中不再支持 `label` 为值的输入形态。
-
-此外为了统一 API，`dataSource` 改为 `options` 你可以如下转换：
-
-#### v3
-
-```tsx
-dataSource = ['light', 'bamboo'];
-// or
-dataSource = [
-  { value: 'light', text: 'Light' },
-  { value: 'bamboo', text: 'Bamboo' },
-];
-```
-
-#### v4
-
-```tsx
-options = [
-  { value: 'light', label: 'Light' },
-  { value: 'bamboo', label: 'Bamboo' },
-];
-```

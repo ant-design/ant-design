@@ -57,7 +57,7 @@ describe('Typography', () => {
 
   // Mock getComputedStyle
   const originGetComputedStyle = window.getComputedStyle;
-  window.getComputedStyle = ele => {
+  window.getComputedStyle = (ele) => {
     const style = originGetComputedStyle(ele);
     style.lineHeight = '16px';
     return style;
@@ -242,7 +242,7 @@ describe('Typography', () => {
       function testStep(
         { name = '', icon, tooltip, triggerType, enterIcon }: EditableConfig,
         submitFunc?: (container: ReturnType<typeof render>['container']) => void,
-        expectFunc?: (callbake: jest.Mock) => void,
+        expectFunc?: (callback: jest.Mock) => void,
       ) {
         it(name, async () => {
           jest.useFakeTimers();
@@ -262,14 +262,14 @@ describe('Typography', () => {
             </Paragraph>,
           );
 
-          if (triggerType === undefined || triggerType.indexOf('icon') !== -1) {
+          if (triggerType === undefined || triggerType.includes('icon')) {
             if (icon) {
               expect(wrapper.querySelectorAll('.anticon-highlight').length).toBeGreaterThan(0);
             } else {
               expect(wrapper.querySelectorAll('.anticon-edit').length).toBeGreaterThan(0);
             }
 
-            if (triggerType === undefined || triggerType.indexOf('text') === -1) {
+            if (triggerType === undefined || !triggerType.includes('text')) {
               fireEvent.click(wrapper.firstChild!);
               expect(onStart).not.toHaveBeenCalled();
             }
@@ -295,15 +295,15 @@ describe('Typography', () => {
             fireEvent.click(wrapper.querySelectorAll('.ant-typography-edit')[0]);
 
             expect(onStart).toHaveBeenCalled();
-            if (triggerType !== undefined && triggerType.indexOf('text') !== -1) {
+            if (triggerType !== undefined && triggerType.includes('text')) {
               fireEvent.keyDown(wrapper.querySelector('textarea')!, { keyCode: KeyCode.ESC });
               fireEvent.keyUp(wrapper.querySelector('textarea')!, { keyCode: KeyCode.ESC });
               expect(onChange).not.toHaveBeenCalled();
             }
           }
 
-          if (triggerType !== undefined && triggerType.indexOf('text') !== -1) {
-            if (triggerType.indexOf('icon') === -1) {
+          if (triggerType !== undefined && triggerType.includes('text')) {
+            if (!triggerType.includes('icon')) {
               expect(wrapper.querySelectorAll('.anticon-highlight').length).toBe(0);
               expect(wrapper.querySelectorAll('.anticon-edit').length).toBe(0);
             }
@@ -347,7 +347,7 @@ describe('Typography', () => {
         });
       }
 
-      testStep({ name: 'by key up' }, wrapper => {
+      testStep({ name: 'by key up' }, (wrapper) => {
         // Not trigger when inComposition
         fireEvent.compositionStart(wrapper.querySelector('textarea')!);
         fireEvent.keyDown(wrapper.querySelector('textarea')!, { keyCode: KeyCode.ENTER });
@@ -361,17 +361,17 @@ describe('Typography', () => {
 
       testStep(
         { name: 'by esc key' },
-        wrapper => {
+        (wrapper) => {
           fireEvent.keyDown(wrapper.querySelector('textarea')!, { keyCode: KeyCode.ESC });
           fireEvent.keyUp(wrapper.querySelector('textarea')!, { keyCode: KeyCode.ESC });
         },
-        onChange => {
+        (onChange) => {
           // eslint-disable-next-line jest/no-standalone-expect
           expect(onChange).not.toHaveBeenCalled();
         },
       );
 
-      testStep({ name: 'by blur' }, wrapper => {
+      testStep({ name: 'by blur' }, (wrapper) => {
         fireEvent.blur(wrapper.querySelector('textarea')!);
       });
 
@@ -394,6 +394,15 @@ describe('Typography', () => {
         fireEvent.keyDown(wrapper.querySelector('textarea')!, { keyCode: KeyCode.ENTER });
         fireEvent.keyUp(wrapper.querySelector('textarea')!, { keyCode: KeyCode.ENTER });
         expect(onEnd).toHaveBeenCalledTimes(1);
+      });
+
+      it('should trigger onStart when type Start', () => {
+        const onStart = jest.fn();
+        const { container: wrapper } = render(<Paragraph editable={{ onStart }}>Bamboo</Paragraph>);
+        fireEvent.click(wrapper.querySelectorAll('.ant-typography-edit')[0]);
+        fireEvent.keyDown(wrapper.querySelector('textarea')!, { keyCode: KeyCode.A });
+        fireEvent.keyUp(wrapper.querySelector('textarea')!, { keyCode: KeyCode.A });
+        expect(onStart).toHaveBeenCalledTimes(1);
       });
 
       it('should trigger onCancel when type ESC', () => {

@@ -35,7 +35,7 @@ async function run() {
   await Promise.all(
     chunks.map((chunk, chunkIndex) =>
       Promise.all(
-        chunk.map(screenshot => cpToTemp(screenshot, `${screenshotsChunks}/${chunkIndex}`)),
+        chunk.map((screenshot) => cpToTemp(screenshot, `${screenshotsChunks}/${chunkIndex}`)),
       ),
     ),
   );
@@ -47,7 +47,7 @@ async function run() {
       token: process.env.ARGOS_TOKEN,
       parallel: {
         total: chunks.length,
-        nonce: process.env.ARGOS_PARALLEL_NONCE,
+        nonce: process.env.ARGOS_PARALLEL_NONCE || process.env.CIRCLE_BUILD_NUM,
       },
     });
     // eslint-disable-next-line no-console -- pipe stdout
@@ -55,7 +55,7 @@ async function run() {
   }
 }
 
-run().catch(error => {
+run().catch((error) => {
   // eslint-disable-next-line no-console
   console.error(error);
   process.exit(1);

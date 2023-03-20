@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type { MenuProps } from '.';
+import type { MenuProps } from './menu';
 
 // Used for Dropdown only
 export interface OverrideContextProps {
@@ -15,17 +15,14 @@ export interface OverrideContextProps {
 const OverrideContext = React.createContext<OverrideContextProps | null>(null);
 
 /** @internal Only used for Dropdown component. Do not use this in your production. */
-export const OverrideProvider = ({
-  children,
-  ...restProps
-}: OverrideContextProps & { children: React.ReactNode }) => {
+export const OverrideProvider: React.FC<OverrideContextProps & { children: React.ReactNode }> = (
+  props,
+) => {
+  const { children, ...restProps } = props;
   const override = React.useContext(OverrideContext);
 
-  const context = React.useMemo(
-    () => ({
-      ...override,
-      ...restProps,
-    }),
+  const context = React.useMemo<OverrideContextProps>(
+    () => ({ ...override, ...restProps }),
     [
       override,
       restProps.prefixCls,

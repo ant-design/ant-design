@@ -3,7 +3,7 @@ import type { ChangeEventHandler, TextareaHTMLAttributes } from 'react';
 import React, { useState } from 'react';
 import Input from '..';
 import focusTest from '../../../tests/shared/focusTest';
-import { fireEvent, waitFakeTimer, render, sleep, triggerResize, pureRender } from '../../../tests/utils';
+import { fireEvent, waitFakeTimer, render, triggerResize, pureRender } from '../../../tests/utils';
 import type { RenderOptions } from '../../../tests/utils';
 import type { TextAreaRef } from '../TextArea';
 
@@ -105,7 +105,7 @@ describe('TextArea', () => {
     it('should limit correctly when in control', () => {
       const Demo = () => {
         const [val, setVal] = React.useState('');
-        return <TextArea maxLength={1} value={val} onChange={e => setVal(e.target.value)} />;
+        return <TextArea maxLength={1} value={val} onChange={(e) => setVal(e.target.value)} />;
       };
 
       const { container } = render(<Demo />);
@@ -350,7 +350,7 @@ describe('TextArea allowClear', () => {
   });
 
   it('should not show icon if value is undefined, null or empty string', () => {
-    const wrappers = [null, undefined, ''].map(val =>
+    const wrappers = [null, undefined, ''].map((val) =>
       render(
         <TextArea allowClear value={val as TextareaHTMLAttributes<HTMLTextAreaElement>['value']} />,
       ),
@@ -363,7 +363,7 @@ describe('TextArea allowClear', () => {
   });
 
   it('should not show icon if defaultValue is undefined, null or empty string', () => {
-    const wrappers = [null, undefined, ''].map(val =>
+    const wrappers = [null, undefined, ''].map((val) =>
       render(
         <TextArea
           allowClear
@@ -381,7 +381,7 @@ describe('TextArea allowClear', () => {
   it('should trigger event correctly', () => {
     let argumentEventObjectType;
     let argumentEventObjectValue;
-    const onChange: ChangeEventHandler<HTMLTextAreaElement> = e => {
+    const onChange: ChangeEventHandler<HTMLTextAreaElement> = (e) => {
       argumentEventObjectType = e.type;
       argumentEventObjectValue = e.target.value;
     };
@@ -395,7 +395,7 @@ describe('TextArea allowClear', () => {
   it('should trigger event correctly on controlled mode', () => {
     let argumentEventObjectType;
     let argumentEventObjectValue;
-    const onChange: ChangeEventHandler<HTMLTextAreaElement> = e => {
+    const onChange: ChangeEventHandler<HTMLTextAreaElement> = (e) => {
       argumentEventObjectType = e.type;
       argumentEventObjectValue = e.target.value;
     };
@@ -432,6 +432,7 @@ describe('TextArea allowClear', () => {
   });
 
   it('scroll to bottom when autoSize', async () => {
+    jest.useFakeTimers();
     const ref = React.createRef<TextAreaRef>();
     const { container, unmount } = render(<Input.TextArea ref={ref} autoSize />, {
       container: document.body,
@@ -447,9 +448,11 @@ describe('TextArea allowClear', () => {
     fireEvent.input(container.querySelector('textarea')!, { target: { value: '\n1' } });
     const target = ref.current?.resizableTextArea?.textArea!;
     triggerResize(target);
-    await sleep(100);
+    await waitFakeTimer();
     expect(setSelectionRangeFn).toHaveBeenCalled();
     unmount();
+    jest.clearAllTimers();
+    jest.useRealTimers();
   });
 
   // https://github.com/ant-design/ant-design/issues/26308
@@ -492,7 +495,7 @@ describe('TextArea allowClear', () => {
         <TextArea
           allowClear
           value={query}
-          onChange={e => {
+          onChange={(e) => {
             setQuery(() => e.target.value);
           }}
         />
@@ -558,7 +561,7 @@ describe('TextArea allowClear', () => {
 
     const Demo: React.FC = () => {
       const [value, setValue] = React.useState('');
-      return <Input.TextArea allowClear value={value} onChange={e => setValue(e.target.value)} />;
+      return <Input.TextArea allowClear value={value} onChange={(e) => setValue(e.target.value)} />;
     };
 
     const { container } = render(<Demo />);
@@ -570,5 +573,10 @@ describe('TextArea allowClear', () => {
     expect(handleFocus).toHaveBeenCalledTimes(1);
 
     textareaSpy.mockRestore();
+  });
+
+  it('should support custom clearIcon', () => {
+    const { container } = render(<TextArea allowClear={{ clearIcon: 'clear' }} />);
+    expect(container.querySelector('.ant-input-clear-icon')?.textContent).toBe('clear');
   });
 });

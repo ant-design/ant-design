@@ -1,11 +1,8 @@
 ---
 order: 1
 title: Resources
+description: List all the resources that are related with Ant Design here.
 toc: false
----
-
-Here list all the resources that related with Ant Design.
-
 ---
 
 ## Design Resources
@@ -14,15 +11,11 @@ Please find below some of the design resources and tools about Ant Design that w
 
 <div class="next-block-use-cards"></div>
 
+<ResourceCards>
 - Sketch Symbols
   - https://gw.alipayobjects.com/zos/basement_prod/048ee28f-2c80-4d15-9aa3-4f5ddac50465.svg
   - Sketch Symbols for Desktop
-  - https://gw.alipayobjects.com/os/bmw-prod/a5ff1d86-44cd-4b86-92f8-daab59cba5b7.sketch
-  - Official
-- Sketch Symbols (Dark)
-  - https://gw.alipayobjects.com/zos/basement_prod/048ee28f-2c80-4d15-9aa3-4f5ddac50465.svg
-  - Sketch Symbols for Desktop with dark theme
-  - https://gw.alipayobjects.com/os/bmw-prod/6b670a1c-26e3-4379-9c86-7a2b95e170e5.sketch
+  - https://gw.alipayobjects.com/os/hitu-asset/5217de80-7a3e-413f-809e-20ecede4f3f3/hitu-1669000735416-5000001.sketch
   - Official
 - Mobile Components
   - https://gw.alipayobjects.com/zos/basement_prod/c0c3852c-d245-4330-886b-cb02ef49eb6d.svg
@@ -34,11 +27,6 @@ Please find below some of the design resources and tools about Ant Design that w
   - Common Templates and Pages
   - https://gw.alipayobjects.com/os/bmw-prod/22208f9d-f8c5-4d7c-b87a-fec290e96527.sketch
   - Official
-- Ant Design Library
-  - https://gw.alipayobjects.com/zos/basement_prod/90740380-bbb7-4329-95e5-64533934c6cf.svg
-  - A powerful Axure library
-  - http://library.ant.design
-  - Official
 - Kitchen
   - https://gw.alipayobjects.com/zos/basement_prod/d475d063-2754-4442-b9db-5d164e06acc9.svg
   - A Sketch plugin collection
@@ -48,11 +36,6 @@ Please find below some of the design resources and tools about Ant Design that w
   - https://gw.alipayobjects.com/zos/basement_prod/b443f4be-5116-49b7-873f-a7c8502b8f0e.svg
   - Landing Templates
   - https://landing.ant.design/docs/download-cn
-  - Official
-- Ant UX
-  - https://gw.alipayobjects.com/zos/basement_prod/51682163-e01a-46fe-810c-ac0062379717.svg
-  - A set of page logic prototype libraries
-  - http://ux.ant.design
   - Official
 - Ant Design Prototype (xiaopiu)
   - https://gw.alipayobjects.com/zos/basement_prod/77e6a9ae-24a9-4be6-be42-f7fa8ee0eecf.svg
@@ -91,16 +74,13 @@ Please find below some of the design resources and tools about Ant Design that w
   - https://mastergo-local-default.oss-cn-beijing.aliyuncs.com/ant-design-mastergo.svg
   - Use fully components and templates on MasterGo
   - https://mastergo.com/community/?utm_source=antdesign&utm_medium=link&utm_campaign=resource&cata_name=AntDesign
+</ResourceCards>
 
 ## Articles
 
 Do you want to know the story behind the Ant Design design system? How can I better apply Ant Design? You can check out our well selected articles below. Also welcome to follow [Ant Design Official Column](https://www.zhihu.com/column/c_1310524851418480640). There are often the latest sharing and discussions on related topics under the Ant Design design system, such as Ant Design, AntV visualization, Kitchen design Plug-ins, B-side product design, SaaS product design, natural interaction, growth design, intelligent design, design engineering, etc.
 
-```__react
-import Articles from '../site/theme/template/Resources/Articles';
-
-ReactDOM.render(<Articles />, mountNode);
-```
+<ResourceArticles></ResourceArticles>
 
 ## Reference
 
@@ -108,6 +88,7 @@ Please find below the books that inspired us, saved our time and helped us to ov
 
 <div class="next-block-use-cards"></div>
 
+<ResourceCards>
 - About Face 4 #C7EBD6
   - https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*GA-CRIRqKjgAAAAAAAAAAABkARQnAQ
   - The Interactive Design Guide for Digital Products and System
@@ -136,3 +117,4 @@ Please find below the books that inspired us, saved our time and helped us to ov
   - https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*VhhwRo7axKQAAAAAAAAAAABkARQnAQ
   - The Essence of Form Design
   - https://rosenfeldmedia.com/books/web-form-design/
+</ResourceCards>
