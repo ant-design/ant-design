@@ -10,7 +10,7 @@ const App: React.FC = () => {
     console.log('finished!');
   };
 
-  const onChange = (val: StatisticProps['value']) => {
+  const onChange: StatisticProps['onChange'] = (val) => {
     if (typeof val === 'number') {
       if (4.95 * 1000 < val && val < 5 * 1000) {
         console.log('changed!');
