@@ -42,12 +42,14 @@ const genPresetStyle = (token: TagToken) =>
       color: textColor,
       background: lightColor,
       borderColor: lightBorderColor,
-
       // Inverse color
       '&-inverse': {
         color: token.colorTextLightSolid,
         background: darkColor,
         borderColor: darkColor,
+      },
+      [`&${token.componentCls}-borderless`]: {
+        borderColor: 'transparent',
       },
     },
   }));
@@ -153,7 +155,7 @@ export default genComponentStyleHook('Tag', (token) => {
 
   const tagFontSize = token.fontSizeSM;
   const tagLineHeight = tagHeight - lineWidth * 2;
-  const tagDefaultBg = token.colorFillAlter;
+  const tagDefaultBg = token.colorFillQuaternary;
   const tagDefaultColor = token.colorText;
 
   const tagToken = mergeToken<TagToken>(token, {
@@ -163,7 +165,7 @@ export default genComponentStyleHook('Tag', (token) => {
     tagDefaultColor,
     tagIconSize: fontSizeIcon - 2 * lineWidth, // Tag icon is much more smaller
     tagPaddingHorizontal: 8, // Fixed padding.
-    tagBorderlessBg: token.colorFillSecondary,
+    tagBorderlessBg: token.colorFillTertiary,
   });
 
   return [
