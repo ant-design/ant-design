@@ -1,4 +1,4 @@
-// locale-provider 文件夹的移除需要修改 @ant-design/tools 和 antd-img-crop
+// TODO: 6.0 移除全部支持
 import locale from '../locale';
 
 export * from '../locale';
