@@ -70,4 +70,16 @@ describe('FloatButton', () => {
     const result2 = getOffset(1);
     expect(result2).not.toBe(0);
   });
+
+  it('support badge number', () => {
+    const { container } = render(<FloatButton badge={{ count: 10 }} />);
+    const badgeElement = container?.querySelector<HTMLSpanElement>('.ant-float-btn .ant-badge');
+    expect(badgeElement?.querySelector<HTMLElement>('.ant-badge-count')).toBeTruthy();
+  });
+
+  it('support badge dot', () => {
+    const { container } = render(<FloatButton badge={{ dot: true }} />);
+    const badgeElement = container?.querySelector<HTMLSpanElement>('.ant-float-btn .ant-badge');
+    expect(badgeElement?.querySelector<HTMLElement>('.ant-badge-dot')).toBeTruthy();
+  });
 });

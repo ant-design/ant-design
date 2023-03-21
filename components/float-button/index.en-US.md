@@ -46,7 +46,7 @@ FloatButton. Available since `5.0.0`.
 | onClick | Set the handler to handle `click` event | (event) => void | - |  |
 | href | The target of hyperlink | string | - |  |
 | target | Specifies where to display the linked URL | string | - |  |
-| badge | float-button with round logo number | refer [badge](/components/badge#api) | - | 5.4.0 |
+| badge | Attach Badge to FloatButton. `status` `size` and other props related are not supported. | [BadgeProps](/components/badge#api) | - | 5.4.0 |
 
 ### FloatButton.Group
 
