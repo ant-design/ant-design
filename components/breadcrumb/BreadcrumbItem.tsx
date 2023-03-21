@@ -11,7 +11,7 @@ export interface SeparatorType {
   key?: React.Key;
 }
 
-type MenuType = DropdownProps['menu'];
+type MenuType = NonNullable<DropdownProps['menu']>;
 interface MenuItem {
   title?: React.ReactNode;
   label?: React.ReactNode;
