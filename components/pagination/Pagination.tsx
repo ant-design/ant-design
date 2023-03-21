@@ -9,7 +9,7 @@ import enUS from 'rc-pagination/lib/locale/en_US';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
-import useLocale from '../locale/useLocale';
+import { useLocale } from '../locale';
 import { MiddleSelect, MiniSelect } from './Select';
 import useStyle from './style';
 

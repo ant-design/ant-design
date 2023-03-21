@@ -5,7 +5,6 @@ import DatePicker from '../date-picker/locale/my_MM';
 import type { Locale } from '.';
 import TimePicker from '../time-picker/locale/my_MM';
 
-
 const typeTemplate = '${label} သည် တရားဝင် ${type} မဟုတ်ပါ';
 
 const localeValues: Locale = {

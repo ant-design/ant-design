@@ -6,7 +6,7 @@ import warning from '../_util/warning';
 import Button from '../button';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
-import useLocale from '../locale/useLocale';
+import { useLocale } from '../locale';
 import Spin from '../spin';
 import theme from '../theme';
 import type { QRCodeProps, QRPropsCanvas } from './interface';

@@ -14,6 +14,8 @@ import type { UploadLocale } from '../upload/interface';
 import type { LocaleContextProps } from './context';
 import LocaleContext from './context';
 
+export { default as useLocale } from './useLocale';
+
 export const ANT_MARK = 'internalMark';
 
 export interface Locale {
