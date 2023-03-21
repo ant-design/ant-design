@@ -3,6 +3,7 @@ import FloatButton from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import getOffset from '../util';
 
 describe('FloatButton', () => {
   mountTest(FloatButton);
@@ -61,5 +62,12 @@ describe('FloatButton', () => {
     expect(element?.textContent).toBe('0');
     jest.clearAllTimers();
     jest.useRealTimers();
+  });
+
+  it('getOffset should return 0 when radius is 0', () => {
+    const result1 = getOffset(0);
+    expect(result1).toBe(0);
+    const result2 = getOffset(1);
+    expect(result2).not.toBe(0);
   });
 });
