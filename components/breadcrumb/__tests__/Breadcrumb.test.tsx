@@ -343,4 +343,8 @@ describe('Breadcrumb', () => {
     const item = await wrapper.findByText('test');
     expect(item).toHaveClass(testClassName);
   });
+
+  it('Breadcrumb.Item menu type', () => {
+    expect(<Breadcrumb.Item menu={{ selectable: true }} />).toBeTruthy();
+  });
 });
