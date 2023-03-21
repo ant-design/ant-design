@@ -78,6 +78,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
       value,
       allowClear,
       className,
+      focused,
       style,
       direction,
       bordered,
@@ -101,6 +102,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
         hasFeedback,
       ),
       {
+        [`${prefixCls}-affix-wrapper-focused`]: focused,
         [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
         [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
         // className will go to addon wrapper

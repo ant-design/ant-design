@@ -73,6 +73,8 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
       onCompositionStart,
       onCompositionEnd,
       onChange,
+      onFocus,
+      onBlur,
       status: customStatus,
       ...props
     },
@@ -97,6 +99,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
     const clearableInputRef = React.useRef<ClearableLabeledInput>(null);
 
     const [compositing, setCompositing] = React.useState(false);
+    const [focused, setFocused] = React.useState(false);
     const oldCompositionValueRef = React.useRef<string>();
     const oldSelectionStartRef = React.useRef<number>(0);
 
@@ -163,6 +166,20 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
       resolveOnChange(e.currentTarget, e, onChange, triggerValue);
     };
 
+    const handleBlur = (e: React.FocusEvent<HTMLTextAreaElement>) => {
+      setFocused(false);
+      onBlur?.(e);
+    };
+
+    const handleFocus = (e: React.FocusEvent<HTMLTextAreaElement>) => {
+      setFocused(true);
+      onFocus?.(e);
+    };
+
+    React.useEffect(() => {
+      setFocused((prev) => !mergedDisabled && prev);
+    }, [mergedDisabled]);
+
     // ============================== Reset ===============================
     const handleReset = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
       handleSetValue('');
@@ -197,6 +214,8 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
         prefixCls={prefixCls}
         onCompositionStart={onInternalCompositionStart}
         onChange={handleChange}
+        onBlur={handleBlur}
+        onFocus={handleFocus}
         onCompositionEnd={onInternalCompositionEnd}
         ref={innerRef}
       />
@@ -213,6 +232,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
     const textareaNode = (
       <ClearableLabeledInput
         disabled={mergedDisabled}
+        focused={focused}
         {...props}
         prefixCls={prefixCls}
         direction={direction}
