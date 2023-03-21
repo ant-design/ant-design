@@ -11,6 +11,7 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    if: github.event.pull_request.head.ref != 'feature' && github.event.pull_request.head.ref != 'master'
     steps:
       - uses: anc95/ChatGPT-CodeReview@main
         env:
