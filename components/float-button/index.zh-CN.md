@@ -47,7 +47,7 @@ demo:
 | onClick | 点击按钮时的回调 | (event) => void | - |  |
 | href | 点击跳转的地址，指定此属性 button 的行为和 a 链接一致 | string | - |  |
 | target | 相当于 a 标签的 target 属性，href 存在时生效 | string | - |  |
-| badge | 带圆形徽标数字的悬浮按钮 | 参考[badge](/components/badge-cn#api)（只支持部分属性，具体参考[TS 定义](https://github.com/ant-design/ant-design/blob/feature/components/float-button/interface.ts#L14)） | - | 5.4.0 |
+| badge | 带圆形徽标数字的悬浮按钮 | 参考[badge](/components/badge-cn#api)（只支持部分属性） | - | 5.4.0 |
 
 ### FloatButton.Group
 
