@@ -8,7 +8,7 @@ import {
 import { ConfigProvider, theme as antdTheme, App } from 'antd';
 import type { DirectionType } from 'antd/es/config-provider';
 import { createSearchParams, useOutlet, useSearchParams } from 'dumi';
-import React, { startTransition, useCallback, useEffect, useMemo } from 'react';
+import React, { startTransition, useCallback, useEffect, useMemo, useTransition } from 'react';
 import useLocation from '../../hooks/useLocation';
 import type { ThemeName } from '../common/ThemeSwitch';
 import ThemeSwitch from '../common/ThemeSwitch';
@@ -48,7 +48,9 @@ const GlobalLayout: React.FC = () => {
 
   const updateSiteConfig = useCallback(
     (props: SiteState) => {
-      setSiteState((prev) => ({ ...prev, ...props }));
+      startTransition(() => {
+        setSiteState((prev) => ({ ...prev, ...props }));
+      });
 
       // updating `searchParams` will clear the hash
       const oldSearchStr = searchParams.toString();
