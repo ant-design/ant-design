@@ -6,8 +6,10 @@ rm -rf ~tmpProj/
 # clone project
 git clone https://github.com/ant-design/create-next-app-antd.git ~tmpProj --depth=1
 
-# install
+# change directory
 cd ~tmpProj
+
+# install dependencies
 yarn
 
 # build
