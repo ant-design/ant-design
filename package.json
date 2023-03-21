@@ -203,7 +203,7 @@
     "cheerio": "1.0.0-rc.12",
     "cross-env": "^7.0.0",
     "dekko": "^0.2.1",
-    "dumi": "^2.1.13",
+    "dumi": "^2.1.17",
     "duplicate-package-checker-webpack-plugin": "^3.0.0",
     "esbuild-loader": "^3.0.0",
     "eslint": "^8.0.0",
