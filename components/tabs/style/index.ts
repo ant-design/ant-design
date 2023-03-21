@@ -226,7 +226,7 @@ const genDropdownStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject
 };
 
 const genPositionStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => {
-  const { componentCls, margin, colorSplit } = token;
+  const { componentCls, margin, colorBorderSecondary } = token;
   return {
     // ========================== Top & Bottom ==========================
     [`${componentCls}-top, ${componentCls}-bottom`]: {
@@ -245,7 +245,7 @@ const genPositionStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject
             _skip_check_: true,
             value: 0,
           },
-          borderBottom: `${token.lineWidth}px ${token.lineType} ${colorSplit}`,
+          borderBottom: `${token.lineWidth}px ${token.lineType} ${colorBorderSecondary}`,
           content: "''",
         },
 
