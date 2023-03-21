@@ -46,7 +46,7 @@ FloatButton. Available since `5.0.0`.
 | onClick | Set the handler to handle `click` event | (event) => void | - |  |
 | href | The target of hyperlink | string | - |  |
 | target | Specifies where to display the linked URL | string | - |  |
-| badge | float-button with round logo number | refer [badge](/components/badge#api) | - | 5.4.0 |
+| badge | float-button with round logo number | refer [badge](/components/badge#api)(only a part attributes are supported, details please refer the [TypeScript definition](https://github.com/ant-design/ant-design/blob/feature/components/float-button/interface.ts#L14)) | - | 5.4.0 |
 
 ### FloatButton.Group
 
