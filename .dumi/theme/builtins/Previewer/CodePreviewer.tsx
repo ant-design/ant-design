@@ -104,6 +104,7 @@ const CodePreviewer: React.FC<IPreviewerProps> = (props) => {
     background,
     filePath,
     version,
+    clientOnly,
   } = props;
 
   const { pkg } = useSiteData();
@@ -169,6 +170,8 @@ const CodePreviewer: React.FC<IPreviewerProps> = (props) => {
     setCodeExpand(expand);
   }, [expand]);
 
+  const mergedChildren = !iframe && clientOnly ? <ClientOnly>{children}</ClientOnly> : children;
+
   if (!liveDemo.current) {
     liveDemo.current = iframe ? (
       <BrowserFrame>
@@ -180,7 +183,7 @@ const CodePreviewer: React.FC<IPreviewerProps> = (props) => {
         />
       </BrowserFrame>
     ) : (
-      children
+      mergedChildren
     );
   }
 
