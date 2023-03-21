@@ -4,7 +4,7 @@ import * as React from 'react';
 import type { KeyWiseTransferItem } from '.';
 import Checkbox from '../checkbox';
 import defaultLocale from '../locale/en_US';
-import useLocale from '../locale/useLocale';
+import { useLocale } from '../locale';
 import TransButton from '../_util/transButton';
 
 type ListItemProps<RecordType> = {

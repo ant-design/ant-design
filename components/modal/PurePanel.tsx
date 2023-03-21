@@ -7,7 +7,7 @@ import * as React from 'react';
 import Button from '../button';
 import { convertLegacyProps } from '../button/button';
 import { ConfigContext } from '../config-provider';
-import useLocale from '../locale/useLocale';
+import { useLocale } from '../locale';
 import { ConfirmContent } from './ConfirmDialog';
 import { getConfirmLocale } from './locale';
 import type { ModalFuncProps, ModalProps } from './Modal';
