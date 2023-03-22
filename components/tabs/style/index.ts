@@ -29,7 +29,7 @@ const genCardStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
     tabsCardHorizontalPadding,
     tabsCardHeadBackground,
     tabsCardGutter,
-    colorSplit,
+    colorBorderSecondary,
   } = token;
   return {
     [`${componentCls}-card`]: {
@@ -38,7 +38,7 @@ const genCardStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
           margin: 0,
           padding: tabsCardHorizontalPadding,
           background: tabsCardHeadBackground,
-          border: `${token.lineWidth}px ${token.lineType} ${colorSplit}`,
+          border: `${token.lineWidth}px ${token.lineType} ${colorBorderSecondary}`,
           transition: `all ${token.motionDurationSlow} ${token.motionEaseInOut}`,
         },
 
@@ -714,7 +714,7 @@ const genTabsStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
     tabsCardGutter,
     tabsHoverColor,
     tabsActiveColor,
-    colorSplit,
+    colorBorderSecondary,
   } = token;
 
   return {
@@ -799,7 +799,7 @@ const genTabsStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
           },
           padding: `0 ${token.paddingXS}px`,
           background: 'transparent',
-          border: `${token.lineWidth}px ${token.lineType} ${colorSplit}`,
+          border: `${token.lineWidth}px ${token.lineType} ${colorBorderSecondary}`,
           borderRadius: `${token.borderRadiusLG}px ${token.borderRadiusLG}px 0 0`,
           outline: 'none',
           cursor: 'pointer',
