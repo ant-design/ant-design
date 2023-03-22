@@ -315,6 +315,9 @@
     "*.{json,less,md}": "prettier --ignore-unknown --write"
   },
   "resolutions": {
-    "rc-overflow": "1.3.0-alpha.0"
+    "rc-overflow": "1.3.0-alpha.1"
+  },
+  "overrides": {
+    "rc-overflow": "1.3.0-alpha.1"
   }
 }
