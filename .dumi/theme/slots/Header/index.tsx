@@ -209,7 +209,10 @@ const Header: React.FC = () => {
         .replace(/\/$/, '');
       return;
     }
-    window.location.href = currentUrl.replace(window.location.origin, url);
+
+    // Mirror url must have `/`, we add this for compatible
+    const versionURL = currentUrl.replace(window.location.origin, url).replace(/\/$/, '');
+    window.location.href = `${versionURL}/`;
   }, []);
 
   const onLangChange = useCallback(() => {
