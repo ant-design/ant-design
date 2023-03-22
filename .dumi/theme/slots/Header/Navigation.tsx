@@ -45,7 +45,7 @@ const useStyle = () => {
         border-bottom: none;
 
         & > ${antCls}-menu-item, & > ${antCls}-menu-submenu {
-          min-width: (40px + 12px * 2);
+          min-width: ${40 + 12 * 2}px;
           height: ${headerHeight}px;
           padding-right: 12px;
           padding-left: 12px;
