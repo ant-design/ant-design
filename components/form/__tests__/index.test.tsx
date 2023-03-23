@@ -1629,15 +1629,14 @@ describe('Form', () => {
   it('validate status should be change in order', async () => {
     const onChange = jest.fn();
 
+    const CustomInput = (props: any) => {
+      const { status } = Form.Item.useStatus();
+      useEffect(() => {
+        onChange(status);
+      }, [status]);
+      return <Input {...props} />;
+    };
     const App = () => {
-      const CustomInput = React.memo((props) => {
-        const { status } = Form.Item.useStatus();
-        useEffect(() => {
-          onChange(status);
-        }, [status]);
-        return <Input {...props} />;
-      });
-
       return (
         <Form>
           <Form.Item>
