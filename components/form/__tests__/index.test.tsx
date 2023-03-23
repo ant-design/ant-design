@@ -1636,6 +1636,7 @@ describe('Form', () => {
       }, [status]);
       return <Input {...props} />;
     };
+
     const App = () => (
       <Form>
         <Form.Item>
