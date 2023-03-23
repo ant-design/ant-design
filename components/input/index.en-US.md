@@ -116,6 +116,10 @@ Supports all props of `Input`.
 | blur | Remove focus | - |  |
 | focus | Get focus | (option?: { preventScroll?: boolean, cursor?: 'start' \| 'end' \| 'all' }) | option - 4.10.0 |
 
+## Design Token
+
+<ComponentTokenTable component="Input"></ComponentTokenTable>
+
 ## FAQ
 
 ### Why Input lose focus when change `prefix/suffix/showCount`

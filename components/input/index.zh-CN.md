@@ -117,6 +117,10 @@ Input 的其他属性和 React 自带的 [input](https://reactjs.org/docs/dom-el
 | blur | 取消焦点 | - |  |
 | focus | 获取焦点 | (option?: { preventScroll?: boolean, cursor?: 'start' \| 'end' \| 'all' }) | option - 4.10.0 |
 
+## Design Token
+
+<ComponentTokenTable component="Input"></ComponentTokenTable>
+
 ## FAQ
 
 ### 为什么我动态改变 `prefix/suffix/showCount` 时，Input 会失去焦点？
