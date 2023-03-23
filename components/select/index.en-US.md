@@ -137,6 +137,10 @@ Select component to select value from options.
 | key      | Group key   | string                  | -       |         |
 | label    | Group label | string \| React.Element | -       |         |
 
+## Design Token
+
+<ComponentTokenTable component="Select"></ComponentTokenTable>
+
 ## FAQ
 
 ### Why sometime search will show 2 same option when in `tags` mode?

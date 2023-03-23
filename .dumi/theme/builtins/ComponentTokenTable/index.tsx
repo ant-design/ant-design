@@ -40,20 +40,35 @@ function SubTokenTable({ defaultOpen, tokens, title }: SubTokenTableProps) {
     return null;
   }
 
-  const data = tokens.map((name) => {
-    const meta = tokenMeta[name];
+  const data = tokens
+    .sort((token1, token2) => {
+      const hasColor1 = token1.toLowerCase().includes('color');
+      const hasColor2 = token2.toLowerCase().includes('color');
 
-    return {
-      name,
-      desc: lang === 'cn' ? meta.desc : meta.descEn,
-      type: meta.type,
-      value: (defaultToken as any)[name],
-    };
-  });
+      if (hasColor1 && !hasColor2) {
+        return -1;
+      }
+
+      if (!hasColor1 && hasColor2) {
+        return 1;
+      }
+
+      return token1 < token2 ? -1 : 1;
+    })
+    .map((name) => {
+      const meta = tokenMeta[name];
+
+      return {
+        name,
+        desc: lang === 'cn' ? meta.desc : meta.descEn,
+        type: meta.type,
+        value: (defaultToken as any)[name],
+      };
+    });
 
   return (
     // Reuse `.markdown` style
-    <details className="markdown" open={defaultOpen}>
+    <details className="markdown" open={defaultOpen || process.env.NODE_ENV !== 'production'}>
       <summary>
         <h3 style={{ display: 'inline' }}>{title}</h3>
       </summary>
