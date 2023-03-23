@@ -1,7 +1,7 @@
 import type { ColProps } from 'antd/es/grid';
 import classNames from 'classnames';
 import type { ChangeEventHandler } from 'react';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { version as ReactVersion, useEffect, useRef, useState } from 'react';
 import scrollIntoView from 'scroll-into-view-if-needed';
 import type { FormInstance } from '..';
 import Form from '..';
@@ -1651,22 +1651,25 @@ describe('Form', () => {
     await waitFakeTimer();
 
     // initial validate
-    expect(onChange).toHaveBeenCalledTimes(2);
+    const initTriggerTime = ReactVersion.startsWith('18') ? 2 : 1;
+    expect(onChange).toHaveBeenCalledTimes(initTriggerTime);
     let idx = 1;
     expect(onChange).toHaveBeenNthCalledWith(idx++, '');
-    expect(onChange).toHaveBeenNthCalledWith(idx++, '');
+    if (initTriggerTime === 2) {
+      expect(onChange).toHaveBeenNthCalledWith(idx++, '');
+    }
 
     // change trigger
     await changeValue(0, '1');
-    expect(onChange).toHaveBeenCalledTimes(4);
+    expect(onChange).toHaveBeenCalledTimes(initTriggerTime + 2);
     expect(onChange).toHaveBeenNthCalledWith(idx++, 'validating');
     expect(onChange).toHaveBeenNthCalledWith(idx++, 'error');
     await changeValue(0, '11');
-    expect(onChange).toHaveBeenCalledTimes(6);
+    expect(onChange).toHaveBeenCalledTimes(initTriggerTime + 4);
     expect(onChange).toHaveBeenNthCalledWith(idx++, 'validating');
     expect(onChange).toHaveBeenNthCalledWith(idx++, 'error');
     await changeValue(0, '111');
-    expect(onChange).toHaveBeenCalledTimes(8);
+    expect(onChange).toHaveBeenCalledTimes(initTriggerTime + 6);
     expect(onChange).toHaveBeenNthCalledWith(idx++, 'validating');
     expect(onChange).toHaveBeenNthCalledWith(idx++, 'success');
   });
