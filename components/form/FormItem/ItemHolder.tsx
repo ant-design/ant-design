@@ -81,48 +81,29 @@ export default function ItemHolder(props: ItemHolderProps) {
   };
 
   // ======================== Status ========================
-  let mergedValidateStatus: ValidateStatus = '';
-  if (validateStatus !== undefined) {
-    mergedValidateStatus = validateStatus;
-  } else if (meta.validating) {
-    mergedValidateStatus = 'validating';
-  } else if (meta.errors.length) {
-    mergedValidateStatus = 'error';
-  } else if (meta.warnings.length) {
-    mergedValidateStatus = 'warning';
-  } else if (meta.touched || (hasFeedback && meta.validated)) {
-    // success feedback should display when pass hasFeedback prop and current value is valid value
-    mergedValidateStatus = 'success';
-  }
 
-  const desplayValidateStatus = React.useMemo(() => {
+  const getValidateState = (isDebounce = false) => {
+    let status: ValidateStatus = '';
     if (validateStatus !== undefined) {
-      return validateStatus;
+      status = validateStatus;
+    } else if (meta.validating) {
+      status = 'validating';
+    } else if (meta.errors.length) {
+      status = 'error';
+    } else if (meta.warnings.length) {
+      status = 'warning';
+    } else if (meta.touched || (hasFeedback && meta.validated)) {
+      // success feedback should display when pass hasFeedback prop and current value is valid value
+      status = 'success';
     }
-    if (meta.validating) {
-      return 'validating';
-    }
-    if (debounceErrors.length) {
-      return 'error';
-    }
-    if (debounceWarnings.length) {
-      return 'warning';
-    }
-    if (meta.touched || (hasFeedback && meta.validated)) {
-      return 'success';
-    }
-  }, [
-    validateStatus,
-    meta.validating,
-    debounceErrors,
-    debounceWarnings,
-    meta.touched,
-    hasFeedback,
-    meta.validated,
-  ]);
+    return status;
+  };
+
+  const mergedValidateStatus = getValidateState();
 
   const formItemStatusContext = React.useMemo<FormItemStatusContextProps>(() => {
     let feedbackIcon: React.ReactNode;
+    const desplayValidateStatus = getValidateState(true);
     if (hasFeedback) {
       const IconNode = desplayValidateStatus && iconMap[desplayValidateStatus];
       feedbackIcon = IconNode ? (
@@ -143,7 +124,7 @@ export default function ItemHolder(props: ItemHolderProps) {
       feedbackIcon,
       isFormItemInput: true,
     };
-  }, [mergedValidateStatus, hasFeedback, desplayValidateStatus]);
+  }, [mergedValidateStatus, hasFeedback]);
 
   // ======================== Render ========================
   const itemClassName = classNames(itemPrefixCls, className, rootClassName, {
