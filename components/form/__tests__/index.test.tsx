@@ -1648,9 +1648,10 @@ describe('Form', () => {
     );
 
     render(<App />);
+    await waitFakeTimer();
 
     // initial validate
-    expect(onChange).toHaveBeenCalledTimes(1);
+    expect(onChange).toHaveBeenCalledTimes(2);
     let idx = 1;
     expect(onChange).toHaveBeenNthCalledWith(idx++, '');
     expect(onChange).toHaveBeenNthCalledWith(idx++, '');
