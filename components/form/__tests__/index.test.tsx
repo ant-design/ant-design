@@ -1636,17 +1636,15 @@ describe('Form', () => {
       }, [status]);
       return <Input {...props} />;
     };
-    const App = () => {
-      return (
-        <Form>
-          <Form.Item>
-            <Form.Item name="test" label="test" rules={[{ len: 3, message: 'error.' }]}>
-              <CustomInput />
-            </Form.Item>
+    const App = () => (
+      <Form>
+        <Form.Item>
+          <Form.Item name="test" label="test" rules={[{ len: 3, message: 'error.' }]}>
+            <CustomInput />
           </Form.Item>
-        </Form>
-      );
-    };
+        </Form.Item>
+      </Form>
+    );
 
     render(<App />);
 
