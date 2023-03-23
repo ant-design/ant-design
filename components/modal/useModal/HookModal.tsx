@@ -16,7 +16,7 @@ export interface HookModalRef {
 }
 
 const HookModal: React.ForwardRefRenderFunction<HookModalRef, HookModalProps> = (
-  { afterClose, config },
+  { afterClose: hookAfterClose, config },
   ref,
 ) => {
   const [open, setOpen] = React.useState(true);
@@ -25,6 +25,11 @@ const HookModal: React.ForwardRefRenderFunction<HookModalRef, HookModalProps> = 
 
   const prefixCls = getPrefixCls('modal');
   const rootPrefixCls = getPrefixCls();
+
+  const afterClose = () => {
+    hookAfterClose();
+    innerConfig.afterClose?.();
+  };
 
   const close = (...args: any[]) => {
     setOpen(false);
@@ -59,7 +64,7 @@ const HookModal: React.ForwardRefRenderFunction<HookModalRef, HookModalProps> = 
       okText={
         innerConfig.okText || (mergedOkCancel ? contextLocale?.okText : contextLocale?.justOkText)
       }
-      direction={direction}
+      direction={innerConfig.direction || direction}
       cancelText={innerConfig.cancelText || contextLocale?.cancelText}
     />
   );
