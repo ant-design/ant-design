@@ -1,30 +1,30 @@
-import type { ChangeEventHandler } from 'react';
-import React, { useState, useEffect, useRef } from 'react';
-import scrollIntoView from 'scroll-into-view-if-needed';
-import classNames from 'classnames';
 import type { ColProps } from 'antd/es/grid';
+import classNames from 'classnames';
+import type { ChangeEventHandler } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import scrollIntoView from 'scroll-into-view-if-needed';
 import type { FormInstance } from '..';
 import Form from '..';
-import * as Util from '../util';
-import Button from '../../button';
-import Input from '../../input';
-import Select from '../../select';
-import Upload from '../../upload';
-import Cascader from '../../cascader';
-import Checkbox from '../../checkbox';
-import DatePicker from '../../date-picker';
-import InputNumber from '../../input-number';
-import Radio from '../../radio';
-import Switch from '../../switch';
-import TreeSelect from '../../tree-select';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, pureRender, render, screen, waitFakeTimer } from '../../../tests/utils';
+import Button from '../../button';
+import Cascader from '../../cascader';
+import Checkbox from '../../checkbox';
 import ConfigProvider from '../../config-provider';
+import DatePicker from '../../date-picker';
 import Drawer from '../../drawer';
+import Input from '../../input';
+import InputNumber from '../../input-number';
 import zhCN from '../../locale/zh_CN';
 import Modal from '../../modal';
+import Radio from '../../radio';
+import Select from '../../select';
+import Switch from '../../switch';
+import TreeSelect from '../../tree-select';
+import Upload from '../../upload';
 import type { NamePath } from '../interface';
+import * as Util from '../util';
 
 const { RangePicker } = DatePicker;
 const { TextArea } = Input;
@@ -1625,5 +1625,50 @@ describe('Form', () => {
 
     expect(container.querySelectorAll('.ant-form-item-has-feedback').length).toBe(1);
     expect(container.querySelectorAll('.ant-form-item-has-success').length).toBe(1);
+  });
+  it('validate status should be change in order', async () => {
+    const onChange = jest.fn();
+
+    const App = () => {
+      const CustomInput = React.memo((props) => {
+        const { status } = Form.Item.useStatus();
+        useEffect(() => {
+          onChange(status);
+        }, [status]);
+        return <Input {...props} />;
+      });
+
+      return (
+        <Form>
+          <Form.Item>
+            <Form.Item name="test" label="test" rules={[{ len: 3, message: 'error.' }]}>
+              <CustomInput />
+            </Form.Item>
+          </Form.Item>
+        </Form>
+      );
+    };
+
+    render(<App />);
+
+    // initial validate
+    expect(onChange).toBeCalledTimes(2);
+    let idx = 1;
+    expect(onChange).toHaveBeenNthCalledWith(idx++, '');
+    expect(onChange).toHaveBeenNthCalledWith(idx++, '');
+
+    // change trigger
+    await changeValue(0, '1');
+    expect(onChange).toBeCalledTimes(4);
+    expect(onChange).toHaveBeenNthCalledWith(idx++, 'validating');
+    expect(onChange).toHaveBeenNthCalledWith(idx++, 'error');
+    await changeValue(0, '11');
+    expect(onChange).toBeCalledTimes(6);
+    expect(onChange).toHaveBeenNthCalledWith(idx++, 'validating');
+    expect(onChange).toHaveBeenNthCalledWith(idx++, 'error');
+    await changeValue(0, '111');
+    expect(onChange).toBeCalledTimes(8);
+    expect(onChange).toHaveBeenNthCalledWith(idx++, 'validating');
+    expect(onChange).toHaveBeenNthCalledWith(idx++, 'success');
   });
 });
