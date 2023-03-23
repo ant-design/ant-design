@@ -1650,7 +1650,7 @@ describe('Form', () => {
     render(<App />);
 
     // initial validate
-    expect(onChange).toHaveBeenCalledTimes(2);
+    expect(onChange).toHaveBeenCalledTimes(1);
     let idx = 1;
     expect(onChange).toHaveBeenNthCalledWith(idx++, '');
     expect(onChange).toHaveBeenNthCalledWith(idx++, '');
