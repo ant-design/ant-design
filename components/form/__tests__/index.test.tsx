@@ -1652,22 +1652,22 @@ describe('Form', () => {
     render(<App />);
 
     // initial validate
-    expect(onChange).toBeCalledTimes(2);
+    expect(onChange).toHaveBeenCalledTimes(2);
     let idx = 1;
     expect(onChange).toHaveBeenNthCalledWith(idx++, '');
     expect(onChange).toHaveBeenNthCalledWith(idx++, '');
 
     // change trigger
     await changeValue(0, '1');
-    expect(onChange).toBeCalledTimes(4);
+    expect(onChange).toHaveBeenCalledTimes(4);
     expect(onChange).toHaveBeenNthCalledWith(idx++, 'validating');
     expect(onChange).toHaveBeenNthCalledWith(idx++, 'error');
     await changeValue(0, '11');
-    expect(onChange).toBeCalledTimes(6);
+    expect(onChange).toHaveBeenCalledTimes(6);
     expect(onChange).toHaveBeenNthCalledWith(idx++, 'validating');
     expect(onChange).toHaveBeenNthCalledWith(idx++, 'error');
     await changeValue(0, '111');
-    expect(onChange).toBeCalledTimes(8);
+    expect(onChange).toHaveBeenCalledTimes(8);
     expect(onChange).toHaveBeenNthCalledWith(idx++, 'validating');
     expect(onChange).toHaveBeenNthCalledWith(idx++, 'success');
   });
