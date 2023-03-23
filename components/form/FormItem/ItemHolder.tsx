@@ -97,10 +97,10 @@ export default function ItemHolder(props: ItemHolderProps) {
 
   const desplayValidateStatus = React.useMemo(() => {
     if (validateStatus !== undefined) return validateStatus;
-    else if (meta.validating) return 'validating';
-    else if (debounceErrors.length) return 'error';
-    else if (debounceWarnings.length) return 'warning';
-    else if (meta.touched || (hasFeedback && meta.validated)) return 'success';
+    if (meta.validating) return 'validating';
+    if (debounceErrors.length) return 'error';
+    if (debounceWarnings.length) return 'warning';
+    if (meta.touched || (hasFeedback && meta.validated)) return 'success';
   }, [
     validateStatus,
     meta.validating,
