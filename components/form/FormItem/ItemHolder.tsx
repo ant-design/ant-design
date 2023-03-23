@@ -96,20 +96,11 @@ export default function ItemHolder(props: ItemHolderProps) {
   }
 
   const desplayValidateStatus = React.useMemo(() => {
-    let status: ValidateStatus = '';
-    if (validateStatus !== undefined) {
-      status = validateStatus;
-    } else if (meta.validating) {
-      status = 'validating';
-    } else if (debounceErrors.length) {
-      status = 'error';
-    } else if (debounceWarnings.length) {
-      status = 'warning';
-    } else if (meta.touched || (hasFeedback && meta.validated)) {
-      // success feedback should display when pass hasFeedback prop and current value is valid value
-      status = 'success';
-    }
-    return status;
+    if (validateStatus !== undefined) return validateStatus;
+    else if (meta.validating) return 'validating';
+    else if (debounceErrors.length) return 'error';
+    else if (debounceWarnings.length) return 'warning';
+    else if (meta.touched || (hasFeedback && meta.validated)) return 'success';
   }, [
     validateStatus,
     meta.validating,
