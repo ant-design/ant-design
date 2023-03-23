@@ -84,15 +84,15 @@ export default function ItemHolder(props: ItemHolderProps) {
 
   const getValidateState = (isDebounce = false) => {
     let status: ValidateStatus = '';
-    const errors = isDebounce ? debounceErrors : meta.errors;
-    const warnings = isDebounce ? debounceWarnings : meta.warnings;
+    const _errors = isDebounce ? debounceErrors : meta.errors;
+    const _warnings = isDebounce ? debounceWarnings : meta.warnings;
     if (validateStatus !== undefined) {
       status = validateStatus;
     } else if (meta.validating) {
       status = 'validating';
-    } else if (errors.length) {
+    } else if (_errors.length) {
       status = 'error';
-    } else if (warnings.length) {
+    } else if (_warnings.length) {
       status = 'warning';
     } else if (meta.touched || (hasFeedback && meta.validated)) {
       // success feedback should display when pass hasFeedback prop and current value is valid value
