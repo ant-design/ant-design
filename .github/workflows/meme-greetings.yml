@@ -32,5 +32,5 @@ jobs:
             Meanwhile have a look at this 😝 :
 
             > **${{ steps.memer.outputs.title }}**
-            ![meme](${{ steps.memer.outputs.meme }})
+            <img src="${{ steps.memer.outputs.meme }}" alt="meme" width="400" />
             <sub>ℹ️ <a href="${{ steps.memer.outputs.source }}">Source</a> [ Powered By 🔥 <a href="https://github.com/Bhupesh-V/memer-action">Memer Action</a> ]</sub>
