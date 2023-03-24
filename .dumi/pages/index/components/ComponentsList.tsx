@@ -281,7 +281,7 @@ export default function ComponentsList() {
       </Carousel>
     </div>
   ) : (
-    <div style={{ width: '100%', overflowY: 'hidden', overflowX: 'auto' }}>
+    <div style={{ width: '100%', overflow: 'auto hidden' }}>
       <div style={{ display: 'flex', alignItems: 'stretch', columnGap: token.paddingLG }}>
         {COMPONENTS.map(({ title, node, type }, index) => (
           <ComponentItem title={title} node={node} type={type} index={index} key={index} />
