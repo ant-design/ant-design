@@ -5079,6 +5079,9 @@ Array [
           </ul>
         </div>
       </div>
+      <div
+        style="position: absolute; top: 0px; left: 0px; width: 100%;"
+      />
     </li>
     <li
       class="ant-menu-item ant-menu-item-only-child"
