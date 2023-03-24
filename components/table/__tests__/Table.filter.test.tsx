@@ -2778,7 +2778,7 @@ describe('Table.filter', () => {
     expect(renderedNames(container)).toEqual(['Jack']);
   });
 
-  it.only('changes to table data should not reset the filter dropdown state being changed by a user', () => {
+  it('changes to table data should not reset the filter dropdown state being changed by a user', () => {
     const tableProps = {
       key: 'stabletable',
       rowKey: 'name',
