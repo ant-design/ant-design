@@ -1,5 +1,5 @@
 import React from 'react';
-import { message, Popconfirm } from 'antd';
+import { Button, message, Popconfirm } from 'antd';
 
 const confirm = (e: React.MouseEvent<HTMLElement>) => {
   console.log(e);
@@ -20,7 +20,7 @@ const App: React.FC = () => (
     okText="Yes"
     cancelText="No"
   >
-    <a href="#">Delete</a>
+    <Button type="link">Delete</Button>
   </Popconfirm>
 );
 

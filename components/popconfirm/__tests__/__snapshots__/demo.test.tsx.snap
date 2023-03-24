@@ -12,20 +12,26 @@ exports[`renders components/popconfirm/demo/async.tsx correctly 1`] = `
 `;
 
 exports[`renders components/popconfirm/demo/basic.tsx correctly 1`] = `
-<a
-  href="#"
+<button
+  class="ant-btn ant-btn-link"
+  type="button"
 >
-  Delete
-</a>
+  <span>
+    Delete
+  </span>
+</button>
 `;
 
 exports[`renders components/popconfirm/demo/dynamic-trigger.tsx correctly 1`] = `
 <div>
-  <a
-    href="#"
+  <button
+    class="ant-btn ant-btn-link"
+    type="button"
   >
-    Delete a task
-  </a>
+    <span>
+      Delete a task
+    </span>
+  </button>
   <br />
   <br />
   Whether directly execute：
@@ -53,19 +59,25 @@ exports[`renders components/popconfirm/demo/dynamic-trigger.tsx correctly 1`] = 
 `;
 
 exports[`renders components/popconfirm/demo/icon.tsx correctly 1`] = `
-<a
-  href="#"
+<button
+  class="ant-btn ant-btn-link"
+  type="button"
 >
-  Delete
-</a>
+  <span>
+    Delete
+  </span>
+</button>
 `;
 
 exports[`renders components/popconfirm/demo/locale.tsx correctly 1`] = `
-<a
-  href="#"
+<button
+  class="ant-btn ant-btn-link"
+  type="button"
 >
-  Delete
-</a>
+  <span>
+    Delete
+  </span>
+</button>
 `;
 
 exports[`renders components/popconfirm/demo/placement.tsx correctly 1`] = `
