@@ -2815,7 +2815,7 @@ describe('Table.filter', () => {
     // Table data changes while the dropdown is open and a user is setting filters.
     rerender(createTable({ ...tableProps, dataSource: [{ name: 'Foo' }] }));
 
-    // The checkbox is now checked.
+    // The checkbox is still checked.
     expect(container.querySelector<HTMLInputElement>('input[type="checkbox"]')!.checked).toEqual(
       true,
     );
