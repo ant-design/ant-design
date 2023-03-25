@@ -333,10 +333,10 @@ createRoot(document.getElementById('container')).render(<Demo />);
       ...dependencies,
       react: '^18.0.0',
       'react-dom': '^18.0.0',
-      'react-scripts': '^4.0.0',
+      'react-scripts': '^5.0.0',
     },
     devDependencies: {
-      typescript: '^4.0.5',
+      typescript: '^5.0.2',
     },
     scripts: {
       start: 'react-scripts start',
