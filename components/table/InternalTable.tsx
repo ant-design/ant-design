@@ -65,7 +65,7 @@ interface ChangeEventInfo<RecordType> {
   filterStates: FilterState<RecordType>[];
   sorterStates: SortState<RecordType>[];
 
-  resetPagination: Function;
+  resetPagination: (current?: number, pageSize?: number) => void;
 }
 
 /** Same as `TableProps` but we need record parent render times */
@@ -238,16 +238,16 @@ function InternalTable<RecordType extends object = any>(
     };
 
     if (reset) {
-      changeEventInfo.resetPagination!();
+      changeEventInfo.resetPagination?.();
 
       // Reset event param
-      if (changeInfo.pagination!.current) {
-        changeInfo.pagination!.current = 1;
+      if (changeInfo.pagination?.current) {
+        changeInfo.pagination.current = 1;
       }
 
       // Trigger pagination events
       if (pagination && pagination.onChange) {
-        pagination.onChange(1, changeInfo.pagination!.pageSize!);
+        pagination.onChange(1, changeInfo.pagination?.pageSize!);
       }
     }
 
@@ -491,10 +491,10 @@ function InternalTable<RecordType extends object = any>(
         bottomPaginationNode = renderPagination(defaultPosition);
       }
       if (topPos) {
-        topPaginationNode = renderPagination(topPos!.toLowerCase().replace('top', ''));
+        topPaginationNode = renderPagination(topPos.toLowerCase().replace('top', ''));
       }
       if (bottomPos) {
-        bottomPaginationNode = renderPagination(bottomPos!.toLowerCase().replace('bottom', ''));
+        bottomPaginationNode = renderPagination(bottomPos.toLowerCase().replace('bottom', ''));
       }
     } else {
       bottomPaginationNode = renderPagination(defaultPosition);
