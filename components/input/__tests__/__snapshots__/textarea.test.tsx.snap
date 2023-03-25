@@ -2,7 +2,7 @@
 
 exports[`TextArea allowClear should change type when click 1`] = `
 <span
-  class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper"
+  class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-allow-clear"
 >
   <textarea
     class="ant-input"
@@ -43,7 +43,7 @@ exports[`TextArea allowClear should change type when click 1`] = `
 
 exports[`TextArea allowClear should change type when click 2`] = `
 <span
-  class="ant-input-affix-wrapper ant-input-affix-wrapper-focused ant-input-textarea-affix-wrapper"
+  class="ant-input-affix-wrapper ant-input-affix-wrapper-focused ant-input-textarea-affix-wrapper ant-input-textarea-allow-clear"
 >
   <textarea
     class="ant-input"
@@ -82,7 +82,7 @@ exports[`TextArea allowClear should change type when click 2`] = `
 
 exports[`TextArea allowClear should not show icon if defaultValue is undefined, null or empty string 1`] = `
 <span
-  class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper"
+  class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-allow-clear"
 >
   <textarea
     class="ant-input"
@@ -121,7 +121,7 @@ exports[`TextArea allowClear should not show icon if defaultValue is undefined, 
 
 exports[`TextArea allowClear should not show icon if defaultValue is undefined, null or empty string 2`] = `
 <span
-  class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper"
+  class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-allow-clear"
 >
   <textarea
     class="ant-input"
@@ -160,7 +160,7 @@ exports[`TextArea allowClear should not show icon if defaultValue is undefined, 
 
 exports[`TextArea allowClear should not show icon if defaultValue is undefined, null or empty string 3`] = `
 <span
-  class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper"
+  class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-allow-clear"
 >
   <textarea
     class="ant-input"
@@ -199,7 +199,7 @@ exports[`TextArea allowClear should not show icon if defaultValue is undefined, 
 
 exports[`TextArea allowClear should not show icon if value is undefined, null or empty string 1`] = `
 <span
-  class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper"
+  class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-allow-clear"
 >
   <textarea
     class="ant-input"
@@ -238,7 +238,7 @@ exports[`TextArea allowClear should not show icon if value is undefined, null or
 
 exports[`TextArea allowClear should not show icon if value is undefined, null or empty string 2`] = `
 <span
-  class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper"
+  class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-allow-clear"
 >
   <textarea
     class="ant-input"
@@ -277,7 +277,7 @@ exports[`TextArea allowClear should not show icon if value is undefined, null or
 
 exports[`TextArea allowClear should not show icon if value is undefined, null or empty string 3`] = `
 <span
-  class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper"
+  class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-allow-clear"
 >
   <textarea
     class="ant-input"
