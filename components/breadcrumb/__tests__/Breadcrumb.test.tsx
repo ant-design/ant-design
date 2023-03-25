@@ -291,24 +291,17 @@ describe('Breadcrumb', () => {
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
-  it('should support Breadcrumb.Item customized menu items key', async () => {
+  it('should support Breadcrumb.Item customized menu items key', () => {
     const key = 'test-key';
     const { container } = render(
       <Breadcrumb>
-        <Breadcrumb.Item
-          dropdownProps={{
-            open: true,
-          }}
-          menu={{
-            items: [{ key }],
-          }}
-        >
+        <Breadcrumb.Item dropdownProps={{ open: true }} menu={{ items: [{ key }] }}>
           test-item
         </Breadcrumb.Item>
       </Breadcrumb>,
     );
 
-    const item = container.querySelector('.ant-dropdown-menu-item');
+    const item = container.querySelector<HTMLElement>('.ant-dropdown-menu-item');
 
     expect(item?.getAttribute('data-menu-id')?.endsWith(key)).toBeTruthy();
   });
