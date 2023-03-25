@@ -31,7 +31,7 @@ function usePagination(
   total: number,
   onChange: (current: number, pageSize: number) => void,
   pagination?: TablePaginationConfig | false,
-): readonly [TablePaginationConfig, () => void] {
+): readonly [TablePaginationConfig, (current?: number, pageSize?: number) => void] {
   const { total: paginationTotal = 0, ...paginationObj } =
     pagination && typeof pagination === 'object' ? pagination : {};
 
