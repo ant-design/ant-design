@@ -246,33 +246,33 @@ describe('TextArea', () => {
     it('maxLength', () => {
       const { container } = render(<TextArea maxLength={5} showCount value="12345" />);
       expect(container.querySelector('textarea')?.value).toBe('12345');
-      expect(container.querySelector('.ant-input-textarea')?.getAttribute('data-count')).toBe(
-        '5 / 5',
-      );
+      expect(
+        container.querySelector('.ant-input-textarea-show-count')?.getAttribute('data-count'),
+      ).toBe('5 / 5');
     });
 
     it('control exceed maxLength', () => {
       const { container } = render(<TextArea maxLength={5} showCount value="12345678" />);
       expect(container.querySelector('textarea')?.value).toBe('12345678');
-      expect(container.querySelector('.ant-input-textarea')?.getAttribute('data-count')).toBe(
-        '8 / 5',
-      );
+      expect(
+        container.querySelector('.ant-input-textarea-show-count')?.getAttribute('data-count'),
+      ).toBe('8 / 5');
     });
 
     describe('emoji', () => {
       it('should minimize value between emoji length and maxLength', () => {
         const { container } = render(<TextArea maxLength={1} showCount value="👀" />);
         expect(container.querySelector('textarea')?.value).toBe('👀');
-        expect(container.querySelector('.ant-input-textarea')?.getAttribute('data-count')).toBe(
-          '1 / 1',
-        );
+        expect(
+          container.querySelector('.ant-input-textarea-show-count')?.getAttribute('data-count'),
+        ).toBe('1 / 1');
 
         // fix: 当 maxLength 长度为 2 的时候，输入 emoji 之后 showCount 会显示 1/2，但是不能再输入了
         // zombieJ: 逻辑统一了，emoji 现在也可以正确计数了
         const { container: container1 } = render(<TextArea maxLength={2} showCount value="👀" />);
-        expect(container1.querySelector('.ant-input-textarea')?.getAttribute('data-count')).toBe(
-          '1 / 2',
-        );
+        expect(
+          container1.querySelector('.ant-input-textarea-show-count')?.getAttribute('data-count'),
+        ).toBe('1 / 2');
       });
 
       it('defaultValue should slice', () => {
@@ -284,9 +284,9 @@ describe('TextArea', () => {
       it('slice emoji', () => {
         const { container } = render(<TextArea maxLength={5} showCount value="1234😂" />);
         expect(container.querySelector('textarea')?.value).toBe('1234😂');
-        expect(container.querySelector('.ant-input-textarea')?.getAttribute('data-count')).toBe(
-          '5 / 5',
-        );
+        expect(
+          container.querySelector('.ant-input-textarea-show-count')?.getAttribute('data-count'),
+        ).toBe('5 / 5');
       });
     });
 
@@ -296,8 +296,8 @@ describe('TextArea', () => {
       );
 
       // Outer
-      expect(container.querySelector('div')?.classList.contains('bamboo')).toBeTruthy();
-      expect(container.querySelector('div')?.style.background).toEqual('red');
+      expect(container.querySelector('span')?.classList.contains('bamboo')).toBeTruthy();
+      expect(container.querySelector('span')?.style.background).toEqual('red');
 
       // Inner
       expect(container.querySelector('.ant-input')?.classList.contains('bamboo')).toBeFalsy();
@@ -315,9 +315,9 @@ describe('TextArea', () => {
         />,
       );
       expect(container.querySelector('textarea')?.value).toBe('12345');
-      expect(container.querySelector('.ant-input-textarea')?.getAttribute('data-count')).toBe(
-        '12345, 5, 5',
-      );
+      expect(
+        container.querySelector('.ant-input-textarea-show-count')?.getAttribute('data-count'),
+      ).toBe('12345, 5, 5');
     });
   });
 
