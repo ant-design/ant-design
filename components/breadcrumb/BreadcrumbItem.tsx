@@ -13,6 +13,7 @@ export interface SeparatorType {
 
 type MenuType = NonNullable<DropdownProps['menu']>;
 interface MenuItem {
+  key?: string;
   title?: React.ReactNode;
   label?: React.ReactNode;
   path?: string;
@@ -71,7 +72,7 @@ const BreadcrumbItem: CompoundedComponent = (props: BreadcrumbItemProps) => {
         const { items, ...menuProps } = menu! || {};
         mergeDropDownProps.menu = {
           ...menuProps,
-          items: items?.map(({ title, label, path, ...itemProps }, index) => {
+          items: items?.map(({ key, title, label, path, ...itemProps }, index) => {
             let mergedLabel: React.ReactNode = label ?? title;
 
             if (path) {
@@ -80,7 +81,7 @@ const BreadcrumbItem: CompoundedComponent = (props: BreadcrumbItemProps) => {
 
             return {
               ...itemProps,
-              key: index,
+              key: key ?? index,
               label: mergedLabel as string,
             };
           }),
