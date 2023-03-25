@@ -3,7 +3,7 @@ import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import RowContext from './RowContext';
 import { useColStyle } from './style';
-import { LiteralUnion } from '../_util/type';
+import type { LiteralUnion } from '../_util/type';
 
 // https://github.com/ant-design/ant-design/issues/14324
 type ColSpanType = number | string;
