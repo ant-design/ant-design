@@ -520,7 +520,7 @@ export default genComponentStyleHook('Button', (token) => {
     genGroupStyle(buttonToken),
 
     // Space Compact
-    genCompactItemStyle(token, { focus: false }),
+    genCompactItemStyle(token),
     genCompactItemVerticalStyle(token),
   ];
 });

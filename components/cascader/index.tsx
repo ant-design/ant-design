@@ -29,8 +29,9 @@ import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import warning from '../_util/warning';
 
 import useSelectStyle from '../select/style';
-import useStyle from './style';
+import useShowArrow from '../select/useShowArrow';
 import genPurePanel from '../_util/PurePanel';
+import useStyle from './style';
 
 // Align the design since we use `rc-select` in root. This help:
 // - List search content will show all content
@@ -254,7 +255,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
   );
 
   // ===================== Icons =====================
-  const mergedShowArrow = showArrow !== undefined ? showArrow : props.loading || !multiple;
+  const mergedShowArrow = useShowArrow(showArrow);
   const { suffixIcon, removeIcon, clearIcon } = getIcons({
     ...props,
     hasFeedback,
@@ -314,7 +315,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
       )}
       getPopupContainer={getPopupContainer || getContextPopupContainer}
       ref={ref}
-      showArrow={hasFeedback || showArrow}
+      showArrow={hasFeedback || mergedShowArrow}
     />
   );
 

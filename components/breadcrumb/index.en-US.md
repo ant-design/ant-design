@@ -16,6 +16,22 @@ A breadcrumb displays the current location within a hierarchy. It allows going b
 - When you need to inform the user of where they are.
 - When the user may need to navigate back to a higher level.
 
+```jsx
+// works when >=5.3.0, recommended ✅
+return <Breadcrumb items={[{ title: 'sample' }]} />;
+
+// works when <5.3.0, deprecated when >=5.3.0 🙅🏻‍♀️
+return (
+  <Breadcrumb>
+    <Breadcrumb.Item>sample</Breadcrumb.Item>
+  </Breadcrumb>
+);
+
+// or
+
+return <Breadcrumb routes={[{ breadcrumbName: 'sample' }]} />;
+```
+
 ## Examples
 
 <!-- prettier-ignore -->
@@ -25,6 +41,7 @@ A breadcrumb displays the current location within a hierarchy. It allows going b
 <code src="./demo/separator.tsx">Configuring the Separator</code>
 <code src="./demo/overlay.tsx">Bread crumbs with drop down menu</code>
 <code src="./demo/separator-component.tsx">Configuring the Separator</code>
+<code src="./demo/debug-routes.tsx">Debug Routes</code>
 
 ## API
 
@@ -34,10 +51,14 @@ A breadcrumb displays the current location within a hierarchy. It allows going b
 | --- | --- | --- | --- | --- |
 | itemRender | Custom item renderer | (route, params, routes, paths) => ReactNode | - |  |
 | params | Routing parameters | object | - |  |
-| routes | The routing stack information of router | [routes\[\]](#routes) | - |  |
+| items | The routing stack information of router | [items\[\]](#ItemType) | - | 5.3.0 |
 | separator | Custom separator | ReactNode | `/` |  |
 
-### Breadcrumb.Item
+### ItemType
+
+> type ItemType = [RouteItemType](#RouteItemType) | [SeparatorType](#SeparatorType)
+
+### RouteItemType
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
@@ -46,27 +67,21 @@ A breadcrumb displays the current location within a hierarchy. It allows going b
 | href | Target of hyperlink | string | - |  |
 | menu | The menu props | [MenuProps](/components/menu/#api) | - | 4.24.0 |
 | onClick | Set the handler to handle click event | (e:MouseEvent) => void | - |  |
+| title | item name | ReactNode | - |  |
 
-### Breadcrumb.Separator
-
-| Property | Description      | Type      | Default | Version |
-| -------- | ---------------- | --------- | ------- | ------- |
-| children | Custom separator | ReactNode | `/`     |         |
-
-> When using `Breadcrumb.Separator`,its parent component must be set to `separator=""`, otherwise the default separator of the parent component will appear.
-
-### routes
+### SeparatorType
 
 ```ts
-interface Route {
-  path: string;
-  breadcrumbName: string;
-  children: Array<{
-    path: string;
-    breadcrumbName: string;
-  }>;
-}
+const item = {
+  type: 'separator', // Must have
+  separator: '/',
+};
 ```
+
+| Property  | Description       | Type        | Default | Version |
+| --------- | ----------------- | ----------- | ------- | ------- |
+| type      | Mark as separator | `separator` |         | 5.3.0   |
+| separator | Custom separator  | ReactNode   | `/`     | 5.3.0   |
 
 ### Use with browserHistory
 
@@ -75,42 +90,38 @@ The link of Breadcrumb item targets `#` by default, you can use `itemRender` to 
 ```jsx
 import { Link } from 'react-router';
 
-const routes = [
+const items = [
   {
     path: 'index',
-    breadcrumbName: 'home',
+    title: 'home',
   },
   {
     path: 'first',
-    breadcrumbName: 'first',
+    title: 'first',
     children: [
       {
         path: '/general',
-        breadcrumbName: 'General',
+        title: 'General',
       },
       {
         path: '/layout',
-        breadcrumbName: 'Layout',
+        title: 'Layout',
       },
       {
         path: '/navigation',
-        breadcrumbName: 'Navigation',
+        title: 'Navigation',
       },
     ],
   },
   {
     path: 'second',
-    breadcrumbName: 'second',
+    title: 'second',
   },
 ];
-function itemRender(route, params, routes, paths) {
-  const last = routes.indexOf(route) === routes.length - 1;
-  return last ? (
-    <span>{route.breadcrumbName}</span>
-  ) : (
-    <Link to={paths.join('/')}>{route.breadcrumbName}</Link>
-  );
+function itemRender(route, params, items, paths) {
+  const last = items.indexOf(item) === items.length - 1;
+  return last ? <span>{item.title}</span> : <Link to={paths.join('/')}>{item.title}</Link>;
 }
 
-return <Breadcrumb itemRender={itemRender} routes={routes} />;
+return <Breadcrumb itemRender={itemRender} items={items} />;
 ```

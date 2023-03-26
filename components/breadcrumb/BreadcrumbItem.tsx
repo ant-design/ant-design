@@ -1,21 +1,34 @@
-import * as React from 'react';
 import DownOutlined from '@ant-design/icons/DownOutlined';
-import warning from '../_util/warning';
+import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import type { DropdownProps } from '../dropdown/dropdown';
 import Dropdown from '../dropdown/dropdown';
+import warning from '../_util/warning';
 import BreadcrumbSeparator from './BreadcrumbSeparator';
 
-export interface BreadcrumbItemProps {
-  prefixCls?: string;
+export interface SeparatorType {
   separator?: React.ReactNode;
+  key?: React.Key;
+}
+
+type MenuType = DropdownProps['menu'];
+interface MenuItem {
+  title?: React.ReactNode;
+  label?: React.ReactNode;
+  path?: string;
   href?: string;
-  menu?: DropdownProps['menu'];
+}
+
+export interface BreadcrumbItemProps extends SeparatorType {
+  prefixCls?: string;
+  href?: string;
+  menu?: Omit<MenuType, 'items'> & {
+    items?: MenuItem[];
+  };
   dropdownProps?: DropdownProps;
   onClick?: React.MouseEventHandler<HTMLAnchorElement | HTMLSpanElement>;
   className?: string;
   children?: React.ReactNode;
-
   // Deprecated
   /** @deprecated Please use `menu` instead */
   overlay?: DropdownProps['overlay'];
@@ -31,6 +44,7 @@ const BreadcrumbItem: CompoundedComponent = (props: BreadcrumbItemProps) => {
     menu,
     overlay,
     dropdownProps,
+    href,
     ...restProps
   } = props;
 
@@ -52,11 +66,31 @@ const BreadcrumbItem: CompoundedComponent = (props: BreadcrumbItemProps) => {
       const mergeDropDownProps: DropdownProps = {
         ...dropdownProps,
       };
-      if ('overlay' in props) {
+
+      if (menu) {
+        const { items, ...menuProps } = menu! || {};
+        mergeDropDownProps.menu = {
+          ...menuProps,
+          items: items?.map(({ title, label, path, ...itemProps }, index) => {
+            let mergedLabel: React.ReactNode = label ?? title;
+
+            if (path) {
+              mergedLabel = <a href={`${href}${path}`}>{mergedLabel}</a>;
+            }
+
+            return {
+              ...itemProps,
+              key: index,
+              label: mergedLabel as string,
+            };
+          }),
+        };
+      } else if (overlay) {
         mergeDropDownProps.overlay = overlay;
       }
+
       return (
-        <Dropdown menu={menu} placement="bottom" {...mergeDropDownProps}>
+        <Dropdown placement="bottom" {...mergeDropDownProps}>
           <span className={`${prefixCls}-overlay-link`}>
             {breadcrumbItem}
             <DownOutlined />
@@ -68,9 +102,9 @@ const BreadcrumbItem: CompoundedComponent = (props: BreadcrumbItemProps) => {
   };
 
   let link: React.ReactNode;
-  if ('href' in restProps) {
+  if (href !== undefined) {
     link = (
-      <a className={`${prefixCls}-link`} {...restProps}>
+      <a className={`${prefixCls}-link`} href={href} {...restProps}>
         {children}
       </a>
     );

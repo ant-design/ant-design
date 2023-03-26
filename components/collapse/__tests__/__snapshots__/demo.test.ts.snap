@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/collapse/demo/accordion.tsx correctly 1`] = `
+exports[`renders components/collapse/demo/accordion.tsx correctly 1`] = `
 <div
   class="ant-collapse ant-collapse-icon-position-start"
   role="tablist"
@@ -128,7 +128,7 @@ exports[`renders ./components/collapse/demo/accordion.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/collapse/demo/basic.tsx correctly 1`] = `
+exports[`renders components/collapse/demo/basic.tsx correctly 1`] = `
 <div
   class="ant-collapse ant-collapse-icon-position-start"
 >
@@ -269,7 +269,7 @@ exports[`renders ./components/collapse/demo/basic.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/collapse/demo/borderless.tsx correctly 1`] = `
+exports[`renders components/collapse/demo/borderless.tsx correctly 1`] = `
 <div
   class="ant-collapse ant-collapse-icon-position-start ant-collapse-borderless"
 >
@@ -410,7 +410,7 @@ exports[`renders ./components/collapse/demo/borderless.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/collapse/demo/collapsible.tsx correctly 1`] = `
+exports[`renders components/collapse/demo/collapsible.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -587,7 +587,7 @@ exports[`renders ./components/collapse/demo/collapsible.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/collapse/demo/custom.tsx correctly 1`] = `
+exports[`renders components/collapse/demo/custom.tsx correctly 1`] = `
 <div
   class="ant-collapse ant-collapse-icon-position-start ant-collapse-borderless"
   style="background:#ffffff"
@@ -732,7 +732,7 @@ exports[`renders ./components/collapse/demo/custom.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/collapse/demo/extra.tsx correctly 1`] = `
+exports[`renders components/collapse/demo/extra.tsx correctly 1`] = `
 Array [
   <div
     class="ant-collapse ant-collapse-icon-position-start"
@@ -1011,7 +1011,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/collapse/demo/ghost.tsx correctly 1`] = `
+exports[`renders components/collapse/demo/ghost.tsx correctly 1`] = `
 <div
   class="ant-collapse ant-collapse-icon-position-start ant-collapse-ghost"
 >
@@ -1152,7 +1152,7 @@ exports[`renders ./components/collapse/demo/ghost.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/collapse/demo/mix.tsx correctly 1`] = `
+exports[`renders components/collapse/demo/mix.tsx correctly 1`] = `
 <div
   class="ant-collapse ant-collapse-icon-position-start"
 >
@@ -1279,7 +1279,7 @@ exports[`renders ./components/collapse/demo/mix.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/collapse/demo/noarrow.tsx correctly 1`] = `
+exports[`renders components/collapse/demo/noarrow.tsx correctly 1`] = `
 <div
   class="ant-collapse ant-collapse-icon-position-start"
 >
@@ -1357,7 +1357,7 @@ exports[`renders ./components/collapse/demo/noarrow.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/collapse/demo/size.tsx correctly 1`] = `
+exports[`renders components/collapse/demo/size.tsx correctly 1`] = `
 Array [
   <div
     class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"

@@ -2,7 +2,7 @@ import { TinyColor } from '@ctrl/tinycolor';
 import * as React from 'react';
 import { useToken } from '../theme/internal';
 
-const Empty = () => {
+const Empty: React.FC = () => {
   const [, token] = useToken();
 
   const bgColor = new TinyColor(token.colorBgBase);

@@ -15,6 +15,80 @@ timeline: true
 
 ---
 
+## 5.3.2
+
+`2023-03-20`
+
+- Anchor
+  - 💄 修复 Anchor 组件设置为水平方向时多余的 border 样式。[#41336](https://github.com/ant-design/ant-design/pull/41336) [@gooyoung](https://github.com/gooyoung)
+  - 💄 修复 Anchor 处于 `vertical` 方向时 ink 小方块的样式。[#41317](https://github.com/ant-design/ant-design/pull/41317) [@acyza](https://github.com/acyza)
+- 🐞 修复 Grid 在不同设备屏幕下的 `offset` 设置不会被覆盖的问题。[#41309](https://github.com/ant-design/ant-design/pull/41309) [@Yuiai01](https://github.com/Yuiai01)
+- 🐞 修复 Breadcrumb `onClick` 不工作的问题。[#41283](https://github.com/ant-design/ant-design/pull/41283) [@acyza](https://github.com/acyza)
+- 🐞 修复 Upload 在上传完毕后 Progress 组件抛出警告的问题。[#41234](https://github.com/ant-design/ant-design/pull/41234) [@kiner-tang](https://github.com/kiner-tang)
+- 🐞 修复 Table 在拖动元素一直右移时布局错误的问题。[#41139](https://github.com/ant-design/ant-design/pull/41139) [@hoho2017](https://github.com/hoho2017)
+- 💄 修复 Tabs 在深色模式下更多图标的色值。[#41313](https://github.com/ant-design/ant-design/pull/41313) [@PhosphorusP](https://github.com/PhosphorusP)
+- 💄 修复 Button 下拉时聚焦轮廓被其他元素遮挡的问题。[#41282](https://github.com/ant-design/ant-design/pull/41282) [@Yuiai01](https://github.com/Yuiai01)
+- 💄 修复 Input.TextArea 在 focus 状态下的样式问题。[#41228](https://github.com/ant-design/ant-design/pull/41228) [@MuxinFeng](https://github.com/MuxinFeng)
+
+- RTL
+  - 💄 修复 Input.TextArea 在启用 `showCount` 时 RTL 模式下位置不正确的问题。[#41319](https://github.com/ant-design/ant-design/pull/41319) [@ds1371dani](https://github.com/ds1371dani)
+- TypeScript
+  - 🤖 导出 Statistic 的 `CountdownProps` 类型。[#41341](https://github.com/ant-design/ant-design/pull/41341) [@li-jia-nan](https://github.com/li-jia-nan)
+  - 🤖 优化 token 的类型提示和说明。[#41297](https://github.com/ant-design/ant-design/pull/41297) [@arvinxx](https://github.com/arvinxx)
+  - 🤖 优化 Badge `React.forwardRef` 类型定义。[#41189](https://github.com/ant-design/ant-design/pull/41189) [@li-jia-nan](https://github.com/li-jia-nan)
+
+## 5.3.1
+
+`2023-03-13`
+
+- 🐞 更新 DatePicker 底层依赖，修复 Safari 下卡顿，支持 `transform scale` 下对齐。[#41090](https://github.com/ant-design/ant-design/pull/41090)
+- 🐞 修复 Menu 收缩时，Tooltip 有时会弹出的问题。[#41081](https://github.com/ant-design/ant-design/issues/41081)
+- 🐞 修复 Modal.confirm 窗体有额外节点导致高度不正确的问题。[#41173](https://github.com/ant-design/ant-design/pull/41173) [@Svudec](https://github.com/Svudec)
+- 🐞 修复 InputNumber `disabled` 时字体高亮不正确的问题。[#41167](https://github.com/ant-design/ant-design/pull/41167) [@Yuiai01](https://github.com/Yuiai01)
+- 🐞 修复 Anchor 动态添加 `items` 后高亮失效问题。[#40743](https://github.com/ant-design/ant-design/pull/40743) [@zqran](https://github.com/zqran)
+- 🛠 更新 Mentions 底层依赖，支持 `transform scale` 下对齐。[#41160](https://github.com/ant-design/ant-design/pull/41160) [@MuxinFeng](https://github.com/MuxinFeng)
+- 🐞 修复 Form 手工调用 `validateFields` 时，`hasFeedback` 对成功态不生效的问题。[#41116](https://github.com/ant-design/ant-design/pull/41116) [@kiner-tang](https://github.com/kiner-tang)
+- 🐞 修复 Cascader 在悬浮至叶子节点时，展开面板没有关闭的问题。[#41134](https://github.com/ant-design/ant-design/issues/41134)
+- 🐞 修复 Popconfirm 使用 `Promise` 关闭时再次打开仍然是 `loading` 状态的问题。[#41121](https://github.com/ant-design/ant-design/pull/41121)
+- 🐞 修复 Upload 在 React 18 下 `onChange` 有时数据不正确的问题。[#41082](https://github.com/ant-design/ant-design/pull/41082) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🛎 补充官网中没有切换到 Space.Compact 的遗留示例，并且添加相应警告。[#41080](https://github.com/ant-design/ant-design/pull/41080) [@Yuiai01](https://github.com/Yuiai01)
+- 🌐 更新韩语国际化，添加国际化阿姆哈拉语。[#41103](https://github.com/ant-design/ant-design/pull/41103) [@li-jia-nan](https://github.com/li-jia-nan)
+
+## 5.3.0
+
+`2023-03-06`
+
+- 🆕 Tooltip 组件新增 `arrow.pointAtCenter`， 废弃 `arrow.arrowPointAtCenter`。[#40989](https://github.com/ant-design/ant-design/pull/40989) [@MadCcc](https://github.com/MadCcc)
+- 🆕 Progress 组件支持自定义 `size`。[#40903](https://github.com/ant-design/ant-design/pull/40903) [@kiner-tang](https://github.com/kiner-tang)
+- 🆕 Tour 组件支持自定义 `zIndex`。[#40982](https://github.com/ant-design/ant-design/pull/40982) [@kiner-tang](https://github.com/kiner-tang)
+- 🆕 Table `onHeaderCell` 支持自定义 `colSpan` 和 `rowSpan`。[#40885](https://github.com/ant-design/ant-design/pull/40885)
+- 🆕 Image.Group 支持 `onChange` 回调。[#40857](https://github.com/ant-design/ant-design/pull/40857) [@kiner-tang](https://github.com/kiner-tang)
+- App
+  - 🆕 App 支持自定义 `style`。[#40708](https://github.com/ant-design/ant-design/pull/40708) [@li-jia-nan](https://github.com/li-jia-nan)
+  - 🆕 App 提供预先配置 `message`、`notification` 的选项。[#40458](https://github.com/ant-design/ant-design/pull/40458) [@luo3house](https://github.com/luo3house)
+- 🆕 ConfigProvider 新增 `useConfig` 以获取上下文中的 `size` 和 `disabled`。[#40215](https://github.com/ant-design/ant-design/pull/40215) [@xliez](https://github.com/xliez)
+- 🆕 Breadcrumb 支持 `items` 数据驱动。[#40543](https://github.com/ant-design/ant-design/pull/40543) [@heiyu4585](https://github.com/heiyu4585)
+- 🛠 Breadcrumb 分隔符统一为 `li` 元素。[#40887](https://github.com/ant-design/ant-design/pull/40887) [@heiyu4585](https://github.com/heiyu4585)
+- 🛠 Tooltip 现在自动调整自身以及箭头位置以更好的展示。同时废弃 `destroyTooltipOnHide.keepParent`，现在总是会自动销毁不需要的容器。[#40632](https://github.com/ant-design/ant-design/pull/40632)
+- 🛠 重命名 token 中的预设颜色，如 `blue-1` 变为 `blue1`，废弃原有的 token。[#41071](https://github.com/ant-design/ant-design/pull/41071)
+- 💄 Message 组件使用 `colorText` 优化样式。[#41047](https://github.com/ant-design/ant-design/pull/41047) [@Yuiai01](https://github.com/Yuiai01)
+- 💄 修复 Select, TreeSelect, Cascader 父元素存在 `transform: scale` 样式时的对齐问题。[#41013](https://github.com/ant-design/ant-design/pull/41013)
+- 💄 优化 Table 中 `rowScope` 的样式。[#40304](https://github.com/ant-design/ant-design/pull/40304) [@Yuiai01](https://github.com/Yuiai01)
+- 💄 为组件聚焦时的 `outline` 提供新的 AliasToken `lineWidthFocus`。[#40840](https://github.com/ant-design/ant-design/pull/40840) [@MadCcc](https://github.com/MadCcc)
+- 💄 WeekPicker 支持鼠标悬浮样式。[#40772](https://github.com/ant-design/ant-design/pull/40772)
+- 💄 调整 Select, TreeSelect, Cascader 在多选时总是默认显示下拉箭头。[#41028](https://github.com/ant-design/ant-design/pull/41028)
+- 🐞 修复 Form 组件 `Form.Item.useStatus` 导致的服务端渲染问题。[#40977](https://github.com/ant-design/ant-design/pull/40977) [@AndyBoat](https://github.com/AndyBoat)
+- 🐞 修复部分组件箭头形状问题。[#40971](https://github.com/ant-design/ant-design/pull/40971) [@MadCcc](https://github.com/MadCcc)
+- 🐞 修复 Layout 报错 `React does not recognize the `suffixCls` prop on a DOM element` 的问题。[#40969](https://github.com/ant-design/ant-design/pull/40969)
+- 🐞 修复 Watermark 组件图片加载异常时的问题，默认展示文字。[#40770](https://github.com/ant-design/ant-design/pull/40770) [@OriginRing](https://github.com/OriginRing)
+- 🐞 Image 预览新增图片翻转功能。并修复 Image `fallback` 在 ssr 下失效的问题。[#40660](https://github.com/ant-design/ant-design/pull/40660)
+- 🐞 修复 Select 中使用 Typography 不居中的问题。[#40422](https://github.com/ant-design/ant-design/pull/40422) [@Yuiai01](https://github.com/Yuiai01)
+- 🌐 完善 Form 的 `vi_VN` 语言包。[#40992](https://github.com/ant-design/ant-design/pull/40992) [@lamvananh](https://github.com/lamvananh)
+- RTL
+  - 💄 修复 FloatButton 不支持 `rtl` 模式的问题。[#40990](https://github.com/ant-design/ant-design/pull/40990) [@li-jia-nan](https://github.com/li-jia-nan)
+- TypeScript
+  - 🤖 修复 Cascader 泛型为非必传。[#40961](https://github.com/ant-design/ant-design/pull/40961) [@crazyair](https://github.com/crazyair)
+
 ## 5.2.3
 
 `2023-02-27`

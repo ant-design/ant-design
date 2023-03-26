@@ -1,9 +1,9 @@
 import type { CSSInterpolation } from '@ant-design/cssinjs';
 import type React from 'react';
-import type { FullToken } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import capitalize from '../../_util/capitalize';
 import { genPresetColor, resetComponent } from '../../style';
+import type { FullToken } from '../../theme/internal';
+import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {}
 
@@ -14,6 +14,7 @@ interface TagToken extends FullToken<'Tag'> {
   tagDefaultColor: string;
   tagIconSize: number;
   tagPaddingHorizontal: number;
+  tagBorderlessBg: string;
 }
 
 // ============================== Styles ==============================
@@ -41,12 +42,14 @@ const genPresetStyle = (token: TagToken) =>
       color: textColor,
       background: lightColor,
       borderColor: lightBorderColor,
-
       // Inverse color
       '&-inverse': {
         color: token.colorTextLightSolid,
         background: darkColor,
         borderColor: darkColor,
+      },
+      [`&${token.componentCls}-borderless`]: {
+        borderColor: 'transparent',
       },
     },
   }));
@@ -138,6 +141,10 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
         marginInlineStart: paddingInline,
       },
     },
+    [`${componentCls}-borderless`]: {
+      borderColor: 'transparent',
+      background: token.tagBorderlessBg,
+    },
   };
 };
 
@@ -148,7 +155,7 @@ export default genComponentStyleHook('Tag', (token) => {
 
   const tagFontSize = token.fontSizeSM;
   const tagLineHeight = tagHeight - lineWidth * 2;
-  const tagDefaultBg = token.colorFillAlter;
+  const tagDefaultBg = token.colorFillQuaternary;
   const tagDefaultColor = token.colorText;
 
   const tagToken = mergeToken<TagToken>(token, {
@@ -158,6 +165,7 @@ export default genComponentStyleHook('Tag', (token) => {
     tagDefaultColor,
     tagIconSize: fontSizeIcon - 2 * lineWidth, // Tag icon is much more smaller
     tagPaddingHorizontal: 8, // Fixed padding.
+    tagBorderlessBg: token.colorFillTertiary,
   });
 
   return [

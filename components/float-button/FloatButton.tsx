@@ -1,13 +1,16 @@
 import classNames from 'classnames';
+import omit from 'rc-util/lib/omit';
 import React, { useContext, useMemo } from 'react';
+import warning from '../_util/warning';
+import Badge from '../badge';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import Tooltip from '../tooltip';
-import warning from '../_util/warning';
-import FloatButtonGroupContext from './context';
 import Content from './FloatButtonContent';
+import FloatButtonGroupContext from './context';
 import type {
   CompoundedComponent,
+  FloatButtonBadgeProps,
   FloatButtonContentProps,
   FloatButtonProps,
   FloatButtonShape,
@@ -29,6 +32,7 @@ const FloatButton: React.ForwardRefRenderFunction<
     icon,
     description,
     tooltip,
+    badge = {},
     ...restProps
   } = props;
   const { getPrefixCls, direction } = useContext<ConfigConsumerProps>(ConfigContext);
@@ -50,16 +54,24 @@ const FloatButton: React.ForwardRefRenderFunction<
     },
   );
 
+  // 虽然在 ts 中已经 omit 过了，但是为了防止多余的属性被透传进来，这里再 omit 一遍，以防万一
+  const badgeProps = useMemo<FloatButtonBadgeProps>(
+    () => omit(badge, ['title', 'children', 'status', 'text'] as any[]),
+    [badge],
+  );
+
   const contentProps = useMemo<FloatButtonContentProps>(
     () => ({ prefixCls, description, icon, type }),
     [prefixCls, description, icon, type],
   );
 
-  const buttonNode = (
+  const buttonNode: React.ReactNode = (
     <Tooltip title={tooltip} placement={direction === 'rtl' ? 'right' : 'left'}>
-      <div className={`${prefixCls}-body`}>
-        <Content {...contentProps} />
-      </div>
+      <Badge {...badgeProps}>
+        <div className={`${prefixCls}-body`}>
+          <Content {...contentProps} />
+        </div>
+      </Badge>
     </Tooltip>
   );
 

@@ -1,7 +1,13 @@
 import { generate } from '@ant-design/colors';
 import genControlHeight from '../shared/genControlHeight';
 import genSizeMapToken from '../shared/genSizeMapToken';
-import type { ColorPalettes, MapToken, PresetColorType, SeedToken } from '../../interface';
+import type {
+  ColorPalettes,
+  LegacyColorPalettes,
+  MapToken,
+  PresetColorType,
+  SeedToken,
+} from '../../interface';
 import { defaultPresetColors } from '../seed';
 import genColorMapToken from '../shared/genColorMapToken';
 import genCommonMapToken from '../shared/genCommonMapToken';
@@ -15,8 +21,9 @@ export default function derivative(token: SeedToken): MapToken {
 
       return new Array(10).fill(1).reduce((prev, _, i) => {
         prev[`${colorKey}-${i + 1}`] = colors[i];
+        prev[`${colorKey}${i + 1}`] = colors[i];
         return prev;
-      }, {}) as ColorPalettes;
+      }, {}) as ColorPalettes & LegacyColorPalettes;
     })
     .reduce((prev, cur) => {
       prev = {
@@ -24,7 +31,7 @@ export default function derivative(token: SeedToken): MapToken {
         ...cur,
       };
       return prev;
-    }, {} as ColorPalettes);
+    }, {} as ColorPalettes & LegacyColorPalettes);
 
   return {
     ...token,

@@ -22,10 +22,10 @@ export function genPresetColor<Token extends TokenWithCommonCls<AliasToken>>(
   genCss: GenCSS,
 ): CSSObject {
   return PresetColors.reduce((prev: CSSObject, colorKey: PresetColorKey) => {
-    const lightColor = token[`${colorKey}-1`];
-    const lightBorderColor = token[`${colorKey}-3`];
-    const darkColor = token[`${colorKey}-6`];
-    const textColor = token[`${colorKey}-7`];
+    const lightColor = token[`${colorKey}1`];
+    const lightBorderColor = token[`${colorKey}3`];
+    const darkColor = token[`${colorKey}6`];
+    const textColor = token[`${colorKey}7`];
 
     return {
       ...prev,

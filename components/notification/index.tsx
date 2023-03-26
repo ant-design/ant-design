@@ -1,6 +1,6 @@
 import { render } from 'rc-util/lib/React/render';
 import * as React from 'react';
-import ConfigProvider, { globalConfig } from '../config-provider';
+import ConfigProvider, { globalConfig, warnContext } from '../config-provider';
 import type { ArgsProps, GlobalConfigProps, NotificationInstance } from './interface';
 import PurePanel from './PurePanel';
 import useNotification, { useInternalNotification } from './useNotification';
@@ -201,6 +201,11 @@ function setNotificationGlobalConfig(config: GlobalConfigProps) {
 }
 
 function open(config: ArgsProps) {
+  // Warning if exist theme
+  if (process.env.NODE_ENV !== 'production') {
+    warnContext('notification');
+  }
+
   taskQueue.push({
     type: 'open',
     config,

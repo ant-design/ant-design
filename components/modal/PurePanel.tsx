@@ -7,7 +7,7 @@ import * as React from 'react';
 import Button from '../button';
 import { convertLegacyProps } from '../button/button';
 import { ConfigContext } from '../config-provider';
-import useLocale from '../locale/useLocale';
+import { useLocale } from '../locale';
 import { ConfirmContent } from './ConfirmDialog';
 import { getConfirmLocale } from './locale';
 import type { ModalFuncProps, ModalProps } from './Modal';
@@ -55,12 +55,11 @@ export const Footer: React.FC<
     onCancel,
     okButtonProps,
     cancelButtonProps,
-    footer,
   } = props;
 
   const [locale] = useLocale('Modal', getConfirmLocale());
 
-  return footer === undefined ? (
+  return (
     <>
       <Button onClick={onCancel} {...cancelButtonProps}>
         {cancelText || locale?.cancelText}
@@ -74,8 +73,6 @@ export const Footer: React.FC<
         {okText || locale?.okText}
       </Button>
     </>
-  ) : (
-    (footer as React.ReactElement)
   );
 };
 
@@ -119,7 +116,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
     additionalProps = {
       closable: closable ?? true,
       title,
-      footer: props.footer === null ? props.footer : <Footer {...props} />,
+      footer: props.footer === undefined ? <Footer {...props} /> : props.footer,
       children,
     };
   }

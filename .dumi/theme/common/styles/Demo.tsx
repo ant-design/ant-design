@@ -38,6 +38,7 @@ const GlobalDemoStyles: React.FC = () => {
           }
 
           .code-box-demo {
+            overflow: auto;
             background-color: ${token.colorBgContainer};
             border-radius: ${token.borderRadius}px ${token.borderRadius}px 0 0;
           }
@@ -290,7 +291,7 @@ const GlobalDemoStyles: React.FC = () => {
             transition: transform 0.24s;
 
             &${iconCls}-check {
-              color: ${token['green-6']} !important;
+              color: ${token.green6} !important;
               font-weight: bold;
             }
           }
@@ -342,11 +343,11 @@ const GlobalDemoStyles: React.FC = () => {
           }
 
           &-debug {
-            border-color: ${token['purple-3']};
+            border-color: ${token.purple3};
           }
 
           &-debug &-title a {
-            color: ${token['purple-6']};
+            color: ${token.purple6};
           }
         }
 

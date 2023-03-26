@@ -1,9 +1,9 @@
 import type React from 'react';
+import { clearFix, genFocusStyle, resetComponent } from '../../style';
 import { initFadeMotion, initZoomMotion } from '../../style/motion';
 import type { AliasToken, FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import type { TokenWithCommonCls } from '../../theme/util/genComponentStyleHook';
-import { clearFix, genFocusStyle, resetComponent } from '../../style';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -47,18 +47,24 @@ function box(position: React.CSSProperties['position']): React.CSSProperties {
 }
 
 export const genModalMaskStyle: GenerateStyle<TokenWithCommonCls<AliasToken>> = (token) => {
-  const { componentCls } = token;
+  const { componentCls, antCls } = token;
 
   return [
     {
       [`${componentCls}-root`]: {
-        [`${componentCls}${token.antCls}-zoom-enter, ${componentCls}${token.antCls}-zoom-appear`]: {
+        [`${componentCls}${antCls}-zoom-enter, ${componentCls}${antCls}-zoom-appear`]: {
           // reset scale avoid mousePosition bug
           transform: 'none',
           opacity: 0,
           animationDuration: token.motionDurationSlow,
           // https://github.com/ant-design/ant-design/issues/11777
           userSelect: 'none',
+        },
+
+        // https://github.com/ant-design/ant-design/issues/37329
+        // https://github.com/ant-design/ant-design/issues/40272
+        [`${componentCls}${antCls}-zoom-leave ${componentCls}-content`]: {
+          pointerEvents: 'none',
         },
 
         [`${componentCls}-mask`]: {
@@ -348,11 +354,6 @@ const genModalConfirmStyle: GenerateStyle<ModalToken> = (token) => {
 
     [`${confirmComponentCls}-success ${confirmComponentCls}-body > ${token.iconCls}`]: {
       color: token.colorSuccess,
-    },
-
-    // https://github.com/ant-design/ant-design/issues/37329
-    [`${componentCls}-zoom-leave ${componentCls}-btns`]: {
-      pointerEvents: 'none',
     },
   };
 };
