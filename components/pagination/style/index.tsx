@@ -5,9 +5,9 @@ import {
   initInputToken,
   type InputToken,
 } from '../../input/style';
+import { genFocusOutline, genFocusStyle, resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import { genFocusOutline, genFocusStyle, resetComponent } from '../../style';
 
 interface PaginationToken extends InputToken<FullToken<'Pagination'>> {
   paginationItemSize: number;
@@ -134,6 +134,9 @@ const genPaginationMiniStyle: GenerateStyle<PaginationToken, CSSObject> = (token
     [`&${componentCls}-mini ${componentCls}-item:not(${componentCls}-item-active)`]: {
       backgroundColor: 'transparent',
       borderColor: 'transparent',
+      '&:hover': {
+        backgroundColor: token.colorBgTextHover,
+      },
     },
 
     [`&${componentCls}-mini ${componentCls}-prev, &${componentCls}-mini ${componentCls}-next`]: {
