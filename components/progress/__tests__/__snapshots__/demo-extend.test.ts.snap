@@ -1170,7 +1170,7 @@ Array [
 `;
 
 exports[`renders components/progress/demo/line.tsx extend context correctly 1`] = `
-Array [
+<div>
   <div
     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
     role="progressbar"
@@ -1194,7 +1194,7 @@ Array [
     >
       30%
     </span>
-  </div>,
+  </div>
   <div
     class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-default"
     role="progressbar"
@@ -1218,7 +1218,7 @@ Array [
     >
       50%
     </span>
-  </div>,
+  </div>
   <div
     class="ant-progress ant-progress-line ant-progress-status-exception ant-progress-show-info ant-progress-default"
     role="progressbar"
@@ -1259,7 +1259,7 @@ Array [
         </svg>
       </span>
     </span>
-  </div>,
+  </div>
   <div
     class="ant-progress ant-progress-line ant-progress-status-success ant-progress-show-info ant-progress-default"
     role="progressbar"
@@ -1300,7 +1300,7 @@ Array [
         </svg>
       </span>
     </span>
-  </div>,
+  </div>
   <div
     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-default"
     role="progressbar"
@@ -1318,8 +1318,8 @@ Array [
         />
       </div>
     </div>
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`renders components/progress/demo/line-mini.tsx extend context correctly 1`] = `
