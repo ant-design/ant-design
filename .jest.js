@@ -1,4 +1,12 @@
-const compileModules = ['dnd-core', 'react-sticky-box', 'tween-one', '@babel', '@ant-design'];
+const compileModules = [
+  'dnd-core',
+  'react-sticky-box',
+  'tween-one',
+  '@babel',
+  '@ant-design',
+  'react-dnd',
+  '@react-dnd',
+];
 
 const ignoreList = [];
 
