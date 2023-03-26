@@ -26,13 +26,13 @@ const App: React.FC = () => {
   };
 
   return (
-    <>
+    <div>
       <Progress percent={percent} />
       <Button.Group>
         <Button onClick={decline} icon={<MinusOutlined />} />
         <Button onClick={increase} icon={<PlusOutlined />} />
       </Button.Group>
-    </>
+    </div>
   );
 };
 
