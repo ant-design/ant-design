@@ -139,7 +139,7 @@ const genPaginationMiniStyle: GenerateStyle<PaginationToken, CSSObject> = (token
       },
     },
 
-    [`&${componentCls}-mini ${componentCls}-prev, &${componentCls}-mini  ${componentCls}-next`]: {
+    [`&${componentCls}-mini ${componentCls}-prev, &${componentCls}-mini ${componentCls}-next`]: {
       minWidth: token.paginationItemSizeSM,
       height: token.paginationItemSizeSM,
       margin: 0,
