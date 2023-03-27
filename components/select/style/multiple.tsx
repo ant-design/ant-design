@@ -1,22 +1,21 @@
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import type { SelectToken } from '.';
-import { resetIcon } from '../../style';
 import { mergeToken } from '../../theme/internal';
 
 const FIXED_ITEM_MARGIN = 2;
 
-function getSelectItemStyle({
+const getSelectItemStyle = ({
   controlHeightSM,
   controlHeight,
   lineWidth: borderWidth,
-}: SelectToken) {
+}: SelectToken): readonly [number, number] => {
   const selectItemDist = (controlHeight - controlHeightSM) / 2 - borderWidth;
   const selectItemMargin = Math.ceil(selectItemDist / 2);
-  return [selectItemDist, selectItemMargin];
-}
+  return [selectItemDist, selectItemMargin] as const;
+};
 
 function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
-  const { componentCls, iconCls, antCls } = token;
+  const { componentCls, antCls } = token;
 
   const selectOverflowPrefixCls = `${componentCls}-selection-overflow`;
 
@@ -40,7 +39,6 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         flex: 'auto',
         flexWrap: 'wrap',
         maxWidth: '100%',
-
         '&-item': {
           flex: 'none',
           alignSelf: 'center',
@@ -81,62 +79,6 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         &${componentCls}-allow-clear ${componentCls}-selector
       `]: {
         paddingInlineEnd: token.fontSizeIcon + token.controlPaddingHorizontal,
-      },
-
-      // ======================== Selections ========================
-      [`${componentCls}-selection-item`]: {
-        position: 'relative',
-        display: 'flex',
-        flex: 'none',
-        boxSizing: 'border-box',
-        maxWidth: '100%',
-        height: selectItemHeight,
-        marginTop: FIXED_ITEM_MARGIN,
-        marginBottom: FIXED_ITEM_MARGIN,
-        lineHeight: `${selectItemHeight - token.lineWidth * 2}px`,
-        background: token.colorFillSecondary,
-        border: `${token.lineWidth}px solid ${token.colorSplit}`,
-        borderRadius: token.borderRadiusSM,
-        cursor: 'default',
-        transition: `font-size ${token.motionDurationSlow}, line-height ${token.motionDurationSlow}, height ${token.motionDurationSlow}`,
-        userSelect: 'none',
-        marginInlineEnd: FIXED_ITEM_MARGIN * 2,
-        paddingInlineStart: token.paddingXS,
-        paddingInlineEnd: token.paddingXS / 2,
-
-        [`${componentCls}-disabled&`]: {
-          color: token.colorTextDisabled,
-          borderColor: token.colorBorder,
-          cursor: 'not-allowed',
-        },
-
-        // It's ok not to do this, but 24px makes bottom narrow in view should adjust
-        '&-content': {
-          display: 'inline-block',
-          marginInlineEnd: token.paddingXS / 2,
-          overflow: 'hidden',
-          whiteSpace: 'pre', // fix whitespace wrapping. custom tags display all whitespace within.
-          textOverflow: 'ellipsis',
-        },
-
-        '&-remove': {
-          ...resetIcon(),
-
-          display: 'inline-block',
-          color: token.colorIcon,
-          fontWeight: 'bold',
-          fontSize: 10,
-          lineHeight: 'inherit',
-          cursor: 'pointer',
-
-          [`> ${iconCls}`]: {
-            verticalAlign: '-0.2em',
-          },
-
-          '&:hover': {
-            color: token.colorIconHover,
-          },
-        },
       },
 
       // ========================== Input ==========================
@@ -188,6 +130,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         transition: `all ${token.motionDurationSlow}`,
       },
       [`${antCls}-select-tag`]: {
+        maxWidth: '100%',
         height: selectItemHeight,
         display: 'flex',
         fontSize: 'inherit',
