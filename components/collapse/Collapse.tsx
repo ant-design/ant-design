@@ -39,6 +39,11 @@ export interface CollapseProps {
   size?: SizeType;
   collapsible?: CollapsibleType;
   children?: React.ReactNode;
+  /**
+   * Collapse item content
+   * @since 5.4.0
+   */
+  items: any[];
 }
 
 interface PanelProps {
@@ -156,4 +161,9 @@ if (process.env.NODE_ENV !== 'production') {
   Collapse.displayName = 'Collapse';
 }
 
-export default Object.assign(Collapse, { Panel: CollapsePanel });
+export default Object.assign(Collapse, {
+  /**
+   * @deprecated Please use Collapse.items instead
+   */
+  Panel: CollapsePanel,
+});
