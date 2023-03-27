@@ -212,13 +212,10 @@ describe('Collapse', () => {
   });
 
   it('should render a items', () => {
-    const itemClick = jest.fn();
-
     const items: ItemType[] = [
       {
         header: 'My header 1',
         content: 'Ant Design Collapse 1',
-        onItemClick: itemClick,
       },
       {
         header: 'My header 2',
@@ -229,21 +226,11 @@ describe('Collapse', () => {
         content: 'Ant Design Collapse 3',
         extra: 'extra',
         collapsible: 'disabled',
-        onItemClick: itemClick,
       },
     ];
 
     const { container } = render(<Collapse items={items} />);
 
     expect(container.firstChild).toMatchSnapshot();
-    const itemsElements = container.querySelectorAll('.ant-collapse-header');
-
-    // click
-    fireEvent.click(itemsElements[0]);
-    expect(itemClick).toHaveBeenCalledTimes(1);
-
-    // click disabled
-    fireEvent.click(itemsElements[2]);
-    expect(itemClick).toHaveBeenCalledTimes(1);
   });
 });

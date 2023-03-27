@@ -29,7 +29,6 @@ export type ItemType = Pick<
   // | 'disabled' /** FIXME: deprecated, need export? */
   | 'collapsible'
   | 'showArrow'
-  | 'onItemClick'
   | 'forceRender'
 > & {
   key?: React.Key;
