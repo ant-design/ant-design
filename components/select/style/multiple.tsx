@@ -187,7 +187,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         transform: 'translateY(-50%)',
         transition: `all ${token.motionDurationSlow}`,
       },
-      [`${antCls}-default-select-tag`]: {
+      [`${antCls}-select-tag`]: {
         height: selectItemHeight,
         display: 'flex',
         fontSize: 'inherit',
@@ -196,12 +196,12 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         margin: FIXED_ITEM_MARGIN,
       },
       [`&${componentCls}-lg`]: {
-        [`${antCls}-default-select-tag`]: {
+        [`${antCls}-select-tag`]: {
           borderRadius: token.borderRadius,
         },
       },
       [`&${componentCls}-sm`]: {
-        [`${antCls}-default-select-tag`]: {
+        [`${antCls}-select-tag`]: {
           borderRadius: token.borderRadiusXS,
         },
       },

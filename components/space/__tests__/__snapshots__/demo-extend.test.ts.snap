@@ -630,7 +630,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           >
             <span>
               <span
-                class="ant-tag ant-tag-borderless ant-default-select-tag"
+                class="ant-tag ant-tag-borderless ant-select-tag"
                 value="Zhejianggggg"
               >
                 Zhejianggggg

@@ -67,11 +67,12 @@ export interface SelectProps<
 
 const SECRET_COMBOBOX_MODE_DO_NOT_USE = 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
 
-const defaultTagRender = ({ label, ...rest }: CustomTagProps) => (
-  <Tag {...rest} className="ant-default-select-tag" bordered={false}>
-    {label}
-  </Tag>
-);
+const genRender = (rootCls: string) => ({ label, ...rest }: CustomTagProps) =>
+  (
+    <Tag {...rest} className={`${rootCls}-select-tag`} bordered={false}>
+      {label}
+    </Tag>
+  );
 
 const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType>(
   {
@@ -90,7 +91,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     notFoundContent,
     status: customStatus,
     showArrow,
-    tagRender = defaultTagRender,
+    tagRender,
     ...props
   }: SelectProps<OptionType>,
   ref: React.Ref<BaseSelectRef>,
@@ -136,6 +137,9 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     isFormItemInput,
     feedbackIcon,
   } = React.useContext(FormItemInputContext);
+
+  const mergedTagRender = tagRender || genRender(rootPrefixCls);
+
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
   // ===================== Empty =====================
@@ -230,7 +234,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
       menuItemSelectedIcon={itemIcon}
       removeIcon={removeIcon}
       clearIcon={clearIcon}
-      tagRender={isMultiple ? tagRender : undefined}
+      tagRender={isMultiple ? mergedTagRender : undefined}
       notFoundContent={mergedNotFound}
       className={mergedClassName}
       getPopupContainer={getPopupContainer || getContextPopupContainer}

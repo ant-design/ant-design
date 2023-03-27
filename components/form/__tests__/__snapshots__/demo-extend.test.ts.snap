@@ -950,7 +950,7 @@ Array [
                     >
                       <span>
                         <span
-                          class="ant-tag ant-tag-borderless ant-default-select-tag"
+                          class="ant-tag ant-tag-borderless ant-select-tag"
                           value="bamboo"
                         >
                           Bamboo
@@ -1371,7 +1371,7 @@ Array [
                     >
                       <span>
                         <span
-                          class="ant-tag ant-tag-borderless ant-default-select-tag"
+                          class="ant-tag ant-tag-borderless ant-select-tag"
                           value="bamboo"
                         >
                           Bamboo

@@ -2304,7 +2304,7 @@ exports[`renders components/select/demo/debug.tsx extend context correctly 1`] =
           >
             <span>
               <span
-                class="ant-tag ant-tag-borderless ant-default-select-tag"
+                class="ant-tag ant-tag-borderless ant-select-tag"
                 value="lucy"
               >
                 Lucy
@@ -2882,7 +2882,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
           >
             <span>
               <span
-                class="ant-tag ant-tag-borderless ant-default-select-tag"
+                class="ant-tag ant-tag-borderless ant-select-tag"
                 value="a10"
               >
                 a10
@@ -2915,7 +2915,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
           >
             <span>
               <span
-                class="ant-tag ant-tag-borderless ant-default-select-tag"
+                class="ant-tag ant-tag-borderless ant-select-tag"
                 value="c12"
               >
                 c12
@@ -3432,7 +3432,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
           >
             <span>
               <span
-                class="ant-tag ant-tag-borderless ant-default-select-tag"
+                class="ant-tag ant-tag-borderless ant-select-tag"
                 value="a10"
               >
                 a10
@@ -3445,7 +3445,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
           >
             <span>
               <span
-                class="ant-tag ant-tag-borderless ant-default-select-tag"
+                class="ant-tag ant-tag-borderless ant-select-tag"
                 value="c12"
               >
                 c12
@@ -4281,7 +4281,7 @@ exports[`renders components/select/demo/option-label-prop.tsx extend context cor
       >
         <span>
           <span
-            class="ant-tag ant-tag-borderless ant-default-select-tag"
+            class="ant-tag ant-tag-borderless ant-select-tag"
             value="china"
           >
             China
@@ -7051,7 +7051,7 @@ Array [
             >
               <span>
                 <span
-                  class="ant-tag ant-tag-borderless ant-default-select-tag"
+                  class="ant-tag ant-tag-borderless ant-select-tag"
                   value="a10"
                 >
                   a10
@@ -7084,7 +7084,7 @@ Array [
             >
               <span>
                 <span
-                  class="ant-tag ant-tag-borderless ant-default-select-tag"
+                  class="ant-tag ant-tag-borderless ant-select-tag"
                   value="c12"
                 >
                   c12
@@ -7575,7 +7575,7 @@ Array [
             >
               <span>
                 <span
-                  class="ant-tag ant-tag-borderless ant-default-select-tag"
+                  class="ant-tag ant-tag-borderless ant-select-tag"
                   value="a10"
                 >
                   a10
@@ -7608,7 +7608,7 @@ Array [
             >
               <span>
                 <span
-                  class="ant-tag ant-tag-borderless ant-default-select-tag"
+                  class="ant-tag ant-tag-borderless ant-select-tag"
                   value="c12"
                 >
                   c12
