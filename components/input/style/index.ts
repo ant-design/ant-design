@@ -890,6 +890,12 @@ const genTextAreaStyle: GenerateStyle<InputToken> = (token) => {
         },
       },
 
+      '&-allow-clear': {
+        [`> ${componentCls}`]: {
+          paddingInlineEnd: paddingLG,
+        },
+      },
+
       [`&-affix-wrapper${textareaPrefixCls}-has-feedback`]: {
         [`${componentCls}`]: {
           paddingInlineEnd: paddingLG,
