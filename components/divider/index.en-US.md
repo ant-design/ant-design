@@ -38,3 +38,7 @@ A divider line separates different content.
 | plain | Divider text show as plain style | boolean | true | 4.2.0 |
 | style | The style object of container | CSSProperties | - |  |
 | type | The direction type of divider | `horizontal` \| `vertical` | `horizontal` |  |
+
+## Design Token
+
+<ComponentTokenTable component="Divider"></ComponentTokenTable>

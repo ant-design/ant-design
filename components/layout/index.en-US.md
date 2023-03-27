@@ -127,3 +127,7 @@ The sidebar.
   xxl: '1600px',
 }
 ```
+
+## Design Token
+
+<ComponentTokenTable component="Layout"></ComponentTokenTable>
