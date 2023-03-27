@@ -41,6 +41,7 @@ Uploading is the process of publishing information (web pages, text, pictures, v
 <code src="./demo/drag-sorting.tsx">Drag sorting of uploadList</code>
 <code src="./demo/crop-image.tsx">Crop image before uploading</code>
 <code src="./demo/customize-progress-bar.tsx">Customize Progress Bar</code>
+<code src="./demo/custom-request.tsx">Customized upload implementation</code>
 
 ## API
 
