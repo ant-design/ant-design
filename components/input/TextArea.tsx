@@ -38,6 +38,7 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
       disabled: customDisabled,
       status: customStatus,
       allowClear,
+      showCount,
       ...rest
     },
     ref,
@@ -97,14 +98,9 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
               [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
               [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
               [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
+              [`${prefixCls}-textarea-show-count`]: showCount,
             },
             getStatusClassNames(`${prefixCls}-affix-wrapper`, mergedStatus),
-            hashId,
-          ),
-          countWrapper: classNames(
-            `${prefixCls}-textarea`,
-            `${prefixCls}-textarea-show-count`,
-            { [`${prefixCls}-textarea-show-count-rtl`]: direction === 'rtl' },
             hashId,
           ),
           textarea: classNames(
@@ -121,6 +117,7 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
         suffix={
           hasFeedback && <span className={`${prefixCls}-textarea-suffix`}>{feedbackIcon}</span>
         }
+        showCount={showCount}
         ref={innerRef}
       />,
     );
