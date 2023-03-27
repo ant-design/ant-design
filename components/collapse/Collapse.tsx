@@ -22,7 +22,7 @@ import useStyle from './style';
 type ExpandIconPositionLegacy = 'left' | 'right';
 export type ExpandIconPosition = 'start' | 'end' | ExpandIconPositionLegacy | undefined;
 
-type ItemType = Pick<
+export type ItemType = Pick<
   CollapsePanelProps,
   | 'expandIcon'
   | 'header'

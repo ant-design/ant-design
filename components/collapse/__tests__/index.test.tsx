@@ -2,6 +2,7 @@ import React from 'react';
 import { act } from 'react-dom/test-utils';
 import { waitFakeTimer, render, fireEvent } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
+import type { ItemType } from '../Collapse';
 
 describe('Collapse', () => {
   // eslint-disable-next-line global-require
@@ -208,5 +209,42 @@ describe('Collapse', () => {
         expect(container.querySelector('.ant-collapse-icon-position-end')).toBeTruthy();
       });
     });
+  });
+
+  it.only('should render a items', () => {
+    const itemClick = jest.fn();
+
+    const items: ItemType[] = [
+      {
+        header: 'My header 1',
+        content: 'Ant Design Collapse 1',
+        onItemClick: itemClick,
+      },
+      {
+        header: 'My header 2',
+        content: 'Ant Design Collapse 2',
+        expandIcon: () => 'icon',
+      },
+      {
+        header: 'My header 3',
+        content: 'Ant Design Collapse 3',
+        extra: 'extra',
+        disabled: true,
+        onItemClick: itemClick,
+      },
+    ];
+
+    const { container } = render(<Collapse items={items} />);
+
+    expect(container.firstChild).toMatchSnapshot();
+    const itemsElements = container.querySelectorAll('.ant-collapse-header');
+
+    // click
+    fireEvent.click(itemsElements[0]);
+    expect(itemClick).toHaveBeenCalledTimes(1);
+
+    // click disabled
+    fireEvent.click(itemsElements[2]);
+    expect(itemClick).toHaveBeenCalledTimes(1);
   });
 });
