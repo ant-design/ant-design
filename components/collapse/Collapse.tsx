@@ -145,13 +145,9 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
     if (Array.isArray(items)) {
       return items.map((item, index) => {
         const key = item.key || String(index);
-        const { disabled, collapsible, content, ...restItemProps } = item;
+        const { content, ...restItemProps } = item;
         return (
-          <CollapsePanel
-            key={key}
-            collapsible={collapsible ?? (disabled ? 'disabled' : undefined)}
-            {...restItemProps}
-          >
+          <CollapsePanel key={key} {...restItemProps}>
             {content}
           </CollapsePanel>
         );
