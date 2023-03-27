@@ -2,25 +2,27 @@
 import classNames from 'classnames';
 import type { BaseSelectRef, SelectProps as RcSelectProps } from 'rc-select';
 import RcSelect, { OptGroup, Option } from 'rc-select';
+import type { CustomTagProps } from 'rc-select/lib/BaseSelect';
 import type { OptionProps } from 'rc-select/lib/Option';
 import type { BaseOptionType, DefaultOptionType } from 'rc-select/lib/Select';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
-import { ConfigContext } from '../config-provider';
-import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
-import DisabledContext from '../config-provider/DisabledContext';
-import type { SizeType } from '../config-provider/SizeContext';
-import SizeContext from '../config-provider/SizeContext';
-import { FormItemInputContext } from '../form/context';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionDirection, getTransitionName } from '../_util/motion';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
+import { ConfigContext } from '../config-provider';
+import DisabledContext from '../config-provider/DisabledContext';
+import type { SizeType } from '../config-provider/SizeContext';
+import SizeContext from '../config-provider/SizeContext';
+import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
+import { FormItemInputContext } from '../form/context';
 import getIcons from './utils/iconUtil';
 
-import { useCompactItemContext } from '../space/Compact';
 import genPurePanel from '../_util/PurePanel';
 import warning from '../_util/warning';
+import { useCompactItemContext } from '../space/Compact';
+import Tag from '../tag';
 import useStyle from './style';
 import useShowArrow from './useShowArrow';
 
@@ -65,6 +67,12 @@ export interface SelectProps<
 
 const SECRET_COMBOBOX_MODE_DO_NOT_USE = 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
 
+const defaultTagRender = ({ label, ...rest }: CustomTagProps) => (
+  <Tag {...rest} bordered={false}>
+    {label}
+  </Tag>
+);
+
 const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType>(
   {
     prefixCls: customizePrefixCls,
@@ -82,6 +90,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     notFoundContent,
     status: customStatus,
     showArrow,
+    tagRender = defaultTagRender,
     ...props
   }: SelectProps<OptionType>,
   ref: React.Ref<BaseSelectRef>,
@@ -221,6 +230,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
       menuItemSelectedIcon={itemIcon}
       removeIcon={removeIcon}
       clearIcon={clearIcon}
+      tagRender={isMultiple ? tagRender : undefined}
       notFoundContent={mergedNotFound}
       className={mergedClassName}
       getPopupContainer={getPopupContainer || getContextPopupContainer}
