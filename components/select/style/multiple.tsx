@@ -40,7 +40,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         flexWrap: 'wrap',
         maxWidth: '100%',
         '&-item': {
-          flex: 'none',
+          // flex: 'none',
           alignSelf: 'center',
           maxWidth: '100%',
           display: 'inline-flex',
