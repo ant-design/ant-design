@@ -1189,7 +1189,11 @@ Array [
     style="cursor: move; transition: unset;"
   >
     <span>
-      Tag 1
+      <span
+        class="ant-typography"
+      >
+        Tag 1
+      </span>
     </span>
     <span
       aria-label="close"
@@ -1217,7 +1221,11 @@ Array [
     style="cursor: move; transition: unset;"
   >
     <span>
-      Tag 2
+      <span
+        class="ant-typography"
+      >
+        Tag 2
+      </span>
     </span>
     <span
       aria-label="close"
@@ -1245,7 +1253,11 @@ Array [
     style="cursor: move; transition: unset;"
   >
     <span>
-      Tag 3
+      <span
+        class="ant-typography"
+      >
+        Tag 3
+      </span>
     </span>
     <span
       aria-label="close"

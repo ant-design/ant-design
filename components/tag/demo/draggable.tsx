@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import type { ChangeEvent, FC } from 'react';
-import { Tag, Tooltip, Input } from 'antd';
+import { Tag, Input, Typography } from 'antd';
 import { DndContext, PointerSensor, useSensor, useSensors } from '@dnd-kit/core';
 import {
   arrayMove,
@@ -11,6 +11,8 @@ import {
 import { PlusOutlined } from '@ant-design/icons';
 import type { InputRef } from 'antd';
 import type { DragEndEvent } from '@dnd-kit/core/dist/types/index';
+
+const { Text } = Typography;
 
 type Item = {
   id: number;
@@ -71,12 +73,15 @@ const DraggableTag: FC<DraggableTagProps> = (props) => {
     setEditInputVisible(false);
   };
 
-  const ele = editInputVisible ? (
+  return editInputVisible ? (
     <Input
       size="small"
       key={tag.id}
       ref={editInputRef}
-      style={tagInputStyle}
+      style={{
+        ...tagInputStyle,
+        marginRight: '8px',
+      }}
       value={editInputValue}
       onBlur={handleEditInputConfirm}
       onChange={handleEditInputChange}
@@ -97,17 +102,14 @@ const DraggableTag: FC<DraggableTagProps> = (props) => {
           setEditInputValue(tag.text);
         }}
       >
-        {isLongTag ? `${tag.text.slice(0, 20)}...` : tag.text}
+        <Text
+          style={isLongTag ? { width: 45 } : undefined}
+          ellipsis={isLongTag ? { tooltip: tag.text } : false}
+        >
+          {tag.text}
+        </Text>
       </span>
     </Tag>
-  );
-
-  return isLongTag ? (
-    <Tooltip key={tag.id} title={tag.text}>
-      {ele}
-    </Tooltip>
-  ) : (
-    ele
   );
 };
 
