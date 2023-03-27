@@ -6,11 +6,12 @@ import * as React from 'react';
 
 import toArray from 'rc-util/lib/Children/toArray';
 import omit from 'rc-util/lib/omit';
+import type { CollapsibleType } from 'rc-collapse/es/interface';
 import { ConfigContext } from '../config-provider';
 import initCollapseMotion from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
 import warning from '../_util/warning';
-import type { CollapsibleType } from './CollapsePanel';
+import type { CollapsePanelProps } from './CollapsePanel';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
 import CollapsePanel from './CollapsePanel';
@@ -20,6 +21,22 @@ import useStyle from './style';
 /** @deprecated Please use `start` | `end` instead */
 type ExpandIconPositionLegacy = 'left' | 'right';
 export type ExpandIconPosition = 'start' | 'end' | ExpandIconPositionLegacy | undefined;
+
+type ItemType = Pick<
+  CollapsePanelProps,
+  | 'expandIcon'
+  | 'header'
+  | 'extra'
+  | 'disabled'
+  | 'collapsible'
+  | 'onItemClick'
+  // css motion
+  | 'forceRender'
+  | 'destroyInactivePanel'
+> & {
+  key?: React.Key;
+  content?: React.ReactNode;
+};
 
 export interface CollapseProps {
   activeKey?: Array<string | number> | string | number;
@@ -43,7 +60,7 @@ export interface CollapseProps {
    * Collapse item content
    * @since 5.4.0
    */
-  items: any[];
+  items?: ItemType[];
 }
 
 interface PanelProps {
@@ -127,7 +144,22 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
   };
 
   const getItems = () => {
-    const { children } = props;
+    const { children, items } = props;
+    if (Array.isArray(items)) {
+      return items.map((item, index) => {
+        const key = item.key || String(index);
+        const { disabled, collapsible, content, ...restItemProps } = item;
+        return (
+          <CollapsePanel
+            key={key}
+            collapsible={collapsible ?? (disabled ? 'disabled' : undefined)}
+            {...restItemProps}
+          >
+            {content}
+          </CollapsePanel>
+        );
+      });
+    }
     return toArray(children).map((child: React.ReactElement, index: number) => {
       if (child.props?.disabled) {
         const key = child.key || String(index);
@@ -163,7 +195,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 export default Object.assign(Collapse, {
   /**
-   * @deprecated Please use Collapse.items instead
+   * @deprecated Please use `<Collapse items={[]} />` instead
    */
   Panel: CollapsePanel,
 });

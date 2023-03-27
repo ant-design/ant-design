@@ -14,6 +14,29 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*sir-TK0HkWcAAA
 - 对复杂区域进行分组和隐藏，保持页面的整洁。
 - `手风琴` 是一种特殊的折叠面板，只允许单个内容区域展开。
 
+```jsx
+// >=5.4.0 可用，推荐的写法 ✅
+return (
+  <Collapse
+    items={[
+      { key: '1', header: 'My header 1', content: 'Ant Design Collapse 1' },
+      { key: '2', header: 'My header 2', content: 'Ant Design Collapse 2' },
+    ]}
+  />
+);
+// <5.4.0 可用，>=5.4.0 时不推荐 🙅🏻‍♀️
+return (
+  <Collapse>
+    <Collapse.Panel key="1" header="My header 1">
+      Ant Design Collapse 1
+    </Collapse.Panel>
+    <Collapse.Panel key="2" header="My header 2">
+      Ant Design Collapse 2
+    </Collapse.Panel>
+  </Collapse>
+);
+```
+
 ## 代码演示
 
 <!-- prettier-ignore -->

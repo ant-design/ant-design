@@ -13,6 +13,29 @@ A content area which can be collapsed and expanded.
 - Can be used to group or hide complex regions to keep the page clean.
 - `Accordion` is a special kind of `Collapse`, which allows only one panel to be expanded at a time.
 
+```jsx
+// works when >=5.4.0, recommended ✅
+return (
+  <Collapse
+    items={[
+      { key: '1', header: 'My header 1', content: 'Ant Design Collapse 1' },
+      { key: '2', header: 'My header 2', content: 'Ant Design Collapse 2' },
+    ]}
+  />
+);
+// works when <5.4.0, deprecated when >=5.4.0 🙅🏻‍♀️
+return (
+  <Collapse>
+    <Collapse.Panel key="1" header="My header 1">
+      Ant Design Collapse 1
+    </Collapse.Panel>
+    <Collapse.Panel key="2" header="My header 2">
+      Ant Design Collapse 2
+    </Collapse.Panel>
+  </Collapse>
+);
+```
+
 ## Examples
 
 <!-- prettier-ignore -->
