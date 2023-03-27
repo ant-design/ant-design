@@ -579,4 +579,45 @@ describe('TextArea allowClear', () => {
     const { container } = render(<TextArea allowClear={{ clearIcon: 'clear' }} />);
     expect(container.querySelector('.ant-input-clear-icon')?.textContent).toBe('clear');
   });
+
+  it('classNames and styles should work', () => {
+    const { container } = render(
+      <>
+        <TextArea
+          className="custom-class"
+          style={{ background: 'red' }}
+          classNames={{
+            textarea: 'custom-textarea',
+            count: 'custom-count',
+          }}
+          styles={{
+            textarea: {
+              color: 'red',
+            },
+            count: {
+              color: 'blue',
+            },
+          }}
+        />
+        <TextArea
+          showCount
+          className="custom-class"
+          style={{ background: 'red' }}
+          classNames={{
+            textarea: 'custom-textarea',
+            count: 'custom-count',
+          }}
+          styles={{
+            textarea: {
+              color: 'red',
+            },
+            count: {
+              color: 'blue',
+            },
+          }}
+        />
+      </>,
+    );
+    expect(container).toMatchSnapshot();
+  });
 });
