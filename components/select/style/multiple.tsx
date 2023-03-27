@@ -1,7 +1,7 @@
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import type { SelectToken } from '.';
-import { mergeToken } from '../../theme/internal';
 import { resetIcon } from '../../style';
+import { mergeToken } from '../../theme/internal';
 
 const FIXED_ITEM_MARGIN = 2;
 
@@ -16,7 +16,7 @@ function getSelectItemStyle({
 }
 
 function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
-  const { componentCls, iconCls } = token;
+  const { componentCls, iconCls, antCls } = token;
 
   const selectOverflowPrefixCls = `${componentCls}-selection-overflow`;
 
@@ -186,6 +186,24 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         insetInlineEnd: token.inputPaddingHorizontalBase,
         transform: 'translateY(-50%)',
         transition: `all ${token.motionDurationSlow}`,
+      },
+      [`${antCls}-default-select-tag`]: {
+        height: selectItemHeight,
+        display: 'flex',
+        fontSize: 'inherit',
+        alignItems: 'center',
+        justifyContent: 'center',
+        margin: FIXED_ITEM_MARGIN,
+      },
+      [`&${componentCls}-lg`]: {
+        [`${antCls}-default-select-tag`]: {
+          borderRadius: token.borderRadius,
+        },
+      },
+      [`&${componentCls}-sm`]: {
+        [`${antCls}-default-select-tag`]: {
+          borderRadius: token.borderRadiusXS,
+        },
       },
     },
   };

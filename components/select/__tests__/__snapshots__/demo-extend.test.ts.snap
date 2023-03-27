@@ -2302,25 +2302,17 @@ exports[`renders components/select/demo/debug.tsx extend context correctly 1`] =
             class="ant-select-selection-overflow-item"
             style="opacity: 1;"
           >
-            <span
-              class="ant-select-selection-item"
-              title="Lucy"
-            >
+            <span>
               <span
-                class="ant-select-selection-item-content"
+                class="ant-tag ant-tag-borderless ant-default-select-tag"
+                value="lucy"
               >
                 Lucy
-              </span>
-              <span
-                aria-hidden="true"
-                class="ant-select-selection-item-remove"
-                style="user-select: none;"
-                unselectable="on"
-              >
                 <span
                   aria-label="close"
-                  class="anticon anticon-close"
+                  class="anticon anticon-close ant-tag-close-icon"
                   role="img"
+                  tabindex="-1"
                 >
                   <svg
                     aria-hidden="true"
@@ -2888,25 +2880,17 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
             class="ant-select-selection-overflow-item"
             style="opacity: 1;"
           >
-            <span
-              class="ant-select-selection-item"
-              title="a10"
-            >
+            <span>
               <span
-                class="ant-select-selection-item-content"
+                class="ant-tag ant-tag-borderless ant-default-select-tag"
+                value="a10"
               >
                 a10
-              </span>
-              <span
-                aria-hidden="true"
-                class="ant-select-selection-item-remove"
-                style="user-select: none;"
-                unselectable="on"
-              >
                 <span
                   aria-label="close"
-                  class="anticon anticon-close"
+                  class="anticon anticon-close ant-tag-close-icon"
                   role="img"
+                  tabindex="-1"
                 >
                   <svg
                     aria-hidden="true"
@@ -2929,25 +2913,17 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
             class="ant-select-selection-overflow-item"
             style="opacity: 1;"
           >
-            <span
-              class="ant-select-selection-item"
-              title="c12"
-            >
+            <span>
               <span
-                class="ant-select-selection-item-content"
+                class="ant-tag ant-tag-borderless ant-default-select-tag"
+                value="c12"
               >
                 c12
-              </span>
-              <span
-                aria-hidden="true"
-                class="ant-select-selection-item-remove"
-                style="user-select: none;"
-                unselectable="on"
-              >
                 <span
                   aria-label="close"
-                  class="anticon anticon-close"
+                  class="anticon anticon-close ant-tag-close-icon"
                   role="img"
+                  tabindex="-1"
                 >
                   <svg
                     aria-hidden="true"
@@ -3454,12 +3430,10 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
             class="ant-select-selection-overflow-item"
             style="opacity: 1;"
           >
-            <span
-              class="ant-select-selection-item"
-              title="a10"
-            >
+            <span>
               <span
-                class="ant-select-selection-item-content"
+                class="ant-tag ant-tag-borderless ant-default-select-tag"
+                value="a10"
               >
                 a10
               </span>
@@ -3469,12 +3443,10 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
             class="ant-select-selection-overflow-item"
             style="opacity: 1;"
           >
-            <span
-              class="ant-select-selection-item"
-              title="c12"
-            >
+            <span>
               <span
-                class="ant-select-selection-item-content"
+                class="ant-tag ant-tag-borderless ant-default-select-tag"
+                value="c12"
               >
                 c12
               </span>
@@ -4307,25 +4279,17 @@ exports[`renders components/select/demo/option-label-prop.tsx extend context cor
         class="ant-select-selection-overflow-item"
         style="opacity: 1;"
       >
-        <span
-          class="ant-select-selection-item"
-          title="China"
-        >
+        <span>
           <span
-            class="ant-select-selection-item-content"
+            class="ant-tag ant-tag-borderless ant-default-select-tag"
+            value="china"
           >
             China
-          </span>
-          <span
-            aria-hidden="true"
-            class="ant-select-selection-item-remove"
-            style="user-select: none;"
-            unselectable="on"
-          >
             <span
               aria-label="close"
-              class="anticon anticon-close"
+              class="anticon anticon-close ant-tag-close-icon"
               role="img"
+              tabindex="-1"
             >
               <svg
                 aria-hidden="true"
@@ -7085,25 +7049,17 @@ Array [
               class="ant-select-selection-overflow-item"
               style="opacity: 1;"
             >
-              <span
-                class="ant-select-selection-item"
-                title="a10"
-              >
+              <span>
                 <span
-                  class="ant-select-selection-item-content"
+                  class="ant-tag ant-tag-borderless ant-default-select-tag"
+                  value="a10"
                 >
                   a10
-                </span>
-                <span
-                  aria-hidden="true"
-                  class="ant-select-selection-item-remove"
-                  style="user-select: none;"
-                  unselectable="on"
-                >
                   <span
                     aria-label="close"
-                    class="anticon anticon-close"
+                    class="anticon anticon-close ant-tag-close-icon"
                     role="img"
+                    tabindex="-1"
                   >
                     <svg
                       aria-hidden="true"
@@ -7126,25 +7082,17 @@ Array [
               class="ant-select-selection-overflow-item"
               style="opacity: 1;"
             >
-              <span
-                class="ant-select-selection-item"
-                title="c12"
-              >
+              <span>
                 <span
-                  class="ant-select-selection-item-content"
+                  class="ant-tag ant-tag-borderless ant-default-select-tag"
+                  value="c12"
                 >
                   c12
-                </span>
-                <span
-                  aria-hidden="true"
-                  class="ant-select-selection-item-remove"
-                  style="user-select: none;"
-                  unselectable="on"
-                >
                   <span
                     aria-label="close"
-                    class="anticon anticon-close"
+                    class="anticon anticon-close ant-tag-close-icon"
                     role="img"
+                    tabindex="-1"
                   >
                     <svg
                       aria-hidden="true"
@@ -7625,25 +7573,17 @@ Array [
               class="ant-select-selection-overflow-item"
               style="opacity: 1;"
             >
-              <span
-                class="ant-select-selection-item"
-                title="a10"
-              >
+              <span>
                 <span
-                  class="ant-select-selection-item-content"
+                  class="ant-tag ant-tag-borderless ant-default-select-tag"
+                  value="a10"
                 >
                   a10
-                </span>
-                <span
-                  aria-hidden="true"
-                  class="ant-select-selection-item-remove"
-                  style="user-select: none;"
-                  unselectable="on"
-                >
                   <span
                     aria-label="close"
-                    class="anticon anticon-close"
+                    class="anticon anticon-close ant-tag-close-icon"
                     role="img"
+                    tabindex="-1"
                   >
                     <svg
                       aria-hidden="true"
@@ -7666,25 +7606,17 @@ Array [
               class="ant-select-selection-overflow-item"
               style="opacity: 1;"
             >
-              <span
-                class="ant-select-selection-item"
-                title="c12"
-              >
+              <span>
                 <span
-                  class="ant-select-selection-item-content"
+                  class="ant-tag ant-tag-borderless ant-default-select-tag"
+                  value="c12"
                 >
                   c12
-                </span>
-                <span
-                  aria-hidden="true"
-                  class="ant-select-selection-item-remove"
-                  style="user-select: none;"
-                  unselectable="on"
-                >
                   <span
                     aria-label="close"
-                    class="anticon anticon-close"
+                    class="anticon anticon-close ant-tag-close-icon"
                     role="img"
+                    tabindex="-1"
                   >
                     <svg
                       aria-hidden="true"

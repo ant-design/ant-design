@@ -68,7 +68,7 @@ export interface SelectProps<
 const SECRET_COMBOBOX_MODE_DO_NOT_USE = 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
 
 const defaultTagRender = ({ label, ...rest }: CustomTagProps) => (
-  <Tag {...rest} bordered={false}>
+  <Tag {...rest} className="ant-default-select-tag" bordered={false}>
     {label}
   </Tag>
 );
@@ -191,12 +191,12 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
   );
 
   // ===================== Placement =====================
-  const getPlacement = (): SelectCommonPlacement => {
+  const memoPlacement = React.useMemo<SelectCommonPlacement>(() => {
     if (placement !== undefined) {
       return placement;
     }
     return direction === 'rtl' ? 'bottomRight' : 'bottomLeft';
-  };
+  }, [placement, direction]);
 
   // ====================== Warning ======================
   if (process.env.NODE_ENV !== 'production') {
@@ -210,7 +210,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
   // ====================== Render =======================
   return wrapSSR(
     <RcSelect<any, any>
-      ref={ref as any}
+      ref={ref}
       virtual={virtual}
       dropdownMatchSelectWidth={dropdownMatchSelectWidth}
       showSearch={select?.showSearch}
@@ -222,9 +222,9 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
       )}
       listHeight={listHeight}
       listItemHeight={listItemHeight}
-      mode={mode as any}
+      mode={mode}
       prefixCls={prefixCls}
-      placement={getPlacement()}
+      placement={memoPlacement}
       direction={direction}
       inputIcon={suffixIcon}
       menuItemSelectedIcon={itemIcon}
