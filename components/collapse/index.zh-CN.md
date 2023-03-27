@@ -16,23 +16,12 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*sir-TK0HkWcAAA
 
 ```jsx
 // >=5.4.0 可用，推荐的写法 ✅
-return (
-  <Collapse
-    items={[
-      { key: '1', header: 'My header 1', content: 'Ant Design Collapse 1' },
-      { key: '2', header: 'My header 2', content: 'Ant Design Collapse 2' },
-    ]}
-  />
-);
+return <Collapse items={[{ header: 'My header', content: 'Ant Design Collapse' }]} />;
+
 // <5.4.0 可用，>=5.4.0 时不推荐 🙅🏻‍♀️
 return (
   <Collapse>
-    <Collapse.Panel key="1" header="My header 1">
-      Ant Design Collapse 1
-    </Collapse.Panel>
-    <Collapse.Panel key="2" header="My header 2">
-      Ant Design Collapse 2
-    </Collapse.Panel>
+    <Collapse.Panel header="My header">Ant Design Collapse</Collapse.Panel>
   </Collapse>
 );
 ```
@@ -67,6 +56,7 @@ return (
 | expandIconPosition | 设置图标位置 | `start` \| `end` | - | 4.21.0 |
 | ghost | 使折叠面板透明且无边框 | boolean | false | 4.4.0 |
 | size | 设置折叠面板大小 | `large` \| `middle` \| `small` | `middle` | 5.2.0 |
+| items | 折叠内容 | - | 5.4.0 |
 | onChange | 切换面板的回调 | function | - |  |
 
 ### Collapse.Panel

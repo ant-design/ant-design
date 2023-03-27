@@ -15,23 +15,12 @@ A content area which can be collapsed and expanded.
 
 ```jsx
 // works when >=5.4.0, recommended ✅
-return (
-  <Collapse
-    items={[
-      { key: '1', header: 'My header 1', content: 'Ant Design Collapse 1' },
-      { key: '2', header: 'My header 2', content: 'Ant Design Collapse 2' },
-    ]}
-  />
-);
+return <Collapse items={[{ header: 'My header', content: 'Ant Design Collapse' }]} />;
+
 // works when <5.4.0, deprecated when >=5.4.0 🙅🏻‍♀️
 return (
   <Collapse>
-    <Collapse.Panel key="1" header="My header 1">
-      Ant Design Collapse 1
-    </Collapse.Panel>
-    <Collapse.Panel key="2" header="My header 2">
-      Ant Design Collapse 2
-    </Collapse.Panel>
+    <Collapse.Panel header="My header">Ant Design Collapse</Collapse.Panel>
   </Collapse>
 );
 ```
@@ -66,6 +55,7 @@ return (
 | expandIconPosition | Set expand icon position | `start` \| `end` | - | 4.21.0 |
 | ghost | Make the collapse borderless and its background transparent | boolean | false | 4.4.0 |
 | size | Set the size of collapse | `large` \| `middle` \| `small` | `middle` | 5.2.0 |
+| items | Collapse item content | - | 5.4.0 |
 | onChange | Callback function executed when active panel is changed | function | - |  |
 
 ### Collapse.Panel
