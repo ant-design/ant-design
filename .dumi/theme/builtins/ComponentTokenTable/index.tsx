@@ -58,13 +58,18 @@ function SubTokenTable({ defaultOpen, tokens, title }: SubTokenTableProps) {
     .map((name) => {
       const meta = tokenMeta[name];
 
+      if (!meta) {
+        return null;
+      }
+
       return {
         name,
         desc: lang === 'cn' ? meta.desc : meta.descEn,
         type: meta.type,
         value: (defaultToken as any)[name],
       };
-    });
+    })
+    .filter((info) => info);
 
   return (
     // Reuse `.markdown` style
@@ -97,12 +102,32 @@ export interface ComponentTokenTableProps {
 }
 
 function ComponentTokenTable({ component }: ComponentTokenTableProps) {
-  const { global: globalTokens = [], component: componentTokens = [] } = tokenData[component] || {};
+  const [mergedGlobalTokens] = React.useMemo(() => {
+    const globalTokenSet = new Set<string>();
+    let componentTokens: Record<string, string> = {};
+
+    component.split(',').forEach((comp) => {
+      const { global: globalTokens = [], component: singleComponentTokens = [] } =
+        tokenData[comp] || {};
+
+      globalTokens.forEach((token: string) => {
+        globalTokenSet.add(token);
+      });
+
+      componentTokens = {
+        ...componentTokens,
+        ...singleComponentTokens,
+      };
+    });
+
+    return [Array.from(globalTokenSet), componentTokens];
+  }, [component]);
 
   return (
     <>
-      <SubTokenTable title="Component Token" tokens={componentTokens} defaultOpen />
-      <SubTokenTable title="Global Token" tokens={globalTokens} />
+      {/* Component Token 先不展示 */}
+      {/* <SubTokenTable title="Component Token" tokens={mergedComponentTokens} defaultOpen /> */}
+      <SubTokenTable title="Global Token" tokens={mergedGlobalTokens} />
     </>
   );
 }

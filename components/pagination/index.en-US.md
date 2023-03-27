@@ -55,3 +55,7 @@ A long list can be divided into several pages using `Pagination`, and only one p
 | total | Total number of data items | number | 0 |  |
 | onChange | Called when the page number or `pageSize` is changed, and it takes the resulting page number and pageSize as its arguments | function(page, pageSize) | - |  |
 | onShowSizeChange | Called when `pageSize` is changed | function(current, size) | - |  |
+
+## Design Token
+
+<ComponentTokenTable component="Pagination"></ComponentTokenTable>
