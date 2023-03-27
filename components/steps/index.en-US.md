@@ -79,3 +79,7 @@ A single step in the step bar.
 | status | To specify the status. It will be automatically set by `current` of `Steps` if not configured. Optional values are: `wait` `process` `finish` `error` | string | `wait` |  |
 | subTitle | Subtitle of the step | ReactNode | - |  |
 | title | Title of the step | ReactNode | - |  |
+
+## Design Token
+
+<ComponentTokenTable component="Steps"></ComponentTokenTable>
