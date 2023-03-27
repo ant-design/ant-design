@@ -52,6 +52,7 @@ demo:
 | addonBefore | 带标签的 input，设置前置标签 | ReactNode | - |  |
 | allowClear | 可以点击清除图标删除内容 | boolean \| { clearIcon: ReactNode } | - |  |
 | bordered | 是否有边框 | boolean | true | 4.5.0 |
+| classNames |  | boolean | - | 5.4.0 |
 | defaultValue | 输入框默认内容 | string | - |  |
 | disabled | 是否禁用状态，默认为 false | boolean | false |  |
 | id | 输入框的 id | string | - |  |
@@ -116,6 +117,24 @@ Input 的其他属性和 React 自带的 [input](https://reactjs.org/docs/dom-el
 | --- | --- | --- | --- |
 | blur | 取消焦点 | - |  |
 | focus | 获取焦点 | (option?: { preventScroll?: boolean, cursor?: 'start' \| 'end' \| 'all' }) | option - 4.10.0 |
+
+### Semantic DOM
+
+#### Input
+
+| 名称   | 说明               | 版本  |
+| ------ | ------------------ | ----- |
+| input  | `input` 元素       | 5.4.0 |
+| prefix | 所有前缀的包裹元素 | 5.4.0 |
+| suffix | 所有后缀的包裹元素 | 5.4.0 |
+| count  | 文字计数元素       | 5.4.0 |
+
+#### Input.TextArea
+
+| 名称     | 说明            | 版本  |
+| -------- | --------------- | ----- |
+| textarea | `textarea` 元素 | 5.4.0 |
+| count    | 文字计数元素    | 5.4.0 |
 
 ## FAQ
 
