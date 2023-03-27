@@ -102,7 +102,7 @@ const CodePreviewer: React.FC<IPreviewerProps> = (props) => {
     style,
     compact,
     background,
-    filePath,
+    filename,
     version,
     clientOnly,
   } = props;
@@ -399,7 +399,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
               {localizedTitle}
             </a>
           </Tooltip>
-          <EditButton title={<FormattedMessage id="app.content.edit-demo" />} filename={filePath} />
+          <EditButton title={<FormattedMessage id="app.content.edit-demo" />} filename={filename} />
         </div>
         <div className="code-box-description">{introChildren}</div>
         <Space wrap size="middle" className="code-box-actions">
