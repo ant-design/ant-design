@@ -211,7 +211,7 @@ describe('Collapse', () => {
     });
   });
 
-  it.only('should render a items', () => {
+  it('should render a items', () => {
     const itemClick = jest.fn();
 
     const items: ItemType[] = [
@@ -223,13 +223,12 @@ describe('Collapse', () => {
       {
         header: 'My header 2',
         content: 'Ant Design Collapse 2',
-        expandIcon: () => 'icon',
       },
       {
         header: 'My header 3',
         content: 'Ant Design Collapse 3',
         extra: 'extra',
-        disabled: true,
+        collapsible: 'disabled',
         onItemClick: itemClick,
       },
     ];

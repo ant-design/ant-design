@@ -24,15 +24,13 @@ export type ExpandIconPosition = 'start' | 'end' | ExpandIconPositionLegacy | un
 
 export type ItemType = Pick<
   CollapsePanelProps,
-  | 'expandIcon'
   | 'header'
   | 'extra'
-  | 'disabled'
+  // | 'disabled' /** FIXME: deprecated, need export? */
   | 'collapsible'
+  | 'showArrow'
   | 'onItemClick'
-  // css motion
   | 'forceRender'
-  | 'destroyInactivePanel'
 > & {
   key?: React.Key;
   content?: React.ReactNode;
