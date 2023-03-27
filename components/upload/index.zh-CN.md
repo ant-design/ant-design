@@ -51,7 +51,7 @@ demo:
 | accept | 接受上传的文件类型, 详见 [input accept Attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept) | string | - |  |
 | action | 上传的地址 | string \| (file) => Promise&lt;string> | - |  |
 | beforeUpload | 上传文件之前的钩子，参数为上传的文件，若返回 `false` 则停止上传。支持返回一个 Promise 对象，Promise 对象 reject 时则停止上传，resolve 时开始上传（ resolve 传入 `File` 或 `Blob` 对象则上传 resolve 传入对象）；也可以返回 `Upload.LIST_IGNORE`，此时列表中将不展示此文件。 **注意：IE9 不支持该方法** | (file, fileList) => boolean \| Promise&lt;File> \| `Upload.LIST_IGNORE` | - |  |
-| customRequest | 通过覆盖默认的上传行为，可以自定义自己的上传实现 | function | - |  |
+| customRequest | 通过覆盖默认的上传行为，可以自定义自己的上传实现，示例：[自定义请求](#components-upload-demo-custom-request) | function | - |  |
 | data | 上传所需额外参数或返回上传额外参数的方法 | object\|(file) => object \| Promise&lt;object> | - |  |
 | defaultFileList | 默认已经上传的文件列表 | object\[] | - |  |
 | directory | 支持上传文件夹（[caniuse](https://caniuse.com/#feat=input-file-directory)） | boolean | false |  |
@@ -134,7 +134,7 @@ demo:
 
 ### `customRequest` 怎么使用？
 
-请参考 <https://github.com/react-component/upload#customrequest>。
+请参考 [自定义请求示例](#components-upload-demo-custom-request)，了解 API 细节：https://github.com/react-component/upload#customrequest。
 
 ### 为何 `fileList` 受控时，上传不在列表中的文件不会触发 `onChange` 后续的 `status` 更新事件？
 
