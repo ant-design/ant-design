@@ -5,7 +5,7 @@ const App: React.FC = () => {
   const { token } = theme.useToken();
   return (
     <div style={{ backgroundColor: token.colorBgLayout, padding: 16 }}>
-      <Space size="small" wrap>
+      <Space size={[0, 'small']} wrap>
         <Tag bordered={false}>Tag 1</Tag>
         <Tag bordered={false}>Tag 2</Tag>
         <Tag bordered={false} closable>
@@ -16,7 +16,7 @@ const App: React.FC = () => {
         </Tag>
       </Space>
       <Divider />
-      <Space size="small" wrap>
+      <Space size={[0, 'small']} wrap>
         <Tag bordered={false} color="magenta">
           magenta
         </Tag>
