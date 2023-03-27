@@ -6,7 +6,7 @@ type RetryOptions = {
   delay: number;
 };
 
-type FetchWithRetryOptions = {
+export type FetchWithRetryOptions = {
   retry?: number | RetryOptions;
 } & RequestInit;
 
