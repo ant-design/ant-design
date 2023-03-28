@@ -20,8 +20,8 @@ timeline: true
 `2023-3-28`
 
 - Menu
-  - 🆕 MenuItem support for customized `key`. [#41434](https://github.com/ant-design/ant-design/pull/41434) [@Yuiai01](https://github.com/Yuiai01)
-  - 🐞 Fix submenu themes being overwritten when using getPopupContainer to select the main Menu. [#41465](https://github.com/ant-design/ant-design/pull/41465) [@Yuiai01](https://github.com/Yuiai01)
+  - 🐞 Fix Menu `items` not accept `key` issue. [#41434](https://github.com/ant-design/ant-design/pull/41434) [@Yuiai01](https://github.com/Yuiai01)
+  - 🐞 Fix submenu themes being overwritten when using `getPopupContainer` to select the main Menu. [#41465](https://github.com/ant-design/ant-design/pull/41465) [@Yuiai01](https://github.com/Yuiai01)
 - 🐞 Fix Table filter do not persist filter status when filter dropdown is visible. [#41445](https://github.com/ant-design/ant-design/pull/41445) [@ablakey](https://github.com/ablakey)
 - 🐞 Fix Modal using `useModal` is not transparent and prefers user settings. [#41422](https://github.com/ant-design/ant-design/pull/41422) [@luo3house](https://github.com/luo3house)
 - Form

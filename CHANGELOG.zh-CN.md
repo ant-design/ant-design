@@ -20,7 +20,7 @@ timeline: true
 `2023-3-28`
 
 - Menu
-  - 🆕 MenuItem 支持自定义 `key`。[#41434](https://github.com/ant-design/ant-design/pull/41434) [@Yuiai01](https://github.com/Yuiai01)
+  - 🐞 修复 Menu `items` 没有使用传入的 `key` 的问题。[#41434](https://github.com/ant-design/ant-design/pull/41434) [@Yuiai01](https://github.com/Yuiai01)
   - 🐞 修复 Menu 使用 `getPopupContainer` 选择主菜单时子菜单主题被覆盖。[#41465](https://github.com/ant-design/ant-design/pull/41465) [@Yuiai01](https://github.com/Yuiai01)
 - 🐞 修复 Table 过滤器未保持状态当筛选下拉框展示时。[#41445](https://github.com/ant-design/ant-design/pull/41445) [@ablakey](https://github.com/ablakey)
 - 🐞 修复 Modal 使用 `useModal` 未透传并优先选择用户设定。[#41422](https://github.com/ant-design/ant-design/pull/41422) [@luo3house](https://github.com/luo3house)
