@@ -65,18 +65,6 @@ module.exports = {
       其他: 6,
       废弃: 7,
     },
-    docVersions: {
-      '2.x': 'http://2x.ant.design',
-      '1.x': 'http://1x.ant.design',
-      '0.12.x': 'http://012x.ant.design',
-      '0.11.x': 'http://011x.ant.design',
-      '0.10.x': 'http://010x.ant.design',
-      '0.9.x': 'http://09x.ant.design',
-    },
-    docNewVersions: {
-      '5.x': 'https://ant.design',
-      '4.x': 'http://4x.ant.design',
-    }
   },
   filePathMapper(filePath) {
     if (filePath === '/index.html') {
