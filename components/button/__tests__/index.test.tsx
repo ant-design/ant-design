@@ -161,6 +161,13 @@ describe('Button', () => {
     expect(wrapper.container.firstChild).not.toHaveClass('ant-btn-loading');
   });
 
+  it('should support custom icon  className', () => {
+    const wrapper = render(
+      <Button type="primary" icon={<SearchOutlined />} classNames={{ icon: 'custom-icon' }} />,
+    );
+    expect(wrapper.container.querySelectorAll('.custom-icon').length).toBe(1);
+  });
+
   it('reset when loading back of delay', () => {
     jest.useFakeTimers();
     const { rerender, container } = render(<Button loading={{ delay: 1000 }} />);

@@ -5,6 +5,9 @@ exports[`Button fixbug renders {0} , 0 and {false} 1`] = `
   class="ant-btn ant-btn-default"
   type="button"
 >
+  <span
+    class=""
+  />
   0
 </button>
 `;
@@ -14,6 +17,9 @@ exports[`Button fixbug renders {0} , 0 and {false} 2`] = `
   class="ant-btn ant-btn-default"
   type="button"
 >
+  <span
+    class=""
+  />
   <span>
     0
   </span>
@@ -24,7 +30,11 @@ exports[`Button fixbug renders {0} , 0 and {false} 3`] = `
 <button
   class="ant-btn ant-btn-default"
   type="button"
-/>
+>
+  <span
+    class=""
+  />
+</button>
 `;
 
 exports[`Button renders Chinese characters correctly 1`] = `
@@ -32,6 +42,9 @@ exports[`Button renders Chinese characters correctly 1`] = `
   class="ant-btn ant-btn-default"
   type="button"
 >
+  <span
+    class=""
+  />
   <span>
     按 钮
   </span>
@@ -44,23 +57,27 @@ exports[`Button renders Chinese characters correctly 2`] = `
   type="button"
 >
   <span
-    aria-label="search"
-    class="anticon anticon-search"
-    role="img"
+    class=""
   >
-    <svg
-      aria-hidden="true"
-      data-icon="search"
-      fill="currentColor"
-      focusable="false"
-      height="1em"
-      viewBox="64 64 896 896"
-      width="1em"
+    <span
+      aria-label="search"
+      class="anticon anticon-search"
+      role="img"
     >
-      <path
-        d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
-      />
-    </svg>
+      <svg
+        aria-hidden="true"
+        data-icon="search"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+        />
+      </svg>
+    </span>
   </span>
   <span>
     按钮
@@ -73,6 +90,9 @@ exports[`Button renders Chinese characters correctly 3`] = `
   class="ant-btn ant-btn-default"
   type="button"
 >
+  <span
+    class=""
+  />
   <span
     aria-label="search"
     class="anticon anticon-search"
@@ -104,23 +124,27 @@ exports[`Button renders Chinese characters correctly 4`] = `
   type="button"
 >
   <span
-    aria-label="search"
-    class="anticon anticon-search"
-    role="img"
+    class=""
   >
-    <svg
-      aria-hidden="true"
-      data-icon="search"
-      fill="currentColor"
-      focusable="false"
-      height="1em"
-      viewBox="64 64 896 896"
-      width="1em"
+    <span
+      aria-label="search"
+      class="anticon anticon-search"
+      role="img"
     >
-      <path
-        d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
-      />
-    </svg>
+      <svg
+        aria-hidden="true"
+        data-icon="search"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+        />
+      </svg>
+    </span>
   </span>
   <span>
     按钮
@@ -134,26 +158,30 @@ exports[`Button renders Chinese characters correctly 5`] = `
   type="button"
 >
   <span
-    class="ant-btn-loading-icon"
+    class=""
   >
     <span
-      aria-label="loading"
-      class="anticon anticon-loading anticon-spin"
-      role="img"
+      class="ant-btn-loading-icon"
     >
-      <svg
-        aria-hidden="true"
-        data-icon="loading"
-        fill="currentColor"
-        focusable="false"
-        height="1em"
-        viewBox="0 0 1024 1024"
-        width="1em"
+      <span
+        aria-label="loading"
+        class="anticon anticon-loading anticon-spin"
+        role="img"
       >
-        <path
-          d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-        />
-      </svg>
+        <svg
+          aria-hidden="true"
+          data-icon="loading"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
+          />
+        </svg>
+      </span>
     </span>
   </span>
   <span>
@@ -168,27 +196,31 @@ exports[`Button renders Chinese characters correctly 6`] = `
   type="button"
 >
   <span
-    class="ant-btn-loading-icon"
-    style="width: 0px; opacity: 0; transform: scale(0);"
+    class=""
   >
     <span
-      aria-label="loading"
-      class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-start ant-btn-loading-icon-motion"
-      role="img"
+      class="ant-btn-loading-icon"
+      style="width: 0px; opacity: 0; transform: scale(0);"
     >
-      <svg
-        aria-hidden="true"
-        data-icon="loading"
-        fill="currentColor"
-        focusable="false"
-        height="1em"
-        viewBox="0 0 1024 1024"
-        width="1em"
+      <span
+        aria-label="loading"
+        class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-start ant-btn-loading-icon-motion"
+        role="img"
       >
-        <path
-          d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-        />
-      </svg>
+        <svg
+          aria-hidden="true"
+          data-icon="loading"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
+          />
+        </svg>
+      </span>
     </span>
   </span>
   <span>
@@ -202,6 +234,9 @@ exports[`Button renders Chinese characters correctly 7`] = `
   class="ant-btn ant-btn-default"
   type="button"
 >
+  <span
+    class=""
+  />
   <span>
     按 钮
   </span>
@@ -213,6 +248,9 @@ exports[`Button renders correctly 1`] = `
   class="ant-btn ant-btn-default"
   type="button"
 >
+  <span
+    class=""
+  />
   <span>
     Follow
   </span>
@@ -223,21 +261,33 @@ exports[`Button rtl render component should be rendered correctly in RTL directi
 <button
   class="ant-btn ant-btn-default ant-btn-rtl"
   type="button"
-/>
+>
+  <span
+    class=""
+  />
+</button>
 `;
 
 exports[`Button rtl render component should be rendered correctly in RTL direction 2`] = `
 <button
   class="ant-btn ant-btn-default ant-btn-lg ant-btn-rtl"
   type="button"
-/>
+>
+  <span
+    class=""
+  />
+</button>
 `;
 
 exports[`Button rtl render component should be rendered correctly in RTL direction 3`] = `
 <button
   class="ant-btn ant-btn-default ant-btn-sm ant-btn-rtl"
   type="button"
-/>
+>
+  <span
+    class=""
+  />
+</button>
 `;
 
 exports[`Button rtl render component should be rendered correctly in RTL direction 4`] = `
@@ -269,6 +319,9 @@ exports[`Button should handle fragment as children 1`] = `
   class="ant-btn ant-btn-default"
   type="button"
 >
+  <span
+    class=""
+  />
   <span>
     text
   </span>
@@ -280,6 +333,9 @@ exports[`Button should merge text if children using variable 1`] = `
   class="ant-btn ant-btn-default"
   type="button"
 >
+  <span
+    class=""
+  />
   <span>
     This is a test 1
   </span>
@@ -291,6 +347,9 @@ exports[`Button should not render as link button when href is undefined 1`] = `
   class="ant-btn ant-btn-primary"
   type="button"
 >
+  <span
+    class=""
+  />
   <span>
     button
   </span>
@@ -301,7 +360,11 @@ exports[`Button should render empty button without errors 1`] = `
 <button
   class="ant-btn ant-btn-default"
   type="button"
-/>
+>
+  <span
+    class=""
+  />
+</button>
 `;
 
 exports[`Button should support link button 1`] = `
@@ -310,6 +373,9 @@ exports[`Button should support link button 1`] = `
   href="https://ant.design"
   target="_blank"
 >
+  <span
+    class=""
+  />
   <span>
     link button
   </span>

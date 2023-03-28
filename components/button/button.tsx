@@ -39,6 +39,7 @@ export interface BaseButtonProps {
   danger?: boolean;
   block?: boolean;
   children?: React.ReactNode;
+  classNames?: { icon: string };
 }
 
 export type AnchorButtonProps = {
@@ -107,11 +108,13 @@ const InternalButton: React.ForwardRefRenderFunction<
     block = false,
     // React does not recognize the `htmlType` prop on a DOM element. Here we pick it out of `rest`.
     htmlType = 'button',
+    classNames: customClassNames = { icon: '' },
     ...rest
   } = props;
 
   const { getPrefixCls, autoInsertSpaceInButton, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('btn', customizePrefixCls);
+  const { icon: iconClassName } = customClassNames;
 
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
@@ -232,6 +235,7 @@ const InternalButton: React.ForwardRefRenderFunction<
     ) : (
       <LoadingIcon existIcon={!!icon} prefixCls={prefixCls} loading={!!innerLoading} />
     );
+  const mergedIconNode = iconNode ? <span className={iconClassName}>{iconNode}</span> : null;
 
   const kids =
     children || children === 0
@@ -241,7 +245,7 @@ const InternalButton: React.ForwardRefRenderFunction<
   if (linkButtonRestProps.href !== undefined) {
     return wrapSSR(
       <a {...linkButtonRestProps} className={classes} onClick={handleClick} ref={buttonRef}>
-        {iconNode}
+        {mergedIconNode}
         {kids}
       </a>,
     );
@@ -256,7 +260,7 @@ const InternalButton: React.ForwardRefRenderFunction<
       disabled={mergedDisabled}
       ref={buttonRef}
     >
-      {iconNode}
+      {mergedIconNode}
       {kids}
     </button>
   );

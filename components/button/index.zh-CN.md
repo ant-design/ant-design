@@ -39,6 +39,7 @@ group:
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">按钮类型</code>
 <code src="./demo/icon.tsx">图标按钮</code>
+<code src="./demo/classNames.tsx">icon自定义className</code>
 <code src="./demo/debug-icon.tsx" debug>调试图标按钮</code>
 <code src="./demo/debug-block.tsx" debug>调试按钮block属性</code>
 <code src="./demo/size.tsx">按钮尺寸</code>
@@ -72,6 +73,7 @@ group:
 | target | 相当于 a 链接的 target 属性，href 存在时生效 | string | - |  |
 | type | 设置按钮类型 | `primary` \| `ghost` \| `dashed` \| `link` \| `text` \| `default` | `default` |  |
 | onClick | 点击按钮时的回调 | (event: MouseEvent) => void | - |  |
+| classNames | 自定义 className | { icon: string } | - |  |
 
 支持原生 button 的其他所有属性。
 
