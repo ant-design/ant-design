@@ -18,6 +18,7 @@ import formatToken from './util/alias';
 import type { FullToken } from './util/genComponentStyleHook';
 import genComponentStyleHook from './util/genComponentStyleHook';
 import statisticToken, { merge as mergeToken, statistic } from './util/statistic';
+import genPresetColor from './util/genPresetColor';
 
 const defaultTheme = createTheme(defaultDerivative);
 
@@ -31,6 +32,7 @@ export {
   // hooks
   useStyleRegister,
   genComponentStyleHook,
+  genPresetColor,
 };
 export type {
   SeedToken,
