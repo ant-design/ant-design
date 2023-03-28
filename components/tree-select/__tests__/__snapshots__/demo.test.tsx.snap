@@ -134,25 +134,17 @@ exports[`renders components/tree-select/demo/checkable.tsx correctly 1`] = `
         class="ant-select-selection-overflow-item"
         style="opacity:1"
       >
-        <span
-          class="ant-select-selection-item"
-          title="Node1"
-        >
+        <span>
           <span
-            class="ant-select-selection-item-content"
+            class="ant-tag ant-tag-borderless ant-select-tag"
+            value="0-0"
           >
             Node1
-          </span>
-          <span
-            aria-hidden="true"
-            class="ant-select-selection-item-remove"
-            style="user-select:none;-webkit-user-select:none"
-            unselectable="on"
-          >
             <span
               aria-label="close"
-              class="anticon anticon-close"
+              class="anticon anticon-close ant-tag-close-icon"
               role="img"
+              tabindex="-1"
             >
               <svg
                 aria-hidden="true"

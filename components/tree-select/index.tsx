@@ -1,32 +1,32 @@
 import classNames from 'classnames';
 import type { BaseSelectRef } from 'rc-select';
+import type { Placement } from 'rc-select/lib/BaseSelect';
 import type { TreeSelectProps as RcTreeSelectProps } from 'rc-tree-select';
 import RcTreeSelect, { SHOW_ALL, SHOW_CHILD, SHOW_PARENT, TreeNode } from 'rc-tree-select';
 import type { BaseOptionType, DefaultOptionType } from 'rc-tree-select/lib/TreeSelect';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
-import type { Placement } from 'rc-select/lib/BaseSelect';
+import genPurePanel from '../_util/PurePanel';
+import type { SelectCommonPlacement } from '../_util/motion';
+import { getTransitionDirection, getTransitionName } from '../_util/motion';
+import genDefaultRender from '../_util/selectDefaultRender';
+import type { InputStatus } from '../_util/statusUtils';
+import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
+import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
-import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import DisabledContext from '../config-provider/DisabledContext';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
+import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import { FormItemInputContext } from '../form/context';
-import genPurePanel from '../_util/PurePanel';
 import useSelectStyle from '../select/style';
+import useShowArrow from '../select/useShowArrow';
 import getIcons from '../select/utils/iconUtil';
+import { useCompactItemContext } from '../space/Compact';
 import type { AntTreeNodeProps, TreeProps } from '../tree';
 import type { SwitcherIcon } from '../tree/Tree';
 import renderSwitcherIcon from '../tree/utils/iconUtil';
-import type { SelectCommonPlacement } from '../_util/motion';
-import { getTransitionDirection, getTransitionName } from '../_util/motion';
-import type { InputStatus } from '../_util/statusUtils';
-import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
-import { useCompactItemContext } from '../space/Compact';
-import warning from '../_util/warning';
-
 import useStyle from './style';
-import useShowArrow from '../select/useShowArrow';
 
 type RawValue = string | number;
 
@@ -91,6 +91,7 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
     status: customStatus,
     showArrow,
     treeExpandAction,
+    tagRender,
     ...props
   }: TreeSelectProps<OptionType>,
   ref: React.Ref<BaseSelectRef>,
@@ -124,6 +125,8 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
   const treePrefixCls = getPrefixCls('select-tree', customizePrefixCls);
   const treeSelectPrefixCls = getPrefixCls('tree-select', customizePrefixCls);
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
+
+  const mergedTagRender = tagRender ?? genDefaultRender(rootPrefixCls);
 
   const [wrapSelectSSR, hashId] = useSelectStyle(prefixCls);
   const [wrapTreeSelectSSR] = useStyle(treeSelectPrefixCls, treePrefixCls);
@@ -212,7 +215,7 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
       dropdownMatchSelectWidth={dropdownMatchSelectWidth}
       disabled={mergedDisabled}
       {...selectProps}
-      ref={ref as any}
+      ref={ref}
       prefixCls={prefixCls}
       className={mergedClassName}
       listHeight={listHeight}
@@ -222,7 +225,8 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
       }
       treeLine={!!treeLine}
       inputIcon={suffixIcon}
-      multiple={multiple}
+      multiple={isMultiple}
+      tagRender={isMultiple ? mergedTagRender : undefined}
       placement={memoizedPlacement}
       removeIcon={removeIcon}
       clearIcon={clearIcon}

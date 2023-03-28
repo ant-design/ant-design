@@ -2,29 +2,27 @@
 import classNames from 'classnames';
 import type { BaseSelectRef, SelectProps as RcSelectProps } from 'rc-select';
 import RcSelect, { OptGroup, Option } from 'rc-select';
-import type { CustomTagProps } from 'rc-select/lib/BaseSelect';
 import type { OptionProps } from 'rc-select/lib/Option';
 import type { BaseOptionType, DefaultOptionType } from 'rc-select/lib/Select';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
+import genPurePanel from '../_util/PurePanel';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionDirection, getTransitionName } from '../_util/motion';
+import genDefaultRender from '../_util/selectDefaultRender';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
+import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import { FormItemInputContext } from '../form/context';
-import getIcons from './utils/iconUtil';
-
-import genPurePanel from '../_util/PurePanel';
-import warning from '../_util/warning';
 import { useCompactItemContext } from '../space/Compact';
-import Tag from '../tag';
 import useStyle from './style';
 import useShowArrow from './useShowArrow';
+import getIcons from './utils/iconUtil';
 
 type RawValue = string | number;
 
@@ -66,13 +64,6 @@ export interface SelectProps<
 }
 
 const SECRET_COMBOBOX_MODE_DO_NOT_USE = 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
-
-const genRender = (rootCls: string) => ({ label, ...rest }: CustomTagProps) =>
-  (
-    <Tag {...rest} className={`${rootCls}-select-tag`} bordered={false}>
-      {label}
-    </Tag>
-  );
 
 const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType>(
   {
@@ -138,7 +129,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     feedbackIcon,
   } = React.useContext(FormItemInputContext);
 
-  const mergedTagRender = tagRender || genRender(rootPrefixCls);
+  const mergedTagRender = tagRender ?? genDefaultRender(rootPrefixCls);
 
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
