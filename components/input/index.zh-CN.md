@@ -52,12 +52,14 @@ demo:
 | addonBefore | 带标签的 input，设置前置标签 | ReactNode | - |  |
 | allowClear | 可以点击清除图标删除内容 | boolean \| { clearIcon: ReactNode } | - |  |
 | bordered | 是否有边框 | boolean | true | 4.5.0 |
+| classNames | 语义化结构 class | Record<[SemanticDOM](#input-1), string> | - | 5.4.0 |
 | defaultValue | 输入框默认内容 | string | - |  |
 | disabled | 是否禁用状态，默认为 false | boolean | false |  |
 | id | 输入框的 id | string | - |  |
 | maxLength | 最大长度 | number | - |  |
 | showCount | 是否展示字数 | boolean \| { formatter: (info: { value: string, count: number, maxLength?: number }) => ReactNode } | false | 4.18.0 info.value: 4.23.0 |
 | status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
+| styles | 语义化结构 style | Record<[SemanticDOM](#input-1), CSSProperties> | - | 5.4.0 |
 | prefix | 带有前缀图标的 input | ReactNode | - |  |
 | size | 控件大小。注：标准表单内的输入框大小限制为 `middle` | `large` \| `middle` \| `small` | - |  |
 | suffix | 带有后缀图标的 input | ReactNode | - |  |
@@ -77,9 +79,11 @@ Input 的其他属性和 React 自带的 [input](https://reactjs.org/docs/dom-el
 | allowClear | 可以点击清除图标删除内容 | boolean | false |  |
 | autoSize | 自适应内容高度，可设置为 true \| false 或对象：{ minRows: 2, maxRows: 6 } | boolean \| object | false |  |
 | bordered | 是否有边框 | boolean | true | 4.5.0 |
+| classNames | 语义化结构 class | Record<[SemanticDOM](#inputtextarea-1), string> | - | 5.4.0 |
 | defaultValue | 输入框默认内容 | string | - |  |
 | maxLength | 内容最大长度 | number | - | 4.7.0 |
 | showCount | 是否展示字数 | boolean \| { formatter: (info: { value: string, count: number, maxLength?: number }) => string } | false | 4.7.0 formatter: 4.10.0 info.value: 4.23.0 |
+| styles | 语义化结构 style | Record<[SemanticDOM](#inputtextarea-1), CSSProperties> | - | 5.4.0 |
 | value | 输入框内容 | string | - |  |
 | onPressEnter | 按下回车的回调 | function(e) | - |  |
 | onResize | resize 回调 | function({ width, height }) | - |  |
@@ -116,6 +120,24 @@ Input 的其他属性和 React 自带的 [input](https://reactjs.org/docs/dom-el
 | --- | --- | --- | --- |
 | blur | 取消焦点 | - |  |
 | focus | 获取焦点 | (option?: { preventScroll?: boolean, cursor?: 'start' \| 'end' \| 'all' }) | option - 4.10.0 |
+
+### Semantic DOM
+
+#### Input
+
+| 名称   | 说明               | 版本  |
+| ------ | ------------------ | ----- |
+| input  | `input` 元素       | 5.4.0 |
+| prefix | 所有前缀的包裹元素 | 5.4.0 |
+| suffix | 所有后缀的包裹元素 | 5.4.0 |
+| count  | 文字计数元素       | 5.4.0 |
+
+#### Input.TextArea
+
+| 名称     | 说明            | 版本  |
+| -------- | --------------- | ----- |
+| textarea | `textarea` 元素 | 5.4.0 |
+| count    | 文字计数元素    | 5.4.0 |
 
 ## FAQ
 
