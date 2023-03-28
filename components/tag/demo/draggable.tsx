@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import type { ChangeEvent, FC } from 'react';
-import { Tag, Input, Typography } from 'antd';
+import { Tag, Input } from 'antd';
 import { DndContext, PointerSensor, useSensor, useSensors } from '@dnd-kit/core';
 import {
   arrayMove,
@@ -11,8 +11,6 @@ import {
 import { PlusOutlined } from '@ant-design/icons';
 import type { InputRef } from 'antd';
 import type { DragEndEvent } from '@dnd-kit/core/dist/types/index';
-
-const { Text } = Typography;
 
 type Item = {
   id: number;
@@ -55,8 +53,6 @@ const DraggableTag: FC<DraggableTagProps> = (props) => {
         transition,
       }
     : commonStyle;
-
-  const isLongTag = tag.text.length > 20;
 
   const handleEditInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEditInputValue(e.target.value);
@@ -102,12 +98,7 @@ const DraggableTag: FC<DraggableTagProps> = (props) => {
           setEditInputValue(tag.text);
         }}
       >
-        <Text
-          style={isLongTag ? { width: 45 } : undefined}
-          ellipsis={isLongTag ? { tooltip: tag.text } : false}
-        >
-          {tag.text}
-        </Text>
+        {tag.text}
       </span>
     </Tag>
   );
