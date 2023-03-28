@@ -131,28 +131,26 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
       },
       [`${antCls}-select-tag`]: {
         maxWidth: '100%',
-        height: selectItemHeight,
-        display: 'flex',
+        position: 'relative',
         fontSize: 'inherit',
-        alignItems: 'center',
-        justifyContent: 'center',
-        margin: FIXED_ITEM_MARGIN,
-      },
-      [`&${componentCls}-lg`]: {
-        [`${antCls}-select-tag`]: {
-          borderRadius: token.borderRadius,
-        },
-      },
-      [`&${componentCls}-sm`]: {
-        [`${antCls}-select-tag`]: {
-          borderRadius: token.borderRadiusXS,
+        height: selectItemHeight,
+        marginTop: FIXED_ITEM_MARGIN,
+        marginBottom: FIXED_ITEM_MARGIN,
+        marginInlineEnd: FIXED_ITEM_MARGIN * 2,
+        paddingInlineStart: token.paddingXS,
+        paddingInlineEnd: token.paddingXS,
+        lineHeight: `${selectItemHeight}px`,
+        borderRadius: token.borderRadiusSM,
+        [`${componentCls}-disabled&`]: {
+          color: token.colorTextDisabled,
+          cursor: 'not-allowed',
         },
       },
     },
   };
 }
 
-export default function genMultipleStyle(token: SelectToken): CSSInterpolation {
+function genMultipleStyle(token: SelectToken): CSSInterpolation {
   const { componentCls } = token;
 
   const smallToken = mergeToken<SelectToken>(token, {
@@ -161,6 +159,15 @@ export default function genMultipleStyle(token: SelectToken): CSSInterpolation {
     borderRadius: token.borderRadiusSM,
     borderRadiusSM: token.borderRadiusXS,
   });
+
+  const largeToken = mergeToken<SelectToken>(token, {
+    fontSize: token.fontSizeLG,
+    controlHeight: token.controlHeightLG,
+    controlHeightSM: token.controlHeight,
+    borderRadius: token.borderRadiusLG,
+    borderRadiusSM: token.borderRadius,
+  });
+
   const [, smSelectItemMargin] = getSelectItemStyle(token);
 
   return [
@@ -185,15 +192,8 @@ export default function genMultipleStyle(token: SelectToken): CSSInterpolation {
 
     // ======================== Large ========================
     // Shared
-    genSizeStyle(
-      mergeToken<any>(token, {
-        fontSize: token.fontSizeLG,
-        controlHeight: token.controlHeightLG,
-        controlHeightSM: token.controlHeight,
-        borderRadius: token.borderRadiusLG,
-        borderRadiusSM: token.borderRadius,
-      }),
-      'lg',
-    ),
+    genSizeStyle(largeToken, 'lg'),
   ];
 }
+
+export default genMultipleStyle;
