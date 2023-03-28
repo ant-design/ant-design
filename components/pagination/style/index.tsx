@@ -5,9 +5,9 @@ import {
   initInputToken,
   type InputToken,
 } from '../../input/style';
+import { genFocusOutline, genFocusStyle, resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import { genFocusOutline, genFocusStyle, resetComponent } from '../../style';
 
 interface PaginationToken extends InputToken<FullToken<'Pagination'>> {
   paginationItemSize: number;
@@ -57,7 +57,16 @@ const genPaginationDisabledStyle: GenerateStyle<PaginationToken, CSSObject> = (t
 
     [`&${componentCls}-disabled`]: {
       cursor: 'not-allowed',
-
+      [`&${componentCls}-mini`]: {
+        [`
+          &:hover ${componentCls}-item:not(${componentCls}-item-active),
+          &:active ${componentCls}-item:not(${componentCls}-item-active),
+          &:hover ${componentCls}-item-link,
+          &:active ${componentCls}-item-link
+        `]: {
+          backgroundColor: 'transparent',
+        },
+      },
       [`${componentCls}-item`]: {
         cursor: 'not-allowed',
 
@@ -134,6 +143,12 @@ const genPaginationMiniStyle: GenerateStyle<PaginationToken, CSSObject> = (token
     [`&${componentCls}-mini ${componentCls}-item:not(${componentCls}-item-active)`]: {
       backgroundColor: 'transparent',
       borderColor: 'transparent',
+      '&:hover': {
+        backgroundColor: token.colorBgTextHover,
+      },
+      '&:active': {
+        backgroundColor: token.colorBgTextActive,
+      },
     },
 
     [`&${componentCls}-mini ${componentCls}-prev, &${componentCls}-mini ${componentCls}-next`]: {
@@ -141,6 +156,15 @@ const genPaginationMiniStyle: GenerateStyle<PaginationToken, CSSObject> = (token
       height: token.paginationItemSizeSM,
       margin: 0,
       lineHeight: `${token.paginationItemSizeSM}px`,
+      [`&:hover ${componentCls}-item-link`]: {
+        backgroundColor: token.colorBgTextHover,
+      },
+      [`&:active ${componentCls}-item-link`]: {
+        backgroundColor: token.colorBgTextActive,
+      },
+      [`&${componentCls}-disabled:hover ${componentCls}-item-link`]: {
+        backgroundColor: 'transparent',
+      },
     },
 
     [`

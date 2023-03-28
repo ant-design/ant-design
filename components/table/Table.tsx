@@ -25,9 +25,9 @@ function Table<RecordType extends object = any>(
 const ForwardTable = React.forwardRef(Table) as any as RefTable & {
   SELECTION_COLUMN: typeof SELECTION_COLUMN;
   EXPAND_COLUMN: typeof EXPAND_COLUMN;
-  SELECTION_ALL: 'SELECT_ALL';
-  SELECTION_INVERT: 'SELECT_INVERT';
-  SELECTION_NONE: 'SELECT_NONE';
+  SELECTION_ALL: typeof SELECTION_ALL;
+  SELECTION_INVERT: typeof SELECTION_INVERT;
+  SELECTION_NONE: typeof SELECTION_NONE;
   Column: typeof Column;
   ColumnGroup: typeof ColumnGroup;
   Summary: typeof Summary;

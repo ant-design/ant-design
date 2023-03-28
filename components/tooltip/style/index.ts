@@ -1,8 +1,8 @@
-import { genPresetColor, resetComponent } from '../../style';
+import { resetComponent } from '../../style';
 import { initZoomMotion } from '../../style/motion';
 import getArrowStyle, { MAX_VERTICAL_CONTENT_RADIUS } from '../../style/placementArrow';
 import type { FullToken, GenerateStyle, UseComponentStyleResult } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { genComponentStyleHook, mergeToken, genPresetColor } from '../../theme/internal';
 
 export interface ComponentToken {
   zIndexPopup: number;

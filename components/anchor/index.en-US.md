@@ -68,3 +68,7 @@ We recommend using the items form instead.
 | href     | The target of hyperlink                   | string    |         |         |
 | target   | Specifies where to display the linked URL | string    |         |         |
 | title    | The content of hyperlink                  | ReactNode |         |         |
+
+## Design Token
+
+<ComponentTokenTable component="Anchor"></ComponentTokenTable>

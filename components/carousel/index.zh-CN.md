@@ -34,8 +34,8 @@ demo:
 | dots | 是否显示面板指示点，如果为 `object` 则同时可以指定 `dotsClass` 或者 | boolean \| { className?: string } | true |  |
 | easing | 动画效果 | string | `linear` |  |
 | effect | 动画效果函数 | `scrollx` \| `fade` | `scrollx` |  |
-| afterChange | 切换面板的回调 | function(current) | - |  |
-| beforeChange | 切换面板的回调 | function(from, to) | - |  |
+| afterChange | 切换面板的回调 | (current: number) => void | - |  |
+| beforeChange | 切换面板的回调 | (current: number, next: number) => void | - |  |
 
 ## 方法
 

@@ -72,3 +72,7 @@ Same props from Dropdown. And includes additional props:
 ## Note
 
 Please ensure that the child node of `Dropdown` accepts `onMouseEnter`, `onMouseLeave`, `onFocus`, `onClick` events.
+
+## Design Token
+
+<ComponentTokenTable component="Dropdown"></ComponentTokenTable>

@@ -9,10 +9,10 @@ import omit from 'rc-util/lib/omit';
 import * as React from 'react';
 import type { FormItemProps, ValidateStatus } from '.';
 import { Row } from '../../grid';
-import type { FormItemStatusContextProps, ReportMetaChange } from '../context';
-import { FormContext, FormItemInputContext, NoStyleItemContext } from '../context';
 import FormItemInput from '../FormItemInput';
 import FormItemLabel from '../FormItemLabel';
+import type { FormItemStatusContextProps, ReportMetaChange } from '../context';
+import { FormContext, FormItemInputContext, NoStyleItemContext } from '../context';
 import useDebounce from '../hooks/useDebounce';
 
 const iconMap = {
@@ -81,29 +81,38 @@ export default function ItemHolder(props: ItemHolderProps) {
   };
 
   // ======================== Status ========================
-  let mergedValidateStatus: ValidateStatus = '';
-  if (validateStatus !== undefined) {
-    mergedValidateStatus = validateStatus;
-  } else if (meta.validating) {
-    mergedValidateStatus = 'validating';
-  } else if (debounceErrors.length) {
-    mergedValidateStatus = 'error';
-  } else if (debounceWarnings.length) {
-    mergedValidateStatus = 'warning';
-  } else if (meta.touched || (hasFeedback && meta.validated)) {
-    // success feedback should display when pass hasFeedback prop and current value is valid value
-    mergedValidateStatus = 'success';
-  }
+
+  const getValidateState = (isDebounce = false) => {
+    let status: ValidateStatus = '';
+    const _errors = isDebounce ? debounceErrors : meta.errors;
+    const _warnings = isDebounce ? debounceWarnings : meta.warnings;
+    if (validateStatus !== undefined) {
+      status = validateStatus;
+    } else if (meta.validating) {
+      status = 'validating';
+    } else if (_errors.length) {
+      status = 'error';
+    } else if (_warnings.length) {
+      status = 'warning';
+    } else if (meta.touched || (hasFeedback && meta.validated)) {
+      // success feedback should display when pass hasFeedback prop and current value is valid value
+      status = 'success';
+    }
+    return status;
+  };
+
+  const mergedValidateStatus = getValidateState();
 
   const formItemStatusContext = React.useMemo<FormItemStatusContextProps>(() => {
     let feedbackIcon: React.ReactNode;
+    const desplayValidateStatus = getValidateState(true);
     if (hasFeedback) {
-      const IconNode = mergedValidateStatus && iconMap[mergedValidateStatus];
+      const IconNode = desplayValidateStatus && iconMap[desplayValidateStatus];
       feedbackIcon = IconNode ? (
         <span
           className={classNames(
             `${itemPrefixCls}-feedback-icon`,
-            `${itemPrefixCls}-feedback-icon-${mergedValidateStatus}`,
+            `${itemPrefixCls}-feedback-icon-${desplayValidateStatus}`,
           )}
         >
           <IconNode />

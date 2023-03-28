@@ -36,6 +36,8 @@ export interface StyleMapToken {
    * @nameZH 外部圆角
    * @nameEN Outer Border Radius
    * @default 4
+   * @desc 外部圆角
+   * @descEN Outer border radius
    */
   borderRadiusOuter: number;
 }

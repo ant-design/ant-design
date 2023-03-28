@@ -142,3 +142,7 @@ Menu will render fully item in flex layout and then collapse it. You need tell f
   <Menu style={{ minWidth: 0, flex: "auto" }} />
 </div>
 ```
+
+## Design Token
+
+<ComponentTokenTable component="Menu"></ComponentTokenTable>

@@ -1,8 +1,8 @@
 /* eslint-disable import/prefer-default-export */
 import type { CSSObject } from '@ant-design/cssinjs';
-import type { AliasToken, PresetColorKey } from '../theme/internal';
-import { PresetColors } from '../theme/internal';
-import type { TokenWithCommonCls } from '../theme/util/genComponentStyleHook';
+import type { AliasToken, PresetColorKey } from '../internal';
+import { PresetColors } from '../interface';
+import type { TokenWithCommonCls } from './genComponentStyleHook';
 
 interface CalcColor {
   /** token[`${colorKey}-1`] */
@@ -17,7 +17,7 @@ interface CalcColor {
 
 type GenCSS = (colorKey: PresetColorKey, calcColor: CalcColor) => CSSObject;
 
-export function genPresetColor<Token extends TokenWithCommonCls<AliasToken>>(
+export default function genPresetColor<Token extends TokenWithCommonCls<AliasToken>>(
   token: Token,
   genCss: GenCSS,
 ): CSSObject {

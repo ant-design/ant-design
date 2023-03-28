@@ -66,7 +66,10 @@ export interface TreeSelectProps<
   rootClassName?: string;
 }
 
-const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionType = BaseOptionType>(
+const InternalTreeSelect = <
+  ValueType = any,
+  OptionType extends BaseOptionType | DefaultOptionType = BaseOptionType,
+>(
   {
     prefixCls: customizePrefixCls,
     size: customizeSize,
@@ -92,7 +95,7 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
     showArrow,
     treeExpandAction,
     ...props
-  }: TreeSelectProps<OptionType>,
+  }: TreeSelectProps<ValueType, OptionType>,
   ref: React.Ref<BaseSelectRef>,
 ) => {
   const {

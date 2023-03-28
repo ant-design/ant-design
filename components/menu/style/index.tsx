@@ -442,10 +442,15 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         return [];
       }
 
-      const { colorBgElevated, colorPrimary, colorError, colorErrorHover, colorTextLightSolid } =
-        token;
-
-      const { controlHeightLG, fontSize } = token;
+      const {
+        colorBgElevated,
+        colorPrimary,
+        colorError,
+        colorErrorHover,
+        colorTextLightSolid,
+        controlHeightLG,
+        fontSize,
+      } = token;
 
       const menuArrowSize = (fontSize / 7) * 5;
 
