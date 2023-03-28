@@ -1,5 +1,34 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`TextArea allowClear classNames and styles should work 1`] = `
+<div>
+  <textarea
+    class="ant-input custom-textarea custom-class"
+    style="color: red; background: red;"
+  />
+  <span
+    class="ant-input-affix-wrapper custom-class ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-show-count"
+    data-count="0"
+    style="background: red;"
+  >
+    <textarea
+      class="ant-input custom-textarea"
+      style="color: red;"
+    />
+    <span
+      class="ant-input-suffix"
+    >
+      <span
+        class="ant-input-data-count custom-count"
+        style="color: blue;"
+      >
+        0
+      </span>
+    </span>
+  </span>
+</div>
+`;
+
 exports[`TextArea allowClear should change type when click 1`] = `
 <span
   class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-allow-clear"

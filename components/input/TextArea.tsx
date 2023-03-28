@@ -39,6 +39,7 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
       status: customStatus,
       allowClear,
       showCount,
+      classNames: classes,
       ...rest
     },
     ref,
@@ -103,6 +104,9 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
             getStatusClassNames(`${prefixCls}-affix-wrapper`, mergedStatus),
             hashId,
           ),
+        }}
+        classNames={{
+          ...classes,
           textarea: classNames(
             {
               [`${prefixCls}-borderless`]: !bordered,
@@ -111,6 +115,7 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
             },
             getStatusClassNames(prefixCls, mergedStatus),
             hashId,
+            classes?.textarea,
           ),
         }}
         prefixCls={prefixCls}
