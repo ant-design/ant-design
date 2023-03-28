@@ -1,8 +1,8 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { Keyframes } from '@ant-design/cssinjs';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import { genPresetColor, resetComponent } from '../../style';
+import { genComponentStyleHook, mergeToken, genPresetColor } from '../../theme/internal';
+import { resetComponent } from '../../style';
 
 interface BadgeToken extends FullToken<'Badge'> {
   badgeFontHeight: number;

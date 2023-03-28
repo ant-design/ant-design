@@ -128,3 +128,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HdS6Q5vUCDcAAA
   xxl: '1600px',
 }
 ```
+
+## Design Token
+
+<ComponentTokenTable component="Layout"></ComponentTokenTable>

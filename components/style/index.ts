@@ -3,7 +3,6 @@ import type { CSSObject } from '@ant-design/cssinjs';
 import type { AliasToken, DerivativeToken } from '../theme/internal';
 
 export { operationUnit } from './operationUnit';
-export { genPresetColor } from './presetColor';
 export { roundedArrow } from './roundedArrow';
 
 export const textEllipsis: CSSObject = {

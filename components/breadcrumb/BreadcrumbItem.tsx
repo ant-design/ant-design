@@ -1,9 +1,9 @@
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import * as React from 'react';
+import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import type { DropdownProps } from '../dropdown/dropdown';
 import Dropdown from '../dropdown/dropdown';
-import warning from '../_util/warning';
 import BreadcrumbSeparator from './BreadcrumbSeparator';
 
 export interface SeparatorType {
@@ -11,8 +11,9 @@ export interface SeparatorType {
   key?: React.Key;
 }
 
-type MenuType = DropdownProps['menu'];
+type MenuType = NonNullable<DropdownProps['menu']>;
 interface MenuItem {
+  key?: React.Key;
   title?: React.ReactNode;
   label?: React.ReactNode;
   path?: string;
@@ -68,10 +69,10 @@ const BreadcrumbItem: CompoundedComponent = (props: BreadcrumbItemProps) => {
       };
 
       if (menu) {
-        const { items, ...menuProps } = menu! || {};
+        const { items, ...menuProps } = menu || {};
         mergeDropDownProps.menu = {
           ...menuProps,
-          items: items?.map(({ title, label, path, ...itemProps }, index) => {
+          items: items?.map(({ key, title, label, path, ...itemProps }, index) => {
             let mergedLabel: React.ReactNode = label ?? title;
 
             if (path) {
@@ -80,7 +81,7 @@ const BreadcrumbItem: CompoundedComponent = (props: BreadcrumbItemProps) => {
 
             return {
               ...itemProps,
-              key: index,
+              key: key ?? index,
               label: mergedLabel as string,
             };
           }),

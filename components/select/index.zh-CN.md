@@ -138,6 +138,10 @@ demo:
 | key   | Key  | string                  | -      |      |
 | label | 组名 | string \| React.Element | -      |      |
 
+## Design Token
+
+<ComponentTokenTable component="Select"></ComponentTokenTable>
+
 ## FAQ
 
 ### `mode="tags"` 模式下为何搜索有时会出现两个相同选项？

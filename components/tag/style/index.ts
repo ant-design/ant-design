@@ -1,9 +1,9 @@
 import type { CSSInterpolation } from '@ant-design/cssinjs';
 import type React from 'react';
 import capitalize from '../../_util/capitalize';
-import { genPresetColor, resetComponent } from '../../style';
+import { resetComponent } from '../../style';
 import type { FullToken } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { genComponentStyleHook, genPresetColor, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {}
 

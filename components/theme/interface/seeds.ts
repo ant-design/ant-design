@@ -69,6 +69,7 @@ export interface SeedToken extends PresetColorType {
    * @nameZH 字体
    * @nameEN Font family for default text
    * @desc Ant Design 的字体家族中优先使用系统默认的界面字体，同时提供了一套利于屏显的备用字体库，来维护在不同平台以及浏览器的显示下，字体始终保持良好的易读性和可读性，体现了友好、稳定和专业的特性。
+   * @descEN The font family of Ant Design prioritizes the default interface font of the system, and provides a set of alternative font libraries that are suitable for screen display to maintain the readability and readability of the font under different platforms and browsers, reflecting the friendly, stable and professional characteristics.
    */
   fontFamily: string;
 
@@ -76,6 +77,7 @@ export interface SeedToken extends PresetColorType {
    * @nameZH 代码字体
    * @nameEN Font family for code text
    * @desc 代码字体，用于 Typography 内的 code、pre 和 kbd 类型的元素
+   * @descEN Code font, used for code, pre and kbd elements in Typography
    */
   fontFamilyCode: string;
 
@@ -138,6 +140,8 @@ export interface SeedToken extends PresetColorType {
 
   /**
    * @nameZH 组件箭头尺寸
+   * @desc 组件箭头的尺寸
+   * @descEN The size of the component arrow
    */
   sizePopupArrow: number;
 
@@ -251,6 +255,7 @@ export interface SeedToken extends PresetColorType {
    * @nameZH 线框风格
    * @nameEN Wireframe Style
    * @desc 用于将组件的视觉效果变为线框化，如果需要使用 V4 的效果，需要开启配置项
+   * @descEN Used to change the visual effect of the component to wireframe, if you need to use the V4 effect, you need to enable the configuration item
    * @default false
    */
   wireframe: boolean;
