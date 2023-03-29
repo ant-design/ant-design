@@ -61,3 +61,7 @@
 - [ ] 代码演示已提供或无须提供
 - [ ] TypeScript 定义已补充或无须补充
 - [ ] Changelog 已提供或无须提供
+
+### 🤖️ 看看 Copilot 怎么说
+
+copilot:all
