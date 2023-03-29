@@ -138,12 +138,15 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         marginBottom: FIXED_ITEM_MARGIN,
         marginInlineEnd: FIXED_ITEM_MARGIN * 2,
         paddingInlineStart: token.paddingXS,
-        paddingInlineEnd: token.paddingXS,
+        paddingInlineEnd: token.paddingXS / 2,
         lineHeight: `${selectItemHeight}px`,
         borderRadius: token.borderRadiusSM,
         [`${componentCls}-disabled&`]: {
           color: token.colorTextDisabled,
           cursor: 'not-allowed',
+        },
+        [`${antCls}-tag-content`]: {
+          marginInlineEnd: token.paddingXS / 2,
         },
       },
     },
