@@ -118,7 +118,7 @@ exports[`Transfer rtl render component should be rendered correctly in RTL direc
       type="button"
     >
       <span
-        class=""
+        class="ant-btn-icon"
       >
         <span
           aria-label="left"
@@ -147,7 +147,7 @@ exports[`Transfer rtl render component should be rendered correctly in RTL direc
       type="button"
     >
       <span
-        class=""
+        class="ant-btn-icon"
       >
         <span
           aria-label="right"
@@ -397,7 +397,7 @@ exports[`Transfer should render correctly 1`] = `
       type="button"
     >
       <span
-        class=""
+        class="ant-btn-icon"
       >
         <span
           aria-label="right"
@@ -426,7 +426,7 @@ exports[`Transfer should render correctly 1`] = `
       type="button"
     >
       <span
-        class=""
+        class="ant-btn-icon"
       >
         <span
           aria-label="left"
@@ -631,7 +631,7 @@ exports[`Transfer should show sorted targetKey 1`] = `
       type="button"
     >
       <span
-        class=""
+        class="ant-btn-icon"
       >
         <span
           aria-label="right"
@@ -660,7 +660,7 @@ exports[`Transfer should show sorted targetKey 1`] = `
       type="button"
     >
       <span
-        class=""
+        class="ant-btn-icon"
       >
         <span
           aria-label="left"
@@ -893,7 +893,7 @@ exports[`Transfer should support render value and label in item 1`] = `
       type="button"
     >
       <span
-        class=""
+        class="ant-btn-icon"
       >
         <span
           aria-label="right"
@@ -922,7 +922,7 @@ exports[`Transfer should support render value and label in item 1`] = `
       type="button"
     >
       <span
-        class=""
+        class="ant-btn-icon"
       >
         <span
           aria-label="left"
@@ -1148,7 +1148,7 @@ exports[`immutable data dataSource is frozen 1`] = `
       type="button"
     >
       <span
-        class=""
+        class="ant-btn-icon"
       >
         <span
           aria-label="right"
@@ -1177,7 +1177,7 @@ exports[`immutable data dataSource is frozen 1`] = `
       type="button"
     >
       <span
-        class=""
+        class="ant-btn-icon"
       >
         <span
           aria-label="left"

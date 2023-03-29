@@ -135,7 +135,6 @@ Array [
               aria-activedescendant="rc_select_TEST_OR_SSR_list_-1"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
-              aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
@@ -246,7 +245,6 @@ Array [
             <input
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
-              aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
@@ -356,7 +354,6 @@ Array [
             <input
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
-              aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
@@ -674,7 +671,7 @@ Array [
             type="button"
           >
             <span
-              class=""
+              class="ant-btn-icon"
             >
               <span
                 aria-label="right"
@@ -703,7 +700,7 @@ Array [
             type="button"
           >
             <span
-              class=""
+              class="ant-btn-icon"
             >
               <span
                 aria-label="left"

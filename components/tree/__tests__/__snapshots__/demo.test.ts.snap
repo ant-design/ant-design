@@ -3284,7 +3284,6 @@ exports[`renders components/tree/demo/line.tsx correctly 1`] = `
             aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
-            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="undefined_list"
             autocomplete="off"
@@ -3785,6 +3784,7 @@ exports[`renders components/tree/demo/search.tsx correctly 1`] = `
     >
       <input
         class="ant-input"
+        classnames="[object Object]"
         placeholder="Search"
         type="text"
         value=""
@@ -3797,7 +3797,7 @@ exports[`renders components/tree/demo/search.tsx correctly 1`] = `
           type="button"
         >
           <span
-            class=""
+            class="ant-btn-icon"
           >
             <span
               aria-label="search"

@@ -158,7 +158,7 @@ exports[`renders components/badge/demo/change.tsx correctly 1`] = `
             type="button"
           >
             <span
-              class=""
+              class="ant-btn-icon"
             >
               <span
                 aria-label="minus"
@@ -186,7 +186,7 @@ exports[`renders components/badge/demo/change.tsx correctly 1`] = `
             type="button"
           >
             <span
-              class=""
+              class="ant-btn-icon"
             >
               <span
                 aria-label="plus"
@@ -220,7 +220,7 @@ exports[`renders components/badge/demo/change.tsx correctly 1`] = `
             type="button"
           >
             <span
-              class=""
+              class="ant-btn-icon"
             >
               <span
                 aria-label="question"

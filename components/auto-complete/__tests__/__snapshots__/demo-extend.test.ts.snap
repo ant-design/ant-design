@@ -16,7 +16,6 @@ Array [
           aria-activedescendant="rc_select_TEST_OR_SSR_list_-1"
           aria-autocomplete="list"
           aria-controls="rc_select_TEST_OR_SSR_list"
-          aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
@@ -62,7 +61,6 @@ Array [
           aria-activedescendant="rc_select_TEST_OR_SSR_list_-1"
           aria-autocomplete="list"
           aria-controls="rc_select_TEST_OR_SSR_list"
-          aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
@@ -116,11 +114,11 @@ exports[`renders components/auto-complete/demo/certain-category.tsx extend conte
             aria-activedescendant="rc_select_TEST_OR_SSR_list_-1"
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
-            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
-            class="ant-input ant-input-lg"
+            class="ant-input"
+            classnames="[object Object]"
             id="rc_select_TEST_OR_SSR"
             placeholder="input here"
             role="combobox"
@@ -135,7 +133,7 @@ exports[`renders components/auto-complete/demo/certain-category.tsx extend conte
               type="button"
             >
               <span
-                class=""
+                class="ant-btn-icon"
               >
                 <span
                   aria-label="search"
@@ -474,11 +472,11 @@ exports[`renders components/auto-complete/demo/custom.tsx extend context correct
         aria-activedescendant="rc_select_TEST_OR_SSR_list_-1"
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
-        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="ant-input ant-select-selection-search-input custom"
+        classnames="[object Object]"
         id="rc_select_TEST_OR_SSR"
         placeholder="input here"
         role="combobox"
@@ -548,7 +546,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                     aria-activedescendant="rc_select_TEST_OR_SSR_list_-1"
                     aria-autocomplete="list"
                     aria-controls="rc_select_TEST_OR_SSR_list"
-                    aria-expanded="false"
                     aria-haspopup="listbox"
                     aria-owns="rc_select_TEST_OR_SSR_list"
                     autocomplete="off"
@@ -618,7 +615,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                   <input
                     aria-autocomplete="list"
                     aria-controls="rc_select_TEST_OR_SSR_list"
-                    aria-expanded="false"
                     aria-haspopup="listbox"
                     aria-owns="rc_select_TEST_OR_SSR_list"
                     autocomplete="off"
@@ -766,7 +762,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                     <input
                       aria-autocomplete="list"
                       aria-controls="rc_select_TEST_OR_SSR_list"
-                      aria-expanded="false"
                       aria-haspopup="listbox"
                       aria-owns="rc_select_TEST_OR_SSR_list"
                       autocomplete="off"
@@ -881,7 +876,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                       aria-activedescendant="rc_select_TEST_OR_SSR_list_-1"
                       aria-autocomplete="list"
                       aria-controls="rc_select_TEST_OR_SSR_list"
-                      aria-expanded="false"
                       aria-haspopup="listbox"
                       aria-owns="rc_select_TEST_OR_SSR_list"
                       autocomplete="off"
@@ -956,11 +950,11 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                       aria-activedescendant="rc_select_TEST_OR_SSR_list_-1"
                       aria-autocomplete="list"
                       aria-controls="rc_select_TEST_OR_SSR_list"
-                      aria-expanded="false"
                       aria-haspopup="listbox"
                       aria-owns="rc_select_TEST_OR_SSR_list"
                       autocomplete="off"
                       class="ant-input"
+                      classnames="[object Object]"
                       id="rc_select_TEST_OR_SSR"
                       role="combobox"
                       type="search"
@@ -1054,7 +1048,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                     <input
                       aria-autocomplete="list"
                       aria-controls="rc_select_TEST_OR_SSR_list"
-                      aria-expanded="false"
                       aria-haspopup="listbox"
                       aria-owns="rc_select_TEST_OR_SSR_list"
                       autocomplete="off"
@@ -1172,11 +1165,11 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                         aria-activedescendant="rc_select_TEST_OR_SSR_list_-1"
                         aria-autocomplete="list"
                         aria-controls="rc_select_TEST_OR_SSR_list"
-                        aria-expanded="false"
                         aria-haspopup="listbox"
                         aria-owns="rc_select_TEST_OR_SSR_list"
                         autocomplete="off"
                         class="ant-input"
+                        classnames="[object Object]"
                         id="rc_select_TEST_OR_SSR"
                         role="combobox"
                         type="search"
@@ -1271,7 +1264,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                     <input
                       aria-autocomplete="list"
                       aria-controls="rc_select_TEST_OR_SSR_list"
-                      aria-expanded="false"
                       aria-haspopup="listbox"
                       aria-owns="rc_select_TEST_OR_SSR_list"
                       autocomplete="off"
@@ -1392,11 +1384,11 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                           aria-activedescendant="rc_select_TEST_OR_SSR_list_-1"
                           aria-autocomplete="list"
                           aria-controls="rc_select_TEST_OR_SSR_list"
-                          aria-expanded="false"
                           aria-haspopup="listbox"
                           aria-owns="rc_select_TEST_OR_SSR_list"
                           autocomplete="off"
                           class="ant-input"
+                          classnames="[object Object]"
                           id="rc_select_TEST_OR_SSR"
                           role="combobox"
                           type="search"
@@ -1410,7 +1402,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                             type="button"
                           >
                             <span
-                              class=""
+                              class="ant-btn-icon"
                             >
                               <span
                                 aria-label="search"
@@ -1501,7 +1493,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                     <input
                       aria-autocomplete="list"
                       aria-controls="rc_select_TEST_OR_SSR_list"
-                      aria-expanded="false"
                       aria-haspopup="listbox"
                       aria-owns="rc_select_TEST_OR_SSR_list"
                       autocomplete="off"
@@ -1622,11 +1613,11 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                           aria-activedescendant="rc_select_TEST_OR_SSR_list_-1"
                           aria-autocomplete="list"
                           aria-controls="rc_select_TEST_OR_SSR_list"
-                          aria-expanded="false"
                           aria-haspopup="listbox"
                           aria-owns="rc_select_TEST_OR_SSR_list"
                           autocomplete="off"
                           class="ant-input"
+                          classnames="[object Object]"
                           id="rc_select_TEST_OR_SSR"
                           role="combobox"
                           type="search"
@@ -1640,7 +1631,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                             type="button"
                           >
                             <span
-                              class=""
+                              class="ant-btn-icon"
                             >
                               <span
                                 aria-label="search"
@@ -1689,7 +1680,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                 type="button"
               >
                 <span
-                  class=""
+                  class="ant-btn-icon"
                 >
                   <span
                     aria-label="search"
@@ -1739,7 +1730,6 @@ exports[`renders components/auto-complete/demo/non-case-sensitive.tsx extend con
         aria-activedescendant="rc_select_TEST_OR_SSR_list_-1"
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
-        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
@@ -1862,7 +1852,6 @@ exports[`renders components/auto-complete/demo/options.tsx extend context correc
         aria-activedescendant="rc_select_TEST_OR_SSR_list_-1"
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
-        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
@@ -2091,7 +2080,6 @@ exports[`renders components/auto-complete/demo/status.tsx extend context correct
             aria-activedescendant="rc_select_TEST_OR_SSR_list_-1"
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
-            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
@@ -2137,7 +2125,6 @@ exports[`renders components/auto-complete/demo/status.tsx extend context correct
             aria-activedescendant="rc_select_TEST_OR_SSR_list_-1"
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
-            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
@@ -2190,11 +2177,11 @@ exports[`renders components/auto-complete/demo/uncertain-category.tsx extend con
             aria-activedescendant="rc_select_TEST_OR_SSR_list_-1"
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
-            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
-            class="ant-input ant-input-lg"
+            class="ant-input"
+            classnames="[object Object]"
             id="rc_select_TEST_OR_SSR"
             placeholder="input here"
             role="combobox"
@@ -2209,7 +2196,7 @@ exports[`renders components/auto-complete/demo/uncertain-category.tsx extend con
               type="button"
             >
               <span
-                class=""
+                class="ant-btn-icon"
               >
                 <span
                   aria-label="search"

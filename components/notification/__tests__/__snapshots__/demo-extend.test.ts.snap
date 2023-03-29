@@ -201,7 +201,7 @@ Array [
         type="button"
       >
         <span
-          class=""
+          class="ant-btn-icon"
         >
           <span
             aria-label="border-top"
@@ -236,7 +236,7 @@ Array [
         type="button"
       >
         <span
-          class=""
+          class="ant-btn-icon"
         >
           <span
             aria-label="border-bottom"
@@ -280,7 +280,7 @@ Array [
         type="button"
       >
         <span
-          class=""
+          class="ant-btn-icon"
         >
           <span
             aria-label="radius-upleft"
@@ -315,7 +315,7 @@ Array [
         type="button"
       >
         <span
-          class=""
+          class="ant-btn-icon"
         >
           <span
             aria-label="radius-upright"
@@ -359,7 +359,7 @@ Array [
         type="button"
       >
         <span
-          class=""
+          class="ant-btn-icon"
         >
           <span
             aria-label="radius-bottomleft"
@@ -394,7 +394,7 @@ Array [
         type="button"
       >
         <span
-          class=""
+          class="ant-btn-icon"
         >
           <span
             aria-label="radius-bottomright"

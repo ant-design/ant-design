@@ -72,7 +72,7 @@ exports[`Upload List handle error 1`] = `
             type="button"
           >
             <span
-              class=""
+              class="ant-btn-icon"
             >
               <span
                 aria-label="delete"
@@ -234,7 +234,7 @@ exports[`Upload List should be uploading when upload a file 1`] = `
             type="button"
           >
             <span
-              class=""
+              class="ant-btn-icon"
             >
               <span
                 aria-label="delete"
@@ -347,7 +347,7 @@ exports[`Upload List should non-image format file preview 1`] = `
             type="button"
           >
             <span
-              class=""
+              class="ant-btn-icon"
             >
               <span
                 aria-label="delete"
@@ -410,7 +410,7 @@ exports[`Upload List should non-image format file preview 1`] = `
             type="button"
           >
             <span
-              class=""
+              class="ant-btn-icon"
             >
               <span
                 aria-label="delete"
@@ -492,7 +492,7 @@ exports[`Upload List should non-image format file preview 1`] = `
             type="button"
           >
             <span
-              class=""
+              class="ant-btn-icon"
             >
               <span
                 aria-label="delete"
@@ -574,7 +574,7 @@ exports[`Upload List should non-image format file preview 1`] = `
             type="button"
           >
             <span
-              class=""
+              class="ant-btn-icon"
             >
               <span
                 aria-label="delete"
@@ -637,7 +637,7 @@ exports[`Upload List should non-image format file preview 1`] = `
             type="button"
           >
             <span
-              class=""
+              class="ant-btn-icon"
             >
               <span
                 aria-label="delete"
@@ -700,7 +700,7 @@ exports[`Upload List should non-image format file preview 1`] = `
             type="button"
           >
             <span
-              class=""
+              class="ant-btn-icon"
             >
               <span
                 aria-label="delete"
@@ -763,7 +763,7 @@ exports[`Upload List should non-image format file preview 1`] = `
             type="button"
           >
             <span
-              class=""
+              class="ant-btn-icon"
             >
               <span
                 aria-label="delete"
@@ -826,7 +826,7 @@ exports[`Upload List should non-image format file preview 1`] = `
             type="button"
           >
             <span
-              class=""
+              class="ant-btn-icon"
             >
               <span
                 aria-label="delete"
@@ -889,7 +889,7 @@ exports[`Upload List should non-image format file preview 1`] = `
             type="button"
           >
             <span
-              class=""
+              class="ant-btn-icon"
             >
               <span
                 aria-label="delete"
@@ -952,7 +952,7 @@ exports[`Upload List should non-image format file preview 1`] = `
             type="button"
           >
             <span
-              class=""
+              class="ant-btn-icon"
             >
               <span
                 aria-label="delete"
@@ -1057,7 +1057,7 @@ exports[`Upload List should support removeIcon and downloadIcon 1`] = `
             type="button"
           >
             <span
-              class=""
+              class="ant-btn-icon"
             >
               <i>
                 RM
@@ -1103,7 +1103,7 @@ exports[`Upload List should support removeIcon and downloadIcon 1`] = `
             type="button"
           >
             <span
-              class=""
+              class="ant-btn-icon"
             >
               <i>
                 DL
@@ -1116,7 +1116,7 @@ exports[`Upload List should support removeIcon and downloadIcon 1`] = `
             type="button"
           >
             <span
-              class=""
+              class="ant-btn-icon"
             >
               <i>
                 RM
@@ -1204,7 +1204,7 @@ exports[`Upload List should support removeIcon and downloadIcon 2`] = `
             type="button"
           >
             <span
-              class=""
+              class="ant-btn-icon"
             >
               <i>
                 RM
@@ -1250,7 +1250,7 @@ exports[`Upload List should support removeIcon and downloadIcon 2`] = `
             type="button"
           >
             <span
-              class=""
+              class="ant-btn-icon"
             >
               <i>
                 DL
@@ -1263,7 +1263,7 @@ exports[`Upload List should support removeIcon and downloadIcon 2`] = `
             type="button"
           >
             <span
-              class=""
+              class="ant-btn-icon"
             >
               <i>
                 RM

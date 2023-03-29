@@ -124,7 +124,7 @@ Array [
       type="button"
     >
       <span
-        class=""
+        class="ant-btn-icon"
       >
         <span
           aria-label="minus"
@@ -155,7 +155,7 @@ Array [
       type="button"
     >
       <span
-        class=""
+        class="ant-btn-icon"
       >
         <span
           aria-label="plus"
@@ -394,7 +394,7 @@ exports[`renders components/qrcode/demo/status.tsx extend context correctly 1`] 
           type="button"
         >
           <span
-            class=""
+            class="ant-btn-icon"
           >
             <span
               aria-label="reload"

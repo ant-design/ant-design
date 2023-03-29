@@ -14,7 +14,6 @@ exports[`renders components/tree-select/demo/async.tsx correctly 1`] = `
       <input
         aria-autocomplete="list"
         aria-controls="undefined_list"
-        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="undefined_list"
         autocomplete="off"
@@ -76,7 +75,6 @@ exports[`renders components/tree-select/demo/basic.tsx correctly 1`] = `
       <input
         aria-autocomplete="list"
         aria-controls="undefined_list"
-        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="undefined_list"
         autocomplete="off"
@@ -184,7 +182,6 @@ exports[`renders components/tree-select/demo/checkable.tsx correctly 1`] = `
           <input
             aria-autocomplete="list"
             aria-controls="undefined_list"
-            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="undefined_list"
             autocomplete="off"
@@ -256,7 +253,6 @@ exports[`renders components/tree-select/demo/multiple.tsx correctly 1`] = `
           <input
             aria-autocomplete="list"
             aria-controls="undefined_list"
-            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="undefined_list"
             autocomplete="off"
@@ -408,7 +404,6 @@ Array [
         <input
           aria-autocomplete="list"
           aria-controls="undefined_list"
-          aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="undefined_list"
           autocomplete="off"
@@ -543,7 +538,6 @@ exports[`renders components/tree-select/demo/status.tsx correctly 1`] = `
           <input
             aria-autocomplete="list"
             aria-controls="undefined_list"
-            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="undefined_list"
             autocomplete="off"
@@ -614,7 +608,6 @@ exports[`renders components/tree-select/demo/status.tsx correctly 1`] = `
               <input
                 aria-autocomplete="list"
                 aria-controls="undefined_list"
-                aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-owns="undefined_list"
                 autocomplete="off"
@@ -685,7 +678,6 @@ exports[`renders components/tree-select/demo/suffix.tsx correctly 1`] = `
       <input
         aria-autocomplete="list"
         aria-controls="undefined_list"
-        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="undefined_list"
         autocomplete="off"
@@ -744,7 +736,6 @@ exports[`renders components/tree-select/demo/treeData.tsx correctly 1`] = `
       <input
         aria-autocomplete="list"
         aria-controls="undefined_list"
-        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="undefined_list"
         autocomplete="off"
@@ -870,7 +861,6 @@ exports[`renders components/tree-select/demo/treeLine.tsx correctly 1`] = `
           <input
             aria-autocomplete="list"
             aria-controls="undefined_list"
-            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="undefined_list"
             autocomplete="off"

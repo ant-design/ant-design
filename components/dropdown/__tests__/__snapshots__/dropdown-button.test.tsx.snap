@@ -13,7 +13,7 @@ exports[`DropdownButton rtl render component should be rendered correctly in RTL
     type="button"
   >
     <span
-      class=""
+      class="ant-btn-icon"
     >
       <span
         aria-label="ellipsis"
@@ -52,7 +52,7 @@ exports[`DropdownButton should support href like Button 1`] = `
     type="button"
   >
     <span
-      class=""
+      class="ant-btn-icon"
     >
       <span
         aria-label="ellipsis"

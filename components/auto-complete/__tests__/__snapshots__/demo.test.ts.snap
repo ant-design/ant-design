@@ -16,7 +16,6 @@ Array [
           aria-activedescendant="undefined_list_0"
           aria-autocomplete="list"
           aria-controls="undefined_list"
-          aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="undefined_list"
           autocomplete="off"
@@ -49,7 +48,6 @@ Array [
           aria-activedescendant="undefined_list_0"
           aria-autocomplete="list"
           aria-controls="undefined_list"
-          aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="undefined_list"
           autocomplete="off"
@@ -90,11 +88,11 @@ exports[`renders components/auto-complete/demo/certain-category.tsx correctly 1`
             aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
-            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="undefined_list"
             autocomplete="off"
-            class="ant-input ant-input-lg"
+            class="ant-input"
+            classnames="[object Object]"
             placeholder="input here"
             role="combobox"
             type="search"
@@ -108,7 +106,7 @@ exports[`renders components/auto-complete/demo/certain-category.tsx correctly 1`
               type="button"
             >
               <span
-                class=""
+                class="ant-btn-icon"
               >
                 <span
                   aria-label="search"
@@ -157,11 +155,11 @@ exports[`renders components/auto-complete/demo/custom.tsx correctly 1`] = `
         aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
-        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="undefined_list"
         autocomplete="off"
         class="ant-input ant-select-selection-search-input custom"
+        classnames="[object Object]"
         placeholder="input here"
         role="combobox"
         style="height:50px"
@@ -218,7 +216,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
                     aria-activedescendant="undefined_list_0"
                     aria-autocomplete="list"
                     aria-controls="undefined_list"
-                    aria-expanded="false"
                     aria-haspopup="listbox"
                     aria-owns="undefined_list"
                     autocomplete="off"
@@ -275,7 +272,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
                   <input
                     aria-autocomplete="list"
                     aria-controls="undefined_list"
-                    aria-expanded="false"
                     aria-haspopup="listbox"
                     aria-owns="undefined_list"
                     autocomplete="off"
@@ -365,7 +361,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
                     <input
                       aria-autocomplete="list"
                       aria-controls="undefined_list"
-                      aria-expanded="false"
                       aria-haspopup="listbox"
                       aria-owns="undefined_list"
                       autocomplete="off"
@@ -422,7 +417,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
                       aria-activedescendant="undefined_list_0"
                       aria-autocomplete="list"
                       aria-controls="undefined_list"
-                      aria-expanded="false"
                       aria-haspopup="listbox"
                       aria-owns="undefined_list"
                       autocomplete="off"
@@ -484,11 +478,11 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
                       aria-activedescendant="undefined_list_0"
                       aria-autocomplete="list"
                       aria-controls="undefined_list"
-                      aria-expanded="false"
                       aria-haspopup="listbox"
                       aria-owns="undefined_list"
                       autocomplete="off"
                       class="ant-input"
+                      classnames="[object Object]"
                       role="combobox"
                       type="search"
                       value=""
@@ -569,7 +563,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
                     <input
                       aria-autocomplete="list"
                       aria-controls="undefined_list"
-                      aria-expanded="false"
                       aria-haspopup="listbox"
                       aria-owns="undefined_list"
                       autocomplete="off"
@@ -629,11 +622,11 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
                         aria-activedescendant="undefined_list_0"
                         aria-autocomplete="list"
                         aria-controls="undefined_list"
-                        aria-expanded="false"
                         aria-haspopup="listbox"
                         aria-owns="undefined_list"
                         autocomplete="off"
                         class="ant-input"
+                        classnames="[object Object]"
                         role="combobox"
                         type="search"
                         value=""
@@ -715,7 +708,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
                     <input
                       aria-autocomplete="list"
                       aria-controls="undefined_list"
-                      aria-expanded="false"
                       aria-haspopup="listbox"
                       aria-owns="undefined_list"
                       autocomplete="off"
@@ -778,11 +770,11 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
                           aria-activedescendant="undefined_list_0"
                           aria-autocomplete="list"
                           aria-controls="undefined_list"
-                          aria-expanded="false"
                           aria-haspopup="listbox"
                           aria-owns="undefined_list"
                           autocomplete="off"
                           class="ant-input"
+                          classnames="[object Object]"
                           role="combobox"
                           type="search"
                           value=""
@@ -795,7 +787,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
                             type="button"
                           >
                             <span
-                              class=""
+                              class="ant-btn-icon"
                             >
                               <span
                                 aria-label="search"
@@ -874,7 +866,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
                     <input
                       aria-autocomplete="list"
                       aria-controls="undefined_list"
-                      aria-expanded="false"
                       aria-haspopup="listbox"
                       aria-owns="undefined_list"
                       autocomplete="off"
@@ -937,11 +928,11 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
                           aria-activedescendant="undefined_list_0"
                           aria-autocomplete="list"
                           aria-controls="undefined_list"
-                          aria-expanded="false"
                           aria-haspopup="listbox"
                           aria-owns="undefined_list"
                           autocomplete="off"
                           class="ant-input"
+                          classnames="[object Object]"
                           role="combobox"
                           type="search"
                           value=""
@@ -954,7 +945,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
                             type="button"
                           >
                             <span
-                              class=""
+                              class="ant-btn-icon"
                             >
                               <span
                                 aria-label="search"
@@ -991,7 +982,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
                 type="button"
               >
                 <span
-                  class=""
+                  class="ant-btn-icon"
                 >
                   <span
                     aria-label="search"
@@ -1041,7 +1032,6 @@ exports[`renders components/auto-complete/demo/non-case-sensitive.tsx correctly 
         aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
-        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="undefined_list"
         autocomplete="off"
@@ -1075,7 +1065,6 @@ exports[`renders components/auto-complete/demo/options.tsx correctly 1`] = `
         aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
         aria-controls="undefined_list"
-        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="undefined_list"
         autocomplete="off"
@@ -1184,7 +1173,6 @@ exports[`renders components/auto-complete/demo/status.tsx correctly 1`] = `
             aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
-            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="undefined_list"
             autocomplete="off"
@@ -1217,7 +1205,6 @@ exports[`renders components/auto-complete/demo/status.tsx correctly 1`] = `
             aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
-            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="undefined_list"
             autocomplete="off"
@@ -1257,11 +1244,11 @@ exports[`renders components/auto-complete/demo/uncertain-category.tsx correctly 
             aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
-            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="undefined_list"
             autocomplete="off"
-            class="ant-input ant-input-lg"
+            class="ant-input"
+            classnames="[object Object]"
             placeholder="input here"
             role="combobox"
             type="search"
@@ -1275,7 +1262,7 @@ exports[`renders components/auto-complete/demo/uncertain-category.tsx correctly 
               type="button"
             >
               <span
-                class=""
+                class="ant-btn-icon"
               >
                 <span
                   aria-label="search"

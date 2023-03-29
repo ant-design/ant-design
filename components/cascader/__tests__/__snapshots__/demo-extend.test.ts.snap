@@ -13,7 +13,6 @@ exports[`renders components/cascader/demo/basic.tsx extend context correctly 1`]
       <input
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
-        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
@@ -163,7 +162,6 @@ exports[`renders components/cascader/demo/change-on-select.tsx extend context co
       <input
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
-        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
@@ -311,7 +309,6 @@ exports[`renders components/cascader/demo/custom-dropdown.tsx extend context cor
       <input
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
-        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
@@ -474,7 +471,6 @@ exports[`renders components/cascader/demo/custom-render.tsx extend context corre
       <input
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
-        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
@@ -761,7 +757,6 @@ exports[`renders components/cascader/demo/default-value.tsx extend context corre
       <input
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
-        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
@@ -938,7 +933,6 @@ exports[`renders components/cascader/demo/disabled-option.tsx extend context cor
       <input
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
-        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
@@ -1086,7 +1080,6 @@ exports[`renders components/cascader/demo/fields-name.tsx extend context correct
       <input
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
-        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
@@ -1236,7 +1229,6 @@ exports[`renders components/cascader/demo/hover.tsx extend context correctly 1`]
       <input
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
-        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
@@ -1384,7 +1376,6 @@ exports[`renders components/cascader/demo/lazy.tsx extend context correctly 1`] 
       <input
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
-        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
@@ -1541,7 +1532,6 @@ exports[`renders components/cascader/demo/multiple.tsx extend context correctly 
           <input
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
-            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
@@ -1794,7 +1784,6 @@ Array [
         <input
           aria-autocomplete="list"
           aria-controls="rc_select_TEST_OR_SSR_list"
-          aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
@@ -2100,7 +2089,6 @@ exports[`renders components/cascader/demo/search.tsx extend context correctly 1`
       <input
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
-        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
@@ -2273,7 +2261,6 @@ Array [
             <input
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
-              aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
@@ -2489,7 +2476,6 @@ Array [
             <input
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
-              aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
@@ -2683,7 +2669,6 @@ Array [
         <input
           aria-autocomplete="list"
           aria-controls="rc_select_TEST_OR_SSR_list"
-          aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
@@ -2830,7 +2815,6 @@ Array [
         <input
           aria-autocomplete="list"
           aria-controls="rc_select_TEST_OR_SSR_list"
-          aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
@@ -2977,7 +2961,6 @@ Array [
         <input
           aria-autocomplete="list"
           aria-controls="rc_select_TEST_OR_SSR_list"
-          aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
@@ -3135,7 +3118,6 @@ exports[`renders components/cascader/demo/status.tsx extend context correctly 1`
           <input
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
-            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
@@ -3278,7 +3260,6 @@ exports[`renders components/cascader/demo/status.tsx extend context correctly 1`
               <input
                 aria-autocomplete="list"
                 aria-controls="rc_select_TEST_OR_SSR_list"
-                aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-owns="rc_select_TEST_OR_SSR_list"
                 autocomplete="off"
@@ -3422,7 +3403,6 @@ Array [
         <input
           aria-autocomplete="list"
           aria-controls="rc_select_TEST_OR_SSR_list"
-          aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
@@ -3571,7 +3551,6 @@ Array [
         <input
           aria-autocomplete="list"
           aria-controls="rc_select_TEST_OR_SSR_list"
-          aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
@@ -3702,7 +3681,6 @@ Array [
         <input
           aria-autocomplete="list"
           aria-controls="rc_select_TEST_OR_SSR_list"
-          aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
@@ -3851,7 +3829,6 @@ Array [
         <input
           aria-autocomplete="list"
           aria-controls="rc_select_TEST_OR_SSR_list"
-          aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"

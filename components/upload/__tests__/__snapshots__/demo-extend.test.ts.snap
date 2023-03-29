@@ -129,7 +129,7 @@ exports[`renders components/upload/demo/basic.tsx extend context correctly 1`] =
         type="button"
       >
         <span
-          class=""
+          class="ant-btn-icon"
         >
           <span
             aria-label="upload"
@@ -185,7 +185,7 @@ exports[`renders components/upload/demo/customize-progress-bar.tsx extend contex
         type="button"
       >
         <span
-          class=""
+          class="ant-btn-icon"
         >
           <span
             aria-label="upload"
@@ -241,7 +241,7 @@ exports[`renders components/upload/demo/defaultFileList.tsx extend context corre
         type="button"
       >
         <span
-          class=""
+          class="ant-btn-icon"
         >
           <span
             aria-label="upload"
@@ -319,7 +319,7 @@ exports[`renders components/upload/demo/defaultFileList.tsx extend context corre
             type="button"
           >
             <span
-              class=""
+              class="ant-btn-icon"
             >
               <span
                 aria-label="delete"
@@ -393,7 +393,7 @@ exports[`renders components/upload/demo/defaultFileList.tsx extend context corre
             type="button"
           >
             <span
-              class=""
+              class="ant-btn-icon"
             >
               <span
                 aria-label="delete"
@@ -467,7 +467,7 @@ exports[`renders components/upload/demo/defaultFileList.tsx extend context corre
             type="button"
           >
             <span
-              class=""
+              class="ant-btn-icon"
             >
               <span
                 aria-label="delete"
@@ -541,7 +541,7 @@ exports[`renders components/upload/demo/directory.tsx extend context correctly 1
         type="button"
       >
         <span
-          class=""
+          class="ant-btn-icon"
         >
           <span
             aria-label="upload"
@@ -661,7 +661,7 @@ Array [
           type="button"
         >
           <span
-            class=""
+            class="ant-btn-icon"
           >
             <span
               aria-label="upload"
@@ -748,7 +748,7 @@ Array [
                 type="button"
               >
                 <span
-                  class=""
+                  class="ant-btn-icon"
                 >
                   <span
                     aria-label="delete"
@@ -832,7 +832,7 @@ Array [
                 type="button"
               >
                 <span
-                  class=""
+                  class="ant-btn-icon"
                 >
                   <span
                     aria-label="delete"
@@ -916,7 +916,7 @@ Array [
                 type="button"
               >
                 <span
-                  class=""
+                  class="ant-btn-icon"
                 >
                   <span
                     aria-label="delete"
@@ -1000,7 +1000,7 @@ Array [
                 type="button"
               >
                 <span
-                  class=""
+                  class="ant-btn-icon"
                 >
                   <span
                     aria-label="delete"
@@ -1081,7 +1081,7 @@ Array [
                 type="button"
               >
                 <span
-                  class=""
+                  class="ant-btn-icon"
                 >
                   <span
                     aria-label="delete"
@@ -1248,7 +1248,7 @@ exports[`renders components/upload/demo/file-type.tsx extend context correctly 1
             type="button"
           >
             <span
-              class=""
+              class="ant-btn-icon"
             >
               <span
                 aria-label="delete"
@@ -1360,7 +1360,7 @@ exports[`renders components/upload/demo/file-type.tsx extend context correctly 1
             type="button"
           >
             <span
-              class=""
+              class="ant-btn-icon"
             >
               <span
                 aria-label="delete"
@@ -1474,7 +1474,7 @@ exports[`renders components/upload/demo/file-type.tsx extend context correctly 1
             type="button"
           >
             <span
-              class=""
+              class="ant-btn-icon"
             >
               <span
                 aria-label="delete"
@@ -1607,7 +1607,7 @@ exports[`renders components/upload/demo/file-type.tsx extend context correctly 1
             type="button"
           >
             <span
-              class=""
+              class="ant-btn-icon"
             >
               <span
                 aria-label="delete"
@@ -1732,7 +1732,7 @@ exports[`renders components/upload/demo/file-type.tsx extend context correctly 1
             type="button"
           >
             <span
-              class=""
+              class="ant-btn-icon"
             >
               <span
                 aria-label="delete"
@@ -1852,7 +1852,7 @@ exports[`renders components/upload/demo/fileList.tsx extend context correctly 1`
         type="button"
       >
         <span
-          class=""
+          class="ant-btn-icon"
         >
           <span
             aria-label="upload"
@@ -1930,7 +1930,7 @@ exports[`renders components/upload/demo/fileList.tsx extend context correctly 1`
             type="button"
           >
             <span
-              class=""
+              class="ant-btn-icon"
             >
               <span
                 aria-label="delete"
@@ -1991,7 +1991,7 @@ exports[`renders components/upload/demo/max-count.tsx extend context correctly 1
             type="button"
           >
             <span
-              class=""
+              class="ant-btn-icon"
             >
               <span
                 aria-label="upload"
@@ -2049,7 +2049,7 @@ exports[`renders components/upload/demo/max-count.tsx extend context correctly 1
             type="button"
           >
             <span
-              class=""
+              class="ant-btn-icon"
             >
               <span
                 aria-label="upload"
@@ -2154,7 +2154,7 @@ exports[`renders components/upload/demo/picture-card.tsx extend context correctl
             type="button"
           >
             <span
-              class=""
+              class="ant-btn-icon"
             >
               <span
                 aria-label="delete"
@@ -2243,7 +2243,7 @@ exports[`renders components/upload/demo/picture-card.tsx extend context correctl
             type="button"
           >
             <span
-              class=""
+              class="ant-btn-icon"
             >
               <span
                 aria-label="delete"
@@ -2332,7 +2332,7 @@ exports[`renders components/upload/demo/picture-card.tsx extend context correctl
             type="button"
           >
             <span
-              class=""
+              class="ant-btn-icon"
             >
               <span
                 aria-label="delete"
@@ -2421,7 +2421,7 @@ exports[`renders components/upload/demo/picture-card.tsx extend context correctl
             type="button"
           >
             <span
-              class=""
+              class="ant-btn-icon"
             >
               <span
                 aria-label="delete"
@@ -2557,7 +2557,7 @@ exports[`renders components/upload/demo/picture-card.tsx extend context correctl
             type="button"
           >
             <span
-              class=""
+              class="ant-btn-icon"
             >
               <span
                 aria-label="delete"
@@ -2723,7 +2723,7 @@ exports[`renders components/upload/demo/picture-circle.tsx extend context correc
             type="button"
           >
             <span
-              class=""
+              class="ant-btn-icon"
             >
               <span
                 aria-label="delete"
@@ -2859,7 +2859,7 @@ exports[`renders components/upload/demo/picture-circle.tsx extend context correc
             type="button"
           >
             <span
-              class=""
+              class="ant-btn-icon"
             >
               <span
                 aria-label="delete"
@@ -2979,7 +2979,7 @@ Array [
           type="button"
         >
           <span
-            class=""
+            class="ant-btn-icon"
           >
             <span
               aria-label="upload"
@@ -3054,7 +3054,7 @@ Array [
               type="button"
             >
               <span
-                class=""
+                class="ant-btn-icon"
               >
                 <span
                   aria-label="delete"
@@ -3117,7 +3117,7 @@ Array [
               type="button"
             >
               <span
-                class=""
+                class="ant-btn-icon"
               >
                 <span
                   aria-label="delete"
@@ -3205,7 +3205,7 @@ Array [
               type="button"
             >
               <span
-                class=""
+                class="ant-btn-icon"
               >
                 <span
                   aria-label="delete"
@@ -3276,7 +3276,7 @@ Array [
           type="button"
         >
           <span
-            class=""
+            class="ant-btn-icon"
           >
             <span
               aria-label="upload"
@@ -3351,7 +3351,7 @@ Array [
               type="button"
             >
               <span
-                class=""
+                class="ant-btn-icon"
               >
                 <span
                   aria-label="delete"
@@ -3414,7 +3414,7 @@ Array [
               type="button"
             >
               <span
-                class=""
+                class="ant-btn-icon"
               >
                 <span
                   aria-label="delete"
@@ -3502,7 +3502,7 @@ Array [
               type="button"
             >
               <span
-                class=""
+                class="ant-btn-icon"
               >
                 <span
                   aria-label="delete"
@@ -3575,7 +3575,7 @@ exports[`renders components/upload/demo/preview-file.tsx extend context correctl
         type="button"
       >
         <span
-          class=""
+          class="ant-btn-icon"
         >
           <span
             aria-label="upload"
@@ -3631,7 +3631,7 @@ exports[`renders components/upload/demo/transform-file.tsx extend context correc
         type="button"
       >
         <span
-          class=""
+          class="ant-btn-icon"
         >
           <span
             aria-label="upload"
@@ -3687,7 +3687,7 @@ exports[`renders components/upload/demo/upload-custom-action-icon.tsx extend con
         type="button"
       >
         <span
-          class=""
+          class="ant-btn-icon"
         >
           <span
             aria-label="upload"
@@ -3774,7 +3774,7 @@ exports[`renders components/upload/demo/upload-custom-action-icon.tsx extend con
             type="button"
           >
             <span
-              class=""
+              class="ant-btn-icon"
             >
               <span
                 aria-label="star"
@@ -3857,7 +3857,7 @@ exports[`renders components/upload/demo/upload-custom-action-icon.tsx extend con
             type="button"
           >
             <span
-              class=""
+              class="ant-btn-icon"
             >
               <span
                 aria-label="star"
@@ -3931,7 +3931,7 @@ exports[`renders components/upload/demo/upload-custom-action-icon.tsx extend con
             type="button"
           >
             <span
-              class=""
+              class="ant-btn-icon"
             >
               <span
                 aria-label="star"
@@ -4004,7 +4004,7 @@ Array [
           type="button"
         >
           <span
-            class=""
+            class="ant-btn-icon"
           >
             <span
               aria-label="upload"
@@ -4071,7 +4071,7 @@ exports[`renders components/upload/demo/upload-png-only.tsx extend context corre
         type="button"
       >
         <span
-          class=""
+          class="ant-btn-icon"
         >
           <span
             aria-label="upload"
@@ -4156,7 +4156,7 @@ exports[`renders components/upload/demo/upload-with-aliyun-oss.tsx extend contex
                     type="button"
                   >
                     <span
-                      class=""
+                      class="ant-btn-icon"
                     >
                       <span
                         aria-label="upload"

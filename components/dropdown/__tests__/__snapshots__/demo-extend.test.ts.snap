@@ -2965,7 +2965,7 @@ exports[`renders components/dropdown/demo/dropdown-button.tsx extend context cor
         type="button"
       >
         <span
-          class=""
+          class="ant-btn-icon"
         >
           <span
             aria-label="ellipsis"
@@ -3289,7 +3289,7 @@ exports[`renders components/dropdown/demo/dropdown-button.tsx extend context cor
         type="button"
       >
         <span
-          class=""
+          class="ant-btn-icon"
         >
           <span
             aria-label="user"
@@ -3615,7 +3615,7 @@ exports[`renders components/dropdown/demo/dropdown-button.tsx extend context cor
         type="button"
       >
         <span
-          class=""
+          class="ant-btn-icon"
         >
           <span
             aria-label="ellipsis"
@@ -3958,7 +3958,7 @@ exports[`renders components/dropdown/demo/dropdown-button.tsx extend context cor
         type="button"
       >
         <span
-          class=""
+          class="ant-btn-icon"
         >
           <span
             class="ant-btn-loading-icon"
@@ -4608,7 +4608,7 @@ exports[`renders components/dropdown/demo/dropdown-button.tsx extend context cor
         type="button"
       >
         <span
-          class=""
+          class="ant-btn-icon"
         >
           <span
             aria-label="ellipsis"
@@ -5352,7 +5352,7 @@ exports[`renders components/dropdown/demo/loading.tsx extend context correctly 1
         type="button"
       >
         <span
-          class=""
+          class="ant-btn-icon"
         >
           <span
             aria-label="ellipsis"
@@ -5462,7 +5462,7 @@ exports[`renders components/dropdown/demo/loading.tsx extend context correctly 1
         type="button"
       >
         <span
-          class=""
+          class="ant-btn-icon"
         >
           <span
             aria-label="ellipsis"
@@ -5572,7 +5572,7 @@ exports[`renders components/dropdown/demo/loading.tsx extend context correctly 1
         type="button"
       >
         <span
-          class=""
+          class="ant-btn-icon"
         >
           <span
             aria-label="ellipsis"
@@ -5681,7 +5681,7 @@ exports[`renders components/dropdown/demo/loading.tsx extend context correctly 1
         type="button"
       >
         <span
-          class=""
+          class="ant-btn-icon"
         >
           <span
             aria-label="down"

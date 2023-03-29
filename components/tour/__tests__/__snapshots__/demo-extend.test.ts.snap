@@ -51,7 +51,7 @@ Array [
         type="button"
       >
         <span
-          class=""
+          class="ant-btn-icon"
         >
           <span
             aria-label="ellipsis"
@@ -218,7 +218,7 @@ Array [
         type="button"
       >
         <span
-          class=""
+          class="ant-btn-icon"
         >
           <span
             aria-label="ellipsis"
@@ -371,7 +371,7 @@ Array [
         type="button"
       >
         <span
-          class=""
+          class="ant-btn-icon"
         >
           <span
             aria-label="ellipsis"
@@ -538,7 +538,7 @@ Array [
         type="button"
       >
         <span
-          class=""
+          class="ant-btn-icon"
         >
           <span
             aria-label="ellipsis"

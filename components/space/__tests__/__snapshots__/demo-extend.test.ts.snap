@@ -330,12 +330,14 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
   >
     <input
       class="ant-input ant-input-compact-item ant-input-compact-first-item"
+      classnames="[object Object]"
       style="width: 20%;"
       type="text"
       value="0571"
     />
     <input
       class="ant-input ant-input-compact-item ant-input-compact-last-item"
+      classnames="[object Object]"
       style="width: 30%;"
       type="text"
       value="26888888"
@@ -346,7 +348,8 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
     class="ant-space-compact ant-space-compact-block"
   >
     <input
-      class="ant-input ant-input-sm ant-input-compact-item ant-input-compact-first-item"
+      class="ant-input ant-input-compact-item ant-input-compact-first-item"
+      classnames="[object Object]"
       style="width: calc(100% - 200px);"
       type="text"
       value="https://ant.design"
@@ -366,6 +369,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
   >
     <input
       class="ant-input ant-input-compact-item ant-input-compact-first-item"
+      classnames="[object Object]"
       style="width: calc(100% - 200px);"
       type="text"
       value="https://ant.design"
@@ -385,6 +389,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
   >
     <input
       class="ant-input ant-input-compact-item ant-input-compact-first-item"
+      classnames="[object Object]"
       style="width: calc(100% - 200px);"
       type="text"
       value="git@github.com:ant-design/ant-design.git"
@@ -394,7 +399,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       type="button"
     >
       <span
-        class=""
+        class="ant-btn-icon"
       >
         <span
           aria-label="copy"
@@ -454,7 +459,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
-            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
@@ -610,6 +614,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
     </div>
     <input
       class="ant-input ant-input-compact-item ant-input-compact-last-item"
+      classnames="[object Object]"
       style="width: 50%;"
       type="text"
       value="Xihu District, Hangzhou"
@@ -682,7 +687,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                 aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                 aria-autocomplete="list"
                 aria-controls="rc_select_TEST_OR_SSR_list"
-                aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-owns="rc_select_TEST_OR_SSR_list"
                 autocomplete="off"
@@ -853,6 +857,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
     </div>
     <input
       class="ant-input ant-input-compact-item ant-input-compact-last-item"
+      classnames="[object Object]"
       style="width: 50%;"
       type="text"
       value="Xihu District, Hangzhou"
@@ -871,6 +876,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       >
         <input
           class="ant-input"
+          classnames="[object Object]"
           type="text"
           value="0571"
         />
@@ -882,7 +888,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             type="button"
           >
             <span
-              class=""
+              class="ant-btn-icon"
             >
               <span
                 aria-label="search"
@@ -920,6 +926,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         >
           <input
             class="ant-input"
+            classnames="[object Object]"
             type="text"
             value="26888888"
           />
@@ -961,7 +968,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             type="button"
           >
             <span
-              class=""
+              class="ant-btn-icon"
             >
               <span
                 aria-label="search"
@@ -996,6 +1003,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       >
         <input
           class="ant-input"
+          classnames="[object Object]"
           type="text"
           value="+1"
         />
@@ -1007,7 +1015,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             type="button"
           >
             <span
-              class=""
+              class="ant-btn-icon"
             >
               <span
                 aria-label="search"
@@ -1051,7 +1059,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
-            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
@@ -1181,6 +1188,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
     </div>
     <input
       class="ant-input ant-input-compact-item"
+      classnames="[object Object]"
       style="width: 50%;"
       type="text"
       value="input content"
@@ -1266,6 +1274,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
   >
     <input
       class="ant-input ant-input-compact-item ant-input-compact-first-item"
+      classnames="[object Object]"
       style="width: 50%;"
       type="text"
       value="input content"
@@ -3056,6 +3065,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
     </div>
     <input
       class="ant-input ant-input-compact-item"
+      classnames="[object Object]"
       style="width: 30%;"
       type="text"
       value="input content"
@@ -3075,6 +3085,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
   >
     <input
       class="ant-input ant-input-compact-item ant-input-compact-first-item"
+      classnames="[object Object]"
       style="width: 30%;"
       type="text"
       value="input content"
@@ -4280,7 +4291,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
-            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
@@ -4421,7 +4431,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
-            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
@@ -4567,7 +4576,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
-            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
@@ -4697,6 +4705,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
     </div>
     <input
       class="ant-input ant-input-compact-item"
+      classnames="[object Object]"
       placeholder="Minimum"
       style="width: 100px; text-align: center;"
       type="text"
@@ -4704,6 +4713,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
     />
     <input
       class="ant-input ant-input-disabled site-input-split ant-input-compact-item"
+      classnames="[object Object]"
       disabled=""
       placeholder="~"
       style="width: 30px; border-left: 0; border-right: 0; pointer-events: none;"
@@ -4712,6 +4722,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
     />
     <input
       class="ant-input site-input-right ant-input-compact-item ant-input-compact-last-item"
+      classnames="[object Object]"
       placeholder="Maximum"
       style="width: 100px; text-align: center;"
       type="text"
@@ -4736,7 +4747,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
-            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
@@ -4878,7 +4888,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             aria-activedescendant="rc_select_TEST_OR_SSR_list_-1"
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
-            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
@@ -6395,7 +6404,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           <input
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
-            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
@@ -8006,7 +8014,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           <input
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
-            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
@@ -8488,7 +8495,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       type="button"
     >
       <span
-        class=""
+        class="ant-btn-icon"
       >
         <span
           aria-label="like"
@@ -8535,7 +8542,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       type="button"
     >
       <span
-        class=""
+        class="ant-btn-icon"
       >
         <span
           aria-label="comment"
@@ -8591,7 +8598,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       type="button"
     >
       <span
-        class=""
+        class="ant-btn-icon"
       >
         <span
           aria-label="star"
@@ -8638,7 +8645,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       type="button"
     >
       <span
-        class=""
+        class="ant-btn-icon"
       >
         <span
           aria-label="heart"
@@ -8685,7 +8692,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       type="button"
     >
       <span
-        class=""
+        class="ant-btn-icon"
       >
         <span
           aria-label="share-alt"
@@ -8732,7 +8739,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       type="button"
     >
       <span
-        class=""
+        class="ant-btn-icon"
       >
         <span
           aria-label="download"
@@ -8779,7 +8786,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       type="button"
     >
       <span
-        class=""
+        class="ant-btn-icon"
       >
         <span
           aria-label="ellipsis"
@@ -9064,7 +9071,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
         type="button"
       >
         <span
-          class=""
+          class="ant-btn-icon"
         >
           <span
             aria-label="download"
@@ -9112,7 +9119,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       type="button"
     >
       <span
-        class=""
+        class="ant-btn-icon"
       >
         <span
           aria-label="download"
@@ -9194,7 +9201,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
         type="button"
       >
         <span
-          class=""
+          class="ant-btn-icon"
         >
           <span
             aria-label="download"
@@ -9242,7 +9249,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       type="button"
     >
       <span
-        class=""
+        class="ant-btn-icon"
       >
         <span
           aria-label="download"
@@ -9297,7 +9304,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       type="button"
     >
       <span
-        class=""
+        class="ant-btn-icon"
       >
         <span
           aria-label="ellipsis"
@@ -9543,7 +9550,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
           type="button"
         >
           <span
-            class=""
+            class="ant-btn-icon"
           >
             <span
               aria-label="download"
@@ -9622,6 +9629,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
           </span>
           <input
             class="ant-input"
+            classnames="[object Object]"
             type="text"
             value="mysite"
           />
@@ -9651,6 +9659,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
     >
       <input
         class="ant-input ant-input-compact-item ant-input-compact-first-item"
+        classnames="[object Object]"
         placeholder="prefix"
         type="text"
         value=""
@@ -9677,7 +9686,6 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                     aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                     aria-autocomplete="list"
                     aria-controls="rc_select_TEST_OR_SSR_list"
-                    aria-expanded="false"
                     aria-haspopup="listbox"
                     aria-owns="rc_select_TEST_OR_SSR_list"
                     autocomplete="off"
@@ -9808,6 +9816,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
           </span>
           <input
             class="ant-input"
+            classnames="[object Object]"
             type="text"
             value="mysite"
           />
@@ -9827,7 +9836,6 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                     aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                     aria-autocomplete="list"
                     aria-controls="rc_select_TEST_OR_SSR_list"
-                    aria-expanded="false"
                     aria-haspopup="listbox"
                     aria-owns="rc_select_TEST_OR_SSR_list"
                     autocomplete="off"
@@ -9997,7 +10005,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         type="button"
       >
         <span
-          class=""
+          class="ant-btn-icon"
         >
           <span
             aria-label="copy"
@@ -10037,6 +10045,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         >
           <input
             class="ant-input"
+            classnames="[object Object]"
             type="text"
             value=""
           />
@@ -10048,7 +10057,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
               type="button"
             >
               <span
-                class=""
+                class="ant-btn-icon"
               >
                 <span
                   aria-label="search"
@@ -10082,6 +10091,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         >
           <input
             class="ant-input"
+            classnames="[object Object]"
             type="text"
             value=""
           />
@@ -10093,7 +10103,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
               type="button"
             >
               <span
-                class=""
+                class="ant-btn-icon"
               >
                 <span
                   aria-label="search"
@@ -10124,7 +10134,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         type="button"
       >
         <span
-          class=""
+          class="ant-btn-icon"
         >
           <span
             aria-label="copy"
@@ -10164,6 +10174,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         >
           <input
             class="ant-input"
+            classnames="[object Object]"
             type="text"
             value="mysite"
           />
@@ -10208,6 +10219,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         >
           <input
             class="ant-input"
+            classnames="[object Object]"
             placeholder="suffix"
             type="text"
             value=""
@@ -10262,6 +10274,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
           >
             <input
               class="ant-input"
+              classnames="[object Object]"
               type="text"
               value="mysite"
             />
@@ -10320,7 +10333,6 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                   <input
                     aria-autocomplete="list"
                     aria-controls="rc_select_TEST_OR_SSR_list"
-                    aria-expanded="false"
                     aria-haspopup="listbox"
                     aria-owns="rc_select_TEST_OR_SSR_list"
                     autocomplete="off"
@@ -10442,6 +10454,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
           </span>
           <input
             class="ant-input"
+            classnames="[object Object]"
             type="text"
             value="mysite"
           />
@@ -10503,7 +10516,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
           type="button"
         >
           <span
-            class=""
+            class="ant-btn-icon"
           >
             <span
               aria-label="ellipsis"
@@ -10785,7 +10798,6 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
               aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
-              aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
@@ -12210,7 +12222,6 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
             <input
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
-              aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
@@ -12379,6 +12390,7 @@ Array [
       >
         <input
           class="ant-input ant-input-compact-item ant-input-compact-first-item"
+          classnames="[object Object]"
           placeholder="Typing..."
           style="width: 90px;"
           type="text"
@@ -12389,7 +12401,7 @@ Array [
           type="button"
         >
           <span
-            class=""
+            class="ant-btn-icon"
           >
             <span
               aria-label="search"
@@ -12503,7 +12515,6 @@ Array [
                 aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                 aria-autocomplete="list"
                 aria-controls="rc_select_TEST_OR_SSR_list"
-                aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-owns="rc_select_TEST_OR_SSR_list"
                 autocomplete="off"
@@ -12656,6 +12667,7 @@ Array [
           >
             <input
               class="ant-input"
+              classnames="[object Object]"
               placeholder="Search"
               type="text"
               value=""
@@ -12668,7 +12680,7 @@ Array [
                 type="button"
               >
                 <span
-                  class=""
+                  class="ant-btn-icon"
                 >
                   <span
                     aria-label="search"
@@ -12708,6 +12720,7 @@ Array [
       >
         <input
           class="ant-input ant-input-compact-item"
+          classnames="[object Object]"
           type="text"
           value="mysite"
         />
@@ -12716,7 +12729,7 @@ Array [
           type="button"
         >
           <span
-            class=""
+            class="ant-btn-icon"
           >
             <span
               aria-label="copy"
@@ -14182,7 +14195,6 @@ Array [
             <input
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
-              aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"

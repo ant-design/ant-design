@@ -92,6 +92,7 @@ exports[`renders components/transfer/demo/advanced.tsx correctly 1`] = `
           </span>
           <input
             class="ant-input"
+            classnames="[object Object]"
             placeholder="Search here"
             type="text"
             value=""
@@ -200,7 +201,7 @@ exports[`renders components/transfer/demo/advanced.tsx correctly 1`] = `
       type="button"
     >
       <span
-        class=""
+        class="ant-btn-icon"
       >
         <span
           aria-label="right"
@@ -232,7 +233,7 @@ exports[`renders components/transfer/demo/advanced.tsx correctly 1`] = `
       type="button"
     >
       <span
-        class=""
+        class="ant-btn-icon"
       >
         <span
           aria-label="left"
@@ -347,6 +348,7 @@ exports[`renders components/transfer/demo/advanced.tsx correctly 1`] = `
           </span>
           <input
             class="ant-input"
+            classnames="[object Object]"
             placeholder="Search here"
             type="text"
             value=""
@@ -800,7 +802,7 @@ exports[`renders components/transfer/demo/basic.tsx correctly 1`] = `
       type="button"
     >
       <span
-        class=""
+        class="ant-btn-icon"
       >
         <span
           aria-label="right"
@@ -829,7 +831,7 @@ exports[`renders components/transfer/demo/basic.tsx correctly 1`] = `
       type="button"
     >
       <span
-        class=""
+        class="ant-btn-icon"
       >
         <span
           aria-label="left"
@@ -1265,7 +1267,7 @@ exports[`renders components/transfer/demo/custom-item.tsx correctly 1`] = `
       type="button"
     >
       <span
-        class=""
+        class="ant-btn-icon"
       >
         <span
           aria-label="right"
@@ -1294,7 +1296,7 @@ exports[`renders components/transfer/demo/custom-item.tsx correctly 1`] = `
       type="button"
     >
       <span
-        class=""
+        class="ant-btn-icon"
       >
         <span
           aria-label="left"
@@ -1675,7 +1677,7 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx correctly
       type="button"
     >
       <span
-        class=""
+        class="ant-btn-icon"
       >
         <span
           aria-label="right"
@@ -1704,7 +1706,7 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx correctly
       type="button"
     >
       <span
-        class=""
+        class="ant-btn-icon"
       >
         <span
           aria-label="left"
@@ -1969,7 +1971,7 @@ Array [
         type="button"
       >
         <span
-          class=""
+          class="ant-btn-icon"
         >
           <span
             aria-label="right"
@@ -1998,7 +2000,7 @@ Array [
         type="button"
       >
         <span
-          class=""
+          class="ant-btn-icon"
         >
           <span
             aria-label="left"
@@ -2577,7 +2579,7 @@ Array [
         type="button"
       >
         <span
-          class=""
+          class="ant-btn-icon"
         >
           <span
             aria-label="right"
@@ -2990,6 +2992,7 @@ exports[`renders components/transfer/demo/search.tsx correctly 1`] = `
           </span>
           <input
             class="ant-input"
+            classnames="[object Object]"
             placeholder="Search here"
             type="text"
             value=""
@@ -3085,7 +3088,7 @@ exports[`renders components/transfer/demo/search.tsx correctly 1`] = `
       type="button"
     >
       <span
-        class=""
+        class="ant-btn-icon"
       >
         <span
           aria-label="right"
@@ -3114,7 +3117,7 @@ exports[`renders components/transfer/demo/search.tsx correctly 1`] = `
       type="button"
     >
       <span
-        class=""
+        class="ant-btn-icon"
       >
         <span
           aria-label="left"
@@ -3225,6 +3228,7 @@ exports[`renders components/transfer/demo/search.tsx correctly 1`] = `
           </span>
           <input
             class="ant-input"
+            classnames="[object Object]"
             placeholder="Search here"
             type="text"
             value=""
@@ -3441,7 +3445,7 @@ exports[`renders components/transfer/demo/status.tsx correctly 1`] = `
           type="button"
         >
           <span
-            class=""
+            class="ant-btn-icon"
           >
             <span
               aria-label="right"
@@ -3470,7 +3474,7 @@ exports[`renders components/transfer/demo/status.tsx correctly 1`] = `
           type="button"
         >
           <span
-            class=""
+            class="ant-btn-icon"
           >
             <span
               aria-label="left"
@@ -3696,6 +3700,7 @@ exports[`renders components/transfer/demo/status.tsx correctly 1`] = `
               </span>
               <input
                 class="ant-input"
+                classnames="[object Object]"
                 placeholder="Search here"
                 type="text"
                 value=""
@@ -3791,7 +3796,7 @@ exports[`renders components/transfer/demo/status.tsx correctly 1`] = `
           type="button"
         >
           <span
-            class=""
+            class="ant-btn-icon"
           >
             <span
               aria-label="right"
@@ -3820,7 +3825,7 @@ exports[`renders components/transfer/demo/status.tsx correctly 1`] = `
           type="button"
         >
           <span
-            class=""
+            class="ant-btn-icon"
           >
             <span
               aria-label="left"
@@ -3931,6 +3936,7 @@ exports[`renders components/transfer/demo/status.tsx correctly 1`] = `
               </span>
               <input
                 class="ant-input"
+                classnames="[object Object]"
                 placeholder="Search here"
                 type="text"
                 value=""
@@ -4706,7 +4712,7 @@ Array [
         type="button"
       >
         <span
-          class=""
+          class="ant-btn-icon"
         >
           <span
             aria-label="right"
@@ -4735,7 +4741,7 @@ Array [
         type="button"
       >
         <span
-          class=""
+          class="ant-btn-icon"
         >
           <span
             aria-label="left"
@@ -5538,7 +5544,7 @@ exports[`renders components/transfer/demo/tree-transfer.tsx correctly 1`] = `
       type="button"
     >
       <span
-        class=""
+        class="ant-btn-icon"
       >
         <span
           aria-label="right"
@@ -5567,7 +5573,7 @@ exports[`renders components/transfer/demo/tree-transfer.tsx correctly 1`] = `
       type="button"
     >
       <span
-        class=""
+        class="ant-btn-icon"
       >
         <span
           aria-label="left"
