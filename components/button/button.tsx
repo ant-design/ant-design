@@ -40,6 +40,7 @@ export interface BaseButtonProps {
   block?: boolean;
   children?: React.ReactNode;
   classNames?: { icon: string };
+  styles?: { icon: React.CSSProperties };
 }
 
 export type AnchorButtonProps = {
@@ -99,6 +100,7 @@ const InternalButton: React.ForwardRefRenderFunction<
     danger,
     shape = 'default',
     size: customizeSize,
+    styles,
     disabled: customDisabled,
     className,
     rootClassName,
@@ -108,13 +110,12 @@ const InternalButton: React.ForwardRefRenderFunction<
     block = false,
     // React does not recognize the `htmlType` prop on a DOM element. Here we pick it out of `rest`.
     htmlType = 'button',
-    classNames: customClassNames = { icon: '' },
+    classNames: customClassNames,
     ...rest
   } = props;
 
   const { getPrefixCls, autoInsertSpaceInButton, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('btn', customizePrefixCls);
-  const { icon: iconClassName } = customClassNames;
 
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
@@ -235,7 +236,12 @@ const InternalButton: React.ForwardRefRenderFunction<
     ) : (
       <LoadingIcon existIcon={!!icon} prefixCls={prefixCls} loading={!!innerLoading} />
     );
-  const mergedIconNode = icon ? <span className={iconClassName}>{iconNode}</span> : null;
+  const mergedIconClassName = classNames('ant-btn-icon', customClassNames?.icon);
+  const mergedIconNode = icon ? (
+    <span className={mergedIconClassName} style={styles?.icon}>
+      {iconNode}
+    </span>
+  ) : null;
 
   const kids =
     children || children === 0

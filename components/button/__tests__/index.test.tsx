@@ -162,10 +162,18 @@ describe('Button', () => {
   });
 
   it('should support custom icon  className', () => {
-    const wrapper = render(
+    const { container } = render(
       <Button type="primary" icon={<SearchOutlined />} classNames={{ icon: 'custom-icon' }} />,
     );
-    expect(wrapper.container.querySelectorAll('.custom-icon').length).toBe(1);
+    expect(container.querySelectorAll('.custom-icon').length).toBe(1);
+    expect(container).toMatchSnapshot();
+  });
+
+  it('should support custom icon  styles', () => {
+    const { container } = render(
+      <Button type="primary" icon={<SearchOutlined />} styles={{ icon: { color: 'red' } }} />,
+    );
+    expect(container).toMatchSnapshot();
   });
 
   it('reset when loading back of delay', () => {
