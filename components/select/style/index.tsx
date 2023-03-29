@@ -1,11 +1,11 @@
 import type { CSSObject } from '@ant-design/cssinjs';
+import { resetComponent, resetIcon, textEllipsis } from '../../style';
+import { genCompactItemStyle } from '../../style/compact-item';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import genDropdownStyle from './dropdown';
 import genMultipleStyle from './multiple';
 import genSingleStyle from './single';
-import { resetComponent, resetIcon, textEllipsis } from '../../style';
-import { genCompactItemStyle } from '../../style/compact-item';
 
 export interface ComponentToken {
   zIndexPopup: number;
@@ -15,6 +15,8 @@ export interface SelectToken extends FullToken<'Select'> {
   rootPrefixCls: string;
   inputPaddingHorizontalBase: number;
 }
+
+const SELECT_MIN_WIDTH = 80;
 
 // ============================= Selector =============================
 const genSelectorStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
@@ -129,6 +131,7 @@ const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
       position: 'relative',
       display: 'inline-block',
       cursor: 'pointer',
+      minWidth: SELECT_MIN_WIDTH,
 
       [`&:not(${componentCls}-customize-input) ${componentCls}-selector`]: {
         ...genSelectorStyle(token),
