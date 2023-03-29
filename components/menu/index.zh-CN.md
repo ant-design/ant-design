@@ -142,3 +142,7 @@ Menu 初始化时会先全部渲染，然后根据宽度裁剪内容。当处于
   <Menu style={{ minWidth: 0, flex: "auto" }} />
 </div>
 ```
+
+## Design Token
+
+<ComponentTokenTable component="Menu"></ComponentTokenTable>

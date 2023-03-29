@@ -15,6 +15,31 @@ timeline: true
 
 ---
 
+## 5.3.3
+
+`2023-3-28`
+
+- Menu
+  - 🐞 Fix Menu `items` not accept `key` issue. [#41434](https://github.com/ant-design/ant-design/pull/41434) [@Yuiai01](https://github.com/Yuiai01)
+  - 🐞 Fix submenu themes being overwritten when using `getPopupContainer` to select the main Menu. [#41465](https://github.com/ant-design/ant-design/pull/41465) [@Yuiai01](https://github.com/Yuiai01)
+- 🐞 Fix Table filter do not persist filter status when filter dropdown is visible. [#41445](https://github.com/ant-design/ant-design/pull/41445) [@ablakey](https://github.com/ablakey)
+- 🐞 Fix Modal using `useModal` is not transparent and prefers user settings. [#41422](https://github.com/ant-design/ant-design/pull/41422) [@luo3house](https://github.com/luo3house)
+- Form
+  - 🐞 Fix the problem that the Form validation state does not change in sequence. [#41412](https://github.com/ant-design/ant-design/pull/41412) [@kiner-tang](https://github.com/kiner-tang)
+  - 💄 Fix Form component layout exceptions when set props `layout="inline"`. [#41140](https://github.com/ant-design/ant-design/pull/41140) [@itkui](https://github.com/itkui)
+- 💄 Fix ConfigProvider `nonce` not working on CSS-in-JS style. [#41482](https://github.com/ant-design/ant-design/pull/41482)
+- 💄 Fix Pagination when `size=small`, pagination button active, previous page next page button hover and active styles are lost. [#41462](https://github.com/ant-design/ant-design/pull/41462) [#41458](https://github.com/ant-design/ant-design/pull/41458)
+- 💄 Fix the style problem that the bottom border of the Tabs component overlaps with other borders. [#41381](https://github.com/ant-design/ant-design/pull/41381)
+- 💄 Fix Dropdown.Button down icon size issue. [#41501](https://github.com/ant-design/ant-design/pull/41501)
+- TypeScript
+  - 🐞 Fix the incorrect type definition of Breadcrumb.Item `menu`. [#41373](https://github.com/ant-design/ant-design/pull/41373)
+  - 🤖 Optimize Grid Col type. [#41453](https://github.com/ant-design/ant-design/pull/41453) [@vaakian](https://github.com/vaakian)
+  - 🤖 Optimize Table `resetPagination` type. [#41415](https://github.com/ant-design/ant-design/pull/41415)
+  - 🤖 Optimize TreeSelect `InternalTreeSelect` type. [#41386](https://github.com/ant-design/ant-design/pull/41386) [@Andarist](https://github.com/Andarist)
+- Locales
+  - 🇮🇷 Improve DatePicker `fa_IR` translation. [#41455](https://github.com/ant-design/ant-design/pull/41455) [@ds1371dani](https://github.com/ds1371dani)
+  - 🇸🇪 Add the missing content of `sv_SE` language. [#41424](https://github.com/ant-design/ant-design/pull/41424) [@dhalenok](https://github.com/dhalenok)
+
 ## 5.3.2
 
 `2023-03-20`

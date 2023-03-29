@@ -126,3 +126,7 @@ function itemRender(item, params, items, paths) {
 
 return <Breadcrumb itemRender={itemRender} items={items} />;
 ```
+
+## Design Token
+
+<ComponentTokenTable component="Breadcrumb"></ComponentTokenTable>

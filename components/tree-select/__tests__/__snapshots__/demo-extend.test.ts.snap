@@ -14,6 +14,7 @@ exports[`renders components/tree-select/demo/async.tsx extend context correctly 
       <input
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
+        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
@@ -237,6 +238,7 @@ exports[`renders components/tree-select/demo/basic.tsx extend context correctly 
       <input
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
+        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
@@ -620,6 +622,7 @@ exports[`renders components/tree-select/demo/checkable.tsx extend context correc
           <input
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
@@ -844,6 +847,7 @@ exports[`renders components/tree-select/demo/multiple.tsx extend context correct
           <input
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
@@ -1279,6 +1283,7 @@ Array [
         <input
           aria-autocomplete="list"
           aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
@@ -1816,6 +1821,7 @@ exports[`renders components/tree-select/demo/status.tsx extend context correctly
           <input
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
@@ -1944,6 +1950,7 @@ exports[`renders components/tree-select/demo/status.tsx extend context correctly
               <input
                 aria-autocomplete="list"
                 aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-owns="rc_select_TEST_OR_SSR_list"
                 autocomplete="off"
@@ -2072,6 +2079,7 @@ exports[`renders components/tree-select/demo/suffix.tsx extend context correctly
       <input
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
+        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
@@ -2414,6 +2422,7 @@ exports[`renders components/tree-select/demo/treeData.tsx extend context correct
       <input
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
+        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
@@ -2712,6 +2721,7 @@ exports[`renders components/tree-select/demo/treeLine.tsx extend context correct
           <input
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
