@@ -12,7 +12,7 @@ jobs:
       - checkout
       - run:
           name: Install node_modules
-          command: npm i && npm i puppeteer
+          command: npm i
       - run:
           name: Install argos cli
           command: npm i fast-glob lodash @argos-ci/core
