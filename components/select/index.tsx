@@ -6,21 +6,21 @@ import type { OptionProps } from 'rc-select/lib/Option';
 import type { BaseOptionType, DefaultOptionType } from 'rc-select/lib/Select';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
-import { ConfigContext } from '../config-provider';
-import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
-import DisabledContext from '../config-provider/DisabledContext';
-import type { SizeType } from '../config-provider/SizeContext';
-import SizeContext from '../config-provider/SizeContext';
-import { FormItemInputContext } from '../form/context';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionDirection, getTransitionName } from '../_util/motion';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
+import { ConfigContext } from '../config-provider';
+import DisabledContext from '../config-provider/DisabledContext';
+import type { SizeType } from '../config-provider/SizeContext';
+import SizeContext from '../config-provider/SizeContext';
+import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
+import { FormItemInputContext } from '../form/context';
 import getIcons from './utils/iconUtil';
 
-import { useCompactItemContext } from '../space/Compact';
 import genPurePanel from '../_util/PurePanel';
 import warning from '../_util/warning';
+import { useCompactItemContext } from '../space/Compact';
 import useStyle from './style';
 import useShowArrow from './useShowArrow';
 
@@ -182,12 +182,12 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
   );
 
   // ===================== Placement =====================
-  const getPlacement = (): SelectCommonPlacement => {
+  const memoPlacement = React.useMemo<SelectCommonPlacement>(() => {
     if (placement !== undefined) {
       return placement;
     }
     return direction === 'rtl' ? 'bottomRight' : 'bottomLeft';
-  };
+  }, [placement, direction]);
 
   // ====================== Warning ======================
   if (process.env.NODE_ENV !== 'production') {
@@ -213,9 +213,9 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
       )}
       listHeight={listHeight}
       listItemHeight={listItemHeight}
-      mode={mode as any}
+      mode={mode}
       prefixCls={prefixCls}
-      placement={getPlacement()}
+      placement={memoPlacement}
       direction={direction}
       inputIcon={suffixIcon}
       menuItemSelectedIcon={itemIcon}
