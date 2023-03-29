@@ -592,14 +592,15 @@ describe('Tooltip', () => {
     expect(container).toMatchSnapshot();
   });
 
-  it('forcePopupAlign can be called', async () => {
+  it('use ref.current.forcePopupAlign', async () => {
     const ref = React.createRef<any>();
+    const error = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(<Tooltip open ref={ref} />);
-    ref.current.forcePopupAlign = jest.fn();
     act(() => {
-      ref.current.forcePopupAlign()
+      ref.current.forcePopupAlign();
       jest.runAllTimers();
     });
-    expect(ref.current.forcePopupAlign).toHaveBeenCalled();
+    expect(error).toHaveBeenCalled();
+    error.mockRestore();
   });
 });
