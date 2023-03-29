@@ -44,7 +44,6 @@ class Header extends React.Component {
 
   state = {
     menuVisible: false,
-    docVersions: [],
   };
 
   componentDidMount() {
@@ -58,50 +57,7 @@ class Header extends React.Component {
       }
     });
     initDocSearch(intl.locale);
-    this.getDocVersions();
   }
-
-  getDocVersions = async () => {
-    const { versions } = await fetch('https://registry.npmjs.org/antd').then(res => res.json());
-
-    const allMajorVersion = new Set();
-    Object.keys(versions).map(version => allMajorVersion.add(version.split('.')[0]));
-
-    // major 版本号为 0 的需要手动添加
-    allMajorVersion.delete('0');
-    let docVersions = {
-      '0.9.x': 'http://09x.ant.design',
-      '0.10.x': 'http://010x.ant.design',
-      '0.11.x': 'http://011x.ant.design',
-      '0.12.x': 'http://012x.ant.design',
-    };
-
-    const latestMajorVersion = Math.max(...allMajorVersion) + '';
-    const currentMajorVersion = antdVersion.split('.')[0];
-
-    allMajorVersion.map(version => {
-      let key = `${version}.x`;
-      let value = `http://${version}x.ant.design`;
-
-      // 当前版本号
-      if (version === currentMajorVersion) {
-        key = antdVersion;
-        // 最新版本号
-      } else if (version === latestMajorVersion) {
-        value = `http://ant.design`;
-      }
-
-      docVersions = { ...docVersions, [key]: value };
-    });
-
-    const reverseDocVersions = {};
-    Object.keys(docVersions)
-      .reverse()
-      .map(key => (reverseDocVersions[key] = docVersions[key]));
-    this.setState({
-      docVersions: reverseDocVersions,
-    });
-  };
 
   handleShowMenu = () => {
     this.setState({
@@ -149,14 +105,19 @@ class Header extends React.Component {
   };
 
   render() {
-    const { menuVisible, docVersions } = this.state;
+    const { menuVisible } = this.state;
     const { isMobile } = this.context;
     const menuMode = isMobile ? 'inline' : 'horizontal';
     const {
       location,
+      themeConfig,
       intl: { locale },
     } = this.props;
-
+    const docVersions = {
+      ...themeConfig.docNewVersions,
+      [antdVersion]: antdVersion,
+      ...themeConfig.docVersions,
+    };
     const versionOptions = Object.keys(docVersions).map(version => (
       <Option value={docVersions[version]} key={version}>
         {version}
