@@ -267,17 +267,17 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
     defaultValue: props.defaultOpen ?? props.defaultVisible,
   });
 
-  const isNoTitle = !title && !overlay && title !== 0; // overlay for old version compatibility
+  const noTitle = !title && !overlay && title !== 0; // overlay for old version compatibility
 
   const onOpenChange = (vis: boolean) => {
-    setOpen(isNoTitle ? false : vis);
-    if (!isNoTitle) {
+    setOpen(noTitle ? false : vis);
+    if (!noTitle) {
       props.onOpenChange?.(vis);
       props.onVisibleChange?.(vis);
     }
   };
 
-  const memoTooltipPlacements = React.useMemo<BuildInPlacements>(() => {
+  const tooltipPlacements = React.useMemo<BuildInPlacements>(() => {
     let mergedArrowPointAtCenter = arrowPointAtCenter;
     if (typeof arrow === 'object') {
       mergedArrowPointAtCenter =
@@ -298,10 +298,10 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
   // 动态设置动画点
   const onPopupAlign = (domNode: HTMLElement, align: AlignType) => {
     // 当前返回的位置
-    const placement = Object.keys(memoTooltipPlacements).find(
+    const placement = Object.keys(tooltipPlacements).find(
       (key) =>
-        memoTooltipPlacements[key].points![0] === align.points?.[0] &&
-        memoTooltipPlacements[key].points![1] === align.points?.[1],
+        tooltipPlacements[key].points![0] === align.points?.[0] &&
+        tooltipPlacements[key].points![1] === align.points?.[1],
     );
 
     if (placement) {
@@ -348,7 +348,7 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
 
   let tempOpen = open;
   // Hide tooltip when there is no title
-  if (!('open' in props) && !('visible' in props) && isNoTitle) {
+  if (!('open' in props) && !('visible' in props) && noTitle) {
     tempOpen = false;
   }
 
@@ -395,7 +395,7 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
       overlayStyle={{ ...arrowContentStyle, ...overlayStyle }}
       getTooltipContainer={getPopupContainer || getTooltipContainer || getContextPopupContainer}
       ref={tooltipRef}
-      builtinPlacements={memoTooltipPlacements}
+      builtinPlacements={tooltipPlacements}
       overlay={memoOverlay}
       visible={tempOpen}
       onVisibleChange={onOpenChange}
