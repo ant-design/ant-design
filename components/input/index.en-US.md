@@ -135,7 +135,7 @@ Supports all props of `Input`.
 #### Input.TextArea
 
 <!-- prettier-ignore -->
-| 名称 | 说明 | 版本 |
+| Property | Description | Version |
 | --- | --- | --- |
 | textarea | `textarea` element | 5.4.0 |
 | count | Text count element | 5.4.0 |
