@@ -125,7 +125,7 @@ Supports all props of `Input`.
 #### Input
 
 <!-- prettier-ignore -->
-| 名称 | 说明 | 版本 |
+| Property | Description | Version |
 | --- | --- | --- |
 | input | `input` element | 5.4.0 |
 | prefix | Wrapper of prefix | 5.4.0 |
