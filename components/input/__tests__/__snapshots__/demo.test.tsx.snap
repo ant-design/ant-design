@@ -58,6 +58,7 @@ exports[`renders components/input/demo/addon.tsx correctly 1`] = `
                   aria-activedescendant="undefined_list_0"
                   aria-autocomplete="list"
                   aria-controls="undefined_list"
+                  aria-expanded="false"
                   aria-haspopup="listbox"
                   aria-owns="undefined_list"
                   autocomplete="off"
@@ -126,6 +127,7 @@ exports[`renders components/input/demo/addon.tsx correctly 1`] = `
                   aria-activedescendant="undefined_list_0"
                   aria-autocomplete="list"
                   aria-controls="undefined_list"
+                  aria-expanded="false"
                   aria-haspopup="listbox"
                   aria-owns="undefined_list"
                   autocomplete="off"
@@ -274,6 +276,7 @@ exports[`renders components/input/demo/addon.tsx correctly 1`] = `
                 <input
                   aria-autocomplete="list"
                   aria-controls="undefined_list"
+                  aria-expanded="false"
                   aria-haspopup="listbox"
                   aria-owns="undefined_list"
                   autocomplete="off"
@@ -608,6 +611,7 @@ Array [
           aria-activedescendant="undefined_list_0"
           aria-autocomplete="list"
           aria-controls="undefined_list"
+          aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="undefined_list"
           autocomplete="off"
@@ -667,6 +671,7 @@ Array [
         <input
           aria-autocomplete="list"
           aria-controls="undefined_list"
+          aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="undefined_list"
           autocomplete="off"
@@ -722,6 +727,7 @@ Array [
         <input
           aria-autocomplete="list"
           aria-controls="undefined_list"
+          aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="undefined_list"
           autocomplete="off"
@@ -971,6 +977,7 @@ Array [
           aria-activedescendant="undefined_list_0"
           aria-autocomplete="list"
           aria-controls="undefined_list"
+          aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="undefined_list"
           autocomplete="off"
@@ -1176,7 +1183,7 @@ exports[`renders components/input/demo/basic.tsx correctly 1`] = `
 
 exports[`renders components/input/demo/borderless.tsx correctly 1`] = `
 <input
-  class="ant-input ant-input-borderless"
+  class="ant-input"
   placeholder="Borderless"
   type="text"
   value=""
@@ -1188,26 +1195,26 @@ exports[`renders components/input/demo/borderless-debug.tsx correctly 1`] = `
   style="background-color:rgba(0, 0, 128, .2)"
 >
   <input
-    class="ant-input ant-input-borderless"
+    class="ant-input"
     placeholder="Unbordered"
     type="text"
     value=""
   />
   <input
-    class="ant-input ant-input-lg ant-input-borderless"
+    class="ant-input"
     placeholder="Unbordered"
     type="text"
     value=""
   />
   <textarea
-    class="ant-input ant-input-borderless"
+    class="ant-input"
     placeholder="Unbordered"
   />
   <span
     class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-affix-wrapper-borderless ant-input-textarea-allow-clear"
   >
     <textarea
-      class="ant-input ant-input-borderless"
+      class="ant-input"
       placeholder="Unbordered"
     />
     <span
@@ -1244,7 +1251,7 @@ exports[`renders components/input/demo/borderless-debug.tsx correctly 1`] = `
     class="ant-input-affix-wrapper ant-input-affix-wrapper-borderless"
   >
     <input
-      class="ant-input ant-input-borderless"
+      class="ant-input"
       placeholder="Unbordered"
       type="text"
       value=""
@@ -1288,7 +1295,7 @@ exports[`renders components/input/demo/borderless-debug.tsx correctly 1`] = `
       ￥
     </span>
     <input
-      class="ant-input ant-input-borderless"
+      class="ant-input"
       type="text"
       value=""
     />
@@ -1307,7 +1314,7 @@ exports[`renders components/input/demo/borderless-debug.tsx correctly 1`] = `
       ￥
     </span>
     <input
-      class="ant-input ant-input-disabled ant-input-borderless"
+      class="ant-input ant-input-disabled"
       disabled=""
       type="text"
       value=""
@@ -1528,6 +1535,7 @@ exports[`renders components/input/demo/compact-style.tsx correctly 1`] = `
               aria-activedescendant="undefined_list_0"
               aria-autocomplete="list"
               aria-controls="undefined_list"
+              aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="undefined_list"
               autocomplete="off"
@@ -1956,6 +1964,7 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
             aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
+            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="undefined_list"
             autocomplete="off"
@@ -2181,6 +2190,7 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
             aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
+            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="undefined_list"
             autocomplete="off"
@@ -2468,6 +2478,7 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
             aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
+            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="undefined_list"
             autocomplete="off"
@@ -2527,6 +2538,7 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
             aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
+            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="undefined_list"
             autocomplete="off"
@@ -2591,6 +2603,7 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
             aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
+            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="undefined_list"
             autocomplete="off"
@@ -2678,6 +2691,7 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
             aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
+            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="undefined_list"
             autocomplete="off"
@@ -2738,6 +2752,7 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
             aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
+            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="undefined_list"
             autocomplete="off"
@@ -2773,6 +2788,7 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
             aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
+            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="undefined_list"
             autocomplete="off"
@@ -2832,6 +2848,7 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
           <input
             aria-autocomplete="list"
             aria-controls="undefined_list"
+            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="undefined_list"
             autocomplete="off"
@@ -3423,7 +3440,7 @@ exports[`renders components/input/demo/search-input.tsx correctly 1`] = `
           class="ant-input-affix-wrapper ant-input-affix-wrapper-lg"
         >
           <input
-            class="ant-input ant-input-lg"
+            class="ant-input"
             placeholder="input search text"
             type="text"
             value=""
@@ -3486,7 +3503,7 @@ exports[`renders components/input/demo/search-input.tsx correctly 1`] = `
           class="ant-input-affix-wrapper ant-input-affix-wrapper-lg"
         >
           <input
-            class="ant-input ant-input-lg"
+            class="ant-input"
             placeholder="input search text"
             type="text"
             value=""
@@ -3639,7 +3656,7 @@ Array [
       class="ant-input-wrapper ant-input-group"
     >
       <input
-        class="ant-input ant-input-lg"
+        class="ant-input"
         placeholder="input search text"
         type="text"
         value=""
@@ -3756,7 +3773,7 @@ Array [
       </span>
     </span>
     <input
-      class="ant-input ant-input-lg"
+      class="ant-input"
       placeholder="large size"
       type="text"
       value=""
@@ -3826,7 +3843,7 @@ Array [
       </span>
     </span>
     <input
-      class="ant-input ant-input-sm"
+      class="ant-input"
       placeholder="small size"
       type="text"
       value=""
@@ -3845,7 +3862,7 @@ exports[`renders components/input/demo/status.tsx correctly 1`] = `
     style="margin-bottom:8px"
   >
     <input
-      class="ant-input ant-input-status-error"
+      class="ant-input"
       placeholder="Error"
       type="text"
       value=""
@@ -3856,7 +3873,7 @@ exports[`renders components/input/demo/status.tsx correctly 1`] = `
     style="margin-bottom:8px"
   >
     <input
-      class="ant-input ant-input-status-warning"
+      class="ant-input"
       placeholder="Warning"
       type="text"
       value=""

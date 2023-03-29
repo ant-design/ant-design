@@ -330,7 +330,7 @@ exports[`Input allowClear should not show icon if value is undefined, null or em
 
 exports[`Input rtl render component should be rendered correctly in RTL direction 1`] = `
 <input
-  class="ant-input ant-input-rtl"
+  class="ant-input"
   type="text"
   value=""
 />

@@ -364,6 +364,7 @@ exports[`ConfigProvider components AutoComplete configProvider 1`] = `
         aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
+        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
@@ -428,6 +429,7 @@ exports[`ConfigProvider components AutoComplete configProvider componentSize lar
         aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
+        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
@@ -459,6 +461,7 @@ exports[`ConfigProvider components AutoComplete configProvider componentSize mid
         aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
+        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
@@ -490,6 +493,7 @@ exports[`ConfigProvider components AutoComplete configProvider virtual and dropd
         aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
+        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
@@ -521,6 +525,7 @@ exports[`ConfigProvider components AutoComplete normal 1`] = `
         aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
+        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
@@ -552,6 +557,7 @@ exports[`ConfigProvider components AutoComplete prefixCls 1`] = `
         aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
+        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
@@ -1587,6 +1593,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
               aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
@@ -1647,6 +1654,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
               aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
@@ -2528,6 +2536,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
               aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
@@ -4173,6 +4182,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
               aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
@@ -4233,6 +4243,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
               aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
@@ -5114,6 +5125,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
               aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
@@ -5461,6 +5473,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
               aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
@@ -5521,6 +5534,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
               aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
@@ -6402,6 +6416,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
               aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
@@ -6749,6 +6764,7 @@ exports[`ConfigProvider components Calendar configProvider virtual and dropdownM
               aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
@@ -6809,6 +6825,7 @@ exports[`ConfigProvider components Calendar configProvider virtual and dropdownM
               aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
@@ -7690,6 +7707,7 @@ exports[`ConfigProvider components Calendar configProvider virtual and dropdownM
               aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
@@ -8037,6 +8055,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
               aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
@@ -8097,6 +8116,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
               aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
@@ -8978,6 +8998,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
               aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
@@ -9325,6 +9346,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
               aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
@@ -9385,6 +9407,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
               aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
@@ -10266,6 +10289,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
               aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
@@ -11641,6 +11665,7 @@ exports[`ConfigProvider components Cascader configProvider 1`] = `
       <input
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
+        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
@@ -11755,6 +11780,7 @@ exports[`ConfigProvider components Cascader configProvider componentSize large 1
       <input
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
+        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
@@ -11811,6 +11837,7 @@ exports[`ConfigProvider components Cascader configProvider componentSize middle 
       <input
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
+        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
@@ -11867,6 +11894,7 @@ exports[`ConfigProvider components Cascader configProvider virtual and dropdownM
       <input
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
+        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
@@ -11923,6 +11951,7 @@ exports[`ConfigProvider components Cascader normal 1`] = `
       <input
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
+        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
@@ -11979,6 +12008,7 @@ exports[`ConfigProvider components Cascader prefixCls 1`] = `
       <input
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
+        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
@@ -15445,7 +15475,7 @@ exports[`ConfigProvider components Form configProvider 1`] = `
             class="config-form-item-control-input-content"
           >
             <input
-              class="config-input config-input-status-error"
+              class="config-input"
               type="text"
               value=""
             />
@@ -15499,7 +15529,7 @@ exports[`ConfigProvider components Form configProvider componentDisabled 1`] = `
             class="config-form-item-control-input-content"
           >
             <input
-              class="config-input config-input-disabled config-input-status-error"
+              class="config-input config-input-disabled"
               disabled=""
               type="text"
               value=""
@@ -15554,7 +15584,7 @@ exports[`ConfigProvider components Form configProvider componentSize large 1`] =
             class="config-form-item-control-input-content"
           >
             <input
-              class="config-input config-input-lg config-input-status-error"
+              class="config-input"
               type="text"
               value=""
             />
@@ -15608,7 +15638,7 @@ exports[`ConfigProvider components Form configProvider componentSize middle 1`] 
             class="config-form-item-control-input-content"
           >
             <input
-              class="config-input config-input-status-error"
+              class="config-input"
               type="text"
               value=""
             />
@@ -15662,7 +15692,7 @@ exports[`ConfigProvider components Form configProvider virtual and dropdownMatch
             class="ant-form-item-control-input-content"
           >
             <input
-              class="ant-input ant-input-status-error"
+              class="ant-input"
               type="text"
               value=""
             />
@@ -15716,7 +15746,7 @@ exports[`ConfigProvider components Form normal 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
-              class="ant-input ant-input-status-error"
+              class="ant-input"
               type="text"
               value=""
             />
@@ -15770,7 +15800,7 @@ exports[`ConfigProvider components Form prefixCls 1`] = `
             class="prefix-Form-item-control-input-content"
           >
             <input
-              class="prefix-Form prefix-Form-status-error"
+              class="prefix-Form"
               type="text"
               value=""
             />
@@ -16073,7 +16103,7 @@ exports[`ConfigProvider components Input configProvider componentSize large 1`] 
     class="config-input-group"
   >
     <input
-      class="config-input config-input-lg"
+      class="config-input"
       type="text"
       value=""
     />
@@ -16084,7 +16114,7 @@ exports[`ConfigProvider components Input configProvider componentSize large 1`] 
         class="config-input-wrapper config-input-group"
       >
         <input
-          class="config-input config-input-lg"
+          class="config-input"
           type="text"
           value=""
         />
@@ -16123,7 +16153,7 @@ exports[`ConfigProvider components Input configProvider componentSize large 1`] 
     class="config-input-affix-wrapper config-input-password config-input-affix-wrapper-lg"
   >
     <input
-      class="config-input config-input-lg"
+      class="config-input"
       type="password"
       value=""
     />
@@ -16156,7 +16186,7 @@ exports[`ConfigProvider components Input configProvider componentSize large 1`] 
     </span>
   </span>
   <textarea
-    class="config-input config-input-lg"
+    class="config-input"
   />
 </div>
 `;

@@ -8,7 +8,7 @@ exports[`Input.Search rtl render component should be rendered correctly in RTL d
     class="ant-input-wrapper ant-input-group ant-input-group-rtl"
   >
     <input
-      class="ant-input ant-input-rtl"
+      class="ant-input"
       type="text"
       value=""
     />
