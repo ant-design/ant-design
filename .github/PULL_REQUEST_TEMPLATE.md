@@ -62,6 +62,17 @@ Describe changes from the user side, and list all potential break changes or oth
 - [ ] TypeScript definition is updated/provided or not needed
 - [ ] Changelog is provided or not needed
 
-### 🤖️ Let Copilot help CR
+---
 
-copilot:all
+<!--
+Below are template for copilot to generate CR message.
+Please DO NOT modify it.
+-->
+
+### 🚀 Summary
+
+copilot:summary
+
+### 🔍 Walkthrough
+
+copilot:walkthrough
