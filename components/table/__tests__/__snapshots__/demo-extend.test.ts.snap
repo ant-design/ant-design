@@ -945,7 +945,6 @@ exports[`renders components/table/demo/custom-filter-panel.tsx extend context co
                             >
                               <input
                                 class="ant-input"
-                                classnames="[object Object]"
                                 placeholder="Search name"
                                 style="margin-bottom: 8px; display: block;"
                                 type="text"
@@ -1087,7 +1086,6 @@ exports[`renders components/table/demo/custom-filter-panel.tsx extend context co
                             >
                               <input
                                 class="ant-input"
-                                classnames="[object Object]"
                                 placeholder="Search age"
                                 style="margin-bottom: 8px; display: block;"
                                 type="text"
@@ -1305,7 +1303,6 @@ exports[`renders components/table/demo/custom-filter-panel.tsx extend context co
                             >
                               <input
                                 class="ant-input"
-                                classnames="[object Object]"
                                 placeholder="Search address"
                                 style="margin-bottom: 8px; display: block;"
                                 type="text"
@@ -6997,7 +6994,6 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                                 </span>
                                 <input
                                   class="ant-input"
-                                  classnames="[object Object]"
                                   placeholder="Search in filters"
                                   size="1"
                                   type="text"
@@ -7519,7 +7515,6 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                                 </span>
                                 <input
                                   class="ant-input"
-                                  classnames="[object Object]"
                                   placeholder="Search in filters"
                                   size="1"
                                   type="text"
@@ -7976,7 +7971,6 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                                 </span>
                                 <input
                                   class="ant-input"
-                                  classnames="[object Object]"
                                   placeholder="Search in filters"
                                   size="1"
                                   type="text"
@@ -8322,7 +8316,6 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                                 </span>
                                 <input
                                   class="ant-input"
-                                  classnames="[object Object]"
                                   placeholder="Search in filters"
                                   size="1"
                                   type="text"

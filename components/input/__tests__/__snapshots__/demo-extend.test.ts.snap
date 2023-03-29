@@ -21,7 +21,6 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
         </span>
         <input
           class="ant-input"
-          classnames="[object Object]"
           type="text"
           value="mysite"
         />
@@ -59,6 +58,7 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
                   aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                   aria-autocomplete="list"
                   aria-controls="rc_select_TEST_OR_SSR_list"
+                  aria-expanded="false"
                   aria-haspopup="listbox"
                   aria-owns="rc_select_TEST_OR_SSR_list"
                   autocomplete="off"
@@ -189,7 +189,6 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
         </span>
         <input
           class="ant-input"
-          classnames="[object Object]"
           type="text"
           value="mysite"
         />
@@ -209,6 +208,7 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
                   aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                   aria-autocomplete="list"
                   aria-controls="rc_select_TEST_OR_SSR_list"
+                  aria-expanded="false"
                   aria-haspopup="listbox"
                   aria-owns="rc_select_TEST_OR_SSR_list"
                   autocomplete="off"
@@ -386,7 +386,6 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
       >
         <input
           class="ant-input"
-          classnames="[object Object]"
           type="text"
           value="mysite"
         />
@@ -436,7 +435,6 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
         >
           <input
             class="ant-input"
-            classnames="[object Object]"
             type="text"
             value="mysite"
           />
@@ -474,6 +472,7 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
                 <input
                   aria-autocomplete="list"
                   aria-controls="rc_select_TEST_OR_SSR_list"
+                  aria-expanded="false"
                   aria-haspopup="listbox"
                   aria-owns="rc_select_TEST_OR_SSR_list"
                   autocomplete="off"
@@ -595,7 +594,6 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
         </span>
         <input
           class="ant-input"
-          classnames="[object Object]"
           type="text"
           value="mysite"
         />
@@ -618,7 +616,6 @@ Array [
   </div>,
   <textarea
     class="ant-input"
-    classnames="[object Object]"
     rows="1"
     style="width: 100px;"
   />,
@@ -632,7 +629,6 @@ Array [
   </button>,
   <input
     class="ant-input"
-    classnames="[object Object]"
     style="width: 100px;"
     type="text"
     value=""
@@ -699,7 +695,6 @@ Array [
     </span>
     <input
       class="ant-input"
-      classnames="[object Object]"
       type="text"
       value=""
     />
@@ -723,7 +718,6 @@ Array [
       </span>
       <input
         class="ant-input"
-        classnames="[object Object]"
         type="text"
         value=""
       />
@@ -2828,6 +2822,7 @@ Array [
           aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
           aria-autocomplete="list"
           aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
@@ -3002,6 +2997,7 @@ Array [
         <input
           aria-autocomplete="list"
           aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
@@ -3115,6 +3111,7 @@ Array [
         <input
           aria-autocomplete="list"
           aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
@@ -4746,6 +4743,7 @@ Array [
           aria-activedescendant="rc_select_TEST_OR_SSR_list_-1"
           aria-autocomplete="list"
           aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
@@ -4797,7 +4795,6 @@ Array [
         </span>
         <input
           class="ant-input"
-          classnames="[object Object]"
           type="text"
           value="mysite"
         />
@@ -4815,7 +4812,6 @@ Array [
   >
     <input
       class="ant-input"
-      classnames="[object Object]"
       type="text"
       value=""
     />
@@ -4827,7 +4823,6 @@ Array [
   </span>,
   <input
     class="ant-input"
-    classnames="[object Object]"
     style="width: 50px;"
     type="text"
     value=""
@@ -4838,7 +4833,6 @@ Array [
   >
     <input
       class="ant-input"
-      classnames="[object Object]"
       type="text"
       value="1"
     />
@@ -4858,7 +4852,6 @@ Array [
   >
     <input
       class="ant-input"
-      classnames="[object Object]"
       placeholder="input with clear icon"
       type="text"
       value=""
@@ -4896,11 +4889,10 @@ Array [
   <br />,
   <br />,
   <span
-    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper"
+    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-allow-clear"
   >
     <textarea
       class="ant-input"
-      classnames="[object Object]"
       placeholder="textarea with clear icon"
     />
     <span
@@ -4940,7 +4932,6 @@ exports[`renders components/input/demo/autosize-textarea.tsx extend context corr
 Array [
   <textarea
     class="ant-input"
-    classnames="[object Object]"
     placeholder="Autosize height based on content lines"
     style="resize: none; height: 2px;"
   />,
@@ -4949,7 +4940,6 @@ Array [
   />,
   <textarea
     class="ant-input"
-    classnames="[object Object]"
     placeholder="Autosize height with minimum and maximum number of lines"
     style="resize: none; height: -38px; min-height: -6px; max-height: -38px;"
   />,
@@ -4958,7 +4948,6 @@ Array [
   />,
   <textarea
     class="ant-input"
-    classnames="[object Object]"
     placeholder="Controlled autosize"
     style="resize: none; height: -30px; min-height: -14px; max-height: -30px;"
   />,
@@ -4968,7 +4957,6 @@ Array [
 exports[`renders components/input/demo/basic.tsx extend context correctly 1`] = `
 <input
   class="ant-input"
-  classnames="[object Object]"
   placeholder="Basic usage"
   type="text"
   value=""
@@ -4977,8 +4965,7 @@ exports[`renders components/input/demo/basic.tsx extend context correctly 1`] = 
 
 exports[`renders components/input/demo/borderless.tsx extend context correctly 1`] = `
 <input
-  class="ant-input"
-  classnames="[object Object]"
+  class="ant-input ant-input-borderless"
   placeholder="Borderless"
   type="text"
   value=""
@@ -4990,30 +4977,26 @@ exports[`renders components/input/demo/borderless-debug.tsx extend context corre
   style="background-color: rgba(0, 0, 128, 0.2);"
 >
   <input
-    class="ant-input"
-    classnames="[object Object]"
+    class="ant-input ant-input-borderless"
     placeholder="Unbordered"
     type="text"
     value=""
   />
   <input
-    class="ant-input"
-    classnames="[object Object]"
+    class="ant-input ant-input-lg ant-input-borderless"
     placeholder="Unbordered"
     type="text"
     value=""
   />
   <textarea
-    class="ant-input"
-    classnames="[object Object]"
+    class="ant-input ant-input-borderless"
     placeholder="Unbordered"
   />
   <span
-    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-affix-wrapper-borderless"
+    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-affix-wrapper-borderless ant-input-textarea-allow-clear"
   >
     <textarea
-      class="ant-input"
-      classnames="[object Object]"
+      class="ant-input ant-input-borderless"
       placeholder="Unbordered"
     />
     <span
@@ -5050,8 +5033,7 @@ exports[`renders components/input/demo/borderless-debug.tsx extend context corre
     class="ant-input-affix-wrapper ant-input-affix-wrapper-borderless"
   >
     <input
-      class="ant-input"
-      classnames="[object Object]"
+      class="ant-input ant-input-borderless"
       placeholder="Unbordered"
       type="text"
       value=""
@@ -5095,8 +5077,7 @@ exports[`renders components/input/demo/borderless-debug.tsx extend context corre
       ￥
     </span>
     <input
-      class="ant-input"
-      classnames="[object Object]"
+      class="ant-input ant-input-borderless"
       type="text"
       value=""
     />
@@ -5115,8 +5096,7 @@ exports[`renders components/input/demo/borderless-debug.tsx extend context corre
       ￥
     </span>
     <input
-      class="ant-input ant-input-disabled"
-      classnames="[object Object]"
+      class="ant-input ant-input-disabled ant-input-borderless"
       disabled=""
       type="text"
       value=""
@@ -5128,12 +5108,11 @@ exports[`renders components/input/demo/borderless-debug.tsx extend context corre
     </span>
   </span>
   <span
-    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper"
+    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-allow-clear"
     style="border: 2px solid #000;"
   >
     <textarea
       class="ant-input"
-      classnames="[object Object]"
     />
     <span
       class="ant-input-suffix"
@@ -5181,7 +5160,6 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
     >
       <input
         class="ant-input ant-input-compact-item ant-input-compact-first-item ant-input-compact-last-item"
-        classnames="[object Object]"
         type="text"
         value="26888888"
       />
@@ -5196,14 +5174,12 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
     >
       <input
         class="ant-input ant-input-compact-item ant-input-compact-first-item"
-        classnames="[object Object]"
         style="width: 20%;"
         type="text"
         value="0571"
       />
       <input
         class="ant-input ant-input-compact-item ant-input-compact-last-item"
-        classnames="[object Object]"
         style="width: 80%;"
         type="text"
         value="26888888"
@@ -5233,7 +5209,6 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
           >
             <input
               class="ant-input"
-              classnames="[object Object]"
               placeholder="input search text"
               type="text"
               value=""
@@ -5314,7 +5289,6 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
     >
       <input
         class="ant-input ant-input-compact-item ant-input-compact-first-item"
-        classnames="[object Object]"
         type="text"
         value="Combine input and button"
       />
@@ -5347,6 +5321,7 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
               aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
@@ -5476,7 +5451,6 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
       </div>
       <input
         class="ant-input ant-input-compact-item ant-input-compact-last-item"
-        classnames="[object Object]"
         type="text"
         value="Xihu District, Hangzhou"
       />
@@ -5507,7 +5481,6 @@ exports[`renders components/input/demo/debug-addon.tsx extend context correctly 
       >
         <input
           class="ant-input"
-          classnames="[object Object]"
           type="text"
           value="mysite"
         />
@@ -5538,7 +5511,6 @@ exports[`renders components/input/demo/debug-addon.tsx extend context correctly 
       >
         <input
           class="ant-input"
-          classnames="[object Object]"
           type="text"
           value="mysite"
         />
@@ -5586,7 +5558,6 @@ exports[`renders components/input/demo/debug-addon.tsx extend context correctly 
       >
         <input
           class="ant-input"
-          classnames="[object Object]"
           type="text"
           value="mysite"
         />
@@ -5731,7 +5702,6 @@ exports[`renders components/input/demo/focus.tsx extend context correctly 1`] = 
   >
     <input
       class="ant-input"
-      classnames="[object Object]"
       style="width: 100%;"
       type="text"
       value="Ant Design love you!"
@@ -5757,7 +5727,6 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       >
         <input
           class="ant-input"
-          classnames="[object Object]"
           type="text"
           value="0571"
         />
@@ -5768,7 +5737,6 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       >
         <input
           class="ant-input"
-          classnames="[object Object]"
           type="text"
           value="26888888"
         />
@@ -5781,14 +5749,12 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
   >
     <input
       class="ant-input"
-      classnames="[object Object]"
       style="width: 20%;"
       type="text"
       value="0571"
     />
     <input
       class="ant-input"
-      classnames="[object Object]"
       style="width: 30%;"
       type="text"
       value="26888888"
@@ -5800,7 +5766,6 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
   >
     <input
       class="ant-input"
-      classnames="[object Object]"
       style="width: calc(100% - 200px);"
       type="text"
       value="https://ant.design"
@@ -5820,7 +5785,6 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
   >
     <input
       class="ant-input"
-      classnames="[object Object]"
       style="width: calc(100% - 200px);"
       type="text"
       value="git@github.com:ant-design/ant-design.git"
@@ -5890,6 +5854,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
             aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
@@ -6019,7 +5984,6 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
     </div>
     <input
       class="ant-input"
-      classnames="[object Object]"
       style="width: 50%;"
       type="text"
       value="Xihu District, Hangzhou"
@@ -6041,7 +6005,6 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
         >
           <input
             class="ant-input"
-            classnames="[object Object]"
             type="text"
             value="0571"
           />
@@ -6121,7 +6084,6 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
         >
           <input
             class="ant-input"
-            classnames="[object Object]"
             type="text"
             value="26888888"
           />
@@ -6207,6 +6169,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
             aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
@@ -6336,7 +6299,6 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
     </div>
     <input
       class="ant-input"
-      classnames="[object Object]"
       style="width: 50%;"
       type="text"
       value="input content"
@@ -6421,7 +6383,6 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
   >
     <input
       class="ant-input"
-      classnames="[object Object]"
       style="width: 50%;"
       type="text"
       value="input content"
@@ -7029,7 +6990,6 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
   >
     <input
       class="ant-input"
-      classnames="[object Object]"
       style="width: 30%;"
       type="text"
       value="input content"
@@ -8235,6 +8195,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
             aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
@@ -8375,6 +8336,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
             aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
@@ -8520,6 +8482,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
             aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
@@ -8649,7 +8612,6 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
     </div>
     <input
       class="ant-input"
-      classnames="[object Object]"
       placeholder="Minimum"
       style="width: 100px; text-align: center;"
       type="text"
@@ -8657,7 +8619,6 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
     />
     <input
       class="ant-input ant-input-disabled site-input-split"
-      classnames="[object Object]"
       disabled=""
       placeholder="~"
       style="width: 30px; border-left: 0; border-right: 0; pointer-events: none;"
@@ -8666,7 +8627,6 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
     />
     <input
       class="ant-input site-input-right"
-      classnames="[object Object]"
       placeholder="Maximum"
       style="width: 100px; text-align: center;"
       type="text"
@@ -8691,6 +8651,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
             aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
@@ -8832,6 +8793,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
             aria-activedescendant="rc_select_TEST_OR_SSR_list_-1"
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
@@ -8939,6 +8901,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
             aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
@@ -9079,6 +9042,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
           <input
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
@@ -9230,7 +9194,6 @@ exports[`renders components/input/demo/password-input.tsx extend context correct
     >
       <input
         class="ant-input"
-        classnames="[object Object]"
         placeholder="input password"
         type="password"
         value=""
@@ -9273,7 +9236,6 @@ exports[`renders components/input/demo/password-input.tsx extend context correct
     >
       <input
         class="ant-input"
-        classnames="[object Object]"
         placeholder="input password"
         type="password"
         value=""
@@ -9322,7 +9284,6 @@ exports[`renders components/input/demo/password-input.tsx extend context correct
         >
           <input
             class="ant-input"
-            classnames="[object Object]"
             placeholder="input password"
             type="password"
             value=""
@@ -9404,7 +9365,6 @@ Array [
     </span>
     <input
       class="ant-input"
-      classnames="[object Object]"
       placeholder="Enter your username"
       type="text"
       value=""
@@ -9468,7 +9428,6 @@ Array [
     </span>
     <input
       class="ant-input"
-      classnames="[object Object]"
       type="text"
       value=""
     />
@@ -9490,7 +9449,6 @@ Array [
     </span>
     <input
       class="ant-input ant-input-disabled"
-      classnames="[object Object]"
       disabled=""
       type="text"
       value=""
@@ -9521,7 +9479,6 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
       >
         <input
           class="ant-input"
-          classnames="[object Object]"
           placeholder="input search text"
           type="text"
           value=""
@@ -9577,7 +9534,6 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
         >
           <input
             class="ant-input"
-            classnames="[object Object]"
             placeholder="input search text"
             type="text"
             value=""
@@ -9668,7 +9624,6 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
         >
           <input
             class="ant-input"
-            classnames="[object Object]"
             placeholder="input search text"
             type="text"
             value=""
@@ -9750,7 +9705,6 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
       >
         <input
           class="ant-input"
-          classnames="[object Object]"
           placeholder="input search text"
           type="text"
           value=""
@@ -9804,8 +9758,7 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
           class="ant-input-affix-wrapper ant-input-affix-wrapper-lg"
         >
           <input
-            class="ant-input"
-            classnames="[object Object]"
+            class="ant-input ant-input-lg"
             placeholder="input search text"
             type="text"
             value=""
@@ -9868,8 +9821,7 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
           class="ant-input-affix-wrapper ant-input-affix-wrapper-lg"
         >
           <input
-            class="ant-input"
-            classnames="[object Object]"
+            class="ant-input ant-input-lg"
             placeholder="input search text"
             type="text"
             value=""
@@ -9927,7 +9879,6 @@ Array [
     >
       <input
         class="ant-input"
-        classnames="[object Object]"
         placeholder="input search loading default"
         type="text"
         value=""
@@ -9980,7 +9931,6 @@ Array [
     >
       <input
         class="ant-input"
-        classnames="[object Object]"
         placeholder="input search loading with enterButton"
         type="text"
         value=""
@@ -10032,8 +9982,7 @@ Array [
       class="ant-input-wrapper ant-input-group"
     >
       <input
-        class="ant-input"
-        classnames="[object Object]"
+        class="ant-input ant-input-lg"
         placeholder="input search text"
         type="text"
         value=""
@@ -10062,7 +10011,6 @@ Array [
   >
     <input
       class="ant-input"
-      classnames="[object Object]"
       maxlength="20"
       type="text"
       value=""
@@ -10079,20 +10027,23 @@ Array [
   </span>,
   <br />,
   <br />,
-  <div
-    class="ant-input-show-count"
+  <span
+    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-show-count"
     data-count="0 / 100"
   >
     <textarea
       class="ant-input"
-      classnames="[object Object]"
     />
     <span
-      class="ant-input-data-count"
+      class="ant-input-suffix"
     >
-      0 / 100
+      <span
+        class="ant-input-data-count"
+      >
+        0 / 100
+      </span>
     </span>
-  </div>,
+  </span>,
 ]
 `;
 
@@ -10125,8 +10076,7 @@ Array [
       </span>
     </span>
     <input
-      class="ant-input"
-      classnames="[object Object]"
+      class="ant-input ant-input-lg"
       placeholder="large size"
       type="text"
       value=""
@@ -10162,7 +10112,6 @@ Array [
     </span>
     <input
       class="ant-input"
-      classnames="[object Object]"
       placeholder="default size"
       type="text"
       value=""
@@ -10197,8 +10146,7 @@ Array [
       </span>
     </span>
     <input
-      class="ant-input"
-      classnames="[object Object]"
+      class="ant-input ant-input-sm"
       placeholder="small size"
       type="text"
       value=""
@@ -10217,8 +10165,7 @@ exports[`renders components/input/demo/status.tsx extend context correctly 1`] =
     style="margin-bottom: 8px;"
   >
     <input
-      class="ant-input"
-      classnames="[object Object]"
+      class="ant-input ant-input-status-error"
       placeholder="Error"
       type="text"
       value=""
@@ -10229,8 +10176,7 @@ exports[`renders components/input/demo/status.tsx extend context correctly 1`] =
     style="margin-bottom: 8px;"
   >
     <input
-      class="ant-input"
-      classnames="[object Object]"
+      class="ant-input ant-input-status-warning"
       placeholder="Warning"
       type="text"
       value=""
@@ -10271,7 +10217,6 @@ exports[`renders components/input/demo/status.tsx extend context correctly 1`] =
       </span>
       <input
         class="ant-input"
-        classnames="[object Object]"
         placeholder="Error with prefix"
         type="text"
         value=""
@@ -10312,7 +10257,6 @@ exports[`renders components/input/demo/status.tsx extend context correctly 1`] =
       </span>
       <input
         class="ant-input"
-        classnames="[object Object]"
         placeholder="Warning with prefix"
         type="text"
         value=""
@@ -10326,14 +10270,12 @@ exports[`renders components/input/demo/textarea.tsx extend context correctly 1`]
 Array [
   <textarea
     class="ant-input"
-    classnames="[object Object]"
     rows="4"
   />,
   <br />,
   <br />,
   <textarea
     class="ant-input"
-    classnames="[object Object]"
     placeholder="maxLength is 6"
     rows="4"
   />,
@@ -10353,18 +10295,16 @@ Array [
   </button>,
   <textarea
     class="ant-input"
-    classnames="[object Object]"
     rows="4"
   >
     The autoSize property applies to textarea nodes, and only the height changes automatically. In addition, autoSize can be set to an object, specifying the minimum number of rows and the maximum number of rows. The autoSize property applies to textarea nodes, and only the height changes automatically. In addition, autoSize can be set to an object, specifying the minimum number of rows and the maximum number of rows.
   </textarea>,
   <span
-    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper"
+    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-allow-clear"
     style="width: 93px;"
   >
     <textarea
       class="ant-input"
-      classnames="[object Object]"
     />
     <span
       class="ant-input-suffix"
@@ -10401,39 +10341,45 @@ Array [
 
 exports[`renders components/input/demo/textarea-show-count.tsx extend context correctly 1`] = `
 Array [
-  <div
-    class="ant-input-show-count"
+  <span
+    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-show-count"
     data-count="0 / 100"
     style="height: 120px; margin-bottom: 24px;"
   >
     <textarea
       class="ant-input"
-      classnames="[object Object]"
       placeholder="can resize"
     />
     <span
-      class="ant-input-data-count"
+      class="ant-input-suffix"
     >
-      0 / 100
+      <span
+        class="ant-input-data-count"
+      >
+        0 / 100
+      </span>
     </span>
-  </div>,
-  <div
-    class="ant-input-show-count"
+  </span>,
+  <span
+    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-show-count"
     data-count="0 / 100"
     style="height: 120px; resize: none;"
   >
     <textarea
       class="ant-input"
-      classnames="[object Object]"
       placeholder="disable resize"
       style="resize: none;"
     />
     <span
-      class="ant-input-data-count"
+      class="ant-input-suffix"
     >
-      0 / 100
+      <span
+        class="ant-input-data-count"
+      >
+        0 / 100
+      </span>
     </span>
-  </div>,
+  </span>,
 ]
 `;
 
@@ -10441,7 +10387,6 @@ exports[`renders components/input/demo/tooltip.tsx extend context correctly 1`] 
 Array [
   <input
     class="ant-input"
-    classnames="[object Object]"
     maxlength="16"
     placeholder="Input a number"
     style="width: 120px;"

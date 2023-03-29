@@ -606,7 +606,6 @@ Array [
                             <input
                               aria-required="true"
                               class="ant-input"
-                              classnames="[object Object]"
                               id="name"
                               placeholder="Please enter user name"
                               type="text"
@@ -663,7 +662,6 @@ Array [
                                 <input
                                   aria-required="true"
                                   class="ant-input"
-                                  classnames="[object Object]"
                                   id="url"
                                   placeholder="Please enter url"
                                   type="text"
@@ -731,6 +729,7 @@ Array [
                                     aria-activedescendant="owner_list_0"
                                     aria-autocomplete="list"
                                     aria-controls="owner_list"
+                                    aria-expanded="false"
                                     aria-haspopup="listbox"
                                     aria-owns="owner_list"
                                     aria-required="true"
@@ -908,6 +907,7 @@ Array [
                                     aria-activedescendant="type_list_0"
                                     aria-autocomplete="list"
                                     aria-controls="type_list"
+                                    aria-expanded="false"
                                     aria-haspopup="listbox"
                                     aria-owns="type_list"
                                     aria-required="true"
@@ -1090,6 +1090,7 @@ Array [
                                     aria-activedescendant="approver_list_0"
                                     aria-autocomplete="list"
                                     aria-controls="approver_list"
+                                    aria-expanded="false"
                                     aria-haspopup="listbox"
                                     aria-owns="approver_list"
                                     aria-required="true"
@@ -2482,7 +2483,6 @@ Array [
                             <textarea
                               aria-required="true"
                               class="ant-input"
-                              classnames="[object Object]"
                               id="description"
                               placeholder="please enter url description"
                               rows="4"

@@ -199,7 +199,6 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
           </span>
           <input
             class="ant-input"
-            classnames="[object Object]"
             placeholder="Search here"
             type="text"
             value=""
@@ -767,7 +766,6 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
           </span>
           <input
             class="ant-input"
-            classnames="[object Object]"
             placeholder="Search here"
             type="text"
             value=""
@@ -5919,7 +5917,6 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
           </span>
           <input
             class="ant-input"
-            classnames="[object Object]"
             placeholder="Search here"
             type="text"
             value=""
@@ -6467,7 +6464,6 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
           </span>
           <input
             class="ant-input"
-            classnames="[object Object]"
             placeholder="Search here"
             type="text"
             value=""
@@ -7468,7 +7464,6 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
               </span>
               <input
                 class="ant-input"
-                classnames="[object Object]"
                 placeholder="Search here"
                 type="text"
                 value=""
@@ -7812,7 +7807,6 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
               </span>
               <input
                 class="ant-input"
-                classnames="[object Object]"
                 placeholder="Search here"
                 type="text"
                 value=""

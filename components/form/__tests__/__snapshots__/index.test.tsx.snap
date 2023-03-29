@@ -21,7 +21,6 @@ exports[`Form Form item hidden noStyle should not work when hidden 1`] = `
           >
             <input
               class="ant-input"
-              classnames="[object Object]"
               id="light"
               type="text"
               value=""
@@ -55,7 +54,6 @@ exports[`Form Form item hidden should work 1`] = `
           >
             <input
               class="ant-input"
-              classnames="[object Object]"
               id="light"
               type="text"
               value=""
@@ -255,7 +253,6 @@ exports[`Form form should support disabled 1`] = `
           >
             <input
               class="ant-input ant-input-disabled"
-              classnames="[object Object]"
               disabled=""
               type="text"
               value=""
@@ -844,7 +841,6 @@ exports[`Form form should support disabled 1`] = `
           >
             <textarea
               class="ant-input ant-input-disabled"
-              classnames="[object Object]"
               disabled=""
               rows="4"
             />

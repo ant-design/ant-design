@@ -82,7 +82,6 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
             >
               <input
                 class="ant-input"
-                classnames="[object Object]"
                 id="content"
                 placeholder="请输入"
                 type="text"

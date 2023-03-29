@@ -6,7 +6,6 @@ exports[`Input allowClear should change type when click 1`] = `
 >
   <input
     class="ant-input"
-    classnames="[object Object]"
     type="text"
     value="111"
   />
@@ -48,7 +47,6 @@ exports[`Input allowClear should change type when click 2`] = `
 >
   <input
     class="ant-input"
-    classnames="[object Object]"
     type="text"
     value=""
   />
@@ -90,7 +88,6 @@ exports[`Input allowClear should not show icon if defaultValue is undefined, nul
 >
   <input
     class="ant-input"
-    classnames="[object Object]"
     type="text"
     value=""
   />
@@ -132,7 +129,6 @@ exports[`Input allowClear should not show icon if defaultValue is undefined, nul
 >
   <input
     class="ant-input"
-    classnames="[object Object]"
     type="text"
     value=""
   />
@@ -174,7 +170,6 @@ exports[`Input allowClear should not show icon if defaultValue is undefined, nul
 >
   <input
     class="ant-input"
-    classnames="[object Object]"
     type="text"
     value=""
   />
@@ -216,7 +211,6 @@ exports[`Input allowClear should not show icon if value is undefined, null or em
 >
   <input
     class="ant-input"
-    classnames="[object Object]"
     type="text"
     value=""
   />
@@ -258,7 +252,6 @@ exports[`Input allowClear should not show icon if value is undefined, null or em
 >
   <input
     class="ant-input"
-    classnames="[object Object]"
     type="text"
     value=""
   />
@@ -300,7 +293,6 @@ exports[`Input allowClear should not show icon if value is undefined, null or em
 >
   <input
     class="ant-input"
-    classnames="[object Object]"
     type="text"
     value=""
   />
@@ -343,22 +335,24 @@ exports[`Input allowClear should support classNames and styles 1`] = `
     style="background-color: red;"
   >
     <span
-      class="rc-input-prefix"
+      class="rc-input-prefix custom-prefix"
+      style="color: blue;"
     >
       prefix
     </span>
     <input
-      class="rc-input"
-      classnames="[object Object]"
-      styles="[object Object]"
+      class="rc-input custom-input"
+      style="color: red;"
       type="text"
       value="123"
     />
     <span
-      class="rc-input-suffix"
+      class="rc-input-suffix custom-suffix"
+      style="color: yellow;"
     >
       <span
-        class="rc-input-show-count-suffix rc-input-show-count-has-suffix"
+        class="rc-input-show-count-suffix rc-input-show-count-has-suffix custom-count"
+        style="color: green;"
       >
         3
       </span>
@@ -376,22 +370,24 @@ exports[`Input allowClear should support classNames and styles 1`] = `
         class="rc-input-affix-wrapper"
       >
         <span
-          class="rc-input-prefix"
+          class="rc-input-prefix custom-prefix"
+          style="color: blue;"
         >
           prefix
         </span>
         <input
-          class="rc-input"
-          classnames="[object Object]"
-          styles="[object Object]"
+          class="rc-input custom-input"
+          style="color: red;"
           type="text"
           value="123"
         />
         <span
-          class="rc-input-suffix"
+          class="rc-input-suffix custom-suffix"
+          style="color: yellow;"
         >
           <span
-            class="rc-input-show-count-suffix rc-input-show-count-has-suffix"
+            class="rc-input-show-count-suffix rc-input-show-count-has-suffix custom-count"
+            style="color: green;"
           >
             3
           </span>
@@ -406,10 +402,8 @@ exports[`Input allowClear should support classNames and styles 1`] = `
     </span>
   </span>
   <input
-    class="rc-input custom-class"
-    classnames="[object Object]"
-    style="background-color: red;"
-    styles="[object Object]"
+    class="rc-input custom-input custom-class"
+    style="color: red; background-color: red;"
     type="text"
     value="123"
   />
@@ -421,9 +415,8 @@ exports[`Input allowClear should support classNames and styles 1`] = `
       class="rc-input-wrapper rc-input-group"
     >
       <input
-        class="rc-input"
-        classnames="[object Object]"
-        styles="[object Object]"
+        class="rc-input custom-input"
+        style="color: red;"
         type="text"
         value="123"
       />
@@ -439,8 +432,7 @@ exports[`Input allowClear should support classNames and styles 1`] = `
 
 exports[`Input rtl render component should be rendered correctly in RTL direction 1`] = `
 <input
-  class="ant-input"
-  classnames="[object Object]"
+  class="ant-input ant-input-rtl"
   type="text"
   value=""
 />
@@ -455,7 +447,6 @@ exports[`Input rtl render component should be rendered correctly in RTL directio
 exports[`Input should support maxLength 1`] = `
 <input
   class="ant-input"
-  classnames="[object Object]"
   maxlength="3"
   type="text"
   value=""

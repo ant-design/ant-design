@@ -8,8 +8,7 @@ exports[`Input.Search rtl render component should be rendered correctly in RTL d
     class="ant-input-wrapper ant-input-group ant-input-group-rtl"
   >
     <input
-      class="ant-input"
-      classnames="[object Object]"
+      class="ant-input ant-input-rtl"
       type="text"
       value=""
     />
@@ -61,7 +60,6 @@ exports[`Input.Search should support ReactNode suffix without error 1`] = `
     >
       <input
         class="ant-input"
-        classnames="[object Object]"
         type="text"
         value=""
       />
@@ -118,7 +116,6 @@ exports[`Input.Search should support addonAfter 1`] = `
   >
     <input
       class="ant-input"
-      classnames="[object Object]"
       type="text"
       value=""
     />
@@ -170,7 +167,6 @@ exports[`Input.Search should support addonAfter 2`] = `
   >
     <input
       class="ant-input"
-      classnames="[object Object]"
       type="text"
       value=""
     />
@@ -225,7 +221,6 @@ exports[`Input.Search should support addonAfter and suffix for loading 1`] = `
     >
       <input
         class="ant-input"
-        classnames="[object Object]"
         type="text"
         value=""
       />
@@ -288,7 +283,6 @@ exports[`Input.Search should support addonAfter and suffix for loading 2`] = `
     >
       <input
         class="ant-input"
-        classnames="[object Object]"
         type="text"
         value=""
       />
@@ -348,7 +342,6 @@ exports[`Input.Search should support custom Button 1`] = `
   >
     <input
       class="ant-input"
-      classnames="[object Object]"
       type="text"
       value=""
     />
@@ -377,7 +370,6 @@ exports[`Input.Search should support custom button 1`] = `
   >
     <input
       class="ant-input"
-      classnames="[object Object]"
       type="text"
       value=""
     />
@@ -403,7 +395,6 @@ exports[`Input.Search should support invalid addonAfter 1`] = `
   >
     <input
       class="ant-input"
-      classnames="[object Object]"
       type="text"
       value=""
     />
@@ -455,7 +446,6 @@ exports[`Input.Search should support invalid suffix 1`] = `
     >
       <input
         class="ant-input"
-        classnames="[object Object]"
         type="text"
         value=""
       />
@@ -508,7 +498,6 @@ exports[`Input.Search should support loading 1`] = `
   >
     <input
       class="ant-input"
-      classnames="[object Object]"
       type="text"
       value=""
     />
@@ -561,7 +550,6 @@ exports[`Input.Search should support loading 2`] = `
   >
     <input
       class="ant-input"
-      classnames="[object Object]"
       type="text"
       value=""
     />
