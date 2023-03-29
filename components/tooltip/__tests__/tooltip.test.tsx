@@ -1,5 +1,6 @@
 import { spyElementPrototype } from 'rc-util/lib/test/domHook';
 import React from 'react';
+import { act } from 'react-dom/test-utils';
 import type { TooltipPlacement } from '..';
 import Tooltip from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -589,5 +590,16 @@ describe('Tooltip', () => {
       </Tooltip>,
     );
     expect(container).toMatchSnapshot();
+  });
+
+  it('forcePopupAlign can be called', async () => {
+    const ref = React.createRef<any>();
+    render(<Tooltip open ref={ref} />);
+    ref.current.forcePopupAlign = jest.fn();
+    act(() => {
+      ref.current.forcePopupAlign()
+      jest.runAllTimers();
+    });
+    expect(ref.current.forcePopupAlign).toHaveBeenCalled();
   });
 });
