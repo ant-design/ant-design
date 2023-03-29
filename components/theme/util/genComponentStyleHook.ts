@@ -2,11 +2,11 @@
 import type { CSSInterpolation } from '@ant-design/cssinjs';
 import { useStyleRegister } from '@ant-design/cssinjs';
 import { useContext } from 'react';
-import { genCommonStyle, genLinkStyle } from '../../style';
 import { ConfigContext } from '../../config-provider/context';
+import { genCommonStyle, genLinkStyle } from '../../style';
+import type { ComponentTokenMap, GlobalToken } from '../interface';
 import type { UseComponentStyleResult } from '../internal';
 import { mergeToken, statisticToken, useToken } from '../internal';
-import type { ComponentTokenMap, GlobalToken } from '../interface';
 
 export type OverrideTokenWithoutDerivative = ComponentTokenMap;
 export type OverrideComponent = keyof OverrideTokenWithoutDerivative;
@@ -44,11 +44,19 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
 ) {
   return (prefixCls: string): UseComponentStyleResult => {
     const [theme, token, hashId] = useToken();
-    const { getPrefixCls, iconPrefixCls } = useContext(ConfigContext);
+    const { getPrefixCls, iconPrefixCls, csp } = useContext(ConfigContext);
     const rootPrefixCls = getPrefixCls();
 
+    // Shared config
+    const sharedConfig: Omit<Parameters<typeof useStyleRegister>[0], 'path'> = {
+      theme,
+      token,
+      hashId,
+      nonce: () => csp?.nonce!,
+    };
+
     // Generate style for all a tags in antd component.
-    useStyleRegister({ theme, token, hashId, path: ['Shared', rootPrefixCls] }, () => [
+    useStyleRegister({ ...sharedConfig, path: ['Shared', rootPrefixCls] }, () => [
       {
         // Link
         '&': genLinkStyle(token),
@@ -56,40 +64,37 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
     ]);
 
     return [
-      useStyleRegister(
-        { theme, token, hashId, path: [component, prefixCls, iconPrefixCls] },
-        () => {
-          const { token: proxyToken, flush } = statisticToken(token);
+      useStyleRegister({ ...sharedConfig, path: [component, prefixCls, iconPrefixCls] }, () => {
+        const { token: proxyToken, flush } = statisticToken(token);
 
-          const defaultComponentToken =
-            typeof getDefaultToken === 'function' ? getDefaultToken(proxyToken) : getDefaultToken;
-          const mergedComponentToken = { ...defaultComponentToken, ...token[component] };
+        const defaultComponentToken =
+          typeof getDefaultToken === 'function' ? getDefaultToken(proxyToken) : getDefaultToken;
+        const mergedComponentToken = { ...defaultComponentToken, ...token[component] };
 
-          const componentCls = `.${prefixCls}`;
-          const mergedToken = mergeToken<
-            TokenWithCommonCls<GlobalTokenWithComponent<OverrideComponent>>
-          >(
-            proxyToken,
-            {
-              componentCls,
-              prefixCls,
-              iconCls: `.${iconPrefixCls}`,
-              antCls: `.${rootPrefixCls}`,
-            },
-            mergedComponentToken,
-          );
-
-          const styleInterpolation = styleFn(mergedToken as unknown as FullToken<ComponentName>, {
-            hashId,
+        const componentCls = `.${prefixCls}`;
+        const mergedToken = mergeToken<
+          TokenWithCommonCls<GlobalTokenWithComponent<OverrideComponent>>
+        >(
+          proxyToken,
+          {
+            componentCls,
             prefixCls,
-            rootPrefixCls,
-            iconPrefixCls,
-            overrideComponentToken: token[component],
-          });
-          flush(component, mergedComponentToken);
-          return [genCommonStyle(token, prefixCls), styleInterpolation];
-        },
-      ),
+            iconCls: `.${iconPrefixCls}`,
+            antCls: `.${rootPrefixCls}`,
+          },
+          mergedComponentToken,
+        );
+
+        const styleInterpolation = styleFn(mergedToken as unknown as FullToken<ComponentName>, {
+          hashId,
+          prefixCls,
+          rootPrefixCls,
+          iconPrefixCls,
+          overrideComponentToken: token[component],
+        });
+        flush(component, mergedComponentToken);
+        return [genCommonStyle(token, prefixCls), styleInterpolation];
+      }),
       hashId,
     ];
   };

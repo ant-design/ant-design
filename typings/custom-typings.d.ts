@@ -8,8 +8,6 @@ declare module '*.svg' {
   export default src;
 }
 
-declare module 'rc-pagination/*';
-
 declare module 'rc-util*';
 
 declare module 'jsonml.js/*';

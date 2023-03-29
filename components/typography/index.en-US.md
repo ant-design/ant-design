@@ -152,6 +152,10 @@ Basic text writing, including headings, body text, lists, and more.
 | onEllipsis | Called when enter or leave ellipsis state | function(ellipsis) | - | 4.2.0 |
 | onExpand | Called when expand content | function(event) | - |  |
 
+## Design Token
+
+<ComponentTokenTable component="Typography"></ComponentTokenTable>
+
 ## FAQ
 
 ### How to use Typography.Link in react-router?
