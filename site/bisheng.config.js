@@ -74,7 +74,6 @@ module.exports = {
       '0.9.x': 'http://09x.ant.design',
     },
     docNewVersions: {
-      '5.x': 'https://ant.design',
       '4.x': 'http://4x.ant.design',
     }
   },
