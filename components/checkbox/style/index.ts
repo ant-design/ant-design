@@ -1,7 +1,7 @@
 import { Keyframes } from '@ant-design/cssinjs';
+import { genFocusOutline, resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import { genFocusOutline, resetComponent } from '../../style';
 
 export interface ComponentToken {}
 
@@ -80,12 +80,14 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
         // Wrapper > Checkbox > input
         [`${checkboxCls}-input`]: {
           position: 'absolute',
-          inset: 0,
+          // Since baseline align will get additional space offset,
+          // we need to move input to top to make it align with text.
+          // Ref: https://github.com/ant-design/ant-design/issues/38926#issuecomment-1486137799
+          inset: `-0.2em 0`,
           zIndex: 1,
-          width: '100%',
-          height: '100%',
           cursor: 'pointer',
           opacity: 0,
+          margin: 0,
 
           [`&:focus-visible + ${checkboxCls}-inner`]: {
             ...genFocusOutline(token),
