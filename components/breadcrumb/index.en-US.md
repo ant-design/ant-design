@@ -40,7 +40,7 @@ return <Breadcrumb routes={[{ breadcrumbName: 'sample' }]} />;
 <code src="./demo/react-router.tsx" iframe="200">react-router V6</code>
 <code src="./demo/separator.tsx">Configuring the Separator</code>
 <code src="./demo/overlay.tsx">Bread crumbs with drop down menu</code>
-<code src="./demo/separator-component.tsx">Configuring the Separator</code>
+<code src="./demo/separator-component.tsx">Configuring the Separator Independently</code>
 <code src="./demo/debug-routes.tsx">Debug Routes</code>
 
 ## API
