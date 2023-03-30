@@ -7,7 +7,7 @@ import omit from 'rc-util/lib/omit';
 import * as React from 'react';
 import genPurePanel from '../_util/PurePanel';
 import type { AdjustOverflow } from '../_util/placements';
-import memoPlacements from '../_util/placements';
+import getPlacements from '../_util/placements';
 import { cloneElement } from '../_util/reactNode';
 import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
@@ -224,7 +224,7 @@ const Dropdown: CompoundedComponent = (props) => {
     [`${prefixCls}-rtl`]: direction === 'rtl',
   });
 
-  const builtinPlacements = memoPlacements({
+  const builtinPlacements = getPlacements({
     arrowPointAtCenter: typeof arrow === 'object' && arrow.pointAtCenter,
     autoAdjustOverflow,
     offset: token.marginXXS,
