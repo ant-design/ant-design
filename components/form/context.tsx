@@ -57,6 +57,7 @@ export const FormItemPrefixContext = React.createContext<FormItemPrefixContextPr
 export interface FormItemStatusContextProps {
   isFormItemInput?: boolean;
   status?: ValidateStatus;
+  errors?: React.ReactNode[];
   hasFeedback?: boolean;
   feedbackIcon?: ReactNode;
 }
