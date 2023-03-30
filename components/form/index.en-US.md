@@ -409,14 +409,11 @@ Added in `4.22.0`. Could be used to get validate status of Form.Item. If this ho
 const CustomInput = ({ value, onChange }) => {
   const { status, errors } = Form.Item.useStatus();
   return (
-    <Input
-      suffix={
-        status === 'error' && (
-          <Tooltip open title={errors[0]}>
-            <ExclamationCircleOutlined />
-          </Tooltip>
-        )
-      }
+    <input
+      value={value}
+      onChange={onChange}
+      className={`custom-input-${status}`}
+      placeholder={(errors.length && errors[0]) || ''}
     />
   );
 };
