@@ -400,9 +400,9 @@ const Demo = () => {
 
 ### Form.Item.useStatus
 
-`type Form.Item.useStatus = (): { status: ValidateStatus | undefined, errors: ReactNode[] }`
+`type Form.Item.useStatus = (): { status: ValidateStatus | undefined, errors: ReactNode[], warnings: ReactNode[] }`
 
-`4.22.0` 新增，可用于获取当前 Form.Item 的校验状态，如果上层没有 Form.Item，`status` 将会返回 `undefined`。`5.4.0` 新增 `errors`，可用于获取当前 Form.Item 的错误信息：
+`4.22.0` 新增，可用于获取当前 Form.Item 的校验状态，如果上层没有 Form.Item，`status` 将会返回 `undefined`。`5.4.0` 新增 `errors` 和 `warnings`，可用于获取当前 Form.Item 的错误信息和警告信息：
 
 ```tsx
 const CustomInput = ({ value, onChange }) => {
