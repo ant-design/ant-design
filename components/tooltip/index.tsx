@@ -1,16 +1,15 @@
+import type { BuildInPlacements } from '@rc-component/trigger';
 import classNames from 'classnames';
 import RcTooltip from 'rc-tooltip';
-import type { placements as Placements } from 'rc-tooltip/lib/placements';
 import type {
   TooltipProps as RcTooltipProps,
   TooltipRef as RcTooltipRef,
 } from 'rc-tooltip/lib/Tooltip';
+import type { placements as Placements } from 'rc-tooltip/lib/placements';
 import type { AlignType } from 'rc-trigger/lib/interface';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { CSSProperties } from 'react';
 import * as React from 'react';
-import { ConfigContext } from '../config-provider';
-import theme from '../theme';
 import type { PresetColorType } from '../_util/colors';
 import { getTransitionName } from '../_util/motion';
 import type { AdjustOverflow, PlacementsConfig } from '../_util/placements';
@@ -18,6 +17,8 @@ import getPlacements from '../_util/placements';
 import { cloneElement, isFragment, isValidElement } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
 import warning from '../_util/warning';
+import { ConfigContext } from '../config-provider';
+import theme from '../theme';
 import PurePanel from './PurePanel';
 import useStyle from './style';
 import { parseColor } from './util';
@@ -199,6 +200,11 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
     afterVisibleChange,
     destroyTooltipOnHide,
     arrow = true,
+    title,
+    overlay,
+    builtinPlacements,
+    arrowPointAtCenter = false,
+    autoAdjustOverflow = true,
   } = props;
 
   const mergedShowArrow = !!arrow;
@@ -261,29 +267,22 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
     defaultValue: props.defaultOpen ?? props.defaultVisible,
   });
 
-  const isNoTitle = () => {
-    const { title, overlay } = props;
-    return !title && !overlay && title !== 0; // overlay for old version compatibility
-  };
+  const noTitle = !title && !overlay && title !== 0; // overlay for old version compatibility
 
   const onOpenChange = (vis: boolean) => {
-    setOpen(isNoTitle() ? false : vis);
-
-    if (!isNoTitle()) {
+    setOpen(noTitle ? false : vis);
+    if (!noTitle) {
       props.onOpenChange?.(vis);
       props.onVisibleChange?.(vis);
     }
   };
 
-  const getTooltipPlacements = () => {
-    const { builtinPlacements, arrowPointAtCenter = false, autoAdjustOverflow = true } = props;
-
+  const tooltipPlacements = React.useMemo<BuildInPlacements>(() => {
     let mergedArrowPointAtCenter = arrowPointAtCenter;
     if (typeof arrow === 'object') {
       mergedArrowPointAtCenter =
         arrow.pointAtCenter ?? arrow.arrowPointAtCenter ?? arrowPointAtCenter;
     }
-
     return (
       builtinPlacements ||
       getPlacements({
@@ -294,16 +293,15 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
         offset: token.marginXXS,
       })
     );
-  };
+  }, [arrowPointAtCenter, arrow, builtinPlacements, token]);
 
   // 动态设置动画点
   const onPopupAlign = (domNode: HTMLElement, align: AlignType) => {
-    const placements = getTooltipPlacements();
     // 当前返回的位置
-    const placement = Object.keys(placements).find(
+    const placement = Object.keys(tooltipPlacements).find(
       (key) =>
-        placements[key].points![0] === align.points?.[0] &&
-        placements[key].points![1] === align.points?.[1],
+        tooltipPlacements[key].points![0] === align.points?.[0] &&
+        tooltipPlacements[key].points![1] === align.points?.[1],
     );
 
     if (placement) {
@@ -326,13 +324,12 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
     }
   };
 
-  const getOverlay = () => {
-    const { title, overlay } = props;
+  const memoOverlay = React.useMemo<TooltipProps['overlay']>(() => {
     if (title === 0) {
       return title;
     }
     return overlay || title || '';
-  };
+  }, [overlay, title]);
 
   const {
     getPopupContainer,
@@ -351,7 +348,7 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
 
   let tempOpen = open;
   // Hide tooltip when there is no title
-  if (!('open' in props) && !('visible' in props) && isNoTitle()) {
+  if (!('open' in props) && !('visible' in props) && noTitle) {
     tempOpen = false;
   }
 
@@ -395,14 +392,11 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
       mouseLeaveDelay={mouseLeaveDelay}
       prefixCls={prefixCls}
       overlayClassName={customOverlayClassName}
-      overlayStyle={{
-        ...arrowContentStyle,
-        ...overlayStyle,
-      }}
+      overlayStyle={{ ...arrowContentStyle, ...overlayStyle }}
       getTooltipContainer={getPopupContainer || getTooltipContainer || getContextPopupContainer}
       ref={tooltipRef}
-      builtinPlacements={getTooltipPlacements()}
-      overlay={getOverlay()}
+      builtinPlacements={tooltipPlacements}
+      overlay={memoOverlay}
       visible={tempOpen}
       onVisibleChange={onOpenChange}
       afterVisibleChange={afterOpenChange ?? afterVisibleChange}

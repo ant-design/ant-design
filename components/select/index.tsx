@@ -181,7 +181,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
   );
 
   // ===================== Placement =====================
-  const selectPlacement = React.useMemo<SelectCommonPlacement>(() => {
+  const memoPlacement = React.useMemo<SelectCommonPlacement>(() => {
     if (placement !== undefined) {
       return placement;
     }
@@ -214,7 +214,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
       listItemHeight={listItemHeight}
       mode={mode}
       prefixCls={prefixCls}
-      placement={selectPlacement}
+      placement={memoPlacement}
       direction={direction}
       inputIcon={suffixIcon}
       menuItemSelectedIcon={itemIcon}
