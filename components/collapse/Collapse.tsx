@@ -122,7 +122,7 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
     leavedClassName: `${prefixCls}-content-hidden`,
   };
 
-  const items = React.useMemo<React.ReactNode>(
+  const items = React.useMemo<React.ReactNode[]>(
     () =>
       toArray(children).map<React.ReactNode>((child, index) => {
         if (child.props?.disabled) {
@@ -137,7 +137,7 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
         }
         return child;
       }),
-    [props.children],
+    [children],
   );
 
   return wrapSSR(
