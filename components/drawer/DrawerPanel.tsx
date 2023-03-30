@@ -1,7 +1,7 @@
-import * as React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
-import type { DrawerProps as RCDrawerProps } from 'rc-drawer';
 import classNames from 'classnames';
+import type { DrawerProps as RCDrawerProps } from 'rc-drawer';
+import * as React from 'react';
 
 export interface DrawerPanelProps {
   prefixCls: string;
@@ -22,18 +22,15 @@ export interface DrawerPanelProps {
   children?: React.ReactNode;
 }
 
-export default function DrawerPanel(props: DrawerPanelProps) {
+const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
   const {
     prefixCls,
-
     title,
     footer,
     extra,
-
     closable = true,
     closeIcon = <CloseOutlined />,
     onClose,
-
     headerStyle,
     drawerStyle,
     bodyStyle,
@@ -47,17 +44,16 @@ export default function DrawerPanel(props: DrawerPanelProps) {
     </button>
   );
 
-  function renderHeader() {
+  const headerNode = React.useMemo<React.ReactNode>(() => {
     if (!title && !closable) {
       return null;
     }
-
     return (
       <div
+        style={headerStyle}
         className={classNames(`${prefixCls}-header`, {
           [`${prefixCls}-header-close-only`]: closable && !title && !extra,
         })}
-        style={headerStyle}
       >
         <div className={`${prefixCls}-header-title`}>
           {closeIconNode}
@@ -66,28 +62,29 @@ export default function DrawerPanel(props: DrawerPanelProps) {
         {extra && <div className={`${prefixCls}-extra`}>{extra}</div>}
       </div>
     );
-  }
+  }, [closable, closeIconNode, extra, headerStyle, prefixCls, title]);
 
-  function renderFooter() {
+  const footerNode = React.useMemo<React.ReactNode>(() => {
     if (!footer) {
       return null;
     }
-
     const footerClassName = `${prefixCls}-footer`;
     return (
       <div className={footerClassName} style={footerStyle}>
         {footer}
       </div>
     );
-  }
+  }, [footer, footerStyle, prefixCls]);
 
   return (
-    <div className={`${prefixCls}-wrapper-body`} style={{ ...drawerStyle }}>
-      {renderHeader()}
+    <div className={`${prefixCls}-wrapper-body`} style={drawerStyle}>
+      {headerNode}
       <div className={`${prefixCls}-body`} style={bodyStyle}>
         {children}
       </div>
-      {renderFooter()}
+      {footerNode}
     </div>
   );
-}
+};
+
+export default DrawerPanel;

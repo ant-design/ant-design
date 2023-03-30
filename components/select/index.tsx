@@ -6,23 +6,22 @@ import type { OptionProps } from 'rc-select/lib/Option';
 import type { BaseOptionType, DefaultOptionType } from 'rc-select/lib/Select';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
+import genPurePanel from '../_util/PurePanel';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionDirection, getTransitionName } from '../_util/motion';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
+import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import { FormItemInputContext } from '../form/context';
-import getIcons from './utils/iconUtil';
-
-import genPurePanel from '../_util/PurePanel';
-import warning from '../_util/warning';
 import { useCompactItemContext } from '../space/Compact';
 import useStyle from './style';
 import useShowArrow from './useShowArrow';
+import getIcons from './utils/iconUtil';
 
 type RawValue = string | number;
 
@@ -201,7 +200,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
   // ====================== Render =======================
   return wrapSSR(
     <RcSelect<any, any>
-      ref={ref as any}
+      ref={ref}
       virtual={virtual}
       dropdownMatchSelectWidth={dropdownMatchSelectWidth}
       showSearch={select?.showSearch}
