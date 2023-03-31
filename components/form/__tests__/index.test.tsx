@@ -1418,6 +1418,20 @@ describe('Form', () => {
     expect(container.querySelector('.drawer-select')?.className).not.toContain('status-error');
   });
 
+  it('should be set up correctly marginBottom', () => {
+    render(
+      <Modal open>
+        <Form>
+          <Form.Item help='This is a help message'>
+            <Input />
+          </Form.Item>
+        </Form>
+      </Modal>,
+    );
+
+    expect(document.querySelector('.ant-form-item-margin-offset')).toBeTruthy();
+  });
+
   it('Form.Item.useStatus should work', async () => {
     const {
       Item: { useStatus },
@@ -1498,6 +1512,7 @@ describe('Form', () => {
       marginBottom: -24,
     });
   });
+
   it('form child components should be given priority to own disabled props when it in a disabled form', () => {
     const props = {
       name: 'file',
