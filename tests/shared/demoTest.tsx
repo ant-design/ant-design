@@ -22,7 +22,7 @@ export type Options = {
 function baseText(doInject: boolean, component: string, options: Options = {}) {
   const files = glob.globSync(`./components/${component}/demo/*.tsx`);
   files.forEach((file) => {
-    // compatible windows path
+    // to compatible windows path
     file = file.split(path.sep).join('/');
     const testMethod =
       options.skip === true ||
