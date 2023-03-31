@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
 import { createCache, StyleProvider } from '@ant-design/cssinjs';
 import glob from 'glob';
+import path from 'path';
 import * as React from 'react';
 import { renderToString } from 'react-dom/server';
 import { render } from '../utils';
@@ -20,8 +21,9 @@ export type Options = {
 
 function baseText(doInject: boolean, component: string, options: Options = {}) {
   const files = glob.globSync(`./components/${component}/demo/*.tsx`);
-
   files.forEach((file) => {
+    // to compatible windows path
+    file = file.split(path.sep).join('/');
     const testMethod =
       options.skip === true ||
       (Array.isArray(options.skip) && options.skip.some((c) => file.includes(c)))
