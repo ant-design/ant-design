@@ -2,15 +2,15 @@
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
+import warning from '../_util/warning';
+import Wave from '../_util/wave';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
 import SizeContext from '../config-provider/SizeContext';
 import { useCompactItemContext } from '../space/Compact';
-import warning from '../_util/warning';
-import Wave from '../_util/wave';
+import LoadingIcon from './LoadingIcon';
 import Group, { GroupSizeContext } from './button-group';
 import { isTwoCNChar, isUnBorderedButtonType, spaceChildren } from './buttonHelpers';
-import LoadingIcon from './LoadingIcon';
 import useStyle from './style';
 
 import type { SizeType } from '../config-provider/SizeContext';
@@ -230,6 +230,19 @@ const InternalButton: React.ForwardRefRenderFunction<
     rootClassName,
   );
 
+  // const iconNode =
+  //   icon && !innerLoading ? (
+  //     icon
+  //   ) : (
+  //     <LoadingIcon existIcon={!!icon} prefixCls={prefixCls} loading={!!innerLoading} />
+  //   );
+  // const mergedIconClassName = classNames('ant-btn-icon', customClassNames?.icon);
+  // const mergedIconNode = icon ? (
+  //   <span className={mergedIconClassName} style={styles?.icon}>
+  //     {iconNode}
+  //   </span>
+  // ) : null;
+
   const iconNode =
     icon && !innerLoading ? (
       icon
@@ -237,11 +250,17 @@ const InternalButton: React.ForwardRefRenderFunction<
       <LoadingIcon existIcon={!!icon} prefixCls={prefixCls} loading={!!innerLoading} />
     );
   const mergedIconClassName = classNames('ant-btn-icon', customClassNames?.icon);
-  const mergedIconNode = icon ? (
-    <span className={mergedIconClassName} style={styles?.icon}>
-      {iconNode}
-    </span>
-  ) : null;
+  const mergedIconNode =
+    // eslint-disable-next-line no-nested-ternary
+    icon && !innerLoading ? (
+      <span className={mergedIconClassName} style={styles?.icon}>
+        {iconNode}
+      </span>
+    ) : innerLoading ? (
+      <span className={mergedIconClassName} style={styles?.icon}>
+        {iconNode}
+      </span>
+    ) : null;
 
   const kids =
     children || children === 0

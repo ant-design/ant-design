@@ -161,7 +161,7 @@ describe('Button', () => {
     expect(wrapper.container.firstChild).not.toHaveClass('ant-btn-loading');
   });
 
-  it('should support custom icon  className', () => {
+  it('should support custom icon className', () => {
     const { container } = render(
       <Button type="primary" icon={<SearchOutlined />} classNames={{ icon: 'custom-icon' }} />,
     );
@@ -169,7 +169,7 @@ describe('Button', () => {
     expect(container).toMatchSnapshot();
   });
 
-  it('should support custom icon  styles', () => {
+  it('should support custom icon styles', () => {
     const { container } = render(
       <Button type="primary" icon={<SearchOutlined />} styles={{ icon: { color: 'red' } }} />,
     );
