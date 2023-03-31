@@ -1477,6 +1477,53 @@ describe('Form', () => {
     );
   });
 
+  it('Form.Item.useStatus should supports get error messages and warning messages', async () => {
+    const {
+      Item: { useStatus },
+    } = Form;
+
+    const ErrorItem: React.FC = () => {
+      const { errors } = useStatus();
+      return <div className="test-error">{errors[0]}</div>;
+    };
+
+    const WarningItem: React.FC = () => {
+      const { warnings } = useStatus();
+      return <div className="test-warning">{warnings[0]}</div>;
+    };
+
+    const Demo: React.FC = () => {
+      const [form] = Form.useForm();
+
+      return (
+        <Form form={form} name='test-form'>
+          <Form.Item name="error" rules={[{ required: true, message: 'This is a error message.' }]}>
+            <ErrorItem />
+          </Form.Item>
+          <Form.Item
+            name="warning"
+            rules={[{ required: true, message: 'This is a warning message.', warningOnly: true }]}
+          >
+            <WarningItem />
+          </Form.Item>
+          <Button onClick={() => form.submit()} className="submit-button">
+            Submit
+          </Button>
+        </Form>
+      );
+    };
+
+    const { container } = render(<Demo />);
+
+    fireEvent.click(container.querySelector('.submit-button')!);
+    await waitFakeTimer();
+
+    expect(container.querySelector('.test-error')).toHaveTextContent('This is a error message.');
+    expect(container.querySelector('.test-warning')).toHaveTextContent(
+      'This is a warning message.',
+    );
+  });
+
   it('item customize margin', async () => {
     const computeSpy = jest
       .spyOn(window, 'getComputedStyle')
