@@ -43,7 +43,7 @@ const genSpaceStyle: GenerateStyle<SpaceToken> = (token) => {
           display: 'none',
         },
 
-        '*': {
+        '> *': {
           verticalAlign: 'top',
         },
       },
