@@ -42,10 +42,6 @@ const genSpaceStyle: GenerateStyle<SpaceToken> = (token) => {
         '&:empty': {
           display: 'none',
         },
-
-        '> *': {
-          verticalAlign: 'top',
-        },
       },
     },
   };
