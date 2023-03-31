@@ -84,9 +84,6 @@ Array [
       class="ant-tour-content"
     >
       <div
-        class="ant-tour-arrow"
-      />
-      <div
         class="ant-tour-inner"
       >
         <span
@@ -250,9 +247,6 @@ Array [
       class="ant-tour-content"
     >
       <div
-        class="ant-tour-arrow"
-      />
-      <div
         class="ant-tour-inner"
       >
         <span
@@ -401,9 +395,6 @@ Array [
     <div
       class="ant-tour-content"
     >
-      <div
-        class="ant-tour-arrow"
-      />
       <div
         class="ant-tour-inner"
       >
@@ -567,9 +558,6 @@ Array [
     <div
       class="ant-tour-primary ant-tour-content"
     >
-      <div
-        class="ant-tour-arrow"
-      />
       <div
         class="ant-tour-inner"
       >

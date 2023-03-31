@@ -33,7 +33,6 @@ const TourPanel: React.FC<TourPanelProps> = ({ stepProps, current, type, indicat
     nextButtonProps,
     prevButtonProps,
     type: stepType,
-    arrow,
     className,
   } = stepProps;
 
@@ -102,7 +101,6 @@ const TourPanel: React.FC<TourPanelProps> = ({ stepProps, current, type, indicat
         `${prefixCls}-content`,
       )}
     >
-      {arrow && <div className={`${prefixCls}-arrow`} key="arrow" />}
       <div className={`${prefixCls}-inner`}>
         <CloseOutlined className={`${prefixCls}-close`} onClick={onClose} />
         {coverNode}
