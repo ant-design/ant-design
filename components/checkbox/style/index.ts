@@ -71,11 +71,18 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
       [checkboxCls]: {
         ...resetComponent(token),
 
-        top: '0.2em',
         position: 'relative',
         whiteSpace: 'nowrap',
         lineHeight: 1,
         cursor: 'pointer',
+
+        alignSelf: 'start',
+        // https://github.com/ant-design/ant-design/issues/41564
+        // Since `checkboxSize` is dynamic which should align with the text box,
+        // We need do calculation here for offset.
+        transform: `translate(0, ${
+          (token.lineHeight * token.fontSize) / 2 - token.checkboxSize / 2
+        }px)`,
 
         // Wrapper > Checkbox > input
         [`${checkboxCls}-input`]: {
@@ -83,7 +90,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
           // Since baseline align will get additional space offset,
           // we need to move input to top to make it align with text.
           // Ref: https://github.com/ant-design/ant-design/issues/38926#issuecomment-1486137799
-          inset: `-0.2em 0`,
+          inset: 0,
           zIndex: 1,
           cursor: 'pointer',
           opacity: 0,
