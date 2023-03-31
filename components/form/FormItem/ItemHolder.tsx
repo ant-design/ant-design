@@ -122,6 +122,8 @@ export default function ItemHolder(props: ItemHolderProps) {
 
     return {
       status: mergedValidateStatus,
+      errors,
+      warnings,
       hasFeedback,
       feedbackIcon,
       isFormItemInput: true,
