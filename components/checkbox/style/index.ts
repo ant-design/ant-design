@@ -43,7 +43,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
         ...resetComponent(token),
 
         display: 'inline-flex',
-        alignItems: 'center',
+        alignItems: 'baseline',
         cursor: 'pointer',
 
         // Fix checkbox & radio in flex align #30260
@@ -75,6 +75,14 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
         whiteSpace: 'nowrap',
         lineHeight: 1,
         cursor: 'pointer',
+
+        alignSelf: 'start',
+        // https://github.com/ant-design/ant-design/issues/41564
+        // Since `checkboxSize` is dynamic which should align with the text box,
+        // We need do calculation here for offset.
+        transform: `translate(0, ${
+          (token.lineHeight * token.fontSize) / 2 - token.checkboxSize / 2
+        }px)`,
 
         // Wrapper > Checkbox > input
         [`${checkboxCls}-input`]: {
