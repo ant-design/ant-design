@@ -1,30 +1,30 @@
-import type { ChangeEventHandler } from 'react';
-import React, { useState, useEffect, useRef } from 'react';
-import scrollIntoView from 'scroll-into-view-if-needed';
-import classNames from 'classnames';
 import type { ColProps } from 'antd/es/grid';
+import classNames from 'classnames';
+import type { ChangeEventHandler } from 'react';
+import React, { version as ReactVersion, useEffect, useRef, useState } from 'react';
+import scrollIntoView from 'scroll-into-view-if-needed';
 import type { FormInstance } from '..';
 import Form from '..';
-import * as Util from '../util';
-import Button from '../../button';
-import Input from '../../input';
-import Select from '../../select';
-import Upload from '../../upload';
-import Cascader from '../../cascader';
-import Checkbox from '../../checkbox';
-import DatePicker from '../../date-picker';
-import InputNumber from '../../input-number';
-import Radio from '../../radio';
-import Switch from '../../switch';
-import TreeSelect from '../../tree-select';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, pureRender, render, screen, waitFakeTimer } from '../../../tests/utils';
+import Button from '../../button';
+import Cascader from '../../cascader';
+import Checkbox from '../../checkbox';
 import ConfigProvider from '../../config-provider';
+import DatePicker from '../../date-picker';
 import Drawer from '../../drawer';
+import Input from '../../input';
+import InputNumber from '../../input-number';
 import zhCN from '../../locale/zh_CN';
 import Modal from '../../modal';
+import Radio from '../../radio';
+import Select from '../../select';
+import Switch from '../../switch';
+import TreeSelect from '../../tree-select';
+import Upload from '../../upload';
 import type { NamePath } from '../interface';
+import * as Util from '../util';
 
 const { RangePicker } = DatePicker;
 const { TextArea } = Input;
@@ -1477,6 +1477,53 @@ describe('Form', () => {
     );
   });
 
+  it('Form.Item.useStatus should supports get error messages and warning messages', async () => {
+    const {
+      Item: { useStatus },
+    } = Form;
+
+    const ErrorItem: React.FC = () => {
+      const { errors } = useStatus();
+      return <div className="test-error">{errors[0]}</div>;
+    };
+
+    const WarningItem: React.FC = () => {
+      const { warnings } = useStatus();
+      return <div className="test-warning">{warnings[0]}</div>;
+    };
+
+    const Demo: React.FC = () => {
+      const [form] = Form.useForm();
+
+      return (
+        <Form form={form} name='test-form'>
+          <Form.Item name="error" rules={[{ required: true, message: 'This is a error message.' }]}>
+            <ErrorItem />
+          </Form.Item>
+          <Form.Item
+            name="warning"
+            rules={[{ required: true, message: 'This is a warning message.', warningOnly: true }]}
+          >
+            <WarningItem />
+          </Form.Item>
+          <Button onClick={() => form.submit()} className="submit-button">
+            Submit
+          </Button>
+        </Form>
+      );
+    };
+
+    const { container } = render(<Demo />);
+
+    fireEvent.click(container.querySelector('.submit-button')!);
+    await waitFakeTimer();
+
+    expect(container.querySelector('.test-error')).toHaveTextContent('This is a error message.');
+    expect(container.querySelector('.test-warning')).toHaveTextContent(
+      'This is a warning message.',
+    );
+  });
+
   it('item customize margin', async () => {
     const computeSpy = jest
       .spyOn(window, 'getComputedStyle')
@@ -1625,5 +1672,52 @@ describe('Form', () => {
 
     expect(container.querySelectorAll('.ant-form-item-has-feedback').length).toBe(1);
     expect(container.querySelectorAll('.ant-form-item-has-success').length).toBe(1);
+  });
+  it('validate status should be change in order', async () => {
+    const onChange = jest.fn();
+
+    const CustomInput = (props: any) => {
+      const { status } = Form.Item.useStatus();
+      useEffect(() => {
+        onChange(status);
+      }, [status]);
+      return <Input {...props} />;
+    };
+
+    const App = () => (
+      <Form>
+        <Form.Item>
+          <Form.Item name="test" label="test" rules={[{ len: 3, message: 'error.' }]}>
+            <CustomInput />
+          </Form.Item>
+        </Form.Item>
+      </Form>
+    );
+
+    render(<App />);
+    await waitFakeTimer();
+
+    // initial validate
+    const initTriggerTime = ReactVersion.startsWith('18') ? 2 : 1;
+    expect(onChange).toHaveBeenCalledTimes(initTriggerTime);
+    let idx = 1;
+    expect(onChange).toHaveBeenNthCalledWith(idx++, '');
+    if (initTriggerTime === 2) {
+      expect(onChange).toHaveBeenNthCalledWith(idx++, '');
+    }
+
+    // change trigger
+    await changeValue(0, '1');
+    expect(onChange).toHaveBeenCalledTimes(initTriggerTime + 2);
+    expect(onChange).toHaveBeenNthCalledWith(idx++, 'validating');
+    expect(onChange).toHaveBeenNthCalledWith(idx++, 'error');
+    await changeValue(0, '11');
+    expect(onChange).toHaveBeenCalledTimes(initTriggerTime + 4);
+    expect(onChange).toHaveBeenNthCalledWith(idx++, 'validating');
+    expect(onChange).toHaveBeenNthCalledWith(idx++, 'error');
+    await changeValue(0, '111');
+    expect(onChange).toHaveBeenCalledTimes(initTriggerTime + 6);
+    expect(onChange).toHaveBeenNthCalledWith(idx++, 'validating');
+    expect(onChange).toHaveBeenNthCalledWith(idx++, 'success');
   });
 });

@@ -58,7 +58,7 @@ export function triggerFocus(
 export interface InputProps
   extends Omit<
     RcInputProps,
-    'wrapperClassName' | 'groupClassName' | 'inputClassName' | 'affixWrapperClassName'
+    'wrapperClassName' | 'groupClassName' | 'inputClassName' | 'affixWrapperClassName' | 'classes'
   > {
   rootClassName?: string;
   size?: SizeType;
@@ -84,6 +84,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     className,
     rootClassName,
     onChange,
+    classNames: classes,
     ...rest
   } = props;
   const { getPrefixCls, direction, input } = React.useContext(ConfigContext);
@@ -187,7 +188,8 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
           </NoCompactStyle>
         )
       }
-      classes={{
+      classNames={{
+        ...classes,
         input: classNames(
           {
             [`${prefixCls}-sm`]: mergedSize === 'small',
@@ -196,8 +198,11 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
             [`${prefixCls}-borderless`]: !bordered,
           },
           !inputHasPrefixSuffix && getStatusClassNames(prefixCls, mergedStatus),
+          classes?.input,
           hashId,
         ),
+      }}
+      classes={{
         affixWrapper: classNames(
           {
             [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
