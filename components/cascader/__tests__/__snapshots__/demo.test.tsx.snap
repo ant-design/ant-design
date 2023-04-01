@@ -13,7 +13,6 @@ exports[`renders components/cascader/demo/basic.tsx correctly 1`] = `
       <input
         aria-autocomplete="list"
         aria-controls="undefined_list"
-        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="undefined_list"
         autocomplete="off"
@@ -74,7 +73,6 @@ exports[`renders components/cascader/demo/change-on-select.tsx correctly 1`] = `
       <input
         aria-autocomplete="list"
         aria-controls="undefined_list"
-        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="undefined_list"
         autocomplete="off"
@@ -133,7 +131,6 @@ exports[`renders components/cascader/demo/custom-dropdown.tsx correctly 1`] = `
       <input
         aria-autocomplete="list"
         aria-controls="undefined_list"
-        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="undefined_list"
         autocomplete="off"
@@ -195,7 +192,6 @@ exports[`renders components/cascader/demo/custom-render.tsx correctly 1`] = `
       <input
         aria-autocomplete="list"
         aria-controls="undefined_list"
-        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="undefined_list"
         autocomplete="off"
@@ -312,7 +308,6 @@ exports[`renders components/cascader/demo/default-value.tsx correctly 1`] = `
       <input
         aria-autocomplete="list"
         aria-controls="undefined_list"
-        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="undefined_list"
         autocomplete="off"
@@ -400,7 +395,6 @@ exports[`renders components/cascader/demo/disabled-option.tsx correctly 1`] = `
       <input
         aria-autocomplete="list"
         aria-controls="undefined_list"
-        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="undefined_list"
         autocomplete="off"
@@ -459,7 +453,6 @@ exports[`renders components/cascader/demo/fields-name.tsx correctly 1`] = `
       <input
         aria-autocomplete="list"
         aria-controls="undefined_list"
-        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="undefined_list"
         autocomplete="off"
@@ -520,7 +513,6 @@ exports[`renders components/cascader/demo/hover.tsx correctly 1`] = `
       <input
         aria-autocomplete="list"
         aria-controls="undefined_list"
-        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="undefined_list"
         autocomplete="off"
@@ -579,7 +571,6 @@ exports[`renders components/cascader/demo/lazy.tsx correctly 1`] = `
       <input
         aria-autocomplete="list"
         aria-controls="undefined_list"
-        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="undefined_list"
         autocomplete="off"
@@ -647,7 +638,6 @@ exports[`renders components/cascader/demo/multiple.tsx correctly 1`] = `
           <input
             aria-autocomplete="list"
             aria-controls="undefined_list"
-            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="undefined_list"
             autocomplete="off"
@@ -797,7 +787,6 @@ Array [
         <input
           aria-autocomplete="list"
           aria-controls="undefined_list"
-          aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="undefined_list"
           autocomplete="off"
@@ -925,7 +914,6 @@ exports[`renders components/cascader/demo/search.tsx correctly 1`] = `
       <input
         aria-autocomplete="list"
         aria-controls="undefined_list"
-        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="undefined_list"
         autocomplete="off"
@@ -1009,7 +997,6 @@ Array [
             <input
               aria-autocomplete="list"
               aria-controls="undefined_list"
-              aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="undefined_list"
               autocomplete="off"
@@ -1122,7 +1109,6 @@ Array [
             <input
               aria-autocomplete="list"
               aria-controls="undefined_list"
-              aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="undefined_list"
               autocomplete="off"
@@ -1213,7 +1199,6 @@ Array [
         <input
           aria-autocomplete="list"
           aria-controls="undefined_list"
-          aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="undefined_list"
           autocomplete="off"
@@ -1271,7 +1256,6 @@ Array [
         <input
           aria-autocomplete="list"
           aria-controls="undefined_list"
-          aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="undefined_list"
           autocomplete="off"
@@ -1329,7 +1313,6 @@ Array [
         <input
           aria-autocomplete="list"
           aria-controls="undefined_list"
-          aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="undefined_list"
           autocomplete="off"
@@ -1398,7 +1381,6 @@ exports[`renders components/cascader/demo/status.tsx correctly 1`] = `
           <input
             aria-autocomplete="list"
             aria-controls="undefined_list"
-            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="undefined_list"
             autocomplete="off"
@@ -1468,7 +1450,6 @@ exports[`renders components/cascader/demo/status.tsx correctly 1`] = `
               <input
                 aria-autocomplete="list"
                 aria-controls="undefined_list"
-                aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-owns="undefined_list"
                 autocomplete="off"
@@ -1539,7 +1520,6 @@ Array [
         <input
           aria-autocomplete="list"
           aria-controls="undefined_list"
-          aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="undefined_list"
           autocomplete="off"
@@ -1599,7 +1579,6 @@ Array [
         <input
           aria-autocomplete="list"
           aria-controls="undefined_list"
-          aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="undefined_list"
           autocomplete="off"
@@ -1641,7 +1620,6 @@ Array [
         <input
           aria-autocomplete="list"
           aria-controls="undefined_list"
-          aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="undefined_list"
           autocomplete="off"
@@ -1701,7 +1679,6 @@ Array [
         <input
           aria-autocomplete="list"
           aria-controls="undefined_list"
-          aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="undefined_list"
           autocomplete="off"

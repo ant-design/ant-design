@@ -330,14 +330,12 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
   >
     <input
       class="ant-input ant-input-compact-item ant-input-compact-first-item"
-      classnames="[object Object]"
       style="width: 20%;"
       type="text"
       value="0571"
     />
     <input
       class="ant-input ant-input-compact-item ant-input-compact-last-item"
-      classnames="[object Object]"
       style="width: 30%;"
       type="text"
       value="26888888"
@@ -348,8 +346,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
     class="ant-space-compact ant-space-compact-block"
   >
     <input
-      class="ant-input ant-input-compact-item ant-input-compact-first-item"
-      classnames="[object Object]"
+      class="ant-input ant-input-sm ant-input-compact-item ant-input-compact-first-item"
       style="width: calc(100% - 200px);"
       type="text"
       value="https://ant.design"
@@ -369,7 +366,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
   >
     <input
       class="ant-input ant-input-compact-item ant-input-compact-first-item"
-      classnames="[object Object]"
       style="width: calc(100% - 200px);"
       type="text"
       value="https://ant.design"
@@ -389,7 +385,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
   >
     <input
       class="ant-input ant-input-compact-item ant-input-compact-first-item"
-      classnames="[object Object]"
       style="width: calc(100% - 200px);"
       type="text"
       value="git@github.com:ant-design/ant-design.git"
@@ -614,7 +609,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
     </div>
     <input
       class="ant-input ant-input-compact-item ant-input-compact-last-item"
-      classnames="[object Object]"
       style="width: 50%;"
       type="text"
       value="Xihu District, Hangzhou"
@@ -857,7 +851,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
     </div>
     <input
       class="ant-input ant-input-compact-item ant-input-compact-last-item"
-      classnames="[object Object]"
       style="width: 50%;"
       type="text"
       value="Xihu District, Hangzhou"
@@ -876,7 +869,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       >
         <input
           class="ant-input"
-          classnames="[object Object]"
           type="text"
           value="0571"
         />
@@ -926,7 +918,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         >
           <input
             class="ant-input"
-            classnames="[object Object]"
             type="text"
             value="26888888"
           />
@@ -1003,7 +994,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       >
         <input
           class="ant-input"
-          classnames="[object Object]"
           type="text"
           value="+1"
         />
@@ -1188,7 +1178,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
     </div>
     <input
       class="ant-input ant-input-compact-item"
-      classnames="[object Object]"
       style="width: 50%;"
       type="text"
       value="input content"
@@ -1274,7 +1263,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
   >
     <input
       class="ant-input ant-input-compact-item ant-input-compact-first-item"
-      classnames="[object Object]"
       style="width: 50%;"
       type="text"
       value="input content"
@@ -3065,7 +3053,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
     </div>
     <input
       class="ant-input ant-input-compact-item"
-      classnames="[object Object]"
       style="width: 30%;"
       type="text"
       value="input content"
@@ -3085,7 +3072,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
   >
     <input
       class="ant-input ant-input-compact-item ant-input-compact-first-item"
-      classnames="[object Object]"
       style="width: 30%;"
       type="text"
       value="input content"
@@ -4705,7 +4691,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
     </div>
     <input
       class="ant-input ant-input-compact-item"
-      classnames="[object Object]"
       placeholder="Minimum"
       style="width: 100px; text-align: center;"
       type="text"
@@ -4713,7 +4698,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
     />
     <input
       class="ant-input ant-input-disabled site-input-split ant-input-compact-item"
-      classnames="[object Object]"
       disabled=""
       placeholder="~"
       style="width: 30px; border-left: 0; border-right: 0; pointer-events: none;"
@@ -4722,7 +4706,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
     />
     <input
       class="ant-input site-input-right ant-input-compact-item ant-input-compact-last-item"
-      classnames="[object Object]"
       placeholder="Maximum"
       style="width: 100px; text-align: center;"
       type="text"
@@ -9629,7 +9612,6 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
           </span>
           <input
             class="ant-input"
-            classnames="[object Object]"
             type="text"
             value="mysite"
           />
@@ -9659,7 +9641,6 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
     >
       <input
         class="ant-input ant-input-compact-item ant-input-compact-first-item"
-        classnames="[object Object]"
         placeholder="prefix"
         type="text"
         value=""
@@ -9816,7 +9797,6 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
           </span>
           <input
             class="ant-input"
-            classnames="[object Object]"
             type="text"
             value="mysite"
           />
@@ -10045,7 +10025,6 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         >
           <input
             class="ant-input"
-            classnames="[object Object]"
             type="text"
             value=""
           />
@@ -10091,7 +10070,6 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         >
           <input
             class="ant-input"
-            classnames="[object Object]"
             type="text"
             value=""
           />
@@ -10174,7 +10152,6 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         >
           <input
             class="ant-input"
-            classnames="[object Object]"
             type="text"
             value="mysite"
           />
@@ -10219,7 +10196,6 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         >
           <input
             class="ant-input"
-            classnames="[object Object]"
             placeholder="suffix"
             type="text"
             value=""
@@ -10274,7 +10250,6 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
           >
             <input
               class="ant-input"
-              classnames="[object Object]"
               type="text"
               value="mysite"
             />
@@ -10454,7 +10429,6 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
           </span>
           <input
             class="ant-input"
-            classnames="[object Object]"
             type="text"
             value="mysite"
           />
@@ -12390,7 +12364,6 @@ Array [
       >
         <input
           class="ant-input ant-input-compact-item ant-input-compact-first-item"
-          classnames="[object Object]"
           placeholder="Typing..."
           style="width: 90px;"
           type="text"
@@ -12667,7 +12640,6 @@ Array [
           >
             <input
               class="ant-input"
-              classnames="[object Object]"
               placeholder="Search"
               type="text"
               value=""
@@ -12720,7 +12692,6 @@ Array [
       >
         <input
           class="ant-input ant-input-compact-item"
-          classnames="[object Object]"
           type="text"
           value="mysite"
         />
