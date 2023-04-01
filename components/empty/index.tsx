@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
-import useLocale from '../locale/useLocale';
+import { useLocale } from '../locale';
 import DefaultEmptyImg from './empty';
 import SimpleEmptyImg from './simple';
 

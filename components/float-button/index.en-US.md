@@ -26,6 +26,8 @@ FloatButton. Available since `5.0.0`.
 <code src="./demo/group.tsx" iframe="360">FloatButton Group</code>
 <code src="./demo/group-menu.tsx" iframe="360">Menu mode</code>
 <code src="./demo/back-top.tsx" iframe="360">BackTop</code>
+<code src="./demo/badge.tsx" iframe="360">badge</code>
+<code src="./demo/badge-debug.tsx" iframe="360" debug>debug dot</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
@@ -44,6 +46,7 @@ FloatButton. Available since `5.0.0`.
 | onClick | Set the handler to handle `click` event | (event) => void | - |  |
 | href | The target of hyperlink | string | - |  |
 | target | Specifies where to display the linked URL | string | - |  |
+| badge | Attach Badge to FloatButton. `status` and other props related are not supported. | [BadgeProps](/components/badge#api) | - | 5.4.0 |
 
 ### FloatButton.Group
 

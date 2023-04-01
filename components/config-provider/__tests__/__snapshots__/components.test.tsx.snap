@@ -364,6 +364,7 @@ exports[`ConfigProvider components AutoComplete configProvider 1`] = `
         aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
+        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
@@ -428,6 +429,7 @@ exports[`ConfigProvider components AutoComplete configProvider componentSize lar
         aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
+        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
@@ -459,6 +461,7 @@ exports[`ConfigProvider components AutoComplete configProvider componentSize mid
         aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
+        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
@@ -490,6 +493,7 @@ exports[`ConfigProvider components AutoComplete configProvider virtual and dropd
         aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
+        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
@@ -521,6 +525,7 @@ exports[`ConfigProvider components AutoComplete normal 1`] = `
         aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
+        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
@@ -552,6 +557,7 @@ exports[`ConfigProvider components AutoComplete prefixCls 1`] = `
         aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
+        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
@@ -1587,6 +1593,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
               aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
@@ -1647,6 +1654,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
               aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
@@ -2528,6 +2536,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
               aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
@@ -4173,6 +4182,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
               aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
@@ -4233,6 +4243,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
               aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
@@ -5114,6 +5125,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
               aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
@@ -5461,6 +5473,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
               aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
@@ -5521,6 +5534,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
               aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
@@ -6402,6 +6416,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
               aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
@@ -6749,6 +6764,7 @@ exports[`ConfigProvider components Calendar configProvider virtual and dropdownM
               aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
@@ -6809,6 +6825,7 @@ exports[`ConfigProvider components Calendar configProvider virtual and dropdownM
               aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
@@ -7690,6 +7707,7 @@ exports[`ConfigProvider components Calendar configProvider virtual and dropdownM
               aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
@@ -8037,6 +8055,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
               aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
@@ -8097,6 +8116,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
               aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
@@ -8978,6 +8998,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
               aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
@@ -9325,6 +9346,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
               aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
@@ -9385,6 +9407,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
               aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
@@ -10266,6 +10289,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
               aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
@@ -11641,6 +11665,7 @@ exports[`ConfigProvider components Cascader configProvider 1`] = `
       <input
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
+        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
@@ -11755,6 +11780,7 @@ exports[`ConfigProvider components Cascader configProvider componentSize large 1
       <input
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
+        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
@@ -11811,6 +11837,7 @@ exports[`ConfigProvider components Cascader configProvider componentSize middle 
       <input
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
+        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
@@ -11867,6 +11894,7 @@ exports[`ConfigProvider components Cascader configProvider virtual and dropdownM
       <input
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
+        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
@@ -11923,6 +11951,7 @@ exports[`ConfigProvider components Cascader normal 1`] = `
       <input
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
+        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
@@ -11979,6 +12008,7 @@ exports[`ConfigProvider components Cascader prefixCls 1`] = `
       <input
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
+        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
@@ -12035,7 +12065,6 @@ exports[`ConfigProvider components Checkbox configProvider 1`] = `
       <input
         class="config-checkbox-input"
         type="checkbox"
-        value=""
       />
       <span
         class="config-checkbox-inner"
@@ -12062,7 +12091,6 @@ exports[`ConfigProvider components Checkbox configProvider componentDisabled 1`]
         class="config-checkbox-input"
         disabled=""
         type="checkbox"
-        value=""
       />
       <span
         class="config-checkbox-inner"
@@ -12088,7 +12116,6 @@ exports[`ConfigProvider components Checkbox configProvider componentSize large 1
       <input
         class="config-checkbox-input"
         type="checkbox"
-        value=""
       />
       <span
         class="config-checkbox-inner"
@@ -12114,7 +12141,6 @@ exports[`ConfigProvider components Checkbox configProvider componentSize middle 
       <input
         class="config-checkbox-input"
         type="checkbox"
-        value=""
       />
       <span
         class="config-checkbox-inner"
@@ -12140,7 +12166,6 @@ exports[`ConfigProvider components Checkbox configProvider virtual and dropdownM
       <input
         class="ant-checkbox-input"
         type="checkbox"
-        value=""
       />
       <span
         class="ant-checkbox-inner"
@@ -12166,7 +12191,6 @@ exports[`ConfigProvider components Checkbox normal 1`] = `
       <input
         class="ant-checkbox-input"
         type="checkbox"
-        value=""
       />
       <span
         class="ant-checkbox-inner"
@@ -12192,7 +12216,6 @@ exports[`ConfigProvider components Checkbox prefixCls 1`] = `
       <input
         class="prefix-Checkbox-input"
         type="checkbox"
-        value=""
       />
       <span
         class="prefix-Checkbox-inner"
@@ -21902,7 +21925,6 @@ exports[`ConfigProvider components Radio configProvider 1`] = `
           checked=""
           class="config-radio-input"
           type="radio"
-          value=""
         />
         <span
           class="config-radio-inner"
@@ -21926,7 +21948,6 @@ exports[`ConfigProvider components Radio configProvider 1`] = `
           checked=""
           class="config-radio-button-input"
           type="radio"
-          value=""
         />
         <span
           class="config-radio-button-inner"
@@ -21956,7 +21977,6 @@ exports[`ConfigProvider components Radio configProvider componentDisabled 1`] = 
           class="config-radio-input"
           disabled=""
           type="radio"
-          value=""
         />
         <span
           class="config-radio-inner"
@@ -21981,7 +22001,6 @@ exports[`ConfigProvider components Radio configProvider componentDisabled 1`] = 
           class="config-radio-button-input"
           disabled=""
           type="radio"
-          value=""
         />
         <span
           class="config-radio-button-inner"
@@ -22010,7 +22029,6 @@ exports[`ConfigProvider components Radio configProvider componentSize large 1`] 
           checked=""
           class="config-radio-input"
           type="radio"
-          value=""
         />
         <span
           class="config-radio-inner"
@@ -22034,7 +22052,6 @@ exports[`ConfigProvider components Radio configProvider componentSize large 1`] 
           checked=""
           class="config-radio-button-input"
           type="radio"
-          value=""
         />
         <span
           class="config-radio-button-inner"
@@ -22063,7 +22080,6 @@ exports[`ConfigProvider components Radio configProvider componentSize middle 1`]
           checked=""
           class="config-radio-input"
           type="radio"
-          value=""
         />
         <span
           class="config-radio-inner"
@@ -22087,7 +22103,6 @@ exports[`ConfigProvider components Radio configProvider componentSize middle 1`]
           checked=""
           class="config-radio-button-input"
           type="radio"
-          value=""
         />
         <span
           class="config-radio-button-inner"
@@ -22116,7 +22131,6 @@ exports[`ConfigProvider components Radio configProvider virtual and dropdownMatc
           checked=""
           class="ant-radio-input"
           type="radio"
-          value=""
         />
         <span
           class="ant-radio-inner"
@@ -22140,7 +22154,6 @@ exports[`ConfigProvider components Radio configProvider virtual and dropdownMatc
           checked=""
           class="ant-radio-button-input"
           type="radio"
-          value=""
         />
         <span
           class="ant-radio-button-inner"
@@ -22169,7 +22182,6 @@ exports[`ConfigProvider components Radio normal 1`] = `
           checked=""
           class="ant-radio-input"
           type="radio"
-          value=""
         />
         <span
           class="ant-radio-inner"
@@ -22193,7 +22205,6 @@ exports[`ConfigProvider components Radio normal 1`] = `
           checked=""
           class="ant-radio-button-input"
           type="radio"
-          value=""
         />
         <span
           class="ant-radio-button-inner"
@@ -22222,7 +22233,6 @@ exports[`ConfigProvider components Radio prefixCls 1`] = `
           checked=""
           class="prefix-Radio-input"
           type="radio"
-          value=""
         />
         <span
           class="prefix-Radio-inner"
@@ -22246,7 +22256,6 @@ exports[`ConfigProvider components Radio prefixCls 1`] = `
           checked=""
           class="prefix-Radio-button-input"
           type="radio"
-          value=""
         />
         <span
           class="prefix-Radio-button-inner"
@@ -26597,7 +26606,6 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                                       <input
                                         class="config-checkbox-input"
                                         type="checkbox"
-                                        value=""
                                       />
                                       <span
                                         class="config-checkbox-inner"
@@ -26905,7 +26913,6 @@ exports[`ConfigProvider components Table configProvider componentDisabled 1`] = 
                                         class="config-checkbox-input"
                                         disabled=""
                                         type="checkbox"
-                                        value=""
                                       />
                                       <span
                                         class="config-checkbox-inner"
@@ -27213,7 +27220,6 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                                       <input
                                         class="config-checkbox-input"
                                         type="checkbox"
-                                        value=""
                                       />
                                       <span
                                         class="config-checkbox-inner"
@@ -27520,7 +27526,6 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                                       <input
                                         class="config-checkbox-input"
                                         type="checkbox"
-                                        value=""
                                       />
                                       <span
                                         class="config-checkbox-inner"
@@ -27827,7 +27832,6 @@ exports[`ConfigProvider components Table configProvider virtual and dropdownMatc
                                       <input
                                         class="ant-checkbox-input"
                                         type="checkbox"
-                                        value=""
                                       />
                                       <span
                                         class="ant-checkbox-inner"
@@ -28134,7 +28138,6 @@ exports[`ConfigProvider components Table normal 1`] = `
                                       <input
                                         class="ant-checkbox-input"
                                         type="checkbox"
-                                        value=""
                                       />
                                       <span
                                         class="ant-checkbox-inner"
@@ -28441,7 +28444,6 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                                       <input
                                         class="ant-checkbox-input"
                                         type="checkbox"
-                                        value=""
                                       />
                                       <span
                                         class="ant-checkbox-inner"
@@ -38233,7 +38235,6 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
             class="config-checkbox-input"
             disabled=""
             type="checkbox"
-            value=""
           />
           <span
             class="config-checkbox-inner"
@@ -38393,7 +38394,6 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
             class="config-checkbox-input"
             disabled=""
             type="checkbox"
-            value=""
           />
           <span
             class="config-checkbox-inner"
@@ -38506,7 +38506,6 @@ exports[`ConfigProvider components Transfer configProvider componentDisabled 1`]
             class="config-checkbox-input"
             disabled=""
             type="checkbox"
-            value=""
           />
           <span
             class="config-checkbox-inner"
@@ -38666,7 +38665,6 @@ exports[`ConfigProvider components Transfer configProvider componentDisabled 1`]
             class="config-checkbox-input"
             disabled=""
             type="checkbox"
-            value=""
           />
           <span
             class="config-checkbox-inner"
@@ -38779,7 +38777,6 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
             class="config-checkbox-input"
             disabled=""
             type="checkbox"
-            value=""
           />
           <span
             class="config-checkbox-inner"
@@ -38939,7 +38936,6 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
             class="config-checkbox-input"
             disabled=""
             type="checkbox"
-            value=""
           />
           <span
             class="config-checkbox-inner"
@@ -39052,7 +39048,6 @@ exports[`ConfigProvider components Transfer configProvider componentSize middle 
             class="config-checkbox-input"
             disabled=""
             type="checkbox"
-            value=""
           />
           <span
             class="config-checkbox-inner"
@@ -39212,7 +39207,6 @@ exports[`ConfigProvider components Transfer configProvider componentSize middle 
             class="config-checkbox-input"
             disabled=""
             type="checkbox"
-            value=""
           />
           <span
             class="config-checkbox-inner"
@@ -39325,7 +39319,6 @@ exports[`ConfigProvider components Transfer configProvider virtual and dropdownM
             class="ant-checkbox-input"
             disabled=""
             type="checkbox"
-            value=""
           />
           <span
             class="ant-checkbox-inner"
@@ -39485,7 +39478,6 @@ exports[`ConfigProvider components Transfer configProvider virtual and dropdownM
             class="ant-checkbox-input"
             disabled=""
             type="checkbox"
-            value=""
           />
           <span
             class="ant-checkbox-inner"
@@ -39598,7 +39590,6 @@ exports[`ConfigProvider components Transfer normal 1`] = `
             class="ant-checkbox-input"
             disabled=""
             type="checkbox"
-            value=""
           />
           <span
             class="ant-checkbox-inner"
@@ -39758,7 +39749,6 @@ exports[`ConfigProvider components Transfer normal 1`] = `
             class="ant-checkbox-input"
             disabled=""
             type="checkbox"
-            value=""
           />
           <span
             class="ant-checkbox-inner"
@@ -39871,7 +39861,6 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
             class="ant-checkbox-input"
             disabled=""
             type="checkbox"
-            value=""
           />
           <span
             class="ant-checkbox-inner"
@@ -40031,7 +40020,6 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
             class="ant-checkbox-input"
             disabled=""
             type="checkbox"
-            value=""
           />
           <span
             class="ant-checkbox-inner"

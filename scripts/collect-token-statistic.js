@@ -18,7 +18,7 @@ const EmptyElement = React.createElement('div');
 const styleFiles = glob.globSync(
   path.join(
     process.cwd(),
-    'components/!(version|config-provider|icon|locale-provider|auto-complete|col|row|time-picker|)/style/index.?(ts|tsx)',
+    'components/!(version|config-provider|icon|auto-complete|col|row|time-picker|)/style/index.?(ts|tsx)',
   ),
 );
 

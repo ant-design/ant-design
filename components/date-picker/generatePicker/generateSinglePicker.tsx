@@ -13,7 +13,7 @@ import { ConfigContext } from '../../config-provider';
 import DisabledContext from '../../config-provider/DisabledContext';
 import SizeContext from '../../config-provider/SizeContext';
 import { FormItemInputContext } from '../../form/context';
-import useLocale from '../../locale/useLocale';
+import { useLocale } from '../../locale';
 import { useCompactItemContext } from '../../space/Compact';
 import type { InputStatus } from '../../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';

@@ -354,9 +354,9 @@ export default () => {
 
 ### Form.useWatch
 
-`type Form.useWatch = (namePath: NamePath, formInstance?: FormInstance): Value`
+`type Form.useWatch = (namePath: NamePath, formInstance?: FormInstance | WatchOptions): Value`
 
-Added in `4.20.0`. Watch the value of a field. You can use this to interactive with other hooks like `useSWR` to reduce develop cost:
+Watch the value of a field. You can use this to interact with other hooks like `useSWR` to reduce development costs:
 
 ```tsx
 const Demo = () => {
@@ -375,16 +375,47 @@ const Demo = () => {
 };
 ```
 
+If your component is wrapped by `Form.Item`, you can omit the second argument, `Form.useWatch` will find the nearest `FormInstance` automatically.
+
+By default `useWatch` only watches the registered field. If you want to watch the unregistered field, please use `preserve`:
+
+```tsx
+const Demo = () => {
+  const [form] = Form.useForm();
+
+  const age = Form.useWatch('age', { form, preserve: true });
+  console.log(age);
+
+  return (
+    <div>
+      <Button onClick={() => form.setFieldValue('age', 2)}>Update</Button>
+      <Form form={form}>
+        <Form.Item name="name">
+          <Input />
+        </Form.Item>
+      </Form>
+    </div>
+  );
+};
+```
+
 ### Form.Item.useStatus
 
-`type Form.useFormItemStatus = (): { status: ValidateStatus | undefined }`
+`type Form.Item.useStatus = (): { status: ValidateStatus | undefined, errors: ReactNode[], warnings: ReactNode[] }`
 
-Added in `4.22.0`. Could be used to get validate status of Form.Item. If this hook is not used under Form.Item, `status` would be `undefined`:
+Added in `4.22.0`. Could be used to get validate status of Form.Item. If this hook is not used under Form.Item, `status` would be `undefined`. Added `error` and `warnings` in `5.4.0`, Could be used to get error messages and warning messages of Form.Item:
 
 ```tsx
 const CustomInput = ({ value, onChange }) => {
-  const { status } = Form.Item.useStatus();
-  return <input value={value} onChange={onChange} className={`custom-input-${status}`} />;
+  const { status, errors } = Form.Item.useStatus();
+  return (
+    <input
+      value={value}
+      onChange={onChange}
+      className={`custom-input-${status}`}
+      placeholder={(errors.length && errors[0]) || ''}
+    />
+  );
 };
 
 export default () => (
@@ -442,6 +473,13 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 | validator | Customize validation rule. Accept Promise as return. See [example](#components-form-demo-register) | ([rule](#rule), value) => Promise |  |
 | warningOnly | Warning only. Not block form submit | boolean | 4.17.0 |
 | whitespace | Failed if only has whitespace, only work with `type: 'string'` rule | boolean |  |
+
+#### WatchOptions
+
+| Name | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| form | Form instance | FormInstance | Current form in context | 5.4.0 |
+| preserve | Whether to watch the field which has no matched `Form.Item` | boolean | false | 5.4.0 |
 
 ## FAQ
 

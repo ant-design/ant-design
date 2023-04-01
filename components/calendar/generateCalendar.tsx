@@ -10,7 +10,7 @@ import type {
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
-import useLocale from '../locale/useLocale';
+import { useLocale } from '../locale';
 import CalendarHeader from './Header';
 import enUS from './locale/en_US';
 

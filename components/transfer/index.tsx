@@ -11,7 +11,7 @@ import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import type { FormItemStatusContextProps } from '../form/context';
 import { FormItemInputContext } from '../form/context';
 import defaultLocale from '../locale/en_US';
-import useLocale from '../locale/useLocale';
+import { useLocale } from '../locale';
 import type { PaginationType } from './interface';
 import type { TransferListProps } from './list';
 import List from './list';

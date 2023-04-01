@@ -881,17 +881,12 @@ const genTextAreaStyle: GenerateStyle<InputToken> = (token) => {
         },
 
         [`${componentCls}-data-count`]: {
+          position: 'absolute',
+          bottom: -token.fontSize * token.lineHeight,
+          insetInlineEnd: 0,
           color: token.colorTextDescription,
           whiteSpace: 'nowrap',
           pointerEvents: 'none',
-          float: 'right',
-          marginBottom: -token.fontSize * token.lineHeight,
-        },
-
-        '&-rtl': {
-          [`${componentCls}-data-count`]: {
-            float: 'left',
-          },
         },
       },
 
