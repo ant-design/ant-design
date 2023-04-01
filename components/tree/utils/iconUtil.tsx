@@ -6,14 +6,18 @@ import PlusSquareOutlined from '@ant-design/icons/PlusSquareOutlined';
 import classNames from 'classnames';
 import * as React from 'react';
 import { cloneElement, isValidElement } from '../../_util/reactNode';
-import type { AntTreeNodeProps, TreeLeafIcon, SwitcherIcon } from '../Tree';
+import type { AntTreeNodeProps, SwitcherIcon, TreeLeafIcon } from '../Tree';
 
-export default function renderSwitcherIcon(
-  prefixCls: string,
-  switcherIcon: SwitcherIcon,
-  treeNodeProps: AntTreeNodeProps,
-  showLine?: boolean | { showLeafIcon: boolean | TreeLeafIcon },
-): React.ReactNode {
+interface SwitcherIconProps {
+  prefixCls: string;
+  treeNodeProps: AntTreeNodeProps;
+  switcherIcon?: SwitcherIcon;
+  showLine?: boolean | { showLeafIcon: boolean | TreeLeafIcon };
+}
+
+const SwitcherIconCom: React.FC<SwitcherIconProps> = (props) => {
+  const { prefixCls, switcherIcon, treeNodeProps, showLine } = props;
+
   const { isLeaf, expanded, loading } = treeNodeProps;
 
   if (loading) {
@@ -40,7 +44,7 @@ export default function renderSwitcherIcon(
         });
       }
 
-      return leafIcon;
+      return leafIcon as unknown as React.ReactElement;
     }
 
     return showLeafIcon ? (
@@ -61,7 +65,7 @@ export default function renderSwitcherIcon(
   }
 
   if (switcher) {
-    return switcher;
+    return switcher as unknown as React.ReactElement;
   }
 
   if (showLine) {
@@ -72,4 +76,6 @@ export default function renderSwitcherIcon(
     );
   }
   return <CaretDownFilled className={switcherCls} />;
-}
+};
+
+export default SwitcherIconCom;

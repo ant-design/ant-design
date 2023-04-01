@@ -24,7 +24,7 @@ import getIcons from '../select/utils/iconUtil';
 import { useCompactItemContext } from '../space/Compact';
 import type { AntTreeNodeProps, TreeProps } from '../tree';
 import type { SwitcherIcon } from '../tree/Tree';
-import renderSwitcherIcon from '../tree/utils/iconUtil';
+import SwitcherIconCom from '../tree/utils/iconUtil';
 import useStyle from './style';
 
 type RawValue = string | number;
@@ -208,6 +208,15 @@ const InternalTreeSelect = <
     hashId,
   );
 
+  const renderSwitcherIcon = (nodeProps: AntTreeNodeProps) => (
+    <SwitcherIconCom
+      prefixCls={treePrefixCls}
+      switcherIcon={switcherIcon}
+      treeNodeProps={nodeProps}
+      showLine={treeLine}
+    />
+  );
+
   const returnNode = (
     <RcTreeSelect
       virtual={virtual}
@@ -228,9 +237,7 @@ const InternalTreeSelect = <
       placement={memoizedPlacement}
       removeIcon={removeIcon}
       clearIcon={clearIcon}
-      switcherIcon={(nodeProps: AntTreeNodeProps) =>
-        renderSwitcherIcon(treePrefixCls, switcherIcon, nodeProps, treeLine)
-      }
+      switcherIcon={renderSwitcherIcon}
       showTreeIcon={treeIcon as any}
       notFoundContent={mergedNotFound}
       getPopupContainer={getPopupContainer || getContextPopupContainer}
