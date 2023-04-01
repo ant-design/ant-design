@@ -1292,6 +1292,7 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
               aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
