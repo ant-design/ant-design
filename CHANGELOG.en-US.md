@@ -19,7 +19,7 @@ timeline: true
 
 `2023-04-01`
 
-- 🗑 Remove `antd/es/locale-provider` ``antd/lib/locale-provider` directory since LocaleProvider was replaced by ConfigProvider and removed in 4.x version. [#41289](https://github.com/ant-design/ant-design/pull/41289) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🗑 Remove `antd/es/locale-provider` `antd/lib/locale-provider` directory since LocaleProvider was replaced by ConfigProvider and removed in 4.x version years before. [#41289](https://github.com/ant-design/ant-design/pull/41289) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🆕 Add Form.Item.useStatus hook to get error messages. [#41554](https://github.com/ant-design/ant-design/pull/41554) [@Yuiai01](https://github.com/Yuiai01)
 - 🆕 Input and Input.TextArea support `classNames` and `styles` props. [#41493](https://github.com/ant-design/ant-design/pull/41493)
 - 🆕 Tag add `bordered={false}` to support borderless style. [#41305](https://github.com/ant-design/ant-design/pull/41305) [@li-jia-nan](https://github.com/li-jia-nan)

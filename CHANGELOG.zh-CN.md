@@ -19,7 +19,7 @@ timeline: true
 
 `2023-04-01`
 
-- 🗑 移除 `antd/es/locale-provider` ``antd/lib/locale-provider` 目录，LocaleProvider 已在 4.x 版本移除，使用 ConfigProvider 作为替代。[#41289](https://github.com/ant-design/ant-design/pull/41289) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🗑 移除 `antd/es/locale-provider` `antd/lib/locale-provider` 目录，LocaleProvider 已在 4.x 版本移除，使用 ConfigProvider 作为替代。[#41289](https://github.com/ant-design/ant-design/pull/41289) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🆕 新增 Form.Item.useStatus 以支持获取错误状态信息。[#41554](https://github.com/ant-design/ant-design/pull/41554) [@Yuiai01](https://github.com/Yuiai01)
 - 🆕 Input 和 Input.TextArea 组件支持 `classNames` 和 `styles` 属性，用于更细粒度的样式自定义。[#41493](https://github.com/ant-design/ant-design/pull/41493)
 - 🆕 Tag 新增无边框模式。[#41305](https://github.com/ant-design/ant-design/pull/41305) [@li-jia-nan](https://github.com/li-jia-nan)
