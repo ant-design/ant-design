@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { PickerPanel as RCPickerPanel } from 'rc-picker';
 import type { GenerateConfig } from 'rc-picker/lib/generate';
-import type { CellRenderInfo, Locale } from 'rc-picker/lib/interface';
+import type { CellRenderInfo } from 'rc-picker/lib/interface';
 import type {
   PickerPanelBaseProps as RCPickerPanelBaseProps,
   PickerPanelDateProps as RCPickerPanelDateProps,
