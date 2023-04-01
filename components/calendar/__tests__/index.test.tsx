@@ -4,6 +4,7 @@ import MockDate from 'mockdate';
 import { type PickerPanelProps } from 'rc-picker';
 import dayjsGenerateConfig from 'rc-picker/lib/generate/dayjs';
 import type { Locale } from 'rc-picker/lib/interface';
+import { resetWarned } from 'rc-util/lib/warning';
 import React from 'react';
 import Calendar from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -476,5 +477,55 @@ describe('Calendar', () => {
     );
     fireEvent.click(container.querySelectorAll('.bamboo')[0]);
     expect(onClick).toHaveBeenCalled();
+  });
+
+  it('deprecated dateCellRender and monthCellRender', () => {
+    resetWarned();
+
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const { container } = render(
+      <Calendar
+        dateCellRender={() => <div className="bamboo">Light</div>}
+        monthCellRender={() => <div className="bar">Bar</div>}
+      />,
+    );
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Calendar] `monthCellRender` is deprecated. Please use `cellRender` instead.',
+    );
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Calendar] `dateCellRender` is deprecated. Please use `cellRender` instead.',
+    );
+    expect(container).toMatchSnapshot();
+
+    expect(container.querySelector('.bamboo')).toBeTruthy();
+
+    fireEvent.click(Array.from(container.querySelectorAll(`.ant-radio-button-input`)).at(1)!);
+    expect(container.querySelector('.bar')).toBeTruthy();
+    expect(container).toMatchSnapshot();
+    errSpy.mockRestore();
+  });
+
+  it('deprecated dateFullCellRender and monthFullCellRender', () => {
+    resetWarned();
+
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const { container } = render(
+      <Calendar
+        dateFullCellRender={() => <div className="bamboo">Light</div>}
+        monthFullCellRender={() => <div className="bar">Bar</div>}
+      />,
+    );
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Calendar] `dateFullCellRender` is deprecated. Please use `fullCellRender` instead.',
+    );
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Calendar] `monthFullCellRender` is deprecated. Please use `fullCellRender` instead.',
+    );
+    expect(container).toMatchSnapshot();
+    expect(container.querySelector('.bamboo')).toBeTruthy();
+    fireEvent.click(Array.from(container.querySelectorAll(`.ant-radio-button-input`)).at(1)!);
+    expect(container.querySelector('.bar')).toBeTruthy();
+    expect(container).toMatchSnapshot();
+    errSpy.mockRestore();
   });
 });
