@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { PickerPanel as RCPickerPanel } from 'rc-picker';
 import type { GenerateConfig } from 'rc-picker/lib/generate';
-import type { Locale } from 'rc-picker/lib/interface';
+import type { CellRenderInfo, Locale } from 'rc-picker/lib/interface';
 import type {
   PickerPanelBaseProps as RCPickerPanelBaseProps,
   PickerPanelDateProps as RCPickerPanelDateProps,
@@ -238,6 +238,18 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
 
     const [contextLocale] = useLocale('Calendar', getDefaultLocale);
 
+    const mergedCellRender = (current: DateType, info: CellRenderInfo<DateType>) => {
+      if (info.type === 'date') {
+        return dateRender(current);
+      }
+
+      if (info.type === 'month') {
+        return monthRender(current, contextLocale?.lang);
+      }
+
+      return info.originNode;
+    };
+
     return wrapSSR(
       <div
         className={classNames(
@@ -278,6 +290,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
           prefixCls={prefixCls}
           locale={contextLocale?.lang}
           generateConfig={generateConfig}
+          cellRender={mergedCellRender}
           dateRender={dateRender}
           monthCellRender={(date) => monthRender(date, contextLocale?.lang)}
           onSelect={onInternalSelect}
