@@ -246,8 +246,6 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
       if (info.type === 'month') {
         return monthRender(current, contextLocale?.lang);
       }
-
-      return info.originNode;
     };
 
     return wrapSSR(
@@ -291,8 +289,6 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
           locale={contextLocale?.lang}
           generateConfig={generateConfig}
           cellRender={mergedCellRender}
-          dateRender={dateRender}
-          monthCellRender={(date) => monthRender(date, contextLocale?.lang)}
           onSelect={onInternalSelect}
           mode={panelMode}
           picker={panelMode}
