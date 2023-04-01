@@ -415,7 +415,6 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
       <input
         class="ant-checkbox-input"
         type="checkbox"
-        value=""
       />
       <span
         class="ant-checkbox-inner"
