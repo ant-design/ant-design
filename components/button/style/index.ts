@@ -397,7 +397,6 @@ const genTypeButtonStyle: GenerateStyle<ButtonToken> = (token) => {
 const genSizeButtonStyle = (token: ButtonToken, sizePrefixCls: string = ''): CSSInterpolation => {
   const {
     componentCls,
-    iconCls,
     controlHeight,
     fontSize,
     lineHeight,
@@ -440,10 +439,6 @@ const genSizeButtonStyle = (token: ButtonToken, sizePrefixCls: string = ''): CSS
 
         [`${componentCls}-loading-icon`]: {
           transition: `width ${token.motionDurationSlow} ${token.motionEaseInOut}, opacity ${token.motionDurationSlow} ${token.motionEaseInOut}`,
-        },
-
-        [`&:not(${iconOnlyCls}) ${componentCls}-loading-icon > ${iconCls}`]: {
-          marginInlineEnd: token.marginXS,
         },
       },
     },
