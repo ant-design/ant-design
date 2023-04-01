@@ -122,6 +122,7 @@ This document will help you upgrade from antd `4.x` version to antd `5.x` versio
 
 #### Component refactoring and removal
 
+- Remove `locale-provider` Directory. `LocaleProvider` was removed in v4, please use `ConfigProvider` instead.
 - Move Comment component into `@ant-design/compatible`.
 - Move PageHeader component into `@ant-design/pro-components`.
 

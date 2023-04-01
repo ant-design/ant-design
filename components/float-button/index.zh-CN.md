@@ -27,6 +27,8 @@ demo:
 <code src="./demo/group.tsx" iframe="360">浮动按钮组</code>
 <code src="./demo/group-menu.tsx" iframe="360">菜单模式</code>
 <code src="./demo/back-top.tsx" iframe="360">回到顶部</code>
+<code src="./demo/badge.tsx" iframe="360">徽标数</code>
+<code src="./demo/badge-debug.tsx" iframe="360" debug>调试小圆点使用</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
@@ -45,6 +47,7 @@ demo:
 | onClick | 点击按钮时的回调 | (event) => void | - |  |
 | href | 点击跳转的地址，指定此属性 button 的行为和 a 链接一致 | string | - |  |
 | target | 相当于 a 标签的 target 属性，href 存在时生效 | string | - |  |
+| badge | 带徽标数字的悬浮按钮（不支持 `status` 以及相关属性） | [BadgeProps](/components/badge-cn#api) | - | 5.4.0 |
 
 ### FloatButton.Group
 

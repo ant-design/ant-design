@@ -213,6 +213,7 @@ exports[`TreeSelect TreeSelect Custom Icons should support customized icons 1`] 
           <input
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
@@ -286,6 +287,7 @@ exports[`TreeSelect rtl render component should be rendered correctly in RTL dir
       <input
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
+        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"

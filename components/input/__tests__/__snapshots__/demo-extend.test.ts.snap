@@ -58,6 +58,7 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
                   aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                   aria-autocomplete="list"
                   aria-controls="rc_select_TEST_OR_SSR_list"
+                  aria-expanded="false"
                   aria-haspopup="listbox"
                   aria-owns="rc_select_TEST_OR_SSR_list"
                   autocomplete="off"
@@ -207,6 +208,7 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
                   aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                   aria-autocomplete="list"
                   aria-controls="rc_select_TEST_OR_SSR_list"
+                  aria-expanded="false"
                   aria-haspopup="listbox"
                   aria-owns="rc_select_TEST_OR_SSR_list"
                   autocomplete="off"
@@ -470,6 +472,7 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
                 <input
                   aria-autocomplete="list"
                   aria-controls="rc_select_TEST_OR_SSR_list"
+                  aria-expanded="false"
                   aria-haspopup="listbox"
                   aria-owns="rc_select_TEST_OR_SSR_list"
                   autocomplete="off"
@@ -2819,6 +2822,7 @@ Array [
           aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
           aria-autocomplete="list"
           aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
@@ -2993,6 +2997,7 @@ Array [
         <input
           aria-autocomplete="list"
           aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
@@ -3106,6 +3111,7 @@ Array [
         <input
           aria-autocomplete="list"
           aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
@@ -4737,6 +4743,7 @@ Array [
           aria-activedescendant="rc_select_TEST_OR_SSR_list_-1"
           aria-autocomplete="list"
           aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
@@ -4882,7 +4889,7 @@ Array [
   <br />,
   <br />,
   <span
-    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper"
+    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-allow-clear"
   >
     <textarea
       class="ant-input"
@@ -4986,7 +4993,7 @@ exports[`renders components/input/demo/borderless-debug.tsx extend context corre
     placeholder="Unbordered"
   />
   <span
-    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-affix-wrapper-borderless"
+    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-affix-wrapper-borderless ant-input-textarea-allow-clear"
   >
     <textarea
       class="ant-input ant-input-borderless"
@@ -5101,7 +5108,7 @@ exports[`renders components/input/demo/borderless-debug.tsx extend context corre
     </span>
   </span>
   <span
-    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper"
+    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-allow-clear"
     style="border: 2px solid #000;"
   >
     <textarea
@@ -5310,6 +5317,7 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
               aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
@@ -5838,6 +5846,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
             aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
@@ -6144,6 +6153,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
             aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
@@ -8169,6 +8179,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
             aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
@@ -8309,6 +8320,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
             aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
@@ -8454,6 +8466,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
             aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
@@ -8622,6 +8635,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
             aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
@@ -8763,6 +8777,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
             aria-activedescendant="rc_select_TEST_OR_SSR_list_-1"
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
@@ -8870,6 +8885,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
             aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
@@ -9010,6 +9026,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
           <input
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
@@ -9994,19 +10011,23 @@ Array [
   </span>,
   <br />,
   <br />,
-  <div
-    class="ant-input-show-count ant-input-textarea ant-input-textarea-show-count"
+  <span
+    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-show-count"
     data-count="0 / 100"
   >
     <textarea
       class="ant-input"
     />
     <span
-      class="ant-input-data-count"
+      class="ant-input-suffix"
     >
-      0 / 100
+      <span
+        class="ant-input-data-count"
+      >
+        0 / 100
+      </span>
     </span>
-  </div>,
+  </span>,
 ]
 `;
 
@@ -10263,7 +10284,7 @@ Array [
     The autoSize property applies to textarea nodes, and only the height changes automatically. In addition, autoSize can be set to an object, specifying the minimum number of rows and the maximum number of rows. The autoSize property applies to textarea nodes, and only the height changes automatically. In addition, autoSize can be set to an object, specifying the minimum number of rows and the maximum number of rows.
   </textarea>,
   <span
-    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper"
+    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-allow-clear"
     style="width: 93px;"
   >
     <textarea
@@ -10304,8 +10325,8 @@ Array [
 
 exports[`renders components/input/demo/textarea-show-count.tsx extend context correctly 1`] = `
 Array [
-  <div
-    class="ant-input-show-count ant-input-textarea ant-input-textarea-show-count"
+  <span
+    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-show-count"
     data-count="0 / 100"
     style="height: 120px; margin-bottom: 24px;"
   >
@@ -10314,13 +10335,17 @@ Array [
       placeholder="can resize"
     />
     <span
-      class="ant-input-data-count"
+      class="ant-input-suffix"
     >
-      0 / 100
+      <span
+        class="ant-input-data-count"
+      >
+        0 / 100
+      </span>
     </span>
-  </div>,
-  <div
-    class="ant-input-show-count ant-input-textarea ant-input-textarea-show-count"
+  </span>,
+  <span
+    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-show-count"
     data-count="0 / 100"
     style="height: 120px; resize: none;"
   >
@@ -10330,11 +10355,15 @@ Array [
       style="resize: none;"
     />
     <span
-      class="ant-input-data-count"
+      class="ant-input-suffix"
     >
-      0 / 100
+      <span
+        class="ant-input-data-count"
+      >
+        0 / 100
+      </span>
     </span>
-  </div>,
+  </span>,
 ]
 `;
 

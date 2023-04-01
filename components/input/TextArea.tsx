@@ -38,6 +38,8 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
       disabled: customDisabled,
       status: customStatus,
       allowClear,
+      showCount,
+      classNames: classes,
       ...rest
     },
     ref,
@@ -97,16 +99,14 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
               [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
               [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
               [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
+              [`${prefixCls}-textarea-show-count`]: showCount,
             },
             getStatusClassNames(`${prefixCls}-affix-wrapper`, mergedStatus),
             hashId,
           ),
-          countWrapper: classNames(
-            `${prefixCls}-textarea`,
-            `${prefixCls}-textarea-show-count`,
-            { [`${prefixCls}-textarea-show-count-rtl`]: direction === 'rtl' },
-            hashId,
-          ),
+        }}
+        classNames={{
+          ...classes,
           textarea: classNames(
             {
               [`${prefixCls}-borderless`]: !bordered,
@@ -115,12 +115,14 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
             },
             getStatusClassNames(prefixCls, mergedStatus),
             hashId,
+            classes?.textarea,
           ),
         }}
         prefixCls={prefixCls}
         suffix={
           hasFeedback && <span className={`${prefixCls}-textarea-suffix`}>{feedbackIcon}</span>
         }
+        showCount={showCount}
         ref={innerRef}
       />,
     );

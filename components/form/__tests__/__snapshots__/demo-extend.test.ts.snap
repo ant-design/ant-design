@@ -99,6 +99,7 @@ exports[`renders components/form/demo/advanced-search.tsx extend context correct
                           aria-activedescendant="advanced_search_field-1_list_0"
                           aria-autocomplete="list"
                           aria-controls="advanced_search_field-1_list"
+                          aria-expanded="false"
                           aria-haspopup="listbox"
                           aria-owns="advanced_search_field-1_list"
                           aria-required="true"
@@ -365,6 +366,7 @@ exports[`renders components/form/demo/advanced-search.tsx extend context correct
                           aria-activedescendant="advanced_search_field-4_list_0"
                           aria-autocomplete="list"
                           aria-controls="advanced_search_field-4_list"
+                          aria-expanded="false"
                           aria-haspopup="listbox"
                           aria-owns="advanced_search_field-4_list"
                           aria-required="true"
@@ -743,7 +745,6 @@ exports[`renders components/form/demo/basic.tsx extend context correctly 1`] = `
                   class="ant-checkbox-input"
                   id="basic_remember"
                   type="checkbox"
-                  value=""
                 />
                 <span
                   class="ant-checkbox-inner"
@@ -998,6 +999,7 @@ Array [
                           aria-activedescendant="basic_select_list_0"
                           aria-autocomplete="list"
                           aria-controls="basic_select_list"
+                          aria-expanded="false"
                           aria-haspopup="listbox"
                           aria-owns="basic_select_list"
                           autocomplete="off"
@@ -1427,6 +1429,7 @@ Array [
                           aria-activedescendant="select_list_0"
                           aria-autocomplete="list"
                           aria-controls="select_list"
+                          aria-expanded="false"
                           aria-haspopup="listbox"
                           aria-owns="select_list"
                           autocomplete="off"
@@ -1710,6 +1713,7 @@ exports[`renders components/form/demo/control-hooks.tsx extend context correctly
                     aria-activedescendant="control-hooks_gender_list_0"
                     aria-autocomplete="list"
                     aria-controls="control-hooks_gender_list"
+                    aria-expanded="false"
                     aria-haspopup="listbox"
                     aria-owns="control-hooks_gender_list"
                     aria-required="true"
@@ -1990,6 +1994,7 @@ exports[`renders components/form/demo/control-ref.tsx extend context correctly 1
                     aria-activedescendant="control-ref_gender_list_0"
                     aria-autocomplete="list"
                     aria-controls="control-ref_gender_list"
+                    aria-expanded="false"
                     aria-haspopup="listbox"
                     aria-owns="control-ref_gender_list"
                     aria-required="true"
@@ -2238,6 +2243,7 @@ exports[`renders components/form/demo/customized-form-controls.tsx extend contex
                       aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                       aria-autocomplete="list"
                       aria-controls="rc_select_TEST_OR_SSR_list"
+                      aria-expanded="false"
                       aria-haspopup="listbox"
                       aria-owns="rc_select_TEST_OR_SSR_list"
                       autocomplete="off"
@@ -2414,7 +2420,6 @@ Array [
         checked=""
         class="ant-checkbox-input"
         type="checkbox"
-        value=""
       />
       <span
         class="ant-checkbox-inner"
@@ -2465,7 +2470,6 @@ Array [
                     disabled=""
                     id="disabled"
                     type="checkbox"
-                    value=""
                   />
                   <span
                     class="ant-checkbox-inner"
@@ -6163,6 +6167,7 @@ exports[`renders components/form/demo/dynamic-form-items-complex.tsx extend cont
                     aria-activedescendant="dynamic_form_complex_area_list_0"
                     aria-autocomplete="list"
                     aria-controls="dynamic_form_complex_area_list"
+                    aria-expanded="false"
                     aria-haspopup="listbox"
                     aria-owns="dynamic_form_complex_area_list"
                     aria-required="true"
@@ -6605,7 +6610,6 @@ exports[`renders components/form/demo/dynamic-rule.tsx extend context correctly 
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                  value=""
                 />
                 <span
                   class="ant-checkbox-inner"
@@ -8022,7 +8026,6 @@ exports[`renders components/form/demo/normal-login.tsx extend context correctly 
                   class="ant-checkbox-input"
                   id="normal_login_remember"
                   type="checkbox"
-                  value=""
                 />
                 <span
                   class="ant-checkbox-inner"
@@ -8468,6 +8471,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                   <input
                     aria-autocomplete="list"
                     aria-controls="register_residence_list"
+                    aria-expanded="false"
                     aria-haspopup="listbox"
                     aria-owns="register_residence_list"
                     aria-required="true"
@@ -8685,6 +8689,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                           aria-activedescendant="register_prefix_list_0"
                           aria-autocomplete="list"
                           aria-controls="register_prefix_list"
+                          aria-expanded="false"
                           aria-haspopup="listbox"
                           aria-owns="register_prefix_list"
                           autocomplete="off"
@@ -8952,6 +8957,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                           aria-activedescendant="register_suffix_list_0"
                           aria-autocomplete="list"
                           aria-controls="register_suffix_list"
+                          aria-expanded="false"
                           aria-haspopup="listbox"
                           aria-owns="register_suffix_list"
                           autocomplete="off"
@@ -9124,6 +9130,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                     aria-activedescendant="register_website_list_-1"
                     aria-autocomplete="list"
                     aria-controls="register_website_list"
+                    aria-expanded="false"
                     aria-haspopup="listbox"
                     aria-owns="register_website_list"
                     aria-required="true"
@@ -9185,8 +9192,8 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
           <div
             class="ant-form-item-control-input-content"
           >
-            <div
-              class="ant-input-show-count ant-input-textarea ant-input-textarea-show-count"
+            <span
+              class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-show-count"
               data-count="0 / 100"
             >
               <textarea
@@ -9195,11 +9202,15 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                 id="register_intro"
               />
               <span
-                class="ant-input-data-count"
+                class="ant-input-suffix"
               >
-                0 / 100
+                <span
+                  class="ant-input-data-count"
+                >
+                  0 / 100
+                </span>
               </span>
-            </div>
+            </span>
           </div>
         </div>
       </div>
@@ -9245,6 +9256,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                     aria-activedescendant="register_gender_list_0"
                     aria-autocomplete="list"
                     aria-controls="register_gender_list"
+                    aria-expanded="false"
                     aria-haspopup="listbox"
                     aria-owns="register_gender_list"
                     aria-required="true"
@@ -9484,7 +9496,6 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                   class="ant-checkbox-input"
                   id="register_agreement"
                   type="checkbox"
-                  value=""
                 />
                 <span
                   class="ant-checkbox-inner"
@@ -10004,6 +10015,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                     aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                     aria-autocomplete="list"
                     aria-controls="rc_select_TEST_OR_SSR_list"
+                    aria-expanded="false"
                     aria-haspopup="listbox"
                     aria-owns="rc_select_TEST_OR_SSR_list"
                     autocomplete="off"
@@ -10145,6 +10157,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                   <input
                     aria-autocomplete="list"
                     aria-controls="rc_select_TEST_OR_SSR_list"
+                    aria-expanded="false"
                     aria-haspopup="listbox"
                     aria-owns="rc_select_TEST_OR_SSR_list"
                     autocomplete="off"
@@ -10326,6 +10339,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                   <input
                     aria-autocomplete="list"
                     aria-controls="rc_select_TEST_OR_SSR_list"
+                    aria-expanded="false"
                     aria-haspopup="listbox"
                     aria-owns="rc_select_TEST_OR_SSR_list"
                     autocomplete="off"
@@ -19081,6 +19095,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                     aria-activedescendant="validate_other_select_list_0"
                     aria-autocomplete="list"
                     aria-controls="validate_other_select_list"
+                    aria-expanded="false"
                     aria-haspopup="listbox"
                     aria-owns="validate_other_select_list"
                     aria-required="true"
@@ -19261,6 +19276,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                         aria-activedescendant="validate_other_select-multiple_list_0"
                         aria-autocomplete="list"
                         aria-controls="validate_other_select-multiple_list"
+                        aria-expanded="false"
                         aria-haspopup="listbox"
                         aria-owns="validate_other_select-multiple_list"
                         aria-required="true"
@@ -24443,6 +24459,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                     aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                     aria-autocomplete="list"
                     aria-controls="rc_select_TEST_OR_SSR_list"
+                    aria-expanded="false"
                     aria-haspopup="listbox"
                     aria-owns="rc_select_TEST_OR_SSR_list"
                     autocomplete="off"
@@ -24651,6 +24668,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                   <input
                     aria-autocomplete="list"
                     aria-controls="rc_select_TEST_OR_SSR_list"
+                    aria-expanded="false"
                     aria-haspopup="listbox"
                     aria-owns="rc_select_TEST_OR_SSR_list"
                     autocomplete="off"
@@ -24813,6 +24831,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                   <input
                     aria-autocomplete="list"
                     aria-controls="rc_select_TEST_OR_SSR_list"
+                    aria-expanded="false"
                     aria-haspopup="listbox"
                     aria-owns="rc_select_TEST_OR_SSR_list"
                     autocomplete="off"
@@ -26800,23 +26819,46 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
           <div
             class="ant-form-item-control-input-content"
           >
-            <div
-              class="ant-input-show-count ant-input-textarea ant-input-textarea-show-count"
+            <span
+              class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-affix-wrapper-status-error ant-input-show-count ant-input-textarea-allow-clear"
               data-count="0"
             >
+              <textarea
+                class="ant-input ant-input-status-error"
+              />
               <span
-                class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-affix-wrapper-status-error"
+                class="ant-input-suffix"
               >
-                <textarea
-                  class="ant-input ant-input-status-error"
-                />
                 <span
-                  class="ant-input-suffix"
+                  class="ant-input-clear-icon ant-input-clear-icon-hidden ant-input-clear-icon-has-suffix"
+                  role="button"
+                  tabindex="-1"
                 >
                   <span
-                    class="ant-input-clear-icon ant-input-clear-icon-hidden ant-input-clear-icon-has-suffix"
-                    role="button"
-                    tabindex="-1"
+                    aria-label="close-circle"
+                    class="anticon anticon-close-circle"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="close-circle"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <span
+                  class="ant-input-textarea-suffix"
+                >
+                  <span
+                    class="ant-form-item-feedback-icon ant-form-item-feedback-icon-error"
                   >
                     <span
                       aria-label="close-circle"
@@ -26838,41 +26880,14 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                       </svg>
                     </span>
                   </span>
-                  <span
-                    class="ant-input-textarea-suffix"
-                  >
-                    <span
-                      class="ant-form-item-feedback-icon ant-form-item-feedback-icon-error"
-                    >
-                      <span
-                        aria-label="close-circle"
-                        class="anticon anticon-close-circle"
-                        role="img"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          data-icon="close-circle"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-                          />
-                        </svg>
-                      </span>
-                    </span>
-                  </span>
+                </span>
+                <span
+                  class="ant-input-data-count"
+                >
+                  0
                 </span>
               </span>
-              <span
-                class="ant-input-data-count"
-              >
-                0
-              </span>
-            </div>
+            </span>
           </div>
         </div>
         <div

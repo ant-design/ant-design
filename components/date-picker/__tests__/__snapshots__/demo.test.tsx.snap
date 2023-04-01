@@ -4481,6 +4481,7 @@ exports[`renders components/date-picker/demo/switchable.tsx correctly 1`] = `
             aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
+            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="undefined_list"
             autocomplete="off"

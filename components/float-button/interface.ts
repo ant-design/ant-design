@@ -1,7 +1,8 @@
 import type React from 'react';
-import type Group from './FloatButtonGroup';
-import type BackTop from './BackTop';
+import type { BadgeProps } from '../badge';
 import type { TooltipProps } from '../tooltip';
+import type BackTop from './BackTop';
+import type Group from './FloatButtonGroup';
 import type PurePanel from './PurePanel';
 
 export type FloatButtonType = 'default' | 'primary';
@@ -9,6 +10,8 @@ export type FloatButtonType = 'default' | 'primary';
 export type FloatButtonShape = 'circle' | 'square';
 
 export type FloatButtonGroupTrigger = 'click' | 'hover';
+
+export type FloatButtonBadgeProps = Omit<BadgeProps, 'status' | 'text' | 'title' | 'children'>;
 
 export interface FloatButtonProps {
   prefixCls?: string;
@@ -22,6 +25,7 @@ export interface FloatButtonProps {
   tooltip?: TooltipProps['title'];
   href?: string;
   target?: React.HTMLAttributeAnchorTarget;
+  badge?: FloatButtonBadgeProps;
   onClick?: React.MouseEventHandler<HTMLElement>;
 }
 
