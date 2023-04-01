@@ -7,30 +7,31 @@ import type {
   DefaultOptionType,
   FieldNames,
   MultipleCascaderProps as RcMultipleCascaderProps,
-  ShowSearchType,
   SingleCascaderProps as RcSingleCascaderProps,
+  ShowSearchType,
 } from 'rc-cascader';
 import RcCascader from 'rc-cascader';
+import type { Placement } from 'rc-select/lib/BaseSelect';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
-import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import DisabledContext from '../config-provider/DisabledContext';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
+import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import { useCompactItemContext } from '../space/Compact';
 
-import { FormItemInputContext } from '../form/context';
-import getIcons from '../select/utils/iconUtil';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionDirection, getTransitionName } from '../_util/motion';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import warning from '../_util/warning';
+import { FormItemInputContext } from '../form/context';
+import getIcons from '../select/utils/iconUtil';
 
+import genPurePanel from '../_util/PurePanel';
 import useSelectStyle from '../select/style';
 import useShowArrow from '../select/useShowArrow';
-import genPurePanel from '../_util/PurePanel';
 import useStyle from './style';
 
 // Align the design since we use `rc-select` in root. This help:
@@ -85,7 +86,7 @@ const defaultSearchRender: ShowSearchType['render'] = (inputValue, path, prefixC
       optionList.push(' / ');
     }
 
-    let label = (node as any)[fieldNames.label!];
+    let label = node[fieldNames.label!];
     const type = typeof label;
     if (type === 'string' || type === 'number') {
       label = highlightKeyword(String(label), lower, prefixCls);
@@ -266,12 +267,12 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
   });
 
   // ===================== Placement =====================
-  const getPlacement = () => {
+  const memoPlacement = React.useMemo<Placement>(() => {
     if (placement !== undefined) {
       return placement;
     }
     return isRtl ? 'bottomRight' : 'bottomLeft';
-  };
+  }, [placement, isRtl]);
 
   // ==================== Render =====================
   const renderNode = (
@@ -295,7 +296,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
       disabled={mergedDisabled}
       {...(restProps as any)}
       direction={mergedDirection}
-      placement={getPlacement()}
+      placement={memoPlacement}
       notFoundContent={mergedNotFoundContent}
       allowClear={allowClear}
       showSearch={mergedShowSearch}

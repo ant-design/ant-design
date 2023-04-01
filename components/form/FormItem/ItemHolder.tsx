@@ -5,6 +5,7 @@ import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import classNames from 'classnames';
 import type { Meta } from 'rc-field-form/lib/interface';
 import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
+import isVisible from 'rc-util/lib/Dom/isVisible';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
 import type { FormItemProps, ValidateStatus } from '.';
@@ -65,14 +66,17 @@ export default function ItemHolder(props: ItemHolderProps) {
   const debounceWarnings = useDebounce(warnings);
   const hasHelp = help !== undefined && help !== null;
   const hasError = !!(hasHelp || errors.length || warnings.length);
+  const isOnScreen = !!itemRef.current && isVisible(itemRef.current);
   const [marginBottom, setMarginBottom] = React.useState<number | null>(null);
 
   useLayoutEffect(() => {
     if (hasError && itemRef.current) {
+      // The element must be part of the DOMTree to use getComputedStyle
+      // https://stackoverflow.com/questions/35360711/getcomputedstyle-returns-a-cssstyledeclaration-but-all-properties-are-empty-on-a
       const itemStyle = getComputedStyle(itemRef.current);
       setMarginBottom(parseInt(itemStyle.marginBottom, 10));
     }
-  }, [hasError]);
+  }, [hasError, isOnScreen]);
 
   const onErrorVisibleChanged = (nextVisible: boolean) => {
     if (!nextVisible) {
