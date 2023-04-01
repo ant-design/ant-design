@@ -82,7 +82,7 @@ import locale from 'antd/locale/zh_CN';
 | autoFocus | 自动获取焦点 | boolean | false |  |
 | bordered | 是否有边框 | boolean | true |  |
 | className | 选择器 className | string | - |  |
-| cellRender | 自定义单元格的内容 | function(current: dayjs, today: dayjs, info: { originNode: React.ReactElement,today: DateType, range?: 'start' \| 'end', type: PanelMode, locale?: Locale, subType?: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => React.ReactNode | - | 5.5.0 |
+| cellRender | 自定义单元格的内容 | function(current: dayjs, today: dayjs, info: { originNode: React.ReactElement,today: DateType, range?: 'start' \| 'end', type: PanelMode, locale?: Locale, subType?: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => React.ReactNode | - | 5.4.0 |
 | disabled | 禁用 | boolean | false |  |
 | disabledDate | 不可选择的日期 | (currentDate: dayjs) => boolean | - |  |
 | format | 设置日期格式，为数组时支持多格式匹配，展示以第一个为准。配置参考 [dayjs#format](https://day.js.org/docs/zh-CN/display/format#%E6%94%AF%E6%8C%81%E7%9A%84%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%8D%A0%E4%BD%8D%E7%AC%A6%E5%88%97%E8%A1%A8)。示例：[自定义格式](#components-date-picker-demo-format) | [formatType](#formattype) | [rc-picker](https://github.com/react-component/picker/blob/f512f18ed59d6791280d1c3d7d37abbb9867eb0b/src/utils/uiUtil.ts#L155-L177) |  |
