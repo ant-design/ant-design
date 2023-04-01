@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import type { FC } from 'react';
 import { Tag } from 'antd';
 import { DndContext, PointerSensor, useSensor, useSensors, closestCenter } from '@dnd-kit/core';
 import {
@@ -8,6 +7,7 @@ import {
   SortableContext,
   horizontalListSortingStrategy,
 } from '@dnd-kit/sortable';
+import type { FC } from 'react';
 import type { DragEndEvent } from '@dnd-kit/core/dist/types/index';
 
 type Item = {
@@ -66,12 +66,11 @@ const App = () => {
     if (!over) return;
 
     if (active.id !== over.id) {
-      // eslint-disable-next-line @typescript-eslint/no-shadow
-      setItems((items) => {
-        const oldIndex = items.findIndex((item) => item.id === active.id);
-        const newIndex = items.findIndex((item) => item.id === over.id);
+      setItems((data) => {
+        const oldIndex = data.findIndex((item) => item.id === active.id);
+        const newIndex = data.findIndex((item) => item.id === over.id);
 
-        return arrayMove(items, oldIndex, newIndex);
+        return arrayMove(data, oldIndex, newIndex);
       });
     }
   };
