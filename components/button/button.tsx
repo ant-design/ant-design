@@ -230,26 +230,13 @@ const InternalButton: React.ForwardRefRenderFunction<
     rootClassName,
   );
 
-  // const iconNode =
-  //   icon && !innerLoading ? (
-  //     icon
-  //   ) : (
-  //     <LoadingIcon existIcon={!!icon} prefixCls={prefixCls} loading={!!innerLoading} />
-  //   );
-  // const mergedIconClassName = classNames('ant-btn-icon', customClassNames?.icon);
-  // const mergedIconNode = icon ? (
-  //   <span className={mergedIconClassName} style={styles?.icon}>
-  //     {iconNode}
-  //   </span>
-  // ) : null;
-
   const iconNode =
     icon && !innerLoading ? (
       icon
     ) : (
       <LoadingIcon existIcon={!!icon} prefixCls={prefixCls} loading={!!innerLoading} />
     );
-  const mergedIconClassName = classNames('ant-btn-icon', customClassNames?.icon);
+  const mergedIconClassName = classNames(`${prefixCls}-icon`, customClassNames?.icon);
   const mergedIconNode =
     // eslint-disable-next-line no-nested-ternary
     icon && !innerLoading ? (
