@@ -22,24 +22,24 @@ timeline: true
 - 🗑 Remove `antd/es/locale-provider` `antd/lib/locale-provider` directory since LocaleProvider was replaced by ConfigProvider and removed in 4.x version years before. [#41289](https://github.com/ant-design/ant-design/pull/41289) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🆕 Add Form.Item.useStatus hook to get error messages. [#41554](https://github.com/ant-design/ant-design/pull/41554) [@Yuiai01](https://github.com/Yuiai01)
 - 🆕 Input and Input.TextArea support `classNames` and `styles` props. [#41493](https://github.com/ant-design/ant-design/pull/41493)
-- 🆕 Tag add `bordered={false}` to support borderless style. [#41305](https://github.com/ant-design/ant-design/pull/41305) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🆕 Tag add `bordered={false}` to support border-less style. [#41305](https://github.com/ant-design/ant-design/pull/41305) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🆕 FloatButton support `badge` prop. [#41040](https://github.com/ant-design/ant-design/pull/41040) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🆕 Select add `title` property. [#41280](https://github.com/ant-design/ant-design/pull/41280)
 - 🆕 Image component supports `preview.rootClassName`. [#41265](https://github.com/ant-design/ant-design/pull/41265) [@Yuiai01](https://github.com/Yuiai01)
 - 🆕 Modal added `afterOpenChange` prop. [#41253](https://github.com/ant-design/ant-design/pull/41253) [@MuxinFeng](https://github.com/MuxinFeng)
 - 🆕 Form.useWatch could watch field change at preserve mode. [#41191](https://github.com/ant-design/ant-design/pull/41191) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🛠 Refactor some components by using `useMemo`. [#41533](https://github.com/ant-design/ant-design/pull/41533) [#41550](https://github.com/ant-design/ant-design/pull/41550) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🛠 Refactor Checkbox with hooks and new types. [#41117](https://github.com/ant-design/ant-design/pull/41117)
 - 🛠 Refactor Input.TextArea that move count into `affixWrapper` element. [#41450](https://github.com/ant-design/ant-design/pull/41450)
 - 🐞 Fix Tour double arrow problem. [#41578](https://github.com/ant-design/ant-design/pull/41578) [@acyza](https://github.com/acyza)
 - 🐞 Fix Checkbox with customize `controlHeight` token not align in center with text. [#41566](https://github.com/ant-design/ant-design/pull/41566)
 - 🐞 Fix Form.Item not rendering correctly in Modal when it has `help`. [#40519](https://github.com/ant-design/ant-design/pull/40519) [@Yuiai01](https://github.com/Yuiai01)
-- 🛠 Refactor Checkbox with hooks and new types. [#41117](https://github.com/ant-design/ant-design/pull/41117)
 - 🐞 Fix Slider throws warning `[antd: Tooltip] forcePopupAlign is align to forceAlign instead`. [#41540](https://github.com/ant-design/ant-design/pull/41540) [@MuxinFeng](https://github.com/MuxinFeng)
 - 🐞 Fix checkable Table checking not working when click on the edge of checkbox. [#41519](https://github.com/ant-design/ant-design/pull/41519)
 - Locales
   - 🇲🇲 Added Burmese locale. [#41366](https://github.com/ant-design/ant-design/pull/41366) [@enson0131](https://github.com/enson0131)
   - 🇻🇳 Fix Vietnamese locale text. [#41320](https://github.com/ant-design/ant-design/pull/41320) [@trongtai37](https://github.com/trongtai37) [#41345](https://github.com/ant-design/ant-design/pull/41345) [@duypham90](https://github.com/duypham90)
-- 🇩🇪 Update TimePicker german locale. [#41521](https://github.com/ant-design/ant-design/pull/41521) [@Yuiai01](https://github.com/Yuiai01)
+  - 🇩🇪 Update TimePicker german locale. [#41521](https://github.com/ant-design/ant-design/pull/41521) [@Yuiai01](https://github.com/Yuiai01)
 
 ## 5.3.3
 
