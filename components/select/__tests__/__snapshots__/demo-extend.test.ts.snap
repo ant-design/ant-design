@@ -3449,7 +3449,11 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
                 class="ant-tag ant-tag-borderless ant-select-tag"
                 value="a10"
               >
-                a10
+                <span
+                  class="ant-tag-content"
+                >
+                  a10
+                </span>
               </span>
             </span>
           </div>
@@ -3462,7 +3466,11 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
                 class="ant-tag ant-tag-borderless ant-select-tag"
                 value="c12"
               >
-                c12
+                <span
+                  class="ant-tag-content"
+                >
+                  c12
+                </span>
               </span>
             </span>
           </div>
