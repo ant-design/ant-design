@@ -41,6 +41,9 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
         display: 'inline-block',
       },
 
+      [`${componentCls}-icon`]: {
+        lineHeight: 0,
+      },
       // Leave a space between icon and text.
       [`> ${iconCls} + span,> ${componentCls}-icon + span, > span + ${iconCls}`]: {
         marginInlineStart: token.marginXS,
