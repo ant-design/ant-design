@@ -27,7 +27,7 @@ By clicking the input box, you can select a date from a popup calendar.
 <code src="./demo/preset-ranges.tsx">Preset Ranges</code>
 <code src="./demo/extra-footer.tsx">Extra Footer</code>
 <code src="./demo/size.tsx">Three Sizes</code>
-<code src="./demo/date-render.tsx">Customized Date Rendering</code>
+<code src="./demo/cell-render.tsx">Customized Cell Rendering</code>
 <code src="./demo/status.tsx">Status</code>
 <code src="./demo/bordered.tsx">Bordered-less</code>
 <code src="./demo/placement.tsx">Placement</code>
@@ -81,7 +81,8 @@ The following APIs are shared by DatePicker, RangePicker.
 | autoFocus | If get focus when component mounted | boolean | false |  |
 | bordered | Whether has border style | boolean | true |  |
 | className | The picker className | string | - |  |
-| dateRender | Custom rendering function for date cells | function(currentDate: dayjs, today: dayjs) => React.ReactNode | - |  |
+| dateRender | Custom rendering function for date cells, >= 5.4.0 use `cellRender` instead. | function(currentDate: dayjs, today: dayjs) => React.ReactNode | - | < 5.4.0 |
+| cellRender | Custom rendering function for picker cells | function(current: dayjs, today: dayjs, info: { originNode: React.ReactElement,today: DateType, range?: 'start' \| 'end', type: PanelMode, locale?: Locale, subType?: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => React.ReactNode | - | 5.4.0 |
 | disabled | Determine whether the DatePicker is disabled | boolean | false |  |
 | disabledDate | Specify the date that cannot be selected | (currentDate: dayjs) => boolean | - |  |
 | format | To set the date format, support multi-format matching when it is an array, display the first one shall prevail. refer to [dayjs#format](https://day.js.org/docs/en/display/format). for example: [Custom Format](#components-date-picker-demo-format) | [formatType](#formattype) | [rc-picker](https://github.com/react-component/picker/blob/f512f18ed59d6791280d1c3d7d37abbb9867eb0b/src/utils/uiUtil.ts#L155-L177) |  |
@@ -164,7 +165,6 @@ Added in `4.1.0`.
 | defaultPickerValue | To set default picker date | [dayjs](https://day.js.org/) | - |  |
 | defaultValue | To set default date | [dayjs](https://day.js.org/) | - |  |
 | format | To set the date format. refer to [dayjs#format](https://day.js.org/docs/en/display/format) | [formatType](#formattype) | `YYYY-MM` |  |
-| monthCellRender | Custom month cell content render method | function(date, locale): ReactNode | - |  |
 | renderExtraFooter | Render extra footer in panel | () => React.ReactNode | - |  |
 | value | To set date | [dayjs](https://day.js.org/) | - |  |
 | onChange | Callback function, can be executed when the selected time is changing | function(date: dayjs, dateString: string) | - |  |
@@ -185,7 +185,8 @@ Added in `4.1.0`.
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | allowEmpty | Allow start or end input leave empty | \[boolean, boolean] | \[false, false] |  |
-| dateRender | Customize date cell. `info` argument is added in 4.3.0 | function(currentDate: dayjs, today: dayjs, info: { range: `start` \| `end` }) => React.ReactNode | - |  |
+| dateRender | Custom rendering function for date cells, >= 5.4.0 use `cellRender` instead. | function(currentDate: dayjs, today: dayjs) => React.ReactNode | - | < 5.4.0 |
+| cellRender | Custom rendering function for picker cells | function(current: dayjs, today: dayjs, info: { originNode: React.ReactElement,today: DateType, range?: 'start' \| 'end', type: PanelMode, locale?: Locale, subType?: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => React.ReactNode | - | 5.4.0 |
 | defaultPickerValue | To set default picker date | \[[dayjs](https://day.js.org/), [dayjs](https://day.js.org/)] | - |  |
 | defaultValue | To set default date | \[[dayjs](https://day.js.org/), [dayjs](https://day.js.org/)] | - |  |
 | disabled | If disable start or end | \[boolean, boolean] | - |  |

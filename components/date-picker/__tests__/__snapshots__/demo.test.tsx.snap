@@ -752,7 +752,7 @@ exports[`renders components/date-picker/demo/bordered.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/date-picker/demo/date-render.tsx correctly 1`] = `
+exports[`renders components/date-picker/demo/cell-render.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >

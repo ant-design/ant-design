@@ -1,12 +1,12 @@
-import React from 'react';
 import { DatePicker, Space } from 'antd';
+import React from 'react';
 
 const { RangePicker } = DatePicker;
 
 const App: React.FC = () => (
   <Space direction="vertical" size={12}>
     <DatePicker
-      dateRender={(current) => {
+      cellRender={(current) => {
         const style: React.CSSProperties = {};
         if (current.date() === 1) {
           style.border = '1px solid #1890ff';
@@ -20,7 +20,7 @@ const App: React.FC = () => (
       }}
     />
     <RangePicker
-      dateRender={(current) => {
+      cellRender={(current) => {
         const style: React.CSSProperties = {};
         if (current.date() === 1) {
           style.border = '1px solid #1890ff';

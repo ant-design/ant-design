@@ -7088,7 +7088,7 @@ exports[`renders components/date-picker/demo/bordered.tsx extend context correct
 </div>
 `;
 
-exports[`renders components/date-picker/demo/date-render.tsx extend context correctly 1`] = `
+exports[`renders components/date-picker/demo/cell-render.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
