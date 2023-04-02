@@ -128,11 +128,11 @@ export default DatePicker;
 
 ## 使用 luxon
 
-可以使用 [luxon](https://moment.github.io/luxon/) 代替 dayjs 并支持相同的功能，但它确实引入了一些我们将在下面解释的行为差异。
+可以使用 [luxon](https://moment.github.io/luxon/) 代替 dayjs 并支持同样的功能，但它与 dayjs 有一些差异，我们将在下面解释：
 
 ### 执行
 
-创建一个 `src/components/DatePicker.tsx` 文件并实现基于 luxon 的选择器，如下所示：
+创建一个 `DatePicker.tsx` 文件，并定义一个基于 luxon 的 DatePicker 组件：
 
 ```tsx
 import generatePicker from 'antd/es/date-picker/generatePicker';
@@ -145,15 +145,15 @@ const DatePicker = generatePicker<DateTime>(luxonGenerateConfig);
 export default DatePicker;
 ```
 
-### 与 day-js 的显着差异
+### 与 day.js 的差异
 
-luxon 用户应该熟悉这样一个事实，即它不附带用于本地化的自定义实现。 相反，它依赖于浏览器的本机 [Intl API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl)。
+luxon 用户应该悉知，它不附带用于本地化的自定义实现。 相反，它依赖于浏览器的本机 [Intl API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl)。
 
-这引入了与其他日期库的一些格式差异。 截至今天，主要区别是：
+这导致了与其他日期库的一些差异， 主要区别是：
 
 - 无论语言环境如何，一周的第一天总是星期一。
 - 一年中的周数有时不同（ISO 周规则用于确定它）。
-- 短工作日格式有时会因自定义区域而异（它可能有 3 个字符而不是 2 个）。
+- 短工作日格式有时会因自定义区域而异（可能有 3 个字符而不是 2 个）。
 - 选定的周标签格式会略有不同（例如“2021-01”而不是“2021-1st”）。
 
 可以通过调整 luxon 配置来自定义这些默认的 luxon 行为：
@@ -176,4 +176,4 @@ const DatePicker = generatePicker<DateTime>(customLuxonConfig);
 export default DatePicker;
 ```
 
-请注意，通过进行此类自定义，生成的 DatePicker 行为可能会以意想不到的方式发生变化，因此请确保您正在测试边缘情况。
+请注意，通过进行此类自定义，生成的 DatePicker 行为可能会以意想不到的方式发生变化，因此请确保你测试过一些边界情况。

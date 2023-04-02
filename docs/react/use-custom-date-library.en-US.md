@@ -130,7 +130,7 @@ export default DatePicker;
 
 ## Use luxon
 
-[luxon](https://moment.github.io/luxon/) can be used instead of `dayjs` and supports the same functionality, but it does introduce some differences in behavior that we will explain below.
+Since `antd 5.4.0`, [luxon](https://moment.github.io/luxon/) can be used instead of `dayjs` and supports the same functionality, but it does introduce some differences in behavior that we will explain below.
 
 ### Implementation
 
