@@ -463,16 +463,16 @@ describe('Calendar', () => {
     expect(container.querySelectorAll('.bamboo')[0].innerHTML).toEqual('Light');
   });
 
-  it('cellRender in date', () => {
+  it('fullCellRender in date', () => {
     const { container } = render(
-      <Calendar cellRender={() => <div className="light">Bamboo</div>} />,
+      <Calendar fullCellRender={() => <div className="light">Bamboo</div>} />,
     );
     expect(container.querySelectorAll('.light')[0].innerHTML).toEqual('Bamboo');
   });
 
-  it('cellRender in month', () => {
+  it('fullCellRender in month', () => {
     const { container } = render(
-      <Calendar mode="year" cellRender={() => <div className="bamboo">Light</div>} />,
+      <Calendar mode="year" fullCellRender={() => <div className="bamboo">Light</div>} />,
     );
     expect(container.querySelectorAll('.bamboo')[0].innerHTML).toEqual('Light');
   });
