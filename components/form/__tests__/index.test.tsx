@@ -1688,6 +1688,54 @@ describe('Form', () => {
     expect(container.querySelectorAll('.ant-form-item-has-feedback').length).toBe(1);
     expect(container.querySelectorAll('.ant-form-item-has-success').length).toBe(1);
   });
+
+  it('feedback should automatically derive the correct state', async () => {
+    const Demo: React.FC = () => {
+      const [form] = Form.useForm();
+
+      return (
+        <Form form={form}>
+          <Form.Item name="success" initialValue="test" hasFeedback rules={[{ required: true }]}>
+            <Input />
+          </Form.Item>
+          <Form.Item
+            name="validating"
+            hasFeedback
+            rules={[
+              {
+                validator: () =>
+                  new Promise((resolve) => {
+                    setTimeout(() => resolve(true), 2000);
+                  }),
+              },
+            ]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item name="warning" hasFeedback rules={[{ required: true, warningOnly: true }]}>
+            <Input />
+          </Form.Item>
+          <Form.Item name="error" hasFeedback rules={[{ required: true }]}>
+            <Input />
+          </Form.Item>
+          <Button onClick={() => form.submit()} className="submit-button">
+            Submit
+          </Button>
+        </Form>
+      );
+    };
+    const { container } = render(<Demo />);
+
+    fireEvent.click(container.querySelector('.submit-button')!);
+
+    await waitFakeTimer(50);
+
+    expect(container.querySelector('.ant-form-item-has-success')).toBeTruthy();
+    expect(container.querySelector('.ant-form-item-is-validating')).toBeTruthy();
+    expect(container.querySelector('.ant-form-item-has-warning')).toBeTruthy();
+    expect(container.querySelector('.ant-form-item-has-error')).toBeTruthy();
+  });
+
   it('validate status should be change in order', async () => {
     const onChange = jest.fn();
 
