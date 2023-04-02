@@ -463,6 +463,20 @@ describe('Calendar', () => {
     expect(container.querySelectorAll('.bamboo')[0].innerHTML).toEqual('Light');
   });
 
+  it('cellRender in date', () => {
+    const { container } = render(
+      <Calendar cellRender={() => <div className="light">Bamboo</div>} />,
+    );
+    expect(container.querySelectorAll('.light')[0].innerHTML).toEqual('Bamboo');
+  });
+
+  it('cellRender in month', () => {
+    const { container } = render(
+      <Calendar mode="year" cellRender={() => <div className="bamboo">Light</div>} />,
+    );
+    expect(container.querySelectorAll('.bamboo')[0].innerHTML).toEqual('Light');
+  });
+
   it('when fullscreen is false, the element returned by dateFullCellRender should be interactive', () => {
     const onClick = jest.fn();
     const { container } = render(
