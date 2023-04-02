@@ -1,5 +1,4 @@
 /* eslint-disable import/no-unresolved,no-console,global-require,import/no-dynamic-require */
-
 const chalk = require('chalk');
 const React = require('react');
 const ReactDOMServer = require('react-dom/server');
@@ -30,7 +29,7 @@ const EmptyElement = React.createElement('div');
 const styleFiles = glob.globSync(
   path.join(
     process.cwd(),
-    'components/!(version|config-provider|icon|auto-complete|col|row|time-picker|)/style/index.?(ts|tsx)',
+    'components/!(version|config-provider|icon|auto-complete|col|row|time-picker)/style/index.?(ts|tsx)',
   ),
 );
 
