@@ -109,14 +109,13 @@ export default function ItemHolder(props: ItemHolderProps) {
 
   const formItemStatusContext = React.useMemo<FormItemStatusContextProps>(() => {
     let feedbackIcon: React.ReactNode;
-    const desplayValidateStatus = getValidateState(true);
     if (hasFeedback) {
-      const IconNode = desplayValidateStatus && iconMap[desplayValidateStatus];
+      const IconNode = mergedValidateStatus && iconMap[mergedValidateStatus];
       feedbackIcon = IconNode ? (
         <span
           className={classNames(
             `${itemPrefixCls}-feedback-icon`,
-            `${itemPrefixCls}-feedback-icon-${desplayValidateStatus}`,
+            `${itemPrefixCls}-feedback-icon-${mergedValidateStatus}`,
           )}
         >
           <IconNode />
