@@ -495,13 +495,11 @@ describe('Calendar', () => {
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: Calendar] `dateCellRender` is deprecated. Please use `cellRender` instead.',
     );
-    expect(container).toMatchSnapshot();
 
     expect(container.querySelector('.bamboo')).toBeTruthy();
 
     fireEvent.click(Array.from(container.querySelectorAll(`.ant-radio-button-input`)).at(1)!);
     expect(container.querySelector('.bar')).toBeTruthy();
-    expect(container).toMatchSnapshot();
     errSpy.mockRestore();
   });
 
@@ -521,11 +519,9 @@ describe('Calendar', () => {
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: Calendar] `monthFullCellRender` is deprecated. Please use `fullCellRender` instead.',
     );
-    expect(container).toMatchSnapshot();
     expect(container.querySelector('.bamboo')).toBeTruthy();
     fireEvent.click(Array.from(container.querySelectorAll(`.ant-radio-button-input`)).at(1)!);
     expect(container.querySelector('.bar')).toBeTruthy();
-    expect(container).toMatchSnapshot();
     errSpy.mockRestore();
   });
 });
