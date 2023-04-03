@@ -98,11 +98,14 @@ Array [
 
 exports[`renders components/popconfirm/demo/basic.tsx extend context correctly 1`] = `
 Array [
-  <a
-    href="#"
+  <button
+    class="ant-btn ant-btn-link"
+    type="button"
   >
-    Delete
-  </a>,
+    <span>
+      Delete
+    </span>
+  </button>,
   <div
     class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popconfirm ant-popover-placement-top"
     style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
@@ -191,11 +194,14 @@ Array [
 
 exports[`renders components/popconfirm/demo/dynamic-trigger.tsx extend context correctly 1`] = `
 <div>
-  <a
-    href="#"
+  <button
+    class="ant-btn ant-btn-link"
+    type="button"
   >
-    Delete a task
-  </a>
+    <span>
+      Delete a task
+    </span>
+  </button>
   <div
     class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popconfirm ant-popover-placement-top"
     style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
@@ -307,11 +313,14 @@ exports[`renders components/popconfirm/demo/dynamic-trigger.tsx extend context c
 
 exports[`renders components/popconfirm/demo/icon.tsx extend context correctly 1`] = `
 Array [
-  <a
-    href="#"
+  <button
+    class="ant-btn ant-btn-link"
+    type="button"
   >
-    Delete
-  </a>,
+    <span>
+      Delete
+    </span>
+  </button>,
   <div
     class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popconfirm ant-popover-placement-top"
     style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
@@ -404,11 +413,14 @@ Array [
 
 exports[`renders components/popconfirm/demo/locale.tsx extend context correctly 1`] = `
 Array [
-  <a
-    href="#"
+  <button
+    class="ant-btn ant-btn-link"
+    type="button"
   >
-    Delete
-  </a>,
+    <span>
+      Delete
+    </span>
+  </button>,
   <div
     class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popconfirm ant-popover-placement-top"
     style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
