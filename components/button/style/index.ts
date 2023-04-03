@@ -46,7 +46,7 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
           marginInlineEnd: token.marginXS,
         },
       },
-      // Leave a space between icon and text.
+      // Leave a space between span.
       [`> span:first-child,> span:last-child`]: {
         marginInlineStart: token.marginXS,
       },
