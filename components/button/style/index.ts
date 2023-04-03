@@ -40,15 +40,12 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
       '> span': {
         display: 'inline-block',
       },
+
       [`${componentCls}-icon`]: {
         lineHeight: 0,
-        [`&:not(:only-child)`]: {
-          marginInlineEnd: token.marginXS,
+        [`&:first-child + *,*+ &:last-child`]: {
+          marginInlineStart: token.marginXS,
         },
-      },
-      // Leave a space between span.
-      [`> span:first-child,> span:last-child`]: {
-        marginInlineStart: token.marginXS,
       },
 
       '> a': {

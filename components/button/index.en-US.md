@@ -76,7 +76,7 @@ It accepts all props which native buttons support.
 
 | Property | Description       | Version |
 | -------- | ----------------- | ------- |
-| icon     | set `icon`element | 5.4.0   |
+| icon     | set `icon`element | 5.5.0   |
 
 ## Design Token
 
