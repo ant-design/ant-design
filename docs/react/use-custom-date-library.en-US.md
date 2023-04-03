@@ -120,7 +120,6 @@ Code as follows:
 
 ```tsx
 import generatePicker from 'antd/es/date-picker/generatePicker';
-import 'antd/es/date-picker/style/index';
 import dateFnsGenerateConfig from 'rc-picker/lib/generate/dateFns';
 
 const DatePicker = generatePicker<Date>(dateFnsGenerateConfig);
@@ -138,7 +137,6 @@ Create a `src/components/DatePicker.tsx` file, and implement the luxon based pic
 
 ```tsx
 import generatePicker from 'antd/es/date-picker/generatePicker';
-import 'antd/es/date-picker/style/index';
 import type { DateTime } from 'luxon';
 import luxonGenerateConfig from 'rc-picker/lib/generate/luxon';
 
@@ -147,7 +145,7 @@ const DatePicker = generatePicker<DateTime>(luxonGenerateConfig);
 export default DatePicker;
 ```
 
-### Notable differences with day-js
+### Notable differences with dayjs
 
 luxon users should be familiar with the fact that it does not come with a custom implementation for localization. Instead, it relies on the browser's native [Intl API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl).
 
@@ -162,13 +160,12 @@ It is possible to customize these default luxon behaviors by adjusting the luxon
 
 ```tsx
 import generatePicker from 'antd/es/date-picker/generatePicker';
-import 'antd/es/date-picker/style/index';
 import type { DateTime } from 'luxon';
 import luxonGenerateConfig from 'rc-picker/lib/generate/luxon';
 
 const customLuxonConfig = {
   ...luxonGenerateConfig,
-  getWeekFirstDay: (locale) => {
+  getWeekFirstDay(locale) {
     // Your custom implementation goes here
   },
 };
