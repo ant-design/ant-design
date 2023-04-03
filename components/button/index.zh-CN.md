@@ -77,9 +77,7 @@ group:
 
 支持原生 button 的其他所有属性。
 
-### Semantic DOM
-
-#### Button
+### `styles` 和 `classNames` 属性
 
 | 名称 | 说明         | 版本  |
 | ---- | ------------ | ----- |
