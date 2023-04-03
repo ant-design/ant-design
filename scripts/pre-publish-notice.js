@@ -1,7 +1,9 @@
-const notifier = require('node-notifier');
+const { Notification } = require('node-notifier');
 
-notifier.notify({
-  title: '准备发布到 npm',
-  message: '测试用例执行完毕，请切回命令行输入 npm 二阶段校验码',
+new Notification().notify({
+  title: '✅ 准备发布到 npm',
+  message: '测试用例执行完毕，马上就要输入 npm 校验码了！',
   sound: true,
 });
+
+process.exit(0);
