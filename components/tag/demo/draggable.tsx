@@ -21,7 +21,7 @@ type DraggableTagProps = {
 
 const DraggableTag: FC<DraggableTagProps> = (props) => {
   const { tag } = props;
-  const { listeners, setNodeRef, transform, transition } = useSortable({ id: tag.id });
+  const { listeners, setNodeRef, transform, transition, isDragging } = useSortable({ id: tag.id });
 
   const commonStyle = {
     cursor: 'move',
@@ -32,7 +32,7 @@ const DraggableTag: FC<DraggableTagProps> = (props) => {
     ? {
         ...commonStyle,
         transform: `translate3d(${transform.x}px, ${transform.y}px, 0)`,
-        transition,
+        transition: isDragging ? 'unset' : transition, // 处理拖拽中的元素不跟手的问题
       }
     : commonStyle;
 

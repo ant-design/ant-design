@@ -23,7 +23,6 @@ Tag for categorizing or markup.
 <code src="./demo/colorful.tsx">Colorful Tag</code>
 <code src="./demo/colorful-inverse.tsx" debug>Inverse Colorful Tag</code>
 <code src="./demo/control.tsx">Add & Remove Dynamically</code>
-<code src="./demo/draggable.tsx">Draggable Tag</code>
 <code src="./demo/checkable.tsx">Checkable</code>
 <code src="./demo/animation.tsx">Animate</code>
 <code src="./demo/icon.tsx">Icon</code>
@@ -31,6 +30,7 @@ Tag for categorizing or markup.
 <code src="./demo/borderless.tsx">borderless</code>
 <code src="./demo/borderlessLayout.tsx" debug>borderless in layout</code>
 <code src="./demo/customize.tsx" debug>Customize close</code>
+<code src="./demo/draggable.tsx">Draggable Tag</code>
 
 ## API
 
