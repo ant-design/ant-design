@@ -232,21 +232,21 @@ const InternalButton: React.ForwardRefRenderFunction<
 
   const mergedIconClassName = classNames(`${prefixCls}-icon`, customClassNames?.icon);
 
-  let mergedIconNode;
-  if (icon && !innerLoading) {
+  const iconNode =
+    icon && !innerLoading ? (
+      icon
+    ) : (
+      <LoadingIcon existIcon={!!icon} prefixCls={prefixCls} loading={!!innerLoading} />
+    );
+
+  let mergedIconNode = null;
+
+  if ((icon && !innerLoading) || innerLoading) {
     mergedIconNode = (
       <span className={mergedIconClassName} style={styles?.icon}>
-        {icon}
+        {iconNode}
       </span>
     );
-  } else if (innerLoading) {
-    mergedIconNode = (
-      <span className={mergedIconClassName} style={styles?.icon}>
-        <LoadingIcon existIcon={!!icon} prefixCls={prefixCls} loading={!!innerLoading} />
-      </span>
-    );
-  } else {
-    mergedIconNode = null;
   }
 
   const kids =

@@ -17,7 +17,7 @@ export interface ButtonToken extends FullToken<'Button'> {
 
 // ============================== Shared ==============================
 const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSSObject => {
-  const { componentCls, iconCls } = token;
+  const { componentCls } = token;
 
   return {
     [componentCls]: {
@@ -42,14 +42,13 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
       },
       [`${componentCls}-icon`]: {
         lineHeight: 0,
+        [`&:not(:only-child)`]: {
+          marginInlineEnd: token.marginXS,
+        },
       },
       // Leave a space between icon and text.
-      [`> ${iconCls} + span,> span + ${iconCls}`]: {
+      [`> span:first-child,> span:last-child`]: {
         marginInlineStart: token.marginXS,
-      },
-
-      [`${componentCls}-icon:not(:only-child)`]: {
-        marginInlineEnd: token.marginXS,
       },
 
       '> a': {
