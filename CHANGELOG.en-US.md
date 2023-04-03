@@ -17,7 +17,7 @@ timeline: true
 
 ## 5.4.0
 
-`2023-04-01`
+`2023-04-03`
 
 - 🗑 Remove `antd/es/locale-provider` `antd/lib/locale-provider` directory since LocaleProvider was replaced by ConfigProvider and removed in 4.x version years before. [#41289](https://github.com/ant-design/ant-design/pull/41289) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🆕 DatePicker/TimePicker/Calendar could change date-library to luxon now. [#41580](https://github.com/ant-design/ant-design/pull/41580) [@hihuz](https://github.com/hihuz)
@@ -45,7 +45,7 @@ timeline: true
 
 ## 5.3.3
 
-`2023-3-28`
+`2023-03-28`
 
 - Menu
   - 🐞 Fix Menu `items` not accept `key` issue. [#41434](https://github.com/ant-design/ant-design/pull/41434) [@Yuiai01](https://github.com/Yuiai01)
