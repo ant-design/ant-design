@@ -31,7 +31,7 @@ timeline: true
 - 🛠 使用 `useMemo` 重构部分组件代码。[#41533](https://github.com/ant-design/ant-design/pull/41533) [#41550](https://github.com/ant-design/ant-design/pull/41550) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🛠 使用 React hooks 重构 Checkbox，并优化了 TS 定义。[#41117](https://github.com/ant-design/ant-design/pull/41117)
 - 🛠 重构 Input.TextArea 文字计数实现方式，移至 `affixWrapper` 元素中。[#41450](https://github.com/ant-design/ant-design/pull/41450)
-- 🆕 DatePicker/Calendar 组件新增 `cellRender` 用于自定义日期单元格，同时废弃 `dateRender` 和 `monthRender` 等属性。[#41584](https://github.com/ant-design/ant-design/pull/41584) [@kiner-tang](https://github.com/kiner-tang)
+- 🆕 DatePicker/Calendar 组件新增 `cellRender` 用于自定义日期单元格，同时在 DatePicker 中废弃 `dateRender` 和 `monthRender` 等属性，在 Calendar 中废弃 `dateCellRender`、`monthCellRender`、`dateFullCellRender`、`monthFullCellRender` 等属性。[#41584](https://github.com/ant-design/ant-design/pull/41584) [@kiner-tang](https://github.com/kiner-tang)
 - 🐞 修复 Tour 出现两个箭头的问题。[#41578](https://github.com/ant-design/ant-design/pull/41578) [@acyza](https://github.com/acyza)
 - 🐞 修复 Checkbox 配置 `controlHeight` token 时勾选框与文字不对齐的问题。[#41566](https://github.com/ant-design/ant-design/pull/41566)
 - 🐞 修复 Form.Item 存在 `help` 值时在 Modal 中没有正确渲染元素。[#40519](https://github.com/ant-design/ant-design/pull/40519) [@Yuiai01](https://github.com/Yuiai01)
