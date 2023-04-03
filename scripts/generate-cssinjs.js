@@ -9,11 +9,6 @@ const styleFiles = glob.globSync(
   ),
 );
 
-/**
- * Generate CSS-in-JS from all components
- * @param key unique key
- * @param renderComponent method to render component
- */
 module.exports = {
   generateCssinjs({ key, beforeRender, render }) {
     const EmptyElement = React.createElement('div');
