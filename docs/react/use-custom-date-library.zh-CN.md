@@ -118,7 +118,6 @@ module.exports = {
 
 ```tsx
 import generatePicker from 'antd/es/date-picker/generatePicker';
-import 'antd/es/date-picker/style/index';
 import dateFnsGenerateConfig from 'rc-picker/es/generate/dateFns';
 
 const DatePicker = generatePicker<Date>(dateFnsGenerateConfig);
@@ -128,7 +127,7 @@ export default DatePicker;
 
 ## 使用 luxon
 
-可以使用 [luxon](https://moment.github.io/luxon/) 代替 dayjs 并支持同样的功能，但它与 dayjs 有一些差异，我们将在下面解释：
+自 `antd 5.4.0` 起，可以使用 [luxon](https://moment.github.io/luxon/) 代替 dayjs 并支持同样的功能，但它与 dayjs 有一些差异，我们将在下面解释：
 
 ### 执行
 
@@ -136,7 +135,6 @@ export default DatePicker;
 
 ```tsx
 import generatePicker from 'antd/es/date-picker/generatePicker';
-import 'antd/es/date-picker/style/index';
 import type { DateTime } from 'luxon';
 import luxonGenerateConfig from 'rc-picker/lib/generate/luxon';
 
@@ -145,7 +143,7 @@ const DatePicker = generatePicker<DateTime>(luxonGenerateConfig);
 export default DatePicker;
 ```
 
-### 与 day.js 的差异
+### 与 dayjs 的差异
 
 luxon 用户应该悉知，它不附带用于本地化的自定义实现。 相反，它依赖于浏览器的本机 [Intl API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl)。
 
@@ -160,14 +158,13 @@ luxon 用户应该悉知，它不附带用于本地化的自定义实现。 相�
 
 ```tsx
 import generatePicker from 'antd/es/date-picker/generatePicker';
-import 'antd/es/date-picker/style/index';
 import type { DateTime } from 'luxon';
 import luxonGenerateConfig from 'rc-picker/lib/generate/luxon';
 
 const customLuxonConfig = {
   ...luxonGenerateConfig,
-  getWeekFirstDay: (locale) => {
-    // Your custom implementation goes here
+  getWeekFirstDay(locale) {
+    // 在这里编写你的自定义实现
   },
 };
 
