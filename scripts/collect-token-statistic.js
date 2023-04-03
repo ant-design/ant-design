@@ -11,6 +11,15 @@ const { generateCssinjs, filenames } = require('./generate-cssinjs');
 
 console.log(chalk.green(`🔥 Collecting token statistics...`));
 
+const EmptyElement = React.createElement('div');
+
+const styleFiles = glob.globSync(
+  path.join(
+    process.cwd(),
+    'components/!(version|config-provider|icon|auto-complete|col|row|time-picker)/style/index.?(ts|tsx)',
+  ),
+);
+
 const bar = new ProgressBar('🚀 Collecting by component: [:bar] :component (:current/:total)', {
   complete: '=',
   incomplete: ' ',

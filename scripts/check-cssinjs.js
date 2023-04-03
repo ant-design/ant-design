@@ -23,17 +23,37 @@ console.error = (msg) => {
   }
 };
 
-generateCssinjs({
-  key: 'check',
-  render: (Component) => {
-    ReactDOMServer.renderToString(
-      React.createElement(
-        StyleProvider,
-        { linters: [logicalPropertiesLinter, legacyNotSelectorLinter, parentSelectorLinter] },
-        React.createElement(Component),
-      ),
-    );
-  },
+const EmptyElement = React.createElement('div');
+
+const styleFiles = glob.globSync(
+  path.join(
+    process.cwd(),
+    'components/!(version|config-provider|icon|auto-complete|col|row|time-picker)/style/index.?(ts|tsx)',
+  ),
+);
+
+styleFiles.forEach((file) => {
+  let useStyle = () => {};
+  if (file.includes('grid')) {
+    const { useColStyle, useRowStyle } = require(file);
+    useStyle = () => {
+      useRowStyle();
+      useColStyle();
+    };
+  } else {
+    useStyle = require(file).default;
+  }
+  const Component = () => {
+    useStyle('check');
+    return EmptyElement;
+  };
+  ReactDOMServer.renderToString(
+    React.createElement(
+      StyleProvider,
+      { linters: [logicalPropertiesLinter, legacyNotSelectorLinter, parentSelectorLinter] },
+      React.createElement(Component),
+    ),
+  );
 });
 
 if (errorCount > 0) {
