@@ -230,24 +230,24 @@ const InternalButton: React.ForwardRefRenderFunction<
     rootClassName,
   );
 
-  const iconNode =
-    icon && !innerLoading ? (
-      icon
-    ) : (
-      <LoadingIcon existIcon={!!icon} prefixCls={prefixCls} loading={!!innerLoading} />
-    );
   const mergedIconClassName = classNames(`${prefixCls}-icon`, customClassNames?.icon);
-  const mergedIconNode =
-    // eslint-disable-next-line no-nested-ternary
-    icon && !innerLoading ? (
+
+  let mergedIconNode;
+  if (icon && !innerLoading) {
+    mergedIconNode = (
       <span className={mergedIconClassName} style={styles?.icon}>
-        {iconNode}
+        {icon}
       </span>
-    ) : innerLoading ? (
+    );
+  } else if (innerLoading) {
+    mergedIconNode = (
       <span className={mergedIconClassName} style={styles?.icon}>
-        {iconNode}
+        <LoadingIcon existIcon={!!icon} prefixCls={prefixCls} loading={!!innerLoading} />
       </span>
-    ) : null;
+    );
+  } else {
+    mergedIconNode = null;
+  }
 
   const kids =
     children || children === 0
