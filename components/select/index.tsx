@@ -20,6 +20,7 @@ import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import { FormItemInputContext } from '../form/context';
 import { useCompactItemContext } from '../space/Compact';
 import useStyle from './style';
+import useBuiltinPlacements from './useBuiltinPlacements';
 import useShowArrow from './useShowArrow';
 import getIcons from './utils/iconUtil';
 
@@ -81,6 +82,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     notFoundContent,
     status: customStatus,
     showArrow,
+    builtinPlacements,
     ...props
   }: SelectProps<OptionType>,
   ref: React.Ref<BaseSelectRef>,
@@ -188,6 +190,8 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     return direction === 'rtl' ? 'bottomRight' : 'bottomLeft';
   }, [placement, direction]);
 
+  const mergedBuiltinPlacements = useBuiltinPlacements(builtinPlacements);
+
   // ====================== Warning ======================
   if (process.env.NODE_ENV !== 'production') {
     warning(
@@ -210,6 +214,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
         getTransitionDirection(placement),
         props.transitionName,
       )}
+      builtinPlacements={mergedBuiltinPlacements}
       listHeight={listHeight}
       listItemHeight={listItemHeight}
       mode={mode}
