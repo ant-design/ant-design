@@ -65,8 +65,8 @@ export interface TreeSelectProps<
   switcherIcon?: SwitcherIcon | RcTreeSelectProps<ValueType, OptionType>['switcherIcon'];
   rootClassName?: string;
   /** @deprecated Please use `popupMatchSelectWidth` instead */
-  dropdownMatchSelectWidth?: boolean;
-  popupMatchSelectWidth?: boolean;
+  dropdownMatchSelectWidth?: boolean | number;
+  popupMatchSelectWidth?: boolean | number;
 }
 
 const InternalTreeSelect = <

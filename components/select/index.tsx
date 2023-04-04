@@ -62,8 +62,8 @@ export interface SelectProps<
   dropdownClassName?: string;
   rootClassName?: string;
   /** @deprecated Please use `popupMatchSelectWidth` instead */
-  dropdownMatchSelectWidth?: boolean;
-  popupMatchSelectWidth?: boolean;
+  dropdownMatchSelectWidth?: boolean | number;
+  popupMatchSelectWidth?: boolean | number;
 }
 
 const SECRET_COMBOBOX_MODE_DO_NOT_USE = 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
