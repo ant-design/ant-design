@@ -52,6 +52,7 @@ export default function ItemHolder(props: ItemHolderProps) {
     hidden,
     children,
     fieldId,
+    required,
     isRequired,
     onSubItemMetaChange,
     ...restProps
@@ -171,7 +172,6 @@ export default function ItemHolder(props: ItemHolderProps) {
           'normalize',
           'noStyle',
           'preserve',
-          'required',
           'requiredMark',
           'rules',
           'shouldUpdate',
@@ -186,9 +186,9 @@ export default function ItemHolder(props: ItemHolderProps) {
         {/* Label */}
         <FormItemLabel
           htmlFor={fieldId}
-          required={isRequired}
           requiredMark={requiredMark}
           {...props}
+          required={required ?? isRequired}
           prefixCls={prefixCls}
         />
         {/* Input Group */}
