@@ -58,7 +58,7 @@ export interface ConfigConsumerProps {
     size?: SizeType | number;
   };
   virtual?: boolean;
-  dropdownMatchSelectWidth?: boolean;
+  popupMatchSelectWidth?: boolean;
   form?: {
     requiredMark?: RequiredMark;
     colon?: boolean;
