@@ -50,8 +50,8 @@
 
 | 语言    | 更新描述 |
 | ------- | -------- |
-| 🇺🇸 英文 |          |
-| 🇨🇳 中文 |          |
+| 🇺🇸 英文 | Fix: After Modal opened, if the mouse does not pass through the header, selecting the body content will move the Modal         |
+| 🇨🇳 中文 | 修复：弹出Modal后，如果鼠标未经header，选择body内容时会移动modal          |
 
 ### ☑️ 请求合并前的自查清单
 
