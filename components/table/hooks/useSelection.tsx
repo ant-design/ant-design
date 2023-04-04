@@ -83,7 +83,9 @@ function useSelection<RecordType>(
     onSelectInvert,
     onSelectNone,
     onSelectMultiple,
-    columnWidth: selectionColWidth,
+    columnWidth: selectionColWidth = rowSelection?.selections && rowSelection.type === 'checkbox'
+      ? 64
+      : undefined,
     type: selectionType,
     selections,
     fixed,
