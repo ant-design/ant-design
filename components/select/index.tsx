@@ -209,12 +209,12 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
       dropdownMatchSelectWidth={dropdownMatchSelectWidth}
       showSearch={select?.showSearch}
       {...selectProps}
+      builtinPlacements={mergedBuiltinPlacements}
       transitionName={getTransitionName(
         rootPrefixCls,
         getTransitionDirection(placement),
         props.transitionName,
       )}
-      builtinPlacements={mergedBuiltinPlacements}
       listHeight={listHeight}
       listItemHeight={listItemHeight}
       mode={mode}
