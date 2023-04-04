@@ -405,6 +405,7 @@ const genSizeButtonStyle = (token: ButtonToken, sizePrefixCls: string = ''): CSS
     lineWidth,
     borderRadius,
     buttonPaddingHorizontal,
+    iconCls,
   } = token;
 
   const paddingVertical = Math.max(0, (controlHeight - fontSize * lineHeight) / 2 - lineWidth);
@@ -428,7 +429,7 @@ const genSizeButtonStyle = (token: ButtonToken, sizePrefixCls: string = ''): CSS
           [`&${componentCls}-round`]: {
             width: 'auto',
           },
-          '> span': {
+          [iconCls]: {
             transform: 'scale(1.143)', // 14px -> 16px
           },
         },
