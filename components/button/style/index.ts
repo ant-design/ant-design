@@ -37,12 +37,9 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
       lineHeight: token.lineHeight,
       color: token.colorText,
 
-      '> span': {
-        display: 'inline-block',
-      },
-
       [`${componentCls}-icon`]: {
         lineHeight: 0,
+        display: 'inline-block',
         [`&:first-child + *,*+ &:last-child`]: {
           marginInlineStart: token.marginXS,
         },
