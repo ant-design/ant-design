@@ -7,6 +7,7 @@ import useMemo from 'rc-util/lib/hooks/useMemo';
 import type { ReactElement } from 'react';
 import * as React from 'react';
 import type { Options } from 'scroll-into-view-if-needed';
+import warning from '../_util/warning';
 import type { RequiredMark } from '../form/Form';
 import type { Locale } from '../locale';
 import LocaleProvider, { ANT_MARK } from '../locale';
@@ -15,7 +16,6 @@ import LocaleContext from '../locale/context';
 import defaultLocale from '../locale/en_US';
 import { DesignTokenContext } from '../theme/internal';
 import defaultSeedToken from '../theme/themes/seed';
-import warning from '../_util/warning';
 import type { ConfigConsumerProps, CSPConfig, DirectionType, Theme, ThemeConfig } from './context';
 import { ConfigConsumer, ConfigContext, defaultIconPrefixCls } from './context';
 import { registerTheme } from './cssVariables';
@@ -115,7 +115,9 @@ export interface ConfigProviderProps {
     size?: SizeType | number;
   };
   virtual?: boolean;
+  /** @deprecated Please use `popupMatchSelectWidth` instead */
   dropdownMatchSelectWidth?: boolean;
+  popupMatchSelectWidth?: boolean;
   theme?: ThemeConfig;
 }
 
@@ -182,6 +184,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     space,
     virtual,
     dropdownMatchSelectWidth,
+    popupMatchSelectWidth,
     legacyLocale,
     parentContext,
     iconPrefixCls: customIconPrefixCls,
@@ -189,6 +192,16 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     componentDisabled,
   } = props;
 
+  // =================================== Warning ===================================
+  if (process.env.NODE_ENV !== 'production') {
+    warning(
+      dropdownMatchSelectWidth === undefined,
+      'ConfigProvider',
+      '`dropdownMatchSelectWidth` is deprecated. Please use `popupMatchSelectWidth` instead.',
+    );
+  }
+
+  // =================================== Context ===================================
   const getPrefixCls = React.useCallback(
     (suffixCls: string, customizePrefixCls?: string) => {
       const { prefixCls } = props;
@@ -221,7 +234,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     direction,
     space,
     virtual,
-    dropdownMatchSelectWidth,
+    popupMatchSelectWidth: popupMatchSelectWidth ?? dropdownMatchSelectWidth,
     getPrefixCls,
     iconPrefixCls,
     theme: mergedTheme,
