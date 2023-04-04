@@ -30,6 +30,7 @@ demo:
 <code src="./demo/borderless.tsx">无边框</code>
 <code src="./demo/borderlessLayout.tsx" debug>深色背景中无边框</code>
 <code src="./demo/customize.tsx" debug>自定义关闭按钮</code>
+<code src="./demo/draggable.tsx">可拖拽标签</code>
 
 ## API
 
