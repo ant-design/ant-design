@@ -235,7 +235,7 @@ const InternalButton: React.ForwardRefRenderFunction<
     ) : (
       <LoadingIcon existIcon={!!icon} prefixCls={prefixCls} loading={!!innerLoading} />
     );
-  const mergedIconNode = iconNode ? <span className={iconClassName}>{iconNode}</span> : null;
+  const mergedIconNode = icon ? <span className={iconClassName}>{iconNode}</span> : null;
 
   const kids =
     children || children === 0

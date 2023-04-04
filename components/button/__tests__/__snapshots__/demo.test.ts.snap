@@ -13,9 +13,6 @@ exports[`renders components/button/demo/basic.tsx correctly 1`] = `
       class="ant-btn ant-btn-primary"
       type="button"
     >
-      <span
-        class=""
-      />
       <span>
         Primary Button
       </span>
@@ -29,9 +26,6 @@ exports[`renders components/button/demo/basic.tsx correctly 1`] = `
       class="ant-btn ant-btn-default"
       type="button"
     >
-      <span
-        class=""
-      />
       <span>
         Default Button
       </span>
@@ -45,9 +39,6 @@ exports[`renders components/button/demo/basic.tsx correctly 1`] = `
       class="ant-btn ant-btn-dashed"
       type="button"
     >
-      <span
-        class=""
-      />
       <span>
         Dashed Button
       </span>
@@ -61,9 +52,6 @@ exports[`renders components/button/demo/basic.tsx correctly 1`] = `
       class="ant-btn ant-btn-text"
       type="button"
     >
-      <span
-        class=""
-      />
       <span>
         Text Button
       </span>
@@ -77,9 +65,6 @@ exports[`renders components/button/demo/basic.tsx correctly 1`] = `
       class="ant-btn ant-btn-link"
       type="button"
     >
-      <span
-        class=""
-      />
       <span>
         Link Button
       </span>
@@ -101,9 +86,6 @@ exports[`renders components/button/demo/block.tsx correctly 1`] = `
       class="ant-btn ant-btn-primary ant-btn-block"
       type="button"
     >
-      <span
-        class=""
-      />
       <span>
         Primary
       </span>
@@ -117,9 +99,6 @@ exports[`renders components/button/demo/block.tsx correctly 1`] = `
       class="ant-btn ant-btn-default ant-btn-block"
       type="button"
     >
-      <span
-        class=""
-      />
       <span>
         Default
       </span>
@@ -133,9 +112,6 @@ exports[`renders components/button/demo/block.tsx correctly 1`] = `
       class="ant-btn ant-btn-dashed ant-btn-block"
       type="button"
     >
-      <span
-        class=""
-      />
       <span>
         Dashed
       </span>
@@ -150,9 +126,6 @@ exports[`renders components/button/demo/block.tsx correctly 1`] = `
       disabled=""
       type="button"
     >
-      <span
-        class=""
-      />
       <span>
         disabled
       </span>
@@ -166,9 +139,6 @@ exports[`renders components/button/demo/block.tsx correctly 1`] = `
       class="ant-btn ant-btn-text ant-btn-block"
       type="button"
     >
-      <span
-        class=""
-      />
       <span>
         text
       </span>
@@ -181,9 +151,6 @@ exports[`renders components/button/demo/block.tsx correctly 1`] = `
       class="ant-btn ant-btn-link ant-btn-block"
       type="button"
     >
-      <span
-        class=""
-      />
       <span>
         Link
       </span>
@@ -205,33 +172,6 @@ exports[`renders components/button/demo/chinese-chars-loading.tsx correctly 1`] 
       class="ant-btn ant-btn-default ant-btn-loading"
       type="button"
     >
-      <span
-        class=""
-      >
-        <span
-          class="ant-btn-loading-icon"
-        >
-          <span
-            aria-label="loading"
-            class="anticon anticon-loading anticon-spin"
-            role="img"
-          >
-            <svg
-              aria-hidden="true"
-              data-icon="loading"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="0 0 1024 1024"
-              width="1em"
-            >
-              <path
-                d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-              />
-            </svg>
-          </span>
-        </span>
-      </span>
       <span>
         部 署
       </span>
@@ -245,33 +185,6 @@ exports[`renders components/button/demo/chinese-chars-loading.tsx correctly 1`] 
       class="ant-btn ant-btn-default ant-btn-loading"
       type="button"
     >
-      <span
-        class=""
-      >
-        <span
-          class="ant-btn-loading-icon"
-        >
-          <span
-            aria-label="loading"
-            class="anticon anticon-loading anticon-spin"
-            role="img"
-          >
-            <svg
-              aria-hidden="true"
-              data-icon="loading"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="0 0 1024 1024"
-              width="1em"
-            >
-              <path
-                d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-              />
-            </svg>
-          </span>
-        </span>
-      </span>
       部署
     </button>
   </div>
@@ -283,33 +196,6 @@ exports[`renders components/button/demo/chinese-chars-loading.tsx correctly 1`] 
       class="ant-btn ant-btn-default ant-btn-loading"
       type="button"
     >
-      <span
-        class=""
-      >
-        <span
-          class="ant-btn-loading-icon"
-        >
-          <span
-            aria-label="loading"
-            class="anticon anticon-loading anticon-spin"
-            role="img"
-          >
-            <svg
-              aria-hidden="true"
-              data-icon="loading"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="0 0 1024 1024"
-              width="1em"
-            >
-              <path
-                d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-              />
-            </svg>
-          </span>
-        </span>
-      </span>
       <span>
         部署
       </span>
@@ -323,33 +209,6 @@ exports[`renders components/button/demo/chinese-chars-loading.tsx correctly 1`] 
       class="ant-btn ant-btn-default ant-btn-loading"
       type="button"
     >
-      <span
-        class=""
-      >
-        <span
-          class="ant-btn-loading-icon"
-        >
-          <span
-            aria-label="loading"
-            class="anticon anticon-loading anticon-spin"
-            role="img"
-          >
-            <svg
-              aria-hidden="true"
-              data-icon="loading"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="0 0 1024 1024"
-              width="1em"
-            >
-              <path
-                d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-              />
-            </svg>
-          </span>
-        </span>
-      </span>
       Submit
     </button>
   </div>
@@ -399,33 +258,6 @@ exports[`renders components/button/demo/chinese-chars-loading.tsx correctly 1`] 
       class="ant-btn ant-btn-default ant-btn-loading"
       type="button"
     >
-      <span
-        class=""
-      >
-        <span
-          class="ant-btn-loading-icon"
-        >
-          <span
-            aria-label="loading"
-            class="anticon anticon-loading anticon-spin"
-            role="img"
-          >
-            <svg
-              aria-hidden="true"
-              data-icon="loading"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="0 0 1024 1024"
-              width="1em"
-            >
-              <path
-                d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-              />
-            </svg>
-          </span>
-        </span>
-      </span>
       <span>
         按 钮
       </span>
@@ -480,9 +312,6 @@ exports[`renders components/button/demo/classNames.tsx correctly 1`] = `
       class="ant-btn ant-btn-circle ant-btn-primary"
       type="button"
     >
-      <span
-        class=""
-      />
       <span>
         A
       </span>
@@ -540,9 +369,6 @@ exports[`renders components/button/demo/danger.tsx correctly 1`] = `
       class="ant-btn ant-btn-primary ant-btn-dangerous"
       type="button"
     >
-      <span
-        class=""
-      />
       <span>
         Primary
       </span>
@@ -556,9 +382,6 @@ exports[`renders components/button/demo/danger.tsx correctly 1`] = `
       class="ant-btn ant-btn-default ant-btn-dangerous"
       type="button"
     >
-      <span
-        class=""
-      />
       <span>
         Default
       </span>
@@ -572,9 +395,6 @@ exports[`renders components/button/demo/danger.tsx correctly 1`] = `
       class="ant-btn ant-btn-dashed ant-btn-dangerous"
       type="button"
     >
-      <span
-        class=""
-      />
       <span>
         Dashed
       </span>
@@ -588,9 +408,6 @@ exports[`renders components/button/demo/danger.tsx correctly 1`] = `
       class="ant-btn ant-btn-text ant-btn-dangerous"
       type="button"
     >
-      <span
-        class=""
-      />
       <span>
         Text
       </span>
@@ -604,9 +421,6 @@ exports[`renders components/button/demo/danger.tsx correctly 1`] = `
       class="ant-btn ant-btn-link ant-btn-dangerous"
       type="button"
     >
-      <span
-        class=""
-      />
       <span>
         Link
       </span>
@@ -636,9 +450,6 @@ exports[`renders components/button/demo/debug-block.tsx correctly 1`] = `
             style="margin-bottom:12px"
             type="button"
           >
-            <span
-              class=""
-            />
             <span>
               Submit
             </span>
@@ -804,9 +615,6 @@ Array [
             class="ant-btn ant-btn-circle ant-btn-primary ant-btn-lg"
             type="button"
           >
-            <span
-              class=""
-            />
             <span>
               A
             </span>
@@ -1122,9 +930,6 @@ exports[`renders components/button/demo/disabled.tsx correctly 1`] = `
           class="ant-btn ant-btn-primary"
           type="button"
         >
-          <span
-            class=""
-          />
           <span>
             Primary
           </span>
@@ -1138,9 +943,6 @@ exports[`renders components/button/demo/disabled.tsx correctly 1`] = `
           disabled=""
           type="button"
         >
-          <span
-            class=""
-          />
           <span>
             Primary(disabled)
           </span>
@@ -1163,9 +965,6 @@ exports[`renders components/button/demo/disabled.tsx correctly 1`] = `
           class="ant-btn ant-btn-default"
           type="button"
         >
-          <span
-            class=""
-          />
           <span>
             Default
           </span>
@@ -1179,9 +978,6 @@ exports[`renders components/button/demo/disabled.tsx correctly 1`] = `
           disabled=""
           type="button"
         >
-          <span
-            class=""
-          />
           <span>
             Default(disabled)
           </span>
@@ -1204,9 +1000,6 @@ exports[`renders components/button/demo/disabled.tsx correctly 1`] = `
           class="ant-btn ant-btn-dashed"
           type="button"
         >
-          <span
-            class=""
-          />
           <span>
             Dashed
           </span>
@@ -1220,9 +1013,6 @@ exports[`renders components/button/demo/disabled.tsx correctly 1`] = `
           disabled=""
           type="button"
         >
-          <span
-            class=""
-          />
           <span>
             Dashed(disabled)
           </span>
@@ -1245,9 +1035,6 @@ exports[`renders components/button/demo/disabled.tsx correctly 1`] = `
           class="ant-btn ant-btn-text"
           type="button"
         >
-          <span
-            class=""
-          />
           <span>
             Text
           </span>
@@ -1261,9 +1048,6 @@ exports[`renders components/button/demo/disabled.tsx correctly 1`] = `
           disabled=""
           type="button"
         >
-          <span
-            class=""
-          />
           <span>
             Text(disabled)
           </span>
@@ -1286,9 +1070,6 @@ exports[`renders components/button/demo/disabled.tsx correctly 1`] = `
           class="ant-btn ant-btn-link"
           type="button"
         >
-          <span
-            class=""
-          />
           <span>
             Link
           </span>
@@ -1302,9 +1083,6 @@ exports[`renders components/button/demo/disabled.tsx correctly 1`] = `
           disabled=""
           type="button"
         >
-          <span
-            class=""
-          />
           <span>
             Link(disabled)
           </span>
@@ -1327,9 +1105,6 @@ exports[`renders components/button/demo/disabled.tsx correctly 1`] = `
           class="ant-btn ant-btn-primary"
           href="https://ant.design/index-cn"
         >
-          <span
-            class=""
-          />
           <span>
             Href Primary
           </span>
@@ -1342,9 +1117,6 @@ exports[`renders components/button/demo/disabled.tsx correctly 1`] = `
           class="ant-btn ant-btn-primary ant-btn-disabled"
           href="https://ant.design/index-cn"
         >
-          <span
-            class=""
-          />
           <span>
             Href Primary(disabled)
           </span>
@@ -1367,9 +1139,6 @@ exports[`renders components/button/demo/disabled.tsx correctly 1`] = `
           class="ant-btn ant-btn-default ant-btn-dangerous"
           type="button"
         >
-          <span
-            class=""
-          />
           <span>
             Danger Default
           </span>
@@ -1383,9 +1152,6 @@ exports[`renders components/button/demo/disabled.tsx correctly 1`] = `
           disabled=""
           type="button"
         >
-          <span
-            class=""
-          />
           <span>
             Danger Default(disabled)
           </span>
@@ -1408,9 +1174,6 @@ exports[`renders components/button/demo/disabled.tsx correctly 1`] = `
           class="ant-btn ant-btn-text ant-btn-dangerous"
           type="button"
         >
-          <span
-            class=""
-          />
           <span>
             Danger Text
           </span>
@@ -1424,9 +1187,6 @@ exports[`renders components/button/demo/disabled.tsx correctly 1`] = `
           disabled=""
           type="button"
         >
-          <span
-            class=""
-          />
           <span>
             Danger Text(disabled)
           </span>
@@ -1449,9 +1209,6 @@ exports[`renders components/button/demo/disabled.tsx correctly 1`] = `
           class="ant-btn ant-btn-link ant-btn-dangerous"
           type="button"
         >
-          <span
-            class=""
-          />
           <span>
             Danger Link
           </span>
@@ -1465,9 +1222,6 @@ exports[`renders components/button/demo/disabled.tsx correctly 1`] = `
           disabled=""
           type="button"
         >
-          <span
-            class=""
-          />
           <span>
             Danger Link(disabled)
           </span>
@@ -1489,9 +1243,6 @@ exports[`renders components/button/demo/disabled.tsx correctly 1`] = `
           class="ant-btn ant-btn-default ant-btn-background-ghost"
           type="button"
         >
-          <span
-            class=""
-          />
           <span>
             Ghost
           </span>
@@ -1505,9 +1256,6 @@ exports[`renders components/button/demo/disabled.tsx correctly 1`] = `
           disabled=""
           type="button"
         >
-          <span
-            class=""
-          />
           <span>
             Ghost(disabled)
           </span>
@@ -1531,9 +1279,6 @@ exports[`renders components/button/demo/ghost.tsx correctly 1`] = `
       class="ant-btn ant-btn-primary ant-btn-background-ghost"
       type="button"
     >
-      <span
-        class=""
-      />
       <span>
         Primary
       </span>
@@ -1547,9 +1292,6 @@ exports[`renders components/button/demo/ghost.tsx correctly 1`] = `
       class="ant-btn ant-btn-default ant-btn-background-ghost"
       type="button"
     >
-      <span
-        class=""
-      />
       <span>
         Default
       </span>
@@ -1563,9 +1305,6 @@ exports[`renders components/button/demo/ghost.tsx correctly 1`] = `
       class="ant-btn ant-btn-dashed ant-btn-background-ghost"
       type="button"
     >
-      <span
-        class=""
-      />
       <span>
         Dashed
       </span>
@@ -1579,9 +1318,6 @@ exports[`renders components/button/demo/ghost.tsx correctly 1`] = `
       class="ant-btn ant-btn-primary ant-btn-background-ghost ant-btn-dangerous"
       type="button"
     >
-      <span
-        class=""
-      />
       <span>
         Danger
       </span>
@@ -1643,9 +1379,6 @@ exports[`renders components/button/demo/icon.tsx correctly 1`] = `
           class="ant-btn ant-btn-circle ant-btn-primary"
           type="button"
         >
-          <span
-            class=""
-          />
           <span>
             A
           </span>
@@ -1951,9 +1684,6 @@ Array [
         class="ant-btn ant-btn-primary ant-btn-sm"
         type="button"
       >
-        <span
-          class=""
-        />
         <span>
           Button 1
         </span>
@@ -1962,9 +1692,6 @@ Array [
         class="ant-btn ant-btn-primary ant-btn-sm"
         type="button"
       >
-        <span
-          class=""
-        />
         <span>
           Button 2
         </span>
@@ -2043,9 +1770,6 @@ Array [
         class="ant-btn ant-btn-primary"
         type="button"
       >
-        <span
-          class=""
-        />
         <span>
           Button 1
         </span>
@@ -2054,9 +1778,6 @@ Array [
         class="ant-btn ant-btn-primary"
         type="button"
       >
-        <span
-          class=""
-        />
         <span>
           Button 2
         </span>
@@ -2135,9 +1856,6 @@ Array [
         class="ant-btn ant-btn-primary ant-btn-lg"
         type="button"
       >
-        <span
-          class=""
-        />
         <span>
           Button 1
         </span>
@@ -2146,9 +1864,6 @@ Array [
         class="ant-btn ant-btn-primary ant-btn-lg"
         type="button"
       >
-        <span
-          class=""
-        />
         <span>
           Button 2
         </span>
@@ -2241,33 +1956,6 @@ exports[`renders components/button/demo/loading.tsx correctly 1`] = `
           class="ant-btn ant-btn-primary ant-btn-loading"
           type="button"
         >
-          <span
-            class=""
-          >
-            <span
-              class="ant-btn-loading-icon"
-            >
-              <span
-                aria-label="loading"
-                class="anticon anticon-loading anticon-spin"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="loading"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="0 0 1024 1024"
-                  width="1em"
-                >
-                  <path
-                    d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-                  />
-                </svg>
-              </span>
-            </span>
-          </span>
           <span>
             Loading
           </span>
@@ -2281,33 +1969,6 @@ exports[`renders components/button/demo/loading.tsx correctly 1`] = `
           class="ant-btn ant-btn-primary ant-btn-sm ant-btn-loading"
           type="button"
         >
-          <span
-            class=""
-          >
-            <span
-              class="ant-btn-loading-icon"
-            >
-              <span
-                aria-label="loading"
-                class="anticon anticon-loading anticon-spin"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="loading"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="0 0 1024 1024"
-                  width="1em"
-                >
-                  <path
-                    d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-                  />
-                </svg>
-              </span>
-            </span>
-          </span>
           <span>
             Loading
           </span>
@@ -2367,9 +2028,6 @@ exports[`renders components/button/demo/loading.tsx correctly 1`] = `
           class="ant-btn ant-btn-primary"
           type="button"
         >
-          <span
-            class=""
-          />
           <span>
             Click me!
           </span>
@@ -2461,9 +2119,6 @@ exports[`renders components/button/demo/multiple.tsx correctly 1`] = `
       class="ant-btn ant-btn-primary"
       type="button"
     >
-      <span
-        class=""
-      />
       <span>
         primary
       </span>
@@ -2477,9 +2132,6 @@ exports[`renders components/button/demo/multiple.tsx correctly 1`] = `
       class="ant-btn ant-btn-default"
       type="button"
     >
-      <span
-        class=""
-      />
       <span>
         secondary
       </span>
@@ -2495,9 +2147,6 @@ exports[`renders components/button/demo/multiple.tsx correctly 1`] = `
         class="ant-btn ant-btn-default ant-btn-compact-item ant-btn-compact-first-item"
         type="button"
       >
-        <span
-          class=""
-        />
         <span>
           Actions
         </span>
@@ -2628,9 +2277,6 @@ Array [
             class="ant-btn ant-btn-primary ant-btn-lg"
             type="button"
           >
-            <span
-              class=""
-            />
             <span>
               Primary
             </span>
@@ -2644,9 +2290,6 @@ Array [
             class="ant-btn ant-btn-default ant-btn-lg"
             type="button"
           >
-            <span
-              class=""
-            />
             <span>
               Default
             </span>
@@ -2660,9 +2303,6 @@ Array [
             class="ant-btn ant-btn-dashed ant-btn-lg"
             type="button"
           >
-            <span
-              class=""
-            />
             <span>
               Dashed
             </span>
@@ -2678,9 +2318,6 @@ Array [
         class="ant-btn ant-btn-link ant-btn-lg"
         type="button"
       >
-        <span
-          class=""
-        />
         <span>
           Link
         </span>
