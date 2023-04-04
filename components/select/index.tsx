@@ -99,6 +99,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     direction,
     virtual,
     popupMatchSelectWidth: contextPopupMatchSelectWidth,
+    popupOverflow,
     select,
   } = React.useContext(ConfigContext);
   const size = React.useContext(SizeContext);
@@ -198,7 +199,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     return direction === 'rtl' ? 'bottomRight' : 'bottomLeft';
   }, [placement, direction]);
 
-  const mergedBuiltinPlacements = useBuiltinPlacements(builtinPlacements);
+  const mergedBuiltinPlacements = useBuiltinPlacements(builtinPlacements, popupOverflow);
 
   // ====================== Warning ======================
   if (process.env.NODE_ENV !== 'production') {
