@@ -2564,6 +2564,1812 @@ exports[`renders components/select/demo/debug.tsx extend context correctly 1`] =
 </div>
 `;
 
+exports[`renders components/select/demo/debug-flip-shift.tsx extend context correctly 1`] = `
+<div
+  class="ant-select ant-select-single ant-select-show-arrow ant-select-open"
+  style="width: 120px; margin-top: 50vh;"
+>
+  <div
+    class="ant-select-selector"
+  >
+    <span
+      class="ant-select-selection-search"
+    >
+      <input
+        aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
+        aria-autocomplete="list"
+        aria-controls="rc_select_TEST_OR_SSR_list"
+        aria-expanded="true"
+        aria-haspopup="listbox"
+        aria-owns="rc_select_TEST_OR_SSR_list"
+        autocomplete="off"
+        class="ant-select-selection-search-input"
+        id="rc_select_TEST_OR_SSR"
+        readonly=""
+        role="combobox"
+        style="opacity: 0;"
+        type="search"
+        unselectable="on"
+        value=""
+      />
+    </span>
+    <span
+      class="ant-select-selection-placeholder"
+    />
+  </div>
+  <div
+    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+    style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 0; width: 0px;"
+  >
+    <div>
+      <div
+        id="rc_select_TEST_OR_SSR_list"
+        role="listbox"
+        style="height: 0px; width: 0px; overflow: hidden;"
+      >
+        <div
+          aria-selected="false"
+          id="rc_select_TEST_OR_SSR_list_0"
+          role="option"
+        >
+          0
+        </div>
+        <div
+          aria-selected="false"
+          id="rc_select_TEST_OR_SSR_list_1"
+          role="option"
+        >
+          1
+        </div>
+      </div>
+      <div
+        class="rc-virtual-list"
+        style="position: relative;"
+      >
+        <div
+          class="rc-virtual-list-holder"
+          style="max-height: 256px; overflow-y: auto;"
+        >
+          <div>
+            <div
+              class="rc-virtual-list-holder-inner"
+              style="display: flex; flex-direction: column;"
+            >
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option ant-select-item-option-active"
+                title="0"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  0
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="1"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  1
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="2"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  2
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="3"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  3
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="4"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  4
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="5"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  5
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="6"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  6
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="7"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  7
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="8"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  8
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="9"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  9
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="10"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  10
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="11"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  11
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="12"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  12
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="13"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  13
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="14"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  14
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="15"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  15
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="16"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  16
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="17"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  17
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="18"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  18
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="19"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  19
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="20"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  20
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="21"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  21
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="22"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  22
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="23"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  23
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="24"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  24
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="25"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  25
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="26"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  26
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="27"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  27
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="28"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  28
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="29"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  29
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="30"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  30
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="31"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  31
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="32"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  32
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="33"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  33
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="34"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  34
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="35"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  35
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="36"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  36
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="37"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  37
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="38"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  38
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="39"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  39
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="40"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  40
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="41"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  41
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="42"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  42
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="43"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  43
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="44"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  44
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="45"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  45
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="46"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  46
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="47"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  47
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="48"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  48
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="49"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  49
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="50"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  50
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="51"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  51
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="52"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  52
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="53"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  53
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="54"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  54
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="55"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  55
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="56"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  56
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="57"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  57
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="58"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  58
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="59"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  59
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="60"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  60
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="61"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  61
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="62"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  62
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="63"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  63
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="64"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  64
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="65"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  65
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="66"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  66
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="67"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  67
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="68"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  68
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="69"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  69
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="70"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  70
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="71"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  71
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="72"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  72
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="73"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  73
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="74"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  74
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="75"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  75
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="76"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  76
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="77"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  77
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="78"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  78
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="79"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  79
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="80"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  80
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="81"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  81
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="82"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  82
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="83"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  83
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="84"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  84
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="85"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  85
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="86"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  86
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="87"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  87
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="88"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  88
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="89"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  89
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="90"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  90
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="91"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  91
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="92"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  92
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="93"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  93
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="94"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  94
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="95"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  95
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="96"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  96
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="97"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  97
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="98"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  98
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="99"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  99
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <span
+    aria-hidden="true"
+    class="ant-select-arrow"
+    style="user-select: none;"
+    unselectable="on"
+  >
+    <span
+      aria-label="down"
+      class="anticon anticon-down ant-select-suffix"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        data-icon="down"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+        />
+      </svg>
+    </span>
+  </span>
+</div>
+`;
+
 exports[`renders components/select/demo/hide-selected.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-select-multiple ant-select-show-arrow ant-select-show-search"

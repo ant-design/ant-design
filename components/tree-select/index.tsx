@@ -19,6 +19,7 @@ import SizeContext from '../config-provider/SizeContext';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import { FormItemInputContext } from '../form/context';
 import useSelectStyle from '../select/style';
+import useBuiltinPlacements from '../select/useBuiltinPlacements';
 import useShowArrow from '../select/useShowArrow';
 import getIcons from '../select/utils/iconUtil';
 import { useCompactItemContext } from '../space/Compact';
@@ -93,6 +94,7 @@ const InternalTreeSelect = <
     status: customStatus,
     showArrow,
     treeExpandAction,
+    builtinPlacements,
     ...props
   }: TreeSelectProps<ValueType, OptionType>,
   ref: React.Ref<BaseSelectRef>,
@@ -187,6 +189,8 @@ const InternalTreeSelect = <
     return direction === 'rtl' ? 'bottomRight' : 'bottomLeft';
   }, [placement, direction]);
 
+  const mergedBuiltinPlacements = useBuiltinPlacements(builtinPlacements);
+
   const mergedSize = compactSize || customizeSize || size;
   // ===================== Disabled =====================
   const disabled = React.useContext(DisabledContext);
@@ -223,6 +227,7 @@ const InternalTreeSelect = <
       dropdownMatchSelectWidth={dropdownMatchSelectWidth}
       disabled={mergedDisabled}
       {...selectProps}
+      builtinPlacements={mergedBuiltinPlacements}
       ref={ref}
       prefixCls={prefixCls}
       className={mergedClassName}
