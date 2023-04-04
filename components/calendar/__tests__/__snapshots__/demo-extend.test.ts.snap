@@ -854,9 +854,16 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                 title="2016-10-30"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  30
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    30
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
               </td>
               <td
@@ -864,9 +871,16 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                 title="2016-10-31"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  31
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    31
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
               </td>
               <td
@@ -874,9 +888,16 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                 title="2016-11-01"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  1
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    01
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
               </td>
               <td
@@ -884,9 +905,16 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                 title="2016-11-02"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  2
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    02
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
               </td>
               <td
@@ -894,9 +922,16 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                 title="2016-11-03"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  3
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    03
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
               </td>
               <td
@@ -904,9 +939,16 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                 title="2016-11-04"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  4
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    04
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
               </td>
               <td
@@ -914,9 +956,16 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                 title="2016-11-05"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  5
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    05
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
               </td>
             </tr>
@@ -926,9 +975,16 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                 title="2016-11-06"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  6
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    06
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
               </td>
               <td
@@ -936,9 +992,16 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                 title="2016-11-07"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  7
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    07
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
               </td>
               <td
@@ -946,9 +1009,16 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                 title="2016-11-08"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  8
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    08
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
               </td>
               <td
@@ -956,9 +1026,16 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                 title="2016-11-09"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  9
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    09
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
               </td>
               <td
@@ -966,9 +1043,16 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                 title="2016-11-10"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  10
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    10
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
               </td>
               <td
@@ -976,9 +1060,16 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                 title="2016-11-11"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  11
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    11
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
               </td>
               <td
@@ -986,9 +1077,16 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                 title="2016-11-12"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  12
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    12
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
               </td>
             </tr>
@@ -998,9 +1096,16 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                 title="2016-11-13"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  13
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    13
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
               </td>
               <td
@@ -1008,9 +1113,16 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                 title="2016-11-14"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  14
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    14
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
               </td>
               <td
@@ -1018,9 +1130,16 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                 title="2016-11-15"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  15
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    15
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
               </td>
               <td
@@ -1028,9 +1147,16 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                 title="2016-11-16"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  16
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    16
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
               </td>
               <td
@@ -1038,9 +1164,16 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                 title="2016-11-17"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  17
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    17
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
               </td>
               <td
@@ -1048,9 +1181,16 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                 title="2016-11-18"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  18
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    18
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
               </td>
               <td
@@ -1058,9 +1198,16 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                 title="2016-11-19"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  19
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    19
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
               </td>
             </tr>
@@ -1070,9 +1217,16 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                 title="2016-11-20"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  20
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    20
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
               </td>
               <td
@@ -1080,9 +1234,16 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                 title="2016-11-21"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  21
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    21
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
               </td>
               <td
@@ -1090,9 +1251,16 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                 title="2016-11-22"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date ant-picker-calendar-date-today"
                 >
-                  22
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    22
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
               </td>
               <td
@@ -1100,9 +1268,16 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                 title="2016-11-23"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  23
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    23
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
               </td>
               <td
@@ -1110,9 +1285,16 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                 title="2016-11-24"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  24
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    24
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
               </td>
               <td
@@ -1120,9 +1302,16 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                 title="2016-11-25"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  25
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    25
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
               </td>
               <td
@@ -1130,9 +1319,16 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                 title="2016-11-26"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  26
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    26
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
               </td>
             </tr>
@@ -1142,9 +1338,16 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                 title="2016-11-27"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  27
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    27
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
               </td>
               <td
@@ -1152,9 +1355,16 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                 title="2016-11-28"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  28
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    28
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
               </td>
               <td
@@ -1162,9 +1372,16 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                 title="2016-11-29"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  29
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    29
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
               </td>
               <td
@@ -1172,9 +1389,16 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                 title="2016-11-30"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  30
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    30
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
               </td>
               <td
@@ -1182,9 +1406,16 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                 title="2016-12-01"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  1
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    01
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
               </td>
               <td
@@ -1192,9 +1423,16 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                 title="2016-12-02"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  2
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    02
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
               </td>
               <td
@@ -1202,9 +1440,16 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                 title="2016-12-03"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  3
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    03
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
               </td>
             </tr>
@@ -1214,9 +1459,16 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                 title="2016-12-04"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  4
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    04
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
               </td>
               <td
@@ -1224,9 +1476,16 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                 title="2016-12-05"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  5
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    05
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
               </td>
               <td
@@ -1234,9 +1493,16 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                 title="2016-12-06"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  6
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    06
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
               </td>
               <td
@@ -1244,9 +1510,16 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                 title="2016-12-07"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  7
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    07
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
               </td>
               <td
@@ -1254,9 +1527,16 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                 title="2016-12-08"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  8
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    08
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
               </td>
               <td
@@ -1264,9 +1544,16 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                 title="2016-12-09"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  9
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    09
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
               </td>
               <td
@@ -1274,9 +1561,16 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                 title="2016-12-10"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  10
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    10
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
               </td>
             </tr>
@@ -2145,9 +2439,16 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                   title="2016-10-30"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    30
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      30
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -2155,9 +2456,16 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                   title="2016-10-31"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    31
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      31
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -2165,9 +2473,16 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                   title="2016-11-01"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    1
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      01
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -2175,9 +2490,16 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                   title="2016-11-02"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    2
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      02
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -2185,9 +2507,16 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                   title="2016-11-03"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    3
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      03
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -2195,9 +2524,16 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                   title="2016-11-04"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    4
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      04
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -2205,9 +2541,16 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                   title="2016-11-05"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    5
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      05
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
               </tr>
@@ -2217,9 +2560,16 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                   title="2016-11-06"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    6
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      06
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -2227,9 +2577,16 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                   title="2016-11-07"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    7
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      07
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -2237,9 +2594,16 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                   title="2016-11-08"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    8
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      08
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -2247,9 +2611,16 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                   title="2016-11-09"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    9
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      09
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -2257,9 +2628,16 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                   title="2016-11-10"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    10
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      10
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -2267,9 +2645,16 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                   title="2016-11-11"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    11
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      11
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -2277,9 +2662,16 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                   title="2016-11-12"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    12
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      12
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
               </tr>
@@ -2289,9 +2681,16 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                   title="2016-11-13"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    13
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      13
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -2299,9 +2698,16 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                   title="2016-11-14"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    14
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      14
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -2309,9 +2715,16 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                   title="2016-11-15"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    15
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      15
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -2319,9 +2732,16 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                   title="2016-11-16"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    16
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      16
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -2329,9 +2749,16 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                   title="2016-11-17"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    17
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      17
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -2339,9 +2766,16 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                   title="2016-11-18"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    18
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      18
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -2349,9 +2783,16 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                   title="2016-11-19"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    19
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      19
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
               </tr>
@@ -2361,9 +2802,16 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                   title="2016-11-20"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    20
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      20
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -2371,9 +2819,16 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                   title="2016-11-21"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    21
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      21
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -2381,9 +2836,16 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                   title="2016-11-22"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date ant-picker-calendar-date-today"
                   >
-                    22
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      22
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -2391,9 +2853,16 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                   title="2016-11-23"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    23
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      23
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -2401,9 +2870,16 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                   title="2016-11-24"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    24
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      24
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -2411,9 +2887,16 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                   title="2016-11-25"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    25
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      25
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -2421,9 +2904,16 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                   title="2016-11-26"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    26
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      26
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
               </tr>
@@ -2433,9 +2923,16 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                   title="2016-11-27"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    27
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      27
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -2443,9 +2940,16 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                   title="2016-11-28"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    28
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      28
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -2453,9 +2957,16 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                   title="2016-11-29"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    29
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      29
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -2463,9 +2974,16 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                   title="2016-11-30"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    30
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      30
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -2473,9 +2991,16 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                   title="2016-12-01"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    1
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      01
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -2483,9 +3008,16 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                   title="2016-12-02"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    2
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      02
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -2493,9 +3025,16 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                   title="2016-12-03"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    3
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      03
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
               </tr>
@@ -2505,9 +3044,16 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                   title="2016-12-04"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    4
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      04
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -2515,9 +3061,16 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                   title="2016-12-05"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    5
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      05
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -2525,9 +3078,16 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                   title="2016-12-06"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    6
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      06
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -2535,9 +3095,16 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                   title="2016-12-07"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    7
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      07
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -2545,9 +3112,16 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                   title="2016-12-08"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    8
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      08
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -2555,9 +3129,16 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                   title="2016-12-09"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    9
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      09
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -2565,9 +3146,16 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                   title="2016-12-10"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    10
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      10
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
               </tr>
@@ -3486,9 +4074,16 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                   title="2016-10-30"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    30
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      30
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -3496,9 +4091,16 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                   title="2016-10-31"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    31
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      31
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -3506,9 +4108,16 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                   title="2016-11-01"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    1
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      01
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -3516,9 +4125,16 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                   title="2016-11-02"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    2
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      02
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -3526,9 +4142,16 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                   title="2016-11-03"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    3
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      03
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -3536,9 +4159,16 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                   title="2016-11-04"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    4
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      04
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -3546,9 +4176,16 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                   title="2016-11-05"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    5
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      05
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
               </tr>
@@ -3558,9 +4195,16 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                   title="2016-11-06"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    6
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      06
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -3568,9 +4212,16 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                   title="2016-11-07"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    7
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      07
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -3578,9 +4229,16 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                   title="2016-11-08"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    8
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      08
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -3588,9 +4246,16 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                   title="2016-11-09"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    9
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      09
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -3598,9 +4263,16 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                   title="2016-11-10"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    10
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      10
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -3608,9 +4280,16 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                   title="2016-11-11"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    11
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      11
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -3618,9 +4297,16 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                   title="2016-11-12"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    12
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      12
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
               </tr>
@@ -3630,9 +4316,16 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                   title="2016-11-13"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    13
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      13
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -3640,9 +4333,16 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                   title="2016-11-14"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    14
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      14
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -3650,9 +4350,16 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                   title="2016-11-15"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    15
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      15
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -3660,9 +4367,16 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                   title="2016-11-16"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    16
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      16
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -3670,9 +4384,16 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                   title="2016-11-17"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    17
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      17
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -3680,9 +4401,16 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                   title="2016-11-18"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    18
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      18
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -3690,9 +4418,16 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                   title="2016-11-19"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    19
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      19
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
               </tr>
@@ -3702,9 +4437,16 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                   title="2016-11-20"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    20
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      20
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -3712,9 +4454,16 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                   title="2016-11-21"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    21
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      21
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -3722,9 +4471,16 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                   title="2016-11-22"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date ant-picker-calendar-date-today"
                   >
-                    22
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      22
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -3732,9 +4488,16 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                   title="2016-11-23"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    23
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      23
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -3742,9 +4505,16 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                   title="2016-11-24"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    24
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      24
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -3752,9 +4522,16 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                   title="2016-11-25"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    25
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      25
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -3762,9 +4539,16 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                   title="2016-11-26"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    26
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      26
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
               </tr>
@@ -3774,9 +4558,16 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                   title="2016-11-27"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    27
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      27
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -3784,9 +4575,16 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                   title="2016-11-28"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    28
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      28
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -3794,9 +4592,16 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                   title="2016-11-29"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    29
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      29
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -3804,9 +4609,16 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                   title="2016-11-30"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    30
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      30
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -3814,9 +4626,16 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                   title="2016-12-01"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    1
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      01
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -3824,9 +4643,16 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                   title="2016-12-02"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    2
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      02
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -3834,9 +4660,16 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                   title="2016-12-03"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    3
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      03
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
               </tr>
@@ -3846,9 +4679,16 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                   title="2016-12-04"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    4
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      04
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -3856,9 +4696,16 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                   title="2016-12-05"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    5
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      05
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -3866,9 +4713,16 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                   title="2016-12-06"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    6
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      06
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -3876,9 +4730,16 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                   title="2016-12-07"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    7
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      07
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -3886,9 +4747,16 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                   title="2016-12-08"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    8
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      08
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -3896,9 +4764,16 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                   title="2016-12-09"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    9
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      09
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -3906,9 +4781,16 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                   title="2016-12-10"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    10
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      10
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
               </tr>
@@ -4775,9 +5657,20 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                 title="2016-10-30"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  30
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    30
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  >
+                    <ul
+                      class="events"
+                    />
+                  </div>
                 </div>
               </td>
               <td
@@ -4785,9 +5678,20 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                 title="2016-10-31"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  31
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    31
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  >
+                    <ul
+                      class="events"
+                    />
+                  </div>
                 </div>
               </td>
               <td
@@ -4795,9 +5699,20 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                 title="2016-11-01"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  1
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    01
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  >
+                    <ul
+                      class="events"
+                    />
+                  </div>
                 </div>
               </td>
               <td
@@ -4805,9 +5720,20 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                 title="2016-11-02"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  2
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    02
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  >
+                    <ul
+                      class="events"
+                    />
+                  </div>
                 </div>
               </td>
               <td
@@ -4815,9 +5741,20 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                 title="2016-11-03"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  3
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    03
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  >
+                    <ul
+                      class="events"
+                    />
+                  </div>
                 </div>
               </td>
               <td
@@ -4825,9 +5762,20 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                 title="2016-11-04"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  4
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    04
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  >
+                    <ul
+                      class="events"
+                    />
+                  </div>
                 </div>
               </td>
               <td
@@ -4835,9 +5783,20 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                 title="2016-11-05"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  5
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    05
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  >
+                    <ul
+                      class="events"
+                    />
+                  </div>
                 </div>
               </td>
             </tr>
@@ -4847,9 +5806,20 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                 title="2016-11-06"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  6
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    06
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  >
+                    <ul
+                      class="events"
+                    />
+                  </div>
                 </div>
               </td>
               <td
@@ -4857,9 +5827,20 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                 title="2016-11-07"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  7
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    07
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  >
+                    <ul
+                      class="events"
+                    />
+                  </div>
                 </div>
               </td>
               <td
@@ -4867,9 +5848,49 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                 title="2016-11-08"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  8
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    08
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  >
+                    <ul
+                      class="events"
+                    >
+                      <li>
+                        <span
+                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                        >
+                          <span
+                            class="ant-badge-status-dot ant-badge-status-warning"
+                          />
+                          <span
+                            class="ant-badge-status-text"
+                          >
+                            This is warning event.
+                          </span>
+                        </span>
+                      </li>
+                      <li>
+                        <span
+                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                        >
+                          <span
+                            class="ant-badge-status-dot ant-badge-status-success"
+                          />
+                          <span
+                            class="ant-badge-status-text"
+                          >
+                            This is usual event.
+                          </span>
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </td>
               <td
@@ -4877,9 +5898,20 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                 title="2016-11-09"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  9
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    09
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  >
+                    <ul
+                      class="events"
+                    />
+                  </div>
                 </div>
               </td>
               <td
@@ -4887,9 +5919,63 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                 title="2016-11-10"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  10
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    10
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  >
+                    <ul
+                      class="events"
+                    >
+                      <li>
+                        <span
+                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                        >
+                          <span
+                            class="ant-badge-status-dot ant-badge-status-warning"
+                          />
+                          <span
+                            class="ant-badge-status-text"
+                          >
+                            This is warning event.
+                          </span>
+                        </span>
+                      </li>
+                      <li>
+                        <span
+                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                        >
+                          <span
+                            class="ant-badge-status-dot ant-badge-status-success"
+                          />
+                          <span
+                            class="ant-badge-status-text"
+                          >
+                            This is usual event.
+                          </span>
+                        </span>
+                      </li>
+                      <li>
+                        <span
+                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                        >
+                          <span
+                            class="ant-badge-status-dot ant-badge-status-error"
+                          />
+                          <span
+                            class="ant-badge-status-text"
+                          >
+                            This is error event.
+                          </span>
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </td>
               <td
@@ -4897,9 +5983,20 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                 title="2016-11-11"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  11
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    11
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  >
+                    <ul
+                      class="events"
+                    />
+                  </div>
                 </div>
               </td>
               <td
@@ -4907,9 +6004,20 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                 title="2016-11-12"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  12
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    12
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  >
+                    <ul
+                      class="events"
+                    />
+                  </div>
                 </div>
               </td>
             </tr>
@@ -4919,9 +6027,20 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                 title="2016-11-13"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  13
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    13
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  >
+                    <ul
+                      class="events"
+                    />
+                  </div>
                 </div>
               </td>
               <td
@@ -4929,9 +6048,20 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                 title="2016-11-14"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  14
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    14
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  >
+                    <ul
+                      class="events"
+                    />
+                  </div>
                 </div>
               </td>
               <td
@@ -4939,9 +6069,105 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                 title="2016-11-15"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  15
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    15
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  >
+                    <ul
+                      class="events"
+                    >
+                      <li>
+                        <span
+                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                        >
+                          <span
+                            class="ant-badge-status-dot ant-badge-status-warning"
+                          />
+                          <span
+                            class="ant-badge-status-text"
+                          >
+                            This is warning event
+                          </span>
+                        </span>
+                      </li>
+                      <li>
+                        <span
+                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                        >
+                          <span
+                            class="ant-badge-status-dot ant-badge-status-success"
+                          />
+                          <span
+                            class="ant-badge-status-text"
+                          >
+                            This is very long usual event。。....
+                          </span>
+                        </span>
+                      </li>
+                      <li>
+                        <span
+                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                        >
+                          <span
+                            class="ant-badge-status-dot ant-badge-status-error"
+                          />
+                          <span
+                            class="ant-badge-status-text"
+                          >
+                            This is error event 1.
+                          </span>
+                        </span>
+                      </li>
+                      <li>
+                        <span
+                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                        >
+                          <span
+                            class="ant-badge-status-dot ant-badge-status-error"
+                          />
+                          <span
+                            class="ant-badge-status-text"
+                          >
+                            This is error event 2.
+                          </span>
+                        </span>
+                      </li>
+                      <li>
+                        <span
+                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                        >
+                          <span
+                            class="ant-badge-status-dot ant-badge-status-error"
+                          />
+                          <span
+                            class="ant-badge-status-text"
+                          >
+                            This is error event 3.
+                          </span>
+                        </span>
+                      </li>
+                      <li>
+                        <span
+                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                        >
+                          <span
+                            class="ant-badge-status-dot ant-badge-status-error"
+                          />
+                          <span
+                            class="ant-badge-status-text"
+                          >
+                            This is error event 4.
+                          </span>
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </td>
               <td
@@ -4949,9 +6175,20 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                 title="2016-11-16"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  16
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    16
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  >
+                    <ul
+                      class="events"
+                    />
+                  </div>
                 </div>
               </td>
               <td
@@ -4959,9 +6196,20 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                 title="2016-11-17"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  17
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    17
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  >
+                    <ul
+                      class="events"
+                    />
+                  </div>
                 </div>
               </td>
               <td
@@ -4969,9 +6217,20 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                 title="2016-11-18"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  18
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    18
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  >
+                    <ul
+                      class="events"
+                    />
+                  </div>
                 </div>
               </td>
               <td
@@ -4979,9 +6238,20 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                 title="2016-11-19"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  19
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    19
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  >
+                    <ul
+                      class="events"
+                    />
+                  </div>
                 </div>
               </td>
             </tr>
@@ -4991,9 +6261,20 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                 title="2016-11-20"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  20
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    20
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  >
+                    <ul
+                      class="events"
+                    />
+                  </div>
                 </div>
               </td>
               <td
@@ -5001,9 +6282,20 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                 title="2016-11-21"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  21
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    21
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  >
+                    <ul
+                      class="events"
+                    />
+                  </div>
                 </div>
               </td>
               <td
@@ -5011,9 +6303,20 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                 title="2016-11-22"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date ant-picker-calendar-date-today"
                 >
-                  22
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    22
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  >
+                    <ul
+                      class="events"
+                    />
+                  </div>
                 </div>
               </td>
               <td
@@ -5021,9 +6324,20 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                 title="2016-11-23"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  23
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    23
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  >
+                    <ul
+                      class="events"
+                    />
+                  </div>
                 </div>
               </td>
               <td
@@ -5031,9 +6345,20 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                 title="2016-11-24"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  24
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    24
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  >
+                    <ul
+                      class="events"
+                    />
+                  </div>
                 </div>
               </td>
               <td
@@ -5041,9 +6366,20 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                 title="2016-11-25"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  25
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    25
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  >
+                    <ul
+                      class="events"
+                    />
+                  </div>
                 </div>
               </td>
               <td
@@ -5051,9 +6387,20 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                 title="2016-11-26"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  26
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    26
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  >
+                    <ul
+                      class="events"
+                    />
+                  </div>
                 </div>
               </td>
             </tr>
@@ -5063,9 +6410,20 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                 title="2016-11-27"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  27
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    27
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  >
+                    <ul
+                      class="events"
+                    />
+                  </div>
                 </div>
               </td>
               <td
@@ -5073,9 +6431,20 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                 title="2016-11-28"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  28
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    28
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  >
+                    <ul
+                      class="events"
+                    />
+                  </div>
                 </div>
               </td>
               <td
@@ -5083,9 +6452,20 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                 title="2016-11-29"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  29
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    29
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  >
+                    <ul
+                      class="events"
+                    />
+                  </div>
                 </div>
               </td>
               <td
@@ -5093,9 +6473,20 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                 title="2016-11-30"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  30
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    30
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  >
+                    <ul
+                      class="events"
+                    />
+                  </div>
                 </div>
               </td>
               <td
@@ -5103,9 +6494,20 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                 title="2016-12-01"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  1
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    01
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  >
+                    <ul
+                      class="events"
+                    />
+                  </div>
                 </div>
               </td>
               <td
@@ -5113,9 +6515,20 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                 title="2016-12-02"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  2
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    02
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  >
+                    <ul
+                      class="events"
+                    />
+                  </div>
                 </div>
               </td>
               <td
@@ -5123,9 +6536,20 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                 title="2016-12-03"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  3
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    03
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  >
+                    <ul
+                      class="events"
+                    />
+                  </div>
                 </div>
               </td>
             </tr>
@@ -5135,9 +6559,20 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                 title="2016-12-04"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  4
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    04
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  >
+                    <ul
+                      class="events"
+                    />
+                  </div>
                 </div>
               </td>
               <td
@@ -5145,9 +6580,20 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                 title="2016-12-05"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  5
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    05
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  >
+                    <ul
+                      class="events"
+                    />
+                  </div>
                 </div>
               </td>
               <td
@@ -5155,9 +6601,20 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                 title="2016-12-06"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  6
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    06
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  >
+                    <ul
+                      class="events"
+                    />
+                  </div>
                 </div>
               </td>
               <td
@@ -5165,9 +6622,20 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                 title="2016-12-07"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  7
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    07
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  >
+                    <ul
+                      class="events"
+                    />
+                  </div>
                 </div>
               </td>
               <td
@@ -5175,9 +6643,49 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                 title="2016-12-08"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  8
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    08
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  >
+                    <ul
+                      class="events"
+                    >
+                      <li>
+                        <span
+                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                        >
+                          <span
+                            class="ant-badge-status-dot ant-badge-status-warning"
+                          />
+                          <span
+                            class="ant-badge-status-text"
+                          >
+                            This is warning event.
+                          </span>
+                        </span>
+                      </li>
+                      <li>
+                        <span
+                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                        >
+                          <span
+                            class="ant-badge-status-dot ant-badge-status-success"
+                          />
+                          <span
+                            class="ant-badge-status-text"
+                          >
+                            This is usual event.
+                          </span>
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </td>
               <td
@@ -5185,9 +6693,20 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                 title="2016-12-09"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  9
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    09
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  >
+                    <ul
+                      class="events"
+                    />
+                  </div>
                 </div>
               </td>
               <td
@@ -5195,9 +6714,63 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                 title="2016-12-10"
               >
                 <div
-                  class="ant-picker-cell-inner"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  10
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    10
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  >
+                    <ul
+                      class="events"
+                    >
+                      <li>
+                        <span
+                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                        >
+                          <span
+                            class="ant-badge-status-dot ant-badge-status-warning"
+                          />
+                          <span
+                            class="ant-badge-status-text"
+                          >
+                            This is warning event.
+                          </span>
+                        </span>
+                      </li>
+                      <li>
+                        <span
+                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                        >
+                          <span
+                            class="ant-badge-status-dot ant-badge-status-success"
+                          />
+                          <span
+                            class="ant-badge-status-text"
+                          >
+                            This is usual event.
+                          </span>
+                        </span>
+                      </li>
+                      <li>
+                        <span
+                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                        >
+                          <span
+                            class="ant-badge-status-dot ant-badge-status-error"
+                          />
+                          <span
+                            class="ant-badge-status-text"
+                          >
+                            This is error event.
+                          </span>
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </td>
             </tr>
@@ -6079,9 +7652,16 @@ Array [
                   title="2017-01-01"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    1
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      01
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -6089,9 +7669,16 @@ Array [
                   title="2017-01-02"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    2
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      02
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -6099,9 +7686,16 @@ Array [
                   title="2017-01-03"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    3
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      03
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -6109,9 +7703,16 @@ Array [
                   title="2017-01-04"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    4
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      04
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -6119,9 +7720,16 @@ Array [
                   title="2017-01-05"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    5
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      05
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -6129,9 +7737,16 @@ Array [
                   title="2017-01-06"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    6
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      06
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -6139,9 +7754,16 @@ Array [
                   title="2017-01-07"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    7
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      07
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
               </tr>
@@ -6151,9 +7773,16 @@ Array [
                   title="2017-01-08"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    8
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      08
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -6161,9 +7790,16 @@ Array [
                   title="2017-01-09"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    9
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      09
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -6171,9 +7807,16 @@ Array [
                   title="2017-01-10"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    10
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      10
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -6181,9 +7824,16 @@ Array [
                   title="2017-01-11"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    11
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      11
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -6191,9 +7841,16 @@ Array [
                   title="2017-01-12"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    12
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      12
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -6201,9 +7858,16 @@ Array [
                   title="2017-01-13"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    13
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      13
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -6211,9 +7875,16 @@ Array [
                   title="2017-01-14"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    14
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      14
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
               </tr>
@@ -6223,9 +7894,16 @@ Array [
                   title="2017-01-15"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    15
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      15
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -6233,9 +7911,16 @@ Array [
                   title="2017-01-16"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    16
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      16
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -6243,9 +7928,16 @@ Array [
                   title="2017-01-17"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    17
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      17
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -6253,9 +7945,16 @@ Array [
                   title="2017-01-18"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    18
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      18
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -6263,9 +7962,16 @@ Array [
                   title="2017-01-19"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    19
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      19
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -6273,9 +7979,16 @@ Array [
                   title="2017-01-20"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    20
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      20
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -6283,9 +7996,16 @@ Array [
                   title="2017-01-21"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    21
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      21
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
               </tr>
@@ -6295,9 +8015,16 @@ Array [
                   title="2017-01-22"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    22
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      22
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -6305,9 +8032,16 @@ Array [
                   title="2017-01-23"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    23
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      23
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -6315,9 +8049,16 @@ Array [
                   title="2017-01-24"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    24
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      24
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -6325,9 +8066,16 @@ Array [
                   title="2017-01-25"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    25
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      25
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -6335,9 +8083,16 @@ Array [
                   title="2017-01-26"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    26
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      26
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -6345,9 +8100,16 @@ Array [
                   title="2017-01-27"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    27
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      27
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -6355,9 +8117,16 @@ Array [
                   title="2017-01-28"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    28
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      28
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
               </tr>
@@ -6367,9 +8136,16 @@ Array [
                   title="2017-01-29"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    29
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      29
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -6377,9 +8153,16 @@ Array [
                   title="2017-01-30"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    30
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      30
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -6387,9 +8170,16 @@ Array [
                   title="2017-01-31"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    31
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      31
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -6397,9 +8187,16 @@ Array [
                   title="2017-02-01"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    1
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      01
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -6407,9 +8204,16 @@ Array [
                   title="2017-02-02"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    2
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      02
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -6417,9 +8221,16 @@ Array [
                   title="2017-02-03"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    3
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      03
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -6427,9 +8238,16 @@ Array [
                   title="2017-02-04"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    4
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      04
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
               </tr>
@@ -6439,9 +8257,16 @@ Array [
                   title="2017-02-05"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    5
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      05
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -6449,9 +8274,16 @@ Array [
                   title="2017-02-06"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    6
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      06
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -6459,9 +8291,16 @@ Array [
                   title="2017-02-07"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    7
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      07
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -6469,9 +8308,16 @@ Array [
                   title="2017-02-08"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    8
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      08
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -6479,9 +8325,16 @@ Array [
                   title="2017-02-09"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    9
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      09
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -6489,9 +8342,16 @@ Array [
                   title="2017-02-10"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    10
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      10
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
                 <td
@@ -6499,9 +8359,16 @@ Array [
                   title="2017-02-11"
                 >
                   <div
-                    class="ant-picker-cell-inner"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
-                    11
+                    <div
+                      class="ant-picker-calendar-date-value"
+                    >
+                      11
+                    </div>
+                    <div
+                      class="ant-picker-calendar-date-content"
+                    />
                   </div>
                 </td>
               </tr>
