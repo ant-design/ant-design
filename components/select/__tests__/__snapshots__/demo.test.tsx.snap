@@ -400,17 +400,14 @@ Array [
           class="ant-select-selection-overflow-item"
           style="opacity:1"
         >
-          <span>
+          <span
+            class="ant-select-selection-item ant-select-selection-item-disabled"
+            title="a10"
+          >
             <span
-              class="ant-tag ant-tag-borderless ant-select-tag"
-              disabled=""
-              value="a10"
+              class="ant-select-selection-item-content"
             >
-              <span
-                class="ant-tag-content"
-              >
-                a10
-              </span>
+              a10
             </span>
           </span>
         </div>
@@ -418,17 +415,25 @@ Array [
           class="ant-select-selection-overflow-item"
           style="opacity:1"
         >
-          <span>
+          <span
+            class="ant-select-selection-item"
+            title="c12"
+          >
             <span
-              class="ant-tag ant-tag-borderless ant-select-tag"
-              value="c12"
+              class="ant-select-selection-item-content"
             >
               c12
+            </span>
+            <span
+              aria-hidden="true"
+              class="ant-select-selection-item-remove"
+              style="user-select:none;-webkit-user-select:none"
+              unselectable="on"
+            >
               <span
                 aria-label="close"
-                class="anticon anticon-close ant-tag-close-icon"
+                class="anticon anticon-close"
                 role="img"
-                tabindex="-1"
               >
                 <svg
                   aria-hidden="true"
@@ -883,17 +888,25 @@ exports[`renders components/select/demo/custom-tag-render.tsx correctly 1`] = `
         class="ant-select-selection-overflow-item"
         style="opacity:1"
       >
-        <span>
+        <span
+          class="ant-select-selection-item"
+          title="gold"
+        >
           <span
-            class="ant-tag ant-tag-gold"
-            style="margin-right:3px"
+            class="ant-select-selection-item-content"
           >
             gold
+          </span>
+          <span
+            aria-hidden="true"
+            class="ant-select-selection-item-remove"
+            style="user-select:none;-webkit-user-select:none"
+            unselectable="on"
+          >
             <span
               aria-label="close"
-              class="anticon anticon-close ant-tag-close-icon"
+              class="anticon anticon-close"
               role="img"
-              tabindex="-1"
             >
               <svg
                 aria-hidden="true"
@@ -916,17 +929,25 @@ exports[`renders components/select/demo/custom-tag-render.tsx correctly 1`] = `
         class="ant-select-selection-overflow-item"
         style="opacity:1"
       >
-        <span>
+        <span
+          class="ant-select-selection-item"
+          title="cyan"
+        >
           <span
-            class="ant-tag ant-tag-cyan"
-            style="margin-right:3px"
+            class="ant-select-selection-item-content"
           >
             cyan
+          </span>
+          <span
+            aria-hidden="true"
+            class="ant-select-selection-item-remove"
+            style="user-select:none;-webkit-user-select:none"
+            unselectable="on"
+          >
             <span
               aria-label="close"
-              class="anticon anticon-close ant-tag-close-icon"
+              class="anticon anticon-close"
               role="img"
-              tabindex="-1"
             >
               <svg
                 aria-hidden="true"
@@ -1103,17 +1124,25 @@ exports[`renders components/select/demo/debug.tsx correctly 1`] = `
             class="ant-select-selection-overflow-item"
             style="opacity:1"
           >
-            <span>
+            <span
+              class="ant-select-selection-item"
+              title="Lucy"
+            >
               <span
-                class="ant-tag ant-tag-borderless ant-select-tag"
-                value="lucy"
+                class="ant-select-selection-item-content"
               >
                 Lucy
+              </span>
+              <span
+                aria-hidden="true"
+                class="ant-select-selection-item-remove"
+                style="user-select:none;-webkit-user-select:none"
+                unselectable="on"
+              >
                 <span
                   aria-label="close"
-                  class="anticon anticon-close ant-tag-close-icon"
+                  class="anticon anticon-close"
                   role="img"
-                  tabindex="-1"
                 >
                   <svg
                     aria-hidden="true"
@@ -1384,17 +1413,25 @@ exports[`renders components/select/demo/multiple.tsx correctly 1`] = `
             class="ant-select-selection-overflow-item"
             style="opacity:1"
           >
-            <span>
+            <span
+              class="ant-select-selection-item"
+              title="a10"
+            >
               <span
-                class="ant-tag ant-tag-borderless ant-select-tag"
-                value="a10"
+                class="ant-select-selection-item-content"
               >
                 a10
+              </span>
+              <span
+                aria-hidden="true"
+                class="ant-select-selection-item-remove"
+                style="user-select:none;-webkit-user-select:none"
+                unselectable="on"
+              >
                 <span
                   aria-label="close"
-                  class="anticon anticon-close ant-tag-close-icon"
+                  class="anticon anticon-close"
                   role="img"
-                  tabindex="-1"
                 >
                   <svg
                     aria-hidden="true"
@@ -1417,17 +1454,25 @@ exports[`renders components/select/demo/multiple.tsx correctly 1`] = `
             class="ant-select-selection-overflow-item"
             style="opacity:1"
           >
-            <span>
+            <span
+              class="ant-select-selection-item"
+              title="c12"
+            >
               <span
-                class="ant-tag ant-tag-borderless ant-select-tag"
-                value="c12"
+                class="ant-select-selection-item-content"
               >
                 c12
+              </span>
+              <span
+                aria-hidden="true"
+                class="ant-select-selection-item-remove"
+                style="user-select:none;-webkit-user-select:none"
+                unselectable="on"
+              >
                 <span
                   aria-label="close"
-                  class="anticon anticon-close ant-tag-close-icon"
+                  class="anticon anticon-close"
                   role="img"
-                  tabindex="-1"
                 >
                   <svg
                     aria-hidden="true"
@@ -1550,16 +1595,14 @@ exports[`renders components/select/demo/multiple.tsx correctly 1`] = `
             class="ant-select-selection-overflow-item"
             style="opacity:1"
           >
-            <span>
+            <span
+              class="ant-select-selection-item"
+              title="a10"
+            >
               <span
-                class="ant-tag ant-tag-borderless ant-select-tag"
-                value="a10"
+                class="ant-select-selection-item-content"
               >
-                <span
-                  class="ant-tag-content"
-                >
-                  a10
-                </span>
+                a10
               </span>
             </span>
           </div>
@@ -1567,16 +1610,14 @@ exports[`renders components/select/demo/multiple.tsx correctly 1`] = `
             class="ant-select-selection-overflow-item"
             style="opacity:1"
           >
-            <span>
+            <span
+              class="ant-select-selection-item"
+              title="c12"
+            >
               <span
-                class="ant-tag ant-tag-borderless ant-select-tag"
-                value="c12"
+                class="ant-select-selection-item-content"
               >
-                <span
-                  class="ant-tag-content"
-                >
-                  c12
-                </span>
+                c12
               </span>
             </span>
           </div>
@@ -1824,17 +1865,25 @@ exports[`renders components/select/demo/option-label-prop.tsx correctly 1`] = `
         class="ant-select-selection-overflow-item"
         style="opacity:1"
       >
-        <span>
+        <span
+          class="ant-select-selection-item"
+          title="China"
+        >
           <span
-            class="ant-tag ant-tag-borderless ant-select-tag"
-            value="china"
+            class="ant-select-selection-item-content"
           >
             China
+          </span>
+          <span
+            aria-hidden="true"
+            class="ant-select-selection-item-remove"
+            style="user-select:none;-webkit-user-select:none"
+            unselectable="on"
+          >
             <span
               aria-label="close"
-              class="anticon anticon-close ant-tag-close-icon"
+              class="anticon anticon-close"
               role="img"
-              tabindex="-1"
             >
               <svg
                 aria-hidden="true"
@@ -2640,17 +2689,25 @@ Array [
               class="ant-select-selection-overflow-item"
               style="opacity:1"
             >
-              <span>
+              <span
+                class="ant-select-selection-item"
+                title="a10"
+              >
                 <span
-                  class="ant-tag ant-tag-borderless ant-select-tag"
-                  value="a10"
+                  class="ant-select-selection-item-content"
                 >
                   a10
+                </span>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-selection-item-remove"
+                  style="user-select:none;-webkit-user-select:none"
+                  unselectable="on"
+                >
                   <span
                     aria-label="close"
-                    class="anticon anticon-close ant-tag-close-icon"
+                    class="anticon anticon-close"
                     role="img"
-                    tabindex="-1"
                   >
                     <svg
                       aria-hidden="true"
@@ -2673,17 +2730,25 @@ Array [
               class="ant-select-selection-overflow-item"
               style="opacity:1"
             >
-              <span>
+              <span
+                class="ant-select-selection-item"
+                title="c12"
+              >
                 <span
-                  class="ant-tag ant-tag-borderless ant-select-tag"
-                  value="c12"
+                  class="ant-select-selection-item-content"
                 >
                   c12
+                </span>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-selection-item-remove"
+                  style="user-select:none;-webkit-user-select:none"
+                  unselectable="on"
+                >
                   <span
                     aria-label="close"
-                    class="anticon anticon-close ant-tag-close-icon"
+                    class="anticon anticon-close"
                     role="img"
-                    tabindex="-1"
                   >
                     <svg
                       aria-hidden="true"
@@ -2780,17 +2845,25 @@ Array [
               class="ant-select-selection-overflow-item"
               style="opacity:1"
             >
-              <span>
+              <span
+                class="ant-select-selection-item"
+                title="a10"
+              >
                 <span
-                  class="ant-tag ant-tag-borderless ant-select-tag"
-                  value="a10"
+                  class="ant-select-selection-item-content"
                 >
                   a10
+                </span>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-selection-item-remove"
+                  style="user-select:none;-webkit-user-select:none"
+                  unselectable="on"
+                >
                   <span
                     aria-label="close"
-                    class="anticon anticon-close ant-tag-close-icon"
+                    class="anticon anticon-close"
                     role="img"
-                    tabindex="-1"
                   >
                     <svg
                       aria-hidden="true"
@@ -2813,17 +2886,25 @@ Array [
               class="ant-select-selection-overflow-item"
               style="opacity:1"
             >
-              <span>
+              <span
+                class="ant-select-selection-item"
+                title="c12"
+              >
                 <span
-                  class="ant-tag ant-tag-borderless ant-select-tag"
-                  value="c12"
+                  class="ant-select-selection-item-content"
                 >
                   c12
+                </span>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-selection-item-remove"
+                  style="user-select:none;-webkit-user-select:none"
+                  unselectable="on"
+                >
                   <span
                     aria-label="close"
-                    class="anticon anticon-close ant-tag-close-icon"
+                    class="anticon anticon-close"
                     role="img"
-                    tabindex="-1"
                   >
                     <svg
                       aria-hidden="true"

@@ -950,17 +950,25 @@ Array [
                       class="ant-select-selection-overflow-item"
                       style="opacity: 1;"
                     >
-                      <span>
+                      <span
+                        class="ant-select-selection-item"
+                        title="Bamboo"
+                      >
                         <span
-                          class="ant-tag ant-tag-borderless ant-select-tag"
-                          value="bamboo"
+                          class="ant-select-selection-item-content"
                         >
                           Bamboo
+                        </span>
+                        <span
+                          aria-hidden="true"
+                          class="ant-select-selection-item-remove"
+                          style="user-select: none;"
+                          unselectable="on"
+                        >
                           <span
                             aria-label="close"
-                            class="anticon anticon-close ant-tag-close-icon"
+                            class="anticon anticon-close"
                             role="img"
-                            tabindex="-1"
                           >
                             <svg
                               aria-hidden="true"
@@ -1372,17 +1380,25 @@ Array [
                       class="ant-select-selection-overflow-item"
                       style="opacity: 1;"
                     >
-                      <span>
+                      <span
+                        class="ant-select-selection-item"
+                        title="Bamboo"
+                      >
                         <span
-                          class="ant-tag ant-tag-borderless ant-select-tag"
-                          value="bamboo"
+                          class="ant-select-selection-item-content"
                         >
                           Bamboo
+                        </span>
+                        <span
+                          aria-hidden="true"
+                          class="ant-select-selection-item-remove"
+                          style="user-select: none;"
+                          unselectable="on"
+                        >
                           <span
                             aria-label="close"
-                            class="anticon anticon-close ant-tag-close-icon"
+                            class="anticon anticon-close"
                             role="img"
-                            tabindex="-1"
                           >
                             <svg
                               aria-hidden="true"

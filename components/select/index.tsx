@@ -9,7 +9,6 @@ import * as React from 'react';
 import genPurePanel from '../_util/PurePanel';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionDirection, getTransitionName } from '../_util/motion';
-import genDefaultRender from '../_util/selectDefaultRender';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import warning from '../_util/warning';
@@ -129,8 +128,6 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     feedbackIcon,
   } = React.useContext(FormItemInputContext);
 
-  const mergedTagRender = tagRender ?? genDefaultRender(rootPrefixCls);
-
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
   // ===================== Empty =====================
@@ -225,7 +222,6 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
       menuItemSelectedIcon={itemIcon}
       removeIcon={removeIcon}
       clearIcon={clearIcon}
-      tagRender={isMultiple ? mergedTagRender : undefined}
       notFoundContent={mergedNotFound}
       className={mergedClassName}
       getPopupContainer={getPopupContainer || getContextPopupContainer}

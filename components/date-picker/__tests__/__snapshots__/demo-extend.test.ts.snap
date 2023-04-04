@@ -7269,7 +7269,6 @@ exports[`renders components/date-picker/demo/cell-render.tsx extend context corr
                       >
                         <div
                           class="ant-picker-cell-inner"
-                          style="border: 1px solid #1890ff; border-radius: 50%;"
                         >
                           1
                         </div>
@@ -7578,7 +7577,6 @@ exports[`renders components/date-picker/demo/cell-render.tsx extend context corr
                       >
                         <div
                           class="ant-picker-cell-inner"
-                          style="border: 1px solid #1890ff; border-radius: 50%;"
                         >
                           1
                         </div>
@@ -7927,7 +7925,6 @@ exports[`renders components/date-picker/demo/cell-render.tsx extend context corr
                             >
                               <div
                                 class="ant-picker-cell-inner"
-                                style="border: 1px solid #1890ff; border-radius: 50%;"
                               >
                                 1
                               </div>
@@ -8236,7 +8233,6 @@ exports[`renders components/date-picker/demo/cell-render.tsx extend context corr
                             >
                               <div
                                 class="ant-picker-cell-inner"
-                                style="border: 1px solid #1890ff; border-radius: 50%;"
                               >
                                 1
                               </div>
@@ -8485,7 +8481,6 @@ exports[`renders components/date-picker/demo/cell-render.tsx extend context corr
                             >
                               <div
                                 class="ant-picker-cell-inner"
-                                style="border: 1px solid #1890ff; border-radius: 50%;"
                               >
                                 1
                               </div>
@@ -8806,7 +8801,6 @@ exports[`renders components/date-picker/demo/cell-render.tsx extend context corr
                             >
                               <div
                                 class="ant-picker-cell-inner"
-                                style="border: 1px solid #1890ff; border-radius: 50%;"
                               >
                                 1
                               </div>

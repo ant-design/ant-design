@@ -9,7 +9,6 @@ import * as React from 'react';
 import genPurePanel from '../_util/PurePanel';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionDirection, getTransitionName } from '../_util/motion';
-import genDefaultRender from '../_util/selectDefaultRender';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import warning from '../_util/warning';
@@ -129,8 +128,6 @@ const InternalTreeSelect = <
   const treeSelectPrefixCls = getPrefixCls('tree-select', customizePrefixCls);
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
-  const mergedTagRender = tagRender ?? genDefaultRender(rootPrefixCls);
-
   const [wrapSelectSSR, hashId] = useSelectStyle(prefixCls);
   const [wrapTreeSelectSSR] = useStyle(treeSelectPrefixCls, treePrefixCls);
 
@@ -238,7 +235,6 @@ const InternalTreeSelect = <
       treeLine={!!treeLine}
       inputIcon={suffixIcon}
       multiple={isMultiple}
-      tagRender={isMultiple ? mergedTagRender : undefined}
       placement={memoizedPlacement}
       removeIcon={removeIcon}
       clearIcon={clearIcon}
