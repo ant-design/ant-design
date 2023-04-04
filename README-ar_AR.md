@@ -93,7 +93,7 @@ const App = () => (
 
 ### كتابة السكربيت
 
-`antd` مكتوب في TypeScript مع تعريفات كاملة ، تحقق [Use in TypeScript](https://ant.design/docs/react/use-in-typescript) للبدء
+الخاصية `antd` مكتوبة في TypeScript مع تعريفات كاملة ، تحقق [Use in TypeScript](https://ant.design/docs/react/use-in-typescript) للبدء.
 
 ## 🌍 التدويل
 
@@ -118,7 +118,7 @@ const App = () => (
 - [تعليمات المطورين](https://github.com/ant-design/ant-design/wiki/Development)
 - [إعداد نسخ الاصدارات](https://github.com/ant-design/ant-design/wiki/%E8%BD%AE%E5%80%BC%E8%A7%84%E5%88%99%E5%92%8C%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B)
 - [أسئلة مكرة](https://ant.design/docs/react/faq)
-- [قال CodeSandbox](https://u.ant.design/codesandbox-repro) for bug reports
+- [قالب CodeSandbox](https://u.ant.design/codesandbox-repro) 
 - [تخصيص ثيم](https://ant.design/docs/react/customize-theme)
 - [كيفية التقدم بطلب المشاركة كمتعاون](https://github.com/ant-design/ant-design/wiki/Collaborators#how-to-apply-for-being-a-collaborator)
 
@@ -141,11 +141,11 @@ $ npm start
 
 ## 🤝 المساهمة [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
-أقرأ [دليل المساهمة](https://ant.design/docs/react/contributing)ودعونا نبني معاً الأفضل.
+أقرأ [دليل المساهمة](https://ant.design/docs/react/contributing) ودعونا نبني معاً الأفضل.
 
-نرحب بجميع المساهمات. يرجى قراءة [CONTRIBUTING.md](https://github.com/ant-design/ant-design/blob/master/.github/CONTRIBUTING.md) أولاً. يمكنك تقديم أي أفكار  [pull requests](https://github.com/ant-design/ant-design/pulls)أو  [GitHub issues](https://github.com/ant-design/ant-design/issues). إذا كنت ترغب في تحسين التعليمات البرمجية ، تحقق من [Development Instructions](https://github.com/ant-design/ant-design/wiki/Development)وأتمنى لك وقتاً ممتعاً! :)
+نرحب بجميع المساهمات. يرجى قراءة [CONTRIBUTING.md](https://github.com/ant-design/ant-design/blob/master/.github/CONTRIBUTING.md) أولاً. يمكنك تقديم أي أفكار  [pull requests](https://github.com/ant-design/ant-design/pulls) أو  [GitHub issues](https://github.com/ant-design/ant-design/issues). إذا كنت ترغب في تحسين التعليمات البرمجية ، تحقق من [Development Instructions](https://github.com/ant-design/ant-design/wiki/Development) وأتمنى لك وقتاً ممتعاً! :)
 
-إذا كنت مساهماً ، فيرجى اتباع  [Pull Request principle](https://github.com/ant-design/ant-design/wiki/PR-principle) لإنشاء Pull Request with [collaborator template](https://github.com/ant-design/ant-design/compare?expand=1&template=collaborator.md).
+إذا كنت مساهماً ، فيرجى اتباع  [Pull Request principle](https://github.com/ant-design/ant-design/wiki/PR-principle) لإنشاء طلب مساهمة مع [collaborator template](https://github.com/ant-design/ant-design/compare?expand=1&template=collaborator.md).
 
 [![Let's fund issues in this repository](https://issuehunt.io/static/embed/issuehunt-button-v1.svg)](https://issuehunt.io/repos/34526884)
 
