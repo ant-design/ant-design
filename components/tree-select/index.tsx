@@ -105,7 +105,7 @@ const InternalTreeSelect = <
     renderEmpty,
     direction,
     virtual,
-    dropdownMatchSelectWidth,
+    popupMatchSelectWidth,
   } = React.useContext(ConfigContext);
   const size = React.useContext(SizeContext);
 
@@ -224,7 +224,7 @@ const InternalTreeSelect = <
   const returnNode = (
     <RcTreeSelect
       virtual={virtual}
-      dropdownMatchSelectWidth={dropdownMatchSelectWidth}
+      dropdownMatchSelectWidth={popupMatchSelectWidth}
       disabled={mergedDisabled}
       {...selectProps}
       builtinPlacements={mergedBuiltinPlacements}

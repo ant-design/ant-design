@@ -93,7 +93,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     renderEmpty,
     direction,
     virtual,
-    dropdownMatchSelectWidth,
+    popupMatchSelectWidth,
     select,
   } = React.useContext(ConfigContext);
   const size = React.useContext(SizeContext);
@@ -206,7 +206,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     <RcSelect<any, any>
       ref={ref}
       virtual={virtual}
-      dropdownMatchSelectWidth={dropdownMatchSelectWidth}
+      dropdownMatchSelectWidth={popupMatchSelectWidth}
       showSearch={select?.showSearch}
       {...selectProps}
       builtinPlacements={mergedBuiltinPlacements}
