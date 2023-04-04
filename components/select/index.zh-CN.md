@@ -44,6 +44,7 @@ demo:
 <code src="./demo/debug.tsx" debug>4.0 Debug</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/option-label-center.tsx" debug>选项文本居中</code>
+<code src="./demo/debug-flip-shift.tsx" iframe="200" debug>翻转+偏移</code>
 
 ## API
 
