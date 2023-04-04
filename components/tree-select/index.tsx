@@ -93,7 +93,6 @@ const InternalTreeSelect = <
     status: customStatus,
     showArrow,
     treeExpandAction,
-    tagRender,
     ...props
   }: TreeSelectProps<ValueType, OptionType>,
   ref: React.Ref<BaseSelectRef>,

@@ -81,7 +81,6 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     notFoundContent,
     status: customStatus,
     showArrow,
-    tagRender,
     ...props
   }: SelectProps<OptionType>,
   ref: React.Ref<BaseSelectRef>,
