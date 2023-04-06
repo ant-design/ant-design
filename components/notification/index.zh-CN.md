@@ -62,6 +62,7 @@ config 参数如下：
 | top | 消息从顶部弹出时，距离顶部的位置，单位像素 | number | 24 |
 | onClick | 点击通知时触发的回调函数 | function | - |
 | onClose | 当通知关闭时触发 | function | - |
+| props | 透传至通知 `div` 上的 props 对象，支持传入 `data-*` `aria-*` 或 `role` 作为对象的属性。需要注意的是，虽然在 TypeScript 类型中声明的类型支持传入 `data-*` 作为对象的属性，但目前只允许传入 `data-testid` 作为对象的属性。 详见 https://github.com/microsoft/TypeScript/issues/28960 | Object | - |
 
 ### 全局配置
 
