@@ -20,6 +20,7 @@ import Spin from '../spin';
 import type { TooltipProps } from '../tooltip';
 import renderExpandIcon from './ExpandIcon';
 import RcTable from './RcTable';
+import { AnyObject } from './Table';
 import type { FilterState } from './hooks/useFilter';
 import useFilter, { getFilterData } from './hooks/useFilter';
 import useLazyKVMap from './hooks/useLazyKVMap';
@@ -108,8 +109,6 @@ export interface TableProps<RecordType>
   sortDirections?: SortOrder[];
   showSorterTooltip?: boolean | TooltipProps;
 }
-
-export type AnyObject = Record<PropertyKey, any>;
 
 const InternalTable = <RecordType extends AnyObject = any>(
   props: InternalTableProps<RecordType>,

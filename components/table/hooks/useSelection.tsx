@@ -14,7 +14,7 @@ import type { CheckboxProps } from '../../checkbox';
 import Checkbox from '../../checkbox';
 import Dropdown from '../../dropdown';
 import Radio from '../../radio';
-import { AnyObject } from '../InternalTable';
+import { AnyObject } from '../Table';
 import type {
   ColumnType,
   ColumnsType,
