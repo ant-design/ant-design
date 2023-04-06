@@ -95,7 +95,6 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         marginBottom: FIXED_ITEM_MARGIN,
         lineHeight: `${selectItemHeight - token.lineWidth * 2}px`,
         background: token.colorFillSecondary,
-        border: `${token.lineWidth}px solid transparent`,
         borderRadius: token.borderRadiusSM,
         cursor: 'default',
         transition: `font-size ${token.motionDurationSlow}, line-height ${token.motionDurationSlow}, height ${token.motionDurationSlow}`,
