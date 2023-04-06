@@ -232,22 +232,17 @@ const InternalButton: React.ForwardRefRenderFunction<
 
   const mergedIconClassName = classNames(`${prefixCls}-icon`, customClassNames?.icon);
 
-  const iconNode =
-    icon && !innerLoading ? (
-      icon
-    ) : (
-      <LoadingIcon existIcon={!!icon} prefixCls={prefixCls} loading={!!innerLoading} />
-    );
-
-  let mergedIconNode = null;
-
-  if ((icon && !innerLoading) || innerLoading) {
-    mergedIconNode = (
-      <span className={mergedIconClassName} style={styles?.icon}>
-        {iconNode}
-      </span>
-    );
+  let iconNode = null;
+  if (icon && !innerLoading) {
+    iconNode = icon;
+  } else if (innerLoading) {
+    iconNode = <LoadingIcon existIcon={!!icon} prefixCls={prefixCls} />;
   }
+  const mergedIcon = iconNode && (
+    <span className={mergedIconClassName} style={styles?.icon}>
+      {iconNode}
+    </span>
+  );
 
   const kids =
     children || children === 0
@@ -257,7 +252,7 @@ const InternalButton: React.ForwardRefRenderFunction<
   if (linkButtonRestProps.href !== undefined) {
     return wrapSSR(
       <a {...linkButtonRestProps} className={classes} onClick={handleClick} ref={buttonRef}>
-        {mergedIconNode}
+        {mergedIcon}
         {kids}
       </a>,
     );
@@ -272,7 +267,7 @@ const InternalButton: React.ForwardRefRenderFunction<
       disabled={mergedDisabled}
       ref={buttonRef}
     >
-      {mergedIconNode}
+      {mergedIcon}
       {kids}
     </button>
   );
