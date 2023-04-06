@@ -236,7 +236,7 @@ const InternalButton: React.ForwardRefRenderFunction<
   if (icon && !innerLoading) {
     iconNode = icon;
   } else if (innerLoading) {
-    iconNode = <LoadingIcon existIcon={!!icon} prefixCls={prefixCls} />;
+    iconNode = <LoadingIcon existIcon={!!icon} prefixCls={prefixCls} loading={!!innerLoading} />;
   }
   const mergedIcon = iconNode && (
     <span className={mergedIconClassName} style={styles?.icon}>
