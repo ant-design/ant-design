@@ -2,19 +2,18 @@
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
-import { ConfigContext } from '../config-provider';
-import DisabledContext from '../config-provider/DisabledContext';
-import SizeContext from '../config-provider/SizeContext';
-import { useCompactItemContext } from '../space/Compact';
 import warning from '../_util/warning';
 import Wave from '../_util/wave';
-import Group, { GroupSizeContext } from './button-group';
-import { isTwoCNChar, isUnBorderedButtonType, spaceChildren } from './buttonHelpers';
-import LoadingIcon from './LoadingIcon';
-import useStyle from './style';
-
+import { ConfigContext } from '../config-provider';
+import DisabledContext from '../config-provider/DisabledContext';
 import type { SizeType } from '../config-provider/SizeContext';
+import SizeContext from '../config-provider/SizeContext';
+import { useCompactItemContext } from '../space/Compact';
+import LoadingIcon from './LoadingIcon';
+import Group, { GroupSizeContext } from './button-group';
 import type { ButtonHTMLType, ButtonShape, ButtonType } from './buttonHelpers';
+import { isTwoCNChar, isUnBorderedButtonType, spaceChildren } from './buttonHelpers';
+import useStyle from './style';
 
 export type LegacyButtonType = ButtonType | 'danger';
 
@@ -39,6 +38,7 @@ export interface BaseButtonProps {
   danger?: boolean;
   block?: boolean;
   children?: React.ReactNode;
+  [key: `data-${string}`]: string;
 }
 
 export type AnchorButtonProps = {
@@ -201,7 +201,7 @@ const InternalButton: React.ForwardRefRenderFunction<
 
   const iconType = innerLoading ? 'loading' : icon;
 
-  const linkButtonRestProps = omit(rest as AnchorButtonProps & { navigate: any }, ['navigate']);
+  const linkButtonRestProps = omit(rest as ButtonProps & { navigate: any }, ['navigate']);
 
   const hrefAndDisabled = linkButtonRestProps.href !== undefined && mergedDisabled;
 
