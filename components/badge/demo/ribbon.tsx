@@ -8,7 +8,12 @@ const App: React.FC = () => (
         and raises the spyglass.
       </Card>
     </Badge.Ribbon>
-    <Badge.Ribbon text="Hippies" color="pink">
+    <Badge.Ribbon text={
+        <div>
+          Hippies <br />
+          Happy
+        </div>
+      } color="pink">
       <Card title="Pushes open the window" size="small">
         and raises the spyglass.
       </Card>
