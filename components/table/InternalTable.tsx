@@ -199,7 +199,7 @@ const InternalTable = <RecordType extends AnyObject = any>(
   const { childrenColumnName = 'children' } = mergedExpandable;
 
   const expandType = React.useMemo<ExpandType>(() => {
-    if (rawData.some((item) => (item as any)?.[childrenColumnName])) {
+    if (rawData.some((item) => item?.[childrenColumnName])) {
       return 'nest';
     }
 
@@ -215,13 +215,10 @@ const InternalTable = <RecordType extends AnyObject = any>(
   };
 
   // ============================ RowKey ============================
-  const getRowKey = React.useMemo<GetRowKey<RecordType>>(() => {
-    if (typeof rowKey === 'function') {
-      return rowKey;
-    }
-
-    return (record: RecordType) => (record as any)?.[rowKey as string];
-  }, [rowKey]);
+  const getRowKey = React.useMemo<GetRowKey<RecordType>>(
+    () => (typeof rowKey === 'function' ? rowKey : (record: RecordType) => record?.[rowKey]),
+    [rowKey],
+  );
 
   const [getRecordByKey] = useLazyKVMap(rawData, childrenColumnName, getRowKey);
 
