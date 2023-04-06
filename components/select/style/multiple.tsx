@@ -6,11 +6,11 @@ import { mergeToken } from '../../theme/internal';
 const FIXED_ITEM_MARGIN = 2;
 
 const getSelectItemStyle = ({
-  controlHeightSM,
-  controlHeight,
+  selectControlHeightSM,
+  selectControlHeight,
   lineWidth: borderWidth,
 }: SelectToken): readonly [number, number] => {
-  const selectItemDist = (controlHeight - controlHeightSM) / 2 - borderWidth;
+  const selectItemDist = (selectControlHeight - selectControlHeightSM) / 2 - borderWidth;
   const selectItemMargin = Math.ceil(selectItemDist / 2);
   return [selectItemDist, selectItemMargin] as const;
 };
@@ -20,14 +20,14 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
 
   const selectOverflowPrefixCls = `${componentCls}-selection-overflow`;
 
-  const selectItemHeight = token.controlHeightSM;
+  const selectItemHeight = token.selectControlHeight;
   const [selectItemDist] = getSelectItemStyle(token);
 
   const suffixCls = suffix ? `${componentCls}-${suffix}` : '';
 
   return {
     [`${componentCls}-multiple${suffixCls}`]: {
-      fontSize: token.fontSize,
+      fontSize: token.selectFontSize,
 
       /**
        * Do not merge `height` & `line-height` under style with `selection` & `search`, since chrome
@@ -56,7 +56,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         alignItems: 'center',
         // Multiple is little different that horizontal is follow the vertical
         padding: `${selectItemDist - FIXED_ITEM_MARGIN}px ${FIXED_ITEM_MARGIN * 2}px`,
-        borderRadius: token.borderRadius,
+        borderRadius: token.selectBorderRadius,
 
         [`${componentCls}-show-search&`]: {
           cursor: 'text',
@@ -96,7 +96,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         lineHeight: `${selectItemHeight - token.lineWidth * 2}px`,
         background: token.colorFillSecondary,
         border: `${token.lineWidth}px solid transparent`,
-        borderRadius: token.borderRadiusSM,
+        borderRadius: token.selectBorderRadiusSM,
         cursor: 'default',
         transition: `font-size ${token.motionDurationSlow}, line-height ${token.motionDurationSlow}, height ${token.motionDurationSlow}`,
         userSelect: 'none',
@@ -193,19 +193,19 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
 const genMultipleStyle = (token: SelectToken): CSSInterpolation => {
   const { componentCls } = token;
 
-  const smAllToken = mergeToken<SelectToken>(token, {
-    controlHeight: token.controlHeightSM,
-    controlHeightSM: token.controlHeightXS,
-    borderRadius: token.borderRadiusSM,
-    borderRadiusSM: token.borderRadiusXS,
+  const smallToken = mergeToken<SelectToken>(token, {
+    selectControlHeight: token.controlHeightSM,
+    selectControlHeightSM: token.controlHeightXS,
+    selectBorderRadius: token.borderRadiusSM,
+    selectBorderRadiusSM: token.borderRadiusXS,
   });
 
-  const lgAllToken = mergeToken<SelectToken>(token, {
-    fontSize: token.fontSizeLG,
-    controlHeight: token.controlHeightLG,
-    controlHeightSM: token.controlHeight,
-    borderRadius: token.borderRadiusLG,
-    borderRadiusSM: token.borderRadius,
+  const largeToken = mergeToken<SelectToken>(token, {
+    selectFontSize: token.fontSizeLG,
+    selectControlHeight: token.controlHeightLG,
+    selectControlHeightSM: token.controlHeight,
+    selectBorderRadius: token.borderRadiusLG,
+    selectBorderRadiusSM: token.borderRadius,
   });
 
   const [, smSelectItemMargin] = getSelectItemStyle(token);
@@ -213,8 +213,7 @@ const genMultipleStyle = (token: SelectToken): CSSInterpolation => {
   return [
     genSizeStyle(token),
     // ======================== Small ========================
-    // Shared
-    genSizeStyle(smAllToken, 'sm'),
+    genSizeStyle(smallToken, 'sm'),
 
     // Padding
     {
@@ -231,8 +230,7 @@ const genMultipleStyle = (token: SelectToken): CSSInterpolation => {
     },
 
     // ======================== Large ========================
-    // Shared
-    genSizeStyle(lgAllToken, 'lg'),
+    genSizeStyle(largeToken, 'lg'),
   ];
 };
 

@@ -126,7 +126,6 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     isFormItemInput,
     feedbackIcon,
   } = React.useContext(FormItemInputContext);
-
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
   // ===================== Empty =====================
