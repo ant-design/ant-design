@@ -31,6 +31,7 @@ import getIcons from '../select/utils/iconUtil';
 
 import genPurePanel from '../_util/PurePanel';
 import useSelectStyle from '../select/style';
+import useBuiltinPlacements from '../select/useBuiltinPlacements';
 import useShowArrow from '../select/useShowArrow';
 import useStyle from './style';
 
@@ -149,6 +150,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
     getPopupContainer,
     status: customStatus,
     showArrow,
+    builtinPlacements,
     ...rest
   } = props;
 
@@ -274,6 +276,8 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
     return isRtl ? 'bottomRight' : 'bottomLeft';
   }, [placement, isRtl]);
 
+  const mergedBuiltinPlacements = useBuiltinPlacements(builtinPlacements);
+
   // ==================== Render =====================
   const renderNode = (
     <RcCascader
@@ -295,6 +299,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
       )}
       disabled={mergedDisabled}
       {...(restProps as any)}
+      builtinPlacements={mergedBuiltinPlacements}
       direction={mergedDirection}
       placement={memoPlacement}
       notFoundContent={mergedNotFoundContent}

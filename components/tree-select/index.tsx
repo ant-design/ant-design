@@ -19,6 +19,7 @@ import SizeContext from '../config-provider/SizeContext';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import { FormItemInputContext } from '../form/context';
 import useSelectStyle from '../select/style';
+import useBuiltinPlacements from '../select/useBuiltinPlacements';
 import useShowArrow from '../select/useShowArrow';
 import getIcons from '../select/utils/iconUtil';
 import { useCompactItemContext } from '../space/Compact';
@@ -63,6 +64,9 @@ export interface TreeSelectProps<
   status?: InputStatus;
   switcherIcon?: SwitcherIcon | RcTreeSelectProps<ValueType, OptionType>['switcherIcon'];
   rootClassName?: string;
+  /** @deprecated Please use `popupMatchSelectWidth` instead */
+  dropdownMatchSelectWidth?: boolean | number;
+  popupMatchSelectWidth?: boolean | number;
 }
 
 const InternalTreeSelect = <
@@ -93,6 +97,9 @@ const InternalTreeSelect = <
     status: customStatus,
     showArrow,
     treeExpandAction,
+    builtinPlacements,
+    dropdownMatchSelectWidth,
+    popupMatchSelectWidth,
     ...props
   }: TreeSelectProps<ValueType, OptionType>,
   ref: React.Ref<BaseSelectRef>,
@@ -103,7 +110,7 @@ const InternalTreeSelect = <
     renderEmpty,
     direction,
     virtual,
-    dropdownMatchSelectWidth,
+    popupMatchSelectWidth: contextPopupMatchSelectWidth,
   } = React.useContext(ConfigContext);
   const size = React.useContext(SizeContext);
 
@@ -118,6 +125,12 @@ const InternalTreeSelect = <
       !dropdownClassName,
       'TreeSelect',
       '`dropdownClassName` is deprecated. Please use `popupClassName` instead.',
+    );
+
+    warning(
+      dropdownMatchSelectWidth === undefined,
+      'Select',
+      '`dropdownMatchSelectWidth` is deprecated. Please use `popupMatchSelectWidth` instead.',
     );
   }
 
@@ -142,6 +155,9 @@ const InternalTreeSelect = <
 
   const isMultiple = !!(treeCheckable || multiple);
   const mergedShowArrow = useShowArrow(showArrow);
+
+  const mergedPopupMatchSelectWidth =
+    popupMatchSelectWidth ?? dropdownMatchSelectWidth ?? contextPopupMatchSelectWidth;
 
   // ===================== Form =====================
   const {
@@ -187,6 +203,8 @@ const InternalTreeSelect = <
     return direction === 'rtl' ? 'bottomRight' : 'bottomLeft';
   }, [placement, direction]);
 
+  const mergedBuiltinPlacements = useBuiltinPlacements(builtinPlacements);
+
   const mergedSize = compactSize || customizeSize || size;
   // ===================== Disabled =====================
   const disabled = React.useContext(DisabledContext);
@@ -220,9 +238,10 @@ const InternalTreeSelect = <
   const returnNode = (
     <RcTreeSelect
       virtual={virtual}
-      dropdownMatchSelectWidth={dropdownMatchSelectWidth}
       disabled={mergedDisabled}
       {...selectProps}
+      dropdownMatchSelectWidth={mergedPopupMatchSelectWidth}
+      builtinPlacements={mergedBuiltinPlacements}
       ref={ref}
       prefixCls={prefixCls}
       className={mergedClassName}
