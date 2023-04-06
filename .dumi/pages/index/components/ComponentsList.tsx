@@ -282,7 +282,15 @@ export default function ComponentsList() {
     </div>
   ) : (
     <div style={{ width: '100%', overflow: 'hidden', display: 'flex', justifyContent: 'center' }}>
-      <div style={{ display: 'flex', alignItems: 'stretch', columnGap: token.paddingLG }}>
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'stretch',
+          rowGap: token.paddingLG,
+          flexWrap: 'wrap',
+          justifyContent: 'space-evenly',
+        }}
+      >
         {COMPONENTS.map(({ title, node, type }, index) => (
           <ComponentItem title={title} node={node} type={type} index={index} key={index} />
         ))}
