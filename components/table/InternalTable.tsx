@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import type { TableProps as RcTableProps } from 'rc-table/lib/Table';
 import { INTERNAL_HOOKS } from 'rc-table/lib/Table';
 import { convertChildrenToColumns } from 'rc-table/lib/hooks/useColumns';
-import { RenderExpandIcon } from 'rc-table/lib/interface';
+import type { RenderExpandIcon } from 'rc-table/lib/interface';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
 import type { Breakpoint } from '../_util/responsiveObserver';
