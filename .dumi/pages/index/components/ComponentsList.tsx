@@ -286,9 +286,9 @@ export default function ComponentsList() {
         style={{
           display: 'flex',
           alignItems: 'stretch',
-          rowGap: token.paddingLG,
-          flexWrap: 'wrap',
           justifyContent: 'space-evenly',
+          flexWrap: 'wrap',
+          rowGap: token.paddingLG,
         }}
       >
         {COMPONENTS.map(({ title, node, type }, index) => (
