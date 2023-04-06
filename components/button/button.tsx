@@ -38,6 +38,7 @@ export interface BaseButtonProps {
   danger?: boolean;
   block?: boolean;
   children?: React.ReactNode;
+  [key: `data-${string}`]: string;
 }
 
 export type AnchorButtonProps = {
@@ -53,11 +54,7 @@ export type NativeButtonProps = {
 } & BaseButtonProps &
   Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'type' | 'onClick'>;
 
-interface Dataset {
-  [key: `data-${string}`]: string;
-}
-
-export type ButtonProps = Partial<AnchorButtonProps & NativeButtonProps & Dataset>;
+export type ButtonProps = Partial<AnchorButtonProps & NativeButtonProps>;
 
 type CompoundedComponent = React.ForwardRefExoticComponent<
   ButtonProps & React.RefAttributes<HTMLElement>
