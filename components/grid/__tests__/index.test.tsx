@@ -3,8 +3,8 @@ import { act } from 'react-dom/test-utils';
 import { Col, Row } from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { fireEvent, render } from '../../../tests/utils';
 import useBreakpoint from '../hooks/useBreakpoint';
-import { render, fireEvent } from '../../../tests/utils';
 
 // Mock for `responsiveObserve` to test `unsubscribe` call
 jest.mock('../../_util/responsiveObserver', () => {
@@ -231,5 +231,18 @@ describe('Grid', () => {
       fireEvent.click(container.querySelector('span')!);
     });
     expect(container.innerHTML).toContain('ant-row-end');
+  });
+
+  it('The column spacing should be evenly spaced', () => {
+    const { container } = render(
+      <Row justify="space-evenly">
+        <Col span={4}>col-1</Col>
+        <Col span={4}>col-2</Col>
+      </Row>,
+    );
+
+    const row = container.querySelector('.ant-row-space-evenly');
+    expect(row).toBeTruthy();
+    expect(row && getComputedStyle(row).justifyContent).toEqual('space-evenly');
   });
 });
