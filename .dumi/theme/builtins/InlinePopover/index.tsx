@@ -1,5 +1,5 @@
 import { PictureOutlined } from '@ant-design/icons';
-import { Modal, Tooltip, Typography } from 'antd';
+import { Image, Tooltip, Typography } from 'antd';
 import React from 'react';
 import useLocale from '../../../hooks/useLocale';
 
@@ -21,19 +21,28 @@ const InlinePopover: React.FC = (props: InlinePopoverProps) => {
   const { previewURL } = props;
 
   const [locale] = useLocale(locales);
-  const [show, setShow] = React.useState(false);
+  const [visible, setVisible] = React.useState(false);
 
   return (
     <>
       <Tooltip title={locale.tip}>
-        <Typography.Link onClick={() => setShow(true)}>
+        <Typography.Link onClick={() => setVisible(true)}>
           <PictureOutlined />
         </Typography.Link>
       </Tooltip>
 
-      <Modal title={locale.tip} open={show} onCancel={() => setShow(false)} footer={null}>
-        <img alt="preview" src={previewURL} style={{ width: '100%' }} />
-      </Modal>
+      <Image
+        width={10}
+        style={{ display: 'none' }}
+        src={previewURL}
+        preview={{
+          visible,
+          src: previewURL,
+          onVisibleChange: (value) => {
+            setVisible(value);
+          },
+        }}
+      />
     </>
   );
 };
