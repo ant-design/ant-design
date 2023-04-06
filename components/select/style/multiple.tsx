@@ -6,11 +6,11 @@ import { mergeToken } from '../../theme/internal';
 const FIXED_ITEM_MARGIN = 2;
 
 const getSelectItemStyle = ({
-  selectControlHeightSM,
-  selectControlHeight,
+  controlHeightSM,
+  controlHeight,
   lineWidth: borderWidth,
 }: SelectToken): readonly [number, number] => {
-  const selectItemDist = (selectControlHeight - selectControlHeightSM) / 2 - borderWidth;
+  const selectItemDist = (controlHeight - controlHeightSM) / 2 - borderWidth;
   const selectItemMargin = Math.ceil(selectItemDist / 2);
   return [selectItemDist, selectItemMargin] as const;
 };
@@ -20,14 +20,14 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
 
   const selectOverflowPrefixCls = `${componentCls}-selection-overflow`;
 
-  const selectItemHeight = token.selectControlHeight;
+  const selectItemHeight = token.controlHeightSM;
   const [selectItemDist] = getSelectItemStyle(token);
 
   const suffixCls = suffix ? `${componentCls}-${suffix}` : '';
 
   return {
     [`${componentCls}-multiple${suffixCls}`]: {
-      fontSize: token.selectFontSize,
+      fontSize: token.fontSize,
 
       /**
        * Do not merge `height` & `line-height` under style with `selection` & `search`, since chrome
@@ -56,7 +56,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         alignItems: 'center',
         // Multiple is little different that horizontal is follow the vertical
         padding: `${selectItemDist - FIXED_ITEM_MARGIN}px ${FIXED_ITEM_MARGIN * 2}px`,
-        borderRadius: token.selectBorderRadius,
+        borderRadius: token.borderRadius,
 
         [`${componentCls}-show-search&`]: {
           cursor: 'text',
@@ -96,7 +96,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         lineHeight: `${selectItemHeight - token.lineWidth * 2}px`,
         background: token.colorFillSecondary,
         border: `${token.lineWidth}px solid transparent`,
-        borderRadius: token.selectBorderRadiusSM,
+        borderRadius: token.borderRadiusSM,
         cursor: 'default',
         transition: `font-size ${token.motionDurationSlow}, line-height ${token.motionDurationSlow}, height ${token.motionDurationSlow}`,
         userSelect: 'none',
@@ -194,18 +194,18 @@ const genMultipleStyle = (token: SelectToken): CSSInterpolation => {
   const { componentCls } = token;
 
   const smallToken = mergeToken<SelectToken>(token, {
-    selectControlHeight: token.controlHeightSM,
-    selectControlHeightSM: token.controlHeightXS,
-    selectBorderRadius: token.borderRadiusSM,
-    selectBorderRadiusSM: token.borderRadiusXS,
+    controlHeight: token.controlHeightSM,
+    controlHeightSM: token.controlHeightXS,
+    borderRadius: token.borderRadiusSM,
+    borderRadiusSM: token.borderRadiusXS,
   });
 
   const largeToken = mergeToken<SelectToken>(token, {
-    selectFontSize: token.fontSizeLG,
-    selectControlHeight: token.controlHeightLG,
-    selectControlHeightSM: token.controlHeight,
-    selectBorderRadius: token.borderRadiusLG,
-    selectBorderRadiusSM: token.borderRadius,
+    fontSize: token.fontSizeLG,
+    controlHeight: token.controlHeightLG,
+    controlHeightSM: token.controlHeight,
+    borderRadius: token.borderRadiusLG,
+    borderRadiusSM: token.borderRadius,
   });
 
   const [, smSelectItemMargin] = getSelectItemStyle(token);

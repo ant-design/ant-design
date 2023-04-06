@@ -14,11 +14,6 @@ export interface ComponentToken {
 export interface SelectToken extends FullToken<'Select'> {
   rootPrefixCls: string;
   inputPaddingHorizontalBase: number;
-  selectFontSize: number;
-  selectControlHeight: number;
-  selectControlHeightSM: number;
-  selectBorderRadius: number;
-  selectBorderRadiusSM: number;
 }
 
 // ============================= Selector =============================
