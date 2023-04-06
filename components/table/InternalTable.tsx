@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import type { TableProps as RcTableProps } from 'rc-table/lib/Table';
 import { INTERNAL_HOOKS } from 'rc-table/lib/Table';
 import { convertChildrenToColumns } from 'rc-table/lib/hooks/useColumns';
+import { RenderExpandIcon } from 'rc-table/lib/interface';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
 import type { Breakpoint } from '../_util/responsiveObserver';
@@ -415,21 +416,18 @@ const InternalTable = <RecordType extends AnyObject = any>(
     rowSelection,
   );
 
-  const internalRowClassName = (record: RecordType, index: number, indent: number) => {
-    let mergedRowClassName: string;
-    if (typeof rowClassName === 'function') {
-      mergedRowClassName = classNames(rowClassName(record, index, indent));
-    } else {
-      mergedRowClassName = classNames(rowClassName);
-    }
-
-    return classNames(
-      {
-        [`${prefixCls}-row-selected`]: selectedKeySet.has(getRowKey(record, index)),
-      },
-      mergedRowClassName,
-    );
-  };
+  const internalRowClassName = React.useCallback(
+    (record: RecordType, index: number, indent: number) => {
+      const mergedRowClassName = classNames(
+        typeof rowClassName === 'function' ? rowClassName(record, index, indent) : rowClassName,
+      );
+      return classNames(
+        { [`${prefixCls}-row-selected`]: selectedKeySet.has(getRowKey(record, index)) },
+        mergedRowClassName,
+      );
+    },
+    [rowClassName, prefixCls, selectedKeySet, getRowKey],
+  );
 
   // ========================== Expandable ==========================
 
@@ -437,8 +435,10 @@ const InternalTable = <RecordType extends AnyObject = any>(
   (mergedExpandable as any).__PARENT_RENDER_ICON__ = mergedExpandable.expandIcon;
 
   // Customize expandable icon
-  mergedExpandable.expandIcon =
-    mergedExpandable.expandIcon || expandIcon || renderExpandIcon(tableLocale!);
+  mergedExpandable.expandIcon = React.useMemo<RenderExpandIcon<RecordType>>(
+    () => mergedExpandable.expandIcon || expandIcon || renderExpandIcon(tableLocale),
+    [mergedExpandable.expandIcon, expandIcon, tableLocale],
+  );
 
   // Adjust expand icon index, no overwrite expandIconColumnIndex if set.
   if (expandType === 'nest' && mergedExpandable.expandIconColumnIndex === undefined) {
