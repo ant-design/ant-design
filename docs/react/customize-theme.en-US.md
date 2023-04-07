@@ -363,6 +363,7 @@ Then call the above method in `_document.tsx` to perform the css pull away task 
 import { StyleProvider, createCache } from '@ant-design/cssinjs';
 import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/document';
 import { doExtraStyle } from '../scripts/genAntdCss';
+
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const cache = createCache();
