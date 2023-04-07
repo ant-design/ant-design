@@ -9,7 +9,7 @@ describe('List Item Layout', () => {
       key: 1,
       href: 'https://ant.design',
       title: 'ant design',
-      avatar: 'https://joesch.moe/api/v1/random',
+      avatar: 'https://xsgames.co/randomusers/avatar.php?g=pixel',
       description:
         'Ant Design, a design language for background applications, is refined by Ant UED Team.',
       content:
