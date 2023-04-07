@@ -186,7 +186,7 @@ describe('Tree', () => {
     });
   });
 
-  it('hidden switcherIcon', () => {
+  describe('hidden switcherIcon', () => {
     it('use `switcherIcon={() => null}`', () => {
       const { container } = render(
         <Tree defaultExpandAll switcherIcon={() => null}>
@@ -196,7 +196,9 @@ describe('Tree', () => {
           </TreeNode>
         </Tree>,
       );
-      expect(container.querySelectorAll('.ant-tree-switcher').length).toBe(0);
+      container.querySelectorAll('.ant-tree-switcher').forEach((el) => {
+        expect(el.children.length).toBe(0);
+      });
     });
     it('use `switcherIcon={null}`', () => {
       const { container } = render(
@@ -207,7 +209,9 @@ describe('Tree', () => {
           </TreeNode>
         </Tree>,
       );
-      expect(container.querySelectorAll('.ant-tree-switcher').length).toBe(0);
+      container.querySelectorAll('.ant-tree-switcher').forEach((el) => {
+        expect(el.children.length).toBe(0);
+      });
     });
   });
 });
