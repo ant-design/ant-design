@@ -36,7 +36,7 @@ export interface AvatarProps {
   crossOrigin?: '' | 'anonymous' | 'use-credentials';
   onClick?: (e?: React.MouseEvent<HTMLElement>) => void;
   /* callback when img load error */
-  /* return false to prevent Avatar show default fallback behavior, then you can do fallback by your self */
+  /* return false to prevent Avatar show default fallback behavior, then you can do fallback by yourself */
   onError?: () => boolean;
 }
 
