@@ -64,7 +64,7 @@ const SwitcherIconCom: React.FC<SwitcherIconProps> = (props) => {
     });
   }
 
-  if (switcher !== undefined || typeof switcherIcon === 'function') {
+  if (switcher !== undefined) {
     return switcher as unknown as React.ReactElement;
   }
 
