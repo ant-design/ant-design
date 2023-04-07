@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
+import { NoCompactStyle } from '../space/Compact';
 import type { AbstractTooltipProps } from '../tooltip';
 import Tooltip from '../tooltip';
 import type { RenderFunction } from '../_util/getRenderPropValue';
@@ -55,20 +56,22 @@ const Popover = React.forwardRef<unknown, PopoverProps>((props, ref) => {
   const overlayCls = classNames(overlayClassName, hashId);
 
   return wrapSSR(
-    <Tooltip
-      placement={placement}
-      trigger={trigger}
-      mouseEnterDelay={mouseEnterDelay}
-      mouseLeaveDelay={mouseLeaveDelay}
-      overlayStyle={overlayStyle}
-      {...otherProps}
-      prefixCls={prefixCls}
-      overlayClassName={overlayCls}
-      ref={ref}
-      overlay={<Overlay prefixCls={prefixCls} title={title} content={content} />}
-      transitionName={getTransitionName(rootPrefixCls, 'zoom-big', otherProps.transitionName)}
-      data-popover-inject
-    />,
+    <NoCompactStyle>
+      <Tooltip
+        placement={placement}
+        trigger={trigger}
+        mouseEnterDelay={mouseEnterDelay}
+        mouseLeaveDelay={mouseLeaveDelay}
+        overlayStyle={overlayStyle}
+        {...otherProps}
+        prefixCls={prefixCls}
+        overlayClassName={overlayCls}
+        ref={ref}
+        overlay={<Overlay prefixCls={prefixCls} title={title} content={content} />}
+        transitionName={getTransitionName(rootPrefixCls, 'zoom-big', otherProps.transitionName)}
+        data-popover-inject
+      />
+    </NoCompactStyle>,
   );
 }) as React.ForwardRefExoticComponent<
   React.PropsWithoutRef<PopoverProps> & React.RefAttributes<unknown>
