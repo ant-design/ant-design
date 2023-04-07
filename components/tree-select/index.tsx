@@ -111,6 +111,7 @@ const InternalTreeSelect = <
     direction,
     virtual,
     popupMatchSelectWidth: contextPopupMatchSelectWidth,
+    popupOverflow,
   } = React.useContext(ConfigContext);
   const size = React.useContext(SizeContext);
 
@@ -203,7 +204,7 @@ const InternalTreeSelect = <
     return direction === 'rtl' ? 'bottomRight' : 'bottomLeft';
   }, [placement, direction]);
 
-  const mergedBuiltinPlacements = useBuiltinPlacements(builtinPlacements);
+  const mergedBuiltinPlacements = useBuiltinPlacements(builtinPlacements, popupOverflow);
 
   const mergedSize = compactSize || customizeSize || size;
   // ===================== Disabled =====================

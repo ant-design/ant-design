@@ -34,6 +34,8 @@ export interface ThemeConfig {
   inherit?: boolean;
 }
 
+export type PopupOverflow = 'viewport' | 'scroll';
+
 export interface ConfigConsumerProps {
   getTargetContainer?: () => HTMLElement;
   getPopupContainer?: (triggerNode?: HTMLElement) => HTMLElement;
@@ -59,6 +61,7 @@ export interface ConfigConsumerProps {
   };
   virtual?: boolean;
   popupMatchSelectWidth?: boolean;
+  popupOverflow?: PopupOverflow;
   form?: {
     requiredMark?: RequiredMark;
     colon?: boolean;

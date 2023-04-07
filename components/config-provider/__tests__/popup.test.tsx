@@ -1,17 +1,34 @@
+import type { TriggerProps } from '@rc-component/trigger';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import React from 'react';
 import ConfigProvider from '..';
+import { render } from '../../../tests/utils';
 import Cascader from '../../cascader';
 import Select from '../../select';
 import TreeSelect from '../../tree-select';
-// eslint-disable-next-line import/no-named-as-default
-import { render } from '../../../tests/utils';
 
 dayjs.extend(customParseFormat);
 jest.mock('rc-util/lib/Portal');
 
+function triggerProps(): TriggerProps {
+  return (global as any).triggerProps;
+}
+
+jest.mock('@rc-component/trigger', () => {
+  const R = jest.requireActual('react');
+  const Trigger = jest.requireActual('@rc-component/trigger').default;
+  return R.forwardRef((props: any, ref: any) => {
+    (global as any).triggerProps = props;
+    return <Trigger {...props} ref={ref} />;
+  });
+});
+
 describe('ConfigProvider.Popup', () => {
+  beforeEach(() => {
+    (global as any).triggerProps = null;
+  });
+
   const selectLikeNodes = (
     <>
       <Select
@@ -58,5 +75,37 @@ describe('ConfigProvider.Popup', () => {
     );
 
     expect(container).toMatchSnapshot();
+  });
+
+  describe('config popupOverflow', () => {
+    it('Select', () => {
+      render(
+        <ConfigProvider popupOverflow="scroll">
+          <Select open />
+        </ConfigProvider>,
+      );
+
+      expect(triggerProps().builtinPlacements!.topLeft!.htmlRegion).toBe('scroll');
+    });
+
+    it('TreeSelect', () => {
+      render(
+        <ConfigProvider popupOverflow="scroll">
+          <TreeSelect open />
+        </ConfigProvider>,
+      );
+
+      expect(triggerProps().builtinPlacements!.topLeft!.htmlRegion).toBe('scroll');
+    });
+
+    it('Cascader', () => {
+      render(
+        <ConfigProvider popupOverflow="scroll">
+          <Cascader open />
+        </ConfigProvider>,
+      );
+
+      expect(triggerProps().builtinPlacements!.topLeft!.htmlRegion).toBe('scroll');
+    });
   });
 });
