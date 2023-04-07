@@ -175,7 +175,7 @@ describe('Form', () => {
     // https://github.com/ant-design/ant-design/issues/41620
     it('should not throw error when `help=false` and `noStyle=true`', async () => {
       const App = (props: { help?: boolean | React.ReactNode }) => {
-        const { help } = props || {};
+        const { help = false } = props || {};
         return (
           <Form>
             <Form.Item name="list" label="List" rules={[{ required: true }]}>
@@ -193,8 +193,7 @@ describe('Form', () => {
         );
       };
 
-      // When noStyle=true but help is `false`, no error will be displayed
-      const { container, getByRole, rerender } = render(<App help={false} />);
+      const { container, getByRole, rerender } = render(<App />);
 
       // click submit to trigger validate
       fireEvent.click(getByRole('button'));
