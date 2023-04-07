@@ -2083,7 +2083,7 @@ Array [
           checked=""
           class="ant-radio-button-input"
           type="radio"
-          value="default"
+          value="middle"
         />
         <span
           class="ant-radio-button-inner"
