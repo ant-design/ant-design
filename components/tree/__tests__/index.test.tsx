@@ -185,4 +185,16 @@ describe('Tree', () => {
       expect(nodeDraggable).toHaveBeenCalledWith(dragTreeData[0]);
     });
   });
+
+  it('hidden switcherIcon', () => {
+    const { container } = render(
+      <Tree defaultExpandAll switcherIcon={() => null}>
+        <TreeNode icon="icon">
+          <TreeNode title="node1" icon="icon" key="0-0-2" />
+          <TreeNode title="node2" key="0-0-3" />
+        </TreeNode>
+      </Tree>,
+    );
+    expect(container.querySelectorAll('ant-tree-switcher').length).toBe(0);
+  });
 });
