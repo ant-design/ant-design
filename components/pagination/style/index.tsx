@@ -122,7 +122,7 @@ const genPaginationDisabledStyle: GenerateStyle<PaginationToken, CSSObject> = (t
       },
     },
     [`&${componentCls}-simple`]: {
-      [['prev', 'next'].map((cls) => `${componentCls}-${cls}`).join(',')]: {
+      [`${componentCls}-prev, ${componentCls}-next`]: {
         [`&${componentCls}-disabled ${componentCls}-item-link`]: {
           '&:hover, &:active': {
             backgroundColor: 'transparent',
