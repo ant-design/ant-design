@@ -1,24 +1,26 @@
 import classNames from 'classnames';
-import { convertChildrenToColumns } from 'rc-table/lib/hooks/useColumns';
 import type { TableProps as RcTableProps } from 'rc-table/lib/Table';
 import { INTERNAL_HOOKS } from 'rc-table/lib/Table';
+import { convertChildrenToColumns } from 'rc-table/lib/hooks/useColumns';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
+import type { Breakpoint } from '../_util/responsiveObserver';
+import scrollTo from '../_util/scrollTo';
+import warning from '../_util/warning';
+import type { SizeType } from '../config-provider/SizeContext';
+import SizeContext from '../config-provider/SizeContext';
 import type { ConfigConsumerProps } from '../config-provider/context';
 import { ConfigContext } from '../config-provider/context';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
-import type { SizeType } from '../config-provider/SizeContext';
-import SizeContext from '../config-provider/SizeContext';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import defaultLocale from '../locale/en_US';
 import Pagination from '../pagination';
 import type { SpinProps } from '../spin';
 import Spin from '../spin';
 import type { TooltipProps } from '../tooltip';
-import type { Breakpoint } from '../_util/responsiveObserver';
-import scrollTo from '../_util/scrollTo';
-import warning from '../_util/warning';
 import renderExpandIcon from './ExpandIcon';
+import RcTable from './RcTable';
+import type { AnyObject } from './Table';
 import type { FilterState } from './hooks/useFilter';
 import useFilter, { getFilterData } from './hooks/useFilter';
 import useLazyKVMap from './hooks/useLazyKVMap';
@@ -28,25 +30,23 @@ import type { SortState } from './hooks/useSorter';
 import useSorter, { getSortData } from './hooks/useSorter';
 import useTitleColumns from './hooks/useTitleColumns';
 import type {
-  ColumnsType,
   ColumnTitleProps,
   ColumnType,
-  ExpandableConfig,
+  ColumnsType,
   ExpandType,
+  ExpandableConfig,
   FilterValue,
   GetPopupContainer,
   GetRowKey,
   RefInternalTable,
-  SorterResult,
   SortOrder,
+  SorterResult,
   TableAction,
   TableCurrentDataSource,
   TableLocale,
   TablePaginationConfig,
   TableRowSelection,
 } from './interface';
-import RcTable from './RcTable';
-
 import useStyle from './style';
 
 export type { ColumnsType, TablePaginationConfig };
@@ -110,11 +110,10 @@ export interface TableProps<RecordType>
   showSorterTooltip?: boolean | TooltipProps;
 }
 
-function InternalTable<RecordType extends object = any>(
+const InternalTable = <RecordType extends AnyObject = any>(
   props: InternalTableProps<RecordType>,
   ref: React.MutableRefObject<HTMLDivElement>,
-) {
-  const { getPopupContainer: getContextPopupContainer } = React.useContext(ConfigContext);
+) => {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -181,6 +180,7 @@ function InternalTable<RecordType extends object = any>(
     direction,
     renderEmpty,
     getPrefixCls,
+    getPopupContainer: getContextPopupContainer,
   } = React.useContext<ConfigConsumerProps>(ConfigContext);
 
   const mergedSize = customizeSize || size;
@@ -560,6 +560,6 @@ function InternalTable<RecordType extends object = any>(
       </Spin>
     </div>,
   );
-}
+};
 
 export default React.forwardRef(InternalTable) as RefInternalTable;

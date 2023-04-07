@@ -1736,6 +1736,20 @@ describe('Form', () => {
     expect(container.querySelector('.ant-form-item-has-error')).toBeTruthy();
   });
 
+  // https://github.com/ant-design/ant-design/issues/41621
+  it('should not override value when pass `undefined` to require', async () => {
+    // When require is `undefined`, the `isRequire` calculation logic should be preserved
+    const { container } = render(
+      <Form>
+        <Form.Item label="test" name="success" required={undefined} rules={[{ required: true }]}>
+          <Input />
+        </Form.Item>
+      </Form>,
+    );
+
+    expect(container.querySelector('.ant-form-item-required')).toBeTruthy();
+  });
+
   it('validate status should be change in order', async () => {
     const onChange = jest.fn();
 

@@ -284,7 +284,6 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
       ...resetComponent(token),
       position: 'absolute',
       top: marginXS,
-      height: badgeFontHeight,
       padding: `0 ${token.paddingXS}px`,
       color: token.colorPrimary,
       lineHeight: `${badgeFontHeight}px`,

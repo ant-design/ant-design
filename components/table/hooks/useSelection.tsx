@@ -1,4 +1,5 @@
 import DownOutlined from '@ant-design/icons/DownOutlined';
+import classNames from 'classnames';
 import { INTERNAL_COL_DEFINE } from 'rc-table';
 import type { FixedType } from 'rc-table/lib/interface';
 import type { DataNode, GetCheckDisabled } from 'rc-tree/lib/interface';
@@ -8,14 +9,15 @@ import { convertDataToEntities } from 'rc-tree/lib/utils/treeUtil';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import * as React from 'react';
 import { useCallback, useMemo, useState } from 'react';
+import warning from '../../_util/warning';
 import type { CheckboxProps } from '../../checkbox';
 import Checkbox from '../../checkbox';
 import Dropdown from '../../dropdown';
 import Radio from '../../radio';
-import warning from '../../_util/warning';
+import type { AnyObject } from '../Table';
 import type {
-  ColumnsType,
   ColumnType,
+  ColumnsType,
   ExpandType,
   GetPopupContainer,
   GetRowKey,
@@ -36,7 +38,7 @@ export const SELECTION_NONE = 'SELECT_NONE' as const;
 
 const EMPTY_LIST: React.Key[] = [];
 
-interface UseSelectionConfig<RecordType> {
+interface UseSelectionConfig<RecordType extends AnyObject = any> {
   prefixCls: string;
   pageData: RecordType[];
   data: RecordType[];
@@ -54,24 +56,24 @@ export type INTERNAL_SELECTION_ITEM =
   | typeof SELECTION_INVERT
   | typeof SELECTION_NONE;
 
-function flattenData<RecordType>(childrenColumnName: string, data?: RecordType[]): RecordType[] {
+const flattenData = <RecordType extends AnyObject = any>(
+  childrenColumnName: keyof RecordType,
+  data?: RecordType[],
+): RecordType[] => {
   let list: RecordType[] = [];
   (data || []).forEach((record) => {
     list.push(record);
     if (record && typeof record === 'object' && childrenColumnName in record) {
-      list = [
-        ...list,
-        ...flattenData<RecordType>(childrenColumnName, (record as any)[childrenColumnName]),
-      ];
+      list = [...list, ...flattenData<RecordType>(childrenColumnName, record[childrenColumnName])];
     }
   });
   return list;
-}
+};
 
-function useSelection<RecordType>(
+const useSelection = <RecordType extends AnyObject = any>(
   config: UseSelectionConfig<RecordType>,
   rowSelection?: TableRowSelection<RecordType>,
-): readonly [TransformColumns<RecordType>, Set<Key>] {
+): readonly [TransformColumns<RecordType>, Set<Key>] => {
   const {
     preserveSelectedRowKeys,
     selectedRowKeys,
@@ -155,7 +157,7 @@ function useSelection<RecordType>(
   // Get flatten data
   const flattedData = useMemo(
     () => flattenData(childrenColumnName, pageData),
-    [pageData, childrenColumnName],
+    [childrenColumnName, pageData],
   );
 
   // Get all checkbox props
@@ -193,11 +195,12 @@ function useSelection<RecordType>(
     return [checkedKeys || [], halfCheckedKeys];
   }, [mergedSelectedKeys, checkStrictly, keyEntities, isCheckboxDisabled]);
 
-  const derivedSelectedKeySet: Set<Key> = useMemo(() => {
+  const derivedSelectedKeySet = useMemo<Set<Key>>(() => {
     const keys = selectionType === 'radio' ? derivedSelectedKeys.slice(0, 1) : derivedSelectedKeys;
     return new Set(keys);
   }, [derivedSelectedKeys, selectionType]);
-  const derivedHalfSelectedKeySet = useMemo(
+
+  const derivedHalfSelectedKeySet = useMemo<Set<Key>>(
     () => (selectionType === 'radio' ? new Set() : new Set(derivedHalfSelectedKeys)),
     [derivedHalfSelectedKeys, selectionType],
   );
@@ -410,7 +413,7 @@ function useSelection<RecordType>(
               const { key, text, onSelect: onSelectionClick } = selection;
 
               return {
-                key: key || index,
+                key: key ?? index,
                 onClick: () => {
                   onSelectionClick?.(recordKeys);
                 },
@@ -684,6 +687,10 @@ function useSelection<RecordType>(
         prevCol.fixed = mergedFixed;
       }
 
+      const columnCls = classNames(`${prefixCls}-selection-col`, {
+        [`${prefixCls}-selection-col-with-dropdown`]: selections && selectionType === 'checkbox',
+      });
+
       // Replace with real selection column
       const selectionColumn = {
         fixed: mergedFixed,
@@ -691,9 +698,7 @@ function useSelection<RecordType>(
         className: `${prefixCls}-selection-column`,
         title: rowSelection.columnTitle || title,
         render: renderSelectionCell,
-        [INTERNAL_COL_DEFINE]: {
-          className: `${prefixCls}-selection-col`,
-        },
+        [INTERNAL_COL_DEFINE]: { className: columnCls },
       };
 
       return cloneColumns.map((col) => (col === SELECTION_COLUMN ? selectionColumn : col));
@@ -717,6 +722,6 @@ function useSelection<RecordType>(
   );
 
   return [transformColumns, derivedSelectedKeySet] as const;
-}
+};
 
 export default useSelection;

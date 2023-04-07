@@ -104,6 +104,7 @@ const columns = [
 <code src="./demo/row-selection-custom-debug.tsx" debug>Custom selection group</code>
 <code src="./demo/sticky.tsx">Fixed header and scroll bar with the page</code>
 <code src="./demo/dynamic-settings.tsx">Dynamic Settings</code>
+<code src="./demo/selections-debug.tsx" debug>selections with icon</code>
 
 ## API
 

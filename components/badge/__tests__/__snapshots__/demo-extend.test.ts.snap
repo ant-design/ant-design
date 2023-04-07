@@ -1964,7 +1964,11 @@ exports[`renders components/badge/demo/ribbon.tsx extend context correctly 1`] =
         <span
           class="ant-ribbon-text"
         >
-          Hippies
+          <div>
+            Hippies
+            <br />
+            Happy
+          </div>
         </span>
         <div
           class="ant-ribbon-corner"
