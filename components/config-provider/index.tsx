@@ -16,7 +16,14 @@ import LocaleContext from '../locale/context';
 import defaultLocale from '../locale/en_US';
 import { DesignTokenContext } from '../theme/internal';
 import defaultSeedToken from '../theme/themes/seed';
-import type { ConfigConsumerProps, CSPConfig, DirectionType, Theme, ThemeConfig } from './context';
+import type {
+  ConfigConsumerProps,
+  CSPConfig,
+  DirectionType,
+  PopupOverflow,
+  Theme,
+  ThemeConfig,
+} from './context';
 import { ConfigConsumer, ConfigContext, defaultIconPrefixCls } from './context';
 import { registerTheme } from './cssVariables';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
@@ -118,6 +125,7 @@ export interface ConfigProviderProps {
   /** @deprecated Please use `popupMatchSelectWidth` instead */
   dropdownMatchSelectWidth?: boolean;
   popupMatchSelectWidth?: boolean;
+  popupOverflow?: PopupOverflow;
   theme?: ThemeConfig;
 }
 
@@ -185,6 +193,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     virtual,
     dropdownMatchSelectWidth,
     popupMatchSelectWidth,
+    popupOverflow,
     legacyLocale,
     parentContext,
     iconPrefixCls: customIconPrefixCls,
@@ -235,6 +244,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     space,
     virtual,
     popupMatchSelectWidth: popupMatchSelectWidth ?? dropdownMatchSelectWidth,
+    popupOverflow,
     getPrefixCls,
     iconPrefixCls,
     theme: mergedTheme,
