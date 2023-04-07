@@ -8,7 +8,7 @@ const getChangelogByVersion = (content, version) => {
   const lines = content.split('\n');
   const changeLog = [];
   const startPattern = new RegExp(`^## ${version}`);
-  const stopPattern = /^## /; // previous version
+  const stopPattern = /^## /; // 前一个版本
   let begin = false;
   for (let i = 0; i < lines.length; i += 1) {
     const line = lines[i];
