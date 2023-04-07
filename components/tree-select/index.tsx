@@ -253,7 +253,7 @@ const InternalTreeSelect = <
       }
       treeLine={!!treeLine}
       inputIcon={suffixIcon}
-      multiple={multiple}
+      multiple={isMultiple}
       placement={memoizedPlacement}
       removeIcon={removeIcon}
       clearIcon={clearIcon}
