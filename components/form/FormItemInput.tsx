@@ -31,7 +31,7 @@ export interface FormItemInputProps {
   wrapperCol?: ColProps;
   extra?: React.ReactNode;
   status?: ValidateStatus;
-  help?: React.ReactNode;
+  help?: false | React.ReactNode;
   fieldId?: string;
 }
 
