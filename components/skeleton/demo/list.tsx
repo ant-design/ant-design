@@ -11,7 +11,7 @@ interface IconTextProps {
 const listData = Array.from({ length: 3 }).map((_, i) => ({
   href: 'https://ant.design',
   title: `ant design part ${i + 1}`,
-  avatar: `https://joesch.moe/api/v1/random?key=${i}`,
+  avatar: `https://xsgames.co/randomusers/avatar.php?g=pixel&key=${i}`,
   description:
     'Ant Design, a design language for background applications, is refined by Ant UED Team.',
   content:
