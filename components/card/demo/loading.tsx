@@ -16,7 +16,7 @@ const App: React.FC = () => {
       <Switch checked={!loading} onChange={onChange} />
       <Card style={{ width: 300, marginTop: 16 }} loading={loading}>
         <Meta
-          avatar={<Avatar src="https://joesch.moe/api/v1/random?key=1" />}
+          avatar={<Avatar src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=1" />}
           title="Card title"
           description="This is the description"
         />
@@ -31,7 +31,7 @@ const App: React.FC = () => {
       >
         <Skeleton loading={loading} avatar active>
           <Meta
-            avatar={<Avatar src="https://joesch.moe/api/v1/random?key=2" />}
+            avatar={<Avatar src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=2" />}
             title="Card title"
             description="This is the description"
           />
