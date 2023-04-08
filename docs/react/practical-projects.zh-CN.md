@@ -316,7 +316,7 @@ export default function Layout() {
 }
 ```
 
-这里先用 umi 的 `useAppData` 拿到全局客户端路由 `clientRoutes`，这是一份嵌套结构的路由表，我们把 `clientRoutes[0]` 传给 ProLayout；再通过 `useLocation()` 拿到 location 信息，也传给 ProLayout 来决定哪个菜单应该高亮；同时我们希望点击菜单时做路由跳转，需要需要定制 ProLayout 的 menuItemRender 方法。
+这里先用 umi 的 `useAppData` 拿到全局客户端路由 `clientRoutes`，这是一份嵌套结构的路由表，我们把 `clientRoutes[0]` 传给 ProLayout；再通过 `useLocation()` 拿到 location 信息，也传给 ProLayout 来决定哪个菜单应该高亮；同时我们希望点击菜单时做路由跳转，需要定制 ProLayout 的 menuItemRender 方法。
 
 聪明的你可能已经发现 `src/layouts/index.less` 已经没地方引用他了，为了保持项目文件的整洁，可以选择删掉他。
 
