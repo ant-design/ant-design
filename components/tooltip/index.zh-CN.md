@@ -60,6 +60,10 @@ demo:
 | zIndex | 设置 Tooltip 的 `z-index` | number | - |  |
 | onOpenChange | 显示隐藏的回调 | (open: boolean) => void | - | 4.23.0 |
 
+## Design Token
+
+<ComponentTokenTable component="Tooltip"></ComponentTokenTable>
+
 ## 注意
 
 请确保 `Tooltip` 的子元素能接受 `onMouseEnter`、`onMouseLeave`、`onFocus`、`onClick` 事件。

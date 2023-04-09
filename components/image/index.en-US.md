@@ -60,3 +60,7 @@ Previewable image.
 ```
 
 Other attributes [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#Attributes)
+
+## Design Token
+
+<ComponentTokenTable component="Image"></ComponentTokenTable>

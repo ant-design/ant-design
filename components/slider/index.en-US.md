@@ -74,3 +74,7 @@ To input a value in a range.
 | ------- | ------------ | ------- |
 | blur()  | Remove focus |         |
 | focus() | Get focus    |         |
+
+## Design Token
+
+<ComponentTokenTable component="Slider"></ComponentTokenTable>

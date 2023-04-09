@@ -480,6 +480,10 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 | form     | 指定 Form 实例                        | FormInstance | 当前 context 中的 Form | 5.4.0 |
 | preserve | 是否监视没有对应的 `Form.Item` 的字段 | boolean      | false                  | 5.4.0 |
 
+## Design Token
+
+<ComponentTokenTable component="Form"></ComponentTokenTable>
+
 ## FAQ
 
 ### 自定义 validator 没有效果

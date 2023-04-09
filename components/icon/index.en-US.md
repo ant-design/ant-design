@@ -177,3 +177,7 @@ The following properties are available for the component:
 | height | The height of the `svg` element | string \| number | `1em` |  |
 | style | The computed style of the `svg` element | CSSProperties | - |  |
 | width | The width of the `svg` element | string \| number | `1em` |  |
+
+## Design Token
+
+<ComponentTokenTable component="Icon"></ComponentTokenTable>

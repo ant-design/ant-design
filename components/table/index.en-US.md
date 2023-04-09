@@ -322,6 +322,10 @@ export default Demo;
 
 Here is the [CodeSandbox for TypeScript](https://codesandbox.io/s/serene-platform-0jo5t).
 
+## Design Token
+
+<ComponentTokenTable component="Table"></ComponentTokenTable>
+
 ## Note
 
 According to the [React documentation](https://facebook.github.io/react/docs/lists-and-keys.html#keys), every child in an array should be assigned a unique key. The values inside the Table's `dataSource` and `columns` should follow this rule. By default, `dataSource[i].key` will be treated as the key value for `dataSource`.

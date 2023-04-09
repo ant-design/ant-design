@@ -125,6 +125,10 @@ demo:
 | --- | --- |
 | scrollTo({ key: string \| number; align?: 'top' \| 'bottom' \| 'auto'; offset?: number }) | 虚拟滚动下，滚动到指定 key 条目 |
 
+## Design Token
+
+<ComponentTokenTable component="Transfer"></ComponentTokenTable>
+
 ## FAQ
 
 ### 在 showLine 时，如何隐藏子节点图标？

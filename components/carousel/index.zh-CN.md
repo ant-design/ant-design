@@ -47,6 +47,10 @@ demo:
 
 更多 API 可参考：<https://react-slick.neostack.com/docs/api>
 
+## Design Token
+
+<ComponentTokenTable component="Carousel"></ComponentTokenTable>
+
 ## FAQ
 
 ### 如何自定义箭头？

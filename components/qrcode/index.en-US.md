@@ -46,6 +46,10 @@ Used when the text needs to be converted into a QR Code.
 | status | QRCode status | `active \| expired \| loading ` | `active` |
 | onRefresh | callback | `() => void` | - |
 
+## Design Token
+
+<ComponentTokenTable component="QRCode"></ComponentTokenTable>
+
 ## FAQ
 
 ### About QRCode ErrorLevel

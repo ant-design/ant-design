@@ -47,6 +47,10 @@ group:
 | status | 二维码状态 | `active \| expired \| loading ` | `active` |
 | onRefresh | 点击"点击刷新"的回调 | `() => void` | - |
 
+## Design Token
+
+<ComponentTokenTable component="QRCode"></ComponentTokenTable>
+
 ## FAQ
 
 ### 关于二维码纠错等级

@@ -88,3 +88,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*tBzwQ7raKX8AAA
 | avatar      | 列表元素的图标     | ReactNode | -      |      |
 | description | 列表元素的描述内容 | ReactNode | -      |      |
 | title       | 列表元素的标题     | ReactNode | -      |      |
+
+## Design Token
+
+<ComponentTokenTable component="List"></ComponentTokenTable>

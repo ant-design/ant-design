@@ -72,6 +72,10 @@ The differences with Select are:
 | blur()  | Remove focus |         |
 | focus() | Get focus    |         |
 
+## Design Token
+
+<ComponentTokenTable component="Select"></ComponentTokenTable>
+
 ## FAQ
 
 ### Why doesn't the text composition system work well with onSearch in controlled mode?

@@ -85,3 +85,7 @@ More about pagination, please check [`Pagination`](/components/pagination/).
 | avatar      | The avatar of list item      | ReactNode | -       |         |
 | description | The description of list item | ReactNode | -       |         |
 | title       | The title of list item       | ReactNode | -       |         |
+
+## Design Token
+
+<ComponentTokenTable component="List"></ComponentTokenTable>

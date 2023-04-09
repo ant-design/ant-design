@@ -62,6 +62,10 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-p-wQLik200AAA
 | onPanelChange | 日期面板变化回调 | function(date: Dayjs, mode: string) | - |  |
 | onSelect | 点击选择日期回调 | function(date: Dayjs） | - |  |
 
+## Design Token
+
+<ComponentTokenTable component="Calendar"></ComponentTokenTable>
+
 ## FAQ
 
 ### 如何在 Calendar 中使用自定义日期库

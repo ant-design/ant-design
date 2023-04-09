@@ -212,6 +212,10 @@ type GenericFn = (value: Dayjs) => string;
 export type FormatType = Generic | GenericFn | Array<Generic | GenericFn>;
 ```
 
+## Design Token
+
+<ComponentTokenTable component="DatePicker"></ComponentTokenTable>
+
 ## FAQ
 
 ### When set mode to DatePicker/RangePicker, cannot select year or month anymore?
