@@ -9,7 +9,7 @@
     },
     "strictNullChecks": true,
     "module": "esnext",
-    "moduleResolution": "nodenext",
+    "moduleResolution": "node",
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "jsx": "react",
