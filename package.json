@@ -246,7 +246,7 @@
     "lz-string": "^1.4.4",
     "mockdate": "^3.0.0",
     "node-notifier": "^10.0.1",
-    "open": "^9.0.0",
+    "open": "^8.4.2",
     "prettier": "^2.3.2",
     "prettier-plugin-jsdoc": "^0.4.2",
     "pretty-format": "^29.0.0",
