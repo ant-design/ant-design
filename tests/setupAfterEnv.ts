@@ -1,7 +1,7 @@
-import { toHaveNoViolations } from 'jest-axe';
 import '@testing-library/jest-dom';
-import format, { plugins } from 'pretty-format';
+import { toHaveNoViolations } from 'jest-axe';
 import jsdom from 'jsdom';
+import format, { plugins } from 'pretty-format';
 import { defaultConfig } from '../components/theme/internal';
 
 // Not use dynamic hashed for test env since version will change hash dynamically.
@@ -25,7 +25,18 @@ if (process.env.LIB_DIR === 'dist') {
   });
 }
 
+function cleanup(node: HTMLElement) {
+  return node;
+}
+
 function formatHTML(nodes: any) {
+  let cloneNodes: any;
+  if (nodes instanceof HTMLCollection || nodes instanceof NodeList) {
+    cloneNodes = Array.from(nodes).map((node) => cleanup(node.cloneNode(true) as any));
+  } else {
+    cloneNodes = cleanup(nodes.cloneNode(true));
+  }
+
   const htmlContent = format(nodes, {
     plugins: [plugins.DOMCollection, plugins.DOMElement],
   });
