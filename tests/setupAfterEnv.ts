@@ -37,7 +37,7 @@ function formatHTML(nodes: any) {
     cloneNodes = cleanup(nodes.cloneNode(true));
   }
 
-  const htmlContent = format(nodes, {
+  const htmlContent = format(cloneNodes, {
     plugins: [plugins.DOMCollection, plugins.DOMElement],
   });
 
