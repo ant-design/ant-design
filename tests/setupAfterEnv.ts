@@ -26,6 +26,13 @@ if (process.env.LIB_DIR === 'dist') {
 }
 
 function cleanup(node: HTMLElement) {
+  const childList = Array.from(node.childNodes);
+  node.innerHTML = '';
+  childList.forEach((child) => {
+    if (!(child instanceof Text) || child.textContent) {
+      node.appendChild(child);
+    }
+  });
   return node;
 }
 
