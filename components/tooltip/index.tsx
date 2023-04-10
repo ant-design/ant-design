@@ -332,6 +332,13 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
     return overlay || title || '';
   }, [overlay, title]);
 
+  const memoOverlayWrapper =
+    typeof memoOverlay === 'function' ? (
+      () => <NoCompactStyle>{memoOverlay()}</NoCompactStyle>
+    ) : (
+      <NoCompactStyle>{memoOverlay}</NoCompactStyle>
+    );
+
   const {
     getPopupContainer,
     placement = 'top',
@@ -397,11 +404,7 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
       getTooltipContainer={getPopupContainer || getTooltipContainer || getContextPopupContainer}
       ref={tooltipRef}
       builtinPlacements={tooltipPlacements}
-      overlay={
-        <NoCompactStyle>
-          {typeof memoOverlay === 'function' ? memoOverlay() : memoOverlay}
-        </NoCompactStyle>
-      }
+      overlay={memoOverlayWrapper}
       visible={tempOpen}
       onVisibleChange={onOpenChange}
       afterVisibleChange={afterOpenChange ?? afterVisibleChange}
