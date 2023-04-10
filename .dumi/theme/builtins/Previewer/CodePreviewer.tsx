@@ -8,7 +8,6 @@ import type { Project } from '@stackblitz/sdk';
 import stackblitzSdk from '@stackblitz/sdk';
 import { Alert, Badge, Space, Tooltip } from 'antd';
 import classNames from 'classnames';
-import type { IPreviewerProps } from 'dumi';
 import { FormattedMessage, useSiteData } from 'dumi';
 import toReactElement from 'jsonml-to-react-element';
 import JsonML from 'jsonml.js/lib/utils';
@@ -28,6 +27,7 @@ import RiddleIcon from '../../common/RiddleIcon';
 import type { SiteContextProps } from '../../slots/SiteContext';
 import SiteContext from '../../slots/SiteContext';
 import { ping } from '../../utils';
+import type { AntdPreviewerProps } from '.';
 
 const { ErrorBoundary } = Alert;
 
@@ -88,7 +88,7 @@ function useShowRiddleButton() {
   return showRiddleButton;
 }
 
-const CodePreviewer: React.FC<IPreviewerProps> = (props) => {
+const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   const {
     asset,
     expand,
@@ -97,7 +97,7 @@ const CodePreviewer: React.FC<IPreviewerProps> = (props) => {
     children,
     title,
     description,
-    debug,
+    originDebug,
     jsx,
     style,
     compact,
@@ -189,7 +189,7 @@ const CodePreviewer: React.FC<IPreviewerProps> = (props) => {
 
   const codeBoxClass = classNames('code-box', {
     expand: codeExpand,
-    'code-box-debug': debug,
+    'code-box-debug': originDebug,
   });
 
   const localizedTitle = title;
@@ -394,7 +394,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
       </section>
       <section className="code-box-meta markdown">
         <div className="code-box-title">
-          <Tooltip title={debug ? <FormattedMessage id="app.demo.debug" /> : ''}>
+          <Tooltip title={originDebug ? <FormattedMessage id="app.demo.debug" /> : ''}>
             <a href={`#${asset.id}`} ref={anchorRef}>
               {localizedTitle}
             </a>
