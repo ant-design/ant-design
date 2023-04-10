@@ -2,7 +2,7 @@ import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import CSSMotion from 'rc-motion';
 import React, { forwardRef } from 'react';
 import classNames from 'classnames';
-import IconWrapper from 'antd/es/button/IconWrapper';
+import IconWrapper from './IconWrapper';
 
 type InnerLoadingIconProps = {
   prefixCls: string;
