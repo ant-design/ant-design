@@ -29,7 +29,6 @@ timeline: true
 - 🐞 Fix the type problem of Button props. [#41650](https://github.com/ant-design/ant-design/pull/41650)
 - 🐞 Fix insufficient table column width [issue 40814](https://github.com/ant-design/ant-design/issues/40814). [#41626](https://github.com/ant-design/ant-design/pull/41626)
 - 🐞 Fix Mentions dropdown style. [#41660](https://github.com/ant-design/ant-design/pull/41660)
-- 🐞 Fix: After Modal opened, if the mouse does not pass through the header, selecting the body content will move the Modal. [#41630](https://github.com/ant-design/ant-design/pull/41630) [@chutao-zhang](https://github.com/chutao-zhang)
 - 🐞 Improve Form.Item on `require` judgment logic. [#41623](https://github.com/ant-design/ant-design/pull/41623) [@Wxh16144](https://github.com/Wxh16144)
 - 💄 Remove fixed height in Badge.Ribbon. [#41661](https://github.com/ant-design/ant-design/pull/41661) [@MuxinFeng](https://github.com/MuxinFeng)
 - 💄 Optimize Select-like component popup logic. Now always try to display it in the visible area first to reduce the user's extra scrolling cost. [#41619](https://github.com/ant-design/ant-design/pull/41619)
