@@ -26,7 +26,7 @@ timeline: true
 - 🐞 修复 Tree `switcherIcon` 无法隐藏。[#41708](https://github.com/ant-design/ant-design/pull/41708) [@acyza](https://github.com/acyza)
 - 🐞 修复 `List.Item.Meta` 的 avatar 和 title 不对齐。[#41688](https://github.com/ant-design/ant-design/pull/41688) [@Yuiai01](https://github.com/Yuiai01)
 - 🐞 修复 Row 的 `justify` 设置为 `space-evenly` 无效。[#41679](https://github.com/ant-design/ant-design/pull/41679) [@Yuiai01](https://github.com/Yuiai01)
-- 🐞 修复 Button props 的类型问题。[#41650](https://github.com/ant-design/ant-design/pull/41650)
+- 🐞 修复 Button props 类型定义支持 data-\* 属性。[#41650](https://github.com/ant-design/ant-design/pull/41650)
 - 🐞 修复表格列宽不够的问题 [issue 40814](https://github.com/ant-design/ant-design/issues/40814)。[#41626](https://github.com/ant-design/ant-design/pull/41626)
 - 🐞 修复 Mentions 弹层样式。[#41660](https://github.com/ant-design/ant-design/pull/41660)
 - 🐞 改进 Form.Item 关于 `require` 的判断逻辑。[#41623](https://github.com/ant-design/ant-design/pull/41623) [@Wxh16144](https://github.com/Wxh16144)

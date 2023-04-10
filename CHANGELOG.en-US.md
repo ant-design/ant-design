@@ -26,7 +26,7 @@ timeline: true
 - 🐞 Fix Tree `switcherIcon` cannot be hidden. [#41708](https://github.com/ant-design/ant-design/pull/41708) [@acyza](https://github.com/acyza)
 - 🐞 Fix `List.Item.Meta` avatar and title are not aligned. [#41688](https://github.com/ant-design/ant-design/pull/41688) [@Yuiai01](https://github.com/Yuiai01)
 - 🐞 Fix Row justify setting `space-evenly` does not work. [#41679](https://github.com/ant-design/ant-design/pull/41679) [@Yuiai01](https://github.com/Yuiai01)
-- 🐞 Fix the type problem of Button props. [#41650](https://github.com/ant-design/ant-design/pull/41650)
+- 🐞 Fix Button type to support custom data attributes. [#41650](https://github.com/ant-design/ant-design/pull/41650)
 - 🐞 Fix insufficient table column width [issue 40814](https://github.com/ant-design/ant-design/issues/40814). [#41626](https://github.com/ant-design/ant-design/pull/41626)
 - 🐞 Fix Mentions dropdown style. [#41660](https://github.com/ant-design/ant-design/pull/41660)
 - 🐞 Improve Form.Item on `require` judgment logic. [#41623](https://github.com/ant-design/ant-design/pull/41623) [@Wxh16144](https://github.com/Wxh16144)
