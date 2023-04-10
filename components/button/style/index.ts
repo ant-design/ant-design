@@ -17,7 +17,7 @@ export interface ButtonToken extends FullToken<'Button'> {
 
 // ============================== Shared ==============================
 const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSSObject => {
-  const { componentCls } = token;
+  const { componentCls, iconCls } = token;
 
   return {
     [componentCls]: {
@@ -37,12 +37,20 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
       lineHeight: token.lineHeight,
       color: token.colorText,
 
-      [`${componentCls}-icon`]: {
-        lineHeight: 0,
+      '> span': {
         display: 'inline-block',
-        [`&:first-child + *,*+ &:last-child:not(:only-child)`]: {
-          marginInlineStart: token.marginXS,
+      },
+
+      // Leave a space between icon and text.
+      [`&:not(${componentCls}-icon-only) > ${componentCls}-icon`]: {
+        [`&${componentCls}-loading-icon, &:not(:last-child)`]: {
+          marginInlineEnd: token.marginXS,
         },
+      },
+
+      // Special case for anticon after children
+      [`> span + ${iconCls}`]: {
+        marginInlineStart: token.marginXS,
       },
 
       '> a': {
@@ -427,7 +435,7 @@ const genSizeButtonStyle = (token: ButtonToken, sizePrefixCls: string = ''): CSS
             width: 'auto',
           },
           [iconCls]: {
-            transform: 'scale(1.143)', // 14px -> 16px
+            fontSize: token.fontSizeLG,
           },
         },
 

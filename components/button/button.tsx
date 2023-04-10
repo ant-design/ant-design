@@ -15,6 +15,7 @@ import useStyle from './style';
 
 import type { SizeType } from '../config-provider/SizeContext';
 import type { ButtonHTMLType, ButtonShape, ButtonType } from './buttonHelpers';
+import IconWrapper from 'antd/es/button/IconWrapper';
 
 export type LegacyButtonType = ButtonType | 'danger';
 
@@ -230,19 +231,14 @@ const InternalButton: React.ForwardRefRenderFunction<
     rootClassName,
   );
 
-  const mergedIconClassName = classNames(`${prefixCls}-icon`, customClassNames?.icon);
-
-  let iconNode = null;
-  if (icon && !innerLoading) {
-    iconNode = icon;
-  } else if (innerLoading) {
-    iconNode = <LoadingIcon existIcon={!!icon} prefixCls={prefixCls} loading={!!innerLoading} />;
-  }
-  const mergedIcon = iconNode && (
-    <span className={mergedIconClassName} style={styles?.icon}>
-      {iconNode}
-    </span>
-  );
+  const iconNode =
+    icon && !innerLoading ? (
+      <IconWrapper prefixCls={prefixCls} className={customClassNames?.icon} style={styles?.icon}>
+        {icon}
+      </IconWrapper>
+    ) : (
+      <LoadingIcon existIcon={!!icon} prefixCls={prefixCls} loading={!!innerLoading} />
+    );
 
   const kids =
     children || children === 0
@@ -252,7 +248,7 @@ const InternalButton: React.ForwardRefRenderFunction<
   if (linkButtonRestProps.href !== undefined) {
     return wrapSSR(
       <a {...linkButtonRestProps} className={classes} onClick={handleClick} ref={buttonRef}>
-        {mergedIcon}
+        {iconNode}
         {kids}
       </a>,
     );
@@ -267,7 +263,7 @@ const InternalButton: React.ForwardRefRenderFunction<
       disabled={mergedDisabled}
       ref={buttonRef}
     >
-      {mergedIcon}
+      {iconNode}
       {kids}
     </button>
   );
