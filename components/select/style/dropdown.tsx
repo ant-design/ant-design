@@ -84,16 +84,6 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token) => {
           display: 'none',
         },
 
-        '&-empty': {
-          color: token.colorTextDisabled,
-        },
-
-        // ========================= Options =========================
-        [`${selectItemCls}-empty`]: {
-          ...genItemStyle(token),
-          color: token.colorTextDisabled,
-        },
-
         [`${selectItemCls}`]: {
           ...genItemStyle(token),
           cursor: 'pointer',
