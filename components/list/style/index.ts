@@ -187,7 +187,7 @@ const genBaseStyle: GenerateStyle<ListToken> = (token) => {
           },
 
           [`${componentCls}-item-meta-title`]: {
-            marginBottom: token.marginXXS,
+            margin: `0 0 ${token.marginXXS}px 0`,
             color: colorText,
             fontSize: token.fontSize,
             lineHeight: token.lineHeight,
