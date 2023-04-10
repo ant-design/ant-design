@@ -38,6 +38,9 @@ export interface FormItemLabelProps {
   label?: React.ReactNode;
   labelAlign?: FormLabelAlign;
   labelCol?: ColProps;
+  /**
+   * @internal Used for pass `requiredMark` from `<Form />`
+   */
   requiredMark?: RequiredMark;
   tooltip?: LabelTooltipType;
 }

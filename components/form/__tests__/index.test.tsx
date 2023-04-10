@@ -171,6 +171,43 @@ describe('Form', () => {
       await waitFakeTimer(2000, 2000);
       expect(container.querySelector('.ant-form-item-explain-error')).toHaveTextContent('aaa');
     });
+
+    // https://github.com/ant-design/ant-design/issues/41620
+    it('should not throw error when `help=false` and `noStyle=true`', async () => {
+      const App = (props: { help?: boolean | React.ReactNode }) => {
+        const { help = false } = props || {};
+        return (
+          <Form>
+            <Form.Item name="list" label="List" rules={[{ required: true }]}>
+              <Form.Item name={['list', 0]} noStyle help={help} rules={[{ required: true }]}>
+                <Input />
+              </Form.Item>
+              <Form.Item name={['list', 1]} noStyle help={help} rules={[{ required: true }]}>
+                <Input />
+              </Form.Item>
+            </Form.Item>
+            <Form.Item>
+              <button type="submit">submit</button>
+            </Form.Item>
+          </Form>
+        );
+      };
+
+      const { container, getByRole, rerender } = render(<App />);
+
+      // click submit to trigger validate
+      fireEvent.click(getByRole('button'));
+
+      await waitFakeTimer();
+      expect(container.querySelectorAll('.ant-form-item-explain-error')).toHaveLength(1);
+
+      // When noStyle=true but help is not false, help will be displayed
+      rerender(<App help="help" />);
+      await waitFakeTimer();
+      fireEvent.click(getByRole('button'));
+      await waitFakeTimer();
+      expect(container.querySelectorAll('.ant-form-item-explain-error')).toHaveLength(3);
+    });
   });
 
   it('render functions require either `shouldUpdate` or `dependencies`', () => {
@@ -1736,6 +1773,20 @@ describe('Form', () => {
     expect(container.querySelector('.ant-form-item-has-error')).toBeTruthy();
   });
 
+  // https://github.com/ant-design/ant-design/issues/41621
+  it('should not override value when pass `undefined` to require', async () => {
+    // When require is `undefined`, the `isRequire` calculation logic should be preserved
+    const { container } = render(
+      <Form>
+        <Form.Item label="test" name="success" required={undefined} rules={[{ required: true }]}>
+          <Input />
+        </Form.Item>
+      </Form>,
+    );
+
+    expect(container.querySelector('.ant-form-item-required')).toBeTruthy();
+  });
+
   it('validate status should be change in order', async () => {
     const onChange = jest.fn();
 
@@ -1782,5 +1833,30 @@ describe('Form', () => {
     expect(onChange).toHaveBeenCalledTimes(initTriggerTime + 6);
     expect(onChange).toHaveBeenNthCalledWith(idx++, 'validating');
     expect(onChange).toHaveBeenNthCalledWith(idx++, 'success');
+  });
+
+  // https://user-images.githubusercontent.com/32004925/230819163-464fe90d-422d-4a6d-9e35-44a25d4c64f1.png
+  it('should not render `requiredMark` when Form.Item has no required prop', () => {
+    // Escaping TypeScript error
+    const genProps = (value: any) => ({ ...value });
+
+    const { container } = render(
+      <Form name="basic" requiredMark="optional">
+        <Form.Item
+          label="First Name"
+          name="firstName"
+          required
+          {...genProps({ requiredMark: false })}
+        >
+          <Input />
+        </Form.Item>
+        <Form.Item label="Last Name" name="lastName" required {...genProps({ requiredMark: true })}>
+          <Input />
+        </Form.Item>
+      </Form>,
+    );
+
+    expect(container.querySelectorAll('.ant-form-item-required')).toHaveLength(2);
+    expect(container.querySelectorAll('.ant-form-item-required-mark-optional')).toHaveLength(2);
   });
 });

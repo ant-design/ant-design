@@ -14,26 +14,26 @@ module.exports = {
     const EmptyElement = React.createElement('div');
 
     styleFiles.forEach((file) => {
+      const pathArr = file.split('/');
+      const styleIndex = pathArr.lastIndexOf('style');
+      const componentName = pathArr[styleIndex - 1];
       let useStyle = () => {};
       if (file.includes('grid')) {
         // eslint-disable-next-line global-require,import/no-dynamic-require
         const { useColStyle, useRowStyle } = require(file);
-        useStyle = () => {
-          useRowStyle();
-          useColStyle();
+        useStyle = (prefixCls) => {
+          useRowStyle(prefixCls);
+          useColStyle(prefixCls);
         };
       } else {
         // eslint-disable-next-line global-require,import/no-dynamic-require
         useStyle = require(file).default;
       }
       const Component = () => {
-        useStyle(key);
+        useStyle(`${key}-${componentName}`);
         return EmptyElement;
       };
 
-      const pathArr = file.split('/');
-      const styleIndex = pathArr.lastIndexOf('style');
-      const componentName = pathArr[styleIndex - 1];
       beforeRender?.(componentName);
       render(Component);
     });

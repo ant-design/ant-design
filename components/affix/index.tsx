@@ -21,14 +21,14 @@ function getDefaultTarget() {
 
 // Affix
 export interface AffixProps {
-  /** 距离窗口顶部达到指定偏移量后触发 */
+  /** Triggered when the specified offset is reached from the top of the window */
   offsetTop?: number;
-  /** 距离窗口底部达到指定偏移量后触发 */
+  /** Triggered when the specified offset is reached from the bottom of the window */
   offsetBottom?: number;
   style?: React.CSSProperties;
-  /** 固定状态改变时触发的回调函数 */
+  /** Callback function triggered when fixed state changes */
   onChange?: (affixed?: boolean) => void;
-  /** 设置 Affix 需要监听其滚动事件的元素，值为一个返回对应 DOM 元素的函数 */
+  /** Set the element that Affix needs to listen to its scroll event, the value is a function that returns the corresponding DOM element */
   target?: () => Window | HTMLElement | null;
   prefixCls?: string;
   className?: string;

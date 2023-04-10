@@ -12,7 +12,6 @@ const onSearch = (value: string) => {
 const App: React.FC = () => (
   <Select
     showSearch
-    style={{ width: 160 }}
     placeholder="Select a person"
     optionFilterProp="children"
     onChange={onChange}

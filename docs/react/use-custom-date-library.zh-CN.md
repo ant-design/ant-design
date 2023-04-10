@@ -34,10 +34,10 @@ export default DatePicker;
 编写如下代码:
 
 ```tsx
+import { DatePicker } from 'antd';
 import type { PickerTimeProps } from 'antd/es/date-picker/generatePicker';
 import type { Moment } from 'moment';
 import * as React from 'react';
-import DatePicker from './DatePicker';
 
 export interface TimePickerProps extends Omit<PickerTimeProps<Moment>, 'picker'> {}
 
@@ -145,9 +145,9 @@ export default DatePicker;
 
 ### 与 dayjs 的差异
 
-luxon 用户应该悉知，它不附带用于本地化的自定义实现。 相反，它依赖于浏览器的本机 [Intl API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl)。
+luxon 用户应该悉知，它本身没有 local 的实现。相反，它依赖于原生浏览器的 [Intl](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Intl)。
 
-这导致了与其他日期库的一些差异， 主要区别是：
+这导致了与其他日期库的一些差异，主要区别是：
 
 - 无论语言环境如何，一周的第一天总是星期一。
 - 一年中的周数有时不同（ISO 周规则用于确定它）。

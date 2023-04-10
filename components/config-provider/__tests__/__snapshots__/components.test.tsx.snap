@@ -14903,7 +14903,7 @@ exports[`ConfigProvider components List configProvider 1`] = `
                 class="config-avatar config-avatar-circle config-avatar-image"
               >
                 <img
-                  src="https://joesch.moe/api/v1/random"
+                  src="https://xsgames.co/randomusers/avatar.php?g=pixel"
                 />
               </span>
             </div>
@@ -14955,7 +14955,7 @@ exports[`ConfigProvider components List configProvider componentDisabled 1`] = `
                 class="config-avatar config-avatar-circle config-avatar-image"
               >
                 <img
-                  src="https://joesch.moe/api/v1/random"
+                  src="https://xsgames.co/randomusers/avatar.php?g=pixel"
                 />
               </span>
             </div>
@@ -15007,7 +15007,7 @@ exports[`ConfigProvider components List configProvider componentSize large 1`] =
                 class="config-avatar config-avatar-circle config-avatar-image"
               >
                 <img
-                  src="https://joesch.moe/api/v1/random"
+                  src="https://xsgames.co/randomusers/avatar.php?g=pixel"
                 />
               </span>
             </div>
@@ -15059,7 +15059,7 @@ exports[`ConfigProvider components List configProvider componentSize middle 1`] 
                 class="config-avatar config-avatar-circle config-avatar-image"
               >
                 <img
-                  src="https://joesch.moe/api/v1/random"
+                  src="https://xsgames.co/randomusers/avatar.php?g=pixel"
                 />
               </span>
             </div>
@@ -15111,7 +15111,7 @@ exports[`ConfigProvider components List normal 1`] = `
                 class="ant-avatar ant-avatar-circle ant-avatar-image"
               >
                 <img
-                  src="https://joesch.moe/api/v1/random"
+                  src="https://xsgames.co/randomusers/avatar.php?g=pixel"
                 />
               </span>
             </div>
@@ -15163,7 +15163,7 @@ exports[`ConfigProvider components List prefixCls 1`] = `
                 class="ant-avatar ant-avatar-circle ant-avatar-image"
               >
                 <img
-                  src="https://joesch.moe/api/v1/random"
+                  src="https://xsgames.co/randomusers/avatar.php?g=pixel"
                 />
               </span>
             </div>
