@@ -51,7 +51,7 @@ const MemoInput = React.memo(
 );
 
 export interface FormItemProps<Values = any>
-  extends FormItemLabelProps,
+  extends Omit<FormItemLabelProps, 'requiredMark'>,
     FormItemInputProps,
     RcFieldProps<Values> {
   prefixCls?: string;
@@ -106,6 +106,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
     trigger = 'onChange',
     validateTrigger,
     hidden,
+    help,
   } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
   const { name: formName } = React.useContext(FormContext);
@@ -145,7 +146,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
     setMeta(nextMeta.destroy ? genEmptyMeta() : nextMeta, true);
 
     // Bump to parent since noStyle
-    if (noStyle && notifyParentMetaChange) {
+    if (noStyle && help !== false && notifyParentMetaChange) {
       let namePath = nextMeta.name;
 
       if (!nextMeta.destroy) {
@@ -322,9 +323,9 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
             childProps.id = fieldId;
           }
 
-          if (props.help || mergedErrors.length > 0 || mergedWarnings.length > 0 || props.extra) {
+          if (help || mergedErrors.length > 0 || mergedWarnings.length > 0 || props.extra) {
             const describedbyArr = [];
-            if (props.help || mergedErrors.length > 0) {
+            if (help || mergedErrors.length > 0) {
               describedbyArr.push(`${fieldId}_help`);
             }
             if (props.extra) {
