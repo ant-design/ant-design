@@ -29,6 +29,7 @@ interface FieldError {
 
 const ValidateStatuses = ['success', 'warning', 'error', 'validating', ''] as const;
 export type ValidateStatus = typeof ValidateStatuses[number];
+export type FormItemHiddenType<Values = any> = boolean | ((form: FormInstance<Values>) => boolean);
 
 type RenderChildren<Values = any> = (form: FormInstance<Values>) => React.ReactNode;
 type RcFieldProps<Values = any> = Omit<FieldProps<Values>, 'children'>;
@@ -64,7 +65,7 @@ export interface FormItemProps<Values = any>
   hasFeedback?: boolean;
   validateStatus?: ValidateStatus;
   required?: boolean;
-  hidden?: boolean;
+  hidden?: FormItemHiddenType<Values>;
   initialValue?: any;
   messageVariables?: Record<string, string>;
   tooltip?: LabelTooltipType;
