@@ -110,8 +110,9 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
     help,
   } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
-  const { name: formName } = React.useContext(FormContext);
+  const { name: formName, form } = React.useContext(FormContext);
   const isRenderProps = typeof children === 'function';
+  const isHiddenFunc = typeof hidden === 'function';
   const notifyParentMetaChange = React.useContext(NoStyleItemContext);
 
   const { validateTrigger: contextValidateTrigger } = React.useContext(FieldContext);
@@ -210,7 +211,8 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
     fieldId?: string,
     isRequired?: boolean,
   ): React.ReactNode {
-    if (noStyle && !hidden) {
+    const isNeedHide = isHiddenFunc ? hidden(form) : hidden;
+    if (noStyle && !isNeedHide) {
       return baseChildren;
     }
 
@@ -218,6 +220,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
       <ItemHolder
         key="row"
         {...props}
+        hidden={isNeedHide}
         className={classNames(className, hashId)}
         prefixCls={prefixCls}
         fieldId={fieldId}
