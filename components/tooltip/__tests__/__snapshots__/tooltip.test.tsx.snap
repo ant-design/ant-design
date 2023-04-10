@@ -60,14 +60,16 @@ exports[`Tooltip support arrow props by default 1`] = `
     <div
       class="ant-tooltip-arrow"
       style="position: absolute; bottom: 0px; left: 0px;"
-    />
+    >
+    </div>
     <div
       class="ant-tooltip-content"
     >
       <div
         class="ant-tooltip-inner"
         role="tooltip"
-      />
+      >
+      </div>
     </div>
   </div>
 </div>
