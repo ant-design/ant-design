@@ -98,13 +98,14 @@ const genPaginationDisabledStyle: GenerateStyle<PaginationToken, CSSObject> = (t
       [`${componentCls}-item-link`]: {
         color: token.colorTextDisabled,
         cursor: 'not-allowed',
-
         '&:hover, &:active': {
           backgroundColor: 'transparent',
         },
-
         [`${componentCls}-simple&`]: {
           backgroundColor: 'transparent',
+          '&:hover, &:active': {
+            backgroundColor: 'transparent',
+          },
         },
       },
 
@@ -118,6 +119,15 @@ const genPaginationDisabledStyle: GenerateStyle<PaginationToken, CSSObject> = (t
 
       [`${componentCls}-simple-pager`]: {
         color: token.colorTextDisabled,
+      },
+    },
+    [`&${componentCls}-simple`]: {
+      [`${componentCls}-prev, ${componentCls}-next`]: {
+        [`&${componentCls}-disabled ${componentCls}-item-link`]: {
+          '&:hover, &:active': {
+            backgroundColor: 'transparent',
+          },
+        },
       },
     },
   };
@@ -224,7 +234,12 @@ const genPaginationSimpleStyle: GenerateStyle<PaginationToken, CSSObject> = (tok
         height: token.paginationItemSizeSM,
         backgroundColor: 'transparent',
         border: 0,
-
+        '&:hover': {
+          backgroundColor: token.colorBgTextHover,
+        },
+        '&:active': {
+          backgroundColor: token.colorBgTextActive,
+        },
         '&::after': {
           height: token.paginationItemSizeSM,
           lineHeight: `${token.paginationItemSizeSM}px`,
