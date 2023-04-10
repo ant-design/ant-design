@@ -160,6 +160,12 @@ export interface SelectionItem {
   onSelect?: SelectionItemSelectFn;
 }
 
+export type SelectionOnChangeFn<T> = (
+  selectedRowKeys: Key[],
+  selectedRows: T[],
+  info: { type: RowSelectMethod }
+) => void;
+
 export type SelectionSelectFn<T> = (
   record: T,
   selected: boolean,
@@ -175,7 +181,7 @@ export interface TableRowSelection<T> {
   type?: RowSelectionType;
   selectedRowKeys?: Key[];
   defaultSelectedRowKeys?: Key[];
-  onChange?: (selectedRowKeys: Key[], selectedRows: T[], info: { type: RowSelectMethod }) => void;
+  onChange?: SelectionOnChangeFn<T>;
   getCheckboxProps?: (record: T) => Partial<Omit<CheckboxProps, 'checked' | 'defaultChecked'>>;
   onSelect?: SelectionSelectFn<T>;
   /** @deprecated This function is deprecated and should use `onChange` instead */
