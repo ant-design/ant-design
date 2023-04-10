@@ -132,6 +132,7 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
     close,
     zIndex,
     afterClose,
+    afterOpenChange,
     visible,
     open,
     keyboard,
@@ -196,6 +197,7 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
         width={width}
         zIndex={zIndex}
         afterClose={afterClose}
+        afterOpenChange={afterOpenChange}
         keyboard={keyboard}
         centered={centered}
         getContainer={getContainer}

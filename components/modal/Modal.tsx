@@ -49,6 +49,8 @@ export interface ModalProps {
   /** 点击模态框右上角叉、取消按钮、Props.maskClosable 值为 true 时的遮罩层或键盘按下 Esc 时的回调 */
   onCancel?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   afterClose?: () => void;
+  /** 打开和关闭 Modal 时动画结束后的回调 */
+  afterOpenChange?: (open: boolean) => void;
   /** 垂直居中 */
   centered?: boolean;
   /** 宽度 */
@@ -109,6 +111,7 @@ export interface ModalFuncProps {
   onOk?: (...args: any[]) => any;
   onCancel?: (...args: any[]) => any;
   afterClose?: () => void;
+  afterOpenChange?: (open: boolean) => void;
   okButtonProps?: ButtonProps;
   cancelButtonProps?: ButtonProps;
   centered?: boolean;

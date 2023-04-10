@@ -3,7 +3,7 @@ import type { ModalProps } from '..';
 import Modal from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render } from '../../../tests/utils';
+import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
 
 jest.mock('rc-util/lib/Portal');
@@ -125,5 +125,29 @@ describe('Modal', () => {
   it('should render custom footer', () => {
     render(<Modal open footer={<div className="custom-footer">footer</div>} />);
     expect(document.querySelector('.custom-footer')).toBeTruthy();
+  });
+
+  it('should trigger afterOpenChange', async () => {
+    const afterOpenChange = jest.fn();
+
+    const Demo = () => {
+      const [open, setOpen] = React.useState(true);
+      return (
+        <div>
+          <div id="trigger" onClick={() => setOpen(false)}>
+            click me
+          </div>
+          <Modal open={open} afterOpenChange={afterOpenChange} />
+        </div>
+      );
+    };
+
+    const { container } = render(<Demo />);
+    await waitFakeTimer();
+    expect(afterOpenChange.mock.calls.length).toBe(1);
+
+    fireEvent.click(container.querySelectorAll('#trigger')[0]);
+    await waitFakeTimer();
+    expect(afterOpenChange.mock.calls.length).toBe(2);
   });
 });
