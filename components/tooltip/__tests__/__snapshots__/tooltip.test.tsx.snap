@@ -67,7 +67,8 @@ exports[`Tooltip support arrow props by default 1`] = `
       <div
         class="ant-tooltip-inner"
         role="tooltip"
-      />
+      >
+      </div>
     </div>
   </div>
 </div>
@@ -90,7 +91,8 @@ exports[`Tooltip support arrow props pass false to hide arrow 1`] = `
       <div
         class="ant-tooltip-inner"
         role="tooltip"
-      />
+      >
+      </div>
     </div>
   </div>
 </div>
