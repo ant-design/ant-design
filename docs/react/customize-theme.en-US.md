@@ -319,8 +319,6 @@ import { createHash } from 'crypto';
 import fs from 'fs';
 import path from 'path';
 
-const styleTagReg = /<style[^>]*>([\s\S]*?)<\/style>/g;
-
 export type DoExtraStyleOptions = {
   cache: Entity;
   dir?: string;
@@ -339,8 +337,8 @@ export function doExtraStyle({
     fs.mkdirSync(outputCssPath, { recursive: true });
   }
 
-  const cssText = extractStyle(cache);
-  const css = cssText.replace(styleTagReg, '$1');
+  const css = extractStyle(cache, true);
+  if (!css) return '';
 
   const md5 = createHash('md5');
   const hash = md5.update(css).digest('hex');
