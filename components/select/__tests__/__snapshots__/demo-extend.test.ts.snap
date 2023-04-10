@@ -7771,7 +7771,6 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
 exports[`renders components/select/demo/search.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-select-single ant-select-show-arrow ant-select-show-search"
-  style="width: 160px;"
 >
   <div
     class="ant-select-selector"
