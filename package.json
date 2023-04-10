@@ -222,7 +222,7 @@
     "fetch-jsonp": "^1.1.3",
     "fs-extra": "^11.0.0",
     "gh-pages": "^5.0.0",
-    "glob": "^9.2.1",
+    "glob": "^10.0.0",
     "html2sketch": "^1.0.0",
     "http-server": "^14.0.0",
     "husky": "^8.0.1",
