@@ -14,6 +14,7 @@ import Group, { GroupSizeContext } from './button-group';
 import type { ButtonHTMLType, ButtonShape, ButtonType } from './buttonHelpers';
 import { isTwoCNChar, isUnBorderedButtonType, spaceChildren } from './buttonHelpers';
 import useStyle from './style';
+import IconWrapper from './IconWrapper';
 
 export type LegacyButtonType = ButtonType | 'danger';
 
@@ -39,6 +40,8 @@ export interface BaseButtonProps {
   block?: boolean;
   children?: React.ReactNode;
   [key: `data-${string}`]: string;
+  classNames?: { icon: string };
+  styles?: { icon: React.CSSProperties };
 }
 
 export type AnchorButtonProps = {
@@ -98,6 +101,7 @@ const InternalButton: React.ForwardRefRenderFunction<
     danger,
     shape = 'default',
     size: customizeSize,
+    styles,
     disabled: customDisabled,
     className,
     rootClassName,
@@ -107,6 +111,7 @@ const InternalButton: React.ForwardRefRenderFunction<
     block = false,
     // React does not recognize the `htmlType` prop on a DOM element. Here we pick it out of `rest`.
     htmlType = 'button',
+    classNames: customClassNames,
     ...rest
   } = props;
 
@@ -228,7 +233,9 @@ const InternalButton: React.ForwardRefRenderFunction<
 
   const iconNode =
     icon && !innerLoading ? (
-      icon
+      <IconWrapper prefixCls={prefixCls} className={customClassNames?.icon} style={styles?.icon}>
+        {icon}
+      </IconWrapper>
     ) : (
       <LoadingIcon existIcon={!!icon} prefixCls={prefixCls} loading={!!innerLoading} />
     );
