@@ -57,6 +57,10 @@ When data is in the form of dates, such as schedules, timetables, prices calenda
 | onPanelChange | Callback for when panel changes | function(date: Dayjs, mode: string) | - |  |
 | onSelect | Callback for when a date is selected | function(date: Dayjs） | - |  |
 
+## Design Token
+
+<ComponentTokenTable component="Calendar"></ComponentTokenTable>
+
 ## FAQ
 
 ### How to use Calendar with customize date library?

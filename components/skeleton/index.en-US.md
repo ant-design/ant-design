@@ -74,3 +74,7 @@ Provide a placeholder while you wait for content to load, or to visualize conten
 | -------- | --------------------- | ------------------------------- | ------- |
 | active   | Show animation effect | boolean                         | false   |
 | size     | Set the size of input | `large` \| `small` \| `default` | -       |
+
+## Design Token
+
+<ComponentTokenTable component="Skeleton"></ComponentTokenTable>

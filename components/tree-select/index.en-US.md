@@ -108,6 +108,10 @@ Tree selection control.
 | title | Content showed on the treeNodes | ReactNode | `---` |  |
 | value | Will be treated as `treeNodeFilterProp` by default, should be unique in the tree | string | - |  |
 
+## Design Token
+
+<ComponentTokenTable component="TreeSelect"></ComponentTokenTable>
+
 ## FAQ
 
 ### How to get parent node in onChange?

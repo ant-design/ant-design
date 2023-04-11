@@ -213,6 +213,10 @@ type GenericFn = (value: Dayjs) => string;
 export type FormatType = Generic | GenericFn | Array<Generic | GenericFn>;
 ```
 
+## Design Token
+
+<ComponentTokenTable component="DatePicker"></ComponentTokenTable>
+
 ## FAQ
 
 ### 当我指定了 DatePicker/RangePicker 的 mode 属性后，点击后无法选择年份/月份？

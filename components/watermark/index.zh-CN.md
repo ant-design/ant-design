@@ -51,6 +51,10 @@ demo:
 | fontFamily | 字体类型 | string | sans-serif |  |
 | fontStyle | 字体样式 | `none` \| `normal` \| `italic` \| `oblique` | normal |  |
 
+## Design Token
+
+<ComponentTokenTable component="Watermark"></ComponentTokenTable>
+
 ## FAQ
 
 ### 处理异常图片水印

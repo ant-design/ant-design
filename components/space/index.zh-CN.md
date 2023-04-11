@@ -71,3 +71,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAA
 | block | 将宽度调整为父元素宽度的选项 | boolean | false | 4.24.0 |
 | direction | 指定排列方向 | `vertical` \| `horizontal` | `horizontal` | 4.24.0 |
 | size | 子组件大小 | `large` \| `middle` \| `small` | `middle` | 4.24.0 |
+
+## Design Token
+
+<ComponentTokenTable component="Space"></ComponentTokenTable>
