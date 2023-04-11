@@ -15,6 +15,7 @@ import Modal from '../../modal';
 import Popover from '../../popover';
 import Select from '../../select';
 import TimePicker from '../../time-picker';
+import Tooltip from '../../tooltip';
 import TreeSelect from '../../tree-select';
 
 describe('Space.Compact', () => {
@@ -281,34 +282,32 @@ describe('Space.Compact', () => {
     ).toBe(false);
   });
 
-  it('Tooltip content supports function ', () => {
+  it('Tooltip content supports function', () => {
     render(
       <Space.Compact>
         <Input placeholder="Debug Popover context" />
-        <Popover
+        <Tooltip
           open
-          content={() => (
+          overlay={() => (
             <>
               <Input placeholder="Left Border" />
               <DatePicker />
             </>
           )}
-          trigger={['click']}
-          placement="bottom"
         >
-          <Button>Settings</Button>
-        </Popover>
+          <span>Tooltip will show on mouse enter.</span>
+        </Tooltip>
       </Space.Compact>,
     );
     expect(
       document.body
-        .querySelector('.ant-popover')
+        .querySelector('.ant-tooltip')
         ?.querySelector('.ant-input')
         ?.classList.contains('ant-input-compact-item'),
     ).toBe(false);
     expect(
       document.body
-        .querySelector('.ant-popover')
+        .querySelector('.ant-tooltip')
         ?.querySelector('.ant-picker')
         ?.classList.contains('ant-picker-compact-item'),
     ).toBe(false);
