@@ -1,3 +1,6 @@
+/**
+tokens: colorText, colorPrimary
+ */
 import React from 'react';
 import { Button, Space } from 'antd';
 

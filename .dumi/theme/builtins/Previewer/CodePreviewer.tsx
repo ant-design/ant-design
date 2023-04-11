@@ -6,7 +6,7 @@ import {
 } from '@ant-design/icons';
 import type { Project } from '@stackblitz/sdk';
 import stackblitzSdk from '@stackblitz/sdk';
-import { Alert, Badge, Space, Tooltip } from 'antd';
+import { Alert, Badge, ConfigProvider, Divider, Space, Tag, Tooltip } from 'antd';
 import classNames from 'classnames';
 import { FormattedMessage, useSiteData } from 'dumi';
 import toReactElement from 'jsonml-to-react-element';
@@ -28,6 +28,7 @@ import type { SiteContextProps } from '../../slots/SiteContext';
 import SiteContext from '../../slots/SiteContext';
 import { ping } from '../../utils';
 import type { AntdPreviewerProps } from '.';
+import useSiteToken from '../../../hooks/useSiteToken';
 
 const { ErrorBoundary } = Alert;
 
@@ -105,10 +106,13 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
     filename,
     version,
     clientOnly,
+    tokens,
+    showToken,
   } = props;
 
   const { pkg } = useSiteData();
   const location = useLocation();
+  const { token } = useSiteToken();
 
   const entryCode = asset.dependencies['index.tsx'].value;
   const showRiddleButton = useShowRiddleButton();
@@ -128,6 +132,8 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   const docsOnlineUrl = `https://ant.design${pathname}${search}#${asset.id}`;
 
   const [showOnlineUrl, setShowOnlineUrl] = useState<boolean>(false);
+
+  const hasToken = !!tokens?.split(',').length;
 
   const highlightedCodes = {
     jsx: Prism.highlight(jsx, Prism.languages.javascript, 'jsx'),
@@ -384,11 +390,42 @@ createRoot(document.getElementById('container')).render(<Demo />);
     backgroundColor: background === 'grey' ? backgroundGrey : undefined,
   };
 
+  const [activeToken, setActiveToken] = useState<string>();
+  const onMouseEnterToken = (target: string) => {
+    setActiveToken(target);
+  };
+
+  const onMouseLeaveToken = () => {
+    setActiveToken(undefined);
+  };
+
   const codeBox: React.ReactNode = (
     <section className={codeBoxClass} id={asset.id}>
       <section className="code-box-demo" style={codeBoxDemoStyle}>
         <ErrorBoundary>
-          <React.StrictMode>{liveDemo.current}</React.StrictMode>
+          <React.StrictMode>
+            <ConfigProvider theme={activeToken && { token: { [activeToken]: token.colorWarning } }}>
+              {liveDemo.current}
+            </ConfigProvider>
+            {showToken && hasToken && (
+              <>
+                <Divider />
+                <div style={{ color: token.colorTextDescription, marginBottom: 12 }}>
+                  Hover token to see what changed.
+                </div>
+                {tokens?.split(',').map((item) => (
+                  <Tag
+                    style={{ cursor: 'default' }}
+                    key={item}
+                    onMouseEnter={() => onMouseEnterToken(item.trim())}
+                    onMouseLeave={onMouseLeaveToken}
+                  >
+                    {item.trim()}
+                  </Tag>
+                ))}
+              </>
+            )}
+          </React.StrictMode>
         </ErrorBoundary>
         {style ? <style dangerouslySetInnerHTML={{ __html: style }} /> : null}
       </section>

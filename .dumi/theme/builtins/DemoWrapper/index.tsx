@@ -1,7 +1,14 @@
 import React, { useContext, useState } from 'react';
 import { DumiDemoGrid, FormattedMessage } from 'dumi';
 import { Tooltip } from 'antd';
-import { BugFilled, BugOutlined, CodeFilled, CodeOutlined } from '@ant-design/icons';
+import {
+  BugFilled,
+  BugOutlined,
+  CodeFilled,
+  CodeOutlined,
+  ExperimentFilled,
+  ExperimentOutlined,
+} from '@ant-design/icons';
 import classNames from 'classnames';
 import DemoContext from '../../slots/DemoContext';
 
@@ -9,6 +16,7 @@ const DemoWrapper: typeof DumiDemoGrid = ({ items }) => {
   const { showDebug, setShowDebug } = useContext(DemoContext);
 
   const [expandAll, setExpandAll] = useState(false);
+  const [showToken, setShowToken] = useState(process.env.NODE_ENV === 'development');
 
   const expandTriggerClass = classNames('code-box-expand-trigger', {
     'code-box-expand-trigger-active': expandAll,
@@ -20,6 +28,10 @@ const DemoWrapper: typeof DumiDemoGrid = ({ items }) => {
 
   const handleExpandToggle = () => {
     setExpandAll(!expandAll);
+  };
+
+  const handleTokenToggle = () => {
+    setShowToken(!showToken);
   };
 
   const demos = React.useMemo(
@@ -42,10 +54,11 @@ const DemoWrapper: typeof DumiDemoGrid = ({ items }) => {
              * @see https://github.com/ant-design/ant-design/pull/40130#issuecomment-1380208762
              */
             originDebug: debug,
+            showToken,
           },
         });
       }, [] as typeof items),
-    [expandAll, showDebug],
+    [expandAll, showDebug, showToken],
   );
 
   return (
@@ -73,9 +86,22 @@ const DemoWrapper: typeof DumiDemoGrid = ({ items }) => {
             <BugOutlined className={expandTriggerClass} onClick={handleVisibleToggle} />
           )}
         </Tooltip>
+        <Tooltip
+          title={
+            <FormattedMessage
+              id={`app.component.examples.${showToken ? 'hideToken' : 'showToken'}`}
+            />
+          }
+        >
+          {showToken ? (
+            <ExperimentFilled className={expandTriggerClass} onClick={handleTokenToggle} />
+          ) : (
+            <ExperimentOutlined className={expandTriggerClass} onClick={handleTokenToggle} />
+          )}
+        </Tooltip>
       </span>
       {/* FIXME: find a new way instead of `key` to trigger re-render */}
-      <DumiDemoGrid items={demos} key={`${expandAll}${showDebug}`} />
+      <DumiDemoGrid items={demos} key={`${expandAll}${showDebug}${showToken}`} />
     </div>
   );
 };
