@@ -1,13 +1,13 @@
 import RCTour from '@rc-component/tour';
 import classNames from 'classnames';
 import React, { useContext, useState } from 'react';
-import getPlacements from '../_util/placements';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import theme from '../theme';
-import PurePanel from './PurePanel';
+import getPlacements from '../_util/placements';
 import type { TourProps, TourStepProps } from './interface';
 import TourPanel from './panelRender';
+import PurePanel from './PurePanel';
 import useStyle from './style';
 
 const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel } = (

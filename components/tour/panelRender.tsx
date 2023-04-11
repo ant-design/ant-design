@@ -105,13 +105,7 @@ const TourPanel: React.FC<TourPanelProps> = ({
   const [contextLocale] = useLocale('Tour', defaultLocale.Tour);
 
   return (
-    <div
-      className={classNames(
-        mergedType === 'primary' ? `${prefixCls}-primary` : '',
-        className,
-        `${prefixCls}-content`,
-      )}
-    >
+    <div className={classNames(className, `${prefixCls}-content`)}>
       <div className={`${prefixCls}-inner`}>
         <CloseOutlined className={`${prefixCls}-close`} onClick={onClose} />
         {coverNode}

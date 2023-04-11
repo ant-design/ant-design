@@ -178,7 +178,9 @@ describe('Tour', () => {
     };
     const { getByText, baseElement } = render(<App />);
     expect(getByText('primary description.')).toBeTruthy();
-    expect(baseElement.querySelector('.ant-tour-content')).toHaveClass('ant-tour-primary');
+    expect(baseElement.querySelector('.ant-tour-content')?.parentElement).toHaveClass(
+      'ant-tour-primary',
+    );
     expect(baseElement).toMatchSnapshot();
   });
 
@@ -212,10 +214,10 @@ describe('Tour', () => {
     };
     const { getByText, container, baseElement } = render(<App />);
     expect(getByText('cover description.')).toBeTruthy();
-    expect(container.querySelector('.ant-tour-content.ant-tour-primary')).toBeFalsy();
+    expect(container.querySelector('.ant-tour-primary .ant-tour-content')).toBeFalsy();
     fireEvent.click(screen.getByRole('button', { name: 'Next' }));
     expect(getByText('primary description.')).toBeTruthy();
-    expect(container.querySelector('.ant-tour-content.ant-tour-primary')).toBeTruthy();
+    expect(container.querySelector('.ant-tour-primary .ant-tour-content')).toBeTruthy();
     expect(baseElement).toMatchSnapshot();
   });
 
