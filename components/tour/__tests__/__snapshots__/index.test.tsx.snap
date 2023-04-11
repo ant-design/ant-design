@@ -10,7 +10,7 @@ exports[`Tour Primary 1`] = `
       Cover
     </button>
     <div
-      class="ant-tour ant-tour-placement-bottom"
+      class="ant-tour ant-tour-primary ant-tour-placement-bottom"
       style="left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
     >
       <div
@@ -79,7 +79,7 @@ exports[`Tour Primary 1`] = `
   </div>
   <div>
     <div
-      class="ant-tour-mask"
+      class="ant-tour-mask ant-tour-primary"
       style="position: fixed; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: 1001; pointer-events: none;"
     >
       <svg
@@ -152,7 +152,7 @@ exports[`Tour Primary 1`] = `
   </div>
   <div>
     <div
-      class="ant-tour-target-placeholder"
+      class="ant-tour-primary ant-tour-target-placeholder"
       style="left: -6px; top: -6px; width: 12px; height: 12px; position: fixed; pointer-events: none;"
     />
   </div>
@@ -451,7 +451,7 @@ exports[`Tour step support Primary 1`] = `
       Cover
     </button>
     <div
-      class="ant-tour ant-tour-placement-bottom"
+      class="ant-tour ant-tour-primary ant-tour-placement-bottom"
       style="left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
     >
       <div
@@ -538,7 +538,7 @@ exports[`Tour step support Primary 1`] = `
   </div>
   <div>
     <div
-      class="ant-tour-mask"
+      class="ant-tour-mask ant-tour-primary"
       style="position: fixed; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: 1001; pointer-events: none;"
     >
       <svg
@@ -611,7 +611,7 @@ exports[`Tour step support Primary 1`] = `
   </div>
   <div>
     <div
-      class="ant-tour-target-placeholder"
+      class="ant-tour-primary ant-tour-target-placeholder"
       style="left: -6px; top: -6px; width: 12px; height: 12px; position: fixed; pointer-events: none;"
     />
   </div>
