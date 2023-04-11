@@ -567,6 +567,8 @@ export default class MyDocument extends Document {
 }
 ```
 
+See the demo：[Export the css files on demand demo](https://github.com/ant-design/create-next-app-antd/tree/generate-css-on-demand)
+
 ### Shadow DOM Usage
 
 Since `<style />` tag insertion is different from normal DOM in Shadow DOM scenario, you need to use `StyleProvider` of `@ant-design/cssinjs` to configure the `container` property to set the insertion position:

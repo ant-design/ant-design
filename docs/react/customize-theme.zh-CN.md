@@ -563,6 +563,8 @@ export default class MyDocument extends Document {
 }
 ```
 
+演示示例请看：[按需抽取样式示例](https://github.com/ant-design/create-next-app-antd/tree/generate-css-on-demand)
+
 ### 兼容旧版浏览器
 
 请参考文档 [样式兼容](/docs/react/compatible-style-cn)。
