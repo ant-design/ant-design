@@ -18,7 +18,7 @@ exports[`Tour Primary 1`] = `
         style="position: absolute; top: 0px; left: 0px;"
       />
       <div
-        class="ant-tour-primary ant-tour-content"
+        class="ant-tour-content"
       >
         <div
           class="ant-tour-inner"
@@ -459,7 +459,7 @@ exports[`Tour step support Primary 1`] = `
         style="position: absolute; top: 0px; left: 0px;"
       />
       <div
-        class="ant-tour-primary ant-tour-content"
+        class="ant-tour-content"
       >
         <div
           class="ant-tour-inner"
