@@ -32,6 +32,7 @@ const DEPRECIATED_VERSION = {
   '>= 5.2.3 <= 5.3.0': [
     'https://github.com/ant-design/ant-design/pull/40719#issuecomment-1453418135',
   ],
+  '5.4.1': ['https://github.com/ant-design/ant-design/issues/41751'],
 };
 
 function matchDeprecated(version) {
