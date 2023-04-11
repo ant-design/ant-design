@@ -15,6 +15,15 @@ timeline: true
 
 ---
 
+## 5.4.2
+
+`2023-04-11`
+
+- 🐞 Fix unexpected deprecated warning in DatePicker. [#41753](https://github.com/ant-design/ant-design/pull/41753) [@kiner-tang](https://github.com/kiner-tang)
+- 🌐 Add missing translations for `de_DE`. [#41747](https://github.com/ant-design/ant-design/pull/41747) [@eldarcodes](https://github.com/eldarcodes)
+- TypeScript
+  - 🤖 Optimize type of TimePicker `hourStep`. [1fc3675](https://github.com/ant-design/ant-design/commit/1fc3675) [@Wuxh](https://github.com/Wuxh)
+
 ## 5.4.1
 
 `2023-04-11`
