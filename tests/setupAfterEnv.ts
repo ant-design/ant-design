@@ -38,7 +38,7 @@ function cleanup(node: HTMLElement) {
 
 function formatHTML(nodes: any) {
   let cloneNodes: any;
-  if (nodes instanceof HTMLCollection || nodes instanceof NodeList) {
+  if (Array.isArray(nodes) || nodes instanceof HTMLCollection || nodes instanceof NodeList) {
     cloneNodes = Array.from(nodes).map((node) => cleanup(node.cloneNode(true) as any));
   } else {
     cloneNodes = cleanup(nodes.cloneNode(true));
