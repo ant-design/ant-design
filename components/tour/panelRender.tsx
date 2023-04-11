@@ -1,7 +1,7 @@
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
 import type { ReactNode } from 'react';
-import React, { useEffect } from 'react';
+import React, { useLayoutEffect } from 'react';
 import type { ButtonProps } from '../button';
 import Button from '../button';
 import { useLocale } from '../locale';
@@ -45,7 +45,7 @@ const TourPanel: React.FC<TourPanelProps> = ({
 
   const mergedType = typeof stepType !== 'undefined' ? stepType : type;
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     setMergedType?.(mergedType);
   }, [mergedType]);
 
