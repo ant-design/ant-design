@@ -119,7 +119,7 @@ type RangeDisabledTime = (
 
 ## Design Token
 
-<ComponentTokenTable component="TimePicker"></ComponentTokenTable>
+<ComponentTokenTable component="DatePicker"></ComponentTokenTable>
 
 ## FAQ
 
