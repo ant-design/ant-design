@@ -1,11 +1,11 @@
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
 import type { ReactNode } from 'react';
-import React from 'react';
+import React, { useEffect } from 'react';
 import type { ButtonProps } from '../button';
 import Button from '../button';
-import defaultLocale from '../locale/en_US';
 import { useLocale } from '../locale';
+import defaultLocale from '../locale/en_US';
 import type { TourStepProps } from './interface';
 
 function isValidNode(node: ReactNode): boolean {
@@ -17,9 +17,16 @@ interface TourPanelProps {
   current: number;
   type: TourStepProps['type'];
   indicatorsRender?: TourStepProps['indicatorsRender'];
+  setMergedType?: (type: TourStepProps['type']) => void;
 }
 
-const TourPanel: React.FC<TourPanelProps> = ({ stepProps, current, type, indicatorsRender }) => {
+const TourPanel: React.FC<TourPanelProps> = ({
+  stepProps,
+  current,
+  type,
+  indicatorsRender,
+  setMergedType,
+}) => {
   const {
     prefixCls,
     total = 1,
@@ -37,6 +44,10 @@ const TourPanel: React.FC<TourPanelProps> = ({ stepProps, current, type, indicat
   } = stepProps;
 
   const mergedType = typeof stepType !== 'undefined' ? stepType : type;
+
+  useEffect(() => {
+    setMergedType?.(mergedType);
+  }, [mergedType]);
 
   const isLastStep = current === total - 1;
 

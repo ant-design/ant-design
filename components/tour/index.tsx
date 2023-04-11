@@ -1,13 +1,13 @@
 import RCTour from '@rc-component/tour';
 import classNames from 'classnames';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
+import getPlacements from '../_util/placements';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import theme from '../theme';
-import getPlacements from '../_util/placements';
+import PurePanel from './PurePanel';
 import type { TourProps, TourStepProps } from './interface';
 import TourPanel from './panelRender';
-import PurePanel from './PurePanel';
 import useStyle from './style';
 
 const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel } = (
@@ -26,6 +26,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
   const prefixCls = getPrefixCls('tour', customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
   const { token } = theme.useToken();
+  const [mergedType, setMergedType] = useState<TourStepProps['type']>('default');
 
   const builtinPlacements = getPlacements({
     arrowPointAtCenter: true,
@@ -36,6 +37,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
   });
 
   const customClassName = classNames(
+    mergedType === 'primary' ? `${prefixCls}-primary` : '',
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
@@ -49,6 +51,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
       stepProps={stepProps}
       current={stepCurrent}
       indicatorsRender={indicatorsRender}
+      setMergedType={setMergedType}
     />
   );
 
