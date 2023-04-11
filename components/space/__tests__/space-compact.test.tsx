@@ -12,7 +12,6 @@ import Drawer from '../../drawer';
 import Dropdown from '../../dropdown';
 import Input from '../../input';
 import Modal from '../../modal';
-import Popover from '../../popover';
 import Select from '../../select';
 import TimePicker from '../../time-picker';
 import Tooltip from '../../tooltip';
