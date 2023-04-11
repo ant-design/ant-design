@@ -836,10 +836,10 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     await open({
       afterOpenChange,
     });
-    expect(afterOpenChange.mock.calls.length).toBe(1);
+    expect(afterOpenChange).toHaveBeenCalledTimes(1);
 
     $$('.ant-btn')[0].click();
     await waitFakeTimer();
-    expect(afterOpenChange.mock.calls.length).toBe(2);
+    expect(afterOpenChange).toHaveBeenCalledTimes(2);
   });
 });

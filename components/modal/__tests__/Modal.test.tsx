@@ -3,7 +3,7 @@ import type { ModalProps } from '..';
 import Modal from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import { act, fireEvent, render } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
 
 jest.mock('rc-util/lib/Portal');
@@ -127,7 +127,7 @@ describe('Modal', () => {
     expect(document.querySelector('.custom-footer')).toBeTruthy();
   });
 
-  it('should trigger afterOpenChange', async () => {
+  it('should trigger afterOpenChange', () => {
     const afterOpenChange = jest.fn();
 
     const Demo = () => {
@@ -143,11 +143,15 @@ describe('Modal', () => {
     };
 
     const { container } = render(<Demo />);
-    await waitFakeTimer();
-    expect(afterOpenChange.mock.calls.length).toBe(1);
+    act(() => {
+      jest.runAllTimers();
+    });
+    expect(afterOpenChange).toHaveBeenCalledTimes(1);
 
     fireEvent.click(container.querySelectorAll('#trigger')[0]);
-    await waitFakeTimer();
-    expect(afterOpenChange.mock.calls.length).toBe(2);
+    act(() => {
+      jest.runAllTimers();
+    });
+    expect(afterOpenChange).toHaveBeenCalledTimes(2);
   });
 });
