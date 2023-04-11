@@ -253,9 +253,9 @@ describe('Space.Compact', () => {
     render(
       <Space.Compact>
         <Input placeholder="Debug Popover context" />
-        <Popover
+        <Tooltip
           open
-          content={
+          overlay={
             <>
               <Input placeholder="Left Border" />
               <DatePicker />
@@ -265,18 +265,18 @@ describe('Space.Compact', () => {
           placement="bottom"
         >
           <Button>Settings</Button>
-        </Popover>
+        </Tooltip>
       </Space.Compact>,
     );
     expect(
       document.body
-        .querySelector('.ant-popover')
+        .querySelector('.ant-tooltip')
         ?.querySelector('.ant-input')
         ?.classList.contains('ant-input-compact-item'),
     ).toBe(false);
     expect(
       document.body
-        .querySelector('.ant-popover')
+        .querySelector('.ant-tooltip')
         ?.querySelector('.ant-picker')
         ?.classList.contains('ant-picker-compact-item'),
     ).toBe(false);
