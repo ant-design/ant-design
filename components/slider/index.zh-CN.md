@@ -72,3 +72,7 @@ demo:
 | ------- | -------- | ---- |
 | blur()  | 移除焦点 |      |
 | focus() | 获取焦点 |      |
+
+## Design Token
+
+<ComponentTokenTable component="Slider"></ComponentTokenTable>

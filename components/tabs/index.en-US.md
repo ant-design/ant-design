@@ -77,3 +77,7 @@ More option at [rc-tabs tabs](https://github.com/react-component/tabs#tabs)
 | key | TabPane's key | string | - |
 | label | TabPane's head display text | ReactNode | - |
 | children | TabPane's head display content | ReactNode | - |
+
+## Design Token
+
+<ComponentTokenTable component="Tabs"></ComponentTokenTable>

@@ -68,6 +68,10 @@ When a numeric value needs to be provided.
 | blur()  | Remove focus |
 | focus() | Get focus    |
 
+## Design Token
+
+<ComponentTokenTable component="InputNumber"></ComponentTokenTable>
+
 ## Notes
 
 Per issues [#21158](https://github.com/ant-design/ant-design/issues/21158), [#17344](https://github.com/ant-design/ant-design/issues/17344), [#9421](https://github.com/ant-design/ant-design/issues/9421), and [documentation about inputs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number#Using_number_inputs), it appears this community does not support native inclusion of the `type="number"` in the `<Input />` attributes, so please feel free to include it as needed, and be aware that it is heavily suggested that server side validation be utilized, as client side validation can be edited by power users.

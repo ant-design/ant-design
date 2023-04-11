@@ -41,6 +41,9 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
   getDefaultToken?:
     | OverrideTokenWithoutDerivative[ComponentName]
     | ((token: GlobalToken) => OverrideTokenWithoutDerivative[ComponentName]),
+  options?: {
+    resetStyle?: boolean;
+  },
 ) {
   return (prefixCls: string): UseComponentStyleResult => {
     const [theme, token, hashId] = useToken();
@@ -93,7 +96,10 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
           overrideComponentToken: token[component],
         });
         flush(component, mergedComponentToken);
-        return [genCommonStyle(token, prefixCls), styleInterpolation];
+        return [
+          options?.resetStyle === false ? null : genCommonStyle(token, prefixCls),
+          styleInterpolation,
+        ];
       }),
       hashId,
     ];

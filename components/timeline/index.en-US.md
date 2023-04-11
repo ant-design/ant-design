@@ -65,3 +65,7 @@ Node of timeline.
 | label | Set the label | ReactNode | - |
 | children | Set the content | ReactNode | - |
 | position | Customize node position | `left` \| `right` | - |
+
+## Design Token
+
+<ComponentTokenTable component="Timeline"></ComponentTokenTable>

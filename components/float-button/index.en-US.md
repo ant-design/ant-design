@@ -65,3 +65,7 @@ FloatButton. Available since `5.0.0`.
 | target | Specifies the scrollable area dom node | () => HTMLElement | () => window |  |
 | visibilityHeight | The BackTop button will not show until the scroll height reaches this value | number | 400 |  |
 | onClick | A callback function, which can be executed when you click the button | () => void | - |  |
+
+## Design Token
+
+<ComponentTokenTable component="FloatButton"></ComponentTokenTable>

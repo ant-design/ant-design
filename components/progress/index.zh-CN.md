@@ -74,3 +74,7 @@ demo:
 | gapDegree | 仪表盘进度条缺口角度，可取值 0 ~ 295 | number | 75 | - |
 | gapPosition | 仪表盘进度条缺口位置 | `top` \| `bottom` \| `left` \| `right` | `bottom` | - |
 | strokeWidth | 仪表盘进度条线的宽度，单位是进度条画布宽度的百分比 | number | 6 | - |
+
+## Design Token
+
+<ComponentTokenTable component="Progress"></ComponentTokenTable>

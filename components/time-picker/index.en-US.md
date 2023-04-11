@@ -118,6 +118,10 @@ type RangeDisabledTime = (
 };
 ```
 
+## Design Token
+
+<ComponentTokenTable component="DatePicker"></ComponentTokenTable>
+
 ## FAQ
 
 - [How to use TimePicker with customize date library like dayjs](/docs/react/use-custom-date-library#timepicker)

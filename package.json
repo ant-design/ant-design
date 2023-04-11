@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "5.4.0",
+  "version": "5.4.1",
   "description": "An enterprise-class UI design language and React components implementation",
   "title": "Ant Design",
   "keywords": [
@@ -140,7 +140,7 @@
     "rc-rate": "~2.10.0",
     "rc-resize-observer": "^1.2.0",
     "rc-segmented": "~2.1.2",
-    "rc-select": "~14.4.0",
+    "rc-select": "~14.4.3",
     "rc-slider": "~10.1.0",
     "rc-steps": "~6.0.0",
     "rc-switch": "~4.0.0",
@@ -284,7 +284,7 @@
     "sylvanas": "^0.6.1",
     "terser": "^5.16.1",
     "ts-node": "^10.8.2",
-    "typedoc": "^0.23.21",
+    "typedoc": "^0.24.0",
     "typescript": "~5.0.2",
     "vanilla-jsoneditor": "^0.16.0",
     "webpack-bundle-analyzer": "^4.1.0",

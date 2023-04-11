@@ -109,6 +109,10 @@ message.config({
 | rtl | 是否开启 RTL 模式 | boolean | false |  |
 | top | 消息距离顶部的位置 | number | 8 |  |
 
+## Design Token
+
+<ComponentTokenTable component="Message"></ComponentTokenTable>
+
 ## FAQ
 
 ### 为什么 message 不能获取 context、redux 的内容和 ConfigProvider 的 `locale/prefixCls/theme` 等配置？

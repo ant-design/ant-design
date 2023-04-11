@@ -62,3 +62,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 ```
 
 其他属性见 [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#Attributes)
+
+## Design Token
+
+<ComponentTokenTable component="Image"></ComponentTokenTable>

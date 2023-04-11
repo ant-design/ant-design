@@ -90,6 +90,10 @@ If there's no `key` in your data, you should use `rowKey` to specify the key tha
 return <Transfer rowKey={(record) => record.uid} />;
 ```
 
+## Design Token
+
+<ComponentTokenTable component="Transfer"></ComponentTokenTable>
+
 ## FAQ
 
 ### How to support fetch and present data from a remote server in Transfer column.

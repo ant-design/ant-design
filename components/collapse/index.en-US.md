@@ -55,3 +55,7 @@ A content area which can be collapsed and expanded.
 | header | Title of the panel | ReactNode | - |  |
 | key | Unique key identifying the panel from among its siblings | string \| number | - |  |
 | showArrow | If false, panel will not show arrow icon. If false, collapsible can't be set as icon | boolean | true |  |
+
+## Design Token
+
+<ComponentTokenTable component="Collapse"></ComponentTokenTable>
