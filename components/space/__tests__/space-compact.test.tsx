@@ -280,4 +280,37 @@ describe('Space.Compact', () => {
         ?.classList.contains('ant-picker-compact-item'),
     ).toBe(false);
   });
+
+  it('Tooltip content supports function ', () => {
+    render(
+      <Space.Compact>
+        <Input placeholder="Debug Popover context" />
+        <Popover
+          open
+          content={() => (
+            <>
+              <Input placeholder="Left Border" />
+              <DatePicker />
+            </>
+          )}
+          trigger={['click']}
+          placement="bottom"
+        >
+          <Button>Settings</Button>
+        </Popover>
+      </Space.Compact>,
+    );
+    expect(
+      document.body
+        .querySelector('.ant-popover')
+        ?.querySelector('.ant-input')
+        ?.classList.contains('ant-input-compact-item'),
+    ).toBe(false);
+    expect(
+      document.body
+        .querySelector('.ant-popover')
+        ?.querySelector('.ant-picker')
+        ?.classList.contains('ant-picker-compact-item'),
+    ).toBe(false);
+  });
 });
