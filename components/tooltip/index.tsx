@@ -1,15 +1,18 @@
 import type { BuildInPlacements } from '@rc-component/trigger';
 import classNames from 'classnames';
 import RcTooltip from 'rc-tooltip';
+import type { placements as Placements } from 'rc-tooltip/lib/placements';
 import type {
   TooltipProps as RcTooltipProps,
   TooltipRef as RcTooltipRef,
 } from 'rc-tooltip/lib/Tooltip';
-import type { placements as Placements } from 'rc-tooltip/lib/placements';
 import type { AlignType } from 'rc-trigger/lib/interface';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { CSSProperties } from 'react';
 import * as React from 'react';
+import { ConfigContext } from '../config-provider';
+import { NoCompactStyle } from '../space/Compact';
+import theme from '../theme';
 import type { PresetColorType } from '../_util/colors';
 import { getTransitionName } from '../_util/motion';
 import type { AdjustOverflow, PlacementsConfig } from '../_util/placements';
@@ -17,8 +20,6 @@ import getPlacements from '../_util/placements';
 import { cloneElement, isFragment, isValidElement } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
 import warning from '../_util/warning';
-import { ConfigContext } from '../config-provider';
-import theme from '../theme';
 import PurePanel from './PurePanel';
 import useStyle from './style';
 import { parseColor } from './util';
@@ -331,6 +332,13 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
     return overlay || title || '';
   }, [overlay, title]);
 
+  const memoOverlayWrapper =
+    typeof memoOverlay === 'function' ? (
+      () => <NoCompactStyle>{memoOverlay()}</NoCompactStyle>
+    ) : (
+      <NoCompactStyle>{memoOverlay}</NoCompactStyle>
+    );
+
   const {
     getPopupContainer,
     placement = 'top',
@@ -396,7 +404,7 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
       getTooltipContainer={getPopupContainer || getTooltipContainer || getContextPopupContainer}
       ref={tooltipRef}
       builtinPlacements={tooltipPlacements}
-      overlay={memoOverlay}
+      overlay={memoOverlayWrapper}
       visible={tempOpen}
       onVisibleChange={onOpenChange}
       afterVisibleChange={afterOpenChange ?? afterVisibleChange}
