@@ -288,7 +288,7 @@ export default () => {
 1. 安装依赖
 
 ```bash
-npm install ts-node tslib --save-dev
+npm install ts-node tslib cross-env --save-dev
 ```
 
 2. 新增 `tsconfig.node.json` 文件
@@ -306,6 +306,165 @@ npm install ts-node tslib --save-dev
 ```
 
 3. 新增 `scripts/genAntdCss.tsx` 文件
+
+```tsx
+// scripts/genAntdCss.tsx
+import { extractStyle } from '@ant-design/static-style-extract';
+import fs from 'fs';
+
+const outputPath = './public/antd.min.css';
+
+const css = extractStyle();
+
+fs.writeFileSync(outputPath, css);
+```
+
+若你想使用混合主题或自定义主题，可采用以下脚本：
+
+```tsx
+import { extractStyle } from '@ant-design/static-style-extract';
+import { ConfigProvider } from 'antd';
+import fs from 'fs';
+import React from 'react';
+
+const outputPath = './public/antd.min.css';
+
+const testGreenColor = '#008000';
+const testRedColor = '#ff0000';
+
+const css = extractStyle((node) => (
+  <>
+    <ConfigProvider
+      theme={{
+        token: {
+          colorBgBase: testGreenColor,
+        },
+      }}
+    >
+      {node}
+    </ConfigProvider>
+    <ConfigProvider
+      theme={{
+        token: {
+          colorPrimary: testGreenColor,
+        },
+      }}
+    >
+      <ConfigProvider
+        theme={{
+          token: {
+            colorBgBase: testRedColor,
+          },
+        }}
+      >
+        {node}
+      </ConfigProvider>
+    </ConfigProvider>
+  </>
+));
+
+fs.writeFileSync(outputPath, css);
+```
+
+你可以选择在启动开发命令或编译前执行这个脚本，运行上述脚本将会在当前项目的指定（如： public 目录）目录下直接生成一个全量的 antd.min.css 文件。
+
+以 Next.js 为例（[参考示例](https://github.com/ant-design/create-next-app-antd)）：
+
+```json
+// package.json
+{
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "predev": "ts-node --project ./tsconfig.node.json ./scripts/genAntdCss.tsx",
+    "prebuild": "cross-env NODE_ENV=production ts-node --project ./tsconfig.node.json ./scripts/genAntdCss.tsx"
+  }
+}
+```
+
+然后，你只需要在`pages/_app.tsx`文件中引入这个文件即可：
+
+```tsx
+import { StyleProvider } from '@ant-design/cssinjs';
+import type { AppProps } from 'next/app';
+import '../public/antd.min.css';
+import '../styles/globals.css'; // 添加这行
+
+export default function App({ Component, pageProps }: AppProps) {
+  return (
+    <StyleProvider hashPriority="high">
+      <Component {...pageProps} />
+    </StyleProvider>
+  );
+}
+```
+
+#### 自定义主题
+
+如果你的项目中使用了自定义主题，可以尝试通过以下方式进行烘焙：
+
+```tsx
+import { extractStyle } from '@ant-design/static-style-extract';
+import { ConfigProvider } from 'antd';
+
+const cssText = extractStyle((node) => (
+  <ConfigProvider
+    theme={{
+      token: {
+        colorPrimary: 'red',
+      },
+    }}
+  >
+    {node}
+  </ConfigProvider>
+));
+```
+
+#### 混合主题
+
+如果你的项目中使用了混合主题，可以尝试通过以下方式进行烘焙：
+
+```tsx
+import { extractStyle } from '@ant-design/static-style-extract';
+import { ConfigProvider } from 'antd';
+
+const cssText = extractStyle((node) => (
+  <>
+    <ConfigProvider
+      theme={{
+        token: {
+          colorBgBase: 'green ',
+        },
+      }}
+    >
+      {node}
+    </ConfigProvider>
+    <ConfigProvider
+      theme={{
+        token: {
+          colorPrimary: 'blue',
+        },
+      }}
+    >
+      <ConfigProvider
+        theme={{
+          token: {
+            colorBgBase: 'red ',
+          },
+        }}
+      >
+        {node}
+      </ConfigProvider>
+    </ConfigProvider>
+  </>
+));
+```
+
+更多`static-style-extract`的实现细节请看：[static-style-extract](https://github.com/ant-design/static-style-extract)。
+
+#### 按需导出 css 样式文件
 
 ```tsx
 // scripts/genAntdCss.tsx
@@ -351,13 +510,13 @@ export function doExtraStyle({
 }
 ```
 
-然后在 `_document.tsx` 当中调用上述方法执行 css 的按需抽离任务：
+在 `_document.tsx` 中使用上述工具进行按需导出：
 
 ```tsx
+// _document.tsx
 import { StyleProvider, createCache } from '@ant-design/cssinjs';
 import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/document';
 import { doExtraStyle } from '../scripts/genAntdCss';
-
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const cache = createCache();
@@ -403,10 +562,6 @@ export default class MyDocument extends Document {
   }
 }
 ```
-
-完成上述步骤之后，无论你运行 `npm run dev` 还是 运行 `npm run build`，都将在构建目录下的：`static/css/antd-output` 目录下按需生成页面所需的 css 样式文件，并在运行时载入页面当中。
-
-![showcase](https://user-images.githubusercontent.com/10286961/230378245-0d853a3e-506c-4902-ad9b-6741bacf01fc.png)
 
 ### 兼容旧版浏览器
 

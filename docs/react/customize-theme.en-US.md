@@ -292,7 +292,7 @@ If you want to detach a style file into a css file, try the following schemes:
 1. Installation dependency
 
 ```bash
-npm install ts-node tslib --save-dev
+npm install ts-node tslib cross-env --save-dev
 ```
 
 2. Add `tsconfig.node.json`
@@ -310,6 +310,165 @@ npm install ts-node tslib --save-dev
 ```
 
 3. Add `scripts/genAntdCss.tsx`
+
+```tsx
+// scripts/genAntdCss.tsx
+import { extractStyle } from '@ant-design/static-style-extract';
+import fs from 'fs';
+
+const outputPath = './public/antd.min.css';
+
+const css = extractStyle();
+
+fs.writeFileSync(outputPath, css);
+```
+
+If you want to use mixed themes or custom themes, you can use the following script:
+
+```tsx
+import { extractStyle } from '@ant-design/static-style-extract';
+import { ConfigProvider } from 'antd';
+import fs from 'fs';
+import React from 'react';
+
+const outputPath = './public/antd.min.css';
+
+const testGreenColor = '#008000';
+const testRedColor = '#ff0000';
+
+const css = extractStyle((node) => (
+  <>
+    <ConfigProvider
+      theme={{
+        token: {
+          colorBgBase: testGreenColor,
+        },
+      }}
+    >
+      {node}
+    </ConfigProvider>
+    <ConfigProvider
+      theme={{
+        token: {
+          colorPrimary: testGreenColor,
+        },
+      }}
+    >
+      <ConfigProvider
+        theme={{
+          token: {
+            colorBgBase: testRedColor,
+          },
+        }}
+      >
+        {node}
+      </ConfigProvider>
+    </ConfigProvider>
+  </>
+));
+
+fs.writeFileSync(outputPath, css);
+```
+
+You can choose to execute this script before starting the development command or before compiling. Running this script will generate a full antd.min.css file directly in the specified directory of the current project (e.g. public).
+
+Take Next.js for example（[example](https://github.com/ant-design/create-next-app-antd)）：
+
+```json
+// package.json
+{
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "predev": "ts-node --project ./tsconfig.node.json ./scripts/genAntdCss.tsx",
+    "prebuild": "cross-env NODE_ENV=production ts-node --project ./tsconfig.node.json ./scripts/genAntdCss.tsx"
+  }
+}
+```
+
+Then, you just need to import this file into the `pages/_app.tsx` file:
+
+```tsx
+import { StyleProvider } from '@ant-design/cssinjs';
+import type { AppProps } from 'next/app';
+import '../public/antd.min.css';
+import '../styles/globals.css'; // add this line
+
+export default function App({ Component, pageProps }: AppProps) {
+  return (
+    <StyleProvider hashPriority="high">
+      <Component {...pageProps} />
+    </StyleProvider>
+  );
+}
+```
+
+#### Custom theme
+
+If you're using a custom theme for your project, try baking in the following ways:
+
+```tsx
+import { extractStyle } from '@ant-design/static-style-extract';
+import { ConfigProvider } from 'antd';
+
+const cssText = extractStyle((node) => (
+  <ConfigProvider
+    theme={{
+      token: {
+        colorPrimary: 'red',
+      },
+    }}
+  >
+    {node}
+  </ConfigProvider>
+));
+```
+
+#### Mixed theme
+
+If you're using a mixed theme for your project, try baking in the following ways:
+
+```tsx
+import { extractStyle } from '@ant-design/static-style-extract';
+import { ConfigProvider } from 'antd';
+
+const cssText = extractStyle((node) => (
+  <>
+    <ConfigProvider
+      theme={{
+        token: {
+          colorBgBase: 'green ',
+        },
+      }}
+    >
+      {node}
+    </ConfigProvider>
+    <ConfigProvider
+      theme={{
+        token: {
+          colorPrimary: 'blue',
+        },
+      }}
+    >
+      <ConfigProvider
+        theme={{
+          token: {
+            colorBgBase: 'red ',
+          },
+        }}
+      >
+        {node}
+      </ConfigProvider>
+    </ConfigProvider>
+  </>
+));
+```
+
+More about static-style-extract, see [static-style-extract](https://github.com/ant-design/static-style-extract).
+
+#### Export the css files on demand
 
 ```tsx
 // scripts/genAntdCss.tsx
@@ -355,13 +514,13 @@ export function doExtraStyle({
 }
 ```
 
-Then call the above method in `_document.tsx` to perform the css pull away task on demand:
+Export on demand using the above tools in `_document.tsx`
 
 ```tsx
+// _document.tsx
 import { StyleProvider, createCache } from '@ant-design/cssinjs';
 import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/document';
 import { doExtraStyle } from '../scripts/genAntdCss';
-
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const cache = createCache();
@@ -407,10 +566,6 @@ export default class MyDocument extends Document {
   }
 }
 ```
-
-After the above steps are completed, whether you run `npm run dev` or `npm run build`, you will generate the css style files required for the page in the build directory: 'static/css/antd-output' directory and load them into the page at runtime.
-
-![showcase](https://user-images.githubusercontent.com/10286961/230378245-0d853a3e-506c-4902-ad9b-6741bacf01fc.png)
 
 ### Shadow DOM Usage
 
