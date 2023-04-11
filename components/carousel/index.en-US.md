@@ -46,6 +46,10 @@ A carousel component. Scales with its container.
 
 Find more APIs in react-slick [documentation](https://react-slick.neostack.com/docs/api).
 
+## Design Token
+
+<ComponentTokenTable component="Carousel"></ComponentTokenTable>
+
 ## FAQ
 
 ### How to add custom arrows?

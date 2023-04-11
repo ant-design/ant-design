@@ -88,3 +88,7 @@ return (
 | disabled  | 是否可选       | boolean             | -      |
 | className | css 类名       | string              | -      |
 | style     | 选项样式       | React.CSSProperties | -      |
+
+## Design Token
+
+<ComponentTokenTable component="Mentions"></ComponentTokenTable>

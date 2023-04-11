@@ -50,6 +50,10 @@ Add specific text or patterns to the page.
 | fontFamily | font family | string | sans-serif |  |
 | fontStyle | font style  | `none` \| `normal` \| `italic` \| `oblique` | normal |  |
 
+## Design Token
+
+<ComponentTokenTable component="Watermark"></ComponentTokenTable>
+
 ## FAQ
 
 ### Handle abnormal image watermarks

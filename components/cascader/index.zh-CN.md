@@ -120,3 +120,7 @@ interface Option {
 | focus() | 获取焦点 |      |
 
 > 注意，如果需要获得中国省市区数据，可以参考 [china-division](https://gist.github.com/afc163/7582f35654fd03d5be7009444345ea17)。
+
+## Design Token
+
+<ComponentTokenTable component="Cascader"></ComponentTokenTable>

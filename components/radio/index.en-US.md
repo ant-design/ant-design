@@ -67,3 +67,7 @@ Radio group can wrap a group of `Radio`。
 | ------- | ------------ |
 | blur()  | Remove focus |
 | focus() | Get focus    |
+
+## Design Token
+
+<ComponentTokenTable component="Radio"></ComponentTokenTable>

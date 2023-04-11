@@ -50,3 +50,7 @@ Commonly displayed on the details page.
 | span         | The number of columns included | number        | 1       |         |
 
 > The number of span Description.Item. Span={2} takes up the width of two DescriptionItems. When both `style` and `labelStyle`(or `contentStyle`) configured, both of them will work. And next one will overwrite first when conflict.
+
+## Design Token
+
+<ComponentTokenTable component="Descriptions"></ComponentTokenTable>

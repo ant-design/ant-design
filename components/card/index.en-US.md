@@ -71,3 +71,7 @@ A card can be used to display content related to a single subject. The content c
 | description | Description content           | ReactNode     | -       |         |
 | style       | The style object of container | CSSProperties | -       |         |
 | title       | Title content                 | ReactNode     | -       |         |
+
+## Design Token
+
+<ComponentTokenTable component="Card"></ComponentTokenTable>

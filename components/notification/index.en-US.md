@@ -95,6 +95,10 @@ notification.config({
 | top | Distance from the top of the viewport, when `placement` is `topRight` or `topLeft` (unit: pixels) | number | 24 |  |
 | maxCount | Max Notification show, drop oldest if exceed limit | number | - | 4.17.0 |
 
+## Design Token
+
+<ComponentTokenTable component="Notification"></ComponentTokenTable>
+
 ## FAQ
 
 ### Why I can not access context, redux, ConfigProvider `locale/prefixCls/theme` in notification?

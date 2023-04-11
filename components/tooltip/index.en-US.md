@@ -58,6 +58,10 @@ The following APIs are shared by Tooltip, Popconfirm, Popover.
 | zIndex | Config `z-index` of Tooltip | number | - |  |
 | onOpenChange | Callback executed when visibility of the tooltip card is changed | (open: boolean) => void | - | 4.23.0 |
 
+## Design Token
+
+<ComponentTokenTable component="Tooltip"></ComponentTokenTable>
+
 ## Note
 
 Please ensure that the child node of `Tooltip` accepts `onMouseEnter`, `onMouseLeave`, `onFocus`, `onClick` events.

@@ -46,3 +46,7 @@ Switching Selector.
 | ------- | ------------ |
 | blur()  | Remove focus |
 | focus() | Get focus    |
+
+## Design Token
+
+<ComponentTokenTable component="Switch"></ComponentTokenTable>

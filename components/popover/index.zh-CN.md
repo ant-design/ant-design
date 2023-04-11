@@ -41,3 +41,7 @@ demo:
 ## 注意
 
 请确保 `Popover` 的子元素能接受 `onMouseEnter`、`onMouseLeave`、`onFocus`、`onClick` 事件。
+
+## Design Token
+
+<ComponentTokenTable component="Popover"></ComponentTokenTable>
