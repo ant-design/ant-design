@@ -29,7 +29,9 @@ function cleanup(node: HTMLElement) {
   const childList = Array.from(node.childNodes);
   node.innerHTML = '';
   childList.forEach((child) => {
-    if (!(child instanceof Text) || child.textContent) {
+    if (!(child instanceof Text)) {
+      node.appendChild(cleanup(child as any));
+    } else if (child.textContent) {
       node.appendChild(child);
     }
   });
