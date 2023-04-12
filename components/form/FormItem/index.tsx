@@ -113,7 +113,6 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
   const { name: formName } = React.useContext(FormContext);
 
   const mergedChildren = useChildren(children);
-  console.log('mergedChildren:', mergedChildren);
 
   const isRenderProps = typeof mergedChildren === 'function';
   const notifyParentMetaChange = React.useContext(NoStyleItemContext);
