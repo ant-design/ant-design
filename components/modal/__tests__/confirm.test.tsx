@@ -829,17 +829,4 @@ describe('Modal.confirm triggers callbacks correctly', () => {
       expect(document.querySelector(`.ant-modal-content`)).toMatchSnapshot();
     });
   });
-
-  it('trigger afterOpenChange', async () => {
-    const afterOpenChange = jest.fn();
-
-    await open({
-      afterOpenChange,
-    });
-    expect(afterOpenChange).toHaveBeenCalledTimes(1);
-
-    $$('.ant-btn')[0].click();
-    await waitFakeTimer();
-    expect(afterOpenChange).toHaveBeenCalledTimes(2);
-  });
 });

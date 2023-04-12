@@ -111,7 +111,6 @@ export interface ModalFuncProps {
   onOk?: (...args: any[]) => any;
   onCancel?: (...args: any[]) => any;
   afterClose?: () => void;
-  afterOpenChange?: (open: boolean) => void;
   okButtonProps?: ButtonProps;
   cancelButtonProps?: ButtonProps;
   centered?: boolean;
