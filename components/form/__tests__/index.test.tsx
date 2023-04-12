@@ -8,6 +8,7 @@ import Form from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, pureRender, render, screen, waitFakeTimer } from '../../../tests/utils';
+import { resetWarned } from '../../_util/warning';
 import Button from '../../button';
 import Cascader from '../../cascader';
 import Checkbox from '../../checkbox';
@@ -1459,7 +1460,7 @@ describe('Form', () => {
     render(
       <Modal open>
         <Form>
-          <Form.Item help='This is a help message'>
+          <Form.Item help="This is a help message">
             <Input />
           </Form.Item>
         </Form>
@@ -1547,7 +1548,7 @@ describe('Form', () => {
       const [form] = Form.useForm();
 
       return (
-        <Form form={form} name='test-form'>
+        <Form form={form} name="test-form">
           <Form.Item name="error" rules={[{ required: true, message: 'This is a error message.' }]}>
             <ErrorItem />
           </Form.Item>
@@ -1858,5 +1859,23 @@ describe('Form', () => {
 
     expect(container.querySelectorAll('.ant-form-item-required')).toHaveLength(2);
     expect(container.querySelectorAll('.ant-form-item-required-mark-optional')).toHaveLength(2);
+  });
+
+  it('children support comment', () => {
+    resetWarned();
+
+    const { container } = render(
+      <Form initialValues={{ name: 'bamboo', age: '14' }}>
+        <Form.Item name="name">
+          {/* Comment here */}
+          <Input />
+        </Form.Item>
+        <Form.Item name="age">{[null, <Input key="input" />]}</Form.Item>
+      </Form>,
+    );
+
+    expect(container.querySelectorAll('input')[0].value).toEqual('bamboo');
+    expect(container.querySelectorAll('input')[1].value).toEqual('14');
+    expect(errorSpy).not.toHaveBeenCalled();
   });
 });
