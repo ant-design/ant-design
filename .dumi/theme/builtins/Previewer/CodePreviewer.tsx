@@ -36,14 +36,12 @@ const { ErrorBoundary } = Alert;
 
 const locales = {
   cn: {
-    hoverToken: '鼠标悬浮以查看 Design Token 影响范围',
-    customizeTheme: '定制主题',
-    howToUseToken: '使用 Design Token ',
+    hoverToken: '鼠标悬浮以查看 Design Token 影响范围。',
+    howToUseToken: '如何使用 Design Token',
   },
   en: {
-    hoverToken: 'Hover to see what is changed by Design Token',
-    customizeTheme: 'customize theme',
-    howToUseToken: 'Use Design Token to ',
+    hoverToken: 'Hover to see what is changed by Design Token.',
+    howToUseToken: 'How to use Design Token',
   },
 };
 
@@ -420,7 +418,13 @@ createRoot(document.getElementById('container')).render(<Demo />);
       <section className="code-box-demo" style={codeBoxDemoStyle}>
         <ErrorBoundary>
           <React.StrictMode>
-            <ConfigProvider theme={activeToken && { token: { [activeToken]: token.colorWarning } }}>
+            <ConfigProvider
+              theme={
+                activeToken && activeToken.startsWith('color')
+                  ? { token: { [activeToken]: token.colorWarning } }
+                  : undefined
+              }
+            >
               {liveDemo.current}
             </ConfigProvider>
             {showToken && hasToken && (
@@ -428,20 +432,9 @@ createRoot(document.getElementById('container')).render(<Demo />);
                 <Divider />
                 <div style={{ color: token.colorTextDescription, marginBottom: 12 }}>
                   {locale.hoverToken}
-                  <Popover
-                    content={
-                      <span>
-                        {locale.howToUseToken}
-                        <Link
-                          to={getLocalizedPathname('/docs/react/customize-theme', lang === 'cn')}
-                        >
-                          {locale.customizeTheme}
-                        </Link>
-                      </span>
-                    }
-                  >
-                    <InfoCircleOutlined style={{ marginLeft: 8 }} />
-                  </Popover>
+                  <Link to={getLocalizedPathname('/docs/react/customize-theme', lang === 'cn')}>
+                    {locale.howToUseToken}
+                  </Link>
                 </div>
                 {tokens?.split(',').map((item) => (
                   <Tag

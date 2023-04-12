@@ -1,3 +1,6 @@
+/**
+ * tokens: colorText, colorBorder
+ */
 import React from 'react';
 import { SearchOutlined } from '@ant-design/icons';
 import { Button, Tooltip, Space } from 'antd';
