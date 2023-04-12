@@ -1,6 +1,6 @@
 import RCTour from '@rc-component/tour';
 import classNames from 'classnames';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useLayoutEffect, useState } from 'react';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import theme from '../theme';
@@ -15,7 +15,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
 ) => {
   const {
     prefixCls: customizePrefixCls,
-    steps,
+    steps = [],
     current,
     type,
     rootClassName,
@@ -26,7 +26,17 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
   const prefixCls = getPrefixCls('tour', customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
   const { token } = theme.useToken();
-  const [mergedType, setMergedType] = useState<TourStepProps['type']>('default');
+
+  const [currentMergedType, setCurrentMergedType] = useState<TourProps['type']>('default');
+  const [currentStep, setCurrentStep] = useState<TourStepProps | null>(
+    current ? steps[current] : null,
+  );
+
+  useLayoutEffect(() => {
+    const { type: stepType } = currentStep || {};
+    const mergedType = typeof stepType !== 'undefined' ? stepType : type;
+    setCurrentMergedType(mergedType);
+  }, [currentStep]);
 
   const builtinPlacements = getPlacements({
     arrowPointAtCenter: true,
@@ -37,12 +47,12 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
   });
 
   const customClassName = classNames(
-    mergedType === 'primary' ? `${prefixCls}-primary` : '',
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     hashId,
     rootClassName,
+    currentMergedType === 'primary' ? `${prefixCls}-primary` : '',
   );
 
   const mergedRenderPanel = (stepProps: TourStepProps, stepCurrent: number): React.ReactNode => (
@@ -51,9 +61,13 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
       stepProps={stepProps}
       current={stepCurrent}
       indicatorsRender={indicatorsRender}
-      setMergedType={setMergedType}
     />
   );
+
+  const onStepChange = (stepCurrent: number) => {
+    setCurrentStep(steps[stepCurrent]);
+    props.onChange?.(stepCurrent);
+  };
 
   return wrapSSR(
     <RCTour
@@ -65,6 +79,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
       animated
       renderPanel={mergedRenderPanel}
       builtinPlacements={builtinPlacements}
+      onChange={onStepChange}
     />,
   );
 };

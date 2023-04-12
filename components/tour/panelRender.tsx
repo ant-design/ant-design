@@ -1,7 +1,7 @@
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
 import type { ReactNode } from 'react';
-import React, { useLayoutEffect } from 'react';
+import React from 'react';
 import type { ButtonProps } from '../button';
 import Button from '../button';
 import { useLocale } from '../locale';
@@ -17,16 +17,9 @@ interface TourPanelProps {
   current: number;
   type: TourStepProps['type'];
   indicatorsRender?: TourStepProps['indicatorsRender'];
-  setMergedType?: (type: TourStepProps['type']) => void;
 }
 
-const TourPanel: React.FC<TourPanelProps> = ({
-  stepProps,
-  current,
-  type,
-  indicatorsRender,
-  setMergedType,
-}) => {
+const TourPanel: React.FC<TourPanelProps> = ({ stepProps, current, type, indicatorsRender }) => {
   const {
     prefixCls,
     total = 1,
@@ -44,10 +37,6 @@ const TourPanel: React.FC<TourPanelProps> = ({
   } = stepProps;
 
   const mergedType = typeof stepType !== 'undefined' ? stepType : type;
-
-  useLayoutEffect(() => {
-    setMergedType?.(mergedType);
-  }, [mergedType]);
 
   const isLastStep = current === total - 1;
 
