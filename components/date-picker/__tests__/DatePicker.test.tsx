@@ -2,7 +2,7 @@ import dayjs from 'dayjs';
 import 'dayjs/locale/mk'; // to test local in 'prop locale should works' test case
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import MockDate from 'mockdate';
-import dateFnsGenerateConfig from 'rc-picker/lib/generate/dateFns';
+import dayJsGenerateConfig from 'rc-picker/lib/generate/dayjs';
 import type { TriggerProps } from 'rc-trigger';
 import React from 'react';
 import DatePicker from '..';
@@ -291,7 +291,7 @@ describe('DatePicker', () => {
   });
 
   it('support DatePicker.generatePicker', () => {
-    const FnsDatePicker = DatePicker.generatePicker(dateFnsGenerateConfig);
+    const FnsDatePicker = DatePicker.generatePicker(dayJsGenerateConfig);
     const { container } = render(<FnsDatePicker />);
     expect(container.firstChild).toMatchSnapshot();
   });
