@@ -30,16 +30,16 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
   const [currentStep, setCurrentStep] = useState<TourStepProps | null>(
     current ? steps[current] : null,
   );
+  
+  const currentMergedType = useMemo<TourProps['type']>(() => {
+    const { type: stepType } = currentStep || {};
+    return typeof stepType !== 'undefined' ? stepType : type;
+  }, [currentStep]);
 
   useLayoutEffect(() => {
     if(typeof current === 'undefined') return;
     setCurrentStep(steps[current]);
   }, [current]);
-
-  const currentMergedType = useMemo<TourProps['type']>(() => {
-    const { type: stepType } = currentStep || {};
-    return typeof stepType !== 'undefined' ? stepType : type;
-  }, [currentStep]);
 
   const builtinPlacements = getPlacements({
     arrowPointAtCenter: true,
