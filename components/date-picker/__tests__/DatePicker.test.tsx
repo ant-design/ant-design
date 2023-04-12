@@ -291,8 +291,8 @@ describe('DatePicker', () => {
   });
 
   it('support DatePicker.generatePicker', () => {
-    const FnsDatePicker = DatePicker.generatePicker(dayJsGenerateConfig);
-    const { container } = render(<FnsDatePicker />);
+    const MyDatePicker = DatePicker.generatePicker(dayJsGenerateConfig);
+    const { container } = render(<MyDatePicker />);
     expect(container.firstChild).toMatchSnapshot();
   });
 });
