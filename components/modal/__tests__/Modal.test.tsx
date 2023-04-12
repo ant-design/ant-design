@@ -126,5 +126,4 @@ describe('Modal', () => {
     render(<Modal open footer={<div className="custom-footer">footer</div>} />);
     expect(document.querySelector('.custom-footer')).toBeTruthy();
   });
-
 });
