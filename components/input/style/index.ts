@@ -610,6 +610,10 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
         borderRadius: 0,
         outline: 'none',
 
+        '&::-ms-reveal': {
+          display: 'none',
+        },
+
         '&:focus': {
           boxShadow: 'none !important',
         },
