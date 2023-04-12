@@ -1,14 +1,15 @@
 import {
   CheckOutlined,
+  InfoCircleOutlined,
   LinkOutlined,
   SnippetsOutlined,
   ThunderboltOutlined,
 } from '@ant-design/icons';
 import type { Project } from '@stackblitz/sdk';
 import stackblitzSdk from '@stackblitz/sdk';
-import { Alert, Badge, ConfigProvider, Divider, Space, Tag, Tooltip } from 'antd';
+import { Alert, Badge, ConfigProvider, Divider, Popover, Space, Tag, Tooltip } from 'antd';
 import classNames from 'classnames';
-import { FormattedMessage, useSiteData } from 'dumi';
+import { FormattedMessage, Link, useSiteData } from 'dumi';
 import toReactElement from 'jsonml-to-react-element';
 import JsonML from 'jsonml.js/lib/utils';
 import LZString from 'lz-string';
@@ -26,11 +27,25 @@ import ExternalLinkIcon from '../../common/ExternalLinkIcon';
 import RiddleIcon from '../../common/RiddleIcon';
 import type { SiteContextProps } from '../../slots/SiteContext';
 import SiteContext from '../../slots/SiteContext';
-import { ping } from '../../utils';
+import { getLocalizedPathname, ping } from '../../utils';
 import type { AntdPreviewerProps } from '.';
 import useSiteToken from '../../../hooks/useSiteToken';
+import useLocale from '../../../hooks/useLocale';
 
 const { ErrorBoundary } = Alert;
+
+const locales = {
+  cn: {
+    hoverToken: '鼠标悬浮以查看 Design Token 影响范围',
+    customizeTheme: '定制主题',
+    howToUseToken: '使用 Design Token ',
+  },
+  en: {
+    hoverToken: 'Hover to see what is changed by Design Token',
+    customizeTheme: 'customize theme',
+    howToUseToken: 'Use Design Token to ',
+  },
+};
 
 function toReactComponent(jsonML: any) {
   return toReactElement(jsonML, [
@@ -113,6 +128,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   const { pkg } = useSiteData();
   const location = useLocation();
   const { token } = useSiteToken();
+  const [locale, lang] = useLocale(locales);
 
   const entryCode = asset.dependencies['index.tsx'].value;
   const showRiddleButton = useShowRiddleButton();
@@ -411,7 +427,21 @@ createRoot(document.getElementById('container')).render(<Demo />);
               <>
                 <Divider />
                 <div style={{ color: token.colorTextDescription, marginBottom: 12 }}>
-                  Hover token to see what changed.
+                  {locale.hoverToken}
+                  <Popover
+                    content={
+                      <span>
+                        {locale.howToUseToken}
+                        <Link
+                          to={getLocalizedPathname('/docs/react/customize-theme', lang === 'cn')}
+                        >
+                          {locale.customizeTheme}
+                        </Link>
+                      </span>
+                    }
+                  >
+                    <InfoCircleOutlined style={{ marginLeft: 8 }} />
+                  </Popover>
                 </div>
                 {tokens?.split(',').map((item) => (
                   <Tag
