@@ -1,13 +1,12 @@
 import {
   CheckOutlined,
-  InfoCircleOutlined,
   LinkOutlined,
   SnippetsOutlined,
   ThunderboltOutlined,
 } from '@ant-design/icons';
 import type { Project } from '@stackblitz/sdk';
 import stackblitzSdk from '@stackblitz/sdk';
-import { Alert, Badge, ConfigProvider, Divider, Popover, Space, Tag, Tooltip } from 'antd';
+import { Alert, Badge, ConfigProvider, Divider, Space, Tag, Tooltip } from 'antd';
 import classNames from 'classnames';
 import { FormattedMessage, Link, useSiteData } from 'dumi';
 import toReactElement from 'jsonml-to-react-element';
