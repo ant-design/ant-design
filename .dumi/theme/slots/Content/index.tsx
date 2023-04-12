@@ -213,6 +213,7 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
               affix={false}
               targetOffset={token.marginXXL}
               showInkInFixed
+              onClick={(e) => e.preventDefault()}
               items={anchorItems.map((item) => ({
                 href: `#${item.id}`,
                 title: item.title,
