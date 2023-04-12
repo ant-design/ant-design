@@ -3,7 +3,7 @@ import React from 'react';
 // eslint-disable-next-line import/no-unresolved
 import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
 import dayjs from 'dayjs';
-import glob from 'glob';
+import { globSync } from 'glob';
 import { configureToMatchImageSnapshot } from 'jest-image-snapshot';
 import MockDate from 'mockdate';
 import ReactDOMServer from 'react-dom/server';
@@ -78,7 +78,7 @@ type Options = {
 // eslint-disable-next-line jest/no-export
 export function imageDemoTest(component: string, options: Options = {}) {
   let describeMethod = options.skip === true ? describe.skip : describe;
-  const files = glob.globSync(`./components/${component}/demo/*.tsx`);
+  const files = globSync(`./components/${component}/demo/*.tsx`);
 
   files.forEach((file) => {
     if (Array.isArray(options.skip) && options.skip.some((c) => file.includes(c))) {
