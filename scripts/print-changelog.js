@@ -4,7 +4,6 @@ const { spawn } = require('child_process');
 const jsdom = require('jsdom');
 const jQuery = require('jquery');
 const fetch = require('isomorphic-fetch');
-const open = require('open');
 const fs = require('fs-extra');
 const path = require('path');
 const simpleGit = require('simple-git');
@@ -277,6 +276,8 @@ async function printLog() {
   });
 
   console.log(chalk.green('Start changelog preview editor...'));
+  const { default: open } = await import('open');
+
   setTimeout(() => {
     open('http://localhost:2893/');
   }, 1000);
