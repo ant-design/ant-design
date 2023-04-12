@@ -49,23 +49,23 @@ export interface ModalProps {
   /** 点击模态框右上角叉、取消按钮、Props.maskClosable 值为 true 时的遮罩层或键盘按下 Esc 时的回调 */
   onCancel?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   afterClose?: () => void;
-  /** 打开和关闭 Modal 时动画结束后的回调 */
+  /** Callback when the animation ends when Modal is turned on and off */
   afterOpenChange?: (open: boolean) => void;
-  /** 垂直居中 */
+  /** Centered Modal */
   centered?: boolean;
-  /** 宽度 */
+  /** Width of the modal dialog */
   width?: string | number;
-  /** 底部内容 */
+  /** Footer content */
   footer?: React.ReactNode;
-  /** 确认按钮文字 */
+  /** Text of the OK button */
   okText?: React.ReactNode;
-  /** 确认按钮类型 */
+  /** Button `type` of the OK button */
   okType?: LegacyButtonType;
-  /** 取消按钮文字 */
+  /** Text of the Cancel button */
   cancelText?: React.ReactNode;
-  /** 点击蒙层是否允许关闭 */
+  /** Whether to close the modal dialog when the mask (area outside the modal) is clicked */
   maskClosable?: boolean;
-  /** 强制渲染 Modal */
+  /** Force render Modal */
   forceRender?: boolean;
   okButtonProps?: ButtonProps;
   cancelButtonProps?: ButtonProps;
