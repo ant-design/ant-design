@@ -124,7 +124,7 @@ const localeValues: Locale = {
         range: 'Die Anzahl an ${label} muss zwischen ${min} und ${max} liegen',
       },
       pattern: {
-        mismatch: '${label} enspricht nicht dem ${pattern} Muster',
+        mismatch: '${label} entspricht nicht dem ${pattern} Muster',
       },
     },
   },
