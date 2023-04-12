@@ -36,17 +36,17 @@ if (canUseDocElement()) {
 }
 
 export interface ModalProps {
-  /** 对话框是否可见 */
+  /** Whether the modal dialog is visible or not */
   open?: boolean;
-  /** 确定按钮 loading */
+  /** Whether to apply loading visual effect for OK button or not */
   confirmLoading?: boolean;
-  /** 标题 */
+  /** The modal dialog's title */
   title?: React.ReactNode;
-  /** 是否显示右上角的关闭按钮 */
+  /** Whether a close (x) button is visible on top right of the modal dialog or not */
   closable?: boolean;
-  /** 点击确定回调 */
+  /** Specify a function that will be called when a user clicks the OK button */
   onOk?: (e: React.MouseEvent<HTMLButtonElement>) => void;
-  /** 点击模态框右上角叉、取消按钮、Props.maskClosable 值为 true 时的遮罩层或键盘按下 Esc 时的回调 */
+  /** Specify a function that will be called when a user clicks mask, close button on top right or Cancel button */
   onCancel?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   afterClose?: () => void;
   /** Callback when the animation ends when Modal is turned on and off */
