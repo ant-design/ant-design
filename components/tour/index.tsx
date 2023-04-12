@@ -1,6 +1,6 @@
 import RCTour from '@rc-component/tour';
 import classNames from 'classnames';
-import React, { useContext, useLayoutEffect, useState } from 'react';
+import React, { useContext, useMemo, useState } from 'react';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import theme from '../theme';
@@ -27,15 +27,13 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
   const [wrapSSR, hashId] = useStyle(prefixCls);
   const { token } = theme.useToken();
 
-  const [currentMergedType, setCurrentMergedType] = useState<TourProps['type']>('default');
   const [currentStep, setCurrentStep] = useState<TourStepProps | null>(
     current ? steps[current] : null,
   );
 
-  useLayoutEffect(() => {
+  const currentMergedType = useMemo<TourProps['type']>(() => {
     const { type: stepType } = currentStep || {};
-    const mergedType = typeof stepType !== 'undefined' ? stepType : type;
-    setCurrentMergedType(mergedType);
+    return typeof stepType !== 'undefined' ? stepType : type;
   }, [currentStep]);
 
   const builtinPlacements = getPlacements({
