@@ -538,4 +538,10 @@ describe('Calendar', () => {
     expect(container.querySelector('.bar')).toBeTruthy();
     errSpy.mockRestore();
   });
+
+  it('support Calendar.generateCalendar', () => {
+    const MyCalendar = Calendar.generateCalendar(dayjsGenerateConfig);
+    const { container } = render(<MyCalendar />);
+    expect(container.firstChild).toMatchSnapshot();
+  });
 });
