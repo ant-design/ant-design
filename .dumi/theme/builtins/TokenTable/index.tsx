@@ -104,7 +104,7 @@ const TokenTable: FC<TokenTableProps> = ({ type }) => {
           name: token,
           desc: lang === 'cn' ? meta.desc : meta.descEn,
           type: meta.type,
-          value: (defaultToken as any)[token],
+          value: defaultToken[token],
         })),
     [type, lang],
   );
