@@ -1,5 +1,6 @@
 import { useLocation as useDumiLocation } from 'dumi';
 import * as React from 'react';
+import { useEffect } from 'react';
 import useLocale from './useLocale';
 
 function clearPath(path: string) {
@@ -7,9 +8,14 @@ function clearPath(path: string) {
 }
 
 export default function useLocation() {
-  const location = useDumiLocation();
+  const originLocation = useDumiLocation();
+  const [location, setLocation] = React.useState(originLocation);
   const { search } = location;
   const [, localeType] = useLocale();
+
+  useEffect(() => {
+    setLocation(originLocation);
+  }, [originLocation]);
 
   const getLink = React.useCallback(
     (path: string, hash?: string | { cn: string; en: string }) => {
