@@ -1,9 +1,8 @@
 import React from 'react';
 import { FloatButton } from 'antd';
-import { FormattedMessage, Link } from 'dumi';
+import { FormattedMessage, Link, useLocation } from 'dumi';
 import { DarkTheme, CompactTheme } from 'antd-token-previewer/es/icons';
 import { BgColorsOutlined } from '@ant-design/icons';
-import useLocation from '../../../hooks/useLocation';
 import useSiteToken from '../../../hooks/useSiteToken';
 import { getLocalizedPathname, isZhCN } from '../../utils';
 import ThemeIcon from './ThemeIcon';
