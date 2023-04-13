@@ -157,9 +157,10 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
 
         // =============================  primary type  ===========================
         // `$` for panel, `&$` for pure panel
-        [`${componentCls}-primary, &${componentCls}-primary`]: {
-          '--antd-arrow-background-color': colorPrimary,
-        },
+        [`${componentCls}-primary, &${componentCls}-primary, ${componentCls}-arrow:has(+ ${componentCls}-primary)`]:
+          {
+            '--antd-arrow-background-color': colorPrimary,
+          },
 
         [`${componentCls}-primary`]: {
           [`${componentCls}-inner`]: {
