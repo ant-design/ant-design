@@ -98,6 +98,13 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const checkboxProps: CheckboxProps = { ...restProps };
+
+  React.useEffect(() => {
+    if (checkboxProps.checked === undefined || checkboxProps.checked === null) {
+      checkboxProps.checked = restProps.defaultChecked;
+    }
+  }, []);
+
   if (checkboxGroup && !skipGroup) {
     checkboxProps.onChange = (...args) => {
       if (restProps.onChange) {

@@ -27,6 +27,7 @@ demo:
 <code src="./demo/layout.tsx">布局</code>
 <code src="./demo/debug-line.tsx" debug>同行布局</code>
 <code src="./demo/debug-disable-popover.tsx" debug>禁用下的 Tooltip</code>
+<code src="./demo/debug-defaultChecked.tsx" debug>应该被选中</code>
 
 ## API
 

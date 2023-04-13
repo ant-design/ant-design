@@ -159,6 +159,25 @@ Array [
 ]
 `;
 
+exports[`renders components/checkbox/demo/debug-defaultChecked.tsx extend context correctly 1`] = `
+<label
+  class="ant-checkbox-wrapper"
+>
+  <span
+    class="ant-checkbox ant-checkbox-checked"
+  >
+    <input
+      checked=""
+      class="ant-checkbox-input"
+      type="checkbox"
+    />
+    <span
+      class="ant-checkbox-inner"
+    />
+  </span>
+</label>
+`;
+
 exports[`renders components/checkbox/demo/debug-disable-popover.tsx extend context correctly 1`] = `
 <div
   style="padding: 56px;"
