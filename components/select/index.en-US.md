@@ -91,7 +91,7 @@ Select component to select value from options.
 | placement | The position where the selection box pops up | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft |  |
 | removeIcon | The custom remove icon | ReactNode | - |  |
 | searchValue | The current input "search" text | string | - |  |
-| showArrow | Whether to show the drop-down arrow | boolean | true(for single select), false(for multiple select) |  |
+| showArrow | Whether to show the drop-down arrow | boolean | `true` |  |
 | showSearch | Whether select is searchable | boolean | single: false, multiple: true |  |
 | size | Size of Select input | `large` \| `middle` \| `small` | `middle` |  |
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
