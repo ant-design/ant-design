@@ -18,7 +18,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
   const {
     prefixCls: customizePrefixCls,
     current,
-    defaultCurrent = 0,
+    defaultCurrent,
     type,
     rootClassName,
     indicatorsRender,
@@ -34,6 +34,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
   });
 
   useLayoutEffect(() => {
+    if (current === undefined) return;
     setInnerCurrent(current);
   }, [current]);
 
