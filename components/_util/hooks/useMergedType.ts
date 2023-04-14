@@ -29,6 +29,6 @@ const useMergedType = <T extends string>(
     return list?.[index]?.type || type;
   }, [type, list, index]);
 
-  return currentMergedType || undefined;
+  return currentMergedType;
 };
 export default useMergedType;

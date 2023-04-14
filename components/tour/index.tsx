@@ -29,12 +29,11 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
   const [wrapSSR, hashId] = useStyle(prefixCls);
   const { token } = theme.useToken();
 
-  const [innerCurrent, setInnerCurrent] = useMergedState<number>(defaultCurrent, {
+  const [innerCurrent, setInnerCurrent] = useMergedState<number | undefined>(defaultCurrent, {
     value: current,
   });
 
   useLayoutEffect(() => {
-    if (typeof current === 'undefined') return;
     setInnerCurrent(current);
   }, [current]);
 
