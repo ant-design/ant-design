@@ -5,7 +5,7 @@ type WithType = {
 };
 
 type WithList<T extends string> = {
-  [key in T]?: WithType[] | undefined;
+  [key in T]?: WithType[];
 };
 
 type BaseProps<T extends string> = WithType & WithList<T>;
