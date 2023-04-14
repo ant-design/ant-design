@@ -95,7 +95,7 @@
     "site:test": "jest --config .jest.site.js --no-cache --force-exit",
     "test-image": "jest --config .jest.image.js --no-cache -i -u",
     "argos": "node ./scripts/argos-upload.js",
-    "version": "node ./scripts/generate-version",
+    "version": "ts-node --esm --project tsconfig.node.json ./scripts/generate-version",
     "install-react-16": "npm i --no-save --legacy-peer-deps react@16 react-dom@16 @testing-library/react@12",
     "install-react-17": "npm i --no-save --legacy-peer-deps react@17 react-dom@17 @testing-library/react@12",
     "install-react-18": "npm i --no-save --legacy-peer-deps react@18 react-dom@18"

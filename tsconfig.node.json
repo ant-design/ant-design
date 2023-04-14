@@ -2,6 +2,7 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "module": "CommonJS",
-    "types": ["node"]
+    "types": ["node"],
+    "resolveJsonModule": true
   }
 }
