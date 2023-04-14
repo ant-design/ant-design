@@ -30,7 +30,7 @@ Ant Design 作为大型组件库，内部依赖十分复杂。有时候 antd 代
 
 ### 定时构建
 
-如你所见，上述的排查方式有一定的滞后性。我们希望通过定时构建的方式减少额外的人力劳动，同时也能让我们更快的发现问题。因而我们复用了 [create-next-app-antd](https://github.com/ant-design/create-next-app-antd) 项目作为基低（这样，如果模板项目出了问题，我们同样可以提前发现）。创建了一个每半小时执行一次的 `mock-project-build.yml` CI，它会定期拉取 [create-next-app-antd](https://github.com/ant-design/create-next-app-antd) repo 进行构建：
+如你所见，上述的排查方式有一定的滞后性。我们希望通过定时构建的方式减少额外的人力劳动，同时也能让我们更快的发现问题。因而我们复用了 [create-next-app-antd](https://github.com/ant-design/create-next-app-antd) 项目作为基底（这样，如果模板项目出了问题，我们同样可以提前发现）。创建了一个每半小时执行一次的 `mock-project-build.yml` CI，它会定期拉取 [create-next-app-antd](https://github.com/ant-design/create-next-app-antd) repo 进行构建：
 
 ```yml
 on:
