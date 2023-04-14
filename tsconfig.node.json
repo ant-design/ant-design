@@ -1,5 +1,8 @@
 {
   "extends": "./tsconfig.json",
+  "ts-node": {
+    "swc": true
+  },
   "compilerOptions": {
     "module": "CommonJS",
     "types": ["node"],
