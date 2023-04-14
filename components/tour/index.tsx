@@ -1,7 +1,8 @@
 import RCTour from '@rc-component/tour';
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import React, { useContext, useMemo, useLayoutEffect } from 'react';
+import React, { useContext, useLayoutEffect } from 'react';
+import useMergedType from '../_util/hooks/useMergedType';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import theme from '../theme';
@@ -38,10 +39,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     setInnerCurrent(current);
   }, [current]);
 
-  const currentMergedType = useMemo<TourProps['type']>(() => {
-    const { type: stepType } = steps[innerCurrent] || {};
-    return typeof stepType !== 'undefined' ? stepType : type;
-  }, [innerCurrent]);
+  const currentMergedType = useMergedType(props, 'steps', innerCurrent);
 
   const builtinPlacements = getPlacements({
     arrowPointAtCenter: true,
