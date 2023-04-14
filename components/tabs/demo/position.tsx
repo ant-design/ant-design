@@ -2,7 +2,7 @@ import type { RadioChangeEvent } from 'antd';
 import { Radio, Space, Tabs } from 'antd';
 import React, { useState } from 'react';
 
-type TabPosition = 'left' | 'right' | 'top' | 'bottom ';
+type TabPosition = 'left' | 'right' | 'top' | 'bottom';
 
 const App: React.FC = () => {
   const [tabPosition, setTabPosition] = useState<TabPosition>('left');
