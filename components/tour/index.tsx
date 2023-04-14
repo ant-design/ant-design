@@ -1,6 +1,7 @@
 import RCTour from '@rc-component/tour';
 import classNames from 'classnames';
-import React, { useContext, useMemo, useLayoutEffect, useState } from 'react';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import React, { useContext, useMemo, useLayoutEffect } from 'react';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import theme from '../theme';
@@ -17,6 +18,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     prefixCls: customizePrefixCls,
     steps = [],
     current,
+    defaultCurrent = 0,
     type,
     rootClassName,
     indicatorsRender,
@@ -27,19 +29,19 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
   const [wrapSSR, hashId] = useStyle(prefixCls);
   const { token } = theme.useToken();
 
-  const [currentStep, setCurrentStep] = useState<TourStepProps | null>(
-    current ? steps[current] : null,
-  );
-  
-  const currentMergedType = useMemo<TourProps['type']>(() => {
-    const { type: stepType } = currentStep || {};
-    return typeof stepType !== 'undefined' ? stepType : type;
-  }, [currentStep]);
+  const [innerCurrent, setInnerCurrent] = useMergedState<number>(defaultCurrent, {
+    value: current,
+  });
 
   useLayoutEffect(() => {
-    if(typeof current === 'undefined') return;
-    setCurrentStep(steps[current]);
+    if (typeof current === 'undefined') return;
+    setInnerCurrent(current);
   }, [current]);
+
+  const currentMergedType = useMemo<TourProps['type']>(() => {
+    const { type: stepType } = steps[innerCurrent] || {};
+    return typeof stepType !== 'undefined' ? stepType : type;
+  }, [innerCurrent]);
 
   const builtinPlacements = getPlacements({
     arrowPointAtCenter: true,
@@ -51,11 +53,11 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
 
   const customClassName = classNames(
     {
+      [`${prefixCls}-primary`]: currentMergedType === 'primary',
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     hashId,
     rootClassName,
-    currentMergedType === 'primary' ? `${prefixCls}-primary` : '',
   );
 
   const mergedRenderPanel = (stepProps: TourStepProps, stepCurrent: number): React.ReactNode => (
@@ -68,7 +70,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
   );
 
   const onStepChange = (stepCurrent: number) => {
-    setCurrentStep(steps[stepCurrent]);
+    setInnerCurrent(stepCurrent);
     props.onChange?.(stepCurrent);
   };
 
@@ -79,6 +81,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
       prefixCls={prefixCls}
       steps={steps}
       current={current}
+      defaultCurrent={defaultCurrent}
       animated
       renderPanel={mergedRenderPanel}
       builtinPlacements={builtinPlacements}
