@@ -17,7 +17,6 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
 ) => {
   const {
     prefixCls: customizePrefixCls,
-    steps = [],
     current,
     defaultCurrent = 0,
     type,
@@ -77,7 +76,6 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
       {...restProps}
       rootClassName={customClassName}
       prefixCls={prefixCls}
-      steps={steps}
       current={current}
       defaultCurrent={defaultCurrent}
       animated

@@ -42,4 +42,16 @@ describe('useMergedType', () => {
     );
     expect(result.current).toBe('default');
   });
+
+  it('returns the default type when list is null', () => {
+    const { result } = renderHook(() =>
+      useMergedType(
+        {
+          type: 'default',
+        },
+        'steps',
+      ),
+    );
+    expect(result.current).toBe('default');
+  });
 });
