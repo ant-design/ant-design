@@ -1,3 +1,4 @@
+import { describe, beforeAll, afterAll, it, expect, vi } from 'vitest';
 import React from 'react';
 import userEvent from '@testing-library/user-event';
 import mountTest from '../../../tests/shared/mountTest';
@@ -12,11 +13,11 @@ describe('Card', () => {
   rtlTest(Card);
 
   beforeAll(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterAll(() => {
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('should still have padding when card which set padding to 0 is loading', () => {
@@ -48,7 +49,7 @@ describe('Card', () => {
         tab: 'tab2',
       },
     ];
-    const onTabChange = jest.fn();
+    const onTabChange = vi.fn();
     render(
       <Card onTabChange={onTabChange} tabList={tabList}>
         xxx

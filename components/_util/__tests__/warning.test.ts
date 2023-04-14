@@ -1,8 +1,9 @@
+import { describe, beforeAll, afterAll, beforeEach, afterEach, it, expect, vi } from 'vitest';
 describe('Test warning', () => {
   let spy: jest.SpyInstance;
 
   beforeAll(() => {
-    spy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    spy = vi.spyOn(console, 'error').mockImplementation(() => {});
   });
 
   afterAll(() => {
@@ -10,7 +11,7 @@ describe('Test warning', () => {
   });
 
   beforeEach(() => {
-    jest.resetModules();
+    vi.resetModules();
   });
 
   afterEach(() => {

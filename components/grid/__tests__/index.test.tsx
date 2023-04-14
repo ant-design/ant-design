@@ -1,3 +1,4 @@
+import { describe, beforeEach, it, expect, vi } from 'vitest';
 import React, { useState } from 'react';
 import { act } from 'react-dom/test-utils';
 import { Col, Row } from '..';
@@ -7,8 +8,8 @@ import { fireEvent, render } from '../../../tests/utils';
 import useBreakpoint from '../hooks/useBreakpoint';
 
 // Mock for `responsiveObserve` to test `unsubscribe` call
-jest.mock('../../_util/responsiveObserver', () => {
-  const modules = jest.requireActual('../../_util/responsiveObserver');
+vi.mock('../../_util/responsiveObserver', () => {
+  const modules = vi.requireActual('../../_util/responsiveObserver');
   const originHook = modules.default;
 
   const useMockResponsiveObserver = (...args: any[]) => {
@@ -75,13 +76,13 @@ describe('Grid', () => {
   });
 
   it('when typeof gutter is object array in large screen', () => {
-    jest.spyOn(window, 'matchMedia').mockImplementation(
+    vi.spyOn(window, 'matchMedia').mockImplementation(
       (query) =>
         ({
           addListener: (cb: (e: { matches: boolean }) => void) => {
             cb({ matches: query === '(min-width: 1200px)' });
           },
-          removeListener: jest.fn(),
+          removeListener: vi.fn(),
           matches: query === '(min-width: 1200px)',
         }) as any,
     );
@@ -141,14 +142,14 @@ describe('Grid', () => {
   // By jsdom mock, actual jsdom not implemented matchMedia
   // https://jestjs.io/docs/en/manual-mocks#mocking-methods-which-are-not-implemented-in-jsdom
   it('should work with useBreakpoint', () => {
-    const matchMediaSpy = jest.spyOn(window, 'matchMedia');
+    const matchMediaSpy = vi.spyOn(window, 'matchMedia');
     matchMediaSpy.mockImplementation(
       (query) =>
         ({
           addListener: (cb: (e: { matches: boolean }) => void) => {
             cb({ matches: query === '(max-width: 575px)' });
           },
-          removeListener: jest.fn(),
+          removeListener: vi.fn(),
           matches: query === '(max-width: 575px)',
         }) as any,
     );
@@ -172,14 +173,14 @@ describe('Grid', () => {
   });
 
   it('should align by responsive align prop', () => {
-    const matchMediaSpy = jest.spyOn(window, 'matchMedia');
+    const matchMediaSpy = vi.spyOn(window, 'matchMedia');
     matchMediaSpy.mockImplementation(
       (query) =>
         ({
           addListener: (cb: (e: { matches: boolean }) => void) => {
             cb({ matches: query === '(max-width: 575px)' });
           },
-          removeListener: jest.fn(),
+          removeListener: vi.fn(),
           matches: query === '(max-width: 575px)',
         }) as any,
     );
@@ -192,14 +193,14 @@ describe('Grid', () => {
   });
 
   it('should justify by responsive justify prop', () => {
-    const matchMediaSpy = jest.spyOn(window, 'matchMedia');
+    const matchMediaSpy = vi.spyOn(window, 'matchMedia');
     matchMediaSpy.mockImplementation(
       (query) =>
         ({
           addListener: (cb: (e: { matches: boolean }) => void) => {
             cb({ matches: query === '(max-width: 575px)' });
           },
-          removeListener: jest.fn(),
+          removeListener: vi.fn(),
           matches: query === '(max-width: 575px)',
         }) as any,
     );

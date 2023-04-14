@@ -1,3 +1,4 @@
+import { describe, beforeEach, afterEach, afterAll, it, expect, vi } from 'vitest';
 import React from 'react';
 import { act } from 'react-dom/test-utils';
 import { waitFakeTimer, render, fireEvent } from '../../../tests/utils';
@@ -7,13 +8,13 @@ describe('Collapse', () => {
   // eslint-disable-next-line global-require
   const Collapse = require('..').default;
 
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
   // fix React concurrent
   function triggerAllTimer() {
     for (let i = 0; i < 10; i += 1) {
       act(() => {
-        jest.runAllTimers();
+        vi.runAllTimers();
       });
     }
   }
@@ -74,7 +75,7 @@ describe('Collapse', () => {
   });
 
   it('could be expand and collapse', async () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     const { container } = render(
       <Collapse>
         <Collapse.Panel header="This is panel header 1" key="1">
@@ -90,7 +91,7 @@ describe('Collapse', () => {
     expect(
       container.querySelector('.ant-collapse-item')?.classList.contains('ant-collapse-item-active'),
     ).toBe(true);
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('could override default openMotion', () => {
@@ -125,8 +126,8 @@ describe('Collapse', () => {
   });
 
   it('should end motion when set activeKey while hiding', async () => {
-    jest.useFakeTimers();
-    const spiedRAF = jest
+    vi.useFakeTimers();
+    const spiedRAF = vi
       .spyOn(window, 'requestAnimationFrame')
       .mockImplementation((cb) => setTimeout(cb, 16.66));
 
@@ -157,7 +158,7 @@ describe('Collapse', () => {
     expect(container.querySelectorAll('.ant-motion-collapse').length).toBe(0);
 
     spiedRAF.mockRestore();
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('ref should work', () => {

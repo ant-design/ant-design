@@ -1,3 +1,4 @@
+import { describe, it, expect, vi } from 'vitest';
 /* eslint-disable react/no-multi-comp */
 import React from 'react';
 import type { ColumnType, TableProps } from '..';
@@ -232,7 +233,7 @@ describe('Table.sorter', () => {
   });
 
   it('fires change event', () => {
-    const handleChange = jest.fn();
+    const handleChange = vi.fn();
     const { container } = render(createTable({ onChange: handleChange }));
 
     // ascent
@@ -260,13 +261,13 @@ describe('Table.sorter', () => {
 
   it('hover header show sorter tooltip', () => {
     // tooltip has delay
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     const { container, rerender } = render(createTable());
 
     // default show sorter tooltip
     fireEvent.mouseEnter(container.querySelector('.ant-table-column-sorters')!);
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
 
     expect(container.querySelector('.ant-tooltip-open')).toBeTruthy();
@@ -276,7 +277,7 @@ describe('Table.sorter', () => {
     rerender(createTable({ showSorterTooltip: false }));
     fireEvent.mouseEnter(container.querySelector('.ant-table-column-sorters')!);
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
     expect(container.querySelector('.ant-tooltip-open')).toBeFalsy();
     fireEvent.mouseOut(container.querySelector('.ant-table-column-sorters')!);
@@ -287,7 +288,7 @@ describe('Table.sorter', () => {
     );
     fireEvent.mouseEnter(container.querySelector('.ant-table-column-sorters')!);
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
     expect(container.querySelector('.ant-tooltip-open')).toBeTruthy();
     fireEvent.mouseOut(container.querySelector('.ant-table-column-sorters')!);
@@ -301,7 +302,7 @@ describe('Table.sorter', () => {
     );
     fireEvent.mouseEnter(container.querySelector('.ant-table-column-sorters')!);
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
     expect(container.querySelector('.ant-tooltip-open')).toBeFalsy();
     fireEvent.mouseOut(container.querySelector('.ant-table-column-sorters')!);
@@ -309,14 +310,14 @@ describe('Table.sorter', () => {
 
   it('should show correct tooltip when showSorterTooltip is an object', () => {
     // basically copied from 'hover header show sorter tooltip'
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     const { container, rerender } = render(
       createTable({ showSorterTooltip: { placement: 'bottom', title: 'static title' } }),
     );
 
     fireEvent.mouseEnter(container.querySelector('.ant-table-column-sorters')!);
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
     expect(container.querySelector('.ant-tooltip-open')).toBeTruthy();
     fireEvent.mouseOut(container.querySelector('.ant-table-column-sorters')!);
@@ -324,7 +325,7 @@ describe('Table.sorter', () => {
     // Root to false
     rerender(createTable({ showSorterTooltip: false }));
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
     expect(container.querySelector('.ant-tooltip-open')).toBeFalsy();
 
@@ -337,7 +338,7 @@ describe('Table.sorter', () => {
     );
     fireEvent.mouseEnter(container.querySelector('.ant-table-column-sorters')!);
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
     expect(container.querySelector('.ant-tooltip-open')).toBeTruthy();
     fireEvent.mouseOut(container.querySelector('.ant-table-column-sorters')!);
@@ -350,7 +351,7 @@ describe('Table.sorter', () => {
       }),
     );
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
     expect(container.querySelector('.ant-tooltip-open')).toBeFalsy();
   });
@@ -701,8 +702,8 @@ describe('Table.sorter', () => {
   });
 
   it('pagination back', () => {
-    const onPageChange = jest.fn();
-    const onChange = jest.fn();
+    const onPageChange = vi.fn();
+    const onChange = vi.fn();
 
     const { container } = render(
       createTable({
@@ -726,7 +727,7 @@ describe('Table.sorter', () => {
   });
 
   it('should support onHeaderCell in sort column', () => {
-    const onClick = jest.fn();
+    const onClick = vi.fn();
     const { container } = render(
       <Table columns={[{ title: 'title', onHeaderCell: () => ({ onClick }), sorter: true }]} />,
     );
@@ -943,7 +944,7 @@ describe('Table.sorter', () => {
       },
     ];
 
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const dataProp = { data: groupData };
     const { container } = render(
       <Table columns={groupColumns} {...dataProp} onChange={onChange} />,
@@ -1036,7 +1037,7 @@ describe('Table.sorter', () => {
       },
     ];
 
-    const onChange = jest.fn();
+    const onChange = vi.fn();
 
     const { container } = render(
       <Table columns={columns} dataSource={tableData} onChange={onChange} />,

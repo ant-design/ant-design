@@ -1,3 +1,4 @@
+import { describe, it, expect, vi } from 'vitest';
 import { SearchOutlined } from '@ant-design/icons';
 import { resetWarned } from 'rc-util/lib/warning';
 import React, { useState } from 'react';
@@ -37,7 +38,7 @@ describe('Button', () => {
 
   it('warns if size is wrong', () => {
     resetWarned();
-    const mockWarn = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const mockWarn = vi.spyOn(console, 'error').mockImplementation(() => {});
     const size = 'who am I';
     // @ts-expect-error: Type '"who am I"' is not assignable to type 'SizeType'.ts(2322)
     render(<Button.Group size={size} />);
@@ -162,22 +163,22 @@ describe('Button', () => {
   });
 
   it('reset when loading back of delay', () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     const { rerender, container } = render(<Button loading={{ delay: 1000 }} />);
     rerender(<Button loading={{ delay: 2000 }} />);
     rerender(<Button loading={false} />);
 
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
 
     expect(container.querySelectorAll('.ant-btn-loading')).toHaveLength(0);
 
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('should not clickable when button is loading', () => {
-    const onClick = jest.fn();
+    const onClick = vi.fn();
     const { container } = render(
       <Button loading onClick={onClick}>
         button
@@ -223,7 +224,7 @@ describe('Button', () => {
   });
 
   it('should support to change loading', async () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     const { container, rerender, unmount } = render(<Button>Button</Button>);
     rerender(<Button loading />);
     expect(container.querySelectorAll('.ant-btn-loading').length).toBe(1);
@@ -237,12 +238,12 @@ describe('Button', () => {
     await waitFakeTimer();
     expect(container.querySelectorAll('.ant-btn-loading').length).toBe(0);
     expect(unmount).not.toThrow();
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('should warning when pass a string as icon props', () => {
     resetWarned();
-    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const warnSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     render(<Button type="primary" icon="ab" />);
     expect(warnSpy).not.toHaveBeenCalled();
@@ -257,7 +258,7 @@ describe('Button', () => {
 
   it('should warning when pass type=link and ghost=true', () => {
     resetWarned();
-    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const warnSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     render(<Button type="link" ghost />);
     expect(warnSpy).toHaveBeenCalledWith(
       "Warning: [antd: Button] `link` or `text` button can't be a `ghost` button.",
@@ -267,7 +268,7 @@ describe('Button', () => {
 
   it('should warning when pass type=text and ghost=true', () => {
     resetWarned();
-    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const warnSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     render(<Button type="text" ghost />);
     expect(warnSpy).toHaveBeenCalledWith(
       "Warning: [antd: Button] `link` or `text` button can't be a `ghost` button.",
@@ -290,7 +291,7 @@ describe('Button', () => {
   });
 
   it('should not redirect when button is disabled', () => {
-    const onClick = jest.fn();
+    const onClick = vi.fn();
     const { container } = render(
       <Button href="https://ant.design" onClick={onClick} disabled>
         click me

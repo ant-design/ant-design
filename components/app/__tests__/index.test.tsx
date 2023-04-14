@@ -1,3 +1,4 @@
+import { describe, beforeEach, afterEach, it, expect, vi } from 'vitest';
 import React, { useEffect } from 'react';
 import App from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -11,12 +12,12 @@ describe('App', () => {
   rtlTest(App);
 
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(() => {
-    jest.clearAllTimers();
-    jest.useRealTimers();
+    vi.clearAllTimers();
+    vi.useRealTimers();
   });
 
   it('single', () => {

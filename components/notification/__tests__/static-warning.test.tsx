@@ -1,3 +1,4 @@
+import { describe, beforeAll, beforeEach, afterEach, it, expect, vi } from 'vitest';
 import React from 'react';
 import notification, { actWrapper } from '..';
 import { act, render, waitFakeTimer } from '../../../tests/utils';
@@ -10,7 +11,7 @@ describe('notification static warning', () => {
   });
 
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(async () => {
@@ -18,14 +19,14 @@ describe('notification static warning', () => {
     notification.destroy();
     await triggerMotionEnd();
 
-    jest.useRealTimers();
+    vi.useRealTimers();
 
     await awaitPromise();
   });
 
   // Follow test need keep order
   it('no warning', async () => {
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     notification.open({
       message: <div className="bamboo" />,
@@ -39,7 +40,7 @@ describe('notification static warning', () => {
   });
 
   it('warning if use theme', async () => {
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     render(<ConfigProvider theme={{}} />);
 
     notification.open({

@@ -1,3 +1,4 @@
+import { describe, beforeEach, afterEach, it, expect, vi } from 'vitest';
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React from 'react';
 import { act } from 'react-dom/test-utils';
@@ -8,11 +9,11 @@ import { fireEvent, render } from '../../../tests/utils';
 
 describe('message.hooks', () => {
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(() => {
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('should work', () => {
@@ -230,7 +231,7 @@ describe('message.hooks', () => {
   });
 
   it('warning if user call update in render', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     const Demo = () => {
       const [api, holder] = message.useMessage();

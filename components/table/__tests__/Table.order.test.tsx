@@ -1,3 +1,4 @@
+import { describe, afterEach, afterAll, it, expect, vi } from 'vitest';
 import React from 'react';
 import type { TableProps } from '..';
 import Table from '..';
@@ -8,7 +9,7 @@ describe('Table.order', () => {
   window.requestAnimationFrame = (callback) => window.setTimeout(callback, 16);
   window.cancelAnimationFrame = window.clearTimeout;
 
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
   afterEach(() => {
     errorSpy.mockReset();

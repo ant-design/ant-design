@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import * as React from 'react';
 import type { BaseOptionType } from '..';
 import Cascader from '..';

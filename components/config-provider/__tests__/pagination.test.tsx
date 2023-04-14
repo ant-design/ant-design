@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import React from 'react';
 import ConfigProvider from '..';
 import { render } from '../../../tests/utils';

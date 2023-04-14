@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 /* eslint-disable react/no-multi-comp */
 import React from 'react';
 import Table from '..';

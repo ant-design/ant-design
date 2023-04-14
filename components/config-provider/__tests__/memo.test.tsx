@@ -1,3 +1,4 @@
+import { describe, it, expect, vi } from 'vitest';
 import React, { useState } from 'react';
 import ConfigProvider from '..';
 import Tooltip from '../../tooltip';
@@ -22,7 +23,7 @@ describe('ConfigProvider', () => {
 
   it('should not generate new context config when render', () => {
     const MemoedSibling = React.memo(Sibling);
-    const spy = jest.fn();
+    const spy = vi.fn();
     const App: React.FC = () => {
       const [pageHeader, setPageHeader] = useState({ ghost: true });
       const [, forceRender] = React.useReducer((v) => v + 1, 1);
@@ -56,7 +57,7 @@ describe('ConfigProvider', () => {
 
   it('should not generate new context config in nested ConfigProvider when render', () => {
     const MemoedSibling = React.memo(Sibling);
-    const spy = jest.fn();
+    const spy = vi.fn();
     const App: React.FC = () => {
       const [pageHeader, setPageHeader] = useState({ ghost: true });
       const [, forceRender] = React.useReducer((v) => v + 1, 1);

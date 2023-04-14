@@ -1,3 +1,4 @@
+import { describe, it, expect, vi } from 'vitest';
 import React from 'react';
 import ConfigProvider from '..';
 import Form from '../../form';
@@ -51,7 +52,7 @@ describe('ConfigProvider.useConfig', () => {
       return <div>{ctx}</div>;
     };
 
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     render(<App />);
 

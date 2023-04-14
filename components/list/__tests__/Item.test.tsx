@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import React, { useEffect } from 'react';
 import List from '..';
 import { pureRender, render } from '../../../tests/utils';

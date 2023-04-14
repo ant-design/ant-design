@@ -1,3 +1,4 @@
+import { describe, it, expect, vi } from 'vitest';
 import React, { useEffect, useState } from 'react';
 import { closePicker, openPicker, selectCell } from '../../date-picker/__tests__/utils';
 import ConfigProvider from '..';
@@ -33,12 +34,12 @@ describe('ConfigProvider.Locale', () => {
         setShowButton(true);
       }, []);
       const openConfirm = () => {
-        jest.useFakeTimers();
+        vi.useFakeTimers();
         Modal.confirm({ title: 'title', content: 'Some descriptions' });
         act(() => {
-          jest.runAllTimers();
+          vi.runAllTimers();
         });
-        jest.useRealTimers();
+        vi.useRealTimers();
       };
       return (
         <ConfigProvider locale={zhCN}>

@@ -1,3 +1,4 @@
+import { describe, beforeEach, beforeAll, afterEach, afterAll, it, expect, vi } from 'vitest';
 import React, { useEffect, useRef } from 'react';
 import type { CSSProperties } from 'react';
 import type { InternalAffixClass } from '..';
@@ -23,7 +24,7 @@ const AffixMounter: React.FC<AffixProps> = ({ getInstance, ...restProps }) => {
   const container = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (container.current) {
-      container.current.addEventListener = jest
+      container.current.addEventListener = vi
         .fn()
         .mockImplementation((event: keyof HTMLElementEventMap, cb: (ev: Event) => void) => {
           events[event] = cb;
@@ -43,12 +44,12 @@ describe('Affix Render', () => {
   rtlTest(Affix);
   accessibilityTest(Affix);
 
-  const domMock = jest.spyOn(HTMLElement.prototype, 'getBoundingClientRect');
+  const domMock = vi.spyOn(HTMLElement.prototype, 'getBoundingClientRect');
 
   const classRect: Record<string, DOMRect> = { container: { top: 0, bottom: 100 } as DOMRect };
 
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     const entities = getObserverEntities();
     entities.splice(0, entities.length);
   });
@@ -60,8 +61,8 @@ describe('Affix Render', () => {
   });
 
   afterEach(() => {
-    jest.useRealTimers();
-    jest.clearAllTimers();
+    vi.useRealTimers();
+    vi.clearAllTimers();
   });
 
   afterAll(() => {
@@ -112,7 +113,7 @@ describe('Affix Render', () => {
   });
 
   it('updatePosition when offsetTop changed', async () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
 
     const { container, rerender } = render(<AffixMounter offsetTop={0} onChange={onChange} />);
     await waitFakeTimer();
@@ -248,7 +249,7 @@ describe('Affix Render', () => {
       '.fixed', // outer
     ].forEach((selector) => {
       it(`trigger listener when size change: ${selector}`, async () => {
-        const updateCalled = jest.fn();
+        const updateCalled = vi.fn();
         const { container } = render(
           <AffixMounter offsetBottom={0} onTestUpdatePosition={updateCalled} />,
           {

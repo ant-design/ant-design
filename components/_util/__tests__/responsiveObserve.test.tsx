@@ -1,3 +1,4 @@
+import { describe, it, expect, vi } from 'vitest';
 import React from 'react';
 import { render } from '../../../tests/utils';
 import useResponsiveObserver from '../responsiveObserver';
@@ -11,7 +12,7 @@ describe('Test ResponsiveObserve', () => {
       return null;
     };
     render(<Demo />);
-    const subscribeFunc = jest.fn();
+    const subscribeFunc = vi.fn();
     const token = responsiveObserveRef.subscribe(subscribeFunc);
     expect(
       responsiveObserveRef.matchHandlers[responsiveObserveRef.responsiveMap.xs].mql.matches,

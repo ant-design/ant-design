@@ -1,3 +1,4 @@
+import { describe, beforeAll, beforeEach, afterEach, it, expect, vi } from 'vitest';
 import { act } from '../../../tests/utils';
 import message, { actWrapper } from '..';
 import ConfigProvider from '../../config-provider';
@@ -9,7 +10,7 @@ describe('message.config', () => {
   });
 
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(async () => {
@@ -17,7 +18,7 @@ describe('message.config', () => {
     message.destroy();
     await triggerMotionEnd();
 
-    jest.useRealTimers();
+    vi.useRealTimers();
 
     await awaitPromise();
   });
@@ -104,13 +105,13 @@ describe('message.config', () => {
     expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(1);
 
     act(() => {
-      jest.advanceTimersByTime(4000);
+      vi.advanceTimersByTime(4000);
     });
 
     expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(1);
 
     act(() => {
-      jest.advanceTimersByTime(2000);
+      vi.advanceTimersByTime(2000);
     });
 
     await triggerMotionEnd('.ant-message-notice');

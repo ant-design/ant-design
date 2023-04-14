@@ -1,3 +1,4 @@
+import { describe, it, expect, beforeAll, afterAll } from 'vitest';
 import React from 'react';
 import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
 import type { ColumnsType } from '..';

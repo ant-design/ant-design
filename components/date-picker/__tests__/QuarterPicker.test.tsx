@@ -1,3 +1,4 @@
+import { describe, it, expect, vi } from 'vitest';
 import React from 'react';
 import DatePicker from '..';
 import { render } from '../../../tests/utils';
@@ -8,7 +9,7 @@ const { QuarterPicker } = DatePicker;
 describe('QuarterPicker', () => {
   it('should support style prop', () => {
     resetWarned();
-    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const warnSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     const { container } = render(<QuarterPicker style={{ width: 400 }} />);
     expect(container.firstChild).toMatchSnapshot();

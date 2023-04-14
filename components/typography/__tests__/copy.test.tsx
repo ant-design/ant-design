@@ -1,3 +1,4 @@
+import { describe, afterEach, it, expect, vi } from 'vitest';
 import { LikeOutlined, SmileOutlined } from '@ant-design/icons';
 import * as copyObj from 'copy-to-clipboard';
 import React from 'react';
@@ -6,7 +7,7 @@ import { fireEvent, render, waitFor, act } from '../../../tests/utils';
 import Base from '../Base';
 
 describe('Typography copy', () => {
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
   afterEach(() => {
     errorSpy.mockReset();
@@ -32,7 +33,7 @@ describe('Typography copy', () => {
         tooltipLength?: number;
       }) {
         it(name, async () => {
-          jest.useFakeTimers();
+          vi.useFakeTimers();
           const { container: wrapper, unmount } = render(
             <Base component="p" copyable={{ icon, tooltips }}>
               test copy
@@ -48,7 +49,7 @@ describe('Typography copy', () => {
           }
 
           fireEvent.mouseEnter(wrapper.querySelectorAll('.ant-typography-copy')[0]);
-          jest.runAllTimers();
+          vi.runAllTimers();
 
           if (tooltipTexts[0] !== undefined) {
             await waitFor(() => {
@@ -65,7 +66,7 @@ describe('Typography copy', () => {
           }
 
           fireEvent.click(wrapper.querySelectorAll('.ant-typography-copy')[0]);
-          jest.useRealTimers();
+          vi.useRealTimers();
           if (iconClassNames[1] !== undefined) {
             expect(wrapper.querySelector(iconClassNames[1])).not.toBeNull();
           }
@@ -86,14 +87,14 @@ describe('Typography copy', () => {
             );
           }
 
-          jest.useFakeTimers();
+          vi.useFakeTimers();
           fireEvent.click(wrapper.querySelectorAll('.ant-typography-copy')[0]);
           act(() => {
-            jest.runAllTimers();
+            vi.runAllTimers();
           });
 
           unmount();
-          jest.useRealTimers();
+          vi.useRealTimers();
         });
       }
 
@@ -209,7 +210,7 @@ describe('Typography copy', () => {
     });
 
     it('copy click event stopPropagation', () => {
-      const onDivClick = jest.fn();
+      const onDivClick = vi.fn();
       const { container: wrapper } = render(
         <div onClick={onDivClick}>
           <Base component="p" copyable>
@@ -235,8 +236,8 @@ describe('Typography copy', () => {
     });
 
     it('copy to clipboard', () => {
-      jest.useFakeTimers();
-      const spy = jest.spyOn(copyObj, 'default');
+      vi.useFakeTimers();
+      const spy = vi.spyOn(copyObj, 'default');
       const originText = 'origin text.';
       const nextText = 'next text.';
       const Test = () => {
@@ -257,12 +258,12 @@ describe('Typography copy', () => {
       fireEvent.click(copyBtn);
       expect(spy.mock.calls[0][0]).toEqual(originText);
       act(() => {
-        jest.runAllTimers();
+        vi.runAllTimers();
       });
       spy.mockReset();
       fireEvent.click(copyBtn);
       expect(spy.mock.calls[0][0]).toEqual(nextText);
-      jest.useRealTimers();
+      vi.useRealTimers();
     });
   });
 });

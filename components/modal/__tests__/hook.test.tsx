@@ -1,3 +1,4 @@
+import { describe, it, expect, vi } from 'vitest';
 import CSSMotion from 'rc-motion';
 import { genCSSMotion } from 'rc-motion/lib/CSSMotion';
 import KeyCode from 'rc-util/lib/KeyCode';
@@ -11,8 +12,8 @@ import ConfigProvider from '../../config-provider';
 import Input from '../../input';
 import type { ModalFunc } from '../confirm';
 
-jest.mock('rc-util/lib/Portal');
-jest.mock('rc-motion');
+vi.mock('rc-util/lib/Portal');
+vi.mock('rc-motion');
 
 describe('Modal.hook', () => {
   // Inject CSSMotion to replace with No transition support
@@ -23,7 +24,7 @@ describe('Modal.hook', () => {
   });
 
   it('hooks support context', () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     const Context = React.createContext('light');
     let instance: ReturnType<ModalFunc>;
 
@@ -65,11 +66,11 @@ describe('Modal.hook', () => {
     // Destroy
     act(() => {
       instance.destroy();
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
     expect(document.body.querySelectorAll('Modal')).toHaveLength(0);
 
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('destroyAll works with contextHolder', () => {
@@ -110,7 +111,7 @@ describe('Modal.hook', () => {
   });
 
   it('context support config direction', () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     const Demo = () => {
       const [modal, contextHolder] = Modal.useModal();
       return (
@@ -234,9 +235,9 @@ describe('Modal.hook', () => {
   });
 
   it('the callback close should be a method when onCancel has a close parameter', async () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
 
-    const mockFn = jest.fn();
+    const mockFn = vi.fn();
 
     const Demo = () => {
       const [modal, contextHolder] = Modal.useModal();
@@ -330,7 +331,7 @@ describe('Modal.hook', () => {
 
     expect(mockFn.mock.calls).toEqual(Array.from({ length: 5 }, () => [expect.any(Function)]));
 
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('not block origin ConfigProvider config', () => {
@@ -352,7 +353,7 @@ describe('Modal.hook', () => {
   });
 
   it('it should call forwarded afterClose', () => {
-    const afterClose = jest.fn();
+    const afterClose = vi.fn();
     const Demo = () => {
       const [modal, contextHolder] = Modal.useModal();
       React.useEffect(() => {

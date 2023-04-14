@@ -1,3 +1,4 @@
+import { describe, it, expect, vi } from 'vitest';
 import React from 'react';
 import { render, fireEvent } from '../../../tests/utils';
 import Form from '..';
@@ -68,7 +69,7 @@ describe('Form.Ref', () => {
   };
 
   it('should ref work', () => {
-    const onRef = jest.fn();
+    const onRef = vi.fn();
     const { container, rerender } = render(<Test onRef={onRef} show />);
 
     fireEvent.click(container.querySelector('.ref-item')!);

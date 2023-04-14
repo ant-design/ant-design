@@ -1,3 +1,4 @@
+import { describe, beforeAll, beforeEach, afterAll, afterEach, it, expect, vi } from 'vitest';
 import React from 'react';
 import { act } from 'react-dom/test-utils';
 import AutoComplete from '..';
@@ -5,7 +6,7 @@ import { render } from '../../../tests/utils';
 
 describe('AutoComplete children could be focus', () => {
   beforeAll(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   let container: HTMLDivElement;
@@ -15,7 +16,7 @@ describe('AutoComplete children could be focus', () => {
   });
 
   afterAll(() => {
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   afterEach(() => {
@@ -23,31 +24,31 @@ describe('AutoComplete children could be focus', () => {
   });
 
   it('focus() and onFocus', () => {
-    const handleFocus = jest.fn();
+    const handleFocus = vi.fn();
     const { container: wrapper } = render(<AutoComplete onFocus={handleFocus} />, { container });
     wrapper.querySelector('input')?.focus();
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
     expect(handleFocus).toHaveBeenCalled();
   });
 
   it('blur() and onBlur', () => {
-    const handleBlur = jest.fn();
+    const handleBlur = vi.fn();
     const { container: wrapper } = render(<AutoComplete onBlur={handleBlur} />, { container });
     wrapper.querySelector('input')?.focus();
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
     wrapper.querySelector('input')?.blur();
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
     expect(handleBlur).toHaveBeenCalled();
   });
 
   it('child.ref should work', () => {
-    const mockRef = jest.fn();
+    const mockRef = vi.fn();
     render(
       <AutoComplete dataSource={[]}>
         <input ref={mockRef} />

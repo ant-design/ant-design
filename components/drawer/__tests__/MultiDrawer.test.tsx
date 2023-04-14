@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import type { DrawerPopupProps } from 'rc-drawer/lib/DrawerPopup';
 import React, { useState } from 'react';
 import Drawer from '..';

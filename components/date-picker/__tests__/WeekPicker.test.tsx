@@ -1,3 +1,4 @@
+import { describe, beforeEach, afterEach, it, expect } from 'vitest';
 import React from 'react';
 import DatePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';

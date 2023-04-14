@@ -1,3 +1,4 @@
+import { describe, it, expect, vi } from 'vitest';
 import React from 'react';
 import { render } from '../../../tests/utils';
 import TreeSelect, { TreeNode } from '..';
@@ -56,7 +57,7 @@ describe('TreeSelect', () => {
   it('legacy dropdownClassName', () => {
     resetWarned();
 
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     const { container } = render(<TreeSelect dropdownClassName="legacy" open />);
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: TreeSelect] `dropdownClassName` is deprecated. Please use `popupClassName` instead.',

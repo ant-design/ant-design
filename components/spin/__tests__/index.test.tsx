@@ -1,3 +1,4 @@
+import { describe, it, expect, vi } from 'vitest';
 import React from 'react';
 import { render } from '@testing-library/react';
 import { waitFakeTimer } from '../../../tests/utils';
@@ -26,14 +27,14 @@ describe('Spin', () => {
   });
 
   it('should be controlled by spinning', async () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     const { container, rerender } = render(<Spin spinning={false} />);
     expect(container.querySelector('.ant-spin-spinning')).toBeFalsy();
     rerender(<Spin spinning />);
     await waitFakeTimer();
     expect(container.querySelector('.ant-spin-spinning')).toBeTruthy();
-    jest.clearAllTimers();
-    jest.useRealTimers();
+    vi.clearAllTimers();
+    vi.useRealTimers();
   });
 
   it('if indicator set null should not be render default indicator', () => {

@@ -1,3 +1,4 @@
+import { describe, beforeEach, afterEach, afterAll, it, expect, vi } from 'vitest';
 import dayjs from 'dayjs';
 import 'dayjs/locale/mk'; // to test local in 'prop locale should works' test case
 import customParseFormat from 'dayjs/plugin/customParseFormat';
@@ -14,10 +15,10 @@ dayjs.extend(customParseFormat);
 
 let triggerProps: TriggerProps;
 
-jest.mock('@rc-component/trigger', () => {
-  let Trigger = jest.requireActual('@rc-component/trigger/lib/mock');
+vi.mock('@rc-component/trigger', () => {
+  let Trigger = vi.requireActual('@rc-component/trigger/lib/mock');
   Trigger = Trigger.default || Trigger;
-  const h: typeof React = jest.requireActual('react');
+  const h: typeof React = vi.requireActual('react');
 
   return {
     default: h.forwardRef<unknown, TriggerProps>((props, ref) => {
@@ -29,7 +30,7 @@ jest.mock('@rc-component/trigger', () => {
 });
 
 describe('DatePicker', () => {
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
   focusTest(DatePicker, { refFocus: true });
 
@@ -279,7 +280,7 @@ describe('DatePicker', () => {
   it('legacy dropdownClassName', () => {
     resetWarned();
 
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     const { container } = render(<DatePicker dropdownClassName="legacy" open />);
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: DatePicker] `dropdownClassName` is deprecated. Please use `popupClassName` instead.',

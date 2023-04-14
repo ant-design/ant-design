@@ -1,3 +1,4 @@
+import { describe, beforeAll, afterAll, it, expect, vi } from 'vitest';
 import React from 'react';
 import Watermark from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -8,7 +9,7 @@ describe('Watermark', () => {
   mountTest(Watermark);
   rtlTest(Watermark);
 
-  const mockSrcSet = jest.spyOn(Image.prototype, 'src', 'set');
+  const mockSrcSet = vi.spyOn(Image.prototype, 'src', 'set');
 
   beforeAll(() => {
     mockSrcSet.mockImplementation(function fn() {

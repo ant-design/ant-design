@@ -1,3 +1,4 @@
+import { describe, beforeEach, beforeAll, afterAll, it, expect, vi } from 'vitest';
 import React from 'react';
 import { act } from 'react-dom/test-utils';
 import scrollIntoView from 'scroll-into-view-if-needed';
@@ -11,7 +12,7 @@ import Input from '../../input';
 import zhCN from '../../locale/zh_CN';
 import InputNumber from '../../input-number';
 
-jest.mock('scroll-into-view-if-needed');
+vi.mock('scroll-into-view-if-needed');
 
 describe('ConfigProvider.Form', () => {
   (scrollIntoView as any).mockImplementation(() => {});
@@ -21,11 +22,11 @@ describe('ConfigProvider.Form', () => {
   });
 
   beforeAll(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterAll(() => {
-    jest.useRealTimers();
+    vi.useRealTimers();
     (scrollIntoView as any).mockRestore();
   });
 
@@ -59,12 +60,12 @@ describe('ConfigProvider.Form', () => {
       });
 
       await act(async () => {
-        jest.runAllTimers();
+        vi.runAllTimers();
         await Promise.resolve();
       });
 
       act(() => {
-        jest.runAllTimers();
+        vi.runAllTimers();
       });
 
       expect(container.querySelector('.ant-form-item-explain')).toHaveTextContent('请输入姓名');
@@ -82,12 +83,12 @@ describe('ConfigProvider.Form', () => {
       });
 
       await act(async () => {
-        jest.runAllTimers();
+        vi.runAllTimers();
         await Promise.resolve();
       });
 
       act(() => {
-        jest.runAllTimers();
+        vi.runAllTimers();
       });
 
       const explains = Array.from(container.querySelectorAll('.ant-form-item-explain'));
@@ -132,12 +133,12 @@ describe('ConfigProvider.Form', () => {
       });
 
       await act(async () => {
-        jest.runAllTimers();
+        vi.runAllTimers();
         await Promise.resolve();
       });
 
       act(() => {
-        jest.runAllTimers();
+        vi.runAllTimers();
       });
 
       expect(container.querySelectorAll('.ant-form-item-explain')).toHaveLength(2);
@@ -216,7 +217,7 @@ describe('ConfigProvider.Form', () => {
   describe('form scrollToFirstError', () => {
     it('set object, form not set', async () => {
       (scrollIntoView as any).mockImplementation(() => {});
-      const onFinishFailed = jest.fn();
+      const onFinishFailed = vi.fn();
 
       const { container } = render(
         <ConfigProvider form={{ scrollToFirstError: { block: 'center' } }}>
@@ -245,7 +246,7 @@ describe('ConfigProvider.Form', () => {
 
     it('not set, form set object', async () => {
       (scrollIntoView as any).mockImplementation(() => {});
-      const onFinishFailed = jest.fn();
+      const onFinishFailed = vi.fn();
 
       const { container } = render(
         <ConfigProvider>
@@ -274,7 +275,7 @@ describe('ConfigProvider.Form', () => {
 
     it('set object, form set false', async () => {
       (scrollIntoView as any).mockImplementation(() => {});
-      const onFinishFailed = jest.fn();
+      const onFinishFailed = vi.fn();
 
       const { container } = render(
         <ConfigProvider form={{ scrollToFirstError: { block: 'center' } }}>

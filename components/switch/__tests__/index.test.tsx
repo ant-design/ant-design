@@ -1,3 +1,4 @@
+import { describe, it, expect, vi } from 'vitest';
 import React from 'react';
 import Switch from '..';
 import focusTest from '../../../tests/shared/focusTest';
@@ -6,7 +7,7 @@ import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
 
-jest.mock('rc-util/lib/Dom/isVisible', () => {
+vi.mock('rc-util/lib/Dom/isVisible', () => {
   const mockFn = () => true;
   return mockFn;
 });
@@ -17,21 +18,21 @@ describe('Switch', () => {
   rtlTest(Switch);
 
   it('should has click wave effect', () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     const { container } = render(<Switch />);
     fireEvent.click(container.querySelector('.ant-switch')!);
     act(() => {
-      jest.advanceTimersByTime(100);
+      vi.advanceTimersByTime(100);
     });
     expect(document.querySelector('.ant-wave')).toBeTruthy();
-    jest.clearAllTimers();
-    jest.useRealTimers();
+    vi.clearAllTimers();
+    vi.useRealTimers();
   });
 
   it('warning if set `value`', () => {
     resetWarned();
 
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     const props = { value: true } as any;
     render(<Switch {...props} />);
     expect(errorSpy).toHaveBeenCalledWith(

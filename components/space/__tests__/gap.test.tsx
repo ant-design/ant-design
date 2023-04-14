@@ -1,8 +1,9 @@
+import { describe, it, expect, vi } from 'vitest';
 import React from 'react';
 import Space from '..';
 import { render } from '../../../tests/utils';
 
-jest.mock('../../_util/styleChecker', () => ({
+vi.mock('../../_util/styleChecker', () => ({
   canUseDocElement: () => true,
   isStyleSupport: () => true,
   detectFlexGapSupported: () => true,

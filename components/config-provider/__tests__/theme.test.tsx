@@ -1,3 +1,4 @@
+import { describe, beforeEach, it, expect, vi } from 'vitest';
 import { kebabCase } from 'lodash';
 import canUseDom from 'rc-util/lib/Dom/canUseDom';
 import React from 'react';
@@ -13,7 +14,7 @@ const { defaultAlgorithm, darkAlgorithm, compactAlgorithm } = theme;
 // eslint-disable-next-line no-var
 var mockCanUseDom = true;
 
-jest.mock('rc-util/lib/Dom/canUseDom', () => () => mockCanUseDom);
+vi.mock('rc-util/lib/Dom/canUseDom', () => () => mockCanUseDom);
 
 describe('ConfigProvider.Theme', () => {
   beforeEach(() => {
@@ -44,7 +45,7 @@ describe('ConfigProvider.Theme', () => {
   it('warning for SSR', () => {
     resetWarned();
 
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     mockCanUseDom = false;
     expect(canUseDom()).toBeFalsy();
 

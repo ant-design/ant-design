@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { renderHook } from '../../../tests/utils';
 import useAnimateConfig from '../hooks/useAnimateConfig';
 

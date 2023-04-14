@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import React from 'react';
 import useSyncState from '../hooks/useSyncState';
 import { render, fireEvent } from '../../../tests/utils';

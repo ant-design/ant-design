@@ -1,3 +1,4 @@
+import { describe, afterEach, afterAll, it, expect, vi } from 'vitest';
 import { render as testLibRender } from '@testing-library/react';
 import React from 'react';
 import { fireEvent, render } from '../../../tests/utils';
@@ -5,7 +6,7 @@ import Transfer from '../index';
 import Search from '../search';
 
 describe('Transfer.Search', () => {
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
   const dataSource = [
     {
@@ -41,9 +42,9 @@ describe('Transfer.Search', () => {
   });
 
   it('onSearch', () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
 
-    const onSearch = jest.fn();
+    const onSearch = vi.fn();
     const { container } = render(
       <Transfer
         dataSource={dataSource}
@@ -60,11 +61,11 @@ describe('Transfer.Search', () => {
     onSearch.mockReset();
     fireEvent.click(container.querySelectorAll('.ant-input-clear-icon').item(0));
     expect(onSearch).toHaveBeenCalledWith('left', '');
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('legacy props#onSearchChange does not work anymore', () => {
-    const onSearchChange = jest.fn();
+    const onSearchChange = vi.fn();
     const props = { onSearchChange };
     const { container } = render(<Transfer render={(item) => item.title!} {...props} showSearch />);
     fireEvent.change(container.querySelector('.ant-input')!, { target: { value: 'a' } });
@@ -74,7 +75,7 @@ describe('Transfer.Search', () => {
 
   // https://github.com/ant-design/ant-design/issues/26208
   it('typing space should trigger filterOption', () => {
-    const filterOption = jest.fn();
+    const filterOption = vi.fn();
 
     // We use origin testing lib here since StrictMode will render multiple times
     const { container } = testLibRender(

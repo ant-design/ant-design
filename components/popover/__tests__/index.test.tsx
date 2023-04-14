@@ -1,3 +1,4 @@
+import { describe, it, expect, vi } from 'vitest';
 import React from 'react';
 import Popover from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -66,9 +67,9 @@ describe('Popover', () => {
   });
 
   it('props#overlay do not warn anymore', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
-    const overlay = jest.fn();
+    const overlay = vi.fn();
     render(
       <Popover content="console.log('hello world')" title="code" trigger="click">
         <span>show me your code</span>

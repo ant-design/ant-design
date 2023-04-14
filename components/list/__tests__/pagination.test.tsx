@@ -1,3 +1,4 @@
+import { describe, it, expect, vi } from 'vitest';
 import React from 'react';
 import type { ListProps } from '..';
 import List from '..';
@@ -77,7 +78,7 @@ describe('List.pagination', () => {
   });
 
   it('fires change event', () => {
-    const handlePaginationChange = jest.fn();
+    const handlePaginationChange = vi.fn();
     const { container: wrapper } = render(
       createList({
         pagination: {
@@ -166,7 +167,7 @@ describe('List.pagination', () => {
   // https://github.com/ant-design/ant-design/issues/24913
   // https://github.com/ant-design/ant-design/issues/24501
   it('should onChange called when pageSize change', () => {
-    const handlePaginationChange = jest.fn();
+    const handlePaginationChange = vi.fn();
     const handlePageSizeChange = () => {};
     const { container: wrapper } = render(
       createList({

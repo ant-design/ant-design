@@ -1,3 +1,4 @@
+import { describe, afterAll, it, expect } from 'vitest';
 const OLD_NODE_ENV = process.env.NODE_ENV;
 process.env.NODE_ENV = 'development';
 const antd = require('..');

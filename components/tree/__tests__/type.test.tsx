@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import type { BasicDataNode } from 'rc-tree';
 import * as React from 'react';
 import { render } from '../../../tests/utils';

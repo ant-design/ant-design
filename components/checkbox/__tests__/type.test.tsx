@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import * as React from 'react';
 import Checkbox from '..';
 import Input from '../../input';

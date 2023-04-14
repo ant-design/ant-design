@@ -1,3 +1,4 @@
+import { describe, beforeEach, it, expect, vi } from 'vitest';
 import React from 'react';
 import Tabs from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -24,7 +25,7 @@ describe('Tabs', () => {
     let wrapper: ReturnType<typeof render>['container'];
 
     beforeEach(() => {
-      handleEdit = jest.fn();
+      handleEdit = vi.fn();
       const { container } = render(
         <Tabs type="editable-card" onEdit={handleEdit}>
           <TabPane tab="foo" key="1">
@@ -80,7 +81,7 @@ describe('Tabs', () => {
   });
 
   it('warning for onNextClick', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     const onNextClick = { onNextClick() {} } as any;
     render(<Tabs {...onNextClick} />);
     expect(errorSpy).toHaveBeenCalledWith(
@@ -110,7 +111,7 @@ describe('Tabs', () => {
 
   it('deprecated warning', () => {
     resetWarned();
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     const { container } = render(
       <Tabs>

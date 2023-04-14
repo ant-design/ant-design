@@ -1,3 +1,4 @@
+import { describe, it, expect, vi } from 'vitest';
 import getScroll from '../getScroll';
 
 describe('getScroll', () => {
@@ -7,7 +8,7 @@ describe('getScroll', () => {
   });
 
   it('getScroll window', async () => {
-    const scrollToSpy = jest.spyOn(window, 'scrollTo').mockImplementation((x, y) => {
+    const scrollToSpy = vi.spyOn(window, 'scrollTo').mockImplementation((x, y) => {
       window.pageXOffset = x;
       window.pageYOffset = y;
     });
@@ -18,7 +19,7 @@ describe('getScroll', () => {
   });
 
   it('getScroll document', async () => {
-    const scrollToSpy = jest.spyOn(window, 'scrollTo').mockImplementation((x, y) => {
+    const scrollToSpy = vi.spyOn(window, 'scrollTo').mockImplementation((x, y) => {
       document.documentElement.scrollLeft = x;
       document.documentElement.scrollTop = y;
     });
@@ -30,7 +31,7 @@ describe('getScroll', () => {
 
   it('getScroll div', async () => {
     const div = document.createElement('div');
-    const scrollToSpy = jest.spyOn(window, 'scrollTo').mockImplementation((x, y) => {
+    const scrollToSpy = vi.spyOn(window, 'scrollTo').mockImplementation((x, y) => {
       div.scrollLeft = x;
       div.scrollTop = y;
     });
@@ -42,7 +43,7 @@ describe('getScroll', () => {
 
   it('getScroll documentElement', async () => {
     const div: any = {};
-    const scrollToSpy = jest.spyOn(window, 'scrollTo').mockImplementation((x, y) => {
+    const scrollToSpy = vi.spyOn(window, 'scrollTo').mockImplementation((x, y) => {
       div.scrollLeft = null;
       div.scrollTop = null;
       div.documentElement = {};

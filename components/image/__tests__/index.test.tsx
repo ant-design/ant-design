@@ -1,3 +1,4 @@
+import { describe, it, expect, vi } from 'vitest';
 import React from 'react';
 import Image from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -89,7 +90,7 @@ describe('Image', () => {
     expect(baseElement.querySelector('.container')?.children.length).not.toBe(0);
   });
   it('Preview forceRender props', async () => {
-    const onLoadCb = jest.fn();
+    const onLoadCb = vi.fn();
     const PreviewImage: React.FC = () => (
       <Image
         preview={{

@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { SmileOutlined } from '@ant-design/icons';
 import React, { useState } from 'react';
 import type { ConfigConsumerProps } from '..';

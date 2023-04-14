@@ -1,3 +1,4 @@
+import { describe, afterEach, afterAll, it, expect, vi } from 'vitest';
 import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
 import { fireEvent, render } from '../../../tests/utils';
@@ -11,7 +12,7 @@ import { resetWarned } from '../../_util/warning';
 import { triggerFocus } from '../Input';
 
 describe('Input', () => {
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
   afterEach(() => {
     errorSpy.mockReset();
@@ -79,7 +80,7 @@ describe('Input', () => {
   describe('click focus', () => {
     it('click outside should also get focus', () => {
       const { container } = render(<Input suffix={<span className="test-suffix" />} />);
-      const onFocus = jest.spyOn(container.querySelector('input')!, 'focus');
+      const onFocus = vi.spyOn(container.querySelector('input')!, 'focus');
       fireEvent.click(container.querySelector('.test-suffix')!);
       expect(onFocus).toHaveBeenCalled();
     });
@@ -100,7 +101,7 @@ describe('Input', () => {
         />,
       );
 
-      const onFocus = jest.spyOn(container.querySelector('input')!, 'focus');
+      const onFocus = vi.spyOn(container.querySelector('input')!, 'focus');
       fireEvent.mouseDown(document.querySelector('.popup')!);
       fireEvent.mouseUp(document.querySelector('.popup')!);
 
@@ -379,7 +380,7 @@ describe('Input allowClear', () => {
 
   // https://github.com/ant-design/ant-design/issues/31200
   it('should not lost focus when clear input', () => {
-    const onBlur = jest.fn();
+    const onBlur = vi.fn();
     const { container, unmount } = render(
       <Input allowClear defaultValue="value" onBlur={onBlur} />,
       {

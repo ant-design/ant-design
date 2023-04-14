@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { render } from '../../../tests/utils';
 import dropIndicatorRender, { offset } from '../utils/dropIndicator';
 

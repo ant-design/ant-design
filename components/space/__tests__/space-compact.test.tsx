@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 /* eslint-disable no-console */
 import React from 'react';
 import Space from '..';

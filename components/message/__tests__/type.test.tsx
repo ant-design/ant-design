@@ -1,3 +1,4 @@
+import { describe, beforeAll, beforeEach, afterEach, it, expect, vi } from 'vitest';
 import message, { actWrapper } from '..';
 import { act } from '../../../tests/utils';
 import { awaitPromise, triggerMotionEnd } from './util';
@@ -8,7 +9,7 @@ describe('message.typescript', () => {
   });
 
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(async () => {
@@ -16,7 +17,7 @@ describe('message.typescript', () => {
     message.destroy();
     await triggerMotionEnd();
 
-    jest.useRealTimers();
+    vi.useRealTimers();
 
     await awaitPromise();
   });
@@ -27,7 +28,7 @@ describe('message.typescript', () => {
   });
 
   it('promise with one arguments', async () => {
-    const filled = jest.fn();
+    const filled = vi.fn();
 
     message.success('yes!!!').then(filled);
 
@@ -37,8 +38,8 @@ describe('message.typescript', () => {
   });
 
   it('promise two arguments', async () => {
-    const filled = jest.fn();
-    const rejected = jest.fn();
+    const filled = vi.fn();
+    const rejected = vi.fn();
 
     message.success('yes!!!').then(filled, rejected);
 

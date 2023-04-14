@@ -1,3 +1,4 @@
+import { describe, it, expect, vi } from 'vitest';
 import React, { useState } from 'react';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -14,7 +15,7 @@ describe('CheckboxGroup', () => {
   rtlTest(Checkbox.Group);
 
   it('should work basically', () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const { container } = render(
       <Checkbox.Group options={['Apple', 'Pear', 'Orange']} onChange={onChange} />,
     );
@@ -29,7 +30,7 @@ describe('CheckboxGroup', () => {
   });
 
   it('does not trigger onChange callback of both Checkbox and CheckboxGroup when CheckboxGroup is disabled', () => {
-    const onChangeGroup = jest.fn();
+    const onChangeGroup = vi.fn();
 
     const options = [
       { label: 'Apple', value: 'Apple' },
@@ -46,7 +47,7 @@ describe('CheckboxGroup', () => {
   });
 
   it('does not prevent onChange callback from Checkbox when CheckboxGroup is not disabled', () => {
-    const onChangeGroup = jest.fn();
+    const onChangeGroup = vi.fn();
 
     const options = [
       { label: 'Apple', value: 'Apple' },
@@ -94,7 +95,7 @@ describe('CheckboxGroup', () => {
 
   // https://github.com/ant-design/ant-design/issues/12642
   it('should trigger onChange in sub Checkbox', () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const { container } = render(
       <Checkbox.Group>
         <Checkbox value="my" onChange={onChange} />
@@ -107,7 +108,7 @@ describe('CheckboxGroup', () => {
 
   // https://github.com/ant-design/ant-design/issues/16376
   it('onChange should filter removed value', () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const { container, rerender } = render(
       <Checkbox.Group defaultValue={[1]} onChange={onChange}>
         <Checkbox key={1} value={1} />
@@ -126,7 +127,7 @@ describe('CheckboxGroup', () => {
   });
 
   it('checkbox should register value again after value changed', () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const { container, rerender } = render(
       <Checkbox.Group defaultValue={[1]} onChange={onChange}>
         <Checkbox key={1} value={1} />
@@ -144,7 +145,7 @@ describe('CheckboxGroup', () => {
 
   // https://github.com/ant-design/ant-design/issues/17297
   it('onChange should keep the order of the original values', () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const { container } = render(
       <Checkbox.Group onChange={onChange}>
         <Checkbox key={1} value={1} />
@@ -187,7 +188,7 @@ describe('CheckboxGroup', () => {
   });
 
   it('skipGroup', () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const { container } = render(
       <Checkbox.Group onChange={onChange}>
         <Checkbox value={1} />
@@ -199,7 +200,7 @@ describe('CheckboxGroup', () => {
   });
 
   it('Table rowSelection', () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const { container } = render(
       <Checkbox.Group onChange={onChange}>
         <Table
@@ -220,7 +221,7 @@ describe('CheckboxGroup', () => {
   });
 
   it('should support number option', () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
 
     const { container } = render(
       <Checkbox.Group options={[1, 'Pear', 'Orange']} onChange={onChange} />,
@@ -231,7 +232,7 @@ describe('CheckboxGroup', () => {
   });
 
   it('should store latest checkbox value if changed', () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
 
     const Demo: React.FC = () => {
       const [v, setV] = useState('');

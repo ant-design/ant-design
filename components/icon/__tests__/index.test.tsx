@@ -1,3 +1,4 @@
+import { describe, it, expect, vi } from 'vitest';
 import React from 'react';
 import Icon from '..';
 import { render } from '../../../tests/utils';
@@ -10,7 +11,7 @@ describe('Icon', () => {
   });
 
   it('should throw Error', () => {
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     render(<Icon />);
     expect(errSpy).toHaveBeenCalledWith('Warning: [antd: Icon] Empty Icon');
     errSpy.mockRestore();

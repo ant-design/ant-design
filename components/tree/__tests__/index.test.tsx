@@ -1,3 +1,4 @@
+import { describe, it, expect, vi } from 'vitest';
 import React from 'react';
 import { render, screen } from '../../../tests/utils';
 import Tree from '../index';
@@ -174,13 +175,13 @@ describe('Tree', () => {
     });
 
     it('nodeDraggable', () => {
-      const nodeDraggable = jest.fn(() => false);
+      const nodeDraggable = vi.fn(() => false);
       render(<Tree treeData={dragTreeData} draggable={{ nodeDraggable }} />);
       expect(nodeDraggable).toHaveBeenCalledWith(dragTreeData[0]);
     });
 
     it('nodeDraggable func', () => {
-      const nodeDraggable = jest.fn(() => false);
+      const nodeDraggable = vi.fn(() => false);
       render(<Tree treeData={dragTreeData} draggable={nodeDraggable} />);
       expect(nodeDraggable).toHaveBeenCalledWith(dragTreeData[0]);
     });

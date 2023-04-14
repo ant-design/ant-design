@@ -1,8 +1,9 @@
+import { vi } from 'vitest';
 import * as React from 'react';
 import { extendTest } from '../../../tests/shared/demoTest';
 
-jest.mock('rc-drawer', () => {
-  const Drawer = jest.requireActual('rc-drawer');
+vi.mock('rc-drawer', () => {
+  const Drawer = vi.requireActual('rc-drawer');
   const MockDrawer = Drawer.default;
   return (props: any) => {
     const newProps = {

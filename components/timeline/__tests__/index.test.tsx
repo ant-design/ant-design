@@ -1,3 +1,4 @@
+import { describe, it, expect, vi } from 'vitest';
 import React from 'react';
 import type { TimelineProps } from '..';
 import TimeLine from '..';
@@ -31,7 +32,7 @@ describe('TimeLine', () => {
 
   describe('render TimeLine.Item', () => {
     it('TimeLine.Item  should correctly', () => {
-      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
       const { container } = render(
         <TimeLine reverse>

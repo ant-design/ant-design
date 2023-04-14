@@ -1,3 +1,4 @@
+import { describe, afterEach, afterAll, it, expect, vi } from 'vitest';
 import React from 'react';
 import type { TableProps } from '..';
 import Table from '..';
@@ -10,7 +11,7 @@ describe('Table.rowSelection', () => {
   window.requestAnimationFrame = (callback) => window.setTimeout(callback, 16);
   window.cancelAnimationFrame = window.clearTimeout;
 
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
   afterEach(() => {
     errorSpy.mockReset();
@@ -207,10 +208,10 @@ describe('Table.rowSelection', () => {
 
   it('fires change & select events', () => {
     const order: string[] = [];
-    const handleChange = jest.fn().mockImplementation(() => {
+    const handleChange = vi.fn().mockImplementation(() => {
       order.push('onChange');
     });
-    const handleSelect = jest.fn().mockImplementation(() => {
+    const handleSelect = vi.fn().mockImplementation(() => {
       order.push('onSelect');
     });
     const rowSelection = {
@@ -234,13 +235,13 @@ describe('Table.rowSelection', () => {
 
   it('fires selectMulti event', () => {
     const order: string[] = [];
-    const handleSelectMulti = jest.fn().mockImplementation(() => {
+    const handleSelectMulti = vi.fn().mockImplementation(() => {
       order.push('onSelectMultiple');
     });
-    const handleSelect = jest.fn().mockImplementation(() => {
+    const handleSelect = vi.fn().mockImplementation(() => {
       order.push('onSelect');
     });
-    const handleChange = jest.fn().mockImplementation(() => {
+    const handleChange = vi.fn().mockImplementation(() => {
       order.push('onChange');
     });
     const rowSelection = {
@@ -294,8 +295,8 @@ describe('Table.rowSelection', () => {
   });
 
   it('reset last select key after performing select and bulk operations', async () => {
-    jest.useFakeTimers();
-    const onChange = jest.fn();
+    vi.useFakeTimers();
+    const onChange = vi.fn();
 
     const { container, baseElement } = render(
       createTable({
@@ -353,7 +354,7 @@ describe('Table.rowSelection', () => {
     // Reset last select key when bulk operations
     fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger')!);
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
     fireEvent.click(baseElement.querySelector('li.ant-dropdown-menu-item')!);
     expect(onChange).toHaveBeenLastCalledWith([]);
@@ -362,15 +363,15 @@ describe('Table.rowSelection', () => {
     });
     expect(onChange).toHaveBeenLastCalledWith([0]);
 
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('fires selectAll event', () => {
     const order: string[] = [];
-    const handleSelectAll = jest.fn().mockImplementation(() => {
+    const handleSelectAll = vi.fn().mockImplementation(() => {
       order.push('onSelectAll');
     });
-    const handleChange = jest.fn().mockImplementation(() => {
+    const handleChange = vi.fn().mockImplementation(() => {
       order.push('onChange');
     });
     const rowSelection = {
@@ -391,8 +392,8 @@ describe('Table.rowSelection', () => {
   });
 
   it('works with selectAll option inside selection menu', () => {
-    jest.useFakeTimers();
-    const handleChange = jest.fn();
+    vi.useFakeTimers();
+    const handleChange = vi.fn();
     const rowSelection = {
       onChange: handleChange,
       selections: true,
@@ -402,7 +403,7 @@ describe('Table.rowSelection', () => {
     // Open
     fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger')!);
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
 
     fireEvent.click(container.querySelectorAll('.ant-dropdown-menu-item')[0]);
@@ -411,27 +412,27 @@ describe('Table.rowSelection', () => {
   });
 
   it('render with default selection correctly', () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     const rowSelection = {
       selections: true,
     };
     const { container } = render(createTable({ rowSelection }));
     fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger')!);
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
 
     expect(container.querySelector('.ant-dropdown')).toMatchSnapshot();
   });
 
   it('fires selectInvert event', () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
 
     const order: string[] = [];
-    const handleSelectInvert = jest.fn().mockImplementation(() => {
+    const handleSelectInvert = vi.fn().mockImplementation(() => {
       order.push('onSelectInvert');
     });
-    const handleChange = jest.fn().mockImplementation(() => {
+    const handleChange = vi.fn().mockImplementation(() => {
       order.push('onChange');
     });
     const rowSelection = {
@@ -446,7 +447,7 @@ describe('Table.rowSelection', () => {
     fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger')!);
 
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
 
     fireEvent.click(container.querySelectorAll('li.ant-dropdown-menu-item')[1]);
@@ -454,16 +455,16 @@ describe('Table.rowSelection', () => {
     expect(handleSelectInvert).toHaveBeenCalledWith([1, 2, 3]);
     expect(order).toEqual(['onChange', 'onSelectInvert', 'onChange']);
 
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('fires selectNone event', () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     const order: string[] = [];
-    const handleChange = jest.fn().mockImplementation(() => {
+    const handleChange = vi.fn().mockImplementation(() => {
       order.push('onChange');
     });
-    const handleSelectNone = jest.fn().mockImplementation(() => {
+    const handleSelectNone = vi.fn().mockImplementation(() => {
       order.push('onSelectNone');
     });
     const rowSelection = {
@@ -477,7 +478,7 @@ describe('Table.rowSelection', () => {
     // Open
     fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger')!);
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
     const dropdownMenuItems = container.querySelectorAll('.ant-dropdown-menu-item');
     fireEvent.click(dropdownMenuItems[dropdownMenuItems.length - 1]);
@@ -487,9 +488,9 @@ describe('Table.rowSelection', () => {
   });
 
   it('fires selection event', () => {
-    jest.useFakeTimers();
-    const handleSelectOdd = jest.fn();
-    const handleSelectEven = jest.fn();
+    vi.useFakeTimers();
+    const handleSelectOdd = vi.fn();
+    const handleSelectEven = vi.fn();
     const rowSelection = {
       selections: [
         Table.SELECTION_ALL,
@@ -511,7 +512,7 @@ describe('Table.rowSelection', () => {
     // Open
     fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger')!);
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
 
     const dropdownMenuItems = container.querySelectorAll('.ant-dropdown-menu-item');
@@ -535,8 +536,8 @@ describe('Table.rowSelection', () => {
     const getCheckboxProps = (record: any) => record;
 
     it('SELECTION_ALL', () => {
-      jest.useFakeTimers();
-      const onChange = jest.fn();
+      vi.useFakeTimers();
+      const onChange = vi.fn();
       const { container } = render(
         createTable({
           dataSource: presetData,
@@ -552,7 +553,7 @@ describe('Table.rowSelection', () => {
       fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger')!);
 
       act(() => {
-        jest.runAllTimers();
+        vi.runAllTimers();
       });
 
       fireEvent.click(container.querySelector('li.ant-dropdown-menu-item')!);
@@ -560,8 +561,8 @@ describe('Table.rowSelection', () => {
     });
 
     it('SELECTION_INVERT', () => {
-      jest.useFakeTimers();
-      const onChange = jest.fn();
+      vi.useFakeTimers();
+      const onChange = vi.fn();
       const { container } = render(
         createTable({
           dataSource: presetData,
@@ -577,7 +578,7 @@ describe('Table.rowSelection', () => {
       fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger')!);
 
       act(() => {
-        jest.runAllTimers();
+        vi.runAllTimers();
       });
 
       fireEvent.click(container.querySelector('li.ant-dropdown-menu-item')!);
@@ -586,8 +587,8 @@ describe('Table.rowSelection', () => {
     });
 
     it('SELECTION_NONE', () => {
-      jest.useFakeTimers();
-      const onChange = jest.fn();
+      vi.useFakeTimers();
+      const onChange = vi.fn();
       const { container } = render(
         createTable({
           dataSource: presetData,
@@ -603,7 +604,7 @@ describe('Table.rowSelection', () => {
       fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger')!);
 
       act(() => {
-        jest.runAllTimers();
+        vi.runAllTimers();
       });
 
       fireEvent.click(container.querySelector('li.ant-dropdown-menu-item')!);
@@ -621,9 +622,9 @@ describe('Table.rowSelection', () => {
   });
 
   it('handle custom selection onSelect correctly when hide default selection options', () => {
-    jest.useFakeTimers();
-    const handleSelectOdd = jest.fn();
-    const handleSelectEven = jest.fn();
+    vi.useFakeTimers();
+    const handleSelectOdd = vi.fn();
+    const handleSelectEven = vi.fn();
     const rowSelection = {
       selections: [
         {
@@ -643,7 +644,7 @@ describe('Table.rowSelection', () => {
     // Open
     fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger')!);
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
 
     const dropdownMenuItems = container.querySelectorAll('li.ant-dropdown-menu-item');
@@ -881,7 +882,7 @@ describe('Table.rowSelection', () => {
       },
     ];
 
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const rowSelection = {
       onChange,
     };
@@ -969,7 +970,7 @@ describe('Table.rowSelection', () => {
 
   // https://github.com/ant-design/ant-design/issues/16614
   it('should get selectedRows correctly when set childrenColumnName', () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const newData = [
       {
         key: 1,
@@ -1147,7 +1148,7 @@ describe('Table.rowSelection', () => {
   });
 
   it('should onRowClick not called when checkbox clicked', () => {
-    const onRowClick = jest.fn();
+    const onRowClick = vi.fn();
 
     const { container } = render(
       createTable({
@@ -1166,17 +1167,17 @@ describe('Table.rowSelection', () => {
     const rowSelection = {
       selections: true,
     };
-    const getPopupContainer = jest.fn((node) => node);
+    const getPopupContainer = vi.fn((node) => node);
     const { container } = render(
       createTable({
         rowSelection,
         getPopupContainer,
       }),
     );
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger')!);
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
     expect(container.firstChild).toMatchSnapshot();
     expect(getPopupContainer).toHaveBeenCalled();
@@ -1193,16 +1194,16 @@ describe('Table.rowSelection', () => {
         })}
       </ConfigProvider>,
     );
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger')!);
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
     expect(container.firstChild).toMatchSnapshot();
   });
 
   it('Table selection should check', () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const { container } = render(
       <Table
         dataSource={[{ name: 'light', sub: [{ name: 'bamboo' }] }]}
@@ -1258,7 +1259,7 @@ describe('Table.rowSelection', () => {
     ];
     describe('supports checkStrictly', () => {
       it('use data entity key', () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
 
         const table = createTable({
           dataSource: dataWithChildren,
@@ -1284,7 +1285,7 @@ describe('Table.rowSelection', () => {
         expect(onChange.mock.calls[1][0]).toEqual([4, 5]);
       });
       it('use function rowkey', () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
         const table = createTable({
           dataSource: dataWithChildren,
           defaultExpandAllRows: true,
@@ -1324,7 +1325,7 @@ describe('Table.rowSelection', () => {
         expect(onChange.mock.calls[1][0]).toEqual(['Jerry Jack', 'Jerry Lucy']);
       });
       it('use string rowkey', () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
         const table = createTable({
           dataSource: dataWithChildren,
           defaultExpandAllRows: true,
@@ -1378,7 +1379,7 @@ describe('Table.rowSelection', () => {
         expect(getIndeterminateSelection(container)).toEqual([3]);
       });
       it('works with disabled checkbox', () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
 
         const table = createTable({
           dataSource: dataWithChildren,
@@ -1410,7 +1411,7 @@ describe('Table.rowSelection', () => {
         expect(onChange.mock.calls[2][0]).toEqual([9]);
       });
       it('works with disabled checkbox and function rowkey', () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
 
         const table = createTable({
           dataSource: dataWithChildren,
@@ -1451,7 +1452,7 @@ describe('Table.rowSelection', () => {
         expect(onChange.mock.calls[2][0]).toEqual(['Jerry Tom Tom']);
       });
       it('works with disabled checkbox and string rowkey', () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
 
         const table = createTable({
           dataSource: dataWithChildren,
@@ -1493,7 +1494,7 @@ describe('Table.rowSelection', () => {
       });
 
       it('should support `childrenColumnName`', () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
 
         const table = createTable({
           dataSource: [
@@ -1547,7 +1548,7 @@ describe('Table.rowSelection', () => {
 
   describe('cache with selected keys', () => {
     it('default not cache', () => {
-      const onChange = jest.fn();
+      const onChange = vi.fn();
       const { container, rerender } = render(
         <Table
           dataSource={[{ name: 'light' }, { name: 'bamboo' }]}
@@ -1566,7 +1567,7 @@ describe('Table.rowSelection', () => {
     });
 
     it('cache with preserveSelectedRowKeys', () => {
-      const onChange = jest.fn();
+      const onChange = vi.fn();
       const { container, rerender } = render(
         <Table
           dataSource={[{ name: 'light' }, { name: 'bamboo' }]}
@@ -1594,7 +1595,7 @@ describe('Table.rowSelection', () => {
     });
 
     it('works with receive selectedRowKeys from [] to undefined', () => {
-      const onChange = jest.fn();
+      const onChange = vi.fn();
       const dataSource = [{ name: 'Jack' }];
       const { container, rerender } = render(
         <Table
@@ -1617,7 +1618,7 @@ describe('Table.rowSelection', () => {
     });
 
     it('works with selectionType radio receive selectedRowKeys from [] to undefined', () => {
-      const onChange = jest.fn();
+      const onChange = vi.fn();
       const dataSource = [{ name: 'Jack' }];
       const { container, rerender } = render(
         <Table
@@ -1640,7 +1641,7 @@ describe('Table.rowSelection', () => {
 
     it('selectedRows ant selectedKeys should keep sync in initial state', () => {
       const dataSource = [{ name: 'Jack' }, { name: 'Tom' }, { name: 'Lucy' }, { name: 'John' }];
-      const onChange = jest.fn();
+      const onChange = vi.fn();
       const rowSelection = {
         preserveSelectedRowKeys: true,
         onChange,

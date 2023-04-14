@@ -1,3 +1,4 @@
+import { describe, it, expect, vi } from 'vitest';
 import React from 'react';
 import Layout from '..';
 import { render } from '../../../tests/utils';
@@ -19,7 +20,7 @@ describe('Layout.Warning', () => {
        * If you accidentally passed it from a parent component,
        * remove it from the DOM element.
        */
-      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
       const Component = ComponentMap[tag];
       render(<Component>{tag}</Component>);

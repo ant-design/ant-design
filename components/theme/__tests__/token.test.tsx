@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { Theme } from '@ant-design/cssinjs';
 import * as React from 'react';
 import genRadius from '../themes/shared/genRadius';

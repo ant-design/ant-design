@@ -1,3 +1,4 @@
+import { describe } from 'vitest';
 import DatePicker from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';

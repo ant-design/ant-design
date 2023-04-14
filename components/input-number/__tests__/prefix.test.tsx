@@ -1,3 +1,4 @@
+import { describe, it, expect, vi } from 'vitest';
 import React, { forwardRef } from 'react';
 import InputNumber from '..';
 import focusTest from '../../../tests/shared/focusTest';
@@ -17,7 +18,7 @@ describe('prefix', () => {
   it('should trigger focus when prefix is clicked', () => {
     const { container } = render(<InputNumber prefix={<i>123</i>} />);
 
-    const mockFocus = jest.spyOn(container.querySelector('input')!, 'focus');
+    const mockFocus = vi.spyOn(container.querySelector('input')!, 'focus');
     fireEvent.mouseUp(container.querySelector('i')!);
     expect(mockFocus).toHaveBeenCalled();
   });

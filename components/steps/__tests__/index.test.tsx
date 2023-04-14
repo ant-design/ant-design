@@ -1,3 +1,4 @@
+import { describe, it, expect, vi } from 'vitest';
 import React from 'react';
 import Steps from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -91,7 +92,7 @@ describe('Steps', () => {
 
   it('deprecated warning', () => {
     resetWarned();
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     const { container } = render(
       <Steps>

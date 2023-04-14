@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 const fs = require('fs');
 
 const path = require('path');

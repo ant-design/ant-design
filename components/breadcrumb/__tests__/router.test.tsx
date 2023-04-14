@@ -1,3 +1,4 @@
+import { describe, beforeAll, afterAll, it, expect, vi } from 'vitest';
 import React, { useMemo } from 'react';
 import type { RouterProps } from 'react-router-dom';
 import { Link, MemoryRouter, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
@@ -25,11 +26,11 @@ const breadcrumbNameMap = {
 
 describe('react router', () => {
   beforeAll(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterAll(() => {
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('react router 6', () => {

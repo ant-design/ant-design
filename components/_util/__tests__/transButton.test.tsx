@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import React from 'react';
 import TransButton from '../transButton';
 import { render } from '../../../tests/utils';

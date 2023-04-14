@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 /** @jest-environment node */
 import getScroll from '../getScroll';
 

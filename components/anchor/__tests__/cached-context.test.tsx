@@ -1,3 +1,4 @@
+import { it, expect } from 'vitest';
 import React, { memo, useContext } from 'react';
 import { fireEvent, pureRender } from '../../../tests/utils';
 import Anchor from '../Anchor';

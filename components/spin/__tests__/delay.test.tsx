@@ -1,12 +1,13 @@
+import { describe, it, expect, vi } from 'vitest';
 import React from 'react';
 import { render } from '@testing-library/react';
 import { debounce } from 'throttle-debounce';
 import Spin from '..';
 import { waitFakeTimer } from '../../../tests/utils';
 
-jest.mock('throttle-debounce');
+vi.mock('throttle-debounce');
 (debounce as jest.Mock).mockImplementation((...args: any[]) =>
-  jest.requireActual('throttle-debounce').debounce(...args),
+  vi.requireActual('throttle-debounce').debounce(...args),
 );
 
 describe('delay spinning', () => {
@@ -18,7 +19,7 @@ describe('delay spinning', () => {
   });
 
   it('should render when delay is init set', async () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     const { container } = render(<Spin spinning delay={100} />);
 
     expect(container.querySelector('.ant-spin-spinning')).toBeFalsy();
@@ -27,13 +28,13 @@ describe('delay spinning', () => {
 
     expect(container.querySelector('.ant-spin-spinning')).toBeTruthy();
 
-    jest.clearAllTimers();
-    jest.useRealTimers();
+    vi.clearAllTimers();
+    vi.useRealTimers();
   });
 
   it('should cancel debounce function when unmount', () => {
-    const debouncedFn = jest.fn();
-    const cancel = jest.fn();
+    const debouncedFn = vi.fn();
+    const cancel = vi.fn();
     (debouncedFn as any).cancel = cancel;
     (debounce as jest.Mock).mockReturnValueOnce(debouncedFn);
     const { unmount } = render(<Spin spinning delay={100} />);
@@ -44,7 +45,7 @@ describe('delay spinning', () => {
   });
 
   it('should close immediately', async () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     const { container, rerender } = render(<Spin spinning delay={500} />);
 
     await waitFakeTimer();

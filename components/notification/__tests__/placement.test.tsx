@@ -1,3 +1,4 @@
+import { describe, beforeAll, beforeEach, afterEach, it, expect, vi } from 'vitest';
 import notification, { actWrapper } from '..';
 import { act, fireEvent } from '../../../tests/utils';
 import type { ArgsProps, GlobalConfigProps } from '../interface';
@@ -27,7 +28,7 @@ describe('Notification.placement', () => {
   });
 
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterEach(async () => {
@@ -40,7 +41,7 @@ describe('Notification.placement', () => {
       getContainer: null,
     });
 
-    jest.useRealTimers();
+    vi.useRealTimers();
 
     await awaitPromise();
   });
@@ -150,7 +151,7 @@ describe('Notification.placement', () => {
 
       // Leave motion
       act(() => {
-        jest.runAllTimers();
+        vi.runAllTimers();
       });
       document.querySelectorAll('.ant-notification-notice').forEach((ele) => {
         fireEvent.animationEnd(ele);

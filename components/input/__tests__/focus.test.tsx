@@ -1,3 +1,4 @@
+import { describe, beforeEach, afterEach, it, expect, vi } from 'vitest';
 import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
 import React from 'react';
 import Input from '..';
@@ -14,8 +15,8 @@ describe('Input.Focus', () => {
   let setSelectionRange: ReturnType<typeof jest.fn>;
 
   beforeEach(() => {
-    focus = jest.fn();
-    setSelectionRange = jest.fn();
+    focus = vi.fn();
+    setSelectionRange = vi.fn();
     inputSpy = spyElementPrototypes(HTMLInputElement, {
       focus,
       setSelectionRange,

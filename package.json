@@ -287,6 +287,7 @@
     "typedoc": "^0.24.0",
     "typescript": "~5.0.2",
     "vanilla-jsoneditor": "^0.17.1",
+    "vitest": "^0.30.1",
     "webpack-bundle-analyzer": "^4.1.0",
     "xhr-mock": "^2.4.1",
     "yaml-front-matter": "^4.0.0"

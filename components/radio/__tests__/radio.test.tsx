@@ -1,3 +1,4 @@
+import { describe, it, expect, vi } from 'vitest';
 import React from 'react';
 import Radio, { Button, Group } from '..';
 import Form from '../../form';
@@ -23,8 +24,8 @@ describe('Radio', () => {
   });
 
   it('responses hover events', () => {
-    const onMouseEnter = jest.fn();
-    const onMouseLeave = jest.fn();
+    const onMouseEnter = vi.fn();
+    const onMouseLeave = vi.fn();
 
     const { container } = render(<Radio onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />);
 

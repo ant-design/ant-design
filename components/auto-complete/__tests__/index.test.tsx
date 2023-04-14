@@ -1,3 +1,4 @@
+import { describe, it, expect, vi } from 'vitest';
 import React from 'react';
 import userEvent from '@testing-library/user-event';
 import AutoComplete from '..';
@@ -49,7 +50,7 @@ describe('AutoComplete', () => {
   });
 
   it('AutoComplete throws error when contains invalid dataSource', () => {
-    const spy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const spy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     render(
       // @ts-ignore
@@ -82,7 +83,7 @@ describe('AutoComplete', () => {
   });
 
   it('should not warning when getInputElement is null', () => {
-    const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
     render(<AutoComplete placeholder="input here" allowClear />);
     expect(warnSpy).not.toHaveBeenCalled();
     warnSpy.mockRestore();
@@ -100,7 +101,7 @@ describe('AutoComplete', () => {
   it('deprecated dropdownClassName', () => {
     resetWarned();
 
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     const { container } = render(
       <AutoComplete
         dropdownClassName="legacy"

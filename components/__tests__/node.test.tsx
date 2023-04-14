@@ -1,3 +1,4 @@
+import { describe, beforeAll, test, expect, vi } from 'vitest';
 import { globSync } from 'glob';
 import * as React from 'react';
 import { renderToString } from 'react-dom/server';
@@ -5,7 +6,7 @@ import type { Options } from '../../tests/shared/demoTest';
 
 (global as any).testConfig = {};
 
-jest.mock('../../tests/shared/demoTest', () => {
+vi.mock('../../tests/shared/demoTest', () => {
   function fakeDemoTest(name: string, option: Options = {}) {
     (global as any).testConfig[name] = option;
   }
@@ -17,7 +18,7 @@ jest.mock('../../tests/shared/demoTest', () => {
 
 describe('node', () => {
   beforeAll(() => {
-    jest.useFakeTimers().setSystemTime(new Date('2016-11-22'));
+    vi.useFakeTimers().setSystemTime(new Date('2016-11-22'));
   });
 
   // Find the component exist demo test file

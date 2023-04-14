@@ -1,3 +1,4 @@
+import { describe, beforeEach, afterEach, it, expect, vi } from 'vitest';
 /* eslint-disable react/no-string-refs, react/prefer-es6-class */
 import React from 'react';
 import Upload from '..';
@@ -12,7 +13,7 @@ describe('Upload.Dragger', () => {
   afterEach(() => teardown());
 
   it('support drag file with over style', async () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     const { container: wrapper } = render(
       <Upload.Dragger action="http://upload.com">
         <div />
@@ -26,18 +27,18 @@ describe('Upload.Dragger', () => {
     });
 
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
 
     await waitFor(() => {
       expect(wrapper.querySelector('.ant-upload-drag')).toHaveClass('ant-upload-drag-hover');
     });
 
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('support onDrop when files are dropped onto upload area', async () => {
-    const onDrop = jest.fn();
+    const onDrop = vi.fn();
     const { container: wrapper } = render(
       <Upload.Dragger onDrop={onDrop}>
         <div />

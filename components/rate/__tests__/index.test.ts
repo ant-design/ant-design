@@ -1,3 +1,4 @@
+import { describe } from 'vitest';
 import Rate from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';

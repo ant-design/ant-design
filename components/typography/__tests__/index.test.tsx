@@ -1,3 +1,4 @@
+import { describe, beforeAll, afterEach, afterAll, it, expect, vi } from 'vitest';
 import { CheckOutlined, HighlightOutlined, LikeOutlined, SmileOutlined } from '@ant-design/icons';
 import copy from 'copy-to-clipboard';
 import KeyCode from 'rc-util/lib/KeyCode';
@@ -14,7 +15,7 @@ import type { TitleProps } from '../Title';
 import Title from '../Title';
 import Typography from '../Typography';
 
-jest.mock('copy-to-clipboard');
+vi.mock('copy-to-clipboard');
 
 describe('Typography', () => {
   mountTest(Paragraph);
@@ -28,7 +29,7 @@ describe('Typography', () => {
   rtlTest(Link);
 
   const LINE_STR_COUNT = 20;
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
   // Mock offsetHeight
   const originOffsetHeight = Object.getOwnPropertyDescriptor(
@@ -36,7 +37,7 @@ describe('Typography', () => {
     'offsetHeight',
   )?.get;
 
-  const mockGetBoundingClientRect = jest.spyOn(HTMLElement.prototype, 'getBoundingClientRect');
+  const mockGetBoundingClientRect = vi.spyOn(HTMLElement.prototype, 'getBoundingClientRect');
 
   beforeAll(() => {
     Object.defineProperty(HTMLElement.prototype, 'offsetHeight', {
@@ -105,8 +106,8 @@ describe('Typography', () => {
         format?: 'text/plain' | 'text/html',
       ): void {
         it(name, async () => {
-          jest.useFakeTimers();
-          const onCopy = jest.fn();
+          vi.useFakeTimers();
+          const onCopy = vi.fn();
           const { container, unmount } = render(
             <Base component="p" copyable={{ text, onCopy, icon, tooltips, format }}>
               test copy
@@ -122,7 +123,7 @@ describe('Typography', () => {
           // Mouse enter to show tooltip
           fireEvent.mouseEnter(container.querySelector('.ant-typography-copy')!);
           act(() => {
-            jest.advanceTimersByTime(10000);
+            vi.advanceTimersByTime(10000);
           });
 
           if (tooltips === undefined || tooltips === true) {
@@ -184,8 +185,8 @@ describe('Typography', () => {
           expect(container.querySelector(copiedIcon)).toBeFalsy();
 
           unmount();
-          jest.clearAllTimers();
-          jest.useRealTimers();
+          vi.clearAllTimers();
+          vi.useRealTimers();
         });
       }
 
@@ -246,9 +247,9 @@ describe('Typography', () => {
         expectFunc?: (callback: jest.Mock) => void,
       ) {
         it(name, async () => {
-          jest.useFakeTimers();
-          const onStart = jest.fn();
-          const onChange = jest.fn();
+          vi.useFakeTimers();
+          const onStart = vi.fn();
+          const onChange = vi.fn();
 
           const className = 'test';
           const style = { padding: 'unset' };
@@ -276,7 +277,7 @@ describe('Typography', () => {
             }
             fireEvent.mouseEnter(wrapper.querySelectorAll('.ant-typography-edit')[0]);
             act(() => {
-              jest.runAllTimers();
+              vi.runAllTimers();
             });
 
             if (tooltip === undefined || tooltip === true) {
@@ -389,7 +390,7 @@ describe('Typography', () => {
       testStep({ name: 'trigger by both icon and text', triggerType: ['icon', 'text'] });
 
       it('should trigger onEnd when type Enter', () => {
-        const onEnd = jest.fn();
+        const onEnd = vi.fn();
         const { container: wrapper } = render(<Paragraph editable={{ onEnd }}>Bamboo</Paragraph>);
         fireEvent.click(wrapper.querySelectorAll('.ant-typography-edit')[0]);
         fireEvent.keyDown(wrapper.querySelector('textarea')!, { keyCode: KeyCode.ENTER });
@@ -398,7 +399,7 @@ describe('Typography', () => {
       });
 
       it('should trigger onStart when type Start', () => {
-        const onStart = jest.fn();
+        const onStart = vi.fn();
         const { container: wrapper } = render(<Paragraph editable={{ onStart }}>Bamboo</Paragraph>);
         fireEvent.click(wrapper.querySelectorAll('.ant-typography-edit')[0]);
         fireEvent.keyDown(wrapper.querySelector('textarea')!, { keyCode: KeyCode.A });
@@ -407,7 +408,7 @@ describe('Typography', () => {
       });
 
       it('should trigger onCancel when type ESC', () => {
-        const onCancel = jest.fn();
+        const onCancel = vi.fn();
         const { container: wrapper } = render(
           <Paragraph editable={{ onCancel }}>Bamboo</Paragraph>,
         );

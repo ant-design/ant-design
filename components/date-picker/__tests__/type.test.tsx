@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import type { Dayjs } from 'dayjs';
 import * as React from 'react';
 import DatePicker from '..';

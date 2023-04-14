@@ -1,3 +1,4 @@
+import { describe, it, expect, vi } from 'vitest';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import React from 'react';
@@ -58,7 +59,7 @@ import TreeSelect from '../../tree-select';
 import Upload from '../../upload';
 
 dayjs.extend(customParseFormat);
-jest.mock('rc-util/lib/Portal');
+vi.mock('rc-util/lib/Portal');
 
 describe('ConfigProvider', () => {
   describe('components', () => {

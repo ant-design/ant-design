@@ -1,3 +1,4 @@
+import { it, expect } from 'vitest';
 import React, { memo, useContext } from 'react';
 import Row from '../row';
 import RowContext from '../RowContext';

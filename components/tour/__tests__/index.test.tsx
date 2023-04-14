@@ -1,3 +1,4 @@
+import { describe, it, expect, vi } from 'vitest';
 /* eslint-disable react/no-unstable-nested-components */
 import React, { useEffect, useRef } from 'react';
 import Tour from '..';
@@ -54,8 +55,8 @@ describe('Tour', () => {
   });
 
   it('steps props indicatorsRender', () => {
-    const onClickMock = jest.fn();
-    const indicatorsRenderMock = jest.fn();
+    const onClickMock = vi.fn();
+    const indicatorsRenderMock = vi.fn();
     const App: React.FC = () => {
       const coverBtnRef = useRef<HTMLButtonElement>(null);
       return (
