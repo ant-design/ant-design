@@ -28,12 +28,7 @@ const useMergedType = ({
       return defaultType;
     }
 
-    const currentItem = itemList[itemIndex];
-    if (!currentItem) {
-      return defaultType;
-    }
-
-    return currentItem.type || defaultType;
+    return itemList[itemIndex]?.type || defaultType;
   }, [defaultType, itemList, itemIndex]);
 
   return currentMergedType;
