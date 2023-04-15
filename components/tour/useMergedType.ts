@@ -1,34 +1,42 @@
 import { useMemo } from 'react';
 
-type WithType = {
+interface ItemType {
   type?: string;
-};
+}
 
-type WithList<T extends string> = {
-  [key in T]?: WithType[];
-};
-
-type BaseProps<T extends string> = WithType & WithList<T>;
+interface HookProps {
+  defaultType?: string;
+  itemList?: ItemType[];
+  itemIndex?: number;
+}
 
 /**
  * Returns the merged type of an item in a list, or the default type.
- * @param props The props object containing the type and list.
- * @param listFieldName The name of the list field in the props object.
- * @param index The index of the item in the list.
+ *
+ * @param defaultType The default type to use if no item type is found.
+ * @param itemList The list of items to search for a type.
+ * @param itemIndex The index of the item to find a type for.
  * @returns The merged type of the item, or undefined if it doesn't exist.
  */
-const useMergedType = <T extends string>(
-  props: BaseProps<T>,
-  listFieldName: T,
-  index?: number,
-): string | undefined => {
-  const { type, [listFieldName]: list } = props;
-
+const useMergedType = ({
+  defaultType,
+  itemList = [],
+  itemIndex,
+}: HookProps): string | undefined => {
   const currentMergedType = useMemo(() => {
-    if (index === undefined) return type;
-    return list?.[index]?.type || type;
-  }, [type, list, index]);
+    if (typeof itemIndex !== 'number') {
+      return defaultType;
+    }
+
+    const currentItem = itemList[itemIndex];
+    if (!currentItem) {
+      return defaultType;
+    }
+
+    return currentItem.type || defaultType;
+  }, [defaultType, itemList, itemIndex]);
 
   return currentMergedType;
 };
+
 export default useMergedType;

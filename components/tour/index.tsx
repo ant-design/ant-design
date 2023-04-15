@@ -38,7 +38,11 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     setInnerCurrent(current);
   }, [current]);
 
-  const currentMergedType = useMergedType(props, 'steps', innerCurrent);
+  const currentMergedType = useMergedType({
+    defaultType: type,
+    itemList: props.steps,
+    itemIndex: innerCurrent,
+  });
 
   const builtinPlacements = getPlacements({
     arrowPointAtCenter: true,

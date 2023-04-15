@@ -4,53 +4,42 @@ import useMergedType from '../useMergedType';
 describe('useMergedType', () => {
   it('returns the merged type', () => {
     const { result } = renderHook(() =>
-      useMergedType(
-        {
-          type: 'default',
-          list: [{ type: 'primary' }],
-        },
-        'list',
-        0,
-      ),
+      useMergedType({
+        defaultType: 'default',
+        itemList: [{ type: 'primary' }],
+        itemIndex: 0,
+      }),
     );
     expect(result.current).toBe('primary');
   });
 
   it('returns the default type', () => {
     const { result } = renderHook(() =>
-      useMergedType(
-        {
-          type: 'default',
-          steps: [{}],
-        },
-        'steps',
-        0,
-      ),
+      useMergedType({
+        defaultType: 'default',
+        itemList: [{}],
+        itemIndex: 0,
+      }),
     );
     expect(result.current).toBe('default');
   });
 
-  it('returns the default type when index is undefined', () => {
+  it('returns the default type when index is invalid', () => {
     const { result } = renderHook(() =>
-      useMergedType(
-        {
-          type: 'default',
-          steps: [{ type: 'primary' }],
-        },
-        'steps',
-      ),
+      useMergedType({
+        defaultType: 'default',
+        itemList: [],
+        itemIndex: 0,
+      }),
     );
     expect(result.current).toBe('default');
   });
 
   it('returns the default type when list is null', () => {
     const { result } = renderHook(() =>
-      useMergedType(
-        {
-          type: 'default',
-        },
-        'steps',
-      ),
+      useMergedType({
+        defaultType: 'default',
+      }),
     );
     expect(result.current).toBe('default');
   });
