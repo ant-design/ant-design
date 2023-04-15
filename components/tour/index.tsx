@@ -2,7 +2,7 @@ import RCTour from '@rc-component/tour';
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import React, { useContext, useLayoutEffect } from 'react';
-import useMergedType from '../_util/hooks/useMergedType';
+import useMergedType from './useMergedType';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import theme from '../theme';

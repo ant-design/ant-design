@@ -1,5 +1,5 @@
 import { renderHook } from '../../../tests/utils';
-import useMergedType from '../hooks/useMergedType';
+import useMergedType from '../useMergedType';
 
 describe('useMergedType', () => {
   it('returns the merged type', () => {
