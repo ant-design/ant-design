@@ -54,6 +54,14 @@ const data: DataType[] = [
 
 // rowSelection object indicates the need for row selection
 const rowSelection = {
+  columnTitle: (checkboxNode: React.ReactNode) => (
+    <div>
+      {React.cloneElement(checkboxNode! as unknown as React.ReactElement, {
+        'data-testid': 'selection-checkbox',
+      })}
+    </div>
+  ),
+  columnWidth: 100,
   onChange: (selectedRowKeys: React.Key[], selectedRows: DataType[]) => {
     console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
   },
