@@ -1,10 +1,6 @@
 import React from 'react';
 import { FloatButton } from 'antd';
 
-const App: React.FC = () => (
-  <React.StrictMode>
-    <FloatButton onClick={() => console.log('click')} />
-  </React.StrictMode>
-);
+const App: React.FC = () => <FloatButton onClick={() => console.log('click')} />;
 
 export default App;
