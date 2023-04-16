@@ -72,7 +72,6 @@ const genLayoutStyle: GenerateStyle<LayoutToken, CSSObject> = (token) => {
         // fix firefox can't set width smaller than content on flex item
         minWidth: 0,
         background: colorBgHeader,
-        transition: `all ${motionDurationMid}`,
 
         '&-children': {
           height: '100%',
