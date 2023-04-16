@@ -279,7 +279,7 @@
     "size-limit": "^8.1.0",
     "stylelint": "^15.1.0",
     "stylelint-config-rational-order": "^0.1.2",
-    "stylelint-config-standard": "^32.0.0",
+    "stylelint-config-standard": "^33.0.0",
     "stylelint-prettier": "^3.0.0",
     "sylvanas": "^0.6.1",
     "terser": "^5.16.1",
