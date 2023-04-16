@@ -14,7 +14,9 @@ import useStyle from './style';
 
 export type { ScrollNumberProps } from './ScrollNumber';
 
-type CompoundedComponent = React.FC<BadgeProps> & {
+type CompoundedComponent = React.ForwardRefExoticComponent<
+  BadgeProps & React.RefAttributes<HTMLSpanElement>
+> & {
   Ribbon: typeof Ribbon;
 };
 
@@ -40,25 +42,26 @@ export interface BadgeProps {
   children?: React.ReactNode;
 }
 
-const Badge: CompoundedComponent = ({
-  prefixCls: customizePrefixCls,
-  scrollNumberPrefixCls: customizeScrollNumberPrefixCls,
-  children,
-  status,
-  text,
-  color,
-  count = null,
-  overflowCount = 99,
-  dot = false,
-  size = 'default',
-  title,
-  offset,
-  style,
-  className,
-  rootClassName,
-  showZero = false,
-  ...restProps
-}) => {
+const InternalBadge: React.ForwardRefRenderFunction<HTMLSpanElement, BadgeProps> = (props, ref) => {
+  const {
+    prefixCls: customizePrefixCls,
+    scrollNumberPrefixCls: customizeScrollNumberPrefixCls,
+    children,
+    status,
+    text,
+    color,
+    count = null,
+    overflowCount = 99,
+    dot = false,
+    size = 'default',
+    title,
+    offset,
+    style,
+    className,
+    rootClassName,
+    showZero = false,
+    ...restProps
+  } = props;
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('badge', customizePrefixCls);
 
@@ -191,7 +194,7 @@ const Badge: CompoundedComponent = ({
   }
 
   return wrapSSR(
-    <span {...restProps} className={badgeClassName}>
+    <span ref={ref} {...restProps} className={badgeClassName}>
       {children}
       <CSSMotion
         visible={!isHidden}
@@ -199,7 +202,7 @@ const Badge: CompoundedComponent = ({
         motionAppear={false}
         motionDeadline={1000}
       >
-        {({ className: motionClassName, ref }) => {
+        {({ className: motionClassName, ref: scrollNumberRef }) => {
           const scrollNumberPrefixCls = getPrefixCls(
             'scroll-number',
             customizeScrollNumberPrefixCls,
@@ -233,7 +236,7 @@ const Badge: CompoundedComponent = ({
               title={titleNode}
               style={scrollNumberStyle}
               key="scrollNumber"
-              ref={ref}
+              ref={scrollNumberRef}
             >
               {displayNode}
             </ScrollNumber>
@@ -244,6 +247,8 @@ const Badge: CompoundedComponent = ({
     </span>,
   );
 };
+
+const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(InternalBadge) as CompoundedComponent;
 
 Badge.Ribbon = Ribbon;
 
