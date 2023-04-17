@@ -60,6 +60,9 @@ const App: React.FC = () => (
       <div>Bamboo</div>
       <Radio value="little">Little</Radio>
     </div>
+    <Checkbox checked={undefined} defaultChecked name="ceshikk">
+      Aligned stable
+    </Checkbox>
   </div>
 );
 
