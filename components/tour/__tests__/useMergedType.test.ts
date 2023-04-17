@@ -1,4 +1,4 @@
-import { renderHook } from '../../../tests/utils';
+import { act, renderHook } from '../../../tests/utils';
 import useMergedType from '../useMergedType';
 
 describe('useMergedType', () => {
@@ -6,33 +6,33 @@ describe('useMergedType', () => {
     const { result } = renderHook(() =>
       useMergedType({
         defaultType: 'default',
-        itemList: [{ type: 'primary' }],
-        itemIndex: 0,
+        steps: [{ type: 'primary', title: 'Step 1' }],
+        current: 0,
       }),
     );
-    expect(result.current).toBe('primary');
+    expect(result.current?.currentMergedType).toBe('primary');
   });
 
   it('returns the default type', () => {
     const { result } = renderHook(() =>
       useMergedType({
         defaultType: 'default',
-        itemList: [{}],
-        itemIndex: 0,
+        steps: [],
+        current: 0,
       }),
     );
-    expect(result.current).toBe('default');
+    expect(result.current?.currentMergedType).toBe('default');
   });
 
   it('returns the default type when index is invalid', () => {
     const { result } = renderHook(() =>
       useMergedType({
         defaultType: 'default',
-        itemList: [],
-        itemIndex: 0,
+        steps: [],
+        current: 0,
       }),
     );
-    expect(result.current).toBe('default');
+    expect(result.current?.currentMergedType).toBe('default');
   });
 
   it('returns the default type when list is null', () => {
@@ -41,6 +41,20 @@ describe('useMergedType', () => {
         defaultType: 'default',
       }),
     );
-    expect(result.current).toBe('default');
+    expect(result.current?.currentMergedType).toBe('default');
+  });
+
+  it('returns type of new step after onChange from rc-tour', () => {
+    const { result } = renderHook(() =>
+      useMergedType({
+        defaultType: 'default',
+        steps: [{ title: 'Step 1' }, { type: 'primary', title: 'Step 1' }],
+      }),
+    );
+    act(() => {
+      result.current?.setInnerCurrent?.(1);
+    });
+
+    expect(result.current?.currentMergedType).toBe('primary');
   });
 });
