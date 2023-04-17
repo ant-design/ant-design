@@ -1,37 +1,36 @@
-import { useMemo } from 'react';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import { useLayoutEffect, useMemo } from 'react';
+import type { TourProps } from './interface';
 
-interface ItemType {
-  type?: string;
-}
-
-interface HookProps {
+interface Props {
   defaultType?: string;
-  itemList?: ItemType[];
-  itemIndex?: number;
+  steps?: TourProps['steps'];
+  current?: number;
+  defaultCurrent?: number;
 }
 
 /**
- * Returns the merged type of an item in a list, or the default type.
- *
- * @param defaultType The default type to use if no item type is found.
- * @param itemList The list of items to search for a type.
- * @param itemIndex The index of the item to find a type for.
- * @returns The merged type of the item, or undefined if it doesn't exist.
+ * returns the merged type of a step or the default type.
  */
-const useMergedType = ({
-  defaultType,
-  itemList = [],
-  itemIndex,
-}: HookProps): string | undefined => {
+const useMergedType = ({ defaultType, steps = [], current, defaultCurrent }: Props) => {
+  const [innerCurrent, setInnerCurrent] = useMergedState<number | undefined>(defaultCurrent, {
+    value: current,
+  });
+
+  useLayoutEffect(() => {
+    if (current === undefined) return;
+    setInnerCurrent(current);
+  }, [current]);
+
   const currentMergedType = useMemo(() => {
-    if (typeof itemIndex !== 'number') {
+    if (typeof innerCurrent !== 'number') {
       return defaultType;
     }
 
-    return itemList[itemIndex]?.type || defaultType;
-  }, [defaultType, itemList, itemIndex]);
+    return steps[innerCurrent]?.type || defaultType;
+  }, [defaultType, steps, innerCurrent]);
 
-  return currentMergedType;
+  return { currentMergedType, setInnerCurrent };
 };
 
 export default useMergedType;

@@ -1,16 +1,15 @@
 import RCTour from '@rc-component/tour';
 import classNames from 'classnames';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import React, { useContext, useLayoutEffect } from 'react';
-import useMergedType from './useMergedType';
+import React, { useContext } from 'react';
+import getPlacements from '../_util/placements';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import theme from '../theme';
-import getPlacements from '../_util/placements';
+import PurePanel from './PurePanel';
 import type { TourProps, TourStepProps } from './interface';
 import TourPanel from './panelRender';
-import PurePanel from './PurePanel';
 import useStyle from './style';
+import useMergedType from './useMergedType';
 
 const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel } = (
   props,
@@ -22,6 +21,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     type,
     rootClassName,
     indicatorsRender,
+    steps,
     ...restProps
   } = props;
   const { getPrefixCls, direction } = useContext<ConfigConsumerProps>(ConfigContext);
@@ -29,19 +29,11 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
   const [wrapSSR, hashId] = useStyle(prefixCls);
   const { token } = theme.useToken();
 
-  const [innerCurrent, setInnerCurrent] = useMergedState<number | undefined>(defaultCurrent, {
-    value: current,
-  });
-
-  useLayoutEffect(() => {
-    if (current === undefined) return;
-    setInnerCurrent(current);
-  }, [current]);
-
-  const currentMergedType = useMergedType({
+  const { currentMergedType, setInnerCurrent } = useMergedType({
     defaultType: type,
-    itemList: props.steps,
-    itemIndex: innerCurrent,
+    steps,
+    current,
+    defaultCurrent,
   });
 
   const builtinPlacements = getPlacements({
@@ -86,6 +78,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
       renderPanel={mergedRenderPanel}
       builtinPlacements={builtinPlacements}
       onChange={onStepChange}
+      steps={steps}
     />,
   );
 };
