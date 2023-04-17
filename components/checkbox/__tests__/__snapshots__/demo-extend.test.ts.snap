@@ -159,6 +159,49 @@ Array [
 ]
 `;
 
+exports[`renders ./components/checkbox/demo/debug-defalutChecked.md extend context correctly 1`] = `
+Array [
+  <label
+    class="ant-checkbox-wrapper"
+  >
+    <span
+      class="ant-checkbox"
+    >
+      <input
+        class="ant-checkbox-input"
+        type="checkbox"
+      />
+      <span
+        class="ant-checkbox-inner"
+      />
+    </span>
+    <span>
+      checked 值为undefined
+    </span>
+  </label>,
+  <br />,
+  <label
+    class="ant-checkbox-wrapper ant-checkbox-wrapper-checked"
+  >
+    <span
+      class="ant-checkbox ant-checkbox-checked"
+    >
+      <input
+        checked=""
+        class="ant-checkbox-input"
+        type="checkbox"
+      />
+      <span
+        class="ant-checkbox-inner"
+      />
+    </span>
+    <span>
+      checked 值为 true
+    </span>
+  </label>,
+]
+`;
+
 exports[`renders ./components/checkbox/demo/debug-line.md extend context correctly 1`] = `
 <div>
   <div
@@ -359,6 +402,26 @@ exports[`renders ./components/checkbox/demo/debug-line.md extend context correct
       </span>
     </label>
   </div>
+  <label
+    class="ant-checkbox-wrapper"
+  >
+    <span
+      class="ant-checkbox ant-checkbox-checked"
+    >
+      <input
+        checked=""
+        class="ant-checkbox-input"
+        name="ceshikk"
+        type="checkbox"
+      />
+      <span
+        class="ant-checkbox-inner"
+      />
+    </span>
+    <span>
+      Aligned stable
+    </span>
+  </label>
 </div>
 `;
 
