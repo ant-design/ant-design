@@ -58,7 +58,7 @@ demo:
 | placeholder | 选择框默认文字 | string | - |  |
 | placement | 选择框弹出的位置 | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft |  |
 | searchValue | 搜索框的值，可以通过 `onSearch` 获取用户输入 | string | - |  |
-| showArrow | 是否显示 `suffixIcon`，单选模式下默认 `true` | boolean | - |  |
+| showArrow | 是否显示 `suffixIcon` | boolean | `true` |  |
 | showCheckedStrategy | 配置 `treeCheckable` 时，定义选中项回填的方式。`TreeSelect.SHOW_ALL`: 显示所有选中节点(包括父节点)。`TreeSelect.SHOW_PARENT`: 只显示父节点(当父节点下所有子节点都选中时)。 默认只显示子节点 | `TreeSelect.SHOW_ALL` \| `TreeSelect.SHOW_PARENT` \| `TreeSelect.SHOW_CHILD` | `TreeSelect.SHOW_CHILD` |  |
 | showSearch | 是否支持搜索框 | boolean | 单选：false \| 多选：true |  |
 | size | 选择框大小 | `large` \| `middle` \| `small` | - |  |
@@ -108,6 +108,10 @@ demo:
 | selectable      | 是否可选                                           | boolean   | true   |      |
 | title           | 树节点显示的内容                                   | ReactNode | `---`  |      |
 | value           | 默认根据此属性值进行筛选（其值在整个树范围内唯一） | string    | -      |      |
+
+## Design Token
+
+<ComponentTokenTable component="TreeSelect"></ComponentTokenTable>
 
 ## FAQ
 

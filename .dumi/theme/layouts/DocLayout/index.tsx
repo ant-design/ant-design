@@ -1,18 +1,18 @@
-import React, { useContext, useEffect, useLayoutEffect, useMemo, useRef } from 'react';
-import 'dayjs/locale/zh-cn';
-import dayjs from 'dayjs';
-import { Helmet, useOutlet, useSiteData } from 'dumi';
-import '../../static/style';
 import ConfigProvider from 'antd/es/config-provider';
-import classNames from 'classnames';
 import zhCN from 'antd/es/locale/zh_CN';
-import SiteContext from '../../slots/SiteContext';
-import Header from '../../slots/Header';
-import Footer from '../../slots/Footer';
+import classNames from 'classnames';
+import dayjs from 'dayjs';
+import 'dayjs/locale/zh-cn';
+import { Helmet, useOutlet, useSiteData } from 'dumi';
+import React, { useContext, useEffect, useLayoutEffect, useMemo, useRef } from 'react';
 import useLocale from '../../../hooks/useLocale';
 import useLocation from '../../../hooks/useLocation';
-import ResourceLayout from '../ResourceLayout';
 import GlobalStyles from '../../common/GlobalStyles';
+import Footer from '../../slots/Footer';
+import Header from '../../slots/Header';
+import SiteContext from '../../slots/SiteContext';
+import '../../static/style';
+import ResourceLayout from '../ResourceLayout';
 import SidebarLayout from '../SidebarLayout';
 
 const locales = {
@@ -96,7 +96,7 @@ const DocLayout: React.FC = () => {
         <html
           lang={lang}
           data-direction={direction}
-          className={classNames({ [`rtl`]: direction === 'rtl' })}
+          className={classNames({ rtl: direction === 'rtl' })}
         />
         <title>{locale?.title}</title>
         <link

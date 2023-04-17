@@ -36,34 +36,36 @@ if (canUseDocElement()) {
 }
 
 export interface ModalProps {
-  /** 对话框是否可见 */
+  /** Whether the modal dialog is visible or not */
   open?: boolean;
-  /** 确定按钮 loading */
+  /** Whether to apply loading visual effect for OK button or not */
   confirmLoading?: boolean;
-  /** 标题 */
+  /** The modal dialog's title */
   title?: React.ReactNode;
-  /** 是否显示右上角的关闭按钮 */
+  /** Whether a close (x) button is visible on top right of the modal dialog or not */
   closable?: boolean;
-  /** 点击确定回调 */
+  /** Specify a function that will be called when a user clicks the OK button */
   onOk?: (e: React.MouseEvent<HTMLButtonElement>) => void;
-  /** 点击模态框右上角叉、取消按钮、Props.maskClosable 值为 true 时的遮罩层或键盘按下 Esc 时的回调 */
+  /** Specify a function that will be called when a user clicks mask, close button on top right or Cancel button */
   onCancel?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   afterClose?: () => void;
-  /** 垂直居中 */
+  /** Callback when the animation ends when Modal is turned on and off */
+  afterOpenChange?: (open: boolean) => void;
+  /** Centered Modal */
   centered?: boolean;
-  /** 宽度 */
+  /** Width of the modal dialog */
   width?: string | number;
-  /** 底部内容 */
+  /** Footer content */
   footer?: React.ReactNode;
-  /** 确认按钮文字 */
+  /** Text of the OK button */
   okText?: React.ReactNode;
-  /** 确认按钮类型 */
+  /** Button `type` of the OK button */
   okType?: LegacyButtonType;
-  /** 取消按钮文字 */
+  /** Text of the Cancel button */
   cancelText?: React.ReactNode;
-  /** 点击蒙层是否允许关闭 */
+  /** Whether to close the modal dialog when the mask (area outside the modal) is clicked */
   maskClosable?: boolean;
-  /** 强制渲染 Modal */
+  /** Force render Modal */
   forceRender?: boolean;
   okButtonProps?: ButtonProps;
   cancelButtonProps?: ButtonProps;

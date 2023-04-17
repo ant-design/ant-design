@@ -56,3 +56,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*sir-TK0HkWcAAA
 | header | 面板头内容 | ReactNode | - |  |
 | key | 对应 activeKey | string \| number | - |  |
 | showArrow | 是否展示当前面板上的箭头（为 false 时，collapsible 不能置为 icon） | boolean | true |  |
+
+## Design Token
+
+<ComponentTokenTable component="Collapse"></ComponentTokenTable>

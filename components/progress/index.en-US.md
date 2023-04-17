@@ -73,3 +73,7 @@ Properties that shared by all types.
 | gapDegree | The gap degree of half circle, 0 ~ 295 | number | 75 |
 | gapPosition | The gap position, options: `top` `bottom` `left` `right` | string | `bottom` |
 | strokeWidth | To set the width of the dashboard progress, unit: percentage of the canvas width | number | 6 |
+
+## Design Token
+
+<ComponentTokenTable component="Progress"></ComponentTokenTable>

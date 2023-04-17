@@ -123,6 +123,10 @@ Before `3.4.0`: The number of treeNodes can be very large, but when `checkable=t
 | --- | --- |
 | scrollTo({ key: string \| number; align?: 'top' \| 'bottom' \| 'auto'; offset?: number }) | Scroll to key item in virtual scroll |
 
+## Design Token
+
+<ComponentTokenTable component="Transfer"></ComponentTokenTable>
+
 ## FAQ
 
 ### How to hide file icon when use showLine?

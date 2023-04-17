@@ -120,6 +120,10 @@ demo:
 
 3. `event` 上传中的服务端响应内容，包含了上传进度等信息，高级浏览器支持。
 
+## Design Token
+
+<ComponentTokenTable component="Upload"></ComponentTokenTable>
+
 ## FAQ
 
 ### 服务端如何实现？

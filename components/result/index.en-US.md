@@ -33,3 +33,7 @@ Use when important operations need to inform the user to process the results and
 | status | Result status, decide icons and colors | `success` \| `error` \| `info` \| `warning` \| `404` \| `403` \| `500` | `info` |
 | subTitle | The subTitle | ReactNode | - |
 | title | The title | ReactNode | - |
+
+## Design Token
+
+<ComponentTokenTable component="Result"></ComponentTokenTable>

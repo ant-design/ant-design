@@ -42,3 +42,7 @@ demo:
 - `Spin.setDefaultIndicator(indicator: ReactNode)`
 
   你可以自定义全局默认 Spin 的元素。
+
+## Design Token
+
+<ComponentTokenTable component="Spin"></ComponentTokenTable>

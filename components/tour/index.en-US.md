@@ -58,3 +58,7 @@ Use when you want to guide users through a product.
 | nextButtonProps | Properties of the Next button | `{ children: ReactNode; onClick: Function }` | - |  |
 | prevButtonProps | Properties of the previous button | `{ children: ReactNode; onClick: Function }` | - |  |
 | scrollIntoViewOptions | support pass custom scrollIntoView options, the default follows the `scrollIntoViewOptions` property of Tour | `boolean \| ScrollIntoViewOptions` | `true` | 5.2.0 |
+
+## Design Token
+
+<ComponentTokenTable component="Tour"></ComponentTokenTable>

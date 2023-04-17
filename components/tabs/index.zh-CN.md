@@ -79,3 +79,7 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 | key         | 对应 activeKey                                  | string    | -      |
 | label       | 选项卡头显示文字                                | ReactNode | -      |
 | children    | 选项卡头显示内容                                | ReactNode | -      |
+
+## Design Token
+
+<ComponentTokenTable component="Tabs"></ComponentTokenTable>

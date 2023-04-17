@@ -72,19 +72,15 @@ export function getTimeProps<DateType, DisabledTime>(
 const DataPickerPlacements = ['bottomLeft', 'bottomRight', 'topLeft', 'topRight'] as const;
 type DataPickerPlacement = typeof DataPickerPlacements[number];
 
-const HourStep = [0.5, 1, 1.5, 2, 3, 4, 6, 8, 12] as const;
-type THourStep = typeof HourStep[number];
-
 type InjectDefaultProps<Props> = Omit<
   Props,
-  'locale' | 'generateConfig' | 'hideHeader' | 'components' | 'hourStep'
+  'locale' | 'generateConfig' | 'hideHeader' | 'components'
 > & {
   locale?: PickerLocale;
   size?: SizeType;
   placement?: DataPickerPlacement;
   bordered?: boolean;
   status?: InputStatus;
-  hourStep?: THourStep;
 };
 
 export type PickerLocale = {

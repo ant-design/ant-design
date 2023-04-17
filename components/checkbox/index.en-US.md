@@ -69,3 +69,7 @@ interface Option {
 | ------- | ------------ | ------- |
 | blur()  | Remove focus |         |
 | focus() | Get focus    |         |
+
+## Design Token
+
+<ComponentTokenTable component="Checkbox"></ComponentTokenTable>

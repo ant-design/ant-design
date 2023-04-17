@@ -108,6 +108,10 @@ message.config({
 | rtl | Whether to enable RTL mode | boolean | false |  |
 | top | Distance from top | number | 8 |  |
 
+## Design Token
+
+<ComponentTokenTable component="Message"></ComponentTokenTable>
+
 ## FAQ
 
 ### Why I can not access context, redux, ConfigProvider `locale/prefixCls/theme` in message?

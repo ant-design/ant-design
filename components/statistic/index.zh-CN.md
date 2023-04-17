@@ -54,3 +54,7 @@ demo:
 | valueStyle | 设置数值区域的样式 | CSSProperties | - |  |
 | onFinish | 倒计时完成时触发 | () => void | - |  |
 | onChange | 倒计时时间变化时触发 | (value: number) => void | - | 4.16.0 |
+
+## Design Token
+
+<ComponentTokenTable component="Statistic"></ComponentTokenTable>
