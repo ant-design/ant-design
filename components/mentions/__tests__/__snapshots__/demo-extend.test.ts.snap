@@ -256,7 +256,7 @@ exports[`renders components/mentions/demo/render-panel.tsx extend context correc
         @
       </span>
       <div
-        class="ant-mentions-dropdown ant-mentions-dropdown-placement-bottomRight"
+        class="ant-mentions-dropdown null ant-mentions-dropdown-placement-bottomRight"
         style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <ul
