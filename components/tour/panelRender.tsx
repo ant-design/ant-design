@@ -36,7 +36,7 @@ const TourPanel: React.FC<TourPanelProps> = ({ stepProps, current, type, indicat
     className,
   } = stepProps;
 
-  const mergedType = stepType || type;
+  const mergedType = stepType ?? type;
 
   const isLastStep = current === total - 1;
 
