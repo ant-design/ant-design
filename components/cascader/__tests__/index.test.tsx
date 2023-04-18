@@ -124,10 +124,7 @@ describe('Cascader', () => {
 
   it('can be selected', () => {
     const onChange = jest.fn();
-    const { container } = render(<Cascader options={options} onChange={onChange} />);
-
-    toggleOpen(container);
-    expect(isOpen(container)).toBeTruthy();
+    const { container } = render(<Cascader open options={options} onChange={onChange} />);
 
     clickOption(container, 0, 0);
     expect(getDropdown(container)).toMatchSnapshot();
@@ -469,19 +466,17 @@ describe('Cascader', () => {
           defaultValue={['zhejiang', 'hangzhou']}
           onChange={onChange}
           popupPlacement="bottomRight"
+          open
         />
       </ConfigProvider>,
     );
 
-    toggleOpen(container);
     clickOption(container, 0, 0);
     expect(getDropdown(container)).toMatchSnapshot();
 
-    toggleOpen(container);
     clickOption(container, 1, 0);
     expect(getDropdown(container)).toMatchSnapshot();
 
-    toggleOpen(container);
     clickOption(container, 2, 0);
     expect(getDropdown(container)).toMatchSnapshot();
 
