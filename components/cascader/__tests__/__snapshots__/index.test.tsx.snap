@@ -284,8 +284,8 @@ exports[`Cascader can be selected 2`] = `
 
 exports[`Cascader can be selected 3`] = `
 <div
-  class="ant-select-dropdown ant-slide-up-leave ant-slide-up-leave-start ant-slide-up ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
-  style="left: 0px; top: 0px; box-sizing: border-box; min-width: auto; pointer-events: none;"
+  class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
+  style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
 >
   <div>
     <div
@@ -566,8 +566,8 @@ exports[`Cascader can be selected in RTL direction 1`] = `
 
 exports[`Cascader can be selected in RTL direction 2`] = `
 <div
-  class="ant-select-dropdown ant-slide-up-leave ant-slide-up-leave-start ant-slide-up ant-cascader-dropdown ant-cascader-dropdown-rtl ant-select-dropdown-placement-bottomRight"
-  style="left: 0px; top: 0px; box-sizing: border-box; min-width: auto; pointer-events: none;"
+  class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-cascader-dropdown-rtl ant-select-dropdown-placement-bottomRight"
+  style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
 >
   <div>
     <div
@@ -716,8 +716,8 @@ exports[`Cascader can be selected in RTL direction 2`] = `
 
 exports[`Cascader can be selected in RTL direction 3`] = `
 <div
-  class="ant-select-dropdown ant-slide-up-leave ant-slide-up-leave-start ant-slide-up ant-cascader-dropdown ant-cascader-dropdown-rtl ant-select-dropdown-placement-bottomRight"
-  style="left: 0px; top: 0px; box-sizing: border-box; min-width: auto; pointer-events: none;"
+  class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-cascader-dropdown-rtl ant-select-dropdown-placement-bottomRight"
+  style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
 >
   <div>
     <div

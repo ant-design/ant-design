@@ -292,7 +292,7 @@ If you want to detach a style file into a css file, try the following schemes:
 1. Installation dependency
 
 ```bash
-npm install ts-node tslib --save-dev
+npm install ts-node tslib cross-env --save-dev
 ```
 
 2. Add `tsconfig.node.json`
@@ -383,7 +383,7 @@ Take Next.js for example（[example](https://github.com/ant-design/create-next-a
     "start": "next start",
     "lint": "next lint",
     "predev": "ts-node --project ./tsconfig.node.json ./scripts/genAntdCss.tsx",
-    "prebuild": "ts-node --project ./tsconfig.node.json ./scripts/genAntdCss.tsx"
+    "prebuild": "cross-env NODE_ENV=production ts-node --project ./tsconfig.node.json ./scripts/genAntdCss.tsx"
   }
 }
 ```
@@ -467,6 +467,107 @@ const cssText = extractStyle((node) => (
 ```
 
 More about static-style-extract, see [static-style-extract](https://github.com/ant-design/static-style-extract).
+
+#### Export the css files on demand
+
+```tsx
+// scripts/genAntdCss.tsx
+import { extractStyle } from '@ant-design/cssinjs';
+import type Entity from '@ant-design/cssinjs/lib/Cache';
+import { createHash } from 'crypto';
+import fs from 'fs';
+import path from 'path';
+
+export type DoExtraStyleOptions = {
+  cache: Entity;
+  dir?: string;
+  baseFileName?: string;
+};
+export function doExtraStyle({
+  cache,
+  dir = 'antd-output',
+  baseFileName = 'antd.min',
+}: DoExtraStyleOptions) {
+  const baseDir = path.resolve(__dirname, '../../static/css');
+
+  const outputCssPath = path.join(baseDir, dir);
+
+  if (!fs.existsSync(outputCssPath)) {
+    fs.mkdirSync(outputCssPath, { recursive: true });
+  }
+
+  const css = extractStyle(cache, true);
+  if (!css) return '';
+
+  const md5 = createHash('md5');
+  const hash = md5.update(css).digest('hex');
+  const fileName = `${baseFileName}.${hash.substring(0, 8)}.css`;
+  const fullpath = path.join(outputCssPath, fileName);
+
+  const res = `_next/static/css/${dir}/${fileName}`;
+
+  if (fs.existsSync(fullpath)) return res;
+
+  fs.writeFileSync(fullpath, css);
+
+  return res;
+}
+```
+
+Export on demand using the above tools in `_document.tsx`
+
+```tsx
+// _document.tsx
+import { StyleProvider, createCache } from '@ant-design/cssinjs';
+import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/document';
+import { doExtraStyle } from '../scripts/genAntdCss';
+export default class MyDocument extends Document {
+  static async getInitialProps(ctx: DocumentContext) {
+    const cache = createCache();
+    let fileName = '';
+    const originalRenderPage = ctx.renderPage;
+    ctx.renderPage = () =>
+      originalRenderPage({
+        enhanceApp: (App) => (props) =>
+          (
+            <StyleProvider cache={cache}>
+              <App {...props} />
+            </StyleProvider>
+          ),
+      });
+
+    const initialProps = await Document.getInitialProps(ctx);
+    // 1.1 extract style which had been used
+    fileName = doExtraStyle({
+      cache,
+    });
+    return {
+      ...initialProps,
+      styles: (
+        <>
+          {initialProps.styles}
+          {/* 1.2 inject css */}
+          {fileName && <link rel="stylesheet" href={`/${fileName}`} />}
+        </>
+      ),
+    };
+  }
+
+  render() {
+    return (
+      <Html lang="en">
+        <Head />
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    );
+  }
+}
+```
+
+See the demo：[Export the css files on demand demo](https://github.com/ant-design/create-next-app-antd/tree/generate-css-on-demand)
 
 ### Shadow DOM Usage
 
