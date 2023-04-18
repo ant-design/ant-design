@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders components/color-picker/demo/base.tsx correctly 1`] = `
+<div
+  class="ant-color-root"
+>
+  <div
+    class="ant-color-placeholder"
+  >
+    <div
+      class="ant-color-placeholder-container"
+    >
+      <div
+        class="ant-color-placeholder-display"
+      />
+      <div
+        class="ant-color-placeholder-layer"
+        style="background-color:rgb(23, 120, 255)"
+      />
+    </div>
+  </div>
+</div>
+`;
