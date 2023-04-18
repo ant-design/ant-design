@@ -3,10 +3,10 @@ import * as React from 'react';
 import { useToken } from '../theme/internal';
 
 export interface MotionWrapperProps {
-  children?: React.ReactElement;
+  children?: React.ReactNode;
 }
 
-export default function MotionWrapper(props: MotionWrapperProps) {
+export default function MotionWrapper(props: MotionWrapperProps): React.ReactElement {
   const { children } = props;
   const [, token] = useToken();
   const { motion } = token;
@@ -18,5 +18,5 @@ export default function MotionWrapper(props: MotionWrapperProps) {
     return <MotionProvider motion={motion}>{children}</MotionProvider>;
   }
 
-  return children;
+  return children as React.ReactElement;
 }
