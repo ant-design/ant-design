@@ -212,6 +212,18 @@ ConfigProvider.config({
 
 请参考动态主题文档 [兼容性调整](/docs/react/customize-theme-cn#兼容性调整) 部分内容。
 
+## 如何关闭组件动画
+
+通过 SeedToken 可以很方便的实现：
+
+```jsx
+import { ConfigProvider } from 'antd';
+
+<ConfigProvider theme={{ token: { motion: false } }}>
+  <App />
+</ConfigProvider>;
+```
+
 ## CSS-in-JS 与 tailwindcss 优先级冲突？
 
 同上，你可以调整 antd 样式优先级以覆盖。相关 issue: [#38794](https://github.com/ant-design/ant-design/issues/38794)

@@ -191,6 +191,18 @@ For historical reasons, the display names of the pop components are not uniform,
 
 Please ref dynamic theme document [Compatible Adjustment](/docs/react/customize-theme#compatible-adjustment) part.
 
+## How to disable motion?
+
+Config with SeedToken:
+
+```jsx
+import { ConfigProvider } from 'antd';
+
+<ConfigProvider theme={{ token: { motion: false } }}>
+  <App />
+</ConfigProvider>;
+```
+
 ## CSS-in-JS css priority conflict with tailwindcss?
 
 Same as above. You can adjust antd css priority to override. Related issue: [#38794](https://github.com/ant-design/ant-design/issues/38794)
