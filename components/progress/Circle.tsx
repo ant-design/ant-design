@@ -28,12 +28,10 @@ const Circle: React.FC<CircleProps> = (props) => {
     type,
     children,
     success,
-    size,
+    size = originWidth,
   } = props;
 
-  const mergedSize = size ?? [originWidth, originWidth];
-
-  const [width, height] = getSize(mergedSize, 'circle');
+  const [width, height] = getSize(size, 'circle');
 
   let { strokeWidth } = props;
   if (strokeWidth === undefined) {
