@@ -1,5 +1,5 @@
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import { useLayoutEffect, useMemo } from 'react';
+import { useLayoutEffect } from 'react';
 import type { TourProps } from './interface';
 
 interface Props {
@@ -22,13 +22,8 @@ const useMergedType = ({ defaultType, steps = [], current, defaultCurrent }: Pro
     setInnerCurrent(current);
   }, [current]);
 
-  const currentMergedType = useMemo(() => {
-    if (typeof innerCurrent !== 'number') {
-      return defaultType;
-    }
-
-    return steps[innerCurrent]?.type || defaultType;
-  }, [defaultType, steps, innerCurrent]);
+  const innerType = typeof innerCurrent === 'number' ? steps[innerCurrent]?.type : defaultType;
+  const currentMergedType = innerType ?? defaultType;
 
   return { currentMergedType, setInnerCurrent };
 };
