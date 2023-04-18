@@ -5,16 +5,16 @@ import {
   parentSelectorLinter,
   StyleProvider,
 } from '@ant-design/cssinjs';
-import { App, ConfigProvider, theme as antdTheme } from 'antd';
+import { theme as antdTheme, App, ConfigProvider } from 'antd';
 import type { DirectionType } from 'antd/es/config-provider';
 import { createSearchParams, useOutlet, useSearchParams } from 'dumi';
 import React, { useCallback, useEffect, useMemo } from 'react';
+import useLayoutState from '../../hooks/useLayoutState';
 import useLocation from '../../hooks/useLocation';
 import type { ThemeName } from '../common/ThemeSwitch';
 import ThemeSwitch from '../common/ThemeSwitch';
 import type { SiteContextProps } from '../slots/SiteContext';
 import SiteContext from '../slots/SiteContext';
-import useLayoutState from '../../hooks/useLayoutState';
 
 type Entries<T> = { [K in keyof T]: [K, T[K]] }[keyof T][];
 type SiteState = Partial<Omit<SiteContextProps, 'updateSiteContext'>>;
@@ -41,10 +41,10 @@ const GlobalLayout: React.FC = () => {
   const outlet = useOutlet();
   const { pathname } = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
-  const [{ theme, direction, isMobile }, setSiteState] = useLayoutState<SiteState>({
+  const [{ theme = [], direction, isMobile }, setSiteState] = useLayoutState<SiteState>({
     isMobile: false,
     direction: 'ltr',
-    theme: ['light'],
+    theme: ['light', 'motion-off'],
   });
 
   const updateSiteConfig = useCallback(
@@ -116,6 +116,7 @@ const GlobalLayout: React.FC = () => {
           theme={{
             algorithm: getAlgorithm(theme),
           }}
+          motion={!theme.includes('motion-off')}
         >
           <App>
             {outlet}
