@@ -115,8 +115,10 @@ const GlobalLayout: React.FC = () => {
         <ConfigProvider
           theme={{
             algorithm: getAlgorithm(theme),
+            token: {
+              motion: !theme.includes('motion-off'),
+            },
           }}
-          motion={!theme.includes('motion-off')}
         >
           <App>
             {outlet}

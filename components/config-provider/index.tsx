@@ -3,7 +3,6 @@ import IconContext from '@ant-design/icons/lib/components/Context';
 import { FormProvider as RcFormProvider } from 'rc-field-form';
 import type { ValidateMessages } from 'rc-field-form/lib/interface';
 import { setValues } from 'rc-field-form/lib/utils/valueUtil';
-import { Provider as MotionProvider } from 'rc-motion';
 import useMemo from 'rc-util/lib/hooks/useMemo';
 import type { ReactElement } from 'react';
 import * as React from 'react';
@@ -34,6 +33,7 @@ import useTheme from './hooks/useTheme';
 import type { SizeType } from './SizeContext';
 import SizeContext, { SizeContextProvider } from './SizeContext';
 import useStyle from './style';
+import MotionWrapper from './MotionWrapper';
 
 /**
  * Since too many feedback using static method like `Modal.confirm` not getting theme,
@@ -128,8 +128,6 @@ export interface ConfigProviderProps {
   popupMatchSelectWidth?: boolean;
   popupOverflow?: PopupOverflow;
   theme?: ThemeConfig;
-  /** Disable all motion when `false` */
-  motion?: boolean;
 }
 
 interface ProviderChildrenProps extends ConfigProviderProps {
@@ -202,7 +200,6 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     iconPrefixCls: customIconPrefixCls,
     theme,
     componentDisabled,
-    motion,
   } = props;
 
   // =================================== Warning ===================================
@@ -353,14 +350,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
   }
 
   // =================================== Motion ===================================
-  const setMotionRef = React.useRef(false);
-  setMotionRef.current = setMotionRef.current || motion !== undefined;
-
-  // Always wrap MotionProvider when it has set before
-  // to avoid children unmount
-  if (setMotionRef.current) {
-    childNode = <MotionProvider motion={motion}>{childNode}</MotionProvider>;
-  }
+  childNode = <MotionWrapper>{childNode}</MotionWrapper>;
 
   // =================================== Render ===================================
   if (componentDisabled !== undefined) {
