@@ -288,7 +288,7 @@ export default () => {
 1. 安装依赖
 
 ```bash
-npm install ts-node tslib --save-dev
+npm install ts-node tslib cross-env --save-dev
 ```
 
 2. 新增 `tsconfig.node.json` 文件
@@ -379,7 +379,7 @@ fs.writeFileSync(outputPath, css);
     "start": "next start",
     "lint": "next lint",
     "predev": "ts-node --project ./tsconfig.node.json ./scripts/genAntdCss.tsx",
-    "prebuild": "ts-node --project ./tsconfig.node.json ./scripts/genAntdCss.tsx"
+    "prebuild": "cross-env NODE_ENV=production ts-node --project ./tsconfig.node.json ./scripts/genAntdCss.tsx"
   }
 }
 ```
@@ -463,6 +463,107 @@ const cssText = extractStyle((node) => (
 ```
 
 更多`static-style-extract`的实现细节请看：[static-style-extract](https://github.com/ant-design/static-style-extract)。
+
+#### 按需导出 css 样式文件
+
+```tsx
+// scripts/genAntdCss.tsx
+import { extractStyle } from '@ant-design/cssinjs';
+import type Entity from '@ant-design/cssinjs/lib/Cache';
+import { createHash } from 'crypto';
+import fs from 'fs';
+import path from 'path';
+
+export type DoExtraStyleOptions = {
+  cache: Entity;
+  dir?: string;
+  baseFileName?: string;
+};
+export function doExtraStyle({
+  cache,
+  dir = 'antd-output',
+  baseFileName = 'antd.min',
+}: DoExtraStyleOptions) {
+  const baseDir = path.resolve(__dirname, '../../static/css');
+
+  const outputCssPath = path.join(baseDir, dir);
+
+  if (!fs.existsSync(outputCssPath)) {
+    fs.mkdirSync(outputCssPath, { recursive: true });
+  }
+
+  const css = extractStyle(cache, true);
+  if (!css) return '';
+
+  const md5 = createHash('md5');
+  const hash = md5.update(css).digest('hex');
+  const fileName = `${baseFileName}.${hash.substring(0, 8)}.css`;
+  const fullpath = path.join(outputCssPath, fileName);
+
+  const res = `_next/static/css/${dir}/${fileName}`;
+
+  if (fs.existsSync(fullpath)) return res;
+
+  fs.writeFileSync(fullpath, css);
+
+  return res;
+}
+```
+
+在 `_document.tsx` 中使用上述工具进行按需导出：
+
+```tsx
+// _document.tsx
+import { StyleProvider, createCache } from '@ant-design/cssinjs';
+import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/document';
+import { doExtraStyle } from '../scripts/genAntdCss';
+export default class MyDocument extends Document {
+  static async getInitialProps(ctx: DocumentContext) {
+    const cache = createCache();
+    let fileName = '';
+    const originalRenderPage = ctx.renderPage;
+    ctx.renderPage = () =>
+      originalRenderPage({
+        enhanceApp: (App) => (props) =>
+          (
+            <StyleProvider cache={cache}>
+              <App {...props} />
+            </StyleProvider>
+          ),
+      });
+
+    const initialProps = await Document.getInitialProps(ctx);
+    // 1.1 extract style which had been used
+    fileName = doExtraStyle({
+      cache,
+    });
+    return {
+      ...initialProps,
+      styles: (
+        <>
+          {initialProps.styles}
+          {/* 1.2 inject css */}
+          {fileName && <link rel="stylesheet" href={`/${fileName}`} />}
+        </>
+      ),
+    };
+  }
+
+  render() {
+    return (
+      <Html lang="en">
+        <Head />
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    );
+  }
+}
+```
+
+演示示例请看：[按需抽取样式示例](https://github.com/ant-design/create-next-app-antd/tree/generate-css-on-demand)
 
 ### 兼容旧版浏览器
 
