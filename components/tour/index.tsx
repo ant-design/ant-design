@@ -29,7 +29,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
   const [wrapSSR, hashId] = useStyle(prefixCls);
   const { token } = theme.useToken();
 
-  const { currentMergedType, setInnerCurrent } = useMergedType({
+  const { currentMergedType, updateInnerCurrent } = useMergedType({
     defaultType: type,
     steps,
     current,
@@ -63,7 +63,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
   );
 
   const onStepChange = (stepCurrent: number) => {
-    setInnerCurrent(stepCurrent);
+    updateInnerCurrent(stepCurrent);
     props.onChange?.(stepCurrent);
   };
 

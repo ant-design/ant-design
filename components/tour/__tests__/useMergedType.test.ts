@@ -52,7 +52,7 @@ describe('useMergedType', () => {
       }),
     );
     act(() => {
-      result.current?.setInnerCurrent?.(1);
+      result.current?.updateInnerCurrent?.(1);
     });
 
     expect(result.current?.currentMergedType).toBe('primary');
