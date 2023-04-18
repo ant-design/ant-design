@@ -35,7 +35,7 @@ const AdvancedSearchForm = () => {
             {i % 3 !== 1 ? (
               <Input placeholder="placeholder" />
             ) : (
-              <Select defaultValue="2">
+              <Select>
                 <Option value="1">1</Option>
                 <Option value="2">
                   longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong

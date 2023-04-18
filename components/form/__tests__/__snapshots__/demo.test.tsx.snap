@@ -115,11 +115,8 @@ exports[`renders components/form/demo/advanced-search.tsx correctly 1`] = `
                         />
                       </span>
                       <span
-                        class="ant-select-selection-item"
-                        title="longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong"
-                      >
-                        longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong
-                      </span>
+                        class="ant-select-selection-placeholder"
+                      />
                     </div>
                     <span
                       aria-hidden="true"
@@ -302,11 +299,8 @@ exports[`renders components/form/demo/advanced-search.tsx correctly 1`] = `
                         />
                       </span>
                       <span
-                        class="ant-select-selection-item"
-                        title="longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong"
-                      >
-                        longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong
-                      </span>
+                        class="ant-select-selection-placeholder"
+                      />
                     </div>
                     <span
                       aria-hidden="true"

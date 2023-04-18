@@ -115,11 +115,8 @@ exports[`renders components/form/demo/advanced-search.tsx extend context correct
                         />
                       </span>
                       <span
-                        class="ant-select-selection-item"
-                        title="longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong"
-                      >
-                        longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong
-                      </span>
+                        class="ant-select-selection-placeholder"
+                      />
                     </div>
                     <div
                       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
@@ -141,7 +138,7 @@ exports[`renders components/form/demo/advanced-search.tsx extend context correct
                           </div>
                           <div
                             aria-label="longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong"
-                            aria-selected="true"
+                            aria-selected="false"
                             id="advanced_search_field-1_list_1"
                             role="option"
                           >
@@ -179,8 +176,8 @@ exports[`renders components/form/demo/advanced-search.tsx extend context correct
                                   />
                                 </div>
                                 <div
-                                  aria-selected="true"
-                                  class="ant-select-item ant-select-item-option ant-select-item-option-selected"
+                                  aria-selected="false"
+                                  class="ant-select-item ant-select-item-option"
                                   title="longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong"
                                 >
                                   <div
@@ -382,11 +379,8 @@ exports[`renders components/form/demo/advanced-search.tsx extend context correct
                         />
                       </span>
                       <span
-                        class="ant-select-selection-item"
-                        title="longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong"
-                      >
-                        longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong
-                      </span>
+                        class="ant-select-selection-placeholder"
+                      />
                     </div>
                     <div
                       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
@@ -408,7 +402,7 @@ exports[`renders components/form/demo/advanced-search.tsx extend context correct
                           </div>
                           <div
                             aria-label="longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong"
-                            aria-selected="true"
+                            aria-selected="false"
                             id="advanced_search_field-4_list_1"
                             role="option"
                           >
@@ -446,8 +440,8 @@ exports[`renders components/form/demo/advanced-search.tsx extend context correct
                                   />
                                 </div>
                                 <div
-                                  aria-selected="true"
-                                  class="ant-select-item ant-select-item-option ant-select-item-option-selected"
+                                  aria-selected="false"
+                                  class="ant-select-item ant-select-item-option"
                                   title="longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong"
                                 >
                                   <div
