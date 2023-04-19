@@ -1,8 +1,8 @@
 // deps-lint-skip-all
 import { Keyframes } from '@ant-design/cssinjs';
+import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import { resetComponent } from '../../style';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -37,6 +37,8 @@ const genMessageStyle: GenerateStyle<MessageToken> = (token) => {
     // Custom token
     messageNoticeContentPadding,
   } = token;
+
+  const noticeCls = `${componentCls}-notice`;
 
   const messageMoveIn = new Keyframes('MessageMoveIn', {
     '0%': {
@@ -115,38 +117,40 @@ const genMessageStyle: GenerateStyle<MessageToken> = (token) => {
 
     // ============================ Notice ============================
     {
-      [`${componentCls}-notice`]: {
-        padding: paddingXS,
-        textAlign: 'center',
+      [componentCls]: {
+        [noticeCls]: {
+          padding: paddingXS,
+          textAlign: 'center',
 
-        [`${componentCls}-custom-content > ${iconCls}`]: {
-          verticalAlign: 'text-bottom',
-          marginInlineEnd: marginXS, // affected by ltr or rtl
-          fontSize: fontSizeLG,
-        },
+          [`${componentCls}-custom-content > ${iconCls}`]: {
+            verticalAlign: 'text-bottom',
+            marginInlineEnd: marginXS, // affected by ltr or rtl
+            fontSize: fontSizeLG,
+          },
 
-        [`${componentCls}-notice-content`]: {
-          display: 'inline-block',
-          padding: messageNoticeContentPadding,
-          background: colorBgElevated,
-          borderRadius: borderRadiusLG,
-          boxShadow,
-          pointerEvents: 'all',
-        },
+          [`${noticeCls}-content`]: {
+            display: 'inline-block',
+            padding: messageNoticeContentPadding,
+            background: colorBgElevated,
+            borderRadius: borderRadiusLG,
+            boxShadow,
+            pointerEvents: 'all',
+          },
 
-        [`${componentCls}-success > ${iconCls}`]: {
-          color: colorSuccess,
-        },
-        [`${componentCls}-error > ${iconCls}`]: {
-          color: colorError,
-        },
-        [`${componentCls}-warning > ${iconCls}`]: {
-          color: colorWarning,
-        },
-        [`
+          [`${componentCls}-success > ${iconCls}`]: {
+            color: colorSuccess,
+          },
+          [`${componentCls}-error > ${iconCls}`]: {
+            color: colorError,
+          },
+          [`${componentCls}-warning > ${iconCls}`]: {
+            color: colorWarning,
+          },
+          [`
         ${componentCls}-info > ${iconCls},
         ${componentCls}-loading > ${iconCls}`]: {
-          color: colorInfo,
+            color: colorInfo,
+          },
         },
       },
     },
