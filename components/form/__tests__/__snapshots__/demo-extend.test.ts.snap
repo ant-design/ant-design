@@ -47,7 +47,7 @@ Array [
                     id="advanced_search_field-0"
                     placeholder="placeholder"
                     type="text"
-                    value="2"
+                    value=""
                   />
                 </div>
               </div>
@@ -132,16 +132,16 @@ Array [
                           style="height: 0px; width: 0px; overflow: hidden;"
                         >
                           <div
-                            aria-label="1"
-                            aria-selected="false"
+                            aria-label="longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong"
+                            aria-selected="true"
                             id="advanced_search_field-1_list_0"
                             role="option"
                           >
                             1
                           </div>
                           <div
-                            aria-label="longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong"
-                            aria-selected="true"
+                            aria-label="222"
+                            aria-selected="false"
                             id="advanced_search_field-1_list_1"
                             role="option"
                           >
@@ -162,14 +162,14 @@ Array [
                                 style="display: flex; flex-direction: column;"
                               >
                                 <div
-                                  aria-selected="false"
-                                  class="ant-select-item ant-select-item-option ant-select-item-option-active"
-                                  title="1"
+                                  aria-selected="true"
+                                  class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
+                                  title="longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong"
                                 >
                                   <div
                                     class="ant-select-item-option-content"
                                   >
-                                    1
+                                    longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong
                                   </div>
                                   <span
                                     aria-hidden="true"
@@ -179,14 +179,14 @@ Array [
                                   />
                                 </div>
                                 <div
-                                  aria-selected="true"
-                                  class="ant-select-item ant-select-item-option ant-select-item-option-selected"
-                                  title="longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong"
+                                  aria-selected="false"
+                                  class="ant-select-item ant-select-item-option"
+                                  title="222"
                                 >
                                   <div
                                     class="ant-select-item-option-content"
                                   >
-                                    longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong
+                                    222
                                   </div>
                                   <span
                                     aria-hidden="true"
@@ -270,7 +270,7 @@ Array [
                     id="advanced_search_field-2"
                     placeholder="placeholder"
                     type="text"
-                    value="2"
+                    value=""
                   />
                 </div>
               </div>
@@ -314,7 +314,7 @@ Array [
                     id="advanced_search_field-3"
                     placeholder="placeholder"
                     type="text"
-                    value="2"
+                    value=""
                   />
                 </div>
               </div>
@@ -399,16 +399,16 @@ Array [
                           style="height: 0px; width: 0px; overflow: hidden;"
                         >
                           <div
-                            aria-label="1"
-                            aria-selected="false"
+                            aria-label="longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong"
+                            aria-selected="true"
                             id="advanced_search_field-4_list_0"
                             role="option"
                           >
                             1
                           </div>
                           <div
-                            aria-label="longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong"
-                            aria-selected="true"
+                            aria-label="222"
+                            aria-selected="false"
                             id="advanced_search_field-4_list_1"
                             role="option"
                           >
@@ -429,14 +429,14 @@ Array [
                                 style="display: flex; flex-direction: column;"
                               >
                                 <div
-                                  aria-selected="false"
-                                  class="ant-select-item ant-select-item-option ant-select-item-option-active"
-                                  title="1"
+                                  aria-selected="true"
+                                  class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
+                                  title="longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong"
                                 >
                                   <div
                                     class="ant-select-item-option-content"
                                   >
-                                    1
+                                    longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong
                                   </div>
                                   <span
                                     aria-hidden="true"
@@ -446,14 +446,14 @@ Array [
                                   />
                                 </div>
                                 <div
-                                  aria-selected="true"
-                                  class="ant-select-item ant-select-item-option ant-select-item-option-selected"
-                                  title="longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong"
+                                  aria-selected="false"
+                                  class="ant-select-item ant-select-item-option"
+                                  title="222"
                                 >
                                   <div
                                     class="ant-select-item-option-content"
                                   >
-                                    longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong
+                                    222
                                   </div>
                                   <span
                                     aria-hidden="true"
@@ -537,7 +537,7 @@ Array [
                     id="advanced_search_field-5"
                     placeholder="placeholder"
                     type="text"
-                    value="2"
+                    value=""
                   />
                 </div>
               </div>

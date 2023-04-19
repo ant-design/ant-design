@@ -47,7 +47,7 @@ Array [
                     id="advanced_search_field-0"
                     placeholder="placeholder"
                     type="text"
-                    value="2"
+                    value=""
                   />
                 </div>
               </div>
@@ -190,7 +190,7 @@ Array [
                     id="advanced_search_field-2"
                     placeholder="placeholder"
                     type="text"
-                    value="2"
+                    value=""
                   />
                 </div>
               </div>
@@ -234,7 +234,7 @@ Array [
                     id="advanced_search_field-3"
                     placeholder="placeholder"
                     type="text"
-                    value="2"
+                    value=""
                   />
                 </div>
               </div>
@@ -377,7 +377,7 @@ Array [
                     id="advanced_search_field-5"
                     placeholder="placeholder"
                     type="text"
-                    value="2"
+                    value=""
                   />
                 </div>
               </div>
