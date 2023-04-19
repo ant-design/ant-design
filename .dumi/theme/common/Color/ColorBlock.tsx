@@ -8,7 +8,7 @@ interface ColorBlockProps {
   dark?: boolean;
 }
 
-const ColorBlock: React.FC<ColorBlockProps> = (props) => {
+const ColorBlock = (props: ColorBlockProps) => {
   const { color, index, dark } = props;
   const textStyle = useMemo<React.CSSProperties>(() => {
     const colorMap = { default: ['#fff', 'unset'], dark: ['#314659', '#fff'] };

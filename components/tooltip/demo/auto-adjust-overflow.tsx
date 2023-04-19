@@ -31,7 +31,7 @@ const Block = React.forwardRef<HTMLDivElement, Partial<TooltipProps>>((props, re
   </div>
 ));
 
-const App: React.FC = () => {
+const App = () => {
   const containerRef1 = React.useRef<HTMLDivElement>(null);
   const containerRef2 = React.useRef<HTMLDivElement>(null);
 

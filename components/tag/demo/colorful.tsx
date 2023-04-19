@@ -1,7 +1,7 @@
 import React from 'react';
 import { Divider, Space, Tag } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Divider orientation="left">Presets</Divider>
     <Space size={[0, 8]} wrap>

@@ -3,7 +3,7 @@ import type { DrawerProps } from '..';
 import Drawer from '..';
 import { act, fireEvent, render } from '../../../tests/utils';
 
-const DrawerTest: React.FC<DrawerProps> = (props) => (
+const DrawerTest = (props: DrawerProps) => (
   <Drawer open getContainer={false} {...props}>
     Here is content of Drawer
   </Drawer>
@@ -152,7 +152,7 @@ describe('Drawer', () => {
       fn();
     };
 
-    const RefDemo: React.FC = () => {
+    const RefDemo = () => {
       const ref = React.useRef<HTMLDivElement>(null);
       const [open, setOpen] = React.useState(false);
 

@@ -33,7 +33,7 @@ const footerStyle: React.CSSProperties = {
   backgroundColor: '#7dbcea',
 };
 
-const App: React.FC = () => (
+const App = () => (
   <Space direction="vertical" style={{ width: '100%' }} size={[0, 48]}>
     <Layout>
       <Header style={headerStyle}>Header</Header>

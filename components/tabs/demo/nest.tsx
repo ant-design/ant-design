@@ -5,7 +5,7 @@ const { Option } = Select;
 
 const positionList = ['left', 'right', 'top', 'bottom'];
 
-const App: React.FC = () => {
+const App = () => {
   const [parentPos, setParentPos] = useState(undefined);
   const [childPos, setChildPos] = useState(undefined);
   const [parentType, setParentType] = useState(undefined);

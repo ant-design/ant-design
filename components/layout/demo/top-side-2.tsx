@@ -30,7 +30,7 @@ const items2: MenuProps['items'] = [UserOutlined, LaptopOutlined, NotificationOu
   },
 );
 
-const App: React.FC = () => {
+const App = () => {
   const {
     token: { colorBgContainer },
   } = theme.useToken();

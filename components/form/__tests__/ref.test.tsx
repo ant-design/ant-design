@@ -11,7 +11,7 @@ interface TestProps {
 }
 
 describe('Form.Ref', () => {
-  const Test: React.FC<TestProps> = ({ show, onRef }) => {
+  const Test = ({ show, onRef }: TestProps) => {
     const [form] = Form.useForm();
     const removeRef = React.useRef<InputRef>(null);
     const testRef = React.useRef<InputRef>(null);

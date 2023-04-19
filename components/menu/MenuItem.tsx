@@ -18,7 +18,7 @@ export interface MenuItemProps extends Omit<RcMenuItemProps, 'title'> {
   title?: React.ReactNode;
 }
 
-const MenuItem: React.FC<MenuItemProps> = (props) => {
+const MenuItem = (props: MenuItemProps) => {
   const { className, children, icon, title, danger } = props;
   const {
     prefixCls,

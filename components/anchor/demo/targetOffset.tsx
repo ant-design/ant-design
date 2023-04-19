@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Anchor, Row, Col } from 'antd';
 
-const App: React.FC = () => {
+const App = () => {
   const topRef = React.useRef<HTMLDivElement>(null);
   const [targetOffset, setTargetOffset] = useState<number>();
 

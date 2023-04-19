@@ -15,7 +15,7 @@ const handleChange = (value: string[]) => {
   console.log(`selected ${value}`);
 };
 
-const App: React.FC = () => (
+const App = () => (
   <Space style={{ width: '100%' }} direction="vertical">
     <Select
       mode="multiple"

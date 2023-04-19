@@ -1,7 +1,7 @@
 import React from 'react';
 import { ConfigProvider, Pagination } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <ConfigProvider theme={{ token: { wireframe: true } }}>
     <Pagination showSizeChanger defaultCurrent={3} total={500} />
     <br />

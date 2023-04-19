@@ -21,7 +21,7 @@ const items = [
   },
 ];
 
-const App: React.FC = () => (
+const App = () => (
   <Space direction="vertical">
     <Button type="primary">primary</Button>
     <Button>secondary</Button>

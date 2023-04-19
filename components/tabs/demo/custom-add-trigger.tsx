@@ -8,7 +8,7 @@ const defaultPanes = new Array(2).fill(null).map((_, index) => {
   return { label: `Tab ${id}`, children: `Content of Tab Pane ${index + 1}`, key: id };
 });
 
-const App: React.FC = () => {
+const App = () => {
   const [activeKey, setActiveKey] = useState(defaultPanes[0].key);
   const [items, setItems] = useState(defaultPanes);
   const newTabIndex = useRef(0);

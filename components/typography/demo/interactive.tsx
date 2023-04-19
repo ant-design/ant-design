@@ -4,7 +4,7 @@ import { Divider, Radio, Typography } from 'antd';
 
 const { Paragraph } = Typography;
 
-const App: React.FC = () => {
+const App = () => {
   const [editableStr, setEditableStr] = useState('This is an editable text.');
   const [editableStrWithSuffix, setEditableStrWithSuffix] = useState(
     'This is a loooooooooooooooooooooooooooooooong editable text with suffix.',

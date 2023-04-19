@@ -1,7 +1,7 @@
 import React from 'react';
 import { Form, Input, Typography } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <Form
     name="label-ellipsis"
     labelCol={{ span: 8 }}

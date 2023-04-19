@@ -6,7 +6,7 @@ const onChange = (checkedValues: CheckboxValueType[]) => {
   console.log('checked = ', checkedValues);
 };
 
-const App: React.FC = () => (
+const App = () => (
   <Checkbox.Group style={{ width: '100%' }} onChange={onChange}>
     <Row>
       <Col span={8}>

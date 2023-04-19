@@ -1,6 +1,6 @@
 import React from 'react';
 import { Skeleton } from 'antd';
 
-const App: React.FC = () => <Skeleton />;
+const App = () => <Skeleton />;
 
 export default App;

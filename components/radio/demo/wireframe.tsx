@@ -1,7 +1,7 @@
 import React from 'react';
 import { ConfigProvider, Radio } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <ConfigProvider theme={{ token: { wireframe: true } }}>
     <Radio.Group value={1}>
       <Radio value={1}>A</Radio>

@@ -1,7 +1,7 @@
 import { Button, Modal } from 'antd';
 import React, { useState } from 'react';
 
-const App: React.FC = () => {
+const App = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const showModal = () => {

@@ -11,7 +11,7 @@ const formTailLayout = {
   wrapperCol: { span: 8, offset: 4 },
 };
 
-const App: React.FC = () => {
+const App = () => {
   const [form] = Form.useForm();
   const [checkNick, setCheckNick] = useState(false);
 

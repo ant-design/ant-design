@@ -2,7 +2,7 @@ import React from 'react';
 import { Progress } from 'antd';
 import { red, green } from '@ant-design/colors';
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Progress percent={50} steps={3} />
     <br />

@@ -48,7 +48,7 @@ const options = [
   },
 ];
 
-const App: React.FC = () => (
+const App = () => (
   <AutoComplete
     popupClassName="certain-category-search-dropdown"
     dropdownMatchSelectWidth={500}

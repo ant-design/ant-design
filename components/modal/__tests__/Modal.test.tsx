@@ -8,7 +8,7 @@ import { resetWarned } from '../../_util/warning';
 
 jest.mock('rc-util/lib/Portal');
 
-const ModalTester: React.FC<ModalProps> = (props) => {
+const ModalTester = (props: ModalProps) => {
   const [open, setOpen] = React.useState(false);
   const container = React.useRef<HTMLDivElement>(null);
   useEffect(() => {

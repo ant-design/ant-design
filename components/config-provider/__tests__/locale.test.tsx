@@ -27,7 +27,7 @@ describe('ConfigProvider.Locale', () => {
 
   // https://github.com/ant-design/ant-design/issues/18731
   it('should not reset locale for Modal', () => {
-    const App: React.FC = () => {
+    const App = () => {
       const [showButton, setShowButton] = useState<boolean>(false);
       useEffect(() => {
         setShowButton(true);

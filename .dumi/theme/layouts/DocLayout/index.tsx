@@ -27,7 +27,7 @@ const locales = {
   },
 };
 
-const DocLayout: React.FC = () => {
+const DocLayout = () => {
   const outlet = useOutlet();
   const location = useLocation();
   const { pathname, search, hash } = location;

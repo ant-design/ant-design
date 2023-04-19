@@ -1,11 +1,11 @@
 import React from 'react';
 import { Col, Divider, Row } from 'antd';
 
-const DemoBox: React.FC<{ children: React.ReactNode; value: number }> = (props) => (
+const DemoBox = (props: { children: React.ReactNode; value: number }) => (
   <p className={`height-${props.value}`}>{props.children}</p>
 );
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Divider orientation="left">Align Top</Divider>
     <Row justify="center" align="top">

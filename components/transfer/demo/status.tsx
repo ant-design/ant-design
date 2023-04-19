@@ -1,7 +1,7 @@
 import React from 'react';
 import { Space, Transfer } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <Space direction="vertical">
     <Transfer status="error" />
     <Transfer status="warning" showSearch />

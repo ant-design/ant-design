@@ -1,7 +1,7 @@
 import React from 'react';
 import { Progress, Space } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Progress strokeLinecap="butt" percent={75} />
     <Space wrap>

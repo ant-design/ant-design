@@ -68,7 +68,7 @@ const treeData: DataNode[] = [
   },
 ];
 
-const App: React.FC = () => {
+const App = () => {
   const [showLine, setShowLine] = useState<boolean>(true);
   const [showIcon, setShowIcon] = useState<boolean>(false);
   const [showLeafIcon, setShowLeafIcon] = useState<boolean | React.ReactNode>(true);

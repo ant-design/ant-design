@@ -51,7 +51,7 @@ const DraggableTabNode = ({ className, onActiveBarTransform, ...props }: Draggab
   });
 };
 
-const App: React.FC = () => {
+const App = () => {
   const [items, setItems] = useState([
     {
       key: '1',

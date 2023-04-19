@@ -3,7 +3,7 @@ import React from 'react';
 
 const { RangePicker } = DatePicker;
 
-const App: React.FC = () => (
+const App = () => (
   <Space direction="vertical" size={12}>
     <DatePicker
       cellRender={(current) => {

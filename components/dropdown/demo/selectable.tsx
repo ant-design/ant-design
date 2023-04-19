@@ -18,7 +18,7 @@ const items: MenuProps['items'] = [
   },
 ];
 
-const App: React.FC = () => (
+const App = () => (
   <Dropdown
     menu={{
       items,

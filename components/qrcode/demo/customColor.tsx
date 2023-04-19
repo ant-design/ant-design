@@ -3,7 +3,7 @@ import { QRCode, Space, theme } from 'antd';
 
 const { useToken } = theme;
 
-const App: React.FC = () => {
+const App = () => {
   const { token } = useToken();
   return (
     <Space>

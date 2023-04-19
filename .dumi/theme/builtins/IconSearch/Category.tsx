@@ -12,7 +12,7 @@ interface CategoryProps {
   newIcons: string[];
 }
 
-const Category: React.FC<CategoryProps> = (props) => {
+const Category = (props: CategoryProps) => {
   const { icons, title, newIcons, theme } = props;
   const intl = useIntl();
   const [justCopied, setJustCopied] = React.useState<string | null>(null);

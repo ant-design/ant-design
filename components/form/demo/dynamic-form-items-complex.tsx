@@ -16,7 +16,7 @@ const sights = {
 
 type SightsKeys = keyof typeof sights;
 
-const App: React.FC = () => {
+const App = () => {
   const [form] = Form.useForm();
 
   const onFinish = (values: any) => {

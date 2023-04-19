@@ -54,7 +54,7 @@ const PandaIcon = (props: Partial<CustomIconComponentProps>) => (
   <Icon component={PandaSvg} {...props} />
 );
 
-const App: React.FC = () => (
+const App = () => (
   <Space>
     <HeartIcon style={{ color: 'hotpink' }} />
     <PandaIcon style={{ fontSize: '32px' }} />

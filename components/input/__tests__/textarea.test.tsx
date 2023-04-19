@@ -559,7 +559,7 @@ describe('TextArea allowClear', () => {
       focus: handleFocus,
     });
 
-    const Demo: React.FC = () => {
+    const Demo = () => {
       const [value, setValue] = React.useState('');
       return <Input.TextArea allowClear value={value} onChange={(e) => setValue(e.target.value)} />;
     };

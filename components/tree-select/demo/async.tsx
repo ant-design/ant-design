@@ -3,7 +3,7 @@ import type { TreeSelectProps } from 'antd';
 import { TreeSelect } from 'antd';
 import type { DefaultOptionType } from 'antd/es/select';
 
-const App: React.FC = () => {
+const App = () => {
   const [value, setValue] = useState<string>();
   const [treeData, setTreeData] = useState<Omit<DefaultOptionType, 'label'>[]>([
     { id: 1, pId: 0, value: '1', title: 'Expand to load' },

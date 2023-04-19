@@ -50,7 +50,7 @@ const options = [
   },
 ];
 
-const App: React.FC = () => (
+const App = () => (
   <div className="site-input-group-wrapper">
     <Input.Group size="large">
       <Row gutter={8}>

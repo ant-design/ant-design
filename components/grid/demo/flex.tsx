@@ -1,7 +1,7 @@
 import React from 'react';
 import { Col, Divider, Row } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Divider orientation="left">sub-element align left</Divider>
     <Row justify="start">

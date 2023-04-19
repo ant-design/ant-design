@@ -19,7 +19,7 @@ interface TourPanelProps {
   indicatorsRender?: TourStepProps['indicatorsRender'];
 }
 
-const TourPanel: React.FC<TourPanelProps> = ({ stepProps, current, type, indicatorsRender }) => {
+const TourPanel = ({ stepProps, current, type, indicatorsRender }: TourPanelProps) => {
   const {
     prefixCls,
     total = 1,

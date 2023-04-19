@@ -18,7 +18,7 @@ describe('message.hooks', () => {
   it('should work', () => {
     const Context = React.createContext('light');
 
-    const Demo: React.FC = () => {
+    const Demo = () => {
       const [api, holder] = message.useMessage();
 
       return (
@@ -54,7 +54,7 @@ describe('message.hooks', () => {
   it('should work with success', () => {
     const Context = React.createContext('light');
 
-    const Demo: React.FC = () => {
+    const Demo = () => {
       const [api, holder] = message.useMessage();
 
       return (
@@ -173,7 +173,7 @@ describe('message.hooks', () => {
   it('should be same hook', () => {
     let cacheAPI: any;
 
-    const Demo: React.FC = () => {
+    const Demo = () => {
       const [, forceUpdate] = React.useState([]);
       const [api] = message.useMessage();
       React.useEffect(() => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Space, TimePicker } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <Space direction="vertical">
     <TimePicker status="error" />
     <TimePicker status="warning" />

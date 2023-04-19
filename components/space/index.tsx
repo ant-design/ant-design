@@ -41,7 +41,7 @@ function getNumberSize(size: SpaceSize) {
   return typeof size === 'string' ? spaceSize[size] : size || 0;
 }
 
-const Space: React.FC<SpaceProps> = (props) => {
+const Space = (props: SpaceProps) => {
   const { getPrefixCls, space, direction: directionConfig } = React.useContext(ConfigContext);
 
   const {

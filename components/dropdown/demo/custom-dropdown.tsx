@@ -34,7 +34,7 @@ const items: MenuProps['items'] = [
   },
 ];
 
-const App: React.FC = () => {
+const App = () => {
   const { token } = useToken();
 
   const contentStyle = {

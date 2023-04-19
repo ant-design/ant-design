@@ -27,7 +27,7 @@ const MyFormItem = ({ name, ...props }: FormItemProps) => {
   return <Form.Item name={concatName} {...props} />;
 };
 
-const App: React.FC = () => {
+const App = () => {
   const onFinish = (value: object) => {
     console.log(value);
   };

@@ -3,7 +3,7 @@ import { Tooltip } from 'antd';
 
 const { _InternalPanelDoNotUseOrYouWillBeFired: InternalTooltip } = Tooltip;
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <InternalTooltip title="Hello, Pink Pure Panel!" color="pink" />
     <InternalTooltip title="Hello, Customize Color Pure Panel!" color="#f50" />

@@ -24,7 +24,7 @@ Ant Design 设计规范和技术上支持灵活的样式定制，以满足业务
 import { Button, ConfigProvider } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <ConfigProvider
     theme={{
       token: {
@@ -51,7 +51,7 @@ export default App;
 import { Button, ConfigProvider, theme } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <ConfigProvider
     theme={{
       algorithm: theme.darkAlgorithm,
@@ -72,7 +72,7 @@ export default App;
 import { Checkbox, ConfigProvider, Radio } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <ConfigProvider
     theme={{
       components: {
@@ -110,7 +110,7 @@ export default App;
 import { Button, ConfigProvider } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <ConfigProvider
     theme={{
       token: {
@@ -144,7 +144,7 @@ import React from 'react';
 
 const { useToken } = theme;
 
-const App: React.FC = () => {
+const App = () => {
   const { token } = useToken();
 
   return <Button style={{ backgroundColor: token.colorPrimary }}>Button</Button>;

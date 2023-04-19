@@ -122,7 +122,7 @@ const useStyle = () => {
   };
 };
 
-const Sidebar: React.FC = () => {
+const Sidebar = () => {
   const sidebarData = useSidebarData();
   const { isMobile, theme } = useContext(SiteContext);
   const styles = useStyle();

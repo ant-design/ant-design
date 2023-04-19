@@ -29,7 +29,7 @@ const items: MenuProps['items'] = [
   },
 ];
 
-const App: React.FC = () => (
+const App = () => (
   <Space direction="vertical">
     <Space wrap>
       <Dropdown menu={{ items }} placement="bottomLeft">

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Steps } from 'antd';
 
-const App: React.FC = () => {
+const App = () => {
   const [current, setCurrent] = useState(0);
 
   const onChange = (value: number) => {

@@ -6,7 +6,7 @@ const onFinish = (values: any) => {
   console.log('Received values of form:', values);
 };
 
-const App: React.FC = () => (
+const App = () => (
   <Form
     name="dynamic_form_no_style"
     onFinish={onFinish}

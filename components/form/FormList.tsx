@@ -30,11 +30,7 @@ export interface FormListProps {
   ) => React.ReactNode;
 }
 
-const FormList: React.FC<FormListProps> = ({
-  prefixCls: customizePrefixCls,
-  children,
-  ...props
-}) => {
+const FormList = ({ prefixCls: customizePrefixCls, children, ...props }: FormListProps) => {
   warning(!!props.name, 'Form.List', 'Miss `name` prop.');
 
   const { getPrefixCls } = React.useContext(ConfigContext);

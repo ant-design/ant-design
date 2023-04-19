@@ -122,7 +122,7 @@ interface HeaderState {
 }
 
 // ================================= Header =================================
-const Header: React.FC = () => {
+const Header = () => {
   const [isClient, setIsClient] = React.useState(false);
   const [, lang] = useLocale();
 

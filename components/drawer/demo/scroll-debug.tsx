@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Switch, Space, Drawer, Modal } from 'antd';
 
-const App: React.FC = () => {
+const App = () => {
   const [drawer, setDrawer] = useState(false);
   const [drawer2, setDrawer2] = useState(false);
   const [modal, setModal] = useState(false);

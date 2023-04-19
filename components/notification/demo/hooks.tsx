@@ -10,7 +10,7 @@ import type { NotificationPlacement } from 'antd/es/notification/interface';
 
 const Context = React.createContext({ name: 'Default' });
 
-const App: React.FC = () => {
+const App = () => {
   const [api, contextHolder] = notification.useNotification();
 
   const openNotification = (placement: NotificationPlacement) => {

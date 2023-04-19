@@ -37,7 +37,7 @@ const items = [
   },
 ];
 
-const App: React.FC = () => (
+const App = () => (
   <div>
     <List
       itemLayout="horizontal"

@@ -1,7 +1,7 @@
 import React from 'react';
 import { ConfigProvider, Timeline } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <ConfigProvider theme={{ token: { wireframe: true } }}>
     <Timeline
       items={[

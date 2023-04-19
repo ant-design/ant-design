@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Alert, Button } from 'antd';
 
 const { ErrorBoundary } = Alert;
-const ThrowError: React.FC = () => {
+const ThrowError = () => {
   const [error, setError] = useState<Error>();
   const onClick = () => {
     setError(new Error('An Uncaught Error'));
@@ -18,7 +18,7 @@ const ThrowError: React.FC = () => {
   );
 };
 
-const App: React.FC = () => (
+const App = () => (
   <ErrorBoundary>
     <ThrowError />
   </ErrorBoundary>

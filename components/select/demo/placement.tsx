@@ -3,7 +3,7 @@ import type { RadioChangeEvent } from 'antd';
 import { Radio, Select } from 'antd';
 import type { SelectCommonPlacement } from 'antd/es/_util/motion';
 
-const App: React.FC = () => {
+const App = () => {
   const [placement, SetPlacement] = useState<SelectCommonPlacement>('topLeft');
 
   const placementChange = (e: RadioChangeEvent) => {

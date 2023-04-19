@@ -15,9 +15,7 @@ export interface OverrideContextProps {
 const OverrideContext = React.createContext<OverrideContextProps | null>(null);
 
 /** @internal Only used for Dropdown component. Do not use this in your production. */
-export const OverrideProvider: React.FC<OverrideContextProps & { children: React.ReactNode }> = (
-  props,
-) => {
+export const OverrideProvider = (props: OverrideContextProps & { children: React.ReactNode }) => {
   const { children, ...restProps } = props;
   const override = React.useContext(OverrideContext);
 

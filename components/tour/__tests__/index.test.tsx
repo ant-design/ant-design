@@ -11,7 +11,7 @@ describe('Tour', () => {
   rtlTest(Tour);
 
   it('single', () => {
-    const App: React.FC = () => {
+    const App = () => {
       const coverBtnRef = useRef<HTMLButtonElement>(null);
       return (
         <>
@@ -37,7 +37,7 @@ describe('Tour', () => {
   });
 
   it('steps is empty', () => {
-    const App: React.FC = () => {
+    const App = () => {
       const coverBtnRef = useRef<HTMLButtonElement>(null);
       return (
         <>
@@ -56,7 +56,7 @@ describe('Tour', () => {
   it('steps props indicatorsRender', () => {
     const onClickMock = jest.fn();
     const indicatorsRenderMock = jest.fn();
-    const App: React.FC = () => {
+    const App = () => {
       const coverBtnRef = useRef<HTMLButtonElement>(null);
       return (
         <>
@@ -107,7 +107,7 @@ describe('Tour', () => {
   });
 
   it('button props onClick', () => {
-    const App: React.FC = () => {
+    const App = () => {
       const coverBtnRef = useRef<HTMLButtonElement>(null);
       const [btnName, steBtnName] = React.useState<string>('defaultBtn');
       return (
@@ -155,7 +155,7 @@ describe('Tour', () => {
   });
 
   it('Primary', () => {
-    const App: React.FC = () => {
+    const App = () => {
       const coverBtnRef = useRef<HTMLButtonElement>(null);
       return (
         <>
@@ -183,7 +183,7 @@ describe('Tour', () => {
   });
 
   it('step support Primary', () => {
-    const App: React.FC = () => {
+    const App = () => {
       const coverBtnRef = useRef<HTMLButtonElement>(null);
       return (
         <>
@@ -220,7 +220,7 @@ describe('Tour', () => {
   });
 
   it('basic', () => {
-    const App: React.FC = () => {
+    const App = () => {
       const coverBtnRef = useRef<HTMLButtonElement>(null);
       const placementBtnRef = useRef<HTMLButtonElement>(null);
 
@@ -313,7 +313,7 @@ describe('Tour', () => {
   });
 
   it('custom step pre btn & next btn className & style', () => {
-    const App: React.FC = () => (
+    const App = () => (
       <Tour
         steps={[
           {
@@ -367,7 +367,7 @@ describe('Tour', () => {
         description: 'Click to see other actions.',
       },
     ];
-    const App: React.FC = () => (
+    const App = () => (
       <Tour
         open
         steps={steps}

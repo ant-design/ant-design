@@ -6,7 +6,7 @@ const onChange = (time: Dayjs, timeString: string) => {
   console.log(time, timeString);
 };
 
-const App: React.FC = () => (
+const App = () => (
   <Space wrap>
     <TimePicker use12Hours onChange={onChange} />
     <TimePicker use12Hours format="h:mm:ss A" onChange={onChange} />

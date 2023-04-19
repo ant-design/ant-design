@@ -1,7 +1,7 @@
 import { Divider, Space, Tag, theme } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => {
+const App = () => {
   const { token } = theme.useToken();
   return (
     <div style={{ backgroundColor: token.colorBgLayout, padding: 16 }}>

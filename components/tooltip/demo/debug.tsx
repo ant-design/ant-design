@@ -1,7 +1,7 @@
 import { Button, Tooltip } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <Tooltip
     open
     title="Thanks for using antd. Have a nice day!"

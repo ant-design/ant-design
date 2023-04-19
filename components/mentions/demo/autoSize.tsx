@@ -1,7 +1,7 @@
 import React from 'react';
 import { Mentions } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <Mentions
     autoSize
     style={{ width: '100%' }}

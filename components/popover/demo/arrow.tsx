@@ -11,7 +11,7 @@ const content = (
 
 const buttonWidth = 70;
 
-const App: React.FC = () => {
+const App = () => {
   const [showArrow, setShowArrow] = useState(true);
   const [arrowAtCenter, setArrowAtCenter] = useState(false);
 

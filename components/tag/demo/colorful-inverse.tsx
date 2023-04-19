@@ -1,7 +1,7 @@
 import React from 'react';
 import { Space, Tag } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <Space size={[0, 8]} wrap>
     <Tag color="magenta-inverse">magenta</Tag>
     <Tag color="red-inverse">red</Tag>

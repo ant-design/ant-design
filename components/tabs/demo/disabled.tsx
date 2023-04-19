@@ -1,7 +1,7 @@
 import React from 'react';
 import { Tabs } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <Tabs
     defaultActiveKey="1"
     items={[

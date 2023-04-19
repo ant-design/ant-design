@@ -3,6 +3,6 @@ import { TimePicker } from 'antd';
 
 const { _InternalPanelDoNotUseOrYouWillBeFired: InternalTimePicker } = TimePicker;
 
-const App: React.FC = () => <InternalTimePicker />;
+const App = () => <InternalTimePicker />;
 
 export default App;

@@ -25,6 +25,6 @@ const showConfirm = () => {
   }
 };
 
-const App: React.FC = () => <Button onClick={showConfirm}>Confirm</Button>;
+const App = () => <Button onClick={showConfirm}>Confirm</Button>;
 
 export default App;

@@ -4,7 +4,7 @@ import type { UploadProps } from 'antd';
 import { Button, Upload } from 'antd';
 import type { UploadFile } from 'antd/es/upload/interface';
 
-const App: React.FC = () => {
+const App = () => {
   const [fileList, setFileList] = useState<UploadFile[]>([
     {
       uid: '-1',

@@ -1,19 +1,22 @@
 import React from 'react';
 import { Badge, Card, Space } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <Space direction="vertical" size="middle" style={{ width: '100%' }}>
     <Badge.Ribbon text="Hippies">
       <Card title="Pushes open the window" size="small">
         and raises the spyglass.
       </Card>
     </Badge.Ribbon>
-    <Badge.Ribbon text={
+    <Badge.Ribbon
+      text={
         <div>
           Hippies <br />
           Happy
         </div>
-      } color="pink">
+      }
+      color="pink"
+    >
       <Card title="Pushes open the window" size="small">
         and raises the spyglass.
       </Card>

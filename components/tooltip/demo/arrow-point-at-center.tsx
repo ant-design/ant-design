@@ -1,7 +1,7 @@
 import { Button, Space, Tooltip } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <Space direction="vertical">
     <Tooltip placement="topLeft" title="Prompt Text">
       <Button>Align edge / 边缘对齐</Button>

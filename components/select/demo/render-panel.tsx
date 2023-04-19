@@ -3,7 +3,7 @@ import { Select, Switch, Space } from 'antd';
 
 const { _InternalPanelDoNotUseOrYouWillBeFired: InternalSelect } = Select;
 
-const App: React.FC = () => {
+const App = () => {
   const [open, setOpen] = React.useState(true);
 
   return (

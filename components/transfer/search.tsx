@@ -12,7 +12,7 @@ export interface TransferSearchProps {
   disabled?: boolean;
 }
 
-const Search: React.FC<TransferSearchProps> = (props) => {
+const Search = (props: TransferSearchProps) => {
   const { placeholder = '', value, prefixCls, disabled, onChange, handleClear } = props;
 
   const handleChange = React.useCallback(

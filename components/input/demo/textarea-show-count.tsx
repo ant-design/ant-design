@@ -7,7 +7,7 @@ const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
   console.log('Change:', e.target.value);
 };
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <TextArea
       showCount

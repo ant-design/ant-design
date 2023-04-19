@@ -3,7 +3,7 @@ import { Anchor } from 'antd';
 
 const getCurrentAnchor = () => '#components-anchor-demo-static';
 
-const App: React.FC = () => (
+const App = () => (
   <Anchor
     affix={false}
     getCurrentAnchor={getCurrentAnchor}

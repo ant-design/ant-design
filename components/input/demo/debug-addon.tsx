@@ -2,7 +2,7 @@ import React from 'react';
 import { SettingOutlined } from '@ant-design/icons';
 import { Input, Space, Button } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <Space direction="vertical">
     Input addon Button:
     <Input addonAfter={<Button type="primary">Submit</Button>} defaultValue="mysite" />

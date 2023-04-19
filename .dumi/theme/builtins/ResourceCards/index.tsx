@@ -87,7 +87,7 @@ export type ResourceCardProps = {
   resource: Resource;
 };
 
-const ResourceCard: React.FC<ResourceCardProps> = ({ resource }) => {
+const ResourceCard = ({ resource }: ResourceCardProps) => {
   const styles = useStyle();
   const [locale] = useLocale(locales);
 
@@ -132,7 +132,7 @@ export type ResourceCardsProps = {
   resources: Resource[];
 };
 
-const ResourceCards: React.FC<ResourceCardsProps> = ({ resources }) => (
+const ResourceCards = ({ resources }: ResourceCardsProps) => (
   <Row style={{ margin: '-12px -12px 0 -12px' }}>
     {resources.map((item) => (
       <ResourceCard resource={item} key={item?.title} />

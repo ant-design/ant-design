@@ -278,7 +278,7 @@ describe('Table', () => {
         dataIndex: 'name',
       },
     ];
-    const Wrapper: React.FC = () => {
+    const Wrapper = () => {
       const ref = React.useRef<HTMLDivElement>(null);
       return <Table ref={ref} columns={columns} />;
     };

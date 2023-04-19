@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import { Button, Tour } from 'antd';
 import type { TourProps } from 'antd';
 
-const App: React.FC = () => {
+const App = () => {
   const ref = useRef(null);
 
   const [open, setOpen] = useState<boolean>(false);

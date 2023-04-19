@@ -1,7 +1,7 @@
 import { Card, Space } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <Space direction="vertical" size={16}>
     <Card title="Default size card" extra={<a href="#">More</a>} style={{ width: 300 }}>
       <p>Card content</p>

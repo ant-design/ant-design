@@ -1,7 +1,7 @@
 import React from 'react';
 import { Radio } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Radio.Group defaultValue="a" size="large">
       <Radio.Button value="a">Hangzhou</Radio.Button>

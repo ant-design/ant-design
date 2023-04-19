@@ -2,7 +2,7 @@ import { ConfigProvider, FloatButton, Slider } from 'antd';
 import type { AliasToken } from 'antd/es/theme/interface';
 import React, { useState } from 'react';
 
-const App: React.FC = () => {
+const App = () => {
   const [radius, setRadius] = useState<number>(0);
 
   const token: Partial<AliasToken> = {

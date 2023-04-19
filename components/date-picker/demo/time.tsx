@@ -16,7 +16,7 @@ const onOk = (value: DatePickerProps['value'] | RangePickerProps['value']) => {
   console.log('onOk: ', value);
 };
 
-const App: React.FC = () => (
+const App = () => (
   <Space direction="vertical" size={12}>
     <DatePicker showTime onChange={onChange} onOk={onOk} />
     <RangePicker

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Alert, Space, Spin } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <Space direction="vertical" style={{ width: '100%' }}>
     <Space>
       <Spin tip="Loading" size="small">

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { MinusOutlined, PlusOutlined } from '@ant-design/icons';
 import { QRCode, Button } from 'antd';
 
-const App: React.FC = () => {
+const App = () => {
   const [size, setSize] = useState<number>(160);
 
   const increase = () => {

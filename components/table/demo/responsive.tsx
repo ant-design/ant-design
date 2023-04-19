@@ -39,6 +39,6 @@ const data: DataType[] = [
   },
 ];
 
-const App: React.FC = () => <Table columns={columns} dataSource={data} />;
+const App = () => <Table columns={columns} dataSource={data} />;
 
 export default App;

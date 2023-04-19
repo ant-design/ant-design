@@ -12,7 +12,7 @@ const btnProps = {
   },
 };
 
-const App: React.FC = () => {
+const App = () => {
   const options = ['Show', 'Hide', 'Center'];
   const [arrow, setArrow] = useState('Show');
 

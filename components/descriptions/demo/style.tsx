@@ -6,7 +6,7 @@ const contentStyle: React.CSSProperties = { background: 'green' };
 
 type LayoutType = 'horizontal' | 'vertical' | undefined;
 
-const App: React.FC = () => {
+const App = () => {
   const [border, setBorder] = useState(true);
   const [layout, setLayout] = useState('horizontal' as LayoutType);
 

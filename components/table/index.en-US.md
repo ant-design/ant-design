@@ -307,7 +307,7 @@ const data: User[] = [
   },
 ];
 
-const Demo: React.FC = () => (
+const Demo = () => (
   <>
     <Table<User> columns={columns} dataSource={data} />
     {/* JSX style usage */}

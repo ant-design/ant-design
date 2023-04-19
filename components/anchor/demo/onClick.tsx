@@ -12,7 +12,7 @@ const handleClick = (
   console.log(link);
 };
 
-const App: React.FC = () => (
+const App = () => (
   <Anchor
     affix={false}
     onClick={handleClick}

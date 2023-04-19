@@ -2,7 +2,7 @@ import React from 'react';
 import { Steps } from 'antd';
 
 const description = 'This is a description';
-const App: React.FC = () => (
+const App = () => (
   <Steps
     current={1}
     status="error"

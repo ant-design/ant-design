@@ -1,7 +1,7 @@
 import React from 'react';
 import { Space, TreeSelect } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <Space direction="vertical" style={{ width: '100%' }}>
     <TreeSelect status="error" style={{ width: '100%' }} placeholder="Error" />
     <TreeSelect

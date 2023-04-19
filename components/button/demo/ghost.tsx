@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Space } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <Space className="site-button-ghost-wrapper" wrap>
     <Button type="primary" ghost>
       Primary

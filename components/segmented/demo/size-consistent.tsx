@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Input, Select, Segmented, Space } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <Space direction="vertical">
     <div>
       <Segmented style={{ marginRight: 6 }} size="large" options={['Daily', 'Weekly', 'Monthly']} />

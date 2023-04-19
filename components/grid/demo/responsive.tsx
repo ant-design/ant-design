@@ -1,7 +1,7 @@
 import React from 'react';
 import { Col, Row } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <Row>
     <Col xs={2} sm={4} md={6} lg={8} xl={10}>
       Col

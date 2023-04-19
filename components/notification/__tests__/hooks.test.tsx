@@ -15,7 +15,7 @@ describe('notification.hooks', () => {
   it('should work', () => {
     const Context = React.createContext('light');
 
-    const Demo: React.FC = () => {
+    const Demo = () => {
       const [api, holder] = notification.useNotification();
 
       return (
@@ -53,7 +53,7 @@ describe('notification.hooks', () => {
   it('should work with success', () => {
     const Context = React.createContext('light');
 
-    const Demo: React.FC = () => {
+    const Demo = () => {
       const [api, holder] = notification.useNotification();
 
       return (
@@ -91,7 +91,7 @@ describe('notification.hooks', () => {
   it('should be same hook', () => {
     let count = 0;
 
-    const Demo: React.FC = () => {
+    const Demo = () => {
       const [, forceUpdate] = React.useState([]);
       const [api] = notification.useNotification();
       React.useEffect(() => {

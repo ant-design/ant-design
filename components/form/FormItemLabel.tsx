@@ -45,7 +45,7 @@ export interface FormItemLabelProps {
   tooltip?: LabelTooltipType;
 }
 
-const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixCls: string }> = ({
+const FormItemLabel = ({
   prefixCls,
   label,
   htmlFor,
@@ -55,7 +55,7 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
   required,
   requiredMark,
   tooltip,
-}) => {
+}: FormItemLabelProps & { required?: boolean; prefixCls: string }) => {
   const [formLocale] = useLocale('Form');
 
   const {

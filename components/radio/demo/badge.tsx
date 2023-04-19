@@ -1,7 +1,7 @@
 import React from 'react';
 import { Badge, Radio } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <Radio.Group buttonStyle="solid">
     <Badge count={1}>
       <Radio.Button value={1}>Click Me</Radio.Button>

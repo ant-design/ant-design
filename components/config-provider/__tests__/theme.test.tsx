@@ -160,7 +160,7 @@ describe('ConfigProvider.Theme', () => {
       a: {},
       b: {},
     };
-    const Token: React.FC<{ type: 'a' | 'b' }> = ({ type }) => {
+    const Token = ({ type }: { type: 'a' | 'b' }) => {
       const [, token] = useToken();
       tokens[type] = token;
       return null;

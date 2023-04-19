@@ -4,7 +4,7 @@ import { Button, Result, Typography } from 'antd';
 
 const { Paragraph, Text } = Typography;
 
-const App: React.FC = () => (
+const App = () => (
   <Result
     status="error"
     title="Submission Failed"

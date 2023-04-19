@@ -49,7 +49,7 @@ title: 从 v4 到 v5
   ```diff
     import { Select } from 'antd';
 
-    const App: React.FC = () => (
+    const App = () => (
       <Select
   -     dropdownClassName="my-select-popup"
   +     popupClassName="my-select-popup"
@@ -72,7 +72,7 @@ title: 从 v4 到 v5
   ```diff
     import { Modal, Tag, Table, Slider } from 'antd';
 
-    const App: React.FC = () => {
+    const App = () => {
       const [visible, setVisible] = useState(true);
 
       return (
@@ -123,7 +123,7 @@ title: 从 v4 到 v5
   + import { Comment } from '@ant-design/compatible';
   + import { PageHeader } from '@ant-design/pro-layout';
 
-    const App: React.FC = () => (
+    const App = () => (
       <>
         <PageHeader />
         <Comment />
@@ -139,7 +139,7 @@ title: 从 v4 到 v5
   - import { BackTop } from 'antd';
   + import { FloatButton } from 'antd';
 
-    const App: React.FC = () => (
+    const App = () => (
       <>
   -     <BackTop />
   +     <FloatButton.BackTop />

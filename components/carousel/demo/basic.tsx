@@ -10,7 +10,7 @@ const contentStyle: React.CSSProperties = {
   background: '#364d79',
 };
 
-const App: React.FC = () => {
+const App = () => {
   const onChange = (currentSlide: number) => {
     console.log(currentSlide);
   };

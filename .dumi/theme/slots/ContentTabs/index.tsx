@@ -1,4 +1,4 @@
-import type { FC, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import React from 'react';
 import { CodeOutlined, SkinOutlined } from '@ant-design/icons';
 import { Tabs } from 'antd';
@@ -14,7 +14,7 @@ const iconMap: Record<string, ReactNode> = {
   design: <SkinOutlined />,
 };
 
-const ContentTabs: FC<IContentTabsProps> = ({ tabs, tabKey, onChange }) => {
+const ContentTabs = ({ tabs, tabKey, onChange }: IContentTabsProps) => {
   const meta = useRouteMeta();
 
   if (!meta.tabs) {

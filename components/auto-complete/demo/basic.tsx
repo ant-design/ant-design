@@ -5,7 +5,7 @@ const mockVal = (str: string, repeat = 1) => ({
   value: str.repeat(repeat),
 });
 
-const App: React.FC = () => {
+const App = () => {
   const [value, setValue] = useState('');
   const [options, setOptions] = useState<{ value: string }[]>([]);
   const [anotherOptions, setAnotherOptions] = useState<{ value: string }[]>([]);

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Alert, Spin, Switch } from 'antd';
 
-const App: React.FC = () => {
+const App = () => {
   const [loading, setLoading] = useState(false);
 
   const toggle = (checked: boolean) => {

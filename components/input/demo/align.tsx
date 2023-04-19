@@ -57,7 +57,7 @@ const options = [
   },
 ];
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Mentions style={{ width: 100 }} rows={1} />
     <Input.TextArea rows={1} style={{ width: 100 }} />

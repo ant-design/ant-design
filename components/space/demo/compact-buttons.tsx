@@ -13,7 +13,7 @@ import {
 } from '@ant-design/icons';
 import { Button, Menu, Dropdown, Space, Tooltip } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <div>
     <Space.Compact block>
       <Tooltip title="Like">

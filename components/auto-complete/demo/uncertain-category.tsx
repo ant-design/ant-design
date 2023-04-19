@@ -35,7 +35,7 @@ const searchResult = (query: string) =>
       };
     });
 
-const App: React.FC = () => {
+const App = () => {
   const [options, setOptions] = useState<SelectProps<object>['options']>([]);
 
   const handleSearch = (value: string) => {

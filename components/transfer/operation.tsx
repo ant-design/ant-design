@@ -18,7 +18,7 @@ export interface TransferOperationProps {
   oneWay?: boolean;
 }
 
-const Operation: React.FC<TransferOperationProps> = (props) => {
+const Operation = (props: TransferOperationProps) => {
   const {
     disabled,
     moveToLeft,

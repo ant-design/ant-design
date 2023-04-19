@@ -1,7 +1,7 @@
 import React from 'react';
 import { Progress, Space } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Progress percent={99.9} strokeColor={{ '0%': '#108ee9', '100%': '#87d068' }} />
     <Progress percent={99.9} status="active" strokeColor={{ from: '#108ee9', to: '#87d068' }} />

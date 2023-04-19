@@ -3,7 +3,7 @@ import { Input } from 'antd';
 
 const { Search } = Input;
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Search placeholder="input search loading default" loading />
     <br />

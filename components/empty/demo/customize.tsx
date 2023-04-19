@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Empty } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <Empty
     image="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
     imageStyle={{ height: 60 }}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Segmented, Space } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <Space direction="vertical">
     <Segmented options={['Map', 'Transit', 'Satellite']} disabled />
     <Segmented

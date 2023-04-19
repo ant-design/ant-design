@@ -214,7 +214,7 @@ describe('Segmented', () => {
   });
 
   it('render segmented with controlled mode', async () => {
-    const Demo: React.FC = () => {
+    const Demo = () => {
       const [value, setValue] = useState<SegmentedValue>('Map');
       return (
         <>

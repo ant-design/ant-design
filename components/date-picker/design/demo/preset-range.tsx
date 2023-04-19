@@ -4,7 +4,7 @@ import dayjs from 'dayjs';
 
 const { _InternalRangePanelDoNotUseOrYouWillBeFired: PureRangePicker } = DatePicker;
 
-const App: React.FC = () => (
+const App = () => (
   <PureRangePicker
     presets={[
       { label: 'Last 7 Days', value: [dayjs().add(-7, 'd'), dayjs()] },

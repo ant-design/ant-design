@@ -1,7 +1,7 @@
 import React from 'react';
 import { Col, Row } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <Row>
     <Col span={18} push={6}>
       col-18 col-push-6

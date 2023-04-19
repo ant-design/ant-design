@@ -9,7 +9,7 @@ const onAfterChange = (value: number | [number, number]) => {
   console.log('onAfterChange: ', value);
 };
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Slider defaultValue={30} onChange={onChange} onAfterChange={onAfterChange} />
     <Slider

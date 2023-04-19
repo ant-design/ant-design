@@ -1,7 +1,7 @@
 import React from 'react';
 import { Timeline } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <Timeline
     items={[
       {

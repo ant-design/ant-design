@@ -70,7 +70,7 @@ async function fetchUserList(username: string): Promise<UserValue[]> {
     );
 }
 
-const App: React.FC = () => {
+const App = () => {
   const [value, setValue] = useState<UserValue[]>([]);
 
   return (

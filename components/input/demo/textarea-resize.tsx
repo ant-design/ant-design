@@ -6,7 +6,7 @@ const { TextArea } = Input;
 const defaultValue =
   'The autoSize property applies to textarea nodes, and only the height changes automatically. In addition, autoSize can be set to an object, specifying the minimum number of rows and the maximum number of rows. The autoSize property applies to textarea nodes, and only the height changes automatically. In addition, autoSize can be set to an object, specifying the minimum number of rows and the maximum number of rows.';
 
-const App: React.FC = () => {
+const App = () => {
   const [autoResize, setAutoResize] = useState(false);
 
   return (

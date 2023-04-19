@@ -48,7 +48,7 @@ const NumericInput = (props: NumericInputProps) => {
   );
 };
 
-const App: React.FC = () => {
+const App = () => {
   const [value, setValue] = useState('');
 
   return <NumericInput style={{ width: 120 }} value={value} onChange={setValue} />;

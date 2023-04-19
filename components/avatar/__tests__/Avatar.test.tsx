@@ -54,7 +54,7 @@ describe('Avatar Render', () => {
   it('should handle onError correctly', () => {
     const LOAD_FAILURE_SRC = 'http://error.url/';
     const LOAD_SUCCESS_SRC = 'https://xsgames.co/randomusers/avatar.php?g=pixel';
-    const Foo: React.FC = () => {
+    const Foo = () => {
       const [avatarSrc, setAvatarSrc] = useState<typeof LOAD_FAILURE_SRC | typeof LOAD_SUCCESS_SRC>(
         LOAD_FAILURE_SRC,
       );

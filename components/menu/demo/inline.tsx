@@ -45,7 +45,7 @@ const items: MenuProps['items'] = [
   getItem('Group', 'grp', null, [getItem('Option 13', '13'), getItem('Option 14', '14')], 'group'),
 ];
 
-const App: React.FC = () => {
+const App = () => {
   const onClick: MenuProps['onClick'] = (e) => {
     console.log('click ', e);
   };

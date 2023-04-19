@@ -4,7 +4,7 @@ import CountUp from 'react-countup';
 
 const formatter = (value: number) => <CountUp end={value} separator="," />;
 
-const App: React.FC = () => (
+const App = () => (
   <Row gutter={16}>
     <Col span={12}>
       <Statistic title="Active Users" value={112893} formatter={formatter} />

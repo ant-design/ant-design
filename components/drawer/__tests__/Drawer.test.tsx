@@ -8,7 +8,7 @@ import { fireEvent, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import { resetWarned } from '../../_util/warning';
 
-const DrawerTest: React.FC<DrawerProps> = ({ getContainer }) => (
+const DrawerTest = ({ getContainer }: DrawerProps) => (
   <div>
     <Drawer open width={400} getContainer={getContainer}>
       Here is content of Drawer

@@ -133,7 +133,7 @@ const AuthorAvatar = ({ name, avatar }: { name: string; avatar: string }) => {
   );
 };
 
-const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
+const Content = ({ children }: { children: ReactNode }) => {
   const meta = useRouteMeta();
   const tab = useTabMeta();
   const { pathname, hash } = useLocation();

@@ -14,7 +14,7 @@ export interface WaveEffectProps {
   target: HTMLElement;
 }
 
-const WaveEffect: React.FC<WaveEffectProps> = (props) => {
+const WaveEffect = (props: WaveEffectProps) => {
   const { className, target } = props;
   const divRef = React.useRef<HTMLDivElement>(null);
 

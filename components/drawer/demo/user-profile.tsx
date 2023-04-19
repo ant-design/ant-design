@@ -13,7 +13,7 @@ const DescriptionItem = ({ title, content }: DescriptionItemProps) => (
   </div>
 );
 
-const App: React.FC = () => {
+const App = () => {
   const [open, setOpen] = useState(false);
 
   const showDrawer = () => {

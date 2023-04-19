@@ -3,7 +3,7 @@ import { Button, notification, Space } from 'antd';
 
 type NotificationType = 'success' | 'info' | 'warning' | 'error';
 
-const App: React.FC = () => {
+const App = () => {
   const [api, contextHolder] = notification.useNotification();
 
   const openNotificationWithIcon = (type: NotificationType) => {

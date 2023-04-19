@@ -22,7 +22,7 @@ const items: MenuProps['items'] = [
   },
 ];
 
-const App: React.FC = () => (
+const App = () => (
   <Dropdown menu={{ items, onClick }}>
     <a onClick={(e) => e.preventDefault()}>
       <Space>

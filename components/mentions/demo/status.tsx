@@ -10,7 +10,7 @@ const onSelect = (option: MentionsOptionProps) => {
   console.log('select', option);
 };
 
-const App: React.FC = () => {
+const App = () => {
   const options = [
     {
       value: 'afc163',

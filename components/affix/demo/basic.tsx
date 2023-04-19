@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Affix, Button } from 'antd';
 
-const App: React.FC = () => {
+const App = () => {
   const [top, setTop] = useState(10);
   const [bottom, setBottom] = useState(10);
 

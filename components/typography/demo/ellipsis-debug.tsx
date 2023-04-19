@@ -3,7 +3,7 @@ import { Slider, Switch, Typography } from 'antd';
 
 const { Text, Paragraph } = Typography;
 
-const App: React.FC = () => {
+const App = () => {
   const [rows, setRows] = useState(1);
   const [longText, setLongText] = useState(true);
   const [copyable, setCopyable] = useState(false);

@@ -15,7 +15,7 @@ interface SwitcherIconProps {
   showLine?: boolean | { showLeafIcon: boolean | TreeLeafIcon };
 }
 
-const SwitcherIconCom: React.FC<SwitcherIconProps> = (props) => {
+const SwitcherIconCom = (props: SwitcherIconProps) => {
   const { prefixCls, switcherIcon, treeNodeProps, showLine } = props;
 
   const { isLeaf, expanded, loading } = treeNodeProps;

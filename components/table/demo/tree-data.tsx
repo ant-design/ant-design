@@ -109,7 +109,7 @@ const rowSelection: TableRowSelection<DataType> = {
   },
 };
 
-const App: React.FC = () => {
+const App = () => {
   const [checkStrictly, setCheckStrictly] = useState(false);
 
   return (

@@ -20,7 +20,7 @@ const sharedItem = (
   </Form.Item>
 );
 
-const App: React.FC = () => {
+const App = () => {
   const onFinish = (values: any) => {
     console.log('Success:', values);
   };

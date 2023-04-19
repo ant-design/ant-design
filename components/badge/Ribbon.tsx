@@ -18,7 +18,7 @@ export interface RibbonProps {
   placement?: RibbonPlacement;
 }
 
-const Ribbon: React.FC<RibbonProps> = ({
+const Ribbon = ({
   className,
   prefixCls: customizePrefixCls,
   style,
@@ -26,7 +26,7 @@ const Ribbon: React.FC<RibbonProps> = ({
   children,
   text,
   placement = 'end',
-}) => {
+}: RibbonProps) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('ribbon', customizePrefixCls);
   const colorInPreset = isPresetColor(color, false);

@@ -10,7 +10,7 @@ export interface SkeletonNodeProps extends Omit<SkeletonElementProps, 'size' | '
   children?: React.ReactNode;
 }
 
-const SkeletonNode: React.FC<SkeletonNodeProps> = (props) => {
+const SkeletonNode = (props: SkeletonNodeProps) => {
   const {
     prefixCls: customizePrefixCls,
     className,

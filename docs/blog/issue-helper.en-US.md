@@ -156,7 +156,7 @@ return <Menu.Item key={item.id}>{item.name}</Menu.Item>;
 import { Menu } from 'antd';
 import React from 'react';
 
-const Demo: React.FC = () => {
+const Demo = () => {
   const [collapsed, setCollapsed] = useState<boolean>(false);
 
   const toggle = () => setCollapsed(!collapsed);

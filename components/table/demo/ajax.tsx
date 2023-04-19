@@ -52,7 +52,7 @@ const getRandomuserParams = (params: TableParams) => ({
   ...params,
 });
 
-const App: React.FC = () => {
+const App = () => {
   const [data, setData] = useState<DataType[]>();
   const [loading, setLoading] = useState(false);
   const [tableParams, setTableParams] = useState<TableParams>({

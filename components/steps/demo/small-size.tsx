@@ -1,7 +1,7 @@
 import React from 'react';
 import { Steps } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <Steps
     size="small"
     current={1}

@@ -22,7 +22,7 @@ export interface DrawerPanelProps {
   children?: React.ReactNode;
 }
 
-const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
+const DrawerPanel = (props: DrawerPanelProps) => {
   const {
     prefixCls,
     title,

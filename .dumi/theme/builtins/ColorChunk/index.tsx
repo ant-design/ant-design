@@ -30,7 +30,7 @@ const useStyle = () => {
   };
 };
 
-const ColorChunk: React.FC<ColorChunkProps> = (props) => {
+const ColorChunk = (props: ColorChunkProps) => {
   const styles = useStyle();
   const { color, children } = props;
 

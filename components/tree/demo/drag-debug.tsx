@@ -31,7 +31,7 @@ const generateData = (_level: number, preKey = '0', tns = data): DataNode[] | vo
 
 generateData(z);
 
-const App: React.FC = () => {
+const App = () => {
   const [gData, setGData] = React.useState<DataNode[]>(data);
   const [showLine, setShowLine] = React.useState<any>(true);
   const [showIcon, setShowIcon] = React.useState<boolean>(true);

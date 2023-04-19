@@ -9,7 +9,7 @@ const text = `
   it can be found as a welcome guest in many households across the world.
 `;
 
-const App: React.FC = () => {
+const App = () => {
   const onChange = (key: string | string[]) => {
     console.log(key);
   };

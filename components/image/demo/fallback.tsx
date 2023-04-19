@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <Image
     width={200}
     height={200}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Divider } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <>
     Text
     <Divider type="vertical" />

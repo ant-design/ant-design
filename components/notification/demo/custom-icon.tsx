@@ -2,7 +2,7 @@ import React from 'react';
 import { SmileOutlined } from '@ant-design/icons';
 import { Button, notification } from 'antd';
 
-const App: React.FC = () => {
+const App = () => {
   const [api, contextHolder] = notification.useNotification();
 
   const openNotification = () => {

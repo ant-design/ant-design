@@ -55,7 +55,7 @@ export interface ProgressProps {
   children?: React.ReactNode;
 }
 
-const Progress: React.FC<ProgressProps> = (props) => {
+const Progress = (props: ProgressProps) => {
   const {
     prefixCls: customizePrefixCls,
     className,

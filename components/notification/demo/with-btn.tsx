@@ -7,7 +7,7 @@ const close = () => {
   );
 };
 
-const App: React.FC = () => {
+const App = () => {
   const [api, contextHolder] = notification.useNotification();
 
   const openNotification = () => {

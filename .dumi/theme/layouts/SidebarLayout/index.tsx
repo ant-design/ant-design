@@ -12,7 +12,7 @@ const useStyle = () => ({
   `,
 });
 
-const SidebarLayout: React.FC<PropsWithChildren<{}>> = ({ children }) => {
+const SidebarLayout = ({ children }: PropsWithChildren<{}>) => {
   const { main } = useStyle();
   return (
     <main css={main}>

@@ -45,7 +45,7 @@ const data: DataType[] = [
   },
 ];
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Divider>Middle size table</Divider>
     <Table columns={columns} dataSource={data} size="middle" />

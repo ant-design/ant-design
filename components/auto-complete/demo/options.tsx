@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { AutoComplete } from 'antd';
 
-const App: React.FC = () => {
+const App = () => {
   const [options, setOptions] = useState<{ value: string; label: string }[]>([]);
 
   const handleSearch = (value: string) => {

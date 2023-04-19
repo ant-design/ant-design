@@ -38,7 +38,7 @@ describe('Layout', () => {
   });
 
   it('umount from multiple siders', async () => {
-    const App: React.FC = () => {
+    const App = () => {
       const [hide1, setHide1] = useState(false);
       const [hide2, setHide2] = useState(false);
       return (
@@ -149,7 +149,7 @@ describe('Layout', () => {
       });
 
       it('controlled', () => {
-        const Demo: React.FC = () => {
+        const Demo = () => {
           const [collapsed, setCollapsed] = React.useState(true);
 
           return (

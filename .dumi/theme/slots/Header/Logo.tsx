@@ -51,7 +51,7 @@ export interface LogoProps {
   location: any;
 }
 
-const Logo: React.FC<LogoProps> = ({ isZhCN }) => {
+const Logo = ({ isZhCN }: LogoProps) => {
   const { search } = useLocation();
   const { logo, title } = useStyle();
   return (

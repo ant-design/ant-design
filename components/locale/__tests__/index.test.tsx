@@ -238,7 +238,7 @@ const columns = [
   { title: 'Age', dataIndex: 'age' },
 ];
 
-const App: React.FC = () => (
+const App = () => (
   <div>
     <Pagination defaultCurrent={1} total={50} showSizeChanger />
     <Select showSearch style={{ width: 200 }}>
@@ -307,7 +307,7 @@ describe('Locale Provider', () => {
   });
 
   it('set dayjs locale when locale changes', () => {
-    const Test: React.FC<{ locale?: Locale }> = ({ locale }) => (
+    const Test = ({ locale }: { locale?: Locale }) => (
       <LocaleProvider locale={locale!}>
         <div>
           <DatePicker defaultValue={dayjs()} open />

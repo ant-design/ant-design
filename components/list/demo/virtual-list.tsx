@@ -22,7 +22,7 @@ const fakeDataUrl =
   'https://randomuser.me/api/?results=20&inc=name,gender,email,nat,picture&noinfo';
 const ContainerHeight = 400;
 
-const App: React.FC = () => {
+const App = () => {
   const [data, setData] = useState<UserItem[]>([]);
 
   const appendData = () => {

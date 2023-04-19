@@ -90,7 +90,7 @@ describe('Image', () => {
   });
   it('Preview forceRender props', async () => {
     const onLoadCb = jest.fn();
-    const PreviewImage: React.FC = () => (
+    const PreviewImage = () => (
       <Image
         preview={{
           visible: false,

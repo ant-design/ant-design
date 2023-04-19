@@ -5,7 +5,7 @@ interface NumberProps extends FormatConfig {
   value: valueType;
 }
 
-const StatisticNumber: React.FC<NumberProps> = (props) => {
+const StatisticNumber = (props: NumberProps) => {
   const { value, formatter, precision, decimalSeparator, groupSeparator = '', prefixCls } = props;
 
   let valueNode: React.ReactNode;

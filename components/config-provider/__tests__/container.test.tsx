@@ -30,7 +30,7 @@ describe('ConfigProvider.GetPopupContainer', () => {
 
   it('Drawer', () => {
     const getPopupContainer = jest.fn((node) => node.parentNode);
-    const Demo: React.FC<{ open?: boolean }> = ({ open }) => (
+    const Demo = ({ open }: { open?: boolean }) => (
       <ConfigProvider getPopupContainer={getPopupContainer}>
         <Drawer open={open} />
       </ConfigProvider>

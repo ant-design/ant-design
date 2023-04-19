@@ -774,7 +774,7 @@ describe('Table.filter', () => {
 
   it('works with JSX in controlled mode', () => {
     const { Column } = Table;
-    const App: React.FC = () => {
+    const App = () => {
       const [filters, setFilters] = React.useState<{ name?: ColumnType<any>['filteredValue'] }>({});
       const handleChange: TableProps<any>['onChange'] = (_, filter) => {
         setFilters(filter);
@@ -950,7 +950,7 @@ describe('Table.filter', () => {
 
   // https://github.com/ant-design/ant-design/issues/13028
   it('reset dropdown filter correctly', () => {
-    const Demo: React.FC = () => {
+    const Demo = () => {
       const [name, setName] = React.useState<ColumnType<any>['filteredValue']>();
       const onChange = () => {
         setName('' as unknown as ColumnType<any>['filteredValue']);
@@ -1139,7 +1139,7 @@ describe('Table.filter', () => {
   it('not crash when dynamic change filter', () => {
     const onChange = jest.fn();
 
-    const Test: React.FC<{ filters?: ColumnFilterItem[] }> = ({ filters }) => (
+    const Test = ({ filters }: { filters?: ColumnFilterItem[] }) => (
       <Table
         onChange={onChange}
         rowKey="name"
@@ -1254,7 +1254,7 @@ describe('Table.filter', () => {
     const filterDropdownMock = jest.fn().mockReturnValue(<span>test</span>);
     const filterDropdown = (...args: any[]) => filterDropdownMock(...args);
 
-    const Test: React.FC = () => (
+    const Test = () => (
       <Table
         rowKey="name"
         columns={[{ title: 'Name', dataIndex: 'name', filterDropdown }]}
@@ -1341,7 +1341,7 @@ describe('Table.filter', () => {
 
   // https://github.com/ant-design/ant-design/issues/19274
   it('should not crash', () => {
-    const TestTable: React.FC = () => {
+    const TestTable = () => {
       const [cols, setCols] = React.useState<ColumnsType<any>>([]);
       useEffect(() => {
         setCols([{ title: 'test', key: 'test', filterDropdown: 123 }]);
@@ -1579,7 +1579,7 @@ describe('Table.filter', () => {
 
   it('should not trigger onChange when filters is empty', () => {
     const onChange = jest.fn();
-    const Test: React.FC<{ filters?: ColumnFilterItem[] }> = ({ filters }) => (
+    const Test = ({ filters }: { filters?: ColumnFilterItem[] }) => (
       <Table
         onChange={onChange}
         rowKey="name"
@@ -1750,7 +1750,7 @@ describe('Table.filter', () => {
 
   // Warning: An update to Item ran an effect, but was not wrapped in act(...).
   it('Column with filter and children filters properly.', () => {
-    const App: React.FC = () => {
+    const App = () => {
       const [filteredInfo, setFilteredInfo] = useState<Record<string, FilterValue | null>>({});
       const [sortedInfo, setSortedInfo] = useState<SorterResult<any> | SorterResult<any>[]>({});
       const handleChange: TableProps<any>['onChange'] = (_, filters, sorter) => {
@@ -1892,7 +1892,7 @@ describe('Table.filter', () => {
       },
     ];
 
-    const App: React.FC = () => {
+    const App = () => {
       const [ddd, setData] = React.useState<Array<DataType>>([
         {
           key: '1',

@@ -89,7 +89,7 @@ describe('Directory Tree', () => {
     });
 
     describe('with state control', () => {
-      const StateDirTree: React.FC<TreeProps> = (props) => {
+      const StateDirTree = (props: TreeProps) => {
         const [expandedKeys, setExpandedKeys] = React.useState<Key[]>([]);
         return (
           <DirectoryTree expandedKeys={expandedKeys} onExpand={setExpandedKeys} {...props}>

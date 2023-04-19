@@ -3,7 +3,7 @@ import type { InputRef } from 'antd';
 
 import { Button, Input, Space, Switch } from 'antd';
 
-const App: React.FC = () => {
+const App = () => {
   const inputRef = useRef<InputRef>(null);
   const [input, setInput] = useState(true);
 

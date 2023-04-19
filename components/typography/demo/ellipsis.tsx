@@ -3,7 +3,7 @@ import { Switch, Typography } from 'antd';
 
 const { Paragraph, Text } = Typography;
 
-const App: React.FC = () => {
+const App = () => {
   const [ellipsis, setEllipsis] = useState(true);
 
   return (

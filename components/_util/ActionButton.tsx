@@ -20,7 +20,7 @@ function isThenable<T extends any>(thing?: PromiseLike<T>): boolean {
   return !!(thing && thing.then);
 }
 
-const ActionButton: React.FC<ActionButtonProps> = (props) => {
+const ActionButton = (props: ActionButtonProps) => {
   const {
     type,
     children,

@@ -3,7 +3,7 @@ import { Slider, Typography } from 'antd';
 
 const { Paragraph } = Typography;
 
-const App: React.FC = () => {
+const App = () => {
   const [rows, setRows] = useState(1);
 
   const article =

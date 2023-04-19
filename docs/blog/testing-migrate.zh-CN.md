@@ -216,7 +216,7 @@ exports[`debug exports modules correctly 1`] = `
 ```tsx
 import React, { useEffect, useRef, version } from 'react';
 
-const App: React.FC = () => {
+const App = () => {
   const holderRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     console.log(holderRef.current?.childNodes);

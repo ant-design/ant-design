@@ -9,7 +9,7 @@ interface DrawerPropsType {
   placement?: DrawerPopupProps['placement'];
 }
 
-const MultiDrawer: React.FC<DrawerPropsType> = (props) => {
+const MultiDrawer = (props: DrawerPropsType) => {
   const { placement, push } = props;
 
   const [open, setOpen] = useState<boolean>(false);

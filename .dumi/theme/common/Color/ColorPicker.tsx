@@ -12,7 +12,7 @@ interface ColorPickerProps {
   onChangeComplete?: (hex: string) => void;
 }
 
-const ColorPicker: React.FC<ColorPickerProps> = (props) => {
+const ColorPicker = (props: ColorPickerProps) => {
   const {
     small,
     position = 'bottom',

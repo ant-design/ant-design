@@ -1,7 +1,7 @@
 import React from 'react';
 import { Avatar, Badge, Space } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <Space size="large">
     <Badge count={5} title="Custom hover text">
       <Avatar shape="square" size="large" />

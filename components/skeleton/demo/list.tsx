@@ -18,14 +18,14 @@ const listData = Array.from({ length: 3 }).map((_, i) => ({
     'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
 }));
 
-const IconText: React.FC<IconTextProps> = ({ icon, text }) => (
+const IconText = ({ icon, text }: IconTextProps) => (
   <>
     {React.createElement(icon, { style: { marginRight: 8 } })}
     {text}
   </>
 );
 
-const App: React.FC = () => {
+const App = () => {
   const [loading, setLoading] = useState(true);
 
   const onChange = (checked: boolean) => {

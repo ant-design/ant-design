@@ -29,7 +29,7 @@ App provides upstream and downstream method calls through `Context`, because use
 import { App } from 'antd';
 import React from 'react';
 
-const MyPage: React.FC = () => {
+const MyPage = () => {
   const { message, notification, modal } = App.useApp();
   message.success('Good!');
   notification.info({ message: 'Good' });
@@ -39,7 +39,7 @@ const MyPage: React.FC = () => {
   return <div>Hello word</div>;
 };
 
-const MyApp: React.FC = () => (
+const MyApp = () => (
   <App>
     <MyPage />
   </App>

@@ -3,7 +3,7 @@ import { AutoComplete, Switch, Space } from 'antd';
 
 const { _InternalPanelDoNotUseOrYouWillBeFired: InternalAutoComplete } = AutoComplete;
 
-const App: React.FC = () => {
+const App = () => {
   const [open, setOpen] = React.useState(false);
 
   return (

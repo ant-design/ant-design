@@ -5,7 +5,7 @@ const onChange = (value: string) => {
   console.log('changed', value);
 };
 
-const App: React.FC = () => (
+const App = () => (
   <InputNumber<string>
     style={{ width: 200 }}
     defaultValue="1"

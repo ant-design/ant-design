@@ -10,7 +10,7 @@ import {
 import { Button, Divider, notification, Space } from 'antd';
 import type { NotificationPlacement } from 'antd/es/notification/interface';
 
-const App: React.FC = () => {
+const App = () => {
   const [api, contextHolder] = notification.useNotification();
 
   const openNotification = (placement: NotificationPlacement) => {

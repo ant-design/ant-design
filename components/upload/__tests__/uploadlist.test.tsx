@@ -669,7 +669,7 @@ describe('Upload List', () => {
   it('work with form validation', async () => {
     let formRef: FormInstance;
 
-    const TestForm: React.FC = () => {
+    const TestForm = () => {
       const [form] = Form.useForm();
       formRef = form;
 
@@ -1219,7 +1219,7 @@ describe('Upload List', () => {
   it('multiple file upload should keep the internal fileList async', async () => {
     const uploadRef = React.createRef<any>();
 
-    const MyUpload: React.FC = () => {
+    const MyUpload = () => {
       const [testFileList, setTestFileList] = React.useState<UploadFile[]>([]);
 
       return (

@@ -7,7 +7,7 @@ interface EmptyProps {
   componentName?: string;
 }
 
-const DefaultRenderEmpty: React.FC<EmptyProps> = (props) => {
+const DefaultRenderEmpty = (props: EmptyProps) => {
   const { componentName } = props;
   const { getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
   const prefix = getPrefixCls('empty');

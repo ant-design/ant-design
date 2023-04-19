@@ -25,7 +25,7 @@ const normFile = (e: any) => {
   return e?.fileList;
 };
 
-const FormDisabledDemo: React.FC = () => {
+const FormDisabledDemo = () => {
   const [componentDisabled, setComponentDisabled] = useState<boolean>(true);
 
   return (

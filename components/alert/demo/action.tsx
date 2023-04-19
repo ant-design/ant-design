@@ -1,7 +1,7 @@
 import React from 'react';
 import { Alert, Button, Space } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <Space direction="vertical" style={{ width: '100%' }}>
     <Alert
       message="Success Tips"

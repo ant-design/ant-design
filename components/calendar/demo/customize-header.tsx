@@ -8,7 +8,7 @@ import type { CalendarMode } from 'antd/es/calendar/generateCalendar';
 
 dayjs.extend(dayLocaleData);
 
-const App: React.FC = () => {
+const App = () => {
   const { token } = theme.useToken();
 
   const onPanelChange = (value: Dayjs, mode: CalendarMode) => {

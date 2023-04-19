@@ -4,7 +4,7 @@ import { Button, Cascader, Input, InputNumber, Space, Select, TimePicker } from 
 
 const { Option } = Select;
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Space.Compact block>
       <Space.Compact>

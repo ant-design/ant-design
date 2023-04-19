@@ -58,7 +58,7 @@ const filter = (inputValue: string, path: DefaultOptionType[]) =>
     (option) => (option.label as string).toLowerCase().indexOf(inputValue.toLowerCase()) > -1,
   );
 
-const App: React.FC = () => (
+const App = () => (
   <Cascader
     options={options}
     onChange={onChange}

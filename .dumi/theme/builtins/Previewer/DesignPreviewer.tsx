@@ -1,4 +1,3 @@
-import type { FC } from 'react';
 import React, { useRef } from 'react';
 import { createStyles, css } from 'antd-style';
 import { CheckOutlined, SketchOutlined } from '@ant-design/icons';
@@ -52,7 +51,7 @@ const useStyle = createStyles(({ token }) => ({
   `,
 }));
 
-const DesignPreviewer: FC<AntdPreviewerProps> = ({ children, title, description, tip, asset }) => {
+const DesignPreviewer = ({ children, title, description, tip, asset }: AntdPreviewerProps) => {
   const { styles } = useStyle();
   const demoRef = useRef<HTMLDivElement>(null);
   const [copied, setCopied] = React.useState<boolean>(false);

@@ -3,7 +3,7 @@ import { SearchOutlined } from '@ant-design/icons';
 import { Button, Tooltip, ConfigProvider, Radio, Divider, Space } from 'antd';
 import type { SizeType } from 'antd/es/config-provider/SizeContext';
 
-const App: React.FC = () => {
+const App = () => {
   const [size, setSize] = useState<SizeType>('large');
 
   return (

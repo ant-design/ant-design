@@ -10,7 +10,7 @@ const onChange = (time: Dayjs, timeString: string) => {
   console.log(time, timeString);
 };
 
-const App: React.FC = () => (
+const App = () => (
   <TimePicker
     onChange={onChange}
     defaultOpenValue={dayjs('00:00:00', 'HH:mm:ss')}

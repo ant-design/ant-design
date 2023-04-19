@@ -1,7 +1,7 @@
 import React from 'react';
 import { Select, Space, Typography } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <Space wrap>
     <Select
       defaultValue="long, long, long piece of text"

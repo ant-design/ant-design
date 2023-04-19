@@ -310,7 +310,7 @@ const data: User[] = [
   },
 ];
 
-const Demo: React.FC = () => (
+const Demo = () => (
   <>
     <Table<User> columns={columns} dataSource={data} />
     {/* 使用 JSX 风格的 API */}

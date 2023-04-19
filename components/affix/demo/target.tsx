@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Affix, Button } from 'antd';
 
-const App: React.FC = () => {
+const App = () => {
   const [container, setContainer] = useState<HTMLDivElement | null>(null);
 
   return (

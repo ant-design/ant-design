@@ -48,7 +48,7 @@ const columns = [
   },
 ];
 
-const Page: React.FC = () => {
+const Page = () => {
   const { token } = theme.useToken();
 
   const [open, setOpen] = useState(false);
@@ -199,7 +199,7 @@ const Page: React.FC = () => {
   );
 };
 
-const App: React.FC = () => {
+const App = () => {
   const [locale, setLocal] = useState<Locale>(enUS);
 
   const changeLocale = (e: RadioChangeEvent) => {

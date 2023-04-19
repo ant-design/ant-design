@@ -43,6 +43,6 @@ const menu = (
   />
 );
 
-const App: React.FC = () => <InternalDropdown overlay={menu} />;
+const App = () => <InternalDropdown overlay={menu} />;
 
 export default App;

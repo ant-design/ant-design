@@ -1,7 +1,7 @@
 import { Button, Skeleton, Space } from 'antd';
 import React, { useState } from 'react';
 
-const App: React.FC = () => {
+const App = () => {
   const [loading, setLoading] = useState<boolean>(false);
 
   const showSkeleton = () => {

@@ -18,7 +18,7 @@ export interface PurePanelProps
   items?: PureFloatButtonProps[];
 }
 
-const PureFloatButton: React.FC<PureFloatButtonProps> = ({ backTop, ...props }) =>
+const PureFloatButton = ({ backTop, ...props }: PureFloatButtonProps) =>
   backTop ? <BackTop {...props} visibilityHeight={0} /> : <FloatButton {...props} />;
 
 function PurePanel({ className, items, ...props }: PurePanelProps) {

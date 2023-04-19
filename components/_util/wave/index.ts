@@ -13,7 +13,7 @@ export interface WaveProps {
   children?: React.ReactNode;
 }
 
-const Wave: React.FC<WaveProps> = (props) => {
+const Wave = (props: WaveProps) => {
   const { children, disabled } = props;
   const { getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
   const containerRef = useRef<HTMLElement>(null);

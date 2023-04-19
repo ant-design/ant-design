@@ -80,7 +80,7 @@ const defaultExpandable = { expandedRowRender: (record: DataType) => <p>{record.
 const defaultTitle = () => 'Here is title';
 const defaultFooter = () => 'Here is footer';
 
-const App: React.FC = () => {
+const App = () => {
   const [bordered, setBordered] = useState(false);
   const [loading, setLoading] = useState(false);
   const [size, setSize] = useState<SizeType>('large');

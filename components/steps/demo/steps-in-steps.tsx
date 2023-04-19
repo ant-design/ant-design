@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import type { StepsProps } from 'antd';
 import { Card, Radio, Steps } from 'antd';
 
-const App: React.FC = () => {
+const App = () => {
   const [size, setSize] = useState<StepsProps['size']>('default');
   const description = 'This is a description.';
   const horizontalSteps = (

@@ -3,7 +3,7 @@ import { Form, Input } from 'antd';
 
 let acc = 0;
 
-const App: React.FC = () => {
+const App = () => {
   const [form] = Form.useForm();
   return (
     <Form

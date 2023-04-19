@@ -57,7 +57,7 @@ This document will help you upgrade from antd `4.x` version to antd `5.x` versio
   ```diff
     import { Select } from 'antd';
 
-    const App: React.FC = () => (
+    const App = () => (
       <Select
   -     dropdownClassName="my-select-popup"
   +     popupClassName="my-select-popup"
@@ -80,7 +80,7 @@ This document will help you upgrade from antd `4.x` version to antd `5.x` versio
   ```diff
     import { Modal, Tag, Table, Slider } from 'antd';
 
-    const App: React.FC = () => {
+    const App = () => {
       const [visible, setVisible] = useState(true);
 
       return (
@@ -131,7 +131,7 @@ This document will help you upgrade from antd `4.x` version to antd `5.x` versio
   + import { Comment } from '@ant-design/compatible';
   + import { PageHeader } from '@ant-design/pro-layout';
 
-    const App: React.FC = () => (
+    const App = () => (
       <>
         <PageHeader />
         <Comment />
@@ -147,7 +147,7 @@ This document will help you upgrade from antd `4.x` version to antd `5.x` versio
   - import { BackTop } from 'antd';
   + import { FloatButton } from 'antd';
 
-    const App: React.FC = () => (
+    const App = () => (
       <div>
   -     <BackTop />
   +     <FloatButton.BackTop />

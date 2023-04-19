@@ -56,7 +56,7 @@ describe('QRCode test', () => {
   });
 
   it('support loading', () => {
-    const Demo: React.FC = () => {
+    const Demo = () => {
       const [status, setStatus] = useState<QRCodeProps['status']>('active');
       return (
         <>

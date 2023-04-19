@@ -109,7 +109,7 @@ const useStyle = () => {
   };
 };
 
-const ResourceLayout: React.FC<ResourceLayoutProps> = ({ children }) => {
+const ResourceLayout = ({ children }: ResourceLayoutProps) => {
   const styles = useStyle();
   const meta = useRouteMeta();
   return (

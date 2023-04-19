@@ -13,7 +13,7 @@ const handleChange = (value: string | string[]) => {
   console.log(`selected ${value}`);
 };
 
-const App: React.FC = () => (
+const App = () => (
   <Space style={style} wrap>
     <Input style={{ width: 100 }} value="222" />
     <Select

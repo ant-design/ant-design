@@ -127,7 +127,7 @@ export function ConfirmContent(
   );
 }
 
-const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
+const ConfirmDialog = (props: ConfirmDialogProps) => {
   const {
     close,
     zIndex,

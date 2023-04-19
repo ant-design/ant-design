@@ -42,7 +42,7 @@ const options: Option[] = [
   },
 ];
 
-const App: React.FC = () => {
+const App = () => {
   const onChange = (value: string[][]) => {
     console.log(value);
   };

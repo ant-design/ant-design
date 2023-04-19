@@ -2,7 +2,7 @@ import React from 'react';
 import { Avatar, Segmented, Space } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 
-const App: React.FC = () => (
+const App = () => (
   <Space direction="vertical">
     <Segmented
       options={[

@@ -19,7 +19,7 @@ interface AffixProps {
   getInstance?: (inst: InternalAffixClass) => void;
 }
 
-const AffixMounter: React.FC<AffixProps> = ({ getInstance, ...restProps }) => {
+const AffixMounter = ({ getInstance, ...restProps }: AffixProps) => {
   const container = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (container.current) {

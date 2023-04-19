@@ -31,7 +31,7 @@ App 组件通过 `Context` 提供上下文方法调用，因而 useApp 需要作
 import { App } from 'antd';
 import React from 'react';
 
-const MyPage: React.FC = () => {
+const MyPage = () => {
   const { message, notification, modal } = App.useApp();
   message.success('Good!');
   notification.info({ message: 'Good' });
@@ -41,7 +41,7 @@ const MyPage: React.FC = () => {
   return <div>Hello word</div>;
 };
 
-const MyApp: React.FC = () => (
+const MyApp = () => (
   <App>
     <MyPage />
   </App>

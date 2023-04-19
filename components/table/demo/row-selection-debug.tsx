@@ -58,7 +58,7 @@ function genData(count: number) {
   return data;
 }
 
-const App: React.FC = () => {
+const App = () => {
   const [data, setData] = useState(genData(50));
   const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
 

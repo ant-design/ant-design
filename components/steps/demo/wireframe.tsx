@@ -2,7 +2,7 @@ import React from 'react';
 import { ConfigProvider, Steps } from 'antd';
 
 const description = 'This is a description.';
-const App: React.FC = () => (
+const App = () => (
   <ConfigProvider theme={{ token: { wireframe: true } }}>
     <Steps
       current={1}

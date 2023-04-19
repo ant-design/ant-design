@@ -2,7 +2,7 @@ import type { AlertProps } from 'antd';
 import { Alert } from 'antd';
 import React from 'react';
 
-const MdAlert: React.FC<AlertProps> = ({ style, ...props }) => (
+const MdAlert = ({ style, ...props }: AlertProps) => (
   <Alert {...props} style={{ margin: '24px 0', ...style }} />
 );
 

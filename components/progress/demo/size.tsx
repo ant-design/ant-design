@@ -1,7 +1,7 @@
 import { Progress, Space } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Space direction="vertical">
       <Progress percent={50} />

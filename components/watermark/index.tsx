@@ -32,7 +32,7 @@ export interface WatermarkProps {
   children?: React.ReactNode;
 }
 
-const Watermark: React.FC<WatermarkProps> = (props) => {
+const Watermark = (props: WatermarkProps) => {
   const {
     /**
      * The antd content layer zIndex is basically below 10

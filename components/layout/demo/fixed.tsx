@@ -3,7 +3,7 @@ import { Breadcrumb, Layout, Menu, theme } from 'antd';
 
 const { Header, Content, Footer } = Layout;
 
-const App: React.FC = () => {
+const App = () => {
   const {
     token: { colorBgContainer },
   } = theme.useToken();

@@ -1,9 +1,8 @@
-import type { FC } from 'react';
 import React from 'react';
 import { DatePicker } from 'antd';
 
 const { _InternalRangePanelDoNotUseOrYouWillBeFired: PureRangePicker } = DatePicker;
 
-const Demo: FC = () => <PureRangePicker />;
+const Demo = () => <PureRangePicker />;
 
 export default Demo;

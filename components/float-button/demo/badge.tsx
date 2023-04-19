@@ -2,7 +2,7 @@ import { QuestionCircleOutlined } from '@ant-design/icons';
 import { FloatButton } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <FloatButton shape="circle" badge={{ dot: true }} style={{ right: 24 + 70 + 70 }} />
     <FloatButton.Group shape="circle" style={{ right: 24 + 70 }}>

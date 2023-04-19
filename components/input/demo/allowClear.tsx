@@ -7,7 +7,7 @@ const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) 
   console.log(e);
 };
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Input placeholder="input with clear icon" allowClear onChange={onChange} />
     <br />

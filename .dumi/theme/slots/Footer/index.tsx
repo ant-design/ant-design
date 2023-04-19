@@ -87,7 +87,7 @@ const useStyle = () => {
   };
 };
 
-const Footer: React.FC = () => {
+const Footer = () => {
   const location = useLocation();
   const [locale, lang] = useLocale(locales);
   const style = useStyle();

@@ -24,7 +24,7 @@ const treeData = [
   },
 ];
 
-const App: React.FC = () => (
+const App = () => (
   <InternalTreeSelect defaultValue="lucy" style={{ width: '100%' }} treeData={treeData} />
 );
 

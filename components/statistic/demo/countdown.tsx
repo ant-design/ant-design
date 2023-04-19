@@ -16,7 +16,7 @@ const onChange: CountdownProps['onChange'] = (val) => {
   }
 };
 
-const App: React.FC = () => (
+const App = () => (
   <Row gutter={16}>
     <Col span={12}>
       <Countdown title="Countdown" value={deadline} onFinish={onFinish} />

@@ -34,7 +34,7 @@ const columns = [
   },
 ];
 
-const App: React.FC = () => (
+const App = () => (
   <Descriptions title="User Info" column={2}>
     <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>
     <Descriptions.Item label={<div style={{ display: 'flex' }}>Billing Mode</div>}>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { MinusOutlined, PlusOutlined } from '@ant-design/icons';
 import { Button, Progress } from 'antd';
 
-const App: React.FC = () => {
+const App = () => {
   const [percent, setPercent] = useState<number>(0);
 
   const increase = () => {

@@ -35,7 +35,7 @@ const treeData = [
     ],
   },
 ];
-const App: React.FC = () => {
+const App = () => {
   const [placement, SetPlacement] = useState<SelectCommonPlacement>('topLeft');
 
   const placementChange = (e: RadioChangeEvent) => {

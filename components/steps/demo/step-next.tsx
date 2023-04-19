@@ -16,7 +16,7 @@ const steps = [
   },
 ];
 
-const App: React.FC = () => {
+const App = () => {
   const { token } = theme.useToken();
   const [current, setCurrent] = useState(0);
 

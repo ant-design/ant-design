@@ -7,7 +7,7 @@ const options = ['afc163', 'zombiej', 'yesmeck'].map((value) => ({
   label: value,
 }));
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <div style={{ marginBottom: 10 }}>
       <Mentions

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Watermark } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <Watermark content="Ant Design">
     <div style={{ height: 500 }} />
   </Watermark>

@@ -7,7 +7,7 @@ const onPanelChange = (value: Dayjs, mode: CalendarMode) => {
   console.log(value.format('YYYY-MM-DD'), mode);
 };
 
-const App: React.FC = () => {
+const App = () => {
   const { token } = theme.useToken();
 
   const wrapperStyle: React.CSSProperties = {

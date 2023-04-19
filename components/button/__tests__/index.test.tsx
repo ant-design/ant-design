@@ -134,7 +134,7 @@ describe('Button', () => {
   });
 
   it('should change loading state instantly by default', () => {
-    const DefaultButton: React.FC = () => {
+    const DefaultButton = () => {
       const [loading, setLoading] = useState<BaseButtonProps['loading']>(false);
       return (
         <Button loading={loading} onClick={() => setLoading(true)}>
@@ -148,7 +148,7 @@ describe('Button', () => {
   });
 
   it('should change loading state with delay', () => {
-    const DefaultButton: React.FC = () => {
+    const DefaultButton = () => {
       const [loading, setLoading] = useState<BaseButtonProps['loading']>(false);
       return (
         <Button loading={loading} onClick={() => setLoading({ delay: 1000 })}>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Progress } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Progress percent={30} />
     <Progress percent={50} status="active" />

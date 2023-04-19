@@ -3,7 +3,7 @@ import { Rate } from 'antd';
 
 const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
 
-const App: React.FC = () => {
+const App = () => {
   const [value, setValue] = useState(3);
 
   return (

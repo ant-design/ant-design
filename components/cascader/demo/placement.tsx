@@ -43,7 +43,7 @@ const options: Option[] = [
   },
 ];
 
-const App: React.FC = () => {
+const App = () => {
   const [placement, SetPlacement] = useState<'bottomLeft' | 'bottomRight' | 'topLeft' | 'topRight'>(
     'topLeft',
   );

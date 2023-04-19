@@ -1,7 +1,7 @@
 import { Divider, Space, Tag } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Space size={[0, 'small']} wrap>
       <Tag bordered={false}>Tag 1</Tag>

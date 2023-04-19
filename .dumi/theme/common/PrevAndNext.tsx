@@ -94,7 +94,7 @@ const flattenMenu = (menuItems: MenuProps['items']): MenuProps['items'] | null =
   return null;
 };
 
-const PrevAndNext: React.FC = () => {
+const PrevAndNext = () => {
   const { styles } = useStyle();
 
   const [menuItems, selectedKey] = useMenu({

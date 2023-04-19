@@ -24,7 +24,7 @@ const useStyle = () => {
   };
 };
 
-const BackgroundImage: React.FC<BackgroundImageProps> = ({ colorPrimary, isLight }) => {
+const BackgroundImage = ({ colorPrimary, isLight }: BackgroundImageProps) => {
   const activeColor = useMemo(() => getClosetColor(colorPrimary), [colorPrimary]);
 
   const { image } = useStyle();

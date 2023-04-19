@@ -2,7 +2,7 @@ import React from 'react';
 import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
 import { Input, Space } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <Space direction="vertical" style={{ width: '100%' }}>
     <Input status="error" placeholder="Error" />
     <Input status="warning" placeholder="Warning" />

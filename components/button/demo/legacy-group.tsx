@@ -18,7 +18,7 @@ const getGroup = (props?: ButtonGroupProps) => (
   </div>
 );
 
-const App: React.FC = () => (
+const App = () => (
   <>
     {getGroup({ size: 'small' })}
     <br />

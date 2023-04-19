@@ -17,7 +17,7 @@ const ConfigDisplay = () => {
   );
 };
 
-const App: React.FC = () => {
+const App = () => {
   const [componentSize, setComponentSize] = useState<SizeType>('small');
   const [disabled, setDisabled] = useState<boolean>(true);
 

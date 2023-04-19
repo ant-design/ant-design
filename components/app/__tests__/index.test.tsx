@@ -21,7 +21,7 @@ describe('App', () => {
 
   it('single', () => {
     // Sub page
-    const MyPage: React.FC = () => {
+    const MyPage = () => {
       const { message } = App.useApp();
       React.useEffect(() => {
         message.success('Good!');
@@ -31,7 +31,7 @@ describe('App', () => {
     };
 
     // Entry component
-    const MyApp: React.FC = () => (
+    const MyApp = () => (
       <App>
         <MyPage />
       </App>

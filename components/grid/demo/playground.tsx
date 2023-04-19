@@ -15,7 +15,7 @@ const colCounts: Record<PropertyKey, number> = {};
   colCounts[i] = value;
 });
 
-const App: React.FC = () => {
+const App = () => {
   const [gutterKey, setGutterKey] = useState(1);
   const [vgutterKey, setVgutterKey] = useState(1);
   const [colCountKey, setColCountKey] = useState(2);

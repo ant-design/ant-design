@@ -1,7 +1,7 @@
 import React from 'react';
 import { Descriptions } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <div>
     <Descriptions
       title="Responsive Descriptions"

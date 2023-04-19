@@ -22,6 +22,6 @@ const dig = (path = '0', level = 3) => {
 
 const treeData = dig();
 
-const App: React.FC = () => <Tree treeData={treeData} height={233} defaultExpandAll />;
+const App = () => <Tree treeData={treeData} height={233} defaultExpandAll />;
 
 export default App;

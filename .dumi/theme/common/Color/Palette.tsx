@@ -27,7 +27,7 @@ interface PaletteProps {
   };
 }
 
-const Palette: React.FC<PaletteProps> = (props) => {
+const Palette = (props: PaletteProps) => {
   const {
     showTitle,
     direction,

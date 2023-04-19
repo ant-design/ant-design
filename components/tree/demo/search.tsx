@@ -60,7 +60,7 @@ const getParentKey = (key: React.Key, tree: DataNode[]): React.Key => {
   return parentKey!;
 };
 
-const App: React.FC = () => {
+const App = () => {
   const [expandedKeys, setExpandedKeys] = useState<React.Key[]>([]);
   const [searchValue, setSearchValue] = useState('');
   const [autoExpandParent, setAutoExpandParent] = useState(true);

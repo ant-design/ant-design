@@ -34,7 +34,7 @@ const LocalizedModal = () => {
   );
 };
 
-const App: React.FC = () => {
+const App = () => {
   const [modal, contextHolder] = Modal.useModal();
 
   const confirm = () => {

@@ -41,7 +41,7 @@ const getMonthData = (value: Dayjs) => {
   }
 };
 
-const App: React.FC = () => {
+const App = () => {
   const monthCellRender = (value: Dayjs) => {
     const num = getMonthData(value);
     return num ? (

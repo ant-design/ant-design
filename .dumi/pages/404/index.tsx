@@ -16,7 +16,7 @@ const DIRECT_MAP: Record<string, string> = {
   'docs/spec/work-with-us': 'docs/resources',
 };
 
-const NotFoundPage: React.FC<NotFoundProps> = ({ router }) => {
+const NotFoundPage = ({ router }: NotFoundProps) => {
   const { pathname } = useLocation();
 
   const isZhCN = utils.isZhCN(pathname);

@@ -11,7 +11,7 @@ const contentStyle: React.CSSProperties = {
   background: '#364d79',
 };
 
-const App: React.FC = () => {
+const App = () => {
   const [dotPosition, setDotPosition] = useState<DotPosition>('top');
 
   const handlePositionChange = ({ target: { value } }: RadioChangeEvent) => {

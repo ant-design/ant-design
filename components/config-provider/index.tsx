@@ -170,7 +170,7 @@ export const globalConfig = () => ({
   },
 });
 
-const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
+const ProviderChildren = (props: ProviderChildrenProps) => {
   const {
     children,
     csp: customCsp,

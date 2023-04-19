@@ -3,7 +3,7 @@ import type { TourProps } from 'antd';
 import { Button, Divider, Space, Tour } from 'antd';
 import React, { useRef, useState } from 'react';
 
-const App: React.FC = () => {
+const App = () => {
   const ref1 = useRef<HTMLButtonElement>(null);
   const ref2 = useRef<HTMLButtonElement>(null);
   const ref3 = useRef<HTMLButtonElement>(null);

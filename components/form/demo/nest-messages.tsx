@@ -23,7 +23,7 @@ const onFinish = (values: any) => {
   console.log(values);
 };
 
-const App: React.FC = () => (
+const App = () => (
   <Form
     {...layout}
     name="nest-messages"

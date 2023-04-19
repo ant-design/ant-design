@@ -7,7 +7,7 @@ const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) 
   console.log('Change:', e.target.value);
 };
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Input showCount maxLength={20} onChange={onChange} />
     <br />

@@ -2,7 +2,7 @@ import React from 'react';
 import { InfoCircleOutlined, UserOutlined } from '@ant-design/icons';
 import { Input, Tooltip } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Input
       placeholder="Enter your username"

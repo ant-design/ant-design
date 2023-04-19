@@ -2,7 +2,7 @@ import React from 'react';
 import { FloatButton } from 'antd';
 import { CustomerServiceOutlined, CommentOutlined } from '@ant-design/icons';
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <FloatButton.Group
       trigger="click"

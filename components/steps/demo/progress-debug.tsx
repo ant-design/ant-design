@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import type { StepsProps } from 'antd';
 import { Button, Steps, Space } from 'antd';
 
-const App: React.FC = () => {
+const App = () => {
   const [percent, setPercentage] = useState<number | undefined>(0);
   const [current, setCurrent] = useState(1);
   const [status, setStatus] = useState<StepsProps['status']>('process');

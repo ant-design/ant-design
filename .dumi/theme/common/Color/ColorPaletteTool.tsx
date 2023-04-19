@@ -7,7 +7,7 @@ import ColorPatterns from './ColorPatterns';
 const primaryMinSaturation = 70; // 主色推荐最小饱和度
 const primaryMinBrightness = 70; // 主色推荐最小亮度
 
-const ColorPaletteTool: React.FC = () => {
+const ColorPaletteTool = () => {
   const [primaryColor, setPrimaryColor] = useState<string>('#1890ff');
   const [primaryColorInstance, setPrimaryColorInstance] = useState(null);
   const handleChangeColor = (e: string | ChangeEvent, color: { hex: string }) => {

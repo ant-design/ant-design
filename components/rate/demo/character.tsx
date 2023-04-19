@@ -2,7 +2,7 @@ import React from 'react';
 import { HeartOutlined } from '@ant-design/icons';
 import { Rate } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Rate character={<HeartOutlined />} allowHalf />
     <br />

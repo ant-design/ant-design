@@ -4,7 +4,7 @@ import type { InputRef } from 'antd';
 import { Input, Tag, theme } from 'antd';
 import { TweenOneGroup } from 'rc-tween-one';
 
-const App: React.FC = () => {
+const App = () => {
   const { token } = theme.useToken();
   const [tags, setTags] = useState(['Tag 1', 'Tag 2', 'Tag 3']);
   const [inputVisible, setInputVisible] = useState(false);

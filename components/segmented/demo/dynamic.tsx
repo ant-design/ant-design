@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Segmented, Button, Space } from 'antd';
 
-const Demo: React.FC = () => {
+const Demo = () => {
   const [options, setOptions] = useState(['Daily', 'Weekly', 'Monthly']);
   const [moreLoaded, setMoreLoaded] = useState(false);
 

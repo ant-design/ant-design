@@ -1,7 +1,7 @@
 import React from 'react';
 import { QRCode } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <QRCode
     errorLevel="H"
     value="https://ant.design/"

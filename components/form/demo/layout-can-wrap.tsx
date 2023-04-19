@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Form, Input } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <Form
     name="wrap"
     labelCol={{ flex: '110px' }}

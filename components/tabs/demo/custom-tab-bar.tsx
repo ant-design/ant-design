@@ -13,7 +13,7 @@ const items = new Array(3).fill(null).map((_, i) => {
   };
 });
 
-const App: React.FC = () => {
+const App = () => {
   const {
     token: { colorBgContainer },
   } = theme.useToken();

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Slider, Switch } from 'antd';
 
-const App: React.FC = () => {
+const App = () => {
   const [disabled, setDisabled] = useState(false);
 
   const onChange = (checked: boolean) => {

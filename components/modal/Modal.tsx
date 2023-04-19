@@ -146,7 +146,7 @@ export interface ModalLocale {
   justOkText: string;
 }
 
-const Modal: React.FC<ModalProps> = (props) => {
+const Modal = (props: ModalProps) => {
   const {
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,

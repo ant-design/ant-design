@@ -8,7 +8,7 @@ const MOCK_DATA = {
 
 type PrefixType = keyof typeof MOCK_DATA;
 
-const App: React.FC = () => {
+const App = () => {
   const [prefix, setPrefix] = useState<PrefixType>('@');
 
   const onSearch = (_: string, newPrefix: PrefixType) => {

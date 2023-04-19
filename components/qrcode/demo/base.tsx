@@ -1,7 +1,7 @@
 import { Input, QRCode, Space } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => {
+const App = () => {
   const [text, setText] = React.useState('https://ant.design/');
 
   return (

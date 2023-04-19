@@ -28,7 +28,7 @@ const menuItems = [
   },
 ];
 
-const App: React.FC = () => (
+const App = () => (
   <Breadcrumb
     items={[
       {

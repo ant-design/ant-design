@@ -1,7 +1,7 @@
 import React from 'react';
 import { Select } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <Select
     showSearch
     style={{ width: 200 }}

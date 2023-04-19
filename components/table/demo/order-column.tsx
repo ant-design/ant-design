@@ -49,7 +49,7 @@ const data: DataType[] = [
   },
 ];
 
-const App: React.FC = () => (
+const App = () => (
   <Table
     columns={columns}
     rowSelection={{}}

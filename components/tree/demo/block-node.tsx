@@ -21,7 +21,7 @@ const treeData: DataNode[] = [
   },
 ];
 
-const App: React.FC = () => (
+const App = () => (
   <Tree checkable defaultSelectedKeys={['0-1']} defaultExpandAll treeData={treeData} blockNode />
 );
 

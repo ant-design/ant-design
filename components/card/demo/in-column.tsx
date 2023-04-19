@@ -1,7 +1,7 @@
 import { Card, Col, Row } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <Row gutter={16}>
     <Col span={8}>
       <Card title="Card title" bordered={false}>

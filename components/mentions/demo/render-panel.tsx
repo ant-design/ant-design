@@ -14,8 +14,6 @@ const options = [
   },
 ];
 
-const App: React.FC = () => (
-  <InternalMentions style={{ width: '100%' }} value="@" options={options} />
-);
+const App = () => <InternalMentions style={{ width: '100%' }} value="@" options={options} />;
 
 export default App;

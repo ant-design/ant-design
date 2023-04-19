@@ -46,6 +46,6 @@ const onChange = (value: string[]) => {
   console.log(value);
 };
 
-const App: React.FC = () => <Cascader options={options} onChange={onChange} changeOnSelect />;
+const App = () => <Cascader options={options} onChange={onChange} changeOnSelect />;
 
 export default App;

@@ -48,7 +48,7 @@ const items: MenuItem[] = [
   null as any,
 ];
 
-const App: React.FC = () => (
+const App = () => (
   <Dropdown
     menu={{
       items,

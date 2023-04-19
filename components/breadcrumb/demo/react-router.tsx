@@ -56,7 +56,7 @@ const Home = () => {
   );
 };
 
-const App: React.FC = () => (
+const App = () => (
   <HashRouter>
     <Home />
   </HashRouter>

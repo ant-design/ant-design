@@ -43,13 +43,12 @@ $ yarn add antd
 修改 `src/App.tsx`，引入 antd 的按钮组件。
 
 ```tsx
-import React from 'react';
-import type { FC } from 'react';
 import { Button } from 'antd';
 import 'antd/dist/reset.css';
+import React from 'react';
 import './App.css';
 
-const App: FC = () => (
+const App = () => (
   <div className="App">
     <Button type="primary">Button</Button>
   </div>
@@ -104,8 +103,8 @@ module.exports = {
 参考 [配置主题](/docs/react/customize-theme)，通过 ConfigProvider 进行主题配置：
 
 ```tsx
-import React from 'react';
 import { ConfigProvider } from 'antd';
+import React from 'react';
 
 export default () => (
   <ConfigProvider

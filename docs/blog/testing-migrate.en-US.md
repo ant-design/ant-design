@@ -216,7 +216,7 @@ Consistent with the idea, then it is very simple. Then there is a high probabili
 ```tsx
 import React, { useEffect, useRef, version } from 'react';
 
-const App: React.FC = () => {
+const App = () => {
   const holderRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     console.log(holderRef.current?.childNodes);

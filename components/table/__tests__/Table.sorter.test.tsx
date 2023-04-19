@@ -454,7 +454,7 @@ describe('Table.sorter', () => {
       { key: 3, name: 'Jerry', age: 22 },
     ];
     const columns = [{ title: 'name', dataIndex: 'name', sorter: true }];
-    const TableTest: React.FC = () => {
+    const TableTest = () => {
       const [pagination, setPagination] = React.useState<TablePaginationConfig>({});
       const onChange: TableProps<any>['onChange'] = (pag) => {
         setPagination(pag);
@@ -515,7 +515,7 @@ describe('Table.sorter', () => {
         render: (text: string) => text,
       },
     ];
-    const TableTest: React.FC = () => {
+    const TableTest = () => {
       const [pagination, setPagination] = React.useState<TablePaginationConfig>({});
       const onChange: TableProps<any>['onChange'] = (pag) => {
         setPagination(pag);
@@ -575,7 +575,7 @@ describe('Table.sorter', () => {
         style: { fontSize: 18 },
       },
     ];
-    const TableTest: React.FC = () => {
+    const TableTest = () => {
       const [pagination, setPagination] = React.useState<TablePaginationConfig>({});
       const onChange: TableProps<any>['onChange'] = (pag) => {
         setPagination(pag);
@@ -779,7 +779,7 @@ describe('Table.sorter', () => {
 
   // https://github.com/ant-design/ant-design/issues/19443
   it('should not being infinite loop when using Table.Column with sortOrder', () => {
-    const Demo: React.FC = () => (
+    const Demo = () => (
       <Table dataSource={[]}>
         <Table.Column title="Age" dataIndex="age" sorter sortOrder="ascend" key="age" />
       </Table>

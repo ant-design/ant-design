@@ -29,7 +29,7 @@ const treeData: DataNode[] = [
   },
 ];
 
-const App: React.FC = () => (
+const App = () => (
   <Tree
     showIcon
     defaultExpandAll

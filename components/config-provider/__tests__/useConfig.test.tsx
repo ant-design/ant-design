@@ -8,7 +8,7 @@ describe('ConfigProvider.useConfig', () => {
   it('useConfig - componentSize', () => {
     let size;
 
-    const App: React.FC = () => {
+    const App = () => {
       const { componentSize } = ConfigProvider.useConfig();
       size = componentSize;
 
@@ -26,7 +26,7 @@ describe('ConfigProvider.useConfig', () => {
 
   it('useConfig - componentDisabled', () => {
     let disabled;
-    const App: React.FC = () => {
+    const App = () => {
       const { componentDisabled } = ConfigProvider.useConfig();
       disabled = componentDisabled;
       return null;
@@ -44,7 +44,7 @@ describe('ConfigProvider.useConfig', () => {
   it('deprecated SizeContext', () => {
     resetWarned();
 
-    const App: React.FC = () => {
+    const App = () => {
       const { SizeContext } = ConfigProvider;
       const ctx = React.useContext(SizeContext);
 

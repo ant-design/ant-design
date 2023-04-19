@@ -75,7 +75,7 @@ const data: DataType[] = [
   },
 ];
 
-const App: React.FC = () => {
+const App = () => {
   const [fixed, setFixed] = useState(true);
 
   const columns: ColumnsType<DataType> = [

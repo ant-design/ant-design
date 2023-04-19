@@ -77,7 +77,7 @@ const colors = [
   },
 ];
 
-const ColorPalettes: React.FC<{ dark?: boolean }> = (props) => {
+const ColorPalettes = (props: { dark?: boolean }) => {
   const { dark } = props;
   return (
     <div className={classnames('color-palettes', { 'color-palettes-dark': dark })}>

@@ -19,7 +19,7 @@ const IconText = ({ icon, text }: { icon: React.FC; text: string }) => (
   </Space>
 );
 
-const App: React.FC = () => (
+const App = () => (
   <List
     itemLayout="vertical"
     size="large"

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 type SizeType = 'large' | 'small' | 'default' | number;
 
-const App: React.FC = () => {
+const App = () => {
   const [hide, setHide] = useState(true);
   const [size, setSize] = useState<SizeType>('large');
   const [scale, setScale] = useState(1);

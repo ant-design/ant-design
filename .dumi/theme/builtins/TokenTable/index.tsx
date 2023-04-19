@@ -1,4 +1,3 @@
-import type { FC } from 'react';
 import * as React from 'react';
 /* eslint import/no-unresolved: 0 */
 import { css } from '@emotion/react';
@@ -92,7 +91,7 @@ export function useColumns(): Exclude<TableProps<TokenData>['columns'], undefine
   ];
 }
 
-const TokenTable: FC<TokenTableProps> = ({ type }) => {
+const TokenTable = ({ type }: TokenTableProps) => {
   const [, lang] = useLocale(locales);
   const columns = useColumns();
 

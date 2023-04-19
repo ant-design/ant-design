@@ -1,7 +1,7 @@
 import React from 'react';
 import { Rate } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Rate defaultValue={3} />
     <span className="ant-rate-text">allowClear: true</span>

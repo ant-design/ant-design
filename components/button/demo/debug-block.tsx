@@ -2,7 +2,7 @@ import React from 'react';
 import { Form, Button } from 'antd';
 import { DownloadOutlined } from '@ant-design/icons';
 
-const App: React.FC = () => (
+const App = () => (
   <Form.Item>
     <Button size="large" shape="round" block style={{ marginBottom: 12 }}>
       Submit

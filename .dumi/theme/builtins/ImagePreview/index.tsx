@@ -27,7 +27,7 @@ function isCompareImg(imgMeta: any): boolean {
   return isGoodBadImg(imgMeta) || imgMeta.inline;
 }
 
-const ImagePreview: React.FC<ImagePreviewProps> = (props) => {
+const ImagePreview = (props: ImagePreviewProps) => {
   const { children } = props;
   const imgs = toArray(children).filter((ele) => ele.type === 'img');
 

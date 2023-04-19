@@ -3,7 +3,7 @@ import { Typography } from 'antd';
 
 const { Title, Paragraph, Text } = Typography;
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Title>Introduction</Title>
     <Paragraph>

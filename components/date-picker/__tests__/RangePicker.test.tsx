@@ -59,7 +59,7 @@ describe('RangePicker', () => {
   describe('in "month" mode, when the left and right panels select the same month', () => {
     it('the cell status is correct', () => {
       let rangePickerValue: dayjs.Dayjs[] = [];
-      const Test: React.FC = () => {
+      const Test = () => {
         const [value, setValue] = useState<RangeValue<dayjs.Dayjs>>(null);
         return (
           <RangePicker

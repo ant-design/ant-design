@@ -1,7 +1,7 @@
 import React from 'react';
 import { Spin } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <div className="example">
     <Spin />
   </div>

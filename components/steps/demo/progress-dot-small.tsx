@@ -1,7 +1,7 @@
 import React from 'react';
 import { Divider, Steps } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Steps
       progressDot

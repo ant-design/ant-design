@@ -9,7 +9,7 @@ const onSearch = (value: string) => {
   console.log('search:', value);
 };
 
-const App: React.FC = () => (
+const App = () => (
   <Select
     showSearch
     placeholder="Select a person"

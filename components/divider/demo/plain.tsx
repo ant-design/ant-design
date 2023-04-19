@@ -1,7 +1,7 @@
 import React from 'react';
 import { Divider } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista

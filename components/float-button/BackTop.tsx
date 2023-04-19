@@ -12,7 +12,7 @@ import FloatButtonGroupContext from './context';
 import type { BackTopProps, FloatButtonProps, FloatButtonShape } from './interface';
 import useStyle from './style';
 
-const BackTop: React.FC<BackTopProps> = (props) => {
+const BackTop = (props: BackTopProps) => {
   const {
     prefixCls: customizePrefixCls,
     className,

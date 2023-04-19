@@ -4,7 +4,7 @@ import dayjs from 'dayjs';
 
 const { _InternalPanelDoNotUseOrYouWillBeFired: PureDatePicker } = DatePicker;
 
-const App: React.FC = () => (
+const App = () => (
   <PureDatePicker
     presets={[
       { label: 'Yesterday', value: dayjs().add(-1, 'd') },

@@ -9,7 +9,7 @@ const handleChange = (value: string) => {
   console.log(`selected ${value}`);
 };
 
-const App: React.FC = () => (
+const App = () => (
   <Space wrap>
     <Select
       suffixIcon={smileIcon}

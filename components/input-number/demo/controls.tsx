@@ -2,7 +2,7 @@ import React from 'react';
 import { ArrowDownOutlined, ArrowUpOutlined } from '@ant-design/icons';
 import { InputNumber } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <InputNumber controls={{ upIcon: <ArrowUpOutlined />, downIcon: <ArrowDownOutlined /> }} />
 );
 

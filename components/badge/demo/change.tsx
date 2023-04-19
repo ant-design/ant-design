@@ -4,7 +4,7 @@ import { Avatar, Badge, Button, Switch, Space } from 'antd';
 
 const ButtonGroup = Button.Group;
 
-const App: React.FC = () => {
+const App = () => {
   const [count, setCount] = useState(5);
   const [show, setShow] = useState(true);
 

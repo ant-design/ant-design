@@ -3,7 +3,7 @@ import type { RadioChangeEvent } from 'antd';
 import { Radio, Tabs } from 'antd';
 import type { SizeType } from 'antd/es/config-provider/SizeContext';
 
-const App: React.FC = () => {
+const App = () => {
   const [size, setSize] = useState<SizeType>('small');
 
   const onChange = (e: RadioChangeEvent) => {

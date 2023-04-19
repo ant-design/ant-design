@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-const ServerError: React.FC = () => (
+const ServerError = () => (
   <svg width="254" height="294">
     <defs>
       <path d="M0 .335h253.49v253.49H0z" />

@@ -3,7 +3,7 @@ import { Alert, Calendar } from 'antd';
 import type { Dayjs } from 'dayjs';
 import dayjs from 'dayjs';
 
-const App: React.FC = () => {
+const App = () => {
   const [value, setValue] = useState(() => dayjs('2017-01-25'));
   const [selectedValue, setSelectedValue] = useState(() => dayjs('2017-01-25'));
 

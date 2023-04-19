@@ -66,7 +66,7 @@ interface ArticleListProps {
   authors: Authors;
 }
 
-const ArticleList: React.FC<ArticleListProps> = ({ name, data = [], authors = [] }) => {
+const ArticleList = ({ name, data = [], authors = [] }: ArticleListProps) => {
   const { articleList } = useStyle();
   return (
     <td>

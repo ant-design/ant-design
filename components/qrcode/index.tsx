@@ -14,7 +14,7 @@ import useStyle from './style/index';
 
 const { useToken } = theme;
 
-const QRCode: React.FC<QRCodeProps> = (props) => {
+const QRCode = (props: QRCodeProps) => {
   const {
     value,
     icon = '',

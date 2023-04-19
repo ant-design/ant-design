@@ -46,7 +46,7 @@ const DraggableUploadListItem = ({ originNode, file }: DraggableUploadListItemPr
   );
 };
 
-const App: React.FC = () => {
+const App = () => {
   const [fileList, setFileList] = useState<UploadFile[]>([
     {
       uid: '-1',

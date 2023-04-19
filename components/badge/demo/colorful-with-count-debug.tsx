@@ -17,7 +17,7 @@ const colors = [
   'lime',
 ];
 
-const App: React.FC = () => (
+const App = () => (
   <Space wrap size={['large', 'middle']}>
     {colors.map((color) => (
       <Badge color={color} count={44} key={color}>

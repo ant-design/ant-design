@@ -19,7 +19,7 @@ const handleChange = (value: string[]) => {
   console.log(`selected ${value}`);
 };
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Title level={3}>Ant Design 4.0</Title>
     <Title level={4}>{options.length} Items</Title>

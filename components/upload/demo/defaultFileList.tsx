@@ -34,7 +34,7 @@ const props: UploadProps = {
   ],
 };
 
-const App: React.FC = () => (
+const App = () => (
   <Upload {...props}>
     <Button icon={<UploadOutlined />}>Upload</Button>
   </Upload>

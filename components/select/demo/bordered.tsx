@@ -1,7 +1,7 @@
 import { Select, Space } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <Space wrap>
     <Select
       defaultValue="lucy"

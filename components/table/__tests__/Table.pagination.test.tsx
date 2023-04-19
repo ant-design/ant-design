@@ -601,7 +601,7 @@ describe('Table.pagination', () => {
 
   it('showTotal should hide when removed', () => {
     const dataProp = { data: [] } as any;
-    const Demo: React.FC = () => {
+    const Demo = () => {
       const [p, setP] = React.useState<TablePaginationConfig>({
         showTotal: (t) => `>${t}<`,
         total: 200,

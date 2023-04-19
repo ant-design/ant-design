@@ -526,7 +526,7 @@ describe('Anchor Render', () => {
     it('should update active link when getCurrentAnchor changes', async () => {
       const hash1 = getHashUrl();
       const hash2 = getHashUrl();
-      const Demo: React.FC<{ current: string }> = ({ current }) => (
+      const Demo = ({ current }: { current: string }) => (
         <Anchor
           getCurrentAnchor={() => `#${current}`}
           items={[
@@ -888,7 +888,7 @@ describe('Anchor Render', () => {
       );
     });
     it('switch direction', async () => {
-      const Foo: React.FC = () => {
+      const Foo = () => {
         const [direction, setDirection] = useState<AnchorDirection>('vertical');
         const toggle = () => {
           setDirection(direction === 'vertical' ? 'horizontal' : 'vertical');

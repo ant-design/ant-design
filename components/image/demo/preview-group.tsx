@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <Image.PreviewGroup
     preview={{
       onChange: (current, prev) => console.log(`current index: ${current}, prev index: ${prev}`),

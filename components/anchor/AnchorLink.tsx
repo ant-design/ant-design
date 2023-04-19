@@ -17,7 +17,7 @@ export interface AnchorLinkProps extends AnchorLinkBaseProps {
   children?: React.ReactNode;
 }
 
-const AnchorLink: React.FC<AnchorLinkProps> = (props) => {
+const AnchorLink = (props: AnchorLinkProps) => {
   const { href = '#', title, prefixCls: customizePrefixCls, children, className, target } = props;
 
   const context = React.useContext<AntAnchor | undefined>(AnchorContext);

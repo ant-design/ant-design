@@ -1,7 +1,7 @@
 import React from 'react';
 import { Badge, Space } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Space>
       <Badge status="success" />

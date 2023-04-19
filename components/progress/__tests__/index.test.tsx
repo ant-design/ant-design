@@ -273,7 +273,7 @@ describe('Progress', () => {
   });
 
   it('should update the percentage based on the value of percent', () => {
-    const Content: React.FC = () => {
+    const Content = () => {
       const [percent, setPercent] = useState(0);
 
       return (

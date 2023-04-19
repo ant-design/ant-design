@@ -41,7 +41,7 @@ const onFinish = (fieldsValue: any) => {
   console.log('Received values of form: ', values);
 };
 
-const App: React.FC = () => (
+const App = () => (
   <Form
     name="time_related_controls"
     {...formItemLayout}

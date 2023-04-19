@@ -1,7 +1,6 @@
 import classNames from 'classnames';
 import type {
   CSSProperties,
-  FC,
   ForwardRefExoticComponent,
   ForwardRefRenderFunction,
   HTMLAttributes,
@@ -34,14 +33,14 @@ export interface ListItemMetaProps {
   title?: ReactNode;
 }
 
-export const Meta: FC<ListItemMetaProps> = ({
+export const Meta = ({
   prefixCls: customizePrefixCls,
   className,
   avatar,
   title,
   description,
   ...others
-}) => {
+}: ListItemMetaProps) => {
   const { getPrefixCls } = useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('list', customizePrefixCls);

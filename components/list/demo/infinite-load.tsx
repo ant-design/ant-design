@@ -18,7 +18,7 @@ interface DataType {
   nat: string;
 }
 
-const App: React.FC = () => {
+const App = () => {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState<DataType[]>([]);
 

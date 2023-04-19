@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Space, Switch } from 'antd';
 
-const App: React.FC = () => {
+const App = () => {
   const [disabled, setDisabled] = useState(true);
 
   const toggle = () => {

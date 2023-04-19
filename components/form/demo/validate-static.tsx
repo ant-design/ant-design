@@ -25,7 +25,7 @@ const formItemLayout = {
   },
 };
 
-const App: React.FC = () => (
+const App = () => (
   <Form {...formItemLayout} style={{ maxWidth: 600 }}>
     <Form.Item
       label="Fail"

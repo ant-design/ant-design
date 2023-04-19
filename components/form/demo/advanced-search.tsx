@@ -83,7 +83,7 @@ const AdvancedSearchForm = () => {
   );
 };
 
-const App: React.FC = () => {
+const App = () => {
   const { token } = theme.useToken();
 
   const listStyle: React.CSSProperties = {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Popconfirm, Space } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <Space>
     <>
       Button

@@ -44,7 +44,7 @@ const items: MenuItem[] = [
 // submenu keys of first level
 const rootSubmenuKeys = ['sub1', 'sub2', 'sub4'];
 
-const App: React.FC = () => {
+const App = () => {
   const [openKeys, setOpenKeys] = useState(['sub1']);
 
   const onOpenChange: MenuProps['onOpenChange'] = (keys) => {

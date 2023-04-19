@@ -10,7 +10,7 @@ const content = (
   </div>
 );
 
-const App: React.FC = () => (
+const App = () => (
   <ConfigProvider theme={{ token: { wireframe: true } }}>
     <InternalPopover content={content} title="Title" />
     <InternalPopover

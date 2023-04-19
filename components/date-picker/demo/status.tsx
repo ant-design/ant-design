@@ -1,7 +1,7 @@
 import React from 'react';
 import { DatePicker, Space } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <Space direction="vertical" style={{ width: '100%' }}>
     <DatePicker status="error" style={{ width: '100%' }} />
     <DatePicker status="warning" style={{ width: '100%' }} />

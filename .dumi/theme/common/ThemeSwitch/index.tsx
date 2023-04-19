@@ -14,7 +14,7 @@ export type ThemeSwitchProps = {
   onChange: (value: ThemeName[]) => void;
 };
 
-const ThemeSwitch: React.FC<ThemeSwitchProps> = (props: ThemeSwitchProps) => {
+const ThemeSwitch = (props: ThemeSwitchProps) => {
   const { value = ['light'], onChange } = props;
   const { token } = useSiteToken();
   const { pathname, search } = useLocation();

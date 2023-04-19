@@ -16,7 +16,7 @@ const data = [
   },
 ];
 
-const App: React.FC = () => (
+const App = () => (
   <List
     itemLayout="horizontal"
     dataSource={data}

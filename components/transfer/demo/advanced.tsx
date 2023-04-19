@@ -9,7 +9,7 @@ interface RecordType {
   chosen: boolean;
 }
 
-const App: React.FC = () => {
+const App = () => {
   const [mockData, setMockData] = useState<RecordType[]>([]);
   const [targetKeys, setTargetKeys] = useState<string[]>([]);
 
@@ -42,7 +42,9 @@ const App: React.FC = () => {
 
   const renderFooter = (
     _: TransferListProps<any>,
-    { direction }: {
+    {
+      direction,
+    }: {
       direction: TransferDirection;
     },
   ) => {

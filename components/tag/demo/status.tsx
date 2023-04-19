@@ -9,7 +9,7 @@ import {
 } from '@ant-design/icons';
 import { Divider, Space, Tag } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Divider orientation="left">Without icon</Divider>
     <Space size={[0, 8]} wrap>

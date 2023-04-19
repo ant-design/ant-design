@@ -3,7 +3,7 @@ import { Button, notification } from 'antd';
 
 const key = 'updatable';
 
-const App: React.FC = () => {
+const App = () => {
   const [api, contextHolder] = notification.useNotification();
   const openNotification = () => {
     api.open({

@@ -10,7 +10,7 @@ export interface MenuDividerProps extends React.HTMLAttributes<HTMLLIElement> {
   dashed?: boolean;
 }
 
-const MenuDivider: React.FC<MenuDividerProps> = (props) => {
+const MenuDivider = (props: MenuDividerProps) => {
   const { prefixCls: customizePrefixCls, className, dashed, ...restProps } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
 

@@ -50,7 +50,7 @@ const dropdownRender = (menus: React.ReactNode) => (
   </div>
 );
 
-const App: React.FC = () => (
+const App = () => (
   <Cascader options={options} dropdownRender={dropdownRender} placeholder="Please select" />
 );
 

@@ -23,7 +23,7 @@ const items = new Array(3).fill(null).map((_, i) => {
   };
 });
 
-const App: React.FC = () => {
+const App = () => {
   const [position, setPosition] = useState<PositionType[]>(['left', 'right']);
 
   const slot = useMemo(() => {

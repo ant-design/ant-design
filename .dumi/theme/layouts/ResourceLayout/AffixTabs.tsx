@@ -53,7 +53,7 @@ const useStyle = () => {
 
 const VIEW_BALANCE = 32;
 
-const AffixTabs: React.FC = () => {
+const AffixTabs = () => {
   const containerRef = React.useRef<HTMLDivElement>(null);
   const idsRef = React.useRef<string[]>([]);
   const [loaded, setLoaded] = React.useState(false);

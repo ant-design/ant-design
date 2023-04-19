@@ -2,7 +2,7 @@ import { css, Global } from '@emotion/react';
 import React from 'react';
 import useSiteToken from '../../../hooks/useSiteToken';
 
-const GlobalDemoStyles: React.FC = () => {
+const GlobalDemoStyles = () => {
   const { token } = useSiteToken();
 
   const { antCls, iconCls } = token;

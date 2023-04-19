@@ -3,7 +3,7 @@ import { Typography } from 'antd';
 
 const { Title } = Typography;
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Title>h1. Ant Design</Title>
     <Title level={2}>h2. Ant Design</Title>

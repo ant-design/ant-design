@@ -4,7 +4,7 @@ import { Avatar, Card } from 'antd';
 
 const { Meta } = Card;
 
-const App: React.FC = () => (
+const App = () => (
   <Card
     style={{ width: 300 }}
     cover={

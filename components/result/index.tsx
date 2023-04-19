@@ -59,7 +59,7 @@ interface IconProps {
   status: ResultStatusType;
 }
 
-const Icon: React.FC<IconProps> = ({ prefixCls, icon, status }) => {
+const Icon = ({ prefixCls, icon, status }: IconProps) => {
   const className = classNames(`${prefixCls}-icon`);
 
   warning(
@@ -93,7 +93,7 @@ interface ExtraProps {
   extra: React.ReactNode;
 }
 
-const Extra: React.FC<ExtraProps> = ({ prefixCls, extra }) => {
+const Extra = ({ prefixCls, extra }: ExtraProps) => {
   if (!extra) {
     return null;
   }

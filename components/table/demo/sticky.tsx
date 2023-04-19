@@ -86,7 +86,7 @@ for (let i = 0; i < 100; i++) {
   });
 }
 
-const App: React.FC = () => {
+const App = () => {
   const [fixedTop, setFixedTop] = useState(false);
 
   return (

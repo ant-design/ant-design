@@ -13,7 +13,7 @@ const tailLayout = {
   wrapperCol: { offset: 8, span: 16 },
 };
 
-const App: React.FC = () => {
+const App = () => {
   const formRef = React.useRef<FormInstance>(null);
 
   const onGenderChange = (value: string) => {

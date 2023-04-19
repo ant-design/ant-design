@@ -29,7 +29,7 @@ const items: MenuProps['items'] = [
   label: `nav ${index + 1}`,
 }));
 
-const App: React.FC = () => {
+const App = () => {
   const {
     token: { colorBgContainer },
   } = theme.useToken();

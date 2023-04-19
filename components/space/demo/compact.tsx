@@ -17,7 +17,7 @@ import {
 const { Option } = Select;
 const { TreeNode } = TreeSelect;
 
-const App: React.FC = () => (
+const App = () => (
   <div className="site-space-compact-wrapper">
     <Space.Compact block>
       <Input style={{ width: '20%' }} defaultValue="0571" />

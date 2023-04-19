@@ -53,7 +53,7 @@ const Row = (props: RowProps) => {
   return <tr {...props} ref={setNodeRef} style={style} {...attributes} {...listeners} />;
 };
 
-const App: React.FC = () => {
+const App = () => {
   const [dataSource, setDataSource] = useState([
     {
       key: '1',

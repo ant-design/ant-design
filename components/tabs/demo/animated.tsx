@@ -1,7 +1,7 @@
 import React from 'react';
 import { Tabs, Switch, Space } from 'antd';
 
-const App: React.FC = () => {
+const App = () => {
   const [inkBar, setInkBar] = React.useState(true);
   const [tabPane, setTabPane] = React.useState(true);
 

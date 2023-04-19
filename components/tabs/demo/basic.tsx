@@ -24,6 +24,6 @@ const items: TabsProps['items'] = [
   },
 ];
 
-const App: React.FC = () => <Tabs defaultActiveKey="1" items={items} onChange={onChange} />;
+const App = () => <Tabs defaultActiveKey="1" items={items} onChange={onChange} />;
 
 export default App;

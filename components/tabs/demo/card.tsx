@@ -5,7 +5,7 @@ const onChange = (key: string) => {
   console.log(key);
 };
 
-const App: React.FC = () => (
+const App = () => (
   <Tabs
     onChange={onChange}
     type="card"

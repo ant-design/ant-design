@@ -9,7 +9,7 @@ const onFinishFailed = (errorInfo: any) => {
   console.log('Failed:', errorInfo);
 };
 
-const App: React.FC = () => (
+const App = () => (
   <Form
     name="basic"
     labelCol={{ span: 8 }}

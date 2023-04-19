@@ -62,7 +62,7 @@ interface IconNodeProps {
   description: AlertProps['description'];
 }
 
-const IconNode: React.FC<IconNodeProps> = (props) => {
+const IconNode = (props: IconNodeProps) => {
   const { icon, prefixCls, type } = props;
   const iconType = iconMapFilled[type!] || null;
   if (icon) {
@@ -83,7 +83,7 @@ interface CloseIconProps {
   handleClose: AlertProps['onClose'];
 }
 
-const CloseIcon: React.FC<CloseIconProps> = (props) => {
+const CloseIcon = (props: CloseIconProps) => {
   const { isClosable, closeText, prefixCls, closeIcon, handleClose } = props;
   return isClosable ? (
     <button type="button" onClick={handleClose} className={`${prefixCls}-close-icon`} tabIndex={0}>

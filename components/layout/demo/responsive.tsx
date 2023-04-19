@@ -4,7 +4,7 @@ import { Layout, Menu, theme } from 'antd';
 
 const { Header, Content, Footer, Sider } = Layout;
 
-const App: React.FC = () => {
+const App = () => {
   const {
     token: { colorBgContainer },
   } = theme.useToken();

@@ -9,7 +9,7 @@ const text = `
   it can be found as a welcome guest in many households across the world.
 `;
 
-const App: React.FC = () => (
+const App = () => (
   <Collapse accordion>
     <Panel header="This is panel header 1" key="1">
       <p>{text}</p>

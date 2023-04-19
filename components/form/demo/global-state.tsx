@@ -16,7 +16,7 @@ interface CustomizedFormProps {
   fields: FieldData[];
 }
 
-const CustomizedForm: React.FC<CustomizedFormProps> = ({ onChange, fields }) => (
+const CustomizedForm = ({ onChange, fields }: CustomizedFormProps) => (
   <Form
     name="global_state"
     layout="inline"
@@ -35,7 +35,7 @@ const CustomizedForm: React.FC<CustomizedFormProps> = ({ onChange, fields }) => 
   </Form>
 );
 
-const App: React.FC = () => {
+const App = () => {
   const [fields, setFields] = useState<FieldData[]>([{ name: ['username'], value: 'Ant Design' }]);
 
   return (

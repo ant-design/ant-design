@@ -4,7 +4,7 @@ import { Button, Form, Input, Radio } from 'antd';
 
 type RequiredMark = boolean | 'optional';
 
-const App: React.FC = () => {
+const App = () => {
   const [form] = Form.useForm();
   const [requiredMark, setRequiredMarkType] = useState<RequiredMark>('optional');
 

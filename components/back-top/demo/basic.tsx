@@ -1,7 +1,7 @@
 import React from 'react';
 import { BackTop } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <BackTop />
     Scroll down to see the bottom-right

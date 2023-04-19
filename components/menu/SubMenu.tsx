@@ -27,7 +27,7 @@ export interface SubMenuProps {
   theme?: MenuTheme;
 }
 
-const SubMenu: React.FC<SubMenuProps> = (props) => {
+const SubMenu = (props: SubMenuProps) => {
   const { popupClassName, icon, title, theme: customTheme } = props;
   const context = React.useContext(MenuContext);
   const { prefixCls, inlineCollapsed, theme: contextTheme, mode } = context;

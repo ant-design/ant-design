@@ -38,7 +38,7 @@ const getAlgorithm = (themes: ThemeName[] = []) =>
     return antdTheme.defaultAlgorithm;
   });
 
-const GlobalLayout: React.FC = () => {
+const GlobalLayout = () => {
   const outlet = useOutlet();
   const { pathname } = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();

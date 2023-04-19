@@ -112,7 +112,7 @@ const rightTableColumns: ColumnsType<Pick<DataType, 'title'>> = [
   },
 ];
 
-const App: React.FC = () => {
+const App = () => {
   const [targetKeys, setTargetKeys] = useState<string[]>(originTargetKeys);
   const [disabled, setDisabled] = useState(false);
   const [showSearch, setShowSearch] = useState(false);

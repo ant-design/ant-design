@@ -19,7 +19,7 @@ const useStyle = (rtl?: boolean) => ({
   `,
 });
 
-const Community: React.FC = () => {
+const Community = () => {
   const { smallStyle } = useStyle();
   return (
     <span css={smallStyle}>
@@ -73,7 +73,7 @@ export const getEcosystemGroup = (): MenuProps['items'] => [
   },
 ];
 
-const More: React.FC<SharedProps> = ({ isRTL }) => {
+const More = ({ isRTL }: SharedProps) => {
   const { downOutlined } = useStyle(isRTL);
   return (
     <Dropdown menu={{ items: getEcosystemGroup() }} placement="bottomRight">

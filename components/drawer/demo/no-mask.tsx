@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Drawer } from 'antd';
 
-const App: React.FC = () => {
+const App = () => {
   const [open, setOpen] = useState(false);
 
   const showDrawer = () => {

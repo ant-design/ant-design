@@ -1,6 +1,6 @@
 import React from 'react';
 
-const APITable: React.FC = () => (
+const APITable = () => (
   // TODO: implement api table, depend on the new markdown data structure passed
   <>API Table</>
 );

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Anchor, Row, Col } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <Row>
     <Col span={16}>
       <div id="part-1" style={{ height: '100vh', background: 'rgba(255,0,0,0.02)' }} />

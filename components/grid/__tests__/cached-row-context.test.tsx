@@ -10,13 +10,13 @@ const handleClick = () => {
   outerCount++;
 };
 
-const CacheInner: React.FC = memo(() => {
+const CacheInner = memo(() => {
   innerCount++;
   useContext(RowContext);
   return null;
 });
 
-const CacheOuter: React.FC = memo(() => (
+const CacheOuter = memo(() => (
   <>
     <button type="button" onClick={handleClick} id="parent_btn">
       Click

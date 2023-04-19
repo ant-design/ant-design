@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Segmented } from 'antd';
 
-const Demo: React.FC = () => {
+const Demo = () => {
   const [foo, setFoo] = useState<string | number>('AND');
   return (
     <>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, InputNumber, Image } from 'antd';
 
-const App: React.FC = () => {
+const App = () => {
   const [visible, setVisible] = useState(false);
   const [scaleStep, setScaleStep] = useState(0.5);
 

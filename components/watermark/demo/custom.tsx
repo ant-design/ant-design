@@ -10,7 +10,7 @@ interface ColorPickerProps {
   onChange?: (value: RGBColor) => void;
 }
 
-const ColorPicker: React.FC<ColorPickerProps> = ({ value, onChange }) => {
+const ColorPicker = ({ value, onChange }: ColorPickerProps) => {
   const switchStyle = {
     padding: 4,
     background: '#fff',
@@ -41,7 +41,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({ value, onChange }) => {
   );
 };
 
-const App: React.FC = () => {
+const App = () => {
   const [form] = Form.useForm();
   const [config, setConfig] = useState({
     content: 'Ant Design',

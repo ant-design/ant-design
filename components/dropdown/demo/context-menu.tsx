@@ -17,7 +17,7 @@ const items: MenuProps['items'] = [
   },
 ];
 
-const App: React.FC = () => {
+const App = () => {
   const {
     token: { colorBgLayout, colorTextTertiary },
   } = theme.useToken();

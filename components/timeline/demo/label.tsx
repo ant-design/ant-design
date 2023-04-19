@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import type { RadioChangeEvent } from 'antd';
 import { Radio, Timeline } from 'antd';
 
-const App: React.FC = () => {
+const App = () => {
   const [mode, setMode] = useState<'left' | 'alternate' | 'right'>('left');
 
   const onChange = (e: RadioChangeEvent) => {

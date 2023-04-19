@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, message } from 'antd';
 
-const App: React.FC = () => {
+const App = () => {
   const [messageApi, contextHolder] = message.useMessage();
 
   const info = () => {

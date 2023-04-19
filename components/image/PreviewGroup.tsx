@@ -28,11 +28,11 @@ export const icons = {
   flipY: <SwapOutlined rotate={90} />,
 };
 
-const InternalPreviewGroup: React.FC<GroupConsumerProps> = ({
+const InternalPreviewGroup = ({
   previewPrefixCls: customizePrefixCls,
   preview,
   ...props
-}) => {
+}: GroupConsumerProps) => {
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('image', customizePrefixCls);
   const previewPrefixCls = `${prefixCls}-preview`;

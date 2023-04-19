@@ -31,7 +31,7 @@ const rangePresets: {
   { label: 'Last 90 Days', value: [dayjs().add(-90, 'd'), dayjs()] },
 ];
 
-const App: React.FC = () => (
+const App = () => (
   <Space direction="vertical" size={12}>
     <DatePicker
       presets={[

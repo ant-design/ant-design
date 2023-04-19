@@ -8,7 +8,7 @@ import {
 } from '@ant-design/icons';
 import { Space } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <Space>
     <HomeOutlined />
     <SettingFilled />

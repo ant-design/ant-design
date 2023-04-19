@@ -16,7 +16,7 @@ const items = [
     description,
   },
 ];
-const App: React.FC = () => (
+const App = () => (
   <>
     <Steps current={1} labelPlacement="vertical" items={items} />
     <br />

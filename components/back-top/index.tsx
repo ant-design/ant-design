@@ -24,7 +24,7 @@ export interface BackTopProps {
   duration?: number;
 }
 
-const BackTop: React.FC<BackTopProps> = (props) => {
+const BackTop = (props: BackTopProps) => {
   const {
     prefixCls: customizePrefixCls,
     className,

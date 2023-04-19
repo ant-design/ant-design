@@ -5,7 +5,7 @@ const handleChange = (value: { value: string; label: React.ReactNode }) => {
   console.log(value); // { value: "lucy", key: "lucy", label: "Lucy (101)" }
 };
 
-const App: React.FC = () => (
+const App = () => (
   <Select
     labelInValue
     defaultValue={{ value: 'lucy', label: 'Lucy (101)' }}

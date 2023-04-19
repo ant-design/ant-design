@@ -10,7 +10,7 @@ const content = (
   </div>
 );
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <InternalPopover content={content} title="Title" />
     <InternalPopover

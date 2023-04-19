@@ -1,7 +1,7 @@
 import React from 'react';
 import { Badge, Descriptions } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <Descriptions title="User Info" bordered>
     <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>
     <Descriptions.Item label="Billing Mode">Prepaid</Descriptions.Item>

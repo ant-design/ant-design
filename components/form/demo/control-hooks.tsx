@@ -12,7 +12,7 @@ const tailLayout = {
   wrapperCol: { offset: 8, span: 16 },
 };
 
-const App: React.FC = () => {
+const App = () => {
   const [form] = Form.useForm();
 
   const onGenderChange = (value: string) => {

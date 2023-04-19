@@ -1,5 +1,4 @@
 import { Input, Space, Popover } from 'antd';
-import type { FC } from 'react';
 import React, { useEffect, useState } from 'react';
 import { css } from '@emotion/react';
 import { TinyColor } from '@ctrl/tinycolor';
@@ -38,7 +37,7 @@ const useStyle = () => {
   };
 };
 
-const DebouncedColorPanel: FC<ColorPanelProps> = ({ color, onChange }) => {
+const DebouncedColorPanel = ({ color, onChange }: ColorPanelProps) => {
   const [value, setValue] = useState(color);
 
   useEffect(() => {

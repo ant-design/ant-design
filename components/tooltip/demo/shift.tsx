@@ -1,7 +1,7 @@
 import { Button, Tooltip } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => {
+const App = () => {
   React.useEffect(() => {
     document.documentElement.scrollTop = document.documentElement.clientHeight;
     document.documentElement.scrollLeft = document.documentElement.clientWidth;

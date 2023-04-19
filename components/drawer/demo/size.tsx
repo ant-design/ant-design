@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button, Drawer, Space } from 'antd';
 import type { DrawerProps } from 'antd/es/drawer';
 
-const App: React.FC = () => {
+const App = () => {
   const [open, setOpen] = useState(false);
   const [size, setSize] = useState<DrawerProps['size']>();
 

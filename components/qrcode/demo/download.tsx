@@ -14,7 +14,7 @@ const downloadQRCode = () => {
   }
 };
 
-const App: React.FC = () => (
+const App = () => (
   <div id="myqrcode">
     <QRCode value="https://ant.design/" style={{ marginBottom: 16 }} />
     <Button type="primary" onClick={downloadQRCode}>

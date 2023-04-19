@@ -1,7 +1,7 @@
 import { Avatar, Space } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <Space>
     <Avatar shape="circle" src="http://abc.com/not-exist.jpg">
       A

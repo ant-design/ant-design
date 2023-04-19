@@ -12,6 +12,6 @@ const itemRender: PaginationProps['itemRender'] = (_, type, originalElement) => 
   return originalElement;
 };
 
-const App: React.FC = () => <Pagination total={500} itemRender={itemRender} />;
+const App = () => <Pagination total={500} itemRender={itemRender} />;
 
 export default App;

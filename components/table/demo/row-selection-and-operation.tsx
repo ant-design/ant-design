@@ -34,7 +34,7 @@ for (let i = 0; i < 46; i++) {
   });
 }
 
-const App: React.FC = () => {
+const App = () => {
   const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
   const [loading, setLoading] = useState(false);
 

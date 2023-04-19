@@ -2,7 +2,7 @@ import { FormProvider as RcFormProvider } from 'rc-field-form';
 import type { FormProviderProps as RcFormProviderProps } from 'rc-field-form/lib/FormContext';
 import type { Meta } from 'rc-field-form/lib/interface';
 import omit from 'rc-util/lib/omit';
-import type { FC, PropsWithChildren, ReactNode } from 'react';
+import type { PropsWithChildren, ReactNode } from 'react';
 import * as React from 'react';
 import { useContext, useMemo } from 'react';
 import type { ColProps } from '../grid/col';
@@ -39,7 +39,7 @@ export interface FormProviderProps extends Omit<RcFormProviderProps, 'validateMe
   prefixCls?: string;
 }
 
-export const FormProvider: React.FC<FormProviderProps> = (props) => {
+export const FormProvider = (props: FormProviderProps) => {
   const providerProps = omit(props, ['prefixCls']);
   return <RcFormProvider {...providerProps} />;
 };
@@ -70,7 +70,7 @@ export type NoFormStyleProps = PropsWithChildren<{
   override?: boolean;
 }>;
 
-export const NoFormStyle: FC<NoFormStyleProps> = ({ children, status, override }) => {
+export const NoFormStyle = ({ children, status, override }: NoFormStyleProps) => {
   const formItemInputContext = useContext(FormItemInputContext);
 
   const newFormItemInputContext = useMemo(() => {

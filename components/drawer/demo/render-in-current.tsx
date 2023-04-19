@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Drawer, theme } from 'antd';
 
-const App: React.FC = () => {
+const App = () => {
   const { token } = theme.useToken();
   const [open, setOpen] = useState(false);
 

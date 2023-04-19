@@ -35,7 +35,7 @@ const locales = {
   },
 };
 
-const Homepage: React.FC = () => {
+const Homepage = () => {
   const [locale] = useLocale(locales);
   const { id: localeId } = useDumiLocale();
   const localeStr = localeId === 'zh-CN' ? 'cn' : 'en';

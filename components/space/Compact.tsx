@@ -43,7 +43,7 @@ export const useCompactItemContext = (prefixCls: string, direction: DirectionTyp
   };
 };
 
-export const NoCompactStyle: React.FC<React.PropsWithChildren<{}>> = ({ children }) => (
+export const NoCompactStyle = ({ children }: React.PropsWithChildren<{}>) => (
   <SpaceCompactItemContext.Provider value={null}>{children}</SpaceCompactItemContext.Provider>
 );
 
@@ -55,14 +55,14 @@ export interface SpaceCompactProps extends React.HTMLAttributes<HTMLDivElement> 
   rootClassName?: string;
 }
 
-const CompactItem: React.FC<React.PropsWithChildren<SpaceCompactItemContextType>> = ({
+const CompactItem = ({
   children,
   ...otherProps
-}) => (
+}: React.PropsWithChildren<SpaceCompactItemContextType>) => (
   <SpaceCompactItemContext.Provider value={otherProps}>{children}</SpaceCompactItemContext.Provider>
 );
 
-const Compact: React.FC<SpaceCompactProps> = (props) => {
+const Compact = (props: SpaceCompactProps) => {
   const { getPrefixCls, direction: directionConfig } = React.useContext(ConfigContext);
 
   const {

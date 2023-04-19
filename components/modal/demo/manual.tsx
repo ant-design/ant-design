@@ -1,7 +1,7 @@
 import { Button, Modal } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => {
+const App = () => {
   const [modal, contextHolder] = Modal.useModal();
 
   const countDown = () => {

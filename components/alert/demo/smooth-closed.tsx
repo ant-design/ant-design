@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Alert, Switch, Space } from 'antd';
 
-const App: React.FC = () => {
+const App = () => {
   const [visible, setVisible] = useState(true);
 
   const handleClose = () => {

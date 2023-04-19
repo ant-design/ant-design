@@ -21,7 +21,7 @@ interface OverlayProps {
   content?: PopoverProps['content'];
 }
 
-const Overlay: React.FC<OverlayProps> = ({ title, content, prefixCls }) => {
+const Overlay = ({ title, content, prefixCls }: OverlayProps) => {
   if (!title && !content) {
     return null;
   }

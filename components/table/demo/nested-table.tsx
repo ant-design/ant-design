@@ -25,7 +25,7 @@ const items = [
   { key: '2', label: 'Action 2' },
 ];
 
-const App: React.FC = () => {
+const App = () => {
   const expandedRowRender = () => {
     const columns: TableColumnsType<ExpandedDataType> = [
       { title: 'Date', dataIndex: 'date', key: 'date' },

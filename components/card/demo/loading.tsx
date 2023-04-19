@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 
 const { Meta } = Card;
 
-const App: React.FC = () => {
+const App = () => {
   const [loading, setLoading] = useState(true);
 
   const onChange = (checked: boolean) => {

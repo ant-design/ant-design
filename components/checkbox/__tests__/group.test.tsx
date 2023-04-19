@@ -233,7 +233,7 @@ describe('CheckboxGroup', () => {
   it('should store latest checkbox value if changed', () => {
     const onChange = jest.fn();
 
-    const Demo: React.FC = () => {
+    const Demo = () => {
       const [v, setV] = useState('');
 
       React.useEffect(() => {

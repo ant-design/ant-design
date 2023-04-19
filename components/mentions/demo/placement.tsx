@@ -1,7 +1,7 @@
 import React from 'react';
 import { Mentions } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <Mentions
     style={{ width: '100%' }}
     placement="top"

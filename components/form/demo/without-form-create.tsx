@@ -29,7 +29,7 @@ const formItemLayout = {
 const tips =
   'A prime is a natural number greater than 1 that has no positive divisors other than 1 and itself.';
 
-const App: React.FC = () => {
+const App = () => {
   const [number, setNumber] = useState<{
     value: number;
     validateStatus?: ValidateStatus;

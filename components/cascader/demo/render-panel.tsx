@@ -44,6 +44,6 @@ const options: Option[] = [
   },
 ];
 
-const App: React.FC = () => <InternalCascader options={options} placeholder="Please select" />;
+const App = () => <InternalCascader options={options} placeholder="Please select" />;
 
 export default App;

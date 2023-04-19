@@ -24,7 +24,7 @@ const positionOptions = ['top', 'bottom', 'both'];
 
 const alignOptions = ['start', 'center', 'end'];
 
-const App: React.FC = () => {
+const App = () => {
   const [position, setPosition] = useState<PaginationPosition>('bottom');
   const [align, setAlign] = useState<PaginationAlign>('center');
 

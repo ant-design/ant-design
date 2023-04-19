@@ -3,10 +3,7 @@ import { Typography } from 'antd';
 
 const { Text } = Typography;
 
-const EllipsisMiddle: React.FC<{ suffixCount: number; children: string }> = ({
-  suffixCount,
-  children,
-}) => {
+const EllipsisMiddle = ({ suffixCount, children }: { suffixCount: number; children: string }) => {
   const start = children.slice(0, children.length - suffixCount).trim();
   const suffix = children.slice(-suffixCount).trim();
   return (
@@ -16,7 +13,7 @@ const EllipsisMiddle: React.FC<{ suffixCount: number; children: string }> = ({
   );
 };
 
-const App: React.FC = () => (
+const App = () => (
   <EllipsisMiddle suffixCount={12}>
     In the process of internal desktop applications development, many different design specs and
     implementations would be involved, which might cause designers and developers difficulties and

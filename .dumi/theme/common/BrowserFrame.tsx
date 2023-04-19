@@ -1,6 +1,6 @@
 import React from 'react';
 
-const BrowserFrame: React.FC<{ children?: React.ReactNode }> = ({ children }) => (
+const BrowserFrame = ({ children }: { children?: React.ReactNode }) => (
   <div className="browser-mockup with-url">{children}</div>
 );
 

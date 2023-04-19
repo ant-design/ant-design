@@ -84,7 +84,7 @@ const Row = ({ children, ...props }: RowProps) => {
   );
 };
 
-const App: React.FC = () => {
+const App = () => {
   const [dataSource, setDataSource] = useState([
     {
       key: '1',

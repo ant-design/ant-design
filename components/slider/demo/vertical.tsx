@@ -18,7 +18,7 @@ const marks: SliderMarks = {
   },
 };
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <div style={style}>
       <Slider vertical defaultValue={30} />

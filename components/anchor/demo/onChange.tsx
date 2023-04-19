@@ -5,7 +5,7 @@ const onChange = (link: string) => {
   console.log('Anchor:OnChange', link);
 };
 
-const App: React.FC = () => (
+const App = () => (
   <Anchor
     affix={false}
     onChange={onChange}

@@ -8,7 +8,7 @@ const content = (
   </div>
 );
 
-const App: React.FC = () => (
+const App = () => (
   <Space wrap>
     <Popover content={content} title="Title" trigger="hover">
       <Button>Hover me</Button>

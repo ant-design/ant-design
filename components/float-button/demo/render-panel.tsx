@@ -5,7 +5,7 @@ import React from 'react';
 /** Test usage. Do not use in your production. */
 const { _InternalPanelDoNotUseOrYouWillBeFired: InternalFloatButton } = FloatButton;
 
-const App: React.FC = () => (
+const App = () => (
   <div style={{ display: 'flex', columnGap: 16, alignItems: 'center' }}>
     <InternalFloatButton backTop />
     <InternalFloatButton icon={<CustomerServiceOutlined />} />

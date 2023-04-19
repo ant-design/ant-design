@@ -1,7 +1,7 @@
 import React from 'react';
 import { Progress, Tooltip, Space } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Tooltip title="3 done / 3 in progress / 4 to do">
       <Progress percent={60} success={{ percent: 30 }} />

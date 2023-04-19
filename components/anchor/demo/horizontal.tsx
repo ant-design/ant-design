@@ -1,7 +1,7 @@
 import React from 'react';
 import { Anchor } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <div style={{ padding: '20px' }}>
       <Anchor

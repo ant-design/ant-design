@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Popconfirm } from 'antd';
 
-const App: React.FC = () => {
+const App = () => {
   const confirm = () =>
     new Promise((resolve) => {
       setTimeout(() => resolve(null), 3000);

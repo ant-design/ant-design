@@ -11,7 +11,7 @@ import { FloatButtonGroupProvider } from './context';
 import type { FloatButtonGroupProps } from './interface';
 import useStyle from './style';
 
-const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
+const FloatButtonGroup = (props: FloatButtonGroupProps) => {
   const {
     prefixCls: customizePrefixCls,
     className,

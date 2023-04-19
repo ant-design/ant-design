@@ -1,7 +1,7 @@
 import React from 'react';
 import { Avatar, Badge } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <a href="#">
     <Badge count={5}>
       <Avatar shape="square" size="large" />

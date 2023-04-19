@@ -2,7 +2,7 @@ import React from 'react';
 import { LoadingOutlined, SmileOutlined, SolutionOutlined, UserOutlined } from '@ant-design/icons';
 import { Steps } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <Steps
     items={[
       {

@@ -8,7 +8,7 @@ const content = (
   </>
 );
 
-const App: React.FC = () => (
+const App = () => (
   <Space wrap>
     <Popover placement="topLeft" title="Title" content={content}>
       <Button>Align edge / 边缘对齐</Button>

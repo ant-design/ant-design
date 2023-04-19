@@ -44,7 +44,7 @@ const menuProps = {
   onClick: handleMenuClick,
 };
 
-const App: React.FC = () => (
+const App = () => (
   <Space wrap>
     <Dropdown.Button menu={menuProps} onClick={handleButtonClick}>
       Dropdown

@@ -88,7 +88,7 @@ function useShowRiddleButton() {
   return showRiddleButton;
 }
 
-const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
+const CodePreviewer = (props: AntdPreviewerProps) => {
   const {
     asset,
     expand,

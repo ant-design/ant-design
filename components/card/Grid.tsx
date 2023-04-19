@@ -10,7 +10,7 @@ export interface CardGridProps extends React.HTMLAttributes<HTMLDivElement> {
   style?: React.CSSProperties;
 }
 
-const Grid: React.FC<CardGridProps> = ({ prefixCls, className, hoverable = true, ...props }) => {
+const Grid = ({ prefixCls, className, hoverable = true, ...props }: CardGridProps) => {
   const { getPrefixCls } = React.useContext<ConfigConsumerProps>(ConfigContext);
   const prefix = getPrefixCls('card', prefixCls);
   const classString = classNames(`${prefix}-grid`, className, {

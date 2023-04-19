@@ -3,7 +3,7 @@ import { Popconfirm } from 'antd';
 
 const { _InternalPanelDoNotUseOrYouWillBeFired: InternalPopconfirm } = Popconfirm;
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <InternalPopconfirm title="Are you OK?" description="Does this look good?" />
     <InternalPopconfirm

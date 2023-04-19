@@ -4,7 +4,7 @@ import { Pagination } from 'antd';
 
 const showTotal: PaginationProps['showTotal'] = (total) => `Total ${total} items`;
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Pagination size="small" total={50} />
     <Pagination size="small" total={50} showSizeChanger showQuickJumper />

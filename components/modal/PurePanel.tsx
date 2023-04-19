@@ -33,8 +33,8 @@ interface FooterProps {
   onCancel?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
 }
 
-export const Footer: React.FC<
-  FooterProps &
+export const Footer = (
+  props: FooterProps &
     Pick<
       ModalProps,
       | 'footer'
@@ -44,8 +44,8 @@ export const Footer: React.FC<
       | 'confirmLoading'
       | 'okButtonProps'
       | 'cancelButtonProps'
-    >
-> = (props) => {
+    >,
+) => {
   const {
     okText,
     okType = 'primary',
@@ -76,7 +76,7 @@ export const Footer: React.FC<
   );
 };
 
-const PurePanel: React.FC<PurePanelProps> = (props) => {
+const PurePanel = (props: PurePanelProps) => {
   const {
     prefixCls: customizePrefixCls,
     className,

@@ -15,7 +15,7 @@ const handleChange = (value: string) => {
   console.log(`selected ${value}`);
 };
 
-const App: React.FC = () => (
+const App = () => (
   <Select
     mode="tags"
     style={{ width: '100%' }}

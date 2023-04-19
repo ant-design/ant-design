@@ -52,7 +52,7 @@ interface IconSearchState {
   searchKey: string;
 }
 
-const IconSearch: React.FC = () => {
+const IconSearch = () => {
   const intl = useIntl();
   const { iconSearchAffix } = useStyle();
   const [displayState, setDisplayState] = useState<IconSearchState>({

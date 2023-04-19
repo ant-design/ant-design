@@ -14,7 +14,7 @@ const options = [
   },
 ];
 
-const App: React.FC = () => (
+const App = () => (
   <Space direction="vertical" size="middle">
     <Space.Compact>
       <Input defaultValue="26888888" />

@@ -78,7 +78,7 @@ const reportSearch = debounce<(value: string) => void>((value) => {
 
 const { Title } = Typography;
 
-const Overview: React.FC = () => {
+const Overview = () => {
   const style = useStyle();
   const { theme } = useContext(SiteContext);
 

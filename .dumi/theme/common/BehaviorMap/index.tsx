@@ -269,7 +269,7 @@ export type BehaviorMapProps = {
   data: BehaviorMapItem;
 };
 
-const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
+const BehaviorMap = ({ data }: BehaviorMapProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const { styles } = useStyle();
   const meta = useRouteMeta();

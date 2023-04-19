@@ -67,7 +67,7 @@ export const handleGradient = (
   return { backgroundImage: `linear-gradient(${direction}, ${from}, ${to})` };
 };
 
-const Line: React.FC<LineProps> = (props) => {
+const Line = (props: LineProps) => {
   const {
     prefixCls,
     direction: directionConfig,

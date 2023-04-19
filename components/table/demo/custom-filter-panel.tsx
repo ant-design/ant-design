@@ -42,7 +42,7 @@ const data: DataType[] = [
   },
 ];
 
-const App: React.FC = () => {
+const App = () => {
   const [searchText, setSearchText] = useState('');
   const [searchedColumn, setSearchedColumn] = useState('');
   const searchInput = useRef<InputRef>(null);

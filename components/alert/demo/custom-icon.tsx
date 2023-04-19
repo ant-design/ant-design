@@ -4,7 +4,7 @@ import { Alert, Space } from 'antd';
 
 const icon = <SmileOutlined />;
 
-const App: React.FC = () => (
+const App = () => (
   <Space direction="vertical" style={{ width: '100%' }}>
     <Alert icon={icon} message="showIcon = false" type="success" />
     <Alert icon={icon} message="Success Tips" type="success" showIcon />

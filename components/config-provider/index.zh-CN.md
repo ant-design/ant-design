@@ -18,7 +18,7 @@ import { ConfigProvider } from 'antd';
 import React from 'react';
 
 // ...
-const Demo: React.FC = () => (
+const Demo = () => (
   <ConfigProvider direction="rtl">
     <App />
   </ConfigProvider>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Space } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <Space>
     <Space.Compact direction="vertical">
       <Button>Button 1</Button>

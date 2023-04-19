@@ -1,10 +1,10 @@
-import type { FC, PropsWithChildren } from 'react';
+import type { PropsWithChildren } from 'react';
 import React, { useContext } from 'react';
 import { ConfigContext } from 'antd/es/config-provider';
 import { ThemeProvider } from 'antd-style';
 import { theme } from 'antd';
 
-const SiteThemeProvider: FC<PropsWithChildren> = ({ children }) => {
+const SiteThemeProvider = ({ children }: PropsWithChildren) => {
   const { getPrefixCls, iconPrefixCls } = useContext(ConfigContext);
   const rootPrefixCls = getPrefixCls();
   const { token } = theme.useToken();

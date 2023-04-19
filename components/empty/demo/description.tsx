@@ -1,6 +1,6 @@
 import React from 'react';
 import { Empty } from 'antd';
 
-const App: React.FC = () => <Empty description={false} />;
+const App = () => <Empty description={false} />;
 
 export default App;

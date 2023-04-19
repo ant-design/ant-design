@@ -21,7 +21,7 @@ const selectAllLabels: SelectAllLabel[] = [
   ({ selectedCount, totalCount }) => `${selectedCount}/${totalCount}`,
 ];
 
-const App: React.FC = () => {
+const App = () => {
   const [targetKeys, setTargetKeys] = useState(oriTargetKeys);
   return (
     <Transfer

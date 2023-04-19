@@ -7,7 +7,7 @@ const style: React.CSSProperties = {
   background: 'red',
 };
 
-const App: React.FC = () => {
+const App = () => {
   const [singleCol, setSingleCol] = useState(false);
 
   return (

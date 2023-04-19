@@ -23,7 +23,7 @@ const tagRender = (props: CustomTagProps) => {
   );
 };
 
-const App: React.FC = () => (
+const App = () => (
   <Select
     mode="multiple"
     showArrow

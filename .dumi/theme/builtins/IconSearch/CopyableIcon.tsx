@@ -17,13 +17,7 @@ export interface CopyableIconProps {
   onCopied: (type: string, text: string) => any;
 }
 
-const CopyableIcon: React.FC<CopyableIconProps> = ({
-  name,
-  isNew,
-  justCopied,
-  onCopied,
-  theme,
-}) => {
+const CopyableIcon = ({ name, isNew, justCopied, onCopied, theme }: CopyableIconProps) => {
   const className = classNames({
     copied: justCopied === name,
     [theme]: !!theme,

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Pagination } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Pagination simple defaultCurrent={2} total={50} />
     <br />

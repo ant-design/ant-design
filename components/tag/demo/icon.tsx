@@ -7,7 +7,7 @@ import {
 } from '@ant-design/icons';
 import { Space, Tag } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <Space size={[0, 8]} wrap>
     <Tag icon={<TwitterOutlined />} color="#55acee">
       Twitter

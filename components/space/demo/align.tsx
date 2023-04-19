@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Space } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <div className="space-align-container">
     <div className="space-align-block">
       <Space align="center">

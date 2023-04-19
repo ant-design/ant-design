@@ -5,7 +5,7 @@ import TimelineItem from './TimelineItem';
 import type { TimelineProps } from './Timeline';
 import type { TimelineItemProps } from './TimelineItem';
 
-const TimelineItemList: React.FC<TimelineProps & { hashId: string; direction?: string }> = ({
+const TimelineItemList = ({
   prefixCls,
   className,
   pending = false,
@@ -18,7 +18,7 @@ const TimelineItemList: React.FC<TimelineProps & { hashId: string; direction?: s
   pendingDot,
   mode = '' as TimelineProps['mode'],
   ...restProps
-}) => {
+}: TimelineProps & { hashId: string; direction?: string }) => {
   const getPositionCls = (position: string, idx: number) => {
     if (mode === 'alternate') {
       if (position === 'right') return `${prefixCls}-item-right`;

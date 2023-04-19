@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Result } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <Result
     status="warning"
     title="There are some problems with your operation."

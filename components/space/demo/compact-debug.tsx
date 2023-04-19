@@ -33,7 +33,7 @@ const selectAfter = (
   </Select>
 );
 
-const App: React.FC = () => {
+const App = () => {
   const [showModal, setShowModal] = useState(false);
   const [showDrawer, setShowDrawer] = useState(false);
   return (

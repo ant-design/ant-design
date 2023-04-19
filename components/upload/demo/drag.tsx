@@ -25,7 +25,7 @@ const props: UploadProps = {
   },
 };
 
-const App: React.FC = () => (
+const App = () => (
   <Dragger {...props}>
     <p className="ant-upload-drag-icon">
       <InboxOutlined />

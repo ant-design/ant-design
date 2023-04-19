@@ -1,4 +1,3 @@
-import type { FC } from 'react';
 import React from 'react';
 import { DatePicker } from 'antd';
 import type { Dayjs } from 'dayjs';
@@ -66,7 +65,7 @@ const getSales = (date: Dayjs) => Math.floor(seeds[date.date() % 30] * 10000);
 
 const getData = (date: Dayjs) => (Math.floor(seeds[date.date() % 30] * 10000) - 5000) / 5000;
 
-const Demo: FC = () => {
+const Demo = () => {
   const { styles } = useStyle();
   const dateRender = (current: Dayjs) => (
     <div

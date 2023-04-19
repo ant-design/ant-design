@@ -1,7 +1,7 @@
 import { Select } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <Select
     style={{ width: 120, marginTop: '50vh' }}
     open

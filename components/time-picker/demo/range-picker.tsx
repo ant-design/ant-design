@@ -1,6 +1,6 @@
 import React from 'react';
 import { TimePicker } from 'antd';
 
-const App: React.FC = () => <TimePicker.RangePicker />;
+const App = () => <TimePicker.RangePicker />;
 
 export default App;

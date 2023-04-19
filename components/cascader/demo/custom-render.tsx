@@ -68,7 +68,7 @@ const displayRender = (labels: string[], selectedOptions: DefaultOptionType[]) =
     return <span key={option.value}>{label} / </span>;
   });
 
-const App: React.FC = () => (
+const App = () => (
   <Cascader
     options={options}
     defaultValue={['zhejiang', 'hangzhou', 'xihu']}

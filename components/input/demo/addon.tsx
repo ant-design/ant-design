@@ -19,7 +19,7 @@ const selectAfter = (
   </Select>
 );
 
-const App: React.FC = () => (
+const App = () => (
   <Space direction="vertical">
     <Input addonBefore="http://" addonAfter=".com" defaultValue="mysite" />
     <Input addonBefore={selectBefore} addonAfter={selectAfter} defaultValue="mysite" />

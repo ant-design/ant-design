@@ -24,7 +24,7 @@ export interface TimeLineItemProps extends TimelineItemProps {
   __deprecated_do_not_use_it__?: any; // eslint-disable-line camelcase
 }
 
-const TimelineItem: React.FC<TimelineItemProps> = ({
+const TimelineItem = ({
   prefixCls: customizePrefixCls,
   className,
   color = 'blue',
@@ -34,7 +34,7 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
   label,
   children,
   ...restProps
-}) => {
+}: TimelineItemProps) => {
   const { getPrefixCls } = React.useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('timeline', customizePrefixCls);

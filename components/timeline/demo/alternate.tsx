@@ -2,7 +2,7 @@ import React from 'react';
 import { ClockCircleOutlined } from '@ant-design/icons';
 import { Timeline } from 'antd';
 
-const App: React.FC = () => (
+const App = () => (
   <Timeline
     mode="alternate"
     items={[

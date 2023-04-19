@@ -88,7 +88,7 @@ const useStyle = () => {
   };
 };
 
-const LangBtn: React.FC<LangBtnProps> = (props) => {
+const LangBtn = (props: LangBtnProps) => {
   const { label1, label2, tooltip1, tooltip2, value, pure, onClick } = props;
 
   const { btn, innerDiv, labelStyle, label1Style, label2Style } = useStyle();

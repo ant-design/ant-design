@@ -35,7 +35,7 @@ for (let i = 0; i < 200; i += 1) {
   });
 }
 
-const App: React.FC = () => (
+const App = () => (
   <div style={{ width: 300 }}>
     <Table columns={columns} dataSource={data} size="small" pagination={{ defaultCurrent: 13 }} />
   </div>

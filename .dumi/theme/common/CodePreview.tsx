@@ -12,7 +12,7 @@ interface CodePreviewProps {
   onCodeTypeChange?: (activeKey: string) => void;
 }
 
-const CodePreview: React.FC<CodePreviewProps> = ({ toReactComponent, codes, onCodeTypeChange }) => {
+const CodePreview = ({ toReactComponent, codes, onCodeTypeChange }: CodePreviewProps) => {
   const langList = Object.keys(codes).sort().reverse();
 
   let content: React.ReactNode;
