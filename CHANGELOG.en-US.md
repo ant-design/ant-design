@@ -15,6 +15,18 @@ timeline: true
 
 ---
 
+## 4.24.9
+
+`2023-04-19`
+
+- 🆕 Slider add missing `railStyle` for custom style. [#40942](https://github.com/ant-design/ant-design/pull/40942) [@c01nd01r](https://github.com/c01nd01r)
+- 🐞 Fix Select width becomes 0px when search after select something. [#41646](https://github.com/ant-design/ant-design/pull/41646)
+- 🐞 The `displayRender` prompt cannot be used when deleting `multiple`. [#40940](https://github.com/ant-design/ant-design/pull/40940) [@crazyair](https://github.com/crazyair)
+- 💄 Checkbox should use @border-radius-sm. [#40823](https://github.com/ant-design/ant-design/pull/40823)
+- 🐞 Fix TextArea missing active style when focused. [#41281](https://github.com/ant-design/ant-design/pull/41281) [@MuxinFeng](https://github.com/MuxinFeng)
+- TypeScript
+  - 🤖 Adjust CascaderProps definition which has default generic now. [#40960](https://github.com/ant-design/ant-design/pull/40960) [@crazyair](https://github.com/crazyair)
+
 ## 4.24.8
 
 `2023-2-13`
