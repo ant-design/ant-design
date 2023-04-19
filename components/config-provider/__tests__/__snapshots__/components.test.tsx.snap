@@ -12091,7 +12091,6 @@ exports[`ConfigProvider components Checkbox configProvider 1`] = `
       <input
         class="config-checkbox-input"
         type="checkbox"
-        value=""
       />
       <span
         class="config-checkbox-inner"
@@ -12118,7 +12117,6 @@ exports[`ConfigProvider components Checkbox configProvider componentDisabled 1`]
         class="config-checkbox-input"
         disabled=""
         type="checkbox"
-        value=""
       />
       <span
         class="config-checkbox-inner"
@@ -12144,7 +12142,6 @@ exports[`ConfigProvider components Checkbox configProvider componentSize large 1
       <input
         class="config-checkbox-input"
         type="checkbox"
-        value=""
       />
       <span
         class="config-checkbox-inner"
@@ -12170,7 +12167,6 @@ exports[`ConfigProvider components Checkbox configProvider componentSize middle 
       <input
         class="config-checkbox-input"
         type="checkbox"
-        value=""
       />
       <span
         class="config-checkbox-inner"
@@ -12196,7 +12192,6 @@ exports[`ConfigProvider components Checkbox configProvider virtual and dropdownM
       <input
         class="ant-checkbox-input"
         type="checkbox"
-        value=""
       />
       <span
         class="ant-checkbox-inner"
@@ -12222,7 +12217,6 @@ exports[`ConfigProvider components Checkbox normal 1`] = `
       <input
         class="ant-checkbox-input"
         type="checkbox"
-        value=""
       />
       <span
         class="ant-checkbox-inner"
@@ -12248,7 +12242,6 @@ exports[`ConfigProvider components Checkbox prefixCls 1`] = `
       <input
         class="prefix-Checkbox-input"
         type="checkbox"
-        value=""
       />
       <span
         class="prefix-Checkbox-inner"
@@ -22392,7 +22385,6 @@ exports[`ConfigProvider components Radio configProvider 1`] = `
           checked=""
           class="config-radio-input"
           type="radio"
-          value=""
         />
         <span
           class="config-radio-inner"
@@ -22416,7 +22408,6 @@ exports[`ConfigProvider components Radio configProvider 1`] = `
           checked=""
           class="config-radio-button-input"
           type="radio"
-          value=""
         />
         <span
           class="config-radio-button-inner"
@@ -22446,7 +22437,6 @@ exports[`ConfigProvider components Radio configProvider componentDisabled 1`] = 
           class="config-radio-input"
           disabled=""
           type="radio"
-          value=""
         />
         <span
           class="config-radio-inner"
@@ -22471,7 +22461,6 @@ exports[`ConfigProvider components Radio configProvider componentDisabled 1`] = 
           class="config-radio-button-input"
           disabled=""
           type="radio"
-          value=""
         />
         <span
           class="config-radio-button-inner"
@@ -22500,7 +22489,6 @@ exports[`ConfigProvider components Radio configProvider componentSize large 1`] 
           checked=""
           class="config-radio-input"
           type="radio"
-          value=""
         />
         <span
           class="config-radio-inner"
@@ -22524,7 +22512,6 @@ exports[`ConfigProvider components Radio configProvider componentSize large 1`] 
           checked=""
           class="config-radio-button-input"
           type="radio"
-          value=""
         />
         <span
           class="config-radio-button-inner"
@@ -22553,7 +22540,6 @@ exports[`ConfigProvider components Radio configProvider componentSize middle 1`]
           checked=""
           class="config-radio-input"
           type="radio"
-          value=""
         />
         <span
           class="config-radio-inner"
@@ -22577,7 +22563,6 @@ exports[`ConfigProvider components Radio configProvider componentSize middle 1`]
           checked=""
           class="config-radio-button-input"
           type="radio"
-          value=""
         />
         <span
           class="config-radio-button-inner"
@@ -22606,7 +22591,6 @@ exports[`ConfigProvider components Radio configProvider virtual and dropdownMatc
           checked=""
           class="ant-radio-input"
           type="radio"
-          value=""
         />
         <span
           class="ant-radio-inner"
@@ -22630,7 +22614,6 @@ exports[`ConfigProvider components Radio configProvider virtual and dropdownMatc
           checked=""
           class="ant-radio-button-input"
           type="radio"
-          value=""
         />
         <span
           class="ant-radio-button-inner"
@@ -22659,7 +22642,6 @@ exports[`ConfigProvider components Radio normal 1`] = `
           checked=""
           class="ant-radio-input"
           type="radio"
-          value=""
         />
         <span
           class="ant-radio-inner"
@@ -22683,7 +22665,6 @@ exports[`ConfigProvider components Radio normal 1`] = `
           checked=""
           class="ant-radio-button-input"
           type="radio"
-          value=""
         />
         <span
           class="ant-radio-button-inner"
@@ -22712,7 +22693,6 @@ exports[`ConfigProvider components Radio prefixCls 1`] = `
           checked=""
           class="prefix-Radio-input"
           type="radio"
-          value=""
         />
         <span
           class="prefix-Radio-inner"
@@ -22736,7 +22716,6 @@ exports[`ConfigProvider components Radio prefixCls 1`] = `
           checked=""
           class="prefix-Radio-button-input"
           type="radio"
-          value=""
         />
         <span
           class="prefix-Radio-button-inner"
@@ -27098,7 +27077,6 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                                       <input
                                         class="config-checkbox-input"
                                         type="checkbox"
-                                        value=""
                                       />
                                       <span
                                         class="config-checkbox-inner"
@@ -27405,7 +27383,6 @@ exports[`ConfigProvider components Table configProvider componentDisabled 1`] = 
                                         class="config-checkbox-input"
                                         disabled=""
                                         type="checkbox"
-                                        value=""
                                       />
                                       <span
                                         class="config-checkbox-inner"
@@ -27712,7 +27689,6 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                                       <input
                                         class="config-checkbox-input"
                                         type="checkbox"
-                                        value=""
                                       />
                                       <span
                                         class="config-checkbox-inner"
@@ -28018,7 +27994,6 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                                       <input
                                         class="config-checkbox-input"
                                         type="checkbox"
-                                        value=""
                                       />
                                       <span
                                         class="config-checkbox-inner"
@@ -28324,7 +28299,6 @@ exports[`ConfigProvider components Table configProvider virtual and dropdownMatc
                                       <input
                                         class="ant-checkbox-input"
                                         type="checkbox"
-                                        value=""
                                       />
                                       <span
                                         class="ant-checkbox-inner"
@@ -28630,7 +28604,6 @@ exports[`ConfigProvider components Table normal 1`] = `
                                       <input
                                         class="ant-checkbox-input"
                                         type="checkbox"
-                                        value=""
                                       />
                                       <span
                                         class="ant-checkbox-inner"
@@ -28936,7 +28909,6 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                                       <input
                                         class="ant-checkbox-input"
                                         type="checkbox"
-                                        value=""
                                       />
                                       <span
                                         class="ant-checkbox-inner"
@@ -38751,7 +38723,6 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
           <input
             class="config-checkbox-input"
             type="checkbox"
-            value=""
           />
           <span
             class="config-checkbox-inner"
@@ -38911,7 +38882,6 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
           <input
             class="config-checkbox-input"
             type="checkbox"
-            value=""
           />
           <span
             class="config-checkbox-inner"
@@ -39025,7 +38995,6 @@ exports[`ConfigProvider components Transfer configProvider componentDisabled 1`]
             class="config-checkbox-input"
             disabled=""
             type="checkbox"
-            value=""
           />
           <span
             class="config-checkbox-inner"
@@ -39186,7 +39155,6 @@ exports[`ConfigProvider components Transfer configProvider componentDisabled 1`]
             class="config-checkbox-input"
             disabled=""
             type="checkbox"
-            value=""
           />
           <span
             class="config-checkbox-inner"
@@ -39299,7 +39267,6 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
           <input
             class="config-checkbox-input"
             type="checkbox"
-            value=""
           />
           <span
             class="config-checkbox-inner"
@@ -39459,7 +39426,6 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
           <input
             class="config-checkbox-input"
             type="checkbox"
-            value=""
           />
           <span
             class="config-checkbox-inner"
@@ -39572,7 +39538,6 @@ exports[`ConfigProvider components Transfer configProvider componentSize middle 
           <input
             class="config-checkbox-input"
             type="checkbox"
-            value=""
           />
           <span
             class="config-checkbox-inner"
@@ -39732,7 +39697,6 @@ exports[`ConfigProvider components Transfer configProvider componentSize middle 
           <input
             class="config-checkbox-input"
             type="checkbox"
-            value=""
           />
           <span
             class="config-checkbox-inner"
@@ -39845,7 +39809,6 @@ exports[`ConfigProvider components Transfer configProvider virtual and dropdownM
           <input
             class="ant-checkbox-input"
             type="checkbox"
-            value=""
           />
           <span
             class="ant-checkbox-inner"
@@ -40005,7 +39968,6 @@ exports[`ConfigProvider components Transfer configProvider virtual and dropdownM
           <input
             class="ant-checkbox-input"
             type="checkbox"
-            value=""
           />
           <span
             class="ant-checkbox-inner"
@@ -40118,7 +40080,6 @@ exports[`ConfigProvider components Transfer normal 1`] = `
           <input
             class="ant-checkbox-input"
             type="checkbox"
-            value=""
           />
           <span
             class="ant-checkbox-inner"
@@ -40278,7 +40239,6 @@ exports[`ConfigProvider components Transfer normal 1`] = `
           <input
             class="ant-checkbox-input"
             type="checkbox"
-            value=""
           />
           <span
             class="ant-checkbox-inner"
@@ -40391,7 +40351,6 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
           <input
             class="ant-checkbox-input"
             type="checkbox"
-            value=""
           />
           <span
             class="ant-checkbox-inner"
@@ -40551,7 +40510,6 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
           <input
             class="ant-checkbox-input"
             type="checkbox"
-            value=""
           />
           <span
             class="ant-checkbox-inner"
