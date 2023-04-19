@@ -107,8 +107,6 @@ const GlobalLayout: React.FC = () => {
     [isMobile, direction, updateSiteConfig, theme],
   );
 
-  console.log(theme);
-
   return (
     <StyleProvider
       cache={styleCache}
