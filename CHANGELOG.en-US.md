@@ -19,9 +19,10 @@ timeline: true
 
 `2023-04-19`
 
-- 🐞 fix FloatButton warning: findDOMNode is deprecated in StrictMode. [#41833](https://github.com/ant-design/ant-design/pull/41833) [@fourcels](https://github.com/fourcels)
+- 🐞 Fix FloatButton throws warning `findDOMNode is deprecated in StrictMode`. [#41833](https://github.com/ant-design/ant-design/pull/41833) [@fourcels](https://github.com/fourcels)
 - 🐞 Fix Layout.Sider transition issue when switch theme. [#41828](https://github.com/ant-design/ant-design/pull/41828)
-- 🌐 fixed typo in German locale. [#41780](https://github.com/ant-design/ant-design/pull/41780) [@aaarichter](https://github.com/aaarichter)
+- 🐞 Fix the problem that when the type of Tour is primary, the color of the arrow is still white. [#41761](https://github.com/ant-design/ant-design/pull/41761)
+- 🇩🇪 Fix typo in German locale. [#41780](https://github.com/ant-design/ant-design/pull/41780) [@aaarichter](https://github.com/aaarichter)
 - 🐞 Optimize Form field binding, now will ignore comments in Form.Item as subcomponents. [#41771](https://github.com/ant-design/ant-design/pull/41771)
 - 🐞 Fix Input.Password show additional toggle button in Edge. [#41759](https://github.com/ant-design/ant-design/pull/41759)
 - 💄 Fix styling issues with components that have a Tooltip component as their base within the Space.Compact wrapper. [#41707](https://github.com/ant-design/ant-design/pull/41707) [@foryuki](https://github.com/foryuki)
