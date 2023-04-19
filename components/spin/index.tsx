@@ -30,8 +30,8 @@ export interface SpinClassProps extends SpinProps {
   spinPrefixCls: string;
 }
 
-export type SpinFCType = React.FC<SpinProps> & {
-  setDefaultIndicator: (indicator: React.ReactNode) => void;
+export type SpinFCType = {
+  setDefaultIndicator?: (indicator: React.ReactNode) => void;
 };
 
 // Render indicator
@@ -160,7 +160,7 @@ const Spin = (props: SpinClassProps) => {
   return spinElement;
 };
 
-const SpinFC: SpinFCType = (props) => {
+const SpinFC = (props: SpinProps & SpinFCType) => {
   const { prefixCls: customizePrefixCls } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
 

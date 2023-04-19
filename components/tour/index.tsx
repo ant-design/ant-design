@@ -11,9 +11,7 @@ import TourPanel from './panelRender';
 import useStyle from './style';
 import useMergedType from './useMergedType';
 
-const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel } = (
-  props,
-) => {
+const Tour = (props: TourProps & { _InternalPanelDoNotUseOrYouWillBeFired?: typeof PurePanel }) => {
   const {
     prefixCls: customizePrefixCls,
     current,

@@ -100,13 +100,7 @@ const Extra = ({ prefixCls, extra }: ExtraProps) => {
   return <div className={`${prefixCls}-extra`}>{extra}</div>;
 };
 
-export interface ResultType extends React.FC<ResultProps> {
-  PRESENTED_IMAGE_404: React.FC;
-  PRESENTED_IMAGE_403: React.FC;
-  PRESENTED_IMAGE_500: React.FC;
-}
-
-const Result: ResultType = ({
+const Result = ({
   prefixCls: customizePrefixCls,
   className: customizeClassName,
   rootClassName,
@@ -117,6 +111,10 @@ const Result: ResultType = ({
   status = 'info',
   icon,
   extra,
+}: ResultProps & {
+  PRESENTED_IMAGE_404?: () => JSX.Element;
+  PRESENTED_IMAGE_403?: () => JSX.Element;
+  PRESENTED_IMAGE_500?: () => JSX.Element;
 }) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
 

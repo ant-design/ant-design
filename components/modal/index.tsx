@@ -26,6 +26,7 @@ type ModalType = typeof OriginModal &
     config: typeof modalGlobalConfig;
     /** @private Internal Component. Do not use in your production. */
     _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
+    displayName: string;
   };
 
 const Modal = OriginModal as ModalType;

@@ -26,12 +26,12 @@ export interface EmptyProps {
   children?: React.ReactNode;
 }
 
-type CompoundedComponent = React.FC<EmptyProps> & {
-  PRESENTED_IMAGE_DEFAULT: React.ReactNode;
-  PRESENTED_IMAGE_SIMPLE: React.ReactNode;
+type CompoundedComponent = {
+  PRESENTED_IMAGE_DEFAULT?: React.ReactNode;
+  PRESENTED_IMAGE_SIMPLE?: React.ReactNode;
 };
 
-const Empty: CompoundedComponent = ({
+const Empty = ({
   className,
   rootClassName,
   prefixCls: customizePrefixCls,
@@ -40,7 +40,7 @@ const Empty: CompoundedComponent = ({
   children,
   imageStyle,
   ...restProps
-}) => {
+}: EmptyProps & CompoundedComponent) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('empty', customizePrefixCls);

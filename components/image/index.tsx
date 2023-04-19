@@ -9,16 +9,12 @@ import { getTransitionName } from '../_util/motion';
 import PreviewGroup, { icons } from './PreviewGroup';
 import useStyle from './style';
 
-export interface CompositionImage<P> extends React.FC<P> {
-  PreviewGroup: typeof PreviewGroup;
-}
-
-const Image: CompositionImage<ImageProps> = ({
+const Image = ({
   prefixCls: customizePrefixCls,
   preview,
   rootClassName,
   ...otherProps
-}) => {
+}: ImageProps & { PreviewGroup?: typeof PreviewGroup }) => {
   const {
     getPrefixCls,
     locale: contextLocale = defaultLocale,

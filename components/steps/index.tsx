@@ -48,11 +48,11 @@ export interface StepsProps {
   items?: StepProps[];
 }
 
-type CompoundedComponent = React.FC<StepsProps> & {
-  Step: typeof RcSteps.Step;
+type CompoundedComponent = {
+  Step?: typeof RcSteps.Step;
 };
 
-const Steps: CompoundedComponent = (props) => {
+const Steps = (props: StepsProps & CompoundedComponent) => {
   const {
     percent,
     size,

@@ -34,10 +34,10 @@ export interface BreadcrumbItemProps extends SeparatorType {
   /** @deprecated Please use `menu` instead */
   overlay?: DropdownProps['overlay'];
 }
-type CompoundedComponent = React.FC<BreadcrumbItemProps> & {
-  __ANT_BREADCRUMB_ITEM: boolean;
+type CompoundedComponent = {
+  __ANT_BREADCRUMB_ITEM?: boolean;
 };
-const BreadcrumbItem: CompoundedComponent = (props: BreadcrumbItemProps) => {
+const BreadcrumbItem = (props: BreadcrumbItemProps & CompoundedComponent) => {
   const {
     prefixCls: customizePrefixCls,
     separator = '/',

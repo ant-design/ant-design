@@ -132,9 +132,12 @@ Create a new `src/components/ProductList.tsx` file with the following code.
 import { Button, Popconfirm, Table } from 'antd';
 import React from 'react';
 
-const ProductList: React.FC<{ products: { name: string }[]; onDelete: (id: string) => void }> = ({
+const ProductList = ({
   onDelete,
   products,
+}: {
+  products: { name: string }[];
+  onDelete: (id: string) => void;
 }) => {
   const columns = [
     {

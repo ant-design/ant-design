@@ -12,9 +12,11 @@ jest.mock('../dropdown', () => {
   const ActualDropdownComponent = ActualDropdown.default;
   const h: typeof React = jest.requireActual('react');
 
-  const MockedDropdown: React.FC<DropdownProps> & {
-    Button: typeof ActualDropdownComponent.Button;
-  } = (props) => {
+  const MockedDropdown = (
+    props: DropdownProps & {
+      Button?: typeof ActualDropdownComponent.Button;
+    },
+  ) => {
     const clone: Record<string, any> = {};
     Object.keys(props).forEach((key: keyof typeof props) => {
       clone[key] = props[key];

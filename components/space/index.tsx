@@ -158,7 +158,7 @@ if (process.env.NODE_ENV !== 'production') {
   Space.displayName = 'Space';
 }
 
-type CompoundedComponent = React.FC<SpaceProps> & {
+type CompoundedComponent = typeof Space & {
   Compact: typeof Compact;
 };
 

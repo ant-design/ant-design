@@ -335,14 +335,16 @@ const ProviderChildren = (props: ProviderChildrenProps) => {
   return <ConfigContext.Provider value={memoedConfig}>{childNode}</ConfigContext.Provider>;
 };
 
-const ConfigProvider: React.FC<ConfigProviderProps> & {
-  /** @private internal Usage. do not use in your production */
-  ConfigContext: typeof ConfigContext;
-  /** @deprecated Please use `ConfigProvider.useConfig().componentSize` instead */
-  SizeContext: typeof SizeContext;
-  config: typeof setGlobalConfig;
-  useConfig: typeof useConfig;
-} = (props) => {
+const ConfigProvider = (
+  props: ConfigProviderProps & {
+    /** @private internal Usage. do not use in your production */
+    ConfigContext?: typeof ConfigContext;
+    /** @deprecated Please use `ConfigProvider.useConfig().componentSize` instead */
+    SizeContext?: typeof SizeContext;
+    config?: typeof setGlobalConfig;
+    useConfig?: typeof useConfig;
+  },
+) => {
   const context = React.useContext<ConfigConsumerProps>(ConfigContext);
   const antLocale = React.useContext<LocaleContextProps | undefined>(LocaleContext);
   return <ProviderChildren parentContext={context} legacyLocale={antLocale!} {...props} />;

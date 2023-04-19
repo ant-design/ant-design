@@ -25,10 +25,10 @@ export interface StatisticProps extends FormatConfig {
 }
 
 type CompoundedComponent = {
-  Countdown: typeof Countdown;
+  Countdown?: typeof Countdown;
 };
 
-const Statistic: React.FC<StatisticProps> & CompoundedComponent = (props) => {
+const Statistic = (props: StatisticProps & CompoundedComponent) => {
   const {
     prefixCls: customizePrefixCls,
     className,

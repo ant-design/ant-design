@@ -92,11 +92,11 @@ const CloseIcon = (props: CloseIconProps) => {
   ) : null;
 };
 
-type CompoundedComponent = React.FC<AlertProps> & {
-  ErrorBoundary: typeof ErrorBoundary;
+type CompoundedComponent = {
+  ErrorBoundary?: typeof ErrorBoundary;
 };
 
-const Alert: CompoundedComponent = ({
+const Alert = ({
   description,
   prefixCls: customizePrefixCls,
   message,
@@ -114,7 +114,7 @@ const Alert: CompoundedComponent = ({
   closeIcon = <CloseOutlined />,
   action,
   ...props
-}) => {
+}: AlertProps & CompoundedComponent) => {
   const [closed, setClosed] = React.useState(false);
 
   const ref = React.useRef<HTMLElement>();

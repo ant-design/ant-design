@@ -385,7 +385,7 @@ describe('Tour', () => {
   });
 
   it('controlled current', () => {
-    const App: React.FC = () => {
+    const App = () => {
       const [current, setCurrent] = React.useState(0);
       return (
         <>

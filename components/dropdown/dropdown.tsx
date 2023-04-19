@@ -86,12 +86,12 @@ export interface DropdownProps {
   onVisibleChange?: (open: boolean) => void;
 }
 
-type CompoundedComponent = React.FC<DropdownProps> & {
-  Button: typeof DropdownButton;
-  _InternalPanelDoNotUseOrYouWillBeFired: typeof WrapPurePanel;
+type CompoundedComponent = {
+  Button?: typeof DropdownButton;
+  _InternalPanelDoNotUseOrYouWillBeFired?: typeof WrapPurePanel;
 };
 
-const Dropdown: CompoundedComponent = (props) => {
+const Dropdown = (props: DropdownProps & CompoundedComponent) => {
   const {
     menu,
     arrow,

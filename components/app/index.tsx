@@ -20,7 +20,7 @@ export interface AppProps extends AppConfig {
 
 const useApp = () => React.useContext<useAppProps>(AppContext);
 
-const App: React.FC<AppProps> & { useApp: typeof useApp } = (props) => {
+const App = (props: AppProps & { useApp?: typeof useApp }) => {
   const {
     prefixCls: customizePrefixCls,
     children,

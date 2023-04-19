@@ -100,12 +100,12 @@ const getPath = (params: any, path?: string) => {
   return mergedPath;
 };
 
-type CompoundedComponent = React.FC<BreadcrumbProps> & {
-  Item: typeof BreadcrumbItem;
-  Separator: typeof BreadcrumbSeparator;
+type CompoundedComponent = {
+  Item?: typeof BreadcrumbItem;
+  Separator?: typeof BreadcrumbSeparator;
 };
 
-const Breadcrumb: CompoundedComponent = (props) => {
+const Breadcrumb = (props: BreadcrumbProps & CompoundedComponent) => {
   const {
     prefixCls: customizePrefixCls,
     separator = '/',

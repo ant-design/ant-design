@@ -55,10 +55,12 @@ describe('Pagination', () => {
   });
 
   it('should support custom selectComponentClass', () => {
-    const CustomSelect: React.FC<{ className?: string }> & { Option: OptionFC } = ({
+    const CustomSelect = ({
       className,
       ...props
-    }) => <Select className={`${className} custom-select`} {...props} />;
+    }: { className?: string } & { Option: OptionFC }) => (
+      <Select className={`${className} custom-select`} {...props} />
+    );
 
     CustomSelect.Option = Select.Option;
 

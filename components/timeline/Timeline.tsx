@@ -23,11 +23,11 @@ export interface TimelineProps {
   children?: React.ReactNode;
 }
 
-type CompoundedComponent = React.FC<TimelineProps> & {
-  Item: React.FC<TimelineItemProps>;
+type CompoundedComponent = {
+  Item?: (props: TimelineItemProps) => {};
 };
 
-const Timeline: CompoundedComponent = (props) => {
+const Timeline = (props: TimelineProps & CompoundedComponent) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const { prefixCls: customizePrefixCls, children, items, ...restProps } = props;
   const prefixCls = getPrefixCls('timeline', customizePrefixCls);

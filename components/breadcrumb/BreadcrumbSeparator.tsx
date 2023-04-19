@@ -1,12 +1,14 @@
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 
-type CompoundedComponent = React.FC<{ children?: React.ReactNode }> & {
+type CompoundedComponent = {
   /** @internal */
-  __ANT_BREADCRUMB_SEPARATOR: boolean;
+  __ANT_BREADCRUMB_SEPARATOR?: boolean;
 };
 
-const BreadcrumbSeparator: CompoundedComponent = ({ children }) => {
+const BreadcrumbSeparator = ({
+  children,
+}: { children?: React.ReactNode } & CompoundedComponent) => {
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('breadcrumb');
 
