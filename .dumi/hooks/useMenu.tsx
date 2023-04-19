@@ -1,8 +1,9 @@
 import type { ReactNode } from 'react';
 import React, { useMemo } from 'react';
 import type { MenuProps } from 'antd';
-import { Link, useFullSidebarData, useSidebarData } from 'dumi';
+import { useFullSidebarData, useSidebarData } from 'dumi';
 import useLocation from './useLocation';
+import Link from '../theme/common/Link';
 
 export type UseMenuOptions = {
   before?: ReactNode;

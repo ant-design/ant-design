@@ -172,3 +172,7 @@ ReactDOM.createRoot(mountNode).render(<Icon component={MessageSvg} />);
 | height    | `svg` 元素高度          | string \| number | `1em`          |      |
 | style     | 计算后的 `svg` 元素样式 | CSSProperties    | -              |      |
 | width     | `svg` 元素宽度          | string \| number | `1em`          |      |
+
+## Design Token
+
+<ComponentTokenTable component="Icon"></ComponentTokenTable>

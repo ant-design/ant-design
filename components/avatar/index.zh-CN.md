@@ -57,3 +57,7 @@ group:
 | maxPopoverTrigger | 设置多余头像 Popover 的触发方式 | `hover` \| `focus` \| `click` | `hover` | 4.17.0 |
 | maxStyle | 多余头像样式 | CSSProperties | - |  |
 | size | 设置头像的大小 | number \| `large` \| `small` \| `default` \| { xs: number, sm: number, ...} | `default` | 4.8.0 |
+
+## Design Token
+
+<ComponentTokenTable component="Avatar"></ComponentTokenTable>

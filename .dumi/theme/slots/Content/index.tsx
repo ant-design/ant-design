@@ -15,6 +15,7 @@ import type { DemoContextProps } from '../DemoContext';
 import DemoContext from '../DemoContext';
 import Footer from '../Footer';
 import SiteContext from '../SiteContext';
+import useLayoutState from '../../../hooks/useLayoutState';
 
 const useStyle = () => {
   const { token } = useSiteToken();
@@ -141,7 +142,7 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
   const { token } = useSiteToken();
   const { direction } = useContext(SiteContext);
 
-  const [showDebug, setShowDebug] = useState(false);
+  const [showDebug, setShowDebug] = useLayoutState(false);
   const debugDemos = useMemo(
     () => meta.toc?.filter((item) => item._debug_demo).map((item) => item.id) || [],
     [meta],

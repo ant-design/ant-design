@@ -1,8 +1,8 @@
 const React = require('react');
-const glob = require('glob');
+const { globSync } = require('glob');
 const path = require('path');
 
-const styleFiles = glob.globSync(
+const styleFiles = globSync(
   path.join(
     process.cwd(),
     'components/!(version|config-provider|icon|auto-complete|col|row|time-picker)/style/index.?(ts|tsx)',

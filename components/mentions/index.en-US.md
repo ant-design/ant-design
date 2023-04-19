@@ -87,3 +87,7 @@ return (
 | disabled | Optional | boolean | - |
 | className | className | string | - |
 | style | The style of the option | React.CSSProperties | - |
+
+## Design Token
+
+<ComponentTokenTable component="Mentions"></ComponentTokenTable>

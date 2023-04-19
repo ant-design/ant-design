@@ -13,7 +13,7 @@ group:
 
 能够将文本转换生成二维码的组件，支持自定义配色和 Logo 配置，自 `antd@5.1.0` 版本开始提供该组件。
 
-<Alert message="若二维码无法扫码识别，可能是因为链接地址过长导致像素过于密集，可以通过 `size` 配置二维码更大，或者通过短链接服务等方式将链接变短。"></Alert>
+<Alert message="若二维码无法扫码识别，可能是因为链接地址过长导致像素过于密集，可以通过 size 配置二维码更大，或者通过短链接服务等方式将链接变短。"></Alert>
 
 ## 何时使用
 
@@ -46,6 +46,10 @@ group:
 | errorLevel | 二维码纠错等级 | `'L' \| 'M' \| 'Q' \| 'H' ` | `M` |
 | status | 二维码状态 | `active \| expired \| loading ` | `active` |
 | onRefresh | 点击"点击刷新"的回调 | `() => void` | - |
+
+## Design Token
+
+<ComponentTokenTable component="QRCode"></ComponentTokenTable>
 
 ## FAQ
 

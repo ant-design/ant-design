@@ -48,6 +48,10 @@ The difference with the `confirm` modal dialog is that it's more lightweight tha
 
 Consult [Tooltip's documentation](/components/tooltip/#api) to find more APIs.
 
+## Design Token
+
+<ComponentTokenTable component="Popconfirm"></ComponentTokenTable>
+
 ## Note
 
 Please ensure that the child node of `Popconfirm` accepts `onMouseEnter`, `onMouseLeave`, `onFocus`, `onClick` events.

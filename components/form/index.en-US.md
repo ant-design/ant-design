@@ -481,6 +481,10 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 | form | Form instance | FormInstance | Current form in context | 5.4.0 |
 | preserve | Whether to watch the field which has no matched `Form.Item` | boolean | false | 5.4.0 |
 
+## Design Token
+
+<ComponentTokenTable component="Form"></ComponentTokenTable>
+
 ## FAQ
 
 ### Custom validator not working

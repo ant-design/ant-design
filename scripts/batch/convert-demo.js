@@ -6,14 +6,14 @@
 // ==============================================================================
 
 const path = require('path');
-const glob = require('glob');
+const { globSync } = require('glob');
 const fs = require('fs-extra');
 const chalk = require('chalk');
 
 (async () => {
   console.time('Execution...');
 
-  const demoFiles = glob.globSync(path.join(process.cwd(), 'components/*/demo/*.md'));
+  const demoFiles = globSync(path.join(process.cwd(), 'components/*/demo/*.md'));
 
   const tmpFolder = path.resolve('components', '~tmp');
   await fs.remove(tmpFolder);

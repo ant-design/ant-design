@@ -173,7 +173,8 @@ describe('Typography', () => {
           } else if (tooltips[0] === '' && tooltips[1]) {
             expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe(tooltips[1]);
           } else if (tooltips[1] === '' && tooltips[0]) {
-            expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe('');
+            // Tooltip will be hidden in this case, with content memoized
+            expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe(tooltips[0]);
           } else {
             expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe(tooltips[1]);
           }

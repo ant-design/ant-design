@@ -41,3 +41,7 @@ When part of the page is waiting for asynchronous data or during a rendering pro
 - `Spin.setDefaultIndicator(indicator: ReactNode)`
 
   You can define default spin element globally.
+
+## Design Token
+
+<ComponentTokenTable component="Spin"></ComponentTokenTable>

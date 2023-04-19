@@ -13373,7 +13373,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                                 </div>
                                 <div>
                                   <div
-                                    class="ant-dropdown-menu-submenu ant-dropdown-menu-submenu-popup ant-dropdown-menu ant-table-filter-dropdown-submenu ant-dropdown-menu-light"
+                                    class="ant-dropdown-menu-submenu ant-dropdown-menu-submenu-popup ant-dropdown-menu ant-table-filter-dropdown-submenu ant-dropdown-menu-light ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
                                     style="opacity: 0;"
                                   >
                                     <ul

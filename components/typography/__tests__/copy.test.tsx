@@ -74,10 +74,9 @@ describe('Typography copy', () => {
           fireEvent.mouseEnter(wrapper.querySelectorAll('.ant-typography-copy')[0]);
 
           if (tooltipTexts[1] !== undefined) {
+            const expectedInner = tooltipTexts[1] === '' ? tooltipTexts[0] : tooltipTexts[1];
             await waitFor(() => {
-              expect(wrapper.querySelector('.ant-tooltip-inner')?.textContent).toBe(
-                tooltipTexts[1],
-              );
+              expect(wrapper.querySelector('.ant-tooltip-inner')?.textContent).toBe(expectedInner);
             });
           }
 

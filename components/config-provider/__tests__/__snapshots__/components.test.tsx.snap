@@ -15190,7 +15190,7 @@ exports[`ConfigProvider components List prefixCls 1`] = `
 `;
 
 exports[`ConfigProvider components Menu configProvider 1`] = `
-HTMLCollection [
+Array [
   <ul
     class="config-menu config-menu-root config-menu-inline config-menu-light"
     data-menu-list="true"
@@ -15267,7 +15267,7 @@ HTMLCollection [
 `;
 
 exports[`ConfigProvider components Menu configProvider componentDisabled 1`] = `
-HTMLCollection [
+Array [
   <ul
     class="config-menu config-menu-root config-menu-inline config-menu-light"
     data-menu-list="true"
@@ -15344,7 +15344,7 @@ HTMLCollection [
 `;
 
 exports[`ConfigProvider components Menu configProvider componentSize large 1`] = `
-HTMLCollection [
+Array [
   <ul
     class="config-menu config-menu-root config-menu-inline config-menu-light"
     data-menu-list="true"
@@ -15421,7 +15421,7 @@ HTMLCollection [
 `;
 
 exports[`ConfigProvider components Menu configProvider componentSize middle 1`] = `
-HTMLCollection [
+Array [
   <ul
     class="config-menu config-menu-root config-menu-inline config-menu-light"
     data-menu-list="true"
@@ -15498,7 +15498,7 @@ HTMLCollection [
 `;
 
 exports[`ConfigProvider components Menu normal 1`] = `
-HTMLCollection [
+Array [
   <ul
     class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
     data-menu-list="true"
@@ -15575,7 +15575,7 @@ HTMLCollection [
 `;
 
 exports[`ConfigProvider components Menu prefixCls 1`] = `
-HTMLCollection [
+Array [
   <ul
     class="prefix-Menu prefix-Menu-root prefix-Menu-inline prefix-Menu-light"
     data-menu-list="true"
@@ -25200,7 +25200,7 @@ exports[`ConfigProvider components Tags prefixCls 1`] = `
 `;
 
 exports[`ConfigProvider components TimePicker configProvider 1`] = `
-HTMLCollection [
+Array [
   <div
     class="config-picker"
   >
@@ -26613,7 +26613,7 @@ HTMLCollection [
 `;
 
 exports[`ConfigProvider components TimePicker configProvider componentDisabled 1`] = `
-HTMLCollection [
+Array [
   <div
     class="config-picker config-picker-disabled"
   >
@@ -26661,7 +26661,7 @@ HTMLCollection [
 `;
 
 exports[`ConfigProvider components TimePicker configProvider componentSize large 1`] = `
-HTMLCollection [
+Array [
   <div
     class="config-picker config-picker-large"
   >
@@ -28074,7 +28074,7 @@ HTMLCollection [
 `;
 
 exports[`ConfigProvider components TimePicker configProvider componentSize middle 1`] = `
-HTMLCollection [
+Array [
   <div
     class="config-picker config-picker-middle"
   >
@@ -29487,7 +29487,7 @@ HTMLCollection [
 `;
 
 exports[`ConfigProvider components TimePicker normal 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-picker"
   >
@@ -30900,7 +30900,7 @@ HTMLCollection [
 `;
 
 exports[`ConfigProvider components TimePicker prefixCls 1`] = `
-HTMLCollection [
+Array [
   <div
     class="prefix-TimePicker"
   >
@@ -32445,7 +32445,7 @@ exports[`ConfigProvider components Timeline prefixCls 1`] = `
 `;
 
 exports[`ConfigProvider components Tooltip configProvider 1`] = `
-HTMLCollection [
+Array [
   <span
     class="config-tooltip-open"
   >
@@ -32474,7 +32474,7 @@ HTMLCollection [
 `;
 
 exports[`ConfigProvider components Tooltip configProvider componentDisabled 1`] = `
-HTMLCollection [
+Array [
   <span
     class="config-tooltip-open"
   >
@@ -32503,7 +32503,7 @@ HTMLCollection [
 `;
 
 exports[`ConfigProvider components Tooltip configProvider componentSize large 1`] = `
-HTMLCollection [
+Array [
   <span
     class="config-tooltip-open"
   >
@@ -32532,7 +32532,7 @@ HTMLCollection [
 `;
 
 exports[`ConfigProvider components Tooltip configProvider componentSize middle 1`] = `
-HTMLCollection [
+Array [
   <span
     class="config-tooltip-open"
   >
@@ -32561,7 +32561,7 @@ HTMLCollection [
 `;
 
 exports[`ConfigProvider components Tooltip normal 1`] = `
-HTMLCollection [
+Array [
   <span
     class="ant-tooltip-open"
   >
@@ -32590,7 +32590,7 @@ HTMLCollection [
 `;
 
 exports[`ConfigProvider components Tooltip prefixCls 1`] = `
-HTMLCollection [
+Array [
   <span
     class="prefix-Tooltip-open"
   >
