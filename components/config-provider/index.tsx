@@ -30,10 +30,10 @@ import type { RenderEmptyHandler } from './defaultRenderEmpty';
 import { DisabledContextProvider } from './DisabledContext';
 import useConfig from './hooks/useConfig';
 import useTheme from './hooks/useTheme';
+import MotionWrapper from './MotionWrapper';
 import type { SizeType } from './SizeContext';
 import SizeContext, { SizeContextProvider } from './SizeContext';
 import useStyle from './style';
-import MotionWrapper from './MotionWrapper';
 
 /**
  * Since too many feedback using static method like `Modal.confirm` not getting theme,
@@ -324,6 +324,9 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     childNode = <SizeContextProvider size={componentSize}>{childNode}</SizeContextProvider>;
   }
 
+  // =================================== Motion ===================================
+  childNode = <MotionWrapper>{childNode}</MotionWrapper>;
+
   // ================================ Dynamic theme ================================
   const memoTheme = React.useMemo(() => {
     const { algorithm, token, ...rest } = mergedTheme || {};
@@ -348,9 +351,6 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
       <DesignTokenContext.Provider value={memoTheme}>{childNode}</DesignTokenContext.Provider>
     );
   }
-
-  // =================================== Motion ===================================
-  childNode = <MotionWrapper>{childNode}</MotionWrapper>;
 
   // =================================== Render ===================================
   if (componentDisabled !== undefined) {
