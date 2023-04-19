@@ -1,15 +1,13 @@
 import type { ReactElement } from 'react';
 import React, { useMemo } from 'react';
-import { ClassNames, css } from '@emotion/react';
 import type { MenuProps } from 'antd';
 import type { MenuItemType } from 'antd/es/menu/hooks/useItems';
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
+import { createStyles, css } from 'antd-style';
+import classNames from 'classnames';
 import useMenu from '../../hooks/useMenu';
-import useSiteToken from '../../hooks/useSiteToken';
 
-const useStyle = () => {
-  const { token } = useSiteToken();
-
+const useStyle = createStyles(({ token }) => {
   const { colorSplit, iconCls, fontSizeIcon } = token;
 
   return {
@@ -22,7 +20,7 @@ const useStyle = () => {
       border-top: 1px solid ${colorSplit};
       display: flex;
     `,
-    pageNav: `
+    pageNav: css`
       flex: 1;
       height: 72px;
       line-height: 72px;
@@ -37,7 +35,7 @@ const useStyle = () => {
         margin-inline-start: 4px;
       }
     `,
-    prevNav: `
+    prevNav: css`
       text-align: start;
 
       .footer-nav-icon-after {
@@ -57,7 +55,7 @@ const useStyle = () => {
         right: 0.2em;
       }
     `,
-    nextNav: `
+    nextNav: css`
       text-align: end;
 
       .footer-nav-icon-before {
@@ -79,7 +77,7 @@ const useStyle = () => {
       }
     `,
   };
-};
+});
 
 const flattenMenu = (menuItems: MenuProps['items']): MenuProps['items'] | null => {
   if (Array.isArray(menuItems)) {
@@ -97,7 +95,7 @@ const flattenMenu = (menuItems: MenuProps['items']): MenuProps['items'] | null =
 };
 
 const PrevAndNext: React.FC = () => {
-  const styles = useStyle();
+  const { styles } = useStyle();
 
   const [menuItems, selectedKey] = useMenu({
     before: <LeftOutlined className="footer-nav-icon-before" />,
@@ -122,21 +120,15 @@ const PrevAndNext: React.FC = () => {
   }, [menuItems, selectedKey]);
 
   return (
-    <section css={styles.prevNextNav}>
-      <ClassNames>
-        {({ css: classCss, cx }) => (
-          <>
-            {prev &&
-              React.cloneElement(prev.label as ReactElement, {
-                className: cx(classCss(styles.pageNav), classCss(styles.prevNav)),
-              })}
-            {next &&
-              React.cloneElement(next.label as ReactElement, {
-                className: cx(classCss(styles.pageNav), classCss(styles.nextNav)),
-              })}
-          </>
-        )}
-      </ClassNames>
+    <section className={styles.prevNextNav}>
+      {prev &&
+        React.cloneElement(prev.label as ReactElement, {
+          className: classNames(styles.pageNav, styles.prevNav),
+        })}
+      {next &&
+        React.cloneElement(next.label as ReactElement, {
+          className: classNames(styles.pageNav, styles.nextNav),
+        })}
     </section>
   );
 };
