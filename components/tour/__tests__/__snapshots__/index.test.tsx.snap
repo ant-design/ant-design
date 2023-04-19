@@ -10,7 +10,7 @@ exports[`Tour Primary 1`] = `
       Cover
     </button>
     <div
-      class="ant-tour null ant-tour-placement-bottom"
+      class="ant-tour ant-tour-placement-bottom"
       style="left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
     >
       <div
@@ -205,7 +205,7 @@ exports[`Tour button props onClick 1`] = `
 
 exports[`Tour custom step pre btn & next btn className & style 1`] = `
 <div
-  class="ant-tour null ant-tour-placement-bottom"
+  class="ant-tour ant-tour-placement-bottom"
   style="left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
 >
   <div
@@ -292,7 +292,7 @@ exports[`Tour single 1`] = `
       Cover
     </button>
     <div
-      class="ant-tour null ant-tour-placement-bottom"
+      class="ant-tour ant-tour-placement-bottom"
       style="left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
     >
       <div
@@ -451,7 +451,7 @@ exports[`Tour step support Primary 1`] = `
       Cover
     </button>
     <div
-      class="ant-tour null ant-tour-placement-bottom"
+      class="ant-tour ant-tour-placement-bottom"
       style="left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
     >
       <div
