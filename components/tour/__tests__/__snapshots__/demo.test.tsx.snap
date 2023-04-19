@@ -538,7 +538,7 @@ exports[`renders components/tour/demo/render-panel.tsx correctly 1`] = `
         role="tooltip"
       >
         <div
-          class="ant-tour-primary ant-tour-content"
+          class="ant-tour-content"
         >
           <div
             class="ant-tour-inner"
