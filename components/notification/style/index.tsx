@@ -1,4 +1,4 @@
-import { Keyframes } from '@ant-design/cssinjs';
+import { CSSObject, Keyframes } from '@ant-design/cssinjs';
 import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
@@ -82,6 +82,100 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
     },
   });
 
+  const noticeStyle: CSSObject = {
+    position: 'relative',
+    width,
+    maxWidth: `calc(100vw - ${notificationMarginEdge * 2}px)`,
+    marginBottom: notificationMarginBottom,
+    marginInlineStart: 'auto',
+    padding: notificationPadding,
+    overflow: 'hidden',
+    lineHeight,
+    wordWrap: 'break-word',
+    background: notificationBg,
+    borderRadius: borderRadiusLG,
+    boxShadow,
+
+    [`${componentCls}-close-icon`]: {
+      fontSize,
+      cursor: 'pointer',
+    },
+
+    [`${noticeCls}-message`]: {
+      marginBottom: token.marginXS,
+      color: colorTextHeading,
+      fontSize: fontSizeLG,
+      lineHeight: token.lineHeightLG,
+    },
+
+    [`${noticeCls}-description`]: {
+      fontSize,
+    },
+
+    [`&${noticeCls}-closable ${noticeCls}-message`]: {
+      paddingInlineEnd: token.paddingLG,
+    },
+
+    [`${noticeCls}-with-icon ${noticeCls}-message`]: {
+      marginBottom: token.marginXS,
+      marginInlineStart: token.marginSM + notificationIconSize,
+      fontSize: fontSizeLG,
+    },
+
+    [`${noticeCls}-with-icon ${noticeCls}-description`]: {
+      marginInlineStart: token.marginSM + notificationIconSize,
+      fontSize,
+    },
+
+    // Icon & color style in different selector level
+    // https://github.com/ant-design/ant-design/issues/16503
+    // https://github.com/ant-design/ant-design/issues/15512
+    [`${noticeCls}-icon`]: {
+      position: 'absolute',
+      fontSize: notificationIconSize,
+      lineHeight: 0,
+
+      // icon-font
+      [`&-success${iconCls}`]: {
+        color: colorSuccess,
+      },
+      [`&-info${iconCls}`]: {
+        color: colorInfo,
+      },
+      [`&-warning${iconCls}`]: {
+        color: colorWarning,
+      },
+      [`&-error${iconCls}`]: {
+        color: colorError,
+      },
+    },
+
+    [`${noticeCls}-close`]: {
+      position: 'absolute',
+      top: token.notificationPaddingVertical,
+      insetInlineEnd: token.notificationPaddingHorizontal,
+      color: token.colorIcon,
+      outline: 'none',
+      width: token.notificationCloseButtonSize,
+      height: token.notificationCloseButtonSize,
+      borderRadius: token.borderRadiusSM,
+      transition: `background-color ${token.motionDurationMid}, color ${token.motionDurationMid}`,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+
+      '&:hover': {
+        color: token.colorIconHover,
+        backgroundColor: token.wireframe ? 'transparent' : token.colorFillContent,
+      },
+    },
+
+    [`${noticeCls}-btn`]: {
+      float: 'right',
+      marginTop: token.marginSM,
+    },
+  };
+
   return [
     // ============================ Holder ============================
     {
@@ -155,97 +249,7 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
     {
       [componentCls]: {
         [noticeCls]: {
-          position: 'relative',
-          width,
-          maxWidth: `calc(100vw - ${notificationMarginEdge * 2}px)`,
-          marginBottom: notificationMarginBottom,
-          marginInlineStart: 'auto',
-          padding: notificationPadding,
-          overflow: 'hidden',
-          lineHeight,
-          wordWrap: 'break-word',
-          background: notificationBg,
-          borderRadius: borderRadiusLG,
-          boxShadow,
-
-          [`${componentCls}-close-icon`]: {
-            fontSize,
-            cursor: 'pointer',
-          },
-
-          [`${noticeCls}-message`]: {
-            marginBottom: token.marginXS,
-            color: colorTextHeading,
-            fontSize: fontSizeLG,
-            lineHeight: token.lineHeightLG,
-          },
-
-          [`${noticeCls}-description`]: {
-            fontSize,
-          },
-
-          [`&${noticeCls}-closable ${noticeCls}-message`]: {
-            paddingInlineEnd: token.paddingLG,
-          },
-
-          [`${noticeCls}-with-icon ${noticeCls}-message`]: {
-            marginBottom: token.marginXS,
-            marginInlineStart: token.marginSM + notificationIconSize,
-            fontSize: fontSizeLG,
-          },
-
-          [`${noticeCls}-with-icon ${noticeCls}-description`]: {
-            marginInlineStart: token.marginSM + notificationIconSize,
-            fontSize,
-          },
-
-          // Icon & color style in different selector level
-          // https://github.com/ant-design/ant-design/issues/16503
-          // https://github.com/ant-design/ant-design/issues/15512
-          [`${noticeCls}-icon`]: {
-            position: 'absolute',
-            fontSize: notificationIconSize,
-            lineHeight: 0,
-
-            // icon-font
-            [`&-success${iconCls}`]: {
-              color: colorSuccess,
-            },
-            [`&-info${iconCls}`]: {
-              color: colorInfo,
-            },
-            [`&-warning${iconCls}`]: {
-              color: colorWarning,
-            },
-            [`&-error${iconCls}`]: {
-              color: colorError,
-            },
-          },
-
-          [`${noticeCls}-close`]: {
-            position: 'absolute',
-            top: token.notificationPaddingVertical,
-            insetInlineEnd: token.notificationPaddingHorizontal,
-            color: token.colorIcon,
-            outline: 'none',
-            width: token.notificationCloseButtonSize,
-            height: token.notificationCloseButtonSize,
-            borderRadius: token.borderRadiusSM,
-            transition: `background-color ${token.motionDurationMid}, color ${token.motionDurationMid}`,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-
-            '&:hover': {
-              color: token.colorIconHover,
-              backgroundColor: token.wireframe ? 'transparent' : token.colorFillContent,
-            },
-          },
-
-          [`${noticeCls}-btn`]: {
-            float: 'right',
-            marginTop: token.marginSM,
-          },
+          ...noticeStyle,
         },
       },
     },
@@ -253,6 +257,7 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
     // ============================= Pure =============================
     {
       [`${noticeCls}-pure-panel`]: {
+        ...noticeStyle,
         margin: 0,
       },
     },

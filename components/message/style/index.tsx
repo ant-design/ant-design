@@ -1,5 +1,5 @@
 // deps-lint-skip-all
-import { Keyframes } from '@ant-design/cssinjs';
+import { CSSObject, Keyframes } from '@ant-design/cssinjs';
 import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
@@ -67,6 +67,40 @@ const genMessageStyle: GenerateStyle<MessageToken> = (token) => {
     },
   });
 
+  const noticeStyle: CSSObject = {
+    padding: paddingXS,
+    textAlign: 'center',
+
+    [`${componentCls}-custom-content > ${iconCls}`]: {
+      verticalAlign: 'text-bottom',
+      marginInlineEnd: marginXS, // affected by ltr or rtl
+      fontSize: fontSizeLG,
+    },
+
+    [`${noticeCls}-content`]: {
+      display: 'inline-block',
+      padding: messageNoticeContentPadding,
+      background: colorBgElevated,
+      borderRadius: borderRadiusLG,
+      boxShadow,
+      pointerEvents: 'all',
+    },
+
+    [`${componentCls}-success > ${iconCls}`]: {
+      color: colorSuccess,
+    },
+    [`${componentCls}-error > ${iconCls}`]: {
+      color: colorError,
+    },
+    [`${componentCls}-warning > ${iconCls}`]: {
+      color: colorWarning,
+    },
+    [`${componentCls}-info > ${iconCls},
+      ${componentCls}-loading > ${iconCls}`]: {
+      color: colorInfo,
+    },
+  };
+
   return [
     // ============================ Holder ============================
     {
@@ -119,38 +153,7 @@ const genMessageStyle: GenerateStyle<MessageToken> = (token) => {
     {
       [componentCls]: {
         [noticeCls]: {
-          padding: paddingXS,
-          textAlign: 'center',
-
-          [`${componentCls}-custom-content > ${iconCls}`]: {
-            verticalAlign: 'text-bottom',
-            marginInlineEnd: marginXS, // affected by ltr or rtl
-            fontSize: fontSizeLG,
-          },
-
-          [`${noticeCls}-content`]: {
-            display: 'inline-block',
-            padding: messageNoticeContentPadding,
-            background: colorBgElevated,
-            borderRadius: borderRadiusLG,
-            boxShadow,
-            pointerEvents: 'all',
-          },
-
-          [`${componentCls}-success > ${iconCls}`]: {
-            color: colorSuccess,
-          },
-          [`${componentCls}-error > ${iconCls}`]: {
-            color: colorError,
-          },
-          [`${componentCls}-warning > ${iconCls}`]: {
-            color: colorWarning,
-          },
-          [`
-        ${componentCls}-info > ${iconCls},
-        ${componentCls}-loading > ${iconCls}`]: {
-            color: colorInfo,
-          },
+          ...noticeStyle,
         },
       },
     },
@@ -158,6 +161,7 @@ const genMessageStyle: GenerateStyle<MessageToken> = (token) => {
     // ============================= Pure =============================
     {
       [`${componentCls}-notice-pure-panel`]: {
+        ...noticeStyle,
         padding: 0,
         textAlign: 'start',
       },
