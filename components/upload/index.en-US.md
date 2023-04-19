@@ -120,6 +120,10 @@ When uploading state change, it returns:
 
 3. `event` response from server, including uploading progress, supported by advanced browsers.
 
+## Design Token
+
+<ComponentTokenTable component="Upload"></ComponentTokenTable>
+
 ## FAQ
 
 ### How do I implement upload server side?

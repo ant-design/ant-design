@@ -93,6 +93,10 @@ Transfer 支持接收 `children` 自定义渲染列表，并返回以下参数�
 return <Transfer rowKey={(record) => record.uid} />;
 ```
 
+## Design Token
+
+<ComponentTokenTable component="Transfer"></ComponentTokenTable>
+
 ## FAQ
 
 ### 怎样让 Transfer 穿梭框列表支持异步数据加载

@@ -219,6 +219,6 @@ describe('Theme', () => {
       </ConfigProvider>,
     );
 
-    expect(container.querySelector('.duration')?.textContent).toEqual('0.0001s');
+    expect(container.querySelector('.duration')?.textContent).toEqual('0s');
   });
 });

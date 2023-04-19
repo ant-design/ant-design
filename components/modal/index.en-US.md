@@ -168,6 +168,10 @@ React.useEffect(() => {
 return <div>{contextHolder}</div>;
 ```
 
+## Design Token
+
+<ComponentTokenTable component="Modal"></ComponentTokenTable>
+
 ## FAQ
 
 ### Why content not update when Modal closed?

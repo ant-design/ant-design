@@ -5,7 +5,11 @@ import { useTabMeta } from 'dumi';
 import CodePreviewer from './CodePreviewer';
 import DesignPreviewer from './DesignPreviewer';
 
-const Previewer: FC<IPreviewerProps> = ({ ...props }) => {
+export interface AntdPreviewerProps extends IPreviewerProps {
+  originDebug?: IPreviewerProps['debug'];
+}
+
+const Previewer: FC<AntdPreviewerProps> = ({ ...props }) => {
   const tab = useTabMeta();
 
   if (tab?.frontmatter.title === 'Design') {

@@ -74,6 +74,10 @@ demo:
 | blur()  | 移除焦点 |      |
 | focus() | 获取焦点 |      |
 
+## Design Token
+
+<ComponentTokenTable component="Select"></ComponentTokenTable>
+
 ## FAQ
 
 ### 为何受控状态下使用 onSearch 无法输入中文？

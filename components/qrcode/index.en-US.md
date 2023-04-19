@@ -12,7 +12,7 @@ group:
 
 Components that can convert text into QR codes, and support custom color and logo. Available since `antd@5.1.0`.
 
-<Alert message="If the QR code cannot be scanned for identification, it may be because the link address is too long, which leads to too dense pixels. You can configure the QR code to be larger through `size`, or shorten the link through short link services."></Alert>
+<Alert message="If the QR code cannot be scanned for identification, it may be because the link address is too long, which leads to too dense pixels. You can configure the QR code to be larger through size, or shorten the link through short link services."></Alert>
 
 ## When To Use
 
@@ -45,6 +45,10 @@ Used when the text needs to be converted into a QR Code.
 | errorLevel | Error Code Level | `'L' \| 'M' \| 'Q' \| 'H' ` | `M` |
 | status | QRCode status | `active \| expired \| loading ` | `active` |
 | onRefresh | callback | `() => void` | - |
+
+## Design Token
+
+<ComponentTokenTable component="QRCode"></ComponentTokenTable>
 
 ## FAQ
 

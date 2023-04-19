@@ -40,3 +40,7 @@ Consult [Tooltip's documentation](/components/tooltip/#api) to find more APIs.
 ## Note
 
 Please ensure that the child node of `Popover` accepts `onMouseEnter`, `onMouseLeave`, `onFocus`, `onClick` events.
+
+## Design Token
+
+<ComponentTokenTable component="Popover"></ComponentTokenTable>

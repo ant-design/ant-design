@@ -10,6 +10,7 @@ import type { DirectionType } from 'antd/es/config-provider';
 import { createSearchParams, useOutlet, useSearchParams } from 'dumi';
 import React, { useCallback, useEffect, useMemo } from 'react';
 import useLayoutState from '../../hooks/useLayoutState';
+import SiteThemeProvider from '../SiteThemeProvider';
 import useLocation from '../../hooks/useLocation';
 import type { ThemeName } from '../common/ThemeSwitch';
 import ThemeSwitch from '../common/ThemeSwitch';
@@ -120,15 +121,17 @@ const GlobalLayout: React.FC = () => {
             },
           }}
         >
-          <App>
-            {outlet}
-            {!pathname.startsWith('/~demos') && (
-              <ThemeSwitch
-                value={theme}
-                onChange={(nextTheme) => updateSiteConfig({ theme: nextTheme })}
-              />
-            )}
-          </App>
+          <SiteThemeProvider>
+            <App>
+              {outlet}
+              {!pathname.startsWith('/~demos') && (
+                <ThemeSwitch
+                  value={theme}
+                  onChange={(nextTheme) => updateSiteConfig({ theme: nextTheme })}
+                />
+              )}
+            </App>
+          </SiteThemeProvider>
         </ConfigProvider>
       </SiteContext.Provider>
     </StyleProvider>

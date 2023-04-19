@@ -540,8 +540,12 @@ describe('Calendar', () => {
   });
 
   it('support Calendar.generateCalendar', () => {
+    jest.useFakeTimers().setSystemTime(new Date('2000-01-01'));
+
     const MyCalendar = Calendar.generateCalendar(dayjsGenerateConfig);
     const { container } = render(<MyCalendar />);
     expect(container.firstChild).toMatchSnapshot();
+
+    jest.useRealTimers();
   });
 });

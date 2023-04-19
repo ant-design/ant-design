@@ -71,6 +71,10 @@ demo:
 | blur()  | 移除焦点 |
 | focus() | 获取焦点 |
 
+## Design Token
+
+<ComponentTokenTable component="InputNumber"></ComponentTokenTable>
+
 ## FAQ
 
 ### 为何受控模式下，`value` 可以超出 `min` 和 `max` 范围？

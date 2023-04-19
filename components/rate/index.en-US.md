@@ -53,3 +53,7 @@ Rate component.
 | ------- | ------------ |
 | blur()  | Remove focus |
 | focus() | Get focus    |
+
+## Design Token
+
+<ComponentTokenTable component="Rate"></ComponentTokenTable>
