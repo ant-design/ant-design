@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { DownOutlined, UpOutlined } from '@ant-design/icons';
-import { Button, Col, Form, Input, Row, Select, theme } from 'antd';
+import { Button, Col, Form, Input, Row, Select, Space, theme } from 'antd';
 
 const { Option } = Select;
 
@@ -31,6 +31,7 @@ const AdvancedSearchForm = () => {
                 message: 'Input something!',
               },
             ]}
+            initialValue="2"
           >
             {i % 3 !== 1 ? (
               <Input placeholder="placeholder" />
@@ -56,13 +57,12 @@ const AdvancedSearchForm = () => {
   return (
     <Form form={form} name="advanced_search" style={formStyle} onFinish={onFinish}>
       <Row gutter={24}>{getFields()}</Row>
-      <Row>
-        <Col span={24} style={{ textAlign: 'right' }}>
+      <div style={{ textAlign: 'right' }}>
+        <Space size="small">
           <Button type="primary" htmlType="submit">
             Search
           </Button>
           <Button
-            style={{ margin: '0 8px' }}
             onClick={() => {
               form.resetFields();
             }}
@@ -77,8 +77,8 @@ const AdvancedSearchForm = () => {
           >
             {expand ? <UpOutlined /> : <DownOutlined />} Collapse
           </a>
-        </Col>
-      </Row>
+        </Space>
+      </div>
     </Form>
   );
 };
@@ -95,10 +95,10 @@ const App: React.FC = () => {
   };
 
   return (
-    <div>
+    <>
       <AdvancedSearchForm />
       <div style={listStyle}>Search Result List</div>
-    </div>
+    </>
   );
 };
 
