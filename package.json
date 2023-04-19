@@ -226,7 +226,7 @@
     "http-server": "^14.0.0",
     "husky": "^8.0.1",
     "identity-obj-proxy": "^3.0.0",
-    "immer": "^9.0.1",
+    "immer": "^10.0.1",
     "inquirer": "^9.1.2",
     "isomorphic-fetch": "^3.0.0",
     "jest": "^29.4.1",
