@@ -108,7 +108,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/Xh-oWqg9k/Tree.svg
 
 ### 在 showLine 时，如何隐藏子节点图标？
 
-文件图标通过 switcherIcon 来实现，如果不需要你可以覆盖对应的样式：<https://codesandbox.io/s/883vo47xp8>
+文件图标通过 switcherIcon 来实现，如果不需要你可以覆盖对应的样式：<https://codesandbox.io/s/elegant-surf-x1zx0p>
 
 ### defaultExpandAll 在异步加载数据时为何不生效？
 
