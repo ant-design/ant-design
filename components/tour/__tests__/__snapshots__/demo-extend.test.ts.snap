@@ -548,7 +548,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-tour ant-tour-placement-bottom"
+    class="ant-tour ant-tour-primary ant-tour-placement-bottom"
     style="left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
   >
     <div
@@ -556,7 +556,7 @@ Array [
       style="position: absolute; top: 0px; left: 0px;"
     />
     <div
-      class="ant-tour-primary ant-tour-content"
+      class="ant-tour-content"
     >
       <div
         class="ant-tour-inner"
@@ -954,7 +954,7 @@ exports[`renders components/tour/demo/render-panel.tsx extend context correctly 
         role="tooltip"
       >
         <div
-          class="ant-tour-primary ant-tour-content"
+          class="ant-tour-content"
         >
           <div
             class="ant-tour-inner"

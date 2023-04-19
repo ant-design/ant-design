@@ -15,6 +15,21 @@ timeline: true
 
 ---
 
+## 5.4.3
+
+`2023-04-19`
+
+- 🐞 Fix FloatButton throws warning `findDOMNode is deprecated in StrictMode`. [#41833](https://github.com/ant-design/ant-design/pull/41833) [@fourcels](https://github.com/fourcels)
+- 🐞 Arrow element support more old browsers which do not support `clip-path: path()`. [#41872](https://github.com/ant-design/ant-design/pull/41872)
+- 🐞 Fix Layout.Sider transition issue when switch theme. [#41828](https://github.com/ant-design/ant-design/pull/41828)
+- 🐞 Fix the problem that when the type of Tour is primary, the color of the arrow is still white. [#41761](https://github.com/ant-design/ant-design/pull/41761)
+- 🐞 Optimize Form field binding, now will ignore comments in Form.Item as subcomponents. [#41771](https://github.com/ant-design/ant-design/pull/41771)
+- 🐞 Fix Input.Password show additional toggle button in Edge. [#41759](https://github.com/ant-design/ant-design/pull/41759)
+- 💄 Fix styling issues with components that have a Tooltip component as their base within the Space.Compact wrapper. [#41707](https://github.com/ant-design/ant-design/pull/41707) [@foryuki](https://github.com/foryuki)
+- 🇩🇪 Fix typo in German locale. [#41780](https://github.com/ant-design/ant-design/pull/41780) [@aaarichter](https://github.com/aaarichter)
+- TypeScript
+  - 🤖 Optimize the type definition of Modal. [#41742](https://github.com/ant-design/ant-design/pull/41742) [@MuxinFeng](https://github.com/MuxinFeng)
+
 ## 5.4.2
 
 `2023-04-11`

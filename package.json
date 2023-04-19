@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "5.4.2",
+  "version": "5.4.3",
   "description": "An enterprise-class UI design language and React components implementation",
   "title": "Ant Design",
   "keywords": [
@@ -108,7 +108,7 @@
   ],
   "dependencies": {
     "@ant-design/colors": "^7.0.0",
-    "@ant-design/cssinjs": "^1.7.1",
+    "@ant-design/cssinjs": "^1.9.0",
     "@ant-design/icons": "^5.0.0",
     "@ant-design/react-slick": "~1.0.0",
     "@babel/runtime": "^7.18.3",
@@ -226,7 +226,7 @@
     "http-server": "^14.0.0",
     "husky": "^8.0.1",
     "identity-obj-proxy": "^3.0.0",
-    "immer": "^9.0.1",
+    "immer": "^10.0.1",
     "inquirer": "^9.1.2",
     "isomorphic-fetch": "^3.0.0",
     "jest": "^29.4.1",
@@ -286,7 +286,7 @@
     "ts-node": "^10.8.2",
     "typedoc": "^0.24.0",
     "typescript": "~5.0.2",
-    "vanilla-jsoneditor": "^0.16.0",
+    "vanilla-jsoneditor": "^0.17.1",
     "webpack-bundle-analyzer": "^4.1.0",
     "xhr-mock": "^2.4.1",
     "yaml-front-matter": "^4.0.0"

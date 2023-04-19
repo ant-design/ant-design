@@ -1,5 +1,4 @@
-/* eslint-disable react/no-string-refs, react/prefer-es6-class */
-import produce from 'immer';
+import { produce } from 'immer';
 import { cloneDeep } from 'lodash';
 import type { UploadRequestOption } from 'rc-upload/lib/interface';
 import React, { useEffect, useRef } from 'react';
@@ -8,8 +7,8 @@ import Upload from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
-import Form from '../../form';
 import { resetWarned } from '../../_util/warning';
+import Form from '../../form';
 import { getFileItem, isImageUrl, removeFileItem } from '../utils';
 import { setup, teardown } from './mock';
 

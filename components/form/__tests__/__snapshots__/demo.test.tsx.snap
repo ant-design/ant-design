@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders components/form/demo/advanced-search.tsx correctly 1`] = `
-<div>
+Array [
   <form
     class="ant-form ant-form-horizontal"
     id="advanced_search"
@@ -387,62 +387,74 @@ exports[`renders components/form/demo/advanced-search.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-row"
+      style="text-align:right"
     >
       <div
-        class="ant-col ant-col-24"
-        style="text-align:right"
+        class="ant-space ant-space-horizontal ant-space-align-center"
       >
-        <button
-          class="ant-btn ant-btn-primary"
-          type="submit"
+        <div
+          class="ant-space-item"
+          style="margin-right:8px"
         >
-          <span>
-            Search
-          </span>
-        </button>
-        <button
-          class="ant-btn ant-btn-default"
-          style="margin:0 8px"
-          type="button"
-        >
-          <span>
-            Clear
-          </span>
-        </button>
-        <a
-          style="font-size:12px"
-        >
-          <span
-            aria-label="down"
-            class="anticon anticon-down"
-            role="img"
+          <button
+            class="ant-btn ant-btn-primary"
+            type="submit"
           >
-            <svg
-              aria-hidden="true"
-              data-icon="down"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
+            <span>
+              Search
+            </span>
+          </button>
+        </div>
+        <div
+          class="ant-space-item"
+          style="margin-right:8px"
+        >
+          <button
+            class="ant-btn ant-btn-default"
+            type="button"
+          >
+            <span>
+              Clear
+            </span>
+          </button>
+        </div>
+        <div
+          class="ant-space-item"
+        >
+          <a
+            style="font-size:12px"
+          >
+            <span
+              aria-label="down"
+              class="anticon anticon-down"
+              role="img"
             >
-              <path
-                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-              />
-            </svg>
-          </span>
-           Collapse
-        </a>
+              <svg
+                aria-hidden="true"
+                data-icon="down"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                />
+              </svg>
+            </span>
+             Collapse
+          </a>
+        </div>
       </div>
     </div>
-  </form>
+  </form>,
   <div
     style="line-height:200px;text-align:center;background:rgba(0, 0, 0, 0.02);border-radius:8px;margin-top:16px"
   >
     Search Result List
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders components/form/demo/basic.tsx correctly 1`] = `
