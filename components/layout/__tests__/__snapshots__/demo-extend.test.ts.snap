@@ -575,7 +575,7 @@ exports[`renders components/layout/demo/fixed.tsx extend context correctly 1`] =
         </div>
         <div>
           <div
-            class="ant-menu-submenu ant-menu-submenu-popup ant-menu-dark"
+            class="ant-menu-submenu ant-menu-submenu-popup ant-menu-dark ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
             style="opacity: 0;"
           >
             <ul
@@ -2994,7 +2994,7 @@ exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
         </div>
         <div>
           <div
-            class="ant-menu-submenu ant-menu-submenu-popup ant-menu-dark"
+            class="ant-menu-submenu ant-menu-submenu-popup ant-menu-dark ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
             style="opacity: 0;"
           >
             <ul
@@ -3472,7 +3472,7 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
         </div>
         <div>
           <div
-            class="ant-menu-submenu ant-menu-submenu-popup ant-menu-dark"
+            class="ant-menu-submenu ant-menu-submenu-popup ant-menu-dark ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
             style="opacity: 0;"
           >
             <ul
@@ -4635,7 +4635,7 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
         </div>
         <div>
           <div
-            class="ant-menu-submenu ant-menu-submenu-popup ant-menu-dark"
+            class="ant-menu-submenu ant-menu-submenu-popup ant-menu-dark ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
             style="opacity: 0;"
           >
             <ul

@@ -5,10 +5,11 @@ import { useNavigate } from 'dumi';
 export type LinkProps = {
   to?: string;
   children?: React.ReactNode;
+  className?: string;
 };
 
 const Link = forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => {
-  const { to, children } = props;
+  const { to, children, ...rest } = props;
   const navigate = useNavigate();
 
   const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
@@ -21,7 +22,7 @@ const Link = forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => {
   };
 
   return (
-    <a ref={ref} href={to} onClick={handleClick}>
+    <a ref={ref} href={to} onClick={handleClick} {...rest}>
       {children}
     </a>
   );
