@@ -15,6 +15,13 @@ timeline: true
 
 ---
 
+## 5.4.4
+
+`2023-04-20`
+
+- 💄 Fix Message hooks icon style not follow dynamic theme token. [#41899](https://github.com/ant-design/ant-design/pull/41899)
+- 🐞 Fix that cssinjs may crash if CSS value is `undefined`. [#41896](https://github.com/ant-design/ant-design/pull/41896)
+
 ## 5.4.3
 
 `2023-04-19`
