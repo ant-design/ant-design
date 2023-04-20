@@ -24,6 +24,7 @@ timeline: true
 - 🐞 删除 `multiple` 不能使用 displayRender 提示。[#40940](https://github.com/ant-design/ant-design/pull/40940) [@crazyair](https://github.com/crazyair)
 - 💄 Checkbox 默认使用 `@border-radius-sm` 小号圆角。[#40823](https://github.com/ant-design/ant-design/pull/40823)
 - 🐞 修复 TextArea 在聚焦时丢失高亮样式的问题。[#41281](https://github.com/ant-design/ant-design/pull/41281) [@MuxinFeng](https://github.com/MuxinFeng)
+- 🛠 调整 Checkbox 行为，现在未勾选时不再会添加 `checked=undefined` 属性。[#41888](https://github.com/ant-design/ant-design/pull/41888)
 - TypeScript
   - 🤖 调整 Cascader 的 CascaderProps 定义，为泛型提供默认值。[#40960](https://github.com/ant-design/ant-design/pull/40960) [@crazyair](https://github.com/crazyair)
 

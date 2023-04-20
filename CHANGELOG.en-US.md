@@ -24,6 +24,7 @@ timeline: true
 - 🐞 The `displayRender` prompt cannot be used when deleting `multiple`. [#40940](https://github.com/ant-design/ant-design/pull/40940) [@crazyair](https://github.com/crazyair)
 - 💄 Checkbox should use @border-radius-sm. [#40823](https://github.com/ant-design/ant-design/pull/40823)
 - 🐞 Fix TextArea missing active style when focused. [#41281](https://github.com/ant-design/ant-design/pull/41281) [@MuxinFeng](https://github.com/MuxinFeng)
+- 🛠 Adjust Checkbox to remove `checked=undefined` when unchecked. [#41888](https://github.com/ant-design/ant-design/pull/41888)
 - TypeScript
   - 🤖 Adjust CascaderProps definition which has default generic now. [#40960](https://github.com/ant-design/ant-design/pull/40960) [@crazyair](https://github.com/crazyair)
 
