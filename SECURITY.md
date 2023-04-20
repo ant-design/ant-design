@@ -14,3 +14,17 @@ Use this section to tell people about which versions of your project are current
 Use this section to tell people how to report a vulnerability.
 
 Tell them where to go, how often they can expect to get an update on a reported vulnerability, what to expect if the vulnerability is accepted or declined, etc.
+                
+                
+                
+                
+                
+                <ProForm onValuesChange={(changeValues) => {
+                            setData({ ...data, ...changeValues })
+                        }} disabled={formdisabled} grid submitter={false}>
+                            <ProFormText label='IP' name='ip'
+                                colProps={{ md: 12, xl: 12 }}
+                                addonBefore={<span className={styles.addon}><IconFont type='icon-link-h' /></span>}
+
+                            />
+                            </ProForm>
