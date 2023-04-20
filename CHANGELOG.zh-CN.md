@@ -15,9 +15,22 @@ timeline: true
 
 ---
 
+## 4.24.9
+
+`2023-04-19`
+
+- 🆕 Slider 补充丢失的 `railStyle` 属性用于自定义样式。[#40942](https://github.com/ant-design/ant-design/pull/40942) [@c01nd01r](https://github.com/c01nd01r)
+- 🐞 修复 Select 在搜索时宽度变为 `0px` 的问题。[#41646](https://github.com/ant-design/ant-design/pull/41646)
+- 🐞 删除 `multiple` 不能使用 displayRender 提示。[#40940](https://github.com/ant-design/ant-design/pull/40940) [@crazyair](https://github.com/crazyair)
+- 💄 Checkbox 默认使用 `@border-radius-sm` 小号圆角。[#40823](https://github.com/ant-design/ant-design/pull/40823)
+- 🐞 修复 TextArea 在聚焦时丢失高亮样式的问题。[#41281](https://github.com/ant-design/ant-design/pull/41281) [@MuxinFeng](https://github.com/MuxinFeng)
+- 🛠 调整 Checkbox 行为，现在未勾选时不再会添加 `checked` 属性。[#41888](https://github.com/ant-design/ant-design/pull/41888)
+- TypeScript
+  - 🤖 调整 Cascader 的 CascaderProps 定义，为泛型提供默认值。[#40960](https://github.com/ant-design/ant-design/pull/40960) [@crazyair](https://github.com/crazyair)
+
 ## 4.24.8
 
-`2023-2-13`
+`2023-02-13`
 
 - 🐞 修复 Tabs 组件某些情况下报错的问题。[df09516](https://github.com/ant-design/ant-design/commit/df09516ee542159eb3fa40927eec8981d4581bd0)
 - 🌐 补全 `pt_BR` 国际化。[#40019](https://github.com/ant-design/ant-design/pull/40019) [@rafaelncarvalho](https://github.com/rafaelncarvalho)
