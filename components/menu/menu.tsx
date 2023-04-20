@@ -24,7 +24,7 @@ export interface MenuProps extends Omit<RcMenuProps, 'items'> {
 
   // >>>>> Private
   /**
-   * @private Internal Usage. Not promise crash if used in production. Connect with chenshuai2144
+   * @internal Internal Usage. Not promise crash if used in production. Connect with chenshuai2144
    *   for removing.
    */
   _internalDisableMenuItemTitleTooltip?: boolean;
