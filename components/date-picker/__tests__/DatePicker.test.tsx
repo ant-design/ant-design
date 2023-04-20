@@ -34,7 +34,8 @@ describe('DatePicker', () => {
   focusTest(DatePicker, { refFocus: true });
 
   beforeEach(() => {
-    MockDate.set(dayjs('2016-11-22').valueOf());
+    const currentYear = new Date().getFullYear();
+    MockDate.set(dayjs(`${currentYear}-11-22`).valueOf());
   });
 
   afterEach(() => {
