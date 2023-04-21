@@ -170,6 +170,8 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
 
         '&-draggable': {
           [`${treeCls}-draggable-icon`]: {
+            // https://github.com/ant-design/ant-design/issues/41915
+            flexShrink: 0,
             width: treeTitleHeight,
             lineHeight: `${treeTitleHeight}px`,
             textAlign: 'center',
