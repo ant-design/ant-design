@@ -336,7 +336,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
 };
 
 const ConfigProvider: React.FC<ConfigProviderProps> & {
-  /** @internal internal Usage. do not use in your production */
+  /** @private internal Usage. do not use in your production */
   ConfigContext: typeof ConfigContext;
   /** @deprecated Please use `ConfigProvider.useConfig().componentSize` instead */
   SizeContext: typeof SizeContext;

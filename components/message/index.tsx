@@ -310,7 +310,7 @@ interface BaseMethods {
   destroy: (key?: React.Key) => void;
   config: typeof setMessageGlobalConfig;
   useMessage: typeof useMessage;
-  /** @internal Internal Component. Do not use in your production. */
+  /** @private Internal Component. Do not use in your production. */
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
 }
 
@@ -343,7 +343,7 @@ methods.forEach((type: keyof MessageMethods) => {
 // ==============================================================================
 const noop = () => {};
 
-/** @internal Only Work in test env */
+/** @private Only Work in test env */
 // eslint-disable-next-line import/no-mutable-exports
 export let actWrapper: (wrapper: any) => void = noop;
 
@@ -353,7 +353,7 @@ if (process.env.NODE_ENV === 'test') {
   };
 }
 
-/** @internal Only Work in test env */
+/** @private Only Work in test env */
 // eslint-disable-next-line import/no-mutable-exports
 export let actDestroy = noop;
 

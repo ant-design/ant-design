@@ -19,7 +19,7 @@ interface ConfirmDialogProps extends ModalFuncProps {
   rootPrefixCls: string;
   iconPrefixCls?: string;
 
-  /** @internal Internal Usage. Do not override this */
+  /** @private Internal Usage. Do not override this */
   locale?: ModalLocale;
 }
 

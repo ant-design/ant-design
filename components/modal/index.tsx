@@ -24,7 +24,7 @@ type ModalType = typeof OriginModal &
     useModal: typeof useModal;
     destroyAll: () => void;
     config: typeof modalGlobalConfig;
-    /** @internal Internal Component. Do not use in your production. */
+    /** @private Internal Component. Do not use in your production. */
     _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
   };
 
