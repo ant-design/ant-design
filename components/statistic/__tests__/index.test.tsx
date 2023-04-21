@@ -4,7 +4,7 @@ import React from 'react';
 import Statistic from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import { formatTimeStr } from '../utils';
 
 describe('Statistic', () => {
@@ -176,6 +176,35 @@ describe('Statistic', () => {
         expect(onFinish).toHaveBeenCalled();
         jest.clearAllTimers();
         jest.useRealTimers();
+      });
+    });
+
+    describe('Countdown component with diff prop', () => {
+      it('should render the component with a given diff value', async () => {
+        const onFinish = jest.fn();
+        const onChange = jest.fn();
+        jest.useFakeTimers();
+        const { container } = render(
+          <Statistic.Countdown
+            value={new Date().getTime() + 10000}
+            diff={1000}
+            onFinish={onFinish}
+            onChange={onChange}
+          />,
+        );
+        expect(container.firstChild).toMatchSnapshot();
+        act(() => {
+          jest.advanceTimersByTime(5000);
+        });
+        expect(container.firstChild).toMatchSnapshot();
+        expect(onFinish).not.toHaveBeenCalled();
+        expect(onChange).toHaveBeenCalled();
+        act(() => {
+          jest.advanceTimersByTime(5000);
+        });
+        expect(container.firstChild).toMatchSnapshot();
+        expect(onFinish).toHaveBeenCalled();
+        expect(onChange).toHaveBeenCalled();
       });
     });
   });

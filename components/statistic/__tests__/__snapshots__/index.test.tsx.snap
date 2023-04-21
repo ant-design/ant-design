@@ -1,5 +1,53 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Statistic Countdown Countdown component with diff prop should render the component with a given diff value 1`] = `
+<div
+  class="ant-statistic"
+>
+  <div
+    class="ant-statistic-content"
+  >
+    <span
+      class="ant-statistic-content-value"
+    >
+      00:00:10
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Statistic Countdown Countdown component with diff prop should render the component with a given diff value 2`] = `
+<div
+  class="ant-statistic"
+>
+  <div
+    class="ant-statistic-content"
+  >
+    <span
+      class="ant-statistic-content-value"
+    >
+      00:00:05
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Statistic Countdown Countdown component with diff prop should render the component with a given diff value 3`] = `
+<div
+  class="ant-statistic"
+>
+  <div
+    class="ant-statistic-content"
+  >
+    <span
+      class="ant-statistic-content-value"
+    >
+      00:00:00
+    </span>
+  </div>
+</div>
+`;
+
 exports[`Statistic rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
   class="ant-statistic ant-statistic-rtl"

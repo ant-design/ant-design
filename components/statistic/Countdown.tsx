@@ -3,7 +3,7 @@ import useForceUpdate from '../_util/hooks/useForceUpdate';
 import { cloneElement } from '../_util/reactNode';
 import type { StatisticProps } from './Statistic';
 import Statistic from './Statistic';
-import type { valueType, FormatConfig } from './utils';
+import type { FormatConfig, valueType } from './utils';
 import { formatCountdown } from './utils';
 
 const REFRESH_INTERVAL = 1000 / 30;
@@ -13,14 +13,19 @@ export interface CountdownProps extends StatisticProps {
   format?: string;
   onFinish?: () => void;
   onChange?: (value?: valueType) => void;
+  diff?: number;
 }
 
 function getTime(value?: valueType) {
   return new Date(value as valueType).getTime();
 }
 
+function getDiffTime(diff: number) {
+  return Date.now() + diff;
+}
+
 const Countdown: React.FC<CountdownProps> = (props) => {
-  const { value, format = 'HH:mm:ss', onChange, onFinish } = props;
+  const { value, format = 'HH:mm:ss', onChange, onFinish, diff = 0 } = props;
 
   const forceUpdate = useForceUpdate();
 
@@ -36,11 +41,11 @@ const Countdown: React.FC<CountdownProps> = (props) => {
 
   const syncTimer = () => {
     const timestamp = getTime(value);
-    if (timestamp >= Date.now()) {
+    if (timestamp >= getDiffTime(diff)) {
       countdown.current = setInterval(() => {
         forceUpdate();
-        onChange?.(timestamp - Date.now());
-        if (timestamp < Date.now()) {
+        onChange?.(timestamp - getDiffTime(diff));
+        if (timestamp < getDiffTime(diff)) {
           stopTimer();
         }
       }, REFRESH_INTERVAL);
