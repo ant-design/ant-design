@@ -17,16 +17,6 @@ const App: React.FC = () => (
       <Radio.Button value="c">Beijing</Radio.Button>
       <Radio.Button value="d">Chengdu</Radio.Button>
     </Radio.Group>
-    <Radio.Group defaultValue="d" buttonStyle="solid" style={{ marginTop: 16 }}>
-      <Radio.Button value="a" disabled>
-        Hangzhou
-      </Radio.Button>
-      <Radio.Button value="b">Shanghai</Radio.Button>
-      <Radio.Button value="c">Beijing</Radio.Button>
-      <Radio.Button value="d" disabled>
-        Chengdu
-      </Radio.Button>
-    </Radio.Group>
   </>
 );
 
