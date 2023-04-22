@@ -193,7 +193,7 @@ export interface TableRowSelection<T> {
   hideSelectAll?: boolean;
   fixed?: FixedType;
   columnWidth?: string | number;
-  columnTitle?: string | React.ReactNode;
+  columnTitle?: string | React.ReactNode | ((checkboxNode: React.ReactNode) => React.ReactNode);
   checkStrictly?: boolean;
   renderCell?: (
     value: boolean,
