@@ -479,6 +479,80 @@ const getRadioButtonStyle: GenerateStyle<RadioToken> = (token) => {
   };
 };
 
+/**
+ * Accessibility in high contrast, Because of the use of non-semantic tags, the only way to do this without changing the dom element is `forced-colors: active`
+ * issue: https://github.com/ant-design/ant-design/issues/41821
+ */
+const genHighContrastStyle: GenerateStyle<RadioToken> = (token) => {
+  const { componentCls } = token;
+  const radioInnerPrefixCls = `${componentCls}-inner`;
+  const baseWrapperPrefixCls = `${componentCls}-wrapper`;
+  const buttonWrapperPrefixCls = `${componentCls}-button-wrapper`;
+
+  return {
+    '@media screen and (forced-colors: active)': {
+      [`${baseWrapperPrefixCls}`]: {
+        [`${componentCls}-disabled ${radioInnerPrefixCls}`]: {
+          borderColor: 'GrayText',
+          backgroundColor: 'GrayText',
+        },
+
+        [`${componentCls}-checked ${radioInnerPrefixCls}`]: {
+          borderColor: 'Highlight',
+          backgroundColor: 'Highlight',
+        },
+      },
+
+      // Grouping `soild` and  `radio button` together
+      [`&, ${componentCls}-group-solid`]: {
+        [`${buttonWrapperPrefixCls}`]: {
+          [`&:not(${componentCls}-button-wrapper-disabled):hover`]: {
+            color: 'Highlight',
+          },
+
+          '&:not(:first-child)::before': {
+            backgroundColor: 'initial',
+            transition: 'none',
+          },
+
+          [`&-checked:not(${componentCls}-button-wrapper-disabled)`]: {
+            color: 'Highlight',
+            borderColor: 'Highlight',
+
+            '&::before': {
+              backgroundColor: 'Highlight',
+            },
+
+            '&:hover': {
+              color: 'Highlight',
+              borderColor: 'Highlight',
+
+              '&::before': {
+                backgroundColor: 'Highlight',
+              },
+            },
+          },
+          '&-disabled': {
+            [`&, &:hover, &:first-child`]: {
+              color: 'GrayText',
+              borderColor: 'GrayText',
+            },
+
+            [`&${componentCls}-button-wrapper-checked`]: {
+              color: 'Highlight',
+              borderColor: 'Highlight',
+            },
+
+            [`&:not(${componentCls}-button-wrapper-checked):not(:first-child)::before`]: {
+              backgroundColor: 'GrayText',
+            },
+          },
+        },
+      },
+    },
+  };
+};
+
 // ============================== Export ==============================
 export default genComponentStyleHook('Radio', (token) => {
   const {
@@ -541,5 +615,6 @@ export default genComponentStyleHook('Radio', (token) => {
     getGroupRadioStyle(radioToken),
     getRadioBasicStyle(radioToken),
     getRadioButtonStyle(radioToken),
+    genHighContrastStyle(radioToken),
   ];
 });
