@@ -15,6 +15,13 @@ timeline: true
 
 ---
 
+## 5.4.4
+
+`2023-04-20`
+
+- 💄 修复 Message hooks 的图标样式不跟随动态主题 token 切换的问题。[#41899](https://github.com/ant-design/ant-design/pull/41899)
+- 🐞 修复 CSS 属性值为 `undefined` 时 cssinjs 报错的问题。[#41896](https://github.com/ant-design/ant-design/pull/41896)
+
 ## 5.4.3
 
 `2023-04-19`

@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "5.4.3",
+  "version": "5.4.4",
   "description": "An enterprise-class UI design language and React components implementation",
   "title": "Ant Design",
   "keywords": [
@@ -108,7 +108,7 @@
   ],
   "dependencies": {
     "@ant-design/colors": "^7.0.0",
-    "@ant-design/cssinjs": "^1.9.0",
+    "@ant-design/cssinjs": "^1.9.1",
     "@ant-design/icons": "^5.0.0",
     "@ant-design/react-slick": "~1.0.0",
     "@babel/runtime": "^7.18.3",
