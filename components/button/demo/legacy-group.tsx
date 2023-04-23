@@ -1,9 +1,9 @@
-import React from 'react';
 import { DownloadOutlined } from '@ant-design/icons';
 import { Button, Tooltip } from 'antd';
 import type { ButtonGroupProps } from 'antd/es/button';
+import React from 'react';
 
-const getGroup = (props?: ButtonGroupProps) => (
+const CustomGroup: React.FC<ButtonGroupProps> = (props) => (
   <div>
     <Button.Group {...props}>
       <Button type="primary">Button 1</Button>
@@ -20,11 +20,11 @@ const getGroup = (props?: ButtonGroupProps) => (
 
 const App: React.FC = () => (
   <>
-    {getGroup({ size: 'small' })}
+    <CustomGroup size="small" />
     <br />
-    {getGroup()}
+    <CustomGroup />
     <br />
-    {getGroup({ size: 'large' })}
+    <CustomGroup size="large" />
   </>
 );
 
