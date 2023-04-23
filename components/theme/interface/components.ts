@@ -114,6 +114,6 @@ export interface ComponentTokenMap {
   QRCode?: QRCodeComponentToken;
   App?: AppComponentToken;
 
-  /** @internal Internal TS definition. Do not use. */
+  /** @pravite Internal TS definition. Do not use. */
   Wave?: WaveToken;
 }
