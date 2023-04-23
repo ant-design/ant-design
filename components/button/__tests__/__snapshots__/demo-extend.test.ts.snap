@@ -1778,78 +1778,33 @@ exports[`renders components/button/demo/icon.tsx extend context correctly 1`] = 
 
 exports[`renders components/button/demo/legacy-group.tsx extend context correctly 1`] = `
 Array [
-  <div>
-    <div
-      class="ant-btn-group ant-btn-group-sm"
+  <div
+    class="ant-btn-group ant-btn-group-sm"
+  >
+    <button
+      class="ant-btn ant-btn-primary ant-btn-sm"
+      type="button"
     >
-      <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
-        type="button"
-      >
-        <span>
-          Button 1
-        </span>
-      </button>
-      <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
-        type="button"
-      >
-        <span>
-          Button 2
-        </span>
-      </button>
-      <span
-        class="ant-tooltip-disabled-compatible-wrapper"
-        style="display: inline-block; cursor: not-allowed;"
-      >
-        <button
-          class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
-          disabled=""
-          style="pointer-events: none;"
-          type="button"
-        >
-          <span
-            aria-label="download"
-            class="anticon anticon-download"
-            role="img"
-          >
-            <svg
-              aria-hidden="true"
-              data-icon="download"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M505.7 661a8 8 0 0012.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
-              />
-            </svg>
-          </span>
-        </button>
+      <span>
+        Button 1
       </span>
-      <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
-        style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
-      >
-        <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; bottom: 0px; left: 0px;"
-        />
-        <div
-          class="ant-tooltip-content"
-        >
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            Tooltip
-          </div>
-        </div>
-      </div>
+    </button>
+    <button
+      class="ant-btn ant-btn-primary ant-btn-sm"
+      type="button"
+    >
+      <span>
+        Button 2
+      </span>
+    </button>
+    <span
+      class="ant-tooltip-disabled-compatible-wrapper"
+      style="display: inline-block; cursor: not-allowed;"
+    >
       <button
         class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+        disabled=""
+        style="pointer-events: none;"
         type="button"
       >
         <span
@@ -1872,100 +1827,98 @@ Array [
           </svg>
         </span>
       </button>
+    </span>
+    <div
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
-        style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        class="ant-tooltip-arrow"
+        style="position: absolute; bottom: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; bottom: 0px; left: 0px;"
-        />
-        <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            Tooltip
-          </div>
+          Tooltip
+        </div>
+      </div>
+    </div>
+    <button
+      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+      type="button"
+    >
+      <span
+        aria-label="download"
+        class="anticon anticon-download"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="download"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M505.7 661a8 8 0 0012.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
+          />
+        </svg>
+      </span>
+    </button>
+    <div
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
+      <div
+        class="ant-tooltip-arrow"
+        style="position: absolute; bottom: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          Tooltip
         </div>
       </div>
     </div>
   </div>,
   <br />,
-  <div>
-    <div
-      class="ant-btn-group"
+  <div
+    class="ant-btn-group"
+  >
+    <button
+      class="ant-btn ant-btn-primary"
+      type="button"
     >
-      <button
-        class="ant-btn ant-btn-primary"
-        type="button"
-      >
-        <span>
-          Button 1
-        </span>
-      </button>
-      <button
-        class="ant-btn ant-btn-primary"
-        type="button"
-      >
-        <span>
-          Button 2
-        </span>
-      </button>
-      <span
-        class="ant-tooltip-disabled-compatible-wrapper"
-        style="display: inline-block; cursor: not-allowed;"
-      >
-        <button
-          class="ant-btn ant-btn-primary ant-btn-icon-only"
-          disabled=""
-          style="pointer-events: none;"
-          type="button"
-        >
-          <span
-            aria-label="download"
-            class="anticon anticon-download"
-            role="img"
-          >
-            <svg
-              aria-hidden="true"
-              data-icon="download"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M505.7 661a8 8 0 0012.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
-              />
-            </svg>
-          </span>
-        </button>
+      <span>
+        Button 1
       </span>
-      <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
-        style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
-      >
-        <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; bottom: 0px; left: 0px;"
-        />
-        <div
-          class="ant-tooltip-content"
-        >
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            Tooltip
-          </div>
-        </div>
-      </div>
+    </button>
+    <button
+      class="ant-btn ant-btn-primary"
+      type="button"
+    >
+      <span>
+        Button 2
+      </span>
+    </button>
+    <span
+      class="ant-tooltip-disabled-compatible-wrapper"
+      style="display: inline-block; cursor: not-allowed;"
+    >
       <button
         class="ant-btn ant-btn-primary ant-btn-icon-only"
+        disabled=""
+        style="pointer-events: none;"
         type="button"
       >
         <span
@@ -1988,100 +1941,98 @@ Array [
           </svg>
         </span>
       </button>
+    </span>
+    <div
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
-        style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        class="ant-tooltip-arrow"
+        style="position: absolute; bottom: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; bottom: 0px; left: 0px;"
-        />
-        <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            Tooltip
-          </div>
+          Tooltip
+        </div>
+      </div>
+    </div>
+    <button
+      class="ant-btn ant-btn-primary ant-btn-icon-only"
+      type="button"
+    >
+      <span
+        aria-label="download"
+        class="anticon anticon-download"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="download"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M505.7 661a8 8 0 0012.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
+          />
+        </svg>
+      </span>
+    </button>
+    <div
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
+      <div
+        class="ant-tooltip-arrow"
+        style="position: absolute; bottom: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          Tooltip
         </div>
       </div>
     </div>
   </div>,
   <br />,
-  <div>
-    <div
-      class="ant-btn-group ant-btn-group-lg"
+  <div
+    class="ant-btn-group ant-btn-group-lg"
+  >
+    <button
+      class="ant-btn ant-btn-primary ant-btn-lg"
+      type="button"
+    >
+      <span>
+        Button 1
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-primary ant-btn-lg"
+      type="button"
+    >
+      <span>
+        Button 2
+      </span>
+    </button>
+    <span
+      class="ant-tooltip-disabled-compatible-wrapper"
+      style="display: inline-block; cursor: not-allowed;"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-lg"
-        type="button"
-      >
-        <span>
-          Button 1
-        </span>
-      </button>
-      <button
-        class="ant-btn ant-btn-primary ant-btn-lg"
-        type="button"
-      >
-        <span>
-          Button 2
-        </span>
-      </button>
-      <span
-        class="ant-tooltip-disabled-compatible-wrapper"
-        style="display: inline-block; cursor: not-allowed;"
-      >
-        <button
-          class="ant-btn ant-btn-primary ant-btn-lg ant-btn-icon-only"
-          disabled=""
-          style="pointer-events: none;"
-          type="button"
-        >
-          <span
-            aria-label="download"
-            class="anticon anticon-download"
-            role="img"
-          >
-            <svg
-              aria-hidden="true"
-              data-icon="download"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M505.7 661a8 8 0 0012.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
-              />
-            </svg>
-          </span>
-        </button>
-      </span>
-      <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
-        style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
-      >
-        <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; bottom: 0px; left: 0px;"
-        />
-        <div
-          class="ant-tooltip-content"
-        >
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            Tooltip
-          </div>
-        </div>
-      </div>
-      <button
         class="ant-btn ant-btn-primary ant-btn-lg ant-btn-icon-only"
+        disabled=""
+        style="pointer-events: none;"
         type="button"
       >
         <span
@@ -2104,23 +2055,66 @@ Array [
           </svg>
         </span>
       </button>
+    </span>
+    <div
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
-        style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        class="ant-tooltip-arrow"
+        style="position: absolute; bottom: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-arrow"
-          style="position: absolute; bottom: 0px; left: 0px;"
-        />
-        <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            Tooltip
-          </div>
+          Tooltip
+        </div>
+      </div>
+    </div>
+    <button
+      class="ant-btn ant-btn-primary ant-btn-lg ant-btn-icon-only"
+      type="button"
+    >
+      <span
+        aria-label="download"
+        class="anticon anticon-download"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="download"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M505.7 661a8 8 0 0012.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
+          />
+        </svg>
+      </span>
+    </button>
+    <div
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
+      <div
+        class="ant-tooltip-arrow"
+        style="position: absolute; bottom: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          Tooltip
         </div>
       </div>
     </div>
