@@ -58,8 +58,9 @@ export function triggerFocus(
 export interface InputProps
   extends Omit<
     RcInputProps,
-    'wrapperClassName' | 'groupClassName' | 'inputClassName' | 'affixWrapperClassName'
+    'wrapperClassName' | 'groupClassName' | 'inputClassName' | 'affixWrapperClassName' | 'classes'
   > {
+  rootClassName?: string;
   size?: SizeType;
   disabled?: boolean;
   status?: InputStatus;
@@ -81,7 +82,9 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     addonAfter,
     addonBefore,
     className,
+    rootClassName,
     onChange,
+    classNames: classes,
     ...rest
   } = props;
   const { getPrefixCls, direction, input } = React.useContext(ConfigContext);
@@ -160,12 +163,12 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
       prefixCls={prefixCls}
       autoComplete={input?.autoComplete}
       {...rest}
-      disabled={mergedDisabled || undefined}
+      disabled={mergedDisabled}
       onBlur={handleBlur}
       onFocus={handleFocus}
       suffix={suffixNode}
       allowClear={mergedAllowClear}
-      className={classNames(className, compactItemClassnames)}
+      className={classNames(className, rootClassName, compactItemClassnames)}
       onChange={handleChange}
       addonAfter={
         addonAfter && (
@@ -185,7 +188,8 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
           </NoCompactStyle>
         )
       }
-      classes={{
+      classNames={{
+        ...classes,
         input: classNames(
           {
             [`${prefixCls}-sm`]: mergedSize === 'small',
@@ -194,8 +198,11 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
             [`${prefixCls}-borderless`]: !bordered,
           },
           !inputHasPrefixSuffix && getStatusClassNames(prefixCls, mergedStatus),
+          classes?.input,
           hashId,
         ),
+      }}
+      classes={{
         affixWrapper: classNames(
           {
             [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
@@ -217,6 +224,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
             [`${prefixCls}-group-wrapper-sm`]: mergedSize === 'small',
             [`${prefixCls}-group-wrapper-lg`]: mergedSize === 'large',
             [`${prefixCls}-group-wrapper-rtl`]: direction === 'rtl',
+            [`${prefixCls}-group-wrapper-disabled`]: mergedDisabled,
           },
           getStatusClassNames(`${prefixCls}-group-wrapper`, mergedStatus, hasFeedback),
           hashId,

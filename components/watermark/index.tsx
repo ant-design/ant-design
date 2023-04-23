@@ -1,6 +1,7 @@
-import React, { useEffect, useRef } from 'react';
 import MutateObserver from '@rc-component/mutate-observer';
-import { getStyleStr, getPixelRatio, rotateWatermark, reRendering } from './utils';
+import classNames from 'classnames';
+import React, { useEffect, useRef } from 'react';
+import { getPixelRatio, getStyleStr, reRendering, rotateWatermark } from './utils';
 
 /**
  * Base size of the canvas, 1 for parallel layout and 2 for alternate layout
@@ -25,6 +26,7 @@ export interface WatermarkProps {
   };
   style?: React.CSSProperties;
   className?: string;
+  rootClassName?: string;
   gap?: [number, number];
   offset?: [number, number];
   children?: React.ReactNode;
@@ -45,6 +47,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
     font = {},
     style,
     className,
+    rootClassName,
     gap = [100, 100],
     offset,
     children,
@@ -161,6 +164,27 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
     });
   };
 
+  const drawText = (
+    canvas: HTMLCanvasElement,
+    ctx: CanvasRenderingContext2D,
+    drawX: number,
+    drawY: number,
+    drawWidth: number,
+    drawHeight: number,
+    alternateRotateX: number,
+    alternateRotateY: number,
+    alternateDrawX: number,
+    alternateDrawY: number,
+    markWidth: number,
+  ) => {
+    fillTexts(ctx, drawX, drawY, drawWidth, drawHeight);
+    /** Fill the interleaved text after rotation */
+    ctx.restore();
+    rotateWatermark(ctx, alternateRotateX, alternateRotateY, rotate);
+    fillTexts(ctx, alternateDrawX, alternateDrawY, drawWidth, drawHeight);
+    appendWatermark(canvas.toDataURL(), markWidth);
+  };
+
   const renderWatermark = () => {
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
@@ -202,16 +226,37 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
           ctx.drawImage(img, alternateDrawX, alternateDrawY, drawWidth, drawHeight);
           appendWatermark(canvas.toDataURL(), markWidth);
         };
+        img.onerror = () =>
+          drawText(
+            canvas,
+            ctx,
+            drawX,
+            drawY,
+            drawWidth,
+            drawHeight,
+            alternateRotateX,
+            alternateRotateY,
+            alternateDrawX,
+            alternateDrawY,
+            markWidth,
+          );
         img.crossOrigin = 'anonymous';
         img.referrerPolicy = 'no-referrer';
         img.src = image;
       } else {
-        fillTexts(ctx, drawX, drawY, drawWidth, drawHeight);
-        /** Fill the interleaved text after rotation */
-        ctx.restore();
-        rotateWatermark(ctx, alternateRotateX, alternateRotateY, rotate);
-        fillTexts(ctx, alternateDrawX, alternateDrawY, drawWidth, drawHeight);
-        appendWatermark(canvas.toDataURL(), markWidth);
+        drawText(
+          canvas,
+          ctx,
+          drawX,
+          drawY,
+          drawWidth,
+          drawHeight,
+          alternateRotateX,
+          alternateRotateY,
+          alternateDrawX,
+          alternateDrawY,
+          markWidth,
+        );
       }
     }
   };
@@ -248,7 +293,11 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
 
   return (
     <MutateObserver onMutate={onMutate}>
-      <div ref={containerRef} className={className} style={{ position: 'relative', ...style }}>
+      <div
+        ref={containerRef}
+        className={classNames(className, rootClassName)}
+        style={{ position: 'relative', ...style }}
+      >
         {children}
       </div>
     </MutateObserver>

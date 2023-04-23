@@ -3,10 +3,10 @@ import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import type { DerivativeToken, FullToken } from '../theme/internal';
 import type { OverrideComponent } from '../theme/util/genComponentStyleHook';
 
-function compactItemVerticalBorder(token: DerivativeToken): CSSObject {
+function compactItemVerticalBorder(token: DerivativeToken, parentCls: string): CSSObject {
   return {
     // border collapse
-    '&-item:not(&-last-item)': {
+    [`&-item:not(${parentCls}-last-item)`]: {
       marginBottom: -token.lineWidth,
     },
 
@@ -22,20 +22,20 @@ function compactItemVerticalBorder(token: DerivativeToken): CSSObject {
   };
 }
 
-function compactItemBorderVerticalRadius(prefixCls: string): CSSObject {
+function compactItemBorderVerticalRadius(prefixCls: string, parentCls: string): CSSObject {
   return {
-    '&-item:not(&-first-item):not(&-last-item)': {
+    [`&-item:not(${parentCls}-first-item):not(${parentCls}-last-item)`]: {
       borderRadius: 0,
     },
 
-    '&-item&-first-item:not(&-last-item)': {
+    [`&-item${parentCls}-first-item:not(${parentCls}-last-item)`]: {
       [`&, &${prefixCls}-sm, &${prefixCls}-lg`]: {
         borderEndEndRadius: 0,
         borderEndStartRadius: 0,
       },
     },
 
-    '&-item&-last-item:not(&-first-item)': {
+    [`&-item${parentCls}-last-item:not(${parentCls}-first-item)`]: {
       [`&, &${prefixCls}-sm, &${prefixCls}-lg`]: {
         borderStartStartRadius: 0,
         borderStartEndRadius: 0,
@@ -47,10 +47,12 @@ function compactItemBorderVerticalRadius(prefixCls: string): CSSObject {
 export function genCompactItemVerticalStyle<T extends OverrideComponent>(
   token: FullToken<T>,
 ): CSSInterpolation {
+  const compactCls = `${token.componentCls}-compact-vertical`;
+
   return {
-    [`${token.componentCls}-compact-vertical`]: {
-      ...compactItemVerticalBorder(token),
-      ...compactItemBorderVerticalRadius(token.componentCls),
+    [compactCls]: {
+      ...compactItemVerticalBorder(token, compactCls),
+      ...compactItemBorderVerticalRadius(token.componentCls, compactCls),
     },
   };
 }

@@ -3,6 +3,7 @@ category: Components
 subtitle: 自动完成
 title: AutoComplete
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*g8THS4NpV6sAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*WERTQ6qvgEYAAAAAAAAAAAAADrJ8AQ/original
 group:
   title: 数据录入
   order: 4
@@ -73,10 +74,14 @@ demo:
 | blur()  | 移除焦点 |      |
 | focus() | 获取焦点 |      |
 
+## Design Token
+
+<ComponentTokenTable component="Select"></ComponentTokenTable>
+
 ## FAQ
 
 ### 为何受控状态下使用 onSearch 无法输入中文？
 
-请使用 `onChange` 进行受控管理。`onSearch` 触发于搜索输入，与 `onChange` 时机不同。此外，点选选项时也不会触发 `onSearch` 事件。
+请使用 `onChange` 进行受控管理。`onSearch` 触发于搜索输入，与 `onChange` 时机不同。此外，点击选项时也不会触发 `onSearch` 事件。
 
 相关 issue：[#18230](https://github.com/ant-design/ant-design/issues/18230) [#17916](https://github.com/ant-design/ant-design/issues/17916)

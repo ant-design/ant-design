@@ -1,11 +1,11 @@
-import * as React from 'react';
-import CSSMotion from 'rc-motion';
-import raf from 'rc-util/lib/raf';
-import { render, unmount } from 'rc-util/lib/React/render';
 import classNames from 'classnames';
-import { getTargetWaveColor } from './util';
+import CSSMotion from 'rc-motion';
+import { render, unmount } from 'rc-util/lib/React/render';
+import raf from 'rc-util/lib/raf';
+import * as React from 'react';
 import type { ConfigProviderProps } from '../../config-provider';
 import type { useToken } from '../../theme/internal';
+import { getTargetWaveColor } from './util';
 
 function validateNum(value: number) {
   return Number.isNaN(value) ? 0 : value;
@@ -51,8 +51,8 @@ const WaveEffect: React.FC<WaveEffectProps> = (props) => {
 
     // Rect
     const { borderLeftWidth, borderTopWidth } = targetStyle;
-    setLeft(isStatic ? target.offsetLeft : -parseFloat(borderLeftWidth));
-    setTop(isStatic ? target.offsetTop : -parseFloat(borderTopWidth));
+    setLeft(isStatic ? target.offsetLeft : validateNum(-parseFloat(borderLeftWidth)));
+    setTop(isStatic ? target.offsetTop : validateNum(-parseFloat(borderTopWidth)));
     setWidth(target.offsetWidth);
     setHeight(target.offsetHeight);
 

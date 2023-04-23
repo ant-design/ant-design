@@ -1,9 +1,10 @@
-import React, { useRef, useEffect } from 'react';
+/* eslint-disable react/no-unstable-nested-components */
+import React, { useEffect, useRef } from 'react';
 import Tour from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, screen } from '../../../tests/utils';
-import panelRender from '../panelRender';
+import type { TourProps } from '../interface';
 
 describe('Tour', () => {
   mountTest(Tour);
@@ -52,9 +53,9 @@ describe('Tour', () => {
     expect(baseElement).toMatchSnapshot();
   });
 
-  it('steps props stepRender', () => {
+  it('steps props indicatorsRender', () => {
     const onClickMock = jest.fn();
-    const stepRenderMock = jest.fn();
+    const indicatorsRenderMock = jest.fn();
     const App: React.FC = () => {
       const coverBtnRef = useRef<HTMLButtonElement>(null);
       return (
@@ -64,7 +65,7 @@ describe('Tour', () => {
           </button>
           <Tour
             type="default"
-            stepRender={stepRenderMock}
+            indicatorsRender={indicatorsRenderMock}
             steps={[
               {
                 title: 'With Cover',
@@ -292,10 +293,23 @@ describe('Tour', () => {
     expect(container.querySelector('.ant-tour')).toBeFalsy();
     expect(baseElement).toMatchSnapshot();
   });
-  it('panelRender should correct render when total is undefined', () => {
-    expect(() => {
-      panelRender({ total: undefined, title: <div>test</div> }, 0, 'default');
-    }).not.toThrow();
+
+  it('panelRender should correct render when total is undefined or null', () => {
+    [undefined, null].forEach((total: undefined) => {
+      const { container } = render(<Tour open steps={[{ title: <div>test</div>, total }]} />);
+      expect(
+        container.querySelector<HTMLDivElement>('.ant-tour-content .ant-tour-indicators'),
+      ).toBeFalsy();
+    });
+  });
+
+  it('panelRender should correct render when title is undefined or null', () => {
+    [undefined, null].forEach((title) => {
+      const { container } = render(<Tour open steps={[{ title, total: 1 }]} />);
+      expect(
+        container.querySelector<HTMLDivElement>('.ant-tour-content .ant-tour-header'),
+      ).toBeFalsy();
+    });
   });
 
   it('custom step pre btn & next btn className & style', () => {
@@ -328,13 +342,43 @@ describe('Tour', () => {
 
     const { container } = render(<App />);
     // className
-    expect(
-      screen.getByRole('button', { name: 'Next' }).className.includes('customClassName'),
-    ).toEqual(true);
+    expect(screen.getByRole('button', { name: 'Next' }).className.includes('customClassName')).toBe(
+      true,
+    );
     // style
     expect(screen.getByRole('button', { name: 'Next' }).style.backgroundColor).toEqual(
       'rgb(69, 69, 255)',
     );
     expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it('custom indicator', () => {
+    const steps: TourProps['steps'] = [
+      {
+        title: 'Upload File',
+        description: 'Put your files here.',
+      },
+      {
+        title: 'Save',
+        description: 'Save your changes.',
+      },
+      {
+        title: 'Other Actions',
+        description: 'Click to see other actions.',
+      },
+    ];
+    const App: React.FC = () => (
+      <Tour
+        open
+        steps={steps}
+        indicatorsRender={(current, total) => (
+          <span className="custom-indicator">
+            {current + 1} / {total}
+          </span>
+        )}
+      />
+    );
+    const { container } = render(<App />);
+    expect(container.querySelector<HTMLSpanElement>('.custom-indicator')).toBeTruthy();
   });
 });

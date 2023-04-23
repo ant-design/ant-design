@@ -355,9 +355,12 @@ const genInlineStyle: GenerateStyle<FormToken> = (token) => {
 
       [formItemCls]: {
         flex: 'none',
-        flexWrap: 'nowrap',
         marginInlineEnd: token.margin,
         marginBottom: 0,
+
+        '&-row': {
+          flexWrap: 'nowrap',
+        },
 
         '&-with-help': {
           marginBottom: token.marginLG,

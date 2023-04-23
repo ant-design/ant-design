@@ -1,213 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/table/demo/ajax.tsx correctly 1`] = `
-<div
-  class="ant-table-wrapper"
->
-  <div
-    class="ant-spin-nested-loading"
-  >
-    <div
-      class="ant-spin-container"
-    >
-      <div
-        class="ant-table ant-table-empty"
-      >
-        <div
-          class="ant-table-container"
-        >
-          <div
-            class="ant-table-content"
-          >
-            <table
-              style="table-layout:auto"
-            >
-              <colgroup>
-                <col
-                  style="width:20%"
-                />
-                <col
-                  style="width:20%"
-                />
-              </colgroup>
-              <thead
-                class="ant-table-thead"
-              >
-                <tr>
-                  <th
-                    aria-label="this column's title is Name,this column is sortable"
-                    class="ant-table-cell ant-table-column-has-sorters"
-                    tabindex="0"
-                  >
-                    <div
-                      class="ant-table-column-sorters"
-                    >
-                      <span
-                        class="ant-table-column-title"
-                      >
-                        Name
-                      </span>
-                      <span
-                        class="ant-table-column-sorter ant-table-column-sorter-full"
-                      >
-                        <span
-                          class="ant-table-column-sorter-inner"
-                        >
-                          <span
-                            aria-label="caret-up"
-                            class="anticon anticon-caret-up ant-table-column-sorter-up"
-                            role="presentation"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              data-icon="caret-up"
-                              fill="currentColor"
-                              focusable="false"
-                              height="1em"
-                              viewBox="0 0 1024 1024"
-                              width="1em"
-                            >
-                              <path
-                                d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
-                              />
-                            </svg>
-                          </span>
-                          <span
-                            aria-label="caret-down"
-                            class="anticon anticon-caret-down ant-table-column-sorter-down"
-                            role="presentation"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              data-icon="caret-down"
-                              fill="currentColor"
-                              focusable="false"
-                              height="1em"
-                              viewBox="0 0 1024 1024"
-                              width="1em"
-                            >
-                              <path
-                                d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
-                              />
-                            </svg>
-                          </span>
-                        </span>
-                      </span>
-                    </div>
-                  </th>
-                  <th
-                    class="ant-table-cell"
-                  >
-                    <div
-                      class="ant-table-filter-column"
-                    >
-                      <span
-                        class="ant-table-column-title"
-                      >
-                        Gender
-                      </span>
-                      <span
-                        class="ant-dropdown-trigger ant-table-filter-trigger"
-                        role="button"
-                        tabindex="-1"
-                      >
-                        <span
-                          aria-label="filter"
-                          class="anticon anticon-filter"
-                          role="img"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            data-icon="filter"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M349 838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V642H349v196zm531.1-684H143.9c-24.5 0-39.8 26.7-27.5 48l221.3 376h348.8l221.3-376c12.1-21.3-3.2-48-27.7-48z"
-                            />
-                          </svg>
-                        </span>
-                      </span>
-                    </div>
-                  </th>
-                  <th
-                    class="ant-table-cell"
-                  >
-                    Email
-                  </th>
-                </tr>
-              </thead>
-              <tbody
-                class="ant-table-tbody"
-              >
-                <tr
-                  class="ant-table-placeholder"
-                >
-                  <td
-                    class="ant-table-cell"
-                    colspan="3"
-                  >
-                    <div
-                      class="ant-empty ant-empty-normal"
-                    >
-                      <div
-                        class="ant-empty-image"
-                      >
-                        <svg
-                          height="41"
-                          viewBox="0 0 64 41"
-                          width="64"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <g
-                            fill="none"
-                            fill-rule="evenodd"
-                            transform="translate(0 1)"
-                          >
-                            <ellipse
-                              cx="32"
-                              cy="33"
-                              fill="#F5F5F5"
-                              rx="32"
-                              ry="7"
-                            />
-                            <g
-                              fill-rule="nonzero"
-                              stroke="#D9D9D9"
-                            >
-                              <path
-                                d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
-                              />
-                              <path
-                                d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
-                                fill="#FAFAFA"
-                              />
-                            </g>
-                          </g>
-                        </svg>
-                      </div>
-                      <div
-                        class="ant-empty-description"
-                      >
-                        No data
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`renders ./components/table/demo/basic.tsx correctly 1`] = `
+exports[`renders components/table/demo/basic.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -405,7 +198,7 @@ exports[`renders ./components/table/demo/basic.tsx correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    Sidney No. 1 Lake Park
+                    Sydney No. 1 Lake Park
                   </td>
                   <td
                     class="ant-table-cell"
@@ -536,7 +329,7 @@ exports[`renders ./components/table/demo/basic.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/table/demo/bordered.tsx correctly 1`] = `
+exports[`renders components/table/demo/bordered.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -658,7 +451,7 @@ exports[`renders ./components/table/demo/bordered.tsx correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    Sidney No. 1 Lake Park
+                    Sydney No. 1 Lake Park
                   </td>
                 </tr>
               </tbody>
@@ -755,7 +548,7 @@ exports[`renders ./components/table/demo/bordered.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/table/demo/colspan-rowspan.tsx correctly 1`] = `
+exports[`renders components/table/demo/colspan-rowspan.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -782,6 +575,12 @@ exports[`renders ./components/table/demo/colspan-rowspan.tsx correctly 1`] = `
                 class="ant-table-thead"
               >
                 <tr>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    RowHead
+                  </th>
                   <th
                     class="ant-table-cell"
                     scope="col"
@@ -816,6 +615,12 @@ exports[`renders ./components/table/demo/colspan-rowspan.tsx correctly 1`] = `
                   class="ant-table-row ant-table-row-level-0"
                   data-row-key="1"
                 >
+                  <th
+                    class="ant-table-cell"
+                    scope="row"
+                  >
+                    1
+                  </th>
                   <td
                     class="ant-table-cell"
                   >
@@ -848,6 +653,12 @@ exports[`renders ./components/table/demo/colspan-rowspan.tsx correctly 1`] = `
                   class="ant-table-row ant-table-row-level-0"
                   data-row-key="2"
                 >
+                  <th
+                    class="ant-table-cell"
+                    scope="row"
+                  >
+                    2
+                  </th>
                   <td
                     class="ant-table-cell"
                     colspan="5"
@@ -861,6 +672,12 @@ exports[`renders ./components/table/demo/colspan-rowspan.tsx correctly 1`] = `
                   class="ant-table-row ant-table-row-level-0"
                   data-row-key="3"
                 >
+                  <th
+                    class="ant-table-cell"
+                    scope="row"
+                  >
+                    3
+                  </th>
                   <td
                     class="ant-table-cell"
                   >
@@ -886,13 +703,19 @@ exports[`renders ./components/table/demo/colspan-rowspan.tsx correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    Sidney No. 1 Lake Park
+                    Sydney No. 1 Lake Park
                   </td>
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
                   data-row-key="4"
                 >
+                  <th
+                    class="ant-table-cell"
+                    scope="row"
+                  >
+                    4
+                  </th>
                   <td
                     class="ant-table-cell"
                   >
@@ -926,6 +749,12 @@ exports[`renders ./components/table/demo/colspan-rowspan.tsx correctly 1`] = `
                   class="ant-table-row ant-table-row-level-0"
                   data-row-key="5"
                 >
+                  <th
+                    class="ant-table-cell"
+                    scope="row"
+                  >
+                    5
+                  </th>
                   <td
                     class="ant-table-cell"
                   >
@@ -1038,7 +867,7 @@ exports[`renders ./components/table/demo/colspan-rowspan.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/table/demo/custom-filter-panel.tsx correctly 1`] = `
+exports[`renders components/table/demo/custom-filter-panel.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -1174,12 +1003,13 @@ exports[`renders ./components/table/demo/custom-filter-panel.tsx correctly 1`] =
                             class="ant-table-column-sorter ant-table-column-sorter-full"
                           >
                             <span
+                              aria-hidden="true"
                               class="ant-table-column-sorter-inner"
                             >
                               <span
                                 aria-label="caret-up"
                                 class="anticon anticon-caret-up ant-table-column-sorter-up"
-                                role="presentation"
+                                role="img"
                               >
                                 <svg
                                   aria-hidden="true"
@@ -1198,7 +1028,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.tsx correctly 1`] =
                               <span
                                 aria-label="caret-down"
                                 class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                role="presentation"
+                                role="img"
                               >
                                 <svg
                                   aria-hidden="true"
@@ -1307,7 +1137,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.tsx correctly 1`] =
                   <td
                     class="ant-table-cell"
                   >
-                    Sidney No. 1 Lake Park
+                    Sydney No. 1 Lake Park
                   </td>
                 </tr>
                 <tr
@@ -1419,7 +1249,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.tsx correctly 1`] =
 </div>
 `;
 
-exports[`renders ./components/table/demo/drag-sorting.tsx correctly 1`] = `
+exports[`renders components/table/demo/drag-sorting.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -1470,9 +1300,14 @@ exports[`renders ./components/table/demo/drag-sorting.tsx correctly 1`] = `
                 class="ant-table-tbody"
               >
                 <tr
+                  aria-describedby="DndDescribedBy-0"
+                  aria-disabled="false"
+                  aria-roledescription="sortable"
                   class="ant-table-row ant-table-row-level-0"
                   data-row-key="1"
+                  role="button"
                   style="cursor:move"
+                  tabindex="0"
                 >
                   <td
                     class="ant-table-cell"
@@ -1487,13 +1322,18 @@ exports[`renders ./components/table/demo/drag-sorting.tsx correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    New York No. 1 Lake Park
+                    Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text
                   </td>
                 </tr>
                 <tr
+                  aria-describedby="DndDescribedBy-0"
+                  aria-disabled="false"
+                  aria-roledescription="sortable"
                   class="ant-table-row ant-table-row-level-0"
                   data-row-key="2"
+                  role="button"
                   style="cursor:move"
+                  tabindex="0"
                 >
                   <td
                     class="ant-table-cell"
@@ -1512,9 +1352,14 @@ exports[`renders ./components/table/demo/drag-sorting.tsx correctly 1`] = `
                   </td>
                 </tr>
                 <tr
+                  aria-describedby="DndDescribedBy-0"
+                  aria-disabled="false"
+                  aria-roledescription="sortable"
                   class="ant-table-row ant-table-row-level-0"
                   data-row-key="3"
+                  role="button"
                   style="cursor:move"
+                  tabindex="0"
                 >
                   <td
                     class="ant-table-cell"
@@ -1621,7 +1466,296 @@ exports[`renders ./components/table/demo/drag-sorting.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/table/demo/dynamic-settings.tsx correctly 1`] = `
+exports[`renders components/table/demo/drag-sorting-handler.tsx correctly 1`] = `
+<div
+  class="ant-table-wrapper"
+>
+  <div
+    class="ant-spin-nested-loading"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="ant-table"
+      >
+        <div
+          class="ant-table-container"
+        >
+          <div
+            class="ant-table-content"
+          >
+            <table
+              style="table-layout:auto"
+            >
+              <colgroup />
+              <thead
+                class="ant-table-thead"
+              >
+                <tr>
+                  <td
+                    class="ant-table-cell"
+                  />
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Name
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Age
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Address
+                  </th>
+                </tr>
+              </thead>
+              <tbody
+                class="ant-table-tbody"
+              >
+                <tr
+                  aria-describedby="DndDescribedBy-1"
+                  aria-disabled="false"
+                  aria-roledescription="sortable"
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
+                  role="button"
+                  tabindex="0"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    <span
+                      aria-label="menu"
+                      class="anticon anticon-menu"
+                      role="img"
+                      style="touch-action:none;cursor:move"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="menu"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M904 160H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0 624H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0-312H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    John Brown
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    32
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text
+                  </td>
+                </tr>
+                <tr
+                  aria-describedby="DndDescribedBy-1"
+                  aria-disabled="false"
+                  aria-roledescription="sortable"
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="2"
+                  role="button"
+                  tabindex="0"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    <span
+                      aria-label="menu"
+                      class="anticon anticon-menu"
+                      role="img"
+                      style="touch-action:none;cursor:move"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="menu"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M904 160H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0 624H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0-312H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Jim Green
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    42
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London No. 1 Lake Park
+                  </td>
+                </tr>
+                <tr
+                  aria-describedby="DndDescribedBy-1"
+                  aria-disabled="false"
+                  aria-roledescription="sortable"
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="3"
+                  role="button"
+                  tabindex="0"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    <span
+                      aria-label="menu"
+                      class="anticon anticon-menu"
+                      role="img"
+                      style="touch-action:none;cursor:move"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="menu"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M904 160H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0 624H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0-312H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Joe Black
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    32
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Sidney No. 1 Lake Park
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <ul
+        class="ant-pagination ant-table-pagination ant-table-pagination-right"
+      >
+        <li
+          aria-disabled="true"
+          class="ant-pagination-prev ant-pagination-disabled"
+          title="Previous Page"
+        >
+          <button
+            class="ant-pagination-item-link"
+            disabled=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              aria-label="left"
+              class="anticon anticon-left"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="left"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                />
+              </svg>
+            </span>
+          </button>
+        </li>
+        <li
+          class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+          tabindex="0"
+          title="1"
+        >
+          <a
+            rel="nofollow"
+          >
+            1
+          </a>
+        </li>
+        <li
+          aria-disabled="true"
+          class="ant-pagination-next ant-pagination-disabled"
+          title="Next Page"
+        >
+          <button
+            class="ant-pagination-item-link"
+            disabled=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              aria-label="right"
+              class="anticon anticon-right"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="right"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                />
+              </svg>
+            </span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/table/demo/dynamic-settings.tsx correctly 1`] = `
 Array [
   <form
     class="ant-form ant-form-inline components-table-demo-control-bar"
@@ -2690,12 +2824,13 @@ Array [
                           class="ant-table-column-sorter ant-table-column-sorter-full"
                         >
                           <span
+                            aria-hidden="true"
                             class="ant-table-column-sorter-inner"
                           >
                             <span
                               aria-label="caret-up"
                               class="anticon anticon-caret-up ant-table-column-sorter-up"
-                              role="presentation"
+                              role="img"
                             >
                               <svg
                                 aria-hidden="true"
@@ -2714,7 +2849,7 @@ Array [
                             <span
                               aria-label="caret-down"
                               class="anticon anticon-caret-down ant-table-column-sorter-down"
-                              role="presentation"
+                              role="img"
                             >
                               <svg
                                 aria-hidden="true"
@@ -2791,12 +2926,13 @@ Array [
                           class="ant-table-column-sorter ant-table-column-sorter-full"
                         >
                           <span
+                            aria-hidden="true"
                             class="ant-table-column-sorter-inner"
                           >
                             <span
                               aria-label="caret-up"
                               class="anticon anticon-caret-up ant-table-column-sorter-up"
-                              role="presentation"
+                              role="img"
                             >
                               <svg
                                 aria-hidden="true"
@@ -2815,7 +2951,7 @@ Array [
                             <span
                               aria-label="caret-down"
                               class="anticon anticon-caret-down ant-table-column-sorter-down"
-                              role="presentation"
+                              role="img"
                             >
                               <svg
                                 aria-hidden="true"
@@ -3975,7 +4111,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/table/demo/edit-cell.tsx correctly 1`] = `
+exports[`renders components/table/demo/edit-cell.tsx correctly 1`] = `
 <div>
   <button
     class="ant-btn ant-btn-primary"
@@ -4199,7 +4335,7 @@ exports[`renders ./components/table/demo/edit-cell.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/table/demo/edit-row.tsx correctly 1`] = `
+exports[`renders components/table/demo/edit-row.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -4272,7 +4408,7 @@ exports[`renders ./components/table/demo/edit-row.tsx correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    Edrward 0
+                    Edward 0
                   </td>
                   <td
                     class="ant-table-cell"
@@ -4301,7 +4437,7 @@ exports[`renders ./components/table/demo/edit-row.tsx correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    Edrward 1
+                    Edward 1
                   </td>
                   <td
                     class="ant-table-cell"
@@ -4330,7 +4466,7 @@ exports[`renders ./components/table/demo/edit-row.tsx correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    Edrward 2
+                    Edward 2
                   </td>
                   <td
                     class="ant-table-cell"
@@ -4359,7 +4495,7 @@ exports[`renders ./components/table/demo/edit-row.tsx correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    Edrward 3
+                    Edward 3
                   </td>
                   <td
                     class="ant-table-cell"
@@ -4388,7 +4524,7 @@ exports[`renders ./components/table/demo/edit-row.tsx correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    Edrward 4
+                    Edward 4
                   </td>
                   <td
                     class="ant-table-cell"
@@ -4417,7 +4553,7 @@ exports[`renders ./components/table/demo/edit-row.tsx correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    Edrward 5
+                    Edward 5
                   </td>
                   <td
                     class="ant-table-cell"
@@ -4446,7 +4582,7 @@ exports[`renders ./components/table/demo/edit-row.tsx correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    Edrward 6
+                    Edward 6
                   </td>
                   <td
                     class="ant-table-cell"
@@ -4475,7 +4611,7 @@ exports[`renders ./components/table/demo/edit-row.tsx correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    Edrward 7
+                    Edward 7
                   </td>
                   <td
                     class="ant-table-cell"
@@ -4504,7 +4640,7 @@ exports[`renders ./components/table/demo/edit-row.tsx correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    Edrward 8
+                    Edward 8
                   </td>
                   <td
                     class="ant-table-cell"
@@ -4533,7 +4669,7 @@ exports[`renders ./components/table/demo/edit-row.tsx correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    Edrward 9
+                    Edward 9
                   </td>
                   <td
                     class="ant-table-cell"
@@ -4803,7 +4939,7 @@ exports[`renders ./components/table/demo/edit-row.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/table/demo/ellipsis.tsx correctly 1`] = `
+exports[`renders components/table/demo/ellipsis.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -4982,27 +5118,27 @@ exports[`renders ./components/table/demo/ellipsis.tsx correctly 1`] = `
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
-                    title="Sidney No. 1 Lake Park, Sidney No. 1 Lake Park"
+                    title="Sydney No. 1 Lake Park, Sydney No. 1 Lake Park"
                   >
-                    Sidney No. 1 Lake Park, Sidney No. 1 Lake Park
+                    Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
-                    title="Sidney No. 1 Lake Park, Sidney No. 1 Lake Park"
+                    title="Sydney No. 1 Lake Park, Sydney No. 1 Lake Park"
                   >
-                    Sidney No. 1 Lake Park, Sidney No. 1 Lake Park
+                    Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
-                    title="Sidney No. 1 Lake Park, Sidney No. 1 Lake Park"
+                    title="Sydney No. 1 Lake Park, Sydney No. 1 Lake Park"
                   >
-                    Sidney No. 1 Lake Park, Sidney No. 1 Lake Park
+                    Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
-                    title="Sidney No. 1 Lake Park, Sidney No. 1 Lake Park"
+                    title="Sydney No. 1 Lake Park, Sydney No. 1 Lake Park"
                   >
-                    Sidney No. 1 Lake Park, Sidney No. 1 Lake Park
+                    Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
                   </td>
                 </tr>
               </tbody>
@@ -5094,7 +5230,7 @@ exports[`renders ./components/table/demo/ellipsis.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/table/demo/ellipsis-custom-tooltip.tsx correctly 1`] = `
+exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -5283,28 +5419,28 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.tsx correctly 1
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
                     <span>
-                      Sidney No. 1 Lake Park, Sidney No. 1 Lake Park
+                      Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
                     </span>
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
                     <span>
-                      Sidney No. 1 Lake Park, Sidney No. 1 Lake Park
+                      Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
                     </span>
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
                     <span>
-                      Sidney No. 1 Lake Park, Sidney No. 1 Lake Park
+                      Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
                     </span>
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
                     <span>
-                      Sidney No. 1 Lake Park, Sidney No. 1 Lake Park
+                      Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
                     </span>
                   </td>
                 </tr>
@@ -5397,7 +5533,7 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.tsx correctly 1
 </div>
 `;
 
-exports[`renders ./components/table/demo/expand.tsx correctly 1`] = `
+exports[`renders components/table/demo/expand.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -5598,7 +5734,7 @@ exports[`renders ./components/table/demo/expand.tsx correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    Sidney No. 1 Lake Park
+                    Sydney No. 1 Lake Park
                   </td>
                   <td
                     class="ant-table-cell"
@@ -5697,7 +5833,7 @@ exports[`renders ./components/table/demo/expand.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/table/demo/filter-in-tree.tsx correctly 1`] = `
+exports[`renders components/table/demo/filter-in-tree.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -5789,12 +5925,13 @@ exports[`renders ./components/table/demo/filter-in-tree.tsx correctly 1`] = `
                         class="ant-table-column-sorter ant-table-column-sorter-full"
                       >
                         <span
+                          aria-hidden="true"
                           class="ant-table-column-sorter-inner"
                         >
                           <span
                             aria-label="caret-up"
                             class="anticon anticon-caret-up ant-table-column-sorter-up"
-                            role="presentation"
+                            role="img"
                           >
                             <svg
                               aria-hidden="true"
@@ -5813,7 +5950,7 @@ exports[`renders ./components/table/demo/filter-in-tree.tsx correctly 1`] = `
                           <span
                             aria-label="caret-down"
                             class="anticon anticon-caret-down ant-table-column-sorter-down"
-                            role="presentation"
+                            role="img"
                           >
                             <svg
                               aria-hidden="true"
@@ -5934,7 +6071,7 @@ exports[`renders ./components/table/demo/filter-in-tree.tsx correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    Sidney No. 1 Lake Park
+                    Sydney No. 1 Lake Park
                   </td>
                 </tr>
                 <tr
@@ -6046,7 +6183,7 @@ exports[`renders ./components/table/demo/filter-in-tree.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/table/demo/filter-search.tsx correctly 1`] = `
+exports[`renders components/table/demo/filter-search.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -6138,12 +6275,13 @@ exports[`renders ./components/table/demo/filter-search.tsx correctly 1`] = `
                         class="ant-table-column-sorter ant-table-column-sorter-full"
                       >
                         <span
+                          aria-hidden="true"
                           class="ant-table-column-sorter-inner"
                         >
                           <span
                             aria-label="caret-up"
                             class="anticon anticon-caret-up ant-table-column-sorter-up"
-                            role="presentation"
+                            role="img"
                           >
                             <svg
                               aria-hidden="true"
@@ -6162,7 +6300,7 @@ exports[`renders ./components/table/demo/filter-search.tsx correctly 1`] = `
                           <span
                             aria-label="caret-down"
                             class="anticon anticon-caret-down ant-table-column-sorter-down"
-                            role="presentation"
+                            role="img"
                           >
                             <svg
                               aria-hidden="true"
@@ -6283,7 +6421,7 @@ exports[`renders ./components/table/demo/filter-search.tsx correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    Sidney No. 1 Lake Park
+                    Sydney No. 1 Lake Park
                   </td>
                 </tr>
                 <tr
@@ -6395,7 +6533,7 @@ exports[`renders ./components/table/demo/filter-search.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/table/demo/fixed-columns.tsx correctly 1`] = `
+exports[`renders components/table/demo/fixed-columns.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -6467,12 +6605,13 @@ exports[`renders ./components/table/demo/fixed-columns.tsx correctly 1`] = `
                         class="ant-table-column-sorter ant-table-column-sorter-full"
                       >
                         <span
+                          aria-hidden="true"
                           class="ant-table-column-sorter-inner"
                         >
                           <span
                             aria-label="caret-up"
                             class="anticon anticon-caret-up ant-table-column-sorter-up"
-                            role="presentation"
+                            role="img"
                           >
                             <svg
                               aria-hidden="true"
@@ -6491,7 +6630,7 @@ exports[`renders ./components/table/demo/fixed-columns.tsx correctly 1`] = `
                           <span
                             aria-label="caret-down"
                             class="anticon anticon-caret-down ant-table-column-sorter-down"
-                            role="presentation"
+                            role="img"
                           >
                             <svg
                               aria-hidden="true"
@@ -6884,7 +7023,7 @@ exports[`renders ./components/table/demo/fixed-columns.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/table/demo/fixed-columns-header.tsx correctly 1`] = `
+exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -7130,7 +7269,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.tsx correctly 1`] 
                     class="ant-table-cell ant-table-cell-fix-left"
                     style="position:sticky;left:0"
                   >
-                    Edrward 0
+                    Edward 0
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -7195,7 +7334,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.tsx correctly 1`] 
                     class="ant-table-cell ant-table-cell-fix-left"
                     style="position:sticky;left:0"
                   >
-                    Edrward 1
+                    Edward 1
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -7260,7 +7399,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.tsx correctly 1`] 
                     class="ant-table-cell ant-table-cell-fix-left"
                     style="position:sticky;left:0"
                   >
-                    Edrward 2
+                    Edward 2
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -7325,7 +7464,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.tsx correctly 1`] 
                     class="ant-table-cell ant-table-cell-fix-left"
                     style="position:sticky;left:0"
                   >
-                    Edrward 3
+                    Edward 3
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -7390,7 +7529,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.tsx correctly 1`] 
                     class="ant-table-cell ant-table-cell-fix-left"
                     style="position:sticky;left:0"
                   >
-                    Edrward 4
+                    Edward 4
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -7455,7 +7594,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.tsx correctly 1`] 
                     class="ant-table-cell ant-table-cell-fix-left"
                     style="position:sticky;left:0"
                   >
-                    Edrward 5
+                    Edward 5
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -7520,7 +7659,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.tsx correctly 1`] 
                     class="ant-table-cell ant-table-cell-fix-left"
                     style="position:sticky;left:0"
                   >
-                    Edrward 6
+                    Edward 6
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -7585,7 +7724,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.tsx correctly 1`] 
                     class="ant-table-cell ant-table-cell-fix-left"
                     style="position:sticky;left:0"
                   >
-                    Edrward 7
+                    Edward 7
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -7650,7 +7789,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.tsx correctly 1`] 
                     class="ant-table-cell ant-table-cell-fix-left"
                     style="position:sticky;left:0"
                   >
-                    Edrward 8
+                    Edward 8
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -7715,7 +7854,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.tsx correctly 1`] 
                     class="ant-table-cell ant-table-cell-fix-left"
                     style="position:sticky;left:0"
                   >
-                    Edrward 9
+                    Edward 9
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -8020,7 +8159,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.tsx correctly 1`] 
 </div>
 `;
 
-exports[`renders ./components/table/demo/fixed-header.tsx correctly 1`] = `
+exports[`renders components/table/demo/fixed-header.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -9284,7 +9423,7 @@ exports[`renders ./components/table/demo/fixed-header.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/table/demo/grouping-columns.tsx correctly 1`] = `
+exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -9396,12 +9535,13 @@ exports[`renders ./components/table/demo/grouping-columns.tsx correctly 1`] = `
                         class="ant-table-column-sorter ant-table-column-sorter-full"
                       >
                         <span
+                          aria-hidden="true"
                           class="ant-table-column-sorter-inner"
                         >
                           <span
                             aria-label="caret-up"
                             class="anticon anticon-caret-up ant-table-column-sorter-up"
-                            role="presentation"
+                            role="img"
                           >
                             <svg
                               aria-hidden="true"
@@ -9420,7 +9560,7 @@ exports[`renders ./components/table/demo/grouping-columns.tsx correctly 1`] = `
                           <span
                             aria-label="caret-down"
                             class="anticon anticon-caret-down ant-table-column-sorter-down"
-                            role="presentation"
+                            role="img"
                           >
                             <svg
                               aria-hidden="true"
@@ -10317,7 +10457,7 @@ exports[`renders ./components/table/demo/grouping-columns.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/table/demo/head.tsx correctly 1`] = `
+exports[`renders components/table/demo/head.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -10368,12 +10508,13 @@ exports[`renders ./components/table/demo/head.tsx correctly 1`] = `
                             class="ant-table-column-sorter"
                           >
                             <span
+                              aria-hidden="true"
                               class="ant-table-column-sorter-inner"
                             >
                               <span
                                 aria-label="caret-down"
                                 class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                role="presentation"
+                                role="img"
                               >
                                 <svg
                                   aria-hidden="true"
@@ -10438,12 +10579,13 @@ exports[`renders ./components/table/demo/head.tsx correctly 1`] = `
                         class="ant-table-column-sorter ant-table-column-sorter-full"
                       >
                         <span
+                          aria-hidden="true"
                           class="ant-table-column-sorter-inner"
                         >
                           <span
                             aria-label="caret-up"
                             class="anticon anticon-caret-up ant-table-column-sorter-up"
-                            role="presentation"
+                            role="img"
                           >
                             <svg
                               aria-hidden="true"
@@ -10462,7 +10604,7 @@ exports[`renders ./components/table/demo/head.tsx correctly 1`] = `
                           <span
                             aria-label="caret-down"
                             class="anticon anticon-caret-down ant-table-column-sorter-down active"
-                            role="presentation"
+                            role="img"
                           >
                             <svg
                               aria-hidden="true"
@@ -10583,7 +10725,7 @@ exports[`renders ./components/table/demo/head.tsx correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    Sidney No. 1 Lake Park
+                    Sydney No. 1 Lake Park
                   </td>
                 </tr>
                 <tr
@@ -10695,7 +10837,7 @@ exports[`renders ./components/table/demo/head.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/table/demo/jsx.tsx correctly 1`] = `
+exports[`renders components/table/demo/jsx.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -10921,7 +11063,7 @@ exports[`renders ./components/table/demo/jsx.tsx correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    Sidney No. 1 Lake Park
+                    Sydney No. 1 Lake Park
                   </td>
                   <td
                     class="ant-table-cell"
@@ -11052,7 +11194,7 @@ exports[`renders ./components/table/demo/jsx.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/table/demo/multiple-sorter.tsx correctly 1`] = `
+exports[`renders components/table/demo/multiple-sorter.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -11103,12 +11245,13 @@ exports[`renders ./components/table/demo/multiple-sorter.tsx correctly 1`] = `
                         class="ant-table-column-sorter ant-table-column-sorter-full"
                       >
                         <span
+                          aria-hidden="true"
                           class="ant-table-column-sorter-inner"
                         >
                           <span
                             aria-label="caret-up"
                             class="anticon anticon-caret-up ant-table-column-sorter-up"
-                            role="presentation"
+                            role="img"
                           >
                             <svg
                               aria-hidden="true"
@@ -11127,7 +11270,7 @@ exports[`renders ./components/table/demo/multiple-sorter.tsx correctly 1`] = `
                           <span
                             aria-label="caret-down"
                             class="anticon anticon-caret-down ant-table-column-sorter-down"
-                            role="presentation"
+                            role="img"
                           >
                             <svg
                               aria-hidden="true"
@@ -11165,12 +11308,13 @@ exports[`renders ./components/table/demo/multiple-sorter.tsx correctly 1`] = `
                         class="ant-table-column-sorter ant-table-column-sorter-full"
                       >
                         <span
+                          aria-hidden="true"
                           class="ant-table-column-sorter-inner"
                         >
                           <span
                             aria-label="caret-up"
                             class="anticon anticon-caret-up ant-table-column-sorter-up"
-                            role="presentation"
+                            role="img"
                           >
                             <svg
                               aria-hidden="true"
@@ -11189,7 +11333,7 @@ exports[`renders ./components/table/demo/multiple-sorter.tsx correctly 1`] = `
                           <span
                             aria-label="caret-down"
                             class="anticon anticon-caret-down ant-table-column-sorter-down"
-                            role="presentation"
+                            role="img"
                           >
                             <svg
                               aria-hidden="true"
@@ -11227,12 +11371,13 @@ exports[`renders ./components/table/demo/multiple-sorter.tsx correctly 1`] = `
                         class="ant-table-column-sorter ant-table-column-sorter-full"
                       >
                         <span
+                          aria-hidden="true"
                           class="ant-table-column-sorter-inner"
                         >
                           <span
                             aria-label="caret-up"
                             class="anticon anticon-caret-up ant-table-column-sorter-up"
-                            role="presentation"
+                            role="img"
                           >
                             <svg
                               aria-hidden="true"
@@ -11251,7 +11396,7 @@ exports[`renders ./components/table/demo/multiple-sorter.tsx correctly 1`] = `
                           <span
                             aria-label="caret-down"
                             class="anticon anticon-caret-down ant-table-column-sorter-down"
-                            role="presentation"
+                            role="img"
                           >
                             <svg
                               aria-hidden="true"
@@ -11465,7 +11610,7 @@ exports[`renders ./components/table/demo/multiple-sorter.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/table/demo/narrow.tsx correctly 1`] = `
+exports[`renders components/table/demo/narrow.tsx correctly 1`] = `
 <div
   style="width:300px"
 >
@@ -12016,7 +12161,7 @@ exports[`renders ./components/table/demo/narrow.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/table/demo/nest-table-border-debug.tsx correctly 1`] = `
+exports[`renders components/table/demo/nest-table-border-debug.tsx correctly 1`] = `
 Array [
   <form
     class="ant-form ant-form-inline components-table-demo-control-bar"
@@ -12459,7 +12604,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/table/demo/nested-table.tsx correctly 1`] = `
+exports[`renders components/table/demo/nested-table.tsx correctly 1`] = `
 Array [
   <div
     class="ant-table-wrapper"
@@ -14459,7 +14604,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/table/demo/order-column.tsx correctly 1`] = `
+exports[`renders components/table/demo/order-column.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -14739,7 +14884,7 @@ exports[`renders ./components/table/demo/order-column.tsx correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    Sidney No. 1 Lake Park
+                    Sydney No. 1 Lake Park
                   </td>
                 </tr>
               </tbody>
@@ -14831,7 +14976,7 @@ exports[`renders ./components/table/demo/order-column.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/table/demo/pagination.tsx correctly 1`] = `
+exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
 <div>
   <div>
     <div
@@ -15279,7 +15424,7 @@ exports[`renders ./components/table/demo/pagination.tsx correctly 1`] = `
                     <td
                       class="ant-table-cell"
                     >
-                      Sidney No. 1 Lake Park
+                      Sydney No. 1 Lake Park
                     </td>
                     <td
                       class="ant-table-cell"
@@ -15413,7 +15558,7 @@ exports[`renders ./components/table/demo/pagination.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/table/demo/reset-filter.tsx correctly 1`] = `
+exports[`renders components/table/demo/reset-filter.tsx correctly 1`] = `
 Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
@@ -15509,12 +15654,13 @@ Array [
                               class="ant-table-column-sorter ant-table-column-sorter-full"
                             >
                               <span
+                                aria-hidden="true"
                                 class="ant-table-column-sorter-inner"
                               >
                                 <span
                                   aria-label="caret-up"
                                   class="anticon anticon-caret-up ant-table-column-sorter-up"
-                                  role="presentation"
+                                  role="img"
                                 >
                                   <svg
                                     aria-hidden="true"
@@ -15533,7 +15679,7 @@ Array [
                                 <span
                                   aria-label="caret-down"
                                   class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                  role="presentation"
+                                  role="img"
                                 >
                                   <svg
                                     aria-hidden="true"
@@ -15599,12 +15745,13 @@ Array [
                           class="ant-table-column-sorter ant-table-column-sorter-full"
                         >
                           <span
+                            aria-hidden="true"
                             class="ant-table-column-sorter-inner"
                           >
                             <span
                               aria-label="caret-up"
                               class="anticon anticon-caret-up ant-table-column-sorter-up"
-                              role="presentation"
+                              role="img"
                             >
                               <svg
                                 aria-hidden="true"
@@ -15623,7 +15770,7 @@ Array [
                             <span
                               aria-label="caret-down"
                               class="anticon anticon-caret-down ant-table-column-sorter-down"
-                              role="presentation"
+                              role="img"
                             >
                               <svg
                                 aria-hidden="true"
@@ -15668,12 +15815,13 @@ Array [
                               class="ant-table-column-sorter ant-table-column-sorter-full"
                             >
                               <span
+                                aria-hidden="true"
                                 class="ant-table-column-sorter-inner"
                               >
                                 <span
                                   aria-label="caret-up"
                                   class="anticon anticon-caret-up ant-table-column-sorter-up"
-                                  role="presentation"
+                                  role="img"
                                 >
                                   <svg
                                     aria-hidden="true"
@@ -15692,7 +15840,7 @@ Array [
                                 <span
                                   aria-label="caret-down"
                                   class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                  role="presentation"
+                                  role="img"
                                 >
                                   <svg
                                     aria-hidden="true"
@@ -15808,9 +15956,9 @@ Array [
                     </td>
                     <td
                       class="ant-table-cell ant-table-cell-ellipsis"
-                      title="Sidney No. 1 Lake Park"
+                      title="Sydney No. 1 Lake Park"
                     >
-                      Sidney No. 1 Lake Park
+                      Sydney No. 1 Lake Park
                     </td>
                   </tr>
                   <tr
@@ -15926,7 +16074,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/table/demo/resizable-column.tsx correctly 1`] = `
+exports[`renders components/table/demo/resizable-column.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -15993,12 +16141,13 @@ exports[`renders ./components/table/demo/resizable-column.tsx correctly 1`] = `
                         class="ant-table-column-sorter ant-table-column-sorter-full"
                       >
                         <span
+                          aria-hidden="true"
                           class="ant-table-column-sorter-inner"
                         >
                           <span
                             aria-label="caret-up"
                             class="anticon anticon-caret-up ant-table-column-sorter-up"
-                            role="presentation"
+                            role="img"
                           >
                             <svg
                               aria-hidden="true"
@@ -16017,7 +16166,7 @@ exports[`renders ./components/table/demo/resizable-column.tsx correctly 1`] = `
                           <span
                             aria-label="caret-down"
                             class="anticon anticon-caret-down ant-table-column-sorter-down"
-                            role="presentation"
+                            role="img"
                           >
                             <svg
                               aria-hidden="true"
@@ -16254,7 +16403,7 @@ exports[`renders ./components/table/demo/resizable-column.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/table/demo/responsive.tsx correctly 1`] = `
+exports[`renders components/table/demo/responsive.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -16393,7 +16542,7 @@ exports[`renders ./components/table/demo/responsive.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/table/demo/row-selection.tsx correctly 1`] = `
+exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
 <div>
   <div
     class="ant-radio-group ant-radio-group-outline"
@@ -16643,7 +16792,7 @@ exports[`renders ./components/table/demo/row-selection.tsx correctly 1`] = `
                     <td
                       class="ant-table-cell"
                     >
-                      Sidney No. 1 Lake Park
+                      Sydney No. 1 Lake Park
                     </td>
                   </tr>
                   <tr
@@ -16686,7 +16835,7 @@ exports[`renders ./components/table/demo/row-selection.tsx correctly 1`] = `
                     <td
                       class="ant-table-cell"
                     >
-                      Sidney No. 1 Lake Park
+                      Sydney No. 1 Lake Park
                     </td>
                   </tr>
                 </tbody>
@@ -16779,7 +16928,7 @@ exports[`renders ./components/table/demo/row-selection.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/table/demo/row-selection-and-operation.tsx correctly 1`] = `
+exports[`renders components/table/demo/row-selection-and-operation.tsx correctly 1`] = `
 <div>
   <div
     style="margin-bottom:16px"
@@ -17399,7 +17548,7 @@ exports[`renders ./components/table/demo/row-selection-and-operation.tsx correct
 </div>
 `;
 
-exports[`renders ./components/table/demo/row-selection-custom.tsx correctly 1`] = `
+exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -18028,7 +18177,7 @@ exports[`renders ./components/table/demo/row-selection-custom.tsx correctly 1`] 
 </div>
 `;
 
-exports[`renders ./components/table/demo/row-selection-custom-debug.tsx correctly 1`] = `
+exports[`renders components/table/demo/row-selection-custom-debug.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -18443,7 +18592,7 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.tsx correctl
 </div>
 `;
 
-exports[`renders ./components/table/demo/row-selection-debug.tsx correctly 1`] = `
+exports[`renders components/table/demo/row-selection-debug.tsx correctly 1`] = `
 Array [
   <div
     class="ant-input-number"
@@ -20708,7 +20857,319 @@ Array [
 ]
 `;
 
-exports[`renders ./components/table/demo/size.tsx correctly 1`] = `
+exports[`renders components/table/demo/selections-debug.tsx correctly 1`] = `
+<div
+  class="ant-table-wrapper"
+>
+  <div
+    class="ant-spin-nested-loading"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="ant-table ant-table-bordered"
+      >
+        <div
+          class="ant-table-container"
+        >
+          <div
+            class="ant-table-content"
+          >
+            <table
+              style="table-layout:auto"
+            >
+              <colgroup>
+                <col
+                  class="ant-table-selection-col ant-table-selection-col-with-dropdown"
+                />
+              </colgroup>
+              <thead
+                class="ant-table-thead"
+              >
+                <tr>
+                  <th
+                    class="ant-table-cell ant-table-selection-column"
+                    scope="col"
+                  >
+                    <div
+                      class="ant-table-selection"
+                    >
+                      <label
+                        class="ant-checkbox-wrapper"
+                      >
+                        <span
+                          class="ant-checkbox"
+                        >
+                          <input
+                            aria-label="Custom selection"
+                            class="ant-checkbox-input"
+                            type="checkbox"
+                          />
+                          <span
+                            class="ant-checkbox-inner"
+                          />
+                        </span>
+                      </label>
+                      <div
+                        class="ant-table-selection-extra"
+                      >
+                        <span
+                          class="ant-dropdown-trigger"
+                        >
+                          <span
+                            aria-label="down"
+                            class="anticon anticon-down"
+                            role="img"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              data-icon="down"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="64 64 896 896"
+                              width="1em"
+                            >
+                              <path
+                                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                              />
+                            </svg>
+                          </span>
+                        </span>
+                      </div>
+                    </div>
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Name
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Age
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Address
+                  </th>
+                </tr>
+              </thead>
+              <tbody
+                class="ant-table-tbody"
+              >
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
+                >
+                  <td
+                    class="ant-table-cell ant-table-selection-column"
+                  >
+                    <label
+                      class="ant-checkbox-wrapper"
+                    >
+                      <span
+                        class="ant-checkbox"
+                      >
+                        <input
+                          class="ant-checkbox-input"
+                          type="checkbox"
+                        />
+                        <span
+                          class="ant-checkbox-inner"
+                        />
+                      </span>
+                    </label>
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    John Brown
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    32
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    New York No. 1 Lake Park
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="2"
+                >
+                  <td
+                    class="ant-table-cell ant-table-selection-column"
+                  >
+                    <label
+                      class="ant-checkbox-wrapper"
+                    >
+                      <span
+                        class="ant-checkbox"
+                      >
+                        <input
+                          class="ant-checkbox-input"
+                          type="checkbox"
+                        />
+                        <span
+                          class="ant-checkbox-inner"
+                        />
+                      </span>
+                    </label>
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Jim Green
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    42
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London No. 1 Lake Park
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="3"
+                >
+                  <td
+                    class="ant-table-cell ant-table-selection-column"
+                  >
+                    <label
+                      class="ant-checkbox-wrapper"
+                    >
+                      <span
+                        class="ant-checkbox"
+                      >
+                        <input
+                          class="ant-checkbox-input"
+                          type="checkbox"
+                        />
+                        <span
+                          class="ant-checkbox-inner"
+                        />
+                      </span>
+                    </label>
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Joe Black
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    32
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Sydney No. 1 Lake Park
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <ul
+        class="ant-pagination ant-table-pagination ant-table-pagination-right"
+      >
+        <li
+          aria-disabled="true"
+          class="ant-pagination-prev ant-pagination-disabled"
+          title="Previous Page"
+        >
+          <button
+            class="ant-pagination-item-link"
+            disabled=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              aria-label="left"
+              class="anticon anticon-left"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="left"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                />
+              </svg>
+            </span>
+          </button>
+        </li>
+        <li
+          class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+          tabindex="0"
+          title="1"
+        >
+          <a
+            rel="nofollow"
+          >
+            1
+          </a>
+        </li>
+        <li
+          aria-disabled="true"
+          class="ant-pagination-next ant-pagination-disabled"
+          title="Next Page"
+        >
+          <button
+            class="ant-pagination-item-link"
+            disabled=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              aria-label="right"
+              class="anticon anticon-right"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="right"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                />
+              </svg>
+            </span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/table/demo/size.tsx correctly 1`] = `
 Array [
   <div
     class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center"
@@ -20826,7 +21287,7 @@ Array [
                     <td
                       class="ant-table-cell"
                     >
-                      Sidney No. 1 Lake Park
+                      Sydney No. 1 Lake Park
                     </td>
                   </tr>
                 </tbody>
@@ -21032,7 +21493,7 @@ Array [
                     <td
                       class="ant-table-cell"
                     >
-                      Sidney No. 1 Lake Park
+                      Sydney No. 1 Lake Park
                     </td>
                   </tr>
                 </tbody>
@@ -21125,7 +21586,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/table/demo/sticky.tsx correctly 1`] = `
+exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -21371,7 +21832,7 @@ exports[`renders ./components/table/demo/sticky.tsx correctly 1`] = `
                     class="ant-table-cell ant-table-cell-fix-left"
                     style="position:sticky;left:0"
                   >
-                    Edrward 0
+                    Edward 0
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -21436,7 +21897,7 @@ exports[`renders ./components/table/demo/sticky.tsx correctly 1`] = `
                     class="ant-table-cell ant-table-cell-fix-left"
                     style="position:sticky;left:0"
                   >
-                    Edrward 1
+                    Edward 1
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -21501,7 +21962,7 @@ exports[`renders ./components/table/demo/sticky.tsx correctly 1`] = `
                     class="ant-table-cell ant-table-cell-fix-left"
                     style="position:sticky;left:0"
                   >
-                    Edrward 2
+                    Edward 2
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -21566,7 +22027,7 @@ exports[`renders ./components/table/demo/sticky.tsx correctly 1`] = `
                     class="ant-table-cell ant-table-cell-fix-left"
                     style="position:sticky;left:0"
                   >
-                    Edrward 3
+                    Edward 3
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -21631,7 +22092,7 @@ exports[`renders ./components/table/demo/sticky.tsx correctly 1`] = `
                     class="ant-table-cell ant-table-cell-fix-left"
                     style="position:sticky;left:0"
                   >
-                    Edrward 4
+                    Edward 4
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -21696,7 +22157,7 @@ exports[`renders ./components/table/demo/sticky.tsx correctly 1`] = `
                     class="ant-table-cell ant-table-cell-fix-left"
                     style="position:sticky;left:0"
                   >
-                    Edrward 5
+                    Edward 5
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -21761,7 +22222,7 @@ exports[`renders ./components/table/demo/sticky.tsx correctly 1`] = `
                     class="ant-table-cell ant-table-cell-fix-left"
                     style="position:sticky;left:0"
                   >
-                    Edrward 6
+                    Edward 6
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -21826,7 +22287,7 @@ exports[`renders ./components/table/demo/sticky.tsx correctly 1`] = `
                     class="ant-table-cell ant-table-cell-fix-left"
                     style="position:sticky;left:0"
                   >
-                    Edrward 7
+                    Edward 7
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -21891,7 +22352,7 @@ exports[`renders ./components/table/demo/sticky.tsx correctly 1`] = `
                     class="ant-table-cell ant-table-cell-fix-left"
                     style="position:sticky;left:0"
                   >
-                    Edrward 8
+                    Edward 8
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -21956,7 +22417,7 @@ exports[`renders ./components/table/demo/sticky.tsx correctly 1`] = `
                     class="ant-table-cell ant-table-cell-fix-left"
                     style="position:sticky;left:0"
                   >
-                    Edrward 9
+                    Edward 9
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -22319,7 +22780,7 @@ exports[`renders ./components/table/demo/sticky.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/table/demo/summary.tsx correctly 1`] = `
+exports[`renders components/table/demo/summary.tsx correctly 1`] = `
 Array [
   <div
     class="ant-table-wrapper"
@@ -22944,7 +23405,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/table/demo/tree-data.tsx correctly 1`] = `
+exports[`renders components/table/demo/tree-data.tsx correctly 1`] = `
 Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
@@ -23161,7 +23622,7 @@ Array [
                     <td
                       class="ant-table-cell"
                     >
-                      Sidney No. 1 Lake Park
+                      Sydney No. 1 Lake Park
                     </td>
                   </tr>
                 </tbody>
@@ -23254,7 +23715,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/table/demo/tree-table-ellipsis.tsx correctly 1`] = `
+exports[`renders components/table/demo/tree-table-ellipsis.tsx correctly 1`] = `
 Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
@@ -23884,7 +24345,7 @@ Array [
                     <td
                       class="ant-table-cell"
                     >
-                      Sidney No. 1 Lake Park
+                      Sydney No. 1 Lake Park
                     </td>
                   </tr>
                 </tbody>
@@ -23977,7 +24438,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/table/demo/virtual-list.tsx correctly 1`] = `
+exports[`renders components/table/demo/virtual-list.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper virtual-table"
 >

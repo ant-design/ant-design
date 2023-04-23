@@ -1,7 +1,7 @@
 #!/bin/sh
 
-echo "[TEST ALL] test changlog"
-echo "[TEST ALL] test changlog" > ~test-all.txt
+echo "[TEST ALL] test changelog"
+echo "[TEST ALL] test changelog" > ~test-all.txt
 # node ./scripts/check-version-md.js
 
 echo "[TEST ALL] check-commit"

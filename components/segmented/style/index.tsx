@@ -29,7 +29,7 @@ function getItemDisabledStyle(cls: string, token: SegmentedToken): CSSObject {
 function getItemSelectedStyle(token: SegmentedToken): CSSObject {
   return {
     backgroundColor: token.bgColorSelected,
-    boxShadow: token.boxShadow,
+    boxShadow: token.boxShadowTertiary,
   };
 }
 
@@ -63,16 +63,16 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
       },
 
       // RTL styles
-      '&&-rtl': {
+      [`&${componentCls}-rtl`]: {
         direction: 'rtl',
       },
 
       // block styles
-      '&&-block': {
+      [`&${componentCls}-block`]: {
         display: 'flex',
       },
 
-      [`&&-block ${componentCls}-item`]: {
+      [`&${componentCls}-block ${componentCls}-item`]: {
         flex: 1,
         minWidth: 0,
       },
@@ -99,6 +99,9 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
           insetInlineStart: 0,
           borderRadius: 'inherit',
           transition: `background-color ${token.motionDurationMid}`,
+          // This is mandatory to make it not clickable or hoverable
+          // Ref: https://github.com/ant-design/ant-design/issues/40888
+          pointerEvents: 'none',
         },
 
         [`&:hover:not(${componentCls}-item-selected):not(${componentCls}-item-disabled)`]: {
@@ -151,7 +154,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
       },
 
       // size styles
-      '&&-lg': {
+      [`&${componentCls}-lg`]: {
         borderRadius: token.borderRadiusLG,
         [`${componentCls}-item-label`]: {
           minHeight: token.controlHeightLG - token.segmentedContainerPadding * 2,
@@ -164,7 +167,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
         },
       },
 
-      '&&-sm': {
+      [`&${componentCls}-sm`]: {
         borderRadius: token.borderRadiusSM,
         [`${componentCls}-item-label`]: {
           minHeight: token.controlHeightSM - token.segmentedContainerPadding * 2,

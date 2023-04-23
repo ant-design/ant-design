@@ -80,7 +80,7 @@ const data: DataType[] = [];
 for (let i = 0; i < 100; i++) {
   data.push({
     key: i,
-    name: `Edrward ${i}`,
+    name: `Edward ${i}`,
     age: 32,
     address: `London Park no. ${i}`,
   });

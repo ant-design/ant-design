@@ -1,10 +1,9 @@
 /* eslint-disable import/prefer-default-export */
 import type { CSSObject } from '@ant-design/cssinjs';
-import type { DerivativeToken } from '../theme/internal';
+import type { AliasToken, DerivativeToken } from '../theme/internal';
 
 export { operationUnit } from './operationUnit';
 export { roundedArrow } from './roundedArrow';
-export { genPresetColor } from './presetColor';
 
 export const textEllipsis: CSSObject = {
   overflow: 'hidden',
@@ -45,10 +44,6 @@ export const resetIcon = (): CSSObject => ({
 
   svg: {
     display: 'inline-block',
-  },
-
-  '& &-icon': {
-    display: 'block',
   },
 });
 
@@ -130,8 +125,8 @@ export const genCommonStyle = (token: DerivativeToken, componentPrefixCls: strin
   };
 };
 
-export const genFocusOutline = (token: DerivativeToken): CSSObject => ({
-  outline: `${token.lineWidth * 4}px solid ${token.colorPrimaryBorder}`,
+export const genFocusOutline = (token: AliasToken): CSSObject => ({
+  outline: `${token.lineWidthFocus}px solid ${token.colorPrimaryBorder}`,
   outlineOffset: 1,
   transition: 'outline-offset 0s, outline 0s',
 });

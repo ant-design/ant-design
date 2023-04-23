@@ -2,6 +2,7 @@
 category: Components
 title: Divider
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*7sMiTbzvaDoAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*KPSEQ74PLg4AAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 group:
@@ -37,3 +38,7 @@ A divider line separates different content.
 | plain | Divider text show as plain style | boolean | true | 4.2.0 |
 | style | The style object of container | CSSProperties | - |  |
 | type | The direction type of divider | `horizontal` \| `vertical` | `horizontal` |  |
+
+## Design Token
+
+<ComponentTokenTable component="Divider"></ComponentTokenTable>

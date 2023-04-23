@@ -80,7 +80,7 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token) => {
         },
       },
 
-      [`&${progressCls}-success-bg, ${progressCls}-bg`]: {
+      [`${progressCls}-success-bg, ${progressCls}-bg`]: {
         position: 'relative',
         backgroundColor: token.colorInfo,
         borderRadius: token.progressLineRadius,

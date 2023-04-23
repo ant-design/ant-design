@@ -323,6 +323,7 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
           lineHeight: 0,
           borderColor: colorSplit,
           borderStyle: lineType,
+          borderWidth: 0,
           borderTopWidth: lineWidth,
           marginBlock: lineWidth,
           padding: 0,
@@ -441,10 +442,15 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         return [];
       }
 
-      const { colorBgElevated, colorPrimary, colorError, colorErrorHover, colorTextLightSolid } =
-        token;
-
-      const { controlHeightLG, fontSize } = token;
+      const {
+        colorBgElevated,
+        colorPrimary,
+        colorError,
+        colorErrorHover,
+        colorTextLightSolid,
+        controlHeightLG,
+        fontSize,
+      } = token;
 
       const menuArrowSize = (fontSize / 7) * 5;
 

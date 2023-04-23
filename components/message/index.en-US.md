@@ -4,6 +4,7 @@ group: Feedback
 noinstant: true
 title: Message
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*JjZBT6N1MusAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*7qMTRoq3ZGkAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -106,6 +107,10 @@ message.config({
 | prefixCls | The prefix className of message node | string | `ant-message` | 4.5.0 |
 | rtl | Whether to enable RTL mode | boolean | false |  |
 | top | Distance from top | number | 8 |  |
+
+## Design Token
+
+<ComponentTokenTable component="Message"></ComponentTokenTable>
 
 ## FAQ
 

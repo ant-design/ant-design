@@ -1,15 +1,19 @@
 ---
 category: Components
 subtitle: 图标
+description: 语义化的矢量图形。
 group: 通用
 title: Icon
 toc: false
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*PdAYS7anRpoAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*xEDOTJx2DEkAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
 
-语义化的矢量图形。使用图标组件，你需要安装 `@ant-design/icons` 图标组件包：
+## 使用方法
+
+使用图标组件，你需要安装 `@ant-design/icons` 图标组件包：
 
 ```bash
 npm install --save @ant-design/icons
@@ -101,13 +105,14 @@ getTwoToneColor(); // #eb2f96
 
 ```jsx
 import React from 'react';
+import ReactDOM from 'react-dom/client';
 import { createFromIconfontCN } from '@ant-design/icons';
 
 const MyIcon = createFromIconfontCN({
   scriptUrl: '//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js', // 在 iconfont.cn 上生成
 });
 
-ReactDOM.render(<MyIcon type="icon-example" />, mountedNode);
+ReactDOM.createRoot(mountNode).render(<MyIcon type="icon-example" />);
 ```
 
 其本质上是创建了一个使用 `<use>` 标签来渲染图标的组件。
@@ -148,12 +153,14 @@ module.exports = {
 ```
 
 ```jsx
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 import Icon from '@ant-design/icons';
-import MessageSvg from 'path/to/message.svg'; // path to your '*.svg' file.
+import MessageSvg from 'path/to/message.svg'; // 你的 '*.svg' 文件路径
 // in create-react-app:
 // import { ReactComponent as MessageSvg } from 'path/to/message.svg';
 
-ReactDOM.render(<Icon component={MessageSvg} />, mountNode);
+ReactDOM.createRoot(mountNode).render(<Icon component={MessageSvg} />);
 ```
 
 `Icon` 中的 `component` 组件的接受的属性如下：
@@ -165,3 +172,7 @@ ReactDOM.render(<Icon component={MessageSvg} />, mountNode);
 | height    | `svg` 元素高度          | string \| number | `1em`          |      |
 | style     | 计算后的 `svg` 元素样式 | CSSProperties    | -              |      |
 | width     | `svg` 元素宽度          | string \| number | `1em`          |      |
+
+## Design Token
+
+<ComponentTokenTable component="Icon"></ComponentTokenTable>

@@ -1,12 +1,14 @@
-import React, { useContext } from 'react';
 import RCTour from '@rc-component/tour';
 import classNames from 'classnames';
-import panelRender from './panelRender';
+import React, { useContext } from 'react';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
-import useStyle from './style';
+import theme from '../theme';
+import getPlacements from '../_util/placements';
 import type { TourProps, TourStepProps } from './interface';
+import TourPanel from './panelRender';
 import PurePanel from './PurePanel';
+import useStyle from './style';
 
 const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel } = (
   props,
@@ -17,11 +19,21 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     current,
     type,
     rootClassName,
+    indicatorsRender,
     ...restProps
   } = props;
   const { getPrefixCls, direction } = useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('tour', customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
+  const { token } = theme.useToken();
+
+  const builtinPlacements = getPlacements({
+    arrowPointAtCenter: true,
+    autoAdjustOverflow: true,
+    offset: token.marginXXS,
+    arrowWidth: token.sizePopupArrow,
+    borderRadius: token.borderRadius,
+  });
 
   const customClassName = classNames(
     {
@@ -31,8 +43,14 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     rootClassName,
   );
 
-  const mergedRenderPanel = (stepProps: TourStepProps, stepCurrent: number) =>
-    panelRender(stepProps, stepCurrent, type);
+  const mergedRenderPanel = (stepProps: TourStepProps, stepCurrent: number): React.ReactNode => (
+    <TourPanel
+      type={type}
+      stepProps={stepProps}
+      current={stepCurrent}
+      indicatorsRender={indicatorsRender}
+    />
+  );
 
   return wrapSSR(
     <RCTour
@@ -43,6 +61,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
       current={current}
       animated
       renderPanel={mergedRenderPanel}
+      builtinPlacements={builtinPlacements}
     />,
   );
 };

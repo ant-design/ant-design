@@ -34,12 +34,3 @@ You can add an icon beside the slider to make it meaningful.
   right: 0;
 }
 ```
-
-<style>
-  [data-theme="dark"] .icon-wrapper .anticon {
-    color: rgba(255, 255, 255, 0.25);
-  }
-  [data-theme="dark"] .icon-wrapper .icon-wrapper-active {
-    color: rgba(255, 255, 255, .45);
-  }
-</style>

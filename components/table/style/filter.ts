@@ -142,7 +142,6 @@ const genFilterStyle: GenerateStyle<TableToken> = (token) => {
             justifyContent: 'space-between',
             padding: `${paddingXS - lineWidth}px ${paddingXS}px`,
             overflow: 'hidden',
-            backgroundColor: 'inherit',
             borderTop: tableBorder,
           },
         },

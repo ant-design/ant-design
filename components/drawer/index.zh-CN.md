@@ -4,6 +4,7 @@ category: Components
 subtitle: 抽屉
 title: Drawer
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*v3TvSq2E0HAAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*4wzwRIBLuqEAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -69,3 +70,7 @@ demo:
 | width | 宽度 | string \| number | 378 |  |
 | zIndex | 设置 Drawer 的 `z-index` | number | 1000 |  |
 | onClose | 点击遮罩层或左上角叉或取消按钮的回调 | function(e) | - |  |
+
+## Design Token
+
+<ComponentTokenTable component="Drawer"></ComponentTokenTable>

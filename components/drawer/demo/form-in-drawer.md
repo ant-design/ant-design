@@ -18,10 +18,3 @@ Use a form in Drawer with a submit button.
   border-top: 1px solid #e9e9e9;
 }
 ```
-
-<style>
-[data-theme="dark"] .site-form-in-drawer-wrapper {
-  border-top: 1px solid #303030;
-  background: #1f1f1f;
-}
-</style>

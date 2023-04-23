@@ -3,6 +3,7 @@ category: Components
 group: Data Entry
 title: Form
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-lcdS5Qm1bsAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 High performance Form component with data scope management. Including data collection, verification, and styles.
@@ -72,7 +73,7 @@ High performance Form component with data scope management. Including data colle
 | requiredMark | Required mark style. Can use required mark or optional mark. You can not config to single Form.Item since this is a Form level config | boolean \| `optional` | true | 4.6.0 |
 | scrollToFirstError | Auto scroll to first failed field when submit | boolean \| [Options](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options) | false |  |
 | size | Set field component size (antd components only) | `small` \| `middle` \| `large` | - |  |
-| validateMessages | Validation prompt template, description [see below](#validatemessages) | [ValidateMessages](https://github.com/react-component/field-form/blob/master/src/utils/messages.ts) | - |  |
+| validateMessages | Validation prompt template, description [see below](#validatemessages) | [ValidateMessages](https://github.com/ant-design/ant-design/blob/6234509d18bac1ac60fbb3f92a5b2c6a6361295a/components/locale/en_US.ts#L88-L134) | - |  |
 | validateTrigger | Config field validate trigger | string \| string\[] | `onChange` | 4.3.0 |
 | wrapperCol | The layout for input controls, same as `labelCol` | [object](/components/grid/#col) | - |  |
 | onFieldsChange | Trigger when field updated | function(changedFields, allFields) | - |  |
@@ -82,7 +83,7 @@ High performance Form component with data scope management. Including data colle
 
 ### validateMessages
 
-Form provides [default verification error messages](https://github.com/react-component/field-form/blob/master/src/utils/messages.ts). You can modify the template by configuring `validateMessages` property. A common usage is to configure localization:
+Form provides [default verification error messages](https://github.com/ant-design/ant-design/blob/6234509d18bac1ac60fbb3f92a5b2c6a6361295a/components/locale/en_US.ts#L88-L134). You can modify the template by configuring `validateMessages` property. A common usage is to configure localization:
 
 ```jsx
 const validateMessages = {
@@ -353,9 +354,9 @@ export default () => {
 
 ### Form.useWatch
 
-`type Form.useWatch = (namePath: NamePath, formInstance?: FormInstance): Value`
+`type Form.useWatch = (namePath: NamePath, formInstance?: FormInstance | WatchOptions): Value`
 
-Added in `4.20.0`. Watch the value of a field. You can use this to interactive with other hooks like `useSWR` to reduce develop cost:
+Watch the value of a field. You can use this to interact with other hooks like `useSWR` to reduce development costs:
 
 ```tsx
 const Demo = () => {
@@ -374,16 +375,47 @@ const Demo = () => {
 };
 ```
 
+If your component is wrapped by `Form.Item`, you can omit the second argument, `Form.useWatch` will find the nearest `FormInstance` automatically.
+
+By default `useWatch` only watches the registered field. If you want to watch the unregistered field, please use `preserve`:
+
+```tsx
+const Demo = () => {
+  const [form] = Form.useForm();
+
+  const age = Form.useWatch('age', { form, preserve: true });
+  console.log(age);
+
+  return (
+    <div>
+      <Button onClick={() => form.setFieldValue('age', 2)}>Update</Button>
+      <Form form={form}>
+        <Form.Item name="name">
+          <Input />
+        </Form.Item>
+      </Form>
+    </div>
+  );
+};
+```
+
 ### Form.Item.useStatus
 
-`type Form.useFormItemStatus = (): { status: ValidateStatus | undefined }`
+`type Form.Item.useStatus = (): { status: ValidateStatus | undefined, errors: ReactNode[], warnings: ReactNode[] }`
 
-Added in `4.22.0`. Could be used to get validate status of Form.Item. If this hook is not used under Form.Item, `status` would be `undefined`:
+Added in `4.22.0`. Could be used to get validate status of Form.Item. If this hook is not used under Form.Item, `status` would be `undefined`. Added `error` and `warnings` in `5.4.0`, Could be used to get error messages and warning messages of Form.Item:
 
 ```tsx
 const CustomInput = ({ value, onChange }) => {
-  const { status } = Form.Item.useStatus();
-  return <input value={value} onChange={onChange} className={`custom-input-${status}`} />;
+  const { status, errors } = Form.Item.useStatus();
+  return (
+    <input
+      value={value}
+      onChange={onChange}
+      className={`custom-input-${status}`}
+      placeholder={(errors.length && errors[0]) || ''}
+    />
+  );
 };
 
 export default () => (
@@ -410,6 +442,7 @@ Form only update the Field which changed to avoid full refresh perf issue. Thus 
 | Name       | Description              | Type                     |
 | ---------- | ------------------------ | ------------------------ |
 | errors     | Error messages           | string\[]                |
+| warnings   | Warning messages         | string\[]                |
 | name       | Field name path          | [NamePath](#namepath)\[] |
 | touched    | Whether is operated      | boolean                  |
 | validating | Whether is in validating | boolean                  |
@@ -441,15 +474,16 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 | warningOnly | Warning only. Not block form submit | boolean | 4.17.0 |
 | whitespace | Failed if only has whitespace, only work with `type: 'string'` rule | boolean |  |
 
-<style>
-.code-box-demo .ant-form:not(.ant-form-inline):not(.ant-form-vertical) {
-  max-width: 600px;
-}
-.markdown.api-container table td:nth-of-type(4) {
-  white-space: nowrap;
-  word-wrap: break-word;
-}
-</style>
+#### WatchOptions
+
+| Name | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| form | Form instance | FormInstance | Current form in context | 5.4.0 |
+| preserve | Whether to watch the field which has no matched `Form.Item` | boolean | false | 5.4.0 |
+
+## Design Token
+
+<ComponentTokenTable component="Form"></ComponentTokenTable>
 
 ## FAQ
 
@@ -540,12 +574,9 @@ dependencies should be `['users', 0, 'name']`
 React can not get correct interaction of controlled component with async value update. When user trigger `onChange`, component will do no response since `value` update is async. If you want to trigger value update async, you should use customize component to handle value state internal and pass sync value control to Form instead.
 
 <style>
-  .site-form-item-icon {
-    color: rgba(0, 0, 0, 0.25);
-  }
-  [data-theme="dark"] .site-form-item-icon {
-    color: rgba(255,255,255,.3);
-  }
+.site-form-item-icon {
+  color: rgba(0, 0, 0, 0.25);
+}
 </style>
 
 ### `scrollToFirstError` and `scrollToField` not working on custom form control?

@@ -3,6 +3,7 @@ category: Components
 subtitle: 二维码
 title: QRCode
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*cJopQrf0ncwAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*M4PBTZ_n9OgAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 group:
@@ -10,13 +11,13 @@ group:
   order: 5
 ---
 
-能够将链接转换生成二维码的组件，支持自定义配色和 Logo 配置，自 `antd@5.1.0` 版本开始提供该组件。
+能够将文本转换生成二维码的组件，支持自定义配色和 Logo 配置，自 `antd@5.1.0` 版本开始提供该组件。
 
-<Alert message="若二维码无法扫码识别，可能是因为链接地址过长导致像素过于密集，可以通过 `size` 配置二维码更大，或者通过短链接服务等方式将链接变短。"></Alert>
+<Alert message="若二维码无法扫码识别，可能是因为链接地址过长导致像素过于密集，可以通过 size 配置二维码更大，或者通过短链接服务等方式将链接变短。"></Alert>
 
 ## 何时使用
 
-当需要将链接转换成为二维码时使用。
+当需要将文本转换成为二维码时使用。
 
 ## 代码演示
 
@@ -36,7 +37,7 @@ group:
 
 | 参数 | 说明 | 类型 | 默认值 |
 | :-- | :-- | :-- | :-- |
-| value | 扫描后的地址 | string | - |
+| value | 扫描后的文本 | string | - |
 | icon | 二维码中图片的地址（目前只支持图片地址） | string | - |
 | size | 二维码大小 | number | 160 |
 | iconSize | 二维码中图片的大小 | number | 40 |
@@ -45,6 +46,10 @@ group:
 | errorLevel | 二维码纠错等级 | `'L' \| 'M' \| 'Q' \| 'H' ` | `M` |
 | status | 二维码状态 | `active \| expired \| loading ` | `active` |
 | onRefresh | 点击"点击刷新"的回调 | `() => void` | - |
+
+## Design Token
+
+<ComponentTokenTable component="QRCode"></ComponentTokenTable>
 
 ## FAQ
 

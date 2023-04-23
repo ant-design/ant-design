@@ -3,6 +3,7 @@ category: Components
 group: Layout
 title: Grid
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*mfJeS6cqZrEAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*DLUwQ4B2_zQAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 24 Grids System.
@@ -85,9 +86,6 @@ You can modify the breakpoints values using by modifying `screen[XS|SM|MD|LG|XL|
 
 The breakpoints of responsive grid follow [BootStrap 4 media queries rules](https://getbootstrap.com/docs/4.0/layout/overview/#responsive-breakpoints) (not including `occasionally part`).
 
-<style>
-  [data-theme="dark"] #components-grid-demo-playground pre {
-    background: rgba(255,255,255,0.8);
-    color: rgba(255,255,255,.65);
-  }
-</style>
+## Design Token
+
+<ComponentTokenTable component="Grid"></ComponentTokenTable>

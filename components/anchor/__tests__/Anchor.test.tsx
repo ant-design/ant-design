@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { resetWarned } from 'rc-util/lib/warning';
 import scrollIntoView from 'scroll-into-view-if-needed';
 
 import Anchor from '..';
-import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import type { AnchorDirection } from '../Anchor';
 
 const { Link } = Anchor;
 
@@ -363,7 +364,6 @@ describe('Anchor Render', () => {
         ]}
       />,
       // https://github.com/testing-library/react-testing-library/releases/tag/v13.0.0
-      // @ts-ignore
       { legacyRoot: true },
     );
 
@@ -375,10 +375,10 @@ describe('Anchor Render', () => {
 
   it('handles invalid hash correctly', () => {
     const { container } = render(
-      <Anchor items={[{ key: 'title', href: 'notexsited', title: 'title' }]} />,
+      <Anchor items={[{ key: 'title', href: 'nonexistent', title: 'title' }]} />,
     );
 
-    const link = container.querySelector(`a[href="notexsited"]`)!;
+    const link = container.querySelector(`a[href="nonexistent"]`)!;
     fireEvent.click(link);
     expect(container.querySelector(`.ant-anchor-link-title-active`)?.textContent).toBe('title');
   });
@@ -492,7 +492,6 @@ describe('Anchor Render', () => {
           ]}
         />,
         // https://github.com/testing-library/react-testing-library/releases/tag/v13.0.0
-        // @ts-ignore
         { legacyRoot: true },
       );
 
@@ -793,11 +792,11 @@ describe('Anchor Render', () => {
     it('handles invalid hash correctly', () => {
       const { container } = render(
         <Anchor>
-          <Link href="notexsited" title="title" />
+          <Link href="nonexistent" title="title" />
         </Anchor>,
       );
 
-      const link = container.querySelector(`a[href="notexsited"]`)!;
+      const link = container.querySelector(`a[href="nonexistent"]`)!;
       fireEvent.click(link);
       expect(container.querySelector(`.ant-anchor-link-title-active`)?.textContent).toBe('title');
     });
@@ -887,6 +886,55 @@ describe('Anchor Render', () => {
       expect(errSpy).toHaveBeenCalledWith(
         'Warning: [antd: Anchor.Link] `Anchor.Link children` is not supported when `Anchor` direction is horizontal',
       );
+    });
+    it('switch direction', async () => {
+      const Foo: React.FC = () => {
+        const [direction, setDirection] = useState<AnchorDirection>('vertical');
+        const toggle = () => {
+          setDirection(direction === 'vertical' ? 'horizontal' : 'vertical');
+        };
+        return (
+          <div>
+            <button onClick={toggle} type="button">
+              toggle
+            </button>
+            <Anchor
+              direction={direction}
+              items={[
+                {
+                  title: 'part-1',
+                  href: 'part-1',
+                  key: 'part-1',
+                },
+                {
+                  title: 'part-2',
+                  href: 'part-2',
+                  key: 'part-2',
+                },
+              ]}
+            />
+          </div>
+        );
+      };
+      const wrapper = await render(<Foo />);
+      (await wrapper.findByText('part-1')).click();
+      await waitFakeTimer();
+      const ink = wrapper.container.querySelector<HTMLSpanElement>('.ant-anchor-ink')!;
+      const toggleButton = wrapper.container.querySelector('button')!;
+
+      fireEvent.click(toggleButton);
+      act(() => jest.runAllTimers());
+      expect(!!ink.style.left).toBe(true);
+      expect(!!ink.style.width).toBe(true);
+      expect(ink.style.top).toBe('');
+      expect(ink.style.height).toBe('');
+
+      fireEvent.click(toggleButton);
+      act(() => jest.runAllTimers());
+      expect(!!ink.style.top).toBe(true);
+      expect(!!ink.style.height).toBe(true);
+      expect(ink.style.left).toBe('');
+      expect(ink.style.width).toBe('');
     });
   });
 });

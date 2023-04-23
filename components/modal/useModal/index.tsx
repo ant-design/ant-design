@@ -5,6 +5,7 @@ import { withConfirm, withError, withInfo, withSuccess, withWarn } from '../conf
 import type { ModalFuncProps } from '../Modal';
 import type { HookModalRef } from './HookModal';
 import HookModal from './HookModal';
+import destroyFns from '../destroyFns';
 
 let uuid = 0;
 
@@ -27,7 +28,10 @@ const ElementsHolder = React.memo(
   }),
 );
 
-function useModal(): readonly [Omit<ModalStaticFunctions, 'warn'>, React.ReactElement] {
+function useModal(): readonly [
+  instance: Omit<ModalStaticFunctions, 'warn'>,
+  contextHolder: React.ReactElement,
+] {
   const holderRef = React.useRef<ElementsHolderRef>(null);
 
   // ========================== Effect ==========================
@@ -65,6 +69,10 @@ function useModal(): readonly [Omit<ModalStaticFunctions, 'warn'>, React.ReactEl
         );
 
         closeFunc = holderRef.current?.patchElement(modal);
+
+        if (closeFunc) {
+          destroyFns.push(closeFunc);
+        }
 
         return {
           destroy: () => {

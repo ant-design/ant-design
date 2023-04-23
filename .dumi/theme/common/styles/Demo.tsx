@@ -2,7 +2,7 @@ import { css, Global } from '@emotion/react';
 import React from 'react';
 import useSiteToken from '../../../hooks/useSiteToken';
 
-export default () => {
+const GlobalDemoStyles: React.FC = () => {
   const { token } = useSiteToken();
 
   const { antCls, iconCls } = token;
@@ -24,9 +24,9 @@ export default () => {
           display: inline-block;
           width: 100%;
           margin: 0 0 16px;
+          background-color: ${token.colorBgContainer};
           border: 1px solid ${token.colorSplit};
           border-radius: ${token.borderRadius}px;
-          background-color: ${token.colorBgContainer};
           transition: all 0.2s;
 
           .code-box-title {
@@ -290,7 +290,7 @@ export default () => {
             transition: transform 0.24s;
 
             &${iconCls}-check {
-              color: ${token['green-6']} !important;
+              color: ${token.green6} !important;
               font-weight: bold;
             }
           }
@@ -342,11 +342,11 @@ export default () => {
           }
 
           &-debug {
-            border-color: ${token['purple-3']};
+            border-color: ${token.purple3};
           }
 
           &-debug &-title a {
-            color: ${token['purple-6']};
+            color: ${token.purple6};
           }
         }
 
@@ -373,3 +373,5 @@ export default () => {
     />
   );
 };
+
+export default GlobalDemoStyles;

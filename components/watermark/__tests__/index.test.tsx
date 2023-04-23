@@ -64,6 +64,17 @@ describe('Watermark', () => {
     expect(container).toMatchSnapshot();
   });
 
+  it('Invalid image watermark', () => {
+    mockSrcSet.mockImplementation(function fn() {
+      this.onerror?.();
+    });
+    const { container } = render(
+      <Watermark className="watermark" content="Ant Design" image="https://test.svg" />,
+    );
+    expect(container.querySelector('.watermark div')).toBeTruthy();
+    expect(container).toMatchSnapshot();
+  });
+
   it('MutationObserver should work properly', async () => {
     const { container } = render(<Watermark className="watermark" content="MutationObserver" />);
     const target = container.querySelector<HTMLDivElement>('.watermark div');

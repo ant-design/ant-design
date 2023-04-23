@@ -19,6 +19,7 @@ export interface BackTopProps {
   prefixCls?: string;
   children?: React.ReactNode;
   className?: string;
+  rootClassName?: string;
   style?: React.CSSProperties;
   duration?: number;
 }
@@ -26,7 +27,8 @@ export interface BackTopProps {
 const BackTop: React.FC<BackTopProps> = (props) => {
   const {
     prefixCls: customizePrefixCls,
-    className = '',
+    className,
+    rootClassName,
     visibilityHeight = 400,
     target,
     onClick,
@@ -79,12 +81,14 @@ const BackTop: React.FC<BackTopProps> = (props) => {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
+    rootClassName,
   );
 
   // fix https://fb.me/react-unknown-prop
   const divProps = omit(props, [
     'prefixCls',
     'className',
+    'rootClassName',
     'children',
     'visibilityHeight',
     'target',

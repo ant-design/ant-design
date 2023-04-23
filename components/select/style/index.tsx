@@ -1,11 +1,11 @@
 import type { CSSObject } from '@ant-design/cssinjs';
+import { resetComponent, resetIcon, textEllipsis } from '../../style';
+import { genCompactItemStyle } from '../../style/compact-item';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import genDropdownStyle from './dropdown';
 import genMultipleStyle from './multiple';
 import genSingleStyle from './single';
-import { resetComponent, resetIcon, textEllipsis } from '../../style';
-import { genCompactItemStyle } from '../../style/compact-item';
 
 export interface ComponentToken {
   zIndexPopup: number;
@@ -64,7 +64,6 @@ const genStatusStyle = (
     borderHoverColor: string;
     outlineColor: string;
     controlOutlineWidth: number;
-    controlLineWidth: number;
   },
   overwriteDefaultBorder: boolean = false,
 ): CSSObject => {
@@ -87,13 +86,11 @@ const genStatusStyle = (
           [`${componentCls}-focused& ${componentCls}-selector`]: {
             borderColor: borderHoverColor,
             boxShadow: `0 0 0 ${token.controlOutlineWidth}px ${outlineColor}`,
-            borderInlineEndWidth: `${token.controlLineWidth}px !important`,
             outline: 0,
           },
 
           [`&:hover ${componentCls}-selector`]: {
             borderColor: borderHoverColor,
-            borderInlineEndWidth: `${token.controlLineWidth}px !important`,
           },
         },
     },
@@ -133,7 +130,7 @@ const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
       display: 'inline-block',
       cursor: 'pointer',
 
-      [`&:not(&-customize-input) ${componentCls}-selector`]: {
+      [`&:not(${componentCls}-customize-input) ${componentCls}-selector`]: {
         ...genSelectorStyle(token),
         ...getSearchInputWithoutBorderStyle(token),
       },
@@ -147,6 +144,11 @@ const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
         flex: 1,
         fontWeight: 'normal',
         ...textEllipsis,
+
+        '> *': {
+          lineHeight: 'inherit',
+          ...textEllipsis,
+        },
       },
 
       // ======================= Placeholder =======================
@@ -259,7 +261,7 @@ const genSelectStyle: GenerateStyle<SelectToken> = (token) => {
         },
 
         // ==================== In Form ====================
-        '&&-in-form-item': {
+        [`&${componentCls}-in-form-item`]: {
           width: '100%',
         },
       },

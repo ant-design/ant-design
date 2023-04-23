@@ -37,6 +37,7 @@ export interface AlertProps {
   style?: React.CSSProperties;
   prefixCls?: string;
   className?: string;
+  rootClassName?: string;
   banner?: boolean;
   icon?: React.ReactNode;
   /** Custom closeIcon */
@@ -100,7 +101,8 @@ const Alert: CompoundedComponent = ({
   prefixCls: customizePrefixCls,
   message,
   banner,
-  className = '',
+  className,
+  rootClassName,
   style,
   onMouseEnter,
   onMouseLeave,
@@ -130,7 +132,7 @@ const Alert: CompoundedComponent = ({
     if (type !== undefined) {
       return type;
     }
-    // banner 模式默认为警告
+    // banner mode defaults to 'warning'
     return banner ? 'warning' : 'info';
   };
 
@@ -138,7 +140,7 @@ const Alert: CompoundedComponent = ({
   const isClosable = closeText ? true : closable;
   const type = getType();
 
-  // banner 模式默认有 Icon
+  // banner mode defaults to Icon
   const isShowIcon = banner && showIcon === undefined ? true : showIcon;
 
   const alertCls = classNames(
@@ -151,6 +153,7 @@ const Alert: CompoundedComponent = ({
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
+    rootClassName,
     hashId,
   );
 

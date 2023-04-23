@@ -5,12 +5,12 @@ import {
   PieChartOutlined,
   UserOutlined,
 } from '@ant-design/icons';
-import React, { useState, useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import type { MenuProps, MenuRef } from '..';
 import Menu from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, act } from '../../../tests/utils';
+import { act, fireEvent, render } from '../../../tests/utils';
 import Layout from '../../layout';
 import initCollapseMotion from '../../_util/motion';
 import { noop } from '../../_util/warning';
@@ -53,7 +53,7 @@ describe('Menu', () => {
       enter();
     });
 
-    // React concurrent may delay creat this
+    // React concurrent may delay creating this
     triggerAllTimer();
 
     function getSubMenu() {
@@ -71,7 +71,7 @@ describe('Menu', () => {
       leave();
     });
 
-    // React concurrent may delay creat this
+    // React concurrent may delay creating this
     triggerAllTimer();
 
     if (getSubMenu()) {
@@ -133,7 +133,7 @@ describe('Menu', () => {
     </Menu>
   );
 
-  rtlTest(RtlDemo, { componentName: 'menu' });
+  rtlTest(RtlDemo);
 
   let div: HTMLDivElement;
 

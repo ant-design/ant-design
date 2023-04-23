@@ -3,7 +3,7 @@ import { Anchor, Row, Col } from 'antd';
 
 const App: React.FC = () => {
   const topRef = React.useRef<HTMLDivElement>(null);
-  const [targetOffset, setTargetOffset] = useState<number | undefined>(undefined);
+  const [targetOffset, setTargetOffset] = useState<number>();
 
   useEffect(() => {
     setTargetOffset(topRef.current?.clientHeight);

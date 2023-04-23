@@ -4,6 +4,7 @@ group: Feedback
 noinstant: true
 title: Notification
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*6RWNQ78WtvEAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*9hTIToR-3YYAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -60,15 +61,19 @@ The properties of config are as follows:
 | top | Distance from the top of the viewport, when `placement` is `topRight` or `topLeft` (unit: pixels) | number | 24 |
 | onClick | Specify a function that will be called when the notification is clicked | function | - |
 | onClose | Trigger when notification closed | function | - |
-| props | Props passed down | Object | An object that can contain `data-*`, `aria-*`, or `role` props, to be put on the notification `div`. This currently only allows `data-testid` instead of `data-*` in TypeScript. See https://github.com/microsoft/TypeScript/issues/28960. |
+| props | An object that can contain `data-*`, `aria-*`, or `role` props, to be put on the notification `div`. This currently only allows `data-testid` instead of `data-*` in TypeScript. See https://github.com/microsoft/TypeScript/issues/28960. | Object | - |
 
 `notification` also provides a global `config()` method that can be used for specifying the default options. Once this method is used, all the notification boxes will take into account these globally defined options when displaying.
 
-- `notification.config(options)`
+### Global configuration
 
-  > When you use `ConfigProvider` for global configuration, the system will automatically start RTL mode by default.(4.3.0+)
-  >
-  > When you want to use it alone, you can start the RTL mode through the following settings.
+`notification.config(options)`
+
+> When you use `ConfigProvider` for global configuration, the system will automatically start RTL mode by default.(4.3.0+)
+>
+> When you want to use it alone, you can start the RTL mode through the following settings.
+
+#### notification.config
 
 ```js
 notification.config({
@@ -89,6 +94,10 @@ notification.config({
 | rtl | Whether to enable RTL mode | boolean | false |  |
 | top | Distance from the top of the viewport, when `placement` is `topRight` or `topLeft` (unit: pixels) | number | 24 |  |
 | maxCount | Max Notification show, drop oldest if exceed limit | number | - | 4.17.0 |
+
+## Design Token
+
+<ComponentTokenTable component="Notification"></ComponentTokenTable>
 
 ## FAQ
 

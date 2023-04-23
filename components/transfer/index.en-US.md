@@ -3,6 +3,7 @@ category: Components
 group: Data Entry
 title: Transfer
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*EAApQ5ephigAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*yv12S4sSRAEAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 Double column transfer choice box.
@@ -88,6 +89,10 @@ If there's no `key` in your data, you should use `rowKey` to specify the key tha
 // eg. your primary key is `uid`
 return <Transfer rowKey={(record) => record.uid} />;
 ```
+
+## Design Token
+
+<ComponentTokenTable component="Transfer"></ComponentTokenTable>
 
 ## FAQ
 

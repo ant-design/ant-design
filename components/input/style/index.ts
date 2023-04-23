@@ -1,9 +1,9 @@
 import type { CSSObject } from '@ant-design/cssinjs';
-import type { FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import type { GlobalToken } from '../../theme/interface';
 import { clearFix, resetComponent } from '../../style';
 import { genCompactItemStyle } from '../../style/compact-item';
+import type { GlobalToken } from '../../theme/interface';
+import type { FullToken, GenerateStyle } from '../../theme/internal';
+import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 
 export type InputToken<T extends GlobalToken = FullToken<'Input'>> = T & {
   inputAffixPadding: number;
@@ -78,7 +78,7 @@ export const genInputSmallStyle = (token: InputToken): CSSObject => ({
   borderRadius: token.borderRadiusSM,
 });
 
-export const genStatusStyle = (token: InputToken): CSSObject => {
+export const genStatusStyle = (token: InputToken, parentCls: string): CSSObject => {
   const {
     componentCls,
     colorError,
@@ -90,7 +90,7 @@ export const genStatusStyle = (token: InputToken): CSSObject => {
   } = token;
 
   return {
-    '&-status-error:not(&-disabled):not(&-borderless)&': {
+    [`&-status-error:not(${parentCls}-disabled):not(${parentCls}-borderless)${parentCls}`]: {
       borderColor: colorError,
 
       '&:hover': {
@@ -107,11 +107,11 @@ export const genStatusStyle = (token: InputToken): CSSObject => {
         ),
       },
 
-      [`${componentCls}-prefix`]: {
+      [`${componentCls}-prefix, ${componentCls}-suffix`]: {
         color: colorError,
       },
     },
-    '&-status-warning:not(&-disabled):not(&-borderless)&': {
+    [`&-status-warning:not(${parentCls}-disabled):not(${parentCls}-borderless)${parentCls}`]: {
       borderColor: colorWarning,
 
       '&:hover': {
@@ -128,7 +128,7 @@ export const genStatusStyle = (token: InputToken): CSSObject => {
         ),
       },
 
-      [`${componentCls}-prefix`]: {
+      [`${componentCls}-prefix, ${componentCls}-suffix`]: {
         color: colorWarning,
       },
     },
@@ -175,7 +175,7 @@ export const genBasicInputStyle = (token: InputToken): CSSObject => ({
 
   // Reset height for `textarea`s
   'textarea&': {
-    maxWidth: '100%', // prevent textearea resize from coming out of its container
+    maxWidth: '100%', // prevent textarea resize from coming out of its container
     height: 'auto',
     minHeight: token.controlHeight,
     lineHeight: token.lineHeight,
@@ -317,7 +317,6 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
     },
 
     [`${componentCls}`]: {
-      float: 'inline-start',
       width: '100%',
       marginBottom: 0,
       textAlign: 'inherit',
@@ -388,7 +387,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
       },
     },
 
-    '&&-compact': {
+    [`&${componentCls}-group-compact`]: {
       display: 'block',
       ...clearFix(),
 
@@ -511,10 +510,10 @@ const genInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
   const colorSmallPadding = (controlHeightSM - lineWidth * 2 - FIXED_CHROME_COLOR_HEIGHT) / 2;
 
   return {
-    [`${componentCls}`]: {
+    [componentCls]: {
       ...resetComponent(token),
       ...genBasicInputStyle(token),
-      ...genStatusStyle(token),
+      ...genStatusStyle(token, componentCls),
 
       '&[type="color"]': {
         height: token.controlHeight,
@@ -528,6 +527,11 @@ const genInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
           paddingBottom: colorSmallPadding,
         },
       },
+
+      '&[type="search"]::-webkit-search-cancel-button, &[type="search"]::-webkit-search-decoration':
+        {
+          '-webkit-appearance': 'none',
+        },
     },
   };
 };
@@ -581,7 +585,7 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
       ...genBasicInputStyle(token),
       display: 'inline-flex',
 
-      '&:not(&-disabled):hover': {
+      [`&:not(${componentCls}-affix-wrapper-disabled):hover`]: {
         ...genHoverStyle(token),
         zIndex: 1,
         [`${componentCls}-search-with-button &`]: {
@@ -605,6 +609,10 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
         border: 'none',
         borderRadius: 0,
         outline: 'none',
+
+        '&::-ms-reveal': {
+          display: 'none',
+        },
 
         '&:focus': {
           boxShadow: 'none !important',
@@ -659,13 +667,13 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
       },
 
       // status
-      ...genStatusStyle(token),
+      ...genStatusStyle(token, `${componentCls}-affix-wrapper`),
     },
   };
 };
 
 const genGroupStyle: GenerateStyle<InputToken> = (token: InputToken) => {
-  const { componentCls, colorError, colorSuccess, borderRadiusLG, borderRadiusSM } = token;
+  const { componentCls, colorError, colorWarning, borderRadiusLG, borderRadiusSM } = token;
 
   return {
     [`${componentCls}-group`]: {
@@ -707,9 +715,15 @@ const genGroupStyle: GenerateStyle<InputToken> = (token: InputToken) => {
           },
         },
         '&-status-warning': {
-          [`${componentCls}-group-addon:last-child`]: {
-            color: colorSuccess,
-            borderColor: colorSuccess,
+          [`${componentCls}-group-addon`]: {
+            color: colorWarning,
+            borderColor: colorWarning,
+          },
+        },
+
+        '&-disabled': {
+          [`${componentCls}-group-addon`]: {
+            ...genDisabledStyle(token),
           },
         },
       },
@@ -871,17 +885,12 @@ const genTextAreaStyle: GenerateStyle<InputToken> = (token) => {
         },
 
         [`${componentCls}-data-count`]: {
+          position: 'absolute',
+          bottom: -token.fontSize * token.lineHeight,
+          insetInlineEnd: 0,
           color: token.colorTextDescription,
           whiteSpace: 'nowrap',
           pointerEvents: 'none',
-          float: 'right',
-          marginBottom: -token.fontSize * token.lineHeight,
-        },
-
-        '&-rtl': {
-          [`${componentCls}-data-count`]: {
-            float: 'left',
-          },
         },
       },
 

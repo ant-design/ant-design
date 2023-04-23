@@ -3,6 +3,7 @@ category: Components
 group: Other
 title: FloatButton
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HS-wTIIwu0kAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*a0hwTY_rOSUAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -25,6 +26,8 @@ FloatButton. Available since `5.0.0`.
 <code src="./demo/group.tsx" iframe="360">FloatButton Group</code>
 <code src="./demo/group-menu.tsx" iframe="360">Menu mode</code>
 <code src="./demo/back-top.tsx" iframe="360">BackTop</code>
+<code src="./demo/badge.tsx" iframe="360">badge</code>
+<code src="./demo/badge-debug.tsx" iframe="360" debug>debug dot</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
@@ -43,6 +46,7 @@ FloatButton. Available since `5.0.0`.
 | onClick | Set the handler to handle `click` event | (event) => void | - |  |
 | href | The target of hyperlink | string | - |  |
 | target | Specifies where to display the linked URL | string | - |  |
+| badge | Attach Badge to FloatButton. `status` and other props related are not supported. | [BadgeProps](/components/badge#api) | - | 5.4.0 |
 
 ### FloatButton.Group
 
@@ -61,3 +65,7 @@ FloatButton. Available since `5.0.0`.
 | target | Specifies the scrollable area dom node | () => HTMLElement | () => window |  |
 | visibilityHeight | The BackTop button will not show until the scroll height reaches this value | number | 400 |  |
 | onClick | A callback function, which can be executed when you click the button | () => void | - |  |
+
+## Design Token
+
+<ComponentTokenTable component="FloatButton"></ComponentTokenTable>

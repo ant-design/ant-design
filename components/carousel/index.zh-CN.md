@@ -4,6 +4,7 @@ group: 数据展示
 title: Carousel
 subtitle: 走马灯
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*bPMSSqbaTMkAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*a-58QpYnqOsAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -33,8 +34,8 @@ demo:
 | dots | 是否显示面板指示点，如果为 `object` 则同时可以指定 `dotsClass` 或者 | boolean \| { className?: string } | true |  |
 | easing | 动画效果 | string | `linear` |  |
 | effect | 动画效果函数 | `scrollx` \| `fade` | `scrollx` |  |
-| afterChange | 切换面板的回调 | function(current) | - |  |
-| beforeChange | 切换面板的回调 | function(from, to) | - |  |
+| afterChange | 切换面板的回调 | (current: number) => void | - |  |
+| beforeChange | 切换面板的回调 | (current: number, next: number) => void | - |  |
 
 ## 方法
 
@@ -45,6 +46,10 @@ demo:
 | prev()                         | 切换到上一面板                                    |
 
 更多 API 可参考：<https://react-slick.neostack.com/docs/api>
+
+## Design Token
+
+<ComponentTokenTable component="Carousel"></ComponentTokenTable>
 
 ## FAQ
 

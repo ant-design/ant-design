@@ -1,4 +1,4 @@
-import { getArrowOffset } from '../../style/placementArrow';
+import { genFocusStyle, resetComponent } from '../../style';
 import {
   initMoveMotion,
   initSlideMotion,
@@ -8,11 +8,10 @@ import {
   slideUpIn,
   slideUpOut,
 } from '../../style/motion';
+import getArrowStyle, { getArrowOffset } from '../../style/placementArrow';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import genButtonStyle from './button';
 import genStatusStyle from './status';
-import { genFocusStyle, resetComponent, roundedArrow } from '../../style';
 
 export interface ComponentToken {
   zIndexPopup: number;
@@ -34,7 +33,6 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
     menuCls,
     zIndexPopup,
     dropdownArrowDistance,
-    dropdownArrowOffset,
     sizePopupArrow,
     antCls,
     iconCls,
@@ -46,7 +44,6 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
     fontSizeIcon,
     controlPaddingHorizontal,
     colorBgElevated,
-    boxShadowPopoverArrow,
   } = token;
 
   return [
@@ -71,6 +68,11 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
           zIndex: -9999,
           opacity: 0.0001,
           content: '""',
+        },
+
+        [`&-trigger${antCls}-btn > ${iconCls}-down`]: {
+          fontSize: fontSizeIcon,
+          transform: 'none',
         },
 
         [`${componentCls}-wrap`]: {
@@ -100,138 +102,54 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
         },
 
         // =============================================================
-        // ==                          Arrow                          ==
-        // =============================================================
-        // Offset the popover to account for the dropdown arrow
-        [`
-        &-show-arrow&-placement-topLeft,
-        &-show-arrow&-placement-top,
-        &-show-arrow&-placement-topRight
-      `]: {
-          paddingBottom: dropdownArrowDistance,
-        },
-
-        [`
-        &-show-arrow&-placement-bottomLeft,
-        &-show-arrow&-placement-bottom,
-        &-show-arrow&-placement-bottomRight
-      `]: {
-          paddingTop: dropdownArrowDistance,
-        },
-
-        // Note: .popover-arrow is outer, .popover-arrow:after is inner
-        [`${componentCls}-arrow`]: {
-          position: 'absolute',
-          zIndex: 1, // lift it up so the menu wouldn't cask shadow on it
-          display: 'block',
-
-          ...roundedArrow(
-            sizePopupArrow,
-            token.borderRadiusXS,
-            token.borderRadiusOuter,
-            colorBgElevated,
-            boxShadowPopoverArrow,
-          ),
-        },
-
-        [`
-        &-placement-top > ${componentCls}-arrow,
-        &-placement-topLeft > ${componentCls}-arrow,
-        &-placement-topRight > ${componentCls}-arrow
-      `]: {
-          bottom: dropdownArrowDistance,
-          transform: 'translateY(100%) rotate(180deg)',
-        },
-
-        [`&-placement-top > ${componentCls}-arrow`]: {
-          left: {
-            _skip_check_: true,
-            value: '50%',
-          },
-          transform: 'translateX(-50%) translateY(100%) rotate(180deg)',
-        },
-
-        [`&-placement-topLeft > ${componentCls}-arrow`]: {
-          left: {
-            _skip_check_: true,
-            value: dropdownArrowOffset,
-          },
-        },
-
-        [`&-placement-topRight > ${componentCls}-arrow`]: {
-          right: {
-            _skip_check_: true,
-            value: dropdownArrowOffset,
-          },
-        },
-
-        [`
-          &-placement-bottom > ${componentCls}-arrow,
-          &-placement-bottomLeft > ${componentCls}-arrow,
-          &-placement-bottomRight > ${componentCls}-arrow
-        `]: {
-          top: dropdownArrowDistance,
-          transform: `translateY(-100%)`,
-        },
-
-        [`&-placement-bottom > ${componentCls}-arrow`]: {
-          left: {
-            _skip_check_: true,
-            value: '50%',
-          },
-          transform: `translateY(-100%) translateX(-50%)`,
-        },
-
-        [`&-placement-bottomLeft > ${componentCls}-arrow`]: {
-          left: {
-            _skip_check_: true,
-            value: dropdownArrowOffset,
-          },
-        },
-
-        [`&-placement-bottomRight > ${componentCls}-arrow`]: {
-          right: {
-            _skip_check_: true,
-            value: dropdownArrowOffset,
-          },
-        },
-
-        // =============================================================
         // ==                         Motion                          ==
         // =============================================================
         // When position is not enough for dropdown, the placement will revert.
         // We will handle this with revert motion name.
-        [`&${antCls}-slide-down-enter${antCls}-slide-down-enter-active&-placement-bottomLeft,
-          &${antCls}-slide-down-appear${antCls}-slide-down-appear-active&-placement-bottomLeft
-          &${antCls}-slide-down-enter${antCls}-slide-down-enter-active&-placement-bottom,
-          &${antCls}-slide-down-appear${antCls}-slide-down-appear-active&-placement-bottom,
-          &${antCls}-slide-down-enter${antCls}-slide-down-enter-active&-placement-bottomRight,
-          &${antCls}-slide-down-appear${antCls}-slide-down-appear-active&-placement-bottomRight`]: {
-          animationName: slideUpIn,
-        },
+        [`&${antCls}-slide-down-enter${antCls}-slide-down-enter-active${componentCls}-placement-bottomLeft,
+          &${antCls}-slide-down-appear${antCls}-slide-down-appear-active${componentCls}-placement-bottomLeft,
+          &${antCls}-slide-down-enter${antCls}-slide-down-enter-active${componentCls}-placement-bottom,
+          &${antCls}-slide-down-appear${antCls}-slide-down-appear-active${componentCls}-placement-bottom,
+          &${antCls}-slide-down-enter${antCls}-slide-down-enter-active${componentCls}-placement-bottomRight,
+          &${antCls}-slide-down-appear${antCls}-slide-down-appear-active${componentCls}-placement-bottomRight`]:
+          {
+            animationName: slideUpIn,
+          },
 
-        [`&${antCls}-slide-up-enter${antCls}-slide-up-enter-active&-placement-topLeft,
-          &${antCls}-slide-up-appear${antCls}-slide-up-appear-active&-placement-topLeft,
-          &${antCls}-slide-up-enter${antCls}-slide-up-enter-active&-placement-top,
-          &${antCls}-slide-up-appear${antCls}-slide-up-appear-active&-placement-top,
-          &${antCls}-slide-up-enter${antCls}-slide-up-enter-active&-placement-topRight,
-          &${antCls}-slide-up-appear${antCls}-slide-up-appear-active&-placement-topRight`]: {
-          animationName: slideDownIn,
-        },
+        [`&${antCls}-slide-up-enter${antCls}-slide-up-enter-active${componentCls}-placement-topLeft,
+          &${antCls}-slide-up-appear${antCls}-slide-up-appear-active${componentCls}-placement-topLeft,
+          &${antCls}-slide-up-enter${antCls}-slide-up-enter-active${componentCls}-placement-top,
+          &${antCls}-slide-up-appear${antCls}-slide-up-appear-active${componentCls}-placement-top,
+          &${antCls}-slide-up-enter${antCls}-slide-up-enter-active${componentCls}-placement-topRight,
+          &${antCls}-slide-up-appear${antCls}-slide-up-appear-active${componentCls}-placement-topRight`]:
+          {
+            animationName: slideDownIn,
+          },
 
-        [`&${antCls}-slide-down-leave${antCls}-slide-down-leave-active&-placement-bottomLeft,
-          &${antCls}-slide-down-leave${antCls}-slide-down-leave-active&-placement-bottom,
-          &${antCls}-slide-down-leave${antCls}-slide-down-leave-active&-placement-bottomRight`]: {
-          animationName: slideUpOut,
-        },
+        [`&${antCls}-slide-down-leave${antCls}-slide-down-leave-active${componentCls}-placement-bottomLeft,
+          &${antCls}-slide-down-leave${antCls}-slide-down-leave-active${componentCls}-placement-bottom,
+          &${antCls}-slide-down-leave${antCls}-slide-down-leave-active${componentCls}-placement-bottomRight`]:
+          {
+            animationName: slideUpOut,
+          },
 
-        [`&${antCls}-slide-up-leave${antCls}-slide-up-leave-active&-placement-topLeft,
-          &${antCls}-slide-up-leave${antCls}-slide-up-leave-active&-placement-top,
-          &${antCls}-slide-up-leave${antCls}-slide-up-leave-active&-placement-topRight`]: {
-          animationName: slideDownOut,
-        },
+        [`&${antCls}-slide-up-leave${antCls}-slide-up-leave-active${componentCls}-placement-topLeft,
+          &${antCls}-slide-up-leave${antCls}-slide-up-leave-active${componentCls}-placement-top,
+          &${antCls}-slide-up-leave${antCls}-slide-up-leave-active${componentCls}-placement-topRight`]:
+          {
+            animationName: slideDownOut,
+          },
       },
     },
+
+    // =============================================================
+    // ==                        Arrow style                      ==
+    // =============================================================
+    getArrowStyle<DropdownToken>(token, {
+      colorBg: colorBgElevated,
+      limitVerticalRadius: true,
+      arrowPlacement: { top: true, bottom: true },
+    }),
 
     {
       // =============================================================
@@ -249,12 +167,9 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
         boxShadow: 'none',
         transformOrigin: '0 0',
 
-        'ul,li': {
+        'ul, li': {
           listStyle: 'none',
-        },
-
-        ul: {
-          marginInline: '0.3em',
+          margin: 0,
         },
       },
 
@@ -280,7 +195,6 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
             position: 'relative',
             display: 'flex',
             alignItems: 'center',
-            borderRadius: token.borderRadiusSM,
           },
 
           [`${menuCls}-item-icon`]: {
@@ -319,6 +233,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
             lineHeight: token.lineHeight,
             cursor: 'pointer',
             transition: `all ${motionDurationMid}`,
+            borderRadius: token.borderRadiusSM,
 
             [`&:hover, &-active`]: {
               backgroundColor: token.controlItemBgHover,
@@ -423,15 +338,12 @@ export default genComponentStyleHook(
       lineHeight,
       paddingXXS,
       componentCls,
-      borderRadiusOuter,
       borderRadiusLG,
     } = token;
 
     const dropdownPaddingVertical = (controlHeight - fontSize * lineHeight) / 2;
     const { dropdownArrowOffset } = getArrowOffset({
-      sizePopupArrow,
       contentRadius: borderRadiusLG,
-      borderRadiusOuter,
     });
 
     const dropdownToken = mergeToken<DropdownToken>(token, {
@@ -442,11 +354,7 @@ export default genComponentStyleHook(
       dropdownPaddingVertical,
       dropdownEdgeChildPadding: paddingXXS,
     });
-    return [
-      genBaseStyle(dropdownToken),
-      genButtonStyle(dropdownToken),
-      genStatusStyle(dropdownToken),
-    ];
+    return [genBaseStyle(dropdownToken), genStatusStyle(dropdownToken)];
   },
   (token) => ({
     zIndexPopup: token.zIndexPopupBase + 50,

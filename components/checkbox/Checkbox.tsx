@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import type { CheckboxRef } from 'rc-checkbox';
 import RcCheckbox from 'rc-checkbox';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
@@ -13,6 +14,7 @@ import Wave from '../_util/wave';
 export interface AbstractCheckboxProps<T> {
   prefixCls?: string;
   className?: string;
+  rootClassName?: string;
   defaultChecked?: boolean;
   checked?: boolean;
   style?: React.CSSProperties;
@@ -48,10 +50,11 @@ export interface CheckboxProps extends AbstractCheckboxProps<CheckboxChangeEvent
   indeterminate?: boolean;
 }
 
-const InternalCheckbox: React.ForwardRefRenderFunction<HTMLInputElement, CheckboxProps> = (
+const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProps> = (
   {
     prefixCls: customizePrefixCls,
     className,
+    rootClassName,
     children,
     indeterminate = false,
     style,
@@ -117,6 +120,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<HTMLInputElement, Checkbo
       [`${prefixCls}-wrapper-in-form-item`]: isFormItemInput,
     },
     className,
+    rootClassName,
     hashId,
   );
   const checkboxClass = classNames(

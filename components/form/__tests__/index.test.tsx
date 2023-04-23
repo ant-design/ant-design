@@ -1,29 +1,31 @@
-import type { ChangeEventHandler } from 'react';
-import React, { useState } from 'react';
-import scrollIntoView from 'scroll-into-view-if-needed';
-import classNames from 'classnames';
 import type { ColProps } from 'antd/es/grid';
+import classNames from 'classnames';
+import type { ChangeEventHandler } from 'react';
+import React, { version as ReactVersion, useEffect, useRef, useState } from 'react';
+import scrollIntoView from 'scroll-into-view-if-needed';
+import type { FormInstance } from '..';
 import Form from '..';
-import * as Util from '../util';
-import Button from '../../button';
-import Input from '../../input';
-import Select from '../../select';
-import Upload from '../../upload';
-import Cascader from '../../cascader';
-import Checkbox from '../../checkbox';
-import DatePicker from '../../date-picker';
-import InputNumber from '../../input-number';
-import Radio from '../../radio';
-import Switch from '../../switch';
-import TreeSelect from '../../tree-select';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, pureRender, render, screen, waitFakeTimer } from '../../../tests/utils';
+import { resetWarned } from '../../_util/warning';
+import Button from '../../button';
+import Cascader from '../../cascader';
+import Checkbox from '../../checkbox';
 import ConfigProvider from '../../config-provider';
+import DatePicker from '../../date-picker';
 import Drawer from '../../drawer';
+import Input from '../../input';
+import InputNumber from '../../input-number';
 import zhCN from '../../locale/zh_CN';
 import Modal from '../../modal';
+import Radio from '../../radio';
+import Select from '../../select';
+import Switch from '../../switch';
+import TreeSelect from '../../tree-select';
+import Upload from '../../upload';
 import type { NamePath } from '../interface';
+import * as Util from '../util';
 
 const { RangePicker } = DatePicker;
 const { TextArea } = Input;
@@ -40,25 +42,6 @@ describe('Form', () => {
   (scrollIntoView as any).mockImplementation(() => {});
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
   const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
-
-  // const change = async (
-  //   container: ReturnType<typeof render>['container'],
-  //   index: number,
-  //   value: string,
-  //   executeMockTimer: boolean,
-  // ) => {
-  //   fireEvent.change(container.querySelectorAll('input')?.[index], { target: { value } });
-  //   await sleep(200);
-
-  //   if (executeMockTimer) {
-  //     for (let i = 0; i < 10; i += 1) {
-  //       act(() => {
-  //         jest.runAllTimers();
-  //       });
-  //     }
-  //     await sleep(1);
-  //   }
-  // };
 
   const changeValue = async (
     input: HTMLElement | null | number,
@@ -188,6 +171,43 @@ describe('Form', () => {
       await changeValue(0, '1');
       await waitFakeTimer(2000, 2000);
       expect(container.querySelector('.ant-form-item-explain-error')).toHaveTextContent('aaa');
+    });
+
+    // https://github.com/ant-design/ant-design/issues/41620
+    it('should not throw error when `help=false` and `noStyle=true`', async () => {
+      const App = (props: { help?: boolean | React.ReactNode }) => {
+        const { help = false } = props || {};
+        return (
+          <Form>
+            <Form.Item name="list" label="List" rules={[{ required: true }]}>
+              <Form.Item name={['list', 0]} noStyle help={help} rules={[{ required: true }]}>
+                <Input />
+              </Form.Item>
+              <Form.Item name={['list', 1]} noStyle help={help} rules={[{ required: true }]}>
+                <Input />
+              </Form.Item>
+            </Form.Item>
+            <Form.Item>
+              <button type="submit">submit</button>
+            </Form.Item>
+          </Form>
+        );
+      };
+
+      const { container, getByRole, rerender } = render(<App />);
+
+      // click submit to trigger validate
+      fireEvent.click(getByRole('button'));
+
+      await waitFakeTimer();
+      expect(container.querySelectorAll('.ant-form-item-explain-error')).toHaveLength(1);
+
+      // When noStyle=true but help is not false, help will be displayed
+      rerender(<App help="help" />);
+      await waitFakeTimer();
+      fireEvent.click(getByRole('button'));
+      await waitFakeTimer();
+      expect(container.querySelectorAll('.ant-form-item-explain-error')).toHaveLength(3);
     });
   });
 
@@ -1436,6 +1456,20 @@ describe('Form', () => {
     expect(container.querySelector('.drawer-select')?.className).not.toContain('status-error');
   });
 
+  it('should be set up correctly marginBottom', () => {
+    render(
+      <Modal open>
+        <Form>
+          <Form.Item help="This is a help message">
+            <Input />
+          </Form.Item>
+        </Form>
+      </Modal>,
+    );
+
+    expect(document.querySelector('.ant-form-item-margin-offset')).toBeTruthy();
+  });
+
   it('Form.Item.useStatus should work', async () => {
     const {
       Item: { useStatus },
@@ -1473,13 +1507,13 @@ describe('Form', () => {
 
     const { container } = render(<Demo />);
 
-    expect(container.querySelector('.custom-input-required')?.classList).toContain(
+    expect(container.querySelector('.custom-input-required')?.className).toContain(
       'custom-input-status-',
     );
     expect(container.querySelector('.custom-input-warning')?.classList).toContain(
       'custom-input-status-warning',
     );
-    expect(container.querySelector('.custom-input')?.classList).toContain('custom-input-status-');
+    expect(container.querySelector('.custom-input')?.className).toContain('custom-input-status-');
     expect(container.querySelector('.custom-input-wrong')?.classList).toContain(
       'custom-input-status-undefined',
     );
@@ -1492,6 +1526,53 @@ describe('Form', () => {
 
     expect(container.querySelector('.custom-input-required')?.classList).toContain(
       'custom-input-status-error',
+    );
+  });
+
+  it('Form.Item.useStatus should supports get error messages and warning messages', async () => {
+    const {
+      Item: { useStatus },
+    } = Form;
+
+    const ErrorItem: React.FC = () => {
+      const { errors } = useStatus();
+      return <div className="test-error">{errors[0]}</div>;
+    };
+
+    const WarningItem: React.FC = () => {
+      const { warnings } = useStatus();
+      return <div className="test-warning">{warnings[0]}</div>;
+    };
+
+    const Demo: React.FC = () => {
+      const [form] = Form.useForm();
+
+      return (
+        <Form form={form} name="test-form">
+          <Form.Item name="error" rules={[{ required: true, message: 'This is a error message.' }]}>
+            <ErrorItem />
+          </Form.Item>
+          <Form.Item
+            name="warning"
+            rules={[{ required: true, message: 'This is a warning message.', warningOnly: true }]}
+          >
+            <WarningItem />
+          </Form.Item>
+          <Button onClick={() => form.submit()} className="submit-button">
+            Submit
+          </Button>
+        </Form>
+      );
+    };
+
+    const { container } = render(<Demo />);
+
+    fireEvent.click(container.querySelector('.submit-button')!);
+    await waitFakeTimer();
+
+    expect(container.querySelector('.test-error')).toHaveTextContent('This is a error message.');
+    expect(container.querySelector('.test-warning')).toHaveTextContent(
+      'This is a warning message.',
     );
   });
 
@@ -1516,6 +1597,7 @@ describe('Form', () => {
       marginBottom: -24,
     });
   });
+
   it('form child components should be given priority to own disabled props when it in a disabled form', () => {
     const props = {
       name: 'file',
@@ -1582,5 +1664,218 @@ describe('Form', () => {
     const wrapper5 = render(<App5 />);
 
     expect(wrapper5.container.querySelectorAll('[disabled]').length).toBe(0);
+  });
+
+  it('success feedback should display when pass hasFeedback prop and current value is valid value', async () => {
+    const App = ({ trigger = false }: { trigger?: boolean }) => {
+      const form = useRef<FormInstance<any>>(null);
+
+      useEffect(() => {
+        if (!trigger) return;
+        form.current?.validateFields();
+      }, [trigger]);
+
+      return (
+        <Form ref={form}>
+          <Form.Item
+            label="Success"
+            name="name1"
+            hasFeedback
+            initialValue="test@qq.com"
+            rules={[
+              {
+                type: 'email',
+                message: 'Please input your e-mail',
+              },
+              {
+                required: true,
+                message: 'Please input your value',
+              },
+            ]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            label="Success"
+            name="name2"
+            initialValue="test@qq.com"
+            rules={[
+              {
+                type: 'email',
+                message: 'Please input your e-mail',
+              },
+              {
+                required: true,
+                message: 'Please input your value',
+              },
+            ]}
+          >
+            <Input />
+          </Form.Item>
+        </Form>
+      );
+    };
+    const { container, rerender } = render(<App />);
+
+    expect(container.querySelectorAll('.ant-form-item-has-feedback').length).toBe(0);
+    expect(container.querySelectorAll('.ant-form-item-has-success').length).toBe(0);
+
+    rerender(<App trigger />);
+    await waitFakeTimer();
+
+    expect(container.querySelectorAll('.ant-form-item-has-feedback').length).toBe(1);
+    expect(container.querySelectorAll('.ant-form-item-has-success').length).toBe(1);
+  });
+
+  it('feedback should automatically derive the correct state', async () => {
+    const Demo: React.FC = () => {
+      const [form] = Form.useForm();
+
+      return (
+        <Form form={form}>
+          <Form.Item name="success" initialValue="test" hasFeedback rules={[{ required: true }]}>
+            <Input />
+          </Form.Item>
+          <Form.Item
+            name="validating"
+            hasFeedback
+            rules={[
+              {
+                validator: () =>
+                  new Promise((resolve) => {
+                    setTimeout(() => resolve(true), 2000);
+                  }),
+              },
+            ]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item name="warning" hasFeedback rules={[{ required: true, warningOnly: true }]}>
+            <Input />
+          </Form.Item>
+          <Form.Item name="error" hasFeedback rules={[{ required: true }]}>
+            <Input />
+          </Form.Item>
+          <Button onClick={() => form.submit()} className="submit-button">
+            Submit
+          </Button>
+        </Form>
+      );
+    };
+    const { container } = render(<Demo />);
+
+    fireEvent.click(container.querySelector('.submit-button')!);
+
+    await waitFakeTimer(50);
+
+    expect(container.querySelector('.ant-form-item-has-success')).toBeTruthy();
+    expect(container.querySelector('.ant-form-item-is-validating')).toBeTruthy();
+    expect(container.querySelector('.ant-form-item-has-warning')).toBeTruthy();
+    expect(container.querySelector('.ant-form-item-has-error')).toBeTruthy();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/41621
+  it('should not override value when pass `undefined` to require', async () => {
+    // When require is `undefined`, the `isRequire` calculation logic should be preserved
+    const { container } = render(
+      <Form>
+        <Form.Item label="test" name="success" required={undefined} rules={[{ required: true }]}>
+          <Input />
+        </Form.Item>
+      </Form>,
+    );
+
+    expect(container.querySelector('.ant-form-item-required')).toBeTruthy();
+  });
+
+  it('validate status should be change in order', async () => {
+    const onChange = jest.fn();
+
+    const CustomInput = (props: any) => {
+      const { status } = Form.Item.useStatus();
+      useEffect(() => {
+        onChange(status);
+      }, [status]);
+      return <Input {...props} />;
+    };
+
+    const App = () => (
+      <Form>
+        <Form.Item>
+          <Form.Item name="test" label="test" rules={[{ len: 3, message: 'error.' }]}>
+            <CustomInput />
+          </Form.Item>
+        </Form.Item>
+      </Form>
+    );
+
+    render(<App />);
+    await waitFakeTimer();
+
+    // initial validate
+    const initTriggerTime = ReactVersion.startsWith('18') ? 2 : 1;
+    expect(onChange).toHaveBeenCalledTimes(initTriggerTime);
+    let idx = 1;
+    expect(onChange).toHaveBeenNthCalledWith(idx++, '');
+    if (initTriggerTime === 2) {
+      expect(onChange).toHaveBeenNthCalledWith(idx++, '');
+    }
+
+    // change trigger
+    await changeValue(0, '1');
+    expect(onChange).toHaveBeenCalledTimes(initTriggerTime + 2);
+    expect(onChange).toHaveBeenNthCalledWith(idx++, 'validating');
+    expect(onChange).toHaveBeenNthCalledWith(idx++, 'error');
+    await changeValue(0, '11');
+    expect(onChange).toHaveBeenCalledTimes(initTriggerTime + 4);
+    expect(onChange).toHaveBeenNthCalledWith(idx++, 'validating');
+    expect(onChange).toHaveBeenNthCalledWith(idx++, 'error');
+    await changeValue(0, '111');
+    expect(onChange).toHaveBeenCalledTimes(initTriggerTime + 6);
+    expect(onChange).toHaveBeenNthCalledWith(idx++, 'validating');
+    expect(onChange).toHaveBeenNthCalledWith(idx++, 'success');
+  });
+
+  // https://user-images.githubusercontent.com/32004925/230819163-464fe90d-422d-4a6d-9e35-44a25d4c64f1.png
+  it('should not render `requiredMark` when Form.Item has no required prop', () => {
+    // Escaping TypeScript error
+    const genProps = (value: any) => ({ ...value });
+
+    const { container } = render(
+      <Form name="basic" requiredMark="optional">
+        <Form.Item
+          label="First Name"
+          name="firstName"
+          required
+          {...genProps({ requiredMark: false })}
+        >
+          <Input />
+        </Form.Item>
+        <Form.Item label="Last Name" name="lastName" required {...genProps({ requiredMark: true })}>
+          <Input />
+        </Form.Item>
+      </Form>,
+    );
+
+    expect(container.querySelectorAll('.ant-form-item-required')).toHaveLength(2);
+    expect(container.querySelectorAll('.ant-form-item-required-mark-optional')).toHaveLength(2);
+  });
+
+  it('children support comment', () => {
+    resetWarned();
+
+    const { container } = render(
+      <Form initialValues={{ name: 'bamboo', age: '14' }}>
+        <Form.Item name="name">
+          {/* Comment here */}
+          <Input />
+        </Form.Item>
+        <Form.Item name="age">{[null, <Input key="input" />]}</Form.Item>
+      </Form>,
+    );
+
+    expect(container.querySelectorAll('input')[0].value).toEqual('bamboo');
+    expect(container.querySelectorAll('input')[1].value).toEqual('14');
+    expect(errorSpy).not.toHaveBeenCalled();
   });
 });

@@ -3,6 +3,7 @@ category: Components
 group: Data Display
 title: Card
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*VXtCTp93KPAAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*a-8zR6rrupgAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 Simple rectangular container.
@@ -70,3 +71,7 @@ A card can be used to display content related to a single subject. The content c
 | description | Description content           | ReactNode     | -       |         |
 | style       | The style object of container | CSSProperties | -       |         |
 | title       | Title content                 | ReactNode     | -       |         |
+
+## Design Token
+
+<ComponentTokenTable component="Card"></ComponentTokenTable>

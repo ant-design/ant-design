@@ -1,8 +1,8 @@
+import { resetComponent } from '../../style';
 import { initZoomMotion } from '../../style/motion';
+import getArrowStyle from '../../style/placementArrow';
 import type { FullToken, GenerateStyle, PresetColorType } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken, PresetColors } from '../../theme/internal';
-import { resetComponent } from '../../style';
-import getArrowStyle from '../../style/placementArrow';
 
 export interface ComponentToken {
   zIndexPopup: number;
@@ -84,13 +84,17 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
     },
 
     // Arrow Style
-    getArrowStyle(token, { colorBg: 'var(--antd-arrow-background-color)' }),
+    getArrowStyle(token, {
+      colorBg: 'var(--antd-arrow-background-color)',
+    }),
 
     // Pure Render
     {
       [`${componentCls}-pure`]: {
         position: 'relative',
         maxWidth: 'none',
+        margin: token.sizePopupArrow,
+        display: 'inline-block',
 
         [`${componentCls}-content`]: {
           display: 'inline-block',
@@ -105,7 +109,7 @@ const genColorStyle: GenerateStyle<PopoverToken> = (token) => {
 
   return {
     [componentCls]: PresetColors.map((colorKey: keyof PresetColorType) => {
-      const lightColor = token[`${colorKey}-6`];
+      const lightColor = token[`${colorKey}6`];
       return {
         [`&${componentCls}-${colorKey}`]: {
           '--antd-arrow-background-color': lightColor,

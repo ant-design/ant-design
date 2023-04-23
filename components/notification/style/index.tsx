@@ -26,7 +26,7 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
   const {
     iconCls,
     componentCls, // .ant-notification
-    boxShadowSecondary,
+    boxShadow,
     fontSizeLG,
     notificationMarginBottom,
     borderRadiusLG,
@@ -165,7 +165,7 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
         wordWrap: 'break-word',
         background: notificationBg,
         borderRadius: borderRadiusLG,
-        boxShadow: boxShadowSecondary,
+        boxShadow,
 
         [`${componentCls}-close-icon`]: {
           fontSize,

@@ -3,6 +3,7 @@ category: Components
 title: Anchor
 subtitle: 锚点
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*TBTSR4PyVmkAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*JGb3RIzyOCkAAAAAAAAAAAAADrJ8AQ/original
 demo:
 group:
   title: 导航
@@ -68,3 +69,7 @@ group:
 | href   | 锚点链接                       | string    | -      |      |
 | target | 该属性指定在何处显示链接的资源 | string    | -      |      |
 | title  | 文字内容                       | ReactNode | -      |      |
+
+## Design Token
+
+<ComponentTokenTable component="Anchor"></ComponentTokenTable>

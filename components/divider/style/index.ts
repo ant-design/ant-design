@@ -43,7 +43,7 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
         margin: `${token.dividerHorizontalGutterMargin}px 0`,
       },
 
-      '&-horizontal&-with-text': {
+      [`&-horizontal${componentCls}-with-text`]: {
         display: 'flex',
         alignItems: 'center',
         margin: `${token.dividerHorizontalWithTextGutterMargin}px 0`,
@@ -66,7 +66,7 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
         },
       },
 
-      '&-horizontal&-with-text-left': {
+      [`&-horizontal${componentCls}-with-text-left`]: {
         '&::before': {
           width: '5%',
         },
@@ -76,7 +76,7 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
         },
       },
 
-      '&-horizontal&-with-text-right': {
+      [`&-horizontal${componentCls}-with-text-right`]: {
         '&::before': {
           width: '95%',
         },
@@ -98,52 +98,54 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
         borderWidth: `${lineWidth}px 0 0`,
       },
 
-      '&-horizontal&-with-text&-dashed': {
+      [`&-horizontal${componentCls}-with-text${componentCls}-dashed`]: {
         '&::before, &::after': {
           borderStyle: 'dashed none none',
         },
       },
 
-      '&-vertical&-dashed': {
+      [`&-vertical${componentCls}-dashed`]: {
         borderInlineStart: lineWidth,
         borderInlineEnd: 0,
         borderBlockStart: 0,
         borderBlockEnd: 0,
       },
 
-      '&-plain&-with-text': {
+      [`&-plain${componentCls}-with-text`]: {
         color: token.colorText,
         fontWeight: 'normal',
         fontSize: token.fontSize,
       },
 
-      '&-horizontal&-with-text-left&-no-default-orientation-margin-left': {
-        '&::before': {
-          width: 0,
+      [`&-horizontal${componentCls}-with-text-left${componentCls}-no-default-orientation-margin-left`]:
+        {
+          '&::before': {
+            width: 0,
+          },
+
+          '&::after': {
+            width: '100%',
+          },
+
+          [`${componentCls}-inner-text`]: {
+            paddingInlineStart: sizePaddingEdgeHorizontal,
+          },
         },
 
-        '&::after': {
-          width: '100%',
-        },
+      [`&-horizontal${componentCls}-with-text-right${componentCls}-no-default-orientation-margin-right`]:
+        {
+          '&::before': {
+            width: '100%',
+          },
 
-        [`${componentCls}-inner-text`]: {
-          paddingInlineStart: sizePaddingEdgeHorizontal,
-        },
-      },
+          '&::after': {
+            width: 0,
+          },
 
-      '&-horizontal&-with-text-right&-no-default-orientation-margin-right': {
-        '&::before': {
-          width: '100%',
+          [`${componentCls}-inner-text`]: {
+            paddingInlineEnd: sizePaddingEdgeHorizontal,
+          },
         },
-
-        '&::after': {
-          width: 0,
-        },
-
-        [`${componentCls}-inner-text`]: {
-          paddingInlineEnd: sizePaddingEdgeHorizontal,
-        },
-      },
     },
   };
 };

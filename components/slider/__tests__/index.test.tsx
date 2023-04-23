@@ -3,11 +3,11 @@ import Slider from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render, fireEvent, act } from '../../../tests/utils';
+import { act, fireEvent, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
-import SliderTooltip from '../SliderTooltip';
 import type { TooltipProps } from '../../tooltip';
 import { resetWarned } from '../../_util/warning';
+import SliderTooltip from '../SliderTooltip';
 
 function tooltipProps(): TooltipProps {
   return (global as any).tooltipProps;
@@ -26,7 +26,7 @@ jest.mock('../../tooltip', () => {
 describe('Slider', () => {
   mountTest(Slider);
   rtlTest(Slider);
-  focusTest(Slider, { testLib: true });
+  focusTest(Slider);
 
   beforeEach(() => {
     jest.useFakeTimers();
@@ -79,7 +79,7 @@ describe('Slider', () => {
     expect(container2.querySelector('.ant-tooltip-content')!).toBeNull();
   });
 
-  it('when step is null, thumb can only be slided to the specific mark', () => {
+  it('when step is null, thumb can only be slid to the specific mark', () => {
     const intentionallyWrongValue = 40;
     const marks = {
       0: '0',
@@ -98,7 +98,7 @@ describe('Slider', () => {
     expect(container.querySelector('.ant-slider-handle')!.getAttribute('aria-valuenow')).toBe('48');
   });
 
-  it('when step is not null, thumb can be slided to the multiples of step', () => {
+  it('when step is not null, thumb can be slid to the multiples of step', () => {
     const marks = {
       0: '0',
       48: '48',
@@ -111,7 +111,7 @@ describe('Slider', () => {
     expect(container.querySelector('.ant-slider-handle')!.getAttribute('aria-valuenow')).toBe('49');
   });
 
-  it('when step is undefined, thumb can be slided to the multiples of step', () => {
+  it('when step is undefined, thumb can be slid to the multiples of step', () => {
     const marks = {
       0: '0',
       48: '48',
@@ -133,22 +133,14 @@ describe('Slider', () => {
     expect(container).toMatchSnapshot();
   });
 
-  it('should keepAlign by calling forcePopupAlign', async () => {
-    let ref: any;
-    render(
-      <SliderTooltip
-        title="30"
-        open
-        ref={(node) => {
-          ref = node;
-        }}
-      />,
-    );
-    ref.forcePopupAlign = jest.fn();
+  it('should keepAlign by calling forceAlign', async () => {
+    const ref = React.createRef<any>();
+    render(<SliderTooltip title="30" open ref={ref} />);
+    ref.current.forceAlign = jest.fn();
     act(() => {
       jest.runAllTimers();
     });
-    expect(ref.forcePopupAlign).toHaveBeenCalled();
+    expect(ref.current.forceAlign).toHaveBeenCalled();
   });
 
   it('tipFormatter should not crash with undefined value', () => {

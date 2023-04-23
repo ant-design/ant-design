@@ -4,6 +4,7 @@ group: 数据展示
 title: List
 subtitle: 列表
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*EYuhSpw1iSwAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*tBzwQ7raKX8AAAAAAAAAAAAADrJ8AQ/original
 ---
 
 通用列表。
@@ -87,3 +88,7 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*EYuhSpw1iSwAAAAAAA
 | avatar      | 列表元素的图标     | ReactNode | -      |      |
 | description | 列表元素的描述内容 | ReactNode | -      |      |
 | title       | 列表元素的标题     | ReactNode | -      |      |
+
+## Design Token
+
+<ComponentTokenTable component="List"></ComponentTokenTable>

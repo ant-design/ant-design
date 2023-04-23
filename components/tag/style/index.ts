@@ -1,9 +1,9 @@
 import type { CSSInterpolation } from '@ant-design/cssinjs';
 import type React from 'react';
-import type { FullToken } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import capitalize from '../../_util/capitalize';
-import { genPresetColor, resetComponent } from '../../style';
+import { resetComponent } from '../../style';
+import type { FullToken } from '../../theme/internal';
+import { genComponentStyleHook, genPresetColor, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {}
 
@@ -14,6 +14,7 @@ interface TagToken extends FullToken<'Tag'> {
   tagDefaultColor: string;
   tagIconSize: number;
   tagPaddingHorizontal: number;
+  tagBorderlessBg: string;
 }
 
 // ============================== Styles ==============================
@@ -41,24 +42,26 @@ const genPresetStyle = (token: TagToken) =>
       color: textColor,
       background: lightColor,
       borderColor: lightBorderColor,
-
       // Inverse color
       '&-inverse': {
         color: token.colorTextLightSolid,
         background: darkColor,
         borderColor: darkColor,
       },
+      [`&${token.componentCls}-borderless`]: {
+        borderColor: 'transparent',
+      },
     },
   }));
 
 const genBaseStyle = (token: TagToken): CSSInterpolation => {
-  const { paddingXXS, lineWidth, tagPaddingHorizontal } = token;
+  const { paddingXXS, lineWidth, tagPaddingHorizontal, componentCls } = token;
   const paddingInline = tagPaddingHorizontal - lineWidth;
   const iconMarginInline = paddingXXS - lineWidth;
 
   return {
     // Result
-    [token.componentCls]: {
+    [componentCls]: {
       ...resetComponent(token),
       display: 'inline-block',
       height: 'auto',
@@ -75,7 +78,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
       textAlign: 'start',
 
       // RTL
-      '&&-rtl': {
+      [`&${componentCls}-rtl`]: {
         direction: 'rtl',
       },
 
@@ -83,7 +86,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
         color: token.tagDefaultColor,
       },
 
-      [`${token.componentCls}-close-icon`]: {
+      [`${componentCls}-close-icon`]: {
         marginInlineStart: iconMarginInline,
         color: token.colorTextDescription,
         fontSize: token.tagIconSize,
@@ -95,7 +98,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
         },
       },
 
-      [`&&-has-color`]: {
+      [`&${componentCls}-has-color`]: {
         borderColor: 'transparent',
 
         [`&, a, a:hover, ${token.iconCls}-close, ${token.iconCls}-close:hover`]: {
@@ -108,7 +111,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
         borderColor: 'transparent',
         cursor: 'pointer',
 
-        '&:not(&-checked):hover': {
+        [`&:not(${componentCls}-checkable-checked):hover`]: {
           color: token.colorPrimary,
           backgroundColor: token.colorFillSecondary,
         },
@@ -138,6 +141,10 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
         marginInlineStart: paddingInline,
       },
     },
+    [`${componentCls}-borderless`]: {
+      borderColor: 'transparent',
+      background: token.tagBorderlessBg,
+    },
   };
 };
 
@@ -148,7 +155,7 @@ export default genComponentStyleHook('Tag', (token) => {
 
   const tagFontSize = token.fontSizeSM;
   const tagLineHeight = tagHeight - lineWidth * 2;
-  const tagDefaultBg = token.colorFillAlter;
+  const tagDefaultBg = token.colorFillQuaternary;
   const tagDefaultColor = token.colorText;
 
   const tagToken = mergeToken<TagToken>(token, {
@@ -158,6 +165,7 @@ export default genComponentStyleHook('Tag', (token) => {
     tagDefaultColor,
     tagIconSize: fontSizeIcon - 2 * lineWidth, // Tag icon is much more smaller
     tagPaddingHorizontal: 8, // Fixed padding.
+    tagBorderlessBg: token.colorFillTertiary,
   });
 
   return [

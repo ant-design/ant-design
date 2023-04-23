@@ -1,24 +1,26 @@
 import classNames from 'classnames';
-import { convertChildrenToColumns } from 'rc-table/lib/hooks/useColumns';
 import type { TableProps as RcTableProps } from 'rc-table/lib/Table';
 import { INTERNAL_HOOKS } from 'rc-table/lib/Table';
+import { convertChildrenToColumns } from 'rc-table/lib/hooks/useColumns';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
+import type { Breakpoint } from '../_util/responsiveObserver';
+import scrollTo from '../_util/scrollTo';
+import warning from '../_util/warning';
+import type { SizeType } from '../config-provider/SizeContext';
+import SizeContext from '../config-provider/SizeContext';
 import type { ConfigConsumerProps } from '../config-provider/context';
 import { ConfigContext } from '../config-provider/context';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
-import type { SizeType } from '../config-provider/SizeContext';
-import SizeContext from '../config-provider/SizeContext';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import defaultLocale from '../locale/en_US';
 import Pagination from '../pagination';
 import type { SpinProps } from '../spin';
 import Spin from '../spin';
 import type { TooltipProps } from '../tooltip';
-import type { Breakpoint } from '../_util/responsiveObserver';
-import scrollTo from '../_util/scrollTo';
-import warning from '../_util/warning';
 import renderExpandIcon from './ExpandIcon';
+import RcTable from './RcTable';
+import type { AnyObject } from './Table';
 import type { FilterState } from './hooks/useFilter';
 import useFilter, { getFilterData } from './hooks/useFilter';
 import useLazyKVMap from './hooks/useLazyKVMap';
@@ -30,23 +32,21 @@ import useTitleColumns from './hooks/useTitleColumns';
 import type {
   ColumnTitleProps,
   ColumnType,
-  ExpandableConfig,
+  ColumnsType,
   ExpandType,
+  ExpandableConfig,
   FilterValue,
   GetPopupContainer,
   GetRowKey,
-  SorterResult,
+  RefInternalTable,
   SortOrder,
+  SorterResult,
   TableAction,
   TableCurrentDataSource,
   TableLocale,
-  TableRowSelection,
-  ColumnsType,
   TablePaginationConfig,
-  RefInternalTable,
+  TableRowSelection,
 } from './interface';
-import RcTable from './RcTable';
-
 import useStyle from './style';
 
 export type { ColumnsType, TablePaginationConfig };
@@ -65,7 +65,7 @@ interface ChangeEventInfo<RecordType> {
   filterStates: FilterState<RecordType>[];
   sorterStates: SortState<RecordType>[];
 
-  resetPagination: Function;
+  resetPagination: (current?: number, pageSize?: number) => void;
 }
 
 /** Same as `TableProps` but we need record parent render times */
@@ -92,6 +92,7 @@ export interface TableProps<RecordType>
   size?: SizeType;
   bordered?: boolean;
   locale?: TableLocale;
+  rootClassName?: string;
 
   onChange?: (
     pagination: TablePaginationConfig,
@@ -109,13 +110,14 @@ export interface TableProps<RecordType>
   showSorterTooltip?: boolean | TooltipProps;
 }
 
-function InternalTable<RecordType extends object = any>(
+const InternalTable = <RecordType extends AnyObject = any>(
   props: InternalTableProps<RecordType>,
   ref: React.MutableRefObject<HTMLDivElement>,
-) {
+) => {
   const {
     prefixCls: customizePrefixCls,
     className,
+    rootClassName,
     style,
     size: customizeSize,
     bordered,
@@ -178,6 +180,7 @@ function InternalTable<RecordType extends object = any>(
     direction,
     renderEmpty,
     getPrefixCls,
+    getPopupContainer: getContextPopupContainer,
   } = React.useContext<ConfigConsumerProps>(ConfigContext);
 
   const mergedSize = customizeSize || size;
@@ -235,16 +238,16 @@ function InternalTable<RecordType extends object = any>(
     };
 
     if (reset) {
-      changeEventInfo.resetPagination!();
+      changeEventInfo.resetPagination?.();
 
       // Reset event param
-      if (changeInfo.pagination!.current) {
-        changeInfo.pagination!.current = 1;
+      if (changeInfo.pagination?.current) {
+        changeInfo.pagination.current = 1;
       }
 
       // Trigger pagination events
       if (pagination && pagination.onChange) {
-        pagination.onChange(1, changeInfo.pagination!.pageSize!);
+        pagination.onChange(1, changeInfo.pagination?.pageSize!);
       }
     }
 
@@ -321,7 +324,7 @@ function InternalTable<RecordType extends object = any>(
     dropdownPrefixCls,
     mergedColumns,
     onFilterChange,
-    getPopupContainer,
+    getPopupContainer: getPopupContainer || getContextPopupContainer,
   });
   const mergedData = getFilterData(sortedData, filterStates);
 
@@ -356,12 +359,12 @@ function InternalTable<RecordType extends object = any>(
 
   const [mergedPagination, resetPagination] = usePagination(
     mergedData.length,
-    pagination,
     onPaginationChange,
+    pagination,
   );
 
   changeEventInfo.pagination =
-    pagination === false ? {} : getPaginationParam(pagination, mergedPagination);
+    pagination === false ? {} : getPaginationParam(mergedPagination, pagination);
 
   changeEventInfo.resetPagination = resetPagination;
 
@@ -397,17 +400,20 @@ function InternalTable<RecordType extends object = any>(
   ]);
 
   // ========================== Selections ==========================
-  const [transformSelectionColumns, selectedKeySet] = useSelection<RecordType>(rowSelection, {
-    prefixCls,
-    data: mergedData,
-    pageData,
-    getRowKey,
-    getRecordByKey,
-    expandType,
-    childrenColumnName,
-    locale: tableLocale,
-    getPopupContainer,
-  });
+  const [transformSelectionColumns, selectedKeySet] = useSelection<RecordType>(
+    {
+      prefixCls,
+      data: mergedData,
+      pageData,
+      getRowKey,
+      getRecordByKey,
+      expandType,
+      childrenColumnName,
+      locale: tableLocale,
+      getPopupContainer: getPopupContainer || getContextPopupContainer,
+    },
+    rowSelection,
+  );
 
   const internalRowClassName = (record: RecordType, index: number, indent: number) => {
     let mergedRowClassName: string;
@@ -485,10 +491,10 @@ function InternalTable<RecordType extends object = any>(
         bottomPaginationNode = renderPagination(defaultPosition);
       }
       if (topPos) {
-        topPaginationNode = renderPagination(topPos!.toLowerCase().replace('top', ''));
+        topPaginationNode = renderPagination(topPos.toLowerCase().replace('top', ''));
       }
       if (bottomPos) {
-        bottomPaginationNode = renderPagination(bottomPos!.toLowerCase().replace('bottom', ''));
+        bottomPaginationNode = renderPagination(bottomPos.toLowerCase().replace('bottom', ''));
       }
     } else {
       bottomPaginationNode = renderPagination(defaultPosition);
@@ -517,6 +523,7 @@ function InternalTable<RecordType extends object = any>(
       [`${prefixCls}-wrapper-rtl`]: direction === 'rtl',
     },
     className,
+    rootClassName,
     hashId,
   );
 
@@ -553,6 +560,6 @@ function InternalTable<RecordType extends object = any>(
       </Spin>
     </div>,
   );
-}
+};
 
 export default React.forwardRef(InternalTable) as RefInternalTable;

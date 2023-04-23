@@ -3,11 +3,11 @@ import React from 'react';
 // eslint-disable-next-line import/no-unresolved
 import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
 import dayjs from 'dayjs';
-import glob from 'glob';
+import { globSync } from 'glob';
 import { configureToMatchImageSnapshot } from 'jest-image-snapshot';
 import MockDate from 'mockdate';
 import ReactDOMServer from 'react-dom/server';
-import { App, theme, ConfigProvider } from '../../components';
+import { App, ConfigProvider, theme } from '../../components';
 
 const toMatchImageSnapshot = configureToMatchImageSnapshot({
   customSnapshotsDir: `${process.cwd()}/imageSnapshots`,
@@ -40,7 +40,7 @@ export default function imageTest(component: React.ReactElement) {
 
         const element = (
           <ConfigProvider theme={{ algorithm }}>
-            <App>
+            <App style={{ background: algorithm === theme.darkAlgorithm ? '#000' : '' }}>
               <StyleProvider cache={cache}>{component}</StyleProvider>
             </App>
           </ConfigProvider>
@@ -78,7 +78,7 @@ type Options = {
 // eslint-disable-next-line jest/no-export
 export function imageDemoTest(component: string, options: Options = {}) {
   let describeMethod = options.skip === true ? describe.skip : describe;
-  const files = glob.sync(`./components/${component}/demo/*.tsx`);
+  const files = globSync(`./components/${component}/demo/*.tsx`);
 
   files.forEach((file) => {
     if (Array.isArray(options.skip) && options.skip.some((c) => file.includes(c))) {
@@ -88,7 +88,7 @@ export function imageDemoTest(component: string, options: Options = {}) {
     }
     describeMethod(`Test ${file} image`, () => {
       // eslint-disable-next-line global-require,import/no-dynamic-require
-      let Demo = require(`../.${file}`).default;
+      let Demo = require(`../../${file}`).default;
       if (typeof Demo === 'function') {
         Demo = <Demo />;
       }

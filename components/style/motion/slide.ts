@@ -152,8 +152,14 @@ export const initSlideMotion = (
       ${motionCls}-enter,
       ${motionCls}-appear
     `]: {
+        transform: 'scale(0)',
+        transformOrigin: '0% 0%',
         opacity: 0,
         animationTimingFunction: token.motionEaseOutQuint,
+
+        [`&-prepare`]: {
+          transform: 'scale(1)',
+        },
       },
 
       [`${motionCls}-leave`]: {

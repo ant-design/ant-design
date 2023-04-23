@@ -1,7 +1,12 @@
 /* eslint-disable import/prefer-default-export */
-import * as React from 'react';
 import type { TriggerProps } from 'rc-trigger';
+import * as React from 'react';
 
 // We export context here is to avoid testing-lib inject `afterEach` in `tests/index.test.js`
 // Which breaks the circle deps
-export const TriggerMockContext = React.createContext<Partial<TriggerProps> | undefined>(undefined);
+export const TriggerMockContext = React.createContext<
+  | (Partial<TriggerProps> & {
+      mock?: boolean;
+    })
+  | undefined
+>(undefined);

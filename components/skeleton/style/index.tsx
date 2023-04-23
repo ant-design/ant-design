@@ -10,10 +10,10 @@ export type ComponentToken = {
 
 const skeletonClsLoading = new Keyframes(`ant-skeleton-loading`, {
   '0%': {
-    transform: 'translateX(-37.5%)',
+    backgroundPosition: '100% 50%',
   },
   '100%': {
-    transform: 'translateX(37.5%)',
+    backgroundPosition: '0 50%',
   },
 });
 
@@ -45,26 +45,12 @@ const genSkeletonElementAvatarSize = (size: number): CSSObject => ({
 });
 
 const genSkeletonColor = (token: SkeletonToken): CSSObject => ({
-  position: 'relative',
-  // fix https://github.com/ant-design/ant-design/issues/36444
-  // https://monshin.github.io/202109/css/safari-border-radius-overflow-hidden/
-  /* stylelint-disable-next-line property-no-vendor-prefix,value-no-vendor-prefix */
-  zIndex: 0,
-  overflow: 'hidden',
-  background: 'transparent',
-  '&::after': {
-    position: 'absolute',
-    top: 0,
-    insetInlineEnd: '-150%',
-    bottom: 0,
-    insetInlineStart: '-150%',
-    background: token.skeletonLoadingBackground,
-    animationName: skeletonClsLoading,
-    animationDuration: token.skeletonLoadingMotionDuration,
-    animationTimingFunction: 'ease',
-    animationIterationCount: 'infinite',
-    content: '""',
-  },
+  background: token.skeletonLoadingBackground,
+  backgroundSize: '400% 100%',
+  animationName: skeletonClsLoading,
+  animationDuration: token.skeletonLoadingMotionDuration,
+  animationTimingFunction: 'ease',
+  animationIterationCount: 'infinite',
 });
 
 const genSkeletonElementInputSize = (size: number): CSSObject => ({

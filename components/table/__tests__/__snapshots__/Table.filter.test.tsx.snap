@@ -353,27 +353,22 @@ exports[`Table.filter renders custom filter icon with right Tooltip title 1`] = 
                         >
                           Tooltip
                         </span>
-                        <div>
+                        <div
+                          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+                          style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                        >
                           <div
-                            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-                            style="opacity: 0;"
+                            class="ant-tooltip-arrow"
+                            style="position: absolute; bottom: 0px; left: 0px;"
+                          />
+                          <div
+                            class="ant-tooltip-content"
                           >
                             <div
-                              class="ant-tooltip-content"
+                              class="ant-tooltip-inner"
+                              role="tooltip"
                             >
-                              <div
-                                class="ant-tooltip-arrow"
-                              >
-                                <span
-                                  class="ant-tooltip-arrow-content"
-                                />
-                              </div>
-                              <div
-                                class="ant-tooltip-inner"
-                                role="tooltip"
-                              >
-                                title
-                              </div>
+                              title
                             </div>
                           </div>
                         </div>
@@ -584,7 +579,6 @@ exports[`Table.filter renders menu correctly 1`] = `
             <input
               class="ant-checkbox-input"
               type="checkbox"
-              value=""
             />
             <span
               class="ant-checkbox-inner"
@@ -614,7 +608,6 @@ exports[`Table.filter renders menu correctly 1`] = `
             <input
               class="ant-checkbox-input"
               type="checkbox"
-              value=""
             />
             <span
               class="ant-checkbox-inner"
@@ -726,7 +719,6 @@ exports[`Table.filter renders radio filter correctly 1`] = `
             <input
               class="ant-radio-input"
               type="radio"
-              value=""
             />
             <span
               class="ant-radio-inner"
@@ -756,7 +748,6 @@ exports[`Table.filter renders radio filter correctly 1`] = `
             <input
               class="ant-radio-input"
               type="radio"
-              value=""
             />
             <span
               class="ant-radio-inner"

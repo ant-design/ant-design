@@ -4,6 +4,7 @@ subtitle: 时间选择框
 group: 数据录入
 title: TimePicker
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*kGmGSLk_1fwAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*1hDmQJIDFJQAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -69,6 +70,7 @@ dayjs.extend(customParseFormat)
 | renderExtraFooter | 选择框底部显示自定义的内容 | () => ReactNode | - |  |
 | secondStep | 秒选项间隔 | number | 1 |  |
 | showNow | 面板是否显示“此刻”按钮 | boolean | - | 4.4.0 |
+| size | 输入框大小，`large` 高度为 40px，`small` 为 24px，默认是 32px | `large` \| `middle` \| `small` | - |  |
 | status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
 | suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |  |
 | use12Hours | 使用 12 小时制，为 true 时 `format` 默认为 `h:mm:ss a` | boolean | false |  |
@@ -115,10 +117,9 @@ type RangeDisabledTime = (
 };
 ```
 
-<style>
-.code-box-demo .ant-picker { margin: 0 8px 12px 0; }
-.ant-row-rtl .code-box-demo .ant-picker { margin: 0 0 12px 8px; }
-</style>
+## Design Token
+
+<ComponentTokenTable component="DatePicker"></ComponentTokenTable>
 
 ## FAQ
 

@@ -5,6 +5,7 @@ group: 反馈
 noinstant: true
 title: Message
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*JjZBT6N1MusAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*7qMTRoq3ZGkAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -107,6 +108,10 @@ message.config({
 | prefixCls | 消息节点的 className 前缀 | string | `ant-message` | 4.5.0 |
 | rtl | 是否开启 RTL 模式 | boolean | false |  |
 | top | 消息距离顶部的位置 | number | 8 |  |
+
+## Design Token
+
+<ComponentTokenTable component="Message"></ComponentTokenTable>
 
 ## FAQ
 

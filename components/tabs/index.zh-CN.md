@@ -4,6 +4,7 @@ subtitle: 标签页
 group: 数据展示
 title: Tabs
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*72NDQqXkyOEAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*8HMoTZUoSGoAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 选项卡切换组件。
@@ -78,3 +79,7 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 | key         | 对应 activeKey                                  | string    | -      |
 | label       | 选项卡头显示文字                                | ReactNode | -      |
 | children    | 选项卡头显示内容                                | ReactNode | -      |
+
+## Design Token
+
+<ComponentTokenTable component="Tabs"></ComponentTokenTable>

@@ -128,7 +128,7 @@ describe('Carousel', () => {
   });
 
   describe('dots precise control by plain object', () => {
-    it('use dots to provide dotsClasse', () => {
+    it('use dots to provide dotsClass', () => {
       const { container } = render(
         <Carousel dots={{ className: 'customDots' }}>
           <div>1</div>

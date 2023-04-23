@@ -23,6 +23,11 @@ const sharedOnCell = (_: DataType, index: number) => {
 
 const columns: ColumnsType<DataType> = [
   {
+    title: 'RowHead',
+    dataIndex: 'key',
+    rowScope: 'row',
+  },
+  {
     title: 'Name',
     dataIndex: 'name',
     render: (text) => <a>{text}</a>,
@@ -90,7 +95,7 @@ const data: DataType[] = [
     age: 32,
     tel: '0575-22098909',
     phone: 18900010002,
-    address: 'Sidney No. 1 Lake Park',
+    address: 'Sydney No. 1 Lake Park',
   },
   {
     key: '4',

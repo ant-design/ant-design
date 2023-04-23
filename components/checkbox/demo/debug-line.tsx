@@ -1,5 +1,5 @@
+import { Checkbox, ConfigProvider, Radio, Space } from 'antd';
 import React from 'react';
-import { Checkbox, Radio, Space } from 'antd';
 
 const sharedStyle: React.CSSProperties = {
   border: '1px solid red',
@@ -43,6 +43,16 @@ const App: React.FC = () => (
       <div>Bamboo</div>
       <Radio value="little">Little</Radio>
     </div>
+
+    <ConfigProvider
+      theme={{
+        token: {
+          controlHeight: 48,
+        },
+      }}
+    >
+      <Checkbox>Aligned</Checkbox>
+    </ConfigProvider>
   </div>
 );
 

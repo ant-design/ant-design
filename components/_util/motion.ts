@@ -29,7 +29,7 @@ const SelectPlacements = ['bottomLeft', 'bottomRight', 'topLeft', 'topRight'] as
 
 export type SelectCommonPlacement = typeof SelectPlacements[number];
 
-const getTransitionDirection = (placement: SelectCommonPlacement | undefined) => {
+const getTransitionDirection = (placement?: SelectCommonPlacement) => {
   if (placement !== undefined && (placement === 'topLeft' || placement === 'topRight')) {
     return `slide-down`;
   }

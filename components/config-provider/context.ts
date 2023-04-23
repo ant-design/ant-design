@@ -1,9 +1,11 @@
-import * as React from 'react';
 import type { DerivativeFunc } from '@ant-design/cssinjs';
+import * as React from 'react';
+import type { Options } from 'scroll-into-view-if-needed';
+import type { ConfigProviderProps } from '.';
+import type { RequiredMark } from '../form/Form';
 import type { Locale } from '../locale';
 import type { AliasToken, MapToken, OverrideToken, SeedToken } from '../theme/interface';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
-import type { ConfigProviderProps } from '.';
 
 export const defaultIconPrefixCls = 'anticon';
 
@@ -32,6 +34,7 @@ export interface ThemeConfig {
   inherit?: boolean;
 }
 
+export type PopupOverflow = 'viewport' | 'scroll';
 export interface ConfigConsumerProps
   extends Pick<
     ConfigProviderProps,
@@ -48,7 +51,13 @@ export interface ConfigConsumerProps
   locale?: Locale;
   direction?: DirectionType;
   virtual?: boolean;
-  dropdownMatchSelectWidth?: boolean;
+  popupMatchSelectWidth?: boolean;
+  popupOverflow?: PopupOverflow;
+  form?: {
+    requiredMark?: RequiredMark;
+    colon?: boolean;
+    scrollToFirstError?: Options | boolean;
+  };
   theme?: ThemeConfig;
 }
 

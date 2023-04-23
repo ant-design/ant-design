@@ -23,6 +23,7 @@ export interface SkeletonProps {
   loading?: boolean;
   prefixCls?: string;
   className?: string;
+  rootClassName?: string;
   style?: React.CSSProperties;
   children?: React.ReactNode;
   avatar?: SkeletonAvatarProps | boolean;
@@ -31,7 +32,7 @@ export interface SkeletonProps {
   round?: boolean;
 }
 
-function getComponentProps<T>(prop: T | boolean | undefined): T | {} {
+function getComponentProps<T>(prop?: T | boolean): T | {} {
   if (prop && typeof prop === 'object') {
     return prop;
   }
@@ -90,6 +91,7 @@ const Skeleton: React.FC<SkeletonProps> & CompoundedComponent = (props) => {
     prefixCls: customizePrefixCls,
     loading,
     className,
+    rootClassName,
     style,
     children,
     avatar = false,
@@ -167,6 +169,7 @@ const Skeleton: React.FC<SkeletonProps> & CompoundedComponent = (props) => {
         [`${prefixCls}-round`]: round,
       },
       className,
+      rootClassName,
       hashId,
     );
 

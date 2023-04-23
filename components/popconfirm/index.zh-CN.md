@@ -4,6 +4,7 @@ subtitle: 气泡确认框
 group: 反馈
 title: Popconfirm
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*sAGpRoBtTXcAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HrFtQ6jJJFQAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -47,6 +48,10 @@ demo:
 | onConfirm | 点击确认的回调 | function(e) | - |  |
 
 更多属性请参考 [Tooltip](/components/tooltip-cn/#api)。
+
+## Design Token
+
+<ComponentTokenTable component="Popconfirm"></ComponentTokenTable>
 
 ## 注意
 

@@ -1,12 +1,19 @@
-import React, { startTransition, useCallback, useEffect, useMemo } from 'react';
-import { createSearchParams, useOutlet, useSearchParams } from 'dumi';
-import { ConfigProvider, theme as antdTheme } from 'antd';
-import { createCache, StyleProvider, logicalPropertiesLinter } from '@ant-design/cssinjs';
+import {
+  createCache,
+  legacyNotSelectorLinter,
+  logicalPropertiesLinter,
+  parentSelectorLinter,
+  StyleProvider,
+} from '@ant-design/cssinjs';
+import { theme as antdTheme, App, ConfigProvider } from 'antd';
 import type { DirectionType } from 'antd/es/config-provider';
-import type { OverrideToken } from 'antd/es/theme/interface';
-import ThemeSwitch from '../common/ThemeSwitch';
-import type { ThemeName } from '../common/ThemeSwitch';
+import { createSearchParams, useOutlet, useSearchParams } from 'dumi';
+import React, { useCallback, useEffect, useMemo } from 'react';
+import useLayoutState from '../../hooks/useLayoutState';
 import useLocation from '../../hooks/useLocation';
+import type { ThemeName } from '../common/ThemeSwitch';
+import ThemeSwitch from '../common/ThemeSwitch';
+import SiteThemeProvider from '../SiteThemeProvider';
 import type { SiteContextProps } from '../slots/SiteContext';
 import SiteContext from '../slots/SiteContext';
 
@@ -40,7 +47,7 @@ const GlobalLayout: React.FC = () => {
   const outlet = useOutlet();
   const { pathname } = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
-  const [{ theme, direction, isMobile }, setSiteState] = React.useState<SiteState>({
+  const [{ theme, direction, isMobile }, setSiteState] = useLayoutState<SiteState>({
     isMobile: false,
     direction: 'ltr',
     theme: ['light'],
@@ -85,11 +92,9 @@ const GlobalLayout: React.FC = () => {
     const _theme = searchParams.getAll('theme') as ThemeName[];
     const _direction = searchParams.get('direction') as DirectionType;
 
-    startTransition(() => {
-      setSiteState({ theme: _theme, direction: _direction === 'rtl' ? 'rtl' : 'ltr' });
-      // Handle isMobile
-      updateMobileMode();
-    });
+    setSiteState({ theme: _theme, direction: _direction === 'rtl' ? 'rtl' : 'ltr' });
+    // Handle isMobile
+    updateMobileMode();
 
     window.addEventListener('resize', updateMobileMode);
     return () => {
@@ -112,7 +117,10 @@ const GlobalLayout: React.FC = () => {
   const wave = theme.includes('happy') ? antdTheme.happyThemeToken.wave : null;
 
   return (
-    <StyleProvider cache={styleCache} linters={[logicalPropertiesLinter]}>
+    <StyleProvider
+      cache={styleCache}
+      linters={[logicalPropertiesLinter, legacyNotSelectorLinter, parentSelectorLinter]}
+    >
       <SiteContext.Provider value={siteContextValue}>
         <ConfigProvider
           theme={{
@@ -121,13 +129,17 @@ const GlobalLayout: React.FC = () => {
           }}
           wave={wave}
         >
-          {outlet}
-          {!pathname.startsWith('/~demos') && (
-            <ThemeSwitch
-              value={theme}
-              onChange={(nextTheme) => updateSiteConfig({ theme: nextTheme })}
-            />
-          )}
+          <SiteThemeProvider>
+            <App>
+              {outlet}
+              {!pathname.startsWith('/~demos') && (
+                <ThemeSwitch
+                  value={theme}
+                  onChange={(nextTheme) => updateSiteConfig({ theme: nextTheme })}
+                />
+              )}
+            </App>
+          </SiteThemeProvider>
         </ConfigProvider>
       </SiteContext.Provider>
     </StyleProvider>

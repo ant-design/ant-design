@@ -15,13 +15,13 @@ export interface PopoverProps extends AbstractTooltipProps {
   content?: React.ReactNode | RenderFunction;
 }
 
-interface OverlayPorps {
+interface OverlayProps {
   prefixCls?: string;
   title?: PopoverProps['title'];
   content?: PopoverProps['content'];
 }
 
-const Overlay: React.FC<OverlayPorps> = ({ title, content, prefixCls }) => {
+const Overlay: React.FC<OverlayProps> = ({ title, content, prefixCls }) => {
   if (!title && !content) {
     return null;
   }

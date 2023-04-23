@@ -4,6 +4,7 @@ category: Components
 subtitle: 对话框
 title: Modal
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*wM3qQ5XrhlcAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*fBrgSJBmavgAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -14,7 +15,7 @@ demo:
 
 需要用户处理事务，又不希望跳转页面以致打断工作流程时，可以使用 `Modal` 在当前页面正中打开一个浮层，承载相应的操作。
 
-另外当需要一个简洁的确认框询问用户时，可以使用 `Modal.confirm()` 等语法糖方法。
+另外当需要一个简洁的确认框询问用户时，可以使用 [`App.useApp`](/components/app-cn/) 封装的语法糖方法。
 
 ## 代码演示
 
@@ -23,16 +24,16 @@ demo:
 <code src="./demo/async.tsx">异步关闭</code>
 <code src="./demo/footer.tsx">自定义页脚</code>
 <code src="./demo/confirm.tsx">确认对话框</code>
-<code src="./demo/info.tsx">信息提示</code>
 <code src="./demo/locale.tsx">国际化</code>
 <code src="./demo/manual.tsx">手动更新和移除</code>
 <code src="./demo/position.tsx">自定义位置</code>
-<code src="./demo/confirm-router.tsx">销毁确认对话框</code>
 <code src="./demo/dark.tsx" debug>暗背景</code>
 <code src="./demo/button-props.tsx">自定义页脚按钮属性</code>
 <code src="./demo/hooks.tsx">使用 hooks 获得上下文</code>
 <code src="./demo/modal-render.tsx">自定义渲染对话框</code>
 <code src="./demo/width.tsx">自定义模态的宽度</code>
+<code src="./demo/static-info.tsx">静态方法</code>
+<code src="./demo/confirm-router.tsx">销毁确认对话框</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/custom-mouse-position.tsx" debug>控制弹框动画原点</code>
 <code src="./demo/wireframe.tsx" debug>线框风格</code>
@@ -70,6 +71,7 @@ demo:
 | zIndex | 设置 Modal 的 `z-index` | number | 1000 |  |
 | onCancel | 点击遮罩层或右上角叉或取消按钮的回调 | function(e) | - |  |
 | onOk | 点击确定回调 | function(e) | - |  |
+| afterOpenChange | 打开和关闭 Modal 时动画结束后的回调 | (open: boolean) => void | - | 5.4.0 |
 
 #### 注意
 
@@ -103,7 +105,7 @@ demo:
 | content | 内容 | ReactNode | - |  |
 | footer | 底部内容，当不需要默认底部按钮时，可以设为 `footer: null` | ReactNode | - | 5.1.0 |
 | getContainer | 指定 Modal 挂载的 HTML 节点, false 为挂载在当前 dom | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
-| icon | 自定义图标 | ReactNode | &lt;QuestionCircle /> |  |
+| icon | 自定义图标 | ReactNode | &lt;ExclamationCircleFilled /> |  |
 | keyboard | 是否支持键盘 esc 关闭 | boolean | true |  |
 | mask | 是否展示遮罩 | boolean | true |  |
 | maskClosable | 点击蒙层是否允许关闭 | boolean | false |  |
@@ -166,6 +168,10 @@ React.useEffect(() => {
 
 return <div>{contextHolder}</div>;
 ```
+
+## Design Token
+
+<ComponentTokenTable component="Modal"></ComponentTokenTable>
 
 ## FAQ
 

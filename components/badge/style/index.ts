@@ -1,8 +1,8 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { Keyframes } from '@ant-design/cssinjs';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import { genPresetColor, resetComponent } from '../../style';
+import { genComponentStyleHook, mergeToken, genPresetColor } from '../../theme/internal';
+import { resetComponent } from '../../style';
 
 interface BadgeToken extends FullToken<'Badge'> {
   badgeFontHeight: number;
@@ -73,8 +73,8 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
   const ribbonPrefixCls = `${antCls}-ribbon`;
   const ribbonWrapperPrefixCls = `${antCls}-ribbon-wrapper`;
 
-  const statusPreset = genPresetColor(token, (colorKey, { darkColor }) => ({
-    [`${componentCls}-status-${colorKey}`]: {
+  const colorPreset = genPresetColor(token, (colorKey, { darkColor }) => ({
+    [`${componentCls}-color-${colorKey}`]: {
       background: darkColor,
     },
   }));
@@ -207,13 +207,13 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
         [`${componentCls}-status-warning`]: {
           backgroundColor: token.colorWarning,
         },
-        ...statusPreset,
         [`${componentCls}-status-text`]: {
           marginInlineStart: marginXS,
           color: token.colorText,
           fontSize: token.fontSize,
         },
       },
+      ...colorPreset,
       [`${componentCls}-zoom-appear, ${componentCls}-zoom-enter`]: {
         animationName: antZoomBadgeIn,
         animationDuration: token.motionDurationSlow,
@@ -284,7 +284,6 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
       ...resetComponent(token),
       position: 'absolute',
       top: marginXS,
-      height: badgeFontHeight,
       padding: `0 ${token.paddingXS}px`,
       color: token.colorPrimary,
       lineHeight: `${badgeFontHeight}px`,

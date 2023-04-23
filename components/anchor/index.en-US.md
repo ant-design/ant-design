@@ -2,6 +2,7 @@
 category: Components
 title: Anchor
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*TBTSR4PyVmkAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*JGb3RIzyOCkAAAAAAAAAAAAADrJ8AQ/original
 demo:
 group:
   title: Navigation
@@ -67,3 +68,7 @@ We recommend using the items form instead.
 | href     | The target of hyperlink                   | string    |         |         |
 | target   | Specifies where to display the linked URL | string    |         |         |
 | title    | The content of hyperlink                  | ReactNode |         |         |
+
+## Design Token
+
+<ComponentTokenTable component="Anchor"></ComponentTokenTable>

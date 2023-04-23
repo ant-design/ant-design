@@ -3,6 +3,7 @@ category: Components
 group: Feedback
 title: Popconfirm
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*sAGpRoBtTXcAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HrFtQ6jJJFQAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -46,6 +47,10 @@ The difference with the `confirm` modal dialog is that it's more lightweight tha
 | onConfirm | A callback of confirmation | function(e) | - |  |
 
 Consult [Tooltip's documentation](/components/tooltip/#api) to find more APIs.
+
+## Design Token
+
+<ComponentTokenTable component="Popconfirm"></ComponentTokenTable>
 
 ## Note
 

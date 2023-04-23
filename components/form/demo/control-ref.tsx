@@ -8,6 +8,7 @@ const layout = {
   labelCol: { span: 8 },
   wrapperCol: { span: 16 },
 };
+
 const tailLayout = {
   wrapperCol: { offset: 8, span: 16 },
 };
@@ -19,10 +20,10 @@ const App: React.FC = () => {
     switch (value) {
       case 'male':
         formRef.current?.setFieldsValue({ note: 'Hi, man!' });
-        return;
+        break;
       case 'female':
         formRef.current?.setFieldsValue({ note: 'Hi, lady!' });
-        return;
+        break;
       case 'other':
         formRef.current?.setFieldsValue({ note: 'Hi there!' });
         break;
@@ -44,7 +45,13 @@ const App: React.FC = () => {
   };
 
   return (
-    <Form {...layout} ref={formRef} name="control-ref" onFinish={onFinish}>
+    <Form
+      {...layout}
+      ref={formRef}
+      name="control-ref"
+      onFinish={onFinish}
+      style={{ maxWidth: 600 }}
+    >
       <Form.Item name="note" label="Note" rules={[{ required: true }]}>
         <Input />
       </Form.Item>

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/tabs/demo/animated.tsx correctly 1`] = `
+exports[`renders components/tabs/demo/animated.tsx correctly 1`] = `
 Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
@@ -178,7 +178,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/tabs/demo/basic.tsx correctly 1`] = `
+exports[`renders components/tabs/demo/basic.tsx correctly 1`] = `
 <div
   class="ant-tabs ant-tabs-top"
 >
@@ -292,7 +292,7 @@ exports[`renders ./components/tabs/demo/basic.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/tabs/demo/card.tsx correctly 1`] = `
+exports[`renders components/tabs/demo/card.tsx correctly 1`] = `
 <div
   class="ant-tabs ant-tabs-top ant-tabs-card"
 >
@@ -406,7 +406,7 @@ exports[`renders ./components/tabs/demo/card.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/tabs/demo/card-top.tsx correctly 1`] = `
+exports[`renders components/tabs/demo/card-top.tsx correctly 1`] = `
 <div
   class="css-1g7foe3"
 >
@@ -538,7 +538,7 @@ exports[`renders ./components/tabs/demo/card-top.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/tabs/demo/centered.tsx correctly 1`] = `
+exports[`renders components/tabs/demo/centered.tsx correctly 1`] = `
 <div
   class="ant-tabs ant-tabs-top ant-tabs-centered"
 >
@@ -652,7 +652,7 @@ exports[`renders ./components/tabs/demo/centered.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/tabs/demo/custom-add-trigger.tsx correctly 1`] = `
+exports[`renders components/tabs/demo/custom-add-trigger.tsx correctly 1`] = `
 <div>
   <div
     style="margin-bottom:16px"
@@ -819,7 +819,7 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/tabs/demo/custom-tab-bar.tsx correctly 1`] = `
+exports[`renders components/tabs/demo/custom-tab-bar.tsx correctly 1`] = `
 <div
   class="ant-tabs ant-tabs-top"
 >
@@ -940,7 +940,7 @@ exports[`renders ./components/tabs/demo/custom-tab-bar.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/tabs/demo/custom-tab-bar-node.tsx correctly 1`] = `
+exports[`renders components/tabs/demo/custom-tab-bar-node.tsx correctly 1`] = `
 <div
   class="ant-tabs ant-tabs-top"
 >
@@ -956,54 +956,60 @@ exports[`renders ./components/tabs/demo/custom-tab-bar-node.tsx correctly 1`] = 
         style="transform:translate(0px, 0px)"
       >
         <div
-          style="margin-right:24px"
+          aria-describedby="DndDescribedBy-0"
+          aria-disabled="false"
+          aria-roledescription="sortable"
+          class="ant-tabs-tab ant-tabs-tab-active"
+          data-node-key="1"
+          role="button"
+          style="cursor:move"
+          tabindex="0"
         >
           <div
-            class="ant-tabs-tab ant-tabs-tab-active"
-            data-node-key="1"
+            aria-selected="true"
+            class="ant-tabs-tab-btn"
+            role="tab"
+            tabindex="0"
           >
-            <div
-              aria-selected="true"
-              class="ant-tabs-tab-btn"
-              role="tab"
-              tabindex="0"
-            >
-              tab 1
-            </div>
+            Tab 1
           </div>
         </div>
         <div
-          style="margin-right:24px"
+          aria-describedby="DndDescribedBy-0"
+          aria-disabled="false"
+          aria-roledescription="sortable"
+          class="ant-tabs-tab"
+          data-node-key="2"
+          role="button"
+          style="cursor:move"
+          tabindex="0"
         >
           <div
-            class="ant-tabs-tab"
-            data-node-key="2"
+            aria-selected="false"
+            class="ant-tabs-tab-btn"
+            role="tab"
+            tabindex="0"
           >
-            <div
-              aria-selected="false"
-              class="ant-tabs-tab-btn"
-              role="tab"
-              tabindex="0"
-            >
-              tab 2
-            </div>
+            Tab 2
           </div>
         </div>
         <div
-          style="margin-right:24px"
+          aria-describedby="DndDescribedBy-0"
+          aria-disabled="false"
+          aria-roledescription="sortable"
+          class="ant-tabs-tab"
+          data-node-key="3"
+          role="button"
+          style="cursor:move"
+          tabindex="0"
         >
           <div
-            class="ant-tabs-tab"
-            data-node-key="3"
+            aria-selected="false"
+            class="ant-tabs-tab-btn"
+            role="tab"
+            tabindex="0"
           >
-            <div
-              aria-selected="false"
-              class="ant-tabs-tab-btn"
-              role="tab"
-              tabindex="0"
-            >
-              tab 3
-            </div>
+            Tab 3
           </div>
         </div>
         <div
@@ -1066,7 +1072,7 @@ exports[`renders ./components/tabs/demo/custom-tab-bar-node.tsx correctly 1`] = 
 </div>
 `;
 
-exports[`renders ./components/tabs/demo/disabled.tsx correctly 1`] = `
+exports[`renders components/tabs/demo/disabled.tsx correctly 1`] = `
 <div
   class="ant-tabs ant-tabs-top"
 >
@@ -1180,7 +1186,7 @@ exports[`renders ./components/tabs/demo/disabled.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/tabs/demo/editable-card.tsx correctly 1`] = `
+exports[`renders components/tabs/demo/editable-card.tsx correctly 1`] = `
 <div
   class="ant-tabs ant-tabs-top ant-tabs-editable ant-tabs-card ant-tabs-editable-card"
 >
@@ -1408,7 +1414,7 @@ exports[`renders ./components/tabs/demo/editable-card.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/tabs/demo/extra.tsx correctly 1`] = `
+exports[`renders components/tabs/demo/extra.tsx correctly 1`] = `
 Array [
   <div
     class="ant-tabs ant-tabs-top"
@@ -1727,7 +1733,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/tabs/demo/icon.tsx correctly 1`] = `
+exports[`renders components/tabs/demo/icon.tsx correctly 1`] = `
 <div
   class="ant-tabs ant-tabs-top"
 >
@@ -1874,7 +1880,7 @@ exports[`renders ./components/tabs/demo/icon.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/tabs/demo/nest.tsx correctly 1`] = `
+exports[`renders components/tabs/demo/nest.tsx correctly 1`] = `
 <div>
   <div
     class="ant-select ant-select-single ant-select-show-arrow"
@@ -1890,6 +1896,7 @@ exports[`renders ./components/tabs/demo/nest.tsx correctly 1`] = `
           aria-activedescendant="undefined_list_0"
           aria-autocomplete="list"
           aria-controls="undefined_list"
+          aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="undefined_list"
           autocomplete="off"
@@ -1947,6 +1954,7 @@ exports[`renders ./components/tabs/demo/nest.tsx correctly 1`] = `
           aria-activedescendant="undefined_list_0"
           aria-autocomplete="list"
           aria-controls="undefined_list"
+          aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="undefined_list"
           autocomplete="off"
@@ -2004,6 +2012,7 @@ exports[`renders ./components/tabs/demo/nest.tsx correctly 1`] = `
           aria-activedescendant="undefined_list_0"
           aria-autocomplete="list"
           aria-controls="undefined_list"
+          aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="undefined_list"
           autocomplete="off"
@@ -2061,6 +2070,7 @@ exports[`renders ./components/tabs/demo/nest.tsx correctly 1`] = `
           aria-activedescendant="undefined_list_0"
           aria-autocomplete="list"
           aria-controls="undefined_list"
+          aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="undefined_list"
           autocomplete="off"
@@ -2537,7 +2547,7 @@ exports[`renders ./components/tabs/demo/nest.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/tabs/demo/position.tsx correctly 1`] = `
+exports[`renders components/tabs/demo/position.tsx correctly 1`] = `
 Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
@@ -2749,7 +2759,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/tabs/demo/size.tsx correctly 1`] = `
+exports[`renders components/tabs/demo/size.tsx correctly 1`] = `
 <div>
   <div
     class="ant-radio-group ant-radio-group-outline"
@@ -3040,7 +3050,7 @@ exports[`renders ./components/tabs/demo/size.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/tabs/demo/slide.tsx correctly 1`] = `
+exports[`renders components/tabs/demo/slide.tsx correctly 1`] = `
 <div>
   <div
     class="ant-radio-group ant-radio-group-outline"
