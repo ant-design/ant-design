@@ -18,7 +18,7 @@ function useToken() {
 export { type GlobalToken };
 
 export default {
-  /** @internal Test Usage. Do not use in production. */
+  /** @private Test Usage. Do not use in production. */
   defaultConfig,
 
   /** Default seedToken */
