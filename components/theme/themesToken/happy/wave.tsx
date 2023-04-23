@@ -49,6 +49,10 @@ function HappyWave({ target, token, onFinish }: HappyWaveProps) {
   // ========================= Dots =========================
   React.useEffect(() => {
     const id = raf(() => {
+      if (['-dangerous', '-error'].some((skipCls) => target.className.includes(skipCls))) {
+        return;
+      }
+
       const rect = target.getBoundingClientRect();
       const { width, height } = rect;
 
