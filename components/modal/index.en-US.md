@@ -204,10 +204,6 @@ return (
 
 > [App Package Component](/components/app) can be used to simplify the problem of `useModal` and other methods that need to manually implant contextHolder.
 
-### How to disable motion?
-
-You can config `transitionName=""` and `maskTransitionName=""` to remove motion class. But you should note that these prop is internal usage which we don't promise exist in next major version.
-
 ### How to set static methods prefixCls ？
 
 You can config with [`ConfigProvider.config`](/components/config-provider#configproviderconfig-4130)
