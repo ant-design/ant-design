@@ -1,7 +1,8 @@
+import { TinyColor } from '@ctrl/tinycolor';
 import classNames from 'classnames';
 import { CSSMotionList } from 'rc-motion';
-import raf from 'rc-util/lib/raf';
 import { render, unmount } from 'rc-util/lib/React/render';
+import raf from 'rc-util/lib/raf';
 import * as React from 'react';
 import type { ConfigProviderProps } from '../../../config-provider';
 import useWaveStyle, { TARGET_ATTR } from './style/wave';
@@ -75,6 +76,12 @@ function HappyWave({ target, token, onFinish }: HappyWaveProps) {
       setTimeout(() => {
         const offsetAngle = Math.random() * 360;
 
+        // Color
+        const { colorPrimary } = globalToken;
+        const colorHsv = new TinyColor(colorPrimary).toHsv();
+        colorHsv.h -= 30;
+        const colorPrimaryWeak = new TinyColor(colorHsv).toHexString();
+
         setDots(
           new Array(dotCount).fill(null).map((_, index) => {
             const rotate: number = 360 / dotCount;
@@ -128,8 +135,7 @@ function HappyWave({ target, token, onFinish }: HappyWaveProps) {
               startSize: `${size}px`,
               endSize: `${Math.random() > 0.75 ? size : 0}px`,
               type: Math.random() > 0.6 ? 'outlined' : 'fill',
-              color:
-                Math.random() > 0.5 ? globalToken.colorPrimary : globalToken.colorPrimaryBgHover,
+              color: Math.random() > 0.5 ? colorPrimary : colorPrimaryWeak,
             };
           }),
         );
