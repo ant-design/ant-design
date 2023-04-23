@@ -15,6 +15,7 @@
   top: 0;
   left: 0;
   z-index: @zindex-popover;
+  max-width: 100%;
   font-weight: normal;
   white-space: normal;
   text-align: left;
@@ -85,6 +86,8 @@
   }
 
   &-inner-content {
+    width: max-content;
+    max-width: 100%;
     padding: @padding-sm @popover-padding-horizontal;
     color: @popover-color;
   }
