@@ -68,15 +68,13 @@ describe('TreeSelect', () => {
 
   it('support aria-label', async () => {
     const { container } = render(
-      <TreeSelect treeIcon open>
-        <TreeNode
-          value="parent 1"
-          treeData={[{ value: 'parent 1', title: 'parnet 1', 'aria-label': 'label' }]}
-        />
-      </TreeSelect>,
+      <TreeSelect
+        open
+        treeData={[{ value: 'parent 1', title: 'parnet 1', 'aria-label': 'label' }]}
+      />,
     );
     expect(
-      container.querySelector('ant-select-tree-node-content-wrapper')?.getAttribute('aria-label'),
+      container.querySelector('.ant-select-tree-treenode-leaf-last')?.getAttribute('aria-label'),
     ).toBe('label');
   });
 });
