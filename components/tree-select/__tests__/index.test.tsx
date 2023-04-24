@@ -65,4 +65,18 @@ describe('TreeSelect', () => {
 
     errSpy.mockRestore();
   });
+
+  it('support aria-label', async () => {
+    const { container } = render(
+      <TreeSelect treeIcon open>
+        <TreeNode
+          value="parent 1"
+          treeData={[{ value: 'parent 1', title: 'parnet 1', 'aria-label': 'label' }]}
+        />
+      </TreeSelect>,
+    );
+    expect(
+      container.querySelector('ant-select-tree-node-content-wrapper')?.getAttribute('aria-label'),
+    ).toBe('label');
+  });
 });
