@@ -17,17 +17,13 @@ const genRadiusStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
           borderStartEndRadius: 0,
 
           // https://github.com/ant-design/ant-design/issues/41975
-          [`${componentCls}-header`]: {
+          [`${componentCls}-header, table`]: {
             borderRadius: 0,
           },
 
-          table: {
-            borderRadius: 0,
-
-            '> thead > tr:first-child': {
-              'th:first-child, th:last-child, td:first-child, td:last-child': {
-                borderRadius: 0,
-              },
+          'table > thead > tr:first-child': {
+            'th:first-child, th:last-child, td:first-child, td:last-child': {
+              borderRadius: 0,
             },
           },
         },
