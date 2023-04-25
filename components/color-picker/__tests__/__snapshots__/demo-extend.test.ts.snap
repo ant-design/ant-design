@@ -3373,7 +3373,7 @@ Array [
                     <div
                       class="ant-color-picker-presets-label"
                     >
-                      推荐使用
+                      Recommended
                     </div>
                   </span>
                 </div>
@@ -3880,7 +3880,7 @@ Array [
                     <div
                       class="ant-color-picker-presets-label"
                     >
-                      最近使用
+                      Recent
                     </div>
                   </span>
                 </div>
@@ -3896,7 +3896,7 @@ Array [
                       <span
                         class="ant-color-picker-presets-empty"
                       >
-                        暂无
+                        Empty
                       </span>
                     </div>
                   </div>
