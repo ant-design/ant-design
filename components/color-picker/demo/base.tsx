@@ -6,9 +6,5 @@ export default () => {
   const { token } = theme.useToken();
   const [color, setColor] = useState<Color | string>(token.colorPrimary);
 
-  const handleChange = (newColor: Color) => {
-    setColor(newColor);
-  };
-
-  return <ColorPicker value={color} onChange={handleChange} disabled />;
+  return <ColorPicker value={color} onChange={setColor} />;
 };

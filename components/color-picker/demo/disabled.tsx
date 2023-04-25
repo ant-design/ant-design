@@ -1,4 +1,4 @@
 import { ColorPicker } from 'antd';
 import React from 'react';
 
-export default () => <ColorPicker allowClear />;
+export default () => <ColorPicker disabled />;

@@ -1,14 +1,16 @@
+import classNames from 'classnames';
 import type { FC } from 'react';
 import React, { useEffect, useState } from 'react';
 import type { InputNumberProps } from '../../input-number';
 import InputNumber from '../../input-number';
 import type { ColorPickerBaseProps } from '../interface';
 
-interface ColorSteppersProps extends Omit<ColorPickerBaseProps, 'color'> {
+interface ColorSteppersProps extends Pick<ColorPickerBaseProps, 'prefixCls'> {
   value?: number;
   min?: number;
   max?: number;
   onChange?: (value: number | null) => void;
+  className?: string;
   prefix?: (prefixCls: string) => React.ReactNode;
   formatter?: InputNumberProps<number>['formatter'];
 }
@@ -21,7 +23,7 @@ const ColorSteppers: FC<ColorSteppersProps> = ({
   max = 100,
   value,
   onChange,
-  prefix,
+  className,
   formatter,
 }) => {
   const ColorSteppersPrefixCls = `${prefixCls}-steppers`;
@@ -35,23 +37,21 @@ const ColorSteppers: FC<ColorSteppersProps> = ({
   }, [value]);
 
   return (
-    <div className={ColorSteppersPrefixCls}>
-      <div className={`${ColorSteppersPrefixCls}-input`}>
-        <InputNumber
-          min={min}
-          max={max}
-          value={stepValue}
-          prefix={prefix?.(ColorSteppersPrefixCls)}
-          formatter={formatter}
-          onChange={(step) => {
-            if (isNumber(value)) {
-              onChange?.(step);
-            } else {
-              setStepValue(step || 0);
-            }
-          }}
-        />
-      </div>
+    <div className={classNames(ColorSteppersPrefixCls, className)}>
+      <InputNumber
+        className={`${ColorSteppersPrefixCls}-input`}
+        min={min}
+        max={max}
+        value={stepValue}
+        formatter={formatter}
+        onChange={(step) => {
+          if (isNumber(value)) {
+            onChange?.(step);
+          } else {
+            setStepValue(step || 0);
+          }
+        }}
+      />
     </div>
   );
 };

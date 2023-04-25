@@ -1,50 +1,55 @@
 ---
 category: Components
-title: QRCode
+title: ColorPicker
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*cJopQrf0ncwAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*M4PBTZ_n9OgAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 group:
-  title: Data Display
+  title: Data Entry
   order: 5
 ---
 
-Components that can convert text into QR codes, and support custom color and logo. Available since `antd@5.1.0`.
-
-<Alert message="If the QR code cannot be scanned for identification, it may be because the link address is too long, which leads to too dense pixels. You can configure the QR code to be larger through `size`, or shorten the link through short link services."></Alert>
+Components providing color selection
 
 ## When To Use
 
-Used when the text needs to be converted into a QR Code.
+Used when the user needs to customize the color selection
 
 ## Examples
 
 <!-- prettier-ignore -->
-<code src="./demo/base.tsx">base</code>
+<code src="./demo/base.tsx">Basic Usage</code>
+<code src="./demo/disabled.tsx">Disable</code>
+<code src="./demo/allowClear.tsx">Clear Color</code>
+<code src="./demo/trigger.tsx">Trigger</code>
+<code src="./demo/format.tsx">Color Format</code>
+<code src="./demo/presets.tsx">Preset Colors</code>
 
 ## API
 
-> This component is available since `antd@5.1.0`
+> This component is available since antd@5.5.0
 
+<!-- prettier-ignore -->
 | Property | Description | Type | Default |
 | :-- | :-- | :-- | :-- |
-| value | scanned text | string | - |
-| icon | include image url (only image link are supported) | string | - |
-| size | QRCode size | number | 128 |
-| iconSize | include image size | number | 32 |
-| color | QRCode Color | string | `#000` |
-| bordered | Whether has border style | boolean | `true` |
-| errorLevel | Error Code Level | `'L' \| 'M' \| 'Q' \| 'H' ` | `M` |
-| status | QRCode status | `active \| expired \| loading ` | `active` |
-| onRefresh | callback | `() => void` | - |
+| format | Format of color | `rgb` \| `hex` \| `hsb` | `hex` |
+| onFormatChange | Callback when `format` is changed | `(format: 'hex' \| 'rgb' \| 'hsb') => void` | - |
+| value | Value of color | string \| `Color` | - |
+| defaultValue | Default value of color | string \| `Color` | - |
+| onChange | Callback when `value` is changed | `(value: Color, hex: string) => void` | - |
+| allowClear | 	Allow clearing color selected | boolean | false |
+| presets | 	Preset colors | `{ label: ReactNode, colors: Array<string \| Color> }[]` | - |
+| children | Trigger of ColorPicker | ReactElement | - |
+| trigger | ColorPicker trigger mode | `hover` \| `click` | `click` |
+| open | Whether to show popup | boolean | - |
+| onOpenChange | Callback when `open` is changed | `(open: boolean) => void` | - |
+| disabled | Disable ColorPicker | boolean | - |
+| placement | Placement of popup | `top` \| `topLeft` \| `topRight` \| `bottom` \| `bottomLeft` \| `bottomRight` | `bottomLeft` |
+| arrow | Configuration for popup arrow | boolean | `{ pointAtCenter: boolean }` | - |
 
 ## FAQ
 
-### About QRCode ErrorLevel
+### Questions about color assignment
 
-The ErrorLevel means that the QR code can be scanned normally after being blocked, and the maximum area that can be blocked is the error correction rate.
-
-Generally, the QR code is divided into 4 error correction levels: Level `L` can correct about `7%` errors, Level `M` can correct about `15%` errors, Level `Q` can correct about `25%` errors, and Level `H` can correct about `30%` errors. When the content encoding of the QR code carries less information, in other words, when the value link is short, set different error correction levels, and the generated image will not change.
-
-> For more information, see the: [https://www.qrcode.com/en/about/error_correction](https://www.qrcode.com/en/about/error_correction.html)
+The value of the color selector supports both string color values and selector-generated `Color` objects. However, since there is a precision error when converting color strings of different formats to each other, it is recommended to use selector-generated `Color` objects for assignment operations in controlled scenarios, so that the precision problem can be avoided and the values are guaranteed to be accurate and the selector can work as expected.
