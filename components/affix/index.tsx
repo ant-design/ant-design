@@ -5,6 +5,7 @@ import React, { createRef, forwardRef, useContext } from 'react';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 
+import throttleByAnimationFrame from '../_util/throttleByAnimationFrame';
 import useStyle from './style';
 import {
   addObserveTarget,
