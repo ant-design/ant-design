@@ -364,6 +364,7 @@ const ConfigProvider: React.FC<ConfigProviderProps> & {
   /** @deprecated Please use `ConfigProvider.useConfig().componentSize` instead */
   SizeContext: typeof SizeContext;
   config: typeof setGlobalConfig;
+  useConfig: typeof useConfig;
 } = (props) => {
   const context = React.useContext<ConfigConsumerProps>(ConfigContext);
   const antLocale = React.useContext<LocaleContextProps | undefined>(LocaleContext);
