@@ -4,14 +4,16 @@ import type { ColorPickerProps } from './ColorPicker';
 
 export type ColorFormat = 'hex' | 'rgb' | 'hsb';
 
-export type PressetsItem = { label: ReactNode; colors: Array<string | Color> };
+export type PresetsItem = { label: ReactNode; colors: Array<string | Color> };
 
 export interface ColorPickerBaseProps {
-  color: Color;
+  color?: Color;
   prefixCls: string;
   format?: ColorFormat;
   allowClear?: boolean;
   clearColor?: boolean;
+  disabled?: boolean;
+  presets?: PresetsItem[];
   onFormatChange?: ColorPickerProps['onFormatChange'];
   updateColor?: (value?: Color) => void;
   updateClearColor?: (clear?: boolean) => void;

@@ -1,39 +1,36 @@
-import type { TriggerPlacement, TriggerType } from '@rc-component/color-picker';
+import type { ColorPickerProps as RcColorPickerProps } from '@rc-component/color-picker';
 import RcColorPicker from '@rc-component/color-picker';
 import classNames from 'classnames';
-import type { CSSProperties, ReactElement } from 'react';
-import React, { useContext, useEffect, useMemo, useState } from 'react';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import type { CSSProperties } from 'react';
+import React, { useContext, useMemo, useState } from 'react';
+import { getTransitionName } from '../_util/motion';
+import getPlacements from '../_util/placements';
 import type { ConfigConsumerProps } from '../config-provider/context';
 import { ConfigContext } from '../config-provider/context';
 import theme from '../theme';
-import { getTransitionName } from '../_util/motion';
-import getPlacements from '../_util/placements';
+import ExPanel from './ExPanel';
 import type { Color } from './color';
 import ColorPlaceholder from './components/ColorPlaceholder';
-import ExPanel from './ExPanel';
 import useColorState from './hooks/useColorState';
-import type { ColorFormat, ColorPickerBaseProps, PressetsItem } from './interface';
+import type { ColorFormat, ColorPickerBaseProps, PresetsItem } from './interface';
 import useStyle from './style/index';
 import { customizePrefixCls, generateColor } from './util';
 
-export interface ColorPickerProps {
+export interface ColorPickerProps
+  extends Omit<RcColorPickerProps, 'onChange' | 'arrow' | 'value' | 'defaultValue' | 'children'> {
   value?: Color | string;
   defaultValue?: Color | string;
+  children?: React.ReactElement;
   format?: ColorFormat;
   onFormatChange?: (format: ColorFormat) => void;
   onChange?: (value: Color, hex: string) => void;
   allowClear?: boolean;
-  presets?: PressetsItem[];
-  children?: ReactElement;
-  trigger?: TriggerType;
-  open?: boolean;
-  onOpenChange?: (open: boolean) => void;
-  disabled?: boolean;
-  placement?: TriggerPlacement;
+  presets?: PresetsItem[];
   arrow?: boolean | { pointAtCenter: boolean };
   prefixCls?: string;
-  style?: CSSProperties;
   className?: string;
+  style?: CSSProperties;
   rootClassName?: string;
 }
 
@@ -45,7 +42,7 @@ const ColorPicker: React.FC<ColorPickerProps> = (props) => {
     onFormatChange,
     onChange,
     allowClear = false,
-    // presets,
+    presets,
     children,
     trigger = 'click',
     open,
@@ -56,6 +53,7 @@ const ColorPicker: React.FC<ColorPickerProps> = (props) => {
     style,
     className,
     rootClassName,
+    styles,
   } = props;
 
   const { getPrefixCls, direction } = useContext<ConfigConsumerProps>(ConfigContext);
@@ -65,14 +63,19 @@ const ColorPicker: React.FC<ColorPickerProps> = (props) => {
     value,
     defaultValue,
   });
-  const [popupOpen, setPopupOpen] = useState(open);
+  const [popupOpen, setPopupOpen] = useMergedState(false, {
+    value: open,
+    postState: (openData) => !disabled && openData,
+    onChange: onOpenChange,
+  });
   const [clearColor, setClearColor] = useState(false);
 
   const prefixCls = getPrefixCls('color-picker', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
 
   const [wrapSSR, hashId] = useStyle(prefixCls);
-  const mergeCls = classNames(`${prefixCls}-root`, className, rootClassName, hashId);
+  const mergeCls = classNames(rootClassName, className, hashId);
+  const mergePopupCls = classNames(rootClassName, hashId);
 
   const builtinPlacements = getPlacements({
     arrowPointAtCenter: typeof arrow === 'object' && arrow.pointAtCenter,
@@ -81,11 +84,7 @@ const ColorPicker: React.FC<ColorPickerProps> = (props) => {
     borderRadius: token.borderRadius,
   });
 
-  useEffect(() => {
-    setPopupOpen(open);
-  }, [open]);
-
-  const currentlacement = useMemo(() => {
+  const currentPlacement = useMemo(() => {
     if (!placement) {
       return direction === 'rtl' ? 'bottomRight' : 'bottomLeft';
     }
@@ -105,14 +104,6 @@ const ColorPicker: React.FC<ColorPickerProps> = (props) => {
     }
   };
 
-  const handleOpenChange = (openData: boolean) => {
-    if (typeof open === 'boolean') {
-      onOpenChange?.(openData);
-    } else {
-      setPopupOpen(openData);
-    }
-  };
-
   const updateColor = (colorData: Color) => {
     handleChange(colorData);
   };
@@ -127,6 +118,7 @@ const ColorPicker: React.FC<ColorPickerProps> = (props) => {
     open,
     trigger,
     disabled,
+    styles,
   };
 
   const colorBaseProps: ColorPickerBaseProps = {
@@ -134,6 +126,8 @@ const ColorPicker: React.FC<ColorPickerProps> = (props) => {
     color: colorValue,
     allowClear,
     clearColor,
+    disabled,
+    presets,
     format,
     onFormatChange,
     updateColor,
@@ -144,25 +138,27 @@ const ColorPicker: React.FC<ColorPickerProps> = (props) => {
     <RcColorPicker
       value={colorValue.toHsb()}
       classNames={{
-        popup: hashId,
+        popup: mergePopupCls,
       }}
-      style={{
-        popup: style,
-      }}
-      placement={currentlacement}
+      placement={currentPlacement}
       arrow={!!arrow}
       motion={{
         motionName: getTransitionName(rootPrefixCls, 'slide-up'),
         motionDeadline: 1000,
       }}
       onChange={handleChange}
-      onOpenChange={handleOpenChange}
+      onOpenChange={setPopupOpen}
       panelRender={(panel) => <ExPanel {...colorBaseProps}>{panel}</ExPanel>}
       {...extraProps}
     >
-      <div className={mergeCls}>
-        {children || <ColorPlaceholder popupOpen={popupOpen} {...colorBaseProps} />}
-      </div>
+      {children || (
+        <ColorPlaceholder
+          popupOpen={popupOpen}
+          className={mergeCls}
+          style={style}
+          {...colorBaseProps}
+        />
+      )}
     </RcColorPicker>,
   );
 };
