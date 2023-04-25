@@ -64,7 +64,7 @@ export interface TreeSelectProps<
   status?: InputStatus;
   switcherIcon?: SwitcherIcon | RcTreeSelectProps<ValueType, OptionType>['switcherIcon'];
   rootClassName?: string;
-  [key: `aria-${string}`]: string | boolean | number | undefined;
+  [key: `aria-${string}`]: React.AriaAttributes[keyof React.AriaAttributes];
 }
 
 const InternalTreeSelect = <
