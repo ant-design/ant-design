@@ -154,6 +154,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
             outline: 0,
             transition: `all ${motionDurationMid} linear`,
             appearance: 'textfield',
+            fontSize: 'inherit',
             verticalAlign: 'top',
             ...genPlaceholderStyle(token.colorTextPlaceholder),
 
