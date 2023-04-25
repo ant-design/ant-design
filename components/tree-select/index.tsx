@@ -64,7 +64,7 @@ export interface TreeSelectProps<
   status?: InputStatus;
   switcherIcon?: SwitcherIcon | RcTreeSelectProps<ValueType, OptionType>['switcherIcon'];
   rootClassName?: string;
-  ['aria-label']?: string;
+  [key: `aria-${string}`]: string | boolean | number | undefined;
 }
 
 const InternalTreeSelect = <
@@ -72,7 +72,6 @@ const InternalTreeSelect = <
   OptionType extends BaseOptionType | DefaultOptionType = BaseOptionType,
 >(
   {
-    'aria-label': ariaLabel,
     prefixCls: customizePrefixCls,
     size: customizeSize,
     disabled: customDisabled,
@@ -258,7 +257,6 @@ const InternalTreeSelect = <
       )}
       showArrow={hasFeedback || mergedShowArrow}
       treeExpandAction={treeExpandAction}
-      aria-label={ariaLabel}
     />
   );
 

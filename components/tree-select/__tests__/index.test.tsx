@@ -66,7 +66,7 @@ describe('TreeSelect', () => {
     errSpy.mockRestore();
   });
 
-  it('support aria-label', async () => {
+  it('support aria-*', async () => {
     const { container } = render(
       <TreeSelect
         open
