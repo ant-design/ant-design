@@ -19,7 +19,7 @@ timeline: true
 
 `2023-04-26`
 
-- 🐞 Fix miIIions of Table border and radius styling issues. [#41985](https://github.com/ant-design/ant-design/pull/41985)
+- 🐞 Fix lots of Table border and radius styling issues. [#41985](https://github.com/ant-design/ant-design/pull/41985)
 - 💄 Fix Layout.Sider collapse animation style. [#41993](https://github.com/ant-design/ant-design/pull/41993)
 - 🐞 fix InputNumber font-size error. [#41983](https://github.com/ant-design/ant-design/pull/41983)
 - 🐞 Fix responsive Col don't support `flex` prop in `colSize`. [#41962](https://github.com/ant-design/ant-design/pull/41962) [@AlexisSniffer](https://github.com/AlexisSniffer)
