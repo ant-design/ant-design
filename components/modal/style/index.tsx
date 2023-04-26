@@ -5,25 +5,6 @@ import type { AliasToken, FullToken, GenerateStyle } from '../../theme/internal'
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import type { TokenWithCommonCls } from '../../theme/util/genComponentStyleHook';
 
-// Component Token V4
-// --
-// @modal-header-padding-vertical: @padding-md; x
-// @modal-header-padding-horizontal: @padding-lg; x
-// @modal-body-padding: @padding-lg; x
-// @modal-header-padding: @modal-header-padding-vertical @modal-header-padding-horizontal; x
-// @modal-header-border-width: @border-width-base;  x
-// @modal-header-border-style: @border-style-base; x
-// @modal-header-border-color-split: @border-color-split; x
-// @modal-footer-border-color-split: @border-color-split; x
-// @modal-footer-border-style: @border-style-base; x
-// @modal-footer-padding-vertical: 10px; x
-// @modal-footer-padding-horizontal: 16px; x
-// @modal-footer-border-width: @border-width-base; x
-// @modal-mask-bg: fade(@black, 45%); colorBgMask
-// @modal-confirm-body-padding: 32px 32px 24px; x
-// @modal-confirm-title-font-size: @font-size-lg; x
-// @modal-border-radius: @border-radius-base; borderRadiusLG
-
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
   // Component token here
