@@ -121,6 +121,7 @@ export type CascaderProps<DataNodeType = any> = UnionCascaderProps & {
   popupClassName?: string;
   /** @deprecated Please use `popupClassName` instead */
   dropdownClassName?: string;
+  uncheckableItemValues?: string[];
 };
 
 export interface CascaderRef {
@@ -151,6 +152,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
     status: customStatus,
     showArrow,
     builtinPlacements,
+    uncheckableItemValues,
     ...rest
   } = props;
 
@@ -311,6 +313,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
       clearIcon={clearIcon}
       loadingIcon={loadingIcon}
       checkable={checkable}
+      uncheckableItemValues={uncheckableItemValues}
       dropdownClassName={mergedDropdownClassName}
       dropdownPrefixCls={customizePrefixCls || cascaderPrefixCls}
       choiceTransitionName={getTransitionName(rootPrefixCls, '', choiceTransitionName)}

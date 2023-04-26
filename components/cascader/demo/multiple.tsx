@@ -52,6 +52,7 @@ const App: React.FC = () => (
     onChange={onChange}
     multiple
     maxTagCount="responsive"
+    uncheckableItemValues={['2-1-2']}
   />
 );
 
