@@ -127,7 +127,7 @@ const InternalButton: React.ForwardRefRenderFunction<
   const [innerLoading, setLoading] = React.useState<Loading>(loadingOrDelay.loading);
   const [hasTwoCNChar, setHasTwoCNChar] = React.useState(false);
 
-  const internalRef = React.createRef<HTMLAnchorElement | HTMLButtonElement>();
+  const internalRef = React.useRef<HTMLAnchorElement | HTMLButtonElement>();
 
   const buttonRef = (ref as React.RefObject<any>) || internalRef;
 
