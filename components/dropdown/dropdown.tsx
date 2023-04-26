@@ -31,6 +31,7 @@ const Placements = [
 ] as const;
 
 type Placement = typeof Placements[number];
+type DropdownPlacement = Exclude<Placement, 'topCenter' | 'bottomCenter'>;
 
 type OverlayFunc = () => React.ReactElement;
 
@@ -153,22 +154,22 @@ const Dropdown: CompoundedComponent = (props) => {
     return `${rootPrefixCls}-slide-up`;
   }, [getPrefixCls, placement, transitionName]);
 
-  const memoPlacement = React.useMemo(() => {
+  const memoPlacement = React.useMemo<DropdownPlacement>(() => {
     if (!placement) {
       return direction === 'rtl' ? 'bottomRight' : 'bottomLeft';
     }
 
     if (placement.includes('Center')) {
-      const newPlacement = placement.slice(0, placement.indexOf('Center'));
+      const newPlacement = placement.slice(0, placement.indexOf('Center')) as DropdownPlacement;
       warning(
         !placement.includes('Center'),
         'Dropdown',
         `You are using '${placement}' placement in Dropdown, which is deprecated. Try to use '${newPlacement}' instead.`,
       );
-      return newPlacement as DropdownProps['placement'];
+      return newPlacement;
     }
 
-    return placement;
+    return placement as DropdownPlacement;
   }, [placement, direction]);
 
   if (process.env.NODE_ENV !== 'production') {
