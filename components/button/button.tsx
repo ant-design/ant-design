@@ -120,13 +120,16 @@ const InternalButton: React.ForwardRefRenderFunction<
   const mergedDisabled = customDisabled ?? disabled;
 
   const groupSize = React.useContext(GroupSizeContext);
-  const loadingOrDelay: LoadingConfigType = React.useMemo(
+  const loadingOrDelay = React.useMemo<LoadingConfigType>(
     () => getLoadingConfig(loading),
     [loading],
   );
   const [innerLoading, setLoading] = React.useState<Loading>(loadingOrDelay.loading);
   const [hasTwoCNChar, setHasTwoCNChar] = React.useState(false);
-  const buttonRef = (ref as any) || React.createRef<HTMLAnchorElement | HTMLButtonElement>();
+
+  const internalRef = React.createRef<HTMLAnchorElement | HTMLButtonElement>();
+
+  const buttonRef = (ref as React.RefObject<any>) || internalRef;
 
   const isNeedInserted = () =>
     React.Children.count(children) === 1 && !icon && !isUnBorderedButtonType(type);
@@ -147,10 +150,10 @@ const InternalButton: React.ForwardRefRenderFunction<
   };
 
   React.useEffect(() => {
-    let delayTimer: number | null = null;
+    let delayTimer: NodeJS.Timer | null = null;
 
     if (loadingOrDelay.delay > 0) {
-      delayTimer = window.setTimeout(() => {
+      delayTimer = setTimeout(() => {
         delayTimer = null;
         setLoading(true);
       }, loadingOrDelay.delay);
@@ -160,7 +163,7 @@ const InternalButton: React.ForwardRefRenderFunction<
 
     function cleanupTimer() {
       if (delayTimer) {
-        window.clearTimeout(delayTimer);
+        clearTimeout(delayTimer);
         delayTimer = null;
       }
     }
