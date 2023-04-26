@@ -153,7 +153,7 @@ const Dropdown: CompoundedComponent = (props) => {
     return `${rootPrefixCls}-slide-up`;
   }, [getPrefixCls, placement, transitionName]);
 
-  const memoPlacement = React.useMemo<string>(() => {
+  const memoPlacement = React.useMemo(() => {
     if (!placement) {
       return direction === 'rtl' ? 'bottomRight' : 'bottomLeft';
     }
@@ -165,7 +165,7 @@ const Dropdown: CompoundedComponent = (props) => {
         'Dropdown',
         `You are using '${placement}' placement in Dropdown, which is deprecated. Try to use '${newPlacement}' instead.`,
       );
-      return newPlacement;
+      return newPlacement as DropdownProps['placement'];
     }
 
     return placement;
