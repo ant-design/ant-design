@@ -84,7 +84,7 @@ export interface PurePanelProps
   prefixCls?: string;
 }
 
-/** @private Internal Component. Do not use in your production. */
+/** @internal Internal Component. Do not use in your production. */
 export default function PurePanel(props: PurePanelProps) {
   const {
     prefixCls: staticPrefixCls,
