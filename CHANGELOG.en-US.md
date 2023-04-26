@@ -15,6 +15,22 @@ timeline: true
 
 ---
 
+## 5.4.6
+
+`2023-04-26`
+
+- 🐞 Fix lots of Table border and radius styling issues. [#41985](https://github.com/ant-design/ant-design/pull/41985)
+- 💄 Fix Layout.Sider collapse animation style. [#41993](https://github.com/ant-design/ant-design/pull/41993)
+- 🐞 Fix InputNumber font-size error. [#41983](https://github.com/ant-design/ant-design/pull/41983)
+- 🐞 Fix responsive Col don't support `flex` prop in `colSize`. [#41962](https://github.com/ant-design/ant-design/pull/41962) [@AlexisSniffer](https://github.com/AlexisSniffer)
+- 🐞 Fix Carousel `goTo` is ignored if animation is in progress. [#41969](https://github.com/ant-design/ant-design/pull/41969) [@guan404ming](https://github.com/guan404ming)
+- Form
+  - 🐞 Resolve issue about the feedback icon was not reset after a reset event had been triggered. [#41976](https://github.com/ant-design/ant-design/pull/41976)
+  - 🐞 Fixed inaccurate data collected by onValuesChange. [#41976](https://github.com/ant-design/ant-design/pull/41976)
+- TypeScript
+  - 🤖 Fix Menu OverrideContext type missing warning. [#41907](https://github.com/ant-design/ant-design/pull/41907)
+  - 🤖 Fix TreeSelect missing `aria-*` definition. [#41978](https://github.com/ant-design/ant-design/pull/41978) [@guan404ming](https://github.com/guan404ming)
+
 ## 5.4.5
 
 `2023-04-23`
