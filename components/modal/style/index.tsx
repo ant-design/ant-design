@@ -8,32 +8,31 @@ import type { TokenWithCommonCls } from '../../theme/util/genComponentStyleHook'
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
   // Component token here
+  modalHeaderBg: string;
+  modalHeaderTitleLineHeight: number;
+  modalHeaderTitleFontSize: number;
+  modalHeadingColor: string;
+  modalCloseIconColor: string;
+  modalContentBg: string;
+  modalFooterBg: string;
+  modalCloseBtnSize: number;
+  modalConfirmIconSize: number;
 }
 
 export interface ModalToken extends FullToken<'Modal'> {
   // Custom token here
+  modalHeaderHeight: number;
   modalBodyPadding: number;
-  modalHeaderBg: string;
   modalHeaderPadding: string;
   modalHeaderBorderWidth: number;
   modalHeaderBorderStyle: string;
-  modalHeaderTitleLineHeight: number;
-  modalHeaderTitleFontSize: number;
   modalHeaderBorderColorSplit: string;
-  modalHeaderCloseSize: number;
-  modalContentBg: string;
-  modalHeadingColor: string;
-  modalCloseColor: string;
-  modalCloseBtnSize: number;
-  modalFooterBg: string;
   modalFooterBorderColorSplit: string;
   modalFooterBorderStyle: string;
   modalFooterPaddingVertical: number;
   modalFooterPaddingHorizontal: number;
   modalFooterBorderWidth: number;
-  modalConfirmTitleFontSize: number;
   modalIconHoverColor: string;
-  modalConfirmIconSize: number;
 }
 
 function box(position: React.CSSProperties['position']): React.CSSProperties {
@@ -176,11 +175,11 @@ const genModalStyle: GenerateStyle<ModalToken> = (token) => {
 
         [`${componentCls}-close`]: {
           position: 'absolute',
-          top: (token.modalHeaderCloseSize - token.modalCloseBtnSize) / 2,
-          insetInlineEnd: (token.modalHeaderCloseSize - token.modalCloseBtnSize) / 2,
+          top: (token.modalHeaderHeight - token.modalCloseBtnSize) / 2,
+          insetInlineEnd: (token.modalHeaderHeight - token.modalCloseBtnSize) / 2,
           zIndex: token.zIndexPopupBase + 10,
           padding: 0,
-          color: token.modalCloseColor,
+          color: token.modalCloseIconColor,
           fontWeight: token.fontWeightStrong,
           lineHeight: 1,
           textDecoration: 'none',
@@ -423,41 +422,45 @@ const genWireframeStyle: GenerateStyle<ModalToken> = (token) => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Modal', (token) => {
-  const headerPaddingVertical = token.padding;
-  const headerFontSize = token.fontSizeHeading5;
-  const headerLineHeight = token.lineHeightHeading5;
+export default genComponentStyleHook(
+  'Modal',
+  (token) => {
+    const headerPaddingVertical = token.padding;
+    const headerFontSize = token.fontSizeHeading5;
+    const headerLineHeight = token.lineHeightHeading5;
 
-  const modalToken = mergeToken<ModalToken>(token, {
-    modalBodyPadding: token.paddingLG,
+    const modalToken = mergeToken<ModalToken>(token, {
+      modalBodyPadding: token.paddingLG,
+      modalHeaderPadding: `${headerPaddingVertical}px ${token.paddingLG}px`,
+      modalHeaderBorderWidth: token.lineWidth,
+      modalHeaderBorderStyle: token.lineType,
+      modalHeaderBorderColorSplit: token.colorSplit,
+      modalHeaderHeight: headerLineHeight * headerFontSize + headerPaddingVertical * 2,
+      modalFooterBorderColorSplit: token.colorSplit,
+      modalFooterBorderStyle: token.lineType,
+      modalFooterPaddingVertical: token.paddingXS,
+      modalFooterPaddingHorizontal: token.padding,
+      modalFooterBorderWidth: token.lineWidth,
+      modalIconHoverColor: token.colorIconHover,
+    });
+    return [
+      genModalStyle(modalToken),
+      genModalConfirmStyle(modalToken),
+      genRTLStyle(modalToken),
+      genModalMaskStyle(modalToken),
+      token.wireframe && genWireframeStyle(modalToken),
+      initZoomMotion(modalToken, 'zoom'),
+    ];
+  },
+  (token) => ({
+    modalFooterBg: 'transparent',
     modalHeaderBg: token.colorBgElevated,
-    modalHeaderPadding: `${headerPaddingVertical}px ${token.paddingLG}px`,
-    modalHeaderBorderWidth: token.lineWidth,
-    modalHeaderBorderStyle: token.lineType,
-    modalHeaderTitleLineHeight: headerLineHeight,
-    modalHeaderTitleFontSize: headerFontSize,
-    modalHeaderBorderColorSplit: token.colorSplit,
-    modalHeaderCloseSize: headerLineHeight * headerFontSize + headerPaddingVertical * 2,
+    modalHeaderTitleLineHeight: token.lineHeightHeading5,
+    modalHeaderTitleFontSize: token.fontSizeHeading5,
     modalContentBg: token.colorBgElevated,
     modalHeadingColor: token.colorTextHeading,
-    modalCloseColor: token.colorTextDescription,
-    modalFooterBg: 'transparent',
-    modalFooterBorderColorSplit: token.colorSplit,
-    modalFooterBorderStyle: token.lineType,
-    modalFooterPaddingVertical: token.paddingXS,
-    modalFooterPaddingHorizontal: token.padding,
-    modalFooterBorderWidth: token.lineWidth,
-    modalConfirmTitleFontSize: token.fontSizeLG,
-    modalIconHoverColor: token.colorIconHover,
+    modalCloseIconColor: token.colorTextDescription,
     modalConfirmIconSize: token.fontSize * token.lineHeight,
-    modalCloseBtnSize: token.controlHeightLG * 0.55,
-  });
-  return [
-    genModalStyle(modalToken),
-    genModalConfirmStyle(modalToken),
-    genRTLStyle(modalToken),
-    genModalMaskStyle(modalToken),
-    token.wireframe && genWireframeStyle(modalToken),
-    initZoomMotion(modalToken, 'zoom'),
-  ];
-});
+    modalCloseBtnSize: token.fontSize * token.lineHeight,
+  }),
+);
