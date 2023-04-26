@@ -361,7 +361,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
   const shouldWrapSSR = iconPrefixCls !== parentContext.iconPrefixCls;
   const csp = customCsp || parentContext.csp;
 
-  const wrapSSR = useResetIconStyle(iconPrefixCls);
+  const wrapSSR = useResetIconStyle(iconPrefixCls, csp);
 
   const mergedTheme = useTheme(theme, parentContext.theme);
 

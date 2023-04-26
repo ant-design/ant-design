@@ -4,6 +4,7 @@ import { useStyleRegister } from '@ant-design/cssinjs';
 import { warning } from 'rc-util';
 import { useContext } from 'react';
 import { ConfigContext } from '../../config-provider/context';
+import { genCommonStyle, genLinkStyle } from '../../style';
 import { useResetIconStyle } from '../../config-provider/style';
 import type { ComponentTokenMap, GlobalToken } from '../interface';
 import type { UseComponentStyleResult } from '../internal';

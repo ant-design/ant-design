@@ -4,7 +4,7 @@ import type { CSPConfig } from '..';
 import { resetIcon } from '../../style';
 import { useToken } from '../../theme/internal';
 
-export const useResetIconStyle = (iconPrefixCls: string) => {
+export const useResetIconStyle = (iconPrefixCls: string, csp?: CSPConfig) => {
   const [theme, token] = useToken();
 
   // Generate style for icons
