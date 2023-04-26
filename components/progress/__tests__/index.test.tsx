@@ -264,6 +264,13 @@ describe('Progress', () => {
     );
   });
 
+  it('should not warning if not pass the `size` prop in type Circle', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    errorSpy.mockClear();
+    render(<Progress type="circle" />);
+    expect(errorSpy).not.toHaveBeenCalled();
+  });
+
   it('should warnning if pass number[] into `size` in type dashboard', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(<Progress size={[60, 20]} type="dashboard" />);
