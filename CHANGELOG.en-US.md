@@ -15,6 +15,17 @@ timeline: true
 
 ---
 
+## 5.4.5
+
+`2023-04-23`
+
+- 🐞 Fix Anchor that `onChange` was memoized by `useCallback` and wouldn't change. [#41934](https://github.com/ant-design/ant-design/pull/41934) [@Yuiai01](https://github.com/Yuiai01)
+- 🐞 Fix Draggable Tree that title is not aligned when the text is wrapped. [#41928](https://github.com/ant-design/ant-design/pull/41928) [@Yuiai01](https://github.com/Yuiai01)
+- Tree
+  - 🐞 Fix Checkbox that title do not align. [#41920](https://github.com/ant-design/ant-design/pull/41920) [@Yuiai01](https://github.com/Yuiai01)
+  - 🐞 Fix InputNumber that style was override by browser. [#41940](https://github.com/ant-design/ant-design/pull/41940) [@Wxh16144](https://github.com/Wxh16144)
+- 🛠 Reduce bundle size by upgrading `rc-switch`. [#41954](https://github.com/ant-design/ant-design/pull/41954)
+
 ## 5.4.4
 
 `2023-04-20`
