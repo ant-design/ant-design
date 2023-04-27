@@ -7,61 +7,49 @@ import { genComponentStyleHook, genPresetColor, mergeToken } from '../../theme/i
 export interface ComponentToken {
   zIndexPopup: number;
   colorBgDefault: string;
-}
-
-interface TooltipToken extends FullToken<'Tooltip'> {
-  // default variables
   tooltipMaxWidth: number;
   tooltipColor: string;
   tooltipBg: string;
   tooltipBorderRadius: number;
+}
+
+interface TooltipToken extends FullToken<'Tooltip'> {
+  // default variables
   tooltipRadiusOuter: number;
 }
 
 const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
-  const {
-    componentCls, // ant-tooltip
-    tooltipMaxWidth,
-    tooltipColor,
-    tooltipBg,
-    tooltipBorderRadius,
-    zIndexPopup,
-    controlHeight,
-    boxShadowSecondary,
-    paddingSM,
-    paddingXS,
-    tooltipRadiusOuter,
-  } = token;
+  const { componentCls } = token;
 
   return [
     {
       [componentCls]: {
         ...resetComponent(token),
         position: 'absolute',
-        zIndex: zIndexPopup,
+        zIndex: token.zIndexPopup,
         display: 'block',
         width: 'max-content',
-        maxWidth: tooltipMaxWidth,
+        maxWidth: token.tooltipMaxWidth,
         visibility: 'visible',
         transformOrigin: `var(--arrow-x, 50%) var(--arrow-y, 50%)`,
         '&-hidden': {
           display: 'none',
         },
 
-        '--antd-arrow-background-color': tooltipBg,
+        '--antd-arrow-background-color': token.tooltipBg,
 
         // Wrapper for the tooltip content
         [`${componentCls}-inner`]: {
-          minWidth: controlHeight,
-          minHeight: controlHeight,
-          padding: `${paddingSM / 2}px ${paddingXS}px`,
-          color: tooltipColor,
+          minWidth: token.controlHeight,
+          minHeight: token.controlHeight,
+          padding: `${token.paddingSM / 2}px ${token.paddingXS}px`,
+          color: token.tooltipColor,
           textAlign: 'start',
           textDecoration: 'none',
           wordWrap: 'break-word',
-          backgroundColor: tooltipBg,
-          borderRadius: tooltipBorderRadius,
-          boxShadow: boxShadowSecondary,
+          backgroundColor: token.tooltipBg,
+          borderRadius: token.tooltipBorderRadius,
+          boxShadow: token.boxShadowSecondary,
           boxSizing: 'border-box',
         },
 
@@ -75,7 +63,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
           `&-placement-rightBottom`,
         ].join(',')]: {
           [`${componentCls}-inner`]: {
-            borderRadius: Math.min(tooltipBorderRadius, MAX_VERTICAL_CONTENT_RADIUS),
+            borderRadius: Math.min(token.tooltipBorderRadius, MAX_VERTICAL_CONTENT_RADIUS),
           },
         },
 
@@ -105,11 +93,11 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
     // Arrow Style
     getArrowStyle<TooltipToken>(
       mergeToken<TooltipToken>(token, {
-        borderRadiusOuter: tooltipRadiusOuter,
+        borderRadiusOuter: token.tooltipRadiusOuter,
       }),
       {
         colorBg: 'var(--antd-arrow-background-color)',
-        contentRadius: tooltipBorderRadius,
+        contentRadius: token.tooltipBorderRadius,
         limitVerticalRadius: true,
       },
     ),
@@ -135,22 +123,20 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         return [];
       }
 
-      const { borderRadius, colorTextLightSolid, colorBgDefault, borderRadiusOuter } = token;
-
       const TooltipToken = mergeToken<TooltipToken>(token, {
         // default variables
-        tooltipMaxWidth: 250,
-        tooltipColor: colorTextLightSolid,
-        tooltipBorderRadius: borderRadius,
-        tooltipBg: colorBgDefault,
-        tooltipRadiusOuter: borderRadiusOuter > 4 ? 4 : borderRadiusOuter,
+        tooltipRadiusOuter: token.borderRadiusOuter > 4 ? 4 : token.borderRadiusOuter,
       });
 
       return [genTooltipStyle(TooltipToken), initZoomMotion(token, 'zoom-big-fast')];
     },
-    ({ zIndexPopupBase, colorBgSpotlight }) => ({
-      zIndexPopup: zIndexPopupBase + 70,
-      colorBgDefault: colorBgSpotlight,
+    (token) => ({
+      zIndexPopup: token.zIndexPopupBase + 70,
+      colorBgDefault: token.colorBgSpotlight,
+      tooltipMaxWidth: 250,
+      tooltipColor: token.colorTextLightSolid,
+      tooltipBorderRadius: token.borderRadius,
+      tooltipBg: token.colorBgSpotlight,
     }),
     {
       resetStyle: false,
