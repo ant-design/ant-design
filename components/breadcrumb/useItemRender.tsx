@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import omit from 'rc-util/lib/omit';
+import pickAttrs from 'rc-util/lib/pickAttrs';
 import * as React from 'react';
 import type { BreadcrumbProps, InternalRouteType, ItemType } from './Breadcrumb';
 
@@ -33,14 +33,15 @@ export function renderItem(
     return null;
   }
 
-  const { className, ...passedProps } = omit(item, [
-    'title',
-    'type',
-    'separator',
-    'path',
-    'menu',
-    'overlay',
-  ]);
+  const { className, onClick, ...restItem } = item;
+
+  const passedProps = {
+    ...pickAttrs(restItem, {
+      data: true,
+      aria: true,
+    }),
+    onClick,
+  };
 
   if (href !== undefined) {
     return (
