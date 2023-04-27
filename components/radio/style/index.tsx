@@ -1,23 +1,19 @@
 import { Keyframes } from '@ant-design/cssinjs';
+import { genFocusOutline, resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import { genFocusOutline, resetComponent } from '../../style';
 
 // ============================== Tokens ==============================
-export interface ComponentToken {}
-
-interface RadioToken extends FullToken<'Radio'> {
-  radioFocusShadow: string;
-  radioButtonFocusShadow: string;
-
+export interface ComponentToken {
+  // Radio
   radioSize: number;
-  radioTop: number;
+  radioBorderWidth: number;
   radioDotSize: number;
-  radioDotDisabledSize: number;
-  radioCheckedColor: string;
   radioDotDisabledColor: string;
+  radioCheckedColor: string;
   radioSolidCheckedColor: string;
 
+  // Radio buttons
   radioButtonBg: string;
   radioButtonCheckedBg: string;
   radioButtonColor: string;
@@ -29,11 +25,20 @@ interface RadioToken extends FullToken<'Radio'> {
   radioWrapperMarginRight: number;
 }
 
+interface RadioToken extends FullToken<'Radio'> {
+  radioDotDisabledSize: number;
+  radioFocusShadow: string;
+  radioButtonFocusShadow: string;
+}
+
 // ============================== Styles ==============================
 const antRadioEffect = new Keyframes('antRadioEffect', {
   '0%': { transform: 'scale(1)', opacity: 0.5 },
   '100%': { transform: 'scale(1.6)', opacity: 0 },
 });
+
+// Fixed value
+const dotPadding = 4;
 
 // styles from RadioGroup only
 const getGroupRadioStyle: GenerateStyle<RadioToken> = (token) => {
@@ -76,6 +81,7 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
     radioButtonBg,
     colorBorder,
     lineWidth,
+    radioBorderWidth,
     radioDotSize,
     colorBgContainerDisabled,
     colorTextDisabled,
@@ -185,7 +191,7 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
         backgroundColor: radioButtonBg,
         borderColor: colorBorder,
         borderStyle: 'solid',
-        borderWidth: lineWidth,
+        borderWidth: radioBorderWidth,
         borderRadius: '50%',
         transition: `all ${motionDurationMid}`,
       },
@@ -480,66 +486,67 @@ const getRadioButtonStyle: GenerateStyle<RadioToken> = (token) => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Radio', (token) => {
-  const {
-    padding,
-    lineWidth,
-    controlItemBgActiveDisabled,
-    colorTextDisabled,
-    colorBgContainer,
-    fontSizeLG,
-    controlOutline,
-    colorPrimaryHover,
-    colorPrimaryActive,
-    colorText,
-    colorPrimary,
-    marginXS,
-    controlOutlineWidth,
-    colorTextLightSolid,
-    wireframe,
-  } = token;
+export default genComponentStyleHook(
+  'Radio',
+  (token) => {
+    const { controlOutline, controlOutlineWidth, fontSizeLG } = token;
 
-  // Radio
-  const radioFocusShadow = `0 0 0 ${controlOutlineWidth}px ${controlOutline}`;
-  const radioButtonFocusShadow = radioFocusShadow;
+    const radioFocusShadow = `0 0 0 ${controlOutlineWidth}px ${controlOutline}`;
+    const radioButtonFocusShadow = radioFocusShadow;
+    const radioDotDisabledSize = fontSizeLG - dotPadding * 2;
 
-  const radioSize = fontSizeLG;
-  const dotPadding = 4; // Fixed value
-  const radioDotDisabledSize = radioSize - dotPadding * 2;
-  const radioDotSize = wireframe ? radioDotDisabledSize : radioSize - (dotPadding + lineWidth) * 2;
-  const radioCheckedColor = colorPrimary;
+    const radioToken = mergeToken<RadioToken>(token, {
+      radioDotDisabledSize,
+      radioFocusShadow,
+      radioButtonFocusShadow,
+    });
 
-  // Radio buttons
-  const radioButtonColor = colorText;
-  const radioButtonHoverColor = colorPrimaryHover;
-  const radioButtonActiveColor = colorPrimaryActive;
-  const radioButtonPaddingHorizontal = padding - lineWidth;
-  const radioDisabledButtonCheckedColor = colorTextDisabled;
-  const radioWrapperMarginRight = marginXS;
+    return [
+      getGroupRadioStyle(radioToken),
+      getRadioBasicStyle(radioToken),
+      getRadioButtonStyle(radioToken),
+    ];
+  },
+  (token) => {
+    const {
+      wireframe,
+      padding,
+      marginXS,
+      lineWidth,
+      fontSizeLG,
+      colorText,
+      colorPrimary,
+      colorBgContainer,
+      colorPrimaryHover,
+      colorTextDisabled,
+      colorPrimaryActive,
+      controlItemBgActiveDisabled,
+    } = token;
 
-  const radioToken = mergeToken<RadioToken>(token, {
-    radioFocusShadow,
-    radioButtonFocusShadow,
-    radioSize,
-    radioDotSize,
-    radioDotDisabledSize,
-    radioCheckedColor,
-    radioDotDisabledColor: colorTextDisabled,
-    radioSolidCheckedColor: colorTextLightSolid,
-    radioButtonBg: colorBgContainer,
-    radioButtonCheckedBg: colorBgContainer,
-    radioButtonColor,
-    radioButtonHoverColor,
-    radioButtonActiveColor,
-    radioButtonPaddingHorizontal,
-    radioDisabledButtonCheckedBg: controlItemBgActiveDisabled,
-    radioDisabledButtonCheckedColor,
-    radioWrapperMarginRight,
-  });
+    const radioSize = fontSizeLG;
+    const radioDotSize = wireframe
+      ? radioSize - dotPadding * 2
+      : radioSize - (dotPadding + lineWidth) * 2;
 
-  return [
-    getGroupRadioStyle(radioToken),
-    getRadioBasicStyle(radioToken),
-    getRadioButtonStyle(radioToken),
-  ];
-});
+    return {
+      // Radio
+      radioSize,
+      radioBorderWidth: lineWidth,
+      radioDotSize,
+      radioCheckedColor: colorPrimary,
+      radioDotDisabledColor: colorTextDisabled,
+      radioSolidCheckedColor: colorTextDisabled,
+
+      // Radio buttons
+      radioButtonBg: colorBgContainer,
+      radioButtonCheckedBg: colorBgContainer,
+      radioDisabledButtonCheckedBg: controlItemBgActiveDisabled,
+      radioButtonColor: colorText,
+      radioButtonHoverColor: colorPrimaryHover,
+      radioButtonActiveColor: colorPrimaryActive,
+      radioDisabledButtonCheckedColor: colorTextDisabled,
+      radioButtonPaddingHorizontal: padding - lineWidth,
+      radioWrapperMarginRight: marginXS,
+    };
+  },
+);

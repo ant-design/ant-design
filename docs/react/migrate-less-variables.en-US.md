@@ -130,7 +130,26 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Progress -->
 
-<!-- ### Radio -->
+### Radio
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| `@radio-size` | `radioSize` | - |
+| `@radio-top` | - | Deprecated for style change |
+| `@radio-border-width` | `radioBorderWidth` | - |
+| `@radio-dot-size` | `radioDotSize` | - |
+| `@radio-dot-color` | - | Deprecated for style change |
+| `@radio-dot-disabled-color` | `radioDotDisabledColor` | - |
+| `@radio-solid-checked-color` | `radioSolidCheckedColor` | - |
+| `@radio-button-bg` | `radioButtonBg` | - |
+| `@radio-button-checked-bg` | `radioButtonCheckedBg` | - |
+| `@radio-button-color` | `radioButtonColor` | - |
+| `@radio-button-hover-color` | `radioButtonHoverColor` | - |
+| `@radio-button-active-color` | `radioButtonActiveColor` | - |
+| `@radio-button-padding-horizontal` | `radioButtonPaddingHorizontal` | - |
+| `@radio-disabled-button-checked-bg` | `radioDisabledButtonCheckedBg` | - |
+| `@radio-disabled-button-checked-color` | `radioDisabledButtonCheckedColor` | - |
+| `@radio-wrapper-margin-right` | `radioWrapperMarginRight` | - |
 
 <!-- ### Rate -->
 

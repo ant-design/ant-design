@@ -130,7 +130,27 @@ title: Less 变量迁移 Design Token
 
 <!-- ### Progress 进度条 -->
 
-<!-- ### Radio 单选框 -->
+## Radio 单选框
+
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@radio-size` | `radioSize` | - |
+| `@radio-top` | - | 由于样式变化已废弃 |
+| `@radio-border-width` | `radioBorderWidth` | - |
+| `@radio-dot-size` | `radioDotSize` | - |
+| `@radio-dot-color` | - | 由于样式变化已废弃 |
+| `@radio-dot-disabled-color` | `radioDotDisabledColor` | - |
+| `@radio-solid-checked-color` | `radioSolidCheckedColor` | - |
+| `@radio-button-bg` | `radioButtonBg` | - |
+| `@radio-button-checked-bg` | `radioButtonCheckedBg` | - |
+| `@radio-button-color` | `radioButtonColor` | - |
+| `@radio-button-hover-color` | `radioButtonHoverColor` | - |
+| `@radio-button-active-color` | `radioButtonActiveColor` | - |
+| `@radio-button-padding-horizontal` | `radioButtonPaddingHorizontal` | - |
+| `@radio-disabled-button-checked-bg` | `radioDisabledButtonCheckedBg` | - |
+| `@radio-disabled-button-checked-color` | `radioDisabledButtonCheckedColor` | - |
+| `@radio-wrapper-margin-right` | `radioWrapperMarginRight` | - |
 
 <!-- ### Rate 评分 -->
 
