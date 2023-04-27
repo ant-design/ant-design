@@ -112,6 +112,7 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
           border: `2px solid ${colorBgElevated}`,
           position: 'relative',
           borderRadius: '50%',
+          boxShadow: `inset 0 0 1px 0 ${colorTextPlaceholder}`,
           '&::after': {
             width: sizeMS + 2,
             height: sizeMS + 2,
@@ -139,6 +140,7 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
           },
           [`${componentCls}-gradient`]: {
             borderRadius: borderRadiusOuter,
+            boxShadow: `inset 0 0 1px 0 ${colorTextPlaceholder}`,
           },
           '&-alpha': {
             backgroundSize: size,
@@ -170,10 +172,12 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
             border: `1px solid ${colorFillSecondary}`,
             backgroundImage:
               'url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAFpJREFUWAntljEKADAIA23p6v//qQ+wfUEcCu1yriEgp0FHRJSJcnehmmWm1Dv/lO4HIg1AAAKjTqm03ea88zMCCEDgO4HV5bS757f+7wRoAAIQ4B9gByAAgQ3pfiDmXmAeEwAAAABJRU5ErkJggg==")',
-            borderRadius: borderRadiusOuter,
+            borderRadius: 'inherit',
           },
           '&-layer': {
             position: 'absolute',
+            boxShadow: `inset 0 0 1px 0 ${colorTextPlaceholder}`,
+            borderRadius: 'inherit',
             inset: 0,
           },
         },
@@ -195,7 +199,7 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
                 },
               },
               '&-input-wrap': {
-                height: controlHeightSM - 1,
+                height: controlHeightSM - 2,
               },
               '&-input': {
                 height: 'inherit',
@@ -220,6 +224,11 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
               '&-selection-search': {
                 insetInlineEnd: 0,
               },
+              '&-dropdown': {
+                [`${antCls}-select-item`]: {
+                  minHeight: 'auto',
+                },
+              },
               '&-arrow': {
                 insetInlineEnd: 0,
                 marginTop: -marginXS,
@@ -242,6 +251,7 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
               },
               '&-item-option-content': {
                 fontSize: fontSizeSM,
+                lineHeight: lineHeightSM,
               },
             },
           },
@@ -265,6 +275,7 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
             [`${componentCls}-alpha-input`]: {
               flex: 'unset',
               width: sizeMD * 2,
+              fontSize: fontSizeSM,
               [`${antCls}-input-number`]: {
                 width: '100%',
               },
@@ -272,9 +283,12 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
 
             [`${componentCls}-hex-input`]: {
               flex: 1,
+              fontSize: fontSizeSM,
               [`${antCls}-input`]: {
-                height: controlHeightSM - 1,
+                height: controlHeightSM - 2,
                 '&-affix-wrapper': {
+                  fontSize: 'inherit',
+                  lineHeight: lineHeightSM,
                   padding: `0 ${paddingXS}px`,
                 },
                 '&-prefix': {
@@ -311,6 +325,11 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
               height: 20,
               color: colorTextQuaternary,
             },
+          },
+          [`${antCls}-collapse`]: {
+            display: 'flex',
+            flexDirection: 'column',
+            gap: paddingXXS,
           },
           [`${antCls}-collapse-item > ${antCls}-collapse-content > ${antCls}-collapse-content-box`]:
             {
@@ -386,11 +405,12 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
                   width: sizeMS + 2,
                   height: sizeMS + 2,
                   borderRadius: borderRadiusOuter,
-                  boxShadow: `inset 0 0 1px 0 ${colorTextPlaceholder}`,
                 },
                 [`${componentCls}-presets-color-layer`]: {
                   position: 'absolute',
                   inset: 0,
+                  boxShadow: `inset 0 0 1px 0 ${colorTextPlaceholder}`,
+                  borderRadius: borderRadiusOuter,
                 },
               },
             },
@@ -404,7 +424,7 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
           width: sizeXL,
           height: sizeXL,
           borderRadius,
-          border: `1px solid ${colorPrimary}`,
+          border: `1px solid ${colorBgTextActive}`,
           cursor: 'pointer',
           display: 'flex',
           alignItems: 'center',
@@ -413,12 +433,19 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
           background: colorBgElevated,
           '&-active': {
             ...genActiveStyle(token),
+            borderColor: colorPrimary,
+          },
+          '&:hover': {
+            borderColor: colorPrimary,
           },
           '&-disabled': {
             color: colorTextDisabled,
             background: colorBgContainerDisabled,
             borderColor: colorTextDisabled,
             cursor: 'not-allowed',
+            '&:hover': {
+              borderColor: colorTextDisabled,
+            },
           },
           [`${componentCls}-placeholder-container`]: {
             position: 'relative',
@@ -430,13 +457,15 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
             width: sizeLG,
             height: sizeLG,
             backgroundSize: sizeLG,
-            borderRadius: borderRadiusOuter,
+            borderRadius: 'inherit',
             border: `1px solid ${colorFillSecondary}`,
             backgroundImage:
               'url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAFpJREFUWAntljEKADAIA23p6v//qQ+wfUEcCu1yriEgp0FHRJSJcnehmmWm1Dv/lO4HIg1AAAKjTqm03ea88zMCCEDgO4HV5bS757f+7wRoAAIQ4B9gByAAgQ3pfiDmXmAeEwAAAABJRU5ErkJggg==")',
           },
           [`${componentCls}-placeholder-layer`]: {
             position: 'absolute',
+            boxShadow: `inset 0 0 1px 0 ${colorTextPlaceholder}`,
+            borderRadius: 'inherit',
             inset: 0,
           },
           [`${componentCls}-clear`]: {
