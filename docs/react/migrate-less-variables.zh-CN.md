@@ -7,6 +7,23 @@ title: less 变量迁移 Component Token
 
 <Alert message="注意：仍有部分变量没有对应的 Component Token，这些变量在 5.x 版本中已被废弃。"></Alert>
 
+## List 列表
+
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@list-header-background` | - | 由于样式变化已废弃 |
+| `@list-footer-background` | - | 由于样式变化已废弃 |
+| `@list-empty-text-padding` | - | 由于样式变化已废弃 |
+| `@list-item-padding` | `listItemPadding` | - |
+| `@list-item-padding-sm` | `listItemPaddingSM` | - |
+| `@list-item-padding-lg` | `listItemPaddingLG` | - |
+| `@list-item-meta-margin-bottom` | - | 由于样式变化已废弃 |
+| `@list-item-meta-avatar-margin-right` | - | 由于样式变化已废弃 |
+| `@list-item-meta-title-margin-bottom` | - | 由于样式变化已废弃 |
+| `@list-customize-card-bg` | - | 由于样式变化已废弃 |
+| `@list-item-meta-description-font-size` | - | 由于样式变化已废弃 |
+
 ## Modal 对话框
 
 <!-- prettier-ignore -->

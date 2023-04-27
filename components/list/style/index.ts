@@ -5,14 +5,14 @@ import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
   contentWidth: number;
+  listItemPaddingLG: string;
+  listItemPaddingSM: string;
+  listItemPadding: string;
 }
 
 interface ListToken extends FullToken<'List'> {
   listBorderedCls: string;
   minHeight: number;
-  listItemPaddingLG: string;
-  listItemPaddingSM: string;
-  listItemPadding: string;
 }
 
 const genBorderedStyle = (token: ListToken): CSSObject => {
@@ -351,14 +351,14 @@ export default genComponentStyleHook(
     const listToken = mergeToken<ListToken>(token, {
       listBorderedCls: `${token.componentCls}-bordered`,
       minHeight: token.controlHeightLG,
-      listItemPadding: `${token.paddingContentVertical}px 0`,
-      listItemPaddingSM: `${token.paddingContentVerticalSM}px ${token.paddingContentHorizontal}px`,
-      listItemPaddingLG: `${token.paddingContentVerticalLG}px ${token.paddingContentHorizontalLG}px`,
     });
 
     return [genBaseStyle(listToken), genBorderedStyle(listToken), genResponsiveStyle(listToken)];
   },
-  {
+  (token) => ({
     contentWidth: 220,
-  },
+    listItemPadding: `${token.paddingContentVertical}px 0`,
+    listItemPaddingSM: `${token.paddingContentVerticalSM}px ${token.paddingContentHorizontal}px`,
+    listItemPaddingLG: `${token.paddingContentVerticalLG}px ${token.paddingContentHorizontalLG}px`,
+  }),
 );

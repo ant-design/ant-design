@@ -7,6 +7,23 @@ This document contains the correspondence between all the less variables related
 
 <Alert message="Note: There are still some less variables that do not have a corresponding Component Token, and these variables have been deprecated in version 5.x."></Alert>
 
+## List 列表
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@list-header-background` | - | Deprecated for style change |
+| `@list-footer-background` | - | Deprecated for style change |
+| `@list-empty-text-padding` | - | Deprecated for style change |
+| `@list-item-padding` | `listItemPadding` | - |
+| `@list-item-padding-sm` | `listItemPaddingSM` | - |
+| `@list-item-padding-lg` | `listItemPaddingLG` | - |
+| `@list-item-meta-margin-bottom` | - | Deprecated for style change |
+| `@list-item-meta-avatar-margin-right` | - | Deprecated for style change |
+| `@list-item-meta-title-margin-bottom` | - | Deprecated for style change |
+| `@list-customize-card-bg` | - | Deprecated for style change |
+| `@list-item-meta-description-font-size` | - | Deprecated for style change |
+
 ## Modal 对话框
 
 <!-- prettier-ignore -->
