@@ -63,9 +63,16 @@ type TreeToken = DerivativeToken & {
 };
 
 export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => {
-  const { treeCls, treeNodeCls, treeNodePadding, treeTitleHeight } = token;
-
-  const treeCheckBoxMarginVertical = (treeTitleHeight - token.fontSizeLG) / 2;
+  const {
+    treeCls,
+    treeNodeCls,
+    controlInteractiveSize: checkboxSize,
+    treeNodePadding,
+    treeTitleHeight,
+  } = token;
+  // Ref: https://github.com/ant-design/ant-design/issues/41564
+  const checkBoxOffset = (token.lineHeight * token.fontSize) / 2 - checkboxSize / 2;
+  const treeCheckBoxMarginVertical = (treeTitleHeight - token.fontSizeLG) / 2 - checkBoxOffset;
   const treeCheckBoxMarginHorizontal = token.paddingXS;
 
   return {
@@ -163,6 +170,8 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
 
         '&-draggable': {
           [`${treeCls}-draggable-icon`]: {
+            // https://github.com/ant-design/ant-design/issues/41915
+            flexShrink: 0,
             width: treeTitleHeight,
             lineHeight: `${treeTitleHeight}px`,
             textAlign: 'center',

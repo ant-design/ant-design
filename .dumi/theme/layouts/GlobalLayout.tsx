@@ -5,7 +5,7 @@ import {
   parentSelectorLinter,
   StyleProvider,
 } from '@ant-design/cssinjs';
-import { theme as antdTheme, App, ConfigProvider } from 'antd';
+import { App, theme as antdTheme } from 'antd';
 import type { DirectionType } from 'antd/es/config-provider';
 import { createSearchParams, useOutlet, useSearchParams } from 'dumi';
 import React, { useCallback, useEffect, useMemo } from 'react';
@@ -113,7 +113,7 @@ const GlobalLayout: React.FC = () => {
       linters={[logicalPropertiesLinter, legacyNotSelectorLinter, parentSelectorLinter]}
     >
       <SiteContext.Provider value={siteContextValue}>
-        <ConfigProvider
+        <SiteThemeProvider
           theme={{
             algorithm: getAlgorithm(theme),
             token: {
@@ -121,18 +121,16 @@ const GlobalLayout: React.FC = () => {
             },
           }}
         >
-          <SiteThemeProvider>
-            <App>
-              {outlet}
-              {!pathname.startsWith('/~demos') && (
-                <ThemeSwitch
-                  value={theme}
-                  onChange={(nextTheme) => updateSiteConfig({ theme: nextTheme })}
-                />
-              )}
-            </App>
-          </SiteThemeProvider>
-        </ConfigProvider>
+          <App>
+            {outlet}
+            {!pathname.startsWith('/~demos') && (
+              <ThemeSwitch
+                value={theme}
+                onChange={(nextTheme) => updateSiteConfig({ theme: nextTheme })}
+              />
+            )}
+          </App>
+        </SiteThemeProvider>
       </SiteContext.Provider>
     </StyleProvider>
   );
