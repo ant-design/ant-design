@@ -11,9 +11,12 @@ export interface BaseProps {
 export default function genPurePanel<ComponentProps extends BaseProps>(
   Component: any,
   defaultPrefixCls?: string,
-  getDropdownCls?: (prefixCls: string) => string,
+  getDropdownCls?: null | ((prefixCls: string) => string),
+  postProps?: (props: ComponentProps) => ComponentProps,
 ) {
-  return function PurePanel(props: Omit<ComponentProps, 'open' | 'visible'> & { open?: boolean }) {
+  type WrapProps = Omit<ComponentProps, 'open' | 'visible'> & { open?: boolean };
+
+  return function PurePanel(props: WrapProps) {
     const { prefixCls: customizePrefixCls, style } = props;
 
     const holderRef = React.useRef<HTMLDivElement>(null);
@@ -56,6 +59,21 @@ export default function genPurePanel<ComponentProps extends BaseProps>(
       }
     }, []);
 
+    let mergedProps: WrapProps = {
+      ...props,
+      style: {
+        ...style,
+        margin: 0,
+      },
+      open,
+      visible: open,
+      getPopupContainer: () => holderRef.current!,
+    };
+
+    if (postProps) {
+      mergedProps = postProps(mergedProps as ComponentProps);
+    }
+
     return (
       <ConfigProvider
         theme={{
@@ -75,16 +93,7 @@ export default function genPurePanel<ComponentProps extends BaseProps>(
             minWidth: popupWidth,
           }}
         >
-          <Component
-            {...props}
-            style={{
-              ...style,
-              margin: 0,
-            }}
-            open={open}
-            visible={open}
-            getPopupContainer={() => holderRef.current!}
-          />
+          <Component {...mergedProps} />
         </div>
       </ConfigProvider>
     );

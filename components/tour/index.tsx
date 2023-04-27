@@ -1,31 +1,40 @@
 import RCTour from '@rc-component/tour';
 import classNames from 'classnames';
 import React, { useContext } from 'react';
+import getPlacements from '../_util/placements';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import theme from '../theme';
-import getPlacements from '../_util/placements';
+import PurePanel from './PurePanel';
 import type { TourProps, TourStepProps } from './interface';
 import TourPanel from './panelRender';
-import PurePanel from './PurePanel';
 import useStyle from './style';
+import useMergedType from './useMergedType';
 
 const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel } = (
   props,
 ) => {
   const {
     prefixCls: customizePrefixCls,
-    steps,
     current,
+    defaultCurrent,
     type,
     rootClassName,
     indicatorsRender,
+    steps,
     ...restProps
   } = props;
   const { getPrefixCls, direction } = useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('tour', customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
   const { token } = theme.useToken();
+
+  const { currentMergedType, updateInnerCurrent } = useMergedType({
+    defaultType: type,
+    steps,
+    current,
+    defaultCurrent,
+  });
 
   const builtinPlacements = getPlacements({
     arrowPointAtCenter: true,
@@ -37,6 +46,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
 
   const customClassName = classNames(
     {
+      [`${prefixCls}-primary`]: currentMergedType === 'primary',
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     hashId,
@@ -52,16 +62,23 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     />
   );
 
+  const onStepChange = (stepCurrent: number) => {
+    updateInnerCurrent(stepCurrent);
+    props.onChange?.(stepCurrent);
+  };
+
   return wrapSSR(
     <RCTour
       {...restProps}
       rootClassName={customClassName}
       prefixCls={prefixCls}
-      steps={steps}
       current={current}
+      defaultCurrent={defaultCurrent}
       animated
       renderPanel={mergedRenderPanel}
       builtinPlacements={builtinPlacements}
+      onChange={onStepChange}
+      steps={steps}
     />,
   );
 };
