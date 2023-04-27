@@ -1654,7 +1654,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                 />
                 <div
                   class="ant-color-picker-placeholder-layer"
-                  style="background-color: rgb(22, 119, 255);"
+                  style="background-color: rgb(23, 120, 255);"
                 />
               </div>
             </div>
@@ -1684,7 +1684,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                       >
                         <div
                           class="ant-color-picker-handler"
-                          style="background-color: rgb(22, 119, 255);"
+                          style="background-color: rgb(23, 120, 255);"
                         />
                       </div>
                       <div
@@ -1707,7 +1707,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                         />
                         <div
                           class="ant-color-picker-display-layer"
-                          style="background: rgb(22, 119, 255);"
+                          style="background: rgb(23, 120, 255);"
                         />
                       </div>
                     </div>
@@ -1747,7 +1747,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                           >
                             <div
                               class="ant-color-picker-handler ant-color-picker-handler-sm"
-                              style="background-color: rgb(22, 119, 255);"
+                              style="background-color: rgb(23, 120, 255);"
                             />
                           </div>
                           <div
@@ -2002,7 +2002,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                                 <input
                                   aria-valuemax="360"
                                   aria-valuemin="0"
-                                  aria-valuenow="215.02145922746783"
+                                  aria-valuenow="215"
                                   autocomplete="off"
                                   class="ant-input-number-input"
                                   role="spinbutton"
@@ -2082,7 +2082,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                                 <input
                                   aria-valuemax="100"
                                   aria-valuemin="0"
-                                  aria-valuenow="91.37254901960785"
+                                  aria-valuenow="91"
                                   autocomplete="off"
                                   class="ant-input-number-input"
                                   role="spinbutton"
@@ -2269,7 +2269,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
           >
             HSB:
             <span>
-              #1677ff
+              hsb(215,91%,100%)
             </span>
           </div>
         </div>
@@ -2919,7 +2919,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
           >
             RGB:
             <span>
-              #1677ff
+              rgb(22,119,255)
             </span>
           </div>
         </div>

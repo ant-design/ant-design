@@ -141,7 +141,7 @@ exports[`renders components/color-picker/demo/format.tsx correctly 1`] = `
                 />
                 <div
                   class="ant-color-picker-placeholder-layer"
-                  style="background-color:rgb(22, 119, 255)"
+                  style="background-color:rgb(23, 120, 255)"
                 />
               </div>
             </div>
@@ -155,7 +155,7 @@ exports[`renders components/color-picker/demo/format.tsx correctly 1`] = `
           >
             HSB:
             <span>
-              #1677ff
+              hsb(215,91%,100%)
             </span>
           </div>
         </div>
@@ -204,7 +204,7 @@ exports[`renders components/color-picker/demo/format.tsx correctly 1`] = `
           >
             RGB:
             <span>
-              #1677ff
+              rgb(22,119,255)
             </span>
           </div>
         </div>

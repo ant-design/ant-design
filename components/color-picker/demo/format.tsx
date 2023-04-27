@@ -1,12 +1,11 @@
-import { Col, ColorPicker, Row, Space, theme } from 'antd';
+import { Col, ColorPicker, Row, Space } from 'antd';
 import type { Color } from 'antd/lib/color-picker';
 import React, { useMemo, useState } from 'react';
 
 export default () => {
-  const { token } = theme.useToken();
-  const [colorHex, setColorHex] = useState<Color | string>(token.colorPrimary);
-  const [colorHsb, setColorHsb] = useState<Color | string>(token.colorPrimary);
-  const [colorRgb, setColorRgb] = useState<Color | string>(token.colorPrimary);
+  const [colorHex, setColorHex] = useState<Color | string>('#1677ff');
+  const [colorHsb, setColorHsb] = useState<Color | string>('hsb(215,91%,100%)');
+  const [colorRgb, setColorRgb] = useState<Color | string>('rgb(22,119,255)');
 
   const hexString = useMemo(
     () => (typeof colorHex === 'string' ? colorHex : (colorHex as Color).toHexString()),
