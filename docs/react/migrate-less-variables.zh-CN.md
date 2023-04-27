@@ -7,6 +7,22 @@ title: less 变量迁移 Component Token
 
 <Alert message="注意：仍有部分变量没有对应的 Component Token，这些变量在 5.x 版本中已被废弃。"></Alert>
 
+## Descriptions 描述列表
+
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@descriptions-bg` | `descriptionsBg` | - |
+| `@descriptions-title-margin-bottom` | `descriptionsTitleMarginBottom` | - |
+| `@descriptions-default-padding` | `descriptionsDefaultPadding` | - |
+| `@descriptions-middle-padding` | `descriptionsMiddlePadding` | - |
+| `@descriptions-small-padding` | `descriptionsSmallPadding` | - |
+| `@descriptions-item-padding-bottom` | `descriptionItemPaddingBottom` | - |
+| `@descriptions-item-trailing-colon` | - | 由于样式变化已废弃 |
+| `@descriptions-item-label-colon-margin-right` | `descriptionsItemLabelColonMarginRight` | - |
+| `@descriptions-item-label-colon-margin-left` | `descriptionsItemLabelColonMarginLeft` | - |
+| `@descriptions-extra-color` | `descriptionsExtraColor` | - |
+
 ## Modal 对话框
 
 <!-- prettier-ignore -->

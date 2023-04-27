@@ -14,6 +14,7 @@ import type { ComponentToken as DatePickerComponentToken } from '../../date-pick
 import type { ComponentToken as DividerComponentToken } from '../../divider/style';
 import type { ComponentToken as DropdownComponentToken } from '../../dropdown/style';
 import type { ComponentToken as DrawerComponentToken } from '../../drawer/style';
+import type { ComponentToken as DescriptionsComponentToken } from '../../descriptions/style';
 import type { ComponentToken as EmptyComponentToken } from '../../empty/style';
 import type { ComponentToken as ImageComponentToken } from '../../image/style';
 import type { ComponentToken as InputNumberComponentToken } from '../../input-number/style';
@@ -65,7 +66,7 @@ export interface ComponentTokenMap {
   Checkbox?: CheckboxComponentToken;
   Collapse?: CollapseComponentToken;
   DatePicker?: DatePickerComponentToken;
-  Descriptions?: {};
+  Descriptions?: DescriptionsComponentToken;
   Divider?: DividerComponentToken;
   Drawer?: DrawerComponentToken;
   Dropdown?: DropdownComponentToken;

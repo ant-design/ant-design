@@ -7,6 +7,22 @@ This document contains the correspondence between all the less variables related
 
 <Alert message="Note: There are still some less variables that do not have a corresponding Component Token, and these variables have been deprecated in version 5.x."></Alert>
 
+## Descriptions
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@descriptions-bg` | `descriptionsBg` | - |
+| `@descriptions-title-margin-bottom` | `descriptionsTitleMarginBottom` | - |
+| `@descriptions-default-padding` | `descriptionsDefaultPadding` | - |
+| `@descriptions-middle-padding` | `descriptionsMiddlePadding` | - |
+| `@descriptions-small-padding` | `descriptionsSmallPadding` | - |
+| `@descriptions-item-padding-bottom` | `descriptionItemPaddingBottom` | - |
+| `@descriptions-item-trailing-colon` | - | Deprecated for style change |
+| `@descriptions-item-label-colon-margin-right` | `descriptionsItemLabelColonMarginRight` | - |
+| `@descriptions-item-label-colon-margin-left` | `descriptionsItemLabelColonMarginLeft` | - |
+| `@descriptions-extra-color` | `descriptionsExtraColor` | - |
+
 ## Modal 对话框
 
 <!-- prettier-ignore -->
