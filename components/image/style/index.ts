@@ -8,15 +8,15 @@ import { resetComponent, textEllipsis } from '../../style';
 
 export interface ComponentToken {
   zIndexPopup: number;
+  imagePreviewOperationSize: number;
+  imagePreviewOperationColor: string;
+  imagePreviewOperationDisabledColor: string;
 }
 
 export interface ImageToken extends FullToken<'Image'> {
   previewCls: string;
   modalMaskBg: string;
-  imagePreviewOperationDisabledColor: string;
-  imagePreviewOperationSize: number;
   imagePreviewSwitchSize: number;
-  imagePreviewOperationColor: string;
 }
 
 export type PositionType = 'static' | 'relative' | 'fixed' | 'absolute' | 'sticky' | undefined;
@@ -298,17 +298,11 @@ const genPreviewMotion: GenerateStyle<ImageToken> = (token) => {
 export default genComponentStyleHook(
   'Image',
   (token) => {
-    const imagePreviewOperationColor = new TinyColor(token.colorTextLightSolid);
     const previewCls = `${token.componentCls}-preview`;
 
     const imageToken = mergeToken<ImageToken>(token, {
       previewCls,
-      imagePreviewOperationColor: imagePreviewOperationColor.toRgbString(),
-      imagePreviewOperationDisabledColor: new TinyColor(imagePreviewOperationColor)
-        .setAlpha(0.25)
-        .toRgbString(),
       modalMaskBg: new TinyColor('#000').setAlpha(0.45).toRgbString(), // FIXME: Shared Token
-      imagePreviewOperationSize: token.fontSizeIcon * 1.5, // FIXME: fontSizeIconLG
       imagePreviewSwitchSize: token.controlHeightLG,
     });
 
@@ -321,5 +315,10 @@ export default genComponentStyleHook(
   },
   (token) => ({
     zIndexPopup: token.zIndexPopupBase + 80,
+    imagePreviewOperationColor: new TinyColor(token.colorTextLightSolid).toRgbString(),
+    imagePreviewOperationDisabledColor: new TinyColor(token.colorTextLightSolid)
+      .setAlpha(0.25)
+      .toRgbString(),
+    imagePreviewOperationSize: token.fontSizeIcon * 1.5, // FIXME: fontSizeIconLG
   }),
 );
