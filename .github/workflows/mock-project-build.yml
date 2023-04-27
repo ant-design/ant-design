@@ -13,6 +13,7 @@ concurrency:
 
 jobs:
   pr-check-ci:
+    if: github.repository == 'ant-design/ant-design'
     runs-on: ubuntu-latest
     name: Build Project
     steps:
