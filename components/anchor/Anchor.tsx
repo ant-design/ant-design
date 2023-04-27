@@ -212,7 +212,7 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
     return '';
   };
 
-  const setCurrentActiveLink = (link: string) => {
+  const setCurrentActiveLink = useEvent((link: string) => {
     if (activeLinkRef.current === link) {
       return;
     }
@@ -225,7 +225,7 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
     // onChange should respect the original link (which may caused by
     // window scroll or user click), not the new link
     onChange?.(link);
-  };
+  });
 
   const handleScroll = React.useCallback(() => {
     if (animating.current) {

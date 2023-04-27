@@ -164,10 +164,7 @@ class InternalAffix extends React.Component<InternalAffixProps, AffixState> {
     const newState: Partial<AffixState> = {
       status: AffixStatus.None,
     };
-    const targetRect = getTargetRect(targetNode);
     const placeholderRect = getTargetRect(this.placeholderNodeRef.current);
-    const fixedTop = getFixedTop(placeholderRect, targetRect, offsetTop);
-    const fixedBottom = getFixedBottom(placeholderRect, targetRect, offsetBottom);
 
     if (
       placeholderRect.top === 0 &&
@@ -177,6 +174,10 @@ class InternalAffix extends React.Component<InternalAffixProps, AffixState> {
     ) {
       return;
     }
+
+    const targetRect = getTargetRect(targetNode);
+    const fixedTop = getFixedTop(placeholderRect, targetRect, offsetTop);
+    const fixedBottom = getFixedBottom(placeholderRect, targetRect, offsetBottom);
 
     if (fixedTop !== undefined) {
       newState.affixStyle = {
