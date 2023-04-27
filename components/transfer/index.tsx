@@ -231,6 +231,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   };
 
   const onItemSelectAll = (direction: TransferDirection, keys: string[], checkAll: boolean) => {
+    console.log('test!!!');
     setStateKeys(direction, (prevKeys) => {
       let mergedCheckedKeys: string[] = [];
       if (checkAll) {
