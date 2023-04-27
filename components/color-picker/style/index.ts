@@ -172,7 +172,7 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
             border: `1px solid ${colorFillSecondary}`,
             backgroundImage:
               'url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAFpJREFUWAntljEKADAIA23p6v//qQ+wfUEcCu1yriEgp0FHRJSJcnehmmWm1Dv/lO4HIg1AAAKjTqm03ea88zMCCEDgO4HV5bS757f+7wRoAAIQ4B9gByAAgQ3pfiDmXmAeEwAAAABJRU5ErkJggg==")',
-            borderRadius: 'inherit',
+            borderRadius: borderRadiusOuter + 1,
           },
           '&-layer': {
             position: 'absolute',
@@ -441,10 +441,9 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
           '&-disabled': {
             color: colorTextDisabled,
             background: colorBgContainerDisabled,
-            borderColor: colorTextDisabled,
             cursor: 'not-allowed',
             '&:hover': {
-              borderColor: colorTextDisabled,
+              borderColor: colorBgTextActive,
             },
           },
           [`${componentCls}-placeholder-container`]: {
@@ -457,7 +456,7 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
             width: sizeLG,
             height: sizeLG,
             backgroundSize: sizeLG,
-            borderRadius: 'inherit',
+            borderRadius: borderRadiusOuter + 1,
             border: `1px solid ${colorFillSecondary}`,
             backgroundImage:
               'url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAFpJREFUWAntljEKADAIA23p6v//qQ+wfUEcCu1yriEgp0FHRJSJcnehmmWm1Dv/lO4HIg1AAAKjTqm03ea88zMCCEDgO4HV5bS757f+7wRoAAIQ4B9gByAAgQ3pfiDmXmAeEwAAAABJRU5ErkJggg==")',
