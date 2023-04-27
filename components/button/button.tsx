@@ -134,7 +134,7 @@ const InternalButton: React.ForwardRefRenderFunction<
   const isNeedInserted = () =>
     React.Children.count(children) === 1 && !icon && !isUnBorderedButtonType(type);
 
-  const fixTwoCNChar = () => {
+  const fixTwoCNChar = React.useCallback(() => {
     // FIXME: for HOC usage like <FormatMessage />
     if (!buttonRef || !buttonRef.current || autoInsertSpaceInButton === false) {
       return;
@@ -147,7 +147,7 @@ const InternalButton: React.ForwardRefRenderFunction<
     } else if (hasTwoCNChar) {
       setHasTwoCNChar(false);
     }
-  };
+  }, [buttonRef, autoInsertSpaceInButton, isNeedInserted, isTwoCNChar, hasTwoCNChar]);
 
   React.useEffect(() => {
     let delayTimer: NodeJS.Timer | null = null;
@@ -173,15 +173,18 @@ const InternalButton: React.ForwardRefRenderFunction<
 
   React.useEffect(fixTwoCNChar, [buttonRef]);
 
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement, MouseEvent>) => {
-    const { onClick } = props;
-    // FIXME: https://github.com/ant-design/ant-design/issues/30207
-    if (innerLoading || mergedDisabled) {
-      e.preventDefault();
-      return;
-    }
-    (onClick as React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>)?.(e);
-  };
+  const handleClick = React.useCallback(
+    (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement, MouseEvent>) => {
+      const { onClick } = props;
+      // FIXME: https://github.com/ant-design/ant-design/issues/30207
+      if (innerLoading || mergedDisabled) {
+        e.preventDefault();
+        return;
+      }
+      (onClick as React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>)?.(e);
+    },
+    [props, innerLoading, mergedDisabled],
+  );
 
   warning(
     !(typeof icon === 'string' && icon.length > 2),
@@ -199,8 +202,8 @@ const InternalButton: React.ForwardRefRenderFunction<
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
   const sizeClassNameMap = { large: 'lg', small: 'sm', middle: undefined };
-  const sizeFullname = compactSize || groupSize || customizeSize || size;
-  const sizeCls = sizeFullname ? sizeClassNameMap[sizeFullname] || '' : '';
+  const sizeFullName = compactSize || groupSize || customizeSize || size;
+  const sizeCls = sizeFullName ? sizeClassNameMap[sizeFullName] || '' : '';
 
   const iconType = innerLoading ? 'loading' : icon;
 
