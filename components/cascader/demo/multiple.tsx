@@ -1,16 +1,18 @@
-import React from 'react';
 import { Cascader } from 'antd';
+import React from 'react';
 
 interface Option {
   value: string | number;
   label: string;
   children?: Option[];
+  disableCheckbox?: boolean;
 }
 
 const options: Option[] = [
   {
     label: 'Light',
     value: 'light',
+    disableCheckbox: true,
     children: new Array(20)
       .fill(null)
       .map((_, index) => ({ label: `Number ${index}`, value: index })),
@@ -26,6 +28,7 @@ const options: Option[] = [
           {
             label: 'Toy Fish',
             value: 'fish',
+            disableCheckbox: true,
           },
           {
             label: 'Toy Cards',
@@ -52,7 +55,6 @@ const App: React.FC = () => (
     onChange={onChange}
     multiple
     maxTagCount="responsive"
-    uncheckableItemValues={['2-1-2']}
   />
 );
 
