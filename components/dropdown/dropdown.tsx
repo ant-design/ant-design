@@ -307,8 +307,20 @@ const Dropdown: CompoundedComponent = (props) => {
 
 Dropdown.Button = DropdownButton;
 
+function postPureProps(props: DropdownProps) {
+  return {
+    ...props,
+    align: {
+      overflow: {
+        adjustX: false,
+        adjustY: false,
+      },
+    },
+  };
+}
+
 // We don't care debug panel
-const PurePanel = genPurePanel(Dropdown, 'dropdown', (prefixCls) => prefixCls);
+const PurePanel = genPurePanel(Dropdown, 'dropdown', (prefixCls) => prefixCls, postPureProps);
 
 /* istanbul ignore next */
 const WrapPurePanel = (props: DropdownProps) => (

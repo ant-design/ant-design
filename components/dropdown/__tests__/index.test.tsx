@@ -1,5 +1,5 @@
 import React from 'react';
-import type { TriggerProps } from 'rc-trigger';
+import type { TriggerProps } from '@rc-component/trigger';
 import Dropdown from '..';
 import type { DropDownProps } from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -9,8 +9,8 @@ import { resetWarned } from '../../_util/warning';
 
 let triggerProps: TriggerProps;
 
-jest.mock('rc-trigger', () => {
-  let Trigger = jest.requireActual('rc-trigger/lib/mock');
+jest.mock('@rc-component/trigger', () => {
+  let Trigger = jest.requireActual('@rc-component/trigger/lib/mock');
   Trigger = Trigger.default || Trigger;
   const h: typeof React = jest.requireActual('react');
 
