@@ -133,7 +133,8 @@ const InternalButton: React.ForwardRefRenderFunction<
   const loadingOrDelay = useMemo<LoadingConfigType>(() => getLoadingConfig(loading), [loading]);
 
   const [innerLoading, setLoading] = useState<Loading>(loadingOrDelay.loading);
-  const [hasTwoCNChar, setHasTwoCNChar] = useState(false);
+
+  const [hasTwoCNChar, setHasTwoCNChar] = useState<boolean>(false);
 
   const internalRef = createRef<HTMLButtonElement | HTMLAnchorElement>();
 
@@ -257,7 +258,7 @@ const InternalButton: React.ForwardRefRenderFunction<
     );
   }
 
-  const buttonNode = (
+  let buttonNode = (
     <button
       {...(rest as NativeButtonProps)}
       type={htmlType}
@@ -271,11 +272,11 @@ const InternalButton: React.ForwardRefRenderFunction<
     </button>
   );
 
-  if (isUnBorderedButtonType(type)) {
-    return wrapSSR(buttonNode);
+  if (!isUnBorderedButtonType(type)) {
+    buttonNode = <Wave disabled={!!innerLoading}>{buttonNode}</Wave>;
   }
 
-  return wrapSSR(<Wave disabled={!!innerLoading}>{buttonNode}</Wave>);
+  return wrapSSR(buttonNode);
 };
 
 const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
