@@ -101,6 +101,7 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
           [`${componentCls}-saturation`]: {
             position: 'absolute',
             borderRadius: 'inherit',
+            boxShadow: `inset 0 0 1px 0 ${colorTextPlaceholder}`,
             inset: 0,
           },
           marginBottom: marginSM,

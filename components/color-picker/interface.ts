@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
-import type { Color } from './color';
 import type { ColorPickerProps } from './ColorPicker';
+import type { Color } from './color';
 
 export type ColorFormat = 'hex' | 'rgb' | 'hsb';
 
@@ -17,4 +17,10 @@ export interface ColorPickerBaseProps {
   onFormatChange?: ColorPickerProps['onFormatChange'];
   updateColor?: (value?: Color) => void;
   updateClearColor?: (clear?: boolean) => void;
+}
+
+export enum ColorFormatEnum {
+  hex = 'hex',
+  rgb = 'rgb',
+  hsb = 'hsb',
 }

@@ -1,8 +1,8 @@
 import type { FC } from 'react';
 import React, { useState } from 'react';
 import Select from '../../select';
-import { ColorFormatEnum } from '../enum';
 import type { ColorPickerBaseProps } from '../interface';
+import { ColorFormatEnum } from '../interface';
 
 import type { Color } from '../color';
 import ColorAlphaInput from './ColorAlphaInput';
@@ -50,17 +50,21 @@ const ColorInput: FC<ColorInputProps> = (props) => {
             popupMatchSelectWidth={68}
             placement="bottomRight"
             onChange={handleFormatChange}
-          >
-            <Select.Option value={ColorFormatEnum.hex}>
-              {ColorFormatEnum.hex.toLocaleUpperCase()}
-            </Select.Option>
-            <Select.Option value={ColorFormatEnum.hsb}>
-              {ColorFormatEnum.hsb.toLocaleUpperCase()}
-            </Select.Option>
-            <Select.Option value={ColorFormatEnum.rgb}>
-              {ColorFormatEnum.rgb.toLocaleUpperCase()}
-            </Select.Option>
-          </Select>
+            options={[
+              {
+                label: ColorFormatEnum.hex.toLocaleUpperCase(),
+                value: ColorFormatEnum.hex,
+              },
+              {
+                label: ColorFormatEnum.hsb.toLocaleUpperCase(),
+                value: ColorFormatEnum.hsb,
+              },
+              {
+                label: ColorFormatEnum.rgb.toLocaleUpperCase(),
+                value: ColorFormatEnum.rgb,
+              },
+            ]}
+          />
         </div>
         <div className={`${ColorInputPrefixCls}-picker`}>
           {steppersRender()}
