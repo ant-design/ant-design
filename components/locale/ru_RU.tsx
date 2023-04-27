@@ -1,10 +1,10 @@
 /* eslint-disable no-template-curly-in-string */
 
 import Pagination from 'rc-pagination/lib/locale/ru_RU';
-import DatePicker from '../date-picker/locale/ru_RU';
-import TimePicker from '../time-picker/locale/ru_RU';
 import Calendar from '../calendar/locale/ru_RU';
+import DatePicker from '../date-picker/locale/ru_RU';
 import type { Locale } from '../locale-provider';
+import TimePicker from '../time-picker/locale/ru_RU';
 
 const typeTemplate: string = '${label} не является типом ${type}';
 
@@ -22,6 +22,7 @@ const localeValues: Locale = {
     filterConfirm: 'OK',
     filterReset: 'Сбросить',
     filterEmptyText: 'Без фильтров',
+    filterCheckall: 'Выбрать все элементы',
     emptyText: 'Нет данных',
     selectAll: 'Выбрать всё',
     selectInvert: 'Инвертировать выбор',
@@ -51,7 +52,7 @@ const localeValues: Locale = {
     remove: 'Удалить',
     selectAll: 'Выбрать все данные',
     selectCurrent: 'Выбрать текущую страницу',
-    selectInvert: 'Показать в обратном порядке',
+    selectInvert: 'Инвертировать выбор',
     removeAll: 'Удалить все данные',
     removeCurrent: 'Удалить текущую страницу',
   },

@@ -1,8 +1,10 @@
 ---
 category: Components
-type: Data Display
+group: Data Display
 title: Tag
-cover: https://gw.alipayobjects.com/zos/alicdn/cH1BOLfxC/Tag.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*_SBsSrKLg00AAAAAAAAAAAAADrJ8AQ/original
+demo:
+  cols: 2
 ---
 
 Tag for categorizing or markup.
@@ -13,22 +15,34 @@ Tag for categorizing or markup.
 
 - When categorizing.
 
+## Examples
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/colorful.tsx">Colorful Tag</code>
+<code src="./demo/colorful-inverse.tsx" debug>Inverse Colorful Tag</code>
+<code src="./demo/control.tsx">Add & Remove Dynamically</code>
+<code src="./demo/checkable.tsx">Checkable</code>
+<code src="./demo/animation.tsx">Animate</code>
+<code src="./demo/icon.tsx">Icon</code>
+<code src="./demo/status.tsx">Status Tag</code>
+<code src="./demo/customize.tsx" debug>Customize close</code>
+
 ## API
 
 ### Tag
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| closable | Whether the Tag can be closed | boolean | false |  |
-| closeIcon | Custom close icon | ReactNode | - | 4.4.0 |
-| color | Color of the Tag | string | - |  |
-| icon | Set the icon of tag | ReactNode | - |  |
-| visible | Whether the Tag is closed or not | boolean | true |  |
-| onClose | Callback executed when tag is closed | (e) => void | - |  |
+| Property  | Description                          | Type        | Default | Version |
+| --------- | ------------------------------------ | ----------- | ------- | ------- |
+| closable  | Whether the Tag can be closed        | boolean     | false   |         |
+| closeIcon | Custom close icon                    | ReactNode   | -       | 4.4.0   |
+| color     | Color of the Tag                     | string      | -       |         |
+| icon      | Set the icon of tag                  | ReactNode   | -       |         |
+| onClose   | Callback executed when tag is closed | (e) => void | -       |         |
 
 ### Tag.CheckableTag
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| checked | Checked status of Tag | boolean | false |
-| onChange | Callback executed when Tag is checked/unchecked | (checked) => void | - |
+| Property | Description                                     | Type              | Default |
+| -------- | ----------------------------------------------- | ----------------- | ------- |
+| checked  | Checked status of Tag                           | boolean           | false   |
+| onChange | Callback executed when Tag is checked/unchecked | (checked) => void | -       |

@@ -1,17 +1,17 @@
-import * as React from 'react';
-import memoizeOne from 'memoize-one';
 import type { ValidateMessages } from 'rc-field-form/lib/interface';
+import * as React from 'react';
 import warning from '../_util/warning';
-
-import type { ModalLocale } from '../modal/locale';
-import { changeConfirmLocale } from '../modal/locale';
-import type { TransferLocale as TransferLocaleForEmpty } from '../empty';
-import type { PaginationLocale } from '../pagination/Pagination';
-import type { TableLocale } from '../table/interface';
-import type { PopconfirmLocale } from '../popconfirm';
-import type { UploadLocale } from '../upload/interface';
-import type { TransferLocale } from '../transfer';
 import type { PickerLocale as DatePickerLocale } from '../date-picker/generatePicker';
+import type { TransferLocale as TransferLocaleForEmpty } from '../empty';
+import type { ModalLocale } from '../modal/locale';
+import type { TourLocale } from '../tour/interface';
+import { changeConfirmLocale } from '../modal/locale';
+import type { PaginationLocale } from '../pagination/Pagination';
+import type { PopconfirmLocale } from '../popconfirm/PurePanel';
+import type { TableLocale } from '../table/interface';
+import type { TransferLocale } from '../transfer';
+import type { UploadLocale } from '../upload/interface';
+import type { LocaleContextProps } from './context';
 import LocaleContext from './context';
 
 export const ANT_MARK = 'internalMark';
@@ -24,8 +24,9 @@ export interface Locale {
   Calendar?: Record<string, any>;
   Table?: TableLocale;
   Modal?: ModalLocale;
+  Tour?: TourLocale;
   Popconfirm?: PopconfirmLocale;
-  Transfer?: Partial<TransferLocale>;
+  Transfer?: TransferLocale;
   Select?: Record<string, any>;
   Upload?: UploadLocale;
   Empty?: TransferLocaleForEmpty;
@@ -50,48 +51,36 @@ export interface Locale {
 export interface LocaleProviderProps {
   locale: Locale;
   children?: React.ReactNode;
+  /** @internal */
   _ANT_MARK__?: string;
 }
 
-export default class LocaleProvider extends React.Component<LocaleProviderProps, any> {
-  static defaultProps = {
-    locale: {},
-  };
+const LocaleProvider: React.FC<LocaleProviderProps> = (props) => {
+  const { locale = {} as Locale, children, _ANT_MARK__ } = props;
 
-  constructor(props: LocaleProviderProps) {
-    super(props);
-    changeConfirmLocale(props.locale && props.locale.Modal);
-
+  if (process.env.NODE_ENV !== 'production') {
     warning(
-      props._ANT_MARK__ === ANT_MARK,
+      _ANT_MARK__ === ANT_MARK,
       'LocaleProvider',
       '`LocaleProvider` is deprecated. Please use `locale` with `ConfigProvider` instead: http://u.ant.design/locale',
     );
   }
 
-  componentDidMount() {
-    changeConfirmLocale(this.props.locale && this.props.locale.Modal);
-  }
+  React.useEffect(() => {
+    changeConfirmLocale(locale && locale.Modal);
+    return () => {
+      changeConfirmLocale();
+    };
+  }, [locale]);
 
-  componentDidUpdate(prevProps: LocaleProviderProps) {
-    const { locale } = this.props;
-    if (prevProps.locale !== locale) {
-      changeConfirmLocale(locale && locale.Modal);
-    }
-  }
+  const getMemoizedContextValue = React.useMemo<LocaleContextProps>(
+    () => ({ ...locale, exist: true }),
+    [locale],
+  );
 
-  componentWillUnmount() {
-    changeConfirmLocale();
-  }
+  return (
+    <LocaleContext.Provider value={getMemoizedContextValue}>{children}</LocaleContext.Provider>
+  );
+};
 
-  getMemoizedContextValue = memoizeOne((localeValue: Locale): Locale & { exist?: boolean } => ({
-    ...localeValue,
-    exist: true,
-  }));
-
-  render() {
-    const { locale, children } = this.props;
-    const contextValue = this.getMemoizedContextValue(locale);
-    return <LocaleContext.Provider value={contextValue}>{children}</LocaleContext.Provider>;
-  }
-}
+export default LocaleProvider;

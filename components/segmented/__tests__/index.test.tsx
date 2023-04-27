@@ -1,12 +1,12 @@
-import React from 'react';
 import { AppstoreOutlined, BarsOutlined } from '@ant-design/icons';
+import React from 'react';
 
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render, fireEvent } from '../../../tests/utils';
+import { fireEvent, render } from '../../../tests/utils';
 
-import Segmented from '../index';
 import type { SegmentedValue } from '../index';
+import Segmented from '../index';
 
 // Make CSSMotion working without transition
 jest.mock('rc-motion/lib/util/motion', () => ({
@@ -101,7 +101,7 @@ describe('Segmented', () => {
     ).toBeTruthy();
 
     fireEvent.click(container.querySelectorAll(`.${prefixCls}-item-input`)[2]);
-    expect(handleValueChange).toBeCalledWith('Monthly');
+    expect(handleValueChange).toHaveBeenCalledWith('Monthly');
 
     expectMatchChecked(container, [false, false, true]);
   });
@@ -109,13 +109,13 @@ describe('Segmented', () => {
   it('render segmented with numeric options', () => {
     const handleValueChange = jest.fn();
     const { asFragment, container } = render(
-      <Segmented options={[1, 2, 3, 4, 5]} onChange={value => handleValueChange(value)} />,
+      <Segmented options={[1, 2, 3, 4, 5]} onChange={(value) => handleValueChange(value)} />,
     );
     expect(asFragment().firstChild).toMatchSnapshot();
     expectMatchChecked(container, [true, false, false, false, false]);
 
     fireEvent.click(container.querySelectorAll(`.${prefixCls}-item-input`)[4]);
-    expect(handleValueChange).toBeCalledWith(5);
+    expect(handleValueChange).toHaveBeenCalledWith(5);
 
     expectMatchChecked(container, [false, false, false, false, true]);
   });
@@ -125,14 +125,14 @@ describe('Segmented', () => {
     const { asFragment, container } = render(
       <Segmented
         options={['Daily', { label: 'Weekly', value: 'Weekly' }, 'Monthly']}
-        onChange={value => handleValueChange(value)}
+        onChange={(value) => handleValueChange(value)}
       />,
     );
     expect(asFragment().firstChild).toMatchSnapshot();
     expectMatchChecked(container, [true, false, false]);
 
     fireEvent.click(container.querySelectorAll(`.${prefixCls}-item-input`)[1]);
-    expect(handleValueChange).toBeCalledWith('Weekly');
+    expect(handleValueChange).toHaveBeenCalledWith('Weekly');
 
     expectMatchChecked(container, [false, true, false]);
   });
@@ -142,7 +142,7 @@ describe('Segmented', () => {
     const { asFragment, container } = render(
       <Segmented
         options={['Daily', { label: 'Weekly', value: 'Weekly', disabled: true }, 'Monthly']}
-        onChange={value => handleValueChange(value)}
+        onChange={(value) => handleValueChange(value)}
       />,
     );
     expect(asFragment().firstChild).toMatchSnapshot();
@@ -154,13 +154,13 @@ describe('Segmented', () => {
     expect(container.querySelectorAll(`.${prefixCls}-item-input`)[1]).toHaveAttribute('disabled');
 
     fireEvent.click(container.querySelectorAll(`.${prefixCls}-item-input`)[1]);
-    expect(handleValueChange).not.toBeCalled();
+    expect(handleValueChange).not.toHaveBeenCalled();
 
     expectMatchChecked(container, [true, false, false]);
 
     fireEvent.click(container.querySelectorAll(`.${prefixCls}-item-input`)[2]);
-    expect(handleValueChange).toBeCalledWith('Monthly');
-    expect(handleValueChange).toBeCalledTimes(1);
+    expect(handleValueChange).toHaveBeenCalledWith('Monthly');
+    expect(handleValueChange).toHaveBeenCalledTimes(1);
 
     expectMatchChecked(container, [false, false, true]);
   });
@@ -171,7 +171,7 @@ describe('Segmented', () => {
       <Segmented
         disabled
         options={['Daily', 'Weekly', 'Monthly']}
-        onChange={value => handleValueChange(value)}
+        onChange={(value) => handleValueChange(value)}
       />,
     );
     expect(asFragment().firstChild).toMatchSnapshot();
@@ -180,12 +180,12 @@ describe('Segmented', () => {
     ).toBeTruthy();
 
     fireEvent.click(container.querySelectorAll(`.${prefixCls}-item-input`)[1]);
-    expect(handleValueChange).not.toBeCalled();
+    expect(handleValueChange).not.toHaveBeenCalled();
 
     expectMatchChecked(container, [true, false, false]);
 
     fireEvent.click(container.querySelectorAll(`.${prefixCls}-item-input`)[2]);
-    expect(handleValueChange).not.toBeCalled();
+    expect(handleValueChange).not.toHaveBeenCalled();
 
     expectMatchChecked(container, [true, false, false]);
   });
@@ -225,7 +225,7 @@ describe('Segmented', () => {
             <Segmented
               options={['Map', 'Transit', 'Satellite']}
               value={this.state.value}
-              onChange={value =>
+              onChange={(value) =>
                 this.setState({
                   value,
                 })
@@ -234,7 +234,7 @@ describe('Segmented', () => {
             <div className="value">{this.state.value}</div>
             <input
               className="control"
-              onChange={e => {
+              onChange={(e) => {
                 this.setState({ value: e.target.value });
               }}
             />
@@ -257,12 +257,12 @@ describe('Segmented', () => {
       <Segmented
         options={[null, undefined, ''] as any}
         disabled
-        onChange={value => handleValueChange(value)}
+        onChange={(value) => handleValueChange(value)}
       />,
     );
     expect(asFragment().firstChild).toMatchSnapshot();
     expect(
-      Array.from(container.querySelectorAll(`.${prefixCls}-item-label`)).map(n => n.textContent),
+      Array.from(container.querySelectorAll(`.${prefixCls}-item-label`)).map((n) => n.textContent),
     ).toEqual(['', '', '']);
   });
 
@@ -271,7 +271,7 @@ describe('Segmented', () => {
     const { asFragment, container } = render(
       <Segmented
         options={['Map', 'Transit', 'Satellite']}
-        onChange={value => handleValueChange(value)}
+        onChange={(value) => handleValueChange(value)}
       />,
     );
     expect(asFragment().firstChild).toMatchSnapshot();
@@ -284,7 +284,7 @@ describe('Segmented', () => {
     ).toBeTruthy();
 
     fireEvent.click(container.querySelectorAll(`.${prefixCls}-item-input`)[2]);
-    expect(handleValueChange).toBeCalledWith('Satellite');
+    expect(handleValueChange).toHaveBeenCalledWith('Satellite');
 
     expectMatchChecked(container, [false, false, true]);
 
@@ -293,7 +293,7 @@ describe('Segmented', () => {
 
     // change selection again
     fireEvent.click(container.querySelectorAll(`.${prefixCls}-item-input`)[1]);
-    expect(handleValueChange).toBeCalledWith('Transit');
+    expect(handleValueChange).toHaveBeenCalledWith('Transit');
 
     expectMatchChecked(container, [false, true, false]);
 

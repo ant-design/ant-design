@@ -1,8 +1,9 @@
-import React from 'react';
 import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
-import type { InputRef } from '../Input';
+import React from 'react';
 import Input from '..';
-import { render, fireEvent } from '../../../tests/utils';
+import { fireEvent, render } from '../../../tests/utils';
+import type { InputRef } from '../Input';
+import type { TextAreaRef } from '../TextArea';
 
 const { TextArea } = Input;
 
@@ -49,7 +50,7 @@ describe('Input.Focus', () => {
   });
 
   it('all', () => {
-    const ref = React.createRef<any>();
+    const ref = React.createRef<TextAreaRef>();
     render(<TextArea ref={ref} defaultValue="light" />);
     ref.current!.focus({ cursor: 'all' });
 

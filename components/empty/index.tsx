@@ -1,9 +1,11 @@
-import * as React from 'react';
 import classNames from 'classnames';
+import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import DefaultEmptyImg from './empty';
 import SimpleEmptyImg from './simple';
+
+import useStyle from './style';
 
 const defaultEmptyImg = <DefaultEmptyImg />;
 const simpleEmptyImg = <SimpleEmptyImg />;
@@ -23,12 +25,12 @@ export interface EmptyProps {
   children?: React.ReactNode;
 }
 
-interface EmptyType extends React.FC<EmptyProps> {
+type CompoundedComponent = React.FC<EmptyProps> & {
   PRESENTED_IMAGE_DEFAULT: React.ReactNode;
   PRESENTED_IMAGE_SIMPLE: React.ReactNode;
-}
+};
 
-const Empty: EmptyType = ({
+const Empty: CompoundedComponent = ({
   className,
   prefixCls: customizePrefixCls,
   image = defaultEmptyImg,
@@ -39,10 +41,12 @@ const Empty: EmptyType = ({
 }) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
 
-  return (
+  const prefixCls = getPrefixCls('empty', customizePrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
+  return wrapSSR(
     <LocaleReceiver componentName="Empty">
       {(locale: TransferLocale) => {
-        const prefixCls = getPrefixCls('empty', customizePrefixCls);
         const des = typeof description !== 'undefined' ? description : locale.description;
         const alt = typeof des === 'string' ? des : 'empty';
 
@@ -57,6 +61,7 @@ const Empty: EmptyType = ({
         return (
           <div
             className={classNames(
+              hashId,
               prefixCls,
               {
                 [`${prefixCls}-normal`]: image === simpleEmptyImg,
@@ -74,7 +79,7 @@ const Empty: EmptyType = ({
           </div>
         );
       }}
-    </LocaleReceiver>
+    </LocaleReceiver>,
   );
 };
 

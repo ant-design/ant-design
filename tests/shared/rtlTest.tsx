@@ -1,25 +1,33 @@
 import React from 'react';
-import Moment from 'moment';
+import dayjs from 'dayjs';
 import MockDate from 'mockdate';
-import { mount } from 'enzyme';
+import { render } from '../utils';
 import ConfigProvider from '../../components/config-provider';
 
-// eslint-disable-next-line jest/no-export
-export default function rtlTest(Component: React.ComponentType, mockDate?: boolean) {
+interface TestOptions {
+  mockDate?: boolean;
+  componentName?: string;
+}
+
+function rtlTest(Component: React.ComponentType, { mockDate, componentName }: TestOptions = {}) {
   describe(`rtl render`, () => {
     it(`component should be rendered correctly in RTL direction`, () => {
+      const isArray = componentName && ['menu'].includes(componentName);
       if (mockDate) {
-        MockDate.set(Moment('2000-09-28').valueOf());
+        MockDate.set(dayjs('2000-09-28').valueOf());
       }
-      const wrapper = mount(
+      const { container } = render(
         <ConfigProvider direction="rtl">
           <Component />
         </ConfigProvider>,
       );
-      expect(wrapper.render()).toMatchSnapshot();
+      expect(isArray ? container.children : container.firstChild).toMatchSnapshot();
       if (mockDate) {
         MockDate.reset();
       }
     });
   });
 }
+
+// eslint-disable-next-line jest/no-export
+export default rtlTest;

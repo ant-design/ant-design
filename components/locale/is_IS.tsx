@@ -1,8 +1,8 @@
 import Pagination from 'rc-pagination/lib/locale/is_IS';
-import DatePicker from '../date-picker/locale/is_IS';
-import TimePicker from '../time-picker/locale/is_IS';
 import Calendar from '../calendar/locale/is_IS';
+import DatePicker from '../date-picker/locale/is_IS';
 import type { Locale } from '../locale-provider';
+import TimePicker from '../time-picker/locale/is_IS';
 
 const localeValues: Locale = {
   locale: 'is',
@@ -27,6 +27,7 @@ const localeValues: Locale = {
     cancelText: 'Hætta við',
   },
   Transfer: {
+    titles: ['', ''],
     searchPlaceholder: 'Leita hér',
     itemUnit: 'færsla',
     itemsUnit: 'færslur',

@@ -1,11 +1,14 @@
-import * as React from 'react';
-import classNames from 'classnames';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
+import classNames from 'classnames';
+import * as React from 'react';
 
-import type { TimelineItemProps } from './TimelineItem';
-import TimelineItem from './TimelineItem';
 import { ConfigContext } from '../config-provider';
 import { cloneElement } from '../_util/reactNode';
+import type { TimelineItemProps } from './TimelineItem';
+import TimelineItem from './TimelineItem';
+
+// CSSINJS
+import useStyle from './style';
 
 export interface TimelineProps {
   prefixCls?: string;
@@ -19,11 +22,11 @@ export interface TimelineProps {
   children?: React.ReactNode;
 }
 
-interface TimelineType extends React.FC<TimelineProps> {
+type CompoundedComponent = React.FC<TimelineProps> & {
   Item: React.FC<TimelineItemProps>;
-}
+};
 
-const Timeline: TimelineType = props => {
+const Timeline: CompoundedComponent = (props) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const {
     prefixCls: customizePrefixCls,
@@ -38,6 +41,9 @@ const Timeline: TimelineType = props => {
   const prefixCls = getPrefixCls('timeline', customizePrefixCls);
   const pendingNode = typeof pending === 'boolean' ? null : pending;
 
+  // Style
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
   const pendingItem = pending ? (
     <TimelineItem pending={!!pending} dot={pendingDot || <LoadingOutlined />}>
       {pendingNode}
@@ -45,7 +51,7 @@ const Timeline: TimelineType = props => {
   ) : null;
 
   const timeLineItems = React.Children.toArray(children);
-  timeLineItems.push(pendingItem as any);
+  timeLineItems.push(pendingItem!);
   if (reverse) {
     timeLineItems.reverse();
   }
@@ -63,7 +69,7 @@ const Timeline: TimelineType = props => {
   };
 
   // Remove falsy items
-  const truthyItems = timeLineItems.filter(item => !!item);
+  const truthyItems = timeLineItems.filter((item) => !!item);
   const itemsCount = React.Children.count(truthyItems);
   const lastCls = `${prefixCls}-item-last`;
   const items = React.Children.map(truthyItems, (ele: React.ReactElement<any>, idx) => {
@@ -92,10 +98,10 @@ const Timeline: TimelineType = props => {
     className,
   );
 
-  return (
-    <ul {...restProps} className={classString}>
+  return wrapSSR(
+    <ul {...restProps} className={classNames(classString, hashId)}>
       {items}
-    </ul>
+    </ul>,
   );
 };
 

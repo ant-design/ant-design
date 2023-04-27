@@ -1,8 +1,8 @@
 import Pagination from 'rc-pagination/lib/locale/fr_CA';
-import DatePicker from '../date-picker/locale/fr_CA';
-import TimePicker from '../time-picker/locale/fr_CA';
 import Calendar from '../calendar/locale/fr_CA';
+import DatePicker from '../date-picker/locale/fr_CA';
 import type { Locale } from '../locale-provider';
+import TimePicker from '../time-picker/locale/fr_CA';
 
 const localeValues: Locale = {
   locale: 'fr',
@@ -14,6 +14,7 @@ const localeValues: Locale = {
     filterTitle: 'Filtrer',
     filterConfirm: 'OK',
     filterReset: 'Réinitialiser',
+    filterCheckall: 'Sélectionner la page actuelle',
     selectAll: 'Sélectionner la page actuelle',
     selectInvert: 'Inverser la sélection de la page actuelle',
     selectionAll: 'Sélectionner toutes les données',
@@ -34,6 +35,7 @@ const localeValues: Locale = {
     cancelText: 'Annuler',
   },
   Transfer: {
+    titles: ['', ''],
     searchPlaceholder: 'Rechercher',
     itemUnit: 'élément',
     itemsUnit: 'éléments',

@@ -1,9 +1,13 @@
 ---
 category: Components
-subtitle: 固钉
-type: 导航
 title: Affix
-cover: https://gw.alipayobjects.com/zos/alicdn/tX6-md4H6/Affix.svg
+subtitle: 固钉
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*YSm4RI3iOJ8AAAAAAAAAAAAADrJ8AQ/original
+demo:
+  cols: 2
+group:
+  title: 其他
+  order: 7
 ---
 
 将页面元素钉在可视范围。
@@ -13,6 +17,14 @@ cover: https://gw.alipayobjects.com/zos/alicdn/tX6-md4H6/Affix.svg
 当内容区域比较长，需要滚动页面时，这部分内容对应的操作或者导航需要在滚动范围内始终展现。常用于侧边菜单和按钮组合。
 
 页面可视范围过小时，慎用此功能以免遮挡页面内容。
+
+## 代码演示
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">基本</code>
+<code src="./demo/on-change.tsx">固定状态改变的回调</code>
+<code src="./demo/target.tsx">滚动容器</code>
+<code src="./demo/debug.tsx" debug>调整浏览器大小，观察 Affix 容器是否发生变化。跟随变化为正常。#17678</code>
 
 ## API
 

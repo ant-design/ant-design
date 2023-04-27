@@ -8,28 +8,24 @@ function getFileName(filePath) {
 
 $('lib').isDirectory().hasFile('index.js').hasFile('index.d.ts');
 
-$('lib/style').isDirectory().hasFile('index.css').hasFile('default.css');
-
 $('lib/*')
   .filter(
-    filename =>
+    (filename) =>
       !filename.endsWith('index.js') &&
       !filename.endsWith('index.d.ts') &&
       !filename.endsWith('.map'),
   )
   .isDirectory()
   .filter(
-    filename =>
+    (filename) =>
       !filename.endsWith('style') && !filename.endsWith('_util') && !filename.endsWith('locale'),
   )
   .hasFile('index.js')
-  .hasFile('index.d.ts')
-  .hasDirectory('style');
-
-$('lib/*/style').hasFile('css.js').hasFile('index.js');
+  .hasFile('index.d.ts');
 
 // locale
-const filterLocaleFile = filePath => {
+
+const filterLocaleFile = (filePath) => {
   const fileName = getFileName(filePath);
   return (
     !fileName.endsWith('index.js') &&
@@ -47,10 +43,12 @@ const localeProviderFiles = $('lib/locale-provider/*').filter(filterLocaleFile);
 function compare(originFiles, targetFiles, targetPath) {
   originFiles.assert(
     `not exist in '${targetPath}'. Please use 'scripts/generateLegacyLocale.js' to refresh locale files.`,
-    filePath => {
+    (filePath) => {
       const fileName = getFileName(filePath);
 
-      return targetFiles.filenames.some(targetFilePath => getFileName(targetFilePath) === fileName);
+      return targetFiles.filenames.some(
+        (targetFilePath) => getFileName(targetFilePath) === fileName,
+      );
     },
   );
 }

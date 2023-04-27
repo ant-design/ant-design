@@ -1,10 +1,9 @@
 ---
 category: Components
-cols: 1
-type: 数据展示
+group: 数据展示
 title: Table
 subtitle: 表格
-cover: https://gw.alipayobjects.com/zos/alicdn/f-SbcX2Lx/Table.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*3yz3QqMlShYAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 展示行列数据。
@@ -61,6 +60,49 @@ const columns = [
 - [ProTable](https://procomponents.ant.design/components/table) 高级表格：在 `antd` Table 之上扩展了更多便捷易用的功能，内置搜索、筛选、刷新等常用表格行为，并为多种类型数据展示提供了内置格式化。
 - [S2](https://s2.antv.vision/zh) 多维交叉分析表格：[AntV S2 和 Antd Table 有什么区别？](https://zhuanlan.zhihu.com/p/494995642)
 
+## 代码演示
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">基本用法</code>
+<code src="./demo/jsx.tsx">JSX 风格的 API</code>
+<code src="./demo/row-selection.tsx">可选择</code>
+<code src="./demo/row-selection-and-operation.tsx">选择和操作</code>
+<code src="./demo/row-selection-custom.tsx">自定义选择项</code>
+<code src="./demo/head.tsx">筛选和排序</code>
+<code src="./demo/filter-in-tree.tsx">树型筛选菜单</code>
+<code src="./demo/filter-search.tsx">自定义筛选的搜索</code>
+<code src="./demo/multiple-sorter.tsx">多列排序</code>
+<code src="./demo/reset-filter.tsx">可控的筛选和排序</code>
+<code src="./demo/custom-filter-panel.tsx">自定义筛选菜单</code>
+<code src="./demo/ajax.tsx">远程加载数据</code>
+<code src="./demo/size.tsx">紧凑型</code>
+<code src="./demo/narrow.tsx" debug>紧凑型</code>
+<code src="./demo/bordered.tsx">带边框</code>
+<code src="./demo/expand.tsx">可展开</code>
+<code src="./demo/order-column.tsx">特殊列排序</code>
+<code src="./demo/colspan-rowspan.tsx">表格行/列合并</code>
+<code src="./demo/tree-data.tsx">树形数据展示</code>
+<code src="./demo/tree-table-ellipsis.tsx" debug>树形数据省略情况测试</code>
+<code src="./demo/fixed-header.tsx">固定表头</code>
+<code src="./demo/fixed-columns.tsx">固定列</code>
+<code src="./demo/fixed-columns-header.tsx">固定头和列</code>
+<code src="./demo/grouping-columns.tsx">表头分组</code>
+<code src="./demo/edit-cell.tsx">可编辑单元格</code>
+<code src="./demo/edit-row.tsx">可编辑行</code>
+<code src="./demo/nested-table.tsx">嵌套子表格</code>
+<code src="./demo/drag-sorting.tsx">拖拽排序</code>
+<code src="./demo/resizable-column.tsx" debug>可伸缩列</code>
+<code src="./demo/ellipsis.tsx">单元格自动省略</code>
+<code src="./demo/ellipsis-custom-tooltip.tsx">自定义单元格省略提示</code>
+<code src="./demo/summary.tsx">总结栏</code>
+<code src="./demo/virtual-list.tsx">虚拟列表</code>
+<code src="./demo/responsive.tsx">响应式</code>
+<code src="./demo/nest-table-border-debug.tsx" debug>嵌套带边框的表格 Debug</code>
+<code src="./demo/pagination.tsx">分页设置</code>
+<code src="./demo/row-selection-custom-debug.tsx" debug>自定义选择项组</code>
+<code src="./demo/sticky.tsx">随页面滚动的固定表头和滚动条</code>
+<code src="./demo/dynamic-settings.tsx">动态控制表格属性</code>
+
 ## API
 
 ### Table
@@ -76,7 +118,7 @@ const columns = [
 | getPopupContainer | 设置表格内各类浮层的渲染节点，如筛选菜单 | (triggerNode) => HTMLElement | () => TableHtmlElement |  |
 | loading | 页面是否加载中 | boolean \| [Spin Props](/components/spin/#API) | false |  |
 | locale | 默认文案设置，目前包括排序、过滤、空数据文案 | object | [默认值](https://github.com/ant-design/ant-design/blob/6dae4a7e18ad1ba193aedd5ab6867e1d823e2aa4/components/locale/zh_CN.tsx#L20-L37) |  |
-| pagination | 分页器，参考[配置项](#pagination)或 [pagination](/components/pagination/) 文档，设为 false 时不展示和进行分页 | object | - |  |
+| pagination | 分页器，参考[配置项](#pagination)或 [pagination](/components/pagination/) 文档，设为 false 时不展示和进行分页 | object \| `false` | - |  |
 | rowClassName | 表格行的类名 | function(record, index): string | - |  |
 | rowKey | 表格行 key 的取值，可以是字符串或一个函数 | string \| function(record): string | `key` |  |
 | rowSelection | 表格行是否可选择，[配置项](#rowSelection) | object | - |  |
@@ -99,13 +141,13 @@ const columns = [
 
 ```jsx
 <Table
-  onRow={record => {
+  onRow={(record) => {
     return {
-      onClick: event => {}, // 点击行
-      onDoubleClick: event => {},
-      onContextMenu: event => {},
-      onMouseEnter: event => {}, // 鼠标移入行
-      onMouseLeave: event => {},
+      onClick: (event) => {}, // 点击行
+      onDoubleClick: (event) => {},
+      onContextMenu: (event) => {},
+      onMouseEnter: (event) => {}, // 鼠标移入行
+      onMouseLeave: (event) => {},
     };
   }}
   onHeaderRow={(columns, index) => {
@@ -120,8 +162,9 @@ const columns = [
 
 列描述数据对象，是 columns 中的一项，Column 使用相同的 API。
 
+<!-- prettier-ignore -->
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- |
 | align | 设置列的对齐方式 | `left` \| `right` \| `center` | `left` |  |
 | className | 列样式类名 | string | - |  |
 | colSpan | 表头列合并,设置为 0 时，不渲染 | number | - |  |
@@ -131,7 +174,7 @@ const columns = [
 | defaultSortOrder | 默认排序顺序 | `ascend` \| `descend` | - |  |
 | ellipsis | 超过宽度将自动省略，暂不支持和排序筛选一起使用。<br />设置为 `true` 或 `{ showTitle?: boolean }` 时，表格布局将变成 `tableLayout="fixed"`。 | boolean \| { showTitle?: boolean } | false | showTitle: 4.3.0 |
 | filterDropdown | 可以自定义筛选菜单，此函数只负责渲染图层，需要自行编写各种交互 | ReactNode \| (props: [FilterDropdownProps](https://github.com/ant-design/ant-design/blob/ecc54dda839619e921c0ace530408871f0281c2a/components/table/interface.tsx#L79)) => ReactNode | - |  |
-| filterDropdownVisible | 用于控制自定义筛选菜单是否可见 | boolean | - |  |
+| filterDropdownOpen | 用于控制自定义筛选菜单是否可见 | boolean | - |  |
 | filtered | 标识数据是否经过过滤，筛选图标会高亮 | boolean | false |  |
 | filteredValue | 筛选的受控属性，外界可用此控制列的筛选状态，值为已筛选的 value 数组 | string\[] | - |  |
 | filterIcon | 自定义 filter 图标。 | ReactNode \| (filtered: boolean) => ReactNode | false |  |
@@ -147,12 +190,12 @@ const columns = [
 | showSorterTooltip | 表头显示下一次排序的 tooltip 提示, 覆盖 table 中 `showSorterTooltip` | boolean \| [Tooltip props](/components/tooltip/#API) | true |  |
 | sortDirections | 支持的排序方式，覆盖 `Table` 中 `sortDirections`， 取值为 `ascend` `descend` | Array | \[`ascend`, `descend`] |  |
 | sorter | 排序函数，本地排序使用一个函数(参考 [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) 的 compareFunction)，需要服务端排序可设为 true | function \| boolean | - |  |
-| sortOrder | 排序的受控属性，外界可用此控制列的排序，可设置为 `ascend` `descend` false | boolean \| string | - |  |
+| sortOrder | 排序的受控属性，外界可用此控制列的排序，可设置为 `ascend` `descend` `null` | `ascend` \| `descend` \| null | - |  |
 | title | 列头显示文字（函数用法 `3.10.0` 后支持） | ReactNode \| ({ sortOrder, sortColumn, filters }) => ReactNode | - |  |
 | width | 列宽度（[指定了也不生效？](https://github.com/ant-design/ant-design/issues/13825#issuecomment-449889241)） | string \| number | - |  |
 | onCell | 设置单元格属性 | function(record, rowIndex) | - |  |
 | onFilter | 本地模式下，确定筛选的运行函数 | function | - |  |
-| onFilterDropdownVisibleChange | 自定义筛选菜单可见变化时调用 | function(visible) {} | - |  |
+| onFilterDropdownOpenChange | 自定义筛选菜单可见变化时调用 | function(visible) {} | - |  |  |
 | onHeaderCell | 设置头部单元格属性 | function(column) | - |  |
 
 ### ColumnGroup
@@ -178,6 +221,7 @@ const columns = [
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | childrenColumnName | 指定树形结构的列名 | string | children |  |
+| columnTitle | 自定义展开列表头 | ReactNode | - | 4.23.0 |
 | columnWidth | 自定义展开列宽度 | string \| number | - |  |
 | defaultExpandAllRows | 初始时，是否展开所有行 | boolean | false |  |
 | defaultExpandedRowKeys | 默认展开的行 | string\[] | - |  |
@@ -239,7 +283,7 @@ const columns = [
 
 ```tsx
 import { Table } from 'antd';
-import { ColumnsType } from 'antd/es/table';
+import type { ColumnsType } from 'antd/es/table';
 
 interface User {
   key: number;
@@ -286,7 +330,7 @@ TypeScript 里使用 Table 的 [CodeSandbox 实例](https://codesandbox.io/s/ser
 // 比如你的数据主键是 uid
 return <Table rowKey="uid" />;
 // 或
-return <Table rowKey={record => record.uid} />;
+return <Table rowKey={(record) => record.uid} />;
 ```
 
 ## 从 v3 升级到 v4

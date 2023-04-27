@@ -1,5 +1,4 @@
-import '../../style/index.less';
+// Compatible for babel-plugin-import
 
-// style dependencies
-// deps-lint-skip: grid
-import '../../grid/style';
+/* istanbul ignore next */
+export default {};

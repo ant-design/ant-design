@@ -1,10 +1,13 @@
-import * as React from 'react';
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
+import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import type { SizeType } from '../config-provider/SizeContext';
-import Item from './Item';
 import useFlexGapSupport from '../_util/hooks/useFlexGapSupport';
+import Item from './Item';
+import Compact from './Compact';
+
+import useStyle from './style';
 
 export const SpaceContext = React.createContext({
   latestIndex: 0,
@@ -37,7 +40,7 @@ function getNumberSize(size: SpaceSize) {
   return typeof size === 'string' ? spaceSize[size] : size || 0;
 }
 
-const Space: React.FC<SpaceProps> = props => {
+const Space: React.FC<SpaceProps> = (props) => {
   const { getPrefixCls, space, direction: directionConfig } = React.useContext(ConfigContext);
 
   const {
@@ -57,7 +60,7 @@ const Space: React.FC<SpaceProps> = props => {
 
   const [horizontalSize, verticalSize] = React.useMemo(
     () =>
-      ((Array.isArray(size) ? size : [size, size]) as [SpaceSize, SpaceSize]).map(item =>
+      ((Array.isArray(size) ? size : [size, size]) as [SpaceSize, SpaceSize]).map((item) =>
         getNumberSize(item),
       ),
     [size],
@@ -67,8 +70,11 @@ const Space: React.FC<SpaceProps> = props => {
 
   const mergedAlign = align === undefined && direction === 'horizontal' ? 'center' : align;
   const prefixCls = getPrefixCls('space', customizePrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
   const cn = classNames(
     prefixCls,
+    hashId,
     `${prefixCls}-${direction}`,
     {
       [`${prefixCls}-rtl`]: directionConfig === 'rtl',
@@ -131,7 +137,7 @@ const Space: React.FC<SpaceProps> = props => {
     gapStyle.rowGap = verticalSize;
   }
 
-  return (
+  return wrapSSR(
     <div
       className={cn}
       style={{
@@ -141,8 +147,15 @@ const Space: React.FC<SpaceProps> = props => {
       {...otherProps}
     >
       <SpaceContext.Provider value={spaceContext}>{nodes}</SpaceContext.Provider>
-    </div>
+    </div>,
   );
 };
 
-export default Space;
+type CompoundedComponent = React.FC<SpaceProps> & {
+  Compact: typeof Compact;
+};
+
+const CompoundedSpace = Space as CompoundedComponent;
+CompoundedSpace.Compact = Compact;
+
+export default CompoundedSpace;

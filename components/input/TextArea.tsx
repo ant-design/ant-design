@@ -1,23 +1,24 @@
 import classNames from 'classnames';
 import type { TextAreaProps as RcTextAreaProps } from 'rc-textarea';
 import RcTextArea from 'rc-textarea';
-import type ResizableTextArea from 'rc-textarea/lib/ResizableTextArea';
+import type { ResizableTextAreaRef } from 'rc-textarea/lib/ResizableTextArea';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
+import DisabledContext from '../config-provider/DisabledContext';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
-import DisabledContext from '../config-provider/DisabledContext';
 import { FormItemInputContext } from '../form/context';
 import type { InputStatus } from '../_util/statusUtils';
-import { getStatusClassNames, getMergedStatus } from '../_util/statusUtils';
+import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import ClearableLabeledInput from './ClearableLabeledInput';
 import type { InputFocusOptions } from './Input';
 import { fixControlledValue, resolveOnChange, triggerFocus } from './Input';
+import useStyle from './style';
 
 interface ShowCountProps {
-  formatter: (args: { count: number; maxLength?: number }) => string;
+  formatter: (args: { value: string; count: number; maxLength?: number }) => string;
 }
 
 function fixEmojiLength(value: string, maxLength: number) {
@@ -56,7 +57,7 @@ export interface TextAreaProps extends RcTextAreaProps {
 export interface TextAreaRef {
   focus: (options?: InputFocusOptions) => void;
   blur: () => void;
-  resizableTextArea?: ResizableTextArea;
+  resizableTextArea?: ResizableTextAreaRef;
 }
 
 const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
@@ -83,12 +84,11 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
 
     // ===================== Disabled =====================
     const disabled = React.useContext(DisabledContext);
-    const mergedDisabled = customDisabled || disabled;
+    const mergedDisabled = customDisabled ?? disabled;
 
     const {
       status: contextStatus,
       hasFeedback,
-      isFormItemInput,
       feedbackIcon,
     } = React.useContext(FormItemInputContext);
     const mergedStatus = getMergedStatus(contextStatus, customStatus);
@@ -116,7 +116,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
     // Max length value
     const hasMaxLength = Number(maxLength) > 0;
 
-    const onInternalCompositionStart: React.CompositionEventHandler<HTMLTextAreaElement> = e => {
+    const onInternalCompositionStart: React.CompositionEventHandler<HTMLTextAreaElement> = (e) => {
       setCompositing(true);
       // 拼音输入前保存一份旧值
       oldCompositionValueRef.current = value as string;
@@ -125,7 +125,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
       onCompositionStart?.(e);
     };
 
-    const onInternalCompositionEnd: React.CompositionEventHandler<HTMLTextAreaElement> = e => {
+    const onInternalCompositionEnd: React.CompositionEventHandler<HTMLTextAreaElement> = (e) => {
       setCompositing(false);
 
       let triggerValue = e.currentTarget.value;
@@ -165,13 +165,15 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
 
     // ============================== Reset ===============================
     const handleReset = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
-      handleSetValue('', () => {
-        innerRef.current?.focus();
-      });
+      handleSetValue('');
+      innerRef.current?.focus();
       resolveOnChange(innerRef.current?.resizableTextArea?.textArea!, e, onChange);
     };
 
     const prefixCls = getPrefixCls('input', customizePrefixCls);
+
+    // Style
+    const [wrapSSR, hashId] = useStyle(prefixCls);
 
     React.useImperativeHandle(ref, () => ({
       resizableTextArea: innerRef.current?.resizableTextArea,
@@ -193,8 +195,9 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
             [`${prefixCls}-lg`]: size === 'large' || customizeSize === 'large',
           },
           getStatusClassNames(prefixCls, mergedStatus),
+          hashId,
         )}
-        style={showCount ? undefined : style}
+        style={showCount ? { resize: style?.resize } : style}
         prefixCls={prefixCls}
         onCompositionStart={onInternalCompositionStart}
         onChange={handleChange}
@@ -225,6 +228,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
         bordered={bordered}
         status={customStatus}
         style={showCount ? undefined : style}
+        hashId={hashId}
       />
     );
 
@@ -234,7 +238,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
 
       let dataCount = '';
       if (typeof showCount === 'object') {
-        dataCount = showCount.formatter({ count: valueLength, maxLength });
+        dataCount = showCount.formatter({ value: val, count: valueLength, maxLength });
       } else {
         dataCount = `${valueLength}${hasMaxLength ? ` / ${maxLength}` : ''}`;
       }
@@ -247,10 +251,10 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
             {
               [`${prefixCls}-textarea-rtl`]: direction === 'rtl',
               [`${prefixCls}-textarea-show-count`]: showCount,
-              [`${prefixCls}-textarea-in-form-item`]: isFormItemInput,
             },
             getStatusClassNames(`${prefixCls}-textarea`, mergedStatus, hasFeedback),
             className,
+            hashId,
           )}
           style={style}
           data-count={dataCount}
@@ -261,7 +265,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
       );
     }
 
-    return textareaNode;
+    return wrapSSR(textareaNode);
   },
 );
 

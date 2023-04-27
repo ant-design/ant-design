@@ -1,9 +1,9 @@
 ---
 category: Components
-type: Data Display
+group: Data Display
 title: Image
 cols: 2
-cover: https://gw.alipayobjects.com/zos/antfincdn/D1dXz9PZqa/image.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*FbOCS6aFMeUAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 Previewable image.
@@ -12,6 +12,19 @@ Previewable image.
 
 - When you need to display pictures.
 - Display when loading a large image or fault tolerant handling when loading fail.
+
+## Examples
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">Basic Usage</code>
+<code src="./demo/fallback.tsx">Fault tolerant</code>
+<code src="./demo/placeholder.tsx">Progressive Loading</code>
+<code src="./demo/preview-group.tsx">Multiple image preview</code>
+<code src="./demo/preview-group-visible.tsx">Preview from one image</code>
+<code src="./demo/previewSrc.tsx">Custom preview image</code>
+<code src="./demo/controlled-preview.tsx">Controlled Preview</code>
+<code src="./demo/preview-mask.tsx" debug>Custom preview mask</code>
+<code src="./demo/preview-group-top-progress.tsx" debug>Top progress customization when previewing multiple images</code>
 
 ## API
 
@@ -39,6 +52,7 @@ Previewable image.
   maskClassName?: string; // v4.11.0
   current?: number; // v4.12.0 Only support PreviewGroup
   countRender?: (current: number, total: number) => string  // v4.20.0 Only support PreviewGroup
+  scaleStep?: number;
 }
 ```
 

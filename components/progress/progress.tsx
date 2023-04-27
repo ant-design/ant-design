@@ -1,17 +1,19 @@
-import * as React from 'react';
+import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
+import CheckOutlined from '@ant-design/icons/CheckOutlined';
+import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
+import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
-import CloseOutlined from '@ant-design/icons/CloseOutlined';
-import CheckOutlined from '@ant-design/icons/CheckOutlined';
-import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
-import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
+import * as React from 'react';
+import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import { tuple } from '../_util/type';
 import warning from '../_util/warning';
-import Line from './Line';
 import Circle from './Circle';
+import Line from './Line';
 import Steps from './Steps';
-import { validProgress, getSuccessPercent } from './utils';
+import { getSuccessPercent, validProgress } from './utils';
+import useStyle from './style';
 
 const ProgressTypes = tuple('line', 'circle', 'dashboard');
 export type ProgressType = typeof ProgressTypes[number];
@@ -52,7 +54,7 @@ export interface ProgressProps {
   children?: React.ReactNode;
 }
 
-const Progress: React.FC<ProgressProps> = (props: ProgressProps) => {
+const Progress: React.FC<ProgressProps> = (props) => {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -62,33 +64,37 @@ const Progress: React.FC<ProgressProps> = (props: ProgressProps) => {
     size = 'default',
     showInfo = true,
     type = 'line',
+    status,
+    format,
     ...restProps
   } = props;
 
-  function getPercentNumber() {
+  const percentNumber = React.useMemo<number>(() => {
     const successPercent = getSuccessPercent(props);
     return parseInt(
       successPercent !== undefined ? successPercent.toString() : percent.toString(),
       10,
     );
-  }
+  }, [percent, props.success, props.successPercent]);
 
-  function getProgressStatus() {
-    const { status } = props;
-    if (ProgressStatuses.indexOf(status!) < 0 && getPercentNumber() >= 100) {
+  const progressStatus = React.useMemo<typeof ProgressStatuses[number]>(() => {
+    if (!ProgressStatuses.includes(status!) && percentNumber >= 100) {
       return 'success';
     }
     return status || 'normal';
-  }
+  }, [status, percentNumber]);
 
-  function renderProcessInfo(prefixCls: string, progressStatus: typeof ProgressStatuses[number]) {
-    const { format } = props;
-    const successPercent = getSuccessPercent(props);
+  const { getPrefixCls, direction } = React.useContext<ConfigConsumerProps>(ConfigContext);
+  const prefixCls = getPrefixCls('progress', customizePrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
+  const progressInfo = React.useMemo<React.ReactNode>(() => {
     if (!showInfo) {
       return null;
     }
-    let text;
-    const textFormatter = format || (percentNumber => `${percentNumber}%`);
+    const successPercent = getSuccessPercent(props);
+    let text: React.ReactNode;
+    const textFormatter = format || ((number) => `${number}%`);
     const isLineType = type === 'line';
     if (format || (progressStatus !== 'exception' && progressStatus !== 'success')) {
       text = textFormatter(validProgress(percent), validProgress(successPercent));
@@ -97,18 +103,13 @@ const Progress: React.FC<ProgressProps> = (props: ProgressProps) => {
     } else if (progressStatus === 'success') {
       text = isLineType ? <CheckCircleFilled /> : <CheckOutlined />;
     }
+
     return (
       <span className={`${prefixCls}-text`} title={typeof text === 'string' ? text : undefined}>
         {text}
       </span>
     );
-  }
-
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
-
-  const prefixCls = getPrefixCls('progress', customizePrefixCls);
-  const progressStatus = getProgressStatus();
-  const progressInfo = renderProcessInfo(prefixCls, progressStatus);
+  }, [showInfo, percentNumber, progressStatus, type, prefixCls, format]);
 
   warning(
     !('successPercent' in props),
@@ -119,7 +120,7 @@ const Progress: React.FC<ProgressProps> = (props: ProgressProps) => {
   const strokeColorNotArray = Array.isArray(strokeColor) ? strokeColor[0] : strokeColor;
   const strokeColorNotGradient =
     typeof strokeColor === 'string' || Array.isArray(strokeColor) ? strokeColor : undefined;
-  let progress;
+  let progress: React.ReactNode;
   // Render progress shape
   if (type === 'line') {
     progress = steps ? (
@@ -152,6 +153,7 @@ const Progress: React.FC<ProgressProps> = (props: ProgressProps) => {
   const classString = classNames(
     prefixCls,
     {
+      [`${prefixCls}-inline-circle`]: type === 'circle' && props.width! <= 20,
       [`${prefixCls}-${(type === 'dashboard' && 'circle') || (steps && 'steps') || type}`]: true,
       [`${prefixCls}-status-${progressStatus}`]: true,
       [`${prefixCls}-show-info`]: showInfo,
@@ -159,13 +161,14 @@ const Progress: React.FC<ProgressProps> = (props: ProgressProps) => {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
+    hashId,
   );
 
-  return (
+  return wrapSSR(
     <div
+      className={classString}
+      role="progressbar"
       {...omit(restProps, [
-        'status',
-        'format',
         'trailColor',
         'strokeWidth',
         'width',
@@ -175,10 +178,9 @@ const Progress: React.FC<ProgressProps> = (props: ProgressProps) => {
         'success',
         'successPercent',
       ])}
-      className={classString}
     >
       {progress}
-    </div>
+    </div>,
   );
 };
 

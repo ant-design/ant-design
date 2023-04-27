@@ -1,14 +1,16 @@
-import * as React from 'react';
-import RcCheckbox from 'rc-checkbox';
 import classNames from 'classnames';
+import RcCheckbox from 'rc-checkbox';
 import { composeRef } from 'rc-util/lib/ref';
+import * as React from 'react';
 import { useContext } from 'react';
-import { FormItemInputContext } from '../form/context';
-import type { RadioProps, RadioChangeEvent } from './interface';
 import { ConfigContext } from '../config-provider';
-import RadioGroupContext, { RadioOptionTypeContext } from './context';
 import DisabledContext from '../config-provider/DisabledContext';
+import { FormItemInputContext } from '../form/context';
 import warning from '../_util/warning';
+import RadioGroupContext, { RadioOptionTypeContext } from './context';
+import type { RadioChangeEvent, RadioProps } from './interface';
+
+import useStyle from './style';
 
 const InternalRadio: React.ForwardRefRenderFunction<HTMLElement, RadioProps> = (props, ref) => {
   const groupContext = React.useContext(RadioGroupContext);
@@ -40,6 +42,9 @@ const InternalRadio: React.ForwardRefRenderFunction<HTMLElement, RadioProps> = (
       ? `${radioPrefixCls}-button`
       : radioPrefixCls;
 
+  // Style
+  const [wrapSSR, hashId] = useStyle(radioPrefixCls);
+
   const radioProps: RadioProps = { ...restProps };
 
   // ===================== Disabled =====================
@@ -61,9 +66,10 @@ const InternalRadio: React.ForwardRefRenderFunction<HTMLElement, RadioProps> = (
       [`${prefixCls}-wrapper-in-form-item`]: isFormItemInput,
     },
     className,
+    hashId,
   );
 
-  return (
+  return wrapSSR(
     // eslint-disable-next-line jsx-a11y/label-has-associated-control
     <label
       className={wrapperClassString}
@@ -73,12 +79,14 @@ const InternalRadio: React.ForwardRefRenderFunction<HTMLElement, RadioProps> = (
     >
       <RcCheckbox {...radioProps} type="radio" prefixCls={prefixCls} ref={mergedRef} />
       {children !== undefined ? <span>{children}</span> : null}
-    </label>
+    </label>,
   );
 };
 
 const Radio = React.forwardRef<unknown, RadioProps>(InternalRadio);
 
-Radio.displayName = 'Radio';
+if (process.env.NODE_ENV !== 'production') {
+  Radio.displayName = 'Radio';
+}
 
 export default Radio;

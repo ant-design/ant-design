@@ -1,10 +1,9 @@
 ---
 category: Components
 subtitle: 穿梭框
-type: 数据录入
-cols: 1
+group: 数据录入
 title: Transfer
-cover: https://gw.alipayobjects.com/zos/alicdn/QAXskNI4G/Transfer.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*EAApQ5ephigAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 双栏穿梭选择框。
@@ -17,6 +16,20 @@ cover: https://gw.alipayobjects.com/zos/alicdn/QAXskNI4G/Transfer.svg
 穿梭选择框用直观的方式在两栏中移动元素，完成选择行为。
 
 选择一个或以上的选项后，点击对应的方向键，可以把选中的选项移动到另一栏。其中，左边一栏为 `source`，右边一栏为 `target`，API 的设计也反映了这两个概念。
+
+## 代码演示
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">基本用法</code>
+<code src="./demo/oneWay.tsx">单向样式</code>
+<code src="./demo/search.tsx">带搜索框</code>
+<code src="./demo/advanced.tsx">高级用法</code>
+<code src="./demo/custom-item.tsx">自定义渲染行数据</code>
+<code src="./demo/large-data.tsx">分页</code>
+<code src="./demo/table-transfer.tsx">表格穿梭框</code>
+<code src="./demo/tree-transfer.tsx">树穿梭框</code>
+<code src="./demo/status.tsx">自定义状态</code>
+<code src="./demo/custom-select-all-labels.tsx" debug>自定义全选文字</code>
 
 ## API
 
@@ -63,7 +76,7 @@ Transfer 支持接收 `children` 自定义渲染列表，并返回以下参数�
 #### 参考示例
 
 ```jsx
-<Transfer {...props}>{listProps => <YourComponent {...listProps} />}</Transfer>
+<Transfer {...props}>{(listProps) => <YourComponent {...listProps} />}</Transfer>
 ```
 
 ## 注意
@@ -74,7 +87,7 @@ Transfer 支持接收 `children` 自定义渲染列表，并返回以下参数�
 
 ```jsx
 // 比如你的数据主键是 uid
-return <Transfer rowKey={record => record.uid} />;
+return <Transfer rowKey={(record) => record.uid} />;
 ```
 
 ## FAQ

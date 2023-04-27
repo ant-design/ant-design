@@ -1,5 +1,5 @@
-import * as React from 'react';
 import classNames from 'classnames';
+import * as React from 'react';
 
 type widthUnit = number | string;
 
@@ -11,7 +11,7 @@ export interface SkeletonParagraphProps {
   rows?: number;
 }
 
-const Paragraph = (props: SkeletonParagraphProps) => {
+const Paragraph: React.FC<SkeletonParagraphProps> = (props) => {
   const getWidth = (index: number) => {
     const { width, rows = 2 } = props;
     if (Array.isArray(width)) {

@@ -1,10 +1,3 @@
----
-order: 10
-title:
-  zh-CN: 卡片式页签容器
-  en-US: Container of card type Tab
----
-
 ## zh-CN
 
 用于容器顶部，需要一点额外的样式覆盖。
@@ -12,37 +5,6 @@ title:
 ## en-US
 
 Should be used at the top of container, needs to override styles.
-
-```tsx
-import { Tabs } from 'antd';
-import React from 'react';
-
-const { TabPane } = Tabs;
-
-const App: React.FC = () => (
-  <div className="card-container">
-    <Tabs type="card">
-      <TabPane tab="Tab Title 1" key="1">
-        <p>Content of Tab Pane 1</p>
-        <p>Content of Tab Pane 1</p>
-        <p>Content of Tab Pane 1</p>
-      </TabPane>
-      <TabPane tab="Tab Title 2" key="2">
-        <p>Content of Tab Pane 2</p>
-        <p>Content of Tab Pane 2</p>
-        <p>Content of Tab Pane 2</p>
-      </TabPane>
-      <TabPane tab="Tab Title 3" key="3">
-        <p>Content of Tab Pane 3</p>
-        <p>Content of Tab Pane 3</p>
-        <p>Content of Tab Pane 3</p>
-      </TabPane>
-    </Tabs>
-  </div>
-);
-
-export default App;
-```
 
 ```css
 .card-container p {
@@ -59,13 +21,13 @@ export default App;
 .card-container > .ant-tabs-card > .ant-tabs-nav::before {
   display: none;
 }
-.card-container > .ant-tabs-card .ant-tabs-tab,
-[data-theme='compact'] .card-container > .ant-tabs-card .ant-tabs-tab {
+.card-container > .ant-tabs-card .ant-tabs-nav-list > .ant-tabs-tab,
+[data-theme='compact'] .card-container > .ant-tabs-card .ant-tabs-nav-list > .ant-tabs-tab {
   background: transparent;
   border-color: transparent;
 }
-.card-container > .ant-tabs-card .ant-tabs-tab-active,
-[data-theme='compact'] .card-container > .ant-tabs-card .ant-tabs-tab-active {
+.card-container > .ant-tabs-card .ant-tabs-nav-list > .ant-tabs-tab-active,
+[data-theme='compact'] .card-container > .ant-tabs-card .ant-tabs-nav-list > .ant-tabs-tab-active {
   background: #fff;
   border-color: #fff;
 }

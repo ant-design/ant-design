@@ -1,9 +1,11 @@
 ---
-type: 反馈
+group: 反馈
 category: Components
 subtitle: 对话框
 title: Modal
-cover: https://gw.alipayobjects.com/zos/alicdn/3StSdUlSH/Modal.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*wM3qQ5XrhlcAAAAAAAAAAAAADrJ8AQ/original
+demo:
+  cols: 2
 ---
 
 模态对话框。
@@ -13,6 +15,26 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3StSdUlSH/Modal.svg
 需要用户处理事务，又不希望跳转页面以致打断工作流程时，可以使用 `Modal` 在当前页面正中打开一个浮层，承载相应的操作。
 
 另外当需要一个简洁的确认框询问用户时，可以使用 `Modal.confirm()` 等语法糖方法。
+
+## 代码演示
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">基本</code>
+<code src="./demo/async.tsx">异步关闭</code>
+<code src="./demo/footer.tsx">自定义页脚</code>
+<code src="./demo/confirm.tsx">确认对话框</code>
+<code src="./demo/info.tsx">信息提示</code>
+<code src="./demo/locale.tsx">国际化</code>
+<code src="./demo/manual.tsx">手动更新和移除</code>
+<code src="./demo/position.tsx">自定义位置</code>
+<code src="./demo/confirm-router.tsx">销毁确认对话框</code>
+<code src="./demo/dark.tsx" debug>暗背景</code>
+<code src="./demo/button-props.tsx">自定义页脚按钮属性</code>
+<code src="./demo/hooks.tsx">使用 hooks 获得上下文</code>
+<code src="./demo/modal-render.tsx">自定义渲染对话框</code>
+<code src="./demo/width.tsx">自定义模态的宽度</code>
+<code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/custom-mouse-position.tsx" debug>control modal's animation origin position</code>
 
 ## API
 
@@ -41,7 +63,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3StSdUlSH/Modal.svg
 | okType | 确认按钮类型 | string | `primary` |  |
 | style | 可用于设置浮层的样式，调整浮层位置等 | CSSProperties | - |  |
 | title | 标题 | ReactNode | - |  |
-| visible | 对话框是否可见 | boolean | - |  |
+| open | 对话框是否可见 | boolean | - |  |
 | width | 宽度 | string \| number | 520 |  |
 | wrapClassName | 对话框外层容器的类名 | string | - |  |
 | zIndex | 设置 Modal 的 `z-index` | number | 1000 |  |
@@ -106,7 +128,7 @@ modal.update({
 });
 
 // 在 4.8.0 或更高版本中，可以通过传入函数的方式更新弹窗
-modal.update(prevConfig => ({
+modal.update((prevConfig) => ({
   ...prevConfig,
   title: `${prevConfig.title}（新）`,
 }));
@@ -149,7 +171,7 @@ return <div>{contextHolder}</div>;
 
 Modal 在关闭时会将内容进行 memo 从而避免关闭过程中的内容跳跃。也因此如果你在配合使用 Form 有关闭时重置 `initialValues` 的操作，请通过在 effect 中调用 `resetFields` 来重置。
 
-### 为什么 Modal 方法不能获取 context、redux、的内容和 ConfigProvider `locale/prefixCls` 配置？
+### 为什么 Modal 方法不能获取 context、redux、的内容和 ConfigProvider `locale/prefixCls/theme` 等配置？
 
 直接调用 Modal 方法，antd 会通过 `ReactDOM.render` 动态创建新的 React 实体。其 context 与当前代码所在 context 并不相同，因而无法获取 context 信息。
 
@@ -169,7 +191,7 @@ return (
 );
 ```
 
-**异同：**通过 hooks 创建的 `contextHolder` 必须插入到子元素节点中才会生效，当你不需要上下文信息时请直接调用。
+**异同**：通过 hooks 创建的 `contextHolder` 必须插入到子元素节点中才会生效，当你不需要上下文信息时请直接调用。
 
 ### 如何关闭 Modal 动画？
 

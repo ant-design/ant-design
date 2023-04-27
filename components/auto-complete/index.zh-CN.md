@@ -1,10 +1,13 @@
 ---
 category: Components
 subtitle: 自动完成
-type: 数据录入
-cols: 2
 title: AutoComplete
-cover: https://gw.alipayobjects.com/zos/alicdn/qtJm4yt45/AutoComplete.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*g8THS4NpV6sAAAAAAAAAAAAADrJ8AQ/original
+group:
+  title: 数据录入
+  order: 4
+demo:
+  cols: 2
 ---
 
 输入框自动完成功能。
@@ -19,6 +22,19 @@ cover: https://gw.alipayobjects.com/zos/alicdn/qtJm4yt45/AutoComplete.svg
 - AutoComplete 是一个带提示的文本输入框，用户可以自由输入，关键词是辅助**输入**。
 - Select 是在限定的可选项中进行选择，关键词是**选择**。
 
+## 代码演示
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">基本使用</code>
+<code src="./demo/options.tsx">自定义选项</code>
+<code src="./demo/custom.tsx">自定义输入组件</code>
+<code src="./demo/non-case-sensitive.tsx">不区分大小写</code>
+<code src="./demo/certain-category.tsx">查询模式 - 确定类目</code>
+<code src="./demo/uncertain-category.tsx">查询模式 - 不确定类目</code>
+<code src="./demo/status.tsx">自定义状态</code>
+<code src="./demo/form-debug.tsx" debug>在 Form 中 Debug</code>
+<code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
+
 ## API
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
@@ -32,7 +48,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/qtJm4yt45/AutoComplete.svg
 | defaultOpen | 是否默认展开下拉菜单 | boolean | - |  |
 | defaultValue | 指定默认选中的条目 | string | - |  |
 | disabled | 是否禁用 | boolean | false |  |
-| dropdownClassName | 下拉菜单的 className 属性 | string | - |  |
+| popupClassName | 下拉菜单的 className 属性 | string | - | 4.23.0 |
 | dropdownMatchSelectWidth | 下拉菜单和选择器同宽。默认将设置 `min-width`，当值小于选择框宽度时会被忽略。false 时会关闭虚拟滚动 | boolean \| number | true |  |
 | filterOption | 是否根据输入项进行筛选。当其为一个函数时，会接收 `inputValue` `option` 两个参数，当 `option` 符合筛选条件时，应返回 true，反之则返回 false | boolean \| function(inputValue, option) | true |  |
 | getPopupContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位。[示例](https://codesandbox.io/s/4j168r7jw0) | function(triggerNode) | () => document.body |  |
@@ -48,7 +64,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/qtJm4yt45/AutoComplete.svg
 | onFocus | 获得焦点时的回调 | function() | - |  |
 | onSearch | 搜索补全项的时候调用 | function(value) | - |  |
 | onSelect | 被选中时调用，参数为选中项的 value 值 | function(value, option) | - |  |
-| onClear | 清除内容时回调 | function | - | 4.6.0 |
+| onClear | 清除内容时的回调 | function | - | 4.6.0 |
 
 ## 方法
 

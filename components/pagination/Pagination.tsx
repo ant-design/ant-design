@@ -4,13 +4,14 @@ import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
 import classNames from 'classnames';
 import type { PaginationProps as RcPaginationProps } from 'rc-pagination';
-import RcPagination, { PaginationLocale } from 'rc-pagination';
+import RcPagination, { type PaginationLocale } from 'rc-pagination';
 import enUS from 'rc-pagination/lib/locale/en_US';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { MiddleSelect, MiniSelect } from './Select';
+import useStyle from './style';
 
 export interface PaginationProps extends RcPaginationProps {
   showQuickJumper?: boolean | { goButton?: React.ReactNode };
@@ -26,7 +27,7 @@ export interface PaginationConfig extends PaginationProps {
   position?: PaginationPosition;
 }
 
-export { PaginationLocale };
+export type { PaginationLocale };
 
 const Pagination: React.FC<PaginationProps> = ({
   prefixCls: customizePrefixCls,
@@ -43,6 +44,9 @@ const Pagination: React.FC<PaginationProps> = ({
 
   const { getPrefixCls, direction, pagination = {} } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('pagination', customizePrefixCls);
+
+  // Style
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const mergedShowSizeChanger = showSizeChanger ?? pagination.showSizeChanger;
 
@@ -89,35 +93,34 @@ const Pagination: React.FC<PaginationProps> = ({
     };
   };
 
-  const renderPagination = (contextLocale: PaginationLocale) => {
-    const locale = { ...contextLocale, ...customLocale };
-    const isSmall = size === 'small' || !!(xs && !size && responsive);
-    const selectPrefixCls = getPrefixCls('select', customizeSelectPrefixCls);
-    const extendedClassName = classNames(
-      {
-        [`${prefixCls}-mini`]: isSmall,
-        [`${prefixCls}-rtl`]: direction === 'rtl',
-      },
-      className,
-    );
-
-    return (
-      <RcPagination
-        {...getIconsProps()}
-        {...restProps}
-        prefixCls={prefixCls}
-        selectPrefixCls={selectPrefixCls}
-        className={extendedClassName}
-        selectComponentClass={selectComponentClass || (isSmall ? MiniSelect : MiddleSelect)}
-        locale={locale}
-        showSizeChanger={mergedShowSizeChanger}
-      />
-    );
-  };
-
   return (
     <LocaleReceiver componentName="Pagination" defaultLocale={enUS}>
-      {renderPagination}
+      {(contextLocale) => {
+        const locale = { ...contextLocale, ...customLocale };
+        const isSmall = size === 'small' || !!(xs && !size && responsive);
+        const selectPrefixCls = getPrefixCls('select', customizeSelectPrefixCls);
+        const extendedClassName = classNames(
+          {
+            [`${prefixCls}-mini`]: isSmall,
+            [`${prefixCls}-rtl`]: direction === 'rtl',
+          },
+          className,
+          hashId,
+        );
+
+        return wrapSSR(
+          <RcPagination
+            {...getIconsProps()}
+            {...restProps}
+            prefixCls={prefixCls}
+            selectPrefixCls={selectPrefixCls}
+            className={extendedClassName}
+            selectComponentClass={selectComponentClass || (isSmall ? MiniSelect : MiddleSelect)}
+            locale={locale}
+            showSizeChanger={mergedShowSizeChanger}
+          />,
+        );
+      }}
     </LocaleReceiver>
   );
 };

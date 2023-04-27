@@ -7,9 +7,19 @@ title: FAQ
 
 ---
 
-## 你们会提供 Sass/Stylus 等格式的样式文件吗？
+## `undefined` 和 `null` 在 `antd` 的受控组件中有区别吗？
 
-暂无计划。事实上你可以使用工具（请自行 Google）将 Less 转换成 Sass/Stylus 等。
+**有。antd 约定：`undefined` 是非受控的标志，`null` 作为显式的受控空值。**
+
+在输入元素中，React 认为 `undefined` 和 `null` 都属于非受控的标志。当 `value` 由非空值转化为 `undefined` 或 `null` 时，组件不再受控，这通常是一些意外情况发生的原因。
+
+但在 antd 中，我们定义 `undefined` 为非受控的标志，而 `null` 则作为显式的受控空值。为的是处理 `value` 为复杂数据类型时的清空（如 `allowClear`）置 `value` 为空值等场景。如果需要让组件受控且希望将 `value` 置为空值，请将 `value` 设置为 `null`。
+
+注意：对于类 `Select` 组件的 `options`，我们**强烈不建议**使用 `undefined` 和 `null` 作为 `option` 中的 `value`，请使用 `string | number` 作为 `option` 的 `value`。
+
+## 官方文档中没有提供的隐藏 API 我可以使用吗？
+
+不推荐。对内接口不保证兼容性，它很可能在某个版本中因重构而移除。如果你确实需要使用，需自行确保版本升级时隐藏接口仍旧可用，或者锁定版本。
 
 ## 当我点击 `Select Dropdown DatePicker TimePicker Popover Popconfirm` 内的另一个 popup 组件时它会消失，如何解决？
 
@@ -35,9 +45,21 @@ title: FAQ
 
 你可以覆盖它们的样式，但是我们不推荐这么做。antd 是一系列 React 组件，但同样是一套设计规范。
 
-## 如何使用 Day.js 替换 Moment.js 来减小打包大小？
+## 如何避免升级导致的破坏性变更？
 
-可以参考[替换 Moment.js](/docs/react/replace-moment)。
+antd 在 minor 和 patch 版本迭代中会避免引入破坏性变更，遵从以下原则会确保不会破坏你的代码：
+
+- 使用出现在官方 Demo 中的写法
+- FAQ 中出现的解法，包含代码片段以及 codesandbox 示例、issue 中当前版本标记 FAQ label 的
+
+而下述变更则需要开发者自行校验：
+
+- 特定场景的错误用法，BUG as Feature（例如 Tabs 下直接包 div 的用法）
+- 可以通过正常用法实现功能需求却魔改的
+
+## 如何使用其他时间日期库如 Moment.js？
+
+可以参考[使用自定义日期库](/docs/react/use-custom-date-library)。
 
 ## 当我动态改变 `defaultValue` 的时候它并没有生效。
 
@@ -81,13 +103,14 @@ antd 内部会对 props 进行浅比较实现性能优化。当状态变更，�
 
 历史版本:
 
+- 4.x: https://4x-ant-design.antgroup.com
 - 3.x: https://ant-design-3x.gitee.io/
 - 2.x: https://ant-design-2x.gitee.io/
 - 1.x: https://ant-design-1x.gitee.io/
 
-## `antd` 会像 `React` 那样提供单文件引入吗？
+## `antd` 可以像 `React` 那样使用单文件引入吗？
 
-是的，[你可以用 script 标签引入](https://ant.design/docs/react/introduce-cn#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%BC%95%E5%85%A5)。但是我们推荐使用 `npm` 来引入 `antd`，这样维护起来更简单方便。
+可以，[你可以用 script 标签引入](https://ant.design/docs/react/introduce-cn#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%BC%95%E5%85%A5)。但是我们推荐使用 `npm` 来引入 `antd`，这样维护起来更简单方便。
 
 ## 在我的网络环境下没法获取到 `icon` 文件。
 
@@ -99,11 +122,42 @@ antd 内部会对 props 进行浅比较实现性能优化。当状态变更，�
 
 如果你需要一些 antd 没有包含的功能，你可以尝试通过 [HOC](https://gist.github.com/sebmarkbage/ef0bf1f338a7182b6775) 拓展 antd 的组件。 [更多](https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750#.eeu8q01s1)
 
+## 如何获取未导出的属性定义？
+
+antd 会透出组件定义，但是随着重构可能导致内部一些定义命名或者属性变化。因而更推荐直接使用 Typescript 原生能力获取：
+
+```tsx
+import { Table } from 'antd';
+
+type Props<T extends (...args: any) => any> = Parameters<T>[0];
+
+type TableProps = Props<typeof Table<{ key: string; name: string; age: number }>>;
+type DataSource = TableProps['dataSource'];
+```
+
 ## 我的组件默认语言是英文的？如何切回中文的。
 
 请尝试使用 [ConfigProvider](/components/config-provider/#components-config-provider-demo-locale) 组件来包裹你的应用。
 
-如果日期组件的国际化仍未生效，请配置 `moment.locale('zh-cn')` 并**检查你本地的 `moment` 版本和 `antd` 依赖的 `moment` 版本是否一致**。
+如果日期组件的国际化仍未生效，请配置 `dayjs.locale('zh-cn')` 并**检查你本地的 `dayjs` 版本和 `antd` 依赖的 `dayjs` 版本是否一致**。
+
+## 为什么时间类组件的国际化 locale 设置不生效？
+
+请检查是否正确设置了 dayjs 语言包。
+
+```js
+import 'dayjs/locale/zh-cn';
+
+dayjs.locale('zh-cn');
+```
+
+如果还有问题，请检查是否有两个版本的 dayjs 共存？
+
+```jsx
+npm ls dayjs
+```
+
+一般来说，如果项目中依赖的 dayjs 版本和 [antd 依赖的 dayjs 版本](https://github.com/ant-design/ant-design/blob/7dfc80504a36cf8952cd732a1d0c137a16d56fd4/package.json#L125) 无法兼容（semver 无法匹配，比如项目中的 dayjs 版本写死且较低），则会导致使用两个不同版本的 dayjs 实例，这样也会导致国际化失效。
 
 ## 开启了 Content Security Policy (CSP) 如何处理动态样式？
 
@@ -143,6 +197,28 @@ ConfigProvider.config({
 ## 为什么我不应该通过 ref 访问组件内部的 props 和 state？
 
 你通过 ref 获得引用时只应该使用文档提供的方法。直接读取组件内部的 `props` 和 `state` 不是一个好的设计，这会使你的代码与组件版本强耦合。任何重构都可能会使你的代码无法工作，其中重构包括且不仅限于改造成 [Hooks](https://reactjs.org/docs/hooks-intro.html) 版本、移除 / 更名内部 `props` 与 `state`、调整内部 React 节点结构等等。
+
+<div id="why-open"></div>
+
+## 弹层类组件为什么要统一至 `open` 属性？
+
+因为历史原因，弹层类组件展示命名并不统一，出现了 `open` 与 `visible` 都在使用的情况。这使得非 tsx 用户在开发时遭遇的记忆成本。同样导致新增 feature 时选择何种命名的模棱两可。因而我们希望统一该属性命名，你仍然可以使用原本的 `visible` 它仍然会向下兼容，但是从 v5 起我们将从文档中移除该属性。
+
+## 动态样式有 `:where` 导致旧版浏览器不支持怎么办？
+
+请参考动态主题文档 [兼容性调整](/docs/react/customize-theme-cn#兼容性调整) 部分内容。
+
+## CSS-in-JS 与 tailwindcss 优先级冲突？
+
+同上，你可以调整 antd 样式优先级以覆盖。相关 issue: [#38794](https://github.com/ant-design/ant-design/issues/38794)
+
+## CSS-in-JS 如何与 Shadow DOM 一同使用？
+
+请参考文档 [Shadow Dom 场景](/docs/react/customize-theme-cn#shadow-dom-场景) 内容。
+
+## 如何支持 SSR？
+
+请参考动态主题文档 [服务端渲染](/docs/react/customize-theme-cn#服务端渲染) 部分内容。
 
 ## 如何正确的拼写 Ant Design？
 

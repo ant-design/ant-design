@@ -1,9 +1,11 @@
 ---
 category: Components
-type: Feedback
+group: Feedback
 noinstant: true
 title: Notification
-cover: https://gw.alipayobjects.com/zos/alicdn/Jxm5nw61w/Notification.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*6RWNQ78WtvEAAAAAAAAAAAAADrJ8AQ/original
+demo:
+  cols: 2
 ---
 
 Display a notification message globally.
@@ -16,6 +18,20 @@ To display a notification message at any of the four corners of the viewport. Ty
 - A notification providing a feedback based on the user interaction. Or it may show some details about upcoming steps the user may have to follow.
 - A notification that is pushed by the application.
 
+## Examples
+
+<!-- prettier-ignore -->
+<code src="./demo/hooks.tsx">Hooks usage (recommended)</code>
+<code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/duration.tsx">Duration after which the notification box is closed</code>
+<code src="./demo/with-icon.tsx">Notification with icon</code>
+<code src="./demo/with-btn.tsx">Custom close button</code>
+<code src="./demo/custom-icon.tsx">Customized Icon</code>
+<code src="./demo/placement.tsx">Placement</code>
+<code src="./demo/custom-style.tsx">Customized style</code>
+<code src="./demo/update.tsx">Update Message Content</code>
+<code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
+
 ## API
 
 - `notification.success(config)`
@@ -24,8 +40,7 @@ To display a notification message at any of the four corners of the viewport. Ty
 - `notification.warning(config)`
 - `notification.warn(config)`
 - `notification.open(config)`
-- `notification.close(key: String)`
-- `notification.destroy()`
+- `notification.destroy(key?: String)`
 
 The properties of config are as follows:
 
@@ -46,6 +61,7 @@ The properties of config are as follows:
 | top | Distance from the top of the viewport, when `placement` is `topRight` or `topLeft` (unit: pixels) | number | 24 |
 | onClick | Specify a function that will be called when the notification is clicked | function | - |
 | onClose | Trigger when notification closed | function | - |
+| props | Props passed down | Object | An object that can contain `data-*`, `aria-*`, or `role` props, to be put on the notification `div`. This currently only allows `data-testid` instead of `data-*` in TypeScript. See https://github.com/microsoft/TypeScript/issues/28960. |
 
 `notification` also provides a global `config()` method that can be used for specifying the default options. Once this method is used, all the notification boxes will take into account these globally defined options when displaying.
 
@@ -77,7 +93,7 @@ notification.config({
 
 ## FAQ
 
-### Why I can not access context, redux, ConfigProvider `locale/prefixCls` in notification?
+### Why I can not access context, redux, ConfigProvider `locale/prefixCls/theme` in notification?
 
 antd will dynamic create React instance by `ReactDOM.render` when call notification methods. Whose context is different with origin code located context.
 

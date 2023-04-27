@@ -1,7 +1,7 @@
-import React from 'react';
 import { LikeOutlined, SmileOutlined } from '@ant-design/icons';
 import * as copyObj from 'copy-to-clipboard';
-import { fireEvent, render, waitFor } from '../../../tests/utils';
+import React from 'react';
+import { fireEvent, render, waitFor, act } from '../../../tests/utils';
 
 import Base from '../Base';
 
@@ -89,7 +89,9 @@ describe('Typography copy', () => {
 
           jest.useFakeTimers();
           fireEvent.click(wrapper.querySelectorAll('.ant-typography-copy')[0]);
-          jest.runAllTimers();
+          act(() => {
+            jest.runAllTimers();
+          });
 
           unmount();
           jest.useRealTimers();
@@ -217,7 +219,7 @@ describe('Typography copy', () => {
         </div>,
       );
       fireEvent.click(wrapper.querySelectorAll('.ant-typography-copy')[0]);
-      expect(onDivClick).not.toBeCalled();
+      expect(onDivClick).not.toHaveBeenCalled();
     });
 
     it('the first parameter of onCopy is the click event', () => {
@@ -233,7 +235,8 @@ describe('Typography copy', () => {
       fireEvent.click(wrapper.querySelectorAll('.ant-typography-copy')[0]);
     });
 
-    it('copy to clipboard', done => {
+    it('copy to clipboard', () => {
+      jest.useFakeTimers();
       const spy = jest.spyOn(copyObj, 'default');
       const originText = 'origin text.';
       const nextText = 'next text.';
@@ -243,7 +246,7 @@ describe('Typography copy', () => {
           setTimeout(() => {
             setDynamicText(nextText);
           }, 500);
-        });
+        }, []);
         return (
           <Base component="p" copyable>
             {dynamicText}
@@ -254,12 +257,13 @@ describe('Typography copy', () => {
       const copyBtn = wrapper.querySelectorAll('.ant-typography-copy')[0];
       fireEvent.click(copyBtn);
       expect(spy.mock.calls[0][0]).toEqual(originText);
-      setTimeout(() => {
-        spy.mockReset();
-        fireEvent.click(copyBtn);
-        expect(spy.mock.calls[0][0]).toEqual(nextText);
-        done();
-      }, 500);
+      act(() => {
+        jest.runAllTimers();
+      });
+      spy.mockReset();
+      fireEvent.click(copyBtn);
+      expect(spy.mock.calls[0][0]).toEqual(nextText);
+      jest.useRealTimers();
     });
   });
 });

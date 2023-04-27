@@ -1,4 +1,5 @@
 import { createContext } from 'react';
+import type { MenuProps } from 'rc-menu';
 import type { DirectionType } from '../config-provider';
 
 export type MenuTheme = 'light' | 'dark';
@@ -6,10 +7,11 @@ export type MenuTheme = 'light' | 'dark';
 export interface MenuContextProps {
   prefixCls: string;
   inlineCollapsed: boolean;
-  antdMenuTheme?: MenuTheme;
   direction?: DirectionType;
+  mode?: MenuProps['mode'];
+  theme?: MenuTheme;
   firstLevel: boolean;
-  /** @private Internal Usage. Safe to remove */
+  /** @internal Safe to remove */
   disableMenuItemTitleTooltip?: boolean;
 }
 

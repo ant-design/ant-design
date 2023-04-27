@@ -1,8 +1,12 @@
 ---
 category: Components
-type: Layout
 title: Divider
-cover: https://gw.alipayobjects.com/zos/alicdn/5swjECahe/Divider.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*7sMiTbzvaDoAAAAAAAAAAAAADrJ8AQ/original
+demo:
+  cols: 2
+group:
+  title: Layout
+  order: 2
 ---
 
 A divider line separates different content.
@@ -11,6 +15,15 @@ A divider line separates different content.
 
 - Divide sections of article.
 - Divide inline text and links such as the operation column of table.
+
+## Examples
+
+<!-- prettier-ignore -->
+<code src="./demo/horizontal.tsx">Horizontal</code>
+<code src="./demo/with-text.tsx">Divider with title</code>
+<code src="./demo/plain.tsx">Text without heading style</code>
+<code src="./demo/vertical.tsx">Vertical</code>
+<code src="./demo/customize-style.tsx" debug>Style Customization</code>
 
 ## API
 

@@ -1,9 +1,11 @@
 import StarFilled from '@ant-design/icons/StarFilled';
+import classNames from 'classnames';
 import RcRate from 'rc-rate';
 import type { RateProps as RcRateProps } from 'rc-rate/lib/Rate';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import Tooltip from '../tooltip';
+import useStyle from './style';
 
 export interface RateProps extends RcRateProps {
   tooltips?: Array<string>;
@@ -13,30 +15,36 @@ interface RateNodeProps {
   index: number;
 }
 
-const Rate = React.forwardRef<unknown, RateProps>(({ prefixCls, tooltips, ...props }, ref) => {
+const Rate = React.forwardRef<unknown, RateProps>((props, ref) => {
+  const { prefixCls, tooltips, character = <StarFilled />, ...rest } = props;
   const characterRender = (node: React.ReactElement, { index }: RateNodeProps) => {
-    if (!tooltips) return node;
+    if (!tooltips) {
+      return node;
+    }
     return <Tooltip title={tooltips[index]}>{node}</Tooltip>;
   };
 
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const ratePrefixCls = getPrefixCls('rate', prefixCls);
 
-  return (
+  // Style
+  const [wrapSSR, hashId] = useStyle(ratePrefixCls);
+
+  return wrapSSR(
     <RcRate
       ref={ref}
+      character={character}
       characterRender={characterRender}
-      {...props}
+      {...rest}
+      className={classNames(props.className, hashId)}
       prefixCls={ratePrefixCls}
       direction={direction}
-    />
+    />,
   );
 });
 
-Rate.displayName = 'Rate';
-
-Rate.defaultProps = {
-  character: <StarFilled />,
-};
+if (process.env.NODE_ENV !== 'production') {
+  Rate.displayName = 'Rate';
+}
 
 export default Rate;

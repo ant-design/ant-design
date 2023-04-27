@@ -1,20 +1,21 @@
+import classNames from 'classnames';
+import CSSMotion from 'rc-motion';
 import * as React from 'react';
 import { useMemo, useRef } from 'react';
-import CSSMotion from 'rc-motion';
-import classNames from 'classnames';
-import ScrollNumber from './ScrollNumber';
-import Ribbon from './Ribbon';
-import type { PresetColorType, PresetStatusColorType } from '../_util/colors';
 import { ConfigContext } from '../config-provider';
-import type { LiteralUnion } from '../_util/type';
+import type { PresetColorType, PresetStatusColorType } from '../_util/colors';
 import { cloneElement } from '../_util/reactNode';
+import type { LiteralUnion } from '../_util/type';
+import Ribbon from './Ribbon';
+import ScrollNumber from './ScrollNumber';
+import useStyle from './style';
 import { isPresetColor } from './utils';
 
-export { ScrollNumberProps } from './ScrollNumber';
+export type { ScrollNumberProps } from './ScrollNumber';
 
-interface CompoundedComponent extends React.FC<BadgeProps> {
+type CompoundedComponent = React.FC<BadgeProps> & {
   Ribbon: typeof Ribbon;
-}
+};
 
 export interface BadgeProps {
   /** Number to show in badge */
@@ -58,15 +59,21 @@ const Badge: CompoundedComponent = ({
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('badge', customizePrefixCls);
 
+  // Style
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
   // ================================ Misc ================================
   const numberedDisplayCount = (
     (count as number) > (overflowCount as number) ? `${overflowCount}+` : count
   ) as string | number | null;
 
-  const hasStatus =
-    (status !== null && status !== undefined) || (color !== null && color !== undefined);
-
   const isZero = numberedDisplayCount === '0' || numberedDisplayCount === 0;
+
+  const ignoreCount = count === null || (isZero && !showZero);
+
+  const hasStatus =
+    ((status !== null && status !== undefined) || (color !== null && color !== undefined)) &&
+    ignoreCount;
 
   const showAsDot = dot && !isZero;
 
@@ -130,7 +137,7 @@ const Badge: CompoundedComponent = ({
   const displayNode =
     !livingCount || typeof livingCount !== 'object'
       ? undefined
-      : cloneElement(livingCount, oriProps => ({
+      : cloneElement(livingCount, (oriProps) => ({
           style: {
             ...mergedStyle,
             ...oriProps.style,
@@ -146,6 +153,7 @@ const Badge: CompoundedComponent = ({
 
   const statusStyle: React.CSSProperties = {};
   if (color && !isPresetColor(color)) {
+    statusStyle.color = color;
     statusStyle.background = color;
   }
 
@@ -162,19 +170,21 @@ const Badge: CompoundedComponent = ({
   // <Badge status="success" />
   if (!children && hasStatus) {
     const statusTextColor = mergedStyle.color;
-    return (
-      <span {...restProps} className={badgeClassName} style={mergedStyle}>
+    return wrapSSR(
+      <span {...restProps} className={classNames(badgeClassName, hashId)} style={mergedStyle}>
         <span className={statusCls} style={statusStyle} />
-        <span style={{ color: statusTextColor }} className={`${prefixCls}-status-text`}>
-          {text}
-        </span>
-      </span>
+        {text && (
+          <span style={{ color: statusTextColor }} className={`${prefixCls}-status-text`}>
+            {text}
+          </span>
+        )}
+      </span>,
     );
   }
 
   // <Badge status="success" count={<Icon type="xxx" />}></Badge>
-  return (
-    <span {...restProps} className={badgeClassName}>
+  return wrapSSR(
+    <span {...restProps} className={classNames(badgeClassName, hashId)}>
       {children}
       <CSSMotion
         visible={!isHidden}
@@ -223,7 +233,7 @@ const Badge: CompoundedComponent = ({
         }}
       </CSSMotion>
       {statusTextNode}
-    </span>
+    </span>,
   );
 };
 

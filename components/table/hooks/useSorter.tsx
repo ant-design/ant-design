@@ -1,23 +1,23 @@
-import * as React from 'react';
-import classNames from 'classnames';
 import CaretDownOutlined from '@ant-design/icons/CaretDownOutlined';
 import CaretUpOutlined from '@ant-design/icons/CaretUpOutlined';
+import classNames from 'classnames';
 import KeyCode from 'rc-util/lib/KeyCode';
-import type {
-  TransformColumns,
-  ColumnsType,
-  Key,
-  ColumnType,
-  SortOrder,
-  CompareFn,
-  ColumnTitleProps,
-  SorterResult,
-  ColumnGroupType,
-  TableLocale,
-} from '../interface';
+import * as React from 'react';
 import type { TooltipProps } from '../../tooltip';
 import Tooltip from '../../tooltip';
-import { getColumnKey, getColumnPos, renderColumnTitle } from '../util';
+import type {
+  ColumnGroupType,
+  ColumnsType,
+  ColumnTitleProps,
+  ColumnType,
+  CompareFn,
+  Key,
+  SorterResult,
+  SortOrder,
+  TableLocale,
+  TransformColumns,
+} from '../interface';
+import { getColumnKey, getColumnPos, renderColumnTitle, safeColumnTitle } from '../util';
 
 const ASCEND = 'ascend';
 const DESCEND = 'descend';
@@ -132,6 +132,7 @@ function injectSorter<RecordType>(
           className={classNames(`${prefixCls}-column-sorter-up`, {
             active: sorterOrder === ASCEND,
           })}
+          role="presentation"
         />
       );
       const downNode: React.ReactNode = sortDirections.includes(DESCEND) && (
@@ -139,6 +140,7 @@ function injectSorter<RecordType>(
           className={classNames(`${prefixCls}-column-sorter-down`, {
             active: sorterOrder === DESCEND,
           })}
+          role="presentation"
         />
       );
       const { cancelSort, triggerAsc, triggerDesc } = tableLocale || {};
@@ -177,7 +179,7 @@ function injectSorter<RecordType>(
             renderSortTitle
           );
         },
-        onHeaderCell: col => {
+        onHeaderCell: (col) => {
           const cell: React.HTMLAttributes<HTMLElement> =
             (column.onHeaderCell && column.onHeaderCell(col)) || {};
           const originOnClick = cell.onClick;
@@ -203,18 +205,22 @@ function injectSorter<RecordType>(
             }
           };
 
+          const renderTitle = safeColumnTitle(column.title, {});
+          const displayTitle = renderTitle?.toString();
+
           // Inform the screen-reader so it can tell the visually impaired user which column is sorted
           if (sorterOrder) {
-            if (sorterOrder === 'ascend') {
-              cell['aria-sort'] = 'ascending';
-            } else {
-              cell['aria-sort'] = 'descending';
-            }
+            cell['aria-sort'] = sorterOrder === 'ascend' ? 'ascending' : 'descending';
+          } else {
+            cell['aria-label'] = `${
+              displayTitle ? `this column's title is ${displayTitle},` : ''
+            }this column is sortable`;
           }
-
           cell.className = classNames(cell.className, `${prefixCls}-column-has-sorters`);
           cell.tabIndex = 0;
-
+          if (column.ellipsis) {
+            cell.title = (renderTitle ?? '').toString();
+          }
           return cell;
         },
       };
@@ -308,7 +314,7 @@ export function getSortData<RecordType>(
 
       return 0;
     })
-    .map<RecordType>(record => {
+    .map<RecordType>((record) => {
       const subRecords = (record as any)[childrenColumnName];
       if (subRecords) {
         return {
@@ -372,7 +378,7 @@ export default function useFilterSorter<RecordType>({
     }
 
     let multipleMode: boolean | null = null;
-    collectedStates.forEach(state => {
+    collectedStates.forEach((state) => {
       if (multipleMode === null) {
         patchStates(state);
 

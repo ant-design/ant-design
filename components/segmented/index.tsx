@@ -1,15 +1,17 @@
-import * as React from 'react';
 import classNames from 'classnames';
-import RcSegmented from 'rc-segmented';
 import type {
+  SegmentedLabeledOption as RcSegmentedLabeledOption,
   SegmentedProps as RCSegmentedProps,
   SegmentedRawOption,
-  SegmentedLabeledOption as RcSegmentedLabeledOption,
 } from 'rc-segmented';
+import RcSegmented from 'rc-segmented';
+import * as React from 'react';
 
 import { ConfigContext } from '../config-provider';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
+
+import useStyle from './style';
 
 export type { SegmentedValue } from 'rc-segmented';
 
@@ -46,22 +48,24 @@ const Segmented = React.forwardRef<HTMLDivElement, SegmentedProps>((props, ref) 
     prefixCls: customizePrefixCls,
     className,
     block,
-    options,
+    options = [],
     size: customSize = 'middle',
     ...restProps
   } = props;
 
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('segmented', customizePrefixCls);
+  // Style
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   // ===================== Size =====================
   const size = React.useContext(SizeContext);
   const mergedSize = customSize || size;
 
   // syntactic sugar to support `icon` for Segmented Item
-  const extendedOptions = React.useMemo(
+  const extendedOptions = React.useMemo<RCSegmentedProps['options']>(
     () =>
-      options.map(option => {
+      options.map((option) => {
         if (isSegmentedLabeledOptionWithIcon(option)) {
           const { icon, label, ...restOption } = option;
           return {
@@ -79,25 +83,28 @@ const Segmented = React.forwardRef<HTMLDivElement, SegmentedProps>((props, ref) 
     [options, prefixCls],
   );
 
-  return (
+  return wrapSSR(
     <RcSegmented
       {...restProps}
-      className={classNames(className, {
-        [`${prefixCls}-block`]: block,
-        [`${prefixCls}-sm`]: mergedSize === 'small',
-        [`${prefixCls}-lg`]: mergedSize === 'large',
-      })}
+      className={classNames(
+        className,
+        {
+          [`${prefixCls}-block`]: block,
+          [`${prefixCls}-sm`]: mergedSize === 'small',
+          [`${prefixCls}-lg`]: mergedSize === 'large',
+        },
+        hashId,
+      )}
       options={extendedOptions}
       ref={ref}
       prefixCls={prefixCls}
       direction={direction}
-    />
+    />,
   );
 });
 
-Segmented.displayName = 'Segmented';
-Segmented.defaultProps = {
-  options: [],
-};
+if (process.env.NODE_ENV !== 'production') {
+  Segmented.displayName = 'Segmented';
+}
 
 export default Segmented;

@@ -1,19 +1,23 @@
-import * as React from 'react';
 import classNames from 'classnames';
-import type { SpinProps } from '../spin';
-import Spin from '../spin';
-import useBreakpoint from '../grid/hooks/useBreakpoint';
-import type { Breakpoint } from '../_util/responsiveObserve';
-import { responsiveArray } from '../_util/responsiveObserve';
+// eslint-disable-next-line import/no-named-as-default
+import * as React from 'react';
 import type { RenderEmptyHandler } from '../config-provider';
 import { ConfigContext } from '../config-provider';
+import defaultRenderEmpty from '../config-provider/defaultRenderEmpty';
+import { Row } from '../grid';
+import useBreakpoint from '../grid/hooks/useBreakpoint';
 import type { PaginationConfig } from '../pagination';
 import Pagination from '../pagination';
-import { Row } from '../grid';
+import type { SpinProps } from '../spin';
+import Spin from '../spin';
+import type { Breakpoint } from '../_util/responsiveObserve';
+import { responsiveArray } from '../_util/responsiveObserve';
 import Item from './Item';
-import defaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 
-export { ListItemProps, ListItemMetaProps } from './Item';
+// CSSINJS
+import useStyle from './style';
+
+export type { ListItemMetaProps, ListItemProps } from './Item';
 
 export type ColumnCount = number;
 
@@ -104,8 +108,6 @@ function List<T>({
     total: 0,
   };
 
-  const listItemsKeys: { [index: number]: React.Key } = {};
-
   const triggerPaginationEvent = (eventName: string) => (page: number, pageSize: number) => {
     setPaginationCurrent(page);
     setPaginationSize(pageSize);
@@ -135,9 +137,7 @@ function List<T>({
       key = `list-item-${index}`;
     }
 
-    listItemsKeys[index] = key;
-
-    return renderItem(item, index);
+    return <React.Fragment key={key}>{renderItem(item, index)}</React.Fragment>;
   };
 
   const isSomethingAfterLastItem = () => !!(loadMore || pagination || footer);
@@ -149,6 +149,9 @@ function List<T>({
   );
 
   const prefixCls = getPrefixCls('list', customizePrefixCls);
+  // Style
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
   let loadingProp = loading;
   if (typeof loadingProp === 'boolean') {
     loadingProp = {
@@ -184,6 +187,7 @@ function List<T>({
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
+    hashId,
   );
 
   const paginationProps = {
@@ -218,7 +222,7 @@ function List<T>({
     }
   }
 
-  const needResponsive = Object.keys(grid || {}).some(key =>
+  const needResponsive = Object.keys(grid || {}).some((key) =>
     ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].includes(key),
   );
   const screens = useBreakpoint(needResponsive);
@@ -249,13 +253,14 @@ function List<T>({
   let childrenContent = isLoading && <div style={{ minHeight: 53 }} />;
   if (splitDataSource.length > 0) {
     const items = splitDataSource.map((item: T, index: number) => renderInnerItem(item, index));
-    const childrenList = React.Children.map(items, (child: React.ReactNode, index: number) => (
-      <div key={listItemsKeys[index]} style={colStyle}>
-        {child}
-      </div>
-    ));
     childrenContent = grid ? (
-      <Row gutter={grid.gutter}>{childrenList}</Row>
+      <Row gutter={grid.gutter}>
+        {React.Children.map(items, (child) => (
+          <div key={child?.key} style={colStyle}>
+            {child}
+          </div>
+        ))}
+      </Row>
     ) : (
       <ul className={`${prefixCls}-items`}>{items}</ul>
     );
@@ -269,7 +274,7 @@ function List<T>({
     [JSON.stringify(grid), itemLayout],
   );
 
-  return (
+  return wrapSSR(
     <ListContext.Provider value={contextValue}>
       <div className={classString} {...rest}>
         {(paginationPosition === 'top' || paginationPosition === 'both') && paginationContent}
@@ -282,7 +287,7 @@ function List<T>({
         {loadMore ||
           ((paginationPosition === 'bottom' || paginationPosition === 'both') && paginationContent)}
       </div>
-    </ListContext.Provider>
+    </ListContext.Provider>,
   );
 }
 

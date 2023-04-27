@@ -1,9 +1,11 @@
 ---
 category: Components
 subtitle: 开关
-type: 数据录入
+group: 数据录入
 title: Switch
-cover: https://gw.alipayobjects.com/zos/alicdn/zNdJQMhfm/Switch.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*rtArRpBNDZcAAAAAAAAAAAAADrJ8AQ/original
+demo:
+  cols: 2
 ---
 
 开关选择器。
@@ -12,6 +14,15 @@ cover: https://gw.alipayobjects.com/zos/alicdn/zNdJQMhfm/Switch.svg
 
 - 需要表示开关状态/两种状态之间的切换时；
 - 和 `checkbox` 的区别是，切换 `switch` 会直接触发状态改变，而 `checkbox` 一般用于状态标记，需要和提交操作配合。
+
+## 代码演示
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">基本</code>
+<code src="./demo/disabled.tsx">不可用</code>
+<code src="./demo/text.tsx">文字和图标</code>
+<code src="./demo/size.tsx">两种大小</code>
+<code src="./demo/loading.tsx">加载中</code>
 
 ## API
 
@@ -26,12 +37,12 @@ cover: https://gw.alipayobjects.com/zos/alicdn/zNdJQMhfm/Switch.svg
 | loading | 加载中的开关 | boolean | false |
 | size | 开关大小，可选值：`default` `small` | string | `default` |
 | unCheckedChildren | 非选中时的内容 | ReactNode | - |
-| onChange | 变化时回调函数 | function(checked: boolean, event: Event) | - |
-| onClick | 点击时回调函数 | function(checked: boolean, event: Event) | - |
+| onChange | 变化时的回调函数 | function(checked: boolean, event: Event) | - |
+| onClick | 点击时的回调函数 | function(checked: boolean, event: Event) | - |
 
 ## 方法
 
-| 名称 | 描述 |
-| --- | --- |
-| blur() | 移除焦点 |
+| 名称    | 描述     |
+| ------- | -------- |
+| blur()  | 移除焦点 |
 | focus() | 获取焦点 |

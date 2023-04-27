@@ -1,8 +1,8 @@
 import Pagination from 'rc-pagination/lib/locale/lv_LV';
-import DatePicker from '../date-picker/locale/lv_LV';
-import TimePicker from '../time-picker/locale/lv_LV';
 import Calendar from '../calendar/locale/lv_LV';
+import DatePicker from '../date-picker/locale/lv_LV';
 import type { Locale } from '../locale-provider';
+import TimePicker from '../time-picker/locale/lv_LV';
 
 const localeValues: Locale = {
   locale: 'lv',
@@ -27,6 +27,7 @@ const localeValues: Locale = {
     cancelText: 'Atcelt',
   },
   Transfer: {
+    titles: ['', ''],
     searchPlaceholder: 'Meklēt šeit',
     itemUnit: 'vienumu',
     itemsUnit: 'vienumus',

@@ -1,8 +1,8 @@
-import type { Moment } from 'moment';
-import momentGenerateConfig from 'rc-picker/lib/generate/moment';
-import generateCalendar, { CalendarProps } from './generateCalendar';
+import type { Dayjs } from 'dayjs';
+import dayjsGenerateConfig from 'rc-picker/lib/generate/dayjs';
+import generateCalendar, { type CalendarProps } from './generateCalendar';
 
-const Calendar = generateCalendar<Moment>(momentGenerateConfig);
+const Calendar = generateCalendar<Dayjs>(dayjsGenerateConfig);
 
-export { CalendarProps };
+export type { CalendarProps };
 export default Calendar;

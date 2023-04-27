@@ -1,9 +1,11 @@
 ---
 category: Components
-type: Feedback
+group: Feedback
 noinstant: true
 title: Message
-cover: https://gw.alipayobjects.com/zos/alicdn/hAkKTIW0K/Message.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*JjZBT6N1MusAAAAAAAAAAAAADrJ8AQ/original
+demo:
+  cols: 2
 ---
 
 Display global messages as feedback in response to user operations.
@@ -13,6 +15,19 @@ Display global messages as feedback in response to user operations.
 - To provide feedback such as success, warning, error etc.
 - A message is displayed at top and center and will be dismissed automatically, as a non-interrupting light-weighted prompt.
 
+## Examples
+
+<!-- prettier-ignore -->
+<code src="./demo/hooks.tsx">Hooks usage (recommended)</code>
+<code src="./demo/other.tsx">Other types of message</code>
+<code src="./demo/duration.tsx">Customize duration</code>
+<code src="./demo/loading.tsx">Message with loading indicator</code>
+<code src="./demo/thenable.tsx">Promise interface</code>
+<code src="./demo/custom-style.tsx">Customized style</code>
+<code src="./demo/update.tsx">Update Message Content</code>
+<code src="./demo/info.tsx">Normal prompt</code>
+<code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
+
 ## API
 
 This components provides some static methods, with usage and arguments as following:
@@ -21,7 +36,6 @@ This components provides some static methods, with usage and arguments as follow
 - `message.error(content, [duration], onClose)`
 - `message.info(content, [duration], onClose)`
 - `message.warning(content, [duration], onClose)`
-- `message.warn(content, [duration], onClose)` // alias of warning
 - `message.loading(content, [duration], onClose)`
 
 | Argument | Description | Type | Default |
@@ -44,7 +58,6 @@ Supports passing parameters wrapped in an object:
 - `message.error(config)`
 - `message.info(config)`
 - `message.warning(config)`
-- `message.warn(config)` // alias of warning
 - `message.loading(config)`
 
 The properties of config are as follows:
@@ -96,7 +109,7 @@ message.config({
 
 ## FAQ
 
-### Why I can not access context, redux, ConfigProvider `locale/prefixCls` in message?
+### Why I can not access context, redux, ConfigProvider `locale/prefixCls/theme` in message?
 
 antd will dynamic create React instance by `ReactDOM.render` when call message methods. Whose context is different with origin code located context.
 
@@ -120,4 +133,4 @@ return (
 
 ### How to set static methods prefixCls ？
 
-You can config with [`ConfigProvider.config`](/components/config-provider/#ConfigProvider.config()-4.13.0+)
+You can config with [`ConfigProvider.config`](</components/config-provider/#ConfigProvider.config()-4.13.0+>)

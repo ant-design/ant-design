@@ -1,9 +1,8 @@
 ---
 category: Components
-type: Data Display
+group: Data Display
 title: Empty
-cols: 1
-cover: https://gw.alipayobjects.com/zos/alicdn/MNbKfLBVb/Empty.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ZdiZSLzEV0wAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 Empty state placeholder.
@@ -12,6 +11,15 @@ Empty state placeholder.
 
 - When there is no data provided, display for friendly tips.
 - User tutorial to create something in fresh new situation.
+
+## Examples
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/simple.tsx">Chose image</code>
+<code src="./demo/customize.tsx">Customize</code>
+<code src="./demo/config-provider.tsx">ConfigProvider</code>
+<code src="./demo/description.tsx">No description</code>
 
 ## API
 

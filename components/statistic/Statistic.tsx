@@ -1,16 +1,18 @@
-import * as React from 'react';
 import classNames from 'classnames';
+import * as React from 'react';
 
 import type { ConfigConsumerProps } from '../config-provider';
 import { withConfigConsumer } from '../config-provider/context';
 import Skeleton from '../skeleton';
-import StatisticNumber from './Number';
 import type Countdown from './Countdown';
-import type { valueType, FormatConfig } from './utils';
+import StatisticNumber from './Number';
+import type { FormatConfig, valueType } from './utils';
 
-interface StatisticComponent {
+import useStyle from './style';
+
+type CompoundedComponent = {
   Countdown: typeof Countdown;
-}
+};
 
 export interface StatisticProps extends FormatConfig {
   prefixCls?: string;
@@ -27,7 +29,7 @@ export interface StatisticProps extends FormatConfig {
   onMouseLeave?: React.MouseEventHandler<HTMLDivElement>;
 }
 
-const Statistic: React.FC<StatisticProps & ConfigConsumerProps> = props => {
+const Statistic: React.FC<StatisticProps & ConfigConsumerProps> = (props) => {
   const {
     prefixCls,
     className,
@@ -38,20 +40,32 @@ const Statistic: React.FC<StatisticProps & ConfigConsumerProps> = props => {
     valueRender,
     prefix,
     suffix,
-    loading,
+    loading = false,
     direction,
     onMouseEnter,
     onMouseLeave,
+    decimalSeparator = '.',
+    groupSeparator = ',',
   } = props;
-  const valueNode = <StatisticNumber {...props} value={value} />;
+  const valueNode = (
+    <StatisticNumber
+      decimalSeparator={decimalSeparator}
+      groupSeparator={groupSeparator}
+      {...props}
+      value={value}
+    />
+  );
+  // Style
+  const [wrapSSR, hashId] = useStyle(String(prefixCls));
   const cls = classNames(
     prefixCls,
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
+    hashId,
   );
-  return (
+  return wrapSSR(
     <div className={cls} style={style} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
       {title && <div className={`${prefixCls}-title`}>{title}</div>}
       <Skeleton paragraph={false} loading={loading} className={`${prefixCls}-skeleton`}>
@@ -61,18 +75,12 @@ const Statistic: React.FC<StatisticProps & ConfigConsumerProps> = props => {
           {suffix && <span className={`${prefixCls}-content-suffix`}>{suffix}</span>}
         </div>
       </Skeleton>
-    </div>
+    </div>,
   );
-};
-
-Statistic.defaultProps = {
-  decimalSeparator: '.',
-  groupSeparator: ',',
-  loading: false,
 };
 
 const WrapperStatistic = withConfigConsumer<StatisticProps>({
   prefixCls: 'statistic',
-})<StatisticComponent>(Statistic);
+})<CompoundedComponent>(Statistic);
 
 export default WrapperStatistic;

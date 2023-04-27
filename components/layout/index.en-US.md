@@ -1,9 +1,8 @@
 ---
 category: Components
-type: Layout
-cols: 1
+group: Layout
 title: Layout
-cover: https://gw.alipayobjects.com/zos/alicdn/hzEndUVEx/Layout.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*4i58ToAcxaYAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 Handling the overall layout of a page.
@@ -44,7 +43,7 @@ Style of a navigation should conform to its level.
 
 - **Enlarge the size of the font**
 
-  `12px`, `14px` is a standard font size of navigations, `14px` is used for the first and the second level of the navigation. You can choose an appropriate font size regarding the level of your navigation.
+  `12px`, `14px` is a standard font size of navigation's, `14px` is used for the first and the second level of the navigation. You can choose an appropriate font size regarding the level of your navigation.
 
 ## Component Overview
 
@@ -55,6 +54,20 @@ Style of a navigation should conform to its level.
 - `Footer`: The bottom layout with the default style, in which any element can be nested, and must be placed in `Layout`.
 
 > Based on `flex layout`, please pay attention to the [compatibility](http://caniuse.com/#search=flex).
+
+## Examples
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">Basic Structure</code>
+<code src="./demo/top.tsx">Header-Content-Footer</code>
+<code src="./demo/top-side-2.tsx">Header Sider 2</code>
+<code src="./demo/top-side.tsx">Header-Sider</code>
+<code src="./demo/side.tsx" iframe="360">Sider</code>
+<code src="./demo/custom-trigger.tsx">Custom trigger</code>
+<code src="./demo/responsive.tsx">Responsive</code>
+<code src="./demo/fixed.tsx" iframe="360">Fixed Header</code>
+<code src="./demo/fixed-sider.tsx" iframe="360">Fixed Sider</code>
+<code src="./demo/custom-trigger-debug.tsx" debug>Custom trigger debug</code>
 
 ## API
 

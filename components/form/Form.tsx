@@ -1,19 +1,21 @@
-import * as React from 'react';
-import { useMemo } from 'react';
 import classNames from 'classnames';
 import FieldForm, { List, useWatch } from 'rc-field-form';
 import type { FormProps as RcFormProps } from 'rc-field-form/lib/Form';
 import type { ValidateErrorEntity } from 'rc-field-form/lib/interface';
+import * as React from 'react';
+import { useMemo } from 'react';
 import type { Options } from 'scroll-into-view-if-needed';
-import type { ColProps } from '../grid/col';
 import { ConfigContext } from '../config-provider';
-import type { FormContextProps } from './context';
-import { FormContext } from './context';
-import type { FormLabelAlign } from './interface';
-import useForm, { FormInstance } from './hooks/useForm';
+import DisabledContext, { DisabledContextProvider } from '../config-provider/DisabledContext';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext, { SizeContextProvider } from '../config-provider/SizeContext';
-import DisabledContext, { DisabledContextProvider } from '../config-provider/DisabledContext';
+import type { ColProps } from '../grid/col';
+import type { FormContextProps } from './context';
+import { FormContext } from './context';
+import useForm, { type FormInstance } from './hooks/useForm';
+import type { FormLabelAlign } from './interface';
+
+import useStyle from './style';
 
 export type RequiredMark = boolean | 'optional';
 export type FormLayout = 'horizontal' | 'inline' | 'vertical';
@@ -81,6 +83,9 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
 
   const prefixCls = getPrefixCls('form', customizePrefixCls);
 
+  // Style
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
   const formClassName = classNames(
     prefixCls,
     {
@@ -89,6 +94,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-${size}`]: size,
     },
+    hashId,
     className,
   );
 
@@ -127,7 +133,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
     }
   };
 
-  return (
+  return wrapSSR(
     <DisabledContextProvider disabled={disabled}>
       <SizeContextProvider size={size}>
         <FormContext.Provider value={formContextValue}>
@@ -141,7 +147,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
           />
         </FormContext.Provider>
       </SizeContextProvider>
-    </DisabledContextProvider>
+    </DisabledContextProvider>,
   );
 };
 
@@ -149,6 +155,6 @@ const Form = React.forwardRef<FormInstance, FormProps>(InternalForm) as <Values 
   props: React.PropsWithChildren<FormProps<Values>> & { ref?: React.Ref<FormInstance<Values>> },
 ) => React.ReactElement;
 
-export { useForm, List, FormInstance, useWatch };
+export { useForm, List, type FormInstance, useWatch };
 
 export default Form;

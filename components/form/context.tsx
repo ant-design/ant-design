@@ -39,7 +39,7 @@ export interface FormProviderProps extends Omit<RcFormProviderProps, 'validateMe
   prefixCls?: string;
 }
 
-export const FormProvider: React.FC<FormProviderProps> = props => {
+export const FormProvider: React.FC<FormProviderProps> = (props) => {
   const providerProps = omit(props, ['prefixCls']);
   return <RcFormProvider {...providerProps} />;
 };

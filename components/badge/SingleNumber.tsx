@@ -1,5 +1,5 @@
-import * as React from 'react';
 import classNames from 'classnames';
+import * as React from 'react';
 
 export interface UnitNumberProps {
   prefixCls: string;
@@ -95,7 +95,7 @@ export default function SingleNumber(props: SingleNumberProps) {
     }
 
     // Fill with number unit nodes
-    const prevIndex = unitNumberList.findIndex(n => n % 10 === prevValue);
+    const prevIndex = unitNumberList.findIndex((n) => n % 10 === prevValue);
     unitNodes = unitNumberList.map((n, index) => {
       const singleUnit = n % 10;
       return (

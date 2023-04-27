@@ -1,8 +1,10 @@
 ---
 category: Components
-type: Data Entry
+group: Data Entry
 title: Select
-cover: https://gw.alipayobjects.com/zos/alicdn/_0XzgOis7/Select.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*zo76T7KQx2UAAAAAAAAAAAAADrJ8AQ/original
+demo:
+  cols: 2
 ---
 
 Select component to select value from options.
@@ -11,6 +13,34 @@ Select component to select value from options.
 
 - A dropdown menu for displaying choices - an elegant alternative to the native `<select>` element.
 - Utilizing [Radio](/components/radio/) is recommended when there are fewer total options (less than 5).
+
+## Examples
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">Basic Usage</code>
+<code src="./demo/search.tsx">Select with search field</code>
+<code src="./demo/multiple.tsx">multiple selection</code>
+<code src="./demo/size.tsx">Sizes</code>
+<code src="./demo/option-label-prop.tsx">Custom selection render</code>
+<code src="./demo/search-sort.tsx">Search with sort</code>
+<code src="./demo/tags.tsx">Tags</code>
+<code src="./demo/optgroup.tsx">Option Group</code>
+<code src="./demo/coordinate.tsx">coordinate</code>
+<code src="./demo/search-box.tsx">Search Box</code>
+<code src="./demo/label-in-value.tsx">Get value of selected item</code>
+<code src="./demo/automatic-tokenization.tsx">Automatic tokenization</code>
+<code src="./demo/select-users.tsx">Search and Select Users</code>
+<code src="./demo/suffix.tsx" debug>Suffix</code>
+<code src="./demo/custom-dropdown-menu.tsx">Custom dropdown</code>
+<code src="./demo/hide-selected.tsx">Hide Already Selected</code>
+<code src="./demo/bordered.tsx">Bordered-less</code>
+<code src="./demo/custom-tag-render.tsx">Custom Tag Render</code>
+<code src="./demo/responsive.tsx">Responsive maxTagCount</code>
+<code src="./demo/big-data.tsx">Big Data</code>
+<code src="./demo/status.tsx">Status</code>
+<code src="./demo/placement.tsx">Placement</code>
+<code src="./demo/debug.tsx" debug>4.0 Debug</code>
+<code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
 
@@ -33,7 +63,7 @@ Select component to select value from options.
 | defaultOpen | Initial open state of dropdown | boolean | - |  |
 | defaultValue | Initial selected option | string \| string\[]<br />number \| number\[]<br />LabeledValue \| LabeledValue\[] | - |  |
 | disabled | Whether disabled select | boolean | false |  |
-| dropdownClassName | The className of dropdown menu | string | - |  |
+| popupClassName | The className of dropdown menu | string | - | 4.23.0 |
 | dropdownMatchSelectWidth | Determine whether the dropdown menu and the select input are the same width. Default set `min-width` same as input. Will ignore when value less than select width. `false` will disable virtual scroll | boolean \| number | true |  |
 | dropdownRender | Customize dropdown content | (originNode: ReactNode) => ReactNode | - |  |
 | dropdownStyle | The style of dropdown menu | CSSProperties | - |  |
@@ -59,7 +89,7 @@ Select component to select value from options.
 | removeIcon | The custom remove icon | ReactNode | - |  |
 | searchValue | The current input "search" text | string | - |  |
 | showArrow | Whether to show the drop-down arrow | boolean | true(for single select), false(for multiple select) |  |
-| showSearch | Whether show search input in single mode | boolean | false |  |
+| showSearch | Whether select is searchable | boolean | single: false, multiple: true |  |
 | size | Size of Select input | `large` \| `middle` \| `small` | `middle` |  |
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
 | suffixIcon | The custom suffix icon | ReactNode | - |  |
@@ -107,19 +137,38 @@ Select component to select value from options.
 
 ## FAQ
 
-### Why sometime search will show 2 same option when in `tag` mode?
+### Why sometime search will show 2 same option when in `tags` mode?
 
 It's caused by option with different `label` and `value`. You can use `optionFilterProp="label"` to change filter logic instead.
 
-### The dropdown is closed when click `dropdownRender` area?
+### When I click elements in dropdownRender, the select dropdown will not be closed?
 
-Dropdown menu will be closed if click `dropdownRender` area, you can prevent it by wrapping `onMouseDown={e => e.preventDefault()}` (see more at [#13448](https://github.com/ant-design/ant-design/issues/13448)).
+You can control it by `open` prop: [codesandbox](https://codesandbox.io/s/ji-ben-shi-yong-antd-4-21-7-forked-gnp4cy?file=/demo.js).
+
+### I don't want dropdown close when click inside `dropdownRender`?
+
+Select will close when it lose focus. You can prevent event to handle this:
+
+```jsx
+<Select
+  dropdownRender={() => (
+    <div
+      onMouseDown={(e) => {
+        e.preventDefault();
+        e.stopPropagation();
+      }}
+    >
+      Some Content
+    </div>
+  )}
+/>
+```
 
 ### Why sometime customize Option cause scroll break?
 
-Virtual scroll internal set item height as `32px`. You need to adjust `listItemHeight` when your option height is less and `listHeight` config list container height:
+Virtual scroll internal set item height as `24px`. You need to adjust `listItemHeight` when your option height is less and `listHeight` config list container height:
 
-```tsx
+```jsx
 <Select listItemHeight={10} listHeight={250} />
 ```
 

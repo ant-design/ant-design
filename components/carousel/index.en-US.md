@@ -1,8 +1,10 @@
 ---
 category: Components
-type: Data Display
+group: Data Display
 title: Carousel
-cover: https://gw.alipayobjects.com/zos/antfincdn/%24C9tmj978R/Carousel.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*bPMSSqbaTMkAAAAAAAAAAAAADrJ8AQ/original
+demo:
+  cols: 2
 ---
 
 A carousel component. Scales with its container.
@@ -12,6 +14,14 @@ A carousel component. Scales with its container.
 - When there is a group of content on the same level.
 - When there is insufficient content space, it can be used to save space in the form of a revolving door.
 - Commonly used for a group of pictures/cards.
+
+## Examples
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/position.tsx">Position</code>
+<code src="./demo/autoplay.tsx">Scroll automatically</code>
+<code src="./demo/fade.tsx">Fade in</code>
 
 ## API
 

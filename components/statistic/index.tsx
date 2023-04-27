@@ -1,8 +1,8 @@
-import Statistic, { StatisticProps } from './Statistic';
 import Countdown from './Countdown';
+import Statistic, { type StatisticProps } from './Statistic';
 
 Statistic.Countdown = Countdown;
 
-export { StatisticProps };
+export type { StatisticProps };
 
 export default Statistic;

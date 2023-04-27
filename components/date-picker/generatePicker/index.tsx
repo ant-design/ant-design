@@ -1,26 +1,25 @@
 import type { GenerateConfig } from 'rc-picker/lib/generate/index';
+import type { Locale as RcPickerLocale, PickerMode } from 'rc-picker/lib/interface';
+import type { SharedTimeProps } from 'rc-picker/lib/panels/TimePanel';
 import type {
   PickerBaseProps as RCPickerBaseProps,
   PickerDateProps as RCPickerDateProps,
   PickerTimeProps as RCPickerTimeProps,
 } from 'rc-picker/lib/Picker';
-import type { SharedTimeProps } from 'rc-picker/lib/panels/TimePanel';
 import type {
   RangePickerBaseProps as RCRangePickerBaseProps,
   RangePickerDateProps as RCRangePickerDateProps,
   RangePickerTimeProps as RCRangePickerTimeProps,
 } from 'rc-picker/lib/RangePicker';
-import type { PickerMode, Locale as RcPickerLocale } from 'rc-picker/lib/interface';
 import type { SizeType } from '../../config-provider/SizeContext';
-import PickerButton from '../PickerButton';
-import PickerTag from '../PickerTag';
 import type { TimePickerLocale } from '../../time-picker';
-import generateSinglePicker from './generateSinglePicker';
-import generateRangePicker from './generateRangePicker';
-import { tuple } from '../../_util/type';
 import type { InputStatus } from '../../_util/statusUtils';
+import { tuple } from '../../_util/type';
+import PickerButton from '../PickerButton';
+import generateRangePicker from './generateRangePicker';
+import generateSinglePicker from './generateSinglePicker';
 
-export const Components = { button: PickerButton, rangeItem: PickerTag };
+export const Components = { button: PickerButton };
 
 function toArray<T>(list: T | T[]): T[] {
   if (!list) {

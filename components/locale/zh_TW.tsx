@@ -1,9 +1,9 @@
 /* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/zh_TW';
-import DatePicker from '../date-picker/locale/zh_TW';
-import TimePicker from '../time-picker/locale/zh_TW';
 import Calendar from '../calendar/locale/zh_TW';
+import DatePicker from '../date-picker/locale/zh_TW';
 import type { Locale } from '../locale-provider';
+import TimePicker from '../time-picker/locale/zh_TW';
 
 const typeTemplate = '${label}不是一個有效的${type}';
 
@@ -37,11 +37,17 @@ const localeValues: Locale = {
     cancelText: '取消',
     justOkText: '知道了',
   },
+  Tour: {
+    Next: '下一步',
+    Previous: '上一步',
+    Finish: '結束導覽',
+  },
   Popconfirm: {
     okText: '確定',
     cancelText: '取消',
   },
   Transfer: {
+    titles: ['', ''],
     searchPlaceholder: '搜尋資料',
     itemUnit: '項目',
     itemsUnit: '項目',

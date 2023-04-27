@@ -1,19 +1,20 @@
-import * as React from 'react';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import classNames from 'classnames';
-import padStart from 'lodash/padStart';
 import { PickerPanel as RCPickerPanel } from 'rc-picker';
-import type { Locale } from 'rc-picker/lib/interface';
 import type { GenerateConfig } from 'rc-picker/lib/generate';
+import type { Locale } from 'rc-picker/lib/interface';
 import type {
   PickerPanelBaseProps as RCPickerPanelBaseProps,
   PickerPanelDateProps as RCPickerPanelDateProps,
   PickerPanelTimeProps as RCPickerPanelTimeProps,
 } from 'rc-picker/lib/PickerPanel';
-import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import enUS from './locale/en_US';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import * as React from 'react';
 import { ConfigContext } from '../config-provider';
+import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import CalendarHeader from './Header';
+import enUS from './locale/en_US';
+
+import useStyle from './style';
 
 type InjectDefaultProps<Props> = Omit<
   Props,
@@ -102,6 +103,9 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
     const { getPrefixCls, direction } = React.useContext(ConfigContext);
     const prefixCls = getPrefixCls('picker', customizePrefixCls);
     const calendarPrefixCls = `${prefixCls}-calendar`;
+
+    const [wrapSSR, hashId] = useStyle(prefixCls);
+
     const today = generateConfig.getNow();
 
     // ====================== State =======================
@@ -174,7 +178,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
       };
       result.lang = {
         ...result.lang,
-        ...((locale || {}) as any).lang,
+        ...(locale || {}).lang,
       };
       return result;
     };
@@ -193,7 +197,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
             })}
           >
             <div className={`${calendarPrefixCls}-date-value`}>
-              {padStart(String(generateConfig.getDate(date)), 2, '0')}
+              {String(generateConfig.getDate(date)).padStart(2, '0')}
             </div>
             <div className={`${calendarPrefixCls}-date-content`}>
               {dateCellRender && dateCellRender(date)}
@@ -230,9 +234,9 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
       [monthFullCellRender, monthCellRender],
     );
 
-    return (
+    return wrapSSR(
       <LocaleReceiver componentName="Calendar" defaultLocale={getDefaultLocale}>
-        {(mergedLocale: any) => (
+        {(contextLocale) => (
           <div
             className={classNames(
               calendarPrefixCls,
@@ -242,6 +246,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
                 [`${calendarPrefixCls}-rtl`]: direction === 'rtl',
               },
               className,
+              hashId,
             )}
             style={style}
           >
@@ -259,7 +264,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
                 generateConfig={generateConfig}
                 mode={mergedMode}
                 fullscreen={fullscreen}
-                locale={mergedLocale.lang}
+                locale={contextLocale.lang}
                 validRange={validRange}
                 onChange={onInternalSelect}
                 onModeChange={triggerModeChange}
@@ -269,19 +274,19 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
             <RCPickerPanel
               value={mergedValue}
               prefixCls={prefixCls}
-              locale={mergedLocale.lang}
+              locale={contextLocale.lang}
               generateConfig={generateConfig}
               dateRender={dateRender}
-              monthCellRender={date => monthRender(date, mergedLocale.lang)}
+              monthCellRender={(date) => monthRender(date, contextLocale.lang)}
               onSelect={onInternalSelect}
               mode={panelMode}
-              picker={panelMode as any}
+              picker={panelMode}
               disabledDate={mergedDisabledDate}
               hideHeader
             />
           </div>
         )}
-      </LocaleReceiver>
+      </LocaleReceiver>,
     );
   };
 

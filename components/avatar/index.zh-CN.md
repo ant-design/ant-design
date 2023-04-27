@@ -1,9 +1,13 @@
 ---
 category: Components
 subtitle: 头像
-type: 数据展示
 title: Avatar
-cover: https://gw.alipayobjects.com/zos/antfincdn/aBcnbw68hP/Avatar.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*JJBSS5lBG4IAAAAAAAAAAAAADrJ8AQ/original
+demo:
+  cols: 2
+group:
+  title: 数据展示
+  order: 5
 ---
 
 用来代表用户或事物，支持图片、图标或字符展示。
@@ -11,6 +15,18 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/aBcnbw68hP/Avatar.svg
 ## 设计师专属
 
 安装 [Kitchen Sketch 插件 💎](https://kitchen.alipay.com)，一键填充高逼格头像和文本。
+
+## 代码演示
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">基本</code>
+<code src="./demo/type.tsx">类型</code>
+<code src="./demo/dynamic.tsx">自动调整字符大小</code>
+<code src="./demo/badge.tsx">带徽标的头像</code>
+<code src="./demo/group.tsx">Avatar.Group</code>
+<code src="./demo/toggle-debug.tsx" debug>隐藏情况下计算字符对齐</code>
+<code src="./demo/responsive.tsx">响应式尺寸</code>
+<code src="./demo/fallback.tsx" debug>图片不存在时</code>
 
 ## API
 

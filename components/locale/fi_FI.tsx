@@ -1,8 +1,8 @@
 import Pagination from 'rc-pagination/lib/locale/fi_FI';
-import DatePicker from '../date-picker/locale/fi_FI';
-import TimePicker from '../time-picker/locale/fi_FI';
 import Calendar from '../calendar/locale/fi_FI';
+import DatePicker from '../date-picker/locale/fi_FI';
 import type { Locale } from '../locale-provider';
+import TimePicker from '../time-picker/locale/fi_FI';
 
 const localeValues: Locale = {
   locale: 'fi',
@@ -31,6 +31,7 @@ const localeValues: Locale = {
     cancelText: 'Peruuta',
   },
   Transfer: {
+    titles: ['', ''],
     searchPlaceholder: 'Etsi täältä',
     itemUnit: 'kohde',
     itemsUnit: 'kohdetta',

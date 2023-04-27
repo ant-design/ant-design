@@ -1,12 +1,12 @@
 import * as React from 'react';
-import type { TransformColumns, ColumnTitleProps, ColumnsType } from '../interface';
+import type { ColumnsType, ColumnTitleProps, TransformColumns } from '../interface';
 import { renderColumnTitle } from '../util';
 
 function fillTitle<RecordType>(
   columns: ColumnsType<RecordType>,
   columnTitleProps: ColumnTitleProps<RecordType>,
 ) {
-  return columns.map(column => {
+  return columns.map((column) => {
     const cloneColumn = { ...column };
 
     cloneColumn.title = renderColumnTitle(column.title, columnTitleProps);

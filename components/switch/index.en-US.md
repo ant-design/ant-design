@@ -1,8 +1,10 @@
 ---
 category: Components
-type: Data Entry
+group: Data Entry
 title: Switch
-cover: https://gw.alipayobjects.com/zos/alicdn/zNdJQMhfm/Switch.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*rtArRpBNDZcAAAAAAAAAAAAADrJ8AQ/original
+demo:
+  cols: 2
 ---
 
 Switching Selector.
@@ -11,6 +13,15 @@ Switching Selector.
 
 - If you need to represent the switching between two states or on-off state.
 - The difference between `Switch` and `Checkbox` is that `Switch` will trigger a state change directly when you toggle it, while `Checkbox` is generally used for state marking, which should work in conjunction with submit operation.
+
+## Examples
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/disabled.tsx">Disabled</code>
+<code src="./demo/text.tsx">Text & icon</code>
+<code src="./demo/size.tsx">Two sizes</code>
+<code src="./demo/loading.tsx">Loading</code>
 
 ## API
 
@@ -30,7 +41,7 @@ Switching Selector.
 
 ## Methods
 
-| Name | Description |
-| --- | --- |
-| blur() | Remove focus |
-| focus() | Get focus |
+| Name    | Description  |
+| ------- | ------------ |
+| blur()  | Remove focus |
+| focus() | Get focus    |

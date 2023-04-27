@@ -1,12 +1,14 @@
-import * as React from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
-import Tabs from '../tabs';
-import Grid from './Grid';
+import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import SizeContext from '../config-provider/SizeContext';
-import type { TabsProps } from '../tabs';
 import Skeleton from '../skeleton';
+import type { TabsProps } from '../tabs';
+import Tabs from '../tabs';
+import Grid from './Grid';
+
+import useStyle from './style';
 
 export type CardType = 'inner';
 export type CardSize = 'default' | 'small';
@@ -94,6 +96,7 @@ const Card = React.forwardRef((props: CardProps, ref: React.Ref<HTMLDivElement>)
   } = props;
 
   const prefixCls = getPrefixCls('card', customizePrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const loadingBlock = (
     <Skeleton loading active paragraph={{ rows: 4 }} title={false}>
@@ -118,11 +121,12 @@ const Card = React.forwardRef((props: CardProps, ref: React.Ref<HTMLDivElement>)
         {...extraProps}
         className={`${prefixCls}-head-tabs`}
         onChange={onTabChange}
-      >
-        {tabList.map(item => (
-          <Tabs.TabPane tab={item.tab} disabled={item.disabled} key={item.key} />
-        ))}
-      </Tabs>
+        items={tabList.map((item) => ({
+          label: item.tab,
+          key: item.key,
+          disabled: item.disabled ?? false,
+        }))}
+      />
     ) : null;
   if (title || extra || tabs) {
     head = (
@@ -160,15 +164,16 @@ const Card = React.forwardRef((props: CardProps, ref: React.Ref<HTMLDivElement>)
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
+    hashId,
   );
 
-  return (
+  return wrapSSR(
     <div ref={ref} {...divProps} className={classString}>
       {head}
       {coverDom}
       {body}
       {actionDom}
-    </div>
+    </div>,
   );
 });
 

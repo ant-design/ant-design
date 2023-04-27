@@ -1,10 +1,12 @@
 ---
 category: Components
-type: 反馈
+group: 反馈
 noinstant: true
 title: Notification
 subtitle: 通知提醒框
-cover: https://gw.alipayobjects.com/zos/alicdn/Jxm5nw61w/Notification.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*6RWNQ78WtvEAAAAAAAAAAAAADrJ8AQ/original
+demo:
+  cols: 2
 ---
 
 全局展示通知提醒信息。
@@ -17,6 +19,20 @@ cover: https://gw.alipayobjects.com/zos/alicdn/Jxm5nw61w/Notification.svg
 - 带有交互的通知，给出用户下一步的行动点。
 - 系统主动推送。
 
+## 代码演示
+
+<!-- prettier-ignore -->
+<code src="./demo/hooks.tsx">Hooks 调用（推荐）</code>
+<code src="./demo/basic.tsx">基本</code>
+<code src="./demo/duration.tsx">自动关闭的延时</code>
+<code src="./demo/with-icon.tsx">带有图标的通知提醒框</code>
+<code src="./demo/with-btn.tsx">自定义按钮</code>
+<code src="./demo/custom-icon.tsx">自定义图标</code>
+<code src="./demo/placement.tsx">位置</code>
+<code src="./demo/custom-style.tsx">自定义样式</code>
+<code src="./demo/update.tsx">更新消息内容</code>
+<code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
+
 ## API
 
 - `notification.success(config)`
@@ -25,8 +41,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/Jxm5nw61w/Notification.svg
 - `notification.warning(config)`
 - `notification.warn(config)`
 - `notification.open(config)`
-- `notification.close(key: String)`
-- `notification.destroy()`
+- `notification.destroy(key?: String)`
 
 config 参数如下：
 
@@ -78,7 +93,7 @@ notification.config({
 
 ## FAQ
 
-### 为什么 notification 不能获取 context、redux 的内容和 ConfigProvider 的 `locale/prefixCls` 配置？
+### 为什么 notification 不能获取 context、redux 的内容和 ConfigProvider 的 `locale/prefixCls/theme` 等配置？
 
 直接调用 notification 方法，antd 会通过 `ReactDOM.render` 动态创建新的 React 实体。其 context 与当前代码所在 context 并不相同，因而无法获取 context 信息。
 
@@ -98,7 +113,7 @@ return (
 );
 ```
 
-**异同：**通过 hooks 创建的 `contextHolder` 必须插入到子元素节点中才会生效，当你不需要上下文信息时请直接调用。
+**异同**：通过 hooks 创建的 `contextHolder` 必须插入到子元素节点中才会生效，当你不需要上下文信息时请直接调用。
 
 ### 静态方法如何设置 prefixCls ？
 

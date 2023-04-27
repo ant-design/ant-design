@@ -1,12 +1,14 @@
-import * as React from 'react';
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import Radio from './radio';
-import type { RadioGroupProps, RadioChangeEvent, RadioGroupButtonStyle } from './interface';
+import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import SizeContext from '../config-provider/SizeContext';
-import { RadioGroupContextProvider } from './context';
 import getDataOrAriaProps from '../_util/getDataOrAriaProps';
+import { RadioGroupContextProvider } from './context';
+import type { RadioChangeEvent, RadioGroupButtonStyle, RadioGroupProps } from './interface';
+import Radio from './radio';
+
+import useStyle from './style';
 
 const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
@@ -45,10 +47,14 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
   } = props;
   const prefixCls = getPrefixCls('radio', customizePrefixCls);
   const groupPrefixCls = `${prefixCls}-group`;
+
+  // Style
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
   let childrenToRender = children;
   // 如果存在 options, 优先使用
   if (options && options.length > 0) {
-    childrenToRender = options.map(option => {
+    childrenToRender = options.map((option) => {
       if (typeof option === 'string' || typeof option === 'number') {
         // 此处类型自动推导为 string
         return (
@@ -88,8 +94,9 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
       [`${groupPrefixCls}-rtl`]: direction === 'rtl',
     },
     className,
+    hashId,
   );
-  return (
+  return wrapSSR(
     <div
       {...getDataOrAriaProps(props)}
       className={classString}
@@ -112,7 +119,7 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
       >
         {childrenToRender}
       </RadioGroupContextProvider>
-    </div>
+    </div>,
   );
 });
 

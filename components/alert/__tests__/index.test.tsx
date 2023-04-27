@@ -1,9 +1,9 @@
 import React from 'react';
-import { act } from 'react-dom/test-utils';
+import userEvent from '@testing-library/user-event';
 import Alert from '..';
 import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, sleep } from '../../../tests/utils';
+import { render, act, screen } from '../../../tests/utils';
 import Button from '../../button';
 import Popconfirm from '../../popconfirm';
 import Tooltip from '../../tooltip';
@@ -22,9 +22,9 @@ describe('Alert', () => {
     jest.useRealTimers();
   });
 
-  it('could be closed', () => {
+  it('should show close button and could be closed', async () => {
     const onClose = jest.fn();
-    const { container } = render(
+    render(
       <Alert
         message="Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text"
         type="warning"
@@ -33,125 +33,100 @@ describe('Alert', () => {
       />,
     );
 
+    await userEvent.click(screen.getByRole('button', { name: /close/i }));
+
     act(() => {
-      jest.useFakeTimers();
-      fireEvent.click(container.querySelector('.ant-alert-close-icon')!);
       jest.runAllTimers();
-      jest.useRealTimers();
     });
-    expect(onClose).toHaveBeenCalled();
+
+    expect(onClose).toHaveBeenCalledTimes(1);
   });
 
-  describe('action of Alert', () => {
-    it('custom action', () => {
-      const { container } = render(
-        <Alert
-          message="Success Tips"
-          type="success"
-          showIcon
-          action={
-            <Button size="small" type="text">
-              UNDO
-            </Button>
-          }
-          closable
-        />,
-      );
-      expect(container.firstChild).toMatchSnapshot();
-    });
-  });
-
-  it('support closeIcon', () => {
+  it('custom action', () => {
     const { container } = render(
       <Alert
+        message="Success Tips"
+        type="success"
+        showIcon
+        action={
+          <Button size="small" type="text">
+            UNDO
+          </Button>
+        }
         closable
-        closeIcon={<span>close</span>}
-        message="Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text"
-        type="warning"
       />,
     );
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  describe('data and aria props', () => {
-    it('sets data attributes on input', () => {
-      const { container } = render(<Alert data-test="test-id" data-id="12345" message={null} />);
-      const input = container.querySelector('.ant-alert')!;
-      expect(input.getAttribute('data-test')).toBe('test-id');
-      expect(input.getAttribute('data-id')).toBe('12345');
-    });
-
-    it('sets aria attributes on input', () => {
-      const { container } = render(<Alert aria-describedby="some-label" message={null} />);
-      const input = container.querySelector('.ant-alert')!;
-      expect(input.getAttribute('aria-describedby')).toBe('some-label');
-    });
-
-    it('sets role attribute on input', () => {
-      const { container } = render(<Alert role="status" message={null} />);
-      const input = container.querySelector('.ant-alert')!;
-      expect(input.getAttribute('role')).toBe('status');
-    });
+  it('should sets data attributes on alert when pass attributes to props', () => {
+    render(
+      <Alert data-test="test-id" data-id="12345" aria-describedby="some-label" message={null} />,
+    );
+    const alert = screen.getByRole('alert');
+    expect(alert).toHaveAttribute('data-test', 'test-id');
+    expect(alert).toHaveAttribute('data-id', '12345');
+    expect(alert).toHaveAttribute('aria-describedby', 'some-label');
   });
 
-  it('ErrorBoundary', () => {
-    jest.spyOn(console, 'error').mockImplementation(() => undefined);
-    // eslint-disable-next-line no-console
-    expect(console.error).toBeCalledTimes(0);
+  it('sets role attribute on input', () => {
+    render(<Alert role="status" message={null} />);
+
+    expect(screen.getByRole('status')).toBeInTheDocument();
+  });
+
+  it('should show error as ErrorBoundary when children have error', () => {
+    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    expect(warnSpy).toHaveBeenCalledTimes(0);
     // @ts-expect-error
     // eslint-disable-next-line react/jsx-no-undef
     const ThrowError = () => <NotExisted />;
-    const { container } = render(
+    render(
       <ErrorBoundary>
         <ThrowError />
       </ErrorBoundary>,
     );
-    // eslint-disable-next-line jest/no-standalone-expect
-    expect(container.textContent).toContain('ReferenceError: NotExisted is not defined');
-    // eslint-disable-next-line no-console
-    (console.error as any).mockRestore();
+
+    expect(screen.getByRole('alert')).toHaveTextContent(
+      'ReferenceError: NotExisted is not defined',
+    );
+    warnSpy.mockRestore();
   });
 
   it('could be used with Tooltip', async () => {
-    const ref = React.createRef<any>();
-    jest.useRealTimers();
-    const { container } = render(
-      <Tooltip title="xxx" mouseEnterDelay={0} ref={ref}>
+    render(
+      <Tooltip title="xxx" mouseEnterDelay={0}>
         <Alert
           message="Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text"
           type="warning"
         />
       </Tooltip>,
     );
-    // wrapper.find('.ant-alert').simulate('mouseenter');
-    fireEvent.mouseEnter(container.querySelector('.ant-alert')!);
-    await sleep(0);
-    expect(ref.current.getPopupDomNode()).toBeTruthy();
-    jest.useFakeTimers();
+
+    await userEvent.hover(screen.getByRole('alert'));
+
+    expect(screen.getByRole('tooltip')).toBeInTheDocument();
   });
 
   it('could be used with Popconfirm', async () => {
-    const ref = React.createRef<any>();
-    jest.useRealTimers();
-    const { container } = render(
-      <Popconfirm ref={ref} title="xxx">
+    render(
+      <Popconfirm title="xxx">
         <Alert
           message="Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text"
           type="warning"
         />
       </Popconfirm>,
     );
-    fireEvent.click(container.querySelector('.ant-alert')!);
-    await sleep(0);
-    expect(ref.current.getPopupDomNode()).toBeTruthy();
-    jest.useFakeTimers();
+    await userEvent.click(screen.getByRole('alert'));
+
+    expect(screen.getByRole('tooltip')).toBeInTheDocument();
   });
 
   it('could accept none react element icon', () => {
-    const { container } = render(
-      <Alert message="Success Tips" type="success" showIcon icon="icon" />,
-    );
-    expect(container.firstChild).toMatchSnapshot();
+    render(<Alert message="Success Tips" type="success" showIcon icon="icon" />);
+
+    expect(screen.getByRole('alert')).toHaveTextContent(/success tips/i);
+    expect(screen.getByRole('alert')).toHaveTextContent(/icon/i);
   });
 
   it('should not render message div when no message', () => {

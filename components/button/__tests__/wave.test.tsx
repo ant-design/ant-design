@@ -1,18 +1,20 @@
+import userEvent from '@testing-library/user-event';
 import React from 'react';
 import Button from '..';
-import { sleep, render, fireEvent } from '../../../tests/utils';
+import { fireEvent, render, assertsExist } from '../../../tests/utils';
 
 // Mock Wave ref
 let waveInstanceMock: any;
 jest.mock('../../_util/wave', () => {
-  const Wave = jest.requireActual('../../_util/wave');
+  const Wave: typeof import('../../_util/wave') = jest.requireActual('../../_util/wave');
   const WaveComponent = Wave.default;
+
   return {
     ...Wave,
     __esModule: true,
-    default: (props: any) => (
+    default: (props: import('../../_util/wave').WaveProps) => (
       <WaveComponent
-        ref={(node: any) => {
+        ref={(node) => {
           waveInstanceMock = node;
         }}
         {...props}
@@ -22,13 +24,21 @@ jest.mock('../../_util/wave', () => {
 });
 
 describe('click wave effect', () => {
+  beforeEach(() => {
+    jest.useFakeTimers();
+  });
+
+  afterEach(() => {
+    jest.clearAllTimers();
+    jest.useRealTimers();
+  });
+
   async function clickButton(wrapper: any) {
     const element = wrapper.container.firstChild;
-    fireEvent.click(element);
+    // https://github.com/testing-library/user-event/issues/833
+    await userEvent.setup({ advanceTimers: jest.advanceTimersByTime }).click(element);
     fireEvent(element, new Event('transitionstart'));
-    await sleep(20);
     fireEvent(element, new Event('animationend'));
-    await sleep(20);
   }
 
   it('should have click wave effect for primary button', async () => {
@@ -77,11 +87,13 @@ describe('click wave effect', () => {
 
   it('should run resetEffect in transitionstart', async () => {
     const wrapper = render(<Button type="primary">button</Button>);
+    assertsExist(waveInstanceMock);
     const resetEffect = jest.spyOn(waveInstanceMock, 'resetEffect');
     await clickButton(wrapper);
     expect(resetEffect).toHaveBeenCalledTimes(1);
-    fireEvent.click(wrapper.container.querySelector('.ant-btn')!);
-    await sleep(10);
+    await userEvent
+      .setup({ advanceTimers: jest.advanceTimersByTime })
+      .click(wrapper.container.querySelector('.ant-btn')!);
     expect(resetEffect).toHaveBeenCalledTimes(2);
     waveInstanceMock.animationStart = false;
     fireEvent(wrapper.container.querySelector('.ant-btn')!, new Event('transitionstart'));
@@ -91,6 +103,7 @@ describe('click wave effect', () => {
 
   it('should handle transitionend', async () => {
     const wrapper = render(<Button type="primary">button</Button>);
+    assertsExist(waveInstanceMock);
     const resetEffect = jest.spyOn(waveInstanceMock, 'resetEffect');
     await clickButton(wrapper);
     expect(resetEffect).toHaveBeenCalledTimes(1);

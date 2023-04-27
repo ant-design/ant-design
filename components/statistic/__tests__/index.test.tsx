@@ -1,12 +1,11 @@
-import React from 'react';
+import dayjs from 'dayjs';
 import MockDate from 'mockdate';
-import moment from 'moment';
+import React from 'react';
 import Statistic from '..';
-import type Countdown from '../Countdown';
-import { formatTimeStr } from '../utils';
-import { sleep, render, fireEvent } from '../../../tests/utils';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import { formatTimeStr } from '../utils';
 
 describe('Statistic', () => {
   mountTest(Statistic);
@@ -14,7 +13,7 @@ describe('Statistic', () => {
   rtlTest(Statistic);
 
   beforeAll(() => {
-    MockDate.set(moment('2018-11-28 00:00:00').valueOf());
+    MockDate.set(dayjs('2018-11-28 00:00:00').valueOf());
   });
 
   afterAll(() => {
@@ -84,8 +83,13 @@ describe('Statistic', () => {
 
   describe('Countdown', () => {
     it('render correctly', () => {
-      const now = moment().add(2, 'd').add(11, 'h').add(28, 'm').add(9, 's').add(3, 'ms').valueOf();
-
+      const now = dayjs()
+        .add(2, 'd')
+        .add(11, 'h')
+        .add(28, 'm')
+        .add(9, 's')
+        .add(3, 'ms')
+        .toISOString();
       [
         ['H:m:s', '59:28:9'],
         ['HH:mm:ss', '59:28:09'],
@@ -98,26 +102,18 @@ describe('Statistic', () => {
     });
 
     it('time going', async () => {
+      jest.useFakeTimers();
       const now = Date.now() + 1000;
       const onFinish = jest.fn();
-      let instance: Countdown | null;
-      const { unmount } = render(
-        <Statistic.Countdown
-          ref={n => {
-            instance = n;
-          }}
-          value={now}
-          onFinish={onFinish}
-        />,
-      );
 
-      // setInterval should work
-      expect(instance!.countdownId).not.toBe(undefined);
+      const { unmount } = render(<Statistic.Countdown value={now} onFinish={onFinish} />);
 
-      await sleep(10);
+      await waitFakeTimer(10);
 
       unmount();
       expect(onFinish).not.toHaveBeenCalled();
+      jest.clearAllTimers();
+      jest.useRealTimers();
     });
 
     it('responses hover events', () => {
@@ -146,6 +142,7 @@ describe('Statistic', () => {
 
     describe('time onchange', () => {
       it("called if time has't passed", async () => {
+        jest.useFakeTimers();
         const deadline = Date.now() + 10 * 1000;
         let remainingTime;
 
@@ -154,37 +151,31 @@ describe('Statistic', () => {
         };
         render(<Statistic.Countdown value={deadline} onChange={onChange} />);
         // container.update();
-        await sleep(100);
+        await waitFakeTimer(100);
         expect(remainingTime).toBeGreaterThan(0);
+        jest.clearAllTimers();
+        jest.useRealTimers();
       });
     });
 
     describe('time finished', () => {
       it('not call if time already passed', () => {
         const now = Date.now() - 1000;
-        let instance: Countdown | null;
         const onFinish = jest.fn();
-        render(
-          <Statistic.Countdown
-            ref={n => {
-              instance = n;
-            }}
-            value={now}
-            onFinish={onFinish}
-          />,
-        );
+        render(<Statistic.Countdown value={now} onFinish={onFinish} />);
 
-        expect(instance!.countdownId).toBe(undefined);
         expect(onFinish).not.toHaveBeenCalled();
       });
 
       it('called if finished', async () => {
+        jest.useFakeTimers();
         const now = Date.now() + 10;
         const onFinish = jest.fn();
         render(<Statistic.Countdown value={now} onFinish={onFinish} />);
-        MockDate.set(moment('2019-11-28 00:00:00').valueOf());
-        await sleep(100);
+        await waitFakeTimer();
         expect(onFinish).toHaveBeenCalled();
+        jest.clearAllTimers();
+        jest.useRealTimers();
       });
     });
   });

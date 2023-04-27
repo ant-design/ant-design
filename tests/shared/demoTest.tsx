@@ -1,66 +1,84 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
 import * as React from 'react';
+import { renderToString } from 'react-dom/server';
 import glob from 'glob';
-import { render } from 'enzyme';
-import MockDate from 'mockdate';
-import moment from 'moment';
-import type { TriggerProps } from 'rc-trigger';
+import { StyleProvider, createCache } from '@ant-design/cssinjs';
 import { excludeWarning } from './excludeWarning';
+import { render } from '../utils';
+import { TriggerMockContext } from './demoTestContext';
 
-export const TriggerMockContext = React.createContext<Partial<TriggerProps> | undefined>(undefined);
+require('isomorphic-fetch');
 
-type CheerIO = ReturnType<typeof render>;
-type CheerIOElement = CheerIO[0];
-// We should avoid use it in 4.0. Reopen if can not handle this.
-const USE_REPLACEMENT = false;
-const testDist = process.env.LIB_DIR === 'dist';
+// function normalizeAriaValue(value: string | null): string {
+//   const defaultValue = value || '';
 
-/**
- * Rc component will generate id for aria usage. It's created as `test-uuid` when env === 'test'. Or
- * `f7fa7a3c-a675-47bc-912e-0c45fb6a74d9`(randomly) when not test env. So we need hack of this to
- * modify the `aria-controls`.
- */
-function ariaConvert(wrapper: CheerIO) {
-  if (!testDist || !USE_REPLACEMENT) return wrapper;
+//   return defaultValue
+//     .replace(/\d+/g, 'test')
+//     .replace(/TEST_OR_SSR/g, 'test')
+//     .replace(/-test-test/g, '-test');
+// }
 
-  const matches = new Map();
+// function normalizeAria(element: Element, ariaName: string) {
+//   if (element.hasAttribute(ariaName)) {
+//     element.setAttribute(ariaName, normalizeAriaValue(element.getAttribute(ariaName)));
+//   }
+// }
 
-  function process(entry: CheerIOElement) {
-    if (entry.type === 'text' || entry.type === 'comment') {
-      return;
-    }
-    const { attribs, children } = entry;
-    if (matches.has(entry)) return;
-    matches.set(entry, true);
+// /**
+//  * Rc component will generate id for aria usage. It's created as `test-uuid` when env === 'test'. Or
+//  * `f7fa7a3c-a675-47bc-912e-0c45fb6a74d9`(randomly) when not test env. So we need hack of this to
+//  * modify the `aria-controls`.
+//  */
+// function ariaConvert(element: Element) {
+//   normalizeAria(element, 'aria-owns');
+//   normalizeAria(element, 'aria-controls');
+//   normalizeAria(element, 'aria-labelledby');
+//   normalizeAria(element, 'aria-activedescendant');
+//   normalizeAria(element, 'data-menu-id');
+//   normalizeAria(element, 'stroke');
+//   if (element.id) {
+//     element.id = normalizeAriaValue(element.id);
+//   }
 
-    // Change aria
-    if (attribs && attribs['aria-controls']) {
-      attribs['aria-controls'] = ''; // Remove all the aria to keep render sync in jest & jest node
-    }
+//   Array.from(element.children).forEach(child => {
+//     ariaConvert(child);
+//   });
+// }
 
-    // Loop children
-    if (!children) {
-      return;
-    }
-    (Array.isArray(children) ? children : [children]).forEach(process);
-  }
-
-  wrapper.each((_, entry) => process(entry));
-
-  return wrapper;
-}
-
-type Options = {
+export type Options = {
   skip?: boolean | string[];
+  testingLib?: boolean;
 };
 
 function baseText(doInject: boolean, component: string, options: Options = {}) {
-  const files = glob.sync(`./components/${component}/demo/*.md`);
+  const files = glob.sync(`./components/${component}/demo/*.tsx`);
 
-  files.forEach(file => {
+  let cssinjsTest = false;
+
+  files.forEach((file) => {
     let testMethod = options.skip === true ? test.skip : test;
-    if (Array.isArray(options.skip) && options.skip.some(c => file.includes(c))) {
+    if (Array.isArray(options.skip) && options.skip.some((c) => file.includes(c))) {
       testMethod = test.skip;
+    }
+
+    if (!doInject && !cssinjsTest && testMethod !== test.skip) {
+      cssinjsTest = true;
+      testMethod(`cssinjs should not warn in ${component}`, () => {
+        const errSpy = excludeWarning();
+
+        let Demo = require(`../.${file}`).default; // eslint-disable-line global-require, import/no-dynamic-require
+        // Inject Trigger status unless skipped
+        Demo = typeof Demo === 'function' ? <Demo /> : Demo;
+
+        // Inject cssinjs cache to avoid create <style /> element
+        Demo = <StyleProvider cache={createCache()}>{Demo}</StyleProvider>;
+
+        render(Demo);
+
+        expect(errSpy).not.toHaveBeenCalledWith(expect.stringContaining('[Ant Design CSS-in-JS]'));
+
+        errSpy.mockRestore();
+      });
     }
 
     // function doTest(name: string, openTrigger = false) {
@@ -69,7 +87,9 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
       () => {
         const errSpy = excludeWarning();
 
-        MockDate.set(moment('2016-11-22').valueOf());
+        Date.now = jest.fn(() => new Date('2016-11-22').getTime());
+        jest.useFakeTimers().setSystemTime(new Date('2016-11-22'));
+
         let Demo = require(`../.${file}`).default; // eslint-disable-line global-require, import/no-dynamic-require
         // Inject Trigger status unless skipped
         Demo = typeof Demo === 'function' ? <Demo /> : Demo;
@@ -85,17 +105,37 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
           );
         }
 
-        const wrapper = render(Demo);
+        // Inject cssinjs cache to avoid create <style /> element
+        Demo = <StyleProvider cache={createCache()}>{Demo}</StyleProvider>;
 
-        // Convert aria related content
-        ariaConvert(wrapper);
+        // Demo Test also include `dist` test which is already uglified.
+        // We need test this as SSR instead.
+        const html = renderToString(Demo);
+        expect({
+          type: 'demo',
+          html,
+        }).toMatchSnapshot();
 
-        expect(wrapper).toMatchSnapshot();
-        MockDate.reset();
+        // if (typeof document === 'undefined') {
+        //   // Server
+        //   expect(() => {
+        //     renderToString(Demo);
+        //   }).not.toThrow();
+        // } else {
+        //   // Client
+        //   const { container } = render(Demo);
+        //   ariaConvert(container);
 
-        errSpy();
+        //   const { children } = container;
+        //   const child = children.length > 1 ? Array.from(children) : children[0];
+
+        //   expect(child).toMatchSnapshot();
+        // }
+
+        errSpy.mockRestore();
       },
     );
+    jest.useRealTimers();
   });
 }
 

@@ -1,9 +1,13 @@
 ---
 category: Components
 subtitle: 警告提示
-type: 反馈
 title: Alert
-cover: https://gw.alipayobjects.com/zos/alicdn/8emPa3fjl/Alert.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Ct7bT7rrTTAAAAAAAAAAAAAADrJ8AQ/original
+demo:
+  cols: 2
+group:
+  title: 反馈
+  order: 6
 ---
 
 警告提示，展现需要关注的信息。
@@ -12,6 +16,22 @@ cover: https://gw.alipayobjects.com/zos/alicdn/8emPa3fjl/Alert.svg
 
 - 当某个页面需要向用户显示警告的信息时。
 - 非浮层的静态展现形式，始终展现，不会自动消失，用户可以点击关闭。
+
+## 代码演示
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">基本</code>
+<code src="./demo/style.tsx">四种样式</code>
+<code src="./demo/closable.tsx">可关闭的警告提示</code>
+<code src="./demo/description.tsx">含有辅助性文字介绍</code>
+<code src="./demo/icon.tsx">图标</code>
+<code src="./demo/close-text.tsx">自定义关闭</code>
+<code src="./demo/banner.tsx" iframe="250">顶部公告</code>
+<code src="./demo/loop-banner.tsx">轮播的公告</code>
+<code src="./demo/smooth-closed.tsx">平滑地卸载</code>
+<code src="./demo/error-boundary.tsx">React 错误处理</code>
+<code src="./demo/custom-icon.tsx" debug>自定义图标</code>
+<code src="./demo/action.tsx">操作</code>
 
 ## API
 
@@ -22,7 +42,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/8emPa3fjl/Alert.svg
 | banner | 是否用作顶部公告 | boolean | false |  |
 | closable | 默认不显示关闭按钮 | boolean | - |  |
 | closeText | 自定义关闭按钮 | ReactNode | - |  |
-| closeIcon | 自定义关闭 Icon | ReactNode | `<CloseOutlined />` | 4.17.0 |
+| closeIcon | 自定义关闭 Icon | ReactNode | `<CloseOutlined />` | 4.18.0 |
 | description | 警告提示的辅助性文字介绍 | ReactNode | - |  |
 | icon | 自定义图标，`showIcon` 为 true 时有效 | ReactNode | - |  |
 | message | 警告提示内容 | ReactNode | - |  |

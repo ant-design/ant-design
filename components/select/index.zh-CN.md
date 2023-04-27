@@ -1,9 +1,11 @@
 ---
 category: Components
 subtitle: 选择器
-type: 数据录入
+group: 数据录入
 title: Select
-cover: https://gw.alipayobjects.com/zos/alicdn/_0XzgOis7/Select.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*zo76T7KQx2UAAAAAAAAAAAAADrJ8AQ/original
+demo:
+  cols: 2
 ---
 
 下拉选择器。
@@ -12,6 +14,34 @@ cover: https://gw.alipayobjects.com/zos/alicdn/_0XzgOis7/Select.svg
 
 - 弹出一个下拉菜单给用户选择操作，用于代替原生的选择器，或者需要一个更优雅的多选器时。
 - 当选项少时（少于 5 项），建议直接将选项平铺，使用 [Radio](/components/radio/) 是更好的选择。
+
+## 代码演示
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">基本使用</code>
+<code src="./demo/search.tsx">带搜索框</code>
+<code src="./demo/multiple.tsx">多选</code>
+<code src="./demo/size.tsx">三种大小</code>
+<code src="./demo/option-label-prop.tsx">定制回填内容</code>
+<code src="./demo/search-sort.tsx">带排序的搜索</code>
+<code src="./demo/tags.tsx">标签</code>
+<code src="./demo/optgroup.tsx">分组</code>
+<code src="./demo/coordinate.tsx">联动</code>
+<code src="./demo/search-box.tsx">搜索框</code>
+<code src="./demo/label-in-value.tsx">获得选项的文本</code>
+<code src="./demo/automatic-tokenization.tsx">自动分词</code>
+<code src="./demo/select-users.tsx">搜索用户</code>
+<code src="./demo/suffix.tsx" debug>后缀图标</code>
+<code src="./demo/custom-dropdown-menu.tsx">扩展菜单</code>
+<code src="./demo/hide-selected.tsx">隐藏已选择选项</code>
+<code src="./demo/bordered.tsx">无边框</code>
+<code src="./demo/custom-tag-render.tsx">自定义选择标签</code>
+<code src="./demo/responsive.tsx">响应式 maxTagCount</code>
+<code src="./demo/big-data.tsx">大数据</code>
+<code src="./demo/status.tsx">自定义状态</code>
+<code src="./demo/placement.tsx">弹出位置</code>
+<code src="./demo/debug.tsx" debug>4.0 Debug</code>
+<code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
 
@@ -34,7 +64,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/_0XzgOis7/Select.svg
 | defaultOpen | 是否默认展开下拉菜单 | boolean | - |  |
 | defaultValue | 指定默认选中的条目 | string \| string\[]<br />number \| number\[]<br />LabeledValue \| LabeledValue\[] | - |  |
 | disabled | 是否禁用 | boolean | false |  |
-| dropdownClassName | 下拉菜单的 className 属性 | string | - |  |
+| popupClassName | 下拉菜单的 className 属性 | string | - | 4.23.0 |
 | dropdownMatchSelectWidth | 下拉菜单和选择器同宽。默认将设置 `min-width`，当值小于选择框宽度时会被忽略。false 时会关闭虚拟滚动 | boolean \| number | true |  |
 | dropdownRender | 自定义下拉框内容 | (originNode: ReactNode) => ReactNode | - |  |
 | dropdownStyle | 下拉菜单的 style 属性 | CSSProperties | - |  |
@@ -60,7 +90,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/_0XzgOis7/Select.svg
 | removeIcon | 自定义的多选框清除图标 | ReactNode | - |  |
 | searchValue | 控制搜索文本 | string | - |  |
 | showArrow | 是否显示下拉小箭头 | boolean | 单选为 true，多选为 false |  |
-| showSearch | 使单选模式可搜索 | boolean | false |  |
+| showSearch | 配置是否可搜索 | boolean | 单选为 false，多选为 true |  |
 | size | 选择框大小 | `large` \| `middle` \| `small` | `middle` |  |
 | status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
 | suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |  |
@@ -108,17 +138,36 @@ cover: https://gw.alipayobjects.com/zos/alicdn/_0XzgOis7/Select.svg
 
 ## FAQ
 
-### `tag` 模式下为何搜索有时会出现两个相同选项？
+### `mode="tags"` 模式下为何搜索有时会出现两个相同选项？
 
 这一般是 `options` 中的 `label` 和 `value` 不同导致的，你可以通过 `optionFilterProp="label"` 将过滤设置为展示值以避免这种情况。
 
-### 点击 `dropdownRender` 里的内容浮层关闭怎么办？
+### 点击 `dropdownRender` 里的元素，下拉菜单不会自动消失？
 
-自定义内容点击时会关闭浮层，如果不喜欢关闭，可以添加 `onMouseDown={e => e.preventDefault()}` 进行阻止（更多详情见 [#13448](https://github.com/ant-design/ant-design/issues/13448)）。
+你可以使用受控模式，手动设置 `open` 属性：[codesandbox](https://codesandbox.io/s/ji-ben-shi-yong-antd-4-21-7-forked-gnp4cy?file=/demo.js)。
+
+### 反过来希望点击 `dropdownRender` 里元素不消失该怎么办？
+
+Select 当失去焦点时会关闭下拉框，如果你可以通过阻止默认行为避免丢失焦点导致的关闭：
+
+```jsx
+<Select
+  dropdownRender={() => (
+    <div
+      onMouseDown={(e) => {
+        e.preventDefault();
+        e.stopPropagation();
+      }}
+    >
+      Some Content
+    </div>
+  )}
+/>
+```
 
 ### 自定义 Option 样式导致滚动异常怎么办？
 
-这是由于虚拟滚动默认选项高度为 `32px`，如果你的选项高度小于该值则需要通过 `listItemHeight` 属性调整，而 `listHeight` 用于设置滚动容器高度：
+这是由于虚拟滚动默认选项高度为 `24px`，如果你的选项高度小于该值则需要通过 `listItemHeight` 属性调整，而 `listHeight` 用于设置滚动容器高度：
 
 ```tsx
 <Select listItemHeight={10} listHeight={250} />

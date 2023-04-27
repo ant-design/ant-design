@@ -1,10 +1,9 @@
 ---
 category: Components
 subtitle: 描述列表
-type: 数据展示
+group: 数据展示
 title: Descriptions
-cols: 1
-cover: https://gw.alipayobjects.com/zos/alicdn/MjtG9_FOI/Descriptions.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*fHdlTpif6XQAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 成组展示多个只读字段。
@@ -12,6 +11,18 @@ cover: https://gw.alipayobjects.com/zos/alicdn/MjtG9_FOI/Descriptions.svg
 ## 何时使用
 
 常见于详情页的信息展示。
+
+## 代码演示
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">基本</code>
+<code src="./demo/border.tsx">带边框的</code>
+<code src="./demo/text.tsx" debug>复杂文本的情况</code>
+<code src="./demo/size.tsx">自定义尺寸</code>
+<code src="./demo/responsive.tsx">响应式</code>
+<code src="./demo/vertical.tsx">垂直</code>
+<code src="./demo/vertical-border.tsx">垂直带边框的</code>
+<code src="./demo/style.tsx" debug>自定义 label & wrapper 样式</code>
 
 ## API
 
@@ -31,11 +42,11 @@ cover: https://gw.alipayobjects.com/zos/alicdn/MjtG9_FOI/Descriptions.svg
 
 ### DescriptionItem
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| contentStyle | 自定义内容样式 | CSSProperties | - | 4.9.0 |
-| label | 内容的描述 | ReactNode | - |  |
-| labelStyle | 自定义标签样式 | CSSProperties | - | 4.9.0 |
-| span | 包含列的数量 | number | 1 |  |
+| 参数         | 说明           | 类型          | 默认值 | 版本  |
+| ------------ | -------------- | ------------- | ------ | ----- |
+| contentStyle | 自定义内容样式 | CSSProperties | -      | 4.9.0 |
+| label        | 内容的描述     | ReactNode     | -      |       |
+| labelStyle   | 自定义标签样式 | CSSProperties | -      | 4.9.0 |
+| span         | 包含列的数量   | number        | 1      |       |
 
 > span 是 Description.Item 的数量。 span={2} 会占用两个 DescriptionItem 的宽度。当同时配置 `style` 和 `labelStyle`（或 `contentStyle`）时，两者会同时作用。样式冲突时，后者会覆盖前者。

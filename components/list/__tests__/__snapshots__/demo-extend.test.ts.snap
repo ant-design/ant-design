@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/list/demo/basic.md extend context correctly 1`] = `
+exports[`renders ./components/list/demo/basic.tsx extend context correctly 1`] = `
 <div
   class="ant-list ant-list-split"
 >
@@ -167,7 +167,7 @@ exports[`renders ./components/list/demo/basic.md extend context correctly 1`] = 
 </div>
 `;
 
-exports[`renders ./components/list/demo/grid.md extend context correctly 1`] = `
+exports[`renders ./components/list/demo/grid.tsx extend context correctly 1`] = `
 <div
   class="ant-list ant-list-split ant-list-grid"
 >
@@ -327,7 +327,7 @@ exports[`renders ./components/list/demo/grid.md extend context correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/list/demo/grid-test.md extend context correctly 1`] = `
+exports[`renders ./components/list/demo/grid-test.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-list ant-list-split ant-list-grid"
@@ -1019,7 +1019,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/list/demo/infinite-load.md extend context correctly 1`] = `
+exports[`renders ./components/list/demo/infinite-load.tsx extend context correctly 1`] = `
 <div
   id="scrollableDiv"
   style="height:400px;overflow:auto;padding:0 16px;border:1px solid rgba(140, 140, 140, 0.35)"
@@ -1050,7 +1050,6 @@ exports[`renders ./components/list/demo/infinite-load.md extend context correctl
                   class="ant-empty-image"
                 >
                   <svg
-                    class="ant-empty-img-simple"
                     height="41"
                     viewBox="0 0 64 41"
                     width="64"
@@ -1062,22 +1061,22 @@ exports[`renders ./components/list/demo/infinite-load.md extend context correctl
                       transform="translate(0 1)"
                     >
                       <ellipse
-                        class="ant-empty-img-simple-ellipse"
                         cx="32"
                         cy="33"
+                        fill="#f5f5f5"
                         rx="32"
                         ry="7"
                       />
                       <g
-                        class="ant-empty-img-simple-g"
                         fill-rule="nonzero"
+                        stroke="#d9d9d9"
                       >
                         <path
                           d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
                         />
                         <path
-                          class="ant-empty-img-simple-path"
                           d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                          fill="#fafafa"
                         />
                       </g>
                     </g>
@@ -1086,7 +1085,7 @@ exports[`renders ./components/list/demo/infinite-load.md extend context correctl
                 <div
                   class="ant-empty-description"
                 >
-                  No Data
+                  No data
                 </div>
               </div>
             </div>
@@ -1122,7 +1121,7 @@ exports[`renders ./components/list/demo/infinite-load.md extend context correctl
 </div>
 `;
 
-exports[`renders ./components/list/demo/loadmore.md extend context correctly 1`] = `
+exports[`renders ./components/list/demo/loadmore.tsx extend context correctly 1`] = `
 <div
   class="ant-list ant-list-split ant-list-loading demo-loadmore-list"
 >
@@ -1164,7 +1163,7 @@ exports[`renders ./components/list/demo/loadmore.md extend context correctly 1`]
 </div>
 `;
 
-exports[`renders ./components/list/demo/responsive.md extend context correctly 1`] = `
+exports[`renders ./components/list/demo/responsive.tsx extend context correctly 1`] = `
 <div
   class="ant-list ant-list-split ant-list-grid"
 >
@@ -1382,7 +1381,7 @@ exports[`renders ./components/list/demo/responsive.md extend context correctly 1
 </div>
 `;
 
-exports[`renders ./components/list/demo/simple.md extend context correctly 1`] = `
+exports[`renders ./components/list/demo/simple.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
@@ -1423,7 +1422,8 @@ Array [
                 [ITEM]
               </mark>
             </span>
-             Racing car sprays burning fuel into crowd.
+            <!-- -->
+            Racing car sprays burning fuel into crowd.
           </li>
           <li
             class="ant-list-item ant-list-item-no-flex"
@@ -1435,7 +1435,8 @@ Array [
                 [ITEM]
               </mark>
             </span>
-             Japanese princess to wed commoner.
+            <!-- -->
+            Japanese princess to wed commoner.
           </li>
           <li
             class="ant-list-item ant-list-item-no-flex"
@@ -1447,7 +1448,8 @@ Array [
                 [ITEM]
               </mark>
             </span>
-             Australian walks 100km after outback crash.
+            <!-- -->
+            Australian walks 100km after outback crash.
           </li>
           <li
             class="ant-list-item ant-list-item-no-flex"
@@ -1459,7 +1461,8 @@ Array [
                 [ITEM]
               </mark>
             </span>
-             Man charged over missing wedding girl.
+            <!-- -->
+            Man charged over missing wedding girl.
           </li>
           <li
             class="ant-list-item ant-list-item-no-flex"
@@ -1471,7 +1474,8 @@ Array [
                 [ITEM]
               </mark>
             </span>
-             Los Angeles battles huge wildfires.
+            <!-- -->
+            Los Angeles battles huge wildfires.
           </li>
         </ul>
       </div>
@@ -1617,7 +1621,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/list/demo/vertical.md extend context correctly 1`] = `
+exports[`renders ./components/list/demo/vertical.tsx extend context correctly 1`] = `
 <div
   class="ant-list ant-list-vertical ant-list-lg ant-list-split ant-list-something-after-last-item"
 >
@@ -2146,7 +2150,6 @@ exports[`renders ./components/list/demo/vertical.md extend context correctly 1`]
   >
     <ul
       class="ant-pagination"
-      unselectable="unselectable"
     >
       <li
         aria-disabled="true"
@@ -2321,7 +2324,7 @@ exports[`renders ./components/list/demo/vertical.md extend context correctly 1`]
 </div>
 `;
 
-exports[`renders ./components/list/demo/virtual-list.md extend context correctly 1`] = `
+exports[`renders ./components/list/demo/virtual-list.tsx extend context correctly 1`] = `
 <div
   class="ant-list ant-list-split"
 >

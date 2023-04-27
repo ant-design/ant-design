@@ -1,12 +1,14 @@
-import React from 'react';
 import CSSMotion from 'rc-motion';
-import { act } from 'react-dom/test-utils';
 import { genCSSMotion } from 'rc-motion/lib/CSSMotion';
+import KeyCode from 'rc-util/lib/KeyCode';
+import React from 'react';
+import TestUtils, { act } from 'react-dom/test-utils';
+
 import Modal from '..';
+import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
-import Input from '../../input';
 import ConfigProvider from '../../config-provider';
-import { render, fireEvent } from '../../../tests/utils';
+import Input from '../../input';
 import type { ModalFunc } from '../confirm';
 
 jest.mock('rc-util/lib/Portal');
@@ -15,7 +17,7 @@ jest.mock('rc-motion');
 describe('Modal.hook', () => {
   // Inject CSSMotion to replace with No transition support
   const MockCSSMotion = genCSSMotion(false);
-  Object.keys(MockCSSMotion).forEach(key => {
+  Object.keys(MockCSSMotion).forEach((key) => {
     // @ts-ignore
     CSSMotion[key] = MockCSSMotion[key];
   });
@@ -34,7 +36,7 @@ describe('Modal.hook', () => {
               instance = modal.confirm({
                 content: (
                   <Context.Consumer>
-                    {name => <div className="test-hook">{name}</div>}
+                    {(name) => <div className="test-hook">{name}</div>}
                   </Context.Consumer>
                 ),
               });
@@ -192,5 +194,109 @@ describe('Modal.hook', () => {
     const { container } = render(<Demo />);
     fireEvent.click(container.querySelectorAll('.open-hook-modal-btn')[0]);
     expect(document.body.classList.contains('ant-modal-confirm-title')).toBeFalsy();
+  });
+
+  it('the callback close should be a method when onCancel has a close parameter', async () => {
+    jest.useFakeTimers();
+
+    const clear = async function clear() {
+      await waitFakeTimer();
+    };
+
+    const mockFn = jest.fn();
+
+    const Demo = () => {
+      const [modal, contextHolder] = Modal.useModal();
+
+      const openBrokenModal = React.useCallback(() => {
+        modal.confirm({
+          closable: true,
+          keyboard: true,
+          maskClosable: true,
+          onCancel: (close) => mockFn(close),
+        });
+      }, [modal]);
+
+      return (
+        <div className="App">
+          {contextHolder}
+          <div className="open-hook-modal-btn" onClick={openBrokenModal}>
+            Test hook modal
+          </div>
+        </div>
+      );
+    };
+
+    const { container } = render(<Demo />);
+
+    await clear();
+
+    expect(document.body.querySelectorAll('.ant-modal-confirm-confirm')).toHaveLength(0);
+    // First open
+    fireEvent.click(container.querySelectorAll('.open-hook-modal-btn')[0]);
+    await clear();
+
+    expect(document.body.querySelectorAll('.ant-modal-confirm-confirm')).toHaveLength(1);
+    // Click mask to close
+    fireEvent.click(document.body.querySelectorAll('.ant-modal-wrap')[0]);
+
+    await clear();
+
+    expect(document.body.querySelectorAll('.ant-modal-confirm-confirm')).toHaveLength(0);
+    // Second open
+    fireEvent.click(container.querySelectorAll('.open-hook-modal-btn')[0]);
+
+    await clear();
+
+    expect(document.body.querySelectorAll('.ant-modal-confirm-confirm')).toHaveLength(1);
+    // Press ESC to turn off
+    TestUtils.Simulate.keyDown(document.body.querySelectorAll('.ant-modal')[0], {
+      keyCode: KeyCode.ESC,
+    });
+
+    await clear();
+
+    expect(document.body.querySelectorAll('.ant-modal-confirm-confirm')).toHaveLength(0);
+    // Third open
+    fireEvent.click(container.querySelectorAll('.open-hook-modal-btn')[0]);
+
+    await clear();
+
+    expect(document.body.querySelectorAll('.ant-modal-confirm-confirm')).toHaveLength(1);
+    // Click the close icon to close
+    fireEvent.click(document.body.querySelectorAll('.ant-modal-close')[0]);
+
+    await clear();
+
+    expect(document.body.querySelectorAll('.ant-modal-confirm-confirm')).toHaveLength(0);
+    // Last open
+    fireEvent.click(container.querySelectorAll('.open-hook-modal-btn')[0]);
+
+    await clear();
+
+    expect(document.body.querySelectorAll('.ant-modal-confirm-confirm')).toHaveLength(1);
+
+    // Click the Cancel button to close (invalid)
+    fireEvent.click(document.body.querySelectorAll('.ant-modal-confirm-btns > .ant-btn')[0]);
+
+    await clear();
+
+    expect(document.body.querySelectorAll('.ant-modal-confirm-confirm')).toHaveLength(1);
+
+    mockFn.mockImplementation((close) => close());
+
+    // Click the Cancel button to close (valid)
+    fireEvent.click(document.body.querySelectorAll('.ant-modal-confirm-btns > .ant-btn')[0]);
+
+    await clear();
+
+    expect(document.body.querySelectorAll('.ant-modal-confirm-confirm')).toHaveLength(0);
+
+    // Close called 5 times
+    expect(mockFn).toHaveBeenCalledTimes(5);
+
+    expect(mockFn.mock.calls).toEqual(Array.from({ length: 5 }, () => [expect.any(Function)]));
+
+    jest.useRealTimers();
   });
 });

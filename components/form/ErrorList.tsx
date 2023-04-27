@@ -1,10 +1,13 @@
-import * as React from 'react';
 import classNames from 'classnames';
 import CSSMotion, { CSSMotionList } from 'rc-motion';
+import * as React from 'react';
+import { useMemo } from 'react';
+import initCollapseMotion from '../_util/motion';
 import { FormItemPrefixContext } from './context';
-import { ConfigContext } from '../config-provider';
 import type { ValidateStatus } from './FormItem';
-import collapseMotion from '../_util/motion';
+import useDebounce from './hooks/useDebounce';
+
+import useStyle from './style';
 
 const EMPTY_LIST: React.ReactNode[] = [];
 
@@ -28,11 +31,13 @@ function toErrorEntity(
 }
 
 export interface ErrorListProps {
+  fieldId?: string;
   help?: React.ReactNode;
   helpStatus?: ValidateStatus;
   errors?: React.ReactNode[];
   warnings?: React.ReactNode[];
   className?: string;
+  onVisibleChanged?: (visible: boolean) => void;
 }
 
 export default function ErrorList({
@@ -41,12 +46,21 @@ export default function ErrorList({
   errors = EMPTY_LIST,
   warnings = EMPTY_LIST,
   className: rootClassName,
+  fieldId,
+  onVisibleChanged,
 }: ErrorListProps) {
   const { prefixCls } = React.useContext(FormItemPrefixContext);
-  const { getPrefixCls } = React.useContext(ConfigContext);
 
   const baseClassName = `${prefixCls}-item-explain`;
-  const rootPrefixCls = getPrefixCls();
+
+  const [, hashId] = useStyle(prefixCls);
+
+  const collapseMotion = useMemo(() => initCollapseMotion(prefixCls), [prefixCls]);
+
+  // We have to debounce here again since somewhere use ErrorList directly still need no shaking
+  // ref: https://github.com/ant-design/ant-design/issues/36336
+  const debounceErrors = useDebounce(errors);
+  const debounceWarnings = useDebounce(warnings);
 
   const fullKeyList = React.useMemo(() => {
     if (help !== undefined && help !== null) {
@@ -54,39 +68,43 @@ export default function ErrorList({
     }
 
     return [
-      ...errors.map((error, index) => toErrorEntity(error, 'error', 'error', index)),
-      ...warnings.map((warning, index) => toErrorEntity(warning, 'warning', 'warning', index)),
+      ...debounceErrors.map((error, index) => toErrorEntity(error, 'error', 'error', index)),
+      ...debounceWarnings.map((warning, index) =>
+        toErrorEntity(warning, 'warning', 'warning', index),
+      ),
     ];
-  }, [help, helpStatus, errors, warnings]);
+  }, [help, helpStatus, debounceErrors, debounceWarnings]);
+
+  const helpProps: { id?: string } = {};
+
+  if (fieldId) {
+    helpProps.id = `${fieldId}_help`;
+  }
 
   return (
     <CSSMotion
-      {...collapseMotion}
-      motionName={`${rootPrefixCls}-show-help`}
-      motionAppear={false}
-      motionEnter={false}
+      motionDeadline={collapseMotion.motionDeadline}
+      motionName={`${prefixCls}-show-help`}
       visible={!!fullKeyList.length}
-      onLeaveStart={node => {
-        // Force disable css override style in index.less configured
-        node.style.height = 'auto';
-        return { height: node.offsetHeight };
-      }}
+      onVisibleChanged={onVisibleChanged}
     >
-      {holderProps => {
+      {(holderProps) => {
         const { className: holderClassName, style: holderStyle } = holderProps;
 
         return (
           <div
-            className={classNames(baseClassName, holderClassName, rootClassName)}
+            {...helpProps}
+            className={classNames(baseClassName, holderClassName, rootClassName, hashId)}
             style={holderStyle}
+            role="alert"
           >
             <CSSMotionList
               keys={fullKeyList}
-              {...collapseMotion}
-              motionName={`${rootPrefixCls}-show-help-item`}
+              {...initCollapseMotion(prefixCls)}
+              motionName={`${prefixCls}-show-help-item`}
               component={false}
             >
-              {itemProps => {
+              {(itemProps) => {
                 const {
                   key,
                   error,
@@ -98,7 +116,6 @@ export default function ErrorList({
                 return (
                   <div
                     key={key}
-                    role="alert"
                     className={classNames(itemClassName, {
                       [`${baseClassName}-${errorStatus}`]: errorStatus,
                     })}

@@ -1,14 +1,16 @@
 /* eslint-disable react/no-array-index-key */
-import * as React from 'react';
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
+import * as React from 'react';
+import { ConfigContext } from '../config-provider';
+import { cloneElement } from '../_util/reactNode';
 import type { Breakpoint, ScreenMap } from '../_util/responsiveObserve';
 import ResponsiveObserve, { responsiveArray } from '../_util/responsiveObserve';
 import warning from '../_util/warning';
-import { ConfigContext } from '../config-provider';
-import Row from './Row';
 import DescriptionsItem from './Item';
-import { cloneElement } from '../_util/reactNode';
+import Row from './Row';
+
+import useStyle from './style';
 
 export interface DescriptionsContextProps {
   labelStyle?: React.CSSProperties;
@@ -65,7 +67,7 @@ function getFilledItem(
 }
 
 function getRows(children: React.ReactNode, column: number) {
-  const childNodes = toArray(children).filter(n => n);
+  const childNodes = toArray(children).filter((n) => n);
   const rows: React.ReactElement[][] = [];
 
   let tmpRow: React.ReactElement[] = [];
@@ -132,9 +134,11 @@ function Descriptions({
   const [screens, setScreens] = React.useState<ScreenMap>({});
   const mergedColumn = getColumn(column, screens);
 
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
   // Responsive
   React.useEffect(() => {
-    const token = ResponsiveObserve.subscribe(newScreens => {
+    const token = ResponsiveObserve.subscribe((newScreens) => {
       if (typeof column !== 'object') {
         return;
       }
@@ -153,7 +157,7 @@ function Descriptions({
     [labelStyle, contentStyle],
   );
 
-  return (
+  return wrapSSR(
     <DescriptionsContext.Provider value={contextValue}>
       <div
         className={classNames(
@@ -164,6 +168,7 @@ function Descriptions({
             [`${prefixCls}-rtl`]: direction === 'rtl',
           },
           className,
+          hashId,
         )}
         style={style}
       >
@@ -192,7 +197,7 @@ function Descriptions({
           </table>
         </div>
       </div>
-    </DescriptionsContext.Provider>
+    </DescriptionsContext.Provider>,
   );
 }
 

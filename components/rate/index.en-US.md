@@ -1,8 +1,10 @@
 ---
 category: Components
-type: Data Entry
+group: Data Entry
 title: Rate
-cover: https://gw.alipayobjects.com/zos/alicdn/R5uiIWmxe/Rate.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*oyOcTrB12_YAAAAAAAAAAAAADrJ8AQ/original
+demo:
+  cols: 2
 ---
 
 Rate component.
@@ -11,6 +13,17 @@ Rate component.
 
 - Show evaluation.
 - A quick rating operation on something.
+
+## Examples
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/half.tsx">Half star</code>
+<code src="./demo/text.tsx">Show copywriting</code>
+<code src="./demo/disabled.tsx">Read only</code>
+<code src="./demo/clear.tsx">Clear star</code>
+<code src="./demo/character.tsx">Other Character</code>
+<code src="./demo/character-function.tsx">Customize character</code>
 
 ## API
 
@@ -35,7 +48,7 @@ Rate component.
 
 ## Methods
 
-| Name | Description |
-| --- | --- |
-| blur() | Remove focus |
-| focus() | Get focus |
+| Name    | Description  |
+| ------- | ------------ |
+| blur()  | Remove focus |
+| focus() | Get focus    |

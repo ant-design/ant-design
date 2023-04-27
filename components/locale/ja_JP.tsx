@@ -1,9 +1,9 @@
 /* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/ja_JP';
-import DatePicker from '../date-picker/locale/ja_JP';
-import TimePicker from '../time-picker/locale/ja_JP';
 import Calendar from '../calendar/locale/ja_JP';
+import DatePicker from '../date-picker/locale/ja_JP';
 import type { Locale } from '../locale-provider';
+import TimePicker from '../time-picker/locale/ja_JP';
 
 const typeTemplate = '${label}は有効な${type}ではありません';
 
@@ -38,6 +38,7 @@ const localeValues: Locale = {
     cancelText: 'キャンセル',
   },
   Transfer: {
+    titles: ['', ''],
     searchPlaceholder: 'ここを検索',
     itemUnit: 'アイテム',
     itemsUnit: 'アイテム',

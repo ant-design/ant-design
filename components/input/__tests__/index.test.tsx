@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
-import { render, fireEvent } from '../../../tests/utils';
+import { fireEvent, render } from '../../../tests/utils';
 // eslint-disable-next-line import/no-unresolved
-import Form from '../../form';
 import type { InputProps, InputRef } from '..';
 import Input from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import Form from '../../form';
+import { triggerFocus } from '../Input';
 
 describe('Input', () => {
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
@@ -78,8 +79,7 @@ describe('Input', () => {
     it('click outside should also get focus', () => {
       const { container } = render(<Input suffix={<span className="test-suffix" />} />);
       const onFocus = jest.spyOn(container.querySelector('input')!, 'focus');
-      fireEvent.mouseDown(container.querySelector('.test-suffix')!);
-      fireEvent.mouseUp(container.querySelector('.test-suffix')!);
+      fireEvent.click(container.querySelector('.test-suffix')!);
       expect(onFocus).toHaveBeenCalled();
     });
 
@@ -272,12 +272,14 @@ describe('should support showCount', () => {
     const { container } = render(
       <Input
         maxLength={5}
-        showCount={{ formatter: ({ count, maxLength }) => `${count}, ${maxLength}` }}
+        showCount={{
+          formatter: ({ value, count, maxLength }) => `${value}, ${count}, ${maxLength}`,
+        }}
         value="12345"
       />,
     );
     expect(container.querySelector('input')?.getAttribute('value')).toBe('12345');
-    expect(container.querySelector('.ant-input-show-count-suffix')?.innerHTML).toBe('5, 5');
+    expect(container.querySelector('.ant-input-show-count-suffix')?.innerHTML).toBe('12345, 5, 5');
   });
 });
 
@@ -294,7 +296,7 @@ describe('Input allowClear', () => {
 
   it('should not show icon if value is undefined, null or empty string', () => {
     // @ts-ignore
-    const wrappers = [null, undefined, ''].map(val => render(<Input allowClear value={val} />));
+    const wrappers = [null, undefined, ''].map((val) => render(<Input allowClear value={val} />));
     wrappers.forEach(({ asFragment, container }) => {
       expect(container.querySelector('input')?.value).toEqual('');
       expect(container.querySelector('.ant-input-clear-icon-hidden')).toBeTruthy();
@@ -303,7 +305,7 @@ describe('Input allowClear', () => {
   });
 
   it('should not show icon if defaultValue is undefined, null or empty string', () => {
-    const wrappers = [null, undefined, ''].map(val =>
+    const wrappers = [null, undefined, ''].map((val) =>
       // @ts-ignore
       render(<Input allowClear defaultValue={val} />),
     );
@@ -317,7 +319,7 @@ describe('Input allowClear', () => {
   it('should trigger event correctly', () => {
     let argumentEventObjectType;
     let argumentEventObjectValue;
-    const onChange: InputProps['onChange'] = e => {
+    const onChange: InputProps['onChange'] = (e) => {
       argumentEventObjectType = e.type;
       argumentEventObjectValue = e.target.value;
     };
@@ -331,7 +333,7 @@ describe('Input allowClear', () => {
   it('should trigger event correctly on controlled mode', () => {
     let argumentEventObjectType;
     let argumentEventObjectValue;
-    const onChange: InputProps['onChange'] = e => {
+    const onChange: InputProps['onChange'] = (e) => {
       argumentEventObjectType = e.type;
       argumentEventObjectValue = e.target.value;
     };
@@ -343,13 +345,15 @@ describe('Input allowClear', () => {
   });
 
   it('should focus input after clear', () => {
-    const { container, unmount } = render(<Input allowClear defaultValue="111" />, { container: document.body });
+    const { container, unmount } = render(<Input allowClear defaultValue="111" />, {
+      container: document.body,
+    });
     fireEvent.click(container.querySelector('.ant-input-clear-icon')!);
     expect(document.activeElement).toBe(container.querySelector('input'));
     unmount();
   });
 
-  ['disabled', 'readOnly'].forEach(prop => {
+  ['disabled', 'readOnly'].forEach((prop) => {
     it(`should not support allowClear when it is ${prop}`, () => {
       const { container } = render(<Input allowClear defaultValue="111" {...{ [prop]: true }} />);
       expect(container.querySelector('.ant-input-clear-icon-hidden')).toBeTruthy();
@@ -366,16 +370,19 @@ describe('Input allowClear', () => {
   // https://github.com/ant-design/ant-design/issues/31200
   it('should not lost focus when clear input', () => {
     const onBlur = jest.fn();
-    const { container, unmount } = render(<Input allowClear defaultValue="value" onBlur={onBlur} />, {
-      container: document.body,
-    });
+    const { container, unmount } = render(
+      <Input allowClear defaultValue="value" onBlur={onBlur} />,
+      {
+        container: document.body,
+      },
+    );
     container.querySelector('input')?.focus();
     fireEvent.mouseDown(container.querySelector('.ant-input-clear-icon')!);
     fireEvent.click(container.querySelector('.ant-input-clear-icon')!);
     fireEvent.mouseUp(container.querySelector('.ant-input-clear-icon')!);
     fireEvent.focus(container.querySelector('.ant-input-clear-icon')!);
     fireEvent.click(container.querySelector('.ant-input-clear-icon')!);
-    expect(onBlur).not.toBeCalled();
+    expect(onBlur).not.toHaveBeenCalled();
     unmount();
   });
 
@@ -387,7 +394,7 @@ describe('Input allowClear', () => {
         <Input
           allowClear
           value={query}
-          onChange={e => {
+          onChange={(e) => {
             setQuery(() => e.target.value);
           }}
         />
@@ -426,7 +433,7 @@ describe('Input allowClear', () => {
   });
 });
 
-describe('typescript types ', () => {
+describe('typescript types', () => {
   it('InputProps type should support data-* attributes', () => {
     const props: InputProps = {
       value: 123,
@@ -439,5 +446,13 @@ describe('typescript types ', () => {
     const input = container.querySelector('input');
     expect(input?.getAttribute('data-testid')).toBe('test-id');
     expect(input?.getAttribute('data-id')).toBe('12345');
+  });
+});
+
+describe('triggerFocus', () => {
+  it('triggerFocus correctly run when element is null', () => {
+    expect(() => {
+      triggerFocus();
+    }).not.toThrow();
   });
 });

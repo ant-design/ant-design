@@ -17,13 +17,12 @@ describe('Form.typescript', () => {
         </Form.Item>
       </Form>
     );
-
     expect(form).toBeTruthy();
   });
 
   describe('generic', () => {
     it('hooks', () => {
-      const Demo = () => {
+      const Demo: React.FC = () => {
         const [form] = Form.useForm<FormValues>();
 
         form.setFieldsValue({ path1: { path2: 2333 } });
@@ -31,7 +30,7 @@ describe('Form.typescript', () => {
         return (
           <Form
             form={form}
-            onFinish={values => {
+            onFinish={(values) => {
               expect(values).toBeTruthy();
               expect(values.username).toBeTruthy();
               expect(values.path1?.path2).toBeTruthy();
@@ -55,7 +54,7 @@ describe('Form.typescript', () => {
           return (
             <Form
               ref={this.formRef}
-              onFinish={values => {
+              onFinish={(values) => {
                 expect(values).toBeTruthy();
                 expect(values.username).toBeTruthy();
                 expect(values.path1?.path2).toBeTruthy();
@@ -70,7 +69,7 @@ describe('Form.typescript', () => {
   });
 
   it('FormItem renderProps support generic', () => {
-    const Demo = () => (
+    const Demo: React.FC = () => (
       <Form<FormValues>>
         <Form.Item<FormValues>>
           {({ getFieldsValue }) => {
@@ -89,7 +88,7 @@ describe('Form.typescript', () => {
 
   // TODO: @crazyair fix for value types
   it('useWatch', () => {
-    const Demo = () => {
+    const Demo: React.FC = () => {
       const [form] = Form.useForm<FormValues>();
       const value = Form.useWatch('username', form);
 

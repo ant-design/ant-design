@@ -1,13 +1,11 @@
 import React from 'react';
-import type { ReactWrapper } from 'enzyme';
-import { mount } from 'enzyme';
-import type { AffixProps, AffixState, InternalAffixClass } from '..';
+import type { InternalAffixClass } from '..';
 import Affix from '..';
-import { getObserverEntities } from '../utils';
-import Button from '../../button';
-import rtlTest from '../../../tests/shared/rtlTest';
 import accessibilityTest from '../../../tests/shared/accessibilityTest';
-import { sleep, render } from '../../../tests/utils';
+import rtlTest from '../../../tests/shared/rtlTest';
+import { render, triggerResize, waitFakeTimer } from '../../../tests/utils';
+import Button from '../../button';
+import { addObserveTarget, getObserverEntities } from '../utils';
 
 const events: Partial<Record<keyof HTMLElementEventMap, (ev: Partial<Event>) => void>> = {};
 
@@ -16,10 +14,10 @@ class AffixMounter extends React.Component<{
   offsetTop?: number;
   onTestUpdatePosition?(): void;
   onChange?: () => void;
+  getInstance?: (inst: InternalAffixClass) => void;
+  style?: React.CSSProperties;
 }> {
   private container: HTMLDivElement;
-
-  public affix: React.Component<AffixProps, AffixState>;
 
   componentDidMount() {
     this.container.addEventListener = jest
@@ -32,9 +30,10 @@ class AffixMounter extends React.Component<{
   getTarget = () => this.container;
 
   render() {
+    const { getInstance, ...restProps } = this.props;
     return (
       <div
-        ref={node => {
+        ref={(node) => {
           this.container = node!;
         }}
         className="container"
@@ -42,10 +41,10 @@ class AffixMounter extends React.Component<{
         <Affix
           className="fixed"
           target={this.getTarget}
-          ref={ele => {
-            this.affix = ele!;
+          ref={(ele) => {
+            getInstance?.(ele!);
           }}
-          {...this.props}
+          {...restProps}
         >
           <Button type="primary">Fixed at the top of container</Button>
         </Affix>
@@ -59,7 +58,6 @@ describe('Affix Render', () => {
   accessibilityTest(Affix);
 
   const domMock = jest.spyOn(HTMLElement.prototype, 'getBoundingClientRect');
-  let affixMounterWrapper: ReactWrapper<unknown, unknown, AffixMounter>;
 
   const classRect: Record<string, DOMRect> = {
     container: {
@@ -67,6 +65,12 @@ describe('Affix Render', () => {
       bottom: 100,
     } as DOMRect,
   };
+
+  beforeEach(() => {
+    jest.useFakeTimers();
+    const entities = getObserverEntities();
+    entities.splice(0, entities.length);
+  });
 
   beforeAll(() => {
     domMock.mockImplementation(function fn(this: HTMLElement) {
@@ -77,6 +81,11 @@ describe('Affix Render', () => {
         }
       );
     });
+  });
+
+  afterEach(() => {
+    jest.useRealTimers();
+    jest.clearAllTimers();
   });
 
   afterAll(() => {
@@ -94,12 +103,12 @@ describe('Affix Render', () => {
     events.scroll({
       type: 'scroll',
     });
-    await sleep(20);
+    await waitFakeTimer();
   };
 
   it('Anchor render perfectly', async () => {
     const { container } = render(<AffixMounter />);
-    await sleep(20);
+    await waitFakeTimer();
 
     await movePlaceholder(0);
     expect(container.querySelector('.ant-affix')).toBeFalsy();
@@ -111,10 +120,15 @@ describe('Affix Render', () => {
     expect(container.querySelector('.ant-affix')).toBeFalsy();
   });
 
+  it('Anchor correct render when target is null', async () => {
+    render(<Affix target={() => null}>test</Affix>);
+    await waitFakeTimer();
+  });
+
   it('support offsetBottom', async () => {
     const { container } = render(<AffixMounter offsetBottom={0} />);
 
-    await sleep(20);
+    await waitFakeTimer();
 
     await movePlaceholder(300);
     expect(container.querySelector('.ant-affix')).toBeTruthy();
@@ -130,26 +144,26 @@ describe('Affix Render', () => {
     const onChange = jest.fn();
 
     const { container, rerender } = render(<AffixMounter offsetTop={0} onChange={onChange} />);
-    await sleep(20);
+    await waitFakeTimer();
 
     await movePlaceholder(-100);
     expect(onChange).toHaveBeenLastCalledWith(true);
     expect(container.querySelector('.ant-affix')).toHaveStyle({ top: 0 });
 
     rerender(<AffixMounter offsetTop={10} onChange={onChange} />);
-    await sleep(20);
+    await waitFakeTimer();
     expect(container.querySelector('.ant-affix')).toHaveStyle({ top: `10px` });
   });
 
   describe('updatePosition when target changed', () => {
     it('function change', async () => {
       document.body.innerHTML = '<div id="mounter" />';
-      const container = document.querySelector('#id') as HTMLDivElement;
+      const container = document.getElementById('mounter');
       const getTarget = () => container;
       let affixInstance: InternalAffixClass;
       const { rerender } = render(
         <Affix
-          ref={node => {
+          ref={(node) => {
             affixInstance = node as InternalAffixClass;
           }}
           target={getTarget}
@@ -159,7 +173,7 @@ describe('Affix Render', () => {
       );
       rerender(
         <Affix
-          ref={node => {
+          ref={(node) => {
             affixInstance = node as InternalAffixClass;
           }}
           target={() => null}
@@ -170,59 +184,120 @@ describe('Affix Render', () => {
       expect(affixInstance!.state.status).toBe(0);
       expect(affixInstance!.state.affixStyle).toBe(undefined);
       expect(affixInstance!.state.placeholderStyle).toBe(undefined);
-      await sleep(100);
     });
 
     it('instance change', async () => {
-      const getObserverLength = () => Object.keys(getObserverEntities()).length;
-
       const container = document.createElement('div');
       document.body.appendChild(container);
       let target: HTMLDivElement | null = container;
 
-      const originLength = getObserverLength();
       const getTarget = () => target;
       const { rerender } = render(<Affix target={getTarget}>{null}</Affix>);
-      await sleep(100);
+      await waitFakeTimer();
+      expect(getObserverEntities()).toHaveLength(1);
+      expect(getObserverEntities()[0].target).toBe(container);
 
-      expect(getObserverLength()).toBe(originLength + 1);
       target = null;
       rerender(<Affix>{null}</Affix>);
-      await sleep(100);
-      expect(getObserverLength()).toBe(originLength);
+      expect(getObserverEntities()).toHaveLength(1);
+      expect(getObserverEntities()[0].target).toBe(window);
+    });
+
+    it('check position change before measure', async () => {
+      const { container } = render(
+        <>
+          <Affix offsetTop={10}>
+            <Button>top</Button>
+          </Affix>
+          <Affix offsetBottom={10}>
+            <Button>bottom</Button>
+          </Affix>
+        </>,
+      );
+      await waitFakeTimer();
+      await movePlaceholder(1000);
+      expect(container.querySelector('.ant-affix')).toBeTruthy();
+    });
+
+    it('do not measure when hidden', async () => {
+      let affixInstance: InternalAffixClass | null = null;
+
+      const { rerender } = render(
+        <AffixMounter
+          getInstance={(inst) => {
+            affixInstance = inst;
+          }}
+          offsetBottom={0}
+        />,
+      );
+      await waitFakeTimer();
+      const firstAffixStyle = affixInstance!.state.affixStyle;
+
+      rerender(
+        <AffixMounter
+          getInstance={(inst) => {
+            affixInstance = inst;
+          }}
+          offsetBottom={0}
+          style={{ display: 'none' }}
+        />,
+      );
+      await waitFakeTimer();
+      const secondAffixStyle = affixInstance!.state.affixStyle;
+
+      expect(firstAffixStyle).toEqual(secondAffixStyle);
     });
   });
 
   describe('updatePosition when size changed', () => {
-    it.each([
-      { name: 'inner', index: 0 },
-      { name: 'outer', index: 1 },
-    ])('inner or outer', async ({ index }) => {
+    it('add class automatically', async () => {
       document.body.innerHTML = '<div id="mounter" />';
 
-      const updateCalled = jest.fn();
-      affixMounterWrapper = mount(
-        <AffixMounter offsetBottom={0} onTestUpdatePosition={updateCalled} />,
+      let affixInstance: InternalAffixClass | null = null;
+      render(
+        <AffixMounter
+          getInstance={(inst) => {
+            affixInstance = inst;
+          }}
+          offsetBottom={0}
+        />,
         {
-          attachTo: document.getElementById('mounter'),
+          container: document.getElementById('mounter')!,
         },
       );
 
-      await sleep(20);
-
+      await waitFakeTimer();
       await movePlaceholder(300);
-      expect(
-        (affixMounterWrapper.find(AffixMounter).instance() as any).affix.state.affixStyle,
-      ).toBeTruthy();
-      await sleep(20);
-      affixMounterWrapper.update();
+      expect(affixInstance!.state.affixStyle).toBeTruthy();
+    });
 
-      // Mock trigger resize
-      updateCalled.mockReset();
-      (affixMounterWrapper as any).triggerResize(index);
-      await sleep(20);
+    // Trigger inner and outer element for the two <ResizeObserver>s.
+    [
+      '.ant-btn', // inner
+      '.fixed', // outer
+    ].forEach((selector) => {
+      it(`trigger listener when size change: ${selector}`, async () => {
+        const updateCalled = jest.fn();
+        const { container } = render(
+          <AffixMounter offsetBottom={0} onTestUpdatePosition={updateCalled} />,
+          {
+            container: document.getElementById('mounter')!,
+          },
+        );
 
-      expect(updateCalled).toHaveBeenCalled();
+        updateCalled.mockReset();
+        triggerResize(container.querySelector(selector)!);
+
+        await waitFakeTimer();
+
+        expect(updateCalled).toHaveBeenCalled();
+      });
+    });
+
+    it('addObserveTarget should not Throw Error when target is null', () => {
+      expect(() => {
+        addObserveTarget(null);
+      }).not.toThrow();
     });
   });
 });

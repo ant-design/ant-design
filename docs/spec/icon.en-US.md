@@ -1,5 +1,5 @@
 ---
-category: Global Styles
+group: Global Styles
 order: 5
 title: Icons
 ---

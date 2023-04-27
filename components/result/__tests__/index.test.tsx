@@ -10,7 +10,7 @@ describe('Result', () => {
   rtlTest(Result);
 
   it('🙂  successPercent should decide the progress status when it exists', () => {
-    const { container: wrapper } = render(
+    const { container } = render(
       <Result
         status="success"
         title="Successfully Purchased Cloud Server ECS!"
@@ -23,37 +23,35 @@ describe('Result', () => {
         ]}
       />,
     );
-    expect(wrapper.querySelectorAll('.anticon-check-circle')).toHaveLength(1);
+    expect(container.querySelectorAll('.anticon-check-circle')).toHaveLength(1);
   });
 
   it('🙂  different status, different class', () => {
-    const { container: wrapper, rerender } = render(<Result status="warning" />);
-    expect(wrapper.querySelectorAll('.ant-result-warning')).toHaveLength(1);
+    const { container, rerender } = render(<Result status="warning" />);
+    expect(container.querySelectorAll('.ant-result-warning')).toHaveLength(1);
 
     rerender(<Result status="error" />);
 
-    expect(wrapper.querySelectorAll('.ant-result-error')).toHaveLength(1);
+    expect(container.querySelectorAll('.ant-result-error')).toHaveLength(1);
 
     rerender(<Result status="500" />);
 
-    expect(wrapper.querySelectorAll('.ant-result-500')).toHaveLength(1);
+    expect(container.querySelectorAll('.ant-result-500')).toHaveLength(1);
   });
 
   it('🙂  When status = 404, the icon is an image', () => {
-    const { container: wrapper } = render(<Result status="404" />);
-    expect(wrapper.querySelectorAll('.ant-result-404 .ant-result-image')).toHaveLength(1);
+    const { container } = render(<Result status="404" />);
+    expect(container.querySelectorAll('.ant-result-404 .ant-result-image')).toHaveLength(1);
   });
 
   it('🙂  When extra is undefined, the extra dom is undefined', () => {
-    const { container: wrapper } = render(<Result status="404" />);
-    expect(wrapper.querySelectorAll('.ant-result-extra')).toHaveLength(0);
+    const { container } = render(<Result status="404" />);
+    expect(container.querySelectorAll('.ant-result-extra')).toHaveLength(0);
   });
 
   it('🙂  result should support className', () => {
-    const { container: wrapper } = render(
-      <Result status="404" title="404" className="my-result" />,
-    );
-    expect(wrapper.querySelectorAll('.ant-result.my-result')).toHaveLength(1);
+    const { container } = render(<Result status="404" title="404" className="my-result" />);
+    expect(container.querySelectorAll('.ant-result.my-result')).toHaveLength(1);
   });
 
   it('should warning when pass a string as icon props', () => {
@@ -68,5 +66,12 @@ describe('Result', () => {
     );
 
     warnSpy.mockRestore();
+  });
+
+  it('should hide icon by setting icon to false or null', () => {
+    const { container } = render(<Result title="404" icon={null} />);
+    expect(container.querySelectorAll('.ant-result-icon')).toHaveLength(0);
+    const { container: container2 } = render(<Result title="404" icon={false} />);
+    expect(container2.querySelectorAll('.ant-result-icon')).toHaveLength(0);
   });
 });

@@ -1,10 +1,10 @@
-import * as React from 'react';
-import RcCollapse from 'rc-collapse';
 import classNames from 'classnames';
+import RcCollapse from 'rc-collapse';
+import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import warning from '../_util/warning';
 
-export type CollapsibleType = 'header' | 'disabled';
+export type CollapsibleType = 'header' | 'icon' | 'disabled';
 
 export interface CollapsePanelProps {
   key: string | number;
@@ -22,7 +22,7 @@ export interface CollapsePanelProps {
   children?: React.ReactNode;
 }
 
-const CollapsePanel: React.FC<CollapsePanelProps> = props => {
+const CollapsePanel: React.FC<CollapsePanelProps> = (props) => {
   warning(
     !('disabled' in props),
     'Collapse.Panel',

@@ -1,8 +1,8 @@
 import * as React from 'react';
-import type { DescriptionsItemProps } from './Item';
-import Cell from './Cell';
 import type { DescriptionsContextProps } from '.';
 import { DescriptionsContext } from '.';
+import Cell from './Cell';
+import type { DescriptionsItemProps } from './Item';
 
 interface CellConfig {
   component: string | [string, string];
@@ -96,7 +96,7 @@ export interface RowProps {
   children?: React.ReactNode;
 }
 
-const Row: React.FC<RowProps> = props => {
+const Row: React.FC<RowProps> = (props) => {
   const descContext = React.useContext(DescriptionsContext);
 
   const { prefixCls, vertical, row, index, bordered } = props;

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/input-number/demo/addon.md extend context correctly 1`] = `
+exports[`renders ./components/input-number/demo/addon.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -696,7 +696,6 @@ exports[`renders ./components/input-number/demo/addon.md extend context correctl
                               class="ant-empty-image"
                             >
                               <svg
-                                class="ant-empty-img-simple"
                                 height="41"
                                 viewBox="0 0 64 41"
                                 width="64"
@@ -708,22 +707,22 @@ exports[`renders ./components/input-number/demo/addon.md extend context correctl
                                   transform="translate(0 1)"
                                 >
                                   <ellipse
-                                    class="ant-empty-img-simple-ellipse"
                                     cx="32"
                                     cy="33"
+                                    fill="#f5f5f5"
                                     rx="32"
                                     ry="7"
                                   />
                                   <g
-                                    class="ant-empty-img-simple-g"
                                     fill-rule="nonzero"
+                                    stroke="#d9d9d9"
                                   >
                                     <path
                                       d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
                                     />
                                     <path
-                                      class="ant-empty-img-simple-path"
                                       d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                                      fill="#fafafa"
                                     />
                                   </g>
                                 </g>
@@ -732,7 +731,7 @@ exports[`renders ./components/input-number/demo/addon.md extend context correctl
                             <div
                               class="ant-empty-description"
                             >
-                              No Data
+                              No data
                             </div>
                           </div>
                         </div>
@@ -850,7 +849,7 @@ exports[`renders ./components/input-number/demo/addon.md extend context correctl
 </div>
 `;
 
-exports[`renders ./components/input-number/demo/basic.md extend context correctly 1`] = `
+exports[`renders ./components/input-number/demo/basic.tsx extend context correctly 1`] = `
 <div
   class="ant-input-number"
 >
@@ -929,7 +928,7 @@ exports[`renders ./components/input-number/demo/basic.md extend context correctl
 </div>
 `;
 
-exports[`renders ./components/input-number/demo/borderless.md extend context correctly 1`] = `
+exports[`renders ./components/input-number/demo/borderless.tsx extend context correctly 1`] = `
 <div
   class="ant-input-number ant-input-number-borderless"
 >
@@ -1008,7 +1007,7 @@ exports[`renders ./components/input-number/demo/borderless.md extend context cor
 </div>
 `;
 
-exports[`renders ./components/input-number/demo/controls.md extend context correctly 1`] = `
+exports[`renders ./components/input-number/demo/controls.tsx extend context correctly 1`] = `
 <div
   class="ant-input-number"
 >
@@ -1092,7 +1091,169 @@ exports[`renders ./components/input-number/demo/controls.md extend context corre
 </div>
 `;
 
-exports[`renders ./components/input-number/demo/digit.md extend context correctly 1`] = `
+exports[`renders ./components/input-number/demo/debug-token.tsx extend context correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center"
+>
+  <div
+    class="ant-space-item"
+    style="margin-right:8px"
+  >
+    <div
+      class="ant-input-number"
+    >
+      <div
+        class="ant-input-number-handler-wrap"
+      >
+        <span
+          aria-disabled="false"
+          aria-label="Increase Value"
+          class="ant-input-number-handler ant-input-number-handler-up"
+          role="button"
+          unselectable="on"
+        >
+          <span
+            aria-label="up"
+            class="anticon anticon-up ant-input-number-handler-up-inner"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="up"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+              />
+            </svg>
+          </span>
+        </span>
+        <span
+          aria-disabled="false"
+          aria-label="Decrease Value"
+          class="ant-input-number-handler ant-input-number-handler-down"
+          role="button"
+          unselectable="on"
+        >
+          <span
+            aria-label="down"
+            class="anticon anticon-down ant-input-number-handler-down-inner"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="down"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+      <div
+        class="ant-input-number-input-wrap"
+      >
+        <input
+          autocomplete="off"
+          class="ant-input-number-input"
+          role="spinbutton"
+          step="1"
+          value=""
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-input-number"
+    >
+      <div
+        class="ant-input-number-handler-wrap"
+      >
+        <span
+          aria-disabled="false"
+          aria-label="Increase Value"
+          class="ant-input-number-handler ant-input-number-handler-up"
+          role="button"
+          unselectable="on"
+        >
+          <span
+            aria-label="up"
+            class="anticon anticon-up ant-input-number-handler-up-inner"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="up"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+              />
+            </svg>
+          </span>
+        </span>
+        <span
+          aria-disabled="false"
+          aria-label="Decrease Value"
+          class="ant-input-number-handler ant-input-number-handler-down"
+          role="button"
+          unselectable="on"
+        >
+          <span
+            aria-label="down"
+            class="anticon anticon-down ant-input-number-handler-down-inner"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="down"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+      <div
+        class="ant-input-number-input-wrap"
+      >
+        <input
+          autocomplete="off"
+          class="ant-input-number-input"
+          role="spinbutton"
+          step="1"
+          value=""
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/input-number/demo/digit.tsx extend context correctly 1`] = `
 <div
   class="ant-input-number"
   style="width:200px"
@@ -1172,7 +1333,7 @@ exports[`renders ./components/input-number/demo/digit.md extend context correctl
 </div>
 `;
 
-exports[`renders ./components/input-number/demo/disabled.md extend context correctly 1`] = `
+exports[`renders ./components/input-number/demo/disabled.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-input-number ant-input-number-disabled"
@@ -1266,7 +1427,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/input-number/demo/formatter.md extend context correctly 1`] = `
+exports[`renders ./components/input-number/demo/formatter.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
 >
@@ -1432,7 +1593,7 @@ exports[`renders ./components/input-number/demo/formatter.md extend context corr
 </div>
 `;
 
-exports[`renders ./components/input-number/demo/keyboard.md extend context correctly 1`] = `
+exports[`renders ./components/input-number/demo/keyboard.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
 >
@@ -1543,7 +1704,7 @@ exports[`renders ./components/input-number/demo/keyboard.md extend context corre
 </div>
 `;
 
-exports[`renders ./components/input-number/demo/out-of-range.md extend context correctly 1`] = `
+exports[`renders ./components/input-number/demo/out-of-range.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
 >
@@ -1643,7 +1804,7 @@ exports[`renders ./components/input-number/demo/out-of-range.md extend context c
 </div>
 `;
 
-exports[`renders ./components/input-number/demo/prefix.md extend context correctly 1`] = `
+exports[`renders ./components/input-number/demo/prefix.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-input-number-affix-wrapper"
@@ -1933,7 +2094,88 @@ Array [
 ]
 `;
 
-exports[`renders ./components/input-number/demo/size.md extend context correctly 1`] = `
+exports[`renders ./components/input-number/demo/render-panel.tsx extend context correctly 1`] = `
+<div
+  style="display:flex;flex-direction:column;row-gap:16px"
+>
+  <div
+    class="ant-input-number"
+    style="width:100%"
+  >
+    <div
+      class="ant-input-number-handler-wrap"
+    >
+      <span
+        aria-disabled="false"
+        aria-label="Increase Value"
+        class="ant-input-number-handler ant-input-number-handler-up"
+        role="button"
+        unselectable="on"
+      >
+        <span
+          aria-label="up"
+          class="anticon anticon-up ant-input-number-handler-up-inner"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="up"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+            />
+          </svg>
+        </span>
+      </span>
+      <span
+        aria-disabled="false"
+        aria-label="Decrease Value"
+        class="ant-input-number-handler ant-input-number-handler-down"
+        role="button"
+        unselectable="on"
+      >
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-input-number-handler-down-inner"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+    <div
+      class="ant-input-number-input-wrap"
+    >
+      <input
+        autocomplete="off"
+        class="ant-input-number-input"
+        role="spinbutton"
+        step="1"
+        value=""
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/input-number/demo/size.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
 >
@@ -2182,7 +2424,7 @@ exports[`renders ./components/input-number/demo/size.md extend context correctly
 </div>
 `;
 
-exports[`renders ./components/input-number/demo/status.md extend context correctly 1`] = `
+exports[`renders ./components/input-number/demo/status.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
   style="width:100%"

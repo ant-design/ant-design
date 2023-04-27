@@ -1,23 +1,23 @@
-import * as React from 'react';
-import omit from 'rc-util/lib/omit';
-import classNames from 'classnames';
 import DownOutlined from '@ant-design/icons/DownOutlined';
+import classNames from 'classnames';
+import omit from 'rc-util/lib/omit';
+import * as React from 'react';
 import Checkbox from '../checkbox';
-import Menu from '../menu';
 import Dropdown from '../dropdown';
+import type { MenuProps } from '../menu';
+import { isValidElement } from '../_util/reactNode';
 import type {
-  TransferDirection,
+  KeyWiseTransferItem,
   RenderResult,
   RenderResultObject,
   SelectAllLabel,
+  TransferDirection,
   TransferLocale,
-  KeyWiseTransferItem,
 } from './index';
-import Search from './search';
+import type { PaginationType } from './interface';
 import type { TransferListBodyProps } from './ListBody';
 import DefaultListBody, { OmitProps } from './ListBody';
-import type { PaginationType } from './interface';
-import { isValidElement } from '../_util/reactNode';
+import Search from './search';
 
 const defaultRender = () => null;
 
@@ -30,7 +30,7 @@ function isRenderResultPlainObject(result: RenderResult): result is RenderResult
 }
 
 function getEnabledItemKeys<RecordType extends KeyWiseTransferItem>(items: RecordType[]) {
-  return items.filter(data => !data.disabled).map(data => data.key);
+  return items.filter((data) => !data.disabled).map((data) => data.key);
 }
 
 export interface RenderedItem<RecordType> {
@@ -81,12 +81,6 @@ interface TransferListState {
 export default class TransferList<
   RecordType extends KeyWiseTransferItem,
 > extends React.PureComponent<TransferListProps<RecordType>, TransferListState> {
-  static defaultProps = {
-    dataSource: [],
-    titleText: '',
-    showSearch: false,
-  };
-
   timer: number;
 
   triggerScrollTimer: number;
@@ -109,7 +103,7 @@ export default class TransferList<
     if (checkedKeys.length === 0) {
       return 'none';
     }
-    if (filteredItems.every(item => checkedKeys.indexOf(item.key) >= 0 || !!item.disabled)) {
+    if (filteredItems.every((item) => checkedKeys.includes(item.key) || !!item.disabled)) {
       return 'all';
     }
     return 'part';
@@ -123,7 +117,7 @@ export default class TransferList<
     const filteredItems: RecordType[] = [];
     const filteredRenderItems: RenderedItem<RecordType>[] = [];
 
-    dataSource.forEach(item => {
+    dataSource.forEach((item) => {
       const renderedItem = this.renderItem(item);
       const { renderedText } = renderedItem;
 
@@ -161,7 +155,7 @@ export default class TransferList<
     if (filterOption) {
       return filterOption(filterValue, item);
     }
-    return text.indexOf(filterValue) >= 0;
+    return text.includes(filterValue);
   };
 
   // =============================== Render ===============================
@@ -263,7 +257,7 @@ export default class TransferList<
         onChange={() => {
           // Only select enabled items
           onItemSelectAll(
-            filteredItems.filter(item => !item.disabled).map(({ key }) => key),
+            filteredItems.filter((item) => !item.disabled).map(({ key }) => key),
             !checkedAll,
           );
         }}
@@ -305,12 +299,12 @@ export default class TransferList<
     const { filterValue } = this.state;
     const {
       prefixCls,
-      dataSource,
-      titleText,
+      dataSource = [],
+      titleText = '',
       checkedKeys,
       disabled,
       footer,
-      showSearch,
+      showSearch = false,
       style,
       searchPlaceholder,
       notFoundContent,
@@ -364,16 +358,16 @@ export default class TransferList<
       !pagination &&
       this.getCheckBox({ filteredItems, onItemSelectAll, disabled, prefixCls });
 
-    let menu: React.ReactElement | null = null;
+    let items: MenuProps['items'];
     if (showRemove) {
-      const items = [
+      items = [
         /* Remove Current Page */
         pagination
           ? {
               key: 'removeCurrent',
               onClick: () => {
                 const pageKeys = getEnabledItemKeys(
-                  (this.defaultListBodyRef.current?.getItems() || []).map(entity => entity.item),
+                  (this.defaultListBodyRef.current?.getItems() || []).map((entity) => entity.item),
                 );
                 onItemRemove?.(pageKeys);
               },
@@ -389,11 +383,9 @@ export default class TransferList<
           },
           label: removeAll,
         },
-      ].filter(item => item);
-
-      menu = <Menu items={items} />;
+      ].filter((item) => item);
     } else {
-      const items = [
+      items = [
         {
           key: 'selectAll',
           onClick: () => {
@@ -407,7 +399,7 @@ export default class TransferList<
               key: 'selectCurrent',
               onClick: () => {
                 const pageItems = this.defaultListBodyRef.current?.getItems() || [];
-                onItemSelectAll(getEnabledItemKeys(pageItems.map(entity => entity.item)), true);
+                onItemSelectAll(getEnabledItemKeys(pageItems.map((entity) => entity.item)), true);
               },
               label: selectCurrent,
             }
@@ -419,7 +411,7 @@ export default class TransferList<
             let availableKeys: string[];
             if (pagination) {
               availableKeys = getEnabledItemKeys(
-                (this.defaultListBodyRef.current?.getItems() || []).map(entity => entity.item),
+                (this.defaultListBodyRef.current?.getItems() || []).map((entity) => entity.item),
               );
             } else {
               availableKeys = getEnabledItemKeys(filteredItems);
@@ -429,7 +421,7 @@ export default class TransferList<
             const newCheckedKeys: string[] = [];
             const newUnCheckedKeys: string[] = [];
 
-            availableKeys.forEach(key => {
+            availableKeys.forEach((key) => {
               if (checkedKeySet.has(key)) {
                 newUnCheckedKeys.push(key);
               } else {
@@ -443,12 +435,10 @@ export default class TransferList<
           label: selectInvert,
         },
       ];
-
-      menu = <Menu items={items} />;
     }
 
     const dropdown = (
-      <Dropdown className={`${prefixCls}-header-dropdown`} overlay={menu} disabled={disabled}>
+      <Dropdown className={`${prefixCls}-header-dropdown`} menu={{ items }} disabled={disabled}>
         <DownOutlined />
       </Dropdown>
     );

@@ -67,28 +67,6 @@ jobs:
         run: npm run lint
     needs: setup
 
-  tsx-demo:
-    runs-on: ubuntu-latest
-    steps:
-      - name: checkout
-        uses: actions/checkout@v3
-
-      - name: restore cache from package-lock.json
-        uses: actions/cache@v3
-        with:
-          path: package-temp-dir
-          key: lock-${{ github.sha }}
-
-      - name: restore cache from node_modules
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
-
-      - name: tsx-demo
-        run: npm run check-ts-demo
-    needs: setup
-
   check_metadata:
     runs-on: ubuntu-latest
     steps:
@@ -142,92 +120,6 @@ jobs:
         env:
           NODE_OPTIONS: --max_old_space_size=4096
     needs: setup
-
-  ############################### Style ################################
-  style-compile:
-    name: es style compile
-    runs-on: ubuntu-latest
-    steps:
-      - name: checkout
-        uses: actions/checkout@v3
-
-      - name: restore cache from package-lock.json
-        uses: actions/cache@v3
-        with:
-          path: package-temp-dir
-          key: lock-${{ github.sha }}
-
-      - name: restore cache from node_modules
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
-
-      - name: restore cache from lib
-        uses: actions/cache@v3
-        with:
-          path: lib
-          key: lib-${{ github.sha }}
-
-      - name: restore cache from es
-        uses: actions/cache@v3
-        with:
-          path: es
-          key: es-${{ github.sha }}
-
-      - name: lessc component
-        run: npx lessc --js ./es/button/style/index.less
-
-      - name: lessc mixins
-        run: npx lessc --js ./es/style/mixins/index.less
-    needs: compile
-
-  style-dist:
-    name: dist style compile
-    runs-on: ubuntu-latest
-    steps:
-      - name: checkout
-        uses: actions/checkout@v3
-
-      - name: restore cache from package-lock.json
-        uses: actions/cache@v3
-        with:
-          path: package-temp-dir
-          key: lock-${{ github.sha }}
-
-      - name: restore cache from node_modules
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
-
-      - name: restore cache from lib
-        uses: actions/cache@v3
-        with:
-          path: lib
-          key: lib-${{ github.sha }}
-
-      - name: restore cache from es
-        uses: actions/cache@v3
-        with:
-          path: es
-          key: es-${{ github.sha }}
-
-      - name: restore cache from dist
-        uses: actions/cache@v3
-        with:
-          path: dist
-          key: dist-${{ github.sha }}
-
-      - name: lessc default
-        run: npx lessc --js ./dist/antd.less
-
-      - name: lessc dark
-        run: npx lessc --js ./dist/antd.dark.less
-
-      - name: lessc variable
-        run: npx lessc --js ./dist/antd.variable.less
-    needs: [compile, dist]
 
   ################################ Test ################################
   normal-test:
@@ -291,9 +183,18 @@ jobs:
         if: ${{ matrix.module == 'dom' }}
         run: npm test -- --maxWorkers=2 --shard=${{matrix.shard}} --coverage
 
-      - name: coverage
-        uses: codecov/codecov-action@v3
+      - name: persist coverages
         if: ${{ matrix.module == 'dom' && matrix.react == '17' }}
+        run: |
+          mkdir persist-coverage
+          mv coverage/coverage-final.json persist-coverage/react-${{matrix.react}}-test-${{matrix.module}}-${{strategy.job-index}}.json
+
+      - uses: actions/upload-artifact@v3
+        if: ${{ matrix.module == 'dom' && matrix.react == '17' }}
+        name: upload coverages
+        with:
+          name: coverage-artifacts
+          path: persist-coverage/
 
       # node test
       - name: node test
@@ -307,6 +208,28 @@ jobs:
         env:
           LIB_DIR: dist
     needs: [setup, dist]
+
+  ############################ Test Coverage ###########################
+  upload-test-coverage:
+    name: test-coverage
+    runs-on: ubuntu-latest
+    needs: [normal-test]
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/download-artifact@v3
+        with:
+          name: coverage-artifacts
+          path: persist-coverage
+      - name: Merge Code Coverage
+        run: |
+          npx nyc merge persist-coverage/ coverage/coverage-final.json
+          npx nyc report --reporter text -t coverage --report-dir coverage
+          rm -rf persist-coverage
+      - name: Upload coverage to codecov
+        uses: codecov/codecov-action@v3
+        with:
+          # use own token to upload coverage reports
+          token: ${{ secrets.CODECOV_TOKEN }}
 
   ########################### Compile & Test ###########################
   compile:

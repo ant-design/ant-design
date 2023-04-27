@@ -1,11 +1,11 @@
 /* eslint-disable import/prefer-default-export, prefer-destructuring */
 
-import { updateCSS } from 'rc-util/lib/Dom/dynamicCSS';
-import canUseDom from 'rc-util/lib/Dom/canUseDom';
-import { TinyColor } from '@ctrl/tinycolor';
 import { generate } from '@ant-design/colors';
-import type { Theme } from './context';
+import { TinyColor } from '@ctrl/tinycolor';
+import canUseDom from 'rc-util/lib/Dom/canUseDom';
+import { updateCSS } from 'rc-util/lib/Dom/dynamicCSS';
 import warning from '../_util/warning';
+import type { Theme } from './context';
 
 const dynamicStyleMark = `-ant-${Date.now()}-${Math.random()}`;
 
@@ -28,10 +28,10 @@ export function getStyle(globalPrefixCls: string, theme: Theme) {
     variables[`${type}-color`] = formatColor(baseColor);
     variables[`${type}-color-disabled`] = colorPalettes[1];
     variables[`${type}-color-hover`] = colorPalettes[4];
-    variables[`${type}-color-active`] = colorPalettes[7];
+    variables[`${type}-color-active`] = colorPalettes[6];
     variables[`${type}-color-outline`] = baseColor.clone().setAlpha(0.2).toRgbString();
-    variables[`${type}-color-deprecated-bg`] = colorPalettes[1];
-    variables[`${type}-color-deprecated-border`] = colorPalettes[3];
+    variables[`${type}-color-deprecated-bg`] = colorPalettes[0];
+    variables[`${type}-color-deprecated-border`] = colorPalettes[2];
   };
 
   // ================ Primary Color ================
@@ -46,19 +46,19 @@ export function getStyle(globalPrefixCls: string, theme: Theme) {
       variables[`primary-${index + 1}`] = color;
     });
     // Deprecated
-    variables['primary-color-deprecated-l-35'] = formatColor(primaryColor, c => c.lighten(35));
-    variables['primary-color-deprecated-l-20'] = formatColor(primaryColor, c => c.lighten(20));
-    variables['primary-color-deprecated-t-20'] = formatColor(primaryColor, c => c.tint(20));
-    variables['primary-color-deprecated-t-50'] = formatColor(primaryColor, c => c.tint(50));
-    variables['primary-color-deprecated-f-12'] = formatColor(primaryColor, c =>
+    variables['primary-color-deprecated-l-35'] = formatColor(primaryColor, (c) => c.lighten(35));
+    variables['primary-color-deprecated-l-20'] = formatColor(primaryColor, (c) => c.lighten(20));
+    variables['primary-color-deprecated-t-20'] = formatColor(primaryColor, (c) => c.tint(20));
+    variables['primary-color-deprecated-t-50'] = formatColor(primaryColor, (c) => c.tint(50));
+    variables['primary-color-deprecated-f-12'] = formatColor(primaryColor, (c) =>
       c.setAlpha(c.getAlpha() * 0.12),
     );
 
     const primaryActiveColor = new TinyColor(primaryColors[0]);
-    variables['primary-color-active-deprecated-f-30'] = formatColor(primaryActiveColor, c =>
+    variables['primary-color-active-deprecated-f-30'] = formatColor(primaryActiveColor, (c) =>
       c.setAlpha(c.getAlpha() * 0.3),
     );
-    variables['primary-color-active-deprecated-d-02'] = formatColor(primaryActiveColor, c =>
+    variables['primary-color-active-deprecated-d-02'] = formatColor(primaryActiveColor, (c) =>
       c.darken(2),
     );
   }
@@ -85,7 +85,7 @@ export function getStyle(globalPrefixCls: string, theme: Theme) {
 
   // Convert to css variables
   const cssList = Object.keys(variables).map(
-    key => `--${globalPrefixCls}-${key}: ${variables[key]};`,
+    (key) => `--${globalPrefixCls}-${key}: ${variables[key]};`,
   );
 
   return `

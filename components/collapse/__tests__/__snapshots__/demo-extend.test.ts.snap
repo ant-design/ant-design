@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/collapse/demo/accordion.md extend context correctly 1`] = `
+exports[`renders ./components/collapse/demo/accordion.tsx extend context correctly 1`] = `
 <div
   class="ant-collapse ant-collapse-icon-position-start"
   role="tablist"
@@ -9,6 +9,7 @@ exports[`renders ./components/collapse/demo/accordion.md extend context correctl
     class="ant-collapse-item"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="ant-collapse-header"
       role="tab"
@@ -48,6 +49,7 @@ exports[`renders ./components/collapse/demo/accordion.md extend context correctl
     class="ant-collapse-item"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="ant-collapse-header"
       role="tab"
@@ -87,6 +89,7 @@ exports[`renders ./components/collapse/demo/accordion.md extend context correctl
     class="ant-collapse-item"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="ant-collapse-header"
       role="tab"
@@ -125,7 +128,7 @@ exports[`renders ./components/collapse/demo/accordion.md extend context correctl
 </div>
 `;
 
-exports[`renders ./components/collapse/demo/basic.md extend context correctly 1`] = `
+exports[`renders ./components/collapse/demo/basic.tsx extend context correctly 1`] = `
 <div
   class="ant-collapse ant-collapse-icon-position-start"
 >
@@ -133,6 +136,7 @@ exports[`renders ./components/collapse/demo/basic.md extend context correctly 1`
     class="ant-collapse-item ant-collapse-item-active"
   >
     <div
+      aria-disabled="false"
       aria-expanded="true"
       class="ant-collapse-header"
       role="button"
@@ -175,11 +179,9 @@ exports[`renders ./components/collapse/demo/basic.md extend context correctly 1`
         class="ant-collapse-content-box"
       >
         <p>
-          
   A dog is a type of domesticated animal.
   Known for its loyalty and faithfulness,
   it can be found as a welcome guest in many households across the world.
-
         </p>
       </div>
     </div>
@@ -188,6 +190,7 @@ exports[`renders ./components/collapse/demo/basic.md extend context correctly 1`
     class="ant-collapse-item"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="ant-collapse-header"
       role="button"
@@ -227,6 +230,7 @@ exports[`renders ./components/collapse/demo/basic.md extend context correctly 1`
     class="ant-collapse-item"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="ant-collapse-header"
       role="button"
@@ -265,7 +269,7 @@ exports[`renders ./components/collapse/demo/basic.md extend context correctly 1`
 </div>
 `;
 
-exports[`renders ./components/collapse/demo/borderless.md extend context correctly 1`] = `
+exports[`renders ./components/collapse/demo/borderless.tsx extend context correctly 1`] = `
 <div
   class="ant-collapse ant-collapse-icon-position-start ant-collapse-borderless"
 >
@@ -273,6 +277,7 @@ exports[`renders ./components/collapse/demo/borderless.md extend context correct
     class="ant-collapse-item ant-collapse-item-active"
   >
     <div
+      aria-disabled="false"
       aria-expanded="true"
       class="ant-collapse-header"
       role="button"
@@ -326,6 +331,7 @@ exports[`renders ./components/collapse/demo/borderless.md extend context correct
     class="ant-collapse-item"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="ant-collapse-header"
       role="button"
@@ -365,6 +371,7 @@ exports[`renders ./components/collapse/demo/borderless.md extend context correct
     class="ant-collapse-item"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="ant-collapse-header"
       role="button"
@@ -403,7 +410,7 @@ exports[`renders ./components/collapse/demo/borderless.md extend context correct
 </div>
 `;
 
-exports[`renders ./components/collapse/demo/collapsible.md extend context correctly 1`] = `
+exports[`renders ./components/collapse/demo/collapsible.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -418,6 +425,7 @@ exports[`renders ./components/collapse/demo/collapsible.md extend context correc
         class="ant-collapse-item ant-collapse-item-active"
       >
         <div
+          aria-disabled="false"
           aria-expanded="true"
           class="ant-collapse-header ant-collapse-header-collapsible-only"
         >
@@ -458,11 +466,70 @@ exports[`renders ./components/collapse/demo/collapsible.md extend context correc
             class="ant-collapse-content-box"
           >
             <p>
-              
   A dog is a type of domesticated animal.
   Known for its loyalty and faithfulness,
   it can be found as a welcome guest in many households across the world.
-
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
+  >
+    <div
+      class="ant-collapse ant-collapse-icon-position-start"
+    >
+      <div
+        class="ant-collapse-item ant-collapse-item-active"
+      >
+        <div
+          aria-disabled="false"
+          aria-expanded="true"
+          class="ant-collapse-header ant-collapse-icon-collapsible-only"
+        >
+          <div
+            class="ant-collapse-expand-icon"
+          >
+            <span
+              aria-label="right"
+              class="anticon anticon-right ant-collapse-arrow"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="right"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                style="-ms-transform:rotate(90deg);transform:rotate(90deg)"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                />
+              </svg>
+            </span>
+          </div>
+          <span
+            class="ant-collapse-header-text"
+          >
+            This panel can only be collapsed by clicking icon
+          </span>
+        </div>
+        <div
+          class="ant-collapse-content ant-collapse-content-active"
+        >
+          <div
+            class="ant-collapse-content-box"
+          >
+            <p>
+  A dog is a type of domesticated animal.
+  Known for its loyalty and faithfulness,
+  it can be found as a welcome guest in many households across the world.
             </p>
           </div>
         </div>
@@ -479,6 +546,7 @@ exports[`renders ./components/collapse/demo/collapsible.md extend context correc
         class="ant-collapse-item ant-collapse-item-disabled"
       >
         <div
+          aria-disabled="true"
           aria-expanded="false"
           class="ant-collapse-header"
           role="button"
@@ -519,7 +587,7 @@ exports[`renders ./components/collapse/demo/collapsible.md extend context correc
 </div>
 `;
 
-exports[`renders ./components/collapse/demo/custom.md extend context correctly 1`] = `
+exports[`renders ./components/collapse/demo/custom.tsx extend context correctly 1`] = `
 <div
   class="ant-collapse ant-collapse-icon-position-start ant-collapse-borderless site-collapse-custom-collapse"
 >
@@ -527,6 +595,7 @@ exports[`renders ./components/collapse/demo/custom.md extend context correctly 1
     class="ant-collapse-item ant-collapse-item-active site-collapse-custom-panel"
   >
     <div
+      aria-disabled="false"
       aria-expanded="true"
       class="ant-collapse-header"
       role="button"
@@ -569,11 +638,9 @@ exports[`renders ./components/collapse/demo/custom.md extend context correctly 1
         class="ant-collapse-content-box"
       >
         <p>
-          
   A dog is a type of domesticated animal.
   Known for its loyalty and faithfulness,
   it can be found as a welcome guest in many households across the world.
-
         </p>
       </div>
     </div>
@@ -582,6 +649,7 @@ exports[`renders ./components/collapse/demo/custom.md extend context correctly 1
     class="ant-collapse-item site-collapse-custom-panel"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="ant-collapse-header"
       role="button"
@@ -621,6 +689,7 @@ exports[`renders ./components/collapse/demo/custom.md extend context correctly 1
     class="ant-collapse-item site-collapse-custom-panel"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="ant-collapse-header"
       role="button"
@@ -659,7 +728,7 @@ exports[`renders ./components/collapse/demo/custom.md extend context correctly 1
 </div>
 `;
 
-exports[`renders ./components/collapse/demo/extra.md extend context correctly 1`] = `
+exports[`renders ./components/collapse/demo/extra.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-collapse ant-collapse-icon-position-start"
@@ -668,6 +737,7 @@ Array [
       class="ant-collapse-item ant-collapse-item-active"
     >
       <div
+        aria-disabled="false"
         aria-expanded="true"
         class="ant-collapse-header"
         role="button"
@@ -734,11 +804,9 @@ Array [
           class="ant-collapse-content-box"
         >
           <div>
-            
   A dog is a type of domesticated animal.
   Known for its loyalty and faithfulness,
   it can be found as a welcome guest in many households across the world.
-
           </div>
         </div>
       </div>
@@ -747,6 +815,7 @@ Array [
       class="ant-collapse-item"
     >
       <div
+        aria-disabled="false"
         aria-expanded="false"
         class="ant-collapse-header"
         role="button"
@@ -810,6 +879,7 @@ Array [
       class="ant-collapse-item"
     >
       <div
+        aria-disabled="false"
         aria-expanded="false"
         class="ant-collapse-header"
         role="button"
@@ -872,7 +942,7 @@ Array [
   </div>,
   <br />,
   <span>
-    Expand Icon Position: 
+    Expand Icon Position:
   </span>,
   <div
     class="ant-select ant-select-single ant-select-show-arrow"
@@ -1019,7 +1089,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/collapse/demo/ghost.md extend context correctly 1`] = `
+exports[`renders ./components/collapse/demo/ghost.tsx extend context correctly 1`] = `
 <div
   class="ant-collapse ant-collapse-icon-position-start ant-collapse-ghost"
 >
@@ -1027,6 +1097,7 @@ exports[`renders ./components/collapse/demo/ghost.md extend context correctly 1`
     class="ant-collapse-item ant-collapse-item-active"
   >
     <div
+      aria-disabled="false"
       aria-expanded="true"
       class="ant-collapse-header"
       role="button"
@@ -1069,11 +1140,9 @@ exports[`renders ./components/collapse/demo/ghost.md extend context correctly 1`
         class="ant-collapse-content-box"
       >
         <p>
-          
   A dog is a type of domesticated animal.
   Known for its loyalty and faithfulness,
   it can be found as a welcome guest in many households across the world.
-
         </p>
       </div>
     </div>
@@ -1082,6 +1151,7 @@ exports[`renders ./components/collapse/demo/ghost.md extend context correctly 1`
     class="ant-collapse-item"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="ant-collapse-header"
       role="button"
@@ -1121,6 +1191,7 @@ exports[`renders ./components/collapse/demo/ghost.md extend context correctly 1`
     class="ant-collapse-item"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="ant-collapse-header"
       role="button"
@@ -1159,7 +1230,7 @@ exports[`renders ./components/collapse/demo/ghost.md extend context correctly 1`
 </div>
 `;
 
-exports[`renders ./components/collapse/demo/mix.md extend context correctly 1`] = `
+exports[`renders ./components/collapse/demo/mix.tsx extend context correctly 1`] = `
 <div
   class="ant-collapse ant-collapse-icon-position-start"
 >
@@ -1167,6 +1238,7 @@ exports[`renders ./components/collapse/demo/mix.md extend context correctly 1`] 
     class="ant-collapse-item"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="ant-collapse-header"
       role="button"
@@ -1206,6 +1278,7 @@ exports[`renders ./components/collapse/demo/mix.md extend context correctly 1`] 
     class="ant-collapse-item"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="ant-collapse-header"
       role="button"
@@ -1245,6 +1318,7 @@ exports[`renders ./components/collapse/demo/mix.md extend context correctly 1`] 
     class="ant-collapse-item"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="ant-collapse-header"
       role="button"
@@ -1283,7 +1357,7 @@ exports[`renders ./components/collapse/demo/mix.md extend context correctly 1`] 
 </div>
 `;
 
-exports[`renders ./components/collapse/demo/noarrow.md extend context correctly 1`] = `
+exports[`renders ./components/collapse/demo/noarrow.tsx extend context correctly 1`] = `
 <div
   class="ant-collapse ant-collapse-icon-position-start"
 >
@@ -1291,6 +1365,7 @@ exports[`renders ./components/collapse/demo/noarrow.md extend context correctly 
     class="ant-collapse-item ant-collapse-item-active"
   >
     <div
+      aria-disabled="false"
       aria-expanded="true"
       class="ant-collapse-header"
       role="button"
@@ -1333,11 +1408,9 @@ exports[`renders ./components/collapse/demo/noarrow.md extend context correctly 
         class="ant-collapse-content-box"
       >
         <p>
-          
   A dog is a type of domesticated animal.
   Known for its loyalty and faithfulness,
   it can be found as a welcome guest in many households across the world.
-
         </p>
       </div>
     </div>
@@ -1346,6 +1419,7 @@ exports[`renders ./components/collapse/demo/noarrow.md extend context correctly 
     class="ant-collapse-item ant-collapse-no-arrow"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="ant-collapse-header"
       role="button"

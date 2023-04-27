@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/affix/demo/basic.md extend context correctly 1`] = `
+exports[`renders ./components/affix/demo/basic.tsx extend context correctly 1`] = `
 Array [
   <div>
     <div
@@ -34,7 +34,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/affix/demo/debug.md extend context correctly 1`] = `
+exports[`renders ./components/affix/demo/debug.tsx extend context correctly 1`] = `
 <div
   style="height:10000px"
 >
@@ -65,7 +65,7 @@ exports[`renders ./components/affix/demo/debug.md extend context correctly 1`] =
 </div>
 `;
 
-exports[`renders ./components/affix/demo/on-change.md extend context correctly 1`] = `
+exports[`renders ./components/affix/demo/on-change.tsx extend context correctly 1`] = `
 <div>
   <div
     class=""
@@ -82,7 +82,7 @@ exports[`renders ./components/affix/demo/on-change.md extend context correctly 1
 </div>
 `;
 
-exports[`renders ./components/affix/demo/target.md extend context correctly 1`] = `
+exports[`renders ./components/affix/demo/target.tsx extend context correctly 1`] = `
 <div
   class="scrollable-container"
 >
