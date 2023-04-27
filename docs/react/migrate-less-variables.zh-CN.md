@@ -36,3 +36,16 @@ title: less 变量迁移 Component Token
 | `@modal-confirm-body-padding` | - | 由于样式变化已废弃 |
 | `@modal-confirm-title-font-size` | `modalHeaderTitleFontSize` | - |
 | `@modal-border-radius` | `borderRadiusLG` | - |
+
+## Image 图片
+
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@image-size-base` | - | 由于样式变化已废弃 |
+| `@image-font-size-base` | - | 由于样式变化已废弃 |
+| `@image-bg` | - | 由于样式变化已废弃 |
+| `@image-color` | - | 由于样式变化已废弃 |
+| `@image-preview-operation-color` | `imagePreviewOperationSize` | - |
+| `@image-bg` | `imagePreviewOperationColor` | - |
+| `@image-preview-operation-disabled-color` | `imagePreviewOperationDisabledColor` | - |
