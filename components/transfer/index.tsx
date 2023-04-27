@@ -232,10 +232,16 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     moveTo('right');
   };
 
-  const onItemSelectAll = (direction: TransferDirection, keys: string[], checkAll: boolean) => {
+  const onItemSelectAll = (
+    direction: TransferDirection,
+    keys: string[],
+    checkAll: boolean | 'replace',
+  ) => {
     setStateKeys(direction, (prevKeys) => {
       let mergedCheckedKeys: string[] = [];
-      if (checkAll) {
+      if (checkAll === 'replace') {
+        mergedCheckedKeys = keys;
+      } else if (checkAll) {
         // Merge current keys with origin key
         mergedCheckedKeys = Array.from(new Set<string>([...prevKeys, ...keys]));
       } else {
