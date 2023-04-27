@@ -36,3 +36,10 @@ title: less 变量迁移 Component Token
 | `@modal-confirm-body-padding` | - | 由于样式变化已废弃 |
 | `@modal-confirm-title-font-size` | `modalHeaderTitleFontSize` | - |
 | `@modal-border-radius` | `borderRadiusLG` | - |
+
+## Upload 上传
+
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@upload-actions-color` | - | 由于样式变化已废弃 |
