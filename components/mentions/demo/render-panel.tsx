@@ -12,10 +12,10 @@ const options = [
     value: 'zombieJ',
     label: 'zombieJ',
   },
-]
+];
 
 const App: React.FC = () => (
-  <InternalMentions style={{ width: '100%' }} value="@" options={options}/>
+  <InternalMentions style={{ width: '100%' }} value="@" options={options} />
 );
 
 export default App;
