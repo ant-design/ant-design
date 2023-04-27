@@ -257,7 +257,7 @@ const InternalButton: React.ForwardRefRenderFunction<
     );
   }
 
-  let buttonNode = (
+  const buttonNode = (
     <button
       {...(rest as NativeButtonProps)}
       type={htmlType}
@@ -271,11 +271,11 @@ const InternalButton: React.ForwardRefRenderFunction<
     </button>
   );
 
-  if (!isUnBorderedButtonType(type)) {
-    buttonNode = <Wave disabled={!!innerLoading}>{buttonNode}</Wave>;
+  if (isUnBorderedButtonType(type)) {
+    return wrapSSR(buttonNode);
   }
 
-  return wrapSSR(buttonNode);
+  return wrapSSR(<Wave disabled={!!innerLoading}>{buttonNode}</Wave>);
 };
 
 const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
