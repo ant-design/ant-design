@@ -12,14 +12,15 @@ interface ColorHexInputProps extends Pick<ColorPickerBaseProps, 'prefixCls'> {
 
 const toHex = (value: string) => value.replace(/[^\w/]/gi, '').slice(0, 8);
 const hexReg = /(^#[\da-f]{6}$)|(^#[\da-f]{8}$)/i;
+const getHexString = (value?: Color) => (value ? toHex(value.toHexString()) : '');
 
 const ColorHexInput: FC<ColorHexInputProps> = ({ prefixCls, value, onChange }) => {
   const ColorHexInputPrefixCls = `${prefixCls}-hex-input`;
-  const [hexValue, setHexValue] = useState(toHex(value?.toHexString() || ''));
+  const [hexValue, setHexValue] = useState(getHexString(value));
 
   // Update step value
   useEffect(() => {
-    const hex = toHex(value?.toHexString() || '');
+    const hex = getHexString(value);
     if (hexReg.test(`#${hex}`) && value) {
       setHexValue(hex);
     }

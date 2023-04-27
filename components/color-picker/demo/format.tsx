@@ -8,15 +8,15 @@ export default () => {
   const [colorRgb, setColorRgb] = useState<Color | string>('rgb(22,119,255)');
 
   const hexString = useMemo(
-    () => (typeof colorHex === 'string' ? colorHex : (colorHex as Color).toHexString()),
+    () => (typeof colorHex === 'string' ? colorHex : colorHex.toHexString()),
     [colorHex],
   );
   const hsbString = useMemo(
-    () => (typeof colorHsb === 'string' ? colorHsb : (colorHsb as Color).toHsbString()),
+    () => (typeof colorHsb === 'string' ? colorHsb : colorHsb.toHsbString()),
     [colorHsb],
   );
   const rgbString = useMemo(
-    () => (typeof colorRgb === 'string' ? colorRgb : (colorRgb as Color).toRgbString()),
+    () => (typeof colorRgb === 'string' ? colorRgb : colorRgb.toRgbString()),
     [colorRgb],
   );
 
