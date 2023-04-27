@@ -36,3 +36,12 @@ title: less 变量迁移 Component Token
 | `@modal-confirm-body-padding` | - | 由于样式变化已废弃 |
 | `@modal-confirm-title-font-size` | `modalHeaderTitleFontSize` | - |
 | `@modal-border-radius` | `borderRadiusLG` | - |
+
+## Typography 排版
+
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@typography-title-font-weight` | - | 由于样式变化已废弃 |
+| `@typography-title-margin-top` | `sizeMarginHeadingVerticalStart` | - |
+| `@typography-title-margin-bottom` | `sizeMarginHeadingVerticalEnd` | - |

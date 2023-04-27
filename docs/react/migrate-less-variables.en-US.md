@@ -36,3 +36,12 @@ This document contains the correspondence between all the less variables related
 | `@modal-confirm-body-padding` | - | Deprecated for style change |
 | `@modal-confirm-title-font-size` | `modalHeaderTitleFontSize` | - |
 | `@modal-border-radius` | `borderRadiusLG` | - |
+
+## Typography
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@typography-title-font-weight` | - | Deprecated for style change |
+| `@typography-title-margin-top` | `sizeMarginHeadingVerticalStart` | - |
+| `@typography-title-margin-bottom` | `sizeMarginHeadingVerticalEnd` | - |
