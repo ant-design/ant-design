@@ -31,6 +31,9 @@ export interface BreadcrumbItemType {
   overlay?: React.ReactNode;
   className?: string;
   onClick?: React.MouseEventHandler<HTMLAnchorElement | HTMLSpanElement>;
+
+  /** @deprecated Please use `menu` instead */
+  children?: Omit<BreadcrumbItemType, 'children'>[];
 }
 export interface BreadcrumbSeparatorType {
   type: 'separator';
