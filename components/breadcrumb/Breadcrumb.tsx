@@ -13,13 +13,6 @@ import useStyle from './style';
 import useItemRender from './useItemRender';
 import useItems from './useItems';
 
-/** @deprecated New of Breadcrumb using `items` instead of `routes` */
-export interface Route {
-  path: string;
-  breadcrumbName: string;
-  children?: Omit<Route, 'children'>[];
-}
-
 export interface BreadcrumbItemType {
   key?: React.Key;
   /**
@@ -30,7 +23,9 @@ export interface BreadcrumbItemType {
    * Different with `href`. It will concat all prev `path` to the current one.
    */
   path?: string;
-  title: React.ReactNode;
+  title?: React.ReactNode;
+  /* @deprecated Please use `title` instead */
+  breadcrumbName?: string;
   menu?: BreadcrumbItemProps['menu'];
   /** @deprecated Please use `menu` instead */
   overlay?: React.ReactNode;
@@ -42,11 +37,11 @@ export interface BreadcrumbSeparatorType {
   separator?: React.ReactNode;
 }
 
-export type ItemType = BreadcrumbItemType | BreadcrumbSeparatorType;
+export type ItemType = Partial<BreadcrumbItemType & BreadcrumbSeparatorType>;
 
 export type InternalRouteType = Partial<BreadcrumbItemType & BreadcrumbSeparatorType>;
 
-export interface BaseBreadcrumbProps {
+export interface BreadcrumbProps {
   prefixCls?: string;
   params?: any;
   separator?: React.ReactNode;
@@ -54,17 +49,11 @@ export interface BaseBreadcrumbProps {
   className?: string;
   rootClassName?: string;
   children?: React.ReactNode;
-}
 
-export interface LegacyBreadcrumbProps extends BaseBreadcrumbProps {
   /** @deprecated Please use `items` instead */
-  routes: Route[];
+  routes?: ItemType[];
 
-  itemRender?: (route: Route, params: any, routes: Route[], paths: string[]) => React.ReactNode;
-}
-
-export interface NewBreadcrumbProps extends BaseBreadcrumbProps {
-  items: ItemType[];
+  items?: ItemType[];
 
   itemRender?: (
     route: ItemType,
@@ -73,8 +62,6 @@ export interface NewBreadcrumbProps extends BaseBreadcrumbProps {
     paths: string[],
   ) => React.ReactNode;
 }
-
-export type BreadcrumbProps = BaseBreadcrumbProps | LegacyBreadcrumbProps | NewBreadcrumbProps;
 
 const getPath = (params: any, path?: string) => {
   if (path === undefined) {
@@ -88,12 +75,7 @@ const getPath = (params: any, path?: string) => {
   return mergedPath;
 };
 
-type CompoundedComponent = React.FC<BreadcrumbProps> & {
-  Item: typeof BreadcrumbItem;
-  Separator: typeof BreadcrumbSeparator;
-};
-
-const Breadcrumb: CompoundedComponent = (props) => {
+const Breadcrumb = (props: BreadcrumbProps) => {
   const {
     prefixCls: customizePrefixCls,
     separator = '/',
@@ -106,7 +88,7 @@ const Breadcrumb: CompoundedComponent = (props) => {
     itemRender,
     params = {},
     ...restProps
-  } = props as LegacyBreadcrumbProps & NewBreadcrumbProps;
+  } = props;
 
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
 

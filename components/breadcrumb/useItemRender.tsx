@@ -1,19 +1,13 @@
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
-import type {
-  BreadcrumbItemType,
-  BreadcrumbSeparatorType,
-  InternalRouteType,
-  ItemType,
-  NewBreadcrumbProps,
-} from './Breadcrumb';
+import type { BreadcrumbProps, InternalRouteType, ItemType } from './Breadcrumb';
 
 type AddParameters<TFunction extends (...args: any) => any, TParameters extends [...args: any]> = (
   ...args: [...Parameters<TFunction>, ...TParameters]
 ) => ReturnType<TFunction>;
 
-type ItemRender = NonNullable<NewBreadcrumbProps['itemRender']>;
+type ItemRender = NonNullable<BreadcrumbProps['itemRender']>;
 type InternalItemRenderParams = AddParameters<ItemRender, [href?: string]>;
 
 function getBreadcrumbName(route: InternalRouteType, params: any) {
@@ -39,7 +33,7 @@ export function renderItem(
     return null;
   }
 
-  const { className, ...passedProps } = omit(item as BreadcrumbItemType & BreadcrumbSeparatorType, [
+  const { className, ...passedProps } = omit(item, [
     'title',
     'type',
     'separator',
