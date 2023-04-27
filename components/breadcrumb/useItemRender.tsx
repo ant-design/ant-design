@@ -1,9 +1,11 @@
+import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
 import type {
   BreadcrumbItemType,
   BreadcrumbSeparatorType,
   InternalRouteType,
+  ItemType,
   NewBreadcrumbProps,
 } from './Breadcrumb';
 
@@ -27,6 +29,40 @@ function getBreadcrumbName(route: InternalRouteType, params: any) {
       );
 }
 
+export function renderItem(
+  prefixCls: string,
+  item: ItemType,
+  children: React.ReactNode,
+  href?: string,
+) {
+  if (children === null || children === undefined) {
+    return null;
+  }
+
+  const { className, ...passedProps } = omit(item as BreadcrumbItemType & BreadcrumbSeparatorType, [
+    'title',
+    'type',
+    'separator',
+    'path',
+    'menu',
+    'overlay',
+  ]);
+
+  if (href !== undefined) {
+    return (
+      <a {...passedProps} className={classNames(`${prefixCls}-link`, className)} href={href}>
+        {children}
+      </a>
+    );
+  }
+
+  return (
+    <span {...passedProps} className={classNames(`${prefixCls}-link`, className)}>
+      {children}
+    </span>
+  );
+}
+
 export default function useItemRender(prefixCls: string, itemRender?: ItemRender) {
   const mergedItemRender: InternalItemRenderParams = (item, params, routes, path, href) => {
     if (itemRender) {
@@ -35,28 +71,7 @@ export default function useItemRender(prefixCls: string, itemRender?: ItemRender
 
     const name = getBreadcrumbName(item, params);
 
-    const passedProps = omit(item as BreadcrumbItemType & BreadcrumbSeparatorType, [
-      'title',
-      'type',
-      'separator',
-      'path',
-      'menu',
-      'overlay',
-    ]);
-
-    if (href !== undefined) {
-      return (
-        <a {...passedProps} className={`${prefixCls}-link`} href={href}>
-          {name}
-        </a>
-      );
-    }
-
-    return (
-      <span {...passedProps} className={`${prefixCls}-link`}>
-        {name}
-      </span>
-    );
+    return renderItem(prefixCls, item, name, href);
   };
 
   return mergedItemRender;

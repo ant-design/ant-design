@@ -6,7 +6,7 @@ import { cloneElement } from '../_util/reactNode';
 import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import type { BreadcrumbItemProps } from './BreadcrumbItem';
-import BreadcrumbItem from './BreadcrumbItem';
+import BreadcrumbItem, { InternalBreadcrumbItem } from './BreadcrumbItem';
 import BreadcrumbSeparator from './BreadcrumbSeparator';
 
 import useStyle from './style';
@@ -170,7 +170,7 @@ const Breadcrumb: CompoundedComponent = (props) => {
       }
 
       return (
-        <BreadcrumbItem
+        <InternalBreadcrumbItem
           key={mergedKey}
           {...itemProps}
           {...pickAttrs(item, {
@@ -180,9 +180,10 @@ const Breadcrumb: CompoundedComponent = (props) => {
           href={href}
           separator={isLastItem ? '' : separator}
           onClick={onClick}
+          prefixCls={prefixCls}
         >
           {mergedItemRender(item as BreadcrumbItemType, params, itemRenderRoutes, paths, href)}
-        </BreadcrumbItem>
+        </InternalBreadcrumbItem>
       );
     });
   } else if (children) {
