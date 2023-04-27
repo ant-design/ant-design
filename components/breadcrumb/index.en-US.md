@@ -64,7 +64,8 @@ return <Breadcrumb routes={[{ breadcrumbName: 'sample' }]} />;
 | --- | --- | --- | --- | --- |
 | className | The additional css class | string | - |  |
 | dropdownProps | The dropdown props | [Dropdown](/components/dropdown) | - |  |
-| href | Target of hyperlink | string | - |  |
+| href | Target of hyperlink. Can not work with `path` | string | - |  |
+| path | Connected path. Each path will connect with prev one. Can not work with `href` | string | - |  |
 | menu | The menu props | [MenuProps](/components/menu/#api) | - | 4.24.0 |
 | onClick | Set the handler to handle click event | (e:MouseEvent) => void | - |  |
 | title | item name | ReactNode | - |  |
