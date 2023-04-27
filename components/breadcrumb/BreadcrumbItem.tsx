@@ -46,7 +46,6 @@ const BreadcrumbItem: CompoundedComponent = (props: BreadcrumbItemProps) => {
     overlay,
     dropdownProps,
     href,
-    ...restProps
   } = props;
 
   const { getPrefixCls } = React.useContext(ConfigContext);
@@ -102,23 +101,8 @@ const BreadcrumbItem: CompoundedComponent = (props: BreadcrumbItemProps) => {
     return breadcrumbItem;
   };
 
-  let link: React.ReactNode;
-  if (href !== undefined) {
-    link = (
-      <a className={`${prefixCls}-link`} href={href} {...restProps}>
-        {children}
-      </a>
-    );
-  } else {
-    link = (
-      <span className={`${prefixCls}-link`} {...restProps}>
-        {children}
-      </span>
-    );
-  }
-
   // wrap to dropDown
-  link = renderBreadcrumbNode(link);
+  const link = renderBreadcrumbNode(children);
   if (children !== undefined && children !== null) {
     return (
       <>
