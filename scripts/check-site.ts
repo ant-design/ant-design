@@ -2,9 +2,9 @@
 /* eslint-disable no-restricted-syntax */
 import cheerio from 'cheerio';
 import { globSync } from 'glob';
-import http from 'http';
+import type http from 'http';
 import { createServer } from 'http-server';
-import https from 'https';
+import type https from 'https';
 import fetch from 'isomorphic-fetch';
 import uniq from 'lodash/uniq';
 import { join } from 'path';
