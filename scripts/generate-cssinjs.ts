@@ -20,7 +20,7 @@ const generate = {
       const componentName = pathArr[styleIndex - 1];
       let useStyle: StyleFn = () => {};
       if (file.includes('grid')) {
-        const { useColStyle, useRowStyle } = (await import(file)).default;
+        const { useColStyle, useRowStyle } = await import(file);
         useStyle = (prefixCls: string) => {
           useRowStyle(prefixCls);
           useColStyle(prefixCls);
