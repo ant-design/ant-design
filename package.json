@@ -177,6 +177,7 @@
     "@testing-library/user-event": "^14.4.2",
     "@types/fs-extra": "^11.0.1",
     "@types/gtag.js": "^0.0.12",
+    "@types/http-server": "^0.12.1",
     "@types/inquirer": "^9.0.3",
     "@types/isomorphic-fetch": "^0.0.36",
     "@types/jest": "^29.0.0",
