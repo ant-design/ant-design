@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import chalk from 'chalk';
 import dayjs from 'dayjs';
 import isBetween from 'dayjs/plugin/isBetween';
