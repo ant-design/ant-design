@@ -10,10 +10,10 @@ const { version } = localPackage;
 
 dayjs.extend(isBetween);
 
-const getChangelogByVersion = (content: string, version: string) => {
+const getChangelogByVersion = (content: string, vers: string) => {
   const lines = content.split('\n');
   const changeLog: string[] = [];
-  const startPattern = new RegExp(`^## ${version}`);
+  const startPattern = new RegExp(`^## ${vers}`);
   const stopPattern = /^## /; // 前一个版本
   let begin = false;
   for (let i = 0; i < lines.length; i += 1) {
