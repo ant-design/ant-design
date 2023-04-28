@@ -5,7 +5,6 @@ import type { FullToken, GenerateStyle, UseComponentStyleResult } from '../../th
 import { genComponentStyleHook, genPresetColor, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
-  zIndexPopup: number;
   colorBgDefault: string;
   tooltipMaxWidth: number;
   tooltipColor: string;
@@ -26,7 +25,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
       [componentCls]: {
         ...resetComponent(token),
         position: 'absolute',
-        zIndex: token.zIndexPopup,
+        zIndex: token.zIndexPopupBase + 70,
         display: 'block',
         width: 'max-content',
         maxWidth: token.tooltipMaxWidth,
@@ -131,7 +130,6 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
       return [genTooltipStyle(TooltipToken), initZoomMotion(token, 'zoom-big-fast')];
     },
     (token) => ({
-      zIndexPopup: token.zIndexPopupBase + 70,
       colorBgDefault: token.colorBgSpotlight,
       tooltipMaxWidth: 250,
       tooltipColor: token.colorTextLightSolid,
