@@ -152,19 +152,8 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
 export default genComponentStyleHook(
   'Tag',
   (token) => {
-    const { fontSize, lineHeight, lineWidth, fontSizeIcon } = token;
-    const tagHeight = Math.round(fontSize * lineHeight);
-
-    const tagFontSize = token.fontSizeSM;
-    const tagLineHeight = tagHeight - lineWidth * 2;
-    const tagDefaultBg = token.colorFillQuaternary;
-    const tagDefaultColor = token.colorText;
-
+    const { lineWidth, fontSizeIcon } = token;
     const tagToken = mergeToken<TagToken>(token, {
-      tagFontSize,
-      tagLineHeight,
-      tagDefaultBg,
-      tagDefaultColor,
       tagIconSize: fontSizeIcon - 2 * lineWidth, // Tag icon is much more smaller
       tagPaddingHorizontal: 8, // Fixed padding.
       tagBorderlessBg: token.colorFillTertiary,
@@ -180,20 +169,14 @@ export default genComponentStyleHook(
     ];
   },
   (token) => {
-    const { fontSize, lineHeight, lineWidth, fontSizeIcon } = token;
-    const tagHeight = Math.round(fontSize * lineHeight);
-    const tagFontSize = token.fontSizeSM;
-    const tagLineHeight = tagHeight - lineWidth * 2;
-    const tagDefaultBg = token.colorFillQuaternary;
-    const tagDefaultColor = token.colorText;
+    const { fontSize, lineHeight, lineWidth } = token;
+    const tagLineHeight = Math.round(fontSize * lineHeight) - lineWidth * 2;
+
     return {
-      tagFontSize,
+      tagFontSize: token.fontSizeSM,
+      tagDefaultBg: token.colorFillQuaternary,
+      tagDefaultColor: token.colorText,
       tagLineHeight,
-      tagDefaultBg,
-      tagDefaultColor,
-      tagIconSize: fontSizeIcon - 2 * lineWidth, // Tag icon is much more smaller
-      tagPaddingHorizontal: 8, // Fixed padding.
-      tagBorderlessBg: token.colorFillTertiary,
     };
   },
 );
