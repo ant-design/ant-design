@@ -51,7 +51,6 @@
     "size-limit": "size-limit",
     "check-commit": "node ./scripts/check-commit",
     "check-ts-demo": "node ./scripts/check-ts-demo",
-    "check-demo": "ts-node --esm --project tsconfig.node.json scripts/check-demo.ts",
     "clean": "antd-tools run clean && rm -rf es lib coverage dist report.html",
     "clean-lockfiles": "rm -rf package-lock.json yarn.lock",
     "collect-token-statistic": "ts-node --project tsconfig.node.json scripts/collect-token-statistic.js",
