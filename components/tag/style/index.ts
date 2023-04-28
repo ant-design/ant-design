@@ -5,13 +5,14 @@ import { resetComponent } from '../../style';
 import type { FullToken } from '../../theme/internal';
 import { genComponentStyleHook, genPresetColor, mergeToken } from '../../theme/internal';
 
-export interface ComponentToken {}
-
-interface TagToken extends FullToken<'Tag'> {
+export interface ComponentToken {
   tagFontSize: number;
   tagLineHeight: React.CSSProperties['lineHeight'];
   tagDefaultBg: string;
   tagDefaultColor: string;
+}
+
+interface TagToken extends FullToken<'Tag'> {
   tagIconSize: number;
   tagPaddingHorizontal: number;
   tagBorderlessBg: string;
