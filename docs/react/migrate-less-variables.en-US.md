@@ -7,7 +7,7 @@ This document contains the correspondence between all the less variables related
 
 <Alert message="Note: There are still some less variables that do not have a corresponding Component Token, and these variables have been deprecated in version 5.x."></Alert>
 
-## List 列表
+## List
 
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
