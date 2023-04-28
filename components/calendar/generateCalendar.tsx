@@ -205,7 +205,9 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
       triggerChange(date);
 
       if (selectable && selectable.length > 0 && selectType) {
-        if (!selectable.includes(selectType)) return;
+        if (!selectable.includes(selectType)) {
+          return;
+        }
       }
 
       onSelect?.(date, selectType);
