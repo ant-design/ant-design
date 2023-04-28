@@ -1,3 +1,4 @@
+/* eslint-disable global-require */
 import { globSync } from 'glob';
 import path from 'path';
 import React from 'react';
