@@ -198,7 +198,6 @@
     "@types/react-window": "^1.8.2",
     "@types/throttle-debounce": "^5.0.0",
     "@types/warning": "^3.0.0",
-    "@types/yaml-front-matter": "^4.1.0",
     "@typescript-eslint/eslint-plugin": "^5.40.0",
     "@typescript-eslint/parser": "^5.40.0",
     "antd-img-crop": "^4.9.0",
@@ -295,8 +294,7 @@
     "typescript": "~5.0.2",
     "vanilla-jsoneditor": "^0.17.1",
     "webpack-bundle-analyzer": "^4.1.0",
-    "xhr-mock": "^2.4.1",
-    "yaml-front-matter": "^4.0.0"
+    "xhr-mock": "^2.4.1"
   },
   "peerDependencies": {
     "react": ">=16.9.0",
