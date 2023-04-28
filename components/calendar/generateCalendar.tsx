@@ -71,6 +71,7 @@ export interface CalendarProps<DateType> {
   onPanelChange?: (date: DateType, mode: CalendarMode) => void;
   onSelect?: (date: DateType, selectType?: CalendarSelectable) => void;
   selectable?: CalendarSelectable[];
+  hideModeSwitch?: boolean;
 }
 
 function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
@@ -113,6 +114,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
       onPanelChange,
       onSelect,
       selectable,
+      hideModeSwitch = false,
     } = props;
     const { getPrefixCls, direction } = React.useContext(ConfigContext);
     const prefixCls = getPrefixCls('picker', customizePrefixCls);
@@ -331,6 +333,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
             validRange={validRange}
             onChange={triggerChange}
             onModeChange={triggerModeChange}
+            hideModeSwitch={hideModeSwitch}
           />
         )}
         <RCPickerPanel

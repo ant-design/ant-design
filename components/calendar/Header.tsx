@@ -149,9 +149,10 @@ export interface CalendarHeaderProps<DateType> {
   fullscreen: boolean;
   onChange: (date: DateType, selectType: CalendarSelectable) => void;
   onModeChange: (mode: CalendarMode) => void;
+  hideModeSwitch?: boolean;
 }
 function CalendarHeader<DateType>(props: CalendarHeaderProps<DateType>) {
-  const { prefixCls, fullscreen, mode, onChange, onModeChange } = props;
+  const { prefixCls, fullscreen, mode, onChange, onModeChange, hideModeSwitch } = props;
   const divRef = React.useRef<HTMLDivElement>(null);
 
   const formItemInputContext = useContext(FormItemInputContext);
@@ -176,7 +177,7 @@ function CalendarHeader<DateType>(props: CalendarHeaderProps<DateType>) {
         <YearSelect {...sharedProps} />
         {mode === 'month' && <MonthSelect {...sharedProps} />}
       </FormItemInputContext.Provider>
-      <ModeSwitch {...sharedProps} onModeChange={onModeChange} />
+      {!hideModeSwitch && <ModeSwitch {...sharedProps} onModeChange={onModeChange} />}
     </div>
   );
 }

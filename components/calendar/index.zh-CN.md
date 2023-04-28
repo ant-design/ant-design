@@ -61,7 +61,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-p-wQLik200AAA
 | onChange | 日期变化回调 | function(date: Dayjs) | - |  |
 | onPanelChange | 日期面板变化回调 | function(date: Dayjs, mode: string) | - |  |
 | onSelect | 点击选择日期回调 | function(date: Dayjs） | - |  |
-| selectable | 使日历可以按`date`、`month`和`year`进行选择 | (`date` \| `year` \| `month`)[] | - |  |
+| hideModeSwitch | 隐藏标题中的模式开关 | boolean | false |  |
 
 ## Design Token
 
