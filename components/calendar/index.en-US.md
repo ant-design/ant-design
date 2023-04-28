@@ -56,6 +56,7 @@ When data is in the form of dates, such as schedules, timetables, prices calenda
 | onChange | Callback for when date changes | function(date: Dayjs) | - |  |
 | onPanelChange | Callback for when panel changes | function(date: Dayjs, mode: string) | - |  |
 | onSelect | Callback for when a date is selected | function(date: Dayjs） | - |  |
+| selectable | Make calendar selectable by `date`, `month` and `year` | (`date` \| `year` \| `month`)[] | - |  |
 
 ## Design Token
 
