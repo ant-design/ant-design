@@ -15,19 +15,19 @@ const styleFiles = globSync(
 const generate = {
   generateCssinjs({ key, beforeRender, render }: any) {
     const EmptyElement = React.createElement('div');
-    styleFiles.forEach((file) => {
+    styleFiles.forEach(async (file) => {
       const pathArr = file.split('/');
       const styleIndex = pathArr.lastIndexOf('style');
       const componentName = pathArr[styleIndex - 1];
       let useStyle: StyleFn = () => {};
       if (file.includes('grid')) {
-        const { useColStyle, useRowStyle } = require(file);
-        useStyle = (prefixCls) => {
+        const { useColStyle, useRowStyle } = (await import(file)).default;
+        useStyle = (prefixCls: string) => {
           useRowStyle(prefixCls);
           useColStyle(prefixCls);
         };
       } else {
-        useStyle = require(file).default;
+        useStyle = (await import(file)).default;
       }
       const Component: React.FC = () => {
         useStyle(`${key}-${componentName}`);
