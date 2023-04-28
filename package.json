@@ -94,7 +94,7 @@
     "tsc": "tsc --noEmit",
     "site:test": "jest --config .jest.site.js --no-cache --force-exit",
     "test-image": "jest --config .jest.image.js --no-cache -i -u",
-    "argos": "node ./scripts/argos-upload.js",
+    "argos": "ts-node --esm --project tsconfig.node.json scripts/argos-upload.ts",
     "version": "ts-node --esm --project tsconfig.node.json scripts/generate-version.ts",
     "install-react-16": "npm i --no-save --legacy-peer-deps react@16 react-dom@16 @testing-library/react@12",
     "install-react-17": "npm i --no-save --legacy-peer-deps react@17 react-dom@17 @testing-library/react@12",
@@ -158,6 +158,7 @@
   "devDependencies": {
     "@ant-design/tools": "^17.0.0",
     "@antv/g6": "^4.8.5",
+    "@argos-ci/core": "^0.8.0",
     "@babel/eslint-plugin": "^7.19.1",
     "@dnd-kit/core": "^6.0.7",
     "@dnd-kit/sortable": "^7.0.2",
