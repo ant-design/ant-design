@@ -15,6 +15,55 @@ timeline: true
 
 ---
 
+## 5.4.6
+
+`2023-04-26`
+
+- 🐞 修复 Table 一系列边框和圆角的样式细节问题。[#41985](https://github.com/ant-design/ant-design/pull/41985)
+- 💄 修复 Layout.Sider 折叠时丢失动画的问题。[#41993](https://github.com/ant-design/ant-design/pull/41993)
+- 🐞 修复 InputNumber 字体样式错误。[#41983](https://github.com/ant-design/ant-design/pull/41983)
+- 🐞 修复响应式 Col `colSize` 不支持 `flex` 的问题。[#41962](https://github.com/ant-design/ant-design/pull/41962) [@AlexisSniffer](https://github.com/AlexisSniffer)
+- 🐞 修复 Carousel `goTo` 在动画播放时无效的问题。[#41969](https://github.com/ant-design/ant-design/pull/41969) [@guan404ming](https://github.com/guan404ming)
+- Form
+- 🐞 修复 Form 触发重置事件后反馈图标未重置的问题。[#41976](https://github.com/ant-design/ant-design/pull/41976)
+- 🐞 修复 `onValuesChange` 收集到的数据不准确的问题。[#41976](https://github.com/ant-design/ant-design/pull/41976)
+- TypeScript
+  - 🤖 修复 Menu 报错 OverrideContext 类型定义不存在的问题。[#41907](https://github.com/ant-design/ant-design/pull/41907)
+  - 🤖 修复 TreeSelect 定义不支持 `aria-*` 的问题。[#41978](https://github.com/ant-design/ant-design/pull/41978) [@guan404ming](https://github.com/guan404ming)
+
+## 5.4.5
+
+`2023-04-23`
+
+- 🐞 修复 Anchor 组件 `onChange` 方法改变后不触发的问题。[#41934](https://github.com/ant-design/ant-design/pull/41934) [@Yuiai01](https://github.com/Yuiai01)
+- 🐞 修复 InputNumber 组件样式被浏览器原生样式覆盖的问题。[#41940](https://github.com/ant-design/ant-design/pull/41940) [@Wxh16144](https://github.com/Wxh16144)
+- Tree
+  - 🐞 修复 Tree 组件可拖拽树文本换行时其标题不对齐。[#41928](https://github.com/ant-design/ant-design/pull/41928) [@Yuiai01](https://github.com/Yuiai01)
+  - 🐞 修复 Checkbox 组件标题没有对齐的问题。[#41920](https://github.com/ant-design/ant-design/pull/41920) [@Yuiai01](https://github.com/Yuiai01)
+- 🛠 升级 `rc-switch` 以修复重复引入 `@babel/runtime/helpers` 的问题，减小打包体积。[#41954](https://github.com/ant-design/ant-design/pull/41954)
+
+## 5.4.4
+
+`2023-04-20`
+
+- 💄 修复 Message hooks 的图标样式不跟随动态主题 token 切换的问题。[#41899](https://github.com/ant-design/ant-design/pull/41899)
+- 🐞 修复 CSS 属性值为 `undefined` 时 cssinjs 报错的问题。[#41896](https://github.com/ant-design/ant-design/pull/41896)
+
+## 5.4.3
+
+`2023-04-19`
+
+- 🐞 修复 FloatButton 警告: findDOMNode is deprecated in StrictMode.。[#41833](https://github.com/ant-design/ant-design/pull/41833) [@fourcels](https://github.com/fourcels)
+- 🐞 箭头元素兼容旧版本不支持 `clip-path: path()` 的浏览器。 [#41872](https://github.com/ant-design/ant-design/pull/41872)
+- 🐞 修复 Layout.Sider 切换主题时存在背景切换延迟的问题。[#41828](https://github.com/ant-design/ant-design/pull/41828)
+- 🐞 修复 Tour 的 `type="primary"` 时箭头的颜色仍为白色的问题。[#41761](https://github.com/ant-design/ant-design/pull/41761)
+- 🐞 优化 Form 字段绑定，现在会忽略在 Form.Item 内的注释不再作为子组件进行绑定。[#41771](https://github.com/ant-design/ant-design/pull/41771)
+- 🐞 修复 Input.Password 在 Edge 中会额外展示切换按钮的问题。[#41759](https://github.com/ant-design/ant-design/pull/41759)
+- 💄 修复 Space.Compact 包裹底层为 Tooltip 组件的组件时的样式问题。[#41707](https://github.com/ant-design/ant-design/pull/41707) [@foryuki](https://github.com/foryuki)
+- 🇩🇪 修复德语本地化文案。[#41780](https://github.com/ant-design/ant-design/pull/41780) [@aaarichter](https://github.com/aaarichter)
+- TypeScript
+  - 🤖 完善 Modal 的类型定义。[#41742](https://github.com/ant-design/ant-design/pull/41742) [@MuxinFeng](https://github.com/MuxinFeng)
+
 ## 5.4.2
 
 `2023-04-11`

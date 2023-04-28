@@ -343,7 +343,7 @@ methods.forEach((type: keyof MessageMethods) => {
 // ==============================================================================
 const noop = () => {};
 
-/** @private Only Work in test env */
+/** @internal Only Work in test env */
 // eslint-disable-next-line import/no-mutable-exports
 export let actWrapper: (wrapper: any) => void = noop;
 
@@ -353,7 +353,7 @@ if (process.env.NODE_ENV === 'test') {
   };
 }
 
-/** @private Only Work in test env */
+/** @internal Only Work in test env */
 // eslint-disable-next-line import/no-mutable-exports
 export let actDestroy = noop;
 
