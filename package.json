@@ -46,7 +46,7 @@
   "scripts": {
     "prepare": "husky install",
     "api-collection": "antd-tools run api-collection",
-    "authors": "node ./scripts/generate-authors",
+    "authors": "ts-node --esm --project tsconfig.node.json scripts/generate-authors.ts",
     "build": "npm run compile && NODE_OPTIONS='--max-old-space-size=4096' npm run dist",
     "size-limit": "size-limit",
     "check-commit": "node ./scripts/check-commit",
