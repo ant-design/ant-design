@@ -12,17 +12,17 @@ title: less 变量迁移 Component Token
 <!-- prettier-ignore -->
 | less 变量 | Component Token | 备注 |
 | --- | --- | --- |
-| `@list-header-background` | - | 由于样式变化已废弃 |
-| `@list-footer-background` | - | 由于样式变化已废弃 |
-| `@list-empty-text-padding` | - | 由于样式变化已废弃 |
+| `@list-header-background` | `listHeaderBackground` | - |
+| `@list-footer-background` | `listFooterBackground` | - |
+| `@list-empty-text-padding` | `listEmptyTextPadding` | - |
 | `@list-item-padding` | `listItemPadding` | - |
 | `@list-item-padding-sm` | `listItemPaddingSM` | - |
 | `@list-item-padding-lg` | `listItemPaddingLG` | - |
-| `@list-item-meta-margin-bottom` | - | 由于样式变化已废弃 |
-| `@list-item-meta-avatar-margin-right` | - | 由于样式变化已废弃 |
-| `@list-item-meta-title-margin-bottom` | - | 由于样式变化已废弃 |
+| `@list-item-meta-margin-bottom` | `listItemMetaMarginBottom` | - |
+| `@list-item-meta-avatar-margin-right` | `listItemMetaAvatarMarginRight` | - |
+| `@list-item-meta-title-margin-bottom` | `listItemMetaTitleMarginBottom` | - |
 | `@list-customize-card-bg` | - | 由于样式变化已废弃 |
-| `@list-item-meta-description-font-size` | - | 由于样式变化已废弃 |
+| `@list-item-meta-description-font-size` | `listItemMetaDescriptionFontSize` | - |
 
 ## Modal 对话框
 

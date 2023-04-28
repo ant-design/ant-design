@@ -8,6 +8,13 @@ export interface ComponentToken {
   listItemPaddingLG: string;
   listItemPaddingSM: string;
   listItemPadding: string;
+  listHeaderBackground: string;
+  listFooterBackground: string;
+  listEmptyTextPadding: number;
+  listItemMetaMarginBottom: number;
+  listItemMetaAvatarMarginRight: number;
+  listItemMetaTitleMarginBottom: number;
+  listItemMetaDescriptionFontSize: number;
 }
 
 interface ListToken extends FullToken<'List'> {
@@ -120,6 +127,13 @@ const genBaseStyle: GenerateStyle<ListToken> = (token) => {
     colorTextDescription,
     motionDurationSlow,
     lineWidth,
+    listHeaderBackground,
+    listFooterBackground,
+    listEmptyTextPadding,
+    listItemMetaMarginBottom,
+    listItemMetaAvatarMarginRight,
+    listItemMetaTitleMarginBottom,
+    listItemMetaDescriptionFontSize,
   } = token;
 
   const alignCls: any = {};
@@ -136,8 +150,13 @@ const genBaseStyle: GenerateStyle<ListToken> = (token) => {
       '*': {
         outline: 'none',
       },
+      [`${componentCls}-header`]: {
+        background: listHeaderBackground,
+      },
+      [`${componentCls}-footer`]: {
+        background: listFooterBackground,
+      },
       [`${componentCls}-header, ${componentCls}-footer`]: {
-        background: 'transparent',
         paddingBlock: paddingSM,
       },
 
@@ -177,7 +196,7 @@ const genBaseStyle: GenerateStyle<ListToken> = (token) => {
           maxWidth: '100%',
 
           [`${componentCls}-item-meta-avatar`]: {
-            marginInlineEnd: padding,
+            marginInlineEnd: listItemMetaAvatarMarginRight,
           },
 
           [`${componentCls}-item-meta-content`]: {
@@ -204,7 +223,7 @@ const genBaseStyle: GenerateStyle<ListToken> = (token) => {
 
           [`${componentCls}-item-meta-description`]: {
             color: colorTextDescription,
-            fontSize: token.fontSize,
+            fontSize: listItemMetaDescriptionFontSize,
             lineHeight: token.lineHeight,
           },
         },
@@ -250,7 +269,7 @@ const genBaseStyle: GenerateStyle<ListToken> = (token) => {
       },
 
       [`${componentCls}-empty-text`]: {
-        padding,
+        padding: listEmptyTextPadding,
         color: token.colorTextDisabled,
         fontSize: token.fontSize,
         textAlign: 'center',
@@ -281,11 +300,11 @@ const genBaseStyle: GenerateStyle<ListToken> = (token) => {
       },
 
       [`${componentCls}-item-meta`]: {
-        marginBlockEnd: padding,
+        marginBlockEnd: listItemMetaMarginBottom,
 
         [`${componentCls}-item-meta-title`]: {
           marginBlockStart: 0,
-          marginBlockEnd: paddingSM,
+          marginBlockEnd: listItemMetaTitleMarginBottom,
           color: colorText,
           fontSize: token.fontSizeLG,
           lineHeight: token.lineHeightLG,
@@ -360,5 +379,12 @@ export default genComponentStyleHook(
     listItemPadding: `${token.paddingContentVertical}px 0`,
     listItemPaddingSM: `${token.paddingContentVerticalSM}px ${token.paddingContentHorizontal}px`,
     listItemPaddingLG: `${token.paddingContentVerticalLG}px ${token.paddingContentHorizontalLG}px`,
+    listHeaderBackground: 'transparent',
+    listFooterBackground: 'transparent',
+    listEmptyTextPadding: token.padding,
+    listItemMetaMarginBottom: token.padding,
+    listItemMetaAvatarMarginRight: token.padding,
+    listItemMetaTitleMarginBottom: token.paddingSM,
+    listItemMetaDescriptionFontSize: token.fontSize,
   }),
 );

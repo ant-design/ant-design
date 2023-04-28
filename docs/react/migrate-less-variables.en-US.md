@@ -12,17 +12,17 @@ This document contains the correspondence between all the less variables related
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
 | --- | --- | --- |
-| `@list-header-background` | - | Deprecated for style change |
-| `@list-footer-background` | - | Deprecated for style change |
-| `@list-empty-text-padding` | - | Deprecated for style change |
+| `@list-header-background` | `listHeaderBackground` | - |
+| `@list-footer-background` | `listFooterBackground` | - |
+| `@list-empty-text-padding` | `listEmptyTextPadding` | - |
 | `@list-item-padding` | `listItemPadding` | - |
 | `@list-item-padding-sm` | `listItemPaddingSM` | - |
 | `@list-item-padding-lg` | `listItemPaddingLG` | - |
-| `@list-item-meta-margin-bottom` | - | Deprecated for style change |
-| `@list-item-meta-avatar-margin-right` | - | Deprecated for style change |
-| `@list-item-meta-title-margin-bottom` | - | Deprecated for style change |
+| `@list-item-meta-margin-bottom` | `listItemMetaMarginBottom` | - |
+| `@list-item-meta-avatar-margin-right` | `listItemMetaAvatarMarginRight` | - |
+| `@list-item-meta-title-margin-bottom` | `listItemMetaTitleMarginBottom` | - |
 | `@list-customize-card-bg` | - | Deprecated for style change |
-| `@list-item-meta-description-font-size` | - | Deprecated for style change |
+| `@list-item-meta-description-font-size` | `listItemMetaDescriptionFontSize` | - |
 
 ## Modal 对话框
 
