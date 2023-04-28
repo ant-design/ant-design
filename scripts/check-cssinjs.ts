@@ -8,7 +8,7 @@ import {
 import chalk from 'chalk';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import generate from './generate-cssinjs';
+import { generateCssinjs } from './generate-cssinjs';
 
 console.log(chalk.green(`🔥 Checking CSS-in-JS...`));
 
@@ -23,7 +23,7 @@ console.error = (msg: any) => {
   }
 };
 
-generate.generateCssinjs({
+generateCssinjs({
   key: 'check',
   render(Component: any) {
     ReactDOMServer.renderToString(

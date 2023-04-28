@@ -7,17 +7,17 @@ import ReactDOMServer from 'react-dom/server';
 import { DesignTokenContext } from '../components/theme/internal';
 import seedToken from '../components/theme/themes/seed';
 import { statistic } from '../components/theme/util/statistic';
-import generate from './generate-cssinjs';
+import { generateCssinjs, styleFiles } from './generate-cssinjs';
 
 console.log(chalk.green(`🔥 Collecting token statistics...`));
 
 const bar = new ProgressBar('🚀 Collecting by component: [:bar] :component (:current/:total)', {
   complete: '=',
   incomplete: ' ',
-  total: generate.filenames.length,
+  total: styleFiles.length,
 });
 
-generate.generateCssinjs({
+generateCssinjs({
   key: 'file',
   beforeRender(componentName: string) {
     bar.tick(1, { component: componentName });
