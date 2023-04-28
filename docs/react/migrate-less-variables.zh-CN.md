@@ -36,3 +36,30 @@ title: less 变量迁移 Component Token
 | `@modal-confirm-body-padding` | - | 由于样式变化已废弃 |
 | `@modal-confirm-title-font-size` | `modalHeaderTitleFontSize` | - |
 | `@modal-border-radius` | `borderRadiusLG` | - |
+
+## Step 步骤条
+
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@process-tail-color` | `processTailColor` | - |
+| `@steps-nav-arrow-color` | `stepsNavArrowColor` | - |
+| `@steps-background` | - | 由于样式变化已废弃 |
+| `@steps-icon-size` | `stepsIconSize` | - |
+| `@steps-icon-custom-size` | `stepsIconCustomSize` | - |
+| `@steps-icon-custom-top` | `stepsIconCustomTop` | - |
+| `@steps-icon-custom-font-size` | `stepsIconCustomFontSize` | - |
+| `@steps-icon-top` | `stepsIconTop` | - |
+| `@steps-icon-font-size` | `stepsIconFontSize` | - |
+| `@steps-icon-margin` | - | 由于样式变化已废弃 |
+| `@steps-title-line-height` | `stepsTitleLineHeight` | - |
+| `@steps-small-icon-size` | `stepsSmallIconSize` | - |
+| `@steps-small-icon-margin` | - | 由于样式变化已废弃 |
+| `@steps-dot-size` | `stepsDotSize` | - |
+| `@steps-dot-top` | - | 由于样式变化已废弃 |
+| `@steps-current-dot-size` | `stepsCurrentDotSize` | - |
+| `@steps-description-max-width` | `stepsNavContentMaxWidth` | - |
+| `@steps-nav-content-max-width` | - | 由于样式变化已废弃 |
+| `@steps-vertical-icon-width` | - | 由于样式变化已废弃 |
+| `@steps-vertical-tail-width` | - | 由于样式变化已废弃 |
+| `@steps-vertical-tail-width-sm` | - | 由于样式变化已废弃 |
