@@ -1,4 +1,4 @@
-/* no-console */
+/* eslint-disable no-console */
 import chalk from 'chalk';
 import fetch from 'isomorphic-fetch';
 import type { StatusResult } from 'simple-git';
