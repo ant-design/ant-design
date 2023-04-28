@@ -59,7 +59,7 @@ const genListStyle: GenerateStyle<UploadToken> = (token) => {
             },
 
             [iconCls]: {
-              color: token.colorTextDescription,
+              color: token.uploadActionsColor,
               transition: `all ${token.motionDurationSlow}`,
             },
 

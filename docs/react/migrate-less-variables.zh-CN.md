@@ -42,4 +42,4 @@ title: less 变量迁移 Component Token
 <!-- prettier-ignore -->
 | less 变量 | Component Token | 备注 |
 | --- | --- | --- |
-| `@upload-actions-color` | - | 由于样式变化已废弃 |
+| `@upload-actions-color` | `uploadActionsColor` | - |

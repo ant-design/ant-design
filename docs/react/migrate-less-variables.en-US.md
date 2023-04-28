@@ -42,4 +42,4 @@ This document contains the correspondence between all the less variables related
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
 | --- | --- | --- |
-| `@upload-actions-color` | - | Deprecated for style change |
+| `@upload-actions-color` | `uploadActionsColor` | - |
