@@ -7,7 +7,7 @@ export interface ItemProps {
   index: number;
   direction?: 'horizontal' | 'vertical';
   marginDirection: 'marginLeft' | 'marginRight';
-  split?: string | React.ReactNode;
+  split?: React.ReactNode;
   wrap?: boolean;
 }
 
