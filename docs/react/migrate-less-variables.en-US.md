@@ -63,3 +63,28 @@ This document contains the correspondence between all the less variables related
 | `@steps-vertical-icon-width` | - | Deprecated for style change |
 | `@steps-vertical-tail-width` | - | Deprecated for style change |
 | `@steps-vertical-tail-width-sm` | - | Deprecated for style change |
+
+## Notification
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@zindex-notification` | `zIndexPopup` | - |
+| `@notification-width` | `width` | - |
+| `@notification-padding` | `notificationPadding` | - |
+| `@notification-padding-vertical` | `notificationPaddingVertical` | - |
+| `@notification-padding-horizontal` | `notificationPaddingHorizontal` | - |
+| `@notification-margin-bottom` | `notificationMarginBottom` | - |
+| `@notification-margin-edge` | `notificationMarginEdge` | - |
+| `@line-height-base` | - | Deprecated for style change |
+| `@notification-bg` | `notificationBg` | - |
+| `@border-radius-base` | `borderRadiusLG` | - |
+| `@shadow-2` | `boxShadow` | - |
+| `@heading-color` | `colorTextHeading` | - |
+| `@font-size-lg` | `fontSizeLG` | - |
+| `@font-size-base` | - | Deprecated for style change |
+| `@success-color` | `colorSuccess` | - |
+| `@info-color` | `colorInfo` | - |
+| `@warning-color` | `colorWarning` | - |
+| `@error-color` | `colorError` | - |
+| `@text-color-secondary` | `colorIcon` | - |

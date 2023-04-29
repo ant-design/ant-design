@@ -37,6 +37,7 @@ title: less 变量迁移 Component Token
 | `@modal-confirm-title-font-size` | `modalHeaderTitleFontSize` | - |
 | `@modal-border-radius` | `borderRadiusLG` | - |
 
+
 ## Step 步骤条
 
 <!-- prettier-ignore -->
@@ -63,3 +64,28 @@ title: less 变量迁移 Component Token
 | `@steps-vertical-icon-width` | - | 由于样式变化已废弃 |
 | `@steps-vertical-tail-width` | - | 由于样式变化已废弃 |
 | `@steps-vertical-tail-width-sm` | - | 由于样式变化已废弃 |
+
+## Notification 通知提醒框
+
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@zindex-notification` | `zIndexPopup` | - |
+| `@notification-width` | `width` | - |
+| `@notification-padding` | `notificationPadding` | - |
+| `@notification-padding-vertical` | `notificationPaddingVertical` | - |
+| `@notification-padding-horizontal` | `notificationPaddingHorizontal` | - |
+| `@notification-margin-bottom` | `notificationMarginBottom` | - |
+| `@notification-margin-edge` | `notificationMarginEdge` | - |
+| `@line-height-base` | - | 由于样式变化已废弃 |
+| `@notification-bg` | `notificationBg` | - |
+| `@border-radius-base` | `borderRadiusLG` | - |
+| `@shadow-2` | `boxShadow` | - |
+| `@heading-color` | `colorTextHeading` | - |
+| `@font-size-lg` | `fontSizeLG` | - |
+| `@font-size-base` | - | 由于样式变化已废弃 |
+| `@success-color` | `colorSuccess` | - |
+| `@info-color` | `colorInfo` | - |
+| `@warning-color` | `colorWarning` | - |
+| `@error-color` | `colorError` | - |
+| `@text-color-secondary` | `colorIcon` | - |
