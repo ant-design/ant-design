@@ -13,6 +13,7 @@ import type { ConfigConsumerProps } from '../config-provider/context';
 import { ConfigContext } from '../config-provider/context';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
+import { localeInfo } from '../locale';
 import defaultLocale from '../locale/en_US';
 import Pagination from '../pagination';
 import type { SpinProps } from '../spin';
@@ -183,8 +184,17 @@ const InternalTable = <RecordType extends AnyObject = any>(
     getPopupContainer: getContextPopupContainer,
   } = React.useContext<ConfigConsumerProps>(ConfigContext);
 
+  const mergedDefaultLocale = React.useMemo(
+    () => (contextLocale.locale ? localeInfo[contextLocale.locale] : defaultLocale),
+    [contextLocale.locale],
+  );
+
   const mergedSize = customizeSize || size;
-  const tableLocale: TableLocale = { ...contextLocale.Table, ...locale };
+  const tableLocale: TableLocale = {
+    ...mergedDefaultLocale.Table,
+    ...contextLocale.Table,
+    ...locale,
+  };
   const rawData: readonly RecordType[] = dataSource || EMPTY_LIST;
 
   const prefixCls = getPrefixCls('table', customizePrefixCls);

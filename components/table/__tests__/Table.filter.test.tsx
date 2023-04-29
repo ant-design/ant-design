@@ -4,14 +4,15 @@ import React, { useEffect, useState } from 'react';
 import type { ColumnGroupType, ColumnType, TableProps } from '..';
 import Table from '..';
 import { act, fireEvent, render, waitFor } from '../../../tests/utils';
+import { resetWarned } from '../../_util/warning';
 import Button from '../../button';
 import ConfigProvider from '../../config-provider';
 import Input from '../../input';
+import { localeInfo } from '../../locale';
 import Menu from '../../menu';
 import type { SelectProps } from '../../select';
 import Select from '../../select';
 import Tooltip from '../../tooltip';
-import { resetWarned } from '../../_util/warning';
 import type { TreeColumnFilterItem } from '../hooks/useFilter/FilterDropdown';
 import type {
   ColumnFilterItem,
@@ -2819,5 +2820,106 @@ describe('Table.filter', () => {
     expect(container.querySelector<HTMLInputElement>('input[type="checkbox"]')!.checked).toEqual(
       true,
     );
+  });
+
+  const locales: string[] = [
+    'ar',
+    'az',
+    'bg',
+    'bn-bd',
+    'by',
+    'ca',
+    'cs',
+    'da',
+    'de',
+    'el',
+    'en-gb',
+    'en',
+    'es',
+    'et',
+    'eu',
+    'fa',
+    'fi',
+    'fr',
+    'ga',
+    'gl',
+    'he',
+    'hi',
+    'hr',
+    'hu',
+    'hy-am',
+    'id',
+    'is',
+    'it',
+    'ja',
+    'ka',
+    'kk',
+    'ku',
+    'km',
+    'kn',
+    'ko',
+    'ku-iq',
+    'lt',
+    'lv',
+    'mk',
+    'ml',
+    'mn-mn',
+    'ms-my',
+    'nb',
+    'ne-np',
+    'nl-be',
+    'nl',
+    'pl',
+    'pt-br',
+    'pt',
+    'ro',
+    'ru',
+    'si',
+    'sk',
+    'sl',
+    'sr',
+    'sv',
+    'ta',
+    'th',
+    'tk',
+    'tr',
+    'uk',
+    'ur',
+    'vi',
+    'zh-cn',
+    'zh-hk',
+    'zh-tw',
+    'my',
+  ];
+  const App = ({ locale }: { locale: string }) => (
+    <ConfigProvider
+      locale={{
+        locale,
+      }}
+    >
+      {createTable({
+        columns: [
+          {
+            ...column,
+            filterDropdownOpen: true,
+          },
+        ],
+      })}
+    </ConfigProvider>
+  );
+  locales.forEach((locale) => {
+    it(`display ${locale} when pass locale into ConfigProvider`, () => {
+      const { baseElement } = render(<App locale={locale} />);
+      let confirmText = baseElement.querySelector(
+        '.ant-table-filter-dropdown-btns .ant-btn-primary',
+      )?.textContent;
+      if (['zh-cn', 'zh-hk', 'zh-tw'].includes(locale)) {
+        confirmText = confirmText?.replace(' ', '');
+      }
+      expect(confirmText).toBe(localeInfo[locale].Table!.filterConfirm);
+      expect(
+        baseElement.querySelector('.ant-table-filter-dropdown-btns .ant-btn-link')?.textContent,
+      ).toBe(localeInfo[locale].Table!.filterReset);
+    });
   });
 });
