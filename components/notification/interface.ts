@@ -23,6 +23,8 @@ export interface ArgsProps {
   duration?: number | null;
   icon?: React.ReactNode;
   placement?: NotificationPlacement;
+  bottom?: number;
+  top?: number;
   style?: React.CSSProperties;
   className?: string;
   readonly type?: IconType;

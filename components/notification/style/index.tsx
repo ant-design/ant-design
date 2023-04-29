@@ -87,7 +87,6 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
     position: 'relative',
     width,
     maxWidth: `calc(100vw - ${notificationMarginEdge * 2}px)`,
-    marginBottom: notificationMarginBottom,
     marginInlineStart: 'auto',
     padding: notificationPadding,
     overflow: 'hidden',
@@ -174,6 +173,10 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
     [`${noticeCls}-btn`]: {
       float: 'right',
       marginTop: token.marginSM,
+    },
+
+    '&:not(:last-child)': {
+      marginBottom: notificationMarginBottom,
     },
   };
 
