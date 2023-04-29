@@ -87,4 +87,4 @@ This document contains the correspondence between all the less variables related
 | `@info-color` | `colorInfo` | - |
 | `@warning-color` | `colorWarning` | - |
 | `@error-color` | `colorError` | - |
-| `@text-color-secondary` | `colorIcon` | - |
+| `@text-color-secondary` | `colorIcon` | `shade(@text-color-secondary, 40%)` => `token.colorIconHover` <br /> `fade(@white, 85%)` => `token.colorIconHover` |
