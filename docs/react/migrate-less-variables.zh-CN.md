@@ -59,7 +59,14 @@ title: Less 变量迁移 Design Token
 
 <!-- ### Menu 导航菜单 -->
 
-<!-- ### Message 全局提示 -->
+## Message 全局提示
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@zindex-message` | `zIndexPopup` | - |
+| `@message-notice-content-padding` | `messageNoticeContentPadding` | - |
+| `@message-notice-content-bg` | `messageNoticeContentBg` | - |
 
 ### Modal 对话框
 
