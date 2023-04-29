@@ -82,7 +82,7 @@
     "pub": "npm run version && npm run collect-token-statistic && npm run token-meta && antd-tools run pub",
     "rome:format": "rome format --write .",
     "prepublishOnly": "antd-tools run guard",
-    "postpublish": "ts-node --esm --project tsconfig.node.json scripts/post-script.ts",
+    "postpublish": "node ./scripts/post-script.js",
     "site": "dumi build && cp .surgeignore _site",
     "sort": "npx sort-package-json",
     "sort-api": "antd-tools run sort-api-table",

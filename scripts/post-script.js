@@ -1,10 +1,10 @@
 /* eslint-disable no-console */
-import chalk from 'chalk';
-import { spawnSync } from 'child_process';
-import dayjs from 'dayjs';
-import relativeTime from 'dayjs/plugin/relativeTime';
-import fetch from 'isomorphic-fetch';
-import semver from 'semver';
+const fetch = require('isomorphic-fetch');
+const semver = require('semver');
+const dayjs = require('dayjs');
+const chalk = require('chalk');
+const { spawnSync } = require('child_process');
+const relativeTime = require('dayjs/plugin/relativeTime');
 
 dayjs.extend(relativeTime);
 
@@ -39,12 +39,12 @@ const DEPRECIATED_VERSION = {
   ],
 };
 
-function matchDeprecated(version: string) {
+function matchDeprecated(version) {
   const match = Object.keys(DEPRECIATED_VERSION).find((depreciated) =>
     semver.satisfies(version, depreciated),
   );
 
-  const reason = DEPRECIATED_VERSION[match as keyof typeof DEPRECIATED_VERSION] || [];
+  const reason = DEPRECIATED_VERSION[match] || [];
 
   return {
     match,
@@ -98,13 +98,12 @@ const SAFE_DAYS_DIFF = 1000 * 60 * 60 * 24 * 3; // 3 days not update seems to be
   const startDefaultVersionIndex = filteredLatestVersions.findIndex(
     ({ timeDiff }) => timeDiff >= SAFE_DAYS_START,
   );
-
   const defaultVersionList = filteredLatestVersions
     .slice(0, startDefaultVersionIndex + 1)
     .reverse();
 
   // Find safe version
-  let defaultVersionObj: any;
+  let defaultVersionObj;
   for (let i = 0; i < defaultVersionList.length - 1; i += 1) {
     defaultVersionObj = defaultVersionList[i];
     const nextVersionObj = defaultVersionList[i + 1];
@@ -126,7 +125,6 @@ const SAFE_DAYS_DIFF = 1000 * 60 * 60 * 24 * 3; // 3 days not update seems to be
   }
 
   const { default: inquirer } = await import('inquirer');
-
   // Selection
   let { conchVersion } = await inquirer.prompt([
     {
@@ -137,6 +135,8 @@ const SAFE_DAYS_DIFF = 1000 * 60 * 60 * 24 * 3; // 3 days not update seems to be
       choices: latestVersions.map((info) => {
         const { value, publishTime, depreciated } = info;
         const desc = dayjs(publishTime).fromNow();
+
+        //
 
         return {
           ...info,
@@ -188,6 +188,9 @@ const SAFE_DAYS_DIFF = 1000 * 60 * 60 * 24 * 3; // 3 days not update seems to be
     console.log(`🎃 Conch Version not change. Safe to ${chalk.green('ignore')}.`);
   } else {
     console.log('💾 Tagging Conch Version:', chalk.green(conchVersion));
-    spawnSync('npm', ['dist-tag', 'add', `antd@${conchVersion}`, CONCH_TAG], { stdio: 'inherit' });
+    spawnSync('npm', ['dist-tag', 'add', `antd@${conchVersion}`, CONCH_TAG], {
+      stdio: 'inherit',
+      stdin: 'inherit',
+    });
   }
 })();
