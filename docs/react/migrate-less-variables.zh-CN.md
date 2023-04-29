@@ -88,4 +88,4 @@ title: less 变量迁移 Component Token
 | `@info-color` | `colorInfo` | - |
 | `@warning-color` | `colorWarning` | - |
 | `@error-color` | `colorError` | - |
-| `@text-color-secondary` | `colorIcon` | `shade(@text-color-secondary, 40%)` => `token.colorIconHover` <br /> `fade(@white, 85%)` => `token.colorIconHover` |
+| `@text-color-secondary` | `colorIcon` | 亮色模式：`shade(@text-color-secondary, 40%)` => `token.colorIconHover` <br /> 暗色模式：`fade(@white, 85%)` => `token.colorIconHover` |
