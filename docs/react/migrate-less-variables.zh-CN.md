@@ -39,7 +39,20 @@ title: Less 变量迁移 Design Token
 
 <!-- ### Divider 分割线 -->
 
-<!-- ### Drawer 抽屉 -->
+
+## Drawer 抽屉
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@drawer-bg` | `colorBgElevated` | - |
+| `@drawer-header-padding` | `padding`、`paddingLG` | `${padding}px ${paddingLG}px` |
+| `@drawer-title-font-size` | `fontSizeLG` | - |
+| `@drawer-title-line-height` | `lineHeightLG` | - |
+| `@drawer-body-padding` | `paddingLG` | - |
+| `@drawer-footer-padding-vertical` | `drawerFooterPaddingVertical` | `drawerFooterPaddingVertical` 为数字，不带单位，`@drawer-footer-padding-vertical` 带单位 |
+| `@drawer-footer-padding-horizontal` | `drawerFooterPaddingHorizontal` | `drawerFooterPaddingHorizontal` 为数字，不带单位，`@drawer-footer-padding-horizontal` 带单位 |
+
 
 <!-- ### Dropdown 下拉菜单 -->
 
