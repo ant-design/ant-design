@@ -18,7 +18,10 @@ import useStyle from './style/index';
 import { customizePrefixCls, generateColor } from './util';
 
 export interface ColorPickerProps
-  extends Omit<RcColorPickerProps, 'onChange' | 'arrow' | 'value' | 'defaultValue' | 'children'> {
+  extends Omit<
+    RcColorPickerProps,
+    'onChange' | 'arrow' | 'value' | 'defaultValue' | 'children' | 'panelRender'
+  > {
   value?: Color | string;
   defaultValue?: Color | string;
   children?: React.ReactElement;
@@ -97,11 +100,10 @@ const ColorPicker: React.FC<ColorPickerProps> = (props) => {
     if (clearColor && color.toHsb().a > 0) {
       setClearColor(false);
     }
-    if (value) {
-      onChange?.(color, color.toHexString());
-    } else {
+    if (!value) {
       setColorValue(color);
     }
+    onChange?.(color, color.toHexString());
   };
 
   const updateColor = (colorData: Color) => {

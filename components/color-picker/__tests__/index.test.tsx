@@ -1,10 +1,159 @@
-import { render } from '@testing-library/react';
+import { fireEvent, render } from '@testing-library/react';
 import React from 'react';
+import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
+import { waitFakeTimer } from '../../../tests/utils';
 import ColorPicker from '../ColorPicker';
 
 describe('ColorPicker', () => {
+  mountTest(ColorPicker);
+  rtlTest(ColorPicker);
+  beforeEach(() => {
+    jest.useFakeTimers();
+  });
+
+  afterEach(() => {
+    jest.useRealTimers();
+  });
+
   it('Should component render correct', () => {
     const { container } = render(<ColorPicker />);
     expect(container.querySelector('.ant-color-picker-placeholder')).toBeTruthy();
+  });
+
+  it('Should popup open work', async () => {
+    const { container } = render(<ColorPicker />);
+    fireEvent.click(container.querySelector('.ant-color-picker-placeholder')!);
+    await waitFakeTimer();
+    expect(container.querySelector('.ant-color-picker')).toBeTruthy();
+    fireEvent.click(container.querySelector('.ant-color-picker-placeholder')!);
+    await waitFakeTimer();
+    expect(container.querySelector('.ant-color-picker-hidden')).toBeTruthy();
+  });
+
+  it('Should disabled work', async () => {
+    const { container } = render(<ColorPicker disabled />);
+    expect(container.querySelector('.ant-color-picker-placeholder-disabled')).toBeTruthy();
+    expect(container).toMatchSnapshot();
+    fireEvent.click(container.querySelector('.ant-color-picker-placeholder')!);
+    await waitFakeTimer();
+    expect(container.querySelector('.ant-color-picker')).toBeFalsy();
+  });
+
+  it('Should allowClear work', async () => {
+    const { container } = render(<ColorPicker allowClear />);
+    fireEvent.click(container.querySelector('.ant-color-picker-placeholder')!);
+    await waitFakeTimer();
+    expect(container.querySelector('.ant-color-picker-clear')).toBeTruthy();
+    fireEvent.click(container.querySelector('.ant-color-picker-clear')!);
+    expect(
+      container.querySelector('.ant-color-picker-alpha-input input')?.getAttribute('value'),
+    ).toEqual('0%');
+    expect(
+      container.querySelector('.ant-color-picker-placeholder .ant-color-picker-clear'),
+    ).toBeTruthy();
+    fireEvent.change(container.querySelector('.ant-color-picker-alpha-input input')!, {
+      target: { value: 1 },
+    });
+    expect(
+      container.querySelector('.ant-color-picker-placeholder .ant-color-picker-clear'),
+    ).toBeFalsy();
+  });
+
+  it('Should render trigger work', async () => {
+    const { container } = render(
+      <ColorPicker>
+        <div className="trigger" />
+      </ColorPicker>,
+    );
+    expect(container.querySelector('.trigger')).toBeTruthy();
+    expect(container).toMatchSnapshot();
+    fireEvent.click(container.querySelector('.trigger')!);
+    await waitFakeTimer();
+    expect(container.querySelector('.ant-color-picker')).toBeTruthy();
+    fireEvent.click(container.querySelector('.trigger')!);
+    await waitFakeTimer();
+    expect(container.querySelector('.ant-color-picker-hidden')).toBeTruthy();
+  });
+
+  it('Should preset color work', async () => {
+    const handleColorChange = jest.fn();
+
+    const { container } = render(
+      <ColorPicker
+        onChange={handleColorChange}
+        presets={[
+          {
+            label: 'Recommended',
+            colors: [
+              '#000000',
+              '#000000E0',
+              '#000000A6',
+              '#00000073',
+              '#00000040',
+              '#00000026',
+              '#0000001A',
+              '#00000012',
+              '#0000000A',
+              '#00000005',
+            ],
+          },
+          {
+            label: 'Recent',
+            colors: [],
+          },
+        ]}
+      />,
+    );
+
+    fireEvent.click(container.querySelector('.ant-color-picker-placeholder')!);
+    await waitFakeTimer();
+    const presetsColors = container
+      .querySelectorAll('.ant-collapse-content')[0]
+      .querySelectorAll('.ant-color-picker-presets-color');
+
+    expect(container.querySelector('.ant-color-picker-presets')).toBeTruthy();
+    expect(presetsColors.length).toBe(10);
+    expect(
+      container
+        .querySelectorAll('.ant-collapse-content')[1]
+        .querySelector('.ant-color-picker-presets-empty'),
+    ).toBeTruthy();
+
+    fireEvent.click(presetsColors[0]);
+    expect(presetsColors[0].querySelector('.ant-color-picker-presets-color-dark')).toBeTruthy();
+    expect(
+      container.querySelector('.ant-color-picker-hex-input input')?.getAttribute('value'),
+    ).toEqual('000000');
+
+    fireEvent.click(presetsColors[9]);
+    expect(presetsColors[9].querySelector('.ant-color-picker-presets-color-bright')).toBeTruthy();
+    expect(
+      container.querySelector('.ant-color-picker-hex-input input')?.getAttribute('value'),
+    ).toEqual('00000005');
+
+    expect(handleColorChange).toHaveBeenCalledTimes(2);
+  });
+
+  it('Should format change work', async () => {
+    const { container } = render(<ColorPicker />);
+    fireEvent.click(container.querySelector('.ant-color-picker-placeholder')!);
+    await waitFakeTimer();
+    expect(container.querySelector('.ant-color-picker-hex-input')).toBeTruthy();
+    fireEvent.mouseDown(
+      container.querySelector('.ant-color-picker-color-input-select .ant-select-selector')!,
+    );
+    await waitFakeTimer();
+    fireEvent.click(container.querySelector('.ant-select-item[title="HSB"]')!);
+    await waitFakeTimer();
+    expect(container.querySelector('.ant-color-picker-hsb-input')).toBeTruthy();
+
+    fireEvent.mouseDown(
+      container.querySelector('.ant-color-picker-color-input-select .ant-select-selector')!,
+    );
+    await waitFakeTimer();
+    fireEvent.click(container.querySelector('.ant-select-item[title="RGB"]')!);
+    await waitFakeTimer();
+    expect(container.querySelector('.ant-color-picker-rgb-input')).toBeTruthy();
   });
 });
