@@ -860,6 +860,33 @@ describe('Table.rowSelection', () => {
     expect(container.querySelector('thead tr th')?.textContent).toBe('单选');
   });
 
+  it('columnTitle for rowSelection to be renderProps', () => {
+    const { container } = render(
+      <Table
+        columns={columns}
+        dataSource={data}
+        rowSelection={{
+          columnTitle: (originalNode) =>
+            React.cloneElement(originalNode as any, {
+              'data-testid': 'selection-checkbox',
+              children: '多选',
+            }),
+        }}
+      />,
+    );
+
+    expect(container.querySelector('thead tr th')?.textContent).toBe('多选');
+    expect(container.querySelector('thead tr th input')?.getAttribute('data-testid')).toBe(
+      'selection-checkbox',
+    );
+
+    fireEvent.click(container.querySelector('thead tr th input')!);
+    container.querySelectorAll('.ant-checkbox').forEach((checkbox) => {
+      expect(checkbox.querySelector('input')?.checked).toBe(true);
+      expect(checkbox.className.includes('ant-checkbox-indeterminate')).toBe(false);
+    });
+  });
+
   // https://github.com/ant-design/ant-design/issues/11384
   it('should keep item even if in filter', () => {
     const filterColumns = [
