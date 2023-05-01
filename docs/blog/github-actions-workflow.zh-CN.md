@@ -1,6 +1,6 @@
 ---
 title: 使用 GitHub Actions 为 antd 提效
-date: 2023-04-30
+date: 2023-05-01
 author: Wxh16144
 ---
 
@@ -40,7 +40,7 @@ issue 作为 GitHub 平台上的一个功能，它像一个信息汇总中心一
 
 #### 保证 issue 质量
 
-为了确保 issue 包含足够的信息，帮助 Ant Design 团队对 issue 进行分析和优先级排序，我们提供了 [issue 助手](http://new-issue.ant.design) 来规范创建 issue 的流程。同时，利用 GitHub Actions 对创建的 issue 进行检查。未通过助手创建的 issue 将会被关闭，并打上 [Invalid](https://user-images.githubusercontent.com/32004925/231656363-3b8c33da-b240-4a42-8754-24981cfb06c4.png) 标签，然后以评论的形式提醒创建者需要如何进行提问。就像这样：
+为了确保 issue 包含足够的信息，帮助 Ant Design 团队对 issue 进行分析和优先级排序，我们提供了 [issue 助手](http://new-issue.ant.design) 来规范创建 issue 的流程。同时，利用 GitHub Actions 对创建的 issue 进行检查。未通过助手创建的 issue 将会被关闭，并打上 [Invalid](https://github.com/ant-design/ant-design/issues?q=label%3AInvalid) 标签，然后以评论的形式提醒创建者需要如何进行提问。就像这样：
 
 ![invalid-issue-preview](https://user-images.githubusercontent.com/32004925/231660945-509cf97c-43eb-4a1c-acd2-81eeedfe4a73.png)
 
