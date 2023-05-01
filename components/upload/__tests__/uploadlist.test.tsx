@@ -1,14 +1,15 @@
 import React from 'react';
+import type { UploadFile, UploadProps } from '..';
 import Upload from '..';
 import { act, fireEvent, render, waitFakeTimer, waitFor } from '../../../tests/utils';
+import Button from '../../button';
+import type { FormInstance } from '../../form';
 import Form from '../../form';
 import UploadList from '../UploadList';
+import type { UploadListProps, UploadLocale } from '../interface';
 import { previewImage } from '../utils';
 import { setup, teardown } from './mock';
 import { errorRequest, successRequest } from './requests';
-import type { FormInstance } from '../../form';
-import type { UploadFile, UploadProps } from '..';
-import type { UploadListProps, UploadLocale } from '../interface';
 
 const fileList: UploadProps['fileList'] = [
   {
@@ -1540,5 +1541,47 @@ describe('Upload List', () => {
     );
 
     expect(container.querySelector('.ant-upload-list-item-error')).toBeTruthy();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/42056
+  describe('when form is disabled but upload is not', () => {
+    it('should not disable remove button', () => {
+      const { container } = render(
+        <Form name="base" disabled>
+          <Form.Item name="upload">
+            <Upload
+              disabled={false}
+              defaultFileList={[
+                {
+                  uid: '1',
+                  name: 'zzz.png',
+                  status: 'error',
+                  url: 'http://www.baidu.com/zzz.png',
+                },
+              ]}
+            />
+          </Form.Item>
+        </Form>,
+      );
+
+      const removeButton = container.querySelector('.ant-upload-list-item-actions > button');
+      expect(removeButton).toBeTruthy();
+      expect(removeButton).not.toBeDisabled();
+    });
+
+    // TODO: https://github.com/ant-design/ant-design/issues/42056#issuecomment-1529912365
+    it.skip('should not disable upload button', () => {
+      const { getByText } = render(
+        <Form name="base" disabled>
+          <Form.Item name="upload">
+            <Upload disabled={false}>
+              <Button>Click me</Button>
+            </Upload>
+          </Form.Item>
+        </Form>,
+      );
+
+      expect(getByText(/click me/i).closest('button')).not.toBeDisabled();
+    });
   });
 });
