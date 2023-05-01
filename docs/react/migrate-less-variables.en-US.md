@@ -36,3 +36,16 @@ This document contains the correspondence between all the less variables related
 | `@modal-confirm-body-padding` | - | Deprecated for style change |
 | `@modal-confirm-title-font-size` | `modalHeaderTitleFontSize` | - |
 | `@modal-border-radius` | `borderRadiusLG` | - |
+
+## Checkbox
+
+<!-- prettier-ignore -->
+| less variables | Component Token | Note |
+| --- | --- | --- |
+| `@checkbox-size` | `controlInteractiveSize` | - |
+| `@checkbox-color` | `colorPrimary` | - |
+| `@checkbox-check-color` | `colorWhite` | - |
+| `@checkbox-check-bg` | - | Deprecated for style change |
+| `@checkbox-border-width` | `lineWidth` | - |
+| `@checkbox-border-radius` | `borderRadiusSM` | - |
+| `@checkbox-group-item-margin-right` | - | Deprecated for style change |

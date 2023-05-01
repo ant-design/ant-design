@@ -3,11 +3,12 @@ import { genFocusOutline, resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 
-export interface ComponentToken {}
+export interface ComponentToken {
+  checkboxSize: number;
+}
 
 interface CheckboxToken extends FullToken<'Checkbox'> {
   checkboxCls: string;
-  checkboxSize: number;
 }
 
 // ============================== Motion ==============================
@@ -289,12 +290,15 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
 export function getStyle(prefixCls: string, token: FullToken<'Checkbox'>) {
   const checkboxToken: CheckboxToken = mergeToken<CheckboxToken>(token, {
     checkboxCls: `.${prefixCls}`,
-    checkboxSize: token.controlInteractiveSize,
   });
 
   return [genCheckboxStyle(checkboxToken)];
 }
 
-export default genComponentStyleHook('Checkbox', (token, { prefixCls }) => [
-  getStyle(prefixCls, token),
-]);
+export default genComponentStyleHook(
+  'Checkbox',
+  (token, { prefixCls }) => [getStyle(prefixCls, token)],
+  (token) => ({
+    checkboxSize: token.controlInteractiveSize,
+  }),
+);
