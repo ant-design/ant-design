@@ -41,6 +41,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
     appendAction,
     appendActionVisible = true,
     itemRender,
+    disabled,
   } = props;
   const forceUpdate = useForceUpdate();
   const [motionAppear, setMotionAppear] = React.useState(false);
@@ -129,6 +130,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
         }
       },
       className: `${prefixCls}-list-item-action`,
+      disabled,
     };
     if (isValidElement(customIcon)) {
       const btnIcon = cloneElement(customIcon, {

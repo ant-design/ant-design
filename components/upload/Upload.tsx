@@ -383,6 +383,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
         appendAction={button}
         appendActionVisible={buttonVisible}
         itemRender={itemRender}
+        disabled={mergedDisabled}
       />
     );
   };
