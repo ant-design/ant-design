@@ -7,7 +7,13 @@ export default function useChildren(
   if (typeof children === 'function') {
     return children;
   }
+  const childList = filterChildrenEmptyString(toArray(children));
+  return childList!.length <= 1 ? childList![0] : childList;
+}
 
-  const childList = toArray(children);
-  return childList.length <= 1 ? childList[0] : childList;
+function filterChildrenEmptyString(childrenArray?: Array<any>) {
+  return childrenArray?.filter((item) => {
+    if (typeof item !== 'string') return true;
+    return item && item.trim();
+  });
 }
