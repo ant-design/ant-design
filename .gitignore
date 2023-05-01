@@ -60,6 +60,7 @@ site/theme/template/Resources/**/*.jsx
 site/theme/template/NotFound.jsx
 scripts/previewEditor/index.html
 components/version/version.tsx
+components/version/version.ts
 components/version/token.tsx
 .dumi
 components/version/token-meta.json
@@ -73,3 +74,6 @@ __image_snapshots__/
 /imageDiffSnapshots
 
 .devcontainer*
+
+# From v5
+locale/
