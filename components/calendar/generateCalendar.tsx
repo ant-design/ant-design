@@ -36,10 +36,11 @@ export type PickerProps<DateType> =
   | PickerPanelTimeProps<DateType>;
 
 export type CalendarMode = 'year' | 'month';
+export type CalendarSelectable = 'date' | 'year' | 'month';
 export type HeaderRender<DateType> = (config: {
   value: DateType;
   type: CalendarMode;
-  onChange: (date: DateType) => void;
+  onChange: (date: DateType, selectType?: CalendarSelectable) => void;
   onTypeChange: (type: CalendarMode) => void;
 }) => React.ReactNode;
 
@@ -68,6 +69,7 @@ export interface CalendarProps<DateType> {
   fullscreen?: boolean;
   onChange?: (date: DateType) => void;
   onPanelChange?: (date: DateType, mode: CalendarMode) => void;
+  selectable?: CalendarSelectable[];
   onSelect?: (date: DateType) => void;
 }
 
@@ -109,6 +111,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
       fullscreen = true,
       onChange,
       onPanelChange,
+      selectable,
       onSelect,
     } = props;
     const { getPrefixCls, direction } = React.useContext(ConfigContext);
@@ -198,9 +201,14 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
       triggerPanelChange(mergedValue, newMode);
     };
 
-    const onInternalSelect = (date: DateType) => {
+    const onInternalSelect = (date: DateType, selectType?: CalendarSelectable) => {
       triggerChange(date);
 
+      if (selectable && selectable.length > 0 && selectType) {
+        if (!selectable.includes(selectType)) {
+          return;
+        }
+      }
       onSelect?.(date);
     };
 
@@ -332,7 +340,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
           locale={contextLocale?.lang}
           generateConfig={generateConfig}
           cellRender={mergedCellRender}
-          onSelect={onInternalSelect}
+          onSelect={(date) => onInternalSelect(date, panelMode === 'date' ? 'date' : 'month')}
           mode={panelMode}
           picker={panelMode}
           disabledDate={mergedDisabledDate}
