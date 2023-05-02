@@ -59,9 +59,7 @@ site/theme/template/Resources/*.jsx
 site/theme/template/Resources/**/*.jsx
 site/theme/template/NotFound.jsx
 scripts/previewEditor/index.html
-components/version/version.tsx
-components/version/version.ts
-components/version/token.tsx
+components/version/
 .dumi
 components/version/token-meta.json
 components/version/token.json
