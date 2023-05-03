@@ -1,7 +1,7 @@
 {
   "formatter": {
     "enabled": true,
-    "ignore": ["./dist/*", "./es/**/*", "./lib/**/*", "_site/**/*"],
+    "ignore": ["./dist/*", "./es/**/*", "./lib/**/*"],
     "indentStyle": "space",
     "lineWidth": 100,
     "indentSize": 2
