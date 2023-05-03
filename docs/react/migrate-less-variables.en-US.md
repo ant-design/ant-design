@@ -36,3 +36,30 @@ This document contains the correspondence between all the less variables related
 | `@modal-confirm-body-padding` | - | Deprecated for style change |
 | `@modal-confirm-title-font-size` | `modalHeaderTitleFontSize` | - |
 | `@modal-border-radius` | `borderRadiusLG` | - |
+
+## Step
+
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@process-tail-color` | `processTailColor` | - |
+| `@steps-nav-arrow-color` | `stepsNavArrowColor` | - |
+| `@steps-background` | - | Deprecated for style change |
+| `@steps-icon-size` | `stepsIconSize` | - |
+| `@steps-icon-custom-size` | `stepsIconCustomSize` | - |
+| `@steps-icon-custom-top` | `stepsIconCustomTop` | - |
+| `@steps-icon-custom-font-size` | `stepsIconCustomFontSize` | - |
+| `@steps-icon-top` | `stepsIconTop` | - |
+| `@steps-icon-font-size` | `stepsIconFontSize` | - |
+| `@steps-icon-margin` | - | Deprecated for style change |
+| `@steps-title-line-height` | `stepsTitleLineHeight` | - |
+| `@steps-small-icon-size` | `stepsSmallIconSize` | - |
+| `@steps-small-icon-margin` | - | Deprecated for style change |
+| `@steps-dot-size` | `stepsDotSize` | - |
+| `@steps-dot-top` | - | Deprecated for style change |
+| `@steps-current-dot-size` | `stepsCurrentDotSize` | - |
+| `@steps-description-max-width` | `stepsNavContentMaxWidth` | - |
+| `@steps-nav-content-max-width` | - | Deprecated for style change |
+| `@steps-vertical-icon-width` | - | Deprecated for style change |
+| `@steps-vertical-tail-width` | - | Deprecated for style change |
+| `@steps-vertical-tail-width-sm` | - | Deprecated for style change |
