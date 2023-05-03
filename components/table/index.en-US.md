@@ -70,6 +70,7 @@ const columns = [
 <code src="./demo/row-selection-custom.tsx">Custom selection</code>
 <code src="./demo/row-selection-debug.tsx" debug>Selection Perf</code>
 <code src="./demo/head.tsx">Filter and sorter</code>
+<code src="./demo/filter-virtual-in-tree.tsx">Filter virtual scroll in Tree</code>
 <code src="./demo/filter-in-tree.tsx">Filter in Tree</code>
 <code src="./demo/filter-search.tsx">Filter search</code>
 <code src="./demo/multiple-sorter.tsx">Multiple sorter</code>
@@ -200,6 +201,8 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | onFilter | Function that determines if the row is displayed when filtered | function(value, record) => boolean | - |  |
 | onFilterDropdownOpenChange | Callback executed when `filterDropdownOpen` is changed | function(visible) {} | - |  |
 | onHeaderCell | Set props on per header cell | function(column) | - |  |
+| height | Config virtual scroll height. Will not support horizontal scroll when enable this | number | - |  |
+| virtual | Disable virtual scroll when set to false | boolean | true |  |
 
 ### ColumnGroup
 

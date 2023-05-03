@@ -144,6 +144,8 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     onFilterDropdownOpenChange,
     filterResetToDefaultFilteredValue,
     defaultFilteredValue,
+    height,
+    virtual,
 
     // Deprecated
     filterDropdownVisible,
@@ -404,6 +406,8 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
                       }
                     : undefined
                 }
+                height={height}
+                virtual={virtual}
               />
             </div>
           </>
