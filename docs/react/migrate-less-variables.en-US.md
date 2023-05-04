@@ -40,7 +40,7 @@ This document contains the correspondence between all the less variables related
 ## Step
 
 <!-- prettier-ignore -->
-| less 变量 | Component Token | 备注 |
+| Less variables | Component Token | Note |
 | --- | --- | --- |
 | `@process-tail-color` | `processTailColor` | - |
 | `@steps-nav-arrow-color` | `stepsNavArrowColor` | - |
