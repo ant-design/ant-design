@@ -61,6 +61,7 @@
     "pretest": "npm run version",
     "predist": "npm run version",
     "presite": "npm run version",
+    "pretsc": "npm run version",
     "compile": "npm run clean && antd-tools run compile",
     "changelog": "node ./scripts/print-changelog",
     "predeploy": "antd-tools run clean && npm run site && cp CNAME _site && npm run site:test",
