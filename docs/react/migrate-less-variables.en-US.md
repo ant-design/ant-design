@@ -131,7 +131,16 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Slider -->
 
-<!-- ### Statistic -->
+
+## Statistic
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@statistic-title-font-size` | `statisticTitleFontSize` | - |
+| `@statistic-content-font-size` | `statisticContentFontSize` | - |
+| `@statistic-font-family` | `statisticFontFamily` | - |
+
 
 ## Step
 

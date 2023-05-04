@@ -131,7 +131,16 @@ title: Less 变量迁移 Design Token
 
 <!-- ### Slider 滑动输入条 -->
 
-<!-- ### Statistic 统计数值 -->
+
+## Statistic 统计数值
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@statistic-title-font-size` | `statisticTitleFontSize` | - |
+| `@statistic-content-font-size` | `statisticContentFontSize` | - |
+| `@statistic-font-family` | `statisticFontFamily` | - |
+
 
 ### Step 步骤条
 
