@@ -39,7 +39,20 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Divider -->
 
-<!-- ### Drawer -->
+
+## Drawer
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@drawer-bg` | `colorBgElevated` | - |
+| `@drawer-header-padding` | `padding`、`paddingLG` | `${padding}px ${paddingLG}px` |
+| `@drawer-title-font-size` | `fontSizeLG` | - |
+| `@drawer-title-line-height` | `lineHeightLG` | - |
+| `@drawer-body-padding` | `paddingLG` | - |
+| `@drawer-footer-padding-vertical` | `drawerFooterPaddingVertical` | `drawerFooterPaddingVertical`  is a number without units, `@drawer-footer-padding-vertical` with units |
+| `@drawer-footer-padding-horizontal` | `drawerFooterPaddingHorizontal` | `drawerFooterPaddingHorizontal`  is a number without units, `@drawer-footer-padding-horizontal` with units |
+
 
 <!-- ### Dropdown -->
 
