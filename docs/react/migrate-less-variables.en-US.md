@@ -1,13 +1,67 @@
 ---
 order: 9
-title: Migrate less variables to Component Token
+title: Migrate Less variables to Component Token
 ---
 
 This document contains the correspondence between all the less variables related to components in version 4.x and the Component Token in version 5.x. If you are upgrading from version 4.x to version 5.x, you can quickly find the corresponding Component Token through this comparison table.
 
 <Alert message="Note: There are still some less variables that do not have a corresponding Component Token, and these variables have been deprecated in version 5.x."></Alert>
 
-## Modal 对话框
+<!-- ## 全局变量 -->
+
+## 组件变量
+
+<!-- ### Alert -->
+
+<!-- ### Anchor -->
+
+<!-- ### Avatar -->
+
+<!-- ### Badge -->
+
+<!-- ### BreadCrumb -->
+
+<!-- ### Button -->
+
+<!-- ### Calendar -->
+
+<!-- ### Card -->
+
+<!-- ### Carousel -->
+
+<!-- ### Cascader -->
+
+<!-- ### Checkbox -->
+
+<!-- ### Collapse -->
+
+<!-- ### Descriptions -->
+
+<!-- ### Divider -->
+
+<!-- ### Drawer -->
+
+<!-- ### Dropdown -->
+
+<!-- ### Empty -->
+
+<!-- ### Form -->
+
+<!-- ### Image -->
+
+<!-- ### Input -->
+
+<!-- ### Layout -->
+
+<!-- ### List -->
+
+<!-- ### Mentions -->
+
+<!-- ### Menu -->
+
+<!-- ### Message -->
+
+## Modal
 
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
@@ -37,6 +91,30 @@ This document contains the correspondence between all the less variables related
 | `@modal-confirm-title-font-size` | `modalHeaderTitleFontSize` | - |
 | `@modal-border-radius` | `borderRadiusLG` | - |
 
+<!-- ### Notification -->
+
+<!-- ### Pagination -->
+
+<!-- ### Popover -->
+
+<!-- ### Progress -->
+
+<!-- ### Radio -->
+
+<!-- ### Rate -->
+
+<!-- ### Result -->
+
+<!-- ### Segment -->
+
+<!-- ### Select -->
+
+<!-- ### Skeleton -->
+
+<!-- ### Slider -->
+
+<!-- ### Statistic -->
+
 ## Step
 
 <!-- prettier-ignore -->
@@ -63,3 +141,25 @@ This document contains the correspondence between all the less variables related
 | `@steps-vertical-icon-width` | - | Deprecated for style change |
 | `@steps-vertical-tail-width` | - | Deprecated for style change |
 | `@steps-vertical-tail-width-sm` | - | Deprecated for style change |
+
+<!-- ### Switch -->
+
+<!-- ### Table -->
+
+<!-- ### Tabs -->
+
+<!-- ### Tag -->
+
+<!-- ### Timeline -->
+
+<!-- ### TimePicker -->
+
+<!-- ### Tooltip -->
+
+<!-- ### Transfer -->
+
+<!-- ### Tree -->
+
+<!-- ### Typography -->
+
+<!-- ### Upload -->
