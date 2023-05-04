@@ -272,7 +272,7 @@ This document contains the correspondence between all the less variables related
 <!-- prettier-ignore -->
 | less 变量 | Component Token | 备注 |
 | --- | --- | --- |
-| `@tag-border-radius` | - | Deprecated for style change |
+| `@tag-border-radius` | `tagBorderlessBg` | - |
 | `@tag-default-bg` | `tagDefaultBg` | - |
 | `@tag-default-color` | `tagDefaultColor` | - |
 | `@tag-font-size` | `tagFontSize` | - |

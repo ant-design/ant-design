@@ -270,7 +270,7 @@ title: Less 变量迁移 Design Token
 <!-- prettier-ignore -->
 | less 变量 | Component Token | 备注 |
 | --- | --- | --- |
-| `@tag-border-radius` | - | 由于样式变化已废弃 |
+| `@tag-border-radius` | `tagBorderlessBg` | - |
 | `@tag-default-bg` | `tagDefaultBg` | - |
 | `@tag-default-color` | `tagDefaultColor` | - |
 | `@tag-font-size` | `tagFontSize` | - |
