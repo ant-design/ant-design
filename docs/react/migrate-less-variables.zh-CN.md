@@ -26,6 +26,24 @@ title: Less 变量迁移 Design Token
 
 <!-- ### Avatar 头像 -->
 
+## Avatar 头像
+
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@avatar-size-base` | `avatarSizeBase` | - |
+| `@avatar-size-lg` | `avatarSizeLG` | - |
+| `@avatar-size-sm` | `avatarSizeSM` | - |
+| `@avatar-font-size-base` | `avatarFontSizeBase` | - |
+| `@avatar-font-size-lg` | `avatarFontSizeLG` | - |
+| `@avatar-font-size-sm` | `avatarFontSizeSM` | - |
+| `@avatar-bg` | `avatarBg` | - |
+| `@avatar-color` | `avatarColor` | - |
+| `@avatar-border-radius` | - | 由于样式变化已废弃 |
+| `@avatar-group-overlapping` | - | 由于样式变化已废弃 |
+| `@avatar-group-space` | - | 由于样式变化已废弃 |
+| `@avatar-group-border-color` | - | 由于样式变化已废弃 |
+
 <!-- ### Badge 徽标数 -->
 
 ### BreadCrumb 面包屑

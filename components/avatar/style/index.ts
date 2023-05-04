@@ -1,11 +1,9 @@
 import type { CSSObject } from '@ant-design/cssinjs';
+import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import { resetComponent } from '../../style';
 
-export interface ComponentToken {}
-
-type AvatarToken = FullToken<'Avatar'> & {
+export interface ComponentToken {
   avatarBg: string;
   avatarColor: string;
   avatarSizeBase: number;
@@ -14,11 +12,11 @@ type AvatarToken = FullToken<'Avatar'> & {
   avatarFontSizeBase: number;
   avatarFontSizeLG: number;
   avatarFontSizeSM: number;
-  avatarGroupOverlapping: number;
   avatarGroupSpace: number;
   avatarGroupBorderColor: string;
-  avatarBgColor: string;
-};
+}
+
+type AvatarToken = FullToken<'Avatar'> & {};
 
 const genBaseStyle: GenerateStyle<AvatarToken> = (token) => {
   const {
@@ -127,38 +125,42 @@ const genGroupStyle: GenerateStyle<AvatarToken> = (token) => {
   };
 };
 
-export default genComponentStyleHook('Avatar', (token) => {
-  const {
-    colorTextLightSolid,
+export default genComponentStyleHook(
+  'Avatar',
+  (token) => {
+    const avatarToken = mergeToken<AvatarToken>(token, {});
+    return [genBaseStyle(avatarToken), genGroupStyle(avatarToken)];
+  },
+  (token) => {
+    const {
+      colorTextLightSolid,
 
-    controlHeight,
-    controlHeightLG,
-    controlHeightSM,
+      controlHeight,
+      controlHeightLG,
+      controlHeightSM,
 
-    fontSize,
-    fontSizeLG,
-    fontSizeXL,
-    fontSizeHeading3,
+      fontSize,
+      fontSizeLG,
+      fontSizeXL,
+      fontSizeHeading3,
 
-    marginXS,
-    colorBorderBg,
-    colorTextPlaceholder,
-  } = token;
+      marginXS,
+      colorBorderBg,
+      colorTextPlaceholder,
+    } = token;
+    return {
+      avatarSizeBase: controlHeight,
+      avatarSizeLG: controlHeightLG,
+      avatarSizeSM: controlHeightSM,
 
-  const avatarToken = mergeToken<AvatarToken>(token, {
-    avatarBg: colorTextPlaceholder,
-    avatarColor: colorTextLightSolid,
+      avatarFontSizeBase: Math.round((fontSizeLG + fontSizeXL) / 2),
+      avatarFontSizeLG: fontSizeHeading3,
+      avatarFontSizeSM: fontSize,
 
-    avatarSizeBase: controlHeight,
-    avatarSizeLG: controlHeightLG,
-    avatarSizeSM: controlHeightSM,
-
-    avatarFontSizeBase: Math.round((fontSizeLG + fontSizeXL) / 2),
-    avatarFontSizeLG: fontSizeHeading3,
-    avatarFontSizeSM: fontSize,
-    avatarGroupSpace: -marginXS,
-    avatarGroupBorderColor: colorBorderBg,
-  });
-
-  return [genBaseStyle(avatarToken), genGroupStyle(avatarToken)];
-});
+      avatarBg: colorTextPlaceholder,
+      avatarColor: colorTextLightSolid,
+      avatarGroupSpace: -marginXS,
+      avatarGroupBorderColor: colorBorderBg,
+    };
+  },
+);

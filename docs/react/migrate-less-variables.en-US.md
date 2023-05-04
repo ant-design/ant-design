@@ -26,6 +26,24 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Avatar -->
 
+## Avatar
+
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@avatar-size-base` | `avatarSizeBase` | - |
+| `@avatar-size-lg` | `avatarSizeLG` | - |
+| `@avatar-size-sm` | `avatarSizeSM` | - |
+| `@avatar-font-size-base` | `avatarFontSizeBase` | - |
+| `@avatar-font-size-lg` | `avatarFontSizeLG` | - |
+| `@avatar-font-size-sm` | `avatarFontSizeSM` | - |
+| `@avatar-bg` | `avatarBg` | - |
+| `@avatar-color` | `avatarColor` | - |
+| `@avatar-border-radius` | - | Deprecated for style change |
+| `@avatar-group-overlapping` | - | Deprecated for style change |
+| `@avatar-group-space` | - | Deprecated for style change |
+| `@avatar-group-border-color` | - | Deprecated for style change |
+
 <!-- ### Badge -->
 
 ### BreadCrumb 面包屑
