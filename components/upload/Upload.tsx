@@ -4,14 +4,14 @@ import RcUpload from 'rc-upload';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import * as React from 'react';
 import { flushSync } from 'react-dom';
+import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
-import defaultLocale from '../locale/en_US';
 import { useLocale } from '../locale';
-import warning from '../_util/warning';
+import defaultLocale from '../locale/en_US';
+import UploadList from './UploadList';
 import type { RcFile, ShowUploadListInterface, UploadChangeParam, UploadFile } from './interface';
 import { UploadProps } from './interface';
-import UploadList from './UploadList';
 import { file2Obj, getFileItem, removeFileItem, updateFileList } from './utils';
 
 import useStyle from './style';
@@ -311,7 +311,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
 
   const prefixCls = getPrefixCls('upload', customizePrefixCls);
 
-  const rcUploadProps = {
+  const rcUploadProps: RcUploadProps = {
     onBatchStart,
     onError,
     onProgress,
@@ -382,6 +382,21 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     );
   };
 
+  const uploadButtonCls = classNames(prefixCls, `${prefixCls}-select`, {
+    [`${prefixCls}-disabled`]: mergedDisabled,
+  });
+
+  const uploadButton = React.useMemo<React.ReactNode>(() => {
+    if (!children) {
+      return null;
+    }
+    return (
+      <div className={uploadButtonCls}>
+        <RcUpload {...rcUploadProps} ref={upload} />
+      </div>
+    );
+  }, [children, uploadButtonCls, rcUploadProps]);
+
   const rtlCls = {
     [`${prefixCls}-rtl`]: direction === 'rtl',
   };
@@ -415,18 +430,6 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
       </span>,
     );
   }
-
-  const uploadButtonCls = classNames(prefixCls, `${prefixCls}-select`, {
-    [`${prefixCls}-disabled`]: mergedDisabled,
-  });
-
-  const renderUploadButton = (uploadButtonStyle?: React.CSSProperties) => (
-    <div className={uploadButtonCls} style={uploadButtonStyle}>
-      <RcUpload {...rcUploadProps} ref={upload} />
-    </div>
-  );
-
-  const uploadButton = renderUploadButton(children ? undefined : { display: 'none' });
 
   if (listType === 'picture-card' || listType === 'picture-circle') {
     return wrapSSR(
