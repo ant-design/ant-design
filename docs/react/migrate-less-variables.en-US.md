@@ -1,13 +1,96 @@
 ---
 order: 9
-title: Migrate less variables to Component Token
+title: Migrate Less variables to Component Token
 ---
 
 This document contains the correspondence between all the less variables related to components in version 4.x and the Component Token in version 5.x. If you are upgrading from version 4.x to version 5.x, you can quickly find the corresponding Component Token through this comparison table.
 
 <Alert message="Note: There are still some less variables that do not have a corresponding Component Token, and these variables have been deprecated in version 5.x."></Alert>
 
-## Modal 对话框
+<!-- ## 全局变量 -->
+
+## 组件变量
+
+<!-- ### Alert -->
+
+<!-- ### Anchor -->
+
+<!-- ### Avatar -->
+
+<!-- ### Badge -->
+
+<!-- ### BreadCrumb -->
+
+<!-- ### Button -->
+
+<!-- ### Calendar -->
+
+<!-- ### Card -->
+
+<!-- ### Carousel -->
+
+<!-- ### Cascader -->
+
+<!-- ### Checkbox -->
+
+<!-- ### Collapse -->
+
+<!-- ### Descriptions -->
+
+<!-- ### Divider -->
+
+## Drawer
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@drawer-bg` | `colorBgElevated` | - |
+| `@drawer-header-padding` | `padding`、`paddingLG` | `${padding}px ${paddingLG}px` |
+| `@drawer-title-font-size` | `fontSizeLG` | - |
+| `@drawer-title-line-height` | `lineHeightLG` | - |
+| `@drawer-body-padding` | `paddingLG` | - |
+| `@drawer-footer-padding-vertical` | `drawerFooterPaddingVertical` | `drawerFooterPaddingVertical`  is a number without units, `@drawer-footer-padding-vertical` with units |
+| `@drawer-footer-padding-horizontal` | `drawerFooterPaddingHorizontal` | `drawerFooterPaddingHorizontal`  is a number without units, `@drawer-footer-padding-horizontal` with units |
+
+<!-- ### Dropdown -->
+
+<!-- ### Empty -->
+
+<!-- ### Form -->
+
+## Image
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@image-size-base` | - | Deprecated for no longer used |
+| `@image-font-size-base` | - | Deprecated for no longer used |
+| `@image-bg` | `colorFillTertiary` | - |
+| `@image-color` | `colorTextLightSolid` | - |
+| `@image-preview-operation-size` | `imagePreviewOperationSize` | - |
+| `@image-preview-operation-color` | `imagePreviewOperationColor` | - |
+| `@image-preview-operation-disabled-color` | `imagePreviewOperationDisabledColor` | - |
+
+<!-- ### Input -->
+
+<!-- ### Layout -->
+
+<!-- ### List -->
+
+<!-- ### Mentions -->
+
+<!-- ### Menu -->
+
+## Message
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@zindex-message` | `zIndexPopup` | - |
+| `@message-notice-content-padding` | `messageNoticeContentPadding` | - |
+| `@message-notice-content-bg` | `messageNoticeContentBg` | - |
+
+## Modal
 
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
@@ -37,6 +120,56 @@ This document contains the correspondence between all the less variables related
 | `@modal-confirm-title-font-size` | `modalHeaderTitleFontSize` | - |
 | `@modal-border-radius` | `borderRadiusLG` | - |
 
+## Notification
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@notification-width` | `width` | - |
+| `@notification-padding` | `notificationPadding` | - |
+| `@notification-padding-vertical` | `notificationPaddingVertical` | - |
+| `@notification-padding-horizontal` | `notificationPaddingHorizontal` | - |
+| `@notification-margin-bottom` | `notificationMarginBottom` | - |
+| `@notification-margin-edge` | `notificationMarginEdge` | - |
+| `@notification-bg` | `notificationBg` | - |
+
+<!-- ### Pagination -->
+
+<!-- ### Popover -->
+
+<!-- ### Progress -->
+
+<!-- ### Radio -->
+
+<!-- ### Rate -->
+
+## Result
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@result-icon-font-size` | `resultIconFontSize` | - |
+| `@result-title-font-size` | `resultTitleFontSize` | - |
+| `@result-subtitle-font-size` | `resultSubtitleFontSize` | - |
+| `@result-extra-margin` | `resultExtraMargin` | - |
+
+<!-- ### Segment -->
+
+<!-- ### Select -->
+
+<!-- ### Skeleton -->
+
+<!-- ### Slider -->
+
+## Statistic
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@statistic-title-font-size` | `statisticTitleFontSize` | - |
+| `@statistic-content-font-size` | `statisticContentFontSize` | - |
+| `@statistic-font-family` | `statisticFontFamily` | - |
+
 ## Step
 
 <!-- prettier-ignore -->
@@ -64,15 +197,24 @@ This document contains the correspondence between all the less variables related
 | `@steps-vertical-tail-width` | - | Deprecated for style change |
 | `@steps-vertical-tail-width-sm` | - | Deprecated for style change |
 
-## Image
+<!-- ### Switch -->
 
-<!-- prettier-ignore -->
-| Less variables | Component Token | Note |
-| --- | --- | --- |
-| `@image-size-base` | - | Deprecated for no longer used |
-| `@image-font-size-base` | - | Deprecated for no longer used |
-| `@image-bg` | `colorFillTertiary` | - |
-| `@image-color` | `colorTextLightSolid` | - |
-| `@image-preview-operation-size` | `imagePreviewOperationSize` | - |
-| `@image-preview-operation-color` | `imagePreviewOperationColor` | - |
-| `@image-preview-operation-disabled-color` | `imagePreviewOperationDisabledColor` | - |
+<!-- ### Table -->
+
+<!-- ### Tabs -->
+
+<!-- ### Tag -->
+
+<!-- ### Timeline -->
+
+<!-- ### TimePicker -->
+
+<!-- ### Tooltip -->
+
+<!-- ### Transfer -->
+
+<!-- ### Tree -->
+
+<!-- ### Typography -->
+
+<!-- ### Upload -->

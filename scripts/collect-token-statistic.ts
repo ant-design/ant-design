@@ -1,28 +1,28 @@
-/* eslint-disable import/no-unresolved,no-console,global-require,import/no-dynamic-require */
-const chalk = require('chalk');
-const React = require('react');
-const ReactDOMServer = require('react-dom/server');
-const fs = require('fs-extra');
-const ProgressBar = require('progress');
-const { statistic } = require('../components/theme/util/statistic');
-const { DesignTokenContext } = require('../components/theme/internal');
-const seedToken = require('../components/theme/themes/seed');
-const { generateCssinjs, filenames } = require('./generate-cssinjs');
+/* eslint-disable no-console */
+import chalk from 'chalk';
+import fs from 'fs-extra';
+import ProgressBar from 'progress';
+import React from 'react';
+import ReactDOMServer from 'react-dom/server';
+import { DesignTokenContext } from '../components/theme/internal';
+import seedToken from '../components/theme/themes/seed';
+import { statistic } from '../components/theme/util/statistic';
+import { generateCssinjs, styleFiles } from './generate-cssinjs';
 
 console.log(chalk.green(`🔥 Collecting token statistics...`));
 
 const bar = new ProgressBar('🚀 Collecting by component: [:bar] :component (:current/:total)', {
   complete: '=',
   incomplete: ' ',
-  total: filenames.length,
+  total: styleFiles.length,
 });
 
 generateCssinjs({
   key: 'file',
-  beforeRender: (componentName) => {
+  beforeRender(componentName: string) {
     bar.tick(1, { component: componentName });
   },
-  render: (Component) => {
+  render(Component: any) {
     ReactDOMServer.renderToString(React.createElement(Component));
     // Render wireframe
     ReactDOMServer.renderToString(
@@ -38,6 +38,5 @@ generateCssinjs({
 (() => {
   const tokenPath = `${process.cwd()}/components/version/token.json`;
   fs.writeJsonSync(tokenPath, statistic, 'utf8');
-
   console.log(chalk.green(`✅  Collected token statistics successfully, check it in`), tokenPath);
 })();

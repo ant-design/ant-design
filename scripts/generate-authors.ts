@@ -1,7 +1,7 @@
-const path = require('path');
-const fs = require('fs');
-const simpleGit = require('simple-git');
-const _ = require('lodash');
+import fs from 'fs';
+import _ from 'lodash';
+import path from 'path';
+import simpleGit from 'simple-git';
 
 const cwd = process.cwd();
 const git = simpleGit(cwd);
