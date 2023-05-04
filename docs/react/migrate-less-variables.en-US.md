@@ -135,7 +135,17 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Select -->
 
-<!-- ### Skeleton -->
+### Skeleton
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@skeleton-block-radius` | `skeletonBlockRadius` | - |
+| `@skeleton-title-height` | `skeletonTitleHeight` | - |
+| `@skeleton-color` | `color` | - |
+| `@skeleton-title-paragraph-margin-top` | `skeletonParagraphMarginTop` | - |
+| `@skeleton-paragraph-li-height` | `skeletonParagraphLineHeight` | - |
+| `@skeleton-to-color` | `colorGradientEnd` | - |
 
 <!-- ### Slider -->
 

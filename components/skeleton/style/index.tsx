@@ -6,6 +6,8 @@ import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 export type ComponentToken = {
   color: string;
   colorGradientEnd: string;
+  skeletonTitleHeight: number;
+  skeletonBlockRadius: number;
 };
 
 const skeletonClsLoading = new Keyframes(`ant-skeleton-loading`, {
@@ -25,8 +27,6 @@ interface SkeletonToken extends FullToken<'Skeleton'> {
   skeletonInputCls: string;
   skeletonImageCls: string;
   imageSizeBase: number;
-  skeletonTitleHeight: number;
-  skeletonBlockRadius: number;
   skeletonParagraphLineHeight: number;
   skeletonParagraphMarginTop: number;
   skeletonLoadingBackground: string;
@@ -353,8 +353,6 @@ export default genComponentStyleHook(
       skeletonInputCls: `${componentCls}-input`,
       skeletonImageCls: `${componentCls}-image`,
       imageSizeBase: token.controlHeight * 1.5,
-      skeletonTitleHeight: token.controlHeight / 2,
-      skeletonBlockRadius: token.borderRadiusSM,
       skeletonParagraphLineHeight: token.controlHeight / 2,
       skeletonParagraphMarginTop: token.marginLG + token.marginXXS,
       borderRadius: 100, // Large number to make capsule shape
@@ -369,6 +367,8 @@ export default genComponentStyleHook(
     return {
       color: colorFillContent,
       colorGradientEnd: colorFill,
+      skeletonTitleHeight: token.controlHeight / 2,
+      skeletonBlockRadius: token.borderRadiusSM,
     };
   },
 );
