@@ -78,9 +78,7 @@ export default function genPurePanel<ComponentProps extends BaseProps>(
       <ConfigProvider
         theme={{
           token: {
-            motionDurationFast: '0.01s',
-            motionDurationMid: '0.01s',
-            motionDurationSlow: '0.01s',
+            motion: false,
           },
         }}
       >
@@ -89,7 +87,6 @@ export default function genPurePanel<ComponentProps extends BaseProps>(
           style={{
             paddingBottom: popupHeight,
             position: 'relative',
-            width: 'fit-content',
             minWidth: popupWidth,
           }}
         >
