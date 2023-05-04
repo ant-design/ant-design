@@ -10,7 +10,7 @@ export interface ComponentToken {
   tagLineHeight: React.CSSProperties['lineHeight'];
   tagDefaultBg: string;
   tagDefaultColor: string;
-  tagBorderRadius: string;
+  tagBorderRadius: number;
 }
 
 interface TagToken extends FullToken<'Tag'> {
