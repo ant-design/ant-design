@@ -15,6 +15,13 @@ timeline: true
 
 ---
 
+## 4.24.10
+
+`2023-05-04`
+
+- 🐞 修复 `version` 总是返回 `5.2.2` 的问题。[#42101](https://github.com/ant-design/ant-design/pull/42101)
+- 🐞 修复 Popover 在屏幕边缘时宽度塌缩的问题。[#41953](https://github.com/ant-design/ant-design/pull/41953)
+
 ## 4.24.9
 
 `2023-04-19`

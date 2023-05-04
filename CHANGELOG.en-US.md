@@ -15,6 +15,13 @@ timeline: true
 
 ---
 
+## 4.24.10
+
+`2023-05-04`
+
+- 🐞 Fix `version` always shows `5.2.2`. [#42101](https://github.com/ant-design/ant-design/pull/42101)
+- 🐞 Fix Popover width collapse when show on the screen edge. [#41953](https://github.com/ant-design/ant-design/pull/41953)
+
 ## 4.24.9
 
 `2023-04-19`
