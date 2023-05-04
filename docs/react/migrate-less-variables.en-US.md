@@ -42,10 +42,10 @@ This document contains the correspondence between all the less variables related
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
 | --- | --- | --- |
-| `@image-size-base` | - | Deprecated for style change |
-| `@image-font-size-base` | - | Deprecated for style change |
-| `@image-bg` | - | Deprecated for style change |
-| `@image-color` | - | Deprecated for style change |
-| `@image-preview-operation-color` | `imagePreviewOperationSize` | - |
-| `@image-bg` | `imagePreviewOperationColor` | - |
+| `@image-size-base` | - | Deprecated for no longer used |
+| `@image-font-size-base` | - | Deprecated for no longer used |
+| `@image-bg` | `colorFillTertiary` | - |
+| `@image-color` | `colorTextLightSolid` | - |
+| `@image-preview-operation-size` | `imagePreviewOperationSize` | - |
+| `@image-preview-operation-color` | `imagePreviewOperationColor` | - |
 | `@image-preview-operation-disabled-color` | `imagePreviewOperationDisabledColor` | - |
