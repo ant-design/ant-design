@@ -274,6 +274,17 @@ title: Less 变量迁移 Design Token
 | `@tag-font-size` | `tagFontSize` | - |
 | `@tag-line-height` | `tagLineHeight` | - |
 
+## Tag 标签
+
+<!-- prettier-ignore -->
+| less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@tag-border-radius` | - | 由于样式变化已废弃 |
+| `@tag-default-bg` | `tagDefaultBg` | - |
+| `@tag-default-color` | `tagDefaultColor` | - |
+| `@tag-font-size` | `tagFontSize` | - |
+| `@tag-line-height` | `tagLineHeight` | - |
+
 <!-- ### Timeline 时间轴 -->
 
 <!-- ### TimePicker 时间选择 -->
