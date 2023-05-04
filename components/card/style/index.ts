@@ -1,22 +1,21 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 
+import { clearFix, resetComponent, textEllipsis } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import { clearFix, resetComponent, textEllipsis } from '../../style';
 
-export interface ComponentToken {}
-
-interface CardToken extends FullToken<'Card'> {
-  cardHeadHeight: number;
-  cardHeadHeightSM: number;
-  cardShadow: string;
+export interface ComponentToken {
   cardHeadPadding: number;
   cardPaddingSM: number;
+  cardHeadHeight: number;
+  cardHeadHeightSM: number;
   cardPaddingBase: number;
-  cardHeadTabsMarginBottom: number;
+  cardShadow: string;
   cardActionsLiMargin: string;
-  cardActionsIconSize: number;
+  cardHeadTabsMarginBottom: number;
 }
+
+interface CardToken extends FullToken<'Card'> {}
 
 // ============================== Styles ==============================
 
@@ -102,8 +101,7 @@ const genCardGridStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 
 // ============================== Actions ==============================
 const genCardActionsStyle: GenerateStyle<CardToken> = (token): CSSObject => {
-  const { componentCls, iconCls, cardActionsLiMargin, cardActionsIconSize, colorBorderSecondary } =
-    token;
+  const { componentCls, iconCls, cardActionsLiMargin, fontSize, colorBorderSecondary } = token;
   return {
     margin: 0,
     padding: 0,
@@ -122,7 +120,7 @@ const genCardActionsStyle: GenerateStyle<CardToken> = (token): CSSObject => {
       '> span': {
         position: 'relative',
         display: 'block',
-        minWidth: token.cardActionsIconSize * 2,
+        minWidth: token.fontSize * 2,
         fontSize: token.fontSize,
         lineHeight: token.lineHeight,
         cursor: 'pointer',
@@ -145,8 +143,8 @@ const genCardActionsStyle: GenerateStyle<CardToken> = (token): CSSObject => {
         },
 
         [`> ${iconCls}`]: {
-          fontSize: cardActionsIconSize,
-          lineHeight: `${cardActionsIconSize * token.lineHeight}px`,
+          fontSize,
+          lineHeight: `${fontSize * token.lineHeight}px`,
         },
       },
 
@@ -366,24 +364,27 @@ const genCardSizeStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Card', (token) => {
-  const cardToken = mergeToken<CardToken>(token, {
-    cardShadow: token.boxShadowCard,
+export default genComponentStyleHook(
+  'Card',
+  (token) => {
+    const cardToken = mergeToken<CardToken>(token);
+
+    return [
+      // Style
+      genCardStyle(cardToken),
+
+      // Size
+      genCardSizeStyle(cardToken),
+    ];
+  },
+  (token) => ({
+    cardHeadPadding: token.padding,
+    cardPaddingSM: 12, // Fixed padding.
     cardHeadHeight: token.fontSizeLG * token.lineHeightLG + token.padding * 2,
     cardHeadHeightSM: token.fontSize * token.lineHeight + token.paddingXS * 2,
-    cardHeadPadding: token.padding,
     cardPaddingBase: token.paddingLG,
-    cardHeadTabsMarginBottom: -token.padding - token.lineWidth,
+    cardShadow: token.boxShadowCard,
     cardActionsLiMargin: `${token.paddingSM}px 0`,
-    cardActionsIconSize: token.fontSize,
-    cardPaddingSM: 12, // Fixed padding.
-  });
-
-  return [
-    // Style
-    genCardStyle(cardToken),
-
-    // Size
-    genCardSizeStyle(cardToken),
-  ];
-});
+    cardHeadTabsMarginBottom: -token.padding - token.lineWidth,
+  }),
+);

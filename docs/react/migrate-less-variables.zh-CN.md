@@ -78,25 +78,25 @@ title: Less 变量迁移 Design Token
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
 | --- | --- | --- |
-| `@card-head-color` | - | Deprecated for style change |
-| `@card-head-background` | - | Deprecated for style change |
-| `@card-head-font-size` | - | Deprecated for style change |
-| `@card-head-font-size-sm` | - | Deprecated for style change |
-| `@card-head-padding` | - | Deprecated for style change |
-| `@card-head-padding-sm` | - | Deprecated for style change |
-| `@card-head-height` | - | Deprecated for style change |
-| `@card-head-height-sm` | - | Deprecated for style change |
-| `@card-inner-head-padding` | - | Deprecated for style change |
-| `@card-padding-base` | - | Deprecated for style change |
-| `@card-padding-base-sm` | - | Deprecated for style change |
-| `@card-actions-background` | - | Deprecated for style change |
-| `@card-actions-li-margin` | - | Deprecated for style change |
-| `@card-skeleton-bg` | - | Deprecated for style change |
-| `@card-background` | - | Deprecated for style change |
-| `@card-shadow` | - | Deprecated for style change |
-| `@card-radius` | - | Deprecated for style change |
-| `@card-head-tabs-margin-bottom` | - | Deprecated for style change |
-| `@card-head-extra-color` | - | Deprecated for style change |
+| `@card-head-color` | - | 由于样式变化已废弃 |
+| `@card-head-background` | - | 由于样式变化已废弃 |
+| `@card-head-font-size` | - | 由于样式变化已废弃 |
+| `@card-head-font-size-sm` | - | 由于样式变化已废弃 |
+| `@card-head-padding` | `cardHeadPadding` | - |
+| `@card-head-padding-sm` | `cardPaddingSM` | - |
+| `@card-head-height` | `cardHeadHeight` | - |
+| `@card-head-height-sm` | `cardHeadHeightSM` | - |
+| `@card-inner-head-padding` | - | 由于样式变化已废弃 |
+| `@card-padding-base` | `cardPaddingBase` | - |
+| `@card-padding-base-sm` | - | 由于样式变化已废弃 |
+| `@card-actions-background` | - | 由于样式变化已废弃 |
+| `@card-actions-li-margin` | `cardActionsLiMargin` | - |
+| `@card-skeleton-bg` | - | 由于样式变化已废弃 |
+| `@card-background` | - | 由于样式变化已废弃 |
+| `@card-shadow` | `cardShadow` | - |
+| `@card-radius` | - | 由于样式变化已废弃 |
+| `@card-head-tabs-margin-bottom` | - | 由于样式变化已废弃 |
+| `@card-head-extra-color` | - | 由于样式变化已废弃 |
 
 ### Carousel 走马灯
 
