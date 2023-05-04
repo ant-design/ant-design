@@ -134,7 +134,17 @@ title: Less 变量迁移 Design Token
 
 <!-- ### Rate 评分 -->
 
-<!-- ### Result 结果 -->
+
+## Result 结果
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@result-icon-font-size` | `resultIconFontSize` | - |
+| `@result-title-font-size` | `resultTitleFontSize` | - |
+| `@result-subtitle-font-size` | `resultSubtitleFontSize` | - |
+| `@result-extra-margin` | `resultExtraMargin` | - |
+
 
 <!-- ### Segment 分段器 -->
 

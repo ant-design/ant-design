@@ -134,7 +134,17 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Rate -->
 
-<!-- ### Result -->
+
+## Result
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@result-icon-font-size` | `resultIconFontSize` | - |
+| `@result-title-font-size` | `resultTitleFontSize` | - |
+| `@result-subtitle-font-size` | `resultSubtitleFontSize` | - |
+| `@result-extra-margin` | `resultExtraMargin` | - |
+
 
 <!-- ### Segment -->
 
