@@ -1,61 +1,52 @@
 /* eslint-disable no-await-in-loop */
 /* eslint-disable no-restricted-syntax */
-const fetch = require('isomorphic-fetch');
-const { join } = require('path');
-const cheerio = require('cheerio');
-const glob = require('glob');
-const uniq = require('lodash/uniq');
-const { createServer } = require('http-server');
+import cheerio from 'cheerio';
+import { globSync } from 'glob';
+import type http from 'http';
+import { createServer } from 'http-server';
+import type https from 'https';
+import fetch from 'isomorphic-fetch';
+import uniq from 'lodash/uniq';
+import { join } from 'path';
 
 const components = uniq(
-  glob
-    .globSync('components/!(overview)/*.md', {
-      cwd: join(process.cwd()),
-      dot: false,
-    })
-    .map((path) => path.replace(/(\/index)?((\.zh-cn)|(\.en-us))?\.md$/i, '')),
+  globSync('components/!(overview)/*.md', { cwd: join(process.cwd()), dot: false }).map((path) =>
+    path.replace(/(\/index)?((\.zh-cn)|(\.en-us))?\.md$/i, ''),
+  ),
 );
 
 describe('site test', () => {
-  let server;
+  let server: http.Server | https.Server;
   const port = 3000;
-  const render = async (path) => {
+  const render = async (path: string) => {
     const resp = await fetch(`http://127.0.0.1:${port}${path}`).then(async (res) => {
       const html = await res.text();
       const $ = cheerio.load(html, { decodeEntities: false, recognizeSelfClosing: true });
-      return {
-        html,
-        status: res.status,
-        $,
-      };
+      return { html, status: res.status, $ };
     });
     return resp;
   };
 
-  const handleComponentName = (name) => {
-    const componentName = name.split('/')[1];
+  const handleComponentName = (name: string) => {
+    const [, componentName] = name.split('/');
     return componentName.toLowerCase().replace('-cn', '').replace('-', '');
   };
 
-  const expectComponent = async (component) => {
+  const expectComponent = async (component: string) => {
     const { status, $ } = await render(`/${component}/`);
     expect(status).toBe(200);
     expect($('h1').text().toLowerCase()).toMatch(handleComponentName(component));
   };
 
   beforeAll(() => {
-    server = createServer({
-      root: join(process.cwd(), '_site'),
-    });
+    server = createServer({ root: join(process.cwd(), '_site') });
     server.listen(port);
     // eslint-disable-next-line no-console
     console.log('site static server run: http://localhost:3000');
   });
 
   afterAll(() => {
-    if (server) {
-      server.close();
-    }
+    server?.close();
   });
 
   it('Basic Pages en', async () => {
@@ -89,7 +80,6 @@ describe('site test', () => {
       it(`Component ${component} zh Page`, async () => {
         await expectComponent(`${component}-cn`);
       });
-
       it(`Component ${component} en Page`, async () => {
         await expectComponent(component);
       });

@@ -1,13 +1,14 @@
-/* eslint-disable import/no-dynamic-require, no-console */
-const chalk = require('chalk');
-const path = require('path');
-const fetch = require('isomorphic-fetch');
-const simpleGit = require('simple-git');
+/* eslint-disable no-console */
+import chalk from 'chalk';
+import fetch from 'isomorphic-fetch';
+import type { StatusResult } from 'simple-git';
+import simpleGit from 'simple-git';
+import localPackage from '../package.json';
+
+const { version } = localPackage;
 
 const cwd = process.cwd();
 const git = simpleGit(cwd);
-
-const { version } = require(path.resolve(cwd, 'package.json'));
 
 function exitProcess(code = 1) {
   console.log(''); // Keep an empty line here to make looks good~
@@ -16,18 +17,20 @@ function exitProcess(code = 1) {
 
 async function checkVersion() {
   try {
-    const { versions } = await fetch('http://registry.npmjs.org/antd').then((res) => res.json());
+    const { versions } = await fetch('http://registry.npmjs.org/antd').then((res: any) =>
+      res.json(),
+    );
     if (version in versions) {
       console.log(chalk.yellow('😈 Current version already exists. Forget update package.json?'));
       console.log(chalk.cyan(' => Current:'), version);
       exitProcess();
     }
-  } catch (error) {
+  } catch {
     console.log(chalk.red('🚨 Check version failed. Skip...'));
   }
 }
 
-async function checkBranch({ current }) {
+async function checkBranch({ current }: StatusResult) {
   if (
     version.includes('-alpha.') ||
     version.includes('-beta.') ||
@@ -41,7 +44,7 @@ async function checkBranch({ current }) {
   }
 }
 
-async function checkCommit({ files }) {
+async function checkCommit({ files }: StatusResult) {
   if (files.length) {
     console.log(chalk.yellow('🙄 You forgot something to commit.'));
     files.forEach(({ path: filePath, working_dir: mark }) => {
@@ -54,13 +57,13 @@ async function checkCommit({ files }) {
 async function checkRemote() {
   try {
     const { remote } = await git.fetch('origin', 'master');
-    if (remote?.indexOf('ant-design/ant-design') === -1) {
+    if (!remote?.includes('ant-design/ant-design')) {
       console.log(
         chalk.yellow('😓 Your remote origin is not ant-design/ant-design, did you fork it?'),
       );
       exitProcess();
     }
-  } catch (error) {
+  } catch {
     console.log(chalk.red('🚨 Check remote failed. Skip...'));
   }
 }
