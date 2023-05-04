@@ -1568,20 +1568,5 @@ describe('Upload List', () => {
       expect(removeButton).toBeTruthy();
       expect(removeButton).not.toBeDisabled();
     });
-
-    // TODO: https://github.com/ant-design/ant-design/issues/42056#issuecomment-1529912365
-    it.skip('should not disable upload button', () => {
-      const { getByText } = render(
-        <Form name="base" disabled>
-          <Form.Item name="upload">
-            <Upload disabled={false}>
-              <Button>Click me</Button>
-            </Upload>
-          </Form.Item>
-        </Form>,
-      );
-
-      expect(getByText(/click me/i).closest('button')).not.toBeDisabled();
-    });
   });
 });
