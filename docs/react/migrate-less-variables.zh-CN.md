@@ -94,7 +94,7 @@ title: Less 变量迁移 Design Token
 ## Notification 通知提醒框
 
 <!-- prettier-ignore -->
-| less 变量 | Component Token | 备注 |
+| Less 变量 | Component Token | 备注 |
 | --- | --- | --- |
 | `@notification-width` | `width` | - |
 | `@notification-padding` | `notificationPadding` | - |
