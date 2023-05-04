@@ -91,7 +91,18 @@ title: Less 变量迁移 Design Token
 | `@modal-confirm-title-font-size` | `modalHeaderTitleFontSize` | - |
 | `@modal-border-radius` | `borderRadiusLG` | - |
 
-<!-- ### Notification 通知提醒框 -->
+## Notification 通知提醒框
+
+<!-- prettier-ignore -->
+| Less 变量 | Component Token | 备注 |
+| --- | --- | --- |
+| `@notification-width` | `width` | - |
+| `@notification-padding` | `notificationPadding` | - |
+| `@notification-padding-vertical` | `notificationPaddingVertical` | - |
+| `@notification-padding-horizontal` | `notificationPaddingHorizontal` | - |
+| `@notification-margin-bottom` | `notificationMarginBottom` | - |
+| `@notification-margin-edge` | `notificationMarginEdge` | - |
+| `@notification-bg` | `notificationBg` | - |
 
 <!-- ### Pagination 分页 -->
 

@@ -91,7 +91,18 @@ This document contains the correspondence between all the less variables related
 | `@modal-confirm-title-font-size` | `modalHeaderTitleFontSize` | - |
 | `@modal-border-radius` | `borderRadiusLG` | - |
 
-<!-- ### Notification -->
+## Notification
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@notification-width` | `width` | - |
+| `@notification-padding` | `notificationPadding` | - |
+| `@notification-padding-vertical` | `notificationPaddingVertical` | - |
+| `@notification-padding-horizontal` | `notificationPaddingHorizontal` | - |
+| `@notification-margin-bottom` | `notificationMarginBottom` | - |
+| `@notification-margin-edge` | `notificationMarginEdge` | - |
+| `@notification-bg` | `notificationBg` | - |
 
 <!-- ### Pagination -->
 
@@ -118,7 +129,7 @@ This document contains the correspondence between all the less variables related
 ## Step
 
 <!-- prettier-ignore -->
-| less 变量 | Component Token | 备注 |
+| Less variables | Component Token | Note |
 | --- | --- | --- |
 | `@process-tail-color` | `processTailColor` | - |
 | `@steps-nav-arrow-color` | `stepsNavArrowColor` | - |
