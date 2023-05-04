@@ -59,7 +59,14 @@ This document contains the correspondence between all the less variables related
 
 <!-- ### Menu -->
 
-<!-- ### Message -->
+## Message
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@zindex-message` | `zIndexPopup` | - |
+| `@message-notice-content-padding` | `messageNoticeContentPadding` | - |
+| `@message-notice-content-bg` | `messageNoticeContentBg` | - |
 
 ## Modal
 
