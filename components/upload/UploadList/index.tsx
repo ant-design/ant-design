@@ -131,6 +131,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
       type: 'text',
       size: 'small',
       title,
+      disabled,
       onClick: (e: React.MouseEvent<HTMLElement>) => {
         callback();
         if (isValidElement(customIcon) && customIcon.props.onClick) {
