@@ -3,12 +3,13 @@ import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import { resetComponent, textEllipsis } from '../../style';
 
-export interface ComponentToken {}
-
-interface SegmentedToken extends FullToken<'Segmented'> {
+export interface ComponentToken {
   segmentedPaddingHorizontal: number;
   segmentedPaddingHorizontalSM: number;
   segmentedContainerPadding: number;
+}
+
+interface SegmentedToken extends FullToken<'Segmented'> {
   labelColor: string;
   labelColorHover: string;
   bgColor: string;
@@ -193,26 +194,26 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Segmented', (token) => {
-  const {
-    lineWidthBold,
-    lineWidth,
-    colorTextLabel,
-    colorText,
-    colorFillSecondary,
-    colorBgLayout,
-    colorBgElevated,
-  } = token;
+export default genComponentStyleHook(
+  'Segmented',
+  (token) => {
+    const { colorTextLabel, colorText, colorFillSecondary, colorBgLayout, colorBgElevated } = token;
 
-  const segmentedToken = mergeToken<SegmentedToken>(token, {
-    segmentedPaddingHorizontal: token.controlPaddingHorizontal - lineWidth,
-    segmentedPaddingHorizontalSM: token.controlPaddingHorizontalSM - lineWidth,
-    segmentedContainerPadding: lineWidthBold,
-    labelColor: colorTextLabel,
-    labelColorHover: colorText,
-    bgColor: colorBgLayout,
-    bgColorHover: colorFillSecondary,
-    bgColorSelected: colorBgElevated,
-  });
-  return [genSegmentedStyle(segmentedToken)];
-});
+    const segmentedToken = mergeToken<SegmentedToken>(token, {
+      labelColor: colorTextLabel,
+      labelColorHover: colorText,
+      bgColor: colorBgLayout,
+      bgColorHover: colorFillSecondary,
+      bgColorSelected: colorBgElevated,
+    });
+    return [genSegmentedStyle(segmentedToken)];
+  },
+  (token) => {
+    const { lineWidthBold, lineWidth } = token;
+    return {
+      segmentedPaddingHorizontal: token.controlPaddingHorizontal - lineWidth,
+      segmentedPaddingHorizontalSM: token.controlPaddingHorizontalSM - lineWidth,
+      segmentedContainerPadding: lineWidthBold,
+    };
+  },
+);
