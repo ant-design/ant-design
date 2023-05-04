@@ -78,25 +78,25 @@ title: Less 变量迁移 Design Token
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
 | --- | --- | --- |
-| `@card-head-color` | - | 由于样式变化已废弃 |
-| `@card-head-background` | - | 由于样式变化已废弃 |
-| `@card-head-font-size` | - | 由于样式变化已废弃 |
-| `@card-head-font-size-sm` | - | 由于样式变化已废弃 |
+| `@card-head-color` | `cardHeadColor` | - |
+| `@card-head-background` | `cardHeadBackground` | - |
+| `@card-head-font-size` | `cardHeadFontSize` | - |
+| `@card-head-font-size-sm` | `cardHeadFontSizeSm` | - |
 | `@card-head-padding` | `cardHeadPadding` | - |
 | `@card-head-padding-sm` | `cardPaddingSM` | - |
 | `@card-head-height` | `cardHeadHeight` | - |
 | `@card-head-height-sm` | `cardHeadHeightSM` | - |
-| `@card-inner-head-padding` | - | 由于样式变化已废弃 |
+| `@card-inner-head-padding` | `cardInnerHeadPadding` | - |
 | `@card-padding-base` | `cardPaddingBase` | - |
-| `@card-padding-base-sm` | - | 由于样式变化已废弃 |
-| `@card-actions-background` | - | 由于样式变化已废弃 |
+| `@card-padding-base-sm` | `cardPaddingBaseSm` | - |
+| `@card-actions-background` | `cardActionsBackground` | - |
 | `@card-actions-li-margin` | `cardActionsLiMargin` | - |
-| `@card-skeleton-bg` | - | 由于样式变化已废弃 |
-| `@card-background` | - | 由于样式变化已废弃 |
+| `@card-skeleton-bg` | `cardSkeletonBg` | - |
+| `@card-background` | `cardBackground` | - |
 | `@card-shadow` | `cardShadow` | - |
-| `@card-radius` | - | 由于样式变化已废弃 |
-| `@card-head-tabs-margin-bottom` | - | 由于样式变化已废弃 |
-| `@card-head-extra-color` | - | 由于样式变化已废弃 |
+| `@card-radius` | `cardRadius` | - |
+| `@card-head-tabs-margin-bottom` | `cardHeadTabsMarginBottom` | - |
+| `@card-head-extra-color` | `cardHeadExtraColor` | - |
 
 ### Carousel 走马灯
 

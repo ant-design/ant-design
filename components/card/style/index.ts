@@ -10,9 +10,21 @@ export interface ComponentToken {
   cardHeadHeight: number;
   cardHeadHeightSM: number;
   cardPaddingBase: number;
+  cardPaddingBaseSm: number;
   cardShadow: string;
   cardActionsLiMargin: string;
   cardHeadTabsMarginBottom: number;
+  cardActionsIconSize: number;
+  cardHeadColor: string;
+  cardHeadBackground: string;
+  cardHeadFontSize: number;
+  cardHeadFontSizeSm: number;
+  cardActionsBackground: string;
+  cardBackground: string;
+  cardRadius: number;
+  cardHeadExtraColor: string;
+  cardInnerHeadPadding: number;
+  cardSkeletonBg: string;
 }
 
 interface CardToken extends FullToken<'Card'> {}
@@ -120,7 +132,7 @@ const genCardActionsStyle: GenerateStyle<CardToken> = (token): CSSObject => {
       '> span': {
         position: 'relative',
         display: 'block',
-        minWidth: token.fontSize * 2,
+        minWidth: token.cardActionsIconSize * 2,
         fontSize: token.fontSize,
         lineHeight: token.lineHeight,
         cursor: 'pointer',
@@ -379,12 +391,24 @@ export default genComponentStyleHook(
   },
   (token) => ({
     cardHeadPadding: token.padding,
+    cardInnerHeadPadding: 12, // Fixed padding.
     cardPaddingSM: 12, // Fixed padding.
     cardHeadHeight: token.fontSizeLG * token.lineHeightLG + token.padding * 2,
     cardHeadHeightSM: token.fontSize * token.lineHeight + token.paddingXS * 2,
     cardPaddingBase: token.paddingLG,
+    cardPaddingBaseSm: token.paddingLG / 2,
     cardShadow: token.boxShadowCard,
     cardActionsLiMargin: `${token.paddingSM}px 0`,
     cardHeadTabsMarginBottom: -token.padding - token.lineWidth,
+    cardActionsIconSize: token.fontSize,
+    cardHeadColor: token.colorText,
+    cardHeadBackground: 'transparent',
+    cardHeadFontSize: token.fontSizeLG,
+    cardHeadFontSizeSm: token.fontSize,
+    cardActionsBackground: token.colorBgContainer,
+    cardBackground: token.colorBgContainer,
+    cardRadius: token.borderRadius,
+    cardHeadExtraColor: token.colorText,
+    cardSkeletonBg: '#cfd8dc', // todo Fixed
   }),
 );

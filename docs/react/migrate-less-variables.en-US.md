@@ -78,25 +78,25 @@ This document contains the correspondence between all the less variables related
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
 | --- | --- | --- |
-| `@card-head-color` | - | Deprecated for style change |
-| `@card-head-background` | - | Deprecated for style change |
-| `@card-head-font-size` | - | Deprecated for style change |
-| `@card-head-font-size-sm` | - | Deprecated for style change |
+| `@card-head-color` | `cardHeadColor` | - |
+| `@card-head-background` | `cardHeadBackground` | - |
+| `@card-head-font-size` | `cardHeadFontSize` | - |
+| `@card-head-font-size-sm` | `cardHeadFontSizeSm` | - |
 | `@card-head-padding` | `cardHeadPadding` | - |
 | `@card-head-padding-sm` | `cardPaddingSM` | - |
 | `@card-head-height` | `cardHeadHeight` | - |
 | `@card-head-height-sm` | `cardHeadHeightSM` | - |
-| `@card-inner-head-padding` | - | Deprecated for style change |
+| `@card-inner-head-padding` | `cardInnerHeadPadding` | - |
 | `@card-padding-base` | `cardPaddingBase` | - |
-| `@card-padding-base-sm` | - | Deprecated for style change |
-| `@card-actions-background` | - | Deprecated for style change |
+| `@card-padding-base-sm` | `cardPaddingBaseSm` | - |
+| `@card-actions-background` | `cardActionsBackground` | - |
 | `@card-actions-li-margin` | `cardActionsLiMargin` | - |
-| `@card-skeleton-bg` | - | Deprecated for style change |
-| `@card-background` | - | Deprecated for style change |
+| `@card-skeleton-bg` | `cardSkeletonBg` | - |
+| `@card-background` | `cardBackground` | - |
 | `@card-shadow` | `cardShadow` | - |
-| `@card-radius` | - | Deprecated for style change |
-| `@card-head-tabs-margin-bottom` | - | Deprecated for style change |
-| `@card-head-extra-color` | - | Deprecated for style change |
+| `@card-radius` | `cardRadius` | - |
+| `@card-head-tabs-margin-bottom` | `cardHeadTabsMarginBottom` | - |
+| `@card-head-extra-color` | `cardHeadExtraColor` | - |
 
 ## Carousel
 
