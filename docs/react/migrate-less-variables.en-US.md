@@ -194,17 +194,7 @@ This document contains the correspondence between all the less variables related
 | `@result-subtitle-font-size` | `subtitleFontSize` | - |
 | `@result-extra-margin` | `extraMargin` | - |
 
-### Segment
-
-<!-- prettier-ignore -->
-| Less variables | Component Token | Note |
-| --- | --- | --- |
-| `@segmented-container-padding` | `padding` | - |
-| `@segmented-label-color` | `itemColor` | - |
-| `@segmented-hover-bg` | `itemHoverBg` | - |
-| `@segmented-bg` | - | Could be customized with `className` or `style` |
-| `@segmented-label-hover-color` | `itemHoverColor` | - |
-| `@segmented-selected-bg` | `itemSelectedBg` | - |
+<!-- ### Segment -->
 
 <!-- ### Select -->
 
