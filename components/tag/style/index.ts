@@ -149,31 +149,51 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Tag', (token) => {
-  const { fontSize, lineHeight, lineWidth, fontSizeIcon } = token;
-  const tagHeight = Math.round(fontSize * lineHeight);
+export default genComponentStyleHook(
+  'Tag',
+  (token) => {
+    const { fontSize, lineHeight, lineWidth, fontSizeIcon } = token;
+    const tagHeight = Math.round(fontSize * lineHeight);
 
-  const tagFontSize = token.fontSizeSM;
-  const tagLineHeight = tagHeight - lineWidth * 2;
-  const tagDefaultBg = token.colorFillQuaternary;
-  const tagDefaultColor = token.colorText;
+    const tagFontSize = token.fontSizeSM;
+    const tagLineHeight = tagHeight - lineWidth * 2;
+    const tagDefaultBg = token.colorFillQuaternary;
+    const tagDefaultColor = token.colorText;
 
-  const tagToken = mergeToken<TagToken>(token, {
-    tagFontSize,
-    tagLineHeight,
-    tagDefaultBg,
-    tagDefaultColor,
-    tagIconSize: fontSizeIcon - 2 * lineWidth, // Tag icon is much more smaller
-    tagPaddingHorizontal: 8, // Fixed padding.
-    tagBorderlessBg: token.colorFillTertiary,
-  });
+    const tagToken = mergeToken<TagToken>(token, {
+      tagFontSize,
+      tagLineHeight,
+      tagDefaultBg,
+      tagDefaultColor,
+      tagIconSize: fontSizeIcon - 2 * lineWidth, // Tag icon is much more smaller
+      tagPaddingHorizontal: 8, // Fixed padding.
+      tagBorderlessBg: token.colorFillTertiary,
+    });
 
-  return [
-    genBaseStyle(tagToken),
-    genPresetStyle(tagToken),
-    genTagStatusStyle(tagToken, 'success', 'Success'),
-    genTagStatusStyle(tagToken, 'processing', 'Info'),
-    genTagStatusStyle(tagToken, 'error', 'Error'),
-    genTagStatusStyle(tagToken, 'warning', 'Warning'),
-  ];
-});
+    return [
+      genBaseStyle(tagToken),
+      genPresetStyle(tagToken),
+      genTagStatusStyle(tagToken, 'success', 'Success'),
+      genTagStatusStyle(tagToken, 'processing', 'Info'),
+      genTagStatusStyle(tagToken, 'error', 'Error'),
+      genTagStatusStyle(tagToken, 'warning', 'Warning'),
+    ];
+  },
+  (token) => {
+    const { fontSize, lineHeight, lineWidth, fontSizeIcon } = token;
+    const tagHeight = Math.round(fontSize * lineHeight);
+    const tagFontSize = token.fontSizeSM;
+    const tagLineHeight = tagHeight - lineWidth * 2;
+    const tagDefaultBg = token.colorFillQuaternary;
+    const tagDefaultColor = token.colorText;
+    return {
+      tagFontSize,
+      tagLineHeight,
+      tagDefaultBg,
+      tagDefaultColor,
+      tagIconSize: fontSizeIcon - 2 * lineWidth, // Tag icon is much more smaller
+      tagPaddingHorizontal: 8, // Fixed padding.
+      tagBorderlessBg: token.colorFillTertiary,
+    };
+  },
+);
