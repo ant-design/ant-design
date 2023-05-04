@@ -4,7 +4,9 @@ import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import type { DropdownProps } from '../dropdown/dropdown';
 import Dropdown from '../dropdown/dropdown';
+import type { ItemType } from './Breadcrumb';
 import BreadcrumbSeparator from './BreadcrumbSeparator';
+import { renderItem } from './useItemRender';
 
 export interface SeparatorType {
   separator?: React.ReactNode;
@@ -34,23 +36,9 @@ export interface BreadcrumbItemProps extends SeparatorType {
   /** @deprecated Please use `menu` instead */
   overlay?: DropdownProps['overlay'];
 }
-type CompoundedComponent = React.FC<BreadcrumbItemProps> & {
-  __ANT_BREADCRUMB_ITEM: boolean;
-};
-const BreadcrumbItem: CompoundedComponent = (props: BreadcrumbItemProps) => {
-  const {
-    prefixCls: customizePrefixCls,
-    separator = '/',
-    children,
-    menu,
-    overlay,
-    dropdownProps,
-    href,
-    ...restProps
-  } = props;
 
-  const { getPrefixCls } = React.useContext(ConfigContext);
-  const prefixCls = getPrefixCls('breadcrumb', customizePrefixCls);
+export const InternalBreadcrumbItem = (props: BreadcrumbItemProps) => {
+  const { prefixCls, separator = '/', children, menu, overlay, dropdownProps, href } = props;
 
   // Warning for deprecated usage
   if (process.env.NODE_ENV !== 'production') {
@@ -102,24 +90,9 @@ const BreadcrumbItem: CompoundedComponent = (props: BreadcrumbItemProps) => {
     return breadcrumbItem;
   };
 
-  let link: React.ReactNode;
-  if (href !== undefined) {
-    link = (
-      <a className={`${prefixCls}-link`} href={href} {...restProps}>
-        {children}
-      </a>
-    );
-  } else {
-    link = (
-      <span className={`${prefixCls}-link`} {...restProps}>
-        {children}
-      </span>
-    );
-  }
-
   // wrap to dropDown
-  link = renderBreadcrumbNode(link);
-  if (children !== undefined && children !== null) {
+  const link = renderBreadcrumbNode(children);
+  if (link !== undefined && link !== null) {
     return (
       <>
         <li>{link}</li>
@@ -128,6 +101,18 @@ const BreadcrumbItem: CompoundedComponent = (props: BreadcrumbItemProps) => {
     );
   }
   return null;
+};
+
+const BreadcrumbItem = (props: BreadcrumbItemProps) => {
+  const { prefixCls: customizePrefixCls, children, href, ...restProps } = props;
+  const { getPrefixCls } = React.useContext(ConfigContext);
+  const prefixCls = getPrefixCls('breadcrumb', customizePrefixCls);
+
+  return (
+    <InternalBreadcrumbItem {...restProps} prefixCls={prefixCls}>
+      {renderItem(prefixCls, restProps as ItemType, children, href)}
+    </InternalBreadcrumbItem>
+  );
 };
 
 BreadcrumbItem.__ANT_BREADCRUMB_ITEM = true;
