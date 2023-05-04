@@ -234,9 +234,7 @@ export const genAlertStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSS
 
 export default genComponentStyleHook(
   'Alert',
-  (token) => {
-    return [genAlertStyle(token)];
-  },
+  (token) => [genAlertStyle(token)],
   (token) => ({
     alertIconSizeLG: token.fontSizeHeading3,
     alertPaddingVertical: token.paddingContentVerticalSM,
