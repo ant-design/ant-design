@@ -1,13 +1,17 @@
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { genComponentStyleHook } from '../../theme/internal';
 import { resetComponent } from '../../style';
 
-export interface ComponentToken {}
-
-type AlertToken = FullToken<'Alert'> & {
+export interface ComponentToken {
+  // Component token here
   alertIconSizeLG: number;
   alertPaddingHorizontal: number;
+  alertPaddingVertical: number;
+}
+
+type AlertToken = FullToken<'Alert'> & {
+  // Custom token here
 };
 
 const genAlertTypeStyle = (
@@ -37,7 +41,7 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
     motionEaseInOutCirc,
     alertIconSizeLG,
     colorText,
-    paddingContentVerticalSM,
+    alertPaddingVertical,
     alertPaddingHorizontal,
     paddingMD,
     paddingContentHorizontalLG,
@@ -49,7 +53,7 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
       position: 'relative',
       display: 'flex',
       alignItems: 'center',
-      padding: `${paddingContentVerticalSM}px ${alertPaddingHorizontal}px`, // Fixed horizontal padding here.
+      padding: `${alertPaddingVertical}px ${alertPaddingHorizontal}px`, // Fixed horizontal padding here.
       wordWrap: 'break-word',
       borderRadius,
 
@@ -228,13 +232,14 @@ export const genAlertStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSS
   genActionStyle(token),
 ];
 
-export default genComponentStyleHook('Alert', (token) => {
-  const { fontSizeHeading3 } = token;
-
-  const alertToken = mergeToken<AlertToken>(token, {
-    alertIconSizeLG: fontSizeHeading3,
+export default genComponentStyleHook(
+  'Alert',
+  (token) => {
+    return [genAlertStyle(token)];
+  },
+  (token) => ({
+    alertIconSizeLG: token.fontSizeHeading3,
+    alertPaddingVertical: token.paddingContentVerticalSM,
     alertPaddingHorizontal: 12, // Fixed value here.
-  });
-
-  return [genAlertStyle(alertToken)];
-});
+  }),
+);
