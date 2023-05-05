@@ -188,7 +188,7 @@
     "@types/jquery": "^3.5.14",
     "@types/lodash": "^4.14.139",
     "@types/lz-string": "^1.3.34",
-    "@types/node": "^18.15.11",
+    "@types/node": "^20.0.0",
     "@types/prismjs": "^1.26.0",
     "@types/progress": "^2.0.5",
     "@types/puppeteer": "^7.0.4",
