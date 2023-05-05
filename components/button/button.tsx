@@ -1,7 +1,16 @@
 /* eslint-disable react/button-has-type */
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
-import * as React from 'react';
+import { composeRef } from 'rc-util/lib/ref';
+import React, {
+  Children,
+  createRef,
+  forwardRef,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
 import warning from '../_util/warning';
 import Wave from '../_util/wave';
 import { ConfigContext } from '../config-provider';
@@ -110,29 +119,26 @@ const InternalButton: React.ForwardRefRenderFunction<
     ...rest
   } = props;
 
-  const { getPrefixCls, autoInsertSpaceInButton, direction } = React.useContext(ConfigContext);
+  const { getPrefixCls, autoInsertSpaceInButton, direction } = useContext(ConfigContext);
   const prefixCls = getPrefixCls('btn', customizePrefixCls);
 
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
-  const size = React.useContext(SizeContext);
-  const disabled = React.useContext(DisabledContext);
+  const size = useContext(SizeContext);
+  const disabled = useContext(DisabledContext);
   const mergedDisabled = customDisabled ?? disabled;
 
-  const groupSize = React.useContext(GroupSizeContext);
-  const loadingOrDelay = React.useMemo<LoadingConfigType>(
-    () => getLoadingConfig(loading),
-    [loading],
-  );
-  const [innerLoading, setLoading] = React.useState<Loading>(loadingOrDelay.loading);
-  const [hasTwoCNChar, setHasTwoCNChar] = React.useState(false);
+  const groupSize = useContext(GroupSizeContext);
 
-  const internalRef = React.createRef<HTMLAnchorElement | HTMLButtonElement>();
+  const loadingOrDelay = useMemo<LoadingConfigType>(() => getLoadingConfig(loading), [loading]);
 
-  const buttonRef = (ref as React.RefObject<any>) || internalRef;
+  const [innerLoading, setLoading] = useState<Loading>(loadingOrDelay.loading);
 
-  const isNeedInserted = () =>
-    React.Children.count(children) === 1 && !icon && !isUnBorderedButtonType(type);
+  const [hasTwoCNChar, setHasTwoCNChar] = useState<boolean>(false);
+  
+  const internalRef = createRef<HTMLButtonElement | HTMLAnchorElement>();
+
+  const buttonRef = composeRef(ref, internalRef);
 
   const fixTwoCNChar = React.useCallback(() => {
     // FIXME: for HOC usage like <FormatMessage />
@@ -149,9 +155,10 @@ const InternalButton: React.ForwardRefRenderFunction<
     }
   }, [buttonRef, autoInsertSpaceInButton, isNeedInserted, isTwoCNChar, hasTwoCNChar]);
 
-  React.useEffect(() => {
-    let delayTimer: NodeJS.Timer | null = null;
+  const needInserted = Children.count(children) === 1 && !icon && !isUnBorderedButtonType(type);
 
+  useEffect(() => {
+    let delayTimer: NodeJS.Timer | null = null;
     if (loadingOrDelay.delay > 0) {
       delayTimer = setTimeout(() => {
         delayTimer = null;
@@ -171,7 +178,20 @@ const InternalButton: React.ForwardRefRenderFunction<
     return cleanupTimer;
   }, [loadingOrDelay]);
 
-  React.useEffect(fixTwoCNChar, [buttonRef]);
+  useEffect(() => {
+    // FIXME: for HOC usage like <FormatMessage />
+    if (!buttonRef || !(buttonRef as any).current || autoInsertSpaceInButton === false) {
+      return;
+    }
+    const buttonText = (buttonRef as any).current.textContent;
+    if (needInserted && isTwoCNChar(buttonText)) {
+      if (!hasTwoCNChar) {
+        setHasTwoCNChar(true);
+      }
+    } else if (hasTwoCNChar) {
+      setHasTwoCNChar(false);
+    }
+  }, [buttonRef]);
 
   const handleClick = React.useCallback(
     (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement, MouseEvent>) => {
@@ -240,13 +260,16 @@ const InternalButton: React.ForwardRefRenderFunction<
     );
 
   const kids =
-    children || children === 0
-      ? spaceChildren(children, isNeedInserted() && autoInsertSpace)
-      : null;
+    children || children === 0 ? spaceChildren(children, needInserted && autoInsertSpace) : null;
 
   if (linkButtonRestProps.href !== undefined) {
     return wrapSSR(
-      <a {...linkButtonRestProps} className={classes} onClick={handleClick} ref={buttonRef}>
+      <a
+        {...linkButtonRestProps}
+        className={classes}
+        onClick={handleClick}
+        ref={buttonRef as React.Ref<HTMLAnchorElement>}
+      >
         {iconNode}
         {kids}
       </a>,
@@ -260,7 +283,7 @@ const InternalButton: React.ForwardRefRenderFunction<
       className={classes}
       onClick={handleClick}
       disabled={mergedDisabled}
-      ref={buttonRef}
+      ref={buttonRef as React.Ref<HTMLButtonElement>}
     >
       {iconNode}
       {kids}
@@ -274,7 +297,7 @@ const InternalButton: React.ForwardRefRenderFunction<
   return wrapSSR(buttonNode);
 };
 
-const Button = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
+const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
   InternalButton,
 ) as CompoundedComponent;
 
