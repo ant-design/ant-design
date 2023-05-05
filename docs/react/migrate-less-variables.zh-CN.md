@@ -152,6 +152,7 @@ title: Less 变量迁移 Design Token
 | `@segmented-bg` | `bgColor` | - |
 | `@segmented-hover-bg` | `bgColorHover` | - |
 | `@segmented-label-hover-color` | `labelColorHover` | - |
+| `@segmented-selected-bg` | `bgColorSelected` | - |
 
 <!-- ### Select 选择器 -->
 

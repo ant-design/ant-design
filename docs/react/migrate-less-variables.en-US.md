@@ -152,6 +152,7 @@ This document contains the correspondence between all the less variables related
 | `@segmented-bg` | `bgColor` | - |
 | `@segmented-hover-bg` | `bgColorHover` | - |
 | `@segmented-label-hover-color` | `labelColorHover` | - |
+| `@segmented-selected-bg` | `bgColorSelected` | - |
 
 <!-- ### Select -->
 

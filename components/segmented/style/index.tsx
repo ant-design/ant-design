@@ -4,17 +4,17 @@ import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import { resetComponent, textEllipsis } from '../../style';
 
 export interface ComponentToken {
-  segmentedPaddingHorizontal: number;
-  segmentedPaddingHorizontalSM: number;
   segmentedContainerPadding: number;
-}
-
-interface SegmentedToken extends FullToken<'Segmented'> {
   labelColor: string;
   labelColorHover: string;
   bgColor: string;
   bgColorHover: string;
   bgColorSelected: string;
+}
+
+interface SegmentedToken extends FullToken<'Segmented'> {
+  segmentedPaddingHorizontal: number;
+  segmentedPaddingHorizontalSM: number;
 }
 
 // ============================== Mixins ==============================
@@ -197,23 +197,30 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
 export default genComponentStyleHook(
   'Segmented',
   (token) => {
-    const { colorTextLabel, colorText, colorFillSecondary, colorBgLayout, colorBgElevated } = token;
+    const { lineWidth } = token;
 
     const segmentedToken = mergeToken<SegmentedToken>(token, {
+      segmentedPaddingHorizontal: token.controlPaddingHorizontal - lineWidth,
+      segmentedPaddingHorizontalSM: token.controlPaddingHorizontalSM - lineWidth,
+    });
+    return [genSegmentedStyle(segmentedToken)];
+  },
+  (token) => {
+    const {
+      colorTextLabel,
+      colorText,
+      colorFillSecondary,
+      colorBgLayout,
+      colorBgElevated,
+      lineWidthBold,
+    } = token;
+    return {
+      segmentedContainerPadding: lineWidthBold,
       labelColor: colorTextLabel,
       labelColorHover: colorText,
       bgColor: colorBgLayout,
       bgColorHover: colorFillSecondary,
       bgColorSelected: colorBgElevated,
-    });
-    return [genSegmentedStyle(segmentedToken)];
-  },
-  (token) => {
-    const { lineWidthBold, lineWidth } = token;
-    return {
-      segmentedPaddingHorizontal: token.controlPaddingHorizontal - lineWidth,
-      segmentedPaddingHorizontalSM: token.controlPaddingHorizontalSM - lineWidth,
-      segmentedContainerPadding: lineWidthBold,
     };
   },
 );
