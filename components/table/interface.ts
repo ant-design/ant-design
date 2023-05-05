@@ -143,10 +143,6 @@ export interface ColumnType<RecordType> extends Omit<RcColumnType<RecordType>, '
   filterDropdownVisible?: boolean;
   /** @deprecated Please use `onFilterDropdownOpenChange` instead */
   onFilterDropdownVisibleChange?: (visible: boolean) => void;
-
-  // Provide a switch to enable virtual scrolling for table filters menu and tree.
-  height?: number;
-  virtual?: boolean;
 }
 
 export interface ColumnGroupType<RecordType> extends Omit<ColumnType<RecordType>, 'dataIndex'> {

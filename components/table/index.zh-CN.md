@@ -72,7 +72,6 @@ const columns = [
 <code src="./demo/row-selection-debug.tsx" debug>选择性能</code>
 <code src="./demo/head.tsx">筛选和排序</code>
 <code src="./demo/filter-in-tree.tsx">树型筛选菜单</code>
-<code src="./demo/filter-virtual-in-tree.tsx">虚拟滚动（树型筛选菜单）</code>
 <code src="./demo/filter-search.tsx">自定义筛选的搜索</code>
 <code src="./demo/multiple-sorter.tsx">多列排序</code>
 <code src="./demo/reset-filter.tsx">可控的筛选和排序</code>
@@ -203,8 +202,6 @@ const columns = [
 | onFilter | 本地模式下，确定筛选的运行函数 | function | - |  |
 | onFilterDropdownOpenChange | 自定义筛选菜单可见变化时调用 | function(visible) {} | - |  |  |
 | onHeaderCell | 设置头部单元格属性 | function(column) | - |  |
-| height | 设置虚拟滚动容器高度，仅在 `filterMode` 为 `'tree'` 时生效 | number | - |  |
-| virtual | 设置 false 时关闭虚拟滚动 | boolean | true |  |
 
 ### ColumnGroup
 
