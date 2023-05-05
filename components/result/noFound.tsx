@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 const NoFound: React.FC = () => (
   <svg width="252" height="294">

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { FormattedMessage, Link, useFullSidebarData, useLocation } from 'dumi';
 import type { MenuProps } from 'antd';
 import { Menu } from 'antd';

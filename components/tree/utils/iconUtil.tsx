@@ -4,7 +4,7 @@ import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import MinusSquareOutlined from '@ant-design/icons/MinusSquareOutlined';
 import PlusSquareOutlined from '@ant-design/icons/PlusSquareOutlined';
 import classNames from 'classnames';
-import * as React from 'react';
+import React from 'react';
 import { cloneElement, isValidElement } from '../../_util/reactNode';
 import type { AntTreeNodeProps, SwitcherIcon, TreeLeafIcon } from '../Tree';
 

@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import * as React from 'react';
+import React from 'react';
 import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
 import Button from '../button';
 import { ConfigContext } from '../config-provider';

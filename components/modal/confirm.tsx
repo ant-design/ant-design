@@ -1,5 +1,5 @@
 import { render as reactRender, unmount as reactUnmount } from 'rc-util/lib/React/render';
-import * as React from 'react';
+import React from 'react';
 import { globalConfig, warnContext } from '../config-provider';
 import warning from '../_util/warning';
 import ConfirmDialog from './ConfirmDialog';

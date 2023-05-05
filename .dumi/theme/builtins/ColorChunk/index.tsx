@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { TinyColor, type ColorInput } from '@ctrl/tinycolor';
 import { css } from '@emotion/react';
 import useSiteToken from '../../../hooks/useSiteToken';

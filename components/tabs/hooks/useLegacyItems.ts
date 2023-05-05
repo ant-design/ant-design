@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import toArray from 'rc-util/lib/Children/toArray';
 import type { Tab } from 'rc-tabs/lib/interface';
 import type { TabsProps, TabPaneProps } from '..';

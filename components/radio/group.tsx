@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import * as React from 'react';
+import React from 'react';
 import { ConfigContext } from '../config-provider';
 import SizeContext from '../config-provider/SizeContext';
 import getDataOrAriaProps from '../_util/getDataOrAriaProps';

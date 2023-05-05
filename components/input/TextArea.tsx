@@ -1,7 +1,7 @@
 import type { TextAreaProps as RcTextAreaProps } from 'rc-textarea/lib/interface';
 import type { TextAreaRef as RcTextAreaRef } from 'rc-textarea';
 import { forwardRef } from 'react';
-import * as React from 'react';
+import React from 'react';
 import RcTextArea from 'rc-textarea';
 import classNames from 'classnames';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';

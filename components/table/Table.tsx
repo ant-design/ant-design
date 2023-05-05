@@ -1,5 +1,5 @@
 import { EXPAND_COLUMN, Summary } from 'rc-table';
-import * as React from 'react';
+import React from 'react';
 import Column from './Column';
 import ColumnGroup from './ColumnGroup';
 import type { TableProps } from './InternalTable';

@@ -1,8 +1,8 @@
-import * as React from 'react';
-import { Row, Col, Typography } from 'antd';
 import { css } from '@emotion/react';
-import type { Recommendation } from './util';
+import { Col, Row, Typography } from 'antd';
+import React from 'react';
 import useSiteToken from '../../../hooks/useSiteToken';
+import type { Recommendation } from './util';
 
 const useStyle = () => {
   const { token } = useSiteToken();
@@ -77,7 +77,7 @@ export interface RecommendsProps {
   recommendations?: Recommendation[];
 }
 
-export default function Recommends({ recommendations = [] }: RecommendsProps) {
+const Recommends: React.FC<RecommendsProps> = ({ recommendations = [] }) => {
   const { token } = useSiteToken();
   const style = useStyle();
 
@@ -101,4 +101,6 @@ export default function Recommends({ recommendations = [] }: RecommendsProps) {
       })}
     </Row>
   );
-}
+};
+
+export default Recommends;

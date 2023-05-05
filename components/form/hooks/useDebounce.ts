@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 export default function useDebounce<T>(value: T[]): T[] {
   const [cacheValue, setCacheValue] = React.useState(value);

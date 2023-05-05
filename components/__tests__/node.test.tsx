@@ -1,5 +1,5 @@
 import { globSync } from 'glob';
-import * as React from 'react';
+import React from 'react';
 import { renderToString } from 'react-dom/server';
 import type { Options } from '../../tests/shared/demoTest';
 

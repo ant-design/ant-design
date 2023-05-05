@@ -3,7 +3,7 @@ import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
-import * as React from 'react';
+import React from 'react';
 import { useContext, useEffect, useRef, useState } from 'react';
 
 import { ConfigContext } from '../config-provider';
